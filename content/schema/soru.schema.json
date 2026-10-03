@@ -5,52 +5,147 @@
   "description": "Soru bankasındaki tek bir sorunun kaydı. Bkz. docs/PLAN.md §4.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "sinav", "bolum", "ders", "konu", "kazanim", "tip", "zorluk", "kok", "secenekler", "dogru", "aciklama", "kaynaklar", "gecerlilik", "durum", "surum", "uretim"],
+  "required": [
+    "id",
+    "sinav",
+    "bolum",
+    "ders",
+    "konu",
+    "kazanim",
+    "tip",
+    "zorluk",
+    "kok",
+    "secenekler",
+    "dogru",
+    "aciklama",
+    "kaynaklar",
+    "gecerlilik",
+    "durum",
+    "surum",
+    "uretim"
+  ],
   "properties": {
     "id": {
       "type": "string",
       "pattern": "^[A-Z]+-[A-Z]{3}-[A-Z0-9]+-[0-9]{4}$",
       "description": "Örn. SMMM-VER-KDV-0042"
     },
-    "sinav": {"const": "smmm"},
+    "sinav": {
+      "const": "smmm"
+    },
     "bolum": {
       "type": "array",
-      "items": {"enum": ["SGS", "YET"]},
+      "items": {
+        "enum": [
+          "SGS",
+          "YET"
+        ]
+      },
       "minItems": 1,
       "uniqueItems": true
     },
-    "ders": {"type": "string", "minLength": 1},
-    "unite": {"type": "string"},
-    "konu": {"type": "string", "minLength": 1},
-    "kazanim": {"type": "string", "minLength": 1},
-    "tip": {"enum": ["bilgi", "kavrama", "uygulama", "hesaplama"]},
-    "zorluk": {"enum": [1, 2, 3]},
-    "kok": {"type": "string", "minLength": 15},
+    "ders": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unite": {
+      "type": "string"
+    },
+    "konu": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kazanim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tip": {
+      "enum": [
+        "bilgi",
+        "kavrama",
+        "uygulama",
+        "hesaplama"
+      ]
+    },
+    "zorluk": {
+      "enum": [
+        1,
+        2,
+        3
+      ]
+    },
+    "kok": {
+      "type": "string",
+      "minLength": 15
+    },
     "secenekler": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["A", "B", "C", "D", "E"],
+      "required": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
       "properties": {
-        "A": {"type": "string", "minLength": 1},
-        "B": {"type": "string", "minLength": 1},
-        "C": {"type": "string", "minLength": 1},
-        "D": {"type": "string", "minLength": 1},
-        "E": {"type": "string", "minLength": 1}
+        "A": {
+          "type": "string",
+          "minLength": 1
+        },
+        "B": {
+          "type": "string",
+          "minLength": 1
+        },
+        "C": {
+          "type": "string",
+          "minLength": 1
+        },
+        "D": {
+          "type": "string",
+          "minLength": 1
+        },
+        "E": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
-    "dogru": {"enum": ["A", "B", "C", "D", "E"]},
+    "dogru": {
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
     "aciklama": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["dogru_neden", "celdiriciler"],
+      "required": [
+        "dogru_neden",
+        "celdiriciler"
+      ],
       "properties": {
-        "dogru_neden": {"type": "string", "minLength": 20},
+        "dogru_neden": {
+          "type": "string",
+          "minLength": 20
+        },
         "celdiriciler": {
           "type": "object",
           "description": "Doğru şık dışındaki dört şıkkın her biri için neden yanlış olduğu",
-          "additionalProperties": {"type": "string", "minLength": 5}
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 5
+          }
         },
-        "hesap_adimlari": {"type": "array", "items": {"type": "string"}}
+        "hesap_adimlari": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
     "kaynaklar": {
@@ -59,61 +154,169 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["mevzuat", "madde"],
+        "required": [
+          "mevzuat",
+          "madde"
+        ],
         "properties": {
-          "mevzuat": {"type": "string", "description": "Örn. 3065 sayılı KDV Kanunu"},
-          "madde": {"type": "string", "description": "Örn. md. 29/1"},
-          "alinti": {"type": "string", "maxLength": 600}
+          "mevzuat": {
+            "type": "string",
+            "description": "Örn. 3065 sayılı KDV Kanunu"
+          },
+          "madde": {
+            "type": "string",
+            "description": "Örn. md. 29/1"
+          },
+          "alinti": {
+            "type": "string",
+            "maxLength": 600
+          }
         }
       }
     },
     "gecerlilik": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["baslangic"],
+      "required": [
+        "baslangic"
+      ],
       "properties": {
-        "baslangic": {"type": "string", "format": "date"},
-        "bitis": {"type": ["string", "null"], "format": "date"},
-        "yila_bagli_tutar": {"type": "boolean", "default": false},
-        "yil": {"type": "integer"}
+        "baslangic": {
+          "type": "string",
+          "format": "date"
+        },
+        "bitis": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "yila_bagli_tutar": {
+          "type": "boolean",
+          "default": false
+        },
+        "yil": {
+          "type": "integer"
+        }
       }
     },
-    "durum": {"enum": ["taslak", "kontrolde", "onayli", "yayinda", "geri_cekildi"]},
-    "surum": {"type": "integer", "minimum": 1},
+    "durum": {
+      "enum": [
+        "taslak",
+        "kontrolde",
+        "onayli",
+        "yayinda",
+        "geri_cekildi"
+      ]
+    },
+    "surum": {
+      "type": "integer",
+      "minimum": 1
+    },
     "gecmis": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["tarih", "kim", "ne"],
+        "required": [
+          "tarih",
+          "kim",
+          "ne"
+        ],
         "properties": {
-          "tarih": {"type": "string"},
-          "kim": {"type": "string"},
-          "ne": {"type": "string"},
-          "neden": {"type": "string"}
+          "tarih": {
+            "type": "string"
+          },
+          "kim": {
+            "type": "string"
+          },
+          "ne": {
+            "type": "string"
+          },
+          "neden": {
+            "type": "string"
+          }
         }
       }
     },
     "uretim": {
       "type": "object",
-      "required": ["kaynak_turu"],
+      "required": [
+        "kaynak_turu"
+      ],
       "properties": {
-        "kaynak_turu": {"enum": ["yapay_zeka", "insan", "karma"]},
-        "model": {"type": "string"},
-        "istem_surumu": {"type": "string"},
+        "kaynak_turu": {
+          "enum": [
+            "yapay_zeka",
+            "insan",
+            "karma"
+          ]
+        },
+        "model": {
+          "type": "string"
+        },
+        "istem_surumu": {
+          "type": "string"
+        },
         "kapilar": {
           "type": "object",
           "description": "Kapı adı → sonuç (gecti/kaldi/atlandi) ve not",
           "additionalProperties": {
             "type": "object",
-            "required": ["sonuc"],
+            "required": [
+              "sonuc"
+            ],
             "properties": {
-              "sonuc": {"enum": ["gecti", "kaldi", "atlandi"]},
-              "not": {"type": "string"},
-              "tarih": {"type": "string"}
+              "sonuc": {
+                "enum": [
+                  "gecti",
+                  "kaldi",
+                  "atlandi"
+                ]
+              },
+              "not": {
+                "type": "string"
+              },
+              "tarih": {
+                "type": "string"
+              }
             }
           }
         }
       }
+    },
+    "dogrulama": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "python"
+      ],
+      "description": "G4: hesaplama sorularında doğru sonucu bağımsız olarak hesaplayan Python kodu. Kod 'sonuc' değişkenini atamalıdır.",
+      "properties": {
+        "python": {
+          "type": "string",
+          "minLength": 5
+        },
+        "secenek_sayisi_bekleniyor": {
+          "type": "boolean",
+          "default": true,
+          "description": "Doğru şıkkın sayısal değeri sonuc ile eşleşmeli"
+        }
+      }
+    },
+    "ortak_veri": {
+      "type": "string",
+      "description": "Birden çok sorunun paylaştığı veri bloğu kimliği (ör. FTA tabloları)"
+    },
+    "soru_bicimi": {
+      "enum": [
+        "standart",
+        "olumsuz",
+        "oncullu",
+        "bosluk",
+        "yevmiye"
+      ],
+      "description": "Kök/şık biçimi"
     }
   }
 }
