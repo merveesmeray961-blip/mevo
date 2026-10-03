@@ -29,6 +29,17 @@ Amaç soruyu çürütmektir. Şunları ara:
 3. Açıklamadaki (`dogru_neden`, `celdiriciler`) her iddianın resmî metinde karşılığı olduğunu doğrula.
 4. Çıktı: `{id, sonuc, desteksiz_iddialar: [...], alinti_uyumsuz: bool}`. Desteksiz tek iddia `kaldi` sebebidir.
 
+### Yasal metni olmayan yöntem soruları
+
+Maliyet yöntemleri (FIFO/ortalama, eşdeğer birim, sapma analizi, ortak maliyet dağıtımı), oran analizi formülleri ve
+iktisat/maliye teorisi bir kanun maddesine değil, alanın standart yöntemlerine dayanır. Bu sorularda G6:
+1. Kullanılan formül veya yöntemin kökte ya da açıklamada **açıkça** yazılı olduğunu,
+2. Formülün yaygın ders kitabı tanımıyla tutarlı olduğunu (yoruma açıksa kökte tanımlanmış olmalı),
+3. `dogrulama.python` sonucunun açıklamadaki hesapla aynı olduğunu denetler.
+Tekdüzen Hesap Planı'na dayanan iddialar (hesap kodları, 7/A–7/B akışı, kapanış kayıtları) için alıntı zorunludur:
+`content/kaynaklar/mevzuat/msugt_1_ek5_thp_guncel.txt` ve `msugt_1*.txt`.
+Bu sorular uzman incelemesinde (G8) yöntem bakımından ayrıca işaretlenir.
+
 ## Raporlama
 
 Kapı sonuçları sorulara işlendikten sonra `python -m pipeline.denetle <klasör>` tüm kapıların durumunu gösterir.
