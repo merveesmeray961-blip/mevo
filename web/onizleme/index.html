@@ -1,0 +1,458 @@
+<title>Mevo SMMM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&display=swap">
+<style>
+/* Layout: tek sütun "çalışma masası" — üstte sabit başlık + mod sekmeleri, altta içerik kartı; geniş ekranda iki sütun (liste | soru). */
+:root {
+  --bg: #f3f5f4;
+  --surface: #ffffff;
+  --ink: #16211f;
+  --muted: #5b6b67;
+  --line: #d5dedb;
+  --accent: #0f6b5c;
+  --accent-soft: #dcefe9;
+  --ok: #1d7a3e;
+  --ok-soft: #e1f3e6;
+  --bad: #b3261e;
+  --bad-soft: #fbe5e3;
+  --warn: #8a5a00;
+  --warn-soft: #fbefd6;
+  --font-display: "Bricolage Grotesque", "IBM Plex Sans", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1514; --surface: #17201e; --ink: #e5eeeb; --muted: #94a6a1; --line: #2b3835;
+    --accent: #4fc1a8; --accent-soft: #163a33; --ok: #63c784; --ok-soft: #173826;
+    --bad: #f08a80; --bad-soft: #3d1c19; --warn: #e4b257; --warn-soft: #3a2c10; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1514; --surface: #17201e; --ink: #e5eeeb; --muted: #94a6a1; --line: #2b3835;
+  --accent: #4fc1a8; --accent-soft: #163a33; --ok: #63c784; --ok-soft: #173826;
+  --bad: #f08a80; --bad-soft: #3d1c19; --warn: #e4b257; --warn-soft: #3a2c10; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--font-body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; padding-block: 0 48px; }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-block: 12px; }
+.brand { font: 700 20px/1 var(--font-display); letter-spacing: -0.01em; }
+.brand span { color: var(--accent); }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--surface); }
+.seg button { border: 0; background: none; color: var(--muted); font: 500 13px var(--font-body); padding: 6px 14px; border-radius: 999px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--surface); }
+.seg button:focus-visible, button:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tabs { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+.tabs button { border: 0; background: none; font: 500 14px var(--font-body); color: var(--muted); padding: 8px 12px; border-bottom: 2px solid transparent; cursor: pointer; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.notice { font-size: 12.5px; color: var(--muted); padding-block: 8px; }
+.notice strong { color: var(--warn); font-weight: 600; }
+
+.layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 24px; margin-top: 20px; }
+@media (max-width: 820px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+aside .group { display: grid; gap: 2px; }
+aside h3, .label { font: 600 11px/1.4 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.ders { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; width: 100%; text-align: left; border: 0; background: none; color: var(--ink); font: 14px var(--font-body); padding: 8px 10px; border-radius: 8px; cursor: pointer; }
+.ders:hover { background: var(--accent-soft); }
+.ders[aria-current="true"] { background: var(--accent-soft); font-weight: 600; }
+.ders .n { font: 12px var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+select { font: 14px var(--font-body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; width: 100%; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; min-width: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; font-size: 12.5px; color: var(--muted); margin-bottom: 14px; }
+.meta .id { font-family: var(--font-mono); }
+.chip { display: inline-flex; align-items: center; gap: 4px; font: 500 11.5px var(--font-body); padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.chip.ok { background: var(--ok-soft); color: var(--ok); }
+.chip.bad { background: var(--bad-soft); color: var(--bad); }
+.chip.warn { background: var(--warn-soft); color: var(--warn); }
+.kok { font-size: 16px; line-height: 1.65; max-width: 72ch; }
+.kok p { margin: 0 0 10px; }
+.tablo { overflow-x: auto; margin: 10px 0 14px; }
+.tablo table { border-collapse: collapse; font: 13.5px var(--font-mono); font-variant-numeric: tabular-nums; }
+.tablo td, .tablo th { border: 1px solid var(--line); padding: 5px 10px; text-align: right; white-space: nowrap; }
+.tablo td:first-child, .tablo th:first-child { text-align: left; }
+.tablo th { background: var(--accent-soft); font-weight: 500; }
+.siklar { display: grid; gap: 8px; margin-top: 16px; }
+.sik { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; align-items: start; text-align: left; width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font: 15px/1.5 var(--font-body); cursor: pointer; }
+.sik:hover:not(:disabled) { border-color: var(--accent); }
+.sik .h { font: 600 14px var(--font-mono); color: var(--muted); }
+.sik.secili { border-color: var(--accent); background: var(--accent-soft); }
+.sik.dogru { border-color: var(--ok); background: var(--ok-soft); }
+.sik.yanlis { border-color: var(--bad); background: var(--bad-soft); }
+.sik:disabled { cursor: default; }
+.sik .t { white-space: pre-line; }
+.aciklama { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 12px; }
+.aciklama h4 { margin: 0; font: 600 13px var(--font-body); }
+.aciklama ul, .aciklama ol { margin: 4px 0 0; padding-left: 20px; }
+.kaynak { font-size: 13px; color: var(--muted); border-left: 3px solid var(--line); padding-left: 10px; }
+.kaynak q { display: block; font-style: italic; margin-top: 4px; white-space: pre-line; }
+.nav { display: flex; justify-content: space-between; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+.btn { font: 500 14px var(--font-body); padding: 9px 16px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.btn.ok { background: var(--ok); border-color: var(--ok); color: var(--surface); }
+.btn.bad { background: var(--surface); border-color: var(--bad); color: var(--bad); }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.empty { color: var(--muted); padding: 28px 4px; }
+.timer { font: 500 20px var(--font-mono); font-variant-numeric: tabular-nums; }
+.timer.az { color: var(--bad); }
+.sonuc { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin: 14px 0; }
+.sonuc div { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+.sonuc b { display: block; font: 600 22px var(--font-mono); font-variant-numeric: tabular-nums; }
+.sonuc span { font-size: 12px; color: var(--muted); }
+.ilerleme { height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; margin: 6px 0 14px; }
+.ilerleme > i { display: block; height: 100%; background: var(--accent); }
+.inceleme-kutu { margin-top: 18px; border: 1px dashed var(--line); border-radius: 8px; padding: 14px; display: grid; gap: 10px; }
+textarea { width: 100%; min-height: 72px; font: 14px var(--font-body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.small { font-size: 12.5px; color: var(--muted); }
+.liste { display: grid; gap: 4px; max-height: 60vh; overflow: auto; }
+.liste button { display: flex; gap: 8px; align-items: center; justify-content: space-between; border: 0; background: none; color: var(--ink); text-align: left; padding: 6px 8px; border-radius: 6px; font: 12.5px var(--font-mono); cursor: pointer; }
+.liste button[aria-current="true"] { background: var(--accent-soft); }
+.nokta { width: 8px; height: 8px; border-radius: 50%; background: var(--line); flex: none; }
+.nokta.ok { background: var(--ok); } .nokta.bad { background: var(--bad); } .nokta.eski { background: var(--warn); }
+h2 { font: 700 22px/1.25 var(--font-display); margin: 0 0 6px; text-wrap: balance; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <div class="brand">mevo<span>.</span> SMMM</div>
+      <div class="seg" role="group" aria-label="Sınav">
+        <button id="b-yet" aria-pressed="true" data-bolum="YET">Yeterlilik</button>
+        <button id="b-sgs" aria-pressed="false" data-bolum="SGS">Staja Giriş</button>
+      </div>
+      <nav class="tabs" role="tablist">
+        <button role="tab" id="t-calis" data-mod="calis" aria-selected="true">Çalış</button>
+        <button role="tab" id="t-deneme" data-mod="deneme" aria-selected="false">Deneme</button>
+        <button role="tab" id="t-inceleme" data-mod="inceleme" aria-selected="false">Uzman inceleme</button>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="notice"><strong>Pilot önizleme.</strong> Sorular uzman incelemesinden geçmektedir. <span id="uyari"></span></p>
+  <div id="app"><div class="card empty">Soru bankası yükleniyor…</div></div>
+</main>
+
+<script>
+(() => {
+  const durum = { bolum: "YET", mod: "calis", ders: null, konu: "", i: 0, cevaplar: {}, deneme: null, inceleme: {}, filtre: "hepsi", db: null, uid: null };
+  let paket = null;
+  const app = document.getElementById("app");
+  const kaydet = (k, v) => { try { localStorage.setItem("mevo." + k, JSON.stringify(v)); } catch (_) {} };
+  const oku = (k, d) => { try { const v = localStorage.getItem("mevo." + k); return v ? JSON.parse(v) : d; } catch (_) { return d; } };
+
+  // ---------- yardımcılar ----------
+  const el = (tag, attrs = {}, ...cocuklar) => {
+    const e = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (k === "class") e.className = v;
+      else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
+      else if (v !== false && v != null) e.setAttribute(k, v === true ? "" : v);
+    }
+    for (const c of cocuklar.flat()) if (c != null) e.append(c instanceof Node ? c : document.createTextNode(String(c)));
+    return e;
+  };
+  const kacis = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const satirIci = (s) => kacis(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  // Kök: paragraflar, **kalın**, "|" ile başlayan satırlar tablo
+  function metin(s) {
+    const kap = el("div", { class: "kok" });
+    const satirlar = String(s).split("\n");
+    let tablo = null, paragraf = [];
+    const paragrafBitir = () => { if (paragraf.length) { const p = el("p"); p.innerHTML = paragraf.map(satirIci).join("<br>"); kap.append(p); paragraf = []; } };
+    const tabloBitir = () => { if (tablo) { kap.append(el("div", { class: "tablo" }, tablo)); tablo = null; } };
+    for (const satir of satirlar) {
+      const t = satir.trim();
+      if (t.startsWith("|")) {
+        paragrafBitir();
+        const hucreler = t.replace(/^\||\|$/g, "").split("|").map((x) => x.trim());
+        if (hucreler.every((x) => /^:?-{2,}:?$/.test(x))) continue;
+        if (!tablo) { tablo = el("table"); const tr = el("tr"); hucreler.forEach((h) => { const th = el("th"); th.innerHTML = satirIci(h); tr.append(th); }); tablo.append(tr); }
+        else { const tr = el("tr"); hucreler.forEach((h) => { const td = el("td"); td.innerHTML = satirIci(h); tr.append(td); }); tablo.append(tr); }
+      } else if (!t) { paragrafBitir(); tabloBitir(); }
+      else { tabloBitir(); paragraf.push(t); }
+    }
+    paragrafBitir(); tabloBitir();
+    return kap;
+  }
+  const dersAdi = (kod) => { const d = paket.dersler[kod]; return d ? (durum.bolum === "SGS" ? d.sgs_ad : d.ad) : kod; };
+  const sorular = () => paket.sorular.filter((s) => s.bolum.includes(durum.bolum));
+  const dersSorulari = (kod) => sorular().filter((s) => s.ders === kod && (!durum.konu || s.konu === durum.konu));
+  const sureMetni = (sn) => `${String(Math.floor(sn / 60)).padStart(2, "0")}:${String(Math.max(0, sn % 60)).padStart(2, "0")}`;
+
+  // ---------- ortak parçalar ----------
+  function dersListesi(sec) {
+    const kodlar = [...new Set(sorular().map((s) => s.ders))];
+    const grup = el("div", { class: "group" });
+    if (!kodlar.length) grup.append(el("p", { class: "small" }, "Bu sınav için henüz soru yok."));
+    for (const k of kodlar) {
+      const n = sorular().filter((s) => s.ders === k).length;
+      grup.append(el("button", { class: "ders", "aria-current": String(durum.ders === k), onclick: () => sec(k) }, el("span", {}, dersAdi(k)), el("span", { class: "n" }, n)));
+    }
+    return el("div", {}, el("h3", {}, "Dersler"), grup);
+  }
+
+  function soruKarti(s, { gosterCevap, secim, onSec, ust }) {
+    const kart = el("div", { class: "card" });
+    kart.append(el("div", { class: "meta" },
+      ust || null,
+      el("span", { class: "id" }, s.id),
+      el("span", {}, paket.dersler[s.ders]?.konular[s.konu] || s.konu),
+      el("span", { class: "chip" }, s.tip),
+      el("span", {}, "zorluk " + "●".repeat(s.zorluk) + "○".repeat(3 - s.zorluk))));
+    kart.append(metin(s.kok));
+    const liste = el("div", { class: "siklar" });
+    for (const h of ["A", "B", "C", "D", "E"]) {
+      let cls = "sik";
+      if (gosterCevap && h === s.dogru) cls += " dogru";
+      else if (gosterCevap && h === secim) cls += " yanlis";
+      else if (h === secim) cls += " secili";
+      liste.append(el("button", { class: cls, disabled: gosterCevap || !onSec, onclick: () => onSec && onSec(h) }, el("span", { class: "h" }, h + ")"), el("span", { class: "t" }, s.secenekler[h])));
+    }
+    kart.append(liste);
+    if (gosterCevap) kart.append(aciklamaBlok(s));
+    return kart;
+  }
+
+  function aciklamaBlok(s) {
+    const a = s.aciklama;
+    const blok = el("div", { class: "aciklama" });
+    const dn = el("div"); dn.innerHTML = `<h4>Doğru cevap: ${s.dogru}</h4>` + `<div>${satirIci(a.dogru_neden)}</div>`;
+    blok.append(dn);
+    if (a.hesap_adimlari?.length) blok.append(el("div", {}, el("h4", {}, "Çözüm adımları"), el("ol", {}, a.hesap_adimlari.map((x) => el("li", {}, x)))));
+    blok.append(el("div", {}, el("h4", {}, "Diğer şıklar neden yanlış?"),
+      el("ul", {}, Object.entries(a.celdiriciler).sort().map(([h, t]) => el("li", {}, el("b", {}, h + ") "), t)))));
+    blok.append(el("div", {}, el("h4", {}, "Dayanak"), ...s.kaynaklar.map((k) => el("div", { class: "kaynak" }, `${k.mevzuat}, ${k.madde}`, k.alinti ? el("q", {}, k.alinti) : null))));
+    return blok;
+  }
+
+  // ---------- Çalış ----------
+  function calis() {
+    const kodlar = [...new Set(sorular().map((s) => s.ders))];
+    if (!durum.ders || !kodlar.includes(durum.ders)) { durum.ders = kodlar[0] || null; durum.i = 0; durum.konu = ""; }
+    const yan = el("aside", {}, dersListesi((k) => { durum.ders = k; durum.konu = ""; durum.i = 0; ciz(); }));
+    if (durum.ders) {
+      const konular = paket.dersler[durum.ders]?.konular || {};
+      const mevcut = [...new Set(sorular().filter((s) => s.ders === durum.ders).map((s) => s.konu))];
+      const sel = el("select", { id: "konu", onchange: (e) => { durum.konu = e.target.value; durum.i = 0; ciz(); } },
+        el("option", { value: "" }, "Tüm konular"), mevcut.map((k) => el("option", { value: k, selected: durum.konu === k }, konular[k] || k)));
+      yan.append(el("div", { style: "margin-top:18px" }, el("h3", {}, "Konu"), sel));
+    }
+    const liste = durum.ders ? dersSorulari(durum.ders) : [];
+    const ana = el("section");
+    if (!liste.length) ana.append(el("div", { class: "card empty" }, "Bu seçimde soru yok."));
+    else {
+      durum.i = Math.min(durum.i, liste.length - 1);
+      const s = liste[durum.i];
+      const secim = durum.cevaplar[s.id];
+      ana.append(el("div", { class: "small", style: "margin-bottom:8px" }, `${durum.i + 1} / ${liste.length}`));
+      ana.append(soruKarti(s, { gosterCevap: !!secim, secim, onSec: secim ? null : (h) => { durum.cevaplar[s.id] = h; kaydet("cevaplar", durum.cevaplar); ciz(); } }));
+      ana.append(el("div", { class: "nav" },
+        el("button", { class: "btn", disabled: durum.i === 0, onclick: () => { durum.i--; ciz(); } }, "← Önceki"),
+        secim ? el("button", { class: "btn", onclick: () => { delete durum.cevaplar[s.id]; kaydet("cevaplar", durum.cevaplar); ciz(); } }, "Yeniden çöz") : null,
+        el("button", { class: "btn primary", disabled: durum.i >= liste.length - 1, onclick: () => { durum.i++; ciz(); } }, "Sonraki →")));
+    }
+    return el("div", { class: "layout" }, yan, ana);
+  }
+
+  // ---------- Deneme ----------
+  let sayac = null;
+  function denemeBaslat(ders) {
+    const f = paket.formatlar[durum.bolum];
+    let havuz = ders ? sorular().filter((s) => s.ders === ders) : sorular();
+    havuz = havuz.map((s) => [Math.random(), s]).sort((a, b) => a[0] - b[0]).map((x) => x[1]);
+    const n = durum.bolum === "YET" ? Math.min(f.ders_basina_soru, havuz.length) : Math.min(f.soru_sayisi, havuz.length);
+    const secilen = havuz.slice(0, n);
+    const sureDk = durum.bolum === "YET" ? f.ders_basina_sure_dakika * n / f.ders_basina_soru : f.sure_dakika * n / f.soru_sayisi;
+    durum.deneme = { ders, sorular: secilen.map((s) => s.id), cevap: {}, i: 0, bitis: Date.now() + Math.round(sureDk * 60) * 1000, bitti: false, sureDk };
+    ciz();
+  }
+  function deneme() {
+    clearInterval(sayac);
+    const f = paket.formatlar[durum.bolum];
+    const d = durum.deneme;
+    if (!d) {
+      const kodlar = [...new Set(sorular().map((s) => s.ders))];
+      const kart = el("div", { class: "card" },
+        el("h2", {}, durum.bolum === "YET" ? "Yeterlilik ders denemesi" : "Staja Giriş denemesi"),
+        el("p", { class: "small" }, durum.bolum === "YET"
+          ? `Gerçek sınav kuralları: ders başına ${f.ders_basina_soru} soru, ${f.ders_basina_sure_dakika} dakika, her yanlış ${f.yanlis_cezasi} doğruyu götürür, hesap makinesi yok. Geçme: dersten en az ${f.gecme.ders_min}.`
+          : `Gerçek sınav kuralları: ${f.soru_sayisi} soru, ${f.sure_dakika} dakika, yanlışlar doğruyu götürmez, hesap makinesi yok. Gerçek sınav bağıl değerlendirilir; buradaki yüzde yalnızca fikir verir.`),
+        el("p", { class: "small" }, "Pilot aşamada havuz küçük olduğu için deneme, mevcut sorulardan ve süre orantılanarak kurulur."));
+      const sec = el("div", { class: "row", style: "margin-top:12px" });
+      if (durum.bolum === "YET") kodlar.forEach((k) => sec.append(el("button", { class: "btn", onclick: () => denemeBaslat(k) }, dersAdi(k))));
+      else sec.append(el("button", { class: "btn primary", onclick: () => denemeBaslat(null), disabled: !kodlar.length }, "Denemeyi başlat"));
+      kart.append(sec);
+      return kart;
+    }
+    const liste = d.sorular.map((id) => paket.sorular.find((s) => s.id === id)).filter(Boolean);
+    if (d.bitti) {
+      const dogru = liste.filter((s) => d.cevap[s.id] === s.dogru).length;
+      const bos = liste.filter((s) => !d.cevap[s.id]).length;
+      const yanlis = liste.length - dogru - bos;
+      const ceza = durum.bolum === "YET" ? f.yanlis_cezasi : 0;
+      const net = dogru - yanlis * ceza;
+      const puan = Math.max(0, (net / liste.length) * 100);
+      const kart = el("div", { class: "card" }, el("h2", {}, "Sonuç"),
+        el("div", { class: "sonuc" },
+          el("div", {}, el("b", {}, dogru), el("span", {}, "doğru")),
+          el("div", {}, el("b", {}, yanlis), el("span", {}, "yanlış")),
+          el("div", {}, el("b", {}, bos), el("span", {}, "boş")),
+          el("div", {}, el("b", {}, net.toFixed(2).replace(".", ",")), el("span", {}, "net")),
+          el("div", {}, el("b", {}, puan.toFixed(2).replace(".", ",")), el("span", {}, "puan (100 üzerinden)"))),
+        durum.bolum === "YET"
+          ? el("p", {}, puan >= f.gecme.ders_min ? el("span", { class: "chip ok" }, "Ders barajı geçildi") : el("span", { class: "chip bad" }, `Ders barajının (${f.gecme.ders_min}) altında`),
+              el("span", { class: "small" }, ` Not: Sınavı geçmek için tüm derslerin ve tezkiye notunun ortalaması en az ${f.gecme.ortalama_min} olmalı; küsurat yuvarlanmaz.`))
+          : el("p", { class: "small" }, "SGS bağıl değerlendirilir: sabit bir doğru sayısı eşiği yoktur."),
+        el("div", { class: "row" }, el("button", { class: "btn", onclick: () => { durum.deneme = null; ciz(); } }, "Yeni deneme")));
+      const dokum = el("div", { style: "display:grid;gap:16px;margin-top:16px" });
+      liste.forEach((s, i) => dokum.append(soruKarti(s, { gosterCevap: true, secim: d.cevap[s.id], ust: el("span", { class: "chip" }, `Soru ${i + 1}`) })));
+      return el("div", {}, kart, dokum);
+    }
+    const s = liste[d.i];
+    const kalan = Math.round((d.bitis - Date.now()) / 1000);
+    const timer = el("span", { class: "timer" + (kalan < 300 ? " az" : "") }, sureMetni(kalan));
+    sayac = setInterval(() => {
+      const k = Math.round((d.bitis - Date.now()) / 1000);
+      timer.textContent = sureMetni(k);
+      timer.className = "timer" + (k < 300 ? " az" : "");
+      if (k <= 0) { d.bitti = true; ciz(); }
+    }, 1000);
+    const cevapli = Object.keys(d.cevap).length;
+    return el("div", {},
+      el("div", { class: "row", style: "justify-content:space-between;margin-bottom:6px" },
+        el("span", { class: "small" }, `${d.ders ? dersAdi(d.ders) : "Staja Giriş"} · Soru ${d.i + 1} / ${liste.length} · ${cevapli} cevaplandı`), timer),
+      el("div", { class: "ilerleme" }, el("i", { style: `width:${(cevapli / liste.length) * 100}%` })),
+      soruKarti(s, { gosterCevap: false, secim: d.cevap[s.id], onSec: (h) => { if (d.cevap[s.id] === h) delete d.cevap[s.id]; else d.cevap[s.id] = h; ciz(); } }),
+      el("div", { class: "nav" },
+        el("button", { class: "btn", disabled: d.i === 0, onclick: () => { d.i--; ciz(); } }, "← Önceki"),
+        el("button", { class: "btn", onclick: () => { d.bitti = true; ciz(); } }, "Sınavı bitir"),
+        el("button", { class: "btn primary", disabled: d.i >= liste.length - 1, onclick: () => { d.i++; ciz(); } }, "Sonraki →")),
+      el("p", { class: "small" }, "Seçili şıkka tekrar dokunarak boş bırakabilirsin. Yanlış cevap doğruyu götürdüğü için emin olmadığın soruyu boş bırakmak avantajlı olabilir."));
+  }
+
+  // ---------- Uzman inceleme ----------
+  const KATEGORI = {
+    kritik_anahtar: "Kritik · cevap anahtarı yanlış",
+    kritik_coklu: "Kritik · birden fazla doğru şık",
+    kritik_mevzuat: "Kritik · mevzuat/teknik bilgi yanlış",
+    onemli_aciklama: "Önemli · açıklama eksik veya yanıltıcı",
+    onemli_belirsiz: "Önemli · kök belirsiz",
+    onemli_tarz: "Önemli · sınav tarzına uymuyor",
+    kucuk_yazim: "Küçük · yazım/üslup",
+  };
+  function incelemeDurumu(s) {
+    const r = durum.inceleme[s.id];
+    if (!r) return "yok";
+    if (r.surum !== s.surum) return "eski";
+    return r.karar;
+  }
+  function inceleme() {
+    const tum = sorular();
+    const sayi = { dogru: 0, hatali: 0, eski: 0, yok: 0 };
+    tum.forEach((s) => sayi[incelemeDurumu(s)]++);
+    const filtreli = tum.filter((s) => durum.filtre === "hepsi" || (durum.filtre === "bekleyen" ? ["yok", "eski"].includes(incelemeDurumu(s)) : incelemeDurumu(s) === durum.filtre));
+    durum.i = Math.min(durum.i, Math.max(0, filtreli.length - 1));
+    const yan = el("aside", {},
+      el("h3", {}, "İnceleme durumu"),
+      el("div", { class: "small" }, `${sayi.dogru + sayi.hatali} / ${tum.length} incelendi · ${sayi.hatali} hatalı${sayi.eski ? ` · ${sayi.eski} güncellendi, tekrar bakılmalı` : ""}`),
+      el("div", { class: "ilerleme" }, el("i", { style: `width:${tum.length ? ((sayi.dogru + sayi.hatali) / tum.length) * 100 : 0}%` })),
+      el("select", { id: "filtre", onchange: (e) => { durum.filtre = e.target.value; durum.i = 0; ciz(); } },
+        [["hepsi", "Tüm sorular"], ["bekleyen", "İncelenmemiş"], ["hatali", "Hatalı işaretlenen"], ["dogru", "Onaylanan"]].map(([v, t]) => el("option", { value: v, selected: durum.filtre === v }, t))),
+      el("div", { class: "liste", style: "margin-top:10px" }, filtreli.map((s, i) => {
+        const d = incelemeDurumu(s);
+        return el("button", { "aria-current": String(i === durum.i), onclick: () => { durum.i = i; ciz(); } },
+          el("span", {}, s.id), el("i", { class: "nokta" + (d === "dogru" ? " ok" : d === "hatali" ? " bad" : d === "eski" ? " eski" : "") }));
+      })));
+    const ana = el("section");
+    if (!durum.db) ana.append(el("div", { class: "card small", style: "margin-bottom:12px" },
+      "Geri bildirimler kaydedilemiyor: bu sayfayı Claude'da oturum açarak ve size paylaşılan bağlantıdan (Düzenleyici yetkisiyle) açın."));
+    if (!filtreli.length) { ana.append(el("div", { class: "card empty" }, "Bu filtrede soru yok.")); return el("div", { class: "layout" }, yan, ana); }
+    const s = filtreli[durum.i];
+    const kayit = durum.inceleme[s.id];
+    const kart = soruKarti(s, { gosterCevap: true, secim: null, ust: el("span", { class: "chip" }, dersAdi(s.ders)) });
+    const kapilar = el("div", { class: "row small", style: "margin-top:12px" }, "Otomatik kontroller:",
+      Object.entries(s.kapilar || {}).map(([k, v]) => el("span", { class: "chip " + (v === "gecti" ? "ok" : v === "kaldi" ? "bad" : "") }, `${k} ${v === "gecti" ? "✓" : v === "atlandi" ? "–" : "✗"}`)));
+    kart.append(kapilar);
+    const not = el("textarea", { id: "not", placeholder: "Notunuz: ne yanlış, doğrusu ne olmalı? (Hatalı işaretlerken zorunlu)" });
+    not.value = kayit?.not || "";
+    const kat = el("select", { id: "kategori" }, el("option", { value: "" }, "Hata türü seçin"), Object.entries(KATEGORI).map(([v, t]) => el("option", { value: v, selected: kayit?.kategori === v }, t)));
+    const bilgi = el("span", { class: "small", "aria-live": "polite" },
+      kayit ? `Son karar: ${kayit.karar === "dogru" ? "Doğru" : "Hatalı"}${kayit.surum !== s.surum ? " (sorunun eski sürümü için)" : ""}` : "Henüz incelenmedi");
+    async function yaz(karar) {
+      if (!durum.db) return;
+      if (karar === "hatali" && (!kat.value || !not.value.trim())) { bilgi.textContent = "Hatalı işaretlemek için hata türü ve not gerekli."; return; }
+      const veri = { soru: s.id, surum: s.surum, karar, kategori: karar === "hatali" ? kat.value : "", not: not.value.trim(), kim: durum.uid || "", tarih: new Date().toISOString() };
+      bilgi.textContent = "Kaydediliyor…";
+      try {
+        await durum.db.doc("inceleme/" + s.id).set(veri);
+        durum.inceleme[s.id] = veri;
+        bilgi.textContent = "Kaydedildi.";
+        if (durum.i < filtreli.length - 1 && durum.filtre === "hepsi") { durum.i++; }
+        ciz();
+      } catch (e) {
+        bilgi.textContent = e?.code === "invalid_argument" ? "Bu bağlantıyla kaydetme yetkiniz yok. Düzenleyici olarak paylaşılan bağlantıyı kullanın." : "Kaydedilemedi, lütfen tekrar deneyin.";
+      }
+    }
+    kart.append(el("div", { class: "inceleme-kutu" },
+      el("div", { class: "label" }, "Uzman kararı"),
+      el("div", { class: "row" },
+        el("button", { class: "btn ok", disabled: !durum.db, onclick: () => yaz("dogru") }, "✓ Doğru, onaylıyorum"),
+        el("button", { class: "btn bad", disabled: !durum.db, onclick: () => yaz("hatali") }, "✗ Hatalı")),
+      kat, not, bilgi));
+    ana.append(kart);
+    ana.append(el("div", { class: "nav" },
+      el("button", { class: "btn", disabled: durum.i === 0, onclick: () => { durum.i--; ciz(); } }, "← Önceki"),
+      el("button", { class: "btn primary", disabled: durum.i >= filtreli.length - 1, onclick: () => { durum.i++; ciz(); } }, "Sonraki →")));
+    return el("div", { class: "layout" }, yan, ana);
+  }
+
+  // ---------- çizim ----------
+  function ciz() {
+    if (!paket) return;
+    clearInterval(sayac);
+    document.querySelectorAll(".seg button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.bolum === durum.bolum)));
+    document.querySelectorAll(".tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.mod === durum.mod)));
+    app.replaceChildren(durum.mod === "calis" ? calis() : durum.mod === "deneme" ? deneme() : inceleme());
+  }
+  document.querySelectorAll(".seg button").forEach((b) => b.addEventListener("click", () => {
+    durum.bolum = b.dataset.bolum; durum.ders = null; durum.konu = ""; durum.i = 0; durum.deneme = null; kaydet("bolum", durum.bolum); ciz();
+  }));
+  document.querySelectorAll(".tabs button").forEach((b) => b.addEventListener("click", () => {
+    durum.mod = b.dataset.mod; durum.i = 0; kaydet("mod", durum.mod); ciz();
+  }));
+  if (location.hash === "#inceleme") durum.mod = "inceleme";
+  else durum.mod = oku("mod", "calis");
+  durum.bolum = oku("bolum", "YET");
+  durum.cevaplar = oku("cevaplar", {});
+
+  fetch("sorular.json").then((r) => r.json()).then((p) => {
+    paket = p;
+    document.getElementById("uyari").textContent = p.uyari;
+    ciz();
+  }).catch(() => { app.replaceChildren(el("div", { class: "card empty" }, "Soru bankası yüklenemedi. Sayfayı yenileyin.")); });
+
+  // Uzman geri bildirimi: paylaşılan veritabanı (yoksa sayfa salt okunur çalışır)
+  (async () => {
+    const db = await window.claude?.use?.("db");
+    if (!db) { if (durum.mod === "inceleme") ciz(); return; }
+    const user = await window.claude.use("user");
+    durum.uid = user ? await user.id() : null;
+    durum.db = db;
+    db.collection("inceleme").onSnapshot((snap) => {
+      const yeni = {};
+      snap.docs.forEach((d) => { if (d.exists) yeni[d.id] = d.data(); });
+      durum.inceleme = yeni;
+      if (durum.mod === "inceleme") ciz();
+    }, () => {});
+    if (durum.mod === "inceleme") ciz();
+  })();
+})();
+</script>
