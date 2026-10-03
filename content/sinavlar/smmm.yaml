@@ -1,6 +1,7 @@
 # SMMM sınav formatları
-# Kaynak ve doğrulama durumu: docs/ARASTIRMA.md §2
+# Kaynaklar: content/kaynaklar/resmi/KAYNAKLAR.md (resmî belgeler, 3 Ekim 2026'da okundu)
 # Değerler koddan bağımsızdır; format değişirse yalnızca bu dosya güncellenir.
+# Etiket: [R] = resmî belgeden okundu · [?] = teyit edilmedi
 
 sinav: smmm
 ad: Serbest Muhasebeci Mali Müşavirlik Sınavları
@@ -10,52 +11,74 @@ resmi_baglanti_yok_ibaresi: "Bu uygulamanın TÜRMOB veya TESMER ile resmî bir 
 bolumler:
   - kod: SGS
     ad: Staja Giriş Sınavı
-    uygulayan: Ankara Üniversitesi ASYM
-    soru_sayisi: 130
-    sure_dakika: 165            # ✅ ASYM 2025/1 kılavuzu (150 dk bilgisi eski)
-    secenek_sayisi: 5
-    yanlis_cezasi: 0            # ✅ yanlış doğruyu götürmez
-    hesap_makinesi: false       # ⚠️ teyit edilecek
-    gecme_puani: 60             # ağırlıklı puan
-    dagilim:                    # ✅ düzeltilmiş dağılım
-      alan_bilgisi:
-        finansal_muhasebe: 18
-        muhasebe_standartlari: 8
-        maliyet_muhasebesi: 8
-        mali_tablolar_analizi: 8
-        muhasebe_denetimi: 16
-        ekonomi: 6
-        maliye: 6
-        hukuk_grubu: 30         # alt dersler 6'şar; alt ders listesi teyit edilecek
+    uygulayan: Ankara Üniversitesi ASYM                       # [R] ASYM kılavuzu
+    soru_sayisi: 130                                          # [R] Yönerge 6.2
+    sure_dakika: 165                                          # [R] ASYM kılavuzu
+    secenek_sayisi: 5                                         # [R] ASYM kılavuzu
+    yanlis_cezasi: 0                                          # [R] "Yanlış cevaplarınızın doğru cevaplarınıza bir etkisi yoktur"
+    hesap_makinesi: false                                     # [R] ASYM kılavuzu yasaklı cihazlar
+    bolum_soru_sayilari:                                      # [R] Yönerge 6.2/1
+      alan_bilgisi: 100
       genel_kultur_yetenek: 20
-      yabanci_dil: 10
-    agirliklar:
+      yabanci_dil: 10                                         # İngilizce, Almanca veya Fransızca (aday seçer)
+    agirliklar:                                               # [R] Yönerge 6.2/2
       alan_bilgisi: 0.80
       genel_kultur_yetenek: 0.1333
       yabanci_dil: 0.0667
+    degerlendirme:                                            # [R] Yönerge 6.3
+      yontem: bagil
+      aciklama: >
+        Her bölümün puanı ortalama 50, standart sapma 10 olacak şekilde standart puana çevrilir,
+        sonra ağırlıklı başarı puanı hesaplanır. 60 ve üzeri staja kabul edilir. Geçmişte %55 doğru
+        ile geçilen de, %63 doğru ile kalınan da sınavlar olmuştur; yani sabit bir doğru sayısı eşiği yoktur.
+      gecme_puani: 60
+    alan_bilgisi_ders_dagilimi: null                          # [R] Yönerge 6.2'de ilgili hüküm MÜLGA; dağılım kitapçık analizinden çıkarılacak
+    sinav_hakki: "İlk sonucun ilanından itibaren 3 yıl içinde açılacak 9 sınav"   # [R] Yönerge 6.5, Staj Yön. md.7
+    kazanilan_hakkin_suresi: "Sonraki staja başlama döneminden itibaren 3 yıl"     # [R] Staj Yön. md.7
 
   - kod: YET
     ad: SMMM Yeterlilik Sınavı
-    yontem_degisikligi: "TÜRMOB YK 14.01.2026 — 2026/1'den itibaren test"
-    secenek_sayisi: 5
-    ders_basina_soru: 20
-    ders_basina_sure_dakika: 45
-    yanlis_cezasi: 0.25         # ✅ her yanlış 0,25 doğru götürür
-    hesap_makinesi: false       # ✅
-    gecme:
+    yontem_degisikligi: "TÜRMOB YK kararı E.233, 14.01.2026 — 2026/1'den itibaren test"   # [R]
+    secenek_sayisi: 5                                         # [R]
+    ders_basina_soru: 20                                      # [R]
+    ders_basina_sure_dakika: 45                               # [R]
+    yanlis_cezasi: 0.25                                       # [R] her yanlış 0,25 doğru götürür
+    hesap_makinesi: false                                     # [R] karar md. xiii
+    puanlama: "Mutlak; 100 puan sorulara eşit dağıtılır; küsurat yuvarlanmaz"   # [R] karar md. vii, x
+    iptal_edilen_soru: "Puanı geçerli sorulara ağırlığına göre dağıtılır"      # [R] karar md. ix
+    gecme:                                                    # [R] Sınav Yön. md.16/b
       ders_min: 50
       ortalama_min: 60
-    oturumlar:                  # ⚠️ ders dağılımı teyit edilecek
-      - baslangic: "09:00"
-        bitis: "12:00"
-      - baslangic: "14:00"     # ⚠️ teyit edilecek
-        bitis: "17:00"
-    dersler:
-      - finansal_muhasebe
-      - finansal_tablolar_ve_analizi
-      - maliyet_muhasebesi
-      - muhasebe_denetimi
-      - vergi_mevzuati_ve_uygulamasi
-      - hukuk
-      - sermaye_piyasasi_mevzuati
-      - meslek_hukuku
+      tezkiye_ortalamaya_dahil: true                          # [R] tezkiye not ortalaması ayrı bir ders gibi ortalamaya girer
+    ilk_sinav_tum_dersler: true                               # [R] Sınav Yön. md.11
+    sinav_hakki: "İlk sınav tarihinden itibaren 2 yıl içinde yılda 3 kez açılan tüm sınavlar; sonra 6 ay bekleme"   # [R] md.21 (24.02.2025)
+    sinav_yerleri: [Ankara, "İstanbul (Anadolu)", "İstanbul (Avrupa)", İzmir]   # [R]
+    itiraz_suresi_gun: 7                                      # [R]
+    oturumlar:                                                # [R] karar tablosu
+      - no: 1
+        saat: "09:00-12:00"
+        dersler:
+          - kod: finansal_muhasebe
+            kapsam: [Finansal Muhasebe, Tek Düzen Muhasebe Sistemi, Türkiye Muhasebe Standartları, Türkiye Finansal Raporlama Standartları]
+          - kod: maliyet_muhasebesi
+            kapsam: [Maliyet Muhasebesi, "Maliyet bilgilerinin karar verme, kontrol ve planlamada kullanımı"]
+          - kod: hukuk
+            kapsam: [Ticaret Hukuku, Borçlar Hukuku, İş Hukuku, SSK ve Bağ-Kur Mevzuatı, İdari Yargılama Hukuku]
+          - kod: sermaye_piyasasi_mevzuati
+            kapsam: [Sermaye Piyasası Mevzuatı]
+      - no: 2
+        saat: "14:00-17:00"
+        dersler:
+          - kod: finansal_tablolar_ve_analizi
+            kapsam: [Finansal Tablolar, Finansal Tabloların Analizi, Türkiye Muhasebe Standartları, Türkiye Finansal Raporlama Standartları]
+          - kod: muhasebe_denetimi
+            kapsam: [Türkiye Denetim Standartları, Bağımsız Denetim Yönetmeliği]
+          - kod: vergi_mevzuati_ve_uygulamasi
+            kapsam: [Vergi Mevzuatı ve Uygulaması]
+          - kod: meslek_hukuku
+            kapsam: [Muhasebecilik ve Mali Müşavirlik Meslek Hukuku]
+
+takvim_2026:                                                  # [R] TÜRMOB 2026 takvimi
+  SGS: ["2026-04-18", "2026-07-18", "2026-11-21"]
+  YET: ["2026-04-25", "2026-07-25", "2026-11-28"]
+takvim_2027: null                                             # Henüz açıklanmadı; Yönerge 6.5'e göre her yılın Aralık ayında belirlenir
