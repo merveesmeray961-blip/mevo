@@ -92,7 +92,7 @@
     bitis: null
     yila_bagli_tutar: true
     yil: 2026
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -102,6 +102,35 @@
       G3:
         sonuc: gecti
         not: 'A: D (güven 5); B: D (güven 5)'
+        tarih: '2026-10-03'
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-03'
+        not: '(küçük) Doğrulandı: 332 Seri No.lu Tebliğ md. 3/3 tarifesinde üçüncü dilimin ücret gelirleri tutarı
+          1.500.000 TL; GVK md. 21/2 bu tutara atıf yapar ve ''beyanı gerekip gerekmediğine bakılmaksızın'' gayrisafi
+          tutarları sayar. Bu yüzden beyana dahil edilmeyen 1.600.000 TL ücret tek başına sınırı aşar. İstisna yok,
+          md. 74 götürü gider %15 yürürlükte (7566 yalnız 74/4''ü değiştirdi). Matrah 510.000, vergi 100.200; dogrulama.python
+          100200.0 verdi. İkinci savunulabilir şık yok. | (küçük) C çeldiricisinin açıklaması ''tamamı ikinci dilim
+          oranıyla (%20)'' diyor. Oysa 92.500 = 28.500 + (510.000 − 190.000) × %20, yani ikinci dilim formülü bütün
+          matraha uygulanmış. Düz ''%20'' okunursa 102.000 çıkar. | (küçük) Zorluk 2 olarak etiketlenmiş, ancak
+          soru §7''deki birden çok tekniği kullanıyor: istisna sınırı aşılınca istisnanın düşmesi (çok adımlı hesap),
+          md. 21/2, 74, 86 ve Tebliğin birlikte okunması (madde birleştirme), 58.000 TL istisna tutarı (gereksiz
+          veri) ve dört farklı hatadan türeyen çeldiriciler. Bu yüzden 3 etiketi de savunulabilir; GZ ölçümüne bırakılabilir.
+          | Öneri: C açıklaması: ''Matrah doğru bulunmuş, ancak ikinci dilim formülü (28.500 + 190.000 TL''yi aşan
+          kısım × %20) matrahın tamamına uygulanmıştır; 400.000 TL''yi aşan kısım %27 dilimine girer.'''
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-03'
+        not: (küçük) md. 21/2 alıntısı kaynak dosyada sayfa altı dipnotuyla (15) bölünüyor, bu yüzden otomatik karşılaştırma
+          ilk anda eşleşmedi. Dipnot çıkarıldığında alıntı resmî metinle birebir aynı.
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G4:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G7:
+        sonuc: gecti
         tarih: '2026-10-03'
   dogrulama:
     python: "def gv(m):\n    if m <= 190000: return m * 15 / 100\n    if m <= 400000: return 28500 + (m - 190000)\
@@ -169,7 +198,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -179,6 +208,21 @@
       G3:
         sonuc: gecti
         not: 'A: E (güven 5); B: E (güven 5)'
+        tarih: '2026-10-03'
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
         tarih: '2026-10-03'
 - id: SMMM-VER-GVK-0003
   sinav: smmm
@@ -235,7 +279,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -245,4 +289,27 @@
       G3:
         sonuc: gecti
         not: 'A: A (güven 5); B: A (güven 5)'
+        tarih: '2026-10-03'
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-03'
+        not: (küçük) A şıkkında payın 2024'te alınıp 2026'da satılması, elde tutma süresinin iki yılı aşıp aşmadığını
+          belirsiz bırakıyor. Doğru hükme göre (mük. 80/4'te süre şartı yok) cevap değişmiyor, belirsizlik yalnız
+          yanlış bilen adayı etkiliyor; ikinci doğru şık doğmuyor.
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-03'
+        not: '(küçük) dogru_neden''deki ''limited şirket ortaklık payı hisse senedi olmadığından'' gerekçesi GVK
+          metninde açıkça yazmıyor. Mük. 80/1 (hisse senetleri) ile 80/4 (ortaklık hakları veya hisseleri) arasındaki
+          ayrımdan ve TTK md. 593/2''den (''Esas sermaye pay senetleri ispat aracı şeklinde veya nama yazılı olarak
+          düzenlenir'') çıkarılıyor. Asıl iddia, yani 80/4''te süre şartı olmadığı, metinle destekleniyor. Önerilen
+          düzeltme: TTK 593/2''yi kaynaklara eklemek.'
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
         tarih: '2026-10-03'
