@@ -81,9 +81,8 @@
 
     Devir hızlarında ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır.
 
-    Brüt satış kârlılığı = Brüt satış kârı / Net satışlar × 100 formülüyle hesaplandığına göre MK A.Ş.''nin
-
-    2026 yılı brüt satış kârlılığı yüzde kaçtır?'
+    Brüt satış kârlılığı = Brüt satış kârı / Net satışlar × 100 formülüyle hesaplandığına göre MK A.Ş.''nin 2026
+    yılı brüt satış kârlılığı yüzde kaçtır?'
   secenekler:
     A: 10,00
     B: 15,00
@@ -116,17 +115,23 @@
 
       '
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: duzeltici
     ne: A ve B çeldirici açıklamaları düzeltildi (dönem net kârı ve faaliyet kârı PAY'dadır, payda net satışlardır);
       E açıklamasında terim 'maliyet üzerinden kâr ekleme oranı' olarak düzeltildi.
     neden: 'G6 kaldı: A ve B açıklamalarında pay/payda karıştırılmıştı; E''deki terim yanlıştı.'
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: Kökteki soru cümlesini ikiye bölen satır sonu kaldırıldı (soru cümlesi tek paragraf); gecerlilik.baslangic
+      yöntem sorusu kuralına (2026-01-01) çekildi.
+    neden: 'G5 (küçük, biçimsel): satır sonu cümleyi bölüyordu (aynı kusur ortak veri setli diğer sorularda da vardı);
+      baslangic soru üretim tarihiydi.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -139,22 +144,6 @@
         sonuc: gecti
         tarih: '2026-10-03'
       G7:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: D (güven 5); B: D (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 5)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) Kökte boş satır cümleyi ''MK A.Ş.''nin'' ile ''2026 yılı...'' arasında bölüyor; biçimsel.
-          | Öneri: Boş satır kaldırılıp soru cümlesi tek paragraf yapılabilir.'
-      G6:
         sonuc: gecti
         tarih: '2026-10-03'
 - id: SMMM-TAB-KAR-0002
@@ -168,58 +157,77 @@
   tip: hesaplama
   zorluk: 3
   soru_bicimi: standart
-  kok: P İşletmesi'nin dönem sonu değerlerine göre net kâr marjı (Dönem net kârı / Net satışlar) %8, aktif devir
-    hızı (Net satışlar / Toplam aktif) 1,5 ve özkaynak kârlılığı (Dönem net kârı / Özkaynaklar) %30'dur. DuPont
-    analizine göre P İşletmesi'nin toplam yabancı kaynaklarının toplam aktife oranı yüzde kaçtır?
+  kok: P İşletmesi'nin dönem sonu değerlerine göre vergi öncesi kâr marjı (Vergi öncesi kâr / Net satışlar) %10,
+    aktif devir hızı (Net satışlar / Toplam aktif) 1,6, cari oranı 1,8 ve özkaynak kârlılığı (Dönem net kârı / Özkaynaklar)
+    %30'dur. Dönemin vergi gideri vergi öncesi kârın %25'idir. DuPont analizine göre P İşletmesi'nin toplam yabancı
+    kaynaklarının toplam aktife oranı yüzde kaçtır?
   secenekler:
-    A: 60,00
-    B: 71,43
-    C: 82,22
-    D: 150,00
-    E: 250,00
-  dogru: A
+    A: 40,00
+    B: 46,67
+    C: 60,00
+    D: 71,43
+    E: 150,00
+  dogru: C
   aciklama:
-    dogru_neden: 'DuPont''a göre aktif kârlılığı = net kâr marjı × aktif devir hızı = %8 × 1,5 = %12''dir. Özkaynak
-      kârlılığı = aktif kârlılığı × özkaynak çarpanı (Toplam aktif / Özkaynaklar) olduğundan özkaynak çarpanı 30
-      / 12 = 2,5''tir. Buna göre özkaynaklar toplam aktifin 1 / 2,5 = %40''ı, yabancı kaynaklar ise %100 - %40 =
-      %60''ıdır. Zorluk (3) kaynakları: DuPont zincirinde geri hesap (özkaynak kârlılığından özkaynak çarpanına
-      ve finansal yapıya ulaşılır) ve yakın kavram ayrımı. Tuzak, özkaynak çarpanını (Toplam aktif / Özkaynaklar)
-      yabancı kaynak / özkaynak oranıyla karıştırmak ve iki DuPont oranını çarpmak yerine bölmektir.'
+    dogru_neden: 'Net kâr marjı = vergi öncesi kâr marjı × (1 − vergi oranı) = %10 × 0,75 = %7,5. DuPont''a göre
+      aktif kârlılığı = net kâr marjı × aktif devir hızı = %7,5 × 1,6 = %12. Özkaynak kârlılığı = aktif kârlılığı
+      × özkaynak çarpanı (Toplam aktif / Özkaynaklar) olduğundan özkaynak çarpanı 30 / 12 = 2,5''tir. Özkaynaklar
+      toplam aktifin 1 / 2,5 = %40''ı, yabancı kaynaklar ise %100 − %40 = %60''ıdır. Zorluk (3) kaynakları: çok
+      adımlı hesap (vergi etkisi → net kâr marjı → aktif kârlılığı → özkaynak çarpanı → finansal yapı), geri hesap
+      (özkaynak kârlılığından finansal yapıya ulaşılır), gereksiz veri (cari oran) ve tipik hata çeldiricileri.
+      Tuzak, DuPont''ta net kâr marjı yerine vergi öncesi kâr marjını kullanmak (B), özkaynak çarpanını yabancı
+      kaynak / özkaynak oranıyla karıştırmak (D) ve sorulan oranın tümleyenini (özkaynak / toplam aktif) vermektir
+      (A).'
     hesap_adimlari:
-    - 'Aktif kârlılığı: 8 × 1,5 = %12'
+    - 'Net kâr marjı: 10 × (1 − 0,25) = %7,5'
+    - 'Aktif kârlılığı: 7,5 × 1,6 = %12'
     - 'Özkaynak çarpanı (Toplam aktif / Özkaynaklar): 30 / 12 = 2,5'
     - 'Özkaynaklar / Toplam aktif: 1 / 2,5 = 0,40'
-    - 'Yabancı kaynaklar / Toplam aktif: 1 - 0,40 = 0,60 → %60'
+    - 'Yabancı kaynaklar / Toplam aktif: 1 − 0,40 = 0,60 → %60'
+    - Cari oran (1,8) çözümde kullanılmaz.
     celdiriciler:
-      B: 71,43, özkaynak çarpanı (2,5) yabancı kaynak / özkaynak oranı sanılarak 2,5 / 3,5 hesaplandığında bulunur.
-      C: 82,22, aktif kârlılığı net kâr marjının aktif devir hızına bölünmesiyle (8 / 1,5) bulunup özkaynak çarpanı
-        5,625 alındığında bulunur; DuPont'ta iki oran çarpılır.
-      D: 150,00 yabancı kaynakların özkaynaklara oranıdır (60 / 40); soru toplam aktife oranı sormaktadır.
-      E: 250,00, özkaynak çarpanının (Toplam aktif / Özkaynaklar = 2,5) yüzde olarak yazılmasıyla bulunur; bu oran
-        yabancı kaynak payı değildir.
+      A: 40,00 özkaynakların toplam aktife oranıdır (1 / 2,5); soru yabancı kaynakların toplam aktife oranını sormaktadır.
+      B: 46,67, vergi etkisi düşülmeden vergi öncesi kâr marjıyla aktif kârlılığı bulunup (%10 × 1,6 = %16) özkaynak
+        çarpanı 30 / 16 = 1,875 alındığında bulunur (1 − 1 / 1,875); DuPont'ta dönem net kârına dayanan net kâr
+        marjı kullanılır.
+      D: 71,43, özkaynak çarpanı (2,5) yabancı kaynak / özkaynak oranı sanılarak 2,5 / 3,5 hesaplandığında bulunur.
+      E: 150,00 yabancı kaynakların özkaynaklara oranıdır (60 / 40); soru toplam aktife oranı sormaktadır.
   kaynaklar:
   - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
-    madde: 'DuPont: Özkaynak kârlılığı = Net kâr marjı × Aktif devir hızı × (Toplam aktif / Özkaynaklar)'
+    madde: 'DuPont: Özkaynak kârlılığı = Net kâr marjı × Aktif devir hızı × (Toplam aktif / Özkaynaklar); Net kâr
+      marjı = Vergi öncesi kâr marjı × (1 − vergi oranı)'
     alinti: ''
   dogrulama:
-    python: 'aktif_karliligi = 8 * 1.5
+    python: 'net_marj = 10 * (1 - 0.25)
+
+      aktif_karliligi = net_marj * 1.6
 
       carpan = 30 / aktif_karliligi
+
+      celdirici_b = round((1 - 1 / (30 / (10 * 1.6))) * 100, 2)
 
       sonuc = round((1 - 1 / carpan) * 100, 2)
 
       '
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: duzeltici
     ne: Kökten standart 'Devir hızlarında ortalama değerler…' cümlesi çıkarıldı (soru dönem sonu değerleriyle).
     neden: 'G5 (küçük): ''dönem sonu değerlerine göre'' ifadesiyle standart cümle çelişkili okunabiliyordu.'
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: 'Soru zorlaştırıldı: net kâr marjı yerine vergi öncesi kâr marjı (%10) ve vergi oranı (%25) verildi (net
+      marj %7,5 hesaplanır), aktif devir hızı 1,6 yapıldı, gereksiz veri olarak cari oran eklendi; doğru cevap yine
+      %60 (C). Zayıf çeldiriciler (82,22 ve 250,00) gerçek aday hatalarıyla (40,00: tümleyen; 46,67: vergi öncesi
+      marj) değiştirildi; dogru_neden teknikleri ve tuzakları adlandırıyor; hesap_adimlari, dogrulama.python ve
+      kaynak tanımı güncellendi; baslangic 2026-01-01.'
+    neden: 'GZ: zor etiketli ama ortalama aday rahat çözdü (güven 5) → zorlaştır; baslangic soru üretim tarihiydi.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -232,19 +240,5 @@
         sonuc: gecti
         tarih: '2026-10-03'
       G7:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: A (güven 5); B: A (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 5); zor etiketli ama rahat çözdü → zorlaştır
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
         sonuc: gecti
         tarih: '2026-10-03'

@@ -49,16 +49,20 @@
     madde: 'Vergi tarifeleri: düz (sabit) oranlı, artan oranlı, azalan oranlı, maktu ve karma (bileşik) tarife'
     alinti: ''
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: duzeltici
     ne: E şıkkı 'Dilim usulü artan oranlı tarife' → 'Karma (bileşik) tarife'; E açıklaması ve kaynak tanımı güncellendi.
     neden: 'G5 (küçük): B (artan oranlı) ile E (dilim usulü artan oranlı) iç içeydi; birlikte elenebiliyordu.'
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: gecerlilik.baslangic 2026-10-03 (üretim tarihi) → 2026-01-01 (yasal dayanağı olmayan teori sorusu).
+    neden: 'Rötuş talimatı §3: üretim tarihi başlangıç olarak yazılmıştı.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -71,23 +75,6 @@
         sonuc: atlandi
         not: hesaplama sorusu değil
       G7:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 5)
-      G3:
-        sonuc: gecti
-        not: 'A: A (güven 5); B: A (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) 'Karma tarife' terimi bazı ders kitaplarında farklı oran yapılarının (ör. belli matraha kadar
-          artan, sonra düz oranlı) birlikte kullanılması anlamında da geçer; hangi tanım alınırsa alınsın %15 sabit
-          oranlı tabloya uymadığından ikinci doğru şık doğurmaz.
-      G6:
         sonuc: gecti
         tarih: '2026-10-03'
 - id: SMMM-MLY-VTE-0002
@@ -98,55 +85,60 @@
   unite: Maliye
   konu: VTE
   kazanim: Laffer eğrisi
-  tip: kavrama
-  zorluk: 1
+  tip: uygulama
+  zorluk: 2
   soru_bicimi: standart
-  kok: Laffer eğrisine ilişkin aşağıdaki ifadelerden hangisi doğrudur?
+  kok: Tek tepeli ve zaman içinde değişmeyen bir Laffer eğrisinin geçerli olduğu varsayılan bir ekonomide gelir
+    vergisi oranı %40 iken vergi matrahı 1.000 milyar TL'dir. Oran %50'ye yükseltildiğinde, çalışma ve yatırım isteğinin
+    azalması ile kayıt dışılığın artması sonucunda matrah 700 milyar TL'ye gerilemiştir. Buna göre aşağıdaki ifadelerden
+    hangisi doğrudur?
   secenekler:
-    A: Vergi oranı yükseldikçe vergi gelirleri her durumda artar.
-    B: Vergi oranı belirli bir düzeyi aştıktan sonra yapılan oran artışları vergi gelirlerini azaltır.
-    C: Vergi geliri, vergi oranının %0 ve %100 olduğu noktalarda en yüksek düzeye ulaşır.
-    D: Eğri, vergi yükünün gelir grupları arasındaki dağılımını gösterir.
-    E: Eğri, kişi başına gelir arttıkça kamu harcamalarının milli gelire oranının yükseldiğini gösterir.
+    A: Vergi oranı artışı vergi gelirini artırmıştır; ekonomi eğrinin yükselen bölgesindedir.
+    B: Vergi geliri 50 milyar TL azalmıştır; %50 oranı eğrinin tepe noktasının sağında kalan yasak bölgededir.
+    C: Matrah %30 daraldığından vergi geliri de %30 oranında azalmıştır.
+    D: Vergi oranı yeniden %40'a indirilirse vergi geliri bugünkü düzeyinin altına düşer.
+    E: Vergi gelirini en yüksek düzeye çıkaran oran %50'nin üzerinde bir orandır.
   dogru: B
   aciklama:
-    dogru_neden: Laffer eğrisi vergi oranı ile vergi geliri arasındaki ilişkiyi gösterir. Oran belirli bir düzeye
-      kadar yükseltildiğinde vergi geliri artar; bu düzeyin ötesinde ise çalışma, tasarruf ve yatırım isteğinin
-      azalması ile vergi kaçırmanın artması sonucu matrah daralır ve oran artışları vergi gelirini azaltır.
+    dogru_neden: 'Vergi geliri, vergi oranı ile matrahın çarpımıdır. %40 oranında gelir 0,40 x 1.000 = 400 milyar
+      TL, %50 oranında 0,50 x 700 = 350 milyar TL''dir; oran artışı geliri 50 milyar TL azaltmıştır. Tek tepeli
+      Laffer eğrisinde tepe noktasının solunda (yükselen bölge) oran artışı vergi gelirini artırır, sağında (yasak
+      ya da engelleyici bölge) azaltır. Oran artışı geliri azalttığına göre gelirin en yüksek olduğu oran %50''nin
+      altındadır ve %50 oranı tepe noktasının sağındaki yasak bölgededir. Tuzak: matrahtaki daralma oranını gelirdeki
+      daralma oranı sanmak ya da oran artışının vergi gelirini her durumda artıracağını düşünmek.'
     celdiriciler:
-      A: Laffer eğrisinin temel önermesi, oran artışının belirli bir düzeyden sonra geliri azalttığıdır; gelirin
-        her durumda artması bu önermeyle çelişir.
-      C: Oran %0 iken vergi alınmaz; %100 iken vergilendirilecek ekonomik faaliyet kalmaz. Her iki uçta da vergi
-        geliri sıfırdır; en yüksek gelir aradaki bir oranda elde edilir.
-      D: Vergi yükünün gelir grupları arasındaki dağılımı Laffer eğrisinin konusu değildir; eğri vergi oranı ile
-        toplam vergi geliri arasındaki ilişkiyi gösterir.
-      E: Bu ifade kamu harcamalarının artışına ilişkin Wagner kanununu tanımlar; Laffer eğrisi kamu harcamalarıyla
-        değil, vergi oranı ve vergi geliriyle ilgilidir.
+      A: Gelir 400 milyar TL'den 350 milyar TL'ye düşmüştür; oran artışının geliri azaltması ekonominin yükselen
+        bölgede değil, tepe noktasının sağında olduğunu gösterir.
+      C: Matrah %30 daralırken oran 10 puan (göreli olarak %25) artmıştır; gelir 400 milyar TL'den 350 milyar TL'ye,
+        yani %12,5 azalmıştır. Matrahtaki değişme oranı gelirdeki değişme oranına eşit değildir.
+      D: Eğri değişmediğinden oran %40'a indirildiğinde matrah 1.000 milyar TL'ye döner ve gelir 400 milyar TL'ye
+        yükselir; gelir azalmaz, artar.
+      E: Tepe noktası %50'nin üzerinde olsaydı %40'tan %50'ye çıkış eğrinin yükselen bölgesinde kalır ve geliri
+        artırırdı; gelir azaldığına göre tepe noktası %50'nin altındadır.
   kaynaklar:
   - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
-    madde: Laffer eğrisi
+    madde: Laffer eğrisi (yükselen bölge, tepe noktası ve yasak bölge)
     alinti: ''
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: 'Soru zorlaştırıldı: tanım sorusu yerine sayısal bir Laffer senaryosu (oran %40 → %50, matrah 1.000 → 700
+      milyar TL) verilip gelirdeki değişme ve eğri üzerindeki konum soruluyor; şıklar, açıklama ve çeldirici gerekçeleri
+      yeniden yazıldı (doğru şık B); tip kavrama → uygulama; zorluk 1 → 2; gecerlilik.baslangic 2026-10-03 → 2026-01-01
+      (teori sorusu).'
+    neden: 'Rötuş: GZ''de ortalama aday rahat çözdü (güven 4); MLY soruları kolay kalmıştı. Zorlaştırma iki adımlı
+      uygulama ve tuzak çeldiriciyle (matrah–gelir değişme oranı karışıklığı), SGS düzeyinde yapıldı.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: B (güven 5); B: B (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -156,7 +148,3 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 4)

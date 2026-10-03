@@ -59,7 +59,8 @@
       B: Değersizleşen kısım için karşılık doğru kullanılmış, ancak tahsil edilen 20.000 ₺'ye ait karşılık 644'e
         aktarılmamış; 129 hesabında karşılığı kalmayan 20.000 ₺ bakiye kalır.
       D: Tahsil edilen kısma ait karşılığın iptali için THP özel olarak 644 Konusu Kalmayan Karşılıklar hesabını
-        öngörür; 671 önceki dönemlere ait unutulmuş gelirler içindir.
+        öngörür; 671 ise cari dönemden önceki dönemlere ait olup o dönemlerin mali tablolarına hata ya da unutulma
+        nedenleriyle yansıtılamayan tutarlar içindir.
       E: Karşılık zaten 2025'te 654 ile gider yazılmıştır; 654'ün tekrar borçlandırılması zararı iki kez gidere
         yansıtır ve 129 hesabını açık bırakır.
   kaynaklar:
@@ -74,12 +75,16 @@
     alinti: Tahsili şüpheli hale gelmiş olan alacaklar ilgili hesapların alacağı karşılığında bu hesaba borç yazılarak
       bu durumdaki alacaklar normal alacaklardan çıkarılır. Alacağın tahsili veya tahsil edilemeyeceğinin kesinleşmesi
       durumunda bu hesaba alacak kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 671 Önceki Dönem Gelir ve Kârları
+    alinti: Cari dönemden önceki dönemlere ait olan ve bu dönemlerin mali tablolarına hata ya da unutulma nedenleriyle
+      yansıtılamayan tutarların gösterildiği hesap kalemidir.
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -94,24 +99,9 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: C (güven 5); B: C (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 4)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) Doğrulandı: tüm şıklarda borç = alacak (C: 70.000 = 70.000). THP 129''a göre tahsil edilen
-          20.000 ₺''lik karşılık 644''e aktarılır, değersizleşen 30.000 ₺ karşılıktan kapatılır. Bu yüzden birleşik
-          kayıt tektir. Bazı kaynaklarda görülen ''689 + 644'' (brüt) yolu 102 20.000, 129 50.000, 689 30.000 /
-          128 50.000, 644 50.000 kaydını verir; bu kayıt şıklarda yok, ikinci doğru doğmuyor. VUK md. 323 ile THP
-          akışı da aynı sonuca gidiyor.'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) D çeldiricisindeki 671 nitelemesi kaynaklarda alıntılanmamış. Resmî karşılığı THP 671 açıklamasında
-          var ('hata ya da unutulma nedenleriyle yansıtılamayan tutarlar').
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: D çeldiricisindeki 671 gerekçesi THP 671 tanımına bağlandı ve THP 671 alıntısı eklendi; gecerlilik.baslangic
+      MSUGT yürürlüğüne (1994-01-01) çekildi.
+    neden: 'G6 (küçük): 671 nitelemesi alıntısızdı; baslangic soru üretim tarihiydi.'

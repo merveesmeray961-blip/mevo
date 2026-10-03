@@ -34,9 +34,11 @@
   dogru: B
   aciklama:
     dogru_neden: 'Hesaplanan KDV: 2.000.000 × %20 + 500.000 × %10 = 450.000 TL. İade alınan mal için KDVK md. 35
-      uyarınca satıcı, daha önce borçlandığı 20.000 TL''yi değişikliğin olduğu dönemde düzeltir (indirim olarak).
-      Md. 29/1-a''ya göre faturalardaki 300.000 TL indirilir; binek otomobil KDV''si md. 30/b uyarınca indirilemez.
-      Devreden 60.000 TL de indirilir. Ödenecek KDV = 450.000 − (300.000 + 20.000 + 60.000) = 70.000 TL.'
+      uyarınca satıcı, daha önce borçlandığı 20.000 TL vergiyi değişikliğin vukubulduğu dönemde (Mart 2026) düzeltir;
+      mal fiilen işletmeye girdiği ve bu giriş defter kayıtları ile beyannamede gösterildiği için md. 35''teki şart
+      da sağlanmıştır. Bu düzeltme Mart döneminde ödenecek vergiyi 20.000 TL azaltır. Md. 29/1-a''ya göre faturalardaki
+      300.000 TL indirilir; binek otomobil KDV''si md. 30/b uyarınca indirilemez. Devreden 60.000 TL de indirilir.
+      Ödenecek KDV = 450.000 − (300.000 + 20.000 + 60.000) = 70.000 TL.'
     celdiriciler:
       A: Binek otomobil KDV'si (40.000 TL) indirilmiştir; md. 30/b bu vergiyi indirilemeyenler arasında sayar.
       C: İade alınan mal için md. 35'teki düzeltme (20.000 TL) yapılmamıştır.
@@ -65,37 +67,33 @@
     alinti: Malların iade edilmesi, işlemin gerçekleşmemesi, işlemden vazgeçilmesi veya sair sebeplerle matrahta
       değişiklik vukubulduğu hallerde, vergiye tabi işlemleri yapmış olan mükellef bunlar için borçlandığı vergiyi
       bu işlemlere muhatap olan mükellef ise indirme hakkı bulunan vergiyi değişikliğin mahiyetine uygun şekilde
-      ve değişikliğin vukubulduğu dönem içinde düzeltilir.
+      ve değişikliğin vukubulduğu dönem içinde düzeltilir. Şu kadar ki, iade olunan malların fiilen işletmeye girmiş
+      olması ve bu girişin defter kayıtları ile beyannamede gösterilmesi şarttır.
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 29/2
     alinti: Bir vergilendirme döneminde indirilecek katma değer vergisi toplamı, mükellefin vergiye tâbi işlemleri
       dolayısıyla hesaplanan katma değer vergisi toplamından fazla olduğu takdirde, aradaki fark sonraki dönemlere
       devrolunur ve iade edilmez.
   gecerlilik:
-    baslangic: '2026-01-01'
+    baslangic: '2004-01-02'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: dogru_neden'deki '(indirim olarak)' nitelemesi kaldırıldı, iade düzeltmesi KDVK md. 35 metnine uygun yazıldı
+      (borçlanılan verginin değişikliğin vukubulduğu dönemde düzeltilmesi ve fiilen işletmeye girme şartı); md.
+      35 alıntısına son cümle eklendi; gecerlilik.baslangic 2026-01-01 → 2004-01-02 (md. 29/2'yi değiştiren 5035
+      s. K.; KDVK yürürlük tablosu).
+    neden: 'G6 (küçük): ''(indirim olarak)'' md. 35''te yoktu; §3 başlangıç tarihi. G5 (küçük) zorluk 3''e yakınlık
+      notu uygulanmadı: dört kalem tek tek basit kurallar, GZ notu etiket değişikliği istemiyor.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: B (güven 5); B: B (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) Zorluk 2: dört ayrı kalem (oran, md. 35 iade düzeltmesi, md. 30/b, devreden) ve her biri ayrı
-          bir hatadan türeyen çeldiriciler var. 3''e yakın; GZ ölçümüne bırakılabilir.'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) dogru_neden'deki '(indirim olarak)' nitelemesi KDVK md. 35'te yok; metin yalnız 'borçlandığı
-          vergiyi ... düzeltilir' der. Beyannamede indirim satırında gösterilmesi uygulama kuralıdır, sonucu değiştirmiyor.
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -105,10 +103,6 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 1)
   dogrulama:
     python: 'hesaplanan = 2000000 * 20 / 100 + 500000 * 10 / 100
 
@@ -163,26 +157,22 @@
     alinti: g) Su, elektrik, gaz, ısıtma, soğutma ve benzeri enerji dağıtım veya kullanımlarında bunların bedellerinin
       tahakkuk ettirilmesi,
   gecerlilik:
-    baslangic: '2026-01-01'
+    baslangic: '1985-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: gecerlilik.baslangic 2026-01-01 → 1985-01-01 (md. 10'un (b), (c), (d), (e) ve (g) bentleri değişmemiş; KDVK
+      md. 62 uyarınca 1/1/1985'te yürürlüğe girdi).
+    neden: 'Rötuş talimatı §3: belirsiz 2026-01-01 başlangıcı.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: E (güven 5); B: E (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -192,7 +182,3 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 3)

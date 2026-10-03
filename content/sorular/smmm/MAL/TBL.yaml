@@ -25,10 +25,13 @@
   dogru: E
   aciklama:
     dogru_neden: Satılan mamul maliyeti yalnızca üretim maliyetlerinden (direkt ilk madde ve malzeme, direkt işçilik,
-      genel üretim giderleri) ve stok değişimlerinden oluşur. TMS 2 md. 16'ya göre stokların mevcut konumuna ve
-      durumuna getirilmesinde katkısı olmayan genel yönetim giderleri ile satış maliyetleri stok maliyetine girmez;
-      finansman giderleri de dönem gideridir. Direkt ilk madde ve malzeme gideri 240.000 ₺, dönem üretim maliyeti
-      540.000 ₺, üretilen mamul maliyeti 520.000 ₺, satılan mamul maliyeti 520.000 + 70.000 - 90.000 = 500.000 ₺'dir.
+      genel üretim giderleri) ve stok değişimlerinden oluşur. TMS 2 par. 16'ya göre stokların mevcut konumuna ve
+      durumuna getirilmesinde katkısı olmayan genel yönetim giderleri ile satış maliyetleri stok maliyetine girmez.
+      Finansman giderleri de MSUGT THP 66 grup açıklamasına göre varlıkların maliyetine eklenmemiş borçlanma giderleridir
+      ve dönem gideri olarak izlenir; borçlanma maliyetlerinin stok maliyetine girebileceği sınırlı koşulları TMS
+      2 par. 17'nin yollamasıyla TMS 23 belirler ve kökte böyle bir koşul yoktur. Direkt ilk madde ve malzeme gideri
+      240.000 ₺, dönem üretim maliyeti 540.000 ₺, üretilen mamul maliyeti 520.000 ₺, satılan mamul maliyeti 520.000
+      + 70.000 - 90.000 = 500.000 ₺'dir.
     hesap_adimlari:
     - 'Direkt ilk madde ve malzeme gideri: 40.000 + 260.000 - 60.000 = 240.000 ₺'
     - 'Dönem üretim maliyeti: 240.000 + 180.000 + 120.000 = 540.000 ₺'
@@ -37,15 +40,16 @@
     - Genel yönetim, finansman ve pazarlama giderleri dönem gideridir; tabloya girmez.
     celdiriciler:
       A: 570.000 ₺, doğru tutara genel yönetim giderleri (45.000) ve finansman giderleri (25.000) eklenerek bulunur;
-        bu iki kalem dönem gideridir, mamul maliyetine katılmaz.
-      B: 545.000 ₺, genel yönetim giderlerinin (45.000) maliyete katılmasıyla bulunur; TMS 2 md. 16(c) uyarınca
+        genel yönetim giderleri TMS 2 par. 16(c) uyarınca, finansman giderleri THP 66 tanımı uyarınca (varlıkların
+        maliyetine eklenmemiş giderler) dönem gideridir, mamul maliyetine katılmaz.
+      B: 545.000 ₺, genel yönetim giderlerinin (45.000) maliyete katılmasıyla bulunur; TMS 2 par. 16(c) uyarınca
         bu giderler stok maliyetine dâhil edilmez.
       C: 540.000 ₺ dönem üretim maliyetidir; yarı mamul ve mamul stoklarındaki değişim hesaba katılmamıştır (mamul
         stok değişimi ters işaretle alındığında da aynı tutar çıkar).
       D: 520.000 ₺ üretilen mamul maliyetidir; mamul stoklarındaki değişim (70.000 - 90.000) dikkate alınmadan durulmuştur.
   kaynaklar:
   - mevzuat: TMS 2 Stoklar
-    madde: md. 16
+    madde: par. 16
     alinti: 'Aşağıdakiler, stokların maliyetine dâhil edilmeyen ve gerçekleştikleri dönemde gider olarak finansal
       tablolara yansıtılan maliyetlere örnek olarak verilebilir: (a) Normalin üstünde gerçekleşen; hammadde fire
       ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim sürecinde bir sonraki üretim aşamasından önce
@@ -58,6 +62,14 @@
       ve yarı mamül kullanım tutarlarının toplamı üretim maliyetini verir. Dönem başı mamül stoku ile dönem sonu
       mamül stoku arasındaki farkı ifade eden mamül stok farkının üretim maliyetine eklenmesiyle satılan mamülün
       maliyetine ulaşılır.'
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 17
+    alinti: TMS 23 Borçlanma Maliyetleri, borçlanma maliyetlerinin stokların maliyetine dâhil edildiği sınırlı koşulları
+      belirler.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 66 Finansman Giderleri (-) (grup açıklaması)
+    alinti: İşletmenin borçlandığı tutarlarla ilgili olarak katlanılan ve varlıkların maliyetine eklenmemiş bulunan
+      faiz, kur farkları, kredi komisyonları ve benzeri diğer giderleri kapsar.
   dogrulama:
     python: 'dimm = 40000 + 260000 - 60000
 
@@ -69,16 +81,22 @@
 
       '
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2018-05-24'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: duzeltici
     ne: MSUGT Ek-4 Satışların Maliyeti Tablosu (E kalemi) kaynak satırına birebir alıntı eklendi.
     neden: 'G6 (küçük): MSUGT kaynak satırında alıntı boştu.'
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: Finansman giderinin mamul maliyetine girmeyip dönem gideri olduğu iddiası için MSUGT THP 66 grup açıklaması
+      ve TMS 2 par. 17 alıntıları eklendi; dogru_neden ve A açıklaması bu kaynaklara bağlandı; 'md.' yerine 'par.';
+      baslangic 2018-05-24.
+    neden: 'G6 (küçük): finansman gideri iddiası kaynaksızdı; baslangic soru üretim tarihiydi.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -93,24 +111,6 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: E (güven 5); B: E (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 4)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) dogru_neden, hesap_adimlari ve A açıklamasındaki 'finansman giderleri dönem gideridir, mamul
-          maliyetine katılmaz' iddiası için kaynak yok (TMS 2 md. 16 alıntısı yalnız genel yönetim ve satış giderlerini
-          kapsıyor). KAV-0002'de olduğu gibi MSUGT THP 66 grup açıklaması ('...varlıkların maliyetine eklenmemiş
-          bulunan faiz...') ve/veya TMS 2 md. 17 alıntısı eklenmeli. Yöntem sorusu olduğundan kaldı sebebi sayılmadı.
 - id: SMMM-MAL-TBL-0002
   sinav: smmm
   bolum:
@@ -140,7 +140,7 @@
     dogru_neden: 'Önce Ocak ayı sonu stokları bulunur: Ocak sonu yarı mamul 40.000 + 400.000 - 380.000 = 60.000
       ₺, Ocak sonu mamul 50.000 + 380.000 - 360.000 = 70.000 ₺. Bunlar Şubat''ın başlangıç stoklarıdır. Şubat üretilen
       mamul maliyeti satılan mamul maliyetinden geri hesapla 450.000 + 40.000 - 70.000 = 420.000 ₺''dir. Şubat dönem
-      üretim maliyeti 440.000 ₺ olduğundan (genel yönetim gideri TMS 2 md. 16(c) uyarınca maliyete girmez) Şubat
+      üretim maliyeti 440.000 ₺ olduğundan (genel yönetim gideri TMS 2 par. 16(c) uyarınca maliyete girmez) Şubat
       sonu yarı mamul stoku 60.000 + 440.000 - 420.000 = 80.000 ₺''dir. Zorluk (3) kaynakları: geri hesap (üretilen
       mamul maliyeti satılan mamul maliyetinden bulunur), iki aylık zincirleme çok adımlı hesap ve gereksiz veri.
       Tuzak, Şubat başı stokları Ocak sonu yerine Ocak başı tutarlarla almak ve maliyete girmeyen genel yönetim
@@ -163,7 +163,7 @@
         dönem gideridir.
   kaynaklar:
   - mevzuat: TMS 2 Stoklar
-    madde: md. 16(c)
+    madde: par. 16(c)
     alinti: (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri,
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
     madde: A-2-e) Satışların Maliyeti Tablosu — D ve E kalemleri
@@ -184,17 +184,22 @@
 
       '
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2018-05-24'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: duzeltici
     ne: MSUGT Ek-4 Satışların Maliyeti Tablosu kaynak satırı D ve E kalemleri olarak ikiye bölündü ve her birine
       birebir alıntı eklendi.
     neden: 'G6 (küçük): MSUGT kaynak satırında alıntı boştu.'
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: TMS 2 atıflarında 'md.' yerine 'par.' kullanıldı; gecerlilik.baslangic TMS 2'nin RG'de yeniden yayım tarihine
+      (2018-05-24) çekildi.
+    neden: Terim tutarlılığı (TMS'de birim paragraftır); baslangic soru üretim tarihiydi.
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -207,20 +212,6 @@
         sonuc: gecti
         tarih: '2026-10-03'
       G7:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: D (güven 5); B: D (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 3)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
         sonuc: gecti
         tarih: '2026-10-03'
 - id: SMMM-MAL-TBL-0003
@@ -247,7 +238,7 @@
     E: '435.000'
   dogru: C
   aciklama:
-    dogru_neden: TMS 2 md. 11'e göre satın alma maliyeti, edinimle doğrudan ilişkili taşıma maliyetlerini içerir;
+    dogru_neden: TMS 2 par. 11'e göre satın alma maliyeti, edinimle doğrudan ilişkili taşıma maliyetlerini içerir;
       iskontolar ve benzeri kalemler indirilir. Net alışlar 400.000 - 20.000 - 10.000 + 15.000 = 385.000 ₺'dir.
       Satılan ticari mal maliyeti 80.000 + 385.000 - 90.000 = 375.000 ₺'dir. MSUGT Ek-4 gelir tablosu düzeninde
       satış iskontoları B Satış İndirimleri grubunda yer alır ve net satışları azaltır; satılan ticari mallar maliyeti
@@ -259,13 +250,13 @@
     celdiriciler:
       A: 350.000 ₺, satış iskontolarının (25.000) da maliyetten düşülmesiyle bulunur; satış iskontosu brüt satışlardan
         indirilir, satılan malın maliyetini etkilemez.
-      B: 360.000 ₺, alışlara ilişkin nakliye giderinin (15.000) maliyete eklenmemesiyle bulunur; TMS 2 md. 11'e
+      B: 360.000 ₺, alışlara ilişkin nakliye giderinin (15.000) maliyete eklenmemesiyle bulunur; TMS 2 par. 11'e
         göre taşıma maliyeti satın alma maliyetine dâhildir.
       D: 405.000 ₺, alış iadeleri ve alış iskontolarının (20.000 + 10.000) alışlardan düşülmemesiyle bulunur.
       E: 435.000 ₺, alış iadeleri ve alış iskontolarının alışlara eklenmesiyle (ters işaret) bulunur.
   kaynaklar:
   - mevzuat: TMS 2 Stoklar
-    madde: md. 11
+    madde: par. 11
     alinti: Stokların satın alma maliyetleri; satın alma fiyatı, ithalat vergileri ve diğer vergiler (işletme tarafından
       daha sonra vergi idaresinden iade alınabilecekler hariç) ile mamul, malzeme ve hizmetlerin edinimiyle doğrudan
       ilişkilendirilebilen taşıma, yükleme-boşaltma ve diğer maliyetleri içerir. Ticari iskontolar, indirimler ve
@@ -286,11 +277,11 @@
 
       '
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2018-05-24'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: duzeltici
@@ -298,6 +289,11 @@
       net satışları etkilediği iddiası için Ek-4 gelir tablosu düzeninden alıntı eklendi ve dogru_neden'e işlendi.
     neden: 'G5 (küçük): net alış düzeltmesi + gereksiz veri + tuzak çeldirici birlikte, §7''ye göre orta (2); G6
       (küçük): MSUGT kaynak satırında alıntı boştu.'
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: TMS 2 atıflarında 'md.' yerine 'par.' kullanıldı; gecerlilik.baslangic TMS 2'nin RG'de yeniden yayım tarihine
+      (2018-05-24) çekildi.
+    neden: Terim tutarlılığı (TMS'de birim paragraftır); baslangic soru üretim tarihiydi.
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -310,19 +306,5 @@
         sonuc: gecti
         tarih: '2026-10-03'
       G7:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: C (güven 5); B: C (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 4)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
         sonuc: gecti
         tarih: '2026-10-03'

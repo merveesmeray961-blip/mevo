@@ -48,8 +48,10 @@
         kârı değildir.
       D: Temettü, yatırımın elden çıkarılması değildir; 245 hesabı yalnızca ortaklık paylarının elden çıkarılmasıyla
         alacaklanır.
-      E: Kâr payı geçmiş yıl kârından dağıtılsa da (S) A.Ş. açısından gelir, dağıtım kararıyla 2026'da doğmuştur;
-        önceki döneme ait unutulmuş bir gelir olmadığından 671 hesabı kullanılmaz.
+      E: THP'ye göre 671 hesabı, cari dönemden önceki dönemlere ait olup o dönemlerin mali tablolarına hata ya da
+        unutulma nedenleriyle yansıtılamayan tutarlar içindir. Kâr payının 2025 kârından dağıtılması, (S) A.Ş.'nin
+        önceki dönem tablolarında hata ya da unutulma nedeniyle yansıtılmamış bir gelir olduğu anlamına gelmez;
+        bu nedenle 671 kullanılmaz.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
     madde: 245 Bağlı Ortaklıklar
@@ -62,12 +64,16 @@
     alinti: '641: İşletmenin bağlı ortaklıklarından elde ettikleri temettü gelirlerinin izlendiği hesaptır. 242:
       İştirakler hesabı, bir ortaklıktaki en fazla % 50 oranında olan sermaye payları veya oy haklarının izlenmesinde
       kullanılır.'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 671 Önceki Dönem Gelir ve Kârları
+    alinti: Cari dönemden önceki dönemlere ait olan ve bu dönemlerin mali tablolarına hata ya da unutulma nedenleriyle
+      yansıtılamayan tutarların gösterildiği hesap kalemidir.
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -82,25 +88,12 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: A (güven 5); B: A (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 5)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) %60 sermaye/oy payı ve yönetim çoğunluğu var. THP 245 'yönetim çoğunluğunu seçme hakkı esas
-          alınır' dediği için bağlı ortaklık ve 641 tek doğru. Tüm şıklarda borç = alacak.
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) E çeldiricisindeki 'gelir dağıtım kararıyla 2026'da doğmuştur' gerekçesi THP'de yazmıyor. 671'in
-          dışlanması THP 671 tanımıyla ('hata ya da unutulma nedenleriyle yansıtılamayan') zaten destekleniyor.
-          Ayrıca D çeldiricisindeki 245 iddiası THP 245 işleyişiyle doğrulandı.
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: E çeldiricisinin gerekçesi THP 671 tanımına dayandırıldı (desteksiz 'gelir dağıtım kararıyla doğar' iddiası
+      çıkarıldı) ve THP 671 alıntısı eklendi; baslangic 1994-01-01.
+    neden: 'G6 (küçük): E gerekçesi THP''de yazmıyordu; baslangic üretim tarihiydi.'
 - id: SMMM-FIN-MKY-0002
   sinav: smmm
   bolum:
@@ -123,7 +116,8 @@
 
     - 2026 yılında hisselerin 1.500 adedi birim 46 ₺''den peşin satılmıştır.
 
-    - 31.12.2026''da kalan hisselerin borsa değeri birim 44 ₺''dir.
+    - 31.12.2026''da kalan hisselerin borsa değeri birim 44 ₺''dir; kalan hisselerdeki değer düşüklüğü de önemli
+    ve sürekli kabul edilmektedir.
 
 
     Aksi belirtilmedikçe Tekdüzen Muhasebe Sistemi esas alınır. Bu hisse senetleriyle ilgili 2026 yılında yapılan
@@ -185,11 +179,11 @@
 
       '
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -204,31 +198,10 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: E (güven 5); B: E (güven 4)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 2)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) Yazar notu doğrulandı: net etki sorulduğu için 644/645 tartışması sonucu değiştirmiyor. THP
-          yolu 655 −6.000 + 644 +15.000 = +9.000. Net defter değeri yolu 69.000 − (75.000 − 15.000) = 645 +9.000.
-          TFRS 9 gerçeğe uygun değer farkı kâr/zarara yolu 1.500 × (46 − 40) + 500 × (44 − 40) = 11.000. Üç yaklaşım
-          da +11.000 ₺ veriyor. dogrulama.python 11.000 verdi. | (küçük) Yıl sonu düzeltmesinde mevcut 5.000 ₺ karşılık
-          tamamen iptal edilip yeniden 3.000 ₺ ayrılsa da net etki +2.000 ₺. Kök 2026 sonundaki kalan düşüşün (50
-          → 44) ''önemli ve sürekli'' sayılıp sayılmadığını söylemiyor. Sayılmazsa sonuç +14.000 ₺ olur; bu şıklarda
-          yok, ikinci doğru doğmuyor. Yalnız VUK md. 279 ile (alış bedeli, karşılık yok) düşünen aday A (−6.000)
-          bulur. Ancak kök karşılığın ayrıldığını veri olarak verdiği ve ''dönem kârı'' sorduğu için bu, ikinci
-          doğru değil, gerçek bir aday hatası. Tamlık için kökte ''kalan hisselerdeki değer düşüklüğü de önemli
-          ve sürekli kabul edilmektedir'' denebilir. | Öneri: Kökün son maddesine ekle: ''(kalan değer düşüklüğü
-          de önemli ve sürekli kabul edilmektedir)''.'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) dogru_neden satış zararını yalnız 655 yoluyla (THP 110–118 işleyişi + 655) anlatıyor; alternatif
-          645 net yolu anılmıyor. Net etki aynı olduğu için iddia desteksiz değil. THP 119 alıntısı birebir; 119
-          tanımındaki 'önemli ölçüde ya da sürekli' ifadesi kökteki 'önemli ve sürekli' ile uyumlu.
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: Kökün son maddesine kalan hisselerdeki 2026 sonu değer düşüklüğünün de önemli ve sürekli kabul edildiği
+      eklendi; baslangic 1994-01-01.
+    neden: 'G5 (küçük): kalan düşüşün niteliği belirtilmediğinden +14.000 ₺ de savunulabilirdi; baslangic üretim
+      tarihiydi.'

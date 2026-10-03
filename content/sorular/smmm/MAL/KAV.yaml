@@ -22,10 +22,10 @@
     E: '680.000'
   dogru: A
   aciklama:
-    dogru_neden: 'Dönüştürme maliyeti, direkt işçilik ile genel üretim giderlerinin toplamıdır (TMS 2 md. 12). Genel
-      üretim giderleri endirekt malzeme, endirekt işçilik, fabrika amortismanı ve fabrika enerjisinden oluşur: 40.000
-      + 60.000 + 50.000 + 30.000 = 180.000 ₺. Dönüştürme maliyeti 200.000 + 180.000 = 380.000 ₺''dir. Genel yönetim
-      ve finansman giderleri üretim maliyetine girmez.'
+    dogru_neden: 'Dönüştürme maliyeti, direkt işçilik ile genel üretim giderlerinin toplamıdır (TMS 2 par. 12).
+      Genel üretim giderleri endirekt malzeme, endirekt işçilik, fabrika amortismanı ve fabrika enerjisinden oluşur:
+      40.000 + 60.000 + 50.000 + 30.000 = 180.000 ₺. Dönüştürme maliyeti 200.000 + 180.000 = 380.000 ₺''dir. Genel
+      yönetim ve finansman giderleri üretim maliyetine girmez.'
     hesap_adimlari:
     - 'Genel üretim giderleri: 40.000 + 60.000 + 50.000 + 30.000 = 180.000 ₺'
     - Dönüştürme maliyeti = Direkt işçilik + GÜG = 200.000 + 180.000 = 380.000 ₺
@@ -40,12 +40,12 @@
         ve malzeme girmez.
   kaynaklar:
   - mevzuat: TMS 2 Stoklar
-    madde: md. 12
+    madde: par. 12
     alinti: Stokların dönüştürme maliyetleri; direkt işçilik giderleri gibi, üretimle doğrudan ilişkili maliyetleri
       kapsar. Bu maliyetler ayrıca ilk madde ve malzemenin mamule dönüştürülmesinde katlanılan sabit ve değişken
       genel üretim giderlerinden sistematik bir şekilde dağıtılan tutarları da içerir.
   - mevzuat: TMS 2 Stoklar
-    madde: md. 16(c)
+    madde: par. 16(c)
     alinti: (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri,
   dogrulama:
     python: 'gug = 40000 + 60000 + 50000 + 30000
@@ -54,26 +54,16 @@
 
       '
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2018-05-24'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: A (güven 5); B: A (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -83,6 +73,12 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: TMS 2 atıflarında 'md.' yerine 'par.' kullanıldı; gecerlilik.baslangic TMS 2'nin RG'de yeniden yayım tarihine
+      (2018-05-24) çekildi.
+    neden: Terim tutarlılığı (TMS'de birim paragraftır); baslangic soru üretim tarihiydi.
 - id: SMMM-MAL-KAV-0002
   sinav: smmm
   bolum:
@@ -116,12 +112,12 @@
     E: I, II ve V
   dogru: E
   aciklama:
-    dogru_neden: TMS 2 md. 12'ye göre genel üretim giderleri; fabrika amortismanı gibi sabit dolaylı üretim maliyetleri
+    dogru_neden: TMS 2 par. 12'ye göre genel üretim giderleri; fabrika amortismanı gibi sabit dolaylı üretim maliyetleri
       ile endirekt malzeme ve endirekt işçilik gibi değişken dolaylı üretim maliyetlerinden oluşur. Fabrika binası
       amortismanı (I), ustabaşı ücreti (II, endirekt işçilik) ve yağlama malzemesi (V, endirekt malzeme) genel üretim
-      gideridir. Genel müdürlük kirası (III) genel yönetim gideridir ve TMS 2 md. 16(c) uyarınca stok maliyetine
+      gideridir. Genel müdürlük kirası (III) genel yönetim gideridir ve TMS 2 par. 16(c) uyarınca stok maliyetine
       girmez. İşletme kredisi faizi (IV) MSUGT THP 66 Finansman Giderleri tanımına göre varlıkların maliyetine eklenmemiş
-      bir finansman gideridir; borçlanma maliyetlerinin stok maliyetine girebileceği sınırlı koşulları TMS 2 md.
+      bir finansman gideridir; borçlanma maliyetlerinin stok maliyetine girebileceği sınırlı koşulları TMS 2 par.
       17'nin yollamasıyla TMS 23 belirler.
     celdiriciler:
       A: 'Eksiktir: üretimde kullanılan yağlama malzemesi (V) endirekt malzemedir ve genel üretim gideridir.'
@@ -132,17 +128,17 @@
         de eksik bırakılmıştır.
   kaynaklar:
   - mevzuat: TMS 2 Stoklar
-    madde: md. 12
+    madde: par. 12
     alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile
       üretim sürecinde yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit
       kalan dolaylı üretim maliyetleri ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir. Değişken genel
       üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı ile birlikte
       doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
   - mevzuat: TMS 2 Stoklar
-    madde: md. 16(c)
+    madde: par. 16(c)
     alinti: (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri,
   - mevzuat: TMS 2 Stoklar
-    madde: md. 17
+    madde: par. 17
     alinti: TMS 23 Borçlanma Maliyetleri, borçlanma maliyetlerinin stokların maliyetine dâhil edildiği sınırlı koşulları
       belirler.
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
@@ -150,11 +146,11 @@
     alinti: İşletmenin borçlandığı tutarlarla ilgili olarak katlanılan ve varlıkların maliyetine eklenmemiş bulunan
       faiz, kur farkları, kredi komisyonları ve benzeri diğer giderleri kapsar.
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2019-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: duzeltici
@@ -162,6 +158,11 @@
       finansman giderinin dışlanması için MSUGT THP 66 alıntısı eklendi ve dogru_neden'deki md. 17 atfı metne uygun
       daraltıldı.
     neden: 'G6 (küçük): alıntı paragrafları ayırıcı olmadan birleştiriyordu; md. 17 atfı fazla genişti.'
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: TMS 2 atıflarında 'md.' yerine 'par.' kullanıldı; gecerlilik.baslangic 2019-01-01 (alıntılanan par. 12'yi
+      değiştiren TFRS 16 değişikliğinin uygulanma tarihi, TMS 2 par. 40G).
+    neden: Terim tutarlılığı; baslangic soru üretim tarihiydi.
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -174,19 +175,5 @@
         sonuc: atlandi
         not: hesaplama sorusu değil
       G7:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: E (güven 5); B: E (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 4)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
         sonuc: gecti
         tarih: '2026-10-03'

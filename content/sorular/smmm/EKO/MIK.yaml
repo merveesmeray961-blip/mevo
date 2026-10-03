@@ -7,39 +7,42 @@
   konu: MIK
   kazanim: esneklik
   tip: hesaplama
-  zorluk: 1
+  zorluk: 2
   soru_bicimi: standart
-  kok: Bir malın fiyatı 40 TL'den 50 TL'ye yükseldiğinde bu malın talep edilen miktarı 100 birimden 50 birime düşmektedir.
-    Yüzde değişimler başlangıç değerleri esas alınarak hesaplandığında, talebin fiyat esnekliği katsayısının mutlak
-    değeri kaçtır?
+  kok: Bir malın fiyatı 40 TL iken talep edilen miktarı 100 birimdir. Bu mala ilişkin talebin fiyat esnekliği katsayısı
+    -2'dir (yüzde değişimler başlangıç değerleri esas alınarak hesaplanmaktadır). Diğer koşullar sabitken malın
+    fiyatı 50 TL'ye yükseltilirse tüketicilerin bu mala yaptığı toplam harcama nasıl değişir?
   secenekler:
-    A: 0,2
-    B: 0,5
-    C: '2'
-    D: '3'
-    E: '5'
-  dogru: C
+    A: 2.000 TL azalır.
+    B: 1.500 TL azalır.
+    C: Değişmez.
+    D: 375 TL artar.
+    E: 1.000 TL artar.
+  dogru: B
   aciklama:
-    dogru_neden: Talebin fiyat esnekliği, talep edilen miktardaki yüzde değişmenin fiyattaki yüzde değişmeye oranıdır.
-      Miktar %50 azalmış, fiyat %25 artmıştır; esneklik katsayısı -50 / 25 = -2, mutlak değeri 2'dir. Katsayı 1'den
-      büyük olduğundan talep fiyat karşısında esnektir.
+    dogru_neden: 'Talebin fiyat esnekliği, talep edilen miktardaki yüzde değişmenin fiyattaki yüzde değişmeye oranıdır;
+      esneklik ve fiyattaki değişme verildiğinde miktardaki değişme geri hesapla bulunur. Fiyat %25 artmıştır ((50
+      - 40) / 40); esneklik -2 olduğundan talep edilen miktar %25 x 2 = %50 azalır ve 100 birimden 50 birime düşer.
+      Toplam harcama 40 x 100 = 4.000 TL''den 50 x 50 = 2.500 TL''ye iner, yani 1.500 TL azalır. Talep esnek (|e|
+      > 1) olduğundan fiyat artışı toplam harcamayı azaltır. Tuzak: esnekliği ters kurmak ya da yalnız fiyat artışına
+      bakıp harcamanın artacağını düşünmek.'
     hesap_adimlari:
-    - 'Miktardaki yüzde değişme: (50 - 100) / 100 = -%50'
     - 'Fiyattaki yüzde değişme: (50 - 40) / 40 = +%25'
-    - 'Esneklik katsayısı: -50 / 25 = -2'
-    - 'Mutlak değer: |-2| = 2 (esnek talep)'
+    - 'Miktardaki yüzde değişme: -2 x %25 = -%50; yeni miktar 100 x 0,50 = 50 birim'
+    - 'İlk harcama: 40 x 100 = 4.000 TL; yeni harcama: 50 x 50 = 2.500 TL'
+    - 'Değişme: 2.500 - 4.000 = -1.500 TL (1.500 TL azalır)'
     celdiriciler:
-      A: 0,2, fiyat değişmesinin miktar değişmesine oranıdır (ΔP / ΔQ = 10 / 50); yüzde değişimler kullanılmamış
-        ve oran ters kurulmuştur.
-      B: 0,5, fiyattaki yüzde değişmenin miktardaki yüzde değişmeye bölünmesiyle (25 / 50) bulunur; esneklik formülü
-        ters kurulmuştur.
-      D: '3, yay (orta nokta) esnekliği yöntemiyle bulunur: (50 / 75) / (10 / 45) = 3. Kök, yüzde değişimlerin başlangıç
-        değerleriyle hesaplanmasını istemektedir.'
-      E: 5, yüzde değişimlerin son değerlerle hesaplanmasından ((50 / 50) / (10 / 50) = 5) ya da yalnızca mutlak
-        değişimlerin oranlanmasından (50 / 10) kaynaklanır.
+      A: Yeni miktar (50 birim) doğru bulunmuş, ancak eski fiyatla çarpılmıştır (40 x 50 = 2.000 TL; 4.000 - 2.000
+        = 2.000); yeni harcama yeni fiyatla hesaplanır (50 x 50 = 2.500 TL).
+      C: Esneklik katsayısı eğim gibi kullanılarak miktar 2 x 10 = 20 birim azaltılmıştır (yeni miktar 80, harcama
+        50 x 80 = 4.000 TL); esneklik mutlak değişmelerin değil yüzde değişmelerin oranıdır.
+      D: Esneklik ters kurularak miktardaki azalma %25 / 2 = %12,5 bulunmuştur (yeni miktar 87,5; harcama 50 x 87,5
+        = 4.375 TL); doğru azalma %25 x 2 = %50'dir.
+      E: Talep edilen miktar 100 birimde sabit kabul edilip yalnız fiyat artışının etkisi hesaplanmıştır (100 x
+        10); esnek talepte fiyat artışı miktarı fiyattan daha büyük oranda azaltır.
   kaynaklar:
   - mevzuat: İktisat teorisi — genel kabul görmüş tanım
-    madde: Talebin fiyat esnekliği
+    madde: Talebin fiyat esnekliği ve toplam harcama (gelir) ilişkisi
     alinti: ''
   dogrulama:
     python: 'p0 = 40
@@ -48,36 +51,37 @@
 
       q0 = 100
 
-      q1 = 50
-
-      yuzde_q = (q1 - q0) / q0
+      esneklik = -2
 
       yuzde_p = (p1 - p0) / p0
 
-      sonuc = abs(yuzde_q / yuzde_p)
+      q1 = q0 * (1 + esneklik * yuzde_p)
+
+      degisim = p1 * q1 - p0 * q0
+
+      sonuc = -degisim  # şıkta ''azalır'' olarak ifade edilen tutar
 
       '
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: 'Soru zorlaştırıldı: esneklik hesaplatmak yerine esneklik katsayısı verilip fiyat artışının toplam harcamaya
+      etkisi soruluyor (geri hesap + iki adım); şıklar harcama değişimine göre yeniden yazıldı, doğru şık C → B;
+      açıklama, çeldirici gerekçeleri, hesap adımları ve dogrulama.python yeniden yazıldı; zorluk 1 → 2; gecerlilik.baslangic
+      2026-10-03 → 2026-01-01 (teori sorusu).'
+    neden: 'Rötuş: GZ''de ortalama aday rahat çözdü (güven 4); MLY/EKO soruları kolay kalmıştı. Zorlaştırma §7 teknikleriyle
+      (geri hesap, tipik hata çeldiricileri), SGS düzeyinde yapıldı.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: C (güven 5); B: C (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -87,10 +91,6 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 4)
 - id: SMMM-EKO-MIK-0002
   sinav: smmm
   bolum:
@@ -134,26 +134,21 @@
     madde: Tam rekabet piyasası (fiyat kabul edici firma, uzun dönem dengesi)
     alinti: ''
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: gecerlilik.baslangic 2026-10-03 (üretim tarihi) → 2026-01-01 (yasal dayanağı olmayan teori sorusu).
+    neden: 'Rötuş talimatı §3: üretim tarihi başlangıç olarak yazılmıştı.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: C (güven 5); B: C (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -163,7 +158,3 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 4)

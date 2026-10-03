@@ -6,7 +6,7 @@
   konu: GVK
   kazanim: Mesken kira geliri istisnası, götürü gider ve ücretin beyanı
   tip: hesaplama
-  zorluk: 2
+  zorluk: 3
   soru_bicimi: standart
   kok: 'Ticari, zirai veya mesleki kazancı bulunmayan Bay (A), 2026 yılında:
 
@@ -46,14 +46,20 @@
       ücret ve gayrimenkul sermaye iradı gibi gelirlerin gayrisafi tutarları toplamı tarifenin üçüncü diliminde
       ücret gelirleri için yer alan tutarı (1.500.000 TL) aşanlar mesken kira istisnasından yararlanamaz; yalnız
       ücret bile 1.600.000 TL olduğundan istisna uygulanmaz. Götürü gider (md. 74): 600.000 × %15 = 90.000 TL; matrah
-      510.000 TL. Vergi = 70.500 + (510.000 − 400.000) × %27 = 100.200 TL.'
+      510.000 TL. Vergi = 70.500 + (510.000 − 400.000) × %27 = 100.200 TL. Bu soru zor düzeydedir; kullanılan teknikler:
+      çok adımlı hesap (beyana dahil edilmeyen ücret bile md. 21/2 sınırını aşarak istisnayı düşürür), madde birleştirme
+      (GVK md. 21/2, 74, 86/1-b ve 332 Seri No.lu Tebliğ birlikte okunur), gereksiz veri (kökte verilen 58.000 TL
+      istisna tutarı çözüme girmez) ve tipik hata çeldiricileri. Tuzak: beyana dahil edilmeyen ücretin istisna sınırının
+      kontrolünde de dikkate alınmayacağını sanmak; md. 21/2 gayrisafi tutarları ''beyanı gerekip gerekmediğine
+      bakılmaksızın'' toplar.'
     celdiriciler:
       A: İstisna uygulanmış ve götürü gider brüt hasılattan hesaplanıp istisna ayrıca düşülmüştür (600.000 − 90.000
         − 58.000 = 452.000); ücret toplamı sınırı aştığından istisna uygulanamaz.
       B: 58.000 TL istisna uygulanmıştır ((600.000 − 58.000) × %85 = 460.700); md. 21/2'deki 1.500.000 TL sınırı
         aşıldığından istisnadan yararlanılamaz.
-      C: Matrah doğru (510.000 TL) bulunmuş, ancak tamamı ikinci dilim oranıyla (%20) vergilendirilmiştir; 400.000
-        TL'yi aşan kısım %27 dilimine girer.
+      C: 'Matrah doğru (510.000 TL) bulunmuş, ancak ikinci dilim formülü (28.500 TL + 190.000 TL''yi aşan kısım
+        × %20) matrahın tamamına uygulanmıştır: 28.500 + 320.000 × %20 = 92.500 TL. 400.000 TL''yi aşan kısım %27
+        dilimine girer.'
       E: Götürü gider indirilmemiştir (matrah 600.000 TL); md. 74 hasılatın %15'inin götürü gider olarak indirilmesine
         izin verir.
     hesap_adimlari:
@@ -92,37 +98,21 @@
     bitis: null
     yila_bagli_tutar: true
     yil: 2026
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: C çeldirici açıklaması 92.500'ün gerçek hata yoluna (ikinci dilim formülünün matrahın tamamına uygulanması)
+      göre düzeltildi; zorluk 2 → 3; dogru_neden'e kullanılan zor soru teknikleri ve tuzak eklendi. gecerlilik.baslangic
+      2026-01-01 olarak korundu (2026 tarifesi, 332 Seri No.lu Tebliğ).
+    neden: 'G5 (küçük): C açıklaması ''tamamı %20'' diyordu (düz %20 → 102.000 çıkar); soru çok adımlı hesap, madde
+      birleştirme ve gereksiz veri içeriyor, GZ''de ortalama aday yanıldı (güven 1).'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: D (güven 5); B: D (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) Doğrulandı: 332 Seri No.lu Tebliğ md. 3/3 tarifesinde üçüncü dilimin ücret gelirleri tutarı
-          1.500.000 TL; GVK md. 21/2 bu tutara atıf yapar ve ''beyanı gerekip gerekmediğine bakılmaksızın'' gayrisafi
-          tutarları sayar. Bu yüzden beyana dahil edilmeyen 1.600.000 TL ücret tek başına sınırı aşar. İstisna yok,
-          md. 74 götürü gider %15 yürürlükte (7566 yalnız 74/4''ü değiştirdi). Matrah 510.000, vergi 100.200; dogrulama.python
-          100200.0 verdi. İkinci savunulabilir şık yok. | (küçük) C çeldiricisinin açıklaması ''tamamı ikinci dilim
-          oranıyla (%20)'' diyor. Oysa 92.500 = 28.500 + (510.000 − 190.000) × %20, yani ikinci dilim formülü bütün
-          matraha uygulanmış. Düz ''%20'' okunursa 102.000 çıkar. | (küçük) Zorluk 2 olarak etiketlenmiş, ancak
-          soru §7''deki birden çok tekniği kullanıyor: istisna sınırı aşılınca istisnanın düşmesi (çok adımlı hesap),
-          md. 21/2, 74, 86 ve Tebliğin birlikte okunması (madde birleştirme), 58.000 TL istisna tutarı (gereksiz
-          veri) ve dört farklı hatadan türeyen çeldiriciler. Bu yüzden 3 etiketi de savunulabilir; GZ ölçümüne bırakılabilir.
-          | Öneri: C açıklaması: ''Matrah doğru bulunmuş, ancak ikinci dilim formülü (28.500 + 190.000 TL''yi aşan
-          kısım × %20) matrahın tamamına uygulanmıştır; 400.000 TL''yi aşan kısım %27 dilimine girer.'''
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) md. 21/2 alıntısı kaynak dosyada sayfa altı dipnotuyla (15) bölünüyor, bu yüzden otomatik karşılaştırma
-          ilk anda eşleşmedi. Dipnot çıkarıldığında alıntı resmî metinle birebir aynı.
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -132,10 +122,6 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 1)
   dogrulama:
     python: "def gv(m):\n    if m <= 190000: return m * 15 / 100\n    if m <= 400000: return 28500 + (m - 190000)\
       \ * 20 / 100\n    if m <= 1000000: return 70500 + (m - 400000) * 27 / 100\n    if m <= 5300000: return 232500\
@@ -199,26 +185,23 @@
     madde: md. 89/1
     alinti: Beyan edilen gelirin %15'ini ve asgari ücretin yıllık tutarını aşmamak şartıyla
   gecerlilik:
-    baslangic: '2026-01-01'
+    baslangic: '2018-07-09'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: gecerlilik.baslangic 2026-01-01 → 2018-07-09 (md. 89/4 ve 89/10'daki 'Cumhurbaşkanınca' ibarelerini getiren
+      700 s. KHK'nin yürürlüğü; GVK yürürlük tablosuyla doğrulandı).
+    neden: 'Rötuş talimatı §3: belirsiz 2026-01-01 başlangıcı dayanılan hükmün son değişiklik/yürürlük tarihiyle
+      değiştirildi.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: E (güven 5); B: E (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -228,10 +211,6 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 2)
 - id: SMMM-VER-GVK-0003
   sinav: smmm
   bolum:
@@ -253,10 +232,13 @@
     E: Yazarı olduğu romanın telif hakkını bir yayınevine devretmesi
   dogru: A
   aciklama:
-    dogru_neden: Mükerrer md. 80/4'e göre ortaklık haklarının veya hisselerinin elden çıkarılmasından doğan kazançlar,
+    dogru_neden: 'Mükerrer md. 80/4''e göre ortaklık haklarının veya hisselerinin elden çıkarılmasından doğan kazançlar,
       elde tutma süresine bakılmaksızın değer artışı kazancıdır. İki yıllık süre ayrıcalığı (80/1) yalnız tam mükellef
-      kurumlara ait hisse senetleri için geçerlidir; limited şirket ortaklık payı hisse senedi olmadığından bu ayrıcalıktan
-      yararlanamaz.
+      kurumlara ait hisse senetleri için geçerlidir. Limited şirketteki ortaklık payı (esas sermaye payı) hisse
+      senedi değildir: TTK md. 593/2''ye göre limited şirkette esas sermaye pay senetleri yalnız ispat aracı şeklinde
+      veya nama yazılı olarak düzenlenir. GVK da hisse senetlerini (80/1) ortaklık hakları veya hisselerinden (80/4)
+      ayrı saymıştır; bu nedenle limited şirket payının satışı 80/1''deki ayrıcalıktan yararlanamaz ve 80/4 uyarınca
+      değer artışı kazancı doğurur.'
     celdiriciler:
       B: Mükerrer md. 80/6'ya göre gayrimenkuller yalnız iktisap tarihinden başlayarak beş yıl içinde elden çıkarılırsa
         değer artışı kazancı doğar; 2019'da alınan konut 2026'da satıldığından süre geçmiştir.
@@ -283,35 +265,29 @@
       (1), (2), (4) ve (7) numaralı bentlerinde yazılı mal (gerçek usulde vergiye tâbi çiftçilerin ziraî istihsalde
       kullandıkları gayrimenkuller dahil) ve hakların, iktisap tarihinden başlayarak beş yıl içinde elden çıkarılmasından
       doğan kazançlar
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 593/2
+    alinti: (2) Esas sermaye pay senetleri ispat aracı şeklinde veya nama yazılı olarak düzenlenir.
   gecerlilik:
-    baslangic: '2026-01-01'
+    baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: dogru_neden'deki 'limited şirket ortaklık payı hisse senedi değildir' gerekçesi TTK md. 593/2'ye dayandırıldı
+      ve kaynaklara TTK md. 593/2 alıntısı eklendi; gecerlilik.baslangic 2026-01-01 → 2012-07-01 (TTK 6102'nin yürürlüğü;
+      GVK mük. 80'in son değişikliği 5615 s. K. ile 4/4/2007).
+    neden: 'G6 (küçük): gerekçe GVK metninde açıkça yer almıyordu, TTK 593/2 alıntısı önerildi; §3 başlangıç tarihi.
+      G5 (küçük) A şıkkındaki elde tutma süresi belirsizliği uygulanmadı: doğru hükümde (mük. 80/4) süre şartı yoktur,
+      belirsizlik yalnız hükmü yanlış bilen adayı etkileyen bir tuzaktır.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: A (güven 5); B: A (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) A şıkkında payın 2024'te alınıp 2026'da satılması, elde tutma süresinin iki yılı aşıp aşmadığını
-          belirsiz bırakıyor. Doğru hükme göre (mük. 80/4'te süre şartı yok) cevap değişmiyor, belirsizlik yalnız
-          yanlış bilen adayı etkiliyor; ikinci doğru şık doğmuyor.
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) dogru_neden''deki ''limited şirket ortaklık payı hisse senedi olmadığından'' gerekçesi GVK
-          metninde açıkça yazmıyor. Mük. 80/1 (hisse senetleri) ile 80/4 (ortaklık hakları veya hisseleri) arasındaki
-          ayrımdan ve TTK md. 593/2''den (''Esas sermaye pay senetleri ispat aracı şeklinde veya nama yazılı olarak
-          düzenlenir'') çıkarılıyor. Asıl iddia, yani 80/4''te süre şartı olmadığı, metinle destekleniyor. Önerilen
-          düzeltme: TTK 593/2''yi kaynaklara eklemek.'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -321,7 +297,3 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 3)

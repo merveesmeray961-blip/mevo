@@ -7,7 +7,7 @@
   konu: SGK
   kazanim: bildirimler
   tip: bilgi
-  zorluk: 1
+  zorluk: 2
   soru_bicimi: standart
   kok: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu'na göre, bir inşaat işyerinde 4. maddenin
     birinci fıkrasının (a) bendi kapsamında çalıştırılacak bir işçinin sigortalı işe giriş bildirgesinin, sigortalılık
@@ -47,14 +47,18 @@
     baslangic: '2008-10-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: duzeltici
     ne: 'C çeldirici açıklaması md. 8/3''e göre daraltıldı: 15 gün yalnız 4/b-(1),(2),(3) için; (4) için bir ay.'
     neden: 'G5/G6 (küçük): açıklama 15 günlük süreyi 4/b kapsamının tamamına bağlıyordu; md. 8/3''te (4) numaralı
       alt bent için süre bir aydır.'
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: Zorluk 1 → 2.
+    neden: 'GZ: kolay etiketli ama ortalama aday yanıldı (güven 3) → etiket 2.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -67,20 +71,6 @@
         sonuc: atlandi
         not: hesaplama sorusu değil
       G7:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 3); kolay etiketli ama yanıldı → etiket 2 olmalı
-      G3:
-        sonuc: gecti
-        not: 'A: B (güven 5); B: B (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
         sonuc: gecti
         tarih: '2026-10-03'
 - id: SMMM-HUK-SGK-0002
@@ -186,10 +176,14 @@
       sigortaya tabi olduğunu belgeleyen kişi
   dogru: A
   aciklama:
-    dogru_neden: md. 6/1-(c) bendi ev hizmetlerinde çalışanları sigortalı sayılmayanlar arasında saymakla birlikte,
+    dogru_neden: 'md. 6/1-(c) bendi ev hizmetlerinde çalışanları sigortalı sayılmayanlar arasında saymakla birlikte,
       ücretle aynı kişi yanında ay içinde 10 gün ve daha fazla süreyle çalışanları (ve ek 9. maddenin ikinci fıkrası
-      kapsamında sigortalı olanları) bu istisnanın dışında tutmuştur. Dolayısıyla bu kişi, md. 6'da sayılan sigortalı
-      sayılmayanlar arasında yer almaz.
+      kapsamında sigortalı olanları) bu istisnanın dışında tutmuştur. Dolayısıyla bu kişi, md. 6''da sayılan sigortalı
+      sayılmayanlar arasında yer almaz. Bu soru zor düzeydedir; kullanılan teknikler: istisnanın istisnası (md.
+      6/1-(c) ev hizmetlerinde çalışanları sigortalı sayılmayanlar arasına alır, parantez içindeki ''hariç'' hükmü
+      ise ücretle aynı kişi yanında ayda 10 gün ve daha fazla çalışanları bu istisnanın dışına çıkarır) ve yakın
+      kavram ayrımı (ev hizmetlerinde çalışanlar arasında ücret ve gün sayısına göre yapılan ayrım). Tuzak: ev hizmetlerinde
+      çalışanların tamamını sigortalı sayılmayan sanmak.'
     celdiriciler:
       B: md. 6/1-(a) uyarınca işverenin işyerinde ücretsiz çalışan eşi sigortalı sayılmaz; bu kişi md. 6 kapsamındadır.
       C: md. 6/1-(d) uyarınca askerlik hizmetini er ve erbaş olarak yapmakta olanlar sigortalı sayılmaz; bu kişi
@@ -216,14 +210,18 @@
     baslangic: '2015-04-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: duzeltici
     ne: gecerlilik.baslangic 2026-01-01 → 2015-04-01 (md. 6/1-(c)'nin güncel hâli 6552 s. Kanunla 1/4/2015'te yürürlüğe
       girdi; resmî metindeki 12 numaralı dipnotla doğrulandı).
     neden: 'G5 (küçük): gecerlilik.baslangic hükmün gerçek yürürlük tarihiyle uyumsuzdu.'
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: dogru_neden'e kullanılan zor soru teknikleri ve tuzak eklendi.
+    neden: 'G5 (küçük): zor (3) soruda teknikler ve tuzak adlandırılmamıştı (§7).'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -236,24 +234,5 @@
         sonuc: atlandi
         not: hesaplama sorusu değil
       G7:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 4)
-      G3:
-        sonuc: gecti
-        not: 'A: A (güven 5); B: A (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) Zorluk 3 etiketli olduğu hâlde dogru_neden kullanılan zor soru tekniklerini (istisnanın istisnası:
-          md. 6/1-(c)''deki ''hariç'' parantezi; yakın kavram ayrımı) ve tuzağı adıyla anmıyor (uretim.md §7). |
-          Öneri: dogru_neden sonuna: ''Zorluk (3) kaynakları: istisnanın istisnası (6/1-(c) ev hizmetleri istisnasının
-          içindeki 10 gün/ücret ayrımı) ve yakın kavram ayrımı; tuzak, ev hizmetlerinde çalışanların tamamını sigortalı
-          sayılmayan sanmaktır.'' eklenebilir.'
-      G6:
         sonuc: gecti
         tarih: '2026-10-03'

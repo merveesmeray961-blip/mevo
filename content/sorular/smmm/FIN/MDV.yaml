@@ -66,12 +66,16 @@
     madde: 191 İndirilecek KDV
     alinti: Her türlü mal ve hizmetin satın alınması sırasında satıcılara ödenen katma değer vergisinin kaydedildiği
       ve izlendiği hesaptır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 258 Yapılmakta Olan Yatırımlar
+    alinti: İşletmede, yapımı süren ve tamamlandığında ilgili maddi duran varlık hesabına aktarılacak olan, her
+      türlü madde ve malzeme ile işçilik ve genel giderlerle ilgili harcamaların izlendiği hesaptır.
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -86,24 +90,12 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: E (güven 5); B: E (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 2)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) Tüm şıklarda borç = alacak. VUK md. 272 (özel maliyet) ile THP 264 aynı sonucu veriyor; KDV'nin
-          indirilemeyeceğine dair veri yok. Tek doğru E.
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) A (252) ve D (258) çeldiricilerinin gerekçeleri alıntılanmamış. THP 258 açıklamasında karşılığı
-          var ('yapımı süren ve tamamlandığında ilgili maddi duran varlık hesabına aktarılacak').
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: D çeldiricisinin gerekçesi için THP 258 Yapılmakta Olan Yatırımlar alıntısı eklendi; baslangic 1994-01-01.
+    neden: 'G6 (küçük): A/D çeldirici gerekçeleri alıntısızdı (A, 264 alıntısıyla zaten destekleniyor); baslangic
+      üretim tarihiydi.'
 - id: SMMM-FIN-MDV-0002
   sinav: smmm
   bolum:
@@ -111,7 +103,7 @@
   ders: FIN
   unite: Finansal Muhasebe
   konu: MDV
-  kazanim: TMS 16 yeniden değerleme modeli — orantılı yöntem ve kıst amortisman
+  kazanim: TMS 16 yeniden değerleme modeli — orantılı yöntem, kıst amortisman ve yararlı ömür tahmin değişikliği
   tip: hesaplama
   zorluk: 3
   soru_bicimi: yevmiye
@@ -121,12 +113,14 @@
 
     - Bir makine 01.07.2022 tarihinde 400.000 ₺''ye edinilmiş ve aynı gün kullanıma hazır hâle gelmiştir.
 
-    - Yararlı ömür 10 yıl, kalıntı değer sıfırdır; doğrusal amortisman ay esasına göre (kıst) uygulanmaktadır.
+    - Edinim tarihinde yararlı ömür 10 yıl, kalıntı değer sıfır olarak tahmin edilmiştir; doğrusal amortisman ay
+    esasına göre (kıst) uygulanmaktadır.
+
+    - 01.01.2025 tarihinde, yeni bilgiler ışığında makinenin kalan yararlı ömrü 6 yıl olarak yeniden tahmin edilmiştir
+    (kalıntı değer yine sıfırdır).
 
     - Makine daha önce hiç yeniden değerlenmemiştir. 31.12.2026 tarihinde, 2026 yılı amortismanı kaydedildikten
     sonra makinenin gerçeğe uygun değeri 330.000 ₺ olarak belirlenmiştir.
-
-    - Kalan yararlı ömür tahmini değişmemiştir.
 
     - Şirket, birikmiş amortismanı brüt defter değerindeki değişimle orantılı olarak düzeltmektedir (TMS 16 par.
     35(a)).
@@ -136,56 +130,75 @@
 
     Buna göre 31.12.2026 tarihli yeniden değerleme kaydı aşağıdakilerden hangisidir?'
   secenekler:
-    A: 'Borç: 257 Birikmiş Amortismanlar 180.000
+    A: 'Borç: 257 Birikmiş Amortismanlar 200.000
 
       Alacak: 253 Tesis, Makine ve Cihazlar 70.000
 
-      Alacak: 522 M.D.V. Yeniden Değerleme Artışları 110.000'
-    B: 'Borç: 253 Tesis, Makine ve Cihazlar 150.000
-
-      Alacak: 257 Birikmiş Amortismanlar 60.000
-
-      Alacak: 522 M.D.V. Yeniden Değerleme Artışları 90.000'
-    C: 'Borç: 253 Tesis, Makine ve Cihazlar 200.000
+      Alacak: 522 M.D.V. Yeniden Değerleme Artışları 130.000'
+    B: 'Borç: 253 Tesis, Makine ve Cihazlar 200.000
 
       Alacak: 257 Birikmiş Amortismanlar 90.000
 
       Alacak: 522 M.D.V. Yeniden Değerleme Artışları 110.000'
-    D: 'Borç: 253 Tesis, Makine ve Cihazlar 200.000
+    C: 'Borç: 253 Tesis, Makine ve Cihazlar 260.000
 
-      Alacak: 257 Birikmiş Amortismanlar 90.000
+      Alacak: 257 Birikmiş Amortismanlar 130.000
 
-      Alacak: 649 Diğer Olağan Gelir ve Kârlar 110.000'
-    E: 'Borç: 253 Tesis, Makine ve Cihazlar 200.000
+      Alacak: 522 M.D.V. Yeniden Değerleme Artışları 130.000'
+    D: 'Borç: 253 Tesis, Makine ve Cihazlar 260.000
 
-      Alacak: 522 M.D.V. Yeniden Değerleme Artışları 200.000'
+      Alacak: 257 Birikmiş Amortismanlar 130.000
+
+      Alacak: 649 Diğer Olağan Gelir ve Kârlar 130.000'
+    E: 'Borç: 253 Tesis, Makine ve Cihazlar 260.000
+
+      Alacak: 522 M.D.V. Yeniden Değerleme Artışları 260.000'
   dogru: C
   aciklama:
-    dogru_neden: 'Soru üç tekniği birleştirir: çok adımlı hesap (kıst amortisman → net defter değeri → oran), yakın
-      kavram ayrımı (par. 35(a) orantılı yöntem ile par. 35(b) eliminasyon yöntemi) ve tipik hata çeldiricileri.
-      Birinci tuzak ilk yılın yarım yıl olmasıdır: 01.07.2022–31.12.2026 arası 4,5 yıl, birikmiş amortisman 4,5
-      × 40.000 = 180.000 ₺, net defter değeri 220.000 ₺. Gerçeğe uygun değer 330.000 ₺ olduğundan artış 110.000
-      ₺, oran 330.000 / 220.000 = 1,5''tir. Orantılı yöntemde brüt değer 400.000''den 600.000''e (+200.000), birikmiş
-      amortisman 180.000''den 270.000''e (+90.000) çıkarılır. İkinci tuzak artışın yeridir: daha önce kâr veya zarara
-      yansıtılmış bir azalış olmadığından TMS 16 par. 39 uyarınca artış diğer kapsamlı gelirde muhasebeleştirilip
-      özkaynakta (THP 522) toplanır.'
+    dogru_neden: 'Soru beş tekniği birleştirir: çok adımlı hesap (kıst amortisman → tahmin değişikliği → net defter
+      değeri → oran), madde birleştirme (TMS 16 par. 51 ile TMS 8 par. 36; TMS 16 par. 35 ve 39), tarih/süre hesabı
+      (ilk yılın yarım yıl olması), yakın kavram ayrımı (par. 35(a) orantılı yöntem ile par. 35(b) eliminasyon yöntemi)
+      ve tipik hata çeldiricileri. (1) 01.07.2022–31.12.2024 arası 2,5 yıl × 40.000 = 100.000 ₺ birikmiş amortisman;
+      01.01.2025 net defter değeri 300.000 ₺. (2) TMS 16 par. 51 uyarınca yararlı ömürdeki değişiklik TMS 8''e göre
+      muhasebe tahmininde değişikliktir ve TMS 8 par. 36 gereği ileriye yönelik yansıtılır: geçmiş amortisman düzeltilmez,
+      kalan 300.000 ₺ yeni kalan ömre (6 yıl) dağıtılır; 2025 ve 2026 amortismanı 50.000''er ₺. (3) 31.12.2026 birikmiş
+      amortisman 100.000 + 100.000 = 200.000 ₺, net defter değeri 200.000 ₺; gerçeğe uygun değer 330.000 ₺ olduğundan
+      artış 130.000 ₺, oran 330.000 / 200.000 = 1,65. (4) Orantılı yöntemde brüt değer 400.000''den 660.000''e (+260.000),
+      birikmiş amortisman 200.000''den 330.000''e (+130.000) çıkarılır. (5) Daha önce kâr veya zarara yansıtılmış
+      bir azalış olmadığından TMS 16 par. 39 uyarınca artış diğer kapsamlı gelirde muhasebeleştirilip özkaynakta
+      (THP 522) toplanır. Tuzaklar: tahmin değişikliğini göz ardı edip ilk tahminle (10 yıl) devam etmek (B), eliminasyon
+      yöntemini uygulamak (A) ve artışı gelir tablosuna almak (D).'
     celdiriciler:
-      A: Bu kayıt par. 35(b) eliminasyon yöntemidir (birikmiş amortisman brüt değerle netleştirilip brüt değer 330.000'e
-        indirilir); kökte şirketin orantılı yöntemi uyguladığı belirtilmiştir.
-      B: Kıst amortisman göz ardı edilip 4 tam yıl (160.000 ₺) birikmiş amortisman alınmıştır; net değer 240.000
-        ₺ ve oran 1,375 bulunmuş, tüm tutarlar hatalı çıkmıştır.
-      D: Daha önce gidere yazılmış bir değer azalışı bulunmadığından artış gelir tablosuna (649) değil, TMS 16 par.
-        39 uyarınca özkaynakta yeniden değerleme artışı olarak (522) izlenir.
-      E: Birikmiş amortisman düzeltilmemiş, net defter değerindeki artış yerine brüt değerdeki artış özkaynağa alınmıştır;
-        kayıt sonrası net değer 600.000 − 180.000 = 420.000 ₺ olur ve gerçeğe uygun değere (330.000 ₺) eşit olmaz.
+      A: 'Bu kayıt par. 35(b) eliminasyon yöntemidir (200.000 ₺ birikmiş amortisman brüt değerle netleştirilip brüt
+        değer 330.000 ₺''ye indirilir: 253 alacak 70.000); kökte şirketin orantılı yöntemi uyguladığı belirtilmiştir.'
+      B: Yararlı ömür tahminindeki değişiklik göz ardı edilip amortisman ilk tahminle (yıllık 40.000 ₺ × 4,5 yıl
+        = 180.000 ₺) hesaplanmıştır; net değer 220.000 ₺ ve oran 1,5 bulunmuştur. TMS 16 par. 51 ve TMS 8 par. 36
+        uyarınca 2025'ten itibaren amortisman yeni kalan ömre göre (300.000 / 6 = 50.000 ₺) ayrılır.
+      D: Tutarlar doğrudur; ancak daha önce gidere yazılmış bir değer azalışı bulunmadığından artış gelir tablosuna
+        (649) değil, TMS 16 par. 39 uyarınca özkaynakta yeniden değerleme artışı olarak (522) izlenir.
+      E: Birikmiş amortisman düzeltilmemiş, brüt değerdeki artışın tamamı özkaynağa alınmıştır; kayıt sonrası net
+        değer 660.000 − 200.000 = 460.000 ₺ olur ve gerçeğe uygun değere (330.000 ₺) eşit olmaz.
     hesap_adimlari:
-    - Yıllık amortisman = 400.000 / 10 = 40.000 ₺; süre 01.07.2022–31.12.2026 = 4,5 yıl
-    - Birikmiş amortisman = 4,5 × 40.000 = 180.000 ₺; net defter değeri = 400.000 − 180.000 = 220.000 ₺
-    - Yeniden değerleme artışı = 330.000 − 220.000 = 110.000 ₺; oran = 330.000 / 220.000 = 1,5
-    - Yeni brüt değer = 400.000 × 1,5 = 600.000 → 253 borç 200.000 ₺
-    - Yeni birikmiş amortisman = 180.000 × 1,5 = 270.000 → 257 alacak 90.000 ₺
-    - 'Kontrol: 600.000 − 270.000 = 330.000 ₺; 522 alacak 110.000 ₺; borç 200.000 = alacak 90.000 + 110.000'
+    - İlk tahminle yıllık amortisman = 400.000 / 10 = 40.000 ₺; 01.07.2022–31.12.2024 = 2,5 yıl → birikmiş amortisman
+      100.000 ₺
+    - 01.01.2025 net defter değeri = 300.000 ₺; yeni kalan ömür 6 yıl → yıllık amortisman 50.000 ₺ (ileriye dönük)
+    - 31.12.2026 birikmiş amortisman = 100.000 + 2 × 50.000 = 200.000 ₺; net defter değeri = 200.000 ₺
+    - Yeniden değerleme artışı = 330.000 − 200.000 = 130.000 ₺; oran = 330.000 / 200.000 = 1,65
+    - Yeni brüt değer = 400.000 × 1,65 = 660.000 → 253 borç 260.000 ₺
+    - Yeni birikmiş amortisman = 200.000 × 1,65 = 330.000 → 257 alacak 130.000 ₺
+    - 'Kontrol: 660.000 − 330.000 = 330.000 ₺; 522 alacak 130.000 ₺; borç 260.000 = alacak 130.000 + 130.000'
   kaynaklar:
+  - mevzuat: TMS 16 Maddi Duran Varlıklar
+    madde: par. 51
+    alinti: Bir varlığın kalıntı değeri ve yararlı ömrü en azından her hesap dönemi sonunda gözden geçirilerek,
+      beklentilerin önceki tahminlerden farklı olması durumunda, değişiklik(ler) TMS 8 Muhasebe Politikaları, Muhasebe
+      Tahminlerindeki Değişikler ve Hatalar uyrınca muhasebe tahmininde değişiklik olarak muhasebeleştirilir.
+  - mevzuat: TMS 8 Muhasebe Politikaları, Muhasebe Tahminlerinde Değişiklikler ve Hatalar
+    madde: par. 36
+    alinti: '37’nci paragrafın uygulandığı değişiklikler dışında kalan muhasebe tahminindeki bir değişikliğin etkisi,
+      aşağıda belirtilen dönemlerin kâr veya zararına dâhil edilmek suretiyle, ileriye yönelik olarak finansal tablolara
+      yansıtılır: [...] (b) Değişikliğin yapıldığı dönemle birlikte gelecek dönemleri de etkilemesi durumunda, hem
+      değişikliğin yapıldığı dönem hem de gelecek dönemler.'
   - mevzuat: TMS 16 Maddi Duran Varlıklar
     madde: par. 35
     alinti: (a) Brüt defter değeri, varlığın defter değerinin yeniden değerlemesiyle tutarlı bir şekilde düzeltilir.
@@ -207,34 +220,38 @@
   dogrulama:
     python: 'maliyet = 400000
 
-      yillik = maliyet / 10
+      ilk_yillik = maliyet / 10
 
-      birikmis = 4.5 * yillik
+      ba_2024 = 2.5 * ilk_yillik
+
+      yeni_yillik = (maliyet - ba_2024) / 6
+
+      birikmis = ba_2024 + 2 * yeni_yillik
 
       net = maliyet - birikmis
 
-      oran = 330000 / net
+      gud = 330000
 
-      brut_artis = maliyet * oran - maliyet
+      brut_artis = maliyet * gud / net - maliyet
 
-      ba_artis = birikmis * oran - birikmis
+      ba_artis = birikmis * gud / net - birikmis
 
-      artis = brut_artis - ba_artis
+      artis = gud - net
 
-      # ana tutar: 253 hesabına borç (brüt artış); 257 alacak 90.000, 522 alacak 110.000
+      # ana tutar: 253 hesabına borç (brüt artış); 257 alacak 130.000, 522 alacak 130.000
 
-      assert ba_artis == 90000 and artis == 110000
+      assert ba_artis == 130000 and artis == 130000 and brut_artis - ba_artis == artis
 
       sonuc = brut_artis
 
       '
     secenek_sayisi_bekleniyor: false
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2019-01-15'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -249,27 +266,15 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: C (güven 5); B: C (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 4); zor etiketli ama rahat çözdü → zorlaştır
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) Doğrulandı: kıst süre 4,5 yıl, birikmiş amortisman 180.000 ₺, net defter değeri 220.000 ₺,
-          oran 1,5. Kayıt +200.000 / +90.000 / 522 +110.000. dogrulama.python 200.000 verdi ve assert''ler geçti.
-          A şıkkı par. 35(b) ile tutarlı bir eliminasyon kaydı (257 B 180.000 / 253 A 70.000, 522 A 110.000); kök
-          orantılı yöntemi belirttiği için A ikinci doğru değil. B şıkkı 4 yıl hatasıyla iç tutarlı. §7 teknikleri
-          (çok adımlı hesap, yakın kavram, tarih/kıst, tipik hata) yeterli.'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) D şıkkındaki '649 Diğer Olağan Gelir ve Kârlar' adı THP açıklama başlığıyla aynı. Güncel hesap
-          listesinde ad 'Faaliyetle İlgili Diğer Gelir ve Karlar'; sorun değil.
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: 'Soru zorlaştırıldı: 01.01.2025''te kalan yararlı ömrün 6 yıla revize edilmesi (TMS 16 par. 51 + TMS 8 par.
+      36, ileriye dönük tahmin değişikliği) eklendi; doğru kayıt 253 B 260.000 / 257 A 130.000, 522 A 130.000 oldu
+      (doğru şık yine C). Eski doğru cevap (tahmin değişikliğini yok sayan 200/90/110) B çeldiricisi yapıldı; A,
+      D, E yeni tutarlara uyarlandı; dogru_neden teknikleri ve tuzakları adlandırıyor; hesap_adimlari, dogrulama.python
+      ve kaynaklar (par. 51, TMS 8 par. 36) güncellendi; baslangic 2019-01-15 (TMS 16''nın RG''de yeniden yayımı).'
+    neden: 'GZ: zor etiketli ama ortalama aday rahat çözdü (güven 4) → zorlaştır; baslangic üretim tarihiydi.'
 - id: SMMM-FIN-MDV-0003
   sinav: smmm
   bolum:
@@ -329,11 +334,11 @@
 
       '
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2019-01-15'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -348,17 +353,8 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: C (güven 5); B: C (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 5)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: gecerlilik.baslangic TMS 16'nın Resmî Gazete'de yeniden yayım tarihine (2019-01-15) çekildi.
+    neden: 'Rötuş talimatı md. 3: baslangic soru üretim tarihiydi.'

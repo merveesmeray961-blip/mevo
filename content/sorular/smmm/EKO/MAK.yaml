@@ -7,70 +7,82 @@
   konu: MAK
   kazanim: Keynesyen çarpan
   tip: hesaplama
-  zorluk: 2
+  zorluk: 3
   soru_bicimi: standart
-  kok: Basit Keynesyen modelle incelenen kapalı bir ekonomide marjinal tüketim eğilimi 0,80'dir. Vergiler götürü
-    (gelirden bağımsız), yatırımlar ve fiyatlar genel düzeyi sabittir. Bu ekonomide kamu harcamaları 20 milyar TL
-    artırılırsa denge milli gelir ne kadar artar?
+  kok: Basit Keynesyen modelle incelenen kapalı bir ekonomide otonom tüketim 50 milyar TL, marjinal tüketim eğilimi
+    0,75'tir. Vergiler götürü (gelirden bağımsız) olup yatırımlar ve fiyatlar genel düzeyi sabittir. Hükûmet kamu
+    harcamalarını 40 milyar TL, götürü vergileri ise 20 milyar TL artırmıştır. Diğer koşullar sabitken denge milli
+    gelir ne kadar artar?
   secenekler:
-    A: 16 milyar TL
-    B: 20 milyar TL
-    C: 25 milyar TL
-    D: 80 milyar TL
-    E: 100 milyar TL
-  dogru: E
+    A: 40 milyar TL
+    B: 80 milyar TL
+    C: 100 milyar TL
+    D: 160 milyar TL
+    E: 220 milyar TL
+  dogru: C
   aciklama:
-    dogru_neden: 'Basit Keynesyen modelde götürü vergi varsayımı altında kamu harcaması çarpanı 1 / (1 - MTE) formülüyle
-      bulunur (MTE: marjinal tüketim eğilimi). MTE = 0,80 olduğundan çarpan 1 / 0,20 = 5''tir. Denge gelirindeki
-      artış 20 x 5 = 100 milyar TL olur.'
+    dogru_neden: 'Basit Keynesyen modelde götürü vergi varsayımı altında kamu harcaması çarpanı 1 / (1 - MTE), vergi
+      çarpanı -MTE / (1 - MTE)''dir (MTE: marjinal tüketim eğilimi). MTE = 0,75 olduğundan harcama çarpanı 4, vergi
+      çarpanı -3''tür. Harcama artışının etkisi 40 x 4 = 160 milyar TL, vergi artışının etkisi 20 x (-3) = -60 milyar
+      TL''dir; denge gelirindeki net artış 100 milyar TL olur. Sağlama: harcamanın 20 milyar TL''lik kısmı vergiyle
+      finanse edildiğinden denk bütçe çarpanıyla (1) 20 milyar TL, kalan 20 milyar TL''lik harcama 20 x 4 = 80 milyar
+      TL etki doğurur; toplam 100 milyar TL. Bu soru zor düzeydedir; kullanılan teknikler: çok adımlı hesap (iki
+      çarpanın etkisi birlikte hesaplanır), gereksiz veri (otonom tüketim değişmediğinden gelirdeki değişime etki
+      etmez) ve tipik hata çeldiricileri. Tuzak: vergi çarpanını harcama çarpanıyla aynı büyüklükte almak; vergi
+      artışı harcanabilir geliri azaltır ve tüketimi yalnız MTE oranında düşürür.'
     hesap_adimlari:
-    - 'Marjinal tasarruf eğilimi: 1 - 0,80 = 0,20'
-    - 'Kamu harcaması çarpanı: 1 / 0,20 = 5'
-    - 'Denge gelirindeki artış: 20 x 5 = 100 milyar TL'
+    - 'Kamu harcaması çarpanı: 1 / (1 - 0,75) = 4'
+    - 'Vergi çarpanı: -0,75 / (1 - 0,75) = -3'
+    - 'Harcama etkisi: 40 x 4 = 160 milyar TL'
+    - 'Vergi etkisi: 20 x (-3) = -60 milyar TL'
+    - 'Net artış: 160 - 60 = 100 milyar TL (otonom tüketim değişmediğinden hesaba girmez)'
     celdiriciler:
-      A: 16, harcama artışının marjinal tüketim eğilimiyle çarpılmasıyla (20 x 0,80) bulunur; yalnızca ilk turdaki
-        ek tüketimi gösterir, çarpan süreci dikkate alınmamıştır.
-      B: 20, çarpanın 1 kabul edilmesiyle bulunur; bu, harcama artışının aynı tutarda vergiyle finanse edildiği
-        denk bütçe çarpanı durumudur. Kökte vergiler sabittir.
-      C: 25, harcama artışının marjinal tüketim eğilimine bölünmesiyle (20 / 0,80) bulunur; çarpan 1 / (1 - MTE)
-        yerine yanlışlıkla 1 / MTE alınmıştır.
-      D: 80, vergi çarpanının mutlak değeriyle (0,80 / 0,20 = 4) hesaplanır; kökte değişen kalem vergi değil kamu
-        harcamasıdır.
+      A: 40, denk bütçe çarpanının (1) harcama artışının tamamına uygulanmasıyla bulunur; oysa vergiler harcama
+        artışının yalnız 20 milyar TL'lik kısmını finanse eder, kalan 20 milyar TL'lik harcama 4 kat etki doğurur.
+      B: 80, vergi çarpanının -1 / (1 - MTE) = -4 alınmasıyla bulunur (160 - 80); vergi artışı tüketimi MTE oranında
+        azalttığından vergi çarpanı -MTE / (1 - MTE) = -3'tür.
+      D: 160, yalnız kamu harcaması artışının etkisidir (40 x 4); götürü vergilerdeki 20 milyar TL'lik artışın daraltıcı
+        etkisi dikkate alınmamıştır.
+      E: 220, vergi artışının etkisi ters işaretle eklenerek bulunur (160 + 60); vergi artışı harcanabilir geliri
+        ve tüketimi azalttığından denge gelirini düşürür.
   kaynaklar:
   - mevzuat: İktisat teorisi — genel kabul görmüş tanım
-    madde: Keynesyen kamu harcaması çarpanı
+    madde: Keynesyen kamu harcaması ve vergi çarpanları (götürü vergi, kapalı ekonomi)
     alinti: ''
   dogrulama:
-    python: 'mte = 0.80
+    python: 'mte = 0.75
 
-      artis = 20
+      dG = 40
 
-      carpan = 1 / (1 - mte)
+      dT = 20
 
-      sonuc = round(artis * carpan, 2)
+      harcama_carpani = 1 / (1 - mte)
+
+      vergi_carpani = -mte / (1 - mte)
+
+      sonuc = round(dG * harcama_carpani + dT * vergi_carpani, 2)
 
       '
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: 'Soru zorlaştırıldı: kamu harcaması (40 milyar TL) ve götürü vergi (20 milyar TL) birlikte artırılıyor,
+      MTE 0,80 → 0,75, kökte gereksiz veri (otonom tüketim) eklendi; şıklar 40/80/100/160/220 milyar TL, doğru şık
+      E → C; açıklama, çeldirici gerekçeleri, hesap adımları ve dogrulama.python yeniden yazıldı; zorluk 2 → 3;
+      gecerlilik.baslangic 2026-10-03 → 2026-01-01 (teori sorusu).'
+    neden: 'Rötuş: GZ''de ortalama aday rahat çözdü (güven 4); MLY/EKO soruları kolay kalmıştı. Zorlaştırma §7 teknikleriyle
+      (çok adımlı hesap, gereksiz veri, tipik hata çeldiricileri), SGS düzeyinde yapıldı.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: E (güven 5); B: E (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -80,7 +92,3 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 4)

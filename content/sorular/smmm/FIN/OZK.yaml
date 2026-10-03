@@ -9,12 +9,12 @@
   tip: hesaplama
   zorluk: 3
   soru_bicimi: yevmiye
-  kok: 'Esas sermaye sistemindeki, payları borsada işlem görmeyen (C) A.Ş.''nin tamamı ödenmiş 2.000.000 ₺ sermayesi
-    bulunmaktadır. Genel kurul, sermayenin nakden 800.000 ₺ artırılmasına karar vermiştir. Yeni paylar 1 ₺ itibari
-    değerli olup pay başına 1,25 ₺''den ihraç edilecektir. Payların tamamı taahhüt edilmiş ve taahhüt aşamasında
-    yalnızca itibari değer üzerinden 501 Ödenmemiş Sermaye borç / 500 Sermaye alacak kaydı yapılmıştır. Ortaklar,
-    artırımın tescilinden önce 6102 sayılı TTK''ya göre ödenmesi zorunlu olan asgari tutarı banka hesabına yatırmıştır.
-    Aksi belirtilmedikçe Tekdüzen Muhasebe Sistemi esas alınır.
+  kok: 'Esas sermaye sistemindeki, halka açık olmayan (C) A.Ş.''nin tamamı ödenmiş 2.000.000 ₺ sermayesi bulunmaktadır.
+    Genel kurul, sermayenin nakden 800.000 ₺ artırılmasına karar vermiştir. Yeni paylar 1 ₺ itibari değerli olup
+    pay başına 1,25 ₺''den ihraç edilecektir. Payların tamamı taahhüt edilmiş ve taahhüt aşamasında yalnızca itibari
+    değer üzerinden 501 Ödenmemiş Sermaye borç / 500 Sermaye alacak kaydı yapılmıştır. Ortaklar, artırımın tescilinden
+    önce 6102 sayılı TTK''ya göre ödenmesi zorunlu olan asgari tutarı banka hesabına yatırmıştır. Aksi belirtilmedikçe
+    Tekdüzen Muhasebe Sistemi esas alınır.
 
 
     Bu tahsilata ilişkin kayıt aşağıdakilerden hangisidir?'
@@ -81,6 +81,10 @@
       tutarlar alacak kaydedilir. 520: Yeni çıkarılan hisse senetlerinin primli satışından kaynaklanan tutarlar
       bu hesapta izlenir. İşleyişi : Hisse senedinin nominal fiyatı ile satış fiyatı arasındaki fark bu hesabın
       alacağına satış biçimine bağlı olarak ilgili hesabın borcuna kaydedilir.'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 521 Hisse Senedi İptal Kârları
+    alinti: İptal edilen hisse senetlerinin bedellerine mahsuben yapılan ödemelerin, bunların yerine çıkarılan hisse
+      senetlerinden elde edilen hasılat noksanı kapatıldıktan sonra artan kısmın izlendiği hesaptır.
   dogrulama:
     python: 'nominal = 800000
 
@@ -95,11 +99,11 @@
       '
     secenek_sayisi_bekleniyor: false
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -114,28 +118,11 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: B (güven 5); B: B (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 3)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) ''Payları borsada işlem görmeyen'' ifadesi halka açık olmayı dışlamıyor (SPKn md. 16''ya göre
-          payları borsada işlem görmeyen halka açık ortaklık olabilir). Halka açık bir şirkette TTK md. 344/2 SPKn
-          hükümlerini saklı tutar ve SPKn md. 12/1 bedelin tamamını ister. Kök ''TTK''ya göre ödenmesi zorunlu asgari
-          tutar'' dediği ve 1.000.000 ₺''lik bir şık olmadığı için ikinci doğru doğmuyor. Yine de kökte ''halka
-          açık olmayan'' demek daha temiz. | (küçük) §7: ''çok adımlı hesap'' iki çarpmadan ibaret; zorluk 3 asıl
-          olarak madde birleştirme (TTK 459/3 + 344 + THP) ve tipik hata çeldiricilerine dayanıyor. GZ ölçümüne
-          bırakılabilir. Tüm şıklarda borç = alacak; dogrulama.python 400.000 verdi. | Öneri: Kök: ''…payları borsada
-          işlem görmeyen ve halka açık olmayan (C) A.Ş.…'''
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) E çeldiricisindeki 521 tanımı alıntılanmamış. THP 521 açıklamasında karşılığı var ('iptal edilen
-          hisse senetlerinin … yerine çıkarılan hisse senetlerinden … artan kısım'). TTK 344/1 ve 459/3 alıntıları
-          resmî metinle birebir.
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: Kökte 'payları borsada işlem görmeyen' yerine 'halka açık olmayan' denildi (SPKn md. 12 tam ödeme şartıyla
+      ikinci yorum kapatıldı); E çeldiricisi için THP 521 alıntısı eklendi; baslangic 2012-07-01 (6102 sayılı TTK
+      yürürlüğü; md. 344 ve 459 değişmemiş).
+    neden: 'G5 (küçük): borsada işlem görmeyen bir şirket halka açık olabilir; G6 (küçük): 521 tanımı alıntısızdı;
+      baslangic üretim tarihiydi.'

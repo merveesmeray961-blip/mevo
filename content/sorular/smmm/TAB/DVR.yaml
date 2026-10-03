@@ -118,28 +118,16 @@
 
       '
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: C (güven 5); B: C (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) Hesaplama yöntemine ilişkin iddia 'genel kabul görmüş …' adlı resmî olmayan, alıntısız bir
-          kaynağa dayanıyor. Depoda resmî karşılığı yok; doğruluğu bağımsız hesapla teyit edildi.
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -149,6 +137,11 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: gecerlilik.baslangic soru üretim tarihinden yöntem sorusu kuralına (2026-01-01) çekildi.
+    neden: 'Rötuş talimatı md. 3: yasal metni olmayan yöntem sorusu; baslangic soru üretim tarihiydi.'
 - id: SMMM-TAB-DVR-0002
   sinav: smmm
   bolum:
@@ -232,9 +225,8 @@
 
     Devir hızlarında ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır.
 
-    Ticari borç devir hızı = Satışların maliyeti / Ortalama ticari borçlar formülüyle hesaplandığına göre
-
-    MK A.Ş.''nin 2026 yılı ticari borç ödeme süresi kaç gündür?'
+    Ticari borç devir hızı = Satışların maliyeti / Ortalama ticari borçlar formülüyle hesaplandığına göre MK A.Ş.''nin
+    2026 yılı ticari borç ödeme süresi kaç gündür?'
   secenekler:
     A: 24,00
     B: 30,00
@@ -273,17 +265,23 @@
 
       '
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: duzeltici
     ne: Zayıf E çeldiricisi (60 gün, ikiye bölmeyi unutmak) borç ödeme süresini alacak tahsil süresiyle karıştırma
       hatasından türeyen 45,00 ile değiştirildi (şıklar sıralı); E açıklaması ve dogrulama.python güncellendi.
     neden: 'G5 (küçük): E çeldiricisi zayıftı.'
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: Kökteki soru cümlesini ikiye bölen satır sonu kaldırıldı (soru cümlesi tek paragraf); gecerlilik.baslangic
+      yöntem sorusu kuralına (2026-01-01) çekildi.
+    neden: 'G5 (küçük, biçimsel): satır sonu cümleyi bölüyordu (aynı kusur ortak veri setli diğer sorularda da vardı);
+      baslangic soru üretim tarihiydi.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -296,21 +294,5 @@
         sonuc: gecti
         tarih: '2026-10-03'
       G7:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: B (güven 5); B: B (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 5)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) Kökte formül cümlesinden sonra boş satır cümleyi ikiye bölüyor ('...hesaplandığına göre' ¶
-          'MK A.Ş.'nin 2026 yılı...'); biçimsel.
-      G6:
         sonuc: gecti
         tarih: '2026-10-03'

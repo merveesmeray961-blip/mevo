@@ -67,26 +67,22 @@
       ayrı gösterilmek şartıyla aşağıda belirtilen zararlar indirim konusu yapılır: a) Beş yıldan fazla nakledilmemek
       şartıyla geçmiş yılların beyannamelerinde yer alan zararlar.'
   gecerlilik:
-    baslangic: '2026-01-01'
+    baslangic: '2013-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: gecerlilik.baslangic 2026-01-01 → 2013-01-01 (md. 5/1-a'yı değiştiren 6322 s. K.'nin bu bent için yürürlüğü;
+      KVK yürürlük tablosu. Md. 9/1-a ve 11/1-d değişmemiş).
+    neden: 'Rötuş talimatı §3: belirsiz 2026-01-01 başlangıcı.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: D (güven 5); B: D (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -96,10 +92,6 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 3)
   dogrulama:
     python: 'kar = 2000000
 
@@ -148,7 +140,12 @@
       (4.400.000 TL); md. 32/C-2-a uyarınca 5/1-a istisnası düşülebilir, geçmiş yıl zararı ise düşülebilecek kalemler
       arasında sayılmamıştır. Asgari vergi = (4.400.000 − 600.000) × %10 = 380.000 TL. Md. 32/C-1 uyarınca hesaplanan
       vergi bu tutardan az olamayacağından 380.000 TL hesaplanır. Şirket üç yıldan uzun süredir faaliyette olduğundan
-      md. 32/C-5 istisnası uygulanmaz.'
+      md. 32/C-5 istisnası uygulanmaz. Bu soru zor düzeydedir; kullanılan teknikler: madde birleştirme (md. 32,
+      32/C ve 9 birlikte okunur), istisnanın istisnası (asgari vergi matrahı indirim ve istisnalar düşülmeden önceki
+      kazançtır; md. 32/C-2 yalnız sayılan istisna ve indirimlerin düşülmesine izin verir, geçmiş yıl zararı bunlar
+      arasında yoktur), çok adımlı hesap (normal ve asgari vergi ayrı hesaplanıp karşılaştırılır) ve tipik hata
+      çeldiricileri. Tuzak: normal matrahta düşülen geçmiş yıl zararını asgari vergi matrahından da düşmek (A) ya
+      da asgari vergi karşılaştırmasını hiç yapmamak (B).'
     celdiriciler:
       A: Asgari oran, zarar mahsubundan sonraki matraha (1.000.000 TL) uygulanmıştır; md. 32/C-6 tanımında zarar
         düşülmez.
@@ -183,31 +180,23 @@
     madde: md. 9/1-a
     alinti: a) Beş yıldan fazla nakledilmemek şartıyla geçmiş yılların beyannamelerinde yer alan zararlar.
   gecerlilik:
-    baslangic: '2026-01-01'
+    baslangic: '2025-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: dogru_neden'e kullanılan zor soru teknikleri ve tuzak eklendi; gecerlilik.baslangic 2026-01-01 → 2025-01-01
+      (7524 s. K. ile eklenen md. 32/C, RG 2/8/2024, 2025 ve izleyen dönem kazançlarına uygulanır; 7582 s. K.'nin
+      32/C-2-b ve 2-d değişiklikleri soruyu etkilemez).
+    neden: 'G5 (küçük): zor soru teknikleri ve tuzağı adlandırmıyordu (§7); §3 başlangıç tarihi.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: C (güven 5); B: C (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) Zor soru, ancak dogru_neden §7''nin istediği gibi kullanılan teknikleri (madde birleştirme,
-          istisnanın istisnası: asgari vergide zararın düşülmemesi, tipik hata çeldiricileri) ve tuzağın yerini
-          açıkça adlandırmıyor. | Öneri: dogru_neden sonuna bir cümle eklenebilir: ''Tuzak: normal matrahta düşülen
-          geçmiş yıl zararının asgari vergi matrahında (md. 32/C-2) düşülememesi; çözüm 32, 32/C ve 9. maddelerin
-          birlikte okunmasını gerektirir.'''
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -217,10 +206,6 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 4)
   dogrulama:
     python: 'kar = 4000000
 
@@ -293,26 +278,22 @@
       şartlarının gerçekleştiği hesap döneminin son günü itibarıyla dağıtılmış kâr payı veya dar mükellefler için
       ana merkeze aktarılan tutar sayılır.
   gecerlilik:
-    baslangic: '2026-01-01'
+    baslangic: '2006-06-21'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: gecerlilik.baslangic 2026-01-01 → 2006-06-21 (md. 12 değişmemiş; KVK md. 37/1-c uyarınca yayımı tarihinde,
+      1/1/2006'dan geçerli olmak üzere yürürlüğe girdi).
+    neden: 'Rötuş talimatı §3: belirsiz 2026-01-01 başlangıcı.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: A (güven 5); B: A (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -322,7 +303,3 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 3)

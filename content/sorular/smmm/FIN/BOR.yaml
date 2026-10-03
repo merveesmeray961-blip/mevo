@@ -52,13 +52,15 @@
       Alacak: 304 Tahvil Anapara Borç, Taksit ve Faizleri 900.000'
   dogru: D
   aciklama:
-    dogru_neden: 'Soru üç tekniği birleştirir: çok adımlı hesap, madde birleştirme (THP 308, 405 ve 408 açıklamaları)
-      ve yakın kavram ayrımı (408/308 ve 405/304) ile gereksiz veri (komisyon). İhraç farkı 900.000 − 810.000 =
-      90.000 ₺, yıllık itfa 90.000 / 3 = 30.000 ₺. (1) 2026 payı 30.000 ₺ finansman gideri olarak 780''e borç, 408''e
-      alacak yazılır. (2) THP 408''e göre farkın gelecek dönemde itfa edilecek kısmı (2027 payı 30.000 ₺) bilanço
-      tarihinde 308''e aktarılır: 308 borç, 408 alacak. 408''de yalnızca 2028 payı (30.000 ₺) kalır. Tuzaklar: kalan
-      farkın tamamını kısa vadeye almak ve anaparayı erken sınıflandırmak. Tahvillerin vadesine 31.12.2026''da 2
-      yıl kaldığından anapara 405''te kalır. Komisyon ihraçta giderleştirildiği için hesaplamayı etkilemez.'
+    dogru_neden: 'Soru dört tekniği birleştirir: çok adımlı hesap, madde birleştirme (THP 308, 405, 408 ve 66/660
+      açıklamaları), yakın kavram ayrımı (408/308 ve 405/304) ve gereksiz veri (komisyon). İhraç farkı 900.000 −
+      810.000 = 90.000 ₺, yıllık itfa 90.000 / 3 = 30.000 ₺. (1) 2026 payı 30.000 ₺ finansman giderdir; THP 660
+      açıklamasına göre 7. grupta izlenen finansman giderleri 7/A seçeneğinde 781 Finansman Giderleri Yansıtma Hesabı
+      aracılığıyla 66 grubuna aktarıldığından gider önce 780''e borç, 408''e alacak yazılır. (2) THP 408''e göre
+      farkın gelecek dönemde itfa edilecek kısmı (2027 payı 30.000 ₺) bilanço tarihinde 308''e aktarılır: 308 borç,
+      408 alacak. 408''de yalnızca 2028 payı (30.000 ₺) kalır. Tuzaklar: kalan farkın tamamını kısa vadeye almak
+      ve anaparayı erken sınıflandırmak. Tahvillerin vadesine 31.12.2026''da 2 yıl kaldığından anapara 405''te kalır.
+      Komisyon ihraçta giderleştirildiği için hesaplamayı etkilemez.'
     celdiriciler:
       A: Yalnızca 2026 itfası yapılmış, 2027'de itfa edilecek 30.000 ₺'nin THP 408 uyarınca bilanço tarihinde 308'e
         aktarılması unutulmuştur.
@@ -92,6 +94,12 @@
       Taksit ve Faizleri Hesabına" aktarılmak suretiyle bu hesaba borç kaydedilir. 780: İşletme faaliyetlerinin
       aksamadan yürütülebilmesi amacıyla borçlanılan tutarlarla ilgili faiz, kur farkları, komisyon ve benzeri giderler
       bu hesaba borç kaydedilir.'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 66 Finansman Giderleri (grup açıklaması); 660 Kısa Vadeli Borçlanma Giderleri
+    alinti: '66: İşletmenin borçlandığı tutarlarla ilgili olarak katlanılan ve varlıkların maliyetine eklenmemiş
+      bulunan faiz, kur farkları, kredi komisyonları ve benzeri diğer giderleri kapsar. 660: [...] 7. grupta izlenen
+      finansman giderleri 7/A seçeneğinde "781- Finansman Giderleri Yansıtma Hesabı" 7/B seçeneğinde ise "798- Gider
+      Çeşitleri Yansıtma Hesabı"nın alacağı ile bu hesabın borcuna aktarılır.'
   dogrulama:
     python: 'fark = 900000 - 810000
 
@@ -110,11 +118,11 @@
       '
     secenek_sayisi_bekleniyor: false
   gecerlilik:
-    baslangic: '2026-10-03'
+    baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -129,34 +137,11 @@
       G7:
         sonuc: gecti
         tarih: '2026-10-03'
-      G3:
-        sonuc: gecti
-        not: 'A: D (güven 4); B: D (güven 5)'
-        tarih: '2026-10-03'
-      GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 5)
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) Yazar notu doğrulandı: 780 kullanımı kökte açıkça belirtilmiş (''Giderlerini 7/A seçeneğine
-          göre izleyen (B) A.Ş.''). THP 308 itfayı ''66. Finansman Giderleri'' grubuyla eşleştirir. 7/A''da gider
-          önce 780''e yazılır; THP 660 açıklaması bunu söyler (''7. grupta izlenen finansman giderleri 7/A seçeneğinde
-          781 … alacağı ile bu hesabın borcuna aktarılır''). Tüm şıklarda borç = alacak (E: 960.000 = 960.000).
-          | (küçük) Tek doğru kontrolü: itfa 408''den doğrudan da yapılabilir (780 B 30 / 408 A 30; 308 B 30 / 408
-          A 30). THP 308''in lafzına göre önce 308''e aktarıp oradan itfa etmek de mümkündür (308 B 60 / 408 A 60;
-          780 B 30 / 308 A 30). İki yol aynı birleşik kaydı (D) verir. Kök ''eşit tutarlarla itfa'' ve Tekdüzen
-          dediği için TFRS 9 etkin faiz yöntemi ikinci doğru yaratmıyor. dogrulama.python 60.000 (408''e toplam
-          alacak) verdi; D ile uyumlu. | (küçük) §7: dogru_neden ''üç tekniği birleştirir'' diyor ama dört teknik
-          sayıyor (çok adımlı hesap, madde birleştirme, yakın kavram ayrımı, gereksiz veri). Teknik sayısı yeterli;
-          ifade düzeltilmeli. Şıktaki ad ''308 Menkul Kıymetler İhraç Farkları'' THP açıklama başlığıyla aynı, hesap
-          listesinde ise ''İhraç Farkı (-)'' geçiyor; sorun değil. | Öneri: dogru_neden: ''Soru dört tekniği birleştirir:
-          …'''
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) '7/A'da finansman gideri 780'e yazılır' iddiası 780 alıntısıyla dolaylı destekleniyor. Daha
-          güçlü dayanak, THP 660/661'deki '7. grupta izlenen finansman giderleri 7/A seçeneğinde 781- Finansman
-          Giderleri Yansıtma Hesabı … alacağı ile bu hesabın borcuna aktarılır' cümlesi; kaynaklara eklenmesi önerilir.
-          Alıntılar (408, 308, 405, 780) THP güncel metniyle birebir örtüşüyor.
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: rotus
+    ne: dogru_neden'de 'üç teknik' ifadesi sayılan teknik sayısıyla tutarlı hâle getirildi ('dört teknik'); 7/A'da
+      finansman giderinin 780'e yazılıp 781 aracılığıyla 66 grubuna aktarıldığı THP 66/660 açıklamasıyla eklendi
+      ve kaynaklara alıntılandı; baslangic 1994-01-01.
+    neden: 'G5 (küçük): teknik sayısı tutarsızdı; G6 (küçük): 7/A–781 cümlesi kaynaklarda yoktu; baslangic üretim
+      tarihiydi.'
