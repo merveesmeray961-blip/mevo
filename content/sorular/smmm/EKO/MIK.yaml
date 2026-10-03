@@ -1,0 +1,109 @@
+- id: SMMM-EKO-MIK-0001
+  sinav: smmm
+  bolum: [SGS]
+  ders: EKO
+  unite: Ekonomi
+  konu: MIK
+  kazanim: esneklik
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: >-
+    Bir malın fiyatı 40 TL'den 50 TL'ye yükseldiğinde bu malın talep edilen miktarı 100 birimden 50 birime
+    düşmektedir. Yüzde değişimler başlangıç değerleri esas alınarak hesaplandığında, talebin fiyat esnekliği
+    katsayısının mutlak değeri kaçtır?
+  secenekler:
+    A: "0,2"
+    B: "0,5"
+    C: "2"
+    D: "3"
+    E: "5"
+  dogru: C
+  aciklama:
+    dogru_neden: >-
+      Talebin fiyat esnekliği, talep edilen miktardaki yüzde değişmenin fiyattaki yüzde değişmeye oranıdır.
+      Miktar %50 azalmış, fiyat %25 artmıştır; esneklik katsayısı -50 / 25 = -2, mutlak değeri 2'dir. Katsayı
+      1'den büyük olduğundan talep fiyat karşısında esnektir.
+    hesap_adimlari:
+      - "Miktardaki yüzde değişme: (50 - 100) / 100 = -%50"
+      - "Fiyattaki yüzde değişme: (50 - 40) / 40 = +%25"
+      - "Esneklik katsayısı: -50 / 25 = -2"
+      - "Mutlak değer: |-2| = 2 (esnek talep)"
+    celdiriciler:
+      A: "0,2, fiyat değişmesinin miktar değişmesine oranıdır (ΔP / ΔQ = 10 / 50); yüzde değişimler kullanılmamış ve oran ters kurulmuştur."
+      B: "0,5, fiyattaki yüzde değişmenin miktardaki yüzde değişmeye bölünmesiyle (25 / 50) bulunur; esneklik formülü ters kurulmuştur."
+      D: "3, yay (orta nokta) esnekliği yöntemiyle bulunur: (50 / 75) / (10 / 45) = 3. Kök, yüzde değişimlerin başlangıç değerleriyle hesaplanmasını istemektedir."
+      E: "5, yüzde değişimlerin son değerlerle hesaplanmasından ((50 / 50) / (10 / 50) = 5) ya da yalnızca mutlak değişimlerin oranlanmasından (50 / 10) kaynaklanır."
+  kaynaklar:
+    - mevzuat: "İktisat teorisi — genel kabul görmüş tanım"
+      madde: "Talebin fiyat esnekliği"
+      alinti: ""
+  dogrulama:
+    python: |
+      p0 = 40
+      p1 = 50
+      q0 = 100
+      q1 = 50
+      yuzde_q = (q1 - q0) / q0
+      yuzde_p = (p1 - p0) / p0
+      sonuc = abs(yuzde_q / yuzde_p)
+  gecerlilik:
+    baslangic: "2026-10-03"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: "claude"
+    istem_surumu: "uretim.md v1"
+
+- id: SMMM-EKO-MIK-0002
+  sinav: smmm
+  bolum: [SGS]
+  ders: EKO
+  unite: Ekonomi
+  konu: MIK
+  kazanim: piyasa yapıları
+  tip: kavrama
+  zorluk: 1
+  soru_bicimi: oncullu
+  kok: |-
+    Tam rekabet piyasasına ilişkin aşağıdaki ifadelerden hangileri doğrudur?
+
+    I. Piyasadaki her firma fiyatı veri olarak kabul eder (fiyat kabul edicidir).
+    II. Uzun dönem dengesinde firmalar yalnızca normal kâr elde eder; ekonomik kâr sıfırdır.
+    III. Tek bir firmanın karşılaştığı talep eğrisi negatif eğimlidir.
+  secenekler:
+    A: "Yalnız I"
+    B: "Yalnız II"
+    C: "I ve II"
+    D: "II ve III"
+    E: "I, II ve III"
+  dogru: C
+  aciklama:
+    dogru_neden: >-
+      Tam rekabet piyasasında çok sayıda küçük firma homojen mal üretir; hiçbir firma tek başına fiyatı
+      etkileyemez ve piyasada oluşan fiyatı veri olarak kabul eder (I doğru). Piyasaya giriş ve çıkış serbest
+      olduğundan kısa dönemdeki ekonomik kârlar yeni firmaların girişiyle ortadan kalkar; uzun dönem dengesinde
+      firmalar yalnızca normal kâr elde eder (II doğru). Tek bir firmanın karşılaştığı talep eğrisi, piyasa
+      fiyatı düzeyinde yatay (tam esnek) bir doğrudur; negatif eğimli olan piyasa talep eğrisidir (III yanlış).
+    celdiriciler:
+      A: "Yalnız I eksiktir; uzun dönemde ekonomik kârın sıfırlanmasını ifade eden II de doğrudur."
+      B: "Yalnız II eksiktir; firmaların fiyat kabul edici olduğunu ifade eden I de doğrudur."
+      D: "III yanlıştır; tam rekabetçi firmanın talep eğrisi yataydır. Ayrıca doğru olan I dışarıda bırakılmıştır."
+      E: "III yanlış olduğundan üç öncülün tamamı doğru değildir; negatif eğimli talep eğrisi tekel ve tekelci rekabet gibi eksik rekabet piyasalarındaki firmalara özgüdür."
+  kaynaklar:
+    - mevzuat: "İktisat teorisi — genel kabul görmüş tanım"
+      madde: "Tam rekabet piyasası (fiyat kabul edici firma, uzun dönem dengesi)"
+      alinti: ""
+  gecerlilik:
+    baslangic: "2026-10-03"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: "claude"
+    istem_surumu: "uretim.md v1"

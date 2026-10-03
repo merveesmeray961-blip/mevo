@@ -1,0 +1,54 @@
+- id: SMMM-EKO-MAK-0001
+  sinav: smmm
+  bolum: [SGS]
+  ders: EKO
+  unite: Ekonomi
+  konu: MAK
+  kazanim: Keynesyen çarpan
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: >-
+    Basit Keynesyen modelle incelenen kapalı bir ekonomide marjinal tüketim eğilimi 0,80'dir. Vergiler
+    götürü (gelirden bağımsız), yatırımlar ve fiyatlar genel düzeyi sabittir. Bu ekonomide kamu harcamaları
+    20 milyar TL artırılırsa denge milli gelir ne kadar artar?
+  secenekler:
+    A: "16 milyar TL"
+    B: "20 milyar TL"
+    C: "25 milyar TL"
+    D: "80 milyar TL"
+    E: "100 milyar TL"
+  dogru: E
+  aciklama:
+    dogru_neden: >-
+      Basit Keynesyen modelde götürü vergi varsayımı altında kamu harcaması çarpanı 1 / (1 - MTE) formülüyle bulunur (MTE: marjinal tüketim eğilimi).
+      MTE = 0,80 olduğundan çarpan 1 / 0,20 = 5'tir. Denge gelirindeki artış 20 x 5 = 100 milyar TL olur.
+    hesap_adimlari:
+      - "Marjinal tasarruf eğilimi: 1 - 0,80 = 0,20"
+      - "Kamu harcaması çarpanı: 1 / 0,20 = 5"
+      - "Denge gelirindeki artış: 20 x 5 = 100 milyar TL"
+    celdiriciler:
+      A: "16, harcama artışının marjinal tüketim eğilimiyle çarpılmasıyla (20 x 0,80) bulunur; yalnızca ilk turdaki ek tüketimi gösterir, çarpan süreci dikkate alınmamıştır."
+      B: "20, çarpanın 1 kabul edilmesiyle bulunur; bu, harcama artışının aynı tutarda vergiyle finanse edildiği denk bütçe çarpanı durumudur. Kökte vergiler sabittir."
+      C: "25, harcama artışının marjinal tüketim eğilimine bölünmesiyle (20 / 0,80) bulunur; çarpan 1 / (1 - MTE) yerine yanlışlıkla 1 / MTE alınmıştır."
+      D: "80, vergi çarpanının mutlak değeriyle (0,80 / 0,20 = 4) hesaplanır; kökte değişen kalem vergi değil kamu harcamasıdır."
+  kaynaklar:
+    - mevzuat: "İktisat teorisi — genel kabul görmüş tanım"
+      madde: "Keynesyen kamu harcaması çarpanı"
+      alinti: ""
+  dogrulama:
+    python: |
+      mte = 0.80
+      artis = 20
+      carpan = 1 / (1 - mte)
+      sonuc = round(artis * carpan, 2)
+  gecerlilik:
+    baslangic: "2026-10-03"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: "claude"
+    istem_surumu: "uretim.md v1"
