@@ -1,0 +1,251 @@
+- id: SMMM-VER-KVK-0001
+  sinav: smmm
+  bolum:
+  - YET
+  ders: VER
+  konu: KVK
+  kazanim: KKEG, iştirak kazancı istisnası ve geçmiş yıl zararı ile kurumlar vergisi matrahının tespiti
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: 'Tam mükellef (K) A.Ş.''nin 2026 hesap dönemine ilişkin bilgiler aşağıdadır:
+
+    - Ticari bilanço kârı: 2.000.000 TL
+
+    - Gider yazılan ve ödenen vergi ziyaı cezası: 40.000 TL
+
+    - Gider yazılan ve 6183 sayılı Kanun uyarınca ödenen gecikme zammı: 10.000 TL
+
+    - Gelir hesaplarına kaydedilen, tam mükellef (L) A.Ş.''nin sermayesine katılımdan elde edilen kâr payı: 250.000
+    TL
+
+    - Beyannamelerde ayrı ayrı gösterilmiş geçmiş yıl zararları: 2020 hesap dönemine ait 300.000 TL ve 2024 hesap
+    dönemine ait 500.000 TL
+
+    Şirketin bunlar dışında indirimi, istisnası veya kanunen kabul edilmeyen gideri yoktur.
+
+    Buna göre (K) A.Ş.''nin 2026 hesap dönemine ait kurumlar vergisi matrahı kaç TL''dir?'
+  secenekler:
+    A: 1.000.000
+    B: 1.250.000
+    C: 1.290.000
+    D: 1.300.000
+    E: 1.550.000
+  dogru: D
+  aciklama:
+    dogru_neden: 'KVK md. 11/1-d uyarınca vergi cezaları ile 6183 sayılı Kanun''a göre ödenen gecikme zamları indirilemez;
+      50.000 TL kâra eklenir. Tam mükellef kurumun sermayesine katılımdan elde edilen kâr payı md. 5/1-a(1) uyarınca
+      istisnadır ve düşülür. Md. 9/1-a''ya göre zararlar beş yıldan fazla nakledilemez: 2020 zararı 2021-2025 döneminde
+      mahsup edilebilirdi, 2026''da indirilemez; yalnız 2024 zararı (500.000 TL) düşülür. Matrah = 2.000.000 + 50.000
+      − 250.000 − 500.000 = 1.300.000 TL.'
+    celdiriciler:
+      A: 2020 zararı da düşülmüştür; md. 9/1-a'daki beş yıllık nakil sınırı aşıldığından bu zarar 2026'da indirilemez
+        (2.050.000 − 250.000 − 800.000).
+      B: Vergi ziyaı cezası ve gecikme zammı kâra eklenmemiştir; md. 11/1-d bunları indirilemeyen giderler arasında
+        sayar (2.000.000 − 250.000 − 500.000).
+      C: Gecikme zammı gider kabul edilmiştir; md. 11/1-d 6183 sayılı Kanun'a göre ödenen gecikme zamlarının da
+        indirilmesini yasaklar (2.040.000 − 250.000 − 500.000).
+      E: İştirak kazancı istisnası uygulanmamıştır; md. 5/1-a(1) uyarınca kâr payı matrahtan düşülür (2.050.000
+        − 500.000).
+    hesap_adimlari:
+    - 'KKEG: 40.000 (vergi ziyaı cezası) + 10.000 (gecikme zammı) = 50.000 TL'
+    - Ticari bilanço kârı + KKEG = 2.000.000 + 50.000 = 2.050.000 TL
+    - 'İştirak kazancı istisnası: 2.050.000 − 250.000 = 1.800.000 TL'
+    - 'Mahsup edilebilir zarar yalnız 2024 zararı: 1.800.000 − 500.000 = 1.300.000 TL'
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 11/1-d
+    alinti: d) Bu Kanuna göre hesaplanan kurumlar vergisi ile her türlü para cezaları, vergi cezaları, 21/7/1953
+      tarihli ve 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun hükümlerine göre ödenen cezalar, gecikme
+      zamları ve faizler ile Vergi Usul Kanunu hükümlerine göre ödenen gecikme faizleri.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 5/1-a(1)
+    alinti: 1) Tam mükellefiyete tabi başka bir kurumun sermayesine katılımlarından elde ettikleri kazançlar,
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 9/1-a
+    alinti: 'Kurumlar vergisi matrahının tespitinde, kurumlar vergisi beyannamesinde her yıla ilişkin tutarlar ayrı
+      ayrı gösterilmek şartıyla aşağıda belirtilen zararlar indirim konusu yapılır: a) Beş yıldan fazla nakledilmemek
+      şartıyla geçmiş yılların beyannamelerinde yer alan zararlar.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v1
+  dogrulama:
+    python: 'kar = 2000000
+
+      kkeg = 40000 + 10000
+
+      istisna = 250000
+
+      zarar = 500000  # 2020 zararı 5 yılı aştı
+
+      sonuc = kar + kkeg - istisna - zarar'
+- id: SMMM-VER-KVK-0002
+  sinav: smmm
+  bolum:
+  - YET
+  ders: VER
+  konu: KVK
+  kazanim: Yurt içi asgari kurumlar vergisi (md. 32/C)
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: '2012 yılından beri faaliyette bulunan tam mükellef (M) A.Ş.''nin 2026 hesap dönemine ilişkin bilgiler şöyledir:
+
+    - Ticari bilanço kârı: 4.000.000 TL
+
+    - Kanunen kabul edilmeyen giderler: 400.000 TL
+
+    - Ticari bilanço kârı içinde yer alan ve KVK md. 5/1-a kapsamında istisna olan iştirak kazancı: 600.000 TL
+
+    - 2023 hesap döneminden kalan ve mahsubu mümkün geçmiş yıl zararı: 2.800.000 TL
+
+    Şirketin başka indirim ve istisnası, indirimli oran uygulaması ve yatırıma katkı tutarı yoktur. Kurumlar vergisi
+    oranı %25, yurt içi asgari kurumlar vergisi oranı %10''dur.
+
+    Buna göre yurt içi asgari kurumlar vergisi hükümleri de dikkate alındığında (M) A.Ş.''nin 2026 hesap dönemi
+    için hesaplanması gereken kurumlar vergisi kaç TL''dir?'
+  secenekler:
+    A: '100.000'
+    B: '250.000'
+    C: '380.000'
+    D: '400.000'
+    E: '440.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Normal hesaplama: matrah = 4.000.000 + 400.000 − 600.000 − 2.800.000 = 1.000.000 TL; vergi %25
+      ile 250.000 TL. KVK md. 32/C-6''ya göre asgari vergi matrahı, ticari bilanço kârına KKEG eklenerek bulunur
+      (4.400.000 TL); md. 32/C-2-a uyarınca 5/1-a istisnası düşülebilir, geçmiş yıl zararı ise düşülebilecek kalemler
+      arasında sayılmamıştır. Asgari vergi = (4.400.000 − 600.000) × %10 = 380.000 TL. Md. 32/C-1 uyarınca hesaplanan
+      vergi bu tutardan az olamayacağından 380.000 TL hesaplanır. Şirket üç yıldan uzun süredir faaliyette olduğundan
+      md. 32/C-5 istisnası uygulanmaz.'
+    celdiriciler:
+      A: Asgari oran, zarar mahsubundan sonraki matraha (1.000.000 TL) uygulanmıştır; md. 32/C-6 tanımında zarar
+        düşülmez.
+      B: Yalnız normal kurumlar vergisi hesaplanmış, md. 32/C-1'deki asgari vergi karşılaştırması yapılmamıştır.
+      D: Asgari vergi matrahına KKEG eklenmemiş ve iştirak kazancı düşülmemiştir (4.000.000 × %10); md. 32/C-6 KKEG'nin
+        eklenmesini, 32/C-2-a 5/1-a istisnasının düşülmesini öngörür.
+      E: KKEG eklenmiş ancak md. 32/C-2-a'ya göre düşülebilen iştirak kazancı düşülmemiştir (4.400.000 × %10).
+    hesap_adimlari:
+    - 'Normal matrah: 4.000.000 + 400.000 − 600.000 − 2.800.000 = 1.000.000 TL'
+    - 'Normal kurumlar vergisi: 1.000.000 × %25 = 250.000 TL'
+    - 'Asgari vergi matrahı: (4.000.000 + 400.000) − 600.000 = 3.800.000 TL (zarar düşülmez)'
+    - 'Yurt içi asgari kurumlar vergisi: 3.800.000 × %10 = 380.000 TL'
+    - Hesaplanan vergi = max(250.000; 380.000) = 380.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 32/C-1, 2-a
+    alinti: '(1) 32 nci ve 32/A maddeleri hükümleri dikkate alınarak hesaplanan kurumlar vergisi, indirim ve istisnalar
+      düşülmeden önceki kurum kazancının %10''undan az olamaz. (2) Yurt içi asgari kurumlar vergisi hesaplanırken
+      birinci fıkrada belirtilen kurum kazancından aşağıdaki istisna ve indirimler düşülür: a) 5 inci maddenin birinci
+      fıkrasının (a), (ç), (i), (j) ve (k) bentleri ile sahip oldukları taşınmazlardan elde edilen kazançlar dışında
+      (d) bendinde sayılan istisna kazançlar,'
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 32/C-5, 6
+    alinti: (5) İlk defa faaliyete başlayan kurumlar hakkında faaliyete başlanılan hesap döneminden itibaren üç
+      hesap dönemi boyunca bu madde hükümleri uygulanmaz. (6) Bu maddede yer alan indirim ve istisnalar düşülmeden
+      önceki kurum kazancı ibaresi, hesap dönemi sonundaki ticari bilanço kârına kanunen kabul edilmeyen giderlerin
+      eklenmesiyle bulunan tutarı ifade eder.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 32/1
+    alinti: Kurumlar vergisi, kurum kazancı üzerinden %25 oranında alınır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 9/1-a
+    alinti: a) Beş yıldan fazla nakledilmemek şartıyla geçmiş yılların beyannamelerinde yer alan zararlar.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v1
+  dogrulama:
+    python: 'kar = 4000000
+
+      kkeg = 400000
+
+      istirak = 600000
+
+      zarar = 2800000
+
+      normal = (kar + kkeg - istirak - zarar) * 25 / 100
+
+      asgari = (kar + kkeg - istirak) * 10 / 100
+
+      sonuc = max(normal, asgari)'
+- id: SMMM-VER-KVK-0003
+  sinav: smmm
+  bolum:
+  - YET
+  ders: VER
+  konu: KVK
+  kazanim: Örtülü sermaye
+  tip: kavrama
+  zorluk: 2
+  soru_bicimi: olumsuz
+  kok: 5520 sayılı Kurumlar Vergisi Kanunu'ndaki örtülü sermaye düzenlemesiyle ilgili aşağıdaki ifadelerden hangisi
+    **yanlıştır**?
+  secenekler:
+    A: Karşılaştırmada esas alınan öz sermaye, kurumun Vergi Usul Kanunu uyarınca tespit edilmiş hesap dönemi sonundaki
+      öz sermayesidir.
+    B: Ortaklardan veya ortaklarla ilişkili kişilerden temin edilerek işletmede kullanılan borçların, hesap dönemi
+      içinde herhangi bir tarihte öz sermayenin üç katını aşan kısmı örtülü sermaye sayılır.
+    C: Ana faaliyet konusuna uygun olarak faaliyette bulunan ve ortakla ilişkili kişi sayılan bankalardan yapılan
+      borçlanmalar, karşılaştırmada %50 oranında dikkate alınır.
+    D: Ortakların sağladığı gayrinakdî teminatlar karşılığında üçüncü kişilerden yapılan borçlanmalar örtülü sermaye
+      sayılmaz.
+    E: Örtülü sermaye üzerinden ödenen faizler, örtülü sermaye şartlarının gerçekleştiği hesap döneminin son günü
+      itibarıyla dağıtılmış kâr payı sayılır.
+  dogru: A
+  aciklama:
+    dogru_neden: KVK md. 12/3-b'ye göre örtülü sermaye karşılaştırmasında kullanılan öz sermaye, kurumun Vergi Usul
+      Kanunu uyarınca tespit edilmiş hesap dönemi başındaki öz sermayesidir; dönem sonu öz sermayesi değildir.
+    celdiriciler:
+      B: Doğrudur; md. 12/1'deki üç kat ölçüsünü ve 'hesap dönemi içinde herhangi bir tarihte' ifadesini aynen yansıtır.
+      C: Doğrudur; md. 12/2 uyarınca ortak veya ortakla ilişkili kişi sayılan banka veya benzeri kredi kurumlarından
+        yapılan borçlanmalar %50 oranında dikkate alınır.
+      D: Doğrudur; md. 12/6-a bu borçlanmaları örtülü sermaye sayılmayanlar arasında sayar.
+      E: Doğrudur; md. 12/7'ye göre örtülü sermaye üzerinden kur farkı hariç faiz ve benzeri ödemeler bu tarih itibarıyla
+        dağıtılmış kâr payı sayılır.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 12/1
+    alinti: (1) Kurumların, ortaklarından veya ortaklarla ilişkili olan kişilerden doğrudan veya dolaylı olarak
+      temin ederek işletmede kullandıkları borçların, hesap dönemi içinde herhangi bir tarihte kurumun öz sermayesinin
+      üç katını aşan kısmı, ilgili hesap dönemi için örtülü sermaye sayılır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 12/3-b
+    alinti: b) Öz sermaye, kurumun Vergi Usul Kanunu uyarınca tespit edilmiş hesap dönemi başındaki öz sermayesini,
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 12/2
+    alinti: ana faaliyet konusuna uygun olarak faaliyette bulunan ve ortak veya ortakla ilişkili kişi sayılan banka
+      veya benzeri kredi kurumlarından yapılan borçlanmalar % 50 oranında dikkate alınır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 12/6-a, 12/7
+    alinti: a) Kurumların ortaklarının veya ortaklarla ilişkili kişilerin sağladığı gayrinakdî teminatlar karşılığında
+      üçüncü kişilerden yapılan borçlanmalar.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 12/7
+    alinti: (7) Örtülü sermaye üzerinden kur farkı hariç, faiz ve benzeri ödemeler veya hesaplanan tutarlar, Gelir
+      ve Kurumlar Vergisi kanunlarının uygulanmasında, gerek borç alan gerekse borç veren nezdinde, örtülü sermaye
+      şartlarının gerçekleştiği hesap döneminin son günü itibarıyla dağıtılmış kâr payı veya dar mükellefler için
+      ana merkeze aktarılan tutar sayılır.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v1
