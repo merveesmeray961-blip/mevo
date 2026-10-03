@@ -1,0 +1,82 @@
+- id: SMMM-FIN-OZK-0001
+  sinav: smmm
+  bolum:
+  - YET
+  ders: FIN
+  unite: Finansal Muhasebe
+  konu: OZK
+  kazanim: Primli sermaye artırımında tescilden önce asgari tahsilat ve ihraç primi (501/520)
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: yevmiye
+  kok: "Esas sermaye sistemindeki, payları borsada işlem görmeyen (C) A.Ş.'nin tamamı ödenmiş 2.000.000 ₺ sermayesi
+    bulunmaktadır. Genel kurul, sermayenin nakden 800.000 ₺ artırılmasına karar vermiştir. Yeni paylar 1 ₺ itibari
+    değerli olup pay başına 1,25 ₺'den ihraç edilecektir. Payların tamamı taahhüt edilmiş ve taahhüt aşamasında yalnızca
+    itibari değer üzerinden 501 Ödenmemiş Sermaye borç / 500 Sermaye alacak kaydı yapılmıştır. Ortaklar, artırımın
+    tescilinden önce 6102 sayılı TTK'ya göre ödenmesi zorunlu olan asgari tutarı banka hesabına yatırmıştır. Aksi
+    belirtilmedikçe Tekdüzen Muhasebe Sistemi esas alınır.\n\nBu tahsilata ilişkin kayıt aşağıdakilerden hangisidir?"
+  secenekler:
+    A: "Borç: 102 Bankalar 250.000\nAlacak: 501 Ödenmemiş Sermaye 250.000"
+    B: "Borç: 102 Bankalar 400.000\nAlacak: 501 Ödenmemiş Sermaye 200.000\nAlacak: 520 Hisse Senedi İhraç Primleri
+      200.000"
+    C: "Borç: 102 Bankalar 250.000\nAlacak: 501 Ödenmemiş Sermaye 200.000\nAlacak: 520 Hisse Senedi İhraç Primleri
+      50.000"
+    D: "Borç: 102 Bankalar 400.000\nAlacak: 500 Sermaye 200.000\nAlacak: 520 Hisse Senedi İhraç Primleri 200.000"
+    E: "Borç: 102 Bankalar 400.000\nAlacak: 501 Ödenmemiş Sermaye 200.000\nAlacak: 521 Hisse Senedi İptal Kârları
+      200.000"
+  dogru: B
+  aciklama:
+    dogru_neden: 'Soru üç tekniği birleştirir: madde birleştirme (TTK md. 459/3 ile md. 344 ve THP 501/520), çok adımlı
+      hesap ve tipik hata çeldiricileri. TTK md. 459/3 sermaye artırımında bedellerin ödenmesine md. 344''ü kıyasen
+      uygulatır. Md. 344''e göre nakden taahhüt edilen payların itibari değerinin en az %25''i ve çıkarma primlerinin
+      tamamı tescilden önce ödenir. İtibari değerin %25''i 800.000 × %25 = 200.000 ₺; prim (1,25 − 1) × 800.000 = 200.000 ₺;
+      asgari tahsilat 400.000 ₺. Tuzak, %25''i ihraç bedeline uygulamak veya primi de %25 ile sınırlamaktır. THP''ye göre
+      ödenen sermaye tutarları 501''e alacak, nominal ile satış fiyatı arasındaki fark 520 Hisse Senedi İhraç Primleri''ne
+      alacak yazılır.'
+    celdiriciler:
+      A: '%25 oranı ihraç bedeline (800.000 × 1,25 = 1.000.000 ₺) uygulanmış ve tamamı sermaye ödemesi sayılmıştır; prim
+        ayrıca ve tamamen tescilden önce ödenir, 520''de izlenir.'
+      C: Primin de yalnızca %25'i tahsil edilmiştir; TTK md. 344 çıkarma primlerinin tamamının tescilden önce ödenmesini
+        öngörür.
+      D: Taahhüt sırasında 500 Sermaye hesabı zaten alacaklandırılmıştır; ödeme ile azalan, ortakların borcunu gösteren
+        501 Ödenmemiş Sermaye hesabıdır. Bu kayıt sermayeyi ikinci kez artırır.
+      E: 521 Hisse Senedi İptal Kârları, iptal edilen payların yerine çıkarılanlardan doğan fazlalar içindir; primli
+        ihraçtan doğan fark 520 hesabında izlenir.
+    hesap_adimlari:
+    - 'İtibari değerin asgari %25''i = 800.000 × 0,25 = 200.000 ₺ → 501 alacak'
+    - 'Çıkarma primi (tamamı) = 800.000 × (1,25 − 1,00) = 200.000 ₺ → 520 alacak'
+    - 'Bankaya yatan = 200.000 + 200.000 = 400.000 ₺ → 102 borç'
+  kaynaklar:
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 344/1
+    alinti: Nakden taahhüt edilen payların itibarî değerlerinin en az yüzde yirmibeşi tescilden önce, gerisi de şirketin
+      tescilini izleyen yirmidört ay içinde ödenir. Payların çıkarma primlerinin tamamı tescilden önce ödenir.
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 459/3
+    alinti: Bu tür sermaye artırımında nakdî sermaye taahhüdüne 341 inci, ayni sermaye konulmasına 342 ve 343 üncü,
+      bedellerin ödenmesine 344 ve 345 inci, halka arz edilecek paylara 346 ncı, ihraç edilecek paylara 347 nci madde
+      kıyas yoluyla uygulanır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 501 Ödenmemiş Sermaye; 520 Hisse Senedi İhraç Primleri
+    alinti: '501 İşleyişi: Taahhüt edilen sermaye tutarı "500. Sermaye Hesabı" alacağı ile bu hesaba borç, ödenen tutarlar
+      alacak kaydedilir. 520: Yeni çıkarılan hisse senetlerinin primli satışından kaynaklanan tutarlar bu hesapta izlenir.
+      İşleyişi : Hisse senedinin nominal fiyatı ile satış fiyatı arasındaki fark bu hesabın alacağına satış biçimine bağlı
+      olarak ilgili hesabın borcuna kaydedilir.'
+  dogrulama:
+    python: |
+      nominal = 800000
+      asgari_sermaye = nominal * 0.25
+      prim = nominal * (1.25 - 1)
+      assert asgari_sermaye == 200000 and prim == 200000
+      sonuc = asgari_sermaye + prim
+    secenek_sayisi_bekleniyor: false
+  gecerlilik:
+    baslangic: '2026-10-03'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v2
