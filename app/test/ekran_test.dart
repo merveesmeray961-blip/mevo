@@ -66,9 +66,9 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Sınırsız çalış'), findsOneWidget);
     await tester.scrollUntilVisible(find.textContaining('Önizleme sürümü'), 200);
-    await tester.ensureVisible(find.text('Devam et'));
+    await tester.ensureVisible(find.text('Tam erişimi aç'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Devam et'));
+    await tester.tap(find.text('Tam erişimi aç'));
     await tester.pumpAndSettle();
     expect(durum.abonelik.premium, isTrue);
     expect(find.textContaining('Hızlı çalışma ·'), findsOneWidget);

@@ -5,6 +5,7 @@ import '../uygulama.dart';
 import 'bolum_secimi.dart';
 import 'odeme.dart';
 import 'yasal.dart';
+import '../bilesenler/duzen.dart';
 
 class AyarlarEkrani extends StatelessWidget {
   const AyarlarEkrani({super.key});
@@ -19,102 +20,104 @@ class AyarlarEkrani extends StatelessWidget {
         final t = Theme.of(context).textTheme;
         return Scaffold(
           appBar: AppBar(title: const Text('Ayarlar')),
-          body: ListView(
-            children: [
-              ListTile(
-                leading: const Icon(Icons.school_outlined),
-                title: const Text('Hazırlandığım sınav'),
-                subtitle: Text(bolumAdi[durum.bolum]!),
-                trailing: const Icon(Icons.chevron_right),
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const BolumSecimi())),
-              ),
-              ListTile(
-                leading: const Icon(Icons.format_list_numbered),
-                title: const Text('Çalışma oturumu'),
-                trailing: SegmentedButton<int>(
-                  segments: const [
-                    ButtonSegment(value: 10, label: Text('10')),
-                    ButtonSegment(value: 20, label: Text('20')),
-                    ButtonSegment(value: 30, label: Text('30')),
-                  ],
-                  selected: {ay.oturumBoyu},
-                  onSelectionChanged: (s) => ay.oturumBoyuSec(s.first),
-                  showSelectedIcon: false,
-                ),
-              ),
-              ListTile(
-                leading: const Icon(Icons.dark_mode_outlined),
-                title: const Text('Görünüm'),
-                trailing: DropdownButton<ThemeMode>(
-                  value: ay.tema,
-                  underline: const SizedBox(),
-                  onChanged: (m) => ay.temaSec(m!),
-                  items: const [
-                    DropdownMenuItem(value: ThemeMode.system, child: Text('Sistem')),
-                    DropdownMenuItem(value: ThemeMode.light, child: Text('Açık')),
-                    DropdownMenuItem(value: ThemeMode.dark, child: Text('Koyu')),
-                  ],
-                ),
-              ),
-              const Divider(),
-              ListTile(
-                leading: const Icon(Icons.workspace_premium_outlined),
-                title: Text(durum.abonelik.premium ? 'Tam erişim açık' : 'Ücretsiz sürüm'),
-                subtitle: Text(
-                  durum.abonelik.premium
-                      ? (durum.abonelik.onizleme ? 'Önizleme: ödeme alınmadı' : 'Aboneliğin etkin')
-                      : 'Günde $ucretsizGunlukSoru soru, $ucretsizDeneme deneme',
-                ),
-                trailing: const Icon(Icons.chevron_right),
-                onTap: () => odemeEkraniAc(context),
-              ),
-              if (durum.abonelik case final OnizlemeAbonelik o when o.premium)
+          body: Govde(
+            child: ListView(
+              children: [
                 ListTile(
-                  leading: const Icon(Icons.undo),
-                  title: const Text('Önizleme erişimini kapat'),
-                  subtitle: const Text('Ücretsiz sürümü denemek için'),
-                  onTap: o.iptal,
-                ),
-              ListTile(
-                leading: const Icon(Icons.restart_alt),
-                title: const Text('İlerlememi sıfırla'),
-                onTap: () async {
-                  final ok = await showDialog<bool>(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title: const Text('İlerleme sıfırlansın mı?'),
-                      content: const Text(
-                        'Çözdüğün sorular, yanlış defterin ve deneme sonuçların silinir. Bu işlem geri alınamaz.',
-                      ),
-                      actions: [
-                        TextButton(onPressed: () => Navigator.of(context).pop(false), child: const Text('Vazgeç')),
-                        TextButton(onPressed: () => Navigator.of(context).pop(true), child: const Text('Sıfırla')),
-                      ],
-                    ),
-                  );
-                  if (ok == true) await durum.ilerleme.sifirla();
-                },
-              ),
-              const Divider(),
-              for (final m in yasalMetinler)
-                ListTile(
-                  leading: const Icon(Icons.description_outlined),
-                  title: Text(m.baslik),
+                  leading: const Icon(Icons.school_outlined),
+                  title: const Text('Hazırlandığım sınav'),
+                  subtitle: Text(bolumAdi[durum.bolum]!),
                   trailing: const Icon(Icons.chevron_right),
-                  onTap: () =>
-                      Navigator.of(context).push(MaterialPageRoute(builder: (_) => YasalMetinEkrani(metin: m))),
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const BolumSecimi())),
                 ),
-              const Divider(),
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Text(
-                  'Soru bankası: ${durum.banka.sorular.length} soru · ${durum.banka.olusturma}\n'
-                  'Gönderdiğin hata bildirimi: ${durum.ilerleme.bildirimler.length}\n\n'
-                  '${durum.banka.uyari}',
-                  style: t.bodySmall,
+                ListTile(
+                  leading: const Icon(Icons.format_list_numbered),
+                  title: const Text('Çalışma oturumu'),
+                  trailing: SegmentedButton<int>(
+                    segments: const [
+                      ButtonSegment(value: 10, label: Text('10')),
+                      ButtonSegment(value: 20, label: Text('20')),
+                      ButtonSegment(value: 30, label: Text('30')),
+                    ],
+                    selected: {ay.oturumBoyu},
+                    onSelectionChanged: (s) => ay.oturumBoyuSec(s.first),
+                    showSelectedIcon: false,
+                  ),
                 ),
-              ),
-            ],
+                ListTile(
+                  leading: const Icon(Icons.dark_mode_outlined),
+                  title: const Text('Görünüm'),
+                  trailing: DropdownButton<ThemeMode>(
+                    value: ay.tema,
+                    underline: const SizedBox(),
+                    onChanged: (m) => ay.temaSec(m!),
+                    items: const [
+                      DropdownMenuItem(value: ThemeMode.system, child: Text('Sistem')),
+                      DropdownMenuItem(value: ThemeMode.light, child: Text('Açık')),
+                      DropdownMenuItem(value: ThemeMode.dark, child: Text('Koyu')),
+                    ],
+                  ),
+                ),
+                const Divider(),
+                ListTile(
+                  leading: const Icon(Icons.workspace_premium_outlined),
+                  title: Text(durum.abonelik.premium ? 'Tam erişim açık' : 'Ücretsiz sürüm'),
+                  subtitle: Text(
+                    durum.abonelik.premium
+                        ? (durum.abonelik.onizleme ? 'Önizleme: ödeme alınmadı' : 'Satın alındı, teşekkürler')
+                        : 'Günde $ucretsizGunlukSoru soru, $ucretsizDeneme deneme',
+                  ),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => odemeEkraniAc(context),
+                ),
+                if (durum.abonelik case final OnizlemeAbonelik o when o.premium)
+                  ListTile(
+                    leading: const Icon(Icons.undo),
+                    title: const Text('Önizleme erişimini kapat'),
+                    subtitle: const Text('Ücretsiz sürümü denemek için'),
+                    onTap: o.iptal,
+                  ),
+                ListTile(
+                  leading: const Icon(Icons.restart_alt),
+                  title: const Text('İlerlememi sıfırla'),
+                  onTap: () async {
+                    final ok = await showDialog<bool>(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('İlerleme sıfırlansın mı?'),
+                        content: const Text(
+                          'Çözdüğün sorular, yanlış defterin ve deneme sonuçların silinir. Bu işlem geri alınamaz.',
+                        ),
+                        actions: [
+                          TextButton(onPressed: () => Navigator.of(context).pop(false), child: const Text('Vazgeç')),
+                          TextButton(onPressed: () => Navigator.of(context).pop(true), child: const Text('Sıfırla')),
+                        ],
+                      ),
+                    );
+                    if (ok == true) await durum.ilerleme.sifirla();
+                  },
+                ),
+                const Divider(),
+                for (final m in yasalMetinler)
+                  ListTile(
+                    leading: const Icon(Icons.description_outlined),
+                    title: Text(m.baslik),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () =>
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => YasalMetinEkrani(metin: m))),
+                  ),
+                const Divider(),
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    'Soru bankası: ${durum.banka.sorular.length} soru · ${durum.banka.olusturma}\n'
+                    'Gönderdiğin hata bildirimi: ${durum.ilerleme.bildirimler.length}\n\n'
+                    '${durum.banka.uyari}',
+                    style: t.bodySmall,
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },

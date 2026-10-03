@@ -1,9 +1,12 @@
+import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'abonelik/abonelik.dart';
+import 'abonelik/magaza_abonelik.dart';
 import 'ekranlar/ana_kabuk.dart';
 import 'ekranlar/bolum_secimi.dart';
 import 'uygulama.dart';
@@ -18,14 +21,14 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final depo = await CihazDepo.ac();
   final banka = SoruBankasi.fromJson(jsonDecode(await rootBundle.loadString(soruPaketi)) as Map<String, dynamic>);
+  // Android ve iOS'ta gerçek mağaza ödemesi; web önizlemesinde (mağaza yok) sahte önizleme ödemesi.
+  final gercekMagaza =
+      !kIsWeb && (defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.iOS);
+  final AbonelikServisi abonelik = gercekMagaza ? MagazaAbonelik(depo) : OnizlemeAbonelik(depo);
+  unawaited(abonelik.baslat());
   runApp(
     MevoUygulamasi(
-      durum: UygulamaDurumu(
-        banka: banka,
-        ilerleme: Ilerleme(depo),
-        ayarlar: Ayarlar(depo),
-        abonelik: OnizlemeAbonelik(depo),
-      ),
+      durum: UygulamaDurumu(banka: banka, ilerleme: Ilerleme(depo), ayarlar: Ayarlar(depo), abonelik: abonelik),
     ),
   );
 }
