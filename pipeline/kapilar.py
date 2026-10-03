@@ -72,7 +72,9 @@ def isle(kapi: str, kararlar: list[dict]) -> dict[str, str]:
             soru.setdefault("uretim", {}).setdefault("kapilar", {})[kapi] = kayit
             sonuc[k["id"]] = k["sonuc"]
 
-    denetle._yaz(kayitlar, g2_yapi.KOK / "content/sorular/smmm")
+    # Yalnız kararı işlenen soruları içeren dosyalar yeniden yazılır; üzerinde başka biri çalışan dosyalara dokunulmaz.
+    degisen_dosyalar = {d for d, s in kayitlar if s.get("id") in sonuc}
+    denetle._yaz([(d, s) for d, s in kayitlar if d in degisen_dosyalar], g2_yapi.KOK / "content/sorular/smmm")
     return sonuc
 
 
