@@ -29,7 +29,7 @@
     B: Artan oranlı tarife
     C: Azalan oranlı tarife
     D: Maktu (spesifik) tarife
-    E: Dilim usulü artan oranlı tarife
+    E: Karma (bileşik) tarife
   dogru: A
   aciklama:
     dogru_neden: 'Ortalama vergi oranı her matrah düzeyinde aynıdır: 1.500 / 10.000 = 3.000 / 20.000 = 7.500 / 50.000
@@ -41,36 +41,29 @@
       C: Azalan oranlı tarifede matrah büyüdükçe ortalama vergi oranı düşer; tabloda oran değişmemektedir.
       D: Maktu tarifede vergi, matrahın değerine bağlı bir oranla değil, miktar başına ya da sabit tutar olarak
         belirlenir; tabloda vergi matrahın sabit bir yüzdesidir.
-      E: Dilim usulü artan oranlı tarifede matrahın üst dilimlere düşen kısımlarına daha yüksek oranlar uygulanır
-        ve ortalama oran matrahla birlikte yükselir; tabloda ortalama oran sabittir.
+      E: Karma (bileşik) tarifede vergi, matrahın değerine uygulanan bir oran ile miktar başına alınan maktu bir
+        tutarın birlikte uygulanmasıyla bulunur; tabloda maktu bir bileşen yoktur, vergi her düzeyde matrahın yalnızca
+        %15'idir (ör. 10.000 TL matrahta vergi tam 1.500 TL).
   kaynaklar:
   - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
-    madde: 'Vergi tarifeleri: düz (sabit) oranlı, artan oranlı, azalan oranlı ve maktu tarife'
+    madde: 'Vergi tarifeleri: düz (sabit) oranlı, artan oranlı, azalan oranlı, maktu ve karma (bileşik) tarife'
     alinti: ''
   gecerlilik:
     baslangic: '2026-10-03'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: duzeltici
+    ne: E şıkkı 'Dilim usulü artan oranlı tarife' → 'Karma (bileşik) tarife'; E açıklaması ve kaynak tanımı güncellendi.
+    neden: 'G5 (küçük): B (artan oranlı) ile E (dilim usulü artan oranlı) iç içeydi; birlikte elenebiliyordu.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: A (güven 5); B: A (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) B (''Artan oranlı'') ve E (''Dilim usulü artan oranlı'') iç içe; E doğru olsaydı B de doğru
-          olurdu, bu nedenle ikisi birlikte elenebilir. | Öneri: B ile E''den birini iç içe olmayan bir kavramla
-          değiştirin (ör. E: ''Degresif tarife'').'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
