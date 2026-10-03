@@ -24,7 +24,7 @@ ocr2txt() {  # ocr2txt <dosya.pdf> -> <ad>.txt (tesseract, Türkçe)
 h2t() { python3 -c '
 import re,html,sys
 s=sys.stdin.buffer.read()
-m=re.search(rb"charset=[\"\x27]?([\w-]+)",s,re.I); enc=(m.group(1).decode() if m else "utf-8")
+m=re.search(rb"charset=[\"\x27]?([\w-]+)",s,re.I); enc=(m.group(1).decode() if m else "windows-1254")
 enc="windows-1254" if enc.lower() in ("iso-8859-1","iso-8859-9","windows-1254") else enc
 s=s.decode(enc,"replace")
 s=re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>","",s); s=re.sub(r"(?i)<br\s*/?>","\n",s)
@@ -152,7 +152,8 @@ dl tms_40.pdf "https://www.kgk.gov.tr/Portalv2Uploads/files/Duyurular/v2/TMS_TFR
 dl tms_41.pdf "https://www.kgk.gov.tr/Portalv2Uploads/files/Duyurular/v2/TMS_TFRS_Setleri/2026/Mavi_Kitap/TMS/TMS%2041.pdf" && totxt tms_41.pdf
 dl tfrs_18.pdf "https://www.kgk.gov.tr/Portalv2Uploads/files/Duyurular/v2/TMS_TFRS_Setleri/2026/Kirmizi_Kitap/TFRS/TFRS%2018%20.pdf" && totxt tfrs_18.pdf
 dl bobi_frs.pdf "https://www.kgk.gov.tr/Portalv2Uploads/files/Duyurular/v2/BOB%C4%B0_FRS/BOBIFRS2021S%C3%BCr%C3%BCm%C3%BC.pdf" && totxt bobi_frs.pdf
-curl -sf -m 300 -A "$UA" -X POST -H 'Content-Type: application/json' "https://gib.gov.tr/api/gibportal/mevzuat/teblig/list?page=0&size=3000" -d '{}' -o "$TMP/gibteb.json"
+for p in 0 1 2 3; do curl -sf -m 300 -A "$UA" -X POST -H 'Content-Type: application/json' "https://gib.gov.tr/api/gibportal/mevzuat/teblig/list?page=$p&size=1000" -d '{}' -o "$TMP/gibteb_$p.json"; done
+python3 -c 'import json,glob,sys; json.dump({"resultContainer":{"content":sum((json.load(open(f))["resultContainer"]["content"] for f in sorted(glob.glob(sys.argv[1]+"/gibteb_*.json"))),[])}},open(sys.argv[1]+"/gibteb.json","w"))' "$TMP"
 # MSUGT ana metni ve 2–15 değişiklik tebliğleri GİB API kayıtlarının "description" (HTML) alanından üretilir:
 python3 - "$TMP/gibteb.json" <<'PY'
 import json,re,html,sys
