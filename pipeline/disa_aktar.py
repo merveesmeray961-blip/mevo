@@ -23,15 +23,38 @@ from pipeline import g2_yapi, g4_hesap
 KOK = g2_yapi.KOK
 AKTARILAN_DURUMLAR = {"kontrolde", "onayli", "yayinda"}
 
-# Zor sorularda dogru_neden'in sonuna eklenen teknik/tuzak notu uygulamada ayrı bir "püf noktaları" bölümünde gösterilir.
-PUF_ETIKETI = re.compile(r"\s*(?:Kullanılan teknikler|Zorluk \(\d\) kaynakları|Püf noktaları)\s*:\s*")
+# Zor sorularda dogru_neden'e eklenen teknik/tuzak notu uygulamada ayrı bir "püf noktaları" bölümünde gösterilir.
+# Üretimde kullanılmış etiket yazılışları; yenileri eklenirse tests/test_g4_g7.py'deki örneklere de eklenmeli.
+PUF_ETIKETI = re.compile(
+    r"\s*(?:Bu soru zor düzeydedir;\s*)?(?:Kullanılan teknikler|kullanılan teknikler|Zor soru teknikleri"
+    r"|Zorluk \(\d\) kaynakları|Zor soru; \w+ teknik birlikte kullanılır|Püf noktaları)\s*:\s*"
+)
+
+
+def _ilk_cumle_sonu(metin: str) -> int:
+    """Parantez dışındaki ilk '. ' + büyük harf sınırının konumu; yoksa metnin sonu."""
+    derinlik = 0
+    for i, c in enumerate(metin):
+        if c == "(":
+            derinlik += 1
+        elif c == ")":
+            derinlik = max(0, derinlik - 1)
+        elif c == "." and derinlik == 0 and metin[i + 1 : i + 2] == " " and metin[i + 2 : i + 3].isupper():
+            return i + 1
+    return len(metin)
 
 
 def aciklama_ayir(aciklama: dict) -> dict:
-    parca = PUF_ETIKETI.split(aciklama["dogru_neden"], maxsplit=1)
-    if len(parca) == 1:
+    metin = aciklama["dogru_neden"]
+    m = PUF_ETIKETI.search(metin)
+    if not m:
         return aciklama
-    return {**aciklama, "dogru_neden": parca[0].strip(), "puf_noktalari": parca[1].strip()}
+    if metin[: m.start()].strip():
+        once, puf = metin[: m.start()], metin[m.end() :]
+    else:  # not açıklamanın başında: yalnız ilk cümle ayrılır, açıklamanın gerisi yerinde kalır
+        son = m.end() + _ilk_cumle_sonu(metin[m.end() :])
+        once, puf = metin[son:], metin[m.end() : son]
+    return {**aciklama, "dogru_neden": once.strip(), "puf_noktalari": puf.strip()}
 
 
 def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool = False) -> dict:

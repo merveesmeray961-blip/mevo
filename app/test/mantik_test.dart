@@ -24,7 +24,17 @@ void main() {
 
     test('yazara yönelik teknik notları açıklamada görünmez, püf noktalarına taşınır', () {
       for (final s in banka.sorular) {
-        expect(s.dogruNeden, isNot(matches(RegExp(r'Kullanılan teknikler|Zorluk \(\d\) kaynakları'))), reason: s.id);
+        expect(
+          s.dogruNeden,
+          isNot(
+            matches(
+              RegExp(
+                r'[Kk]ullanılan teknikler|Zor soru teknikleri|teknik birlikte kullanılır|Zorluk \(\d\) kaynakları',
+              ),
+            ),
+          ),
+          reason: s.id,
+        );
       }
       expect(banka.sorular.where((s) => s.pufNoktalari != null), isNotEmpty);
     });

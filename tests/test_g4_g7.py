@@ -89,3 +89,16 @@ def test_disa_aktar_puf_noktalarini_ayirir():
     assert b["dogru_neden"] == "Md. 22/1'e göre C yanlıştır."
     assert b["puf_noktalari"] == "(1) madde birleştirme."
     assert aciklama_ayir({"dogru_neden": "Sade açıklama."}) == {"dogru_neden": "Sade açıklama."}
+
+
+def test_disa_aktar_puf_etiketi_yazilislari():
+    from pipeline.disa_aktar import aciklama_ayir
+
+    for etiket in ["Zor soru teknikleri:", "Bu soru zor düzeydedir; kullanılan teknikler:", "Zorluk (3) kaynakları:"]:
+        b = aciklama_ayir({"dogru_neden": f"Cevap C'dir. {etiket} madde birleştirme. Tuzak, X'tir."})
+        assert b["dogru_neden"] == "Cevap C'dir.", etiket
+        assert b["puf_noktalari"] == "madde birleştirme. Tuzak, X'tir.", etiket
+
+    b = aciklama_ayir({"dogru_neden": "Zor soru; üç teknik birlikte kullanılır: A, B (md. 1. fıkra) ve C. Genel kural md. 116'dır."})
+    assert b["puf_noktalari"] == "A, B (md. 1. fıkra) ve C."
+    assert b["dogru_neden"] == "Genel kural md. 116'dır."
