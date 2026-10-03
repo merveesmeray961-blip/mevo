@@ -1,62 +1,266 @@
-# SMMM müfredat ağacı — TASLAK
-# Durum: teyit_bekliyor. Resmî kapsam (Sınav Yönetmeliği md.14, TESMER duyuruları)
-# okunduktan ve muhasebeci onayından (Kapı M) sonra "onayli" olacak.
-# Yapı: ders → unite → konu → kazanim. Bu taslakta yalnızca ders düzeyi ve kaynak eşlemesi var.
+# SMMM müfredat ağacı
+# Durum: taslak_v1 — resmî kapsam (TÜRMOB YK kararı E.233, Sınav Yön. md.14) + 2025–2026 kitapçık analizi
+#   (docs/analiz/). Uzman onayı (Kapı M) bekliyor.
+#
+# Yapı: ders → konu (kod, ad, ağırlık) → kazanımlar → kaynaklar
+# agirlik: ders içindeki yaklaşık soru payı (yüzde). yet = Yeterlilik, sgs = Staja Giriş.
+# Soru kimliği: SMMM-<DERS>-<KONU>-<NNNN>  (ör. SMMM-FIN-STK-0001)
 
-durum: teyit_bekliyor
+durum: taslak_v1
+kaynak_dizini: content/kaynaklar/mevzuat
+
 dersler:
+
+  # ───────────────────────── ORTAK: Yeterlilik + SGS ─────────────────────────
   - kod: FIN
     ad: Finansal Muhasebe
-    sgs_soru: 18
-    yet_soru: 20
-    kaynaklar: [Muhasebe Sistemi Uygulama Genel Tebliğleri, "213 VUK md. 258-330 (değerleme)", BOBİ FRS, TMS/TFRS]
-  - kod: STD
-    ad: Muhasebe Standartları
-    sgs_soru: 8
-    yet_soru: 0          # Yeterlilik'te ayrı ders değil; Finansal Muhasebe içinde (teyit edilecek)
-    kaynaklar: [TMS/TFRS, BOBİ FRS, KÜMİ FRS]
+    soru: {yet: 20, sgs: 18}
+    oturum_yet: 1
+    notlar:
+      - "Aksi belirtilmedikçe Tekdüzen Muhasebe Sistemi (MSUGT) esas alınır; KDV %20."
+      - "Seçenekler çoğunlukla THP kodlu tam yevmiye kaydı veya 'X hesabına N ₺ borç/alacak'."
+    konular:
+      - {kod: STK, ad: Stoklar ve ticari mallar, agirlik: {yet: 20, sgs: 12},
+         kazanimlar: [FIFO/ortalama ile maliyet, sürekli ve aralıklı envanter, alış/satış iade ve iskontoları, sayım farkları (397), normal fire, stok değer düşüklüğü (158/654), TMS 2 net gerçekleşebilir değer ve normal kapasite],
+         kaynaklar: [MSUGT 15 grubu, VUK md.274-275, TMS 2]}
+      - {kod: MDV, ad: Maddi ve maddi olmayan duran varlıklar, agirlik: {yet: 18, sgs: 20},
+         kazanimlar: [aktifleştirme/gider ayrımı, özel maliyetler, yapılmakta olan yatırımlar, amortisman yöntemleri (eşit tutar, azalan bakiyeler, üretim miktarı), satış ve takas, yenileme fonu (549), sigorta hasarı, haklar ve şerefiye, TMS 16 yeniden değerleme ve bileşen, TMS 38 Ar-Ge, TMS 40 yatırım amaçlı gayrimenkul],
+         kaynaklar: [MSUGT 25-26 grupları, VUK md.313-330, TMS 16, TMS 38, TMS 40]}
+      - {kod: MKY, ad: Menkul kıymetler ve ortaklık payları, agirlik: {yet: 13, sgs: 9},
+         kazanimlar: [hisse senedi ve tahvil alım-satımı, değer düşüklüğü karşılığı (119/654/644), temettü, iştirak ve bağlı ortaklık sınıflaması (242/245)],
+         kaynaklar: [MSUGT 11 ve 24 grupları, VUK md.279]}
+      - {kod: DON, ad: Dönem sonu tahakkuk, erteleme, reeskont ve karşılıklar, agirlik: {yet: 13, sgs: 11},
+         kazanimlar: [gelecek aylara ait gider/gelir (180/380), gelir ve gider tahakkukları (181/381), alacak ve borç senedi reeskontu (122/302/647/657), gider karşılıkları (373), kurumlar vergisi karşılığı (691/370), kapanış kayıtları],
+         kaynaklar: [MSUGT 18-38 grupları, VUK md.281, md.285]}
+      - {kod: ALC, ad: Alacaklar ve senetler, agirlik: {yet: 10, sgs: 10},
+         kazanimlar: [senet yenileme ve iskonto, şüpheli alacak (128/129/689/654), ileri tarihli çek, depozito ve teminatlar, akreditif],
+         kaynaklar: [MSUGT 12 grubu, VUK md.323]}
+      - {kod: BOR, ad: Yabancı kaynaklar ve mali borçlar, agirlik: {yet: 10, sgs: 9},
+         kazanimlar: [banka kredileri ve faiz tahakkuku, bono ve tahvil ihracı (305/308/405/408), uzun vadeli borcun kısa vadeye aktarılması, kur farkı, stopaj],
+         kaynaklar: [MSUGT 30, 32, 40 grupları]}
+      - {kod: OZK, ad: Özkaynak işlemleri, agirlik: {yet: 8, sgs: 18},
+         kazanimlar: [kuruluş ve sermaye taahhüdü, primli sermaye artırımı (520), iç kaynaklardan artırım, taahhüdünü yerine getirmeyen ortak ve pay iptali, kâr dağıtımı ve yedekler],
+         kaynaklar: [MSUGT 50-59 grupları, TTK md.519-523]}
+      - {kod: HAZ, ad: Hazır değerler, KDV ve kavramlar, agirlik: {yet: 8, sgs: 11},
+         kazanimlar: [kasa ve banka işlemleri, KDV mahsubu (191/391/360), temel kavramlar, düzenleyici hesaplar, mizan, gelir tablosu hesaplarının kapanışı (690/692)],
+         kaynaklar: [MSUGT temel kavramlar ve 10 grubu, 3065 KDVK md.29]}
+
   - kod: TAB
     ad: Finansal Tablolar ve Analizi
-    sgs_soru: 8
-    yet_soru: 20
+    sgs_ad: Mali Tablolar Analizi
+    soru: {yet: 20, sgs: 8}
+    oturum_yet: 2
+    notlar:
+      - "Kökte: 'Devir hızlarında ortalama değer; yıl 360, ay 30 gün.' Çeyrek 90, 6 ay 180 gün."
+      - "Yeterlilik'te tek 3 yıllık bilanço + gelir tablosu 10–15 soruyu besler."
+      - "Dikey analizde baz net satışlar; ticari borç süresi satışların maliyetiyle; brüt satış kârlılığı = brüt satış kârı / net satışlar."
+      - "Grafik sorusu üretme (gerçek sınavdaki 3 grafik sorusunun üçü de iptal edildi)."
+    konular:
+      - {kod: DVR, ad: Devir hızları ve süreleri, agirlik: {yet: 25, sgs: 10},
+         kazanimlar: [stok (ilk madde, yarı mamul, mamul, ticari mal) devir hızı/süresi, alacak tahsil süresi, borç ödeme süresi, hedef süreden geri hesap]}
+      - {kod: LIK, ad: Likidite ve finansal yapı oranları, agirlik: {yet: 18, sgs: 27},
+         kazanimlar: [net ve brüt işletme sermayesi, cari oran, likidite (asit-test) oranı, nakit oran, kaldıraç, devamlı sermaye oranları, hedef orandan geri hesap]}
+      - {kod: DIK, ad: Dikey, yatay ve trend analizi, agirlik: {yet: 33, sgs: 20},
+         kazanimlar: [dikey yüzdeler, karşılaştırmalı (yatay) analiz, trend yüzdeleri]}
+      - {kod: KAR, ad: Kârlılık oranları, agirlik: {yet: 10, sgs: 25},
+         kazanimlar: [brüt ve faaliyet kâr oranı, varlık ve özkaynak kârlılığı, DuPont]}
+      - {kod: TMS, ad: Finansal tablolar ve TMS 1 / nakit akışı, agirlik: {yet: 14, sgs: 18},
+         kazanimlar: [TMS 1 tam set finansal tablolar, toplam kapsamlı gelir, satışlardan nakit girişi, dolaylı yöntem nakit akışı, gelir tablosu yapısı]}
     kaynaklar: [MSUGT mali tablo ilkeleri, TMS 1, TMS 7]
+
   - kod: MAL
     ad: Maliyet Muhasebesi
-    sgs_soru: 8
-    yet_soru: 20
-    kaynaklar: [MSUGT 7/A-7/B]
+    soru: {yet: 20, sgs: 8}
+    oturum_yet: 1
+    notlar:
+      - "Kökte: 'KDV dikkate alınmayacaktır.' Harf kodlu işletme adları (A, AB, AX İşletmesi)."
+      - "Çeldirici kalemler: finansman ve genel yönetim giderlerini maliyete katma tuzağı."
+    konular:
+      - {kod: TBL, ad: Maliyet tabloları ve geri hesaplar, agirlik: {yet: 22, sgs: 10},
+         kazanimlar: [üretim maliyeti, satılan mamul maliyeti, satılan ticari mal maliyeti, ilk madde gideri, zincirleme dönem tabloları]}
+      - {kod: KAV, ad: Temel kavramlar ve GÜG kalemleri, agirlik: {yet: 17, sgs: 10},
+         kazanimlar: [asal maliyet, dönüştürme maliyeti, maliyet unsurları, gider yeri, maliyet muhasebesinin amaçları, muhasebe bilgi sistemi]}
+      - {kod: 7AB, ad: 7/A ve 7/B seçenekleri ve hesap akışı, agirlik: {yet: 15, sgs: 10},
+         kazanimlar: [yansıtma hesapları, bütçe farkları (732 vb.), 740/741/622 kapanışı, 78 finansman giderleri, işçilik kaydı]}
+      - {kod: ORT, ad: Ortak ve yan ürün, agirlik: {yet: 12, sgs: 12},
+         kazanimlar: [satış değeri yöntemi, net satış değeri yöntemi, katsayılı bölme, yan ürün geri hesap]}
+      - {kod: SAF, ad: Safha maliyeti ve eşdeğer birim, agirlik: {yet: 10, sgs: 13},
+         kazanimlar: [FIFO ve ortalama safha maliyeti, eşdeğer birim, tamamlanma derecesi geri hesap]}
+      - {kod: SIP, ad: Sipariş maliyeti ve GÜG yükleme/dağıtım, agirlik: {yet: 10, sgs: 22},
+         kazanimlar: [GÜG yükleme oranı, fazla/eksik yükleme, I. ve II. dağıtım (matematiksel, kademeli), gider yeri katsayıları, faaliyet tabanlı maliyet]}
+      - {kod: STD, ad: Standart maliyet ve sapmalar, agirlik: {yet: 7, sgs: 15},
+         kazanimlar: [direkt ilk madde fiyat ve miktar sapması, direkt işçilik ücret ve zaman sapması, GÜG sapmaları]}
+      - {kod: DIG, ad: Değişken/tam maliyet, MHK, kayıplar, malzeme değerleme, agirlik: {yet: 7, sgs: 8},
+         kazanimlar: [değişken, tam ve normal maliyet, maliyet-hacim-kâr, üretim kayıpları, FIFO ve hareketli ortalama]}
+    kaynaklar: [MSUGT 7/A-7/B, TMS 2]
+
   - kod: DEN
     ad: Muhasebe Denetimi
-    sgs_soru: 16
-    yet_soru: 20
-    kaynaklar: [Bağımsız Denetim Standartları (KGK)]
+    sgs_ad: Denetim
+    soru: {yet: 20, sgs: 16}
+    oturum_yet: 2
+    notlar:
+      - "Tamamen sözel; olumsuz kök yaklaşık %40–46. Kökte BDS numarası ve adı açıkça yazılır (2026 eğilimi)."
+      - "Biçimler: tanım ('bu ifade hangisini açıklar'), (i)(ii)(iii) boşluk doldurma, 'hangisi değildir' listeleri, tek unsuru değiştirilmiş sayısal şartlar."
+    konular:
+      - {kod: BDY, ad: Bağımsız Denetim Yönetmeliği, agirlik: {yet: 55, sgs: 5},
+         kazanimlar: [tanımlar (denetim kıstası, kanıt, rapor, kilit yönetici), KAYİK denetimi, yetkilendirme, kendi adına denetim, sorumlu denetçi şartları, uygulamalı mesleki eğitim, denetim ekipleri, bağımsızlık ve etik, kısıtlamalar ve rotasyon, sözleşme, sicil, şeffaflık raporu]}
+      - {kod: RAP, ad: Raporlama ve görüş türleri, agirlik: {yet: 8, sgs: 20},
+         kazanimlar: [BDS 700, 701, 705, 706, 720, 570]}
+      - {kod: KNT, ad: Denetim kanıtı, agirlik: {yet: 8, sgs: 16},
+         kazanimlar: [BDS 500, 501, 505, 520, 580 yazılı beyanlar]}
+      - {kod: RSK, ad: Risk, önemlilik ve planlama, agirlik: {yet: 15, sgs: 30},
+         kazanimlar: [BDS 200 amaç, makul güvence, mesleki muhakeme, denetim riski; BDS 210 ön kabul; BDS 300 planlama; BDS 315/330; BDS 320/450 önemlilik; BDS 530 örnekleme]}
+      - {kod: ICK, ad: İç kontrol ve hile, agirlik: {yet: 6, sgs: 15},
+         kazanimlar: [COSO, kontrol çevresi, BDS 265 iç kontrol eksikliği, BDS 240 hile ve hile üçgeni, BDS 230 belgelendirme]}
+      - {kod: KAL, ad: Kalite yönetimi ve etik kurallar, agirlik: {yet: 8, sgs: 7},
+         kazanimlar: [KYS 1, KYS 2, BDS 220, Bağımsız Denetçiler için Etik Kurallar, GKGDS]}
+      - {kod: PRG, ad: Hesap bazlı denetim programları, agirlik: {yet: 0, sgs: 7},
+         kazanimlar: [alacaklar, satışlar, amortisman denetimi]}
+    kaynaklar: [KGK Bağımsız Denetim Yönetmeliği, Bağımsız Denetim Standartları, KYS 1-2, Etik Kurallar]
+
+  # ───────────────────────── Yalnız Yeterlilik ─────────────────────────
   - kod: VER
     ad: Vergi Mevzuatı ve Uygulaması
-    sgs_soru: null       # SGS'de hukuk grubu içinde (teyit edilecek)
-    yet_soru: 20
-    kaynaklar: ["213 VUK", "193 GVK", "5520 KVK", "3065 KDVK", "4760 ÖTVK", "6183 AATUHK", "492 Harçlar", "488 Damga", "197 MTV", "7338 VİK"]
+    soru: {yet: 20, sgs: 0}
+    oturum_yet: 2
+    notlar:
+      - "Hesaplama yaklaşık %30 ve artıyor. Yıllık GV tarifesi soruda verilir; beyan/istisna hadleri tarife dilimine bağlı bilinmesi beklenir."
+      - "Kalıcı oranlar ezberlenmeli: binek oto %30, asgari KV %10, finansman gider kısıtlaması %10, eğitim/sağlık indirimi %10."
+    konular:
+      - {kod: KVK, ad: Kurumlar vergisi, agirlik: {yet: 22},
+         kazanimlar: [mükellefiyet (tam/dar), istisnalar (iştirak kazancı), KKEG, geçmiş yıl zararı, örtülü sermaye, finansman gider kısıtlaması, yurt içi asgari KV, tasfiye, sermaye azaltımı]}
+      - {kod: GVK, ad: Gelir vergisi, agirlik: {yet: 20},
+         kazanimlar: [gelir unsurları ve istisnalar (md.18, md.21), ücret ve kira beyan sınırları, menkul sermaye iradı, değer artış kazancı, indirimler (md.89), mahsuplar, geçici vergi, vergiye uyumlu mükellef indirimi]}
+      - {kod: KDV, ad: Katma değer vergisi, agirlik: {yet: 18},
+         kazanimlar: [verginin konusu ve Türkiye'de yapılma, istisnalar, ihraç kaydıyla teslim, sorumlu sıfatıyla ödeme, indirim ve düzeltme, devreden KDV hesabı]}
+      - {kod: VUK, ad: Vergi usul, agirlik: {yet: 15},
+         kazanimlar: [değerleme ölçüleri, emsal bedel, vergi ziyaı ve kaçakçılık, pişmanlık ve ıslah, izaha davet, zamanaşımı]}
+      - {kod: AAT, ad: Amme alacaklarının tahsili (6183), agirlik: {yet: 10},
+         kazanimlar: [ihtiyati haciz, ödeme emri, tahsil zamanaşımı ve kesen haller]}
+      - {kod: DIG, ad: ÖTV, Damga, VİV, MTV, Emlak, agirlik: {yet: 15},
+         kazanimlar: [ÖTV listeleri ve istisnalar, damga vergisi genel hükümleri, VİV beyan süreleri, MTV istisnaları, bina vergisi mükellefiyeti]}
+    kaynaklar: [193 GVK, 5520 KVK, 3065 KDVK, 213 VUK, 6183, 4760 ÖTVK, 488 DVK, 7338 VİVK, 197 MTVK, 1319 EVK, ilgili genel tebliğler]
+
   - kod: HUK
     ad: Hukuk
-    sgs_soru: 30         # grup toplamı; alt dersler 6'şar
-    yet_soru: 20
-    kaynaklar: ["6102 TTK", "6098 TBK", "4857 İş K.", "5510 SGK", "2004 İİK", "2577 İYUK"]
+    soru: {yet: 20, sgs: 0}
+    oturum_yet: 1
+    notlar:
+      - "Kapsam (resmî): Ticaret, Borçlar, İş, SSK ve Bağ-Kur, İdari Yargılama. İcra-İflas YOK."
+      - "Hesaplama yok; seçenekler kısa (süre, sayı, kurum, kavram); olumsuz kök yaklaşık %40."
+    konular:
+      - {kod: SGK, ad: Sosyal güvenlik (5510), agirlik: {yet: 25},
+         kazanimlar: [sigortalılık (4/a-b-c) ve kapsam, sigorta kolları, bildirimler, iş kazası ve kısa vadeli sigortalar, GSS, ücret tanımı, idari para cezaları]}
+      - {kod: ISH, ad: İş hukuku (4857, 7036), agirlik: {yet: 20},
+         kazanimlar: [iş sözleşmesi türleri ve deneme süresi, fesih ve bildirim, toplu işçi çıkarma, çalışma süreleri, telafi ve fazla çalışma, izinler, zamanaşımı]}
+      - {kod: BRC, ad: Borçlar hukuku (6098), agirlik: {yet: 20},
+         kazanimlar: [borç kaynakları, sözleşmenin kurulması, yanılma, haksız fiil ve zamanaşımı, müteselsil borç, borcun sona ermesi, zamanaşımı süreleri, taksitle satış]}
+      - {kod: TIC, ad: Ticaret hukuku (6102), agirlik: {yet: 17.5},
+         kazanimlar: [ticari davalar ve görevli mahkeme, tacir ve ticari işletme, şirket türleri, kıymetli evrak (ciro, ziya, emre yazılı senet), taşıma, haksız rekabet, elektronik işlemler]}
+      - {kod: IYU, ad: İdari yargılama (2577), agirlik: {yet: 17.5},
+         kazanimlar: [dava açma süreleri, ilk inceleme, kararların uygulanması (md.28), kanun yolları, özel süreler]}
+    kaynaklar: [6102 TTK, 6098 TBK, 4857 İşK, 7036, 5510, 2577 İYUK, 2576]
+
   - kod: SPK
     ad: Sermaye Piyasası Mevzuatı
-    sgs_soru: 0
-    yet_soru: 20
-    kaynaklar: ["6362 SPKn ve temel tebliğler"]
+    soru: {yet: 20, sgs: 0}
+    oturum_yet: 1
+    notlar:
+      - "Öncüllü (I/II/III) soru oranı en yüksek ders (%20); seçenekler uzun (2–6 satır)."
+    konular:
+      - {kod: HAO, ad: Halka açık ortaklıklar, agirlik: {yet: 20},
+         kazanimlar: [ilişkili taraf işlemleri, kâr payı ve avans, önemli nitelikteki işlemler ve ayrılma hakkı, kayıtlı sermaye, genel kurul, birleşme ve bölünme, özel durumlar]}
+      - {kod: SUC, ad: Suçlar, idari yaptırımlar ve tedbirler, agirlik: {yet: 20},
+         kazanimlar: [piyasa dolandırıcılığı, bilgi suistimali, piyasa bozucu eylemler, idari para cezaları, Kurul tedbirleri, denetim, görevli mahkeme]}
+      - {kod: KYK, ad: Kolektif yatırım kuruluşları, agirlik: {yet: 15},
+         kazanimlar: [yatırım ortaklıkları, DSYO, yatırım fonları, portföy saklama, fon mal varlığının ayrılığı]}
+      - {kod: IZA, ad: İzahname ve halka arz, agirlik: {yet: 12.5},
+         kazanimlar: [izahnameden sorumluluk, muafiyetler, satış yöntemleri, talebin geri alınması]}
+      - {kod: ALT, ad: Piyasa altyapıları, agirlik: {yet: 10},
+         kazanimlar: [borsalar, merkezi takas, veri depolama, teminat yöneticisi]}
+      - {kod: YEN, ad: Kripto varlıklar, kitle fonlaması, tanımlar, agirlik: {yet: 10},
+         kazanimlar: [kripto varlık hizmet sağlayıcıları, kitle fonlaması, kira sertifikası, kanun tanımları]}
+      - {kod: YHZ, ad: Yatırım hizmetleri ve tazmin, agirlik: {yet: 12.5},
+         kazanimlar: [aracı kurum yetkileri, yerindelik testi, Yatırımcı Tazmin Merkezi]}
+    kaynaklar: [6362 SPKn, SPK tebliğleri II-5.1, II-5.2, II-15.1, II-23.2, II-23.3, III-37.1, III-52.1]
+
   - kod: MES
     ad: Muhasebecilik ve Mali Müşavirlik Meslek Hukuku
-    sgs_soru: null       # SGS hukuk grubu içinde olabilir (teyit edilecek)
-    yet_soru: 20
-    kaynaklar: ["3568 s. Kanun ve yönetmelikleri", Meslek Ahlakı Yönetmeliği]
+    soru: {yet: 20, sgs: 6}
+    oturum_yet: 2
+    notlar:
+      - "Tamamen ezber bilgi; olumsuz kök yaklaşık %50; seçenekler süre, sayı, kurul adı."
+      - "SGS'de 'her yönetmelikten bir soru' şablonu."
+    konular:
+      - {kod: KAN, ad: 3568 sayılı Kanun, agirlik: {yet: 17.5, sgs: 23},
+         kazanimlar: [genel ve özel şartlar, birlik ve oda organları, gelirler, ruhsat ve iptal]}
+      - {kod: ETK, ad: Etik İlkeler Yönetmeliği, agirlik: {yet: 15, sgs: 17},
+         kazanimlar: [temel etik ilkeler, beş temel tehdit, önlemler]}
+      - {kod: CUE, ad: Çalışma Usul ve Esasları, agirlik: {yet: 15, sgs: 17},
+         kazanimlar: [büro ve tabela, sözleşme, bildirimler, ticari faaliyet yasağı, meslek onuru]}
+      - {kod: DIS, ad: Disiplin Yönetmeliği, agirlik: {yet: 12.5, sgs: 13},
+         kazanimlar: [cezalar, itiraz süreleri, duyurulan cezalar]}
+      - {kod: HRK, ad: Haksız Rekabet ve Reklam Yasağı, agirlik: {yet: 10, sgs: 17},
+         kazanimlar: [haksız rekabet halleri, reklam kuralları, ücret uygulamaları]}
+      - {kod: DGR, ad: Diğer yönetmelikler, agirlik: {yet: 30, sgs: 13},
+         kazanimlar: [Odalar, TÜRMOB, Sınav, Staj, SMGE, Ücretlerin Esasları]}
+    kaynaklar: [3568 s. Kanun, 3568'e dayanan yönetmelikler]
+
+  # ───────────────────────── Yalnız SGS ─────────────────────────
+  - kod: STD
+    ad: Muhasebe Standartları
+    soru: {yet: 0, sgs: 8}
+    notlar:
+      - "8 sorunun 6'sı TMS/TFRS ve Kavramsal Çerçeve, 1'i muhasebe bilgi sistemi, 1'i meslek kuruluşları/etik/sürdürülebilirlik."
+    konular:
+      - {kod: TFR, ad: TMS/TFRS ve Kavramsal Çerçeve, agirlik: {sgs: 75},
+         kazanimlar: [TMS 8, TMS 36, TMS 16, TMS 23, TFRS 3, TFRS 5, TFRS 15, Kavramsal Çerçeve; diğer TMS/TFRS kapsam ve ölçüm]}
+      - {kod: MBS, ad: Muhasebe bilgi sistemi, agirlik: {sgs: 12.5},
+         kazanimlar: [akış şeması, erişim kontrolleri, satış-tahsilat süreci]}
+      - {kod: KRL, ad: Meslek kuruluşları ve sürdürülebilirlik, agirlik: {sgs: 12.5},
+         kazanimlar: [IASB, IFAC, IESBA, ISSB, TSRS ve KGK]}
+    kaynaklar: [KGK TMS/TFRS seti, TSRS]
+
+  - kod: SHK
+    ad: SGS Hukuk (İş-SGK, Vergi, Ticaret, Borçlar)
+    soru: {yet: 0, sgs: 24}
+    notlar:
+      - "SGS'de beş hukuk dersi 6'şar soru; Meslek Hukuku MES dersinde. Kökte kanun numarası açıkça yazılır."
+    konular:
+      - {kod: ISG, ad: İş ve sosyal güvenlik hukuku, agirlik: {sgs: 25},
+         kazanimlar: [4857 fesih, çalışma süreleri, sözleşme türleri; 6356 sendika üyeliği ve grev; 5510 prim günü, iş kazası, sigorta kolları]}
+      - {kod: VRG, ad: Vergi hukuku, agirlik: {sgs: 25},
+         kazanimlar: [VUK, GVK, KDV, KVK, 6183, ÖTV/DV/Emlak temel hükümleri; süre ve oranlar]}
+      - {kod: TCR, ad: Ticaret hukuku, agirlik: {sgs: 25},
+         kazanimlar: [tacir, ticari işletme, sicil, defterler, ticari temsilci (2); şirketler (2); kıymetli evrak (2)]}
+      - {kod: BRC, ad: Borçlar hukuku, agirlik: {sgs: 25},
+         kazanimlar: [haksız fiil (2), sözleşmenin kurulması, ifa ve sona erme, sebepsiz zenginleşme]}
+    kaynaklar: [4857, 6356, 5510, 213 VUK, 193 GVK, 3065 KDVK, 5520 KVK, 6183, 6102 TTK, 6098 TBK]
+
   - kod: EKO
     ad: Ekonomi
-    sgs_soru: 6
-    yet_soru: 0
-    kaynaklar: [Mikro ve makro iktisat temel kavramları]
+    soru: {yet: 0, sgs: 6}
+    konular:
+      - {kod: MIK, ad: Mikro iktisat, agirlik: {sgs: 35}, kazanimlar: [esneklik, tüketici ve üretici fazlası, farksızlık eğrileri, marjinal fayda ve maliyet, piyasa yapıları, fiyat farklılaştırması]}
+      - {kod: MAK, ad: Makro iktisat, agirlik: {sgs: 45}, kazanimlar: [GSYH ve deflatör, TÜFE, Keynesyen çarpan, makro okullar ve beklentiler, para politikası ve para çarpanı]}
+      - {kod: DIS, ad: Dış ekonomi, agirlik: {sgs: 20}, kazanimlar: [ödemeler dengesi, karşılaştırmalı üstünlük, devalüasyon]}
+
   - kod: MLY
     ad: Maliye
-    sgs_soru: 6
-    yet_soru: 0
-    kaynaklar: [Kamu maliyesi, bütçe, vergi teorisi]
+    soru: {yet: 0, sgs: 6}
+    konular:
+      - {kod: VTE, ad: Vergi teorisi, agirlik: {sgs: 40}, kazanimlar: [artan/düz/azalan oranlı vergi, Laffer eğrisi, çifte vergilendirme, dolaylı ve servet vergileri, negatif gelir vergisi]}
+      - {kod: KGH, ad: Kamu gelirleri ve harcamaları, agirlik: {sgs: 35}, kazanimlar: [parafiskal gelirler, Wagner, Baumol, Peacock-Wiseman, harcama sınıflaması]}
+      - {kod: BUT, ad: Bütçe ve kamu açığı, agirlik: {sgs: 25}, kazanimlar: [bütçe ilkeleri ve türleri (5018), operasyonel açık, borç dinamiği]}
+    kaynaklar: [5018 KMYK]
+
+  - kod: GKY
+    ad: Genel Kültür, Yetenek ve Yabancı Dil (SGS)
+    soru: {yet: 0, sgs: 30}
+    durum: sonraki_surum      # yayın setine dahil değil (PLAN §3.2)
+    konular:
+      - {kod: TUR, ad: Türkçe, soru_sgs: 7}
+      - {kod: MAT, ad: Matematik, soru_sgs: 8}
+      - {kod: TAR, ad: Atatürk İlkeleri ve İnkılap Tarihi, soru_sgs: 5}
+      - {kod: ING, ad: İngilizce, soru_sgs: 10}
