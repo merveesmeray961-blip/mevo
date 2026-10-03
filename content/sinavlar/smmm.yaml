@@ -1,0 +1,61 @@
+# SMMM sınav formatları
+# Kaynak ve doğrulama durumu: docs/ARASTIRMA.md §2
+# Değerler koddan bağımsızdır; format değişirse yalnızca bu dosya güncellenir.
+
+sinav: smmm
+ad: Serbest Muhasebeci Mali Müşavirlik Sınavları
+duzenleyen: TÜRMOB / TESMER
+resmi_baglanti_yok_ibaresi: "Bu uygulamanın TÜRMOB veya TESMER ile resmî bir bağlantısı yoktur."
+
+bolumler:
+  - kod: SGS
+    ad: Staja Giriş Sınavı
+    uygulayan: Ankara Üniversitesi ASYM
+    soru_sayisi: 130
+    sure_dakika: 165            # ✅ ASYM 2025/1 kılavuzu (150 dk bilgisi eski)
+    secenek_sayisi: 5
+    yanlis_cezasi: 0            # ✅ yanlış doğruyu götürmez
+    hesap_makinesi: false       # ⚠️ teyit edilecek
+    gecme_puani: 60             # ağırlıklı puan
+    dagilim:                    # ✅ düzeltilmiş dağılım
+      alan_bilgisi:
+        finansal_muhasebe: 18
+        muhasebe_standartlari: 8
+        maliyet_muhasebesi: 8
+        mali_tablolar_analizi: 8
+        muhasebe_denetimi: 16
+        ekonomi: 6
+        maliye: 6
+        hukuk_grubu: 30         # alt dersler 6'şar; alt ders listesi teyit edilecek
+      genel_kultur_yetenek: 20
+      yabanci_dil: 10
+    agirliklar:
+      alan_bilgisi: 0.80
+      genel_kultur_yetenek: 0.1333
+      yabanci_dil: 0.0667
+
+  - kod: YET
+    ad: SMMM Yeterlilik Sınavı
+    yontem_degisikligi: "TÜRMOB YK 14.01.2026 — 2026/1'den itibaren test"
+    secenek_sayisi: 5
+    ders_basina_soru: 20
+    ders_basina_sure_dakika: 45
+    yanlis_cezasi: 0.25         # ✅ her yanlış 0,25 doğru götürür
+    hesap_makinesi: false       # ✅
+    gecme:
+      ders_min: 50
+      ortalama_min: 60
+    oturumlar:                  # ⚠️ ders dağılımı teyit edilecek
+      - baslangic: "09:00"
+        bitis: "12:00"
+      - baslangic: "14:00"     # ⚠️ teyit edilecek
+        bitis: "17:00"
+    dersler:
+      - finansal_muhasebe
+      - finansal_tablolar_ve_analizi
+      - maliyet_muhasebesi
+      - muhasebe_denetimi
+      - vergi_mevzuati_ve_uygulamasi
+      - hukuk
+      - sermaye_piyasasi_mevzuati
+      - meslek_hukuku
