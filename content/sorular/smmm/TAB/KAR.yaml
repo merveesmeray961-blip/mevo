@@ -98,11 +98,13 @@
     - 'Brüt satış kârı (2026): 1.200 - 960 = 240'
     - 'Brüt satış kârlılığı: 240 / 1.200 × 100 = 20,00'
     celdiriciler:
-      A: 10,00 net kâr marjıdır (120 / 1.200); payda dönem net kârı kullanılmıştır.
-      B: 15,00 faaliyet kâr marjıdır (180 / 1.200); payda faaliyet kârı kullanılmıştır.
+      A: 10,00 net kâr marjıdır (120 / 1.200); payda net satışlar doğru alınmış, ancak pay olarak brüt satış kârı
+        yerine dönem net kârı kullanılmıştır.
+      B: 15,00 faaliyet kâr marjıdır (180 / 1.200); payda net satışlar doğru alınmış, ancak pay olarak brüt satış
+        kârı yerine faaliyet kârı kullanılmıştır.
       C: 19,05, payda olarak net satışlar yerine brüt satışlar (240 / 1.260) alındığında bulunur.
-      E: 25,00, payda olarak net satışlar yerine satışların maliyeti (240 / 960) alındığında bulunur; bu brüt kârın
-        maliyete oranı (kâr marjı üzerinden ekleme oranı) olur.
+      E: 25,00, payda olarak net satışlar yerine satışların maliyeti (240 / 960) alındığında bulunur; bu oran brüt
+        satış kârlılığı değil, maliyet üzerinden kâr ekleme oranıdır (brüt satış kârı / satışların maliyeti).
   kaynaklar:
   - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
     madde: Brüt satış kârlılığı = Brüt satış kârı / Net satışlar
@@ -118,29 +120,18 @@
     bitis: null
     yila_bagli_tutar: false
   durum: taslak
-  surum: 1
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: duzeltici
+    ne: A ve B çeldirici açıklamaları düzeltildi (dönem net kârı ve faaliyet kârı PAY'dadır, payda net satışlardır);
+      E açıklamasında terim 'maliyet üzerinden kâr ekleme oranı' olarak düzeltildi.
+    neden: 'G6 kaldı: A ve B açıklamalarında pay/payda karıştırılmıştı; E''deki terim yanlıştı.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: D (güven 5); B: D (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) Soru sağlam; açıklamadaki terim hataları G6'da yazıldı.
-      G6:
-        sonuc: kaldi
-        tarih: '2026-10-03'
-        not: 'Çeldirici A: ''…payda dönem net kârı kullanılmıştır'' yanlış. 120/1.200 hesabında dönem net kârı PAY''dadır,
-          payda net satışlar olarak kalır. | Çeldirici B: ''…payda faaliyet kârı kullanılmıştır'' yanlış. Faaliyet
-          kârı PAY''dadır (180/1.200). | (küçük) Çeldirici E: ''kâr marjı üzerinden ekleme oranı'' yerine doğru
-          terim ''maliyet üzerinden kâr ekleme oranı (brüt kâr / satışların maliyeti)''. | (küçük) Hesaplama yöntemine
-          ilişkin iddia ''genel kabul görmüş …'' adlı resmî olmayan, alıntısız bir kaynağa dayanıyor. Depoda resmî
-          karşılığı yok; doğruluğu bağımsız hesapla teyit edildi.'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
@@ -162,9 +153,8 @@
   zorluk: 3
   soru_bicimi: standart
   kok: P İşletmesi'nin dönem sonu değerlerine göre net kâr marjı (Dönem net kârı / Net satışlar) %8, aktif devir
-    hızı (Net satışlar / Toplam aktif) 1,5 ve özkaynak kârlılığı (Dönem net kârı / Özkaynaklar) %30'dur. Devir hızlarında
-    ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır. DuPont analizine göre P İşletmesi'nin toplam
-    yabancı kaynaklarının toplam aktife oranı yüzde kaçtır?
+    hızı (Net satışlar / Toplam aktif) 1,5 ve özkaynak kârlılığı (Dönem net kârı / Özkaynaklar) %30'dur. DuPont
+    analizine göre P İşletmesi'nin toplam yabancı kaynaklarının toplam aktife oranı yüzde kaçtır?
   secenekler:
     A: 60,00
     B: 71,43
@@ -207,30 +197,18 @@
     baslangic: '2026-10-03'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: duzeltici
+    ne: Kökten standart 'Devir hızlarında ortalama değerler…' cümlesi çıkarıldı (soru dönem sonu değerleriyle).
+    neden: 'G5 (küçük): ''dönem sonu değerlerine göre'' ifadesiyle standart cümle çelişkili okunabiliyordu.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: A (güven 5); B: A (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) Kök oranların ''dönem sonu değerlerine göre'' hesaplandığını söylüyor, standart cümle ise
-          ''Devir hızlarında ortalama değerler kullanılacak'' diyor. Aktif devir hızı bir devir hızı olduğundan
-          iki ifade çelişkili okunabilir. İlk cümle özel hüküm olarak üstün geliyor, yine de standart cümle kaldırılmalı.
-          | Öneri: ''Devir hızlarında ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır.'' cümlesini
-          bu kökten çıkarın.'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) Hesaplama yöntemine ilişkin iddia 'genel kabul görmüş …' adlı resmî olmayan, alıntısız bir
-          kaynağa dayanıyor. Depoda resmî karşılığı yok; doğruluğu bağımsız hesapla teyit edildi.
       G2:
         sonuc: gecti
         tarih: '2026-10-03'

@@ -240,7 +240,7 @@
     B: 30,00
     C: 30,42
     D: 33,75
-    E: 60,00
+    E: 45,00
   dogru: B
   aciklama:
     dogru_neden: 2026 ortalama ticari borçlar (70 + 90) / 2 = 80 bin ₺'dir. Ticari borç devir hızı 960 / 80 = 12,
@@ -254,8 +254,9 @@
         bulunur; kökteki formül satışların maliyetini esas almaktadır.
       C: 30,42 gün, yıl 360 yerine 365 gün alındığında (365 / 12) bulunur.
       D: 33,75 gün, ortalama yerine dönem sonu ticari borç (960 / 90 = 10,67) kullanıldığında bulunur.
-      E: 60 gün, ortalama ticari borç yerine iki yılın ticari borç toplamı (70 + 90 = 160) kullanıldığında (960
-        / 160 = 6) bulunur; toplamın ikiye bölünmesi unutulmuştur.
+      E: '45 gün, ticari borç ödeme süresi yerine ticari alacak tahsil süresi hesaplandığında bulunur: ortalama
+        ticari alacaklar (140 + 160) / 2 = 150, alacak devir hızı 1.200 / 150 = 8, 360 / 8 = 45. Soru ticari borçları
+        ve satışların maliyetini esas almaktadır.'
   kaynaklar:
   - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
     madde: Ticari borç devir hızı = Satışların maliyeti / Ortalama ticari borçlar; Borç ödeme süresi = 360 / Ticari
@@ -266,6 +267,8 @@
 
       hiz = 960 / ort_borc
 
+      celdirici_e = 360 / (1200 / ((140 + 160) / 2))
+
       sonuc = round(360 / hiz, 2)
 
       '
@@ -273,26 +276,19 @@
     baslangic: '2026-10-03'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: duzeltici
+    ne: Zayıf E çeldiricisi (60 gün, ikiye bölmeyi unutmak) borç ödeme süresini alacak tahsil süresiyle karıştırma
+      hatasından türeyen 45,00 ile değiştirildi (şıklar sıralı); E açıklaması ve dogrulama.python güncellendi.
+    neden: 'G5 (küçük): E çeldiricisi zayıftı.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: B (güven 5); B: B (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) E (60 gün; ikiye bölmeyi unutmak) zayıf bir çeldirici.
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) Hesaplama yöntemine ilişkin iddia 'genel kabul görmüş …' adlı resmî olmayan, alıntısız bir
-          kaynağa dayanıyor. Depoda resmî karşılığı yok; doğruluğu bağımsız hesapla teyit edildi.
       G2:
         sonuc: gecti
         tarih: '2026-10-03'

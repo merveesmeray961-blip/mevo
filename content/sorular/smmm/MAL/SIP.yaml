@@ -10,13 +10,15 @@
   tip: hesaplama
   zorluk: 2
   soru_bicimi: standart
-  kok: Sipariş maliyeti yöntemini uygulayan K İşletmesi, genel üretim giderlerini direkt işçilik saatine dayalı
-    önceden belirlenmiş (tahmini) bir oranla siparişlere yüklemektedir. Yıl başında tahmini genel üretim giderleri
-    600.000 ₺, tahmini direkt işçilik saati 40.000 saat olarak belirlenmiştir. Yıl sonunda fiili genel üretim giderleri
-    640.000 ₺, fiili direkt işçilik saati 40.000 saat olmuştur. S-12 numaralı sipariş için 48.000 ₺ direkt ilk madde
-    ve malzeme kullanılmış, saat ücreti 40 ₺ olan 1.200 saat direkt işçilik harcanmış ve siparişin satışı için 6.000
-    ₺ satış komisyonu ödenmiştir. KDV dikkate alınmayacaktır. Buna göre S-12 numaralı siparişin üretim maliyeti
-    kaç ₺'dir?
+  kok: Sipariş maliyeti yöntemini uygulayan K İşletmesi, genel üretim giderlerini siparişlere direkt işçilik saatine
+    dayalı önceden belirlenmiş yükleme oranıyla (tahmini genel üretim giderleri / tahmini direkt işçilik saati)
+    yüklemektedir. Yıl başında tahmini genel üretim giderleri 600.000 ₺, tahmini direkt işçilik saati 40.000 saat
+    olarak belirlenmiştir. Yıl sonunda fiili genel üretim giderleri 640.000 ₺, fiili direkt işçilik saati 40.000
+    saat olmuştur; fiili ve yüklenen genel üretim giderleri arasındaki fark 732 Genel Üretim Giderleri Bütçe Farkları
+    hesabında izlenmekte ve S-12 numaralı siparişe dağıtılmamaktadır. S-12 numaralı sipariş için 48.000 ₺ direkt
+    ilk madde ve malzeme kullanılmış, saat ücreti 40 ₺ olan 1.200 saat direkt işçilik harcanmış ve siparişin satışı
+    için 6.000 ₺ satış komisyonu ödenmiştir. KDV dikkate alınmayacaktır. Buna göre S-12 numaralı siparişin önceden
+    belirlenmiş oranla hesaplanan (normal) üretim maliyeti kaç ₺'dir?
   secenekler:
     A: '121.200'
     B: '120.000'
@@ -26,31 +28,47 @@
   dogru: D
   aciklama:
     dogru_neden: Önceden belirlenmiş yükleme oranı 600.000 / 40.000 = 15 ₺/saattir. Siparişe yüklenen genel üretim
-      gideri 1.200 × 15 = 18.000 ₺'dir. Sipariş üretim maliyeti 48.000 + (1.200 × 40 = 48.000) + 18.000 = 114.000
-      ₺'dir. Satış komisyonu bir satış maliyetidir; TMS 2 md. 16(d) uyarınca stok (üretim) maliyetine girmez. Fiili
-      ve yüklenen GÜG arasındaki fark siparişe değil, eksik/fazla yükleme olarak dönem sonunda ayrıca ele alınır.
+      gideri 1.200 × 15 = 18.000 ₺'dir. Sipariş normal üretim maliyeti 48.000 + (1.200 × 40 = 48.000) + 18.000 =
+      114.000 ₺'dir. MSUGT THP 731 açıklamasına göre önceden saptanmış maliyet yöntemlerinde maliyetlere önceden
+      saptanmış genel üretim giderleri yüklenir. Fiili genel üretim giderleri (640.000 ₺) ile yüklenen tutar (40.000
+      × 15 = 600.000 ₺) arasındaki 40.000 ₺ olumsuz fark, THP 732 açıklaması uyarınca 732 Genel Üretim Giderleri
+      Bütçe Farkları hesabının borcuna kaydedilir ve dönem sonlarında ilgili stok ve satış maliyeti hesaplarına
+      aktarılarak kapatılır. Bu dönem sonu düzeltmesi normal maliyetin parçası değildir; kök ayrıca farkın S-12
+      siparişine dağıtılmadığını belirtmektedir. Satış komisyonu bir satış maliyetidir; TMS 2 md. 16(d) uyarınca
+      stok (üretim) maliyetine girmez.
     hesap_adimlari:
     - 'GÜG yükleme oranı: 600.000 / 40.000 = 15 ₺/saat'
     - 'Direkt işçilik: 1.200 × 40 = 48.000 ₺'
     - 'Yüklenen GÜG: 1.200 × 15 = 18.000 ₺'
-    - 'Sipariş üretim maliyeti: 48.000 + 48.000 + 18.000 = 114.000 ₺'
+    - 'Sipariş normal üretim maliyeti: 48.000 + 48.000 + 18.000 = 114.000 ₺'
     celdiriciler:
       A: 121.200 ₺, fiili oranın (640.000 / 40.000 = 16 ₺) kullanılması ve satış komisyonunun maliyete katılmasıyla
         bulunur; iki hata birlikte yapılmıştır.
       B: 120.000 ₺, satış komisyonunun (6.000) sipariş üretim maliyetine eklenmesiyle bulunur; satış maliyetleri
-        üretim maliyetine girmez.
-      C: 115.200 ₺, tahmini oran yerine fiili oranla (1.200 × 16 = 19.200) GÜG yüklenmesiyle bulunur; kök önceden
-        belirlenmiş oranın kullanıldığını belirtmektedir.
+        üretim maliyetine girmez (TMS 2 md. 16(d)).
+      C: 115.200 ₺, önceden belirlenmiş oran yerine fiili oranla (1.200 × 16 = 19.200) genel üretim gideri yüklenmesiyle
+        bulunur. Kök, önceden belirlenmiş oranla hesaplanan (normal) maliyeti sormakta ve fiili ile yüklenen tutar
+        arasındaki farkın 732 hesabında izlenip S-12'ye dağıtılmadığını belirtmektedir.
       E: 96.000 ₺ yalnızca asal maliyettir (48.000 + 48.000); siparişe genel üretim gideri yüklenmemiştir.
   kaynaklar:
   - mevzuat: TMS 2 Stoklar
     madde: md. 16(d)
     alinti: (d) Satış maliyetleri.
-  - mevzuat: Maliyet muhasebesi — genel kabul görmüş sipariş maliyeti yöntemi
-    madde: Önceden belirlenmiş GÜG yükleme oranı (tahmini GÜG / tahmini dağıtım anahtarı)
-    alinti: ''
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 731 Genel Üretim Giderleri Yansıtma Hesabı
+    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda, önceden saptanmış genel üretim giderleri,
+      Fiili maliyet yönteminin uygulandığı durumlarda, "730- Genel üretim Giderleri Hesabı"nın borcuna kaydedilen
+      giderleri, bu hesabın alacağı karşılığı "151- Yarı Mamüller Üretim Hesabı" ile diğer aktif, gider ve zarar
+      hesaplarına borç kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 732 Genel Üretim Giderleri Bütçe Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya
+      da olumsuz bütçe farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına
+      kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
   dogrulama:
     python: 'oran = 600000 / 40000
+
+      celdirici_c = 48000 + 1200 * 40 + 1200 * (640000 / 40000)
 
       sonuc = 48000 + 1200 * 40 + 1200 * oran
 
@@ -60,39 +78,23 @@
     bitis: null
     yila_bagli_tutar: false
   durum: taslak
-  surum: 1
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: duzeltici
+    ne: 'Kök tek cevaplı yapıldı: soru ''önceden belirlenmiş oranla hesaplanan (normal) üretim maliyeti''ni soruyor;
+      yükleme oranı formülü köke yazıldı; fiili GÜG verisi çeldirici amaçlı tutuldu ve farkın 732 hesabında izlenip
+      S-12''ye dağıtılmadığı kökte belirtildi. dogru_neden''deki fark cümlesi THP 731/732 ile uyumlu yeniden yazıldı;
+      C açıklaması güncellendi; alıntısız ''genel kabul görmüş'' kaynak yerine THP 731 ve 732 alıntıları eklendi;
+      dogrulama.python''a C çeldiricisi hesabı eklendi.'
+    neden: 'G5/G6 kaldı: kök yıl sonu fiili GÜG''yi verip ''üretim maliyeti''ni sorduğundan, THP 732''ye göre fark
+      dönem sonunda stok/satış maliyetine dağıtılabildiği için C (115.200) de savunulabiliyordu; açıklamadaki ''fark
+      siparişe değil...'' cümlesi THP 732 ile çelişiyordu.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: D (güven 5); B: D (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: kaldi
-        tarih: '2026-10-03'
-        not: 'İkinci savunulabilir doğru şık (C = 115.200): Kök yıl sonu fiili GÜG''yi (640.000 ₺) veriyor ve ''siparişin
-          üretim maliyeti''ni soruyor. MSUGT 732 GÜG Bütçe Farkları hesabına göre fark ''dönem sonlarında ilgili
-          stok ve satış maliyeti hesaplarına aktarılarak kapatılır''. 40.000 ₺ eksik yükleme yüklenen GÜG oranında
-          dağıtılırsa S-12''ye 18.000 × 640/600 = 19.200 ₺ düşer ve maliyet 115.200 ₺ olur; bu tam olarak C şıkkıdır.
-          | TMS 2 md. 13: fiili saat normal kapasiteye eşit (40.000) olduğunda sabit GÜG''nin tamamı dağıtılır.
-          Soru TMS 2''yi kaynak gösterdiği hâlde stok maliyetini fiili değil tahmini GÜG ile ölçüyor; bu da C''yi
-          destekliyor. | Açıklamadaki ''fark siparişe değil, dönem sonunda ayrıca ele alınır'' cümlesi MSUGT 732
-          ile çelişiyor. | Öneri: Kökü ''S-12 numaralı siparişe önceden belirlenmiş oranla yüklenen (normal) üretim
-          maliyeti kaç ₺''dir?'' biçiminde sorun ya da ''Eksik/fazla yüklenen GÜG farkı dönem sonunda tamamen satılan
-          mamul maliyetine aktarılmaktadır ve S-12 dönem sonunda stoktadır'' ifadesini ekleyin. Alternatif: fiili
-          GÜG verisini çıkarın (o zaman A çeldiricisini başka bir hatadan türetin).'
-      G6:
-        sonuc: kaldi
-        tarih: '2026-10-03'
-        not: '''Fiili ve yüklenen GÜG arasındaki fark siparişe değil, eksik/fazla yükleme olarak dönem sonunda ayrıca
-          ele alınır.'' Bu iddia desteksiz, hatta resmî metinle çelişkili. MSUGT THP 732: ''Dönem sonlarında bu
-          hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.'' TMS 2 md. 13 de sabit GÜG''nin
-          normal kapasiteye (burada fiili = tahmini 40.000 saat) göre fiilen dağıtılmasını öngörüyor. | (küçük)
-          Hesaplama yöntemine ilişkin iddia ''genel kabul görmüş …'' adlı resmî olmayan, alıntısız bir kaynağa dayanıyor.
-          Depoda resmî karşılığı yok; doğruluğu bağımsız hesapla teyit edildi. (önceden belirlenmiş yükleme oranı).'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'

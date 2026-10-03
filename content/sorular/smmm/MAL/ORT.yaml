@@ -13,8 +13,9 @@
   kok: 'G İşletmesi ortak bir üretim sürecinde X, Y ve Z ürünlerini elde etmektedir. Ayrılma noktasına kadar katlanılan
     ortak maliyet 360.000 ₺''dir. Ürünler ayrılma noktasından sonra ek işleme tabi tutulmaktadır. X: 4.000 kg, satış
     fiyatı 50 ₺/kg, ek işlem maliyeti 40.000 ₺; Y: 6.000 kg, satış fiyatı 40 ₺/kg, ek işlem maliyeti 40.000 ₺; Z:
-    2.000 kg, satış fiyatı 80 ₺/kg, ek işlem maliyeti 40.000 ₺. Ortak maliyet net satış değeri yöntemiyle dağıtılmaktadır.
-    KDV dikkate alınmayacaktır. Buna göre Y ürününün toplam üretim maliyeti kaç ₺''dir?'
+    2.000 kg, satış fiyatı 80 ₺/kg, ek işlem maliyeti 40.000 ₺. Ortak maliyet net satış değeri (nihai satış değeri
+    - ayrılma noktasından sonraki ek işlem maliyeti) yöntemiyle dağıtılmaktadır. KDV dikkate alınmayacaktır. Buna
+    göre Y ürününün toplam üretim maliyeti kaç ₺''dir?'
   secenekler:
     A: '220.000'
     B: '190.000'
@@ -69,30 +70,18 @@
     baslangic: '2026-10-03'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: duzeltici
+    ne: Kökte 'net satış değeri' tanımlandı (nihai satış değeri - ayrılma noktasından sonraki ek işlem maliyeti).
+    neden: 'G5 (küçük): TMS 2 md. 14 nihai nispi satış değerini de örnek verdiğinden terim kökte tanımlanmalıydı.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: B (güven 5); B: B (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) TMS 2 md. 14 ''üretimin tamamlandığı andaki nispi satış değeri''ni de örnek veriyor; bu yöntem
-          C (184.000) şıkkını verir. Kök ''net satış değeri yöntemi'' dediği için tek doğru korunuyor, ama terim
-          kökte tanımlanırsa daha sağlam olur. | Öneri: Köke ''(nihai satış değeri − ayrılma noktası sonrası ek
-          işlem maliyeti)'' tanımı parantez içinde eklenebilir.'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) Hesaplama yöntemine ilişkin iddia 'genel kabul görmüş …' adlı resmî olmayan, alıntısız bir
-          kaynağa dayanıyor. Depoda resmî karşılığı yok; doğruluğu bağımsız hesapla teyit edildi. (net satış değeri
-          tanımı). TMS 2 md. 14 alıntısı birebir; açıklama md. 14'ü doğru özetliyor.
       G2:
         sonuc: gecti
         tarih: '2026-10-03'

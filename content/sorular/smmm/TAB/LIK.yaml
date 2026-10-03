@@ -302,33 +302,39 @@
   kok: M İşletmesi'nin dönem sonu bilançosunda dönen varlıklar 600.000 ₺ (hazır değerler 180.000 ₺ dâhil), kısa
     vadeli yabancı kaynaklar 300.000 ₺'dir. İşletme, cari oranını 2,50'ye yükseltmek amacıyla kısa vadeli ticari
     borçlarının bir kısmını hazır değerlerinden ödemeyi planlamaktadır. Başka bir işlem olmadığı varsayılmaktadır.
-    Devir hızlarında ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır. Cari oran = Dönen varlıklar
-    / Kısa vadeli yabancı kaynaklar formülüyle hesaplandığına göre, cari oranın 2,50 olması için ödenmesi gereken
-    borç tutarı kaç ₺'dir?
+    Cari oran = Dönen varlıklar / Kısa vadeli yabancı kaynaklar formülüyle hesaplandığına göre, cari oranın 2,50
+    olması için ödenmesi gereken borç tutarı kaç ₺'dir?
   secenekler:
     A: '240.000'
     B: '200.000'
-    C: '150.000'
+    C: '180.000'
     D: '100.000'
     E: '60.000'
   dogru: D
   aciklama:
     dogru_neden: 'Borç hazır değerlerden ödendiğinde hem dönen varlıklar hem kısa vadeli yabancı kaynaklar aynı
       tutarda (x) azalır: (600.000 - x) / (300.000 - x) = 2,50. Buradan 600.000 - x = 750.000 - 2,5x, 1,5x = 150.000
-      ve x = 100.000 ₺ bulunur. Kontrol: 500.000 / 200.000 = 2,50. Zorluk (3) kaynakları: geri hesap (hedef orandan
-      işlem tutarı istenir) ve tipik hata çeldiricileri. Tuzak, ödemenin yalnızca borçları azalttığını sanıp dönen
-      varlıklardaki eşit azalışı gözden kaçırmaktır.'
+      ve x = 100.000 ₺ bulunur. Kontrol: 500.000 / 200.000 = 2,50. Aynı sonuca net çalışma sermayesiyle de ulaşılır:
+      ödeme net çalışma sermayesini (600.000 - 300.000 = 300.000) değiştirmez; yeni kısa vadeli yabancı kaynaklar
+      300.000 / (2,50 - 1) = 200.000 ₺, ödenecek tutar 300.000 - 200.000 = 100.000 ₺''dir. Zorluk (3) kaynakları:
+      geri hesap (hedef orandan işlem tutarı istenir) ve tipik hata çeldiricileri (her çeldirici ayrı bir aday hatasından
+      türetilmiştir). Tuzak, ödemenin yalnızca borçları azalttığını sanıp dönen varlıklardaki eşit azalışı gözden
+      kaçırmak (E, A) ya da net çalışma sermayesini (2,50 - 1) yerine 2,50''ye bölmektir (C); kalan borç tutarı
+      (B) da ödenen tutarla karıştırılabilir.'
     hesap_adimlari:
     - 'Ödeme sonrası: (600.000 - x) / (300.000 - x) = 2,50'
     - 600.000 - x = 750.000 - 2,5x
     - 1,5x = 150.000 → x = 100.000 ₺
     - 'Kontrol: (600.000 - 100.000) / (300.000 - 100.000) = 500.000 / 200.000 = 2,50'
+    - 'Alternatif: net çalışma sermayesi 300.000 sabit; yeni KVYK = 300.000 / 1,5 = 200.000; ödeme = 100.000 ₺'
     celdiriciler:
       A: 240.000 ₺, dönen varlıkların değişmediği varsayılarak hedef kısa vadeli yabancı kaynak tutarının (600.000
         / 2,50) ödenecek borç sanılmasıyla bulunur.
       B: 200.000 ₺, ödeme sonrasında kalan kısa vadeli yabancı kaynak tutarıdır (300.000 - 100.000); ödenen tutar
         değildir.
-      C: 150.000 ₺, denklemde 1,5x = 150.000 adımında 1,5'e bölme yapılmadan durulmasıyla bulunur.
+      C: '180.000 ₺, değişmeyen net çalışma sermayesinin (300.000) (2,50 - 1) yerine 2,50''ye bölünmesiyle yeni
+        kısa vadeli yabancı kaynaklar 120.000 ₺ bulunup ödeme 300.000 - 120.000 olarak hesaplandığında bulunur;
+        bu tutarın hazır değerlerin tamamına eşit olması da yanıltıcıdır. Kontrol: 420.000 / 120.000 = 3,50.'
       E: 60.000 ₺, ödemenin dönen varlıkları da azalttığı göz ardı edilerek 600.000 / (300.000 - x) = 2,50 denkleminden
         bulunur.
   kaynaklar:
@@ -342,6 +348,8 @@
 
       hedef = 2.5
 
+      celdirici_c = kvyk - (dv - kvyk) / hedef
+
       sonuc = (hedef * kvyk - dv) / (hedef - 1)
 
       '
@@ -349,27 +357,21 @@
     baslangic: '2026-10-03'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: duzeltici
+    ne: Kökten ilgisiz standart 'Devir hızlarında…' cümlesi çıkarıldı; zayıf C çeldiricisi (150.000, 1,5'e bölmeyi
+      unutmak) net çalışma sermayesini (oran - 1) yerine orana bölme hatasından türeyen 180.000 ile değiştirildi
+      (şıklar sıralı); dogru_neden, hesap_adimlari, C açıklaması ve dogrulama.python güncellendi; zorluk 3 teknikleri
+      ve tuzak açıkça yazıldı.
+    neden: 'G5 (küçük): ilgisiz kök cümlesi ve zayıf C çeldiricisi.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: D (güven 5); B: D (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) Kökteki 'Devir hızlarında ortalama değerler…' cümlesinin soruyla ilgisi yok. | (küçük) C (1,5x'te
-          durmak) zayıf bir çeldirici.
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) Hesaplama yöntemine ilişkin iddia 'genel kabul görmüş …' adlı resmî olmayan, alıntısız bir
-          kaynağa dayanıyor. Depoda resmî karşılığı yok; doğruluğu bağımsız hesapla teyit edildi.
       G2:
         sonuc: gecti
         tarih: '2026-10-03'

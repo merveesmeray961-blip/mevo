@@ -17,7 +17,7 @@
     süreç boyunca düzenli oluşmaktadır. KDV dikkate alınmayacaktır. İşletme FIFO (ilk giren ilk çıkar) yöntemini
     uyguladığına göre, dönüştürme maliyetleri için eşdeğer birim sayısı kaçtır?
   secenekler:
-    A: '16.000'
+    A: '15.200'
     B: '16.800'
     C: '17.200'
     D: '18.000'
@@ -34,8 +34,8 @@
     - 'Dönem sonu yarı mamul: 4.000 × 0,50 = 2.000'
     - 'FIFO dönüştürme eşdeğer birimi: 1.200 + 14.000 + 2.000 = 17.200'
     celdiriciler:
-      A: 16.000 yalnızca tamamlanan birim sayısıdır; dönem sonu yarı mamulün eşdeğeri eklenmemiş ve dönem başı stok
-        düzeltmesi yapılmamıştır.
+      A: 15.200, dönem sonu yarı mamulün eşdeğeri (4.000 × 0,50 = 2.000) eklenmeden yalnızca dönem başı stokun tamamlanması
+        (1.200) ile dönem içinde başlanıp bitirilen birimler (14.000) toplandığında bulunur.
       B: 16.800, dönem başı yarı mamul için kalan %60 yerine önceki dönemde tamamlanan %40 kullanıldığında (800
         + 14.000 + 2.000) bulunur.
       D: 18.000 ağırlıklı ortalama yöntemine göre dönüştürme eşdeğer birimidir (16.000 + 2.000); FIFO'da dönem başı
@@ -53,6 +53,8 @@
   dogrulama:
     python: 'basla_bitir = 16000 - 2000
 
+      celdirici_a = 2000 * (1 - 0.40) + basla_bitir
+
       sonuc = 2000 * (1 - 0.40) + basla_bitir + 4000 * 0.50
 
       '
@@ -60,29 +62,19 @@
     baslangic: '2026-10-03'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: duzeltici
+    ne: Zayıf A çeldiricisi (16.000) dönem sonu yarı mamul eşdeğerini unutma hatasından türeyen 15.200 ile değiştirildi
+      (şıklar sıralı); A açıklaması ve dogrulama.python güncellendi.
+    neden: 'G5 (küçük): A (16.000) çeldiricisi zayıftı ve gerekçesi kesin değildi.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: C (güven 5); B: C (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) A (16.000) çeldiricisi zayıf; açıklamadaki gerekçesi de kesin değil (16.000 + 2.000 − 800 =
-          17.200).
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) Hesaplama yöntemine ilişkin iddia ''genel kabul görmüş …'' adlı resmî olmayan, alıntısız bir
-          kaynağa dayanıyor. Depoda resmî karşılığı yok; doğruluğu bağımsız hesapla teyit edildi. (FIFO eşdeğer
-          birim). | (küçük) TMS 2 md. 27 maliyet akış varsayımını tanımlıyor, eşdeğer birim hesabını değil; ''(TMS
-          2 md. 27: …)'' atfı yalnızca genel dayanak olarak okunmalı.'
       G2:
         sonuc: gecti
         tarih: '2026-10-03'

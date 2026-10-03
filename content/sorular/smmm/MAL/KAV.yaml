@@ -119,8 +119,10 @@
     dogru_neden: TMS 2 md. 12'ye göre genel üretim giderleri; fabrika amortismanı gibi sabit dolaylı üretim maliyetleri
       ile endirekt malzeme ve endirekt işçilik gibi değişken dolaylı üretim maliyetlerinden oluşur. Fabrika binası
       amortismanı (I), ustabaşı ücreti (II, endirekt işçilik) ve yağlama malzemesi (V, endirekt malzeme) genel üretim
-      gideridir. Genel müdürlük kirası (III) genel yönetim gideri, işletme kredisi faizi (IV) finansman gideridir;
-      TMS 2 md. 16(c) ve md. 17 uyarınca bunlar maliyete girmez.
+      gideridir. Genel müdürlük kirası (III) genel yönetim gideridir ve TMS 2 md. 16(c) uyarınca stok maliyetine
+      girmez. İşletme kredisi faizi (IV) MSUGT THP 66 Finansman Giderleri tanımına göre varlıkların maliyetine eklenmemiş
+      bir finansman gideridir; borçlanma maliyetlerinin stok maliyetine girebileceği sınırlı koşulları TMS 2 md.
+      17'nin yollamasıyla TMS 23 belirler.
     celdiriciler:
       A: 'Eksiktir: üretimde kullanılan yağlama malzemesi (V) endirekt malzemedir ve genel üretim gideridir.'
       B: 'Eksiktir: ustabaşının ücreti (II) endirekt işçilik olarak genel üretim gideridir.'
@@ -137,35 +139,34 @@
       üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı ile birlikte
       doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
   - mevzuat: TMS 2 Stoklar
-    madde: md. 16(c) ve md. 17
-    alinti: (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d)
-      Satış maliyetleri. TMS 23 Borçlanma Maliyetleri, borçlanma maliyetlerinin stokların maliyetine dâhil edildiği
-      sınırlı koşulları belirler.
+    madde: md. 16(c)
+    alinti: (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri,
+  - mevzuat: TMS 2 Stoklar
+    madde: md. 17
+    alinti: TMS 23 Borçlanma Maliyetleri, borçlanma maliyetlerinin stokların maliyetine dâhil edildiği sınırlı koşulları
+      belirler.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 66 Finansman Giderleri (-) (grup açıklaması)
+    alinti: İşletmenin borçlandığı tutarlarla ilgili olarak katlanılan ve varlıkların maliyetine eklenmemiş bulunan
+      faiz, kur farkları, kredi komisyonları ve benzeri diğer giderleri kapsar.
   gecerlilik:
     baslangic: '2026-10-03'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 1
+  durum: taslak
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-03'
+    kim: duzeltici
+    ne: TMS 2 md. 16(c)–(d) ile md. 17'yi birleştiren alıntı ayrı kaynak girdilerine bölündü (md. 16(c), md. 17);
+      finansman giderinin dışlanması için MSUGT THP 66 alıntısı eklendi ve dogru_neden'deki md. 17 atfı metne uygun
+      daraltıldı.
+    neden: 'G6 (küçük): alıntı paragrafları ayırıcı olmadan birleştiriyordu; md. 17 atfı fazla genişti.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v1
     kapilar:
-      G3:
-        sonuc: gecti
-        not: 'A: E (güven 5); B: E (güven 5)'
-        tarih: '2026-10-03'
-      G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-      G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) İkinci alıntı TMS 2 md. 16(c)–(d) ile md. 17'yi paragraf numarası ('17') olmadan birleştiriyor.
-          Metin birebir, yalnız ayırıcı eksik. | (küçük) 'md. 16(c) ve md. 17 uyarınca bunlar maliyete girmez' ifadesi
-          md. 17'yi fazla genişletiyor. md. 17 yalnızca 'TMS 23 … sınırlı koşulları belirler' der. Finansman giderinin
-          dışlanması için MSUGT 66/78 tanımına ('varlıkların maliyetine eklenmemiş') atıf daha doğru olur.
       G2:
         sonuc: gecti
         tarih: '2026-10-03'
