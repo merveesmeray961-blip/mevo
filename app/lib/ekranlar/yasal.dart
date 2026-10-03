@@ -7,18 +7,20 @@ class YasalMetin {
   const YasalMetin(this.baslik, this.metin);
 }
 
-// TASLAK — yayından önce veri sorumlusu bilgileri eklenecek ve hukuki gözden geçirme yapılacak (PLAN.md §11, iş 6).
-// Bu sürüm hesap açmaz ve hiçbir veriyi cihaz dışına göndermez; metinler buna göre yazılmıştır. Sunucu eşitleme
-// veya ödeme altyapısı eklendiğinde metinler güncellenmelidir.
+// TASLAK — yayından önce veri sorumlusu bilgileri eklenecek ve hukuki gözden geçirme yapılacak.
+// Uygulama hesap açmaz, sunucuya veri göndermez; yalnızca satın alma Google Play / App Store üzerinden yapılır.
+// Bu metinlerin web karşılığı docs/magaza/gizlilik.html dosyasıdır; biri değişirse diğeri de güncellenmelidir.
 const yasalMetinler = [
   YasalMetin('KVKK aydınlatma metni', '''
-Bu uygulamanın mevcut sürümü hesap oluşturmanı istemez ve kişisel verilerini sunucuya göndermez.
+Bu uygulama hesap oluşturmanı istemez ve kişisel verilerini bir sunucuya göndermez.
 
 İşlenen veriler: Çözdüğün sorular, verdiğin cevaplar, deneme sonuçların, uygulama ayarların ve gönderdiğin hata bildirimleri. Bu veriler yalnızca kendi cihazında saklanır.
 
 Amaç: Sana ilerlemeni göstermek, yanlış yaptığın soruları tekrar sormak ve deneme sonuçlarını hesaplamak.
 
-Aktarım: Bu sürümde veriler üçüncü kişilere veya yurt dışına aktarılmaz.
+Satın alma: "Tam erişim" satın alımı Google Play (Android) veya App Store (iOS) üzerinden yapılır. Ödeme ve kart bilgilerin yalnızca mağaza tarafından işlenir, bize iletilmez. Uygulama, tam erişim hakkını açmak için mağazanın verdiği satın alma kaydını cihazında doğrular ve saklar.
+
+Aktarım: Çalışma verilerin üçüncü kişilere veya yurt dışına aktarılmaz. Mağaza işlemleri ilgili mağazanın kendi gizlilik politikasına tabidir.
 
 Saklama ve silme: Verileri Ayarlar > İlerlememi sıfırla ile ya da uygulamayı kaldırarak istediğin zaman silebilirsin.
 
@@ -27,11 +29,13 @@ Haklar: 6698 sayılı Kanun'un 11. maddesindeki haklarını kullanmak için veri
 Veri sorumlusu: [yayın öncesi eklenecek]
 '''),
   YasalMetin('Gizlilik politikası', '''
-Uygulama reklam göstermez ve seni izleyen bir reklam kimliği kullanmaz.
+Uygulama reklam göstermez, seni izleyen bir reklam kimliği veya analiz aracı kullanmaz ve herhangi bir sunucuya veri göndermez.
 
-Bu sürümde tüm çalışma verilerin cihazında tutulur. Hesap, sunucu eşitleme veya ödeme altyapısı eklendiğinde bu politika güncellenecek ve sana bildirilecektir.
+Tüm çalışma verilerin (cevaplar, deneme sonuçları, ayarlar) yalnızca cihazında tutulur ve uygulamayı kaldırdığında silinir.
 
-Satın alımlar App Store veya Google Play üzerinden yapılır; ödeme bilgilerin bize iletilmez.
+Tek seferlik "Tam erişim" satın alımı Google Play veya App Store üzerinden yapılır. Ödeme bilgilerin bize iletilmez; mağaza, satın aldığını uygulamaya bildirir ve uygulama bunu cihazında saklar. "Satın alımı geri yükle" dediğinde uygulama mağazaya yeniden sorar.
+
+Gizlilikle ilgili sorular için: [yayın öncesi eklenecek]
 '''),
   YasalMetin('Kullanım koşulları', '''
 Sorular, SMMM sınavlarına hazırlık amacıyla özgün olarak hazırlanmıştır ve resmî sınav soruları değildir.

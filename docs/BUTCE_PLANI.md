@@ -10,7 +10,7 @@
 |---|---|---|
 | Sunucu | **Yok.** Supabase ve RevenueCat plandan çıkarıldı. | Aylık maliyet ve bakım gerektirmeyen tek yol. Uygulama zaten internetsiz çalışıyor. |
 | Ödeme | Google Play **tek seferlik uygulama içi satın alma** ("Tam erişim"). Abonelik yok. | Sunucusuz yapılabilir, kod azdır, kullanıcıya basit gelir. |
-| Platform | **Yalnız Android** (Google Play, tek seferlik 25 $). iOS yok. | Apple yıllık 99 $; bütçeye sığmaz. |
+| Platform | **Android öncelikli** (Google Play, tek seferlik 25 $). iOS projesi de hazır; yayını Mac + Apple Developer (99 $/yıl) gerektirir, bütçe dışıdır (`docs/YAYIN.md` B). | Apple yıllık 99 $; Android ilk hedef. |
 | İlk ürün | **Yalnız Yeterlilik Sınavı.** SGS "yakında" olarak kalır. | Yeterlilik 2026/1'den beri test usulü; yeni formata göre hazırlanmış uygulama boşluğu var. Odaklı ürün daha az soruyla "tam" görünür. |
 | Hedef dönem | 2026/3 Yeterlilik (28 Kasım 2026) | Adaylar şu anda çalışıyor. |
 | Yayından sonra | Mevzuat güncellemesi yapılamaz; uygulamada "2026 mevzuatına göredir" ibaresi yer alır. | Bütçe sonrası bakım yok. |
