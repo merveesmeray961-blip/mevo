@@ -38,10 +38,18 @@ class Kulliyat:
     parca_kumesi: set[tuple[str, ...]] = field(default_factory=set)
 
     @classmethod
-    def klasorden(cls, klasor: Path) -> "Kulliyat":
+    def klasorden(cls, klasor: Path, serbest_metin_klasorleri: tuple[Path, ...] = ()) -> "Kulliyat":
+        """Çıkmış soru metinlerinden 6'lıları toplar.
+
+        `serbest_metin_klasorleri` (kanun, yönetmelik, standart metinleri) içinde de geçen 6'lılar çıkarılır:
+        mevzuat FSEK m.31 gereği serbesttir; telif riski yalnızca sınav yazarının kendi ifadelerindedir.
+        """
         k = cls()
         for yol in sorted(Path(klasor).glob("*.txt")):
             k.parca_kumesi |= parcalar(yol.read_text(encoding="utf-8", errors="ignore"))
+        for serbest in serbest_metin_klasorleri:
+            for yol in sorted(Path(serbest).glob("*.txt")):
+                k.parca_kumesi -= parcalar(yol.read_text(encoding="utf-8", errors="ignore"))
         return k
 
 

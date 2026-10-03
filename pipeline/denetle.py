@@ -39,7 +39,8 @@ def main(argv: list[str]) -> int:
     g2_hatalari = {s.soru_id: s.hatalar for s in g2.sonuclar}
     g2_uyarilari = {s.soru_id: s.uyarilar for s in g2.sonuclar}
     g4 = {str(s.get("id")): g4_hesap.soru_denetle(s).hatalar for s in sorular}
-    kulliyat = g7_ozgunluk.Kulliyat.klasorden(args.kulliyat) if args.kulliyat else None
+    serbest = (g2_yapi.KOK / "content/kaynaklar/mevzuat", g2_yapi.KOK / "content/kaynaklar/resmi")
+    kulliyat = g7_ozgunluk.Kulliyat.klasorden(args.kulliyat, serbest) if args.kulliyat else None
     g7 = g7_ozgunluk.banka_denetle(sorular, kulliyat)
 
     toplam_hata = 0

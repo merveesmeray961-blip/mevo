@@ -68,3 +68,14 @@ def test_ozgunluk_ortak_veri_ciftleri_atlanir():
     sonuc = banka_denetle([a, b, c], None)
     assert not any("B ile" in h for h in sonuc.get("A", []))
     assert any("C ile" in h for h in sonuc.get("A", []))
+
+
+def test_ozgunluk_mevzuat_metni_sayilmaz(tmp_path):
+    mevzuat = "meslek mensubunun müşterisiyle yakın ilişkisi nedeniyle tarafsızlığını kaybetmesi yakınlık tehdidi yaratır"
+    (tmp_path / "kulliyat").mkdir()
+    (tmp_path / "mevzuat").mkdir()
+    (tmp_path / "kulliyat" / "k.txt").write_text(mevzuat, encoding="utf-8")
+    (tmp_path / "mevzuat" / "m.txt").write_text(mevzuat, encoding="utf-8")
+    k = Kulliyat.klasorden(tmp_path / "kulliyat", (tmp_path / "mevzuat",))
+    soru = {"id": "Z", "kok": mevzuat, "secenekler": {}}
+    assert "Z" not in banka_denetle([soru], k)
