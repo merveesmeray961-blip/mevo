@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../uygulama.dart';
 import 'ana_kabuk.dart';
+import '../bilesenler/duzen.dart';
 
 class BolumSecimi extends StatelessWidget {
   final bool ilkAcilis;
@@ -27,38 +28,43 @@ class BolumSecimi extends StatelessWidget {
 
     return Scaffold(
       appBar: ilkAcilis ? null : AppBar(title: const Text('Sınavını seç')),
-      body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(20),
-          children: [
-            if (ilkAcilis) ...[
-              const SizedBox(height: 24),
-              Text('Hoş geldin', style: t.headlineMedium?.copyWith(fontWeight: FontWeight.w700)),
-              const SizedBox(height: 8),
-              Text('Hangi SMMM sınavına hazırlanıyorsun? Daha sonra ayarlardan değiştirebilirsin.', style: t.bodyLarge),
-              const SizedBox(height: 24),
+      body: Govde(
+        child: SafeArea(
+          child: ListView(
+            padding: const EdgeInsets.all(20),
+            children: [
+              if (ilkAcilis) ...[
+                const SizedBox(height: 24),
+                Text('Hoş geldin', style: t.headlineMedium?.copyWith(fontWeight: FontWeight.w700)),
+                const SizedBox(height: 8),
+                Text(
+                  'Hangi SMMM sınavına hazırlanıyorsun? Daha sonra ayarlardan değiştirebilirsin.',
+                  style: t.bodyLarge,
+                ),
+                const SizedBox(height: 24),
+              ],
+              _BolumKarti(
+                baslik: 'Staja Giriş Sınavı',
+                kisa: 'SGS',
+                aciklama:
+                    '${sgs.toplamSoru} soru · ${sgs.toplamSureDk} dakika · yanlış doğruyu götürmez · bağıl değerlendirme',
+                secili: durum.ayarlar.bolum == 'SGS',
+                onTap: () => sec('SGS'),
+              ),
+              const SizedBox(height: 12),
+              _BolumKarti(
+                baslik: 'Yeterlilik Sınavı',
+                kisa: 'YET',
+                aciklama:
+                    '8 ders × ${yet.dersBasinaSoru} soru · ders başına ${yet.dersBasinaSureDk} dakika · '
+                    '4 yanlış 1 doğruyu götürür · ders ≥${yet.dersMin}, ortalama ≥${yet.ortalamaMin}',
+                secili: durum.ayarlar.bolum == 'YET',
+                onTap: () => sec('YET'),
+              ),
+              const SizedBox(height: 32),
+              Text(durum.banka.uyari, style: t.bodySmall, textAlign: TextAlign.center),
             ],
-            _BolumKarti(
-              baslik: 'Staja Giriş Sınavı',
-              kisa: 'SGS',
-              aciklama:
-                  '${sgs.toplamSoru} soru · ${sgs.toplamSureDk} dakika · yanlış doğruyu götürmez · bağıl değerlendirme',
-              secili: durum.ayarlar.bolum == 'SGS',
-              onTap: () => sec('SGS'),
-            ),
-            const SizedBox(height: 12),
-            _BolumKarti(
-              baslik: 'Yeterlilik Sınavı',
-              kisa: 'YET',
-              aciklama:
-                  '8 ders × ${yet.dersBasinaSoru} soru · ders başına ${yet.dersBasinaSureDk} dakika · '
-                  '4 yanlış 1 doğruyu götürür · ders ≥${yet.dersMin}, ortalama ≥${yet.ortalamaMin}',
-              secili: durum.ayarlar.bolum == 'YET',
-              onTap: () => sec('YET'),
-            ),
-            const SizedBox(height: 32),
-            Text(durum.banka.uyari, style: t.bodySmall, textAlign: TextAlign.center),
-          ],
+          ),
         ),
       ),
     );

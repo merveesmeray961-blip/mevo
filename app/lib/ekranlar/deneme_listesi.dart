@@ -4,6 +4,7 @@ import '../mantik/deneme.dart';
 import '../uygulama.dart';
 import 'deneme.dart';
 import 'odeme.dart';
+import '../bilesenler/duzen.dart';
 
 class DenemeListesi extends StatelessWidget {
   const DenemeListesi({super.key});
@@ -61,45 +62,49 @@ class DenemeListesi extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(title: const Text('Deneme sınavı')),
-          body: ListView(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-            children: [
-              Text(
-                bolum == 'YET'
-                    ? 'Gerçek sınav kuralları: ders başına ${f.dersBasinaSoru} soru ve ${f.dersBasinaSureDk} dakika, '
-                          '4 yanlış 1 doğruyu götürür, hesap makinesi yok.'
-                    : 'Gerçek sınav kuralları: ${f.toplamSoru} soru, ${f.toplamSureDk} dakika, yanlış doğruyu götürmez, '
-                          'hesap makinesi yok.',
-                style: t.bodyMedium,
-              ),
-              ...kartlar,
-              if (gecmis.isNotEmpty) ...[
-                _Baslik('Geçmiş denemelerim'),
-                for (final d in gecmis)
-                  Card(
-                    margin: const EdgeInsets.only(bottom: 8),
-                    child: ListTile(
-                      title: Text(d.baslik),
-                      subtitle: Text('${tarihYaz(d.tarih)} · ${sureYaz(d.kullanilanSn)}'),
-                      trailing: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            bolum == 'YET' ? sayiYaz(d.puan, basamak: 2) : '%${d.puan.round()}',
-                            style: t.titleMedium?.copyWith(fontWeight: FontWeight.w700),
-                          ),
-                          if (d.gecti != null)
+          body: Govde(
+            child: ListView(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+              children: [
+                Text(
+                  bolum == 'YET'
+                      ? 'Gerçek sınav kuralları: ders başına ${f.dersBasinaSoru} soru ve ${f.dersBasinaSureDk} dakika, '
+                            '4 yanlış 1 doğruyu götürür, hesap makinesi yok.'
+                      : 'Gerçek sınav kuralları: ${f.toplamSoru} soru, ${f.toplamSureDk} dakika, yanlış doğruyu götürmez, '
+                            'hesap makinesi yok.',
+                  style: t.bodyMedium,
+                ),
+                ...kartlar,
+                if (gecmis.isNotEmpty) ...[
+                  _Baslik('Geçmiş denemelerim'),
+                  for (final d in gecmis)
+                    Card(
+                      margin: const EdgeInsets.only(bottom: 8),
+                      child: ListTile(
+                        title: Text(d.baslik),
+                        subtitle: Text('${tarihYaz(d.tarih)} · ${sureYaz(d.kullanilanSn)}'),
+                        trailing: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
                             Text(
-                              d.gecti! ? 'Barajı geçti' : 'Baraj altı',
-                              style: t.labelSmall?.copyWith(color: d.gecti! ? dogruRenk(context) : yanlisRenk(context)),
+                              bolum == 'YET' ? sayiYaz(d.puan, basamak: 2) : '%${d.puan.round()}',
+                              style: t.titleMedium?.copyWith(fontWeight: FontWeight.w700),
                             ),
-                        ],
+                            if (d.gecti != null)
+                              Text(
+                                d.gecti! ? 'Barajı geçti' : 'Baraj altı',
+                                style: t.labelSmall?.copyWith(
+                                  color: d.gecti! ? dogruRenk(context) : yanlisRenk(context),
+                                ),
+                              ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
+                ],
               ],
-            ],
+            ),
           ),
         );
       },

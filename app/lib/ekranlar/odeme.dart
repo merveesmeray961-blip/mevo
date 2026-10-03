@@ -110,10 +110,24 @@ class _OdemeEkraniState extends State<OdemeEkrani> {
                 borderRadius: BorderRadius.circular(14),
                 side: BorderSide(color: r.primary, width: 2),
               ),
-              child: ListTile(
-                title: Text(paket.ad, style: const TextStyle(fontWeight: FontWeight.w700)),
-                subtitle: Text(paket.aciklama),
-                trailing: Text(paket.fiyat ?? '—', style: t.titleLarge?.copyWith(fontWeight: FontWeight.w800)),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Wrap(
+                      alignment: WrapAlignment.spaceBetween,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: 12,
+                      children: [
+                        Text(paket.ad, style: t.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+                        Text(paket.fiyat ?? '—', style: t.titleLarge?.copyWith(fontWeight: FontWeight.w800)),
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                    Text(paket.aciklama, style: t.bodyMedium?.copyWith(color: r.onSurfaceVariant)),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 12),

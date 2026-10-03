@@ -5,6 +5,7 @@ import '../bilesenler/soru_gorunumu.dart';
 import '../uygulama.dart';
 import '../veri/modeller.dart';
 import 'odeme.dart';
+import '../bilesenler/duzen.dart';
 
 /// Çalışma oturumu açar. Ücretsiz kullanıcının günlük hakkı bittiyse önce ödeme ekranı gösterilir.
 Future<void> calismayaBasla(BuildContext context, {required String baslik, required List<Soru> sorular}) async {
@@ -122,34 +123,39 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
           child: LinearProgressIndicator(value: (_sira + (_cevaplandi ? 1 : 0)) / widget.sorular.length),
         ),
       ),
-      body: SingleChildScrollView(
-        controller: _kaydirma,
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SoruGorunumu(
-              soru: _soru,
-              secilen: _secilen,
-              cevapGoster: _cevaplandi,
-              onSec: _cevaplandi ? null : _sec,
-              ustBilgi: '${ders?.gorunenAd(durum.bolum) ?? _soru.ders} · $konu · ${zorlukAdi[_soru.zorluk]}',
-            ),
-            if (_cevaplandi) ...[
-              const SizedBox(height: 8),
-              // Açıklamanın üst kısmı (sonuç satırı) görünür olsun diye anahtar kartın başına konur.
-              AciklamaKarti(key: _aciklamaAnahtari, soru: _soru, secilen: _cevaplar[_soru.id]),
+      body: Govde(
+        child: SingleChildScrollView(
+          controller: _kaydirma,
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SoruGorunumu(
+                soru: _soru,
+                secilen: _secilen,
+                cevapGoster: _cevaplandi,
+                onSec: _cevaplandi ? null : _sec,
+                ustBilgi: '${ders?.gorunenAd(durum.bolum) ?? _soru.ders} · $konu · ${zorlukAdi[_soru.zorluk]}',
+              ),
+              if (_cevaplandi) ...[
+                const SizedBox(height: 8),
+                // Açıklamanın üst kısmı (sonuç satırı) görünür olsun diye anahtar kartın başına konur.
+                AciklamaKarti(key: _aciklamaAnahtari, soru: _soru, secilen: _cevaplar[_soru.id]),
+              ],
             ],
-          ],
+          ),
         ),
       ),
       bottomNavigationBar: _cevaplandi
           ? SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
-                child: FilledButton(
-                  onPressed: _sonraki,
-                  child: Text(_sira + 1 >= widget.sorular.length ? 'Bitir' : 'Sonraki soru'),
+              child: OrtalaGenislik(
+                icerikYuksekligi: true,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+                  child: FilledButton(
+                    onPressed: _sonraki,
+                    child: Text(_sira + 1 >= widget.sorular.length ? 'Bitir' : 'Sonraki soru'),
+                  ),
                 ),
               ),
             )
@@ -180,57 +186,59 @@ class CalismaOzeti extends StatelessWidget {
     final oran = cozulen.isEmpty ? 0.0 : dogru / cozulen.length;
     return Scaffold(
       appBar: AppBar(title: Text(baslik)),
-      body: ListView(
-        padding: const EdgeInsets.all(20),
-        children: [
-          const SizedBox(height: 12),
-          Center(
-            child: SizedBox(
-              width: 140,
-              height: 140,
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  CircularProgressIndicator(value: oran, strokeWidth: 12, strokeCap: StrokeCap.round),
-                  Center(
-                    child: Text(
-                      '%${(oran * 100).round()}',
-                      style: t.headlineMedium?.copyWith(fontWeight: FontWeight.w800),
+      body: Govde(
+        child: ListView(
+          padding: const EdgeInsets.all(20),
+          children: [
+            const SizedBox(height: 12),
+            Center(
+              child: SizedBox(
+                width: 140,
+                height: 140,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    CircularProgressIndicator(value: oran, strokeWidth: 12, strokeCap: StrokeCap.round),
+                    Center(
+                      child: Text(
+                        '%${(oran * 100).round()}',
+                        style: t.headlineMedium?.copyWith(fontWeight: FontWeight.w800),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 20),
-          Text('$dogru doğru · ${yanlislar.length} yanlış', style: t.titleLarge, textAlign: TextAlign.center),
-          const SizedBox(height: 6),
-          Text(
-            yanlislar.isEmpty
-                ? 'Harika! Bu sorular birkaç gün sonra tekrar karşına çıkacak.'
-                : 'Yanlış yaptığın sorular yanlış defterine eklendi ve kısa süre sonra tekrar sorulacak.',
-            style: t.bodyMedium,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 28),
-          if (yanlislar.isNotEmpty) ...[
-            FilledButton.icon(
-              icon: const Icon(Icons.replay),
-              label: const Text('Yanlışları hemen tekrar çöz'),
-              onPressed: () => Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (_) => CalismaEkrani(baslik: 'Yanlışlar', sorular: yanlislar),
+                  ],
                 ),
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 20),
+            Text('$dogru doğru · ${yanlislar.length} yanlış', style: t.titleLarge, textAlign: TextAlign.center),
+            const SizedBox(height: 6),
+            Text(
+              yanlislar.isEmpty
+                  ? 'Harika! Bu sorular birkaç gün sonra tekrar karşına çıkacak.'
+                  : 'Yanlış yaptığın sorular yanlış defterine eklendi ve kısa süre sonra tekrar sorulacak.',
+              style: t.bodyMedium,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 28),
+            if (yanlislar.isNotEmpty) ...[
+              FilledButton.icon(
+                icon: const Icon(Icons.replay),
+                label: const Text('Yanlışları hemen tekrar çöz'),
+                onPressed: () => Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (_) => CalismaEkrani(baslik: 'Yanlışlar', sorular: yanlislar),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+            ],
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(minimumSize: const Size(64, 48)),
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Kapat'),
+            ),
           ],
-          OutlinedButton(
-            style: OutlinedButton.styleFrom(minimumSize: const Size(64, 48)),
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Kapat'),
-          ),
-        ],
+        ),
       ),
     );
   }

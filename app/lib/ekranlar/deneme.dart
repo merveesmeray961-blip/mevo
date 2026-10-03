@@ -7,6 +7,7 @@ import '../mantik/deneme.dart';
 import '../uygulama.dart';
 import '../veri/modeller.dart';
 import 'calisma.dart';
+import '../bilesenler/duzen.dart';
 
 class DenemeEkrani extends StatefulWidget {
   final DenemePlani plan;
@@ -205,44 +206,49 @@ class _DenemeEkraniState extends State<DenemeEkrani> {
             TextButton(onPressed: _bitirSor, child: const Text('Bitir')),
           ],
         ),
-        body: ListView(
-          key: ValueKey(soru.id),
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-          children: [
-            SoruGorunumu(
-              soru: soru,
-              secilen: _cevaplar[soru.id],
-              onSec: _sec,
-              ustBilgi: ders?.gorunenAd(widget.plan.bolum),
-            ),
-            if (_cevaplar.containsKey(soru.id))
-              Text(
-                'Cevabı kaldırmak için seçili şıkka tekrar dokun.',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: r.outline),
+        body: Govde(
+          child: ListView(
+            key: ValueKey(soru.id),
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+            children: [
+              SoruGorunumu(
+                soru: soru,
+                secilen: _cevaplar[soru.id],
+                onSec: _sec,
+                ustBilgi: ders?.gorunenAd(widget.plan.bolum),
               ),
-          ],
+              if (_cevaplar.containsKey(soru.id))
+                Text(
+                  'Cevabı kaldırmak için seçili şıkka tekrar dokun.',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(color: r.outline),
+                ),
+            ],
+          ),
         ),
         bottomNavigationBar: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(8, 4, 8, 8),
-            child: Row(
-              children: [
-                IconButton.outlined(
-                  onPressed: _sira == 0 ? null : () => _git(_sira - 1),
-                  icon: const Icon(Icons.chevron_left),
-                ),
-                Expanded(
-                  child: TextButton.icon(
-                    onPressed: _soruListesi,
-                    icon: const Icon(Icons.grid_view_rounded),
-                    label: Text('${_sira + 1}/${_sorular.length} · ${_cevaplar.length} cevaplandı'),
+          child: OrtalaGenislik(
+            icerikYuksekligi: true,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(8, 4, 8, 8),
+              child: Row(
+                children: [
+                  IconButton.outlined(
+                    onPressed: _sira == 0 ? null : () => _git(_sira - 1),
+                    icon: const Icon(Icons.chevron_left),
                   ),
-                ),
-                IconButton.filled(
-                  onPressed: _sira + 1 >= _sorular.length ? _bitirSor : () => _git(_sira + 1),
-                  icon: Icon(_sira + 1 >= _sorular.length ? Icons.check : Icons.chevron_right),
-                ),
-              ],
+                  Expanded(
+                    child: TextButton.icon(
+                      onPressed: _soruListesi,
+                      icon: const Icon(Icons.grid_view_rounded),
+                      label: Text('${_sira + 1}/${_sorular.length} · ${_cevaplar.length} cevaplandı'),
+                    ),
+                  ),
+                  IconButton.filled(
+                    onPressed: _sira + 1 >= _sorular.length ? _bitirSor : () => _git(_sira + 1),
+                    icon: Icon(_sira + 1 >= _sorular.length ? Icons.check : Icons.chevron_right),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -268,117 +274,119 @@ class DenemeSonucEkrani extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Deneme sonucu')),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-        children: [
-          if (sureDoldu)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: Text('Süre doldu; sınav otomatik bitirildi.', style: t.bodyMedium?.copyWith(color: r.tertiary)),
-            ),
-          Card(
-            color: r.primaryContainer,
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Text(
-                    plan.baslik,
-                    style: t.titleMedium?.copyWith(color: r.onPrimaryContainer),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    yet ? sayiYaz(sonuc.puan, basamak: 2) : '%${sonuc.puan.round()}',
-                    style: t.displayMedium?.copyWith(fontWeight: FontWeight.w800, color: r.onPrimaryContainer),
-                  ),
-                  Text(
-                    yet ? (plan.dersler.length > 1 ? 'ortalama puan' : 'ders puanı') : 'doğru oranı',
-                    style: t.labelLarge?.copyWith(color: r.onPrimaryContainer),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    '${sonuc.dogru} doğru · ${sonuc.yanlis} yanlış · ${sonuc.bos} boş · ${sureYaz(sonuc.kullanilanSn)}',
-                    style: t.bodyMedium?.copyWith(color: r.onPrimaryContainer),
-                  ),
-                  if (sonuc.gecti != null) ...[
-                    const SizedBox(height: 12),
-                    Chip(
-                      avatar: Icon(
-                        sonuc.gecti! ? Icons.check_circle : Icons.info_outline,
-                        color: sonuc.gecti! ? dogruRenk(context) : yanlisRenk(context),
-                      ),
-                      label: Text(
-                        sonuc.gecti!
-                            ? (plan.dersler.length > 1 ? 'Barajları geçtin' : 'Ders barajını (${f.dersMin}) geçtin')
-                            : (plan.dersler.length > 1
-                                  ? 'Baraj altı: her ders ≥${f.dersMin}, ortalama ≥${f.ortalamaMin}'
-                                  : 'Ders barajı ${f.dersMin}'),
-                      ),
-                    ),
-                  ],
-                ],
+      body: Govde(
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+          children: [
+            if (sureDoldu)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Text('Süre doldu; sınav otomatik bitirildi.', style: t.bodyMedium?.copyWith(color: r.tertiary)),
               ),
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            yet
-                ? 'Puan: (doğru − yanlış × ${sayiYaz(f.yanlisCezasi, basamak: 2)}) × 100 / soru sayısı. Gerçek sınavda her ders ≥${f.dersMin} '
-                      've 8 ders ile tezkiye notunun ortalaması ≥${f.ortalamaMin} olmalıdır.'
-                : 'SGS bağıl değerlendirilir: puanın, o sınava girenlerin ortalamasına göre hesaplanır; sabit bir doğru sayısı barajı yoktur.',
-            style: t.bodySmall?.copyWith(color: r.onSurfaceVariant),
-          ),
-          if (plan.dersler.length > 1) ...[
-            const SizedBox(height: 16),
-            Text('Ders bazında', style: t.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
-            const SizedBox(height: 8),
             Card(
-              child: Column(
-                children: [
-                  for (final d in plan.dersler)
-                    ListTile(
-                      dense: true,
-                      title: Text(durum.banka.dersler[d]!.gorunenAd(plan.bolum)),
-                      subtitle: Text(
-                        '${sonuc.dersler[d]!.dogru} D · ${sonuc.dersler[d]!.yanlis} Y · ${sonuc.dersler[d]!.bos} B',
-                      ),
-                      trailing: Text(
-                        yet ? sayiYaz(sonuc.dersler[d]!.puan, basamak: 2) : '%${sonuc.dersler[d]!.puan.round()}',
-                        style: t.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w700,
-                          color: yet && sonuc.dersler[d]!.puan < f.dersMin! ? yanlisRenk(context) : null,
+              color: r.primaryContainer,
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Text(
+                      plan.baslik,
+                      style: t.titleMedium?.copyWith(color: r.onPrimaryContainer),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      yet ? sayiYaz(sonuc.puan, basamak: 2) : '%${sonuc.puan.round()}',
+                      style: t.displayMedium?.copyWith(fontWeight: FontWeight.w800, color: r.onPrimaryContainer),
+                    ),
+                    Text(
+                      yet ? (plan.dersler.length > 1 ? 'ortalama puan' : 'ders puanı') : 'doğru oranı',
+                      style: t.labelLarge?.copyWith(color: r.onPrimaryContainer),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      '${sonuc.dogru} doğru · ${sonuc.yanlis} yanlış · ${sonuc.bos} boş · ${sureYaz(sonuc.kullanilanSn)}',
+                      style: t.bodyMedium?.copyWith(color: r.onPrimaryContainer),
+                    ),
+                    if (sonuc.gecti != null) ...[
+                      const SizedBox(height: 12),
+                      Chip(
+                        avatar: Icon(
+                          sonuc.gecti! ? Icons.check_circle : Icons.info_outline,
+                          color: sonuc.gecti! ? dogruRenk(context) : yanlisRenk(context),
+                        ),
+                        label: Text(
+                          sonuc.gecti!
+                              ? (plan.dersler.length > 1 ? 'Barajları geçtin' : 'Ders barajını (${f.dersMin}) geçtin')
+                              : (plan.dersler.length > 1
+                                    ? 'Baraj altı: her ders ≥${f.dersMin}, ortalama ≥${f.ortalamaMin}'
+                                    : 'Ders barajı ${f.dersMin}'),
                         ),
                       ),
-                    ),
-                ],
+                    ],
+                  ],
+                ),
               ),
             ),
-          ],
-          const SizedBox(height: 16),
-          Text('Cevaplar ve açıklamalar', style: t.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
-          const SizedBox(height: 8),
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: [
-              for (var i = 0; i < plan.sorular.length; i++)
-                _SonucKutusu(
-                  no: i + 1,
-                  durum: sonuc.cevaplar[plan.sorular[i].id] == null
-                      ? null
-                      : sonuc.cevaplar[plan.sorular[i].id] == plan.sorular[i].dogru,
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => DenemeInceleme(sonuc: sonuc, baslangic: i),
+            const SizedBox(height: 8),
+            Text(
+              yet
+                  ? 'Puan: (doğru − yanlış × ${sayiYaz(f.yanlisCezasi, basamak: 2)}) × 100 / soru sayısı. Gerçek sınavda her ders ≥${f.dersMin} '
+                        've 8 ders ile tezkiye notunun ortalaması ≥${f.ortalamaMin} olmalıdır.'
+                  : 'SGS bağıl değerlendirilir: puanın, o sınava girenlerin ortalamasına göre hesaplanır; sabit bir doğru sayısı barajı yoktur.',
+              style: t.bodySmall?.copyWith(color: r.onSurfaceVariant),
+            ),
+            if (plan.dersler.length > 1) ...[
+              const SizedBox(height: 16),
+              Text('Ders bazında', style: t.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+              const SizedBox(height: 8),
+              Card(
+                child: Column(
+                  children: [
+                    for (final d in plan.dersler)
+                      ListTile(
+                        dense: true,
+                        title: Text(durum.banka.dersler[d]!.gorunenAd(plan.bolum)),
+                        subtitle: Text(
+                          '${sonuc.dersler[d]!.dogru} D · ${sonuc.dersler[d]!.yanlis} Y · ${sonuc.dersler[d]!.bos} B',
+                        ),
+                        trailing: Text(
+                          yet ? sayiYaz(sonuc.dersler[d]!.puan, basamak: 2) : '%${sonuc.dersler[d]!.puan.round()}',
+                          style: t.titleMedium?.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: yet && sonuc.dersler[d]!.puan < f.dersMin! ? yanlisRenk(context) : null,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ],
+            const SizedBox(height: 16),
+            Text('Cevaplar ve açıklamalar', style: t.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+            const SizedBox(height: 8),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (var i = 0; i < plan.sorular.length; i++)
+                  _SonucKutusu(
+                    no: i + 1,
+                    durum: sonuc.cevaplar[plan.sorular[i].id] == null
+                        ? null
+                        : sonuc.cevaplar[plan.sorular[i].id] == plan.sorular[i].dogru,
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => DenemeInceleme(sonuc: sonuc, baslangic: i),
+                      ),
                     ),
                   ),
-                ),
-            ],
-          ),
-          const SizedBox(height: 24),
-          FilledButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Kapat')),
-        ],
+              ],
+            ),
+            const SizedBox(height: 24),
+            FilledButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Kapat')),
+          ],
+        ),
       ),
     );
   }
@@ -452,28 +460,30 @@ class _DenemeIncelemeState extends State<DenemeInceleme> {
           ),
         ],
       ),
-      body: PageView.builder(
-        controller: _sayfa,
-        itemCount: sorular.length,
-        onPageChanged: (i) => setState(() => _sira = i),
-        itemBuilder: (context, i) {
-          final s = sorular[i];
-          final secilen = widget.sonuc.cevaplar[s.id];
-          return ListView(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-            children: [
-              SoruGorunumu(
-                soru: s,
-                secilen: secilen,
-                cevapGoster: true,
-                ustBilgi:
-                    '${durum.banka.dersler[s.ders]?.gorunenAd(widget.sonuc.plan.bolum) ?? s.ders} · ${zorlukAdi[s.zorluk]}',
-              ),
-              const SizedBox(height: 8),
-              AciklamaKarti(soru: s, secilen: secilen),
-            ],
-          );
-        },
+      body: Govde(
+        child: PageView.builder(
+          controller: _sayfa,
+          itemCount: sorular.length,
+          onPageChanged: (i) => setState(() => _sira = i),
+          itemBuilder: (context, i) {
+            final s = sorular[i];
+            final secilen = widget.sonuc.cevaplar[s.id];
+            return ListView(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+              children: [
+                SoruGorunumu(
+                  soru: s,
+                  secilen: secilen,
+                  cevapGoster: true,
+                  ustBilgi:
+                      '${durum.banka.dersler[s.ders]?.gorunenAd(widget.sonuc.plan.bolum) ?? s.ders} · ${zorlukAdi[s.zorluk]}',
+                ),
+                const SizedBox(height: 8),
+                AciklamaKarti(soru: s, secilen: secilen),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

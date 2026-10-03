@@ -19,6 +19,8 @@ const soruPaketi = 'assets/sorular/smmm.json';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Kenardan kenara çizim (Android 15+ zaten böyledir); sistem çubuklarının arkası uygulama rengiyle dolar.
+  unawaited(SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge));
   final depo = await CihazDepo.ac();
   final banka = SoruBankasi.fromJson(jsonDecode(await rootBundle.loadString(soruPaketi)) as Map<String, dynamic>);
   // Android ve iOS'ta gerçek mağaza ödemesi; web önizlemesinde (mağaza yok) sahte önizleme ödemesi.
@@ -51,6 +53,12 @@ class MevoUygulamasi extends StatelessWidget {
           darkTheme: tema(Brightness.dark),
           themeMode: durum.ayarlar.tema,
           locale: const Locale('tr'),
+          // Yazı boyutu en çok 2 kata kadar büyür; ötesinde yerleşim bozulmasın diye sınırlanır.
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context)
+                .copyWith(textScaler: MediaQuery.textScalerOf(context).clamp(maxScaleFactor: 2.0)),
+            child: child!,
+          ),
           home: durum.ayarlar.bolum == null ? const BolumSecimi(ilkAcilis: true) : const AnaKabuk(),
         ),
       ),

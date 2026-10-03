@@ -5,6 +5,7 @@ import '../uygulama.dart';
 import 'ayarlar_ekrani.dart';
 import 'calisma.dart';
 import 'odeme.dart';
+import '../bilesenler/duzen.dart';
 
 class BugunEkrani extends StatelessWidget {
   const BugunEkrani({super.key});
@@ -37,78 +38,80 @@ class BugunEkrani extends StatelessWidget {
               ),
             ],
           ),
-          body: ListView(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-            children: [
-              _GeriSayim(sinav: sinav, bugun: il.simdi),
-              const SizedBox(height: 12),
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Row(
-                    children: [
-                      _Sayac(deger: '${il.bugunCozulen}', etiket: 'bugün çözülen'),
-                      _Sayac(deger: '${il.seri}', etiket: 'gün üst üste'),
-                      _Sayac(deger: '${ist.cozulen}/${ist.toplam}', etiket: 'soru görüldü'),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              FilledButton.icon(
-                icon: const Icon(Icons.play_arrow_rounded),
-                label: Text('Hızlı çalış · ${durum.ayarlar.oturumBoyu} soru'),
-                onPressed: () => calismayaBasla(
-                  context,
-                  baslik: 'Hızlı çalışma',
-                  sorular: il.calismaSirasi(havuz, durum.ayarlar.oturumBoyu),
-                ),
-              ),
-              if (!durum.abonelik.premium) ...[
-                const SizedBox(height: 8),
-                InkWell(
-                  onTap: () => odemeEkraniAc(context),
+          body: Govde(
+            child: ListView(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+              children: [
+                _GeriSayim(sinav: sinav, bugun: il.simdi),
+                const SizedBox(height: 12),
+                Card(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 6),
-                    child: Text(
-                      'Ücretsiz sürüm: bugün ${durum.kalanUcretsizSoru}/$ucretsizGunlukSoru soru hakkın kaldı · Sınırsız çalış ›',
-                      style: t.bodySmall?.copyWith(color: r.primary),
-                      textAlign: TextAlign.center,
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      children: [
+                        _Sayac(deger: '${il.bugunCozulen}', etiket: 'bugün çözülen'),
+                        _Sayac(deger: '${il.seri}', etiket: 'gün üst üste'),
+                        _Sayac(deger: '${ist.cozulen}/${ist.toplam}', etiket: 'soru görüldü'),
+                      ],
                     ),
                   ),
                 ),
+                const SizedBox(height: 16),
+                FilledButton.icon(
+                  icon: const Icon(Icons.play_arrow_rounded),
+                  label: Text('Hızlı çalış · ${durum.ayarlar.oturumBoyu} soru'),
+                  onPressed: () => calismayaBasla(
+                    context,
+                    baslik: 'Hızlı çalışma',
+                    sorular: il.calismaSirasi(havuz, durum.ayarlar.oturumBoyu),
+                  ),
+                ),
+                if (!durum.abonelik.premium) ...[
+                  const SizedBox(height: 8),
+                  InkWell(
+                    onTap: () => odemeEkraniAc(context),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 6),
+                      child: Text(
+                        'Ücretsiz sürüm: bugün ${durum.kalanUcretsizSoru}/$ucretsizGunlukSoru soru hakkın kaldı · Sınırsız çalış ›',
+                        style: t.bodySmall?.copyWith(color: r.primary),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 16),
+                _ListeKarti(
+                  ikon: Icons.replay,
+                  baslik: 'Tekrar zamanı gelenler',
+                  aciklama: 'Unutmadan önce yeniden sorulan sorular',
+                  sayi: tekrar.length,
+                  onTap: () => calismayaBasla(context, baslik: 'Tekrar', sorular: il.calismaSirasi(tekrar, 50)),
+                ),
+                const SizedBox(height: 8),
+                _ListeKarti(
+                  ikon: Icons.close_rounded,
+                  baslik: 'Yanlış defterim',
+                  aciklama: 'Son cevabını yanlış verdiğin sorular',
+                  sayi: yanlis.length,
+                  onTap: () => calismayaBasla(context, baslik: 'Yanlış defterim', sorular: yanlis),
+                ),
+                const SizedBox(height: 8),
+                _ListeKarti(
+                  ikon: Icons.bookmark_outline,
+                  baslik: 'İşaretlediklerim',
+                  aciklama: 'Sonra bakmak için ayırdığın sorular',
+                  sayi: isaretli.length,
+                  onTap: () => calismayaBasla(context, baslik: 'İşaretlediklerim', sorular: isaretli),
+                ),
+                const SizedBox(height: 24),
+                Text(
+                  durum.banka.uyari,
+                  style: t.bodySmall?.copyWith(color: r.outline),
+                  textAlign: TextAlign.center,
+                ),
               ],
-              const SizedBox(height: 16),
-              _ListeKarti(
-                ikon: Icons.replay,
-                baslik: 'Tekrar zamanı gelenler',
-                aciklama: 'Unutmadan önce yeniden sorulan sorular',
-                sayi: tekrar.length,
-                onTap: () => calismayaBasla(context, baslik: 'Tekrar', sorular: il.calismaSirasi(tekrar, 50)),
-              ),
-              const SizedBox(height: 8),
-              _ListeKarti(
-                ikon: Icons.close_rounded,
-                baslik: 'Yanlış defterim',
-                aciklama: 'Son cevabını yanlış verdiğin sorular',
-                sayi: yanlis.length,
-                onTap: () => calismayaBasla(context, baslik: 'Yanlış defterim', sorular: yanlis),
-              ),
-              const SizedBox(height: 8),
-              _ListeKarti(
-                ikon: Icons.bookmark_outline,
-                baslik: 'İşaretlediklerim',
-                aciklama: 'Sonra bakmak için ayırdığın sorular',
-                sayi: isaretli.length,
-                onTap: () => calismayaBasla(context, baslik: 'İşaretlediklerim', sorular: isaretli),
-              ),
-              const SizedBox(height: 24),
-              Text(
-                durum.banka.uyari,
-                style: t.bodySmall?.copyWith(color: r.outline),
-                textAlign: TextAlign.center,
-              ),
-            ],
+            ),
           ),
         );
       },
