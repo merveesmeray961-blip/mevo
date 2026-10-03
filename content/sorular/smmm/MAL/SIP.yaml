@@ -1,0 +1,62 @@
+- id: SMMM-MAL-SIP-0001
+  sinav: smmm
+  bolum: [YET, SGS]
+  ders: MAL
+  unite: Maliyet Muhasebesi
+  konu: SIP
+  kazanim: Önceden belirlenmiş GÜG yükleme oranıyla sipariş maliyeti
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: >-
+    Sipariş maliyeti yöntemini uygulayan K İşletmesi, genel üretim giderlerini direkt işçilik saatine dayalı
+    önceden belirlenmiş (tahmini) bir oranla siparişlere yüklemektedir. Yıl başında tahmini genel üretim
+    giderleri 600.000 ₺, tahmini direkt işçilik saati 40.000 saat olarak belirlenmiştir. Yıl sonunda fiili
+    genel üretim giderleri 640.000 ₺, fiili direkt işçilik saati 40.000 saat olmuştur. S-12 numaralı sipariş
+    için 48.000 ₺ direkt ilk madde ve malzeme kullanılmış, saat ücreti 40 ₺ olan 1.200 saat direkt işçilik
+    harcanmış ve siparişin satışı için 6.000 ₺ satış komisyonu ödenmiştir. KDV dikkate alınmayacaktır. Buna
+    göre S-12 numaralı siparişin üretim maliyeti kaç ₺'dir?
+  secenekler:
+    A: "121.200"
+    B: "120.000"
+    C: "115.200"
+    D: "114.000"
+    E: "96.000"
+  dogru: D
+  aciklama:
+    dogru_neden: >-
+      Önceden belirlenmiş yükleme oranı 600.000 / 40.000 = 15 ₺/saattir. Siparişe yüklenen genel üretim gideri
+      1.200 × 15 = 18.000 ₺'dir. Sipariş üretim maliyeti 48.000 + (1.200 × 40 = 48.000) + 18.000 = 114.000 ₺'dir.
+      Satış komisyonu bir satış maliyetidir; TMS 2 md. 16(d) uyarınca stok (üretim) maliyetine girmez. Fiili ve
+      yüklenen GÜG arasındaki fark siparişe değil, eksik/fazla yükleme olarak dönem sonunda ayrıca ele alınır.
+    hesap_adimlari:
+      - "GÜG yükleme oranı: 600.000 / 40.000 = 15 ₺/saat"
+      - "Direkt işçilik: 1.200 × 40 = 48.000 ₺"
+      - "Yüklenen GÜG: 1.200 × 15 = 18.000 ₺"
+      - "Sipariş üretim maliyeti: 48.000 + 48.000 + 18.000 = 114.000 ₺"
+    celdiriciler:
+      A: "121.200 ₺, fiili oranın (640.000 / 40.000 = 16 ₺) kullanılması ve satış komisyonunun maliyete katılmasıyla bulunur; iki hata birlikte yapılmıştır."
+      B: "120.000 ₺, satış komisyonunun (6.000) sipariş üretim maliyetine eklenmesiyle bulunur; satış maliyetleri üretim maliyetine girmez."
+      C: "115.200 ₺, tahmini oran yerine fiili oranla (1.200 × 16 = 19.200) GÜG yüklenmesiyle bulunur; kök önceden belirlenmiş oranın kullanıldığını belirtmektedir."
+      E: "96.000 ₺ yalnızca asal maliyettir (48.000 + 48.000); siparişe genel üretim gideri yüklenmemiştir."
+  kaynaklar:
+    - mevzuat: "TMS 2 Stoklar"
+      madde: "md. 16(d)"
+      alinti: "(d) Satış maliyetleri."
+    - mevzuat: "Maliyet muhasebesi — genel kabul görmüş sipariş maliyeti yöntemi"
+      madde: "Önceden belirlenmiş GÜG yükleme oranı (tahmini GÜG / tahmini dağıtım anahtarı)"
+      alinti: ""
+  dogrulama:
+    python: |
+      oran = 600000 / 40000
+      sonuc = 48000 + 1200 * 40 + 1200 * oran
+  gecerlilik:
+    baslangic: "2026-10-03"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: "claude"
+    istem_surumu: "uretim.md v1"

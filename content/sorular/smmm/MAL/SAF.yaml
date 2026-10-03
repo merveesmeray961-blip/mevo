@@ -1,0 +1,132 @@
+- id: SMMM-MAL-SAF-0001
+  sinav: smmm
+  bolum: [YET, SGS]
+  ders: MAL
+  unite: Maliyet Muhasebesi
+  konu: SAF
+  kazanim: FIFO yönteminde dönüştürme maliyetleri eşdeğer birimi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: >-
+    Tek safhalı üretim yapan H İşletmesi'nde dönem başında dönüştürme maliyetleri açısından %40 oranında
+    tamamlanmış 2.000 birim yarı mamul bulunmaktadır. Dönem içinde 18.000 birimin üretimine başlanmış, toplam
+    16.000 birim tamamlanarak mamul ambarına gönderilmiştir. Dönem sonunda dönüştürme maliyetleri açısından %50
+    oranında tamamlanmış 4.000 birim yarı mamul kalmıştır. İlk madde ve malzeme sürecin başında tamamen
+    kullanılmakta, dönüştürme maliyetleri süreç boyunca düzenli oluşmaktadır. KDV dikkate alınmayacaktır.
+    İşletme FIFO (ilk giren ilk çıkar) yöntemini uyguladığına göre, dönüştürme maliyetleri için eşdeğer birim
+    sayısı kaçtır?
+  secenekler:
+    A: "16.000"
+    B: "16.800"
+    C: "17.200"
+    D: "18.000"
+    E: "20.000"
+  dogru: C
+  aciklama:
+    dogru_neden: >-
+      FIFO yönteminde dönem başı yarı mamulün önceki dönemde yapılan kısmı bu döneme yüklenmez (TMS 2 md. 27:
+      ilk üretilen kalemlerin ilk çıktığı varsayımı). Bu dönemde yapılan iş: dönem başı yarı mamulün kalan %60'ı
+      (2.000 × 0,60 = 1.200), dönem içinde başlanıp bitirilen 14.000 birim ve dönem sonu yarı mamulün %50'si
+      (4.000 × 0,50 = 2.000). Toplam 1.200 + 14.000 + 2.000 = 17.200 eşdeğer birimdir.
+    hesap_adimlari:
+      - "Dönem içinde başlanıp tamamlanan: 16.000 - 2.000 = 14.000 birim"
+      - "Dönem başı yarı mamulün tamamlanması: 2.000 × (1 - 0,40) = 1.200"
+      - "Dönem sonu yarı mamul: 4.000 × 0,50 = 2.000"
+      - "FIFO dönüştürme eşdeğer birimi: 1.200 + 14.000 + 2.000 = 17.200"
+    celdiriciler:
+      A: "16.000 yalnızca tamamlanan birim sayısıdır; dönem sonu yarı mamulün eşdeğeri eklenmemiş ve dönem başı stok düzeltmesi yapılmamıştır."
+      B: "16.800, dönem başı yarı mamul için kalan %60 yerine önceki dönemde tamamlanan %40 kullanıldığında (800 + 14.000 + 2.000) bulunur."
+      D: "18.000 ağırlıklı ortalama yöntemine göre dönüştürme eşdeğer birimidir (16.000 + 2.000); FIFO'da dönem başı stokun önceki dönemde yapılan kısmı (800) düşülür."
+      E: "20.000 ağırlıklı ortalama yöntemine göre ilk madde ve malzeme eşdeğer birimidir (16.000 + 4.000); soru dönüştürme maliyetlerini sormaktadır."
+  kaynaklar:
+    - mevzuat: "TMS 2 Stoklar"
+      madde: "md. 27"
+      alinti: "FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar."
+    - mevzuat: "Maliyet muhasebesi — genel kabul görmüş safha maliyeti yöntemleri"
+      madde: "FIFO yönteminde eşdeğer birim hesabı"
+      alinti: ""
+  dogrulama:
+    python: |
+      basla_bitir = 16000 - 2000
+      sonuc = 2000 * (1 - 0.40) + basla_bitir + 4000 * 0.50
+  gecerlilik:
+    baslangic: "2026-10-03"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: "claude"
+    istem_surumu: "uretim.md v1"
+
+- id: SMMM-MAL-SAF-0002
+  sinav: smmm
+  bolum: [YET]
+  ders: MAL
+  unite: Maliyet Muhasebesi
+  konu: SAF
+  kazanim: FIFO safha maliyetinde tamamlanıp aktarılan ürünlerin maliyeti
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: >-
+    Tek safhalı üretim yapan HK İşletmesi'nde dönem başında dönüştürme maliyetleri açısından %60 oranında
+    tamamlanmış 1.000 birim yarı mamul bulunmaktadır; bu stokun maliyeti 35.000 ₺'dir (ilk madde ve malzeme
+    20.000 ₺, dönüştürme 15.000 ₺). Dönem içinde 9.000 birimin üretimine başlanmış, dönem sonunda dönüştürme
+    maliyetleri açısından %50 oranında tamamlanmış 2.000 birim yarı mamul kalmıştır. Dönem içinde 225.000 ₺
+    ilk madde ve malzeme, 252.000 ₺ dönüştürme maliyetine katlanılmıştır. İlk madde ve malzeme sürecin başında
+    tamamen kullanılmakta, dönüştürme maliyetleri süreç boyunca düzenli oluşmaktadır. KDV dikkate
+    alınmayacaktır. İşletme FIFO yöntemini uyguladığına göre, dönem içinde tamamlanarak mamul ambarına
+    aktarılan ürünlerin maliyeti kaç ₺'dir?
+  secenekler:
+    A: "420.000"
+    B: "432.000"
+    C: "438.000"
+    D: "440.000"
+    E: "512.000"
+  dogru: B
+  aciklama:
+    dogru_neden: >-
+      Tamamlanan miktar 1.000 + 9.000 - 2.000 = 8.000 birimdir (1.000'i dönem başı stoktan, 7.000'i dönem içinde
+      başlanıp bitirilen). FIFO eşdeğer birimleri: ilk madde 7.000 + 2.000 = 9.000 (birim maliyet 225.000 / 9.000
+      = 25 ₺), dönüştürme 1.000 × 0,40 + 7.000 + 2.000 × 0,50 = 8.400 (birim maliyet 252.000 / 8.400 = 30 ₺).
+      Aktarılan maliyet: dönem başı stok maliyeti 35.000 + tamamlanması 400 × 30 = 12.000 + başlanıp bitirilen
+      7.000 × 55 = 385.000; toplam 432.000 ₺'dir.
+    hesap_adimlari:
+      - "Tamamlanan: 1.000 + 9.000 - 2.000 = 8.000 birim; başlanıp bitirilen 7.000 birim"
+      - "İlk madde eşdeğer birimi (FIFO): 7.000 + 2.000 = 9.000 → 225.000 / 9.000 = 25 ₺"
+      - "Dönüştürme eşdeğer birimi (FIFO): 400 + 7.000 + 1.000 = 8.400 → 252.000 / 8.400 = 30 ₺"
+      - "Dönem başı stokun maliyeti ve tamamlanması: 35.000 + 400 × 30 = 47.000 ₺"
+      - "Başlanıp bitirilen: 7.000 × (25 + 30) = 385.000 ₺"
+      - "Aktarılan maliyet: 47.000 + 385.000 = 432.000 ₺ (kontrol: dönem sonu yarı mamul 2.000 × 25 + 1.000 × 30 = 80.000; 432.000 + 80.000 = 512.000)"
+    celdiriciler:
+      A: "420.000 ₺, dönem başı yarı mamulün bu dönemde tamamlanması için katlanılan dönüştürme maliyeti (400 × 30 = 12.000) eklenmeden bulunur."
+      C: "438.000 ₺, dönem başı yarı mamulün tamamlanması için kalan %40 yerine %60 alınarak (600 × 30 = 18.000) bulunur."
+      D: "440.000 ₺, tamamlanan 8.000 birimin tamamının cari dönem birim maliyetiyle (8.000 × 55) değerlenmesiyle bulunur; FIFO'da dönem başı stok kendi maliyetiyle aktarılır."
+      E: "512.000 ₺ toplam maliyettir (35.000 + 225.000 + 252.000); dönem sonu yarı mamul stokunun maliyeti (80.000) düşülmemiştir."
+  kaynaklar:
+    - mevzuat: "TMS 2 Stoklar"
+      madde: "md. 27"
+      alinti: "FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar."
+    - mevzuat: "Maliyet muhasebesi — genel kabul görmüş safha maliyeti yöntemleri"
+      madde: "FIFO yönteminde safha maliyet raporu"
+      alinti: ""
+  dogrulama:
+    python: |
+      tamamlanan = 1000 + 9000 - 2000
+      bas_bit = tamamlanan - 1000
+      im_birim = 225000 / (bas_bit + 2000)
+      dn_birim = 252000 / (1000 * 0.40 + bas_bit + 2000 * 0.50)
+      sonuc = round(35000 + 1000 * 0.40 * dn_birim + bas_bit * (im_birim + dn_birim), 2)
+  gecerlilik:
+    baslangic: "2026-10-03"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: "claude"
+    istem_surumu: "uretim.md v1"
