@@ -36,7 +36,7 @@ KANUNLAR = {
     "5510": ("sgk", "5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu"),
     "iyuk": ("iyuk", "2577 sayılı İdari Yargılama Usulü Kanunu"),
     "spkn": ("spkn", "6362 sayılı Sermaye Piyasası Kanunu"),
-    "3568": ("smmm_kanunu", "3568 sayılı Serbest Muhasebecilik, Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu"),
+    "3568": ("smmm_kanunu", "3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu"),
     "6356": ("sendikalar", "6356 sayılı Sendikalar ve Toplu İş Sözleşmesi Kanunu"),
     "7036": ("is_mahkemeleri", "7036 sayılı İş Mahkemeleri Kanunu"),
     "5018": ("kmyk", "5018 sayılı Kamu Malî Yönetimi ve Kontrol Kanunu"),

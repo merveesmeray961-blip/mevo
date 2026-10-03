@@ -19,6 +19,10 @@ Amaç soruyu çürütmektir. Şunları ara:
 - Hesaplama: veri tutarlı mı, hesap makinesiz çözülebilir mi, yuvarlama sorunu var mı?
 - Mevzuat güncel mi (mülga, değişik, yürürlük tarihi)?
 - Çeldirici, kökü okumadan elenebilecek kadar zayıf mı?
+- **Kuralın özeti doğru mu?** Açıklamada ve çeldirici açıklamalarında bir hükmün *kime* uygulandığı, *hangi şartla* uygulandığı ve istisnaları kaynakla cümle cümle karşılaştırılır. Şartı atlayan, özneyi değiştiren ("denetçiler üstlenemez" ↔ "kuruluşlar üstlenemez") ya da istisnası olan bir kuralı mutlak söyleyen ("bir yıldan fazla olamaz") ifade `kaldi` sebebidir. (Pilot hakem denetimi: 12, 14 ve 25 numaralı sorular.)
+- **Örtük varsayım var mı?** Çözüm, kökte yazılmayan bir varsayıma dayanıyor mu: faizin ay mı gün mü esasıyla hesaplandığı, bir borcun ne kadarının ticari borç olduğu, olayların sırasının gerçekçi olup olmadığı (örn. zamanaşımı dolduktan sonra gelen karar)? Varsayım kökte açıkça yazılmalıdır. (Pilot: 7, 18, 29.)
+- **Hesap işleyişi tam mı?** Yevmiye kayıtları THP'deki hesap işleyişine birebir uymalı; kısaltılmış ya da işleyişte olmayan bir hesap eşleşmesi (örn. 780 B / 408 A) sonuç doğru olsa da `kaldi` sebebidir. (Pilot: 1.)
+- **Adlar ve atıflar güncel mi?** Kanun adı, madde/fıkra/bent/cümle numarası ve yürürlük-son geçerlilik tarihi (`gecerlilik.bitis`) resmî metnin güncel hâliyle aynı olmalıdır.
 
 Çıktı: `{id, sonuc: gecti | kaldi, itirazlar: [...], onerilen_duzeltme}`. İnandırıcı tek bir itiraz bile `kaldi` sebebidir.
 
