@@ -10,10 +10,12 @@
   tip: hesaplama
   zorluk: 1
   soru_bicimi: standart
-  kok: "(D) Ticaret A.Ş.'nin Kasım 2026 vergilendirme dönemi sonunda hesap bakiyeleri şöyledir: 391 Hesaplanan KDV
-    120.000 ₺ (alacak), 191 İndirilecek KDV 84.000 ₺ (borç), 190 Devreden KDV (önceki dönemden devreden) 6.000 ₺ (borç).
-    Aksi belirtilmedikçe Tekdüzen Muhasebe Sistemi esas alınır.\n\nDönem sonu KDV mahsup kaydıyla ilgili aşağıdaki
-    ifadelerden hangisi doğrudur?"
+  kok: '(D) Ticaret A.Ş.''nin Kasım 2026 vergilendirme dönemi sonunda hesap bakiyeleri şöyledir: 391 Hesaplanan
+    KDV 120.000 ₺ (alacak), 191 İndirilecek KDV 84.000 ₺ (borç), 190 Devreden KDV (önceki dönemden devreden) 6.000
+    ₺ (borç). Aksi belirtilmedikçe Tekdüzen Muhasebe Sistemi esas alınır.
+
+
+    Dönem sonu KDV mahsup kaydıyla ilgili aşağıdaki ifadelerden hangisi doğrudur?'
   secenekler:
     A: 360 Ödenecek Vergi ve Fonlar hesabına 30.000 ₺ alacak kaydedilir.
     B: 360 Ödenecek Vergi ve Fonlar hesabına 36.000 ₺ alacak kaydedilir.
@@ -29,30 +31,33 @@
     celdiriciler:
       B: Önceki dönemden devreden 6.000 ₺ KDV (190) indirim konusu yapılmamıştır; 391, 191 ve 190 hesaplarının toplamıyla
         karşılaştırılır.
-      C: 190'a borç kaydı, indirilecek KDV'nin hesaplanan KDV'den fazla olduğu durumda yapılır; burada hesaplanan KDV
-        daha fazladır ve 190 alacaklanarak kapatılır.
+      C: 190'a borç kaydı, indirilecek KDV'nin hesaplanan KDV'den fazla olduğu durumda yapılır; burada hesaplanan
+        KDV daha fazladır ve 190 alacaklanarak kapatılır.
       D: Tutar doğru, taraf yanlıştır; ödenecek vergi bir borçtur ve 360 hesabına alacak yazılır, ödendiğinde borçlanır.
       E: 391 hesabı bakiyesinin tamamıyla (120.000 ₺) borçlandırılarak kapatılır; 84.000 ₺ 191 hesabına alacak yazılacak
         tutardır.
     hesap_adimlari:
-    - 'İndirimler toplamı = 191 (84.000) + 190 (6.000) = 90.000 ₺'
-    - 'Ödenecek KDV = 120.000 − 90.000 = 30.000 ₺ → 360 alacak'
+    - İndirimler toplamı = 191 (84.000) + 190 (6.000) = 90.000 ₺
+    - Ödenecek KDV = 120.000 − 90.000 = 30.000 ₺ → 360 alacak
     - 'Kayıt: 391 B 120.000 / 191 A 84.000, 190 A 6.000, 360 A 30.000'
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
     madde: 391 Hesaplanan KDV — İşleyişi
-    alinti: 'Hesaplanan katma değer vergisi bu hesaba alacak kaydedilir. Düzeltmeler bu hesaba borç kaydedilir. Vergilendirme
+    alinti: Hesaplanan katma değer vergisi bu hesaba alacak kaydedilir. Düzeltmeler bu hesaba borç kaydedilir. Vergilendirme
       dönemi itibariyle bu hesabın bakiyesi, "191- İNDİRİLECEK KDV" ve/veya "190- DEVREDEN KDV" hesapları ile karşılaştırılır.
-      "Yapılan karşılaştırmada bu hesabın bakiyesi "191- İNDİRİLECEK KDV" ve/veya 190- DEVREDEN KDV" hesaplarının bakiyesinden
-      fazla olduğu takdirde vadesinde ödenmek üzere "360-ÖDENECEK VERGİ VE FONLAR" hesabına aktarılarak kapatılır.'
+      "Yapılan karşılaştırmada bu hesabın bakiyesi "191- İNDİRİLECEK KDV" ve/veya 190- DEVREDEN KDV" hesaplarının
+      bakiyesinden fazla olduğu takdirde vadesinde ödenmek üzere "360-ÖDENECEK VERGİ VE FONLAR" hesabına aktarılarak
+      kapatılır.
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 29/1-a
-    alinti: 'Mükellefler, yaptıkları vergiye tabi işlemler üzerinden hesaplanan katma değer vergisinden, bu Kanunda aksine
-      hüküm olmadıkça, faaliyetlerine ilişkin olarak aşağıdaki vergileri indirebilirler: a) Kendilerine yapılan teslim ve
-      hizmetler dolayısıyla hesaplanarak düzenlenen fatura ve benzeri vesikalarda gösterilen katma değer vergisi,'
+    alinti: 'Mükellefler, yaptıkları vergiye tabi işlemler üzerinden hesaplanan katma değer vergisinden, bu Kanunda
+      aksine hüküm olmadıkça, faaliyetlerine ilişkin olarak aşağıdaki vergileri indirebilirler: a) Kendilerine yapılan
+      teslim ve hizmetler dolayısıyla hesaplanarak düzenlenen fatura ve benzeri vesikalarda gösterilen katma değer
+      vergisi,'
   dogrulama:
-    python: |
-      sonuc = 120000 - (84000 + 6000)
+    python: 'sonuc = 120000 - (84000 + 6000)
+
+      '
     secenek_sayisi_bekleniyor: false
   gecerlilik:
     baslangic: '2026-10-03'
@@ -64,3 +69,13 @@
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G4:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G7:
+        sonuc: gecti
+        tarih: '2026-10-03'

@@ -47,11 +47,11 @@ Tip: B bilgi · K kavrama · U uygulama/kayıt · H hesaplama · Veri: T tablo �
 |1|Binaya yapılan iyileştirmenin aktifleştirilmesi|K|252|–|1|
 |2|Uzun vadeli borç hesabı|B|405|–|1|
 |3|Hisse senedi ihraç primi hesabı|B|520|–|1|
-|4|Borç senedi reeskontu|U|302/647|–|1|
+|4|Borç senedi reeskontu|U|322/647|–|1|
 |5|Mevduat faizi ve stopaj|U|102/193/642|–|2|
 |6|Kayıttan işlemi bulma (bono ihracı)|K|305/308|Y|1|
 |7|Sermaye artırımı ve primli satış (olumsuz kök)|H|500/501/520|–|2|
-|8|Sayım noksanı, araştırma sürüyor|U|397|–|1|
+|8|Sayım noksanı, araştırma sürüyor|U|197|–|1|
 |9|Hasarlı stok karşılığı ve satış|K|158/654/644|–|2|
 |10|Kayıttan işlemi bulma (hisse satışı)|K|110/119|Y|2|
 |11|Mali borçlar grubu|B|30/40|–|1|
