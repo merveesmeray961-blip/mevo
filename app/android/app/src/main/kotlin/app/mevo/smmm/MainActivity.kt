@@ -1,4 +1,4 @@
-package app.mevo.mevo
+package app.mevo.smmm
 
 import io.flutter.embedding.android.FlutterActivity
 
