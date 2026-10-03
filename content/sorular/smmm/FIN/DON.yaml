@@ -76,7 +76,7 @@
     baslangic: '2026-10-03'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -100,6 +100,15 @@
         sonuc: gecti
         tarih: '2026-10-03'
         not: ortalama aday doğru (güven 5)
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-03'
+        not: '(küçük) Doğrulandı: aylık prim 2.000 ₺, 2027 payı 9 ay × 2.000 ₺ = 18.000 ₺. Kayıt 180 B / 770 A.
+          dogrulama.python 18.000 verdi. Tüm şıklarda borç = alacak. Kalan süre 9 ay olduğundan 280 dışlanıyor;
+          tek doğru B.'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-03'
 - id: SMMM-FIN-DON-0002
   sinav: smmm
   bolum:
@@ -176,7 +185,7 @@
     baslangic: '2026-10-03'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -200,3 +209,16 @@
         sonuc: gecti
         tarih: '2026-10-03'
         not: ortalama aday doğru (güven 3)
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-03'
+        not: '(küçük) Doğrulandı: 206.000 × 1.080 / 37.080 = 6.000 ₺ (206.000 × 3/103), hesap makinesiz çözülebiliyor.
+          dogrulama.python 6.000 verdi. VUK md. 281/2 ''irca olunabilir'' (isteğe bağlı) diyor; kökte şirketin bunu
+          uyguladığı ve iç iskonto kullanılacağı açıkça yazılı. Bu yüzden iç/dış iskonto tartışmasından ikinci doğru
+          doğmuyor. 122 ve 657 hesap kodları THP ile uyumlu.'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-03'
+        not: (küçük) İç iskonto formülü (N × f × t / (36.000 + f × t)) yasal metinde yok, yöntem bilgisi. Formül
+          kökte ('iç iskonto, yıl 360 gün') ve açıklamada açıkça yazılı; ders kitabı tanımıyla tutarlı; dogrulama
+          sonucu (6.000) açıklamayla aynı.
