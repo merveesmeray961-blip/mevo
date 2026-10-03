@@ -79,3 +79,13 @@ def test_ozgunluk_mevzuat_metni_sayilmaz(tmp_path):
     k = Kulliyat.klasorden(tmp_path / "kulliyat", (tmp_path / "mevzuat",))
     soru = {"id": "Z", "kok": mevzuat, "secenekler": {}}
     assert "Z" not in banka_denetle([soru], k)
+
+
+def test_disa_aktar_puf_noktalarini_ayirir():
+    from pipeline.disa_aktar import aciklama_ayir
+
+    a = {"dogru_neden": "Md. 22/1'e göre C yanlıştır. Kullanılan teknikler: (1) madde birleştirme.", "celdiriciler": {}}
+    b = aciklama_ayir(a)
+    assert b["dogru_neden"] == "Md. 22/1'e göre C yanlıştır."
+    assert b["puf_noktalari"] == "(1) madde birleştirme."
+    assert aciklama_ayir({"dogru_neden": "Sade açıklama."}) == {"dogru_neden": "Sade açıklama."}

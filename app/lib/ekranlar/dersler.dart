@@ -1,0 +1,207 @@
+import 'package:flutter/material.dart';
+
+import '../uygulama.dart';
+import '../veri/ilerleme.dart';
+import '../veri/modeller.dart';
+import 'calisma.dart';
+
+class DerslerEkrani extends StatelessWidget {
+  const DerslerEkrani({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final durum = Kapsam.of(context);
+    return ListenableBuilder(
+      listenable: durum.degisim,
+      builder: (context, _) {
+        final bolum = durum.bolum;
+        final dersler = durum.banka.bolumDersleri(bolum);
+        return Scaffold(
+          appBar: AppBar(title: const Text('Dersler')),
+          body: ListView.separated(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+            itemCount: dersler.length,
+            separatorBuilder: (_, _) => const SizedBox(height: 8),
+            itemBuilder: (context, i) {
+              final d = dersler[i];
+              final ist = durum.ilerleme.istatistik(durum.banka.dersSorulari(bolum, d.kod));
+              return _DersKarti(
+                ders: d,
+                bolum: bolum,
+                ist: ist,
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => DersDetay(ders: d))),
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _DersKarti extends StatelessWidget {
+  final Ders ders;
+  final String bolum;
+  final DersIstatistigi ist;
+  final VoidCallback onTap;
+
+  const _DersKarti({required this.ders, required this.bolum, required this.ist, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = Theme.of(context).textTheme;
+    final r = Theme.of(context).colorScheme;
+    final basari = ist.basari;
+    return Card(
+      child: InkWell(
+        borderRadius: BorderRadius.circular(14),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(ders.gorunenAd(bolum), style: t.titleMedium?.copyWith(fontWeight: FontWeight.w600)),
+                  ),
+                  if (basari != null) BasariRozeti(oran: basari),
+                ],
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Sınavda ${ders.sinavdakiSoru(bolum)} soru · Bankada ${ist.toplam} soru',
+                style: t.bodySmall?.copyWith(color: r.onSurfaceVariant),
+              ),
+              const SizedBox(height: 10),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: LinearProgressIndicator(value: ist.toplam == 0 ? 0 : ist.cozulen / ist.toplam, minHeight: 6),
+              ),
+              const SizedBox(height: 4),
+              Text('${ist.cozulen}/${ist.toplam} soru görüldü', style: t.labelSmall),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BasariRozeti extends StatelessWidget {
+  final double oran;
+
+  const BasariRozeti({super.key, required this.oran});
+
+  @override
+  Widget build(BuildContext context) {
+    final renk = oran >= 0.7
+        ? dogruRenk(context)
+        : oran >= 0.5
+        ? const Color(0xFFE09B00)
+        : yanlisRenk(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      decoration: BoxDecoration(color: renk.withValues(alpha: 0.14), borderRadius: BorderRadius.circular(20)),
+      child: Text(
+        '%${(oran * 100).round()}',
+        style: TextStyle(color: renk, fontWeight: FontWeight.w700),
+      ),
+    );
+  }
+}
+
+class DersDetay extends StatelessWidget {
+  final Ders ders;
+
+  const DersDetay({super.key, required this.ders});
+
+  @override
+  Widget build(BuildContext context) {
+    final durum = Kapsam.of(context);
+    return ListenableBuilder(
+      listenable: durum.degisim,
+      builder: (context, _) {
+        final bolum = durum.bolum;
+        final il = durum.ilerleme;
+        final havuz = durum.banka.dersSorulari(bolum, ders.kod);
+        final zorlar = [
+          for (final s in havuz)
+            if (s.zorluk == 3) s,
+        ];
+        final yanlislar = il.yanlislar(havuz);
+        final konular = [
+          for (final e in ders.konular.entries)
+            if (havuz.any((s) => s.konu == e.key)) e,
+        ];
+        final t = Theme.of(context).textTheme;
+        return Scaffold(
+          appBar: AppBar(title: Text(ders.gorunenAd(bolum))),
+          body: ListView(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+            children: [
+              FilledButton.icon(
+                icon: const Icon(Icons.shuffle),
+                label: Text('Karışık çalış · ${durum.ayarlar.oturumBoyu} soru'),
+                onPressed: () => calismayaBasla(
+                  context,
+                  baslik: ders.gorunenAd(bolum),
+                  sorular: il.calismaSirasi(havuz, durum.ayarlar.oturumBoyu),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      icon: const Icon(Icons.local_fire_department_outlined),
+                      label: Text('Zor sorular (${zorlar.length})'),
+                      onPressed: zorlar.isEmpty
+                          ? null
+                          : () => calismayaBasla(context, baslik: 'Zor sorular', sorular: il.calismaSirasi(zorlar, 50)),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      icon: const Icon(Icons.close_rounded),
+                      label: Text('Yanlışlarım (${yanlislar.length})'),
+                      onPressed: yanlislar.isEmpty
+                          ? null
+                          : () => calismayaBasla(context, baslik: 'Yanlışlarım', sorular: yanlislar),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              Text('Konular', style: t.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+              const SizedBox(height: 8),
+              for (final k in konular)
+                Builder(
+                  builder: (context) {
+                    final sorular = [
+                      for (final s in havuz)
+                        if (s.konu == k.key) s,
+                    ];
+                    final ist = il.istatistik(sorular);
+                    return Card(
+                      margin: const EdgeInsets.only(bottom: 8),
+                      child: ListTile(
+                        title: Text(k.value),
+                        subtitle: Text('${ist.cozulen}/${ist.toplam} soru görüldü'),
+                        trailing: ist.basari == null
+                            ? const Icon(Icons.chevron_right)
+                            : BasariRozeti(oran: ist.basari!),
+                        onTap: () => calismayaBasla(context, baslik: k.value, sorular: il.calismaSirasi(sorular, 50)),
+                      ),
+                    );
+                  },
+                ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}

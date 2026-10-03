@@ -77,7 +77,7 @@ Zorluk belirsizlikten değil **bilgi derinliğinden** gelir: zor soru da tek ve 
 7. **Gereksiz veri:** Kökte çözüme etkisi olmayan ama ilgili görünen veri bulunur.
 8. **Tarih/süre hesabı:** Başlangıç, tebliğ, tatil, ay sonu gibi ayrıntılar sonucu değiştirir.
 
-Zor soruda `aciklama.dogru_neden` hangi tekniklerin kullanıldığını ve tuzağın nerede olduğunu açıkça anlatır (adayın öğrenmesi için).
+Zor soruda `aciklama.dogru_neden`, çözümden sonra **"Püf noktaları:"** etiketiyle başlayan bir bölümde sorunun nerede zorlaştığını ve tuzağın nerede olduğunu adaya hitap eden sade bir dille anlatır (örn. "md. 20/5 ile 21/1 birlikte okunmalı; yedek üyeler sayılmaz"). Uygulama bu bölümü ayrı gösterir. "Teknik (3)", "çeldiriciler tipik hatadan türetildi" gibi yazara yönelik ifadeler kullanılmaz.
 
 **Ölçüm (GZ kapısı):** Etiketler tahmin değil ölçümle doğrulanır. "Ortalama aday" (daha küçük bir model, kaynak metne bakmadan, tek geçişte) soruyu çözer:
 - Etiket 1 olup ortalama aday yanılırsa → soru gözden geçirilir (belirsizlik olabilir).
