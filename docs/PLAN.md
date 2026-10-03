@@ -178,7 +178,7 @@ Her soru aşağıdaki kapılardan **sırayla** geçer. Bir kapıdan kalan soru d
 | Ekonomi + Maliye (SGS) | 70 | 140 |
 | **Toplam** | **1000** | **2000** |
 
-Zorluk hedefi: %30 kolay · %50 orta · %20 zor. Her ders hem SGS hem Yeterlilik düzeyini kapsar.
+Zorluk hedefi: Yeterlilik %20 kolay · %45 orta · %35 zor; SGS %25 · %50 · %25 (bkz. pipeline/istemler/uretim.md §7). Her ders hem SGS hem Yeterlilik düzeyini kapsar.
 
 ## 9. Uygulama özellikleri
 

@@ -58,3 +58,13 @@ def test_ozgunluk_kulliyat_benzerligi():
     ozgun = {"id": "Y", "kok": "Bambaşka kelimelerle yazılmış tamamen özgün bir soru kökü burada yer almaktadır efendim", "secenekler": {}}
     sonuc = banka_denetle([kopya, ozgun], k)
     assert "X" in sonuc and "Y" not in sonuc
+
+
+def test_ozgunluk_ortak_veri_ciftleri_atlanir():
+    tablo = "kalem 2024 2025 2026 hazır değerler 60 70 100 ticari alacaklar 120 140 160 stoklar 130 145 175 " * 3
+    a = {"id": "A", "kok": tablo + " stok devir süresi kaç gündür", "secenekler": {}, "ortak_veri": "SET-1"}
+    b = {"id": "B", "kok": tablo + " cari oran kaçtır", "secenekler": {}, "ortak_veri": "SET-1"}
+    c = {"id": "C", "kok": tablo + " likidite oranı kaçtır", "secenekler": {}}
+    sonuc = banka_denetle([a, b, c], None)
+    assert not any("B ile" in h for h in sonuc.get("A", []))
+    assert any("C ile" in h for h in sonuc.get("A", []))

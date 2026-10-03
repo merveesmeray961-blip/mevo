@@ -1,0 +1,185 @@
+- id: SMMM-TAB-KAR-0001
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: TAB
+  unite: Finansal Tablolar ve Analizi
+  konu: KAR
+  kazanim: Brüt satış kârlılığı
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  ortak_veri: TAB-SET-01
+  kok: 'MK A.Ş.''nin 2024–2026 yıllarına ait özet bilanço ve gelir tablosu verileri (bin ₺) aşağıda verilmiştir.
+
+
+    | Kalem | 2024 | 2025 | 2026 |
+
+    |---|---:|---:|---:|
+
+    | **BİLANÇO** | | | |
+
+    | Hazır Değerler | 60 | 70 | 100 |
+
+    | Ticari Alacaklar | 120 | 140 | 160 |
+
+    | Stoklar | 130 | 145 | 175 |
+
+    | Diğer Dönen Varlıklar | 30 | 45 | 65 |
+
+    | **Dönen Varlıklar** | **340** | **400** | **500** |
+
+    | Maddi Duran Varlıklar (net) | 460 | 500 | 540 |
+
+    | **Toplam Aktif** | **800** | **900** | **1.040** |
+
+    | Kısa Vadeli Mali Borçlar | 70 | 80 | 120 |
+
+    | Ticari Borçlar | 60 | 70 | 90 |
+
+    | Diğer Kısa Vadeli Yabancı Kaynaklar | 30 | 40 | 40 |
+
+    | **Kısa Vadeli Yabancı Kaynaklar** | **160** | **190** | **250** |
+
+    | Uzun Vadeli Mali Borçlar | 240 | 230 | 190 |
+
+    | Ödenmiş Sermaye | 300 | 300 | 300 |
+
+    | Geçmiş Yıllar Kârları | 40 | 100 | 180 |
+
+    | Dönem Net Kârı | 60 | 80 | 120 |
+
+    | **Özkaynaklar** | **400** | **480** | **600** |
+
+    | **Toplam Pasif** | **800** | **900** | **1.040** |
+
+    | **GELİR TABLOSU** | | | |
+
+    | Brüt Satışlar | 840 | 1.050 | 1.260 |
+
+    | Satış İndirimleri (-) | 40 | 50 | 60 |
+
+    | Net Satışlar | 800 | 1.000 | 1.200 |
+
+    | Satışların Maliyeti (-) | 640 | 780 | 960 |
+
+    | Brüt Satış Kârı | 160 | 220 | 240 |
+
+    | Faaliyet Giderleri (-) | 50 | 70 | 60 |
+
+    | Faaliyet Kârı | 110 | 150 | 180 |
+
+    | Finansman Giderleri (-) | 35 | 50 | 30 |
+
+    | Dönem Kârı (vergi öncesi) | 75 | 100 | 150 |
+
+    | Vergi Karşılığı (-) | 15 | 20 | 30 |
+
+    | Dönem Net Kârı | 60 | 80 | 120 |
+
+
+    Devir hızlarında ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır.
+
+    Brüt satış kârlılığı = Brüt satış kârı / Net satışlar × 100 formülüyle hesaplandığına göre MK A.Ş.''nin
+
+    2026 yılı brüt satış kârlılığı yüzde kaçtır?'
+  secenekler:
+    A: 10,00
+    B: 15,00
+    C: 19,05
+    D: 20,00
+    E: 25,00
+  dogru: D
+  aciklama:
+    dogru_neden: 2026 brüt satış kârı 240 bin ₺, net satışlar 1.200 bin ₺'dir. Brüt satış kârlılığı 240 / 1.200
+      × 100 = %20'dir.
+    hesap_adimlari:
+    - 'Brüt satış kârı (2026): 1.200 - 960 = 240'
+    - 'Brüt satış kârlılığı: 240 / 1.200 × 100 = 20,00'
+    celdiriciler:
+      A: 10,00 net kâr marjıdır (120 / 1.200); payda dönem net kârı kullanılmıştır.
+      B: 15,00 faaliyet kâr marjıdır (180 / 1.200); payda faaliyet kârı kullanılmıştır.
+      C: 19,05, payda olarak net satışlar yerine brüt satışlar (240 / 1.260) alındığında bulunur.
+      E: 25,00, payda olarak net satışlar yerine satışların maliyeti (240 / 960) alındığında bulunur; bu brüt kârın
+        maliyete oranı (kâr marjı üzerinden ekleme oranı) olur.
+  kaynaklar:
+  - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
+    madde: Brüt satış kârlılığı = Brüt satış kârı / Net satışlar
+    alinti: ''
+  dogrulama:
+    python: 'bsk = 1200 - 960
+
+      sonuc = round(bsk / 1200 * 100, 2)
+
+      '
+  gecerlilik:
+    baslangic: '2026-10-03'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v1
+- id: SMMM-TAB-KAR-0002
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Finansal Tablolar ve Analizi
+  konu: KAR
+  kazanim: DuPont analizi ve finansal kaldıraç
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: P İşletmesi'nin dönem sonu değerlerine göre net kâr marjı (Dönem net kârı / Net satışlar) %8, aktif devir
+    hızı (Net satışlar / Toplam aktif) 1,5 ve özkaynak kârlılığı (Dönem net kârı / Özkaynaklar) %30'dur. Devir hızlarında
+    ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır. DuPont analizine göre P İşletmesi'nin toplam
+    yabancı kaynaklarının toplam aktife oranı yüzde kaçtır?
+  secenekler:
+    A: 60,00
+    B: 71,43
+    C: 82,22
+    D: 150,00
+    E: 250,00
+  dogru: A
+  aciklama:
+    dogru_neden: DuPont'a göre aktif kârlılığı = net kâr marjı × aktif devir hızı = %8 × 1,5 = %12'dir. Özkaynak
+      kârlılığı = aktif kârlılığı × özkaynak çarpanı (Toplam aktif / Özkaynaklar) olduğundan özkaynak çarpanı 30
+      / 12 = 2,5'tir. Buna göre özkaynaklar toplam aktifin 1 / 2,5 = %40'ı, yabancı kaynaklar ise %100 - %40 = %60'ıdır.
+    hesap_adimlari:
+    - 'Aktif kârlılığı: 8 × 1,5 = %12'
+    - 'Özkaynak çarpanı (Toplam aktif / Özkaynaklar): 30 / 12 = 2,5'
+    - 'Özkaynaklar / Toplam aktif: 1 / 2,5 = 0,40'
+    - 'Yabancı kaynaklar / Toplam aktif: 1 - 0,40 = 0,60 → %60'
+    celdiriciler:
+      B: 71,43, özkaynak çarpanı (2,5) yabancı kaynak / özkaynak oranı sanılarak 2,5 / 3,5 hesaplandığında bulunur.
+      C: 82,22, aktif kârlılığı net kâr marjının aktif devir hızına bölünmesiyle (8 / 1,5) bulunup özkaynak çarpanı
+        5,625 alındığında bulunur; DuPont'ta iki oran çarpılır.
+      D: 150,00 yabancı kaynakların özkaynaklara oranıdır (60 / 40); soru toplam aktife oranı sormaktadır.
+      E: 250,00, özkaynak çarpanının (Toplam aktif / Özkaynaklar = 2,5) yüzde olarak yazılmasıyla bulunur; bu oran
+        yabancı kaynak payı değildir.
+  kaynaklar:
+  - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
+    madde: 'DuPont: Özkaynak kârlılığı = Net kâr marjı × Aktif devir hızı × (Toplam aktif / Özkaynaklar)'
+    alinti: ''
+  dogrulama:
+    python: 'aktif_karliligi = 8 * 1.5
+
+      carpan = 30 / aktif_karliligi
+
+      sonuc = round((1 - 1 / carpan) * 100, 2)
+
+      '
+  gecerlilik:
+    baslangic: '2026-10-03'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v1

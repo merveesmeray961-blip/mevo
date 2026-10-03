@@ -1,6 +1,7 @@
 - id: SMMM-MLY-VTE-0001
   sinav: smmm
-  bolum: [SGS]
+  bolum:
+  - SGS
   ders: MLY
   unite: Maliye
   konu: VTE
@@ -8,51 +9,81 @@
   tip: uygulama
   zorluk: 1
   soru_bicimi: standart
-  kok: |-
-    Bir vergi tarifesinde farklı matrah düzeylerine karşılık gelen vergi tutarları aşağıda verilmiştir.
+  kok: 'Bir vergi tarifesinde farklı matrah düzeylerine karşılık gelen vergi tutarları aşağıda verilmiştir.
+
 
     | Matrah (TL) | Vergi (TL) |
+
     |---|---|
+
     | 10.000 | 1.500 |
+
     | 20.000 | 3.000 |
+
     | 50.000 | 7.500 |
 
-    Buna göre bu tarife aşağıdakilerden hangisidir?
+
+    Buna göre bu tarife aşağıdakilerden hangisidir?'
   secenekler:
-    A: "Düz (sabit) oranlı tarife"
-    B: "Artan oranlı tarife"
-    C: "Azalan oranlı tarife"
-    D: "Maktu (spesifik) tarife"
-    E: "Dilim usulü artan oranlı tarife"
+    A: Düz (sabit) oranlı tarife
+    B: Artan oranlı tarife
+    C: Azalan oranlı tarife
+    D: Maktu (spesifik) tarife
+    E: Dilim usulü artan oranlı tarife
   dogru: A
   aciklama:
-    dogru_neden: >-
-      Ortalama vergi oranı her matrah düzeyinde aynıdır: 1.500 / 10.000 = 3.000 / 20.000 = 7.500 / 50.000 = %15.
-      Matrah ne olursa olsun aynı oranın uygulandığı, vergi tutarının matrahla orantılı arttığı tarife düz
-      (sabit, nispi) oranlı tarifedir.
+    dogru_neden: 'Ortalama vergi oranı her matrah düzeyinde aynıdır: 1.500 / 10.000 = 3.000 / 20.000 = 7.500 / 50.000
+      = %15. Matrah ne olursa olsun aynı oranın uygulandığı, vergi tutarının matrahla orantılı arttığı tarife düz
+      (sabit, nispi) oranlı tarifedir.'
     celdiriciler:
-      B: "Artan oranlı tarifede matrah büyüdükçe ortalama vergi oranı yükselir; tabloda oran tüm düzeylerde %15'te sabittir."
-      C: "Azalan oranlı tarifede matrah büyüdükçe ortalama vergi oranı düşer; tabloda oran değişmemektedir."
-      D: "Maktu tarifede vergi, matrahın değerine bağlı bir oranla değil, miktar başına ya da sabit tutar olarak belirlenir; tabloda vergi matrahın sabit bir yüzdesidir."
-      E: "Dilim usulü artan oranlı tarifede matrahın üst dilimlere düşen kısımlarına daha yüksek oranlar uygulanır ve ortalama oran matrahla birlikte yükselir; tabloda ortalama oran sabittir."
+      B: Artan oranlı tarifede matrah büyüdükçe ortalama vergi oranı yükselir; tabloda oran tüm düzeylerde %15'te
+        sabittir.
+      C: Azalan oranlı tarifede matrah büyüdükçe ortalama vergi oranı düşer; tabloda oran değişmemektedir.
+      D: Maktu tarifede vergi, matrahın değerine bağlı bir oranla değil, miktar başına ya da sabit tutar olarak
+        belirlenir; tabloda vergi matrahın sabit bir yüzdesidir.
+      E: Dilim usulü artan oranlı tarifede matrahın üst dilimlere düşen kısımlarına daha yüksek oranlar uygulanır
+        ve ortalama oran matrahla birlikte yükselir; tabloda ortalama oran sabittir.
   kaynaklar:
-    - mevzuat: "Kamu maliyesi teorisi — genel kabul görmüş tanım"
-      madde: "Vergi tarifeleri: düz (sabit) oranlı, artan oranlı, azalan oranlı ve maktu tarife"
-      alinti: ""
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: 'Vergi tarifeleri: düz (sabit) oranlı, artan oranlı, azalan oranlı ve maktu tarife'
+    alinti: ''
   gecerlilik:
-    baslangic: "2026-10-03"
+    baslangic: '2026-10-03'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
-    model: "claude"
-    istem_surumu: "uretim.md v1"
-
+    model: claude
+    istem_surumu: uretim.md v1
+    kapilar:
+      G3:
+        sonuc: gecti
+        not: 'A: A (güven 5); B: A (güven 5)'
+        tarih: '2026-10-03'
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-03'
+        not: '(küçük) B (''Artan oranlı'') ve E (''Dilim usulü artan oranlı'') iç içe; E doğru olsaydı B de doğru
+          olurdu, bu nedenle ikisi birlikte elenebilir. | Öneri: B ile E''den birini iç içe olmayan bir kavramla
+          değiştirin (ör. E: ''Degresif tarife'').'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        tarih: '2026-10-03'
 - id: SMMM-MLY-VTE-0002
   sinav: smmm
-  bolum: [SGS]
+  bolum:
+  - SGS
   ders: MLY
   unite: Maliye
   konu: VTE
@@ -60,35 +91,58 @@
   tip: kavrama
   zorluk: 1
   soru_bicimi: standart
-  kok: "Laffer eğrisine ilişkin aşağıdaki ifadelerden hangisi doğrudur?"
+  kok: Laffer eğrisine ilişkin aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: "Vergi oranı yükseldikçe vergi gelirleri her durumda artar."
-    B: "Vergi oranı belirli bir düzeyi aştıktan sonra yapılan oran artışları vergi gelirlerini azaltır."
-    C: "Vergi geliri, vergi oranının %0 ve %100 olduğu noktalarda en yüksek düzeye ulaşır."
-    D: "Eğri, vergi yükünün gelir grupları arasındaki dağılımını gösterir."
-    E: "Eğri, kişi başına gelir arttıkça kamu harcamalarının milli gelire oranının yükseldiğini gösterir."
+    A: Vergi oranı yükseldikçe vergi gelirleri her durumda artar.
+    B: Vergi oranı belirli bir düzeyi aştıktan sonra yapılan oran artışları vergi gelirlerini azaltır.
+    C: Vergi geliri, vergi oranının %0 ve %100 olduğu noktalarda en yüksek düzeye ulaşır.
+    D: Eğri, vergi yükünün gelir grupları arasındaki dağılımını gösterir.
+    E: Eğri, kişi başına gelir arttıkça kamu harcamalarının milli gelire oranının yükseldiğini gösterir.
   dogru: B
   aciklama:
-    dogru_neden: >-
-      Laffer eğrisi vergi oranı ile vergi geliri arasındaki ilişkiyi gösterir. Oran belirli bir düzeye kadar
-      yükseltildiğinde vergi geliri artar; bu düzeyin ötesinde ise çalışma, tasarruf ve yatırım isteğinin
+    dogru_neden: Laffer eğrisi vergi oranı ile vergi geliri arasındaki ilişkiyi gösterir. Oran belirli bir düzeye
+      kadar yükseltildiğinde vergi geliri artar; bu düzeyin ötesinde ise çalışma, tasarruf ve yatırım isteğinin
       azalması ile vergi kaçırmanın artması sonucu matrah daralır ve oran artışları vergi gelirini azaltır.
     celdiriciler:
-      A: "Laffer eğrisinin temel önermesi, oran artışının belirli bir düzeyden sonra geliri azalttığıdır; gelirin her durumda artması bu önermeyle çelişir."
-      C: "Oran %0 iken vergi alınmaz; %100 iken vergilendirilecek ekonomik faaliyet kalmaz. Her iki uçta da vergi geliri sıfırdır; en yüksek gelir aradaki bir oranda elde edilir."
-      D: "Vergi yükünün gelir grupları arasındaki dağılımı Laffer eğrisinin konusu değildir; eğri vergi oranı ile toplam vergi geliri arasındaki ilişkiyi gösterir."
-      E: "Bu ifade kamu harcamalarının artışına ilişkin Wagner kanununu tanımlar; Laffer eğrisi kamu harcamalarıyla değil, vergi oranı ve vergi geliriyle ilgilidir."
+      A: Laffer eğrisinin temel önermesi, oran artışının belirli bir düzeyden sonra geliri azalttığıdır; gelirin
+        her durumda artması bu önermeyle çelişir.
+      C: Oran %0 iken vergi alınmaz; %100 iken vergilendirilecek ekonomik faaliyet kalmaz. Her iki uçta da vergi
+        geliri sıfırdır; en yüksek gelir aradaki bir oranda elde edilir.
+      D: Vergi yükünün gelir grupları arasındaki dağılımı Laffer eğrisinin konusu değildir; eğri vergi oranı ile
+        toplam vergi geliri arasındaki ilişkiyi gösterir.
+      E: Bu ifade kamu harcamalarının artışına ilişkin Wagner kanununu tanımlar; Laffer eğrisi kamu harcamalarıyla
+        değil, vergi oranı ve vergi geliriyle ilgilidir.
   kaynaklar:
-    - mevzuat: "Kamu maliyesi teorisi — genel kabul görmüş tanım"
-      madde: "Laffer eğrisi"
-      alinti: ""
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: Laffer eğrisi
+    alinti: ''
   gecerlilik:
-    baslangic: "2026-10-03"
+    baslangic: '2026-10-03'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
-    model: "claude"
-    istem_surumu: "uretim.md v1"
+    model: claude
+    istem_surumu: uretim.md v1
+    kapilar:
+      G3:
+        sonuc: gecti
+        not: 'A: B (güven 5); B: B (güven 5)'
+        tarih: '2026-10-03'
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-03'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        tarih: '2026-10-03'

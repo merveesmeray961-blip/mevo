@@ -1,0 +1,259 @@
+- id: SMMM-TAB-DVR-0001
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: TAB
+  unite: Finansal Tablolar ve Analizi
+  konu: DVR
+  kazanim: Stok devir hızı ve stok devir süresi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  ortak_veri: TAB-SET-01
+  kok: 'MK A.Ş.''nin 2024–2026 yıllarına ait özet bilanço ve gelir tablosu verileri (bin ₺) aşağıda verilmiştir.
+
+
+    | Kalem | 2024 | 2025 | 2026 |
+
+    |---|---:|---:|---:|
+
+    | **BİLANÇO** | | | |
+
+    | Hazır Değerler | 60 | 70 | 100 |
+
+    | Ticari Alacaklar | 120 | 140 | 160 |
+
+    | Stoklar | 130 | 145 | 175 |
+
+    | Diğer Dönen Varlıklar | 30 | 45 | 65 |
+
+    | **Dönen Varlıklar** | **340** | **400** | **500** |
+
+    | Maddi Duran Varlıklar (net) | 460 | 500 | 540 |
+
+    | **Toplam Aktif** | **800** | **900** | **1.040** |
+
+    | Kısa Vadeli Mali Borçlar | 70 | 80 | 120 |
+
+    | Ticari Borçlar | 60 | 70 | 90 |
+
+    | Diğer Kısa Vadeli Yabancı Kaynaklar | 30 | 40 | 40 |
+
+    | **Kısa Vadeli Yabancı Kaynaklar** | **160** | **190** | **250** |
+
+    | Uzun Vadeli Mali Borçlar | 240 | 230 | 190 |
+
+    | Ödenmiş Sermaye | 300 | 300 | 300 |
+
+    | Geçmiş Yıllar Kârları | 40 | 100 | 180 |
+
+    | Dönem Net Kârı | 60 | 80 | 120 |
+
+    | **Özkaynaklar** | **400** | **480** | **600** |
+
+    | **Toplam Pasif** | **800** | **900** | **1.040** |
+
+    | **GELİR TABLOSU** | | | |
+
+    | Brüt Satışlar | 840 | 1.050 | 1.260 |
+
+    | Satış İndirimleri (-) | 40 | 50 | 60 |
+
+    | Net Satışlar | 800 | 1.000 | 1.200 |
+
+    | Satışların Maliyeti (-) | 640 | 780 | 960 |
+
+    | Brüt Satış Kârı | 160 | 220 | 240 |
+
+    | Faaliyet Giderleri (-) | 50 | 70 | 60 |
+
+    | Faaliyet Kârı | 110 | 150 | 180 |
+
+    | Finansman Giderleri (-) | 35 | 50 | 30 |
+
+    | Dönem Kârı (vergi öncesi) | 75 | 100 | 150 |
+
+    | Vergi Karşılığı (-) | 15 | 20 | 30 |
+
+    | Dönem Net Kârı | 60 | 80 | 120 |
+
+
+    Devir hızlarında ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır.
+
+    Buna göre MK A.Ş.''nin 2026 yılı stok devir süresi kaç gündür?'
+  secenekler:
+    A: 45,71
+    B: 48,00
+    C: 60,00
+    D: 60,83
+    E: 65,63
+  dogru: C
+  aciklama:
+    dogru_neden: Stok devir hızı = Satışların maliyeti / Ortalama stoklar; stok devir süresi = 360 / stok devir
+      hızı. 2026 ortalama stok (145 + 175) / 2 = 160 bin ₺'dir. Stok devir hızı 960 / 160 = 6, stok devir süresi
+      360 / 6 = 60 gündür.
+    hesap_adimlari:
+    - 'Ortalama stok (2026): (145 + 175) / 2 = 160'
+    - 'Stok devir hızı: 960 / 160 = 6'
+    - 'Stok devir süresi: 360 / 6 = 60 gün'
+    celdiriciler:
+      A: 45,71 gün, pay olarak satışların maliyeti yerine brüt satışlar (1.260 / 160 = 7,875) kullanıldığında bulunur.
+      B: 48 gün, pay olarak satışların maliyeti yerine net satışlar (1.200 / 160 = 7,5) kullanıldığında bulunur;
+        stoklar maliyet değeriyle izlendiğinden pay satışların maliyetidir.
+      D: 60,83 gün, devir hızı doğru bulunup yıl 360 yerine 365 gün alındığında (365 / 6) bulunur; kök 360 gün kullanılmasını
+        istemektedir.
+      E: 65,63 gün, ortalama stok yerine dönem sonu stok (960 / 175 = 5,49) kullanıldığında bulunur; kök ortalama
+        değer kullanılmasını istemektedir.
+  kaynaklar:
+  - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
+    madde: Stok devir hızı = Satışların maliyeti / Ortalama stoklar; Stok devir süresi = 360 / Stok devir hızı
+    alinti: ''
+  dogrulama:
+    python: 'ort_stok = (145 + 175) / 2
+
+      hiz = 960 / ort_stok
+
+      sonuc = round(360 / hiz, 2)
+
+      '
+  gecerlilik:
+    baslangic: '2026-10-03'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v1
+- id: SMMM-TAB-DVR-0002
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: TAB
+  unite: Finansal Tablolar ve Analizi
+  konu: DVR
+  kazanim: Ticari borç devir hızı ve borç ödeme süresi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  ortak_veri: TAB-SET-01
+  kok: 'MK A.Ş.''nin 2024–2026 yıllarına ait özet bilanço ve gelir tablosu verileri (bin ₺) aşağıda verilmiştir.
+
+
+    | Kalem | 2024 | 2025 | 2026 |
+
+    |---|---:|---:|---:|
+
+    | **BİLANÇO** | | | |
+
+    | Hazır Değerler | 60 | 70 | 100 |
+
+    | Ticari Alacaklar | 120 | 140 | 160 |
+
+    | Stoklar | 130 | 145 | 175 |
+
+    | Diğer Dönen Varlıklar | 30 | 45 | 65 |
+
+    | **Dönen Varlıklar** | **340** | **400** | **500** |
+
+    | Maddi Duran Varlıklar (net) | 460 | 500 | 540 |
+
+    | **Toplam Aktif** | **800** | **900** | **1.040** |
+
+    | Kısa Vadeli Mali Borçlar | 70 | 80 | 120 |
+
+    | Ticari Borçlar | 60 | 70 | 90 |
+
+    | Diğer Kısa Vadeli Yabancı Kaynaklar | 30 | 40 | 40 |
+
+    | **Kısa Vadeli Yabancı Kaynaklar** | **160** | **190** | **250** |
+
+    | Uzun Vadeli Mali Borçlar | 240 | 230 | 190 |
+
+    | Ödenmiş Sermaye | 300 | 300 | 300 |
+
+    | Geçmiş Yıllar Kârları | 40 | 100 | 180 |
+
+    | Dönem Net Kârı | 60 | 80 | 120 |
+
+    | **Özkaynaklar** | **400** | **480** | **600** |
+
+    | **Toplam Pasif** | **800** | **900** | **1.040** |
+
+    | **GELİR TABLOSU** | | | |
+
+    | Brüt Satışlar | 840 | 1.050 | 1.260 |
+
+    | Satış İndirimleri (-) | 40 | 50 | 60 |
+
+    | Net Satışlar | 800 | 1.000 | 1.200 |
+
+    | Satışların Maliyeti (-) | 640 | 780 | 960 |
+
+    | Brüt Satış Kârı | 160 | 220 | 240 |
+
+    | Faaliyet Giderleri (-) | 50 | 70 | 60 |
+
+    | Faaliyet Kârı | 110 | 150 | 180 |
+
+    | Finansman Giderleri (-) | 35 | 50 | 30 |
+
+    | Dönem Kârı (vergi öncesi) | 75 | 100 | 150 |
+
+    | Vergi Karşılığı (-) | 15 | 20 | 30 |
+
+    | Dönem Net Kârı | 60 | 80 | 120 |
+
+
+    Devir hızlarında ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır.
+
+    Ticari borç devir hızı = Satışların maliyeti / Ortalama ticari borçlar formülüyle hesaplandığına göre
+
+    MK A.Ş.''nin 2026 yılı ticari borç ödeme süresi kaç gündür?'
+  secenekler:
+    A: 24,00
+    B: 30,00
+    C: 30,42
+    D: 33,75
+    E: 60,00
+  dogru: B
+  aciklama:
+    dogru_neden: 2026 ortalama ticari borçlar (70 + 90) / 2 = 80 bin ₺'dir. Ticari borç devir hızı 960 / 80 = 12,
+      borç ödeme süresi 360 / 12 = 30 gündür.
+    hesap_adimlari:
+    - 'Ortalama ticari borçlar (2026): (70 + 90) / 2 = 80'
+    - 'Ticari borç devir hızı: 960 / 80 = 12'
+    - 'Borç ödeme süresi: 360 / 12 = 30 gün'
+    celdiriciler:
+      A: 24 gün, pay olarak satışların maliyeti yerine net satışlar (1.200 / 80 = 15; 360 / 15) kullanıldığında
+        bulunur; kökteki formül satışların maliyetini esas almaktadır.
+      C: 30,42 gün, yıl 360 yerine 365 gün alındığında (365 / 12) bulunur.
+      D: 33,75 gün, ortalama yerine dönem sonu ticari borç (960 / 90 = 10,67) kullanıldığında bulunur.
+      E: 60 gün, ortalama ticari borç yerine iki yılın ticari borç toplamı (70 + 90 = 160) kullanıldığında (960
+        / 160 = 6) bulunur; toplamın ikiye bölünmesi unutulmuştur.
+  kaynaklar:
+  - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
+    madde: Ticari borç devir hızı = Satışların maliyeti / Ortalama ticari borçlar; Borç ödeme süresi = 360 / Ticari
+      borç devir hızı
+    alinti: ''
+  dogrulama:
+    python: 'ort_borc = (70 + 90) / 2
+
+      hiz = 960 / ort_borc
+
+      sonuc = round(360 / hiz, 2)
+
+      '
+  gecerlilik:
+    baslangic: '2026-10-03'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v1

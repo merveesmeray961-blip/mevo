@@ -55,11 +55,39 @@ Her görevde sana şunlar verilir: `ders`, `konu`, `kazanım`, hedef `bolum` (SG
 
 SGS düzeyi: tek adımlı, temel kavram/işlem. Yeterlilik düzeyi: çok adımlı senaryo, entegre bilgi.
 
-## 7. Dil
+## 7. Zorluk
+
+**Hedef dağılım:** Yeterlilik %20 kolay (1) · %45 orta (2) · %35 zor (3). SGS %25 · %50 · %25.
+
+Zorluk belirsizlikten değil **bilgi derinliğinden** gelir: zor soru da tek ve kesin doğru cevaplıdır.
+
+| Seviye | Tanım |
+|---|---|
+| 1 kolay | Tek kural, doğrudan bilgi veya tek adımlı işlem. |
+| 2 orta | Kuralın bir senaryoya uygulanması; iki adım; bir tuzak çeldirici. |
+| 3 zor | Aşağıdaki tekniklerden **en az ikisini** birlikte kullanır. |
+
+**Zor soru teknikleri:**
+1. **Çok adımlı hesap:** Kalemler birbirini etkiler (ör. istisna sınırı aşılınca tamamının beyana dahil olması, indirim üst sınırları, devreden tutarlar).
+2. **İstisnanın istisnası:** Genel kural → istisna → istisnanın istisnası; doğru cevap en içteki hükme dayanır.
+3. **Madde birleştirme:** Cevap birden fazla maddenin (veya kanun + tebliğ) birlikte okunmasıyla çıkar.
+4. **Geri hesap:** Sonuç/oran verilir, girdi istenir.
+5. **Yakın kavram ayrımı:** Birbirine çok benzeyen süre, oran, hesap veya kurumların ayrımı.
+6. **Tipik hata çeldiricileri:** Dört çeldiricinin her biri adayların gerçekten yaptığı ayrı bir hatanın sonucudur (yanlış baz, eksik kalem, eski oran, ters işlem, istisnayı unutma).
+7. **Gereksiz veri:** Kökte çözüme etkisi olmayan ama ilgili görünen veri bulunur.
+8. **Tarih/süre hesabı:** Başlangıç, tebliğ, tatil, ay sonu gibi ayrıntılar sonucu değiştirir.
+
+Zor soruda `aciklama.dogru_neden` hangi tekniklerin kullanıldığını ve tuzağın nerede olduğunu açıkça anlatır (adayın öğrenmesi için).
+
+**Ölçüm (GZ kapısı):** Etiketler tahmin değil ölçümle doğrulanır. "Ortalama aday" (daha küçük bir model, kaynak metne bakmadan, tek geçişte) soruyu çözer:
+- Etiket 1 olup ortalama aday yanılırsa → soru gözden geçirilir (belirsizlik olabilir).
+- Etiket 3 olup ortalama aday yüksek güvenle doğru bulursa → soru zorlaştırılır veya etiketi 2'ye indirilir.
+
+## 8. Dil
 
 Resmî, sade, yazım kılavuzuna uygun Türkçe. Belirsiz zamir yok; kök tek başına anlaşılır. "Aşağıdakilerden hangisi…" kalıbı serbest.
 
-## 8. Çıktı
+## 9. Çıktı
 
 YAML liste olarak `content/sorular/smmm/<DERS>/<KONU>.yaml` dosyasına yaz. Ardından:
 `python -m pipeline.denetle content/sorular/smmm/<DERS>` çalıştır; G2/G4 hatası kalmayana kadar düzelt.

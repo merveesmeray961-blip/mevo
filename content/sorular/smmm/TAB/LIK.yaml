@@ -1,0 +1,311 @@
+- id: SMMM-TAB-LIK-0001
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: TAB
+  unite: Finansal Tablolar ve Analizi
+  konu: LIK
+  kazanim: Likidite (asit-test) oranı
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  ortak_veri: TAB-SET-01
+  kok: 'MK A.Ş.''nin 2024–2026 yıllarına ait özet bilanço ve gelir tablosu verileri (bin ₺) aşağıda verilmiştir.
+
+
+    | Kalem | 2024 | 2025 | 2026 |
+
+    |---|---:|---:|---:|
+
+    | **BİLANÇO** | | | |
+
+    | Hazır Değerler | 60 | 70 | 100 |
+
+    | Ticari Alacaklar | 120 | 140 | 160 |
+
+    | Stoklar | 130 | 145 | 175 |
+
+    | Diğer Dönen Varlıklar | 30 | 45 | 65 |
+
+    | **Dönen Varlıklar** | **340** | **400** | **500** |
+
+    | Maddi Duran Varlıklar (net) | 460 | 500 | 540 |
+
+    | **Toplam Aktif** | **800** | **900** | **1.040** |
+
+    | Kısa Vadeli Mali Borçlar | 70 | 80 | 120 |
+
+    | Ticari Borçlar | 60 | 70 | 90 |
+
+    | Diğer Kısa Vadeli Yabancı Kaynaklar | 30 | 40 | 40 |
+
+    | **Kısa Vadeli Yabancı Kaynaklar** | **160** | **190** | **250** |
+
+    | Uzun Vadeli Mali Borçlar | 240 | 230 | 190 |
+
+    | Ödenmiş Sermaye | 300 | 300 | 300 |
+
+    | Geçmiş Yıllar Kârları | 40 | 100 | 180 |
+
+    | Dönem Net Kârı | 60 | 80 | 120 |
+
+    | **Özkaynaklar** | **400** | **480** | **600** |
+
+    | **Toplam Pasif** | **800** | **900** | **1.040** |
+
+    | **GELİR TABLOSU** | | | |
+
+    | Brüt Satışlar | 840 | 1.050 | 1.260 |
+
+    | Satış İndirimleri (-) | 40 | 50 | 60 |
+
+    | Net Satışlar | 800 | 1.000 | 1.200 |
+
+    | Satışların Maliyeti (-) | 640 | 780 | 960 |
+
+    | Brüt Satış Kârı | 160 | 220 | 240 |
+
+    | Faaliyet Giderleri (-) | 50 | 70 | 60 |
+
+    | Faaliyet Kârı | 110 | 150 | 180 |
+
+    | Finansman Giderleri (-) | 35 | 50 | 30 |
+
+    | Dönem Kârı (vergi öncesi) | 75 | 100 | 150 |
+
+    | Vergi Karşılığı (-) | 15 | 20 | 30 |
+
+    | Dönem Net Kârı | 60 | 80 | 120 |
+
+
+    Devir hızlarında ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır.
+
+    Likidite oranı = (Dönen varlıklar - Stoklar) / Kısa vadeli yabancı kaynaklar formülüyle hesaplandığına göre
+
+    MK A.Ş.''nin 2026 yılı likidite oranı kaçtır?'
+  secenekler:
+    A: 1,30
+    B: 1,48
+    C: 1,60
+    D: 1,74
+    E: 2,00
+  dogru: A
+  aciklama:
+    dogru_neden: Likidite oranı bir bilanço tarihindeki duruma ilişkin orandır; ortalama değil, ilgili yılın dönem
+      sonu tutarları kullanılır. 2026 için (500 - 175) / 250 = 325 / 250 = 1,30'dur.
+    hesap_adimlari:
+    - 'Dönen varlıklar - Stoklar (2026): 500 - 175 = 325'
+    - 'Likidite oranı: 325 / 250 = 1,30'
+    celdiriciler:
+      B: 1,48, payda olarak 2025 ve 2026 kısa vadeli yabancı kaynaklarının ortalaması ((190 + 250) / 2 = 220) kullanıldığında
+        bulunur; ortalama değer yalnızca devir hızlarında kullanılır.
+      C: 1,60, dönen varlıklardan stoklar yerine hazır değerler düşüldüğünde ((500 - 100) / 250) bulunur.
+      D: 1,74, dönen varlıklardan stoklar yerine diğer dönen varlıklar düşüldüğünde ((500 - 65) / 250) bulunur.
+      E: 2,00 cari orandır (500 / 250); stoklar dönen varlıklardan düşülmemiştir.
+  kaynaklar:
+  - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
+    madde: Likidite (asit-test) oranı = (Dönen varlıklar - Stoklar) / Kısa vadeli yabancı kaynaklar
+    alinti: ''
+  dogrulama:
+    python: 'sonuc = round((500 - 175) / 250, 2)
+
+      '
+  gecerlilik:
+    baslangic: '2026-10-03'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v1
+- id: SMMM-TAB-LIK-0002
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: TAB
+  unite: Finansal Tablolar ve Analizi
+  konu: LIK
+  kazanim: Kaldıraç oranı (finansal yapı)
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  ortak_veri: TAB-SET-01
+  kok: 'MK A.Ş.''nin 2024–2026 yıllarına ait özet bilanço ve gelir tablosu verileri (bin ₺) aşağıda verilmiştir.
+
+
+    | Kalem | 2024 | 2025 | 2026 |
+
+    |---|---:|---:|---:|
+
+    | **BİLANÇO** | | | |
+
+    | Hazır Değerler | 60 | 70 | 100 |
+
+    | Ticari Alacaklar | 120 | 140 | 160 |
+
+    | Stoklar | 130 | 145 | 175 |
+
+    | Diğer Dönen Varlıklar | 30 | 45 | 65 |
+
+    | **Dönen Varlıklar** | **340** | **400** | **500** |
+
+    | Maddi Duran Varlıklar (net) | 460 | 500 | 540 |
+
+    | **Toplam Aktif** | **800** | **900** | **1.040** |
+
+    | Kısa Vadeli Mali Borçlar | 70 | 80 | 120 |
+
+    | Ticari Borçlar | 60 | 70 | 90 |
+
+    | Diğer Kısa Vadeli Yabancı Kaynaklar | 30 | 40 | 40 |
+
+    | **Kısa Vadeli Yabancı Kaynaklar** | **160** | **190** | **250** |
+
+    | Uzun Vadeli Mali Borçlar | 240 | 230 | 190 |
+
+    | Ödenmiş Sermaye | 300 | 300 | 300 |
+
+    | Geçmiş Yıllar Kârları | 40 | 100 | 180 |
+
+    | Dönem Net Kârı | 60 | 80 | 120 |
+
+    | **Özkaynaklar** | **400** | **480** | **600** |
+
+    | **Toplam Pasif** | **800** | **900** | **1.040** |
+
+    | **GELİR TABLOSU** | | | |
+
+    | Brüt Satışlar | 840 | 1.050 | 1.260 |
+
+    | Satış İndirimleri (-) | 40 | 50 | 60 |
+
+    | Net Satışlar | 800 | 1.000 | 1.200 |
+
+    | Satışların Maliyeti (-) | 640 | 780 | 960 |
+
+    | Brüt Satış Kârı | 160 | 220 | 240 |
+
+    | Faaliyet Giderleri (-) | 50 | 70 | 60 |
+
+    | Faaliyet Kârı | 110 | 150 | 180 |
+
+    | Finansman Giderleri (-) | 35 | 50 | 30 |
+
+    | Dönem Kârı (vergi öncesi) | 75 | 100 | 150 |
+
+    | Vergi Karşılığı (-) | 15 | 20 | 30 |
+
+    | Dönem Net Kârı | 60 | 80 | 120 |
+
+
+    Devir hızlarında ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır.
+
+    Kaldıraç oranı = (Kısa vadeli yabancı kaynaklar + Uzun vadeli yabancı kaynaklar) / Toplam aktif × 100
+
+    formülüyle hesaplandığına göre MK A.Ş.''nin 2025 yılı kaldıraç oranı yüzde kaçtır?'
+  secenekler:
+    A: 21,11
+    B: 25,56
+    C: 42,31
+    D: 46,67
+    E: 53,33
+  dogru: D
+  aciklama:
+    dogru_neden: 2025 yılında toplam yabancı kaynaklar 190 + 230 = 420 bin ₺, toplam aktif 900 bin ₺'dir. Kaldıraç
+      oranı 420 / 900 × 100 = %46,67'dir.
+    hesap_adimlari:
+    - 'Toplam yabancı kaynaklar (2025): 190 + 230 = 420'
+    - 'Kaldıraç oranı: 420 / 900 × 100 = 46,67'
+    celdiriciler:
+      A: 21,11, yalnızca kısa vadeli yabancı kaynakların (190 / 900) alınmasıyla bulunur; uzun vadeli yabancı kaynaklar
+        unutulmuştur.
+      B: 25,56, yalnızca uzun vadeli yabancı kaynakların (230 / 900) alınmasıyla bulunur.
+      C: 42,31, 2026 yılı verileriyle ((250 + 190) / 1.040) bulunur; soru 2025 yılını sormaktadır.
+      E: 53,33 özkaynakların toplam aktife oranıdır (480 / 900); kaldıraç oranının tümleyenidir.
+  kaynaklar:
+  - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
+    madde: Kaldıraç oranı = Toplam yabancı kaynaklar / Toplam aktif
+    alinti: ''
+  dogrulama:
+    python: 'sonuc = round((190 + 230) / 900 * 100, 2)
+
+      '
+  gecerlilik:
+    baslangic: '2026-10-03'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v1
+- id: SMMM-TAB-LIK-0003
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Finansal Tablolar ve Analizi
+  konu: LIK
+  kazanim: Hedef cari orandan geri hesap
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: M İşletmesi'nin dönem sonu bilançosunda dönen varlıklar 600.000 ₺ (hazır değerler 180.000 ₺ dâhil), kısa
+    vadeli yabancı kaynaklar 300.000 ₺'dir. İşletme, cari oranını 2,50'ye yükseltmek amacıyla kısa vadeli ticari
+    borçlarının bir kısmını hazır değerlerinden ödemeyi planlamaktadır. Başka bir işlem olmadığı varsayılmaktadır.
+    Devir hızlarında ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır. Cari oran = Dönen varlıklar
+    / Kısa vadeli yabancı kaynaklar formülüyle hesaplandığına göre, cari oranın 2,50 olması için ödenmesi gereken
+    borç tutarı kaç ₺'dir?
+  secenekler:
+    A: '240.000'
+    B: '200.000'
+    C: '150.000'
+    D: '100.000'
+    E: '60.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Borç hazır değerlerden ödendiğinde hem dönen varlıklar hem kısa vadeli yabancı kaynaklar aynı
+      tutarda (x) azalır: (600.000 - x) / (300.000 - x) = 2,50. Buradan 600.000 - x = 750.000 - 2,5x, 1,5x = 150.000
+      ve x = 100.000 ₺ bulunur. Kontrol: 500.000 / 200.000 = 2,50.'
+    hesap_adimlari:
+    - 'Ödeme sonrası: (600.000 - x) / (300.000 - x) = 2,50'
+    - 600.000 - x = 750.000 - 2,5x
+    - 1,5x = 150.000 → x = 100.000 ₺
+    - 'Kontrol: (600.000 - 100.000) / (300.000 - 100.000) = 500.000 / 200.000 = 2,50'
+    celdiriciler:
+      A: 240.000 ₺, dönen varlıkların değişmediği varsayılarak hedef kısa vadeli yabancı kaynak tutarının (600.000
+        / 2,50) ödenecek borç sanılmasıyla bulunur.
+      B: 200.000 ₺, ödeme sonrasında kalan kısa vadeli yabancı kaynak tutarıdır (300.000 - 100.000); ödenen tutar
+        değildir.
+      C: 150.000 ₺, denklemde 1,5x = 150.000 adımında 1,5'e bölme yapılmadan durulmasıyla bulunur.
+      E: 60.000 ₺, ödemenin dönen varlıkları da azalttığı göz ardı edilerek 600.000 / (300.000 - x) = 2,50 denkleminden
+        bulunur.
+  kaynaklar:
+  - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
+    madde: Cari oran = Dönen varlıklar / Kısa vadeli yabancı kaynaklar
+    alinti: ''
+  dogrulama:
+    python: 'dv = 600000
+
+      kvyk = 300000
+
+      hedef = 2.5
+
+      sonuc = (hedef * kvyk - dv) / (hedef - 1)
+
+      '
+  gecerlilik:
+    baslangic: '2026-10-03'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v1

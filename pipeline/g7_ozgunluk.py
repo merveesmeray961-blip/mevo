@@ -52,13 +52,16 @@ def kapsanma(soru_parcalari: set, hedef: set) -> float:
 def banka_denetle(sorular: list[dict], kulliyat: Kulliyat | None) -> dict[str, list[str]]:
     """{soru_id: [hata, ...]} — yalnız hatası olanlar."""
     hatalar: dict[str, list[str]] = {}
-    tum = [(str(s.get("id")), parcalar(soru_metni(s))) for s in sorular]
-    for i, (sid, p) in enumerate(tum):
+    # Aynı ortak veri bloğuna (ör. FTA tabloları) bağlı sorular tabloyu bilerek tekrarlar; birbirleriyle karşılaştırılmaz.
+    tum = [(str(s.get("id")), parcalar(soru_metni(s)), s.get("ortak_veri")) for s in sorular]
+    for i, (sid, p, ortak) in enumerate(tum):
         if kulliyat is not None:
             oran = kapsanma(p, kulliyat.parca_kumesi)
             if oran > ESIK_KULLIYAT:
                 hatalar.setdefault(sid, []).append(f"çıkmış sorulara benzerlik %{oran * 100:.0f} (sınır %{ESIK_KULLIYAT * 100:.0f})")
-        for sid2, p2 in tum[i + 1:]:
+        for sid2, p2, ortak2 in tum[i + 1:]:
+            if ortak and ortak == ortak2:
+                continue
             oran = kapsanma(p, p2)
             if oran > ESIK_BANKA:
                 hatalar.setdefault(sid, []).append(f"{sid2} ile benzerlik %{oran * 100:.0f}")
