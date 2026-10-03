@@ -157,10 +157,21 @@ def banka_denetle(sorular: list[tuple[str, dict]]) -> BankaRaporu:
     return rapor
 
 
-def dosyalari_yukle(klasor: Path) -> list[tuple[str, dict]]:
+def dosyalari_yukle(klasor: Path, okunamayan: list[tuple[str, str]] | None = None) -> list[tuple[str, dict]]:
+    """Klasördeki tüm soru dosyalarını yükler.
+
+    `okunamayan` verilirse YAML'ı bozuk dosyalar atlanır ve (dosya, hata) olarak bu listeye eklenir
+    (ör. başka bir yazarın üzerinde çalıştığı yarım dosya); verilmezse hata yükseltilir.
+    """
     sorular = []
     for yol in sorted(klasor.rglob("*.yaml")):
-        icerik = yaml.safe_load(yol.read_text(encoding="utf-8"))
+        try:
+            icerik = yaml.safe_load(yol.read_text(encoding="utf-8"))
+        except yaml.YAMLError as hata:
+            if okunamayan is None:
+                raise
+            okunamayan.append((str(yol), str(hata).splitlines()[0]))
+            continue
         kayitlar = icerik if isinstance(icerik, list) else [icerik]
         sorular.extend((str(yol.relative_to(KOK) if yol.is_relative_to(KOK) else yol), k) for k in kayitlar)
     return sorular

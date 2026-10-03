@@ -33,7 +33,11 @@ def kor(klasor: Path) -> list[dict]:
 
 
 def _tum_kayitlar() -> list[tuple[str, dict]]:
-    return g2_yapi.dosyalari_yukle(g2_yapi.KOK / "content/sorular/smmm")
+    okunamayan: list[tuple[str, str]] = []
+    kayitlar = g2_yapi.dosyalari_yukle(g2_yapi.KOK / "content/sorular/smmm", okunamayan)
+    for dosya, hata in okunamayan:
+        print(f"ATLANDI (okunamadı): {dosya}: {hata}", file=sys.stderr)
+    return kayitlar
 
 
 def isle(kapi: str, kararlar: list[dict]) -> dict[str, str]:
