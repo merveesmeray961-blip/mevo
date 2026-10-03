@@ -15,6 +15,12 @@
 | Hedef dönem | 2026/3 Yeterlilik (28 Kasım 2026) | Adaylar şu anda çalışıyor. |
 | Yayından sonra | Mevzuat güncellemesi yapılamaz; uygulamada "2026 mevzuatına göredir" ibaresi yer alır. | Bütçe sonrası bakım yok. |
 
+## Harcama ölçüsü
+
+Başlangıç 250 $; 100 soru + araştırma + uygulama ≈ 175 $ tuttu. Kalan ≈ 75 $. Tahmini dağılım: A ≈ 5 $, B ≈ 15 $,
+C ≈ 45 $, D ≈ 10 $. **C aşamasında önce yalnız 20 soruluk bir parti üretilir, harcanan tutar ölçülür, kalan partiler
+buna göre planlanır.** Bakiye 10 $'ın altına inerse yeni iş başlatılmaz; eldeki hâl yayına hazırlanır.
+
 ## 2. Aşamalar (her biri ayrı bir oturumda; her aşama sonunda bakiye kontrolü)
 
 Her aşama **yeni bir oturumda** `docs/DEVAM.md` okunarak başlar. Uzun oturumlar her mesajda tüm geçmişi yeniden
