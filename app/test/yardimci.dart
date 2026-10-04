@@ -7,6 +7,7 @@ import 'package:mevo/veri/ayarlar.dart';
 import 'package:mevo/veri/depo.dart';
 import 'package:mevo/veri/ilerleme.dart';
 import 'package:mevo/veri/modeller.dart';
+import 'package:mevo/veri/notlar.dart';
 
 /// Testler gerçek soru paketini kullanır; böylece paket biçimi değişirse testler de kırılır.
 SoruBankasi gercekBanka() =>
@@ -34,5 +35,6 @@ UygulamaDurumu durumOlustur({SoruBankasi? banka, Depo? depo, Saat? saat, String?
     ilerleme: Ilerleme(d, simdi: () => s.simdi),
     ayarlar: Ayarlar(d),
     abonelik: OnizlemeAbonelik(d),
+    notlar: Notlar(d),
   );
 }

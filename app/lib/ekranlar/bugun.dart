@@ -4,6 +4,7 @@ import '../abonelik/abonelik.dart';
 import '../uygulama.dart';
 import 'ayarlar_ekrani.dart';
 import 'calisma.dart';
+import 'notlar.dart';
 import 'odeme.dart';
 import '../bilesenler/duzen.dart';
 
@@ -24,6 +25,7 @@ class BugunEkrani extends StatelessWidget {
         final tekrar = il.tekrarlar(havuz);
         final yanlis = il.yanlislar(havuz);
         final isaretli = il.isaretliler(havuz);
+        final notlu = durum.notlar.notluSorular(havuz);
         final ist = il.istatistik(havuz);
         final sinav = durum.banka.sonrakiSinav(bolum, il.simdi);
 
@@ -103,6 +105,14 @@ class BugunEkrani extends StatelessWidget {
                   aciklama: 'Sonra bakmak için ayırdığın sorular',
                   sayi: isaretli.length,
                   onTap: () => calismayaBasla(context, baslik: 'İşaretlediklerim', sorular: isaretli),
+                ),
+                const SizedBox(height: 8),
+                _ListeKarti(
+                  ikon: Icons.edit_note,
+                  baslik: 'Notlarım',
+                  aciklama: 'Sorulara yazdığın kişisel notlar',
+                  sayi: notlu.length,
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const NotlarimEkrani())),
                 ),
                 const SizedBox(height: 24),
                 Text(

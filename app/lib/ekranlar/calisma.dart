@@ -4,6 +4,8 @@ import 'package:flutter/rendering.dart';
 import '../bilesenler/soru_gorunumu.dart';
 import '../uygulama.dart';
 import '../veri/modeller.dart';
+import 'hesap_makinesi.dart';
+import 'notlar.dart';
 import 'odeme.dart';
 import '../bilesenler/duzen.dart';
 
@@ -101,6 +103,12 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
       appBar: AppBar(
         title: Text('${widget.baslik} · ${_sira + 1}/${widget.sorular.length}'),
         actions: [
+          IconButton(
+            tooltip: 'Hesap makinesi',
+            icon: const Icon(Icons.calculate_outlined),
+            onPressed: () => hesapMakinesiAc(context),
+          ),
+          NotDugmesi(soru: _soru),
           ListenableBuilder(
             listenable: durum.ilerleme,
             builder: (context, _) {
@@ -141,6 +149,7 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
                 const SizedBox(height: 8),
                 // Açıklamanın üst kısmı (sonuç satırı) görünür olsun diye anahtar kartın başına konur.
                 AciklamaKarti(key: _aciklamaAnahtari, soru: _soru, secilen: _cevaplar[_soru.id]),
+                NotKarti(soru: _soru),
               ],
             ],
           ),

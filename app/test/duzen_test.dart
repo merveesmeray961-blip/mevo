@@ -184,6 +184,7 @@ void main() {
           ilerleme: durumOlustur().ilerleme,
           ayarlar: durumOlustur().ayarlar,
           abonelik: abonelik,
+          notlar: durumOlustur().notlar,
         );
         await pompala(tester, const OdemeEkrani(), durum, boyut, 2, false);
         expect(tester.takeException(), isNull);

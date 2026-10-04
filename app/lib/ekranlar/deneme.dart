@@ -7,6 +7,8 @@ import '../mantik/deneme.dart';
 import '../uygulama.dart';
 import '../veri/modeller.dart';
 import 'calisma.dart';
+import 'hesap_makinesi.dart';
+import 'notlar.dart';
 import '../bilesenler/duzen.dart';
 
 class DenemeEkrani extends StatefulWidget {
@@ -197,6 +199,7 @@ class _DenemeEkraniState extends State<DenemeEkrani> {
             ),
           ),
           actions: [
+            NotDugmesi(soru: soru),
             IconButton(
               tooltip: 'Sonra dönmek için işaretle',
               icon: Icon(_isaretli.contains(soru.id) ? Icons.flag : Icons.outlined_flag),
@@ -454,6 +457,12 @@ class _DenemeIncelemeState extends State<DenemeInceleme> {
         title: Text('Soru ${_sira + 1}/${sorular.length}'),
         actions: [
           IconButton(
+            tooltip: 'Hesap makinesi',
+            icon: const Icon(Icons.calculate_outlined),
+            onPressed: () => hesapMakinesiAc(context),
+          ),
+          NotDugmesi(soru: sorular[_sira]),
+          IconButton(
             tooltip: 'Hata bildir',
             icon: const Icon(Icons.flag_outlined),
             onPressed: () => hataBildir(context, sorular[_sira]),
@@ -480,6 +489,7 @@ class _DenemeIncelemeState extends State<DenemeInceleme> {
                 ),
                 const SizedBox(height: 8),
                 AciklamaKarti(soru: s, secilen: secilen),
+                NotKarti(soru: s),
               ],
             );
           },

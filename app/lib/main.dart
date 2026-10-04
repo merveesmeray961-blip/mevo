@@ -14,6 +14,7 @@ import 'veri/ayarlar.dart';
 import 'veri/depo.dart';
 import 'veri/ilerleme.dart';
 import 'veri/modeller.dart';
+import 'veri/notlar.dart';
 
 const soruPaketi = 'assets/sorular/smmm.json';
 
@@ -30,7 +31,13 @@ Future<void> main() async {
   unawaited(abonelik.baslat());
   runApp(
     MevoUygulamasi(
-      durum: UygulamaDurumu(banka: banka, ilerleme: Ilerleme(depo), ayarlar: Ayarlar(depo), abonelik: abonelik),
+      durum: UygulamaDurumu(
+        banka: banka,
+        ilerleme: Ilerleme(depo),
+        ayarlar: Ayarlar(depo),
+        abonelik: abonelik,
+        notlar: Notlar(depo),
+      ),
     ),
   );
 }

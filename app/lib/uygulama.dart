@@ -4,6 +4,7 @@ import 'abonelik/abonelik.dart';
 import 'veri/ayarlar.dart';
 import 'veri/ilerleme.dart';
 import 'veri/modeller.dart';
+import 'veri/notlar.dart';
 
 /// Uygulama genelinde paylaşılan nesneler. Ekranlar `Kapsam.of(context)` ile erişir.
 class UygulamaDurumu {
@@ -11,8 +12,15 @@ class UygulamaDurumu {
   final Ilerleme ilerleme;
   final Ayarlar ayarlar;
   final AbonelikServisi abonelik;
+  final Notlar notlar;
 
-  UygulamaDurumu({required this.banka, required this.ilerleme, required this.ayarlar, required this.abonelik});
+  UygulamaDurumu({
+    required this.banka,
+    required this.ilerleme,
+    required this.ayarlar,
+    required this.abonelik,
+    required this.notlar,
+  });
 
   String get bolum => ayarlar.bolum ?? 'YET';
 
@@ -23,7 +31,7 @@ class UygulamaDurumu {
 
   bool get denemeHakkiVar => abonelik.premium || ilerleme.denemeler.length < ucretsizDeneme;
 
-  Listenable get degisim => Listenable.merge([ilerleme, ayarlar, abonelik]);
+  Listenable get degisim => Listenable.merge([ilerleme, ayarlar, abonelik, notlar]);
 }
 
 class Kapsam extends InheritedWidget {

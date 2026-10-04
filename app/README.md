@@ -8,6 +8,7 @@ Flutter ile yazılmış, internetsiz çalışan SMMM (Staja Giriş ve Yeterlilik
 - Ders ve konu bazlı çalışma; her cevaptan sonra çözüm, "neden bu şık değil", püf noktaları ve dayanak madde alıntıları
 - Aralıklı tekrar (1–3–7–16–35 gün), yanlış defteri, işaretlenen sorular
 - Gerçek kurallarla deneme: Yeterlilik ders/oturum denemeleri (20 soru/45 dk, 0,25 ceza, ders ≥50 / ortalama ≥60), SGS alan bilgisi denemesi
+- Hesap makinesi (çalışma ve deneme incelemesinde; gerçek sınavda yasak olduğu için deneme sırasında yok) ve soru notları (çalışma, inceleme ve deneme sırasında; "Notlarım" listesi Bugün ekranında)
 - İstatistik: son 7 gün, ders bazında başarı, zayıf konular
 - Ücretsiz katman (günde 20 soru, 1 deneme) ve tek seferlik "Tam erişim" satın alımı (Google Play / App Store, ürün kimliği `tam_erisim`, fiyat mağazadan okunur; web önizlemesinde sahte `OnizlemeAbonelik`)
 - Telefon ve tablet düzeni: okuma genişliği 720 dp, geniş ekranda yan çubuk, yazı ölçeği 2.0'a kadar, koyu tema

@@ -86,7 +86,7 @@ class AyarlarEkrani extends StatelessWidget {
                       builder: (context) => AlertDialog(
                         title: const Text('İlerleme sıfırlansın mı?'),
                         content: const Text(
-                          'Çözdüğün sorular, yanlış defterin ve deneme sonuçların silinir. Bu işlem geri alınamaz.',
+                          'Çözdüğün sorular, yanlış defterin ve deneme sonuçların silinir (notların silinmez). Bu işlem geri alınamaz.',
                         ),
                         actions: [
                           TextButton(onPressed: () => Navigator.of(context).pop(false), child: const Text('Vazgeç')),
@@ -95,6 +95,26 @@ class AyarlarEkrani extends StatelessWidget {
                       ),
                     );
                     if (ok == true) await durum.ilerleme.sifirla();
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.delete_sweep_outlined),
+                  title: const Text('Notlarımı sil'),
+                  subtitle: Text(durum.notlar.sayi == 0 ? 'Henüz notun yok' : '${durum.notlar.sayi} not'),
+                  enabled: durum.notlar.sayi > 0,
+                  onTap: () async {
+                    final ok = await showDialog<bool>(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('Tüm notlar silinsin mi?'),
+                        content: Text('${durum.notlar.sayi} notun silinir. Bu işlem geri alınamaz.'),
+                        actions: [
+                          TextButton(onPressed: () => Navigator.of(context).pop(false), child: const Text('Vazgeç')),
+                          TextButton(onPressed: () => Navigator.of(context).pop(true), child: const Text('Sil')),
+                        ],
+                      ),
+                    );
+                    if (ok == true) await durum.notlar.hepsiniSil();
                   },
                 ),
                 const Divider(),
