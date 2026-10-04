@@ -3,22 +3,18 @@
 Bu reçete Parti 1'de (4 Ekim 2026) denendi: 20 yeni soru, 0 yanlış anahtar, hakemler 14 ifade hatası yakalayıp düzeltti.
 Maliyet ≈ 8–10 $ / 20 soru. **Bütçe sınırı: toplam 30 $; bakiye 15 $'ın altına inerse yeni parti başlatma.**
 
-## Hedef (Yeterlilik, her ders 20 soru)
+## Hedef ve sıradaki sorular: üretim haritası
 
-| Ders | Şu an | Eksik |
-|---|---|---|
-| DEN Denetim | 12 | 8 |
-| MAL Maliyet | 12 | 8 |
-| VER Vergi | 12 | 8 |
-| FIN Finansal Muhasebe | 14 | 6 |
-| TAB Finansal Tablolar | 14 | 6 |
-| HUK Hukuk | 14 | 6 |
-| MES Meslek Hukuku | 14 | 6 |
-| SPK Sermaye Piyasası | 14 | 6 |
+Hedef 2000 soru (PLAN.md §8); kotalar müfredat ağırlıklarından ders → konu → kazanım olarak hesaplanır.
+Elle parti tanımlanmaz; her parti haritadan alınır:
 
-Partiler: **P3** = DEN 8 + MAL 8 + VER 4 (20) · **P4** = VER 4 + FIN 6 + TAB 6 + HUK 4 (20) · **P5** = HUK 2 + MES 6 + SPK 6 (14).
-Güncel sayıyı her parti öncesi doğrula:
-`python3 -c "import json,collections;d=json.load(open('app/assets/sorular/smmm.json'));print(collections.Counter(s['ders'] for s in d['sorular'] if 'YET' in s['bolum']))"`
+    python -m pipeline.harita durum            # ders bazında hedef / mevcut / eksik
+    python -m pipeline.harita sonraki 20       # sıradaki 20 soru: ders, konu, kazanım, zorluk, bölüm
+
+Öncelik: önce her Yeterlilik dersi 20 soruya (tam deneme), sonra doluluk oranı en düşük ders/konu/kazanım.
+Üretim ajanına `sonraki` tablosu aynen verilir; ajan her satır için tam o kazanımda, o zorlukta bir soru yazar
+(kaynak yoksa satırı atlar ve raporlar). Parti büyüklüğü 20 (bütçe rahatsa 30–40). Parti numarası N, dosya adı `<KONU>.pN.yaml`
+(mevcut en büyük N'den devam: `ls content/sorular/smmm/*/*.p*.yaml`).
 
 ## Adımlar (her adım bir alt ajan; ana oturum yalnız yönetir — ana oturum soru dosyalarını okumaz)
 
