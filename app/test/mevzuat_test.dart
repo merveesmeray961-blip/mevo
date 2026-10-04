@@ -109,7 +109,7 @@ void main() {
       expect(find.text('193 sayılı Gelir Vergisi Kanunu'), findsOneWidget);
       expect(find.textContaining('4 Ekim 2026'), findsWidgets);
 
-      await tester.enterText(find.byType(TextField), 'damga vergisi kanunu');
+      await tester.enterText(find.byType(TextField), '488 sayılı');
       await tester.pumpAndSettle();
       expect(find.text('488 sayılı Damga Vergisi Kanunu'), findsOneWidget);
       expect(find.text('193 sayılı Gelir Vergisi Kanunu'), findsNothing);
