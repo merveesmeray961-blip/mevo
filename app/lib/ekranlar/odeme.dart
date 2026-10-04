@@ -153,7 +153,7 @@ class _OdemeEkraniState extends State<OdemeEkrani> {
             Text(
               'Ücretsiz sürümde günde $ucretsizGunlukSoru soru ve $ucretsizDeneme deneme sınavı. '
               'Tam erişim tek seferlik bir ödemedir; abonelik değildir, otomatik yenilenmez.',
-              style: t.bodySmall?.copyWith(color: r.outline),
+              style: t.bodySmall?.copyWith(color: r.onSurfaceVariant),
               textAlign: TextAlign.center,
             ),
           ],

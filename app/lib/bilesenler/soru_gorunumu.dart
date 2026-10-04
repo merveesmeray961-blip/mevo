@@ -30,7 +30,10 @@ class SoruGorunumu extends StatelessWidget {
         if (ustBilgi != null)
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
-            child: Text(ustBilgi!, style: t.labelMedium?.copyWith(color: Theme.of(context).colorScheme.outline)),
+            child: Text(
+              ustBilgi!,
+              style: t.labelMedium?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+            ),
           ),
         ZenginMetin(soru.kok, stil: t.bodyLarge?.copyWith(height: 1.45)),
         const SizedBox(height: 16),
@@ -148,7 +151,7 @@ class AciklamaKarti extends StatelessWidget {
         : dogruMu
         ? 'Doğru!'
         : 'Yanlış · Doğru cevap ${soru.dogru}';
-    final renk = secilen == null ? r.outline : (dogruMu ? dogruRenk(context) : yanlisRenk(context));
+    final renk = secilen == null ? r.onSurfaceVariant : (dogruMu ? dogruRenk(context) : yanlisRenk(context));
     final digerleri = [
       for (final h in harfler)
         if (h != soru.dogru && h != secilen && soru.celdiriciler[h] != null) h,

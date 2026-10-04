@@ -220,7 +220,7 @@ class _DenemeEkraniState extends State<DenemeEkrani> {
               if (_cevaplar.containsKey(soru.id))
                 Text(
                   'Cevabı kaldırmak için seçili şıkka tekrar dokun.',
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(color: r.outline),
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(color: r.onSurfaceVariant),
                 ),
             ],
           ),
@@ -402,7 +402,7 @@ class _SonucKutusu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final renk = durum == null
-        ? Theme.of(context).colorScheme.outline
+        ? Theme.of(context).colorScheme.onSurfaceVariant
         : (durum! ? dogruRenk(context) : yanlisRenk(context));
     return InkWell(
       onTap: onTap,

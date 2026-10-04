@@ -107,7 +107,7 @@ class BugunEkrani extends StatelessWidget {
                 const SizedBox(height: 24),
                 Text(
                   durum.banka.uyari,
-                  style: t.bodySmall?.copyWith(color: r.outline),
+                  style: t.bodySmall?.copyWith(color: r.onSurfaceVariant),
                   textAlign: TextAlign.center,
                 ),
               ],
