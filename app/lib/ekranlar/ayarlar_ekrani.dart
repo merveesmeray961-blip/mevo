@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../abonelik/abonelik.dart';
 import '../uygulama.dart';
+import '../veri/ayarlar.dart';
 import 'bolum_secimi.dart';
 import 'odeme.dart';
 import 'yasal.dart';
@@ -29,6 +30,21 @@ class AyarlarEkrani extends StatelessWidget {
                   subtitle: Text(bolumAdi[durum.bolum]!),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const BolumSecimi())),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.format_size),
+                  title: const Text('Yazı boyutu'),
+                  subtitle: Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: SegmentedButton<double>(
+                      segments: [
+                        for (final e in yaziSecenekleri.entries) ButtonSegment(value: e.value, label: Text(e.key)),
+                      ],
+                      selected: {ay.yazi},
+                      onSelectionChanged: (s) => ay.yaziSec(s.first),
+                      showSelectedIcon: false,
+                    ),
+                  ),
                 ),
                 ListTile(
                   leading: const Icon(Icons.format_list_numbered),

@@ -62,8 +62,11 @@ class MevoUygulamasi extends StatelessWidget {
           locale: const Locale('tr'),
           // Yazı boyutu en çok 2 kata kadar büyür; ötesinde yerleşim bozulmasın diye sınırlanır.
           builder: (context, child) => MediaQuery(
-            data: MediaQuery.of(context)
-                .copyWith(textScaler: MediaQuery.textScalerOf(context).clamp(maxScaleFactor: 2.0)),
+            data: MediaQuery.of(context).copyWith(
+              textScaler: TextScaler.linear(
+                (MediaQuery.textScalerOf(context).scale(100) / 100 * durum.ayarlar.yazi).clamp(0.8, 2.0),
+              ),
+            ),
             child: child!,
           ),
           home: durum.ayarlar.bolum == null ? const BolumSecimi(ilkAcilis: true) : const AnaKabuk(),
