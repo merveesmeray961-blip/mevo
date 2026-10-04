@@ -23,8 +23,8 @@
     mektupla meslek mensubuna bildirilmelidir.
 
 
-    IV. Meslek mensubunun sözleşme şartlarına uymaması durumunda iş sahibi, on beş gün önceden yazılı olarak haber
-    vererek sözleşmeyi feshedebilir.'
+    IV. Meslek mensubunun sözleşme şartlarına uymaması durumunda iş sahibinin sözleşmeyi feshedebilmesi için en
+    az on beş gün önceden yazılı olarak haber vermesi gerekir.'
   secenekler:
     A: I ve II
     B: I ve IV
@@ -36,15 +36,16 @@
     dogru_neden: 'I numaralı ifade md. 14/1''e, III numaralı ifade md. 23/2''ye uygundur. II numaralı ifade md.
       13/1''e aykırıdır: ücret sözleşmesine hizmet karşılığı ortaklık payı verileceğine dair hüküm konulamaz. IV
       numaralı ifade md. 19/3''e aykırıdır: sözleşme şartlarına uymayan meslek mensubuyla sözleşme bir hafta önceden
-      yazılı haber verilerek feshedilir. Doğru ifadeler I ve III''tür. Püf noktaları: Bu soruda dört ayrı maddenin
-      (md. 13, 14, 19, 23) süre ve şartları birlikte sorulmaktadır. Süreler birbirine karıştırılır: sözleşme süresi
-      bir yıl, tebligat adresi bildirimi üç gün, fesih ihbarı bir hafta. II numaralı ifade, ücretin yalnızca belli
-      bir meblağ olarak belirlenebileceği kuralına dayanır; ortaklık payı hükmü konulamaz.'
+      yazılı haber verilerek feshedilir; on beş günlük bir asgari ihbar süresi aranmaz. Doğru ifadeler I ve III''tür.
+      Püf noktaları: Bu soruda dört ayrı maddenin (md. 13, 14, 19, 23) süre ve şartları birlikte sorulmaktadır.
+      Süreler birbirine karıştırılır: sözleşme süresi bir yıl, tebligat adresi bildirimi üç gün, fesih ihbarı bir
+      hafta. II numaralı ifade, md. 13/1''in ikinci cümlesindeki açık yasağın tersidir; aynı fıkranın ilk cümlesi
+      ücret sözleşmesinin yazılı yapılmasını ve belli bir meblağı kapsamasını şart koşar.'
     celdiriciler:
       A: II numaralı ifade yanlıştır; md. 13/1'e göre ücret sözleşmesine hizmet karşılığı ortaklık payı verileceğine
         dair hüküm konulamaz. III numaralı ifade doğru olduğu hâlde bu şıkta yoktur.
-      B: IV numaralı ifade yanlıştır; md. 19/3'e göre fesih bir hafta önceden yazılı haber verilerek yapılır, on
-        beş gün kuralı yoktur. III numaralı ifade doğru olduğu hâlde bu şıkta yoktur.
+      B: IV numaralı ifade yanlıştır; md. 19/3'e göre fesih bir hafta önceden yazılı haber verilerek yapılır, en
+        az on beş gün önceden haber verme şartı yoktur. III numaralı ifade doğru olduğu hâlde bu şıkta yoktur.
       C: II numaralı ifade md. 13/1'e aykırıdır; I numaralı ifade ise doğru olduğu hâlde bu şıkta yer almamıştır.
       D: IV numaralı ifade md. 19/3'e aykırıdır (süre bir haftadır); I numaralı ifade ise doğru olduğu hâlde bu
         şıkta yer almamıştır.
@@ -73,21 +74,40 @@
     baslangic: '1990-01-02'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-04'
+    kim: hakem
+    ne: 'hakem 2026-10-04: IV numaralı öncül ''on beş gün önceden ... feshedebilir'' → ''feshedebilmesi için en
+      az on beş gün önceden ... haber vermesi gerekir'' biçimine getirildi; dogru_neden''deki ''ücretin yalnızca
+      belli bir meblağ olarak belirlenebileceği kuralı'' ifadesi md. 13/1 metnine göre düzeltildi; B çeldiricisi
+      uyarlandı.'
+    neden: 'G5: eski IV öncülü (on beş gün önceden haber vererek feshedebilir) bir haftalık ihbar süresini aştığı
+      için lafzen doğru okunabiliyordu; ''yalnızca belli bir meblağ'' md. 9/2 ve md. 15''teki (''kural olarak'')
+      istisnaları yok sayıyordu.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v2
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'tek kör çözücü (bütçe nedeniyle): E (güven 5)'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'Düzeltildikten sonra geçti: IV artık kesin yanlış; I ve III doğru, tek doğru şık E.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: Dört alıntı Ücretler Yönetmeliği md. 13, 14, 19, 23 metniyle birebir; dogru_neden md. 13/1'e uyumlu
+          hâle getirildi.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: ortalama aday yanlış (D, güven 2)
       G2:
         sonuc: gecti
         tarih: '2026-10-04'
@@ -125,9 +145,13 @@
       eski tarife uygulanmaz.
   dogru: A
   aciklama:
-    dogru_neden: Yönetmelik md. 7'ye göre bir yılın tarifesinin hazırlanmasına önceki yılın Eylül ayında odalarca
-      başlanır ve odalar hazırladıkları yeni tarifeleri Ekim ayı sonuna kadar Geçici Kurul'a yollar. Geçici Kurul
-      tarifeyi Kasım ayı sonuna kadar düzenleyip Bakanlığa gönderir; Bakanlık tasdik eder ve Resmî Gazete'de yayımlar.
+    dogru_neden: 'Yönetmelik md. 7''ye göre bir yılın tarifesinin hazırlanmasına önceki yılın Eylül ayında odalarca
+      başlanır ve odalar hazırladıkları yeni tarifeleri Ekim ayı sonuna kadar Geçici Kurul''a yollar. Geçici Kurul
+      tarifeyi Kasım ayı sonuna kadar düzenleyip Bakanlığa gönderir; Bakanlık tasdik eder ve Resmî Gazete''de yayımlar.
+      Not: Yönetmelik (1990) Kanunun geçici 4 üncü maddesi uyarınca kurulan Geçici Kurul''u anar; 3568 sayılı Kanunun
+      46 ncı maddesine göre bugün oda yönetim kurulları tarifeleri Birliğe gönderir, Birlik yönetim kurulu tarifeleri
+      hazırlayarak Bakanlığa gönderir ve Bakanlık tasdik eder. Soru, Yönetmelikteki takvimi sorar; ay sınırları
+      (Eylül–Ekim sonu–Kasım sonu) yalnızca Yönetmelikte yer alır.'
     celdiriciler:
       B: Hazırlığa başlama ayı Ekim değil Eylül; odaların Geçici Kurul'a gönderme süresi de Kasım değil Ekim ayı
         sonudur (md. 7/1-2).
@@ -152,25 +176,49 @@
       Yönetmelik
     madde: md. 5/2
     alinti: Yeni tarife kesinleşinceye kadar eski tarife uygulanır.
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 46/3-5
+    alinti: Birlik yönetim kurulu, oda yönetim kurullarının tekliflerini de gözönüne almak suretiyle çeşitli odaları
+      içine alacak grupları tespit ve gruplarda uygulanacak tarifeleri hazırlayarak Maliye Bakanlığına gönderir.
+      Maliye Bakanlığı tarifeyi aynen veya gerekli gördüğü değişikliklerle tasdik eder. Tarifeler Resmi Gazete'de
+      yayımlanarak yürürlüğe girer.
   gecerlilik:
     baslangic: '1990-01-02'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
+  gecmis:
+  - tarih: '2026-10-04'
+    kim: hakem
+    ne: 'hakem 2026-10-04: dogru_neden''e Yönetmelikteki ''Geçici Kurul'' ile Kanun md. 46''daki güncel süreç (oda
+      → Birlik → Bakanlık) arasındaki farkı açıklayan not ve md. 46 alıntısı eklendi. Şık ve anahtar değişmedi.'
+    neden: 'G5: ''Geçici Kurul'' 1990 tarihli geçiş dönemi organıdır; açıklama bunu belirtmeden takvimi güncel süreç
+      gibi sunuyordu. md. 5/2 (Geçici Kurul ilan eder) ile md. 7/3 (Bakanlık RG''de yayımlar) arasındaki iç çelişki
+      soruyu etkilemiyor. Kaynaksız adayın seçtiği B (Ekim''de başlar, Kasım sonuna kadar gönderir) md. 7/1-2''ye
+      açıkça aykırı; ikinci savunulabilir şık yok.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v2
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'tek kör çözücü (bütçe nedeniyle): A (güven 5)'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'Geçti: A md. 7/1-2 ile birebir; B, C, D, E md. 7, 10/1 ve 5/2''ye açıkça aykırı. Geçici Kurul anakronizmi
+          açıklamada belirtildi.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: md. 7, 10/1, 5/2 alıntıları birebir; 3568 md. 46 alıntısı eklendi.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: ortalama aday yanlış (B, güven 2)
       G2:
         sonuc: gecti
         tarih: '2026-10-04'

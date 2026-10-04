@@ -24,9 +24,9 @@
   dogru: A
   aciklama:
     dogru_neden: Md. 52/1'e göre yatırım fonu, portföy yönetim şirketleri tarafından fon iç tüzüğü ile kurulan ve
-      tüzel kişiliği bulunmayan mal varlığıdır. Md. 52/5'e göre fon, her türlü sicil işlemleri ile limited ve anonim
-      şirketlerin ticaret sicili işlemleriyle sınırlı olarak tüzel kişiliği haiz addolunur ve portföyünde bulunan
-      taşınmazlar tapu kütüğüne fon adına tescil edilir.
+      tüzel kişiliği bulunmayan mal varlığıdır. Md. 52/5'e göre fon, her türlü sicil işlemleri ile ortağı olacağı
+      limited ve anonim şirketlerin ticaret sicili işlemleriyle sınırlı olarak tüzel kişiliği haiz addolunur ve
+      portföyünde bulunan taşınmazlar tapu kütüğüne fon adına tescil edilir.
     celdiriciler:
       B: Yatırım fonu kuruluş başvuruları iki ay içinde karara bağlanır (md. 52/2); altı ay, portföy yönetim şirketi
         kuruluş başvuruları için öngörülen süredir (md. 55/1).
@@ -62,24 +62,40 @@
       işlemler, portföy yönetim şirketi ile portföy saklama hizmetini yürüten kuruluşu temsil eden birer yetkilinin
       müşterek imzalarıyla gerçekleştirilir.
   gecerlilik:
-    baslangic: '2020-02-20'
+    baslangic: '2020-02-25'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
+  gecmis:
+  - tarih: '2026-10-04'
+    kim: hakem
+    ne: 'hakem 2026-10-04: dogru_neden''e md. 52/5''teki ''ortağı olacağı'' kaydı eklendi; gecerlilik.baslangic
+      2020-02-20 → 2020-02-25 (7222 sayılı Kanunun RG''de yayımı; SPK II-23.3 geçici md. 1 de bu tarihi anar).'
+    neden: 'G6: ticaret sicili işlemlerindeki tüzel kişilik kurgusu yalnız fonun ortağı olacağı şirketlerle sınırlıdır;
+      2020-02-20 Kanunun kabul tarihi, yürürlük RG yayımıdır.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
     istem_surumu: uretim.md v2
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'tek kör çözücü (bütçe nedeniyle): A (güven 5)'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'Hata yok (anahtar): A md. 52/1 ve 52/5 ile uyumlu; B (iki ay), C (müşterek imza), D, E (iki şart birlikte)
+          açıkça yanlış.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'Düzeltildikten sonra geçti: alıntılar SPKn md. 52 ile birebir; paraphrase ve yürürlük tarihi düzeltildi.'
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: ortalama aday doğru (A, güven 2)
       G2:
         sonuc: gecti
         tarih: '2026-10-04'
