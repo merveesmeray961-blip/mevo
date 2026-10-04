@@ -1,0 +1,203 @@
+- id: SMMM-MAL-DIG-0001
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet Muhasebesi
+  konu: DIG
+  kazanim: 'maliyet-hacim-kâr analizi: değişken maliyet kalemleri ve başabaş noktası'
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: 'Tek ürün üreten ve satan EK İşletmesi''nin birim satış fiyatı 80 TL''dir. Birim başına direkt ilk madde
+    ve malzeme gideri 30 TL, direkt işçilik gideri 15 TL, değişken genel üretim gideri 5 TL ve değişken pazarlama
+    gideri 10 TL''dir. İşletmenin dönemlik toplam sabit giderleri (sabit genel üretim, pazarlama ve genel yönetim
+    giderleri toplamı) 840.000 TL''dir. Üretim ile satış miktarları birbirine eşittir. KDV dikkate alınmayacaktır.
+
+
+    İşletmenin başabaş noktasına ulaşabilmesi için dönem içinde kaç birim satması gerekir?'
+  secenekler:
+    A: '10.500'
+    B: '14.000'
+    C: '24.000'
+    D: '28.000'
+    E: '42.000'
+  dogru: E
+  aciklama:
+    dogru_neden: 'Başabaş miktarı = toplam sabit giderler ÷ birim katkı payıdır. Birim katkı payı, birim satış fiyatından
+      tüm değişken giderlerin (üretim ve pazarlama dahil) düşülmesiyle bulunur: 80 − (30 + 15 + 5 + 10) = 20 TL.
+      Başabaş miktarı = 840.000 ÷ 20 = 42.000 birimdir.'
+    celdiriciler:
+      A: '840.000 ÷ 80 = 10.500: birim satış fiyatı katkı payı yerine kullanılmıştır.'
+      B: '840.000 ÷ 60 = 14.000: birim değişken maliyet katkı payı yerine kullanılmıştır.'
+      C: '840.000 ÷ 35 = 24.000: değişken genel üretim ve değişken pazarlama giderleri unutulup yalnızca direkt
+        maliyetler (45 TL) düşülmüştür (katkı payı 35 TL).'
+      D: '840.000 ÷ 30 = 28.000: değişken pazarlama gideri unutulmuştur (katkı payı 30 TL).'
+    hesap_adimlari:
+    - 'Birim değişken maliyet: 30 + 15 + 5 + 10 = 60 TL'
+    - 'Birim katkı payı: 80 − 60 = 20 TL'
+    - 'Başabaş miktarı: 840.000 ÷ 20 = 42.000 birim'
+  kaynaklar:
+  - mevzuat: Maliyet muhasebesi, genel kabul görmüş yöntem
+    madde: maliyet-hacim-kâr analizi, başabaş noktası
+    alinti: ''
+  dogrulama:
+    python: 'katki = 80 - (30 + 15 + 5 + 10)
+
+      sonuc = 840000 / katki
+
+      '
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v2
+    kapilar:
+      G3:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'kör çözücü: E (güven 5) Katkı payı = 80-(30+15+5+10)=20; BEP = 840.000/20 = 42.000 birim.'
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'Hata yok: katkı payı 80 − 60 = 20; 840.000 ÷ 20 = 42.000 (E). Çeldiriciler (÷80, ÷60, ÷35, ÷30) tek
+          hata ile türetilmiş, kesin yanlış.'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'Yasal metni olmayan yöntem sorusu: başabaş formülü açıklamada açıkça yazılı, ders kitabı tanımıyla
+          tutarlı; dogrulama.python sonucu 42.000 ile aynı.'
+      GZ:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: ortalama aday doğru (E, güven 5)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-04'
+      G4:
+        sonuc: gecti
+        tarih: '2026-10-04'
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'
+- id: SMMM-MAL-DIG-0002
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet Muhasebesi
+  konu: DIG
+  kazanim: tam maliyet ve değişken maliyet yöntemlerinde dönem kârı farkı (stok değişiminin sabit GÜG etkisi)
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: 'Tek ürün üreten GK İşletmesi tam maliyet yöntemini uygulamakta ve sabit genel üretim giderlerini normal
+    kapasite üzerinden ürünlere yüklemektedir. Dönem başında 2.000 birim mamul stoku bulunmaktadır; bu birimlerin
+    maliyetine birim başına 8 TL sabit genel üretim gideri dahildir. Cari dönemde 20.000 birim üretilmiş, üretim
+    düzeyi normal kapasiteye eşit gerçekleşmiş ve dönemin sabit genel üretim giderleri 300.000 TL olmuştur. Dönem
+    içinde 19.000 birim satılmıştır. Birim satış fiyatı 100 TL, birim değişken üretim maliyeti iki dönemde de 40
+    TL''dir. Stok çıkışları FIFO (ilk giren ilk çıkar) yöntemine göre yapılmaktadır. KDV dikkate alınmayacaktır.
+
+
+    Sabit genel üretim giderlerini dönem gideri sayan değişken maliyet yöntemiyle bulunacak dönem kârı ile karşılaştırıldığında,
+    tam maliyet yöntemine göre bulunan dönem kârı kaç TL daha yüksektir?'
+  secenekler:
+    A: '8.000'
+    B: '15.000'
+    C: '29.000'
+    D: '45.000'
+    E: '61.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Tam maliyet yönteminde sabit genel üretim giderleri stok maliyetine girer (TMS 2 par. 12-13);
+      değişken maliyet yönteminde ise tamamı dönem gideridir. İki yöntem arasındaki kâr farkı, dönem sonu stoka
+      giren sabit GÜG ile dönem başı stoktan satışa geçen sabit GÜG arasındaki farktır. Cari birim sabit GÜG = 300.000
+      ÷ 20.000 = 15 TL. Dönem sonu stok = 2.000 + 20.000 − 19.000 = 3.000 birim; FIFO''ya göre bunların tamamı cari
+      dönem üretimindendir: 3.000 × 15 = 45.000 TL. Dönem başı stoktaki 2.000 birimin sabit GÜG''ü (2.000 × 8 =
+      16.000 TL) bu dönemde satış maliyetine geçmiştir. Fark = 45.000 − 16.000 = 29.000 TL (tam maliyet kârı daha
+      yüksektir).
+
+
+      Püf noktaları: Stok artışı yalnızca 1.000 birim olsa da dönem başı ve dönem sonu stokların sabit GÜG birim
+      tutarları farklıdır (8 TL ve 15 TL); fark "net stok artışı × tek oran" ile bulunamaz. FIFO''da dönem sonu
+      stok cari dönem üretiminden oluşur. Satış fiyatı ve birim değişken maliyet çözüme etki etmeyen gereksiz verilerdir.'
+    celdiriciler:
+      A: '8.000: net stok artışı (1.000 birim) dönem başı birim sabit GÜG''ü olan 8 TL ile çarpılmıştır.'
+      B: '15.000: net stok artışı (1.000 birim) cari dönem birim sabit GÜG''ü olan 15 TL ile çarpılmış, dönem başı
+        stoktaki 8 TL''lik oran dikkate alınmamıştır.'
+      D: '45.000: yalnızca dönem sonu stoka giren sabit GÜG alınmış, dönem başı stoktan satışa geçen 16.000 TL unutulmuştur.'
+      E: '61.000: dönem başı stoktan satışa geçen 16.000 TL, çıkarılması gerekirken dönem sonu stoktaki 45.000 TL''ye
+        eklenmiştir (ters işaret).'
+    hesap_adimlari:
+    - 'Cari dönem birim sabit GÜG: 300.000 ÷ 20.000 = 15 TL'
+    - 'Dönem sonu stok: 2.000 + 20.000 − 19.000 = 3.000 birim (FIFO: tamamı cari dönem üretimi)'
+    - 'Dönem sonu stokla ertelenen sabit GÜG: 3.000 × 15 = 45.000 TL'
+    - 'Dönem başı stoktan satışa geçen sabit GÜG: 2.000 × 8 = 16.000 TL'
+    - 'Tam maliyet kârı − değişken maliyet kârı: 45.000 − 16.000 = 29.000 TL'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile
+      üretim sürecinde yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit
+      kalan dolaylı üretim maliyetleri ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Sabit genel üretim giderleri, üretim tesislerinin normal kapasitesi esas alınarak dönüştürme maliyetlerine
+      dağıtılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda
+      dönem sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar.
+  dogrulama:
+    python: 'cari_oran = 300000 / 20000
+
+      son_stok = 2000 + 20000 - 19000
+
+      sonuc = son_stok * cari_oran - 2000 * 8
+
+      '
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v2
+    kapilar:
+      G3:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'kör çözücü: C (güven 5) Tam maliyette gider yazılan SGÜG: FIFO ile 2.000x8=16.000 + 17.000x15 (300.000/20.000)=255.000
+          => 271.000; değişkende 300.000. Fark 29.000 (stok artışı 3.000x15=45.000 - 16.000).'
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'Hata yok: üretim = normal kapasite (kapasite farkı yok); FIFO''da sonu stok 3.000 × 15 = 45.000, başı
+          stoktan satışa geçen 2.000 × 8 = 16.000; fark 29.000 (C). A, B, D, E kesin yanlış.'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: TMS 2 par. 12, 13 ve 27 alıntıları birebir; yöntem açıklamada açık, dogrulama.python 29.000.
+      GZ:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: ortalama aday yanlış (B, güven 4)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-04'
+      G4:
+        sonuc: gecti
+        tarih: '2026-10-04'
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'

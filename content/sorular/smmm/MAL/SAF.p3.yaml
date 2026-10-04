@@ -1,0 +1,112 @@
+- id: SMMM-MAL-SAF-0003
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet Muhasebesi
+  konu: SAF
+  kazanim: ağırlıklı ortalama yönteminde dönem sonu yarı mamul stoku maliyeti (ilk madde ve dönüştürme eşdeğer birimleri)
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: 'Tek safhalı üretim yapan PR İşletmesi''nde safha maliyeti, ağırlıklı ortalama yöntemiyle hesaplanmaktadır.
+    Dönem başında dönüştürme maliyetleri açısından %50 tamamlanmış 4.000 birim yarı mamul bulunmaktadır; bu stokun
+    maliyeti ilk madde ve malzeme için 80.000 TL, dönüştürme maliyetleri için 30.000 TL''dir. Dönem içinde 16.000
+    birimin üretimine başlanmış; ilk madde ve malzeme için 320.000 TL, dönüştürme maliyetleri için 310.000 TL maliyet
+    oluşmuştur. Toplam 14.000 birim tamamlanarak mamul ambarına aktarılmış, dönem sonunda dönüştürme maliyetleri
+    açısından %50 tamamlanmış 6.000 birim yarı mamul kalmıştır. İlk madde ve malzeme sürecin başında tamamen kullanılmakta,
+    dönüştürme maliyetleri süreç boyunca düzenli oluşmaktadır. Dönem içinde ayrıca 45.000 TL genel yönetim gideri
+    ve 12.000 TL finansman gideri oluşmuştur. KDV dikkate alınmayacaktır.
+
+
+    Dönem sonu yarı mamul stokunun maliyeti kaç TL''dir?'
+  secenekler:
+    A: '120.000'
+    B: '180.000'
+    C: '182.000'
+    D: '222.000'
+    E: '240.000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Ağırlıklı ortalama yönteminde dönem başı yarı mamulün maliyeti ile dönem içi maliyetler birleştirilir
+      (TMS 2 par. 27). İlk madde ve malzeme eşdeğer birimi = 14.000 + 6.000 = 20.000; maliyet = 80.000 + 320.000
+      = 400.000 TL; birim maliyet 20 TL. Dönüştürme eşdeğer birimi = 14.000 + 6.000 × %50 = 17.000; maliyet = 30.000
+      + 310.000 = 340.000 TL; birim maliyet 20 TL. Dönem sonu yarı mamul = 6.000 × 20 (ilk madde) + 3.000 × 20 (dönüştürme)
+      = 180.000 TL. Genel yönetim ve finansman giderleri safha maliyetine girmez.
+
+
+      Püf noktaları: İlk madde ve dönüştürme maliyetleri için eşdeğer birimler ayrı hesaplanır (20.000 ve 17.000).
+      Ağırlıklı ortalamada dönem başı stokun maliyeti de ortalamaya katılır; FIFO''da katılmaz ve sonuç (182.000
+      TL) bu nedenle farklıdır. Genel yönetim ve finansman giderleri çözüme etki etmeyen verilerdir.'
+    celdiriciler:
+      A: '120.000: yalnızca ilk madde ve malzeme maliyeti dikkate alınmış (6.000 × 20), dönüştürme maliyeti unutulmuştur.'
+      C: '182.000: FIFO yöntemine göre bulunan tutardır (ilk madde 6.000 × 20 + dönüştürme 3.000 × 310.000 ÷ 15.000);
+        soru ağırlıklı ortalama istemektedir.'
+      D: '222.000: tamamlanma derecesi yok sayılarak toplam maliyet (740.000) 20.000 fiziki birime bölünmüş (37
+        TL) ve 6.000 ile çarpılmıştır.'
+      E: '240.000: dönem sonu yarı mamul, dönüştürme maliyeti bakımından %100 tamamlanmış sayılmıştır (6.000 × 20
+        + 6.000 × 20).'
+    hesap_adimlari:
+    - 'İlk madde eşdeğer birimi: 14.000 + 6.000 = 20.000; maliyet (80.000 + 320.000) ÷ 20.000 = 20 TL/birim'
+    - 'Dönüştürme eşdeğer birimi: 14.000 + 6.000 × 0,50 = 17.000; maliyet (30.000 + 310.000) ÷ 17.000 = 20 TL/birim'
+    - 'Dönem sonu yarı mamul: 6.000 × 20 + 3.000 × 20 = 120.000 + 60.000 = 180.000 TL'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 27
+    alinti: Ağırlıklı ortalama maliyet yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin
+      maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması
+      alınarak belirlenir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri,
+  - mevzuat: Maliyet muhasebesi, genel kabul görmüş yöntem
+    madde: 'safha maliyeti: eşdeğer birim ve ağırlıklı ortalama'
+    alinti: ''
+  dogrulama:
+    python: 'im_birim = (80000 + 320000) / (14000 + 6000)
+
+      dm_birim = (30000 + 310000) / (14000 + 6000 * 0.5)
+
+      sonuc = 6000 * im_birim + 3000 * dm_birim
+
+      '
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v2
+    kapilar:
+      G3:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'kör çözücü: B (güven 5) Ağırlıklı ortalama: malzeme 400.000/20.000=20; dönüştürme 340.000/(14.000+3.000)=20;
+          YM = 6.000x20+3.000x20=180.000. GYG ve finansman hariç.'
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'Hata yok: ağırlıklı ortalamada İMM 400.000 ÷ 20.000 = 20, dönüştürme 340.000 ÷ 17.000 = 20; 6.000
+          × 20 + 3.000 × 20 = 180.000 (B). FIFO 182.000 (C) bağımsız doğrulandı (310.000 ÷ 15.000 × 3.000 + 120.000).'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: TMS 2 par. 27 ve 16(c) alıntıları birebir; eşdeğer birim yöntemi açıklamada açık; dogrulama.python
+          180.000.
+      GZ:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: ortalama aday yanlış (C, güven 2)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-04'
+      G4:
+        sonuc: gecti
+        tarih: '2026-10-04'
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'
