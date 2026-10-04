@@ -150,19 +150,23 @@
   dogru: C
   aciklama:
     dogru_neden: 'Normal hesaplama: matrah = 4.000.000 + 400.000 − 600.000 − 2.800.000 = 1.000.000 TL; vergi %25
-      ile 250.000 TL. KVK md. 32/C-6''ya göre asgari vergi matrahı, ticari bilanço kârına KKEG eklenerek bulunur
-      (4.400.000 TL); md. 32/C-2-a uyarınca 5/1-a istisnası düşülebilir, geçmiş yıl zararı ise düşülebilecek kalemler
-      arasında sayılmamıştır. Asgari vergi = (4.400.000 − 600.000) × %10 = 380.000 TL. Md. 32/C-1 uyarınca hesaplanan
-      vergi bu tutardan az olamayacağından 380.000 TL hesaplanır. Şirket üç yıldan uzun süredir faaliyette olduğundan
-      md. 32/C-5 istisnası uygulanmaz. Bu soru zor düzeydedir; kullanılan teknikler: madde birleştirme (md. 32,
-      32/C ve 9 birlikte okunur), istisnanın istisnası (asgari vergi matrahı indirim ve istisnalar düşülmeden önceki
-      kazançtır; md. 32/C-2 yalnız sayılan istisna ve indirimlerin düşülmesine izin verir, geçmiş yıl zararı bunlar
-      arasında yoktur), çok adımlı hesap (normal ve asgari vergi ayrı hesaplanıp karşılaştırılır) ve tipik hata
-      çeldiricileri. Tuzak: normal matrahta düşülen geçmiş yıl zararını asgari vergi matrahından da düşmek (A) ya
-      da asgari vergi karşılaştırmasını hiç yapmamak (B).'
+      ile 250.000 TL. KVK md. 32/C-6''ya göre indirim ve istisnalar düşülmeden önceki kurum kazancı, ticari bilanço
+      kârına KKEG eklenerek bulunur (4.400.000 TL); asgari vergi matrahı, bu tutardan md. 32/C-2''de sayılan istisna
+      ve indirimler düşülerek bulunur: md. 32/C-2-a uyarınca 5/1-a istisnası düşülebilir, geçmiş yıl zararı ise
+      düşülebilecek kalemler arasında sayılmamıştır (1 Seri No.lu Kurumlar Vergisi Genel Tebliği 32.5.4: beyannamede
+      indirim konusu yapılan geçmiş yıl zararları asgari kurumlar vergisi matrahından düşülmez). Asgari vergi =
+      (4.400.000 − 600.000) × %10 = 380.000 TL. Md. 32/C-1 uyarınca hesaplanan vergi bu tutardan az olamayacağından
+      380.000 TL hesaplanır. Şirket üç yıldan uzun süredir faaliyette olduğundan md. 32/C-5 istisnası uygulanmaz.
+
+
+      Püf noktaları: KVK md. 32, 32/C ve 9 birlikte okunur: normal vergi ile asgari vergi ayrı hesaplanıp karşılaştırılır.
+      Asgari vergide başlangıç tutarı indirim ve istisnalar düşülmeden önceki kurum kazancıdır (ticari kâr + KKEG);
+      md. 32/C-2 yalnız sayılan istisna ve indirimlerin düşülmesine izin verir ve geçmiş yıl zararı bunlar arasında
+      yoktur. Tuzaklar: normal matrahta düşülen geçmiş yıl zararını asgari vergi matrahından da düşmek (A) ya da
+      asgari vergi karşılaştırmasını hiç yapmamak (B).'
     celdiriciler:
-      A: Asgari oran, zarar mahsubundan sonraki matraha (1.000.000 TL) uygulanmıştır; md. 32/C-6 tanımında zarar
-        düşülmez.
+      A: 'Asgari oran, zarar mahsubundan sonraki matraha (1.000.000 TL) uygulanmıştır; geçmiş yıl zararı md. 32/C-2''de
+        düşülecek kalemler arasında sayılmaz (KV Genel Tebliği Seri No: 1, 32.5.4).'
       B: Yalnız normal kurumlar vergisi hesaplanmış, md. 32/C-1'deki asgari vergi karşılaştırması yapılmamıştır.
       D: Asgari vergi matrahına KKEG eklenmemiş ve iştirak kazancı düşülmemiştir (4.000.000 × %10); md. 32/C-6 KKEG'nin
         eklenmesini, 32/C-2-a 5/1-a istisnasının düşülmesini öngörür.
@@ -193,12 +197,16 @@
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: md. 9/1-a
     alinti: a) Beş yıldan fazla nakledilmemek şartıyla geçmiş yılların beyannamelerinde yer alan zararlar.
+  - mevzuat: 'Kurumlar Vergisi Genel Tebliği (Seri No: 1)'
+    madde: bölüm 32.5.4
+    alinti: Beyannamelerde indirim konusu yapılan geçmiş yıl zararları asgari kurumlar vergisi matrahından düşülmeyecek
+      ve asgari kurumlar vergisinin hesaplanmasında dikkate alınacaktır.
   gecerlilik:
     baslangic: '2025-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: rotus
@@ -206,6 +214,12 @@
       (7524 s. K. ile eklenen md. 32/C, RG 2/8/2024, 2025 ve izleyen dönem kazançlarına uygulanır; 7582 s. K.'nin
       32/C-2-b ve 2-d değişiklikleri soruyu etkilemez).
     neden: 'G5 (küçük): zor soru teknikleri ve tuzağı adlandırmıyordu (§7); §3 başlangıç tarihi.'
+  - tarih: '2026-10-04'
+    kim: duzeltici
+    ne: '''md. 32/C-6''ya göre asgari vergi matrahı'' ifadesi ''indirim ve istisnalar düşülmeden önceki kurum kazancı
+      (md. 32/C-6)'' olarak düzeltildi; geçmiş yıl zararı için 1 Seri No.lu KV Genel Tebliği 32.5.4 dayanak ve alıntı
+      olarak eklendi; A çeldiricisi netleştirildi; teknik not ''Püf noktaları:'' biçimine getirildi.'
+    neden: Bağımsız hakem bulgusu (3 Ekim 2026, no. 17).
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -213,27 +227,26 @@
     kapilar:
       G2:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G4:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G7:
         sonuc: gecti
-        tarih: '2026-10-03'
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'
       G3:
-        sonuc: gecti
-        not: 'A: C (güven 5); B: C (güven 5)'
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 3)
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
   dogrulama:
     python: 'kar = 4000000
 

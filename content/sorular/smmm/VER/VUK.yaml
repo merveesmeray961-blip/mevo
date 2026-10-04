@@ -10,29 +10,30 @@
   soru_bicimi: standart
   kok: 'Ticari kazanç sahibi Bay (T)''nin 2020 takvim yılına ait gelir vergisi alacağı 2020 yılında doğmuştur. Vergi
     dairesi, zamanaşımı süresinin dolmasına üç ay kala, 1 Ekim 2025 tarihinde matrah takdiri için takdir komisyonuna
-    başvurmuştur. Takdir komisyonu kararı 15 Nisan 2027 tarihinde vergi dairesine tevdi edilmiştir.
+    başvurmuştur. Takdir komisyonu kararı 30 Kasım 2026 tarihinde vergi dairesine tevdi edilmiştir.
 
     213 sayılı Vergi Usul Kanunu''na göre bu vergi en geç hangi tarihe kadar tarh edilip mükellefe tebliğ edilmelidir?'
   secenekler:
     A: 31.12.2025
     B: 01.10.2026
     C: 31.12.2026
-    D: 15.07.2027
+    D: 28.02.2027
     E: 31.12.2030
   dogru: C
   aciklama:
     dogru_neden: 'VUK md. 114/1''e göre 2020''de doğan vergi alacağı için zamanaşımı 1.1.2021''de başlar ve normalde
       31.12.2025''te dolar. Md. 114/2 uyarınca takdir komisyonuna başvuru zamanaşımını durdurur; duran zamanaşımı
       kararın tevdiini izleyen günden itibaren kaldığı yerden işler, ancak işlemeyen süre her hâlükârda bir yılı
-      aşamaz. Komisyon kararı başvurudan yaklaşık 18,5 ay sonra (1.10.2025 – 15.4.2027) tevdi edildiğinden işlemeyen
-      süre bir yılla sınırlıdır: durma 1.10.2025''te başlar ve 1.10.2026''da biter. Zamanaşımı kalan üç aylık süre
-      kadar daha işleyerek 31.12.2026''da dolar.'
+      aşamaz. Komisyon kararı başvurudan yaklaşık 14 ay sonra (1.10.2025 – 30.11.2026) tevdi edildiğinden işlemeyen
+      süre bir yılla sınırlıdır: durma 1.10.2025''te başlar ve 1.10.2026''da biter. İşlemeyen süre en fazla bir
+      yıl olduğundan zamanaşımının normal bitiş tarihi bir yıl ertelenir: 31.12.2025 + 1 yıl = 31.12.2026. Karar
+      bu tarihten önce tevdi edilmiş olsa da bir yıllık üst sınır aşıldığı için sonuç değişmez.'
     celdiriciler:
       A: Takdir komisyonuna başvurunun durdurucu etkisi dikkate alınmamıştır (md. 114/2).
-      B: Bir yıllık durma süresinin sona erdiği tarihtir; zamanaşımı bu tarihten sonra kalan üç aylık süre kadar
-        daha işler.
-      D: Bir yıllık üst sınır göz ardı edilip kalan üç aylık süre tevdiden sonra işletilmiştir; md. 114/2 işlemeyen
-        sürenin bir yılı aşamayacağını öngörür.
+      B: Bir yıllık durma süresinin sona erdiği tarihtir; zamanaşımının normal bitiş tarihine (31.12.2025) durmanın
+        bir yıllık üst sınırı eklenmemiştir.
+      D: Bir yıllık üst sınır göz ardı edilip kalan üç aylık süre kararın tevdiinden sonra işletilmiştir (30.11.2026
+        + 3 ay = 28.02.2027); md. 114/2 işlemeyen sürenin bir yılı aşamayacağını öngörür.
       E: Başvuru zamanaşımını kesen bir işlem gibi değerlendirilip süre yeniden başlatılmıştır; md. 114/2 kesilme
         değil durma öngörür.
   kaynaklar:
@@ -49,8 +50,8 @@
     baslangic: '2010-08-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: rotus
@@ -58,6 +59,13 @@
       ve durma süresinin başlangıç/bitiş tarihleri yazıldı; gecerlilik.baslangic 2026-01-01 → 2010-08-01 (md. 114/2'yi
       yeniden düzenleyen 6009 s. K.'nin yayımı).
     neden: 'G5 (küçük): 1.10.2025 – 15.4.2027 arası 18 değil yaklaşık 18,5 aydır; §3 başlangıç tarihi.'
+  - tarih: '2026-10-04'
+    kim: duzeltici
+    ne: Komisyon kararının tevdi tarihi 15 Nisan 2027'den 30 Kasım 2026'ya çekildi (zamanaşımı dolduktan sonra gelen
+      karar soruyu boşa düşürüyordu); D şıkkı 15.07.2027'den 28.02.2027'ye güncellendi; gerekçe '31.12.2025 + 1
+      yıl = 31.12.2026' biçiminde yeniden yazıldı. Doğru cevap (C 31.12.2026) değişmedi.
+    neden: 'Bağımsız hakem bulgusu (3 Ekim 2026, no. 18): tevdi tarihi zamanaşımından sonraydı; ''kalan üç ay''
+      ifadesi ay esasıyla 1.1.2027 de verebiliyordu.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -65,27 +73,26 @@
     kapilar:
       G2:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G4:
         sonuc: atlandi
         not: hesaplama sorusu değil
       G7:
         sonuc: gecti
-        tarih: '2026-10-03'
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'
       G3:
-        sonuc: gecti
-        not: 'A: C (güven 5); B: C (güven 4)'
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 2)
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
 - id: SMMM-VER-VUK-0002
   sinav: smmm
   bolum:
@@ -117,18 +124,19 @@
       344''e 7524 sayılı Kanunla eklenen fıkraya göre mükellefiyet tesis ettirilmeksizin vergi dairesinin ıttılaı
       dışında ticari faaliyette bulunularak vergi ziyaına sebebiyet verilmesi hâlinde ceza %50 artırılır: 400.000
       × 1,5 = 600.000 TL. Md. 376/1 uyarınca otuz gün içinde başvurup vadesinde ödeyen mükellefin cezasının yarısı
-      indirilir: 600.000 × %50 = 300.000 TL. Bu soru zor düzeydedir; kullanılan teknikler: madde birleştirme (md.
-      344/1, md. 344''e 7524 ile eklenen fıkra ve md. 376/1 birlikte uygulanır), çok adımlı hesap (önce artırım,
-      sonra indirim) ve tipik hata çeldiricileri (her çeldirici ayrı bir hatadan türer). Tuzak: md. 376 indirimini
-      artırımdan önceki temel cezaya uygulamak ya da %50 artırımı unutmak; indirim, ''kesilen cezanın yarısı'' olarak
-      artırılmış cezaya uygulanır.'
+      indirilir: 600.000 × %50 = 300.000 TL.
+
+
+      Püf noktaları: md. 344/1, md. 344''e 7524 sayılı Kanunla eklenen fıkra ve md. 376/1 birlikte uygulanır; sıra
+      önemlidir: önce %50 artırım, sonra indirim. Tuzaklar: md. 376 indirimini artırımdan önceki temel cezaya uygulamak
+      ya da %50 artırımı unutmak; indirim, "kesilen cezanın yarısı" olarak artırılmış cezaya uygulanır.'
     celdiriciler:
       A: '%50 artırım uygulanmadan indirim yapılmıştır (400.000 × %50); ıttıla dışı faaliyet nedeniyle ceza önce
         %50 artırılır.'
       C: Ne %50 artırım ne de md. 376 indirimi uygulanmıştır; yalnız bir kat ceza hesaplanmıştır.
       D: Artırılmış ceza bulunmuş, ancak md. 376/1'deki yarı oranındaki indirim uygulanmamıştır.
-      E: Ceza üç kat esas alınmıştır; üç kat ceza yalnız 359. maddedeki fiillerle vergi ziyaına sebebiyet verilmesi
-        hâlinde uygulanır.
+      E: Ceza üç kat esas alınmıştır (400.000 × 3 × 1,5 × ½ = 900.000); üç kat ceza yalnız 359. maddedeki fiillerle
+        vergi ziyaına sebebiyet verilmesi hâlinde uygulanır.
     hesap_adimlari:
     - 'Temel ceza (md. 344/1): 400.000 × 1 = 400.000 TL'
     - 'Ittıla dışı faaliyet artırımı (%50): 400.000 × 1,5 = 600.000 TL'
@@ -156,8 +164,8 @@
     baslangic: '2024-08-02'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: rotus
@@ -166,6 +174,11 @@
       376/1-2''nin mülgası).'
     neden: 'G5 (küçük): teknikler ve tuzak adlandırılmamıştı; G6 (küçük): alıntı fıkranın son cümlesini içermiyordu;
       §3 başlangıç tarihi. Zorluk 3 korundu: GZ''de ortalama aday yüksek güvenle yanıldı (güven 4).'
+  - tarih: '2026-10-04'
+    kim: duzeltici
+    ne: E çeldiricisine hesap yolu açıkça yazıldı (400.000 × 3 × 1,5 × ½ = 900.000); teknik not 'Püf noktaları:'
+      biçimine getirildi.
+    neden: Bağımsız hakem bulgusu (3 Ekim 2026, no. 19).
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -173,27 +186,26 @@
     kapilar:
       G2:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G4:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G7:
         sonuc: gecti
-        tarih: '2026-10-03'
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'
       G3:
-        sonuc: gecti
-        not: 'A: B (güven 5); B: B (güven 4)'
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 2)
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
   dogrulama:
     python: 'vergi = 400000
 

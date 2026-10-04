@@ -31,6 +31,17 @@ PUF_ETIKETI = re.compile(
 )
 
 
+def yeniden_denetim_bekleyen(soru: dict) -> bool:
+    """Düzeltilip G3/G5/G6/GZ kapıları sıfırlanmış (hakem denetimi bekleyen) taslak soru.
+
+    Daha önce yayımlanmış bir sorunun düzeltmesi bekleme süresince paketten düşmesin diye pakete ve uzman
+    kitapçığına girer; hiç denetlenmemiş yeni taslaklar (gecmis kaydı yok) girmez.
+    """
+    kapilar = soru.get("uretim", {}).get("kapilar", {})
+    return (soru.get("durum") == "taslak" and bool(soru.get("gecmis"))
+            and any(k.get("sonuc") == "bekliyor" for k in kapilar.values()))
+
+
 def _ilk_cumle_sonu(metin: str) -> int:
     """Parantez dışındaki ilk '. ' + büyük harf sınırının konumu; yoksa metnin sonu."""
     derinlik = 0
@@ -75,7 +86,7 @@ def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool =
 
     sorular, elenen = [], []
     for _, soru in kayitlar:
-        if soru.get("durum") not in durumlar:
+        if soru.get("durum") not in durumlar and not yeniden_denetim_bekleyen(soru):
             continue
         hatalar = g2_yapi.soru_denetle(soru).hatalar + g4_hesap.soru_denetle(soru).hatalar
         if hatalar:

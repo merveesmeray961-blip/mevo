@@ -316,12 +316,12 @@
   zorluk: 3
   soru_bicimi: standart
   kok: 'M İşletmesi''nin mevcut bilançosunda dönen varlıklar 600.000 ₺ (hazır değerler 180.000 ₺ dâhil), kısa vadeli
-    yabancı kaynaklar 300.000 ₺''dir. İşletme, bilanço tarihinden önce sırasıyla şu iki işlemi yapmayı planlamaktadır:
-    (1) 60.000 ₺ tutarında ticari malı vadeli olarak (kısa vadeli ticari borç karşılığında) satın alacak; (2) ardından
-    cari oranını 2,50''ye yükseltmek amacıyla kısa vadeli ticari borçlarının bir kısmını hazır değerlerinden ödeyecektir.
-    KDV dikkate alınmayacak; başka bir işlem olmadığı varsayılmaktadır. Cari oran = Dönen varlıklar / Kısa vadeli
-    yabancı kaynaklar formülüyle hesaplandığına göre, cari oranın 2,50 olması için ödenmesi gereken borç tutarı
-    kaç ₺''dir?'
+    yabancı kaynaklar 300.000 ₺''dir. Kısa vadeli yabancı kaynakların tamamı ticari borçtur. İşletme, bilanço tarihinden
+    önce sırasıyla şu iki işlemi yapmayı planlamaktadır: (1) 60.000 ₺ tutarında ticari malı vadeli olarak (kısa
+    vadeli ticari borç karşılığında) satın alacak; (2) ardından cari oranını 2,50''ye yükseltmek amacıyla kısa vadeli
+    ticari borçlarının bir kısmını hazır değerlerinden ödeyecektir. KDV dikkate alınmayacak; başka bir işlem olmadığı
+    varsayılmaktadır. Cari oran = Dönen varlıklar / Kısa vadeli yabancı kaynaklar formülüyle hesaplandığına göre,
+    cari oranın 2,50 olması için ödenmesi gereken borç tutarı kaç ₺''dir?'
   secenekler:
     A: '240.000'
     B: '200.000'
@@ -335,11 +335,14 @@
       − x) / (360.000 − x) = 2,50 → 660.000 − x = 900.000 − 2,5x → 1,5x = 240.000 → x = 160.000 ₺. Kontrol: 500.000
       / 200.000 = 2,50; ödeme hazır değerlerden (180.000 ₺) karşılanabilir. Aynı sonuca net çalışma sermayesiyle
       de ulaşılır: ne vadeli alım ne borç ödemesi net çalışma sermayesini (300.000) değiştirir; hedef kısa vadeli
-      yabancı kaynaklar 300.000 / (2,50 − 1) = 200.000 ₺, ödeme 360.000 − 200.000 = 160.000 ₺''dir. Zorluk (3) kaynakları:
-      çok adımlı hesap (iki işlemin sıralı etkisi), geri hesap (hedef orandan işlem tutarı istenir) ve tipik hata
-      çeldiricileri (her çeldirici ayrı bir aday hatasından türetilmiştir). Tuzak, vadeli alımın kısa vadeli yabancı
-      kaynakları da artırdığını unutmak (D), ödemenin dönen varlıkları da azalttığını gözden kaçırmak (E), net çalışma
-      sermayesini (2,50 − 1) yerine 2,50''ye bölmek (A) ve kalan borcu ödenen tutarla karıştırmaktır (B).'
+      yabancı kaynaklar 300.000 / (2,50 − 1) = 200.000 ₺, ödeme 360.000 − 200.000 = 160.000 ₺''dir.
+
+
+      Püf noktaları: İki işlemin etkisini sırayla hesaplayın: vadeli alım dönen varlıkları ve kısa vadeli yabancı
+      kaynakları birlikte artırır, borç ödemesi ise ikisini birlikte azaltır. Hedef orandan geriye giderek ödenecek
+      tutarı bulun. Tuzaklar: vadeli alımın kısa vadeli yabancı kaynakları da artırdığını unutmak (D), ödemenin
+      dönen varlıkları da azalttığını gözden kaçırmak (E), net çalışma sermayesini (2,50 − 1) yerine 2,50''ye bölmek
+      (A) ve kalan borcu ödenen tutarla karıştırmak (B).'
     hesap_adimlari:
     - 'Vadeli alım sonrası: dönen varlıklar 600.000 + 60.000 = 660.000; kısa vadeli yabancı kaynaklar 300.000 +
       60.000 = 360.000'
@@ -382,15 +385,16 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 3
+  durum: taslak
+  surum: 4
   gecmis:
   - tarih: '2026-10-03'
     kim: duzeltici
-    ne: Kökten ilgisiz standart 'Devir hızlarında…' cümlesi çıkarıldı; zayıf C çeldiricisi (150.000, 1,5'e bölmeyi
+    ne: 'Kökten ilgisiz standart ''Devir hızlarında…'' cümlesi çıkarıldı; zayıf C çeldiricisi (150.000, 1,5''e bölmeyi
       unutmak) net çalışma sermayesini (oran - 1) yerine orana bölme hatasından türeyen 180.000 ile değiştirildi
       (şıklar sıralı); dogru_neden, hesap_adimlari, C açıklaması ve dogrulama.python güncellendi; zorluk 3 teknikleri
-      ve tuzak açıkça yazıldı.
+      ve tuzak açıkça yazıldı. (Not: bu kayıttaki şık ve tutarlar bundan sonraki kayıtla değişen eski sürüme aittir;
+      güncel şıklar 240.000/200.000/160.000/100.000/96.000, doğru cevap C''dir.)'
     neden: 'G5 (küçük): ilgisiz kök cümlesi ve zayıf C çeldiricisi.'
   - tarih: '2026-10-03'
     kim: rotus
@@ -399,6 +403,12 @@
       alımı yok sayma) D çeldiricisi yapıldı, her çeldirici ayrı bir aday hatasından türetildi; dogru_neden teknikleri
       ve tuzakları adlandırıyor; hesap_adimlari ve dogrulama.python güncellendi; baslangic 2026-01-01.'
     neden: 'GZ: zor etiketli ama ortalama aday rahat çözdü (güven 5) → zorlaştır; baslangic soru üretim tarihiydi.'
+  - tarih: '2026-10-04'
+    kim: duzeltici
+    ne: Köke 'Kısa vadeli yabancı kaynakların tamamı ticari borçtur.' eklendi (160.000 ₺ ödemenin karşılanabilmesi
+      için ticari borç tutarı belirsizdi); eski sürümü anlatan ilk gecmis kaydına açıklayıcı not eklendi; teknik
+      not 'Püf noktaları:' biçimine getirildi. Doğru cevap (C) ve hesap değişmedi.
+    neden: Bağımsız hakem bulgusu (3 Ekim 2026, no. 7).
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -406,24 +416,23 @@
     kapilar:
       G2:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G4:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G7:
         sonuc: gecti
-        tarih: '2026-10-03'
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'
       G3:
-        sonuc: gecti
-        not: 'A: C (güven 5); B: C (güven 5)'
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 3)
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor

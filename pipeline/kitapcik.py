@@ -18,6 +18,7 @@ from pathlib import Path
 import yaml
 
 from pipeline import g2_yapi
+from pipeline.disa_aktar import yeniden_denetim_bekleyen
 
 CHROMIUM = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 OZEL = ["SMMM-TAB-TMS-0001", "SMMM-FIN-MKY-0002", "SMMM-VER-VUK-0001", "SMMM-MES-ETK-0001",
@@ -64,7 +65,7 @@ def secim() -> list[dict]:
     mufredat = yaml.safe_load((g2_yapi.KOK / "content/mufredat/smmm.yaml").read_text(encoding="utf-8"))
     sira = [d["kod"] for d in mufredat["dersler"]]
     sorular = [s for _, s in g2_yapi.dosyalari_yukle(g2_yapi.KOK / "content/sorular/smmm")
-               if s.get("durum") in ("kontrolde", "onayli") and (s["zorluk"] == 3 or s["id"] in OZEL)]
+               if (s.get("durum") in ("kontrolde", "onayli") or yeniden_denetim_bekleyen(s)) and (s["zorluk"] == 3 or s["id"] in OZEL)]
     return sorted(sorular, key=lambda s: (sira.index(s["ders"]) if s["ders"] in sira else 99, s["id"]))
 
 

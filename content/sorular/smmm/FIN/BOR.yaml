@@ -52,15 +52,23 @@
       Alacak: 304 Tahvil Anapara Borç, Taksit ve Faizleri 900.000'
   dogru: D
   aciklama:
-    dogru_neden: 'Soru dört tekniği birleştirir: çok adımlı hesap, madde birleştirme (THP 308, 405, 408 ve 66/660
-      açıklamaları), yakın kavram ayrımı (408/308 ve 405/304) ve gereksiz veri (komisyon). İhraç farkı 900.000 −
-      810.000 = 90.000 ₺, yıllık itfa 90.000 / 3 = 30.000 ₺. (1) 2026 payı 30.000 ₺ finansman giderdir; THP 660
-      açıklamasına göre 7. grupta izlenen finansman giderleri 7/A seçeneğinde 781 Finansman Giderleri Yansıtma Hesabı
-      aracılığıyla 66 grubuna aktarıldığından gider önce 780''e borç, 408''e alacak yazılır. (2) THP 408''e göre
-      farkın gelecek dönemde itfa edilecek kısmı (2027 payı 30.000 ₺) bilanço tarihinde 308''e aktarılır: 308 borç,
-      408 alacak. 408''de yalnızca 2028 payı (30.000 ₺) kalır. Tuzaklar: kalan farkın tamamını kısa vadeye almak
-      ve anaparayı erken sınıflandırmak. Tahvillerin vadesine 31.12.2026''da 2 yıl kaldığından anapara 405''te kalır.
-      Komisyon ihraçta giderleştirildiği için hesaplamayı etkilemez.'
+    dogru_neden: 'İhraç farkı 900.000 − 810.000 = 90.000 ₺, yıllık itfa 90.000 / 3 = 30.000 ₺''dir. THP 308 işleyişine
+      göre itfa tutarları 66 grubundaki hesaplar karşılığında 308''e alacak yazılır; THP 408 işleyişine göre 408''e
+      alacak ise yalnızca farkın gelecek dönemde itfa edilecek kısmının bilanço tarihinde 308''e aktarılmasıyla
+      yazılır. Bu nedenle önce 2026 ve 2027 paylarının (60.000 ₺) 308''e aktarılması gerekir: 308 B 60.000 / 408
+      A 60.000. Ardından 2026 payı gider yazılır: 780 B 30.000 / 308 A 30.000 (THP 660 açıklamasına göre 7. grupta
+      izlenen finansman giderleri 7/A seçeneğinde 781 Finansman Giderleri Yansıtma Hesabı aracılığıyla 66 grubuna
+      aktarılır; vadesi bir yılı aşan tahvil olduğundan bu gider 661 Uzun Vadeli Borçlanma Giderleri''ne gider,
+      bu soruda kaydı sorulmamıştır). İki kaydın birleşimi D şıkkıdır: 780 B 30.000, 308 B 30.000 (60.000 − 30.000),
+      408 A 60.000; 408''de yalnızca 2028 payı (30.000 ₺) kalır. Tahvillerin vadesine 31.12.2026''da 2 yıl kaldığından
+      anapara 405''te kalır, 304''e aktarılmaz. Komisyon ihraçta giderleştirildiği için hesaplamayı etkilemez.
+
+
+      Püf noktaları: 408''den 308''e aktarmayı ve 308''in itfasını ayrı iki kayıt olarak düşünün; 408''e alacak
+      yalnızca 308''e aktarmayla yazılır, doğrudan 780 ile birlikte yazılmaz. Ayrıca 408/308 (ihraç farkı) ile 405/304
+      (anapara) ayrımını yapın: 308''e yalnızca izleyen yıl itfa edilecek kısım alınır, anapara ise vadeye bir yıl
+      kala 304''e aktarılır. Komisyon tutarı çözüme etki etmeyen veridir. Tuzaklar: kalan farkın tamamını kısa vadeye
+      almak ve anaparayı erken sınıflandırmak.'
     celdiriciler:
       A: Yalnızca 2026 itfası yapılmış, 2027'de itfa edilecek 30.000 ₺'nin THP 408 uyarınca bilanço tarihinde 308'e
         aktarılması unutulmuştur.
@@ -71,9 +79,10 @@
         itibaren bir yıl içinde ödenecek tutar aktarılır, oysa tahvillerin vadesine iki yıl vardır.
     hesap_adimlari:
     - İhraç farkı = 900.000 − 810.000 = 90.000 ₺; yıllık itfa = 90.000 / 3 = 30.000 ₺
-    - '2026 itfası: 780 B 30.000 / 408 A 30.000'
-    - '2027 payının kısa vadeye aktarılması: 308 B 30.000 / 408 A 30.000'
-    - 'Birleşik kayıt: 780 B 30.000 + 308 B 30.000 = 408 A 60.000; 408''de 2028 payı 30.000 ₺ kalır'
+    - '2026 ve 2027 paylarının 308''e aktarılması: 308 B 60.000 / 408 A 60.000'
+    - '2026 itfası: 780 B 30.000 / 308 A 30.000'
+    - 'Birleşik kayıt: 780 B 30.000 + 308 B 30.000 = 408 A 60.000 (308 B 60.000 − 308 A 30.000); 408''de 2028 payı
+      30.000 ₺ kalır'
     - 'Anapara: vadeye 2 yıl kaldığından 405''ten 304''e aktarma yapılmaz; 4.000 ₺ komisyon gereksiz veridir'
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
@@ -100,6 +109,9 @@
       bulunan faiz, kur farkları, kredi komisyonları ve benzeri diğer giderleri kapsar. 660: [...] 7. grupta izlenen
       finansman giderleri 7/A seçeneğinde "781- Finansman Giderleri Yansıtma Hesabı" 7/B seçeneğinde ise "798- Gider
       Çeşitleri Yansıtma Hesabı"nın alacağı ile bu hesabın borcuna aktarılır.'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 661 Uzun Vadeli Borçlanma Giderleri
+    alinti: Bir yılı aşan vadeli borçlanmalarla ilgili faiz ve benzeri giderlerin izlendiği hesaptır.
   dogrulama:
     python: 'fark = 900000 - 810000
 
@@ -121,8 +133,8 @@
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -130,27 +142,26 @@
     kapilar:
       G2:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G4:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G7:
         sonuc: gecti
-        tarih: '2026-10-03'
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'
       G3:
-        sonuc: gecti
-        not: 'A: D (güven 4); B: D (güven 4)'
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 3)
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
   gecmis:
   - tarih: '2026-10-03'
     kim: rotus
@@ -159,3 +170,9 @@
       ve kaynaklara alıntılandı; baslangic 1994-01-01.
     neden: 'G5 (küçük): teknik sayısı tutarsızdı; G6 (küçük): 7/A–781 cümlesi kaynaklarda yoktu; baslangic üretim
       tarihiydi.'
+  - tarih: '2026-10-04'
+    kim: duzeltici
+    ne: Gerekçe ve hesap adımları THP 408/308 işleyişine göre düzeltildi (308 B 60.000 / 408 A 60.000; 780 B 30.000
+      / 308 A 30.000); 781 → 661 notu ve 661 alıntısı eklendi; teknik not 'Püf noktaları:' biçimine getirildi. Birleşik
+      kayıt (D) değişmedi.
+    neden: 'Bağımsız hakem bulgusu (3 Ekim 2026, no. 1): 408''e alacak yalnız 308''e aktarmayla yazılır.'

@@ -135,10 +135,12 @@
       dönem içinde başlanıp bitirilen). FIFO eşdeğer birimleri: ilk madde 7.000 + 2.000 = 9.000 (birim maliyet 225.000
       / 9.000 = 25 ₺), dönüştürme 1.000 × 0,40 + 7.000 + 2.000 × 0,50 = 8.400 (birim maliyet 252.000 / 8.400 = 30
       ₺). Aktarılan maliyet: dönem başı stok maliyeti 35.000 + tamamlanması 400 × 30 = 12.000 + başlanıp bitirilen
-      7.000 × 55 = 385.000; toplam 432.000 ₺''dir. Zorluk (3) kaynakları: ilk madde ve dönüştürme için ayrı FIFO
-      eşdeğer birimiyle çok adımlı hesap ve her biri ayrı bir tipik hatadan türetilmiş çeldiriciler. Tuzak, dönem
-      başı yarı mamulün bu dönemde tamamlanan kısmının (%40) maliyetini unutmak ya da %60 ile karıştırmak ve dönem
-      başı stoku cari birim maliyetle değerlemektir.'
+      7.000 × 55 = 385.000; toplam 432.000 ₺''dir.
+
+
+      Püf noktaları: İlk madde ile dönüştürme için ayrı FIFO eşdeğer birim hesabı yapılır. Tuzaklar: dönem başı
+      yarı mamulün bu dönemde tamamlanan kısmının (%40) maliyetini unutmak veya %60 ile karıştırmak; dönem başı
+      stoku cari birim maliyetle değerlemek.'
     hesap_adimlari:
     - 'Tamamlanan: 1.000 + 9.000 - 2.000 = 8.000 birim; başlanıp bitirilen 7.000 birim'
     - 'İlk madde eşdeğer birimi (FIFO): 7.000 + 2.000 = 9.000 → 225.000 / 9.000 = 25 ₺'
@@ -180,8 +182,8 @@
     baslangic: '2018-05-24'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -189,30 +191,33 @@
     kapilar:
       G2:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G4:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G7:
         sonuc: gecti
-        tarih: '2026-10-03'
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'
       G3:
-        sonuc: gecti
-        not: 'A: B (güven 5); B: B (güven 5)'
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 1)
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
   gecmis:
   - tarih: '2026-10-03'
     kim: rotus
     ne: TMS 2 atıflarında 'md.' yerine 'par.' kullanıldı; gecerlilik.baslangic TMS 2'nin RG'de yeniden yayım tarihine
       (2018-05-24) çekildi.
     neden: Terim tutarlılığı (TMS'de birim paragraftır); baslangic soru üretim tarihiydi.
+  - tarih: '2026-10-04'
+    kim: duzeltici
+    ne: Teknik not 'Püf noktaları:' biçimine getirildi (uretim.md §7).
+    neden: DUZELTME_LISTESI.md 'Açıklama biçimi (21 soru)'; açıklamanın içeriği değişmedi.

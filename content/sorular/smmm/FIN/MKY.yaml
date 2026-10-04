@@ -42,12 +42,13 @@
       641 Bağlı Ortaklıklardan Temettü Gelirleri hesabına alacak, bankaya yatırılan tutar 102 Bankalar hesabına
       borç kaydedilir.
     celdiriciler:
-      B: 640 hesabı en fazla %50 paya sahip olunan iştiraklerden alınan temettüler içindir; %60 pay ve yönetim çoğunluğu
-        bağlı ortaklık ilişkisi doğurur.
-      C: 645 hesabı menkul kıymetlerin satış değeri ile maliyeti arasındaki olumlu fark içindir; temettü bir satış
-        kârı değildir.
-      D: Temettü, yatırımın elden çıkarılması değildir; 245 hesabı yalnızca ortaklık paylarının elden çıkarılmasıyla
-        alacaklanır.
+      B: THP 640'a göre bu hesap, sermayelerine katıldıkları iştiraklerden elde edilen temettüler içindir; THP 242'ye
+        göre iştirak en fazla %50 paydır. %60 pay ve yönetim çoğunluğu bağlı ortaklık ilişkisi doğurur (THP 245,
+        641).
+      C: THP 645'e göre bu hesaba menkul kıymetler satıldığında satış değeri ile maliyet değeri arasındaki olumlu
+        fark alacak yazılır; temettü bir satış kârı değildir.
+      D: THP 245'e göre bu hesaba alacak kaydı ortaklık paylarının elden çıkarılmasıyla yapılır; temettü tahsili
+        yatırımın elden çıkarılması değildir.
       E: THP'ye göre 671 hesabı, cari dönemden önceki dönemlere ait olup o dönemlerin mali tablolarına hata ya da
         unutulma nedenleriyle yansıtılamayan tutarlar içindir. Kâr payının 2025 kârından dağıtılması, (S) A.Ş.'nin
         önceki dönem tablolarında hata ya da unutulma nedeniyle yansıtılmamış bir gelir olduğu anlamına gelmez;
@@ -68,12 +69,24 @@
     madde: 671 Önceki Dönem Gelir ve Kârları
     alinti: Cari dönemden önceki dönemlere ait olan ve bu dönemlerin mali tablolarına hata ya da unutulma nedenleriyle
       yansıtılamayan tutarların gösterildiği hesap kalemidir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 640 İştirakten Temettü Gelirleri
+    alinti: İşletmelerin sermayelerine katıldıkları iştiraklerden elde ettikleri temettü gelirlerinin izlendiği
+      hesaptır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 645 Menkul Kıymet Satış Karları — İşleyişi
+    alinti: Menkul kıymetler satıldığında, satış değeri ile maliyet değeri arasındaki olumlu fark bu hesaba alacak
+      yazılır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 245 Bağlı Ortaklıklar — İşleyişi
+    alinti: Bağlı ortaklık için sermaye taahhüdünde bulunulduğunda veya hisse senedi edinildiğinde hesaba borç,
+      ortaklık paylarının elden çıkarılmasıyla alacak kaydedilir.
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -81,35 +94,36 @@
     kapilar:
       G2:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G4:
         sonuc: atlandi
         not: hesaplama sorusu değil
       G7:
         sonuc: gecti
-        tarih: '2026-10-03'
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'
       G3:
-        sonuc: gecti
-        not: 'A: A (güven 5); B: A (güven 5)'
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) B (640 tanımı), C (645 işleyişi) ve D (245 işleyişi: ''ortaklık paylarının elden çıkarılmasıyla
-          alacak'') gerekçeleri THP''de birebir karşılığı var ama kaynaklar alanında alıntılanmamış.'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday doğru (güven 4)
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
   gecmis:
   - tarih: '2026-10-03'
     kim: rotus
     ne: E çeldiricisinin gerekçesi THP 671 tanımına dayandırıldı (desteksiz 'gelir dağıtım kararıyla doğar' iddiası
       çıkarıldı) ve THP 671 alıntısı eklendi; baslangic 1994-01-01.
     neden: 'G6 (küçük): E gerekçesi THP''de yazmıyordu; baslangic üretim tarihiydi.'
+  - tarih: '2026-10-04'
+    kim: duzeltici
+    ne: B, C, D çeldirici açıklamalarına THP 640, 645 ve 245 işleyişinden birebir alıntılı dayanak eklendi (kaynaklar).
+    neden: 'G6 denetçi notu (DUZELTME_LISTESI.md): çeldirici açıklamalarının dayanağı alıntısızdı.'
 - id: SMMM-FIN-MKY-0002
   sinav: smmm
   bolum:

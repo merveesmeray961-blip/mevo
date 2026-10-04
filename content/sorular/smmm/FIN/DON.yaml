@@ -45,8 +45,9 @@
         kökte ödeme 770 hesabına kaydedilmiştir.
       C: Hesaplar doğru, tutar yanlıştır; 6.000 ₺ cari döneme ait kısımdır, gelecek döneme aktarılması gereken tutar
         18.000 ₺'dir.
-      D: 280 hesabı bir yılı aşan dönemlere ait peşin ödenmiş giderler içindir; 2027'nin ilk 9 ayına ait gider 180'de
-        izlenir.
+      D: THP 280, peşin ödenen ve gelecek yıllara ait giderleri izlemek için kullanılır; ilgili hesap dönemlerinde
+        bu hesabın alacağı karşılığında 180'e aktarma yapılır. 2027'nin ilk 9 ayına ait gider, bilanço tarihinden
+        itibaren bir yıl içinde gidere dönüşeceğinden 180'de izlenir.
       E: Taraflar ters yazılmıştır; bu kayıt gideri azaltmak yerine 18.000 ₺ daha artırır ve 180 hesabına alacak
         bakiyesi verir.
     hesap_adimlari:
@@ -65,6 +66,10 @@
     alinti: Bir işletmenin yönetim fonksiyonları, işletme politikasının tayini, organizasyon ve kadro kuruluşu,
       büro hizmetleri, kamu ilişkileri, güvenlik, hukuk işleri, personel işleri, kredi ve tahsilatı da kapsayan
       muhasebe ve mali işler servislerin giderleri bu hesaba borç kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 280 Gelecek Yıllara Ait Giderler
+    alinti: Bu hesap, peşin ödenen ve cari dönem içinde ilgili gider hesaplarına kaydedilmemesi gereken, gelecek
+      yıllara ait giderleri izlemek için kullanılır.
   dogrulama:
     python: 'aylik = 24000 / 12
 
@@ -76,8 +81,8 @@
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -85,37 +90,36 @@
     kapilar:
       G2:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G4:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G7:
         sonuc: gecti
-        tarih: '2026-10-03'
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'
       G3:
-        sonuc: gecti
-        not: 'A: B (güven 5); B: B (güven 5)'
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: '(küçük) gecmis notu ''VUK md. 281/2 ve KDVK md. 29/1-a değişmemiş'' diyor; bu soru bu maddelere dayanmıyor
-          (DON-0002/HAZ-0001 notundan kopya). baslangic 1994-01-01 doğru, yalnız gerekçe metni yanlış soruya ait.
-          | Öneri: (küçük) gecmis gerekçesindeki ilgisiz VUK/KDVK atfı çıkarılabilir.'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) D gerekçesindeki 280 Gelecek Yıllara Ait Giderler nitelemesi alıntısız (THP'de karşılığı var).
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 4)
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
   gecmis:
   - tarih: '2026-10-03'
     kim: rotus
-    ne: 'gecerlilik.baslangic soru üretim tarihinden dayanılan hükümlerin yürürlüğüne çekildi: MSUGT (Sıra No:1)
-      1994-01-01 (VUK md. 281/2 ve KDVK md. 29/1-a o tarihten önce yürürlükte ve değişmemiş).'
+    ne: 'gecerlilik.baslangic soru üretim tarihinden dayanılan hükmün yürürlüğüne çekildi: MSUGT (Sıra No:1) 1994-01-01.'
     neden: 'Rötuş talimatı md. 3: baslangic soru üretim tarihiydi.'
+  - tarih: '2026-10-04'
+    kim: duzeltici
+    ne: D çeldiricisi için THP 280 alıntısı eklendi; önceki gecmis kaydındaki hatalı VUK md. 281/2 ve KDVK md. 29/1-a
+      atfı çıkarıldı (bu sorunun dayanağı yalnız MSUGT'dir).
+    neden: G6 denetçi notu (DUZELTME_LISTESI.md).
 - id: SMMM-FIN-DON-0002
   sinav: smmm
   bolum:

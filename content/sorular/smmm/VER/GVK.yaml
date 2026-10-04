@@ -46,12 +46,13 @@
       ücret ve gayrimenkul sermaye iradı gibi gelirlerin gayrisafi tutarları toplamı tarifenin üçüncü diliminde
       ücret gelirleri için yer alan tutarı (1.500.000 TL) aşanlar mesken kira istisnasından yararlanamaz; yalnız
       ücret bile 1.600.000 TL olduğundan istisna uygulanmaz. Götürü gider (md. 74): 600.000 × %15 = 90.000 TL; matrah
-      510.000 TL. Vergi = 70.500 + (510.000 − 400.000) × %27 = 100.200 TL. Bu soru zor düzeydedir; kullanılan teknikler:
-      çok adımlı hesap (beyana dahil edilmeyen ücret bile md. 21/2 sınırını aşarak istisnayı düşürür), madde birleştirme
-      (GVK md. 21/2, 74, 86/1-b ve 332 Seri No.lu Tebliğ birlikte okunur), gereksiz veri (kökte verilen 58.000 TL
-      istisna tutarı çözüme girmez) ve tipik hata çeldiricileri. Tuzak: beyana dahil edilmeyen ücretin istisna sınırının
-      kontrolünde de dikkate alınmayacağını sanmak; md. 21/2 gayrisafi tutarları ''beyanı gerekip gerekmediğine
-      bakılmaksızın'' toplar.'
+      510.000 TL. Vergi = 70.500 + (510.000 − 400.000) × %27 = 100.200 TL.
+
+
+      Püf noktaları: GVK md. 21/2, 74, 86/1-b ve 332 Seri No.lu Tebliğ birlikte okunur. Beyana dahil edilmeyen ücret
+      bile md. 21/2 sınırını aşarak istisnayı düşürür; kökte verilen 58.000 TL istisna tutarı çözüme girmez. Tuzak:
+      beyana dahil edilmeyen ücretin istisna sınırının kontrolünde dikkate alınmayacağını sanmak; md. 21/2 gayrisafi
+      tutarları "beyanı gerekip gerekmediğine bakılmaksızın" toplar.'
     celdiriciler:
       A: İstisna uygulanmış ve götürü gider brüt hasılattan hesaplanıp istisna ayrıca düşülmüştür (600.000 − 90.000
         − 58.000 = 452.000); ücret toplamı sınırı aştığından istisna uygulanamaz.
@@ -98,8 +99,8 @@
     bitis: null
     yila_bagli_tutar: true
     yil: 2026
-  durum: kontrolde
-  surum: 2
+  durum: taslak
+  surum: 3
   gecmis:
   - tarih: '2026-10-03'
     kim: rotus
@@ -108,6 +109,10 @@
       2026-01-01 olarak korundu (2026 tarifesi, 332 Seri No.lu Tebliğ).
     neden: 'G5 (küçük): C açıklaması ''tamamı %20'' diyordu (düz %20 → 102.000 çıkar); soru çok adımlı hesap, madde
       birleştirme ve gereksiz veri içeriyor, GZ''de ortalama aday yanıldı (güven 1).'
+  - tarih: '2026-10-04'
+    kim: duzeltici
+    ne: Teknik not 'Püf noktaları:' biçimine getirildi (uretim.md §7).
+    neden: DUZELTME_LISTESI.md 'Açıklama biçimi (21 soru)'; açıklamanın içeriği değişmedi.
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -115,29 +120,26 @@
     kapilar:
       G2:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G4:
         sonuc: gecti
-        tarih: '2026-10-03'
+        tarih: '2026-10-04'
       G7:
         sonuc: gecti
-        tarih: '2026-10-03'
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'
       G3:
-        sonuc: gecti
-        not: 'A: D (güven 5); B: D (güven 5)'
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G5:
-        sonuc: gecti
-        tarih: '2026-10-03'
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       G6:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: (küçük) md. 21/2 alıntısı resmî metinde sayfa sonu/dipnotla bölünüyor (otomatik eşleşme bu yüzden tutmadı);
-          elle karşılaştırıldı, birebir aynı.
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
       GZ:
-        sonuc: gecti
-        tarih: '2026-10-03'
-        not: ortalama aday yanlış (güven 2)
+        sonuc: bekliyor
+        not: hakem denetimi bekleniyor
   dogrulama:
     python: "def gv(m):\n    if m <= 190000: return m * 15 / 100\n    if m <= 400000: return 28500 + (m - 190000)\
       \ * 20 / 100\n    if m <= 1000000: return 70500 + (m - 400000) * 27 / 100\n    if m <= 5300000: return 232500\
