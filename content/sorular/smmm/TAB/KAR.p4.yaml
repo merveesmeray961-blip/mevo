@@ -1,0 +1,154 @@
+- id: SMMM-TAB-KAR-0003
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Finansal Tablolar ve Analizi
+  konu: KAR
+  kazanim: Özkaynak kârlılığı (ortalama özkaynak ile)
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  ortak_veri: TAB-SET-03
+  kok: 'RT A.Ş.''nin 2024–2026 yıllarına ait özet bilanço ve gelir tablosu verileri (bin ₺) aşağıda verilmiştir.
+
+
+    | Kalem | 2024 | 2025 | 2026 |
+
+    |---|---:|---:|---:|
+
+    | **BİLANÇO** |  |  |  |
+
+    | Hazır Değerler | 60 | 80 | 120 |
+
+    | Menkul Kıymetler | 20 | 20 | 40 |
+
+    | Ticari Alacaklar | 200 | 240 | 300 |
+
+    | Stoklar | 170 | 210 | 240 |
+
+    | Diğer Dönen Varlıklar | 10 | 10 | 20 |
+
+    | **Dönen Varlıklar** | **460** | **560** | **720** |
+
+    | Maddi Duran Varlıklar (net) | 740 | 840 | 880 |
+
+    | **Toplam Aktif** | **1.200** | **1.400** | **1.600** |
+
+    | Kısa Vadeli Mali Borçlar | 120 | 130 | 140 |
+
+    | Ticari Borçlar | 170 | 210 | 240 |
+
+    | Diğer Kısa Vadeli Yabancı Kaynaklar | 10 | 10 | 20 |
+
+    | **Kısa Vadeli Yabancı Kaynaklar** | **300** | **350** | **400** |
+
+    | Uzun Vadeli Mali Borçlar | 300 | 350 | 400 |
+
+    | Ödenmiş Sermaye | 400 | 400 | 400 |
+
+    | Geçmiş Yıllar Kârları | 120 | 200 | 280 |
+
+    | Dönem Net Kârı | 80 | 100 | 120 |
+
+    | **Özkaynaklar** | **600** | **700** | **800** |
+
+    | **Toplam Pasif** | **1.200** | **1.400** | **1.600** |
+
+    | **GELİR TABLOSU** |  |  |  |
+
+    | Brüt Satışlar | 1.260 | 1.575 | 1.890 |
+
+    | Satış İndirimleri (-) | 60 | 75 | 90 |
+
+    | **Net Satışlar** | **1.200** | **1.500** | **1.800** |
+
+    | Satışların Maliyeti (-) | 900 | 1.125 | 1.350 |
+
+    | **Brüt Satış Kârı** | **300** | **375** | **450** |
+
+    | Faaliyet Giderleri (-) | 150 | 190 | 230 |
+
+    | **Faaliyet Kârı** | **150** | **185** | **220** |
+
+    | Finansman Giderleri (-) | 50 | 60 | 70 |
+
+    | Dönem Kârı (vergi öncesi) | 100 | 125 | 150 |
+
+    | Vergi Karşılığı (-) | 20 | 25 | 30 |
+
+    | **Dönem Net Kârı** | **80** | **100** | **120** |
+
+
+    Devir hızlarında ve kârlılık oranlarında ortalama değerler (yıl başı ve yıl sonu bakiyelerinin ortalaması) kullanılacak;
+    yıl 360, ay 30 gün alınacaktır.
+
+
+    Özkaynak kârlılığı = Dönem net kârı / Ortalama özkaynaklar × 100 formülüyle hesaplandığına göre RT A.Ş.''nin
+    2026 yılı özkaynak kârlılığı yüzde kaçtır?'
+  secenekler:
+    A: 15,00
+    B: 16,00
+    C: 17,14
+    D: 20,00
+    E: 29,33
+  dogru: B
+  aciklama:
+    dogru_neden: Ortalama özkaynaklar (700 + 800) / 2 = 750 bin ₺'dir. 2026 dönem net kârı 120 bin ₺'dir. Özkaynak
+      kârlılığı 120 / 750 × 100 = %16'dır.
+    celdiriciler:
+      A: '15,00: Payda olarak ortalama yerine yıl sonu özkaynaklar (800) alınmıştır (120 / 800).'
+      C: '17,14: Payda olarak ortalama yerine yıl başı özkaynaklar (700) alınmıştır (120 / 700).'
+      D: '20,00: Pay olarak dönem net kârı yerine vergi öncesi dönem kârı (150) alınmıştır (150 / 750).'
+      E: '29,33: Pay olarak dönem net kârı yerine faaliyet kârı (220) alınmıştır (220 / 750).'
+    hesap_adimlari:
+    - 'Ortalama özkaynaklar: (700 + 800) / 2 = 750'
+    - 'Özkaynak kârlılığı: 120 / 750 × 100 = 16,00'
+  kaynaklar:
+  - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
+    madde: Özkaynak kârlılığı = Dönem net kârı / Ortalama özkaynaklar × 100
+    alinti: ''
+  dogrulama:
+    python: 'ort = (700 + 800) / 2
+
+      sonuc = 120 / ort * 100
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v2
+    kapilar:
+      G3:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'kör çözücü: B (güven 5) Ort. özkaynak (700+800)/2=750; 120/750=%16.'
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'Anahtar B: 120 / ((700 + 800) / 2) × 100 = 16,00. A 15,00 (yıl sonu), C 17,14 (yıl başı), D 20,00
+          (vergi öncesi kâr), E 29,33 (faaliyet kârı) doğrulandı. Formül ve ortalama kuralı kökte açık.'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: Özkaynak kârlılığı formülü kökte açık, ders kitabı tanımıyla tutarlı; dogrulama.python 16 ile aynı.
+      GZ:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: ortalama aday doğru (B, güven 5)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-04'
+      G4:
+        sonuc: gecti
+        tarih: '2026-10-04'
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'

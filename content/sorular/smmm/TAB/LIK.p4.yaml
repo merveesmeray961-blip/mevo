@@ -1,0 +1,150 @@
+- id: SMMM-TAB-LIK-0004
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Finansal Tablolar ve Analizi
+  konu: LIK
+  kazanim: Nakit oran
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  ortak_veri: TAB-SET-03
+  kok: 'RT A.Ş.''nin 2024–2026 yıllarına ait özet bilanço ve gelir tablosu verileri (bin ₺) aşağıda verilmiştir.
+
+
+    | Kalem | 2024 | 2025 | 2026 |
+
+    |---|---:|---:|---:|
+
+    | **BİLANÇO** |  |  |  |
+
+    | Hazır Değerler | 60 | 80 | 120 |
+
+    | Menkul Kıymetler | 20 | 20 | 40 |
+
+    | Ticari Alacaklar | 200 | 240 | 300 |
+
+    | Stoklar | 170 | 210 | 240 |
+
+    | Diğer Dönen Varlıklar | 10 | 10 | 20 |
+
+    | **Dönen Varlıklar** | **460** | **560** | **720** |
+
+    | Maddi Duran Varlıklar (net) | 740 | 840 | 880 |
+
+    | **Toplam Aktif** | **1.200** | **1.400** | **1.600** |
+
+    | Kısa Vadeli Mali Borçlar | 120 | 130 | 140 |
+
+    | Ticari Borçlar | 170 | 210 | 240 |
+
+    | Diğer Kısa Vadeli Yabancı Kaynaklar | 10 | 10 | 20 |
+
+    | **Kısa Vadeli Yabancı Kaynaklar** | **300** | **350** | **400** |
+
+    | Uzun Vadeli Mali Borçlar | 300 | 350 | 400 |
+
+    | Ödenmiş Sermaye | 400 | 400 | 400 |
+
+    | Geçmiş Yıllar Kârları | 120 | 200 | 280 |
+
+    | Dönem Net Kârı | 80 | 100 | 120 |
+
+    | **Özkaynaklar** | **600** | **700** | **800** |
+
+    | **Toplam Pasif** | **1.200** | **1.400** | **1.600** |
+
+    | **GELİR TABLOSU** |  |  |  |
+
+    | Brüt Satışlar | 1.260 | 1.575 | 1.890 |
+
+    | Satış İndirimleri (-) | 60 | 75 | 90 |
+
+    | **Net Satışlar** | **1.200** | **1.500** | **1.800** |
+
+    | Satışların Maliyeti (-) | 900 | 1.125 | 1.350 |
+
+    | **Brüt Satış Kârı** | **300** | **375** | **450** |
+
+    | Faaliyet Giderleri (-) | 150 | 190 | 230 |
+
+    | **Faaliyet Kârı** | **150** | **185** | **220** |
+
+    | Finansman Giderleri (-) | 50 | 60 | 70 |
+
+    | Dönem Kârı (vergi öncesi) | 100 | 125 | 150 |
+
+    | Vergi Karşılığı (-) | 20 | 25 | 30 |
+
+    | **Dönem Net Kârı** | **80** | **100** | **120** |
+
+
+    Nakit oran = (Hazır değerler + Menkul kıymetler) / Kısa vadeli yabancı kaynaklar formülüyle hesaplandığına göre
+    RT A.Ş.''nin 2026 yılı sonu itibarıyla nakit oranı kaçtır?'
+  secenekler:
+    A: 0,20
+    B: 0,30
+    C: 0,40
+    D: 1,20
+    E: 1,80
+  dogru: C
+  aciklama:
+    dogru_neden: 2026 yılı sonu itibarıyla hazır değerler 120, menkul kıymetler 40 bin ₺ olup toplamı 160 bin ₺'dir;
+      kısa vadeli yabancı kaynaklar 400 bin ₺'dir. Nakit oran 160 / 400 = 0,40'tır.
+    celdiriciler:
+      A: '0,20: Payda olarak kısa vadeli yabancı kaynaklar yerine toplam yabancı kaynaklar (400 + 400 = 800) alınmıştır
+        (160 / 800).'
+      B: '0,30: Pay olarak yalnızca hazır değerler alınmış, menkul kıymetler unutulmuştur (120 / 400).'
+      D: '1,20: Stoklar dönen varlıklardan çıkarılarak bulunan değer (720 − 240) / 400 likidite oranı türünden bir
+        orandır; nakit oran yalnızca hazır değerler ve menkul kıymetleri içerir.'
+      E: '1,80: Dönen varlıkların tamamı kısa vadeli yabancı kaynaklara bölünmüştür (720 / 400); bu cari orandır.'
+    hesap_adimlari:
+    - 'Hazır değerler + menkul kıymetler (2026): 120 + 40 = 160'
+    - 'Nakit oran: 160 / 400 = 0,40'
+  kaynaklar:
+  - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
+    madde: Nakit oran = (Hazır değerler + Menkul kıymetler) / Kısa vadeli yabancı kaynaklar
+    alinti: ''
+  dogrulama:
+    python: 'sonuc = (120 + 40) / 400
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v2
+    kapilar:
+      G3:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'kör çözücü: C (güven 5) (120+40)/400=0,40.'
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'Anahtar C: (120 + 40) / 400 = 0,40. A 0,20 (toplam yabancı kaynak 800), B 0,30 (menkul kıymet yok),
+          D 1,20 (asit-test), E 1,80 (cari oran) doğrulandı. Formül kökte açık.'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: Nakit oran formülü kökte açık; dogrulama.python 0,40 ile aynı.
+      GZ:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: ortalama aday doğru (C, güven 5)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-04'
+      G4:
+        sonuc: gecti
+        tarih: '2026-10-04'
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'

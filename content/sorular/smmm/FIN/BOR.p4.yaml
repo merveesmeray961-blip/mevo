@@ -1,0 +1,115 @@
+- id: SMMM-FIN-BOR-0002
+  sinav: smmm
+  bolum:
+  - YET
+  ders: FIN
+  unite: Finansal Muhasebe
+  konu: BOR
+  kazanim: 'Yabancı para kredide kur farkı: geri ödeme tarihindeki kur farkı ve bilanço günü değerlemesi (780 Finansman
+    Giderleri)'
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: 'Giderlerini 7/A seçeneğine göre izleyen (V) A.Ş., 1 Eylül 2026''da bankadan 100.000 USD tutarında, 31 Ağustos
+    2027 vadeli yabancı para kredi kullanmış ve krediyi kullanım günündeki kurla TL''ye çevirerek 300 Banka Kredileri
+    hesabına kaydetmiştir. Şirket, 1 Kasım 2026''da kredinin 40.000 USD''lik kısmını geri ödemiştir. Dönem sonunda
+    kalan yabancı para borç bilanço günü kuruyla değerlenecektir. Faiz tahakkukları dikkate alınmayacaktır. İlgili
+    tarihlerdeki kurlar (alış-satış farkı bulunmadığından tek kur esas alınacaktır): 1.9.2026''da 30 TL, 1.11.2026''da
+    33 TL, 31.12.2026''da 36 TL. Aksi belirtilmedikçe Tekdüzen Muhasebe Sistemi esas alınır.
+
+
+    Buna göre (V) A.Ş.''nin bu kredi nedeniyle 2026 hesap döneminde 780 Finansman Giderleri hesabına borç kaydedeceği
+    toplam kur farkı kaç TL''dir?'
+  secenekler:
+    A: '120.000'
+    B: '180.000'
+    C: '360.000'
+    D: '480.000'
+    E: '600.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Borçlanma ile ilgili kur farkları THP 656''ya göre kambiyo zararı değil finansman gideri olarak
+      780 hesabına yazılır. Geri ödeme tarihinde ödenen 40.000 USD''nin ödeme kuru (33) ile kayıtlı kuru (30) arasındaki
+      fark 40.000 × 3 = 120.000 TL''dir. Dönem sonunda kalan 60.000 USD''lik borç bilanço günü kuruyla (36) değerlenir;
+      kayıtlı kur 30 olduğundan fark 60.000 × 6 = 360.000 TL''dir (VUK md. 280 yabancı para borçlara da uygulanır).
+      Toplam kur farkı gideri 120.000 + 360.000 = 480.000 TL''dir.
+
+
+      Püf noktaları: Kur farkı iki ayrı yerde doğar: ödeme günü ve bilanço günü. Ödenen kısım için fark ödeme kuruna
+      göre, ödenmeyen kısım için bilanço günü kuruna göre hesaplanır; her ikisinde de kayıtlı değerin oluştuğu 30
+      kuru başlangıç alınır. Borçlanmayla ilgili kur farkı 656 Kambiyo Zararları''na değil, finansman gideri olarak
+      780''e yazılır; sorudaki asıl tuzak ise kur farkının iki ayrı kalemden oluşmasıdır.'
+    celdiriciler:
+      A: '120.000: Yalnızca geri ödeme tarihindeki kur farkı hesaplanmış, kalan borcun bilanço günü değerlemesi
+        unutulmuştur.'
+      B: '180.000: Kalan 60.000 USD, kayıtlı kur (30) yerine geri ödeme günündeki kurla (33) karşılaştırılmıştır
+        (60.000 × 3); geri ödeme kur farkı da eklenmemiştir. Kayıtlı değer kullanım günündeki kurla (30) oluşmuştur.'
+      C: '360.000: Yalnızca dönem sonu değerleme farkı hesaplanmış, geri ödeme tarihinde doğan 120.000 TL''lik gerçekleşmiş
+        kur farkı atlanmıştır.'
+      E: '600.000: Borcun tamamı (100.000 USD) dönem sonu kuruyla değerlenmiş (100.000 × 6); oysa 40.000 USD''lik
+        kısım 1 Kasım''da 33 kurundan ödenmiş olduğundan bu kısım için kur farkı 120.000 TL''dir.'
+    hesap_adimlari:
+    - 'Geri ödeme: 40.000 USD × (33 − 30) = 120.000 TL kur farkı gideri'
+    - 'Kalan borç: 60.000 USD × (36 − 30) = 360.000 TL kur farkı gideri'
+    - 'Toplam 780 Finansman Giderleri borcu: 120.000 + 360.000 = 480.000 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 780 Finansman Giderleri Hesabı
+    alinti: İşletme faaliyetlerinin aksamadan yürütülebilmesi amacıyla borçlanılan tutarlarla ilgili faiz, kur farkları,
+      komisyon ve benzeri giderler bu hesaba borç kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 656 Kambiyo Zararları (-)
+    alinti: Kambiyo zararlarının izlendiği hesaptır. (Borçlanma ile ilgili kur farkları bu hesaba alınmaz, finansman
+      gideri olarak muhasebeleştirilir.)
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 280/3
+    alinti: Bu madde hükmü yabancı para ile olan senetli veya senetsiz alacaklar ve borçlar hakkında da caridir.
+  dogrulama:
+    python: 'odeme_farki = 40000 * (33 - 30)
+
+      donem_sonu_farki = 60000 * (36 - 30)
+
+      sonuc = odeme_farki + donem_sonu_farki
+
+      '
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v2
+    kapilar:
+      G3:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'kör çözücü: D (güven 5) Geri ödeme günü kur farkı 40.000x(33-30)=120.000; kalan 60.000 USD x (36-30)=360.000;
+          toplam 480.000. TDHP 780: borçlanmayla ilgili kur farkları 780''e borç (656 açıklaması da borçlanma kur
+          farklarını finansman gideri sayar).'
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'Anahtar D doğru: 40.000 × (33 − 30) + 60.000 × (36 − 30) = 120.000 + 360.000 = 480.000. THP 656 parantez
+          hükmü ve THP 780 gereği borçlanma kur farkı 7/A''da 780''e yazılır (656 değil). Çeldiriciler 120.000/180.000/360.000/600.000
+          hesap yollarıyla doğrulandı; kredi 31.08.2027 vadeli, 300''de izlenmesi doğru.'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: THP 780, THP 656 ve VUK 280/3 alıntıları birebir; dogrulama.python 480.000 ile aynı.
+      GZ:
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: ortalama aday yanlış (C, güven 3)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-04'
+      G4:
+        sonuc: gecti
+        tarih: '2026-10-04'
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-04'
