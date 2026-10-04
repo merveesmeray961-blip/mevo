@@ -55,26 +55,28 @@
     dogru_neden: 'İhraç farkı 900.000 − 810.000 = 90.000 ₺, yıllık itfa 90.000 / 3 = 30.000 ₺''dir. THP 308 işleyişine
       göre itfa tutarları 66 grubundaki hesaplar karşılığında 308''e alacak yazılır; THP 408 işleyişine göre 408''e
       alacak ise yalnızca farkın gelecek dönemde itfa edilecek kısmının bilanço tarihinde 308''e aktarılmasıyla
-      yazılır. Bu nedenle önce 2026 ve 2027 paylarının (60.000 ₺) 308''e aktarılması gerekir: 308 B 60.000 / 408
-      A 60.000. Ardından 2026 payı gider yazılır: 780 B 30.000 / 308 A 30.000 (THP 660 açıklamasına göre 7. grupta
-      izlenen finansman giderleri 7/A seçeneğinde 781 Finansman Giderleri Yansıtma Hesabı aracılığıyla 66 grubuna
-      aktarılır; vadesi bir yılı aşan tahvil olduğundan bu gider 661 Uzun Vadeli Borçlanma Giderleri''ne gider,
-      bu soruda kaydı sorulmamıştır). İki kaydın birleşimi D şıkkıdır: 780 B 30.000, 308 B 30.000 (60.000 − 30.000),
-      408 A 60.000; 408''de yalnızca 2028 payı (30.000 ₺) kalır. Tahvillerin vadesine 31.12.2026''da 2 yıl kaldığından
-      anapara 405''te kalır, 304''e aktarılmaz. Komisyon ihraçta giderleştirildiği için hesaplamayı etkilemez.
+      yazılır. İhraç kaydında farkın tamamı 408''e alındığından (2026 payı ihraç tarihinde gelecek döneme ait kısım
+      olarak doğrudan 308''e de alınabilirdi), bilanço tarihinde 2026 ve 2027 paylarının (60.000 ₺) 308''e aktarılması
+      gerekir: 308 B 60.000 / 408 A 60.000. Ardından 2026 payı gider yazılır: 780 B 30.000 / 308 A 30.000 (THP 660
+      açıklamasına göre 7. grupta izlenen finansman giderleri 7/A seçeneğinde 781 Finansman Giderleri Yansıtma Hesabı
+      aracılığıyla 66 grubuna aktarılır; vadesi bir yılı aşan tahvil olduğundan bu gider 661 Uzun Vadeli Borçlanma
+      Giderleri''ne gider, bu soruda kaydı sorulmamıştır). İki kaydın birleşimi D şıkkıdır: 780 B 30.000, 308 B
+      30.000 (60.000 − 30.000), 408 A 60.000; 408''de yalnızca 2028 payı (30.000 ₺) kalır. Tahvillerin vadesine
+      31.12.2026''da 2 yıl kaldığından anapara 405''te kalır, 304''e aktarılmaz. Komisyon ihraçta giderleştirildiği
+      için hesaplamayı etkilemez.
 
 
       Püf noktaları: 408''den 308''e aktarmayı ve 308''in itfasını ayrı iki kayıt olarak düşünün; 408''e alacak
       yalnızca 308''e aktarmayla yazılır, doğrudan 780 ile birlikte yazılmaz. Ayrıca 408/308 (ihraç farkı) ile 405/304
-      (anapara) ayrımını yapın: 308''e yalnızca izleyen yıl itfa edilecek kısım alınır, anapara ise vadeye bir yıl
-      kala 304''e aktarılır. Komisyon tutarı çözüme etki etmeyen veridir. Tuzaklar: kalan farkın tamamını kısa vadeye
-      almak ve anaparayı erken sınıflandırmak.'
+      (anapara) ayrımını yapın: dönem sonunda 308''de yalnızca izleyen yıl itfa edilecek kısım kalır, anapara ise
+      vadeye bir yıl kala 304''e aktarılır. Komisyon tutarı çözüme etki etmeyen veridir. Tuzaklar: kalan farkın
+      tamamını kısa vadeye almak ve anaparayı erken sınıflandırmak.'
     celdiriciler:
       A: Yalnızca 2026 itfası yapılmış, 2027'de itfa edilecek 30.000 ₺'nin THP 408 uyarınca bilanço tarihinde 308'e
         aktarılması unutulmuştur.
       B: İhraç farkının tamamı ilk yıl gider yazılmıştır; fark tahvilin vadesine paralel olarak 3 yılda itfa edilir.
-      C: 2028 yılına ait 30.000 ₺ de kısa vadeye (308) aktarılmıştır; 308'e yalnızca izleyen yıl itfa edilecek kısım
-        alınır, daha sonraki yıllara ait kısım 408'de kalır.
+      C: 2028 yılına ait 30.000 ₺ de kısa vadeye (308) aktarılmıştır; dönem sonunda 308'de yalnızca izleyen yıl
+        itfa edilecek kısım kalır, daha sonraki yıllara ait kısım 408'de kalır.
       E: İhraç farkı kısmı doğrudur, ancak anapara 304'e aktarılmıştır; 405'ten 304'e yalnızca bilanço tarihinden
         itibaren bir yıl içinde ödenecek tutar aktarılır, oysa tahvillerin vadesine iki yıl vardır.
     hesap_adimlari:
@@ -133,7 +135,7 @@
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 3
   uretim:
     kaynak_turu: yapay_zeka
@@ -151,17 +153,22 @@
         not: yalnız banka içi; külliyat verilmedi
         tarih: '2026-10-04'
       G3:
-        sonuc: bekliyor
-        not: hakem denetimi bekleniyor
+        sonuc: gecti
+        not: 'A: D (güven 4); B: D (güven 4)'
+        tarih: '2026-10-03'
       G5:
-        sonuc: bekliyor
-        not: hakem denetimi bekleniyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'hakem: Kayıtlar THP 308/408 işleyişine uygun (308 B 60.000/408 A 60.000; 780 B/308 A 30.000; birleşik
+          D). Hakem: 2026 payının neden aktarıldığı ve C/püf ifadesi (308de kalan) netleştirildi.'
       G6:
-        sonuc: bekliyor
-        not: hakem denetimi bekleniyor
+        sonuc: gecti
+        tarih: '2026-10-04'
+        not: 'hakem: THP 308, 408, 405/780, 66/660 ve 661 alıntıları birebir.'
       GZ:
-        sonuc: bekliyor
-        not: hakem denetimi bekleniyor
+        sonuc: gecti
+        tarih: '2026-10-03'
+        not: ortalama aday yanlış (güven 3)
   gecmis:
   - tarih: '2026-10-03'
     kim: rotus
@@ -176,3 +183,10 @@
       / 308 A 30.000); 781 → 661 notu ve 661 alıntısı eklendi; teknik not 'Püf noktaları:' biçimine getirildi. Birleşik
       kayıt (D) değişmedi.
     neden: 'Bağımsız hakem bulgusu (3 Ekim 2026, no. 1): 408''e alacak yalnız 308''e aktarmayla yazılır.'
+  - tarih: '2026-10-04'
+    kim: hakem
+    ne: dogru_neden'e 2026 payının da 308'e aktarılma nedeni (ihraç kaydında farkın tamamı 408'e alınmıştı) eklendi;
+      püf ve C çeldiricisinde '308'e yalnızca izleyen yıl payı alınır' ifadesi 'dönem sonunda 308'de yalnızca izleyen
+      yıl payı kalır' olarak düzeltildi.
+    neden: 'hakem 2026-10-04: gerekçe 60.000 TL''yi 308''e aktarırken püf ve C çeldiricisi yalnız izleyen yıl payının
+      alındığını söylüyordu (iç tutarsızlık).'
