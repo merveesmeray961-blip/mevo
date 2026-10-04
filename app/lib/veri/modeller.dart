@@ -14,6 +14,71 @@ class Kaynak {
       Kaynak(mevzuat: j['mevzuat'] as String, madde: j['madde'] as String, alinti: j['alinti'] as String?);
 }
 
+/// Bir sorunun bir maddeden aldığı birebir alıntı. [atif] sorudaki ham gösterim ("md. 26/1-(ç)").
+class MevzuatAlintisi {
+  final String atif;
+  final String metin;
+  final String soruId;
+
+  const MevzuatAlintisi({required this.atif, required this.metin, required this.soruId});
+
+  factory MevzuatAlintisi.fromJson(Map<String, dynamic> j) => MevzuatAlintisi(
+    atif: (j['atif'] ?? '') as String,
+    metin: (j['metin'] ?? '') as String,
+    soruId: (j['soru_id'] ?? '') as String,
+  );
+}
+
+/// "Mevzuat" bölümünde bir kaynağın (kanun, standart, tebliğ...) sorularda atıf yapılan tek maddesi.
+/// Tam metin yalnızca resmî kanun metinlerinde vardır; diğerlerinde yalnızca sorulardaki alıntılar gösterilir.
+class MevzuatMaddesi {
+  final String kaynak;
+
+  /// kanun | yonetmelik | teblig | standart | diger
+  final String tur;
+  final String? kod;
+  final String madde;
+  final String? baslik;
+  final String? tamMetin;
+  final List<MevzuatAlintisi> alintilar;
+  final List<String> soruIdler;
+  final String? mevzuatGovUrl;
+
+  /// Arama için küçük harfli birleşik metin (kaynak, madde, başlık, alıntılar ve tam metin).
+  late final String aramaMetni = turkceKucult(
+    [kaynak, madde, ?baslik, for (final a in alintilar) a.metin, ?tamMetin].join('\n'),
+  );
+
+  MevzuatMaddesi({
+    required this.kaynak,
+    required this.tur,
+    this.kod,
+    required this.madde,
+    this.baslik,
+    this.tamMetin,
+    required this.alintilar,
+    required this.soruIdler,
+    this.mevzuatGovUrl,
+  });
+
+  factory MevzuatMaddesi.fromJson(Map<String, dynamic> j) => MevzuatMaddesi(
+    kaynak: j['kaynak'] as String,
+    tur: (j['tur'] ?? 'diger') as String,
+    kod: j['kod'] as String?,
+    madde: j['madde'] as String,
+    baslik: j['baslik'] as String?,
+    tamMetin: j['tam_metin'] as String?,
+    alintilar: [
+      for (final a in (j['alintilar'] ?? const []) as List) MevzuatAlintisi.fromJson(a as Map<String, dynamic>),
+    ],
+    soruIdler: List<String>.from((j['soru_idler'] ?? const []) as List),
+    mevzuatGovUrl: j['mevzuat_gov_url'] as String?,
+  );
+}
+
+/// Türkçe harflere duyarlı küçük harfe çevirme (İ→i, I→ı); arama için.
+String turkceKucult(String s) => s.replaceAll('İ', 'i').replaceAll('I', 'ı').toLowerCase();
+
 class Soru {
   final String id;
   final int surum;
@@ -182,6 +247,12 @@ class SoruBankasi {
   final Map<String, Ders> dersler;
   final List<Soru> sorular;
   final Map<String, List<DateTime>> takvim;
+
+  /// "Mevzuat" bölümü; eski paketlerde bu anahtar yoktur (boş liste).
+  final List<MevzuatMaddesi> mevzuat;
+
+  /// Mevzuat metinlerinin alındığı tarih (yyyy-aa-gg); yoksa null.
+  final String? mevzuatTarihi;
   final Map<String, Soru> _idIle;
 
   SoruBankasi({
@@ -191,6 +262,8 @@ class SoruBankasi {
     required this.dersler,
     required this.sorular,
     required this.takvim,
+    this.mevzuat = const [],
+    this.mevzuatTarihi,
   }) : _idIle = {for (final s in sorular) s.id: s};
 
   factory SoruBankasi.fromJson(Map<String, dynamic> j) {
@@ -218,6 +291,8 @@ class SoruBankasi {
       },
       sorular: [for (final s in j['sorular'] as List) Soru.fromJson(s as Map<String, dynamic>)],
       takvim: takvim,
+      mevzuat: [for (final m in (j['mevzuat'] ?? const []) as List) MevzuatMaddesi.fromJson(m as Map<String, dynamic>)],
+      mevzuatTarihi: j['mevzuat_tarihi'] as String?,
     );
   }
 

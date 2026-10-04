@@ -18,7 +18,7 @@ from pathlib import Path
 
 import yaml
 
-from pipeline import g2_yapi, g4_hesap
+from pipeline import g2_yapi, g4_hesap, mevzuat_paketi
 
 KOK = g2_yapi.KOK
 AKTARILAN_DURUMLAR = {"kontrolde", "onayli", "yayinda"}
@@ -117,9 +117,12 @@ def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool =
         "dersler": dersler,
         "sorular": sorular,
     }
+    if puf_ayir:  # uygulama paketi: "Mevzuat" bölümü (yalnız sorularda atıf yapılan maddeler)
+        paket["mevzuat_tarihi"] = mevzuat_paketi.MEVZUAT_TARIHI
+        paket["mevzuat"] = mevzuat_paketi.kaynaklari_derle(sorular)
     hedef.parent.mkdir(parents=True, exist_ok=True)
     hedef.write_text(json.dumps(paket, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    return {"aktarilan": len(sorular), "elenen": elenen}
+    return {"aktarilan": len(sorular), "elenen": elenen, "mevzuat": paket.get("mevzuat", [])}
 
 
 def main(argv: list[str]) -> int:
@@ -128,6 +131,9 @@ def main(argv: list[str]) -> int:
     hedef = Path(yollar[0]) if yollar else KOK / "web/onizleme/sorular.json"
     sonuc = aktar(hedef, puf_ayir=puf_ayir)
     print(f"{sonuc['aktarilan']} soru aktarıldı → {hedef}")
+    if sonuc["mevzuat"]:
+        o = mevzuat_paketi.ozet(sonuc["mevzuat"])
+        print(f"  Mevzuat: {o['kaynak']} kaynak, {o['madde']} madde ({o['tam_metinli']} tam metin, {o['yalniz_alinti']} yalnız alıntı)")
     for e in sonuc["elenen"]:
         print(f"  ELENDİ {e['id']}: {'; '.join(e['hatalar'])}")
     return 1 if sonuc["elenen"] else 0

@@ -190,6 +190,12 @@ python -m pipeline.disa_aktar app/assets/sorular/smmm.json --uygulama
 İlk komut kontrol kapılarını/testleri çalıştırır (hepsi geçmeli); ikincisi kontrol kapılarından (G2/G4) geçen ve durumu
 "taslak" ya da "geri çekildi" olmayan soruları `app/assets/sorular/smmm.json` dosyasına yazar. Bu dosyayı **elle düzenleme.**
 
+Aynı komut uygulamadaki **Mevzuat** sekmesinin verisini de üretir (soruların `kaynaklar` alanında geçen maddeler,
+`pipeline/mevzuat_paketi.py`). Kanun maddelerinin tam metni yerel `content/kaynaklar/mevzuat/*.txt` dosyalarından gelir
+(git'e girmez; yoksa `indir.sh` ile indir) — dosyalar yoksa komut maddeleri yalnızca alıntıyla yazar ve tam metinler
+paketten düşer. Standartların (TMS/TFRS/BDS) tam metni hiçbir zaman eklenmez. Metin tarihi `MEVZUAT_TARIHI` sabitidir;
+mevzuat metinlerini yeniden indirdiysen o tarihi güncelle.
+
 ### C2. Sürüm numarasını artır
 
 `app/pubspec.yaml` içinde `version: 1.0.0+1` satırı vardır: `1.0.0` = kullanıcının gördüğü sürüm, `+1` = **yapı numarası**.
@@ -232,3 +238,37 @@ Küçük kontrol listesi: soru sayısı arttı mı (Bugün/Dersler ekranları) �
 | Play yüklemeyi "debug anahtarıyla imzalı" diye reddediyor | `key.properties` bulunamadı; C3'teki açıklamaya bak. |
 | Play "sürüm kodu daha önce kullanıldı" diyor | `pubspec.yaml`'da `+N` numarasını artır (C2). |
 | Anahtar parolası kayboldu | `.gizli/ANAHTAR_BILGISI.txt`; yoksa Play Console'dan yükleme anahtarı sıfırlama talebi aç. |
+
+## E) Mevzuat takibi
+
+`.github/workflows/rg-takip.yml` her gün 05:17 UTC'de (08:17 TR) çalışır ve `python -m pipeline.rg_takip` ile o günün
+Resmî Gazete içindekiler sayfasını (`resmigazete.gov.tr/eskiler/YYYY/AA/YYYYAAGG.htm`, varsa mükerrer sayılar) tarar.
+Başlıkları, soru bankasının `kaynaklar` alanından üretilen izleme listesiyle (kanun numaraları ve adları, yönetmelik/tebliğ
+adları, "Kamu Gözetimi", "Muhasebe Standartları", "Sermaye Piyasası", "Tekdüzen Hesap Planı" gibi genel terimler)
+eşleştirir. Maliyeti sıfırdır: GitHub Actions, ek hesap veya sunucu yok. Elle çalıştırmak için GitHub → Actions →
+"Resmî Gazete takibi" → Run workflow (isteğe bağlı tarih). Yerelde: `python -m pipeline.rg_takip --tarih 2026-10-03`.
+
+**Bildirim:** eşleşme varsa depoda "Resmî Gazete: <tarih> — mevzuat değişikliği olabilir" başlıklı bir **issue** açılır
+(aynı gün için varsa yorum eklenir). GitHub yeni issue'yu depo sahibine **e-postayla** bildirir; ayrıca sayfa hiç
+alınamazsa iş başarısız olur ve GitHub başarısız çalışma e-postası gönderir. E-postaları almak için GitHub → Settings →
+Notifications bölümünde "Actions" ve "Issues" bildirimlerinin açık olduğunu kontrol et.
+
+**Issue gelince:**
+1. Raporda her eşleşen başlığın bağlantısı ve "etkilenebilecek sorular" listesi vardır. Resmî Gazete maddesini aç ve
+   değişikliğin hangi madde/standardı etkilediğine bak (çoğu eşleşme alakasız çıkabilir; o zaman issue'yu kapat).
+2. Gerçekten bir madde değiştiyse listelenen soruların `kaynaklar` ve açıklamalarını gözden geçir; düzeltme
+   `docs/SORU_URETIM_RECETESI.md` adımlarıyla yapılır (soru metni değişince `surum` +1, kapılar sıfırlanır).
+3. `content/kaynaklar/mevzuat/` metinlerini yeniden indir (`indir.sh`), `pipeline/mevzuat_paketi.py` içindeki
+   `MEVZUAT_TARIHI` tarihini güncelle, C bölümündeki adımlarla paketi yeniden üret ve uygulama güncellemesi çıkar
+   (Mevzuat sekmesindeki metinler de böylece tazelenir). Issue'yu kapat.
+
+**Sınırlar:** Eşleştirme başlık metnine dayanır (madde numarası içermez), bu yüzden "olabilir" diyen bir uyarıdır;
+kaçırma ihtimali vardır (ör. başlıkta kanun adı geçmeyen değişiklikler). Standart değişiklikleri (TMS/TFRS/BDS)
+Resmî Gazete'de değil KGK sitesinde yayımlanır; yalnızca "Kamu Gözetimi" başlıklı Resmî Gazete ilanları yakalanır, KGK
+duyurularını arada elle kontrol et.
+
+**Test durumu:** Birim testleri yapay bir sayfayla (`tests/veri/rg_ornek.htm`) çalışır, ağ kullanmaz. Geliştirme
+ortamından (bulut sandbox) gerçek `resmigazete.gov.tr` sayfaları da çekilebildi (4 Ekim 2026 oturumunda 30 Eylül–4 Ekim
+günleri tarandı, hiçbirinde eşleşme çıkmadı); GitHub Actions üzerindeki ilk çalıştırma bu ortamdan denenemedi — ilk
+günlerde Actions sekmesinden "Run workflow" ile bir kez elle deneyip çıktıya bak. Site zaman zaman yavaş yanıtlar;
+betik 3 kez dener.

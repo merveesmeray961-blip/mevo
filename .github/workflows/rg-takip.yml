@@ -1,0 +1,62 @@
+# Resmî Gazete takibi: her gün içindekiler sayfasını soru bankasının dayandığı mevzuatla karşılaştırır.
+# Eşleşme varsa GitHub issue açar (ya da aynı günün issue'suna yorum ekler); GitHub depo sahibine e-posta gönderir.
+name: Resmî Gazete takibi
+
+on:
+  schedule:
+    - cron: "17 5 * * *" # 05:17 UTC = 08:17 TR; Resmî Gazete 00:00'da yayımlanır
+  workflow_dispatch:
+    inputs:
+      tarih:
+        description: "Taranacak gün (YYYY-MM-DD); boşsa bugün (Europe/Istanbul)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: rg-takip
+  cancel-in-progress: false
+
+jobs:
+  tara:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Bağımlılıklar
+        run: pip install pyyaml
+
+      - name: Resmî Gazete'yi tara
+        id: tara
+        env:
+          GIRDI_TARIH: ${{ github.event.inputs.tarih }}
+        run: |
+          TARIH="${GIRDI_TARIH:-$(TZ=Europe/Istanbul date +%F)}"
+          echo "tarih=$TARIH" >> "$GITHUB_OUTPUT"
+          # Çıkış kodu 2 (sayfa alınamadı) işi başarısız yapar; GitHub başarısız çalışma için de e-posta gönderir.
+          python -m pipeline.rg_takip --tarih "$TARIH" --cikti rapor.md | tee cikti.txt
+          SAYI=$(grep -oP '^ESLESME_SAYISI=\K[0-9]+' cikti.txt || echo 0)
+          echo "sayi=$SAYI" >> "$GITHUB_OUTPUT"
+
+      - name: Eşleşme varsa issue aç veya yorum ekle
+        if: steps.tara.outputs.sayi != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARIH: ${{ steps.tara.outputs.tarih }}
+        run: |
+          BASLIK="Resmî Gazete: ${TARIH} — mevzuat değişikliği olabilir"
+          MEVCUT=$(gh issue list --state open --search "\"${BASLIK}\" in:title" --json number,title \
+            --jq "map(select(.title == \"${BASLIK}\")) | .[0].number // empty")
+          if [ -n "$MEVCUT" ]; then
+            gh issue comment "$MEVCUT" --body-file rapor.md
+          else
+            gh issue create --title "$BASLIK" --body-file rapor.md
+          fi

@@ -9,6 +9,7 @@ import 'package:mevo/ekranlar/bolum_secimi.dart';
 import 'package:mevo/ekranlar/calisma.dart';
 import 'package:mevo/ekranlar/deneme.dart';
 import 'package:mevo/ekranlar/dersler.dart';
+import 'package:mevo/ekranlar/mevzuat.dart';
 import 'package:mevo/ekranlar/odeme.dart';
 import 'package:mevo/mantik/deneme.dart';
 import 'package:mevo/uygulama.dart';
@@ -120,6 +121,25 @@ void main() {
     'Dersler': ((_) async => const AnaKabuk(), (t) => sekmeAc(t, 'Dersler')),
     'Deneme listesi': ((_) async => const AnaKabuk(), (t) => sekmeAc(t, 'Deneme')),
     'İstatistik': ((_) async => const AnaKabuk(), (t) => sekmeAc(t, 'İstatistik')),
+    'Mevzuat': ((_) async => const AnaKabuk(), (t) => sekmeAc(t, 'Mevzuat')),
+    'Mevzuat (arama, açık listeler)': (
+      (_) async => const AnaKabuk(),
+      (t) async {
+        await sekmeAc(t, 'Mevzuat');
+        await t.enterText(find.byType(TextField), 'sermaye piyasası');
+        await t.pump(const Duration(milliseconds: 600));
+      },
+    ),
+    'Mevzuat maddesi (tam metin)': (
+      (d) async =>
+          MevzuatMaddeEkrani(madde: d.banka.mevzuat.firstWhere((m) => m.tamMetin != null && m.mevzuatGovUrl != null)),
+      null,
+    ),
+    'Mevzuat maddesi (yalnız alıntı)': (
+      (d) async =>
+          MevzuatMaddeEkrani(madde: d.banka.mevzuat.firstWhere((m) => m.tamMetin == null && m.tur == 'standart')),
+      null,
+    ),
     'Ders detayı': ((d) async => DersDetay(ders: d.banka.dersler['FIN']!), null),
     'Çalışma (cevaplanmış soru)': (
       (d) async => CalismaEkrani(baslik: 'Hızlı çalışma', sorular: d.banka.dersSorulari('YET', 'FIN').take(5).toList()),

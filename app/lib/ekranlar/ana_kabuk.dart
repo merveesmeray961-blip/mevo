@@ -5,6 +5,7 @@ import 'bugun.dart';
 import 'deneme_listesi.dart';
 import 'dersler.dart';
 import 'istatistik.dart';
+import 'mevzuat.dart';
 
 class AnaKabuk extends StatefulWidget {
   const AnaKabuk({super.key});
@@ -21,6 +22,7 @@ class _AnaKabukState extends State<AnaKabuk> {
     (Icons.menu_book_outlined, Icons.menu_book, 'Dersler'),
     (Icons.timer_outlined, Icons.timer, 'Deneme'),
     (Icons.insights_outlined, Icons.insights, 'İstatistik'),
+    (Icons.gavel_outlined, Icons.gavel, 'Mevzuat'),
   ];
 
   @override
@@ -29,7 +31,7 @@ class _AnaKabukState extends State<AnaKabuk> {
     final genis = MediaQuery.sizeOf(context).width >= genisEkranEsigi;
     final icerik = IndexedStack(
       index: _sekme,
-      children: const [BugunEkrani(), DerslerEkrani(), DenemeListesi(), IstatistikEkrani()],
+      children: const [BugunEkrani(), DerslerEkrani(), DenemeListesi(), IstatistikEkrani(), MevzuatEkrani()],
     );
     return Scaffold(
       body: genis
@@ -37,14 +39,28 @@ class _AnaKabukState extends State<AnaKabuk> {
               children: [
                 SafeArea(
                   right: false,
-                  child: NavigationRail(
-                    selectedIndex: _sekme,
-                    onDestinationSelected: (i) => setState(() => _sekme = i),
-                    labelType: NavigationRailLabelType.all,
-                    destinations: [
-                      for (final (ikon, secili, ad) in _sekmeler)
-                        NavigationRailDestination(icon: Icon(ikon), selectedIcon: Icon(secili), label: Text(ad)),
-                    ],
+                  // Alçak ekranda (yatay telefon, büyük yazı) beş hedef sığmayabilir: çubuk kaydırılabilir.
+                  child: LayoutBuilder(
+                    builder: (context, kisit) => SingleChildScrollView(
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(minHeight: kisit.maxHeight),
+                        child: IntrinsicHeight(
+                          child: NavigationRail(
+                            selectedIndex: _sekme,
+                            onDestinationSelected: (i) => setState(() => _sekme = i),
+                            labelType: NavigationRailLabelType.all,
+                            destinations: [
+                              for (final (ikon, secili, ad) in _sekmeler)
+                                NavigationRailDestination(
+                                  icon: Icon(ikon),
+                                  selectedIcon: Icon(secili),
+                                  label: Text(ad),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
                 const VerticalDivider(width: 1),
