@@ -47,7 +47,6 @@ Güncel sayıyı her parti öncesi doğrula:
    onun dosyalarına — `app/lib`, `app/test`, `app/android`, `app/ios`, `docs/magaza` — dokunma.)
 7. Merve'ye kısa rapor: kaç soru eklendi, kaç hata düzeltildi, ders başına yeni sayılar; **bakiyeyi sor** ve sonraki partiye geç.
 
-## Commit mesajı sonu (birebir)
+## Commit mesajı sonu
 
-    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
-    Claude-Session: https://claude.ai/code/session_012X1qzXKwAFes7RGxmHyy8Q
+Oturumun sistem hatırlatmasında verilen `Co-Authored-By` ve `Claude-Session` satırları (birebir).
