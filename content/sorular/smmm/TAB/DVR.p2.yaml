@@ -1,0 +1,280 @@
+- id: SMMM-TAB-DVR-0003
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Finansal Tablolar ve Analizi
+  konu: DVR
+  kazanim: Alacak devir hızı ve alacak tahsil süresi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  ortak_veri: TAB-SET-02
+  kok: 'NB A.Ş.''nin 2024–2026 yıllarına ait özet bilanço ve gelir tablosu verileri (bin ₺) aşağıda verilmiştir.
+
+
+    | Kalem | 2024 | 2025 | 2026 |
+
+    |---|---:|---:|---:|
+
+    | **BİLANÇO** |  |  |  |
+
+    | Hazır Değerler | 40 | 50 | 80 |
+
+    | Ticari Alacaklar | 150 | 180 | 220 |
+
+    | Stoklar | 120 | 160 | 200 |
+
+    | Diğer Dönen Varlıklar | 40 | 30 | 40 |
+
+    | **Dönen Varlıklar** | **350** | **420** | **540** |
+
+    | Maddi Duran Varlıklar (net) | 650 | 680 | 710 |
+
+    | **Toplam Aktif** | **1.000** | **1.100** | **1.250** |
+
+    | Kısa Vadeli Mali Borçlar | 100 | 120 | 140 |
+
+    | Ticari Borçlar | 120 | 150 | 200 |
+
+    | Diğer Kısa Vadeli Yabancı Kaynaklar | 30 | 30 | 60 |
+
+    | **Kısa Vadeli Yabancı Kaynaklar** | **250** | **300** | **400** |
+
+    | Uzun Vadeli Mali Borçlar | 250 | 250 | 250 |
+
+    | Ödenmiş Sermaye | 400 | 400 | 400 |
+
+    | Geçmiş Yıllar Kârları | 60 | 90 | 120 |
+
+    | Dönem Net Kârı | 40 | 60 | 80 |
+
+    | **Özkaynaklar** | **500** | **550** | **600** |
+
+    | **Toplam Pasif** | **1.000** | **1.100** | **1.250** |
+
+    | **GELİR TABLOSU** |  |  |  |
+
+    | Brüt Satışlar | 1.050 | 1.250 | 1.600 |
+
+    | Satış İndirimleri (-) | 50 | 50 | 100 |
+
+    | Net Satışlar | 1.000 | 1.200 | 1.500 |
+
+    | Satışların Maliyeti (-) | 800 | 960 | 1.200 |
+
+    | Brüt Satış Kârı | 200 | 240 | 300 |
+
+    | Faaliyet Giderleri (-) | 100 | 120 | 150 |
+
+    | Faaliyet Kârı | 100 | 120 | 150 |
+
+    | Finansman Giderleri (-) | 50 | 45 | 50 |
+
+    | Dönem Kârı (vergi öncesi) | 50 | 75 | 100 |
+
+    | Vergi Karşılığı (-) | 10 | 15 | 20 |
+
+    | Dönem Net Kârı | 40 | 60 | 80 |
+
+
+    Devir hızlarında ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır.
+
+
+    Alacak devir hızının hesabında net satışlar esas alınacaktır. NB A.Ş.''nin 2026 yılı ticari alacak tahsil süresi
+    (ortalama tahsil süresi) kaç gündür?'
+  secenekler:
+    A: 7,50
+    B: 45,00
+    C: 48,00
+    D: 52,80
+    E: 60,00
+  dogru: C
+  aciklama:
+    dogru_neden: Ortalama ticari alacak = (180 + 220) / 2 = 200 bin ₺. Alacak devir hızı = Net satışlar / Ortalama
+      ticari alacaklar = 1.500 / 200 = 7,5 kez. Tahsil süresi = 360 / 7,5 = 48 gün.
+    hesap_adimlari:
+    - 'Ortalama ticari alacak: (180 + 220) / 2 = 200'
+    - 'Alacak devir hızı: 1.500 / 200 = 7,5'
+    - 'Tahsil süresi: 360 / 7,5 = 48 gün'
+    celdiriciler:
+      A: 7,50, alacak devir hızıdır (kez); soru gün olarak tahsil süresini sormaktadır.
+      B: 45,00, baz olarak brüt satışlar (1.600) alındığında bulunur (360 × 200 / 1.600); alacak devir hızında net
+        satışlar esas alınır.
+      D: 52,80, ortalama alacak yerine dönem sonu alacak (220) alındığında bulunur (360 × 220 / 1.500).
+      E: 60,00, baz olarak satışların maliyeti (1.200) alındığında bulunur (360 × 200 / 1.200); alacaklar satış
+        tutarı ile ilişkilendirilir.
+  kaynaklar: &id001
+  - mevzuat: Finansal tablolar analizi — genel kabul görmüş oran tanımları
+    madde: Alacak devir hızı = Net satışlar / Ortalama ticari alacaklar; Alacak tahsil süresi = 360 / Alacak devir
+      hızı
+    alinti: ''
+  dogrulama:
+    python: 'ort_alacak = (180 + 220) / 2
+
+      hiz = 1500 / ort_alacak
+
+      sonuc = round(360 / hiz, 2)
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v2
+    kapilar:
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+- id: SMMM-TAB-DVR-0004
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Finansal Tablolar ve Analizi
+  konu: DVR
+  kazanim: Hedef tahsil süresinden dönem sonu alacak tutarına geri hesap
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  ortak_veri: TAB-SET-02
+  kok: 'NB A.Ş.''nin 2024–2026 yıllarına ait özet bilanço ve gelir tablosu verileri (bin ₺) aşağıda verilmiştir.
+
+
+    | Kalem | 2024 | 2025 | 2026 |
+
+    |---|---:|---:|---:|
+
+    | **BİLANÇO** |  |  |  |
+
+    | Hazır Değerler | 40 | 50 | 80 |
+
+    | Ticari Alacaklar | 150 | 180 | 220 |
+
+    | Stoklar | 120 | 160 | 200 |
+
+    | Diğer Dönen Varlıklar | 40 | 30 | 40 |
+
+    | **Dönen Varlıklar** | **350** | **420** | **540** |
+
+    | Maddi Duran Varlıklar (net) | 650 | 680 | 710 |
+
+    | **Toplam Aktif** | **1.000** | **1.100** | **1.250** |
+
+    | Kısa Vadeli Mali Borçlar | 100 | 120 | 140 |
+
+    | Ticari Borçlar | 120 | 150 | 200 |
+
+    | Diğer Kısa Vadeli Yabancı Kaynaklar | 30 | 30 | 60 |
+
+    | **Kısa Vadeli Yabancı Kaynaklar** | **250** | **300** | **400** |
+
+    | Uzun Vadeli Mali Borçlar | 250 | 250 | 250 |
+
+    | Ödenmiş Sermaye | 400 | 400 | 400 |
+
+    | Geçmiş Yıllar Kârları | 60 | 90 | 120 |
+
+    | Dönem Net Kârı | 40 | 60 | 80 |
+
+    | **Özkaynaklar** | **500** | **550** | **600** |
+
+    | **Toplam Pasif** | **1.000** | **1.100** | **1.250** |
+
+    | **GELİR TABLOSU** |  |  |  |
+
+    | Brüt Satışlar | 1.050 | 1.250 | 1.600 |
+
+    | Satış İndirimleri (-) | 50 | 50 | 100 |
+
+    | Net Satışlar | 1.000 | 1.200 | 1.500 |
+
+    | Satışların Maliyeti (-) | 800 | 960 | 1.200 |
+
+    | Brüt Satış Kârı | 200 | 240 | 300 |
+
+    | Faaliyet Giderleri (-) | 100 | 120 | 150 |
+
+    | Faaliyet Kârı | 100 | 120 | 150 |
+
+    | Finansman Giderleri (-) | 50 | 45 | 50 |
+
+    | Dönem Kârı (vergi öncesi) | 50 | 75 | 100 |
+
+    | Vergi Karşılığı (-) | 10 | 15 | 20 |
+
+    | Dönem Net Kârı | 40 | 60 | 80 |
+
+
+    Devir hızlarında ortalama değerler kullanılacak; yıl 360, ay 30 gün alınacaktır.
+
+
+    NB A.Ş.''nin 2027 yılında net satışlarının 1.800 bin ₺, satışların maliyetinin 1.440 bin ₺ olacağı öngörülmektedir.
+    Yönetim, 2027 yılında ticari alacak tahsil süresinin 36 güne düşürülmesini hedeflemektedir. Alacak devir hızının
+    hesabında net satışlar ve ortalama ticari alacaklar kullanılacaktır. Bu hedefe ulaşılabilmesi için 2027 yıl
+    sonunda ticari alacaklar kaç bin ₺ olmalıdır?'
+  secenekler:
+    A: '68'
+    B: '140'
+    C: '160'
+    D: '180'
+    E: '360'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Hedef tahsil süresi 36 gün olduğuna göre alacak devir hızı 360 / 36 = 10 kezdir. Ortalama ticari
+      alacak = Net satışlar / Devir hızı = 1.800 / 10 = 180 bin ₺. Ortalama alacak (2026 sonu + 2027 sonu) / 2 olduğundan
+      (220 + X) / 2 = 180 ve X = 140 bin ₺''dir. Püf noktaları: Sonuç doğrudan bulunmaz; önce devir hızı, sonra
+      ortalama alacak, en son dönem sonu alacak hesaplanır (geri hesap). Bulunan 180, dönem sonu değil ortalama
+      değerdir; dönem sonu değer, başlangıç bakiyesi (2026 sonu: 220) düşülerek bulunur. Satışların maliyeti ve
+      brüt satışlar gibi veriler çözüme etkisizdir; alacak devir hızında net satışlar esas alınır.'
+    hesap_adimlari:
+    - 'Hedef devir hızı: 360 / 36 = 10'
+    - 'Ortalama ticari alacak: 1.800 / 10 = 180'
+    - 'Dönem sonu: 2 × 180 − 220 = 140'
+    celdiriciler:
+      A: '68, baz olarak satışların maliyeti (1.440) alındığında bulunur: ortalama alacak 1.440 / 10 = 144; 2 ×
+        144 − 220 = 68.'
+      C: '160, başlangıç bakiyesi olarak 2026 ortalama alacağı (200) alındığında bulunur: 2 × 180 − 200 = 160; başlangıç
+        bakiyesi 2026 yıl sonu değeridir (220).'
+      D: 180, hedeflenen ortalama alacağın dönem sonu alacak sanılmasıyla bulunur; ortalamada başlangıç bakiyesi
+        de vardır.
+      E: 360, iki bakiyenin toplamı (2 × 180) alınıp başlangıç bakiyesi (220) düşülmeden bulunur; doğru işlem 360
+        − 220 = 140'tır.
+  kaynaklar: *id001
+  dogrulama:
+    python: 'hiz = 360 / 36
+
+      ort = 1800 / hiz
+
+      sonuc = round(2 * ort - 220, 2)
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude
+    istem_surumu: uretim.md v2
+    kapilar:
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
