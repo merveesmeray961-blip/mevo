@@ -1,6 +1,6 @@
 """Harici soru yazarları (başka asistanlar) için görev paketi hazırlar ve teslimleri bankaya taslak olarak alır.
 
-    python -m pipeline.uretici_paketi olustur HUK 30 [--cikti klasor]   # GOREV.md + kurallar + örnekler + kaynaklar → .zip
+    python -m pipeline.uretici_paketi olustur HUK 30 [--atla 30] [--cikti klasor]   # GOREV.md + kurallar + örnekler + kaynaklar → .zip
     python -m pipeline.uretici_paketi al teslim_x.yaml 6                 # teslimi doğrular, id verir, <KONU>.p6.yaml yazar
 
 `al` soruları `durum: taslak` olarak yazar; ardından olağan denetim (SORU_URETIM_RECETESI.md "Harici üretici") uygulanır.
@@ -55,14 +55,14 @@ def _ornekler(ders: str, n: int = 3) -> list[dict]:
     return [{k: s[k] for k in YAZAR_ALANLARI if k in s} for s in list(secilen.values())[:n]]
 
 
-def olustur(ders: str, adet: int, cikti: Path) -> Path:
+def olustur(ders: str, adet: int, cikti: Path, atla: int = 0) -> Path:
     tarih = dt.date.today().isoformat()
-    kod = f"{ders}-{tarih}-{adet}"
+    kod = f"{ders}-{tarih}-{atla + 1}-{atla + adet}"
     klasor = cikti / f"uretici_{kod}"
     if klasor.exists():
         shutil.rmtree(klasor)
     (klasor / "kaynaklar").mkdir(parents=True)
-    plan = harita.sonraki(adet, ders)
+    plan = harita.sonraki(atla + adet, ders)[atla:]  # farklı asistanlara çakışmayan dilimler
     satirlar = [f"# Görev {kod}", "",
                 f"Yazacağın {len(plan)} soru aşağıda. Her satır için **tam o kazanımda, o zorlukta** bir soru yaz "
                 "(1 kolay · 2 orta · 3 zor). Kurallar `MANIFESTO.md`'de; teslimde `gorev` alanına "
@@ -163,7 +163,8 @@ def al(teslim: Path, parti: int) -> list[str]:
 def main(argv: list[str]) -> int:
     if len(argv) >= 4 and argv[1] == "olustur":
         cikti = Path(argv[argv.index("--cikti") + 1]) if "--cikti" in argv else KOK / "uretici_paketleri"
-        print(olustur(argv[2].upper(), int(argv[3]), cikti))
+        atla = int(argv[argv.index("--atla") + 1]) if "--atla" in argv else 0
+        print(olustur(argv[2].upper(), int(argv[3]), cikti, atla))
         return 0
     if len(argv) >= 4 and argv[1] == "al":
         print("\n".join(al(Path(argv[2]), int(argv[3]))))
