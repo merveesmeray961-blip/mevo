@@ -78,3 +78,7 @@ karşılaştırıldı. **30 cevap anahtarının 30'u doğru.** Aşağıdakiler g
 Hataların çoğu aynı türden: kuralın **kime/hangi şartla** uygulandığını özetlerken genişletmek veya bir şartı atlamak
 (12, 14, 25), kökte çözüm için gereken bir varsayımı yazmamak (7, 18, 29) ve THP hesap işleyişini kısaltmak (1).
 G5 düşman denetimi istemine bu üç kontrol açıkça eklenecek.
+
+## SPKn parasal sınırlar (P5 hakem notu, 5 Ekim 2026)
+
+SPKn md. 103/1 ve 104 tutarları her yıl yeniden değerlenir (2026: md. 104 için 445.243,49–11.141.376,25 TL). Bankada bu tutarları kanun metnindeki ilk hâliyle soran soru varsa güncellenmeli; yıla bağlı tutarlar `gecerlilik.yila_bagli_tutar` ile işaretlenmeli.

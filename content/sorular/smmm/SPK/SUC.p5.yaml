@@ -25,8 +25,9 @@
       bir başkasına menfaat temin ederlerse üç yıldan beş yıla kadar hapis veya adli para cezası ile cezalandırılırlar.
     celdiriciler:
       B: '"İki yıldan" alt sınırı eski düzenlemedir; 7222 sayılı Kanunla bu ibare "üç yıldan" olarak değiştirilmiştir.'
-      C: Bilgi suistimali bir suçtur ve md. 106/1'de hapis veya adli para cezası öngörülmüştür; idari para cezası
-        piyasa bozucu eylemler (md. 104) içindir.
+      C: Bilgi suistimali bir suçtur ve md. 106/1'de hapis veya adli para cezası öngörülmüştür; Kurulca verilen
+        idari para cezası ise suç oluşturmayan fiiller (örneğin md. 103'teki aykırılıklar ve md. 104'teki piyasa
+        bozucu eylemler) için öngörülmüştür.
       D: Hapis ve beş bin günden on bin güne kadar adli para cezasının birlikte verilmesi piyasa dolandırıcılığına
         ilişkin md. 107/1 hükmüdür; bilgi suistimalinde hapis veya adli para cezası seçimliktir.
       E: Bir yıldan üç yıla kadar hapis cezası md. 106'da yer almaz.
@@ -46,11 +47,18 @@
       emir değiştirenler veya hesap hareketleri gerçekleştirenler üç yıldan beş yıla kadar hapis ve beş bin günden
       on bin güne kadar adli para cezası ile cezalandırılırlar.
   gecerlilik:
-    baslangic: '2020-02-20'
+    baslangic: '2020-02-25'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
+  gecmis:
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: 'hakem 2026-10-05: C çeldiricisindeki "idari para cezası piyasa bozucu eylemler (md. 104) içindir" ifadesi
+      md. 103 ve 104''ü örnek veren biçimde düzeltildi; gecerlilik.baslangic 2020-02-20 → 2020-02-25.'
+    neden: 'G5/G6: idari para cezası yalnız md. 104''e özgü değildir (md. 103/1, 103/3, 103/4, 103/6 vb.); md. 106/1''deki
+      "üç yıldan" ibaresini getiren 7222 sayılı Kanunun kabul tarihi 20/2/2020, yürürlüğü RG yayımı 25/2/2020''dir.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -67,13 +75,23 @@
         not: yalnız banka içi; külliyat verilmedi
         tarih: '2026-10-05'
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: A (güven 5) 6362 m.106: bilgi suistimali 3-5 yıl hapis veya adli para cezası (hapis ve
+          adli para cezası m.107 piyasa dolandırıcılığı).'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: Anahtar A doğru (md. 106/1, 7222 ile "üç yıldan"); B eski metin, D md. 107/1, C ve E açıkça yanlış.
+          C çeldirici açıklamasındaki mutlak ifade düzeltildi.
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: Alıntılar SPKn md. 106/1 ve 107/1 ile birebir; 7222 değişikliği dipnot 14 ile doğrulandı.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (A, güven 4)
 - id: SMMM-SPK-SUC-0004
   sinav: smmm
   bolum:
@@ -86,30 +104,35 @@
   zorluk: 2
   soru_bicimi: standart
   kok: (K), Kurulca piyasa bozucu eylem olarak belirlenen, makul bir ekonomik veya finansal gerekçeyle açıklanamayan
-    ve borsanın güven, açıklık ve istikrar içinde çalışmasını bozacak nitelikteki bir işlem yapmış ve bu işlemle
-    1.000.000 TL tutarında menfaat temin etmiştir. (K), bu menfaatin elde edilmesiyle bağlantılı olarak 200.000
-    TL komisyon, vergi ve kredi faizi ödemiştir. Eylem ayrıca bir suç oluşturmamaktadır. 6362 sayılı Sermaye Piyasası
-    Kanunu'na göre (K) hakkında verilecek yaptırımla ilgili aşağıdakilerden hangisi doğrudur?
+    ve borsanın güven, açıklık ve istikrar içinde çalışmasını bozacak nitelikteki bir işlemi bir kez gerçekleştirmiş
+    ve bu işlemden 1.000.000 TL tutarında brüt menfaat elde etmiştir. (K), bu menfaatin elde edilmesiyle bağlantılı
+    olarak toplam 200.000 TL komisyon, vergi ve kredi faizi ödemiş; net kazancı 800.000 TL olmuştur. Eylem ayrıca
+    bir suç oluşturmamaktadır. 6362 sayılı Sermaye Piyasası Kanunu'na göre (K) hakkında verilecek yaptırımla ilgili
+    aşağıdakilerden hangisi doğrudur?
   secenekler:
     A: Eylem suç oluşturmadığından (K) hakkında herhangi bir yaptırım uygulanmaz.
-    B: Kurul tarafından idari para cezası verilir; ceza miktarı 2.000.000 TL'den az olamaz.
-    C: Kurul tarafından idari para cezası verilir; ceza miktarı 1.600.000 TL'den az olamaz.
+    B: Kurul tarafından idari para cezası verilir; cezanın alt sınırı 2.000.000 TL'dir.
+    C: Kurul tarafından idari para cezası verilir; cezanın alt sınırı 1.600.000 TL'dir.
     D: Mahkemece üç yıldan beş yıla kadar hapis cezası verilir.
     E: Kurul tarafından idari para cezası verilir; ancak miktar menfaat ne olursa olsun Kanunda yazılı üst sınırı
       aşamaz.
   dogru: B
   aciklama:
-    dogru_neden: md. 104/1'e göre suç oluşturmayan piyasa bozucu eylemleri gerçekleştirenlere Kurul tarafından idari
-      para cezası verilir; menfaat temin edilmişse ceza miktarı menfaatin iki katından az olamaz. md. 103/9'a göre
-      menfaat hesaplanırken kişinin menfaatin elde edilmesiyle bağlantılı olarak ödediği komisyon, vergi, kredi
-      faizi gibi maliyetler dikkate alınmaz. Menfaat 1.000.000 TL olduğundan ceza 2.000.000 TL'den az olamaz.
+    dogru_neden: md. 104/1'e göre bir suç oluşturmayan ve Kurulca belirlenen piyasa bozucu eylemleri gerçekleştirenlere
+      Kurul tarafından idari para cezası verilir; bu suretle menfaat temin edilmişse ceza miktarı menfaatin iki
+      katından az olamaz. 7518 sayılı Kanunla eklenen md. 103/9, "bu maddede ve Kanunun 104 üncü maddesinde belirtilen
+      menfaat hesaplamalarında" kişinin menfaatin elde edilmesiyle bağlantılı işlemlerde ödediği komisyon, vergi,
+      kredi faizi gibi maliyetlerin dikkate alınmayacağını hükme bağlar; kural md. 103'te yer almakla birlikte md.
+      104'teki menfaat hesabına da açıkça uygulanır. Bu nedenle menfaat brüt 1.000.000 TL'dir ve cezanın alt sınırı
+      2 × 1.000.000 = 2.000.000 TL'dir.
     celdiriciler:
       A: md. 104/1 piyasa bozucu eylemleri tam da bir suç oluşturmadığı takdirde idari para cezasına bağlamıştır;
         suç oluşturmaması yaptırım uygulanmasını engellemez.
-      C: Menfaat net (800.000 TL) alınarak iki katı hesaplanmıştır; oysa md. 103/9'a göre komisyon, vergi ve kredi
-        faizi gibi maliyetler menfaat hesabında dikkate alınmaz.
-      D: Hapis cezası suç niteliğindeki eylemler (md. 106 ve 107) içindir; suç oluşturmayan piyasa bozucu eylemde
-        idari para cezası verilir.
+      C: Menfaat net (800.000 TL) alınarak iki katı hesaplanmıştır; oysa md. 103/9'a göre md. 104'teki menfaat hesabında
+        komisyon, vergi ve kredi faizi gibi maliyetler dikkate alınmaz.
+      D: Hapis cezası suç niteliğindeki fiiller (örneğin md. 106 bilgi suistimali, md. 107 piyasa dolandırıcılığı)
+        için öngörülmüştür; kökte eylemin suç oluşturmadığı belirtildiğinden md. 104/1 uyarınca idari para cezası
+        verilir.
       E: md. 104/1'de idari para cezasının, menfaat temin edilmişse menfaatin iki katından az olamayacağı belirtilmiştir;
         Kanundaki üst sınır bu alt sınırı bağlamaz.
   kaynaklar:
@@ -128,11 +151,22 @@
       faizleri, danışmanlık ücretleri ve Kurulca benzer kapsamda olduğu değerlendirilen diğer maliyetler dikkate
       alınmaksızın ve elde edilen menfaatin nakde çevrilip çevrilmediğine bakılmaksızın hesaplama yapılır.
   gecerlilik:
-    baslangic: '2024-06-26'
+    baslangic: '2024-07-02'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
+  gecmis:
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: 'hakem 2026-10-05: kökte menfaatin brüt olduğu, net kazancın 800.000 TL olduğu ve eylemin bir kez işlendiği
+      açıkça yazıldı; B ve C şıkları "ceza miktarı ... TL''den az olamaz" yerine "cezanın alt sınırı ... TL''dir"
+      biçimine getirildi; dogru_neden''e md. 103/9''un md. 104''e açık atfı eklendi; D çeldiricisi örnekleyici yapıldı;
+      gecerlilik.baslangic 2024-06-26 → 2024-07-02; surum 1 → 2.'
+    neden: 'G5: "1.000.000 TL menfaat" brüt mü net mi belirsizdi; alt sınır 2.000.000 TL iken "1.600.000 TL''den
+      az olamaz" önermesi mantıken de doğru olduğundan C savunulabilirdi; md. 105/2 (tekrar hâlinde üç kat) için
+      örtük varsayım vardı. Atıf kontrolü: md. 103/9 "Bu maddede ve Kanunun 104 üncü maddesinde belirtilen menfaat
+      hesaplamalarında" dediğinden md. 103/9 atfı doğrudur. 7518 sayılı Kanun RG 2/7/2024''te yayımlanmıştır.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -149,10 +183,20 @@
         not: yalnız banka içi; külliyat verilmedi
         tarih: '2026-10-05'
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: B (güven 5) 6362 m.104: idari para cezası menfaatin 2 katından az olamaz; m.103/9: komisyon,
+          vergi, kredi faizi dikkate alınmaz -> 1.000.000 x 2 = 2.000.000.'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: brüt/net belirsizliği ve "az olamaz" mantık açığı giderildi; anahtar B
+          (md. 104/1 + 103/9) tek doğru.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: Alıntılar SPKn md. 104/1 ve 103/9 ile birebir; md. 103/9'un 104'e uygulanması metinde açık.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (B, güven 3)
