@@ -46,3 +46,14 @@ Elle parti tanımlanmaz; her parti haritadan alınır:
 ## Commit mesajı sonu
 
 Oturumun sistem hatırlatmasında verilen `Co-Authored-By` ve `Claude-Session` satırları (birebir).
+
+## Harici üretici (başka asistanlar yazar, biz denetleriz)
+
+1. Paket: `python -m pipeline.uretici_paketi olustur <DERS> <adet>` → `uretici_paketleri/uretici_<DERS>-<tarih>-<adet>.zip`
+   (MANIFESTO, GOREV = haritadan sıradaki satırlar, kurallar, kontrol listesi, şema, 3 örnek, dersin resmî metinleri).
+   Aynı anda iki asistana aynı dersten paket verme (görev satırları çakışır); farklı dersler paralel olabilir.
+2. Asistan `teslim_<ad>_<tarih>.yaml` döndürür.
+3. Al: `python -m pipeline.uretici_paketi al teslim.yaml <N>` → `<KONU>.pN.yaml`, `durum: taslak`, id'ler biz veririz.
+4. `python -m pipeline.denetle content/sorular/smmm` (G2/G4/G7; mükerrerleri sil), sonra yukarıdaki adım 2–7
+   (kör dosya → kör çözücü + ortalama aday + hakemler → `kor isle` → dışa aktar → commit).
+   Harici sorularda hakemler alıntıları `kaynaklar/` metninde birebir arar; uyuşmayan alıntı = G6 KALDI.
