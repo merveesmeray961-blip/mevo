@@ -7,22 +7,26 @@
   konu: BRC
   kazanim: borç kaynakları
   tip: bilgi
-  zorluk: 1
-  kok: Haksız fiil sorumluluğunun TBK md. 49’daki temel koşulu aşağıdakilerden hangisidir?
+  zorluk: 2
+  kok: TBK md. 49/1'de düzenlenen genel haksız fiil sorumluluğunun koşulu aşağıdakilerden hangisidir?
   secenekler:
     A: Kusurlu ve hukuka aykırı fiille başkasına zarar verme
-    B: Yalnız yazılı sözleşme
-    C: Kamu kararı
-    D: Yalnız sebepsiz zenginleşme
-    E: Yalnız tek taraflı irade
+    B: Kusur aranmaksızın, hukuka aykırı bir fiille başkasına zarar verme
+    C: Yalnızca ahlaka aykırı bir fiille başkasına kasten zarar verme
+    D: Zarar doğmasa da kusurlu ve hukuka aykırı bir fiil işleme
+    E: Zarar görenle arasında geçerli bir sözleşme bulunması
   dogru: A
   aciklama:
-    dogru_neden: Md. 49/1 kusurlu ve hukuka aykırı fiille başkasına zarar verenin zararı gidermekle yükümlü olduğunu düzenler.
+    dogru_neden: Md. 49/1'e göre kusurlu ve hukuka aykırı bir fiille başkasına zarar veren, bu zararı gidermekle yükümlüdür.
+      Genel haksız fiil sorumluluğu kusur, hukuka aykırılık ve zarar unsurlarını birlikte arar.
     celdiriciler:
-      B: Sözleşme şartı değildir.
-      C: Kamu kararı şartı yoktur.
-      D: Sebepsiz zenginleşme ayrı bir kaynaktır.
-      E: Tek taraflı irade md. 49’un koşulu değildir.
+      B: Md. 49/1 kusur arar; kusur aranmaksızın sorumluluk kanunda ayrıca öngörülen hâllerde (ör. md. 66 adam çalıştıranın
+        sorumluluğu) söz konusudur.
+      C: Ahlaka aykırı fiille kasten zarar verme md. 49/2'deki ayrı bir hâldir (zarar verici fiili yasaklayan bir hukuk kuralı
+        bulunmasa bile); md. 49/1'deki genel koşul kusurlu ve hukuka aykırı fiildir.
+      D: Md. 49/1 zararın giderilmesini düzenler; zarar doğmadan bu hükme göre giderim yükümlülüğü doğmaz.
+      E: Haksız fiil sorumluluğu taraflar arasında sözleşme bulunmasını gerektirmez; sözleşmeye aykırılıktan doğan sorumluluk
+        md. 112'de ayrıca düzenlenir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6098 sayılı TBK
@@ -32,25 +36,51 @@
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ChatGPT'
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: A (güven 5) TBK 49 kusurlu+hukuka aykırı fiille zarar'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: kök md. 49/1''e bağlandı; yeni çeldiriciler (kusursuz sorumluluk, 49/2, zararsız
+          fiil, sözleşme) tek tek yanlış; anahtar A tek doğru.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 49/1-2, md. 66 ve md. 112 resmî metinle uyumlu; alıntı birebir.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (A, güven 5)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 4
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: Kök md. 49/1'e daraltıldı ('md. 49'daki temel koşulu' → 'md. 49/1'de düzenlenen genel haksız fiil sorumluluğunun koşulu');
+      kökü okumadan elenen B–E şıkları (yazılı sözleşme, kamu kararı, sebepsiz zenginleşme, tek taraflı irade) unsur karıştırmaya
+      dayalı şıklarla değiştirildi; açıklamalar yeniden yazıldı; zorluk 1 → 2; surum 1 → 2. Anahtar değişmedi (A).
+    neden: 'G5: çeldiriciler kökü okumadan elenebiliyordu; md. 49 iki fıkralı olduğundan ''temel koşul'' ifadesi 49/2 ile
+      belirsizdi.'
 - id: SMMM-HUK-BRC-0006
   sinav: smmm
   bolum:
@@ -88,7 +118,7 @@
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -96,17 +126,43 @@
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: D (güven 5) TBK 4/1-2: telefon hazır olanlar arasında; hemen kabul edilmezse öneren bağlılıktan
+          kurtulur'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-05'
+        not: 'Tekrar soru: SMMM-HUK-BRC-0004 ile aynı senaryo, kural (TBK md. 4/1-2) ve sonuç; kök ayrıca P''nin beklemeye
+          rıza göstermediğini yazmıyordu. Geri çekildi.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 4/1-2 alıntısı tbk.txt ile uyumlu; açıklamalar kaynakla tutarlı (geri çekilme nedeni G5).
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday yanlış (A, güven 4)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 9
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi.'
+    neden: 'G5: Soru, bankadaki SMMM-HUK-BRC-0004 ile aynı senaryoyu (telefonla süresiz öneri, ''yarın'' cevabı, ertesi gün
+      kabul), aynı kuralı (TBK md. 4/1-2) ve aynı sonucu ölçüyor; ayrıca kök P''nin beklemeye rıza göstermediğini yazmıyordu
+      (BRC-0004''te GZ sonrası tam da bu nedenle eklenmişti). Düzeltilmiş hâli BRC-0004''ün tekrarı olacağından geri çekildi.'
 - id: SMMM-HUK-BRC-0007
   sinav: smmm
   bolum:
@@ -116,9 +172,10 @@
   konu: BRC
   kazanim: yanılma
   tip: uygulama
-  zorluk: 3
-  kok: R, 100.000 TL ödemek isterken iradesini 1.000.000 TL ödeme yönünde açıklamıştır. Hata basit hesap hatası değildir.
-    R sözleşmeyle bağlı mıdır?
+  zorluk: 2
+  kok: R, karşı tarafla yaptığı sözleşmede 100.000 TL ödemeyi üstlenmek isterken iradesini 1.000.000 TL ödeme yönünde açıklamıştır.
+    Hata basit bir hesap yanlışlığı değildir. R, yanıldığını öğrendiği gün karşı tarafa sözleşmeyle bağlı olmadığını bildirmiştir.
+    6098 sayılı TBK'ya göre R sözleşmeyle bağlı mıdır?
   secenekler:
     A: Her durumda bağlıdır.
     B: Esaslı yanılma nedeniyle bağlı değildir.
@@ -127,13 +184,19 @@
     E: Otomatik tazminat doğar.
   dogru: B
   aciklama:
-    dogru_neden: TBK md. 31/1-5, istenenden önemli ölçüde fazla edim için irade açıklamasını esaslı yanılma sayar; md. 30
-      esaslı yanılmada sözleşmeyle bağlı olmama sonucunu öngörür.
+    dogru_neden: TBK md. 31'in birinci fıkrasının 5 numaralı bendine göre yanılanın gerçekte üstlenmek istediğinden önemli
+      ölçüde fazla bir edim için iradesini açıklaması esaslı yanılmadır (100.000 TL yerine 1.000.000 TL). Md. 30'a göre esaslı
+      yanılmaya düşen taraf sözleşmeyle bağlı olmaz; R, md. 39/1'deki bir yıllık süre içinde bağlı olmadığını bildirdiğinden
+      sözleşmeyi onamış da sayılmaz.
     celdiriciler:
-      A: Md. 30 esaslı yanılmaya sonuç bağlar.
-      C: Bu, yanılmanın temel sonucu için şart değildir.
-      D: Olay açıklamada yanılmadır, saikte değil.
-      E: Tazminat md. 35’te ayrıca kusura bağlanmıştır.
+      A: Md. 30 esaslı yanılmaya düşen tarafın sözleşmeyle bağlı olmayacağını öngörür. Basit hesap yanlışlığı olsaydı sözleşme
+        geçerli kalıp yalnız düzeltilirdi (md. 31/2); kök bunu dışlamıştır.
+      C: Yanılmanın ileri sürülmesi karşı tarafın kabulüne bağlı değildir; yanılan, md. 39/1'deki süre içinde sözleşmeyle
+        bağlı olmadığını bildirir.
+      D: Olay iradenin açıklanmasında yanılmadır (md. 31/1-5), saikte yanılma değildir; ayrıca md. 32'ye göre saikte yanılma
+        kural olarak esaslı sayılmaz.
+      E: Tazminat kendiliğinden doğmaz; md. 35/1'e göre yanılan, yanılmasında kusurlu ise sözleşmenin hükümsüzlüğünden doğan
+        zararı gidermekle yükümlüdür ve karşı taraf yanılmayı biliyor veya bilmesi gerekiyorsa tazminat istenemez.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6098 sayılı TBK
@@ -143,29 +206,61 @@
     madde: md. 31/1-5
     alinti: Yanılan, gerçekte üstlenmek istediğinden önemli ölçüde fazla bir edim için veya gerçekte istediğinden önemli ölçüde
       az bir karşı edim için iradesini açıklamışsa.
+  - mevzuat: 6098 sayılı TBK
+    madde: md. 39/1
+    alinti: Yanılma veya aldatma sebebiyle ya da korkutulma sonucunda sözleşme yapan taraf, yanılma veya aldatmayı öğrendiği
+      ya da korkutmanın etkisinin ortadan kalktığı andan başlayarak bir yıl içinde sözleşme ile bağlı olmadığını bildirmez
+      veya verdiği şeyi geri istemezse, sözleşmeyi onamış sayılır.
   gecerlilik:
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ChatGPT'
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: B (güven 4) TBK 30-32 beyanda yanılma, miktarda esaslı yanılma; bağlı değil'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: md. 31/1-5 (bent atfı doğru) + md. 30 + md. 39/1 bildirimi ile anahtar B tek doğru;
+          örtük bildirim varsayımı köke yazıldı. Zorluk 3 → 2.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 30, 31/1-5, 31/2, 32, 35/1, 39/1 alıntı ve iddiaları tbk.txt ile uyumlu.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (B, güven 4)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 14
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: Köke R'nin yanılmayı öğrendiği gün bağlı olmadığını bildirdiği eklendi (md. 39/1 örtük varsayımı) ve soru TBK'ya bağlandı;
+      md. 39/1 kaynağı eklendi; dogru_neden'de bent atfı açıkça yazıldı (md. 31/1, bent 5); A, C, D, E açıklamaları md. 31/2,
+      32, 35/1 ve 39/1'e bağlandı (E'deki 'tazminat ayrıca kusura bağlanmıştır' cümlesi md. 35'in kimin tazminat ödediğini
+      söylemiyordu); zorluk 3 → 2; surum 1 → 2. Şıklar ve anahtar değişmedi (B).
+    neden: 'G5: örtük varsayım — esaslı yanılmada bağlı olmama, bir yıl içinde bildirime bağlıdır (md. 39/1); bildirim yoksa
+      sözleşme onanmış sayılır ve A savunulabilir hâle gelir.'
 - id: SMMM-HUK-BRC-0008
   sinav: smmm
   bolum:
@@ -179,47 +274,75 @@
   kok: Üç kişi bir borcun tamamından müteselsilen sorumludur. Alacaklı borcun tamamını yalnızca birinden isteyebilir mi?
   secenekler:
     A: Hayır.
-    B: Yalnız kefilden.
-    C: Yalnız mahkeme kararıyla.
+    B: Hayır; alacaklı önce diğer borçlulara başvurmuş olmalıdır.
+    C: Ancak bütün borçlular birlikte dava edilirse.
     D: Yalnız eşit payını.
     E: Evet.
   dogru: E
   aciklama:
-    dogru_neden: TBK md. 163 alacaklının borcun tamamının veya bir kısmının ifasını dilerse yalnız bir borçludan isteyebileceğini
-      düzenler.
+    dogru_neden: TBK md. 163/1'e göre alacaklı, borcun tamamının veya bir kısmının ifasını dilerse borçluların hepsinden,
+      dilerse yalnız birinden isteyebilir.
     celdiriciler:
-      A: Müteselsil sorumluluğun dış ilişki sonucu bunun tersidir.
-      B: Somut olay kefalet değildir.
-      C: Mahkeme kararı şartı yoktur.
-      D: Eşit paylaşım iç ilişkide önemlidir.
+      A: Md. 163/1 alacaklıya borcun tamamını yalnız bir borçludan isteme imkânı verir; 'hayır' cevabı bu kurala aykırıdır.
+      B: Müteselsil borçlulukta alacaklının önce diğer borçlulara başvurması gibi bir sıra yoktur; alacaklı seçtiği borçludan
+        doğrudan isteyebilir (md. 163/1).
+      C: Md. 163/1 alacaklıya borçluların hepsinden veya yalnız birinden isteme seçimini tanır; bütün borçluların birlikte
+        dava edilmesi şartı yoktur.
+      D: Eşit paylar kuralı (md. 167/1) borçluların kendi aralarındaki iç ilişkiye aittir; dış ilişkide alacaklı borcun tamamını
+        tek bir borçludan isteyebilir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6098 sayılı TBK
-    madde: md. 163
+    madde: md. 163/1
     alinti: Alacaklı, borcun tamamının veya bir kısmının ifasını, dilerse borçluların hepsinden, dilerse yalnız birinden isteyebilir.
   gecerlilik:
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ChatGPT'
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: E (güven 5) TBK 162 müteselsil borç, tamamını isteyebilir'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: anahtar E tek doğru; yeni B ve C md. 163/1''e aykırı, D iç ilişki kuralı. Zorluk
+          1 uygun.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 163/1 ve md. 167/1 tbk.txt ile uyumlu; alıntı birebir.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (E, güven 5)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 19
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: Kökü okumadan elenen B ('Yalnız kefilden') ve C ('Yalnız mahkeme kararıyla') şıkları müteselsil borçlulukta sık karıştırılan
+      sıra/birlikte dava şartlarıyla değiştirildi; D açıklaması md. 167/1'e bağlandı; kaynak 'md. 163' → 'md. 163/1'; surum
+      1 → 2. Anahtar değişmedi (E).
+    neden: 'G5: iki çeldirici kökü okumadan elenebiliyordu; ''eşit paylaşım iç ilişkide önemlidir'' açıklaması dayanaksızdı.'
 - id: SMMM-HUK-BRC-0009
   sinav: smmm
   bolum:
@@ -229,49 +352,79 @@
   konu: BRC
   kazanim: borcun sona ermesi
   tip: uygulama
-  zorluk: 2
+  zorluk: 1
   kok: Mevcut borç için yeni bir alacak senedi düzenlenmiş, fakat tarafların eski borcu yeni borçla sona erdirme yönünde açık
     iradesi yoktur. Yenileme gerçekleşmiş midir?
   secenekler:
     A: Evet, her senet otomatik yenilemedir.
-    B: Evet, senet tek başına yeterlidir.
+    B: Evet; yeni senet düzenlenmesi yenileme iradesine karine oluşturur.
     C: Hayır; açık irade gerekir.
     D: Hayır; sadece mahkeme kararıyla mümkündür.
     E: Evet, yalnız ticari borçlarda.
   dogru: C
   aciklama:
-    dogru_neden: TBK md. 133/1 açık irade olmadıkça yeni alacak senedi düzenlenmesinin yenileme sayılmayacağını düzenler.
+    dogru_neden: TBK md. 133/1'e göre yeni bir borçla mevcut borcun sona erdirilmesi ancak tarafların bu yöndeki açık iradesiyle
+      olur; md. 133/2'ye göre özellikle mevcut borç için yeni bir alacak senedi düzenlenmesi, tarafların açık yenileme iradeleri
+      olmadıkça yenileme sayılmaz.
     celdiriciler:
-      A: Otomatik yenileme yoktur.
-      B: Açık irade şartı vardır.
-      D: Mahkeme kararı şartı yoktur.
-      E: Hüküm ticari borçlarla sınırlı değildir.
+      A: Md. 133/2'ye göre yeni alacak senedi düzenlenmesi açık yenileme iradesi olmadıkça yenileme sayılmaz; kendiliğinden
+        yenileme yoktur.
+      B: Kanun yeni senet düzenlenmesine yenileme karinesi bağlamaz; tersine md. 133/2'ye göre açık yenileme iradesi yoksa
+        yenileme sayılmaz.
+      D: Yenileme tarafların açık iradesiyle olur (md. 133/1); mahkeme kararı şartı yoktur.
+      E: Md. 133 ticari ve adi borçlar arasında ayrım yapmaz.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6098 sayılı TBK
-    madde: md. 133/1
+    madde: md. 133/1-2
     alinti: Yeni bir borçla mevcut bir borcun sona erdirilmesi, ancak tarafların bu yöndeki açık iradesi ile olur. ... yeni
       bir alacak senedi ... düzenlenmesi, tarafların açık yenileme iradeleri olmadıkça yenileme sayılmaz.
   gecerlilik:
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ChatGPT'
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: C (güven 5) TBK 133 yenileme için açık irade'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: anahtar C tek doğru; A/B ayrıştırıldı. Kök cevabı büyük ölçüde içerdiğinden zorluk
+          1.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: alıntı md. 133/1 ve 133/2 ile birebir; fıkra atıfları düzeltildi.'
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (C, güven 5)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 24
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: 'Atıf düzeltildi: ''yeni alacak senedi'' kuralı md. 133/1 değil md. 133/2''dedir (kaynak ''md. 133/1'' → ''md. 133/1-2'',
+      dogru_neden iki fıkraya ayrıldı); A ile anlamca aynı olan B şıkkı (''senet tek başına yeterlidir'') karine iddiasıyla
+      değiştirildi; zorluk 2 → 1 (kök açık iradenin yokluğunu verdiğinden doğrudan okunuyor); surum 1 → 2. Anahtar değişmedi
+      (C).'
+    neden: 'G6: fıkra atfı yanlıştı; G5: A ve B aynı iddiayı taşıyordu.'

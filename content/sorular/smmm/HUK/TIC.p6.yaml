@@ -7,23 +7,31 @@
   konu: TIC
   kazanim: kıymetli evrak (ciro)
   tip: uygulama
-  zorluk: 3
-  kok: B’nin C’ye yaptığı ciro beyaz cirodur. C, beyaz ciroyu doldurmadan poliçeyi D’ye teslim eder. D’nin durumu nedir?
+  zorluk: 2
+  kok: Poliçenin lehtarı A, poliçeyi B'ye tam ciroyla devretmiştir. B, poliçenin arkasına yalnız imzasını atarak (beyaz ciro)
+    poliçeyi C'ye teslim etmiştir. C, beyaz ciroyu doldurmadan ve poliçeyi yeniden ciro etmeden poliçeyi D'ye teslim eder.
+    6102 sayılı TTK'ya göre D'nin durumu nedir?
   secenekler:
-    A: Yetkili hamil olamaz.
-    B: Yalnız temlik hükümlerine göre hak kazanır.
-    C: Beyaz ciroyu doldurmadan senedi teslim alarak hamil olabilir.
-    D: Cirosu geçersizdir.
-    E: B’nin yazılı izni gerekir.
+    A: Ciro zinciri kesildiğinden yetkili hamil olamaz.
+    B: Yalnız alacağın temliki hükümlerine göre hak kazanır.
+    C: Beyaz ciroyu doldurmadan teslim alsa da yetkili hamil sayılır.
+    D: Poliçe üzerinde C'nin cirosu bulunmadığından poliçe hakları C'de kalır.
+    E: Poliçe haklarını ancak B'nin yazılı izniyle kazanır.
   dogru: C
   aciklama:
-    dogru_neden: TTK md. 684/2-c beyaz ciroyu doldurmaksızın ve yeniden ciro etmeksizin poliçenin başka kişiye verilebileceğini;
-      md. 686/1 birbirine bağlı cirolardan hakkı anlaşılan kişiyi yetkili hamil sayar.
+    dogru_neden: TTK md. 684/2-c'ye göre ciro beyaz ciro ise hamil (C), beyaz ciroyu doldurmaksızın ve poliçeyi tekrar ciro
+      etmeksizin poliçeyi başka bir kişiye (D) verebilir. Md. 686/1'e göre poliçeyi elinde bulunduran kişi, son ciro beyaz
+      ciro olsa da hakkı müteselsil ve birbirine bağlı cirolardan anlaşıldığı takdirde yetkili hamil sayılır. Poliçede A'nın
+      B'ye tam cirosu ve B'nin beyaz cirosu bulunduğundan D yetkili hamildir.
     celdiriciler:
-      A: Beyaz ciroda bu zorunluluk yoktur.
-      B: Ciro yoluyla hak kazanımı mümkündür.
-      D: Beyaz ciro geçersizlik nedeni değildir.
-      E: B’nin ek izni aranmaz.
+      A: 'Ciro zinciri kesilmemiştir: md. 686/1''e göre son ciro beyaz ciro olsa da hakkı birbirine bağlı cirolardan anlaşılan
+        kişi yetkili hamil sayılır; beyaz cirodan sonra teslimle el değiştirme zinciri bozmaz (md. 684/2-c).'
+      B: Beyaz ciroyla alınan poliçe md. 684/2-c uyarınca yeniden ciro edilmeksizin teslimle başkasına verilebilir; D'nin
+        hakkı ciro ve zilyetliğin geçirilmesine dayanır (md. 684/1), alacağın temliki hükümlerine değil.
+      D: Md. 684/2-c beyaz ciroyu doldurmaksızın ve poliçeyi tekrar ciro etmeksizin poliçenin başka bir kişiye verilebileceğini
+        öngörür; C'nin cirosunun bulunmaması D'nin yetkili hamilliğine engel değildir.
+      E: Beyaz ciroyla poliçeyi alan hamilin onu başkasına vermesi için kanunda B'nin iznine ilişkin bir şart yoktur (md.
+        684/2-c).
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6102 sayılı TTK
@@ -32,29 +40,59 @@
   - mevzuat: 6102 sayılı TTK
     madde: md. 686/1
     alinti: '...kendi hakkı müteselsil ve birbirine bağlı cirolardan anlaşıldığı takdirde, yetkili hamil sayılır.'
+  - mevzuat: 6102 sayılı TTK
+    madde: md. 684/1
+    alinti: Ciro ve zilyetliğin geçirilmesi ile poliçeden doğan bütün haklar devrolunur.
   gecerlilik:
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ChatGPT'
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: C (güven 5) TTK 685/1: blanko ciro doldurulmadan teslimle devir mümkün'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: md. 684/2-c + 686/1 ile anahtar C tek doğru; A, B, D, E kanuna aykırı. Zorluk 3
+          → 2.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 684/1, 684/2-c, 686/1 alıntıları ttk.txt ile birebir; bent atıfları doğru.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (C, güven 4)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 5
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: 'Kök yeniden yazıldı: ''B''nin C''ye yaptığı ciro beyaz cirodur'' ifadesi (beyaz ciroda lehtar adı yazılmaz) ciro
+      zincirini (A→B tam ciro, B beyaz ciro, C teslim) açıkça veren anlatımla değiştirildi ve soru TTK''ya bağlandı; anahtar
+      şık ''hamil olabilir'' → ''yetkili hamil sayılır'' (md. 686/1 terimi); D ve E çeldiricileri somutlaştırıldı; md. 684/1
+      kaynağı eklendi; zorluk 3 → 2; surum 1 → 2. Anahtar harfi değişmedi (C).'
+    neden: 'G5: ''hamil olabilir'' her zilyet için doğru, ayırt edici olmayan bir ifadeydi; kökteki beyaz ciro anlatımı çelişkiliydi;
+      B açıklaması (''ciro yoluyla hak kazanımı mümkündür'') senaryodaki teslimle devri açıklamıyordu.'
 - id: SMMM-HUK-TIC-0006
   sinav: smmm
   bolum:
@@ -67,20 +105,23 @@
   zorluk: 1
   kok: Poliçeyi eline geçiren kişinin kimliği bilinmiyorsa zayi olmuş poliçe bakımından hangi yol istenebilir?
   secenekler:
-    A: Doğrudan tahsil
+    A: Poliçeyi eline geçirene karşı iade davası açılması
     B: Poliçenin iptaline karar verilmesi
-    C: Otomatik hükümsüzlük
-    D: Cironun otomatik hükümsüzlüğü
+    C: Poliçenin, ilana gerek olmaksızın kendiliğinden hükümsüz sayılması
+    D: Son cironun kendiliğinden hükümsüz sayılması
     E: Yalnız ceza soruşturması
   dogru: B
   aciklama:
     dogru_neden: TTK md. 759/1, poliçeyi eline geçiren kişi bilinmiyorsa poliçenin iptaline karar verilmesinin istenebileceğini
       düzenler.
     celdiriciler:
-      A: Kanun iptal yolunu düzenler.
-      C: Kendiliğinden hükümsüzlük sonucu yoktur.
-      D: Ciro kendiliğinden hükümsüz olmaz.
-      E: Bu hukuki yol ceza soruşturması değildir.
+      A: İade davası, poliçeyi eline geçiren kişinin bilindiği (md. 758/1) veya poliçenin mahkemeye sunulduğu (md. 763/1)
+        hâllere ilişkindir; eline geçiren bilinmediğinde kanunun öngördüğü yol iptaldir (md. 759/1).
+      C: Poliçe kendiliğinden hükümsüz olmaz; mahkeme ilanla poliçeyi eline geçireni belirli süre içinde getirmeye davet eder
+        ve aksi hâlde iptale karar vereceğini ihtar eder (md. 760/1).
+      D: Ziya ciroları kendiliğinden hükümsüz kılmaz; eline geçiren bilinmiyorsa istenebilecek yol poliçenin iptalidir (md.
+        759/1).
+      E: Md. 759/1 hukuki yol olarak poliçenin iptalini düzenler; ceza soruşturması bu hükmün öngördüğü yol değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6102 sayılı TTK
@@ -90,25 +131,51 @@
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ChatGPT'
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: B (güven 5) TTK 757 vd. poliçenin iptali'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: md. 759/1 atfı doğru; anahtar B tek doğru (md. 757 ödeme yasağı ikinci doğru olmasın
+          diye şıklara konmadı). Zorluk 1 uygun.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 758/1, 759/1, 760/1, 763/1 ttk.txt ile uyumlu; alıntı birebir.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (B, güven 3)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 11
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: Kökü okumadan elenen A ('Doğrudan tahsil') ve zayıf C, D şıkları, ziya hükümlerinde karıştırılan seçeneklerle (iade
+      davası — md. 758/763; ilansız hükümsüzlük — md. 760; cironun hükümsüzlüğü) değiştirildi; açıklamalar madde atıflarıyla
+      yeniden yazıldı; surum 1 → 2. Anahtar değişmedi (B). Muhatabın ödemeden men'i (md. 757) de bu durumda istenebildiğinden
+      şık olarak kullanılmadı.
+    neden: 'G5: çeldiriciler kökü okumadan elenebiliyordu.'
 - id: SMMM-HUK-TIC-0007
   sinav: smmm
   bolum:
@@ -118,51 +185,84 @@
   konu: TIC
   kazanim: emre yazılı senet
   tip: uygulama
-  zorluk: 3
-  kok: Açıkça emre yazılı ve ciro edilebilir bir senedin devri bakımından hangisi doğrudur?
+  zorluk: 2
+  kok: İmza edenin yer, zaman ve tutar bakımından belirli bir nakdî ödemeyi borçlandığı, kambiyo senedi niteliği taşımayan
+    bir senet açıkça emre yazılıdır. 6102 sayılı TTK'ya göre bu senet bakımından hangisi doğrudur?
   secenekler:
-    A: Yalnız noterle devredilir.
-    B: Ciroyla devredilemez.
+    A: Yalnız noter onaylı devir sözleşmesiyle devredilebilir.
+    B: Emre yazılı olsa da ciro ile devredilemez.
     C: Ciro ile devredilebilir.
-    D: Yalnız temlikle devredilir.
-    E: Yalnız düzenleyenin yeni imzasıyla devredilir.
+    D: Yalnız alacağın temliki yoluyla devredilebilir.
+    E: Ciro ile devredilir ve kambiyo senetlerindeki başvurma hükümleri kendiliğinden uygulanır.
   dogru: C
   aciklama:
-    dogru_neden: TTK md. 831/1, açıkça emre yazılı olan belirli nakdî ödeme veya misli şey teslimi borcu içeren senetlerin
-      ciro ile devredilebileceğini düzenler.
+    dogru_neden: TTK md. 831/1'e göre imza edenin yer, zaman ve tutar bakımlarından belirli nakdî ödemelerde bulunmayı borçlandığı
+      senetler, açıkça emre yazılı oldukları takdirde ciro ile devredilebilir. Md. 831/3'e göre ise kambiyo senetlerindeki
+      başvurmaya ilişkin hükümler, kanunda açık hüküm olmadıkça bu senetler hakkında uygulanmaz.
     celdiriciler:
-      A: Noter şartı yoktur.
-      B: Açıkça emre yazılılık ciro edilebilirliğe hizmet eder.
-      D: Temlik tek yol değildir.
-      E: Yeni imza şartı yoktur.
+      A: Md. 831/1 bu senetlerin ciro ile devredilebileceğini öngörür; noter onaylı devir sözleşmesi şartı yoktur.
+      B: Md. 831/1'e göre bu senetler açıkça emre yazılı oldukları takdirde ciro ile devredilebilir.
+      D: Açıkça emre yazılı senet md. 831/1 uyarınca ciro ile devredilebildiğinden devir alacağın temlikiyle sınırlı değildir.
+      E: Md. 831/3'e göre kambiyo senetlerindeki başvurmaya ilişkin hükümler, kanunda açık hüküm olmadıkça bu senetler hakkında
+        uygulanmaz; cironun şekli ve hamilin hak sahipliği gibi konularda ise poliçe hükümleri geçerlidir (md. 831/2).
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6102 sayılı TTK
     madde: md. 831/1
     alinti: '...senetler, açıkça emre yazılı oldukları takdirde ciro ile devredilebilirler.'
+  - mevzuat: 6102 sayılı TTK
+    madde: md. 831/3
+    alinti: Kambiyo senetlerindeki başvurmaya ilişkin hükümler kanunda açık hüküm olmadıkça, birinci fıkrada yazılı senetler
+      hakkında uygulanmaz.
   gecerlilik:
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ChatGPT'
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: C (güven 5) TTK 683 emre yazılı senet ciroyla devredilir'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: kökteki totoloji giderildi; anahtar C tek doğru, E md. 831/3 nedeniyle yanlış. Zorluk
+          3 → 2.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 831/1-3 alıntı ve iddiaları ttk.txt ile birebir.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (C, güven 4)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 16
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: 'Kök yeniden yazıldı: eski kök ''ciro edilebilir bir senet'' diyerek cevabı (C: ciro ile devredilebilir) veriyordu;
+      yeni kök md. 831/1''in unsurlarını (belirli nakdî ödeme, açıkça emre yazılılık, kambiyo senedi olmama) veriyor. Zayıf
+      E şıkkı (''düzenleyenin yeni imzası'') md. 831/3''e dayanan şıkla değiştirildi, A, B, D netleştirildi; md. 831/3 kaynağı
+      eklendi; zorluk 3 → 2; surum 1 → 2. Anahtar değişmedi (C).'
+    neden: 'G5: kök cevabı içeriyordu (totoloji); zorluk 3 gerçekçi değildi.'
 - id: SMMM-HUK-TIC-0008
   sinav: smmm
   bolum:
@@ -172,7 +272,7 @@
   konu: TIC
   kazanim: taşıma
   tip: uygulama
-  zorluk: 3
+  zorluk: 2
   kok: Eşyanın hasarı teslimde açıkça görülüyor; teslim anına kadar bildirim yapılmıyor. Başka bir hasar açıkça görülmüyor
     ve teslimden sonra 7 gün içinde de bildirilmiyor. Hangisi doğrudur?
   secenekler:
@@ -183,13 +283,19 @@
     E: Açık hasarda 7, gizli hasarda 21 gün vardır.
   dogru: B
   aciklama:
-    dogru_neden: TTK md. 889/1 açık hasarda teslim anına kadar bildirimsizlikte; md. 889/2 gizli hasarda teslimden sonraki
-      yedi gün içinde bildirimsizlikte uygun teslim karinesi öngörür. 21 gün gecikme bildirimine ilişkindir.
+    dogru_neden: TTK md. 889/1'e göre zıya veya hasar açıkça görülüyorsa ve gönderen veya gönderilen en geç teslim anına kadar
+      bildirmezse eşyanın sözleşmeye uygun teslim edildiği varsayılır; md. 889/2'ye göre bu karine, açıkça görülmeyen zıya
+      veya hasarın teslimden sonra yedi gün içinde bildirilmemesi hâlinde de geçerlidir. Md. 889/3'teki yirmibir günlük süre
+      yalnız teslim süresinin aşılmasının (gecikmenin) bildirimine ilişkindir.
     celdiriciler:
-      A: Bildirim yapılmamasının kanuni sonucu vardır.
-      C: Gizli hasar için yedi günlük kural vardır.
-      D: 21 gün gecikme içindir.
-      E: Açık hasar için teslim anına kadar bildirim gerekir.
+      A: Süresinde bildirim yapılmadığından her iki durumda da md. 889/1-2'deki uygun teslim karinesi doğar; istem bu karinenin
+        dışında kalmaz.
+      C: Md. 889/2, açıkça görülmeyen zıya veya hasarın teslimden sonra yedi gün içinde bildirilmemesi hâlinde de aynı karinenin
+        geçerli olduğunu öngörür.
+      D: Md. 889/3'teki yirmibir günlük süre yalnız teslim süresinin aşıldığının bildirimine ilişkindir; zıya ve hasar için
+        teslim anı ve yedi gün kuralları uygulanır.
+      E: Açıkça görülen zıya veya hasar en geç teslim anına kadar bildirilmelidir (md. 889/1); yirmibir gün gecikme bildirimine
+        ilişkindir (md. 889/3).
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6102 sayılı TTK
@@ -201,7 +307,7 @@
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -209,17 +315,42 @@
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: B (güven 5) TTK 889/1-2: iki durumda da karine'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: açık hasar md. 889/1, gizli hasar md. 889/2 karinesi; anahtar B tek doğru, 21 gün
+          yalnız gecikme. Zorluk 3 → 2.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 889/1-3 alıntısı ttk.txt ile uyumlu; açıklamaların hepsinin karşılığı var.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday yanlış (C, güven 4)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 21
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: Çeldirici açıklamaları fıkra atıflarıyla yeniden yazıldı (A'daki 'kanuni sonucu vardır' ve D'deki '21 gün gecikme
+      içindir' gibi gerekçesiz cümleler md. 889/1-3'e bağlandı); dogru_neden'de bildirimin gönderen veya gönderilen tarafından
+      yapılacağı eklendi; zorluk 3 → 2. Kök, şıklar ve anahtar değişmedi (B).
+    neden: 'G5/G6: açıklamalar fıkra belirtmiyordu; zorluk tek maddenin üç fıkrasının ezberi.'
 - id: SMMM-HUK-TIC-0009
   sinav: smmm
   bolum:
@@ -229,23 +360,27 @@
   konu: TIC
   kazanim: haksız rekabet
   tip: bilgi
-  zorluk: 1
+  zorluk: 2
   kok: Aşağıdakilerden hangisi TTK md. 55’te haksız rekabet hâllerinin başlıcalarından biridir?
   secenekler:
     A: Başkasının malları veya iş ürünleriyle karıştırılmaya yol açan önlemler almak
-    B: Rakibin her fiyat indirimini açıklaması
-    C: Her reklamın yasak olması
-    D: Ticari defter tutmak
-    E: Süresinde fatura düzenlemek
+    B: Mallarını, rakiplerinden daha düşük ancak tedarik fiyatının üzerinde bir fiyatla satmak
+    C: Kendisi ve malları hakkında gerçeğe uygun ve yanıltıcı olmayan açıklamalar yapmak
+    D: Rakibin işçisini, sözleşmesine aykırı davranmaya yöneltmeden, kendi başvurusu üzerine işe almak
+    E: Kendi işçilerinden iş sırlarını korumalarını sözleşmeyle istemek
   dogru: A
   aciklama:
     dogru_neden: TTK md. 55/1-a-4, başkasının malları, iş ürünleri, faaliyetleri veya işleri ile karıştırılmaya yol açan önlemler
       almayı sayar.
     celdiriciler:
-      B: Her fiyat indirimi kendiliğinden haksız rekabet değildir.
-      C: Her reklam yasak değildir.
-      D: Defter tutmak haksız rekabet fiili değildir.
-      E: Fatura düzenlemek bu hükmün konusu değildir.
+      B: Md. 55/1-a-6 seçilmiş malları birden çok kere tedarik fiyatının altında sunup bunu reklamlarda vurgulayarak müşteriyi
+        yanıltmayı sayar; tedarik fiyatının üzerinde, rakiplerden düşük fiyatla satış bu bentte sayılmaz.
+      C: Md. 55/1-a-2 kendisi ve malları hakkında gerçek dışı veya yanıltıcı açıklamalarda bulunmayı sayar; gerçeğe uygun
+        ve yanıltıcı olmayan açıklamalar bu hâle girmez.
+      D: Md. 55/1-b başkasının işçilerini sözleşmeyi ihlale veya sona erdirmeye ya da iş sırlarını ifşaya yöneltmeyi sayar;
+        böyle bir yöneltme olmadan işçinin kendi başvurusu üzerine işe alınması bu hâllerden biri değildir.
+      E: Md. 55/1-b-3 işçileri iş sırlarını ifşa etmeye yöneltmeyi, md. 55/1-d iş sırlarını hukuka aykırı ifşa etmeyi sayar;
+        işverenin kendi işçilerinden sırları korumalarını istemesi bu hâllerden biri değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6102 sayılı TTK
@@ -255,22 +390,47 @@
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ChatGPT'
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: A (güven 5) TTK 55/1-a-b karıştırılma yaratan önlemler'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: anahtar A (md. 55/1-a-4) tek doğru; yeni çeldiricilerin her biri ilgili bendin şartını
+          taşımıyor. Zorluk 1 → 2.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 55/1-a-2, a-4, a-6, b, b-3, d ttk.txt ile uyumlu; alıntı birebir.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (A, güven 4)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 29
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: Kökü okumadan elenen B–E şıkları (her reklamın yasak olması, ticari defter tutmak, fatura düzenlemek vb.) md. 55/1'deki
+      hâllerin sınırında kalan meşru davranışlarla değiştirildi (tedarik fiyatı üzerinde indirim, doğru açıklama, yöneltmesiz
+      işe alım, sır koruma); açıklamalar ilgili bentlere bağlandı; zorluk 1 → 2; surum 1 → 2. Anahtar değişmedi (A).
+    neden: 'G5: çeldiriciler kökü okumadan elenebiliyordu.'

@@ -145,7 +145,10 @@ def al(teslim: Path, parti: int) -> list[str]:
         yeni.update({"durum": "taslak", "surum": 1, "uretim": {
             "kaynak_turu": "yapay_zeka", "model": f"harici: {veri.get('yazar', '?')}",
             "istem_surumu": f"uretici paketi {veri.get('gorev', '?')}",
-            "kapilar": {g: {"sonuc": "bekliyor"} for g in ("G3", "G5", "G6", "GZ")}},
+            "kapilar": {"G2": {"sonuc": "gecti", "tarih": bugun},
+                        "G4": {"sonuc": "bekliyor"} if s.get("dogrulama") else {"sonuc": "atlandi", "not": "hesaplama sorusu değil"},
+                        "G7": {"sonuc": "gecti", "not": "yalnız banka içi; külliyat verilmedi", "tarih": bugun},
+                        **{g: {"sonuc": "bekliyor"} for g in ("G3", "G5", "G6", "GZ")}}},
             "gecmis": [{"tarih": bugun, "kim": "uretici", "ne": f"harici teslim {teslim.name}, satır {s.get('gorev_satiri')}"}]})
         dosyalar[anahtar].append(yeni)
         rapor.append(f"alındı {yeni['id']} (satır {s.get('gorev_satiri')})")

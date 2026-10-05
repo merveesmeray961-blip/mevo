@@ -7,10 +7,11 @@
   konu: SGK
   kazanim: GSS
   tip: uygulama
-  zorluk: 3
-  kok: Türkiye’de ikamet eden Ece 4/a veya 4/b kapsamında sigortalı değildir, isteğe bağlı sigortalı değildir ve kişi başına
-    aylık aile geliri asgari ücretin üçte birinden azdır. Başka GSS veya bakmakla yükümlü kişi statüsü de yoktur. Hangisi
-    doğrudur?
+  zorluk: 2
+  kok: Türk vatandaşı olan ve Türkiye’de ikamet eden Ece, 5510 sayılı Kanunun 4/a, 4/b veya 4/c bentleri kapsamında sigortalı
+    değildir; isteğe bağlı sigortalı da değildir. Kurumca yapılan gelir tespitine göre aile içindeki geliri kişi başına düşen
+    aylık tutar asgari ücretin üçte birinden azdır. Ece’nin başka bir genel sağlık sigortalılığı veya bakmakla yükümlü olunan
+    kişi statüsü de bulunmamaktadır. Hangisi doğrudur?
   secenekler:
     A: 5510 md. 60/1-c-1 kapsamında GSS’lidir.
     B: Yalnız kısa vadeli sigortalıdır.
@@ -19,12 +20,18 @@
     E: Yalnız 4/a’ya girince GSS’lidir.
   dogru: A
   aciklama:
-    dogru_neden: Md. 60/1-c-1, bu şartları taşıyan vatandaşları genel sağlık sigortalısı sayar.
+    dogru_neden: Md. 60/1-c-1'e göre ikametgâhı Türkiye'de olan ve (a) ile (b) bentlerine göre sigortalı sayılmayanlardan,
+      Kurumca belirlenecek test yöntemleriyle tespit edilen aile içindeki geliri kişi başına düşen aylık tutarı asgari ücretin
+      üçte birinden az olan vatandaşlar genel sağlık sigortalısı sayılır. Ece bu şartların hepsini taşır.
     celdiriciler:
-      B: Konu kısa vadeli sigorta değil GSS’dir.
-      C: Gelir şartı sağlandığında md. 60/1-c-1 kapsamına girilir.
-      D: İsteğe bağlı sigortalılık tek yol değildir.
-      E: 4/a başlangıcı aranmaz.
+      B: Ece md. 4 kapsamında sigortalı olmadığından kısa vadeli sigorta kollarına tabi değildir; durumu md. 60/1-c-1'deki
+        genel sağlık sigortalılığına ilişkindir.
+      C: Gelir tespitine göre kişi başına aylık gelir asgari ücretin üçte birinden az olduğundan Ece md. 60/1-c-1 kapsamında
+        genel sağlık sigortalısıdır; GSS dışında kalmaz.
+      D: İsteğe bağlı sigortalılık md. 60/1-b'deki ayrı bir GSS kapsamıdır; md. 60/1-c-1 kapsamına girmek için isteğe bağlı
+        sigortalı olmak gerekmez.
+      E: Md. 60/1-c-1 kapsamı, (a) ve (b) bentlerine göre sigortalı sayılmayanlara ilişkindir; 4/a kapsamında çalışmaya başlamak
+        şart değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Kanun
@@ -34,25 +41,51 @@
     baslangic: '2008-10-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ChatGPT'
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: A (güven 5) 5510 md.60/1-c-1'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: vatandaşlık ve gelir tespiti varsayımları köke yazıldı; anahtar A tek doğru. Zorluk
+          3 → 2.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 60/1-c-1 alıntısı 5510 metniyle birebir; atıf numarası doğru; gecerlilik 2008-10-01 (GSS yürürlüğü) uygun.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (A, güven 3)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 2
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: Köke Ece'nin Türk vatandaşı olduğu (md. 60/1-c-1 'vatandaşlar' der), gelirin Kurumca yapılan gelir tespitiyle belirlendiği
+      ve 4/c kapsamında da sigortalı olmadığı eklendi; açıklamalar md. 60/1-b ve c-1'e bağlandı; zorluk 3 → 2; surum 1 → 2.
+      Şıklar ve anahtar değişmedi (A).
+    neden: 'G5: örtük varsayımlar — yalnız ''Türkiye''de ikamet'' yazılıydı (yabancı ise c-1 uygulanmaz) ve gelirin Kurumca
+      test edilmesi şartı kökte yoktu.'
 - id: SMMM-HUK-SGK-0007
   sinav: smmm
   bolum:
@@ -62,52 +95,83 @@
   konu: SGK
   kazanim: ücret tanımı
   tip: uygulama
-  zorluk: 3
+  zorluk: 2
   kok: 4/a sigortalısına her ay düzenli saatlik çalışma karşılığı brüt ödeme yapılmakta, ayrıca süreklilik taşımayan tek seferlik
     masraf iadesi verilmektedir. 5510 bakımından ücret hangisidir?
   secenekler:
-    A: Yalnız masraf iadesi
+    A: Yalnız tek seferlik masraf iadesi
     B: Düzenli saatlik çalışma karşılığı brüt tutar
-    C: İkisinin toplamı
-    D: Yalnız net tutar
-    E: Yalnız yıllık tutar
+    C: Brüt tutar ile masraf iadesinin toplamı
+    D: Düzenli ödemenin yalnız net tutarı
+    E: Yalnız yıllık toplu ödenen tutar
   dogru: B
   aciklama:
-    dogru_neden: Md. 3/12 ücret; 4/a ve 4/c sigortalılarına saatlik, günlük, haftalık, aylık veya yıllık para ile ödenen ve
-      süreklilik taşıyan brüt tutardır.
+    dogru_neden: Md. 3'ün 12 numaralı bendine göre ücret, 4/a ve 4/c kapsamındaki sigortalılara saatlik, günlük, haftalık,
+      aylık veya yıllık olarak para ile ödenen ve süreklilik niteliği taşıyan brüt tutardır. Her ay düzenli ödenen saatlik
+      çalışma karşılığı brüt tutar bu tanıma girer; tek seferlik masraf iadesi süreklilik niteliği taşımadığından girmez.
     celdiriciler:
-      A: Masraf iadesi bu tanımın süreklilik unsurunu taşımıyor.
-      C: Süreklilik taşımayan tutar otomatik olarak ücrete eklenmez.
-      D: Tanım brüt tutarı esas alır.
-      E: Ücret yalnız yıllık ödeme değildir.
+      A: Tek seferlik masraf iadesi süreklilik niteliği taşımaz; md. 3'ün 12 numaralı bendindeki ücret tanımı süreklilik niteliği
+        taşıyan brüt tutarı esas alır.
+      C: Süreklilik niteliği taşımayan masraf iadesi ücret tanımına girmediğinden düzenli brüt ödemeye eklenmez.
+      D: Tanım net tutarı değil brüt tutarı esas alır.
+      E: Tanım saatlik, günlük, haftalık, aylık veya yıllık ödenen tutarları kapsar; yalnız yıllık ödemeyle sınırlı değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Kanun
-    madde: md. 3/12
+    madde: md. 3, bent 12
     alinti: '...saatlik, günlük, haftalık, aylık veya yıllık olarak para ile ödenen ve süreklilik niteliği taşıyan brüt tutarı'
   gecerlilik:
     baslangic: '2008-10-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ChatGPT'
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: B (güven 4) 5510 md.80 / 6: düzenli çalışma karşılığı brüt ücret; süreklilik taşımayan masraf iadesi
+          ücret değil'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: anahtar B tek doğru (süreklilik + brüt). Zorluk 3 → 2.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 3 bent 12 alıntısı 5510 metniyle birebir; gecerlilik 2008-10-01 uygun.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (B, güven 4)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 7
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: Atıf 'md. 3/12' → 'md. 3, bent 12' (md. 3 tek fıkralı tanım maddesidir, '3/12' on ikinci fıkra gibi okunuyordu); C
+      açıklamasındaki 'otomatik olarak eklenmez' ifadesi tanıma bağlandı; zorluk 3 → 2. Kök, şıklar ve anahtar değişmedi (B).
+    neden: 'G6: atıf biçimi; zorluk tek tanımın uygulanması.'
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: Anahtar dışındaki şıklar, doğru şıkla benzer uzunluk ve ayrıntıda olacak biçimde yeniden yazıldı (anlamları korundu);
+      surum 1 → 2. Anahtar değişmedi (B).
+    neden: 'G2 uyarısı / G5: doğru şık belirgin biçimde en uzun şıktı (ipucu riski).'
 - id: SMMM-HUK-SGK-0008
   sinav: smmm
   bolum:
@@ -127,12 +191,15 @@
     E: Belge başına 10 asgari ücret
   dogru: D
   aciklama:
-    dogru_neden: Md. 102/1-a-1 temel durumda her bir sigortalı için asgari ücret tutarında ceza öngörür.
+    dogru_neden: Md. 102/1-a-1'e göre md. 8/1'deki sigortalı işe giriş bildirgesini kanunda belirtilen süre içinde vermeyenlere
+      her bir sigortalı için asgari ücret tutarında idari para cezası uygulanır.
     celdiriciler:
-      A: Cezanın birimi işyerinden ziyade sigortalıdır.
-      B: Beş kat tekrar hâlindeki özel durumdur.
-      C: İki kat farklı tespit hâline ilişkindir.
-      E: Böyle bir 10 kat kuralı yoktur.
+      A: Md. 102/1-a-1'de ceza işyeri başına değil, her bir sigortalı için asgari ücret tutarındadır.
+      B: Asgari ücretin beş katı, bildirgenin verilmediğinin tespitinden itibaren bir yıl içinde aynı durumun tekrar anlaşılması
+        hâlinde ve yine her bir sigortalı için uygulanır (md. 102/1-a-3); işyeri başına değildir.
+      C: Asgari ücretin iki katı, bildirgenin verilmediğinin mahkeme kararından, denetim elemanlarının tespitlerinden ya da
+        kamu idareleri, bankalar vb. kuruluşlardan alınan bilgi ve belgelerden anlaşılması hâlinde uygulanır (md. 102/1-a-2).
+      E: Md. 102/1-a'da belge başına on asgari ücret tutarında bir ceza öngörülmemiştir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Kanun
@@ -142,7 +209,7 @@
     baslangic: '2008-10-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -150,17 +217,42 @@
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: D (güven 5) 5510 md.102/1-a-1: her sigortalı için asgari ücret tutarında'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: anahtar D tek doğru; B ve C açıklamaları a-2/a-3''ün şartlarıyla düzeltildi. Zorluk
+          1 uygun (kök alt bendi veriyor).'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 102/1-a-1/2/3 metniyle uyumlu; alıntı birebir; gecerlilik 2008-10-01 uygun.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday yanlış (A, güven 4)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 10
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: B ve C çeldirici açıklamaları md. 102/1-a-2 ve a-3'e uyduruldu (B'deki 'beş kat tekrar hâlindeki özel durumdur' cezanın
+      birimini söylemiyordu — beş kat da sigortalı başınadır; C'deki 'farklı tespit hâli' belirsizdi); dogru_neden md. 8/1'e
+      bağlandı. Kök, şıklar ve anahtar değişmedi (D).
+    neden: 'G5/G6: kural özeti şartları ve birimi atlıyordu.'
 - id: SMMM-HUK-SGK-0009
   sinav: smmm
   bolum:
@@ -170,22 +262,25 @@
   konu: SGK
   kazanim: sigortalılık (4/a-b-c) ve kapsam
   tip: uygulama
-  zorluk: 2
+  zorluk: 1
   kok: 5510 md. 4/1 bakımından doğru eşleştirme hangisidir?
   secenekler:
     A: 4/a hizmet akdi; 4/b kendi adına ve hesabına bağımsız çalışan; 4/c ilgili kamu çalışanları
-    B: 4/a bağımsız çalışan; 4/b hizmet akdi; 4/c tarım işçisi
-    C: 4/a memur; 4/b işçi; 4/c esnaf
-    D: 4/a isteğe bağlı; 4/b öğrenci; 4/c işveren
-    E: 4/a emekli; 4/b işsiz; 4/c tüm yabancılar
+    B: 4/a kendi adına ve hesabına bağımsız çalışan; 4/b hizmet akdiyle çalışan; 4/c tarımda çalışan işçi
+    C: 4/a kamu idaresinde kadrolu memur; 4/b hizmet akdiyle çalışan işçi; 4/c esnaf ve sanatkâr
+    D: 4/a isteğe bağlı sigortalı; 4/b yükseköğrenim öğrencisi; 4/c sigortalı çalıştıran işveren
+    E: 4/a yaşlılık aylığı alan emekli; 4/b işsizlik ödeneği alan; 4/c Türkiye'de çalışan tüm yabancılar
   dogru: A
   aciklama:
-    dogru_neden: Md. 4/1-a hizmet akdiyle çalışanları, b bağımsız çalışanları, c kamu idarelerindeki ilgili kişileri kapsar.
+    dogru_neden: Md. 4/1-a hizmet akdi ile bir veya birden fazla işveren tarafından çalıştırılanları, md. 4/1-b köy ve mahalle
+      muhtarları ile hizmet akdine bağlı olmaksızın kendi adına ve hesabına bağımsız çalışanlardan sayılanları, md. 4/1-c
+      kamu idarelerinde (a) bendine tabi olmayan kadrolu veya sözleşmeli çalışanlardan sayılanları sigortalı sayar.
     celdiriciler:
-      B: 4/a ve 4/b ters çevrilmiştir.
-      C: Gruplar yanlış eşleştirilmiştir.
-      D: İsteğe bağlı sigortalılık ayrı düzenlenir.
-      E: İşsizlik ve emeklilik bu şekilde sınıflandırılmaz.
+      B: 4/a hizmet akdiyle çalışanları, 4/b bağımsız çalışanları kapsar; şık ikisini ters çevirmiş, 4/c'yi de tarım işçisi
+        olarak göstermiştir.
+      C: Memurlar 4/c, hizmet akdiyle çalışan işçiler 4/a, esnaf 4/b kapsamındadır; şık bunları yanlış eşleştirmiştir.
+      D: İsteğe bağlı sigorta md. 4'te değil md. 50 vd.'da düzenlenir; öğrenciler ve işverenler bu eşleştirmede yer almaz.
+      E: Md. 4/1 emeklileri, işsizleri veya tüm yabancıları ayrı sigortalılık bentleri olarak sınıflandırmaz.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Kanun
@@ -196,25 +291,53 @@
     baslangic: '2008-10-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ChatGPT'
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: A (güven 5) 5510 md.4/1'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: anahtar A tek doğru eşleştirme. Zorluk 2 → 1.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 4/1 alıntısı 5510 metniyle uyumlu; md. 50 atfı doğru; gecerlilik 2008-10-01 uygun.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday doğru (A, güven 4)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 15
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: 'dogru_neden md. 4/1''in bent içerikleriyle tamamlandı (4/b''de muhtarlar, 4/c''de kadrolu/sözleşmeli); çeldirici
+      açıklamaları somutlaştırıldı (D: isteğe bağlı sigorta md. 50); zorluk 2 → 1. Kök, şıklar ve anahtar değişmedi (A).'
+    neden: 'G5: zorluk saf ezber eşleştirmesi; açıklamalar gerekçesizdi.'
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: B–E şıkları, A ile aynı biçim ve uzunlukta (üç bentli eşleştirme) olacak şekilde genişletildi; anlamları korundu;
+      surum 1 → 2. Anahtar değişmedi (A).
+    neden: 'G2 uyarısı / G5: doğru şık diğerlerinin iki katından uzundu (ipucu riski).'
 - id: SMMM-HUK-SGK-0010
   sinav: smmm
   bolum:
@@ -224,24 +347,30 @@
   konu: SGK
   kazanim: bildirimler
   tip: uygulama
-  zorluk: 3
-  kok: İşveren, normal bir işyerinde 4/a işçisini işe başlatacaktır; inşaat, tarım ve balıkçılık istisnaları yoktur. İşe giriş
-    bildirgesi ne zaman verilir?
+  zorluk: 2
+  kok: Daha önce Kuruma işyeri bildirgesi vermiş ve sigortalı çalıştırmakta olan, özel sektöre ait bir imalat işyeri yeni
+    bir işçiyi hizmet akdiyle (4/a) çalıştırmaya başlatacaktır. İşyeri inşaat, balıkçılık veya tarım işyeri değildir; işçi
+    yabancı ülkelere sefer yapan bir ulaştırma aracında da çalışmayacaktır. 5510 sayılı Kanuna göre sigortalı işe giriş bildirgesi
+    en geç ne zaman verilmelidir?
   secenekler:
-    A: İşe başladıktan 10 gün sonra
-    B: Ay sonunda
-    C: Bir ay içinde
-    D: İşe başlamadan önce
-    E: İlk prim bildirimiyle
+    A: İşe başladığı tarihten itibaren 10 gün içinde
+    B: İşe başladığı ayın sonuna kadar
+    C: İşe başladığı tarihten itibaren bir ay içinde
+    D: Sigortalılık başlangıç tarihinden önce
+    E: İlk aylık prim ve hizmet belgesiyle birlikte
   dogru: D
   aciklama:
-    dogru_neden: 5510 md. 8/1 genel kural olarak işe giriş bildirgesinin sigortalılık başlangıç tarihinden önce verilmesini
-      öngörür; kökte istisnalar dışlanmıştır.
+    dogru_neden: Md. 8/1'e göre işverenler 4/a kapsamındaki sigortalıyı, md. 7/1-a'daki sigortalılık başlangıç tarihinden
+      (çalışmaya başlama) önce sigortalı işe giriş bildirgesiyle Kuruma bildirmekle yükümlüdür. Md. 8/1'deki istisnalar (inşaat,
+      balıkçılık ve tarım işyerlerinde en geç çalışmaya başlatıldığı gün; yabancı ülkelere sefer yapan ulaştırma araçları
+      ile ilk defa işyeri bildirgesi verilecek işyerlerinde ve kamu idarelerinin belirli personelinde bir ay) kökte dışlanmıştır.
     celdiriciler:
-      A: Genel kural değildir.
-      B: Ay sonu genel süre değildir.
-      C: Bir aylık süre bazı özel gruplar içindir.
-      E: Prim bildirimi ayrı yükümlülüktür.
+      A: Md. 8/1'de işe başladıktan sonra on gün içinde bildirim diye bir süre yoktur; genel kural sigortalılık başlangıcından
+        önce bildirimdir.
+      B: Ay sonuna kadar bildirim md. 8/1'de öngörülmemiştir.
+      C: Bir aylık süre md. 8/1-b ve c'deki istisnalara (yabancı ülkelere sefer yapan ulaştırma araçları, ilk defa işyeri
+        bildirgesi verilecek işyerleri, kamu idarelerinin belirli personeli) ilişkindir; kökte bu hâller yoktur.
+      E: Aylık prim ve hizmet belgesi md. 86'da düzenlenen ayrı bir yükümlülüktür; işe giriş bildirgesinin yerine geçmez.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Kanun
@@ -251,22 +380,47 @@
     baslangic: '2008-10-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
-  surum: 1
+  durum: kontrolde
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ChatGPT'
     istem_surumu: uretici paketi HUK-2026-10-05-30
     kapilar:
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'kör çözücü: D (güven 5) 5510 md.8: işe başlatmadan önce'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Düzeltildikten sonra geçti: tüm md. 8/1 istisnaları kökte dışlandı; anahtar D tek doğru. Zorluk 3 → 2.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: md. 8/1 alıntısı ve istisna bentleri 5510 metniyle uyumlu; md. 86 atfı doğru; gecerlilik 2008-10-01 uygun.
       GZ:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: ortalama aday yanlış (C, güven 4)
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-05'
   gecmis:
   - tarih: '2026-10-05'
     kim: uretici
     ne: harici teslim teslim_chatgpt.yaml, satır 22
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: 'Kök yeniden yazıldı: yalnız inşaat/tarım/balıkçılık dışlanmıştı; md. 8/1-b''deki ilk defa işyeri bildirgesi verilecek
+      işyeri ve sefer yapan ulaştırma aracı istisnaları ile 8/1-c''deki kamu idaresi istisnası dışlanmadığından C (bir ay
+      içinde) savunulabiliyordu. Şıklar süre ifadeleriyle netleştirildi (D: ''İşe başlamadan önce'' → ''Sigortalılık başlangıç
+      tarihinden önce'', md. 8/1 lafzı); açıklamalar yeniden yazıldı; zorluk 3 → 2; surum 1 → 2. Anahtar değişmedi (D).'
+    neden: 'G5: örtük varsayım — ''normal bir işyeri'' ifadesi yeni açılan işyerindeki bir aylık süreyi dışlamıyordu.'
