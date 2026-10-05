@@ -86,6 +86,31 @@ def olustur(ders: str, adet: int, cikti: Path) -> Path:
     return Path(zip_yolu)
 
 
+def _norm(t: str) -> str:
+    t = t.replace("İ", "i").replace("I", "ı").lower()
+    return re.sub(r"[^0-9a-zçğıöşüâîû]", "", t)
+
+
+_METIN: dict[str, str] = {}
+
+
+def _metinler() -> dict[str, str]:
+    if not _METIN:
+        _METIN.update({p.stem: _norm(p.read_text(encoding="utf-8", errors="ignore")) for p in MEVZUAT.glob("*.txt")})
+    return _METIN
+
+
+def alinti_sorunlari(kaynaklar: list[dict]) -> list[str]:
+    """Her alıntının '…' ile ayrılmış parçaları (≥15 harf) resmî metinlerden birinde birebir geçmeli."""
+    sorun = []
+    for k in kaynaklar or []:
+        for parca in re.split(r"\.\.\.|…", str(k.get("alinti") or "")):
+            n = _norm(parca)
+            if len(n) >= 15 and not any(n in m for m in _metinler().values()):
+                sorun.append(f"{k.get('madde')}: '{parca.strip()[:70]}'")
+    return sorun
+
+
 def _sonraki_no() -> dict[tuple[str, str], int]:
     en_buyuk: dict = defaultdict(int)
     for _, s in g2_yapi.dosyalari_yukle(SORULAR, []):
@@ -109,6 +134,9 @@ def al(teslim: Path, parti: int) -> list[str]:
         if eksik or anahtar not in konu_ad or s.get("dogru") not in (s.get("secenekler") or {}):
             rapor.append(f"REDDEDİLDİ soru {i} (satır {s.get('gorev_satiri')}): eksik {eksik or ''} "
                          f"konu {anahtar if anahtar not in konu_ad else 'ok'}")
+            continue
+        if sorun := alinti_sorunlari(s.get("kaynaklar")):
+            rapor.append(f"REDDEDİLDİ soru {i} (satır {s.get('gorev_satiri')}): alıntı metinde yok → " + " | ".join(sorun))
             continue
         no[anahtar] += 1
         yeni = {"id": f"SMMM-{anahtar[0]}-{anahtar[1]}-{no[anahtar]:04d}", "sinav": "smmm",

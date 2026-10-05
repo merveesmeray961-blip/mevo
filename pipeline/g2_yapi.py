@@ -79,8 +79,8 @@ def soru_denetle(soru: dict, dosya: str = "") -> Sonuc:
         fazla = sorted(celdiriciler - beklenen)
         sonuc.hatalar.append(f"çeldirici açıklamaları uyumsuz (eksik: {eksik}, fazla: {fazla})")
 
-    # Olumsuz kök vurgulanmalı
-    if OLUMSUZ.search(soru["kok"]):
+    # Olumsuz kök vurgulanmalı (yalnız soru cümlesinde; olay anlatımındaki "değildir" sayılmaz)
+    if OLUMSUZ.search(re.split(r"(?<=[.!])\s+", soru["kok"].strip())[-1]):
         sonuc.hatalar.append("olumsuz kök ifadesi **kalın** yazılmamış")
 
     # Hesaplama soruları adım adım çözüm içermeli
