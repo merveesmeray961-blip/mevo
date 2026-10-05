@@ -60,9 +60,13 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Odalar Yön. md. 10/1 ve 3568 md. 21/1 aynı: 1.000-5.000 arası 7+7; 5.000 ''beşbini aşan'' değil. İkinci savunulabilir şık yok.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'md. 10/1 alıntısı birebir (RG 25/12/2012 değişik fıkra).'
       GZ:
         sonuc: bekliyor
 - id: SMMM-MES-DGR-0005
@@ -95,8 +99,8 @@
       A: 3 sabit temsilci unutulmuş ve kesir de yok sayılmıştır (yalnızca 21).
       B: 3 sabit temsilci unutulmuştur; yalnızca orana göre bulunan 22 delege sayılmıştır.
       C: Kalan 45, yetmişbeşin yarısından (37,5) fazla olduğu hâlde tüme tamamlanmamıştır (3 + 21).
-      E: Asıl delegeye ek olarak aynı sayıda yedek temsilci de toplama katılmıştır; soru yalnız asıl delege sayısını
-        sorar.
+      E: Asıl delege sayısı (25) yedek temsilciler de sayılarak ikiyle çarpılmıştır; soru yalnız asıl delege sayısını
+        sorar. Yedek temsilci ayrıca "aynı sayıya kadar" seçilir, asıl delege sayısına eklenmez.
     hesap_adimlari:
     - 'Oranla bulunan temsilci: 1.620 / 75 = 21 tam, kalan 1.620 - 21 x 75 = 45'
     - 'Kalan 45, 75''in yarısı olan 37,5''ten fazla: tüme tamamlanır (+1) -> 22'
@@ -107,13 +111,28 @@
     alinti: Birlik Genel Kurulu üyeleri, odaların kendi üyeleri arasından seçecekleri delegelerden ve Birlik Yönetim
       Kurulu üyelerinden oluşur. (Değişik ikinci cümle:RG-25/12/2012-28508) Her oda, üye sayısına bağlı olmaksızın
       seçeceği üç temsilciye ilâve olarak, üyelerinin yetmişbeşte biri oranında temsilci ve aynı sayıya kadar yedek
-      temsilci seçer. Bu ... oranın yarısından az olanlar nazara alınmaz. Fazla olanlar ise, tüme tamamlanır.
+      temsilci seçer. Bu oranın yarısından az olanlar nazara alınmaz. Fazla olanlar ise, tüme tamamlanır.
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 32/1
+    alinti: Her oda, üye sayısına bağlı olmaksızın seçeceği üç temsilciye ilâve olarak, üyelerinin yetmişbeşte biri
+      oranında temsilci ve aynı sayıya kadar yedek temsilci seçer. Bu oranın yarısından az olanlar nazara alınmaz,
+      fazla olanlar ise tüme tamamlanır.
   gecerlilik:
     baslangic: '2012-12-25'
     bitis: null
     yila_bagli_tutar: false
   durum: taslak
   surum: 1
+  gecmis:
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: 'hakem 2026-10-05: Birlik Yönetmeliği md. 11/1 alıntısındaki ''Bu ... oranın'' → ''Bu oranın'' (metinde atlanan
+      söz yok; yalnız sayfa sonu); aynı kuralı içeren 3568 md. 32/1 kaynak olarak eklendi; E çeldiricisi açıklaması
+      netleştirildi. Kök, şıklar ve anahtar değişmedi.'
+    neden: 'G6: alıntı birebir değildi. G5 (kör çözücü notu): yuvarlama kuralı hem Yönetmelik md. 11/1''de hem Kanun
+      md. 32/1''de açıkça yazılı ve kök ''Yönetmeliği''ne göre'' diye kuralın kaynağını gösteriyor; kural sorunun ölçtüğü
+      bilgi olduğundan köke yazılmadı. 1.620 = 21 x 75 + 45; 45 > 37,5 → 22; 3 + 22 = 25. Tam yarı (37,5) 75 tek
+      olduğundan oluşamaz.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -132,9 +151,13 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: '1.620 = 21 x 75 + 45; 45 > 37,5 → 22; 3 + 22 = 25. Yuvarlama kuralı Yön. md. 11/1 ve 3568 md. 32/1''de açık; C (24) kuralı bilmeyen adayın çeldiricisi.'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'md. 11/1 alıntısındaki fazladan ''...'' kaldırıldı, 3568 md. 32/1 eklendi; dogrulama.python 25 veriyor, açıklamayla aynı.'
       GZ:
         sonuc: bekliyor
   dogrulama:
@@ -196,11 +219,21 @@
       Maliye Bakanlığı vergi denetim elemanları arasından, biri Yükseköğretim Kurulunca önerilecek iki aday arasından,
       ikisi ise Birlikçe önerilecek dört aday arasından Maliye Bakanı tarafından seçilir.
   gecerlilik:
-    baslangic: '2008-07-10'
+    baslangic: '2008-07-26'
     bitis: null
     yila_bagli_tutar: false
   durum: taslak
   surum: 1
+  gecmis:
+  - tarih: '2026-10-05'
+    kim: hakem
+    ne: 'hakem 2026-10-05: gecerlilik.baslangic 2008-07-10 → 2008-07-26. Kök, şıklar ve anahtar değişmedi.'
+    neden: 'G5: md. 7 (SMMM sınav komisyonu) 1989''daki ilk metniyle yürürlüktedir (konsolide metinde değişiklik işareti
+      yok). A çeldiricisinin dayandığı md. 10/2 (YMM sınav komisyonu) 5786 sayılı Kanunla değişmiştir; 10/7/2008
+      5786''nın kabul tarihi, yürürlük tarihi ise 26/7/2008''dir (3568 konsolide metni, yürürlük listesi). AYM''nin
+      12/2/2026 tarihli iptali md. 10''un dördüncü fıkrasındaki ibareye ilişkindir; 10/2''yi etkilemez. Sınav Yönetmeliği
+      md. 13 de komisyonun ''Kanunun 7 ve 10 uncu maddelerine göre'' oluşturulacağını söyler, kanundan farklı bir
+      oluşum öngörmez.'
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -219,8 +252,12 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'Kök yalnız SMMM sınavını soruyor; D md. 7 ile birebir, A md. 10/2 (YMM). gecerlilik.baslangic 2008-07-26 olarak düzeltildi (5786 yürürlüğü).'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-05'
+        not: 'md. 7/1-2 ve 10/2 alıntıları 3568 konsolide metniyle birebir; Sınav Yön. md. 13 Kanuna atıf yapıyor, çelişki yok.'
       GZ:
         sonuc: bekliyor
