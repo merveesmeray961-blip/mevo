@@ -1,6 +1,6 @@
 """Harici soru yazarları (başka asistanlar) için görev paketi hazırlar ve teslimleri bankaya taslak olarak alır.
 
-    python -m pipeline.uretici_paketi olustur HUK 30 [--atla 30] [--cikti klasor]   # GOREV.md + kurallar + örnekler + kaynaklar → .zip
+    python -m pipeline.uretici_paketi olustur HUK 30 [--atla 30] [--dilim 10] [--cikti klasor]   # GOREV.md + kurallar + örnekler + kaynaklar → .zip
     python -m pipeline.uretici_paketi al teslim_x.yaml 6                 # teslimi doğrular, id verir, <KONU>.p6.yaml yazar
 
 `al` soruları `durum: taslak` olarak yazar; ardından olağan denetim (SORU_URETIM_RECETESI.md "Harici üretici") uygulanır.
@@ -37,6 +37,7 @@ DERS_KAYNAK = {
     "MES": ["smmm_", "ymm_", "turmob", "disiplin_yon", "calisma_usul_yon", "etik_ilkeler_yon", "haksiz_rekabet_yon",
             "smge_yon", "ucretler_yon"],
     "EKO": [],
+    "GKY": [],
     "MLY": ["kmyk", "harclar", "aatuhk", "vuk"],
 }
 YAZAR_ALANLARI = ("bolum", "ders", "konu", "kazanim", "tip", "zorluk", "kok", "secenekler", "dogru", "aciklama",
@@ -55,25 +56,37 @@ def _ornekler(ders: str, n: int = 3) -> list[dict]:
     return [{k: s[k] for k in YAZAR_ALANLARI if k in s} for s in list(secilen.values())[:n]]
 
 
-def olustur(ders: str, adet: int, cikti: Path, atla: int = 0) -> Path:
-    tarih = dt.date.today().isoformat()
-    kod = f"{ders}-{tarih}-{atla + 1}-{atla + adet}"
-    klasor = cikti / f"uretici_{kod}"
-    if klasor.exists():
-        shutil.rmtree(klasor)
-    (klasor / "kaynaklar").mkdir(parents=True)
-    plan = harita.sonraki(atla + adet, ders)[atla:]  # farklı asistanlara çakışmayan dilimler
+def _gorev_metni(kod: str, plan: list[dict], ders: str) -> str:
     satirlar = [f"# Görev {kod}", "",
                 f"Yazacağın {len(plan)} soru aşağıda. Her satır için **tam o kazanımda, o zorlukta** bir soru yaz "
                 "(1 kolay · 2 orta · 3 zor). Kurallar `MANIFESTO.md`'de; teslimde `gorev` alanına "
-                f"`{kod}` yaz, her soruya `gorev_satiri` ver.", "",
+                f"`{kod}` yaz, her soruya `gorev_satiri` ver. Teslim dosyasının adı: `teslim_<adın>_{kod}.yaml`.", "",
                 "| # | Ders | Konu kodu | Konu | Kazanım | Zorluk | Bölüm |", "|---|---|---|---|---|---|---|"]
     satirlar += [f"| {i} | {p['ders']} | {p['konu']} | {p['konu_ad']} | {p['kazanim']} | {p['zorluk']} | "
                  f"{','.join(p['bolum'])} |" for i, p in enumerate(plan, 1)]
     if not DERS_KAYNAK[ders]:
-        satirlar += ["", "Bu derste resmî metin yoktur; sorular genel kabul görmüş ders bilgisine dayanır. "
-                     "`kaynaklar` alanına başvurulan kavram/model adını yaz, `alinti` boş kalabilir."]
-    (klasor / "GOREV.md").write_text("\n".join(satirlar) + "\n", encoding="utf-8")
+        satirlar += ["", "Bu derste resmî metin yoktur; sorular genel kabul görmüş ders bilgisine dayanır "
+                     "(MANIFESTO'daki GKY kuralları). `alinti` boş kalabilir."]
+    return "\n".join(satirlar) + "\n"
+
+
+def olustur(ders: str, adet: int, cikti: Path, atla: int = 0, dilim: int = 1) -> Path:
+    """Haritadan sıradaki `adet × dilim` satırı alır; dilim > 1 ise her asistana ayrı GOREV_XX.md yazar."""
+    tarih = dt.date.today().isoformat()
+    ad = f"{ders}-{tarih}-{atla + 1}-{atla + adet * dilim}"
+    klasor = cikti / f"uretici_{ad}"
+    if klasor.exists():
+        shutil.rmtree(klasor)
+    (klasor / "kaynaklar").mkdir(parents=True)
+    plan = harita.sonraki(atla + adet * dilim, ders)[atla:]  # farklı asistanlara çakışmayan dilimler
+    if dilim == 1:
+        (klasor / "GOREV.md").write_text(_gorev_metni(ad, plan, ders), encoding="utf-8")
+    else:
+        for i in range(dilim):
+            parca = plan[i * adet:(i + 1) * adet]
+            if parca:
+                kod = f"{ders}-{tarih}-G{i + 1:02d}"
+                (klasor / f"GOREV_{i + 1:02d}.md").write_text(_gorev_metni(kod, parca, ders), encoding="utf-8")
     shutil.copy(KOK / "docs/uretici/MANIFESTO.md", klasor / "MANIFESTO.md")
     shutil.copy(KOK / "pipeline/istemler/uretim.md", klasor / "URETIM_KURALLARI.md")
     shutil.copy(KOK / "pipeline/istemler/kontrol.md", klasor / "KONTROL_LISTESI.md")
@@ -164,7 +177,8 @@ def main(argv: list[str]) -> int:
     if len(argv) >= 4 and argv[1] == "olustur":
         cikti = Path(argv[argv.index("--cikti") + 1]) if "--cikti" in argv else KOK / "uretici_paketleri"
         atla = int(argv[argv.index("--atla") + 1]) if "--atla" in argv else 0
-        print(olustur(argv[2].upper(), int(argv[3]), cikti, atla))
+        dilim = int(argv[argv.index("--dilim") + 1]) if "--dilim" in argv else 1
+        print(olustur(argv[2].upper(), int(argv[3]), cikti, atla, dilim))
         return 0
     if len(argv) >= 4 and argv[1] == "al":
         print("\n".join(al(Path(argv[2]), int(argv[3]))))

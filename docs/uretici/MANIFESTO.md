@@ -42,6 +42,33 @@ soru doğrudan reddedilir. Az ama kusursuz soru, çok ama şüpheli sorudan değ
 - **Açıklamada yazara yönelik dil:** "Teknik (3)", "çeldiriciler tipik hatadan türetildi" gibi ifadeler yok. Zor sorularda çözümden sonra
   **"Püf noktaları:"** başlığıyla adaya hitap eden sade bir not yaz.
 
+### İlk teslimlerde gördüğümüz hatalar — teslimin reddedilmesine yol açar
+
+- **Uydurma alıntı.** Her alıntıyı otomatik olarak resmî metinde arıyoruz; bulunamayan alıntılı soru doğrudan elenir.
+  Metni kendi cümlenle "kanun diyor ki" diye yazma; kopyala-yapıştır yap.
+- **Aynı "Püf noktaları" cümlesini her soruya yapıştırmak.** Püf notu o soruya özgü olmalı; yazacak bir şey yoksa hiç yazma.
+- **Kökü okumadan elenen şıklar.** "Fatura düzenlemek", "tanığın geçmişi", "her durumda yasaktır" gibi saçma şıklar koyma.
+  Her yanlış şık, konuyu yarım bilen bir adayı gerçekten cezbetmeli (komşu madde, yakın süre/oran, ters yön, eksik şart).
+- **Şişirilmiş zorluk.** Tek maddeyi ezber soran soru zorluk 1'dir. Zorluk 3 = en az iki hüküm/adım birleşir ya da senaryo
+  çözümlemesi gerekir.
+- **Doğru şık en uzun şık.** Şık uzunluklarını dengele; doğru cevap harfleri A–E arasında dengeli dağılsın.
+- **Güncellik.** Hüküm 2026'da değişmiş olabilir (ör. İYUK md. 28'e 2026'da kesinleşme istisnası eklendi). Metnin en güncel
+  hâlini oku; "hiçbir şekilde", "her durumda" gibi mutlak ifadeleri ancak metin öyle diyorsa kullan.
+- **Yanlış yürürlük tarihi.** Her soruya kanunun ilk tarihini yazma; sorduğun fıkra sonradan eklendiyse onun tarihini yaz.
+  Emin değilsen kanunun yürürlük tarihini yaz ve `aciklama`ya not düş.
+- **`celdiriciler` biçimi.** Liste değil, sözlük: yalnız 4 yanlış şık harfi (`{A: "...", B: "...", D: "...", E: "..."}`).
+- **Aynı bilgiyi iki kez sormak.** GOREV'deki her satır farklı bir bilgi/hükmü sınamalı; bankada zaten olan klasik soruların
+  ("deneme süresi kaç ay", "kısa vadeli sigorta kolu hangisi") başka bir yüzünü sor.
+
+### Genel Kültür / Yetenek / İngilizce (GKY) için özel kurallar
+
+- Bu derste `kaynaklar/` yoktur. `kaynaklar` alanına `mevzuat: "Genel bilgi — <konu>"`, `madde: "-"`, `alinti: ""` yaz.
+- **Türkçe ve İngilizce paragraflar tamamen özgün olmalı** (kitap, gazete, sınav metni kopyalanamaz). İngilizce sorularda
+  kök Türkçe yönerge + İngilizce metin olabilir; seviye B1–B2.
+- **Matematik**: hesap makinesi yok; her soruda `dogrulama.python` zorunlu ve sonuç doğru şıkla aynı olmalı.
+- **Tarih**: yalnız kesin, tartışmasız tarih ve olgular (kongre tarihleri, antlaşma maddeleri, inkılap yılları). Tarihten
+  emin değilsen o soruyu yazma.
+
 ## 4. Teslimden önce kendi kontrolün (her soru için)
 
 - [ ] Cevabı anahtara bakmadan baştan çözdüm; tek doğru şık var.

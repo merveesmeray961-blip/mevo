@@ -20,9 +20,9 @@ import yaml
 from pipeline import g2_yapi
 
 KOK = g2_yapi.KOK
-# PLAN.md §8 "Hedef (2000)" sütunu; Finansal Muhasebe 340 = FIN 280 + Muhasebe Standartları 60, Ekonomi+Maliye 140 = 70 + 70.
+# PLAN.md §8 "Hedef (2000)" sütunu (+ GKY 200: SGS Türkçe/Matematik/Tarih/İngilizce); Finansal Muhasebe 340 = FIN 280 + Muhasebe Standartları 60, Ekonomi+Maliye 140 = 70 + 70.
 HEDEF = {"FIN": 280, "STD": 60, "TAB": 200, "MAL": 220, "DEN": 220, "VER": 300, "HUK": 300,
-         "SPK": 140, "MES": 140, "EKO": 70, "MLY": 70}
+         "SPK": 140, "MES": 140, "EKO": 70, "MLY": 70, "GKY": 200}
 YET_ASGARI = 20
 ZORLUK_ORANI = (0.20, 0.45, 0.35)
 
@@ -56,7 +56,7 @@ def harita() -> tuple[dict, dict]:
                 k["kod"]: {
                     "ad": k["ad"],
                     "kota": konu_kota[k["kod"]],
-                    "kazanimlar": _dagit(konu_kota[k["kod"]], {z: 1.0 for z in k.get("kazanimlar") or [k["ad"]]}),
+                    "kazanimlar": _dagit(konu_kota[k["kod"]], {str(z): 1.0 for z in k.get("kazanimlar") or [k["ad"]]}),
                 }
                 for k in d["konular"]
             },
