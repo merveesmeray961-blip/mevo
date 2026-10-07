@@ -35,10 +35,11 @@ def yeniden_denetim_bekleyen(soru: dict) -> bool:
     """Düzeltilip G3/G5/G6/GZ kapıları sıfırlanmış (hakem denetimi bekleyen) taslak soru.
 
     Daha önce yayımlanmış bir sorunun düzeltmesi bekleme süresince paketten düşmesin diye pakete ve uzman
-    kitapçığına girer; hiç denetlenmemiş yeni taslaklar (gecmis kaydı yok) girmez.
+    kitapçığına girer; hiç denetlenmemiş yeni taslaklar (gecmis kaydı yok ya da yalnız harici üretici kaydı var) girmez.
     """
     kapilar = soru.get("uretim", {}).get("kapilar", {})
-    return (soru.get("durum") == "taslak" and bool(soru.get("gecmis"))
+    gecmis = soru.get("gecmis") or []
+    return (soru.get("durum") == "taslak" and any(g.get("kim") != "uretici" for g in gecmis)
             and any(k.get("sonuc") == "bekliyor" for k in kapilar.values()))
 
 

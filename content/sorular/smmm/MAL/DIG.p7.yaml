@@ -73,7 +73,7 @@
       fifo_stok = sum(a * b for a, b in c)\n# Hareketli ortalama\nmiktar, deger = 400, 20000\nmiktar += 600\ndeger += 36000\n\
       birim = deger / miktar\nmiktar -= 700\ndeger = miktar * birim\nmiktar += 300\ndeger += 21000\nbirim = deger / miktar\n\
       miktar -= 400\nho_stok = miktar * birim\nsonuc = fifo_stok - ho_stok\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -90,14 +90,23 @@
         not: yalnız banka içi; külliyat verilmedi
         tarih: '2026-10-07'
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-07'
+        not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: bekliyor
+        sonuc: atlandi
+        not: 'hızlı denetim: hakem incelemesi yapılmadı'
       G6:
-        sonuc: bekliyor
+        sonuc: atlandi
+        not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
       GZ:
-        sonuc: bekliyor
+        sonuc: atlandi
+        not: 'hızlı denetim: hakem incelemesi yapılmadı'
   gecmis:
   - tarih: '2026-10-07'
     kim: uretici
     ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #8'
+  - tarih: '2026-10-07'
+    kim: otomatik
+    ne: 'durum: taslak → kontrolde (hızlı denetim).'
+    neden: kör çözücü (kaynaksız) anahtarla uyuştu

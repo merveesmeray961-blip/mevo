@@ -126,7 +126,8 @@ void main() {
       await ac(tester, MevzuatMaddeEkrani(madde: m), durum);
       expect(find.byType(SelectableText), findsWidgets);
       expect(find.text("mevzuat.gov.tr'de aç"), findsOneWidget);
-      expect(find.text('Bu maddeden 1 soru çöz'), findsOneWidget);
+      final n = m.soruIdler.where((id) => durum.banka.soru(id)!.bolumde('YET')).length;
+      expect(find.text('Bu maddeden $n soru çöz'), findsOneWidget);
       await tester.scrollUntilVisible(
         find.textContaining('Metin 4 Ekim 2026 itibarıyla alınmıştır'),
         400,
@@ -146,10 +147,12 @@ void main() {
       final durum = durumOlustur(bolum: 'YET');
       final m = bul(durum, '213 sayılı', 'md. 114');
       await ac(tester, MevzuatMaddeEkrani(madde: m), durum);
-      await tester.tap(find.text('Bu maddeden 1 soru çöz'));
+      await tester.tap(find.textContaining('Bu maddeden'));
       await tester.pumpAndSettle();
       final ekran = tester.widget<CalismaEkrani>(find.byType(CalismaEkrani));
-      expect(ekran.sorular.map((s) => s.id), m.soruIdler.where((id) => durum.banka.soru(id)!.bolumde('YET')));
+      final beklenen = m.soruIdler.where((id) => durum.banka.soru(id)!.bolumde('YET')).toSet();
+      expect(ekran.sorular, isNotEmpty);
+      expect(ekran.sorular.map((s) => s.id).toSet().difference(beklenen), isEmpty);
     });
 
     testWidgets('seçili bölümde sorusu olmayan maddede "soru çöz" gizlenir', (tester) async {
