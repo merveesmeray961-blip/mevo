@@ -1,0 +1,3016 @@
+- id: SMMM-MAL-TBL-0004
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: üretim maliyeti
+  tip: hesaplama
+  zorluk: 1
+  kok: KDV dikkate alınmayacaktır. KZ İşletmesi'nin bir üretim döneminde direkt ilk madde ve malzeme giderleri 180.000 TL,
+    direkt işçilik giderleri 140.000 TL ve genel üretim giderleri 100.000 TL'dir. Bu verilere göre üretim maliyeti kaç TL'dir?
+  secenekler:
+    A: 420.000 TL
+    B: 380.000 TL
+    C: 440.000 TL
+    D: 460.000 TL
+    E: 480.000 TL
+  dogru: A
+  aciklama:
+    dogru_neden: MSUGT'deki satışların maliyeti tablosu açıklamasına göre direkt ilk madde ve malzeme, direkt işçilik, genel
+      üretim giderleri ve varsa yarı mamul kullanım tutarları üretim maliyetini verir. Bu soruda yarı mamul kullanım tutarı
+      verilmediğinden 180.000 + 140.000 + 100.000 = 420.000 TL'dir.
+    celdiriciler:
+      C: 440.000 TL, genel üretim giderlerinin 20.000 TL fazla alınmasıyla bulunur.
+      D: 460.000 TL, direkt ilk madde ve malzeme ile direkt işçiliğin toplamına genel üretim giderlerinin hatalı olarak eklenmesi
+        sonucu oluşur.
+      E: 480.000 TL, verilen üç maliyet unsurunun toplamına kaynakta bulunmayan ek bir unsur dahil edilmesiyle elde edilir.
+      B: 380.000 TL, genel üretim giderlerinin 20.000 TL eksik alınmasıyla bulunur.
+    hesap_adimlari:
+    - 'Direkt ilk madde ve malzeme: 180.000 TL'
+    - 'Direkt işçilik: 140.000 TL'
+    - 'Genel üretim giderleri: 100.000 TL'
+    - Üretim maliyeti = 180.000 + 140.000 + 100.000 = 420.000 TL
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği — Ek 4
+    madde: Satışların Maliyet Tablosu, E. Mamul Stoklarında Değişim
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım tutarlarının toplamı
+      üretim maliyetini verir.
+  gecerlilik:
+    baslangic: '2008-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 180000 + 140000 + 100000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-06-G01 #2'
+- id: SMMM-MAL-TBL-0005
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan mamul maliyeti
+  tip: hesaplama
+  zorluk: 3
+  kok: KDV dikkate alınmayacaktır. LD İşletmesi'nde dönem başı mamul stoku 90.000 TL, dönem sonu mamul stoku 70.000 TL'dir.
+    Dönem içinde direkt ilk madde ve malzeme 240.000 TL, direkt işçilik 110.000 TL, genel üretim giderleri 80.000 TL ve üretimde
+    kullanılan yarı mamul tutarı 30.000 TL'dir. Dönem içinde mamullerin 10.000 TL'lik kısmı işletme içinde tüketilmiştir.
+    Buna göre satılan mamul maliyeti kaç TL'dir?
+  secenekler:
+    A: 430.000 TL
+    B: 450.000 TL
+    C: 470.000 TL
+    D: 490.000 TL
+    E: 510.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Üretim maliyeti 240.000 + 110.000 + 80.000 + 30.000 = 460.000 TL''dir. Mamul stoklarında değişim, dönem
+      başı mamul stoku ile dönem sonu mamul stoku ve iç tüketim toplamı arasındaki farktır: 90.000 − (70.000 + 10.000) = 10.000
+      TL. Bu tutar üretim maliyetine eklendiğinde satılan mamul maliyeti 470.000 TL olur. Püf noktaları: İç tüketim tutarı
+      dönem sonu mamul stokuyla birlikte stok değişiminin hesabına alınır; yalnızca dönem başı ve dönem sonu stok farkını
+      kullanmak doğru değildir.'
+    celdiriciler:
+      A: 430.000 TL, 30.000 TL'lik yarı mamul kullanım tutarının üretim maliyetinden çıkarılmasıyla bulunur.
+      B: 450.000 TL, 10.000 TL iç tüketimin satılan mamul maliyetine etkisinin göz ardı edilmesiyle bulunur.
+      D: 490.000 TL, 10.000 TL iç tüketimin stok değişimine yanlış yönde dahil edilmesiyle elde edilir.
+      E: 510.000 TL, dönem başı mamul stoku ve iç tüketimin üretim maliyetine ayrıca eklenmesiyle oluşur.
+    hesap_adimlari:
+    - Üretim maliyeti = 240.000 + 110.000 + 80.000 + 30.000 = 460.000 TL
+    - Mamul stoklarında değişim = 90.000 − (70.000 + 10.000) = 10.000 TL
+    - Satılan mamul maliyeti = 460.000 + 10.000 = 470.000 TL
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği — Ek 4
+    madde: Satışların Maliyet Tablosu, E. Mamul Stoklarında Değişim
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım tutarlarının toplamı
+      üretim maliyetini verir. Dönem başı mamul stoku ile dönem sonu mamul stoku ve mamullerinin bir bölümünü iç tüketimde
+      kullanan işletmelerde, sözkonusu tüketim miktarının toplamı arasındaki fark "Mamul Stoklarında Değişim" tutarını oluşturur.
+      Bu tutarın üretim maliyetine eklenmesi veya çıkarılması ile satılan mamul maliyetine ulaşılır.
+  gecerlilik:
+    baslangic: '2008-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'uretim = 240000 + 110000 + 80000 + 30000
+
+      stok_degisim = 90000 - (70000 + 10000)
+
+      sonuc = uretim + stok_degisim'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-06-G01 #4'
+- id: SMMM-MAL-TBL-0006
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: ilk madde gideri
+  tip: hesaplama
+  zorluk: 2
+  kok: KDV dikkate alınmayacaktır. RZ İşletmesi üretime vermek üzere ambardan 75.000 TL tutarında direkt ilk madde ve malzeme
+    çekmiştir. Bunun 15.000 TL'si yardımcı üretim gider yerinde, kalan kısmı esas üretim gider yerinde kullanılmıştır. Dönem
+    içinde üretimde kullanılmak üzere ambardan çekilen direkt maddelerin 710 hesabında izlenmesi gerektiğine göre 710 hesabına
+    borç kaydedilecek tutar kaç TL'dir?
+  secenekler:
+    A: 15.000 TL
+    B: 45.000 TL
+    C: 60.000 TL
+    D: 90.000 TL
+    E: 75.000 TL
+  dogru: E
+  aciklama:
+    dogru_neden: MSUGT 710 hesabında dönem içinde üretimde kullanılmak üzere ana ve yardımcı üretim yerlerinden ambardan çekilen
+      direkt maddelerin 710 hesabının borcuna kaydedildiği belirtilir. Bu nedenle esas ve yardımcı üretim yerlerine dağılan
+      75.000 TL'nin tamamı 710 hesabına borç kaydedilir.
+    celdiriciler:
+      A: 15.000 TL, yalnızca yardımcı üretim gider yerinde kullanılan kısmın dikkate alınmasıyla bulunur.
+      B: 45.000 TL, toplam çekiş tutarından kaynakta belirtilmeyen bir indirim yapılmasıyla elde edilir.
+      C: 60.000 TL, yardımcı üretim gider yerindeki 15.000 TL'nin toplamdan çıkarılmasıyla bulunur.
+      D: 90.000 TL, çekilen direkt madde tutarına kaynakta bulunmayan 15.000 TL'nin eklenmesiyle bulunur.
+    hesap_adimlari:
+    - 'Üretimde kullanılmak üzere ambardan çekilen direkt madde toplamı: 75.000 TL'
+    - '710 hesabına borç kaydedilecek tutar: 75.000 TL'
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 710. Direkt İlkmadde ve Malzeme Giderleri
+    alinti: 'Dönem içinde üretimde kullanılmak üzere ana ve yardımcı üretim yerlerinde ambardan
+
+      çekilen direkt maddeler bu hesabın borcuna, "150- İlkmadde ve Malzeme Hesabı"nın
+
+      alacağına kaydedilir. Eş zamanlı kayıt sistemi uygulayan işletmelerde giderlerin tahakkuk
+
+      kaydının yapılmasını sağlamak üzere düzenlenen fişde, gider çeşidi ile gider yeri kodunun
+
+      yazılması esastır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 75000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-06-G01 #7'
+- id: SMMM-MAL-TBL-0007
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: üretim maliyeti
+  tip: hesaplama
+  zorluk: 1
+  kok: KDV dikkate alınmayacaktır. SZ İşletmesi'nde üretim maliyeti için dönem içinde 95.000 TL direkt ilk madde ve malzeme,
+    65.000 TL direkt işçilik ve 40.000 TL genel üretim gideri gerçekleşmiştir. Yarı mamul kullanım tutarı bulunmadığına göre
+    üretim maliyeti kaç TL'dir?
+  secenekler:
+    A: 160.000 TL
+    B: 180.000 TL
+    C: 190.000 TL
+    D: 200.000 TL
+    E: 220.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: Kaynak metindeki üretim maliyeti tanımında direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri
+      ve yarı mamul kullanım tutarı birlikte dikkate alınır. Yarı mamul kullanım tutarı verilmediğinden 95.000 + 65.000 +
+      40.000 = 200.000 TL'dir.
+    celdiriciler:
+      A: 160.000 TL, yalnızca direkt ilk madde ve direkt işçiliğin toplanmasıyla bulunur.
+      B: 180.000 TL, genel üretim giderlerinin yalnızca 20.000 TL'sinin dikkate alınmasıyla bulunur.
+      C: 190.000 TL, üç maliyet unsurunun toplamından 10.000 TL eksik alınmasıyla bulunur.
+      E: 220.000 TL, verilen üç tutara kaynakta bulunmayan 20.000 TL eklenmesiyle bulunur.
+    hesap_adimlari:
+    - 95.000 + 65.000 = 160.000 TL
+    - 160.000 + 40.000 = 200.000 TL
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği — Ek 4
+    madde: Satışların Maliyet Tablosu, E. Mamul Stoklarında Değişim
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım tutarlarının toplamı
+      üretim maliyetini verir.
+  gecerlilik:
+    baslangic: '2008-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 95000 + 65000 + 40000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-06-G01 #17'
+- id: SMMM-MAL-TBL-0008
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan mamul maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: R İşletmesi için dönem başı mamul stoku 180.000 TL, dönem sonu mamul stoku 140.000 TL ve dönem üretim maliyeti 620.000
+    TL'dir. Buna göre satılan mamul maliyeti kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: '500.000'
+    B: '540.000'
+    C: '580.000'
+    D: '660.000'
+    E: '800.000'
+  dogru: D
+  aciklama:
+    dogru_neden: Kaynakta mamul stok farkının üretim maliyetine eklenmesiyle satılan mamul maliyetine ulaşıldığı belirtilmektedir.
+      Stok farkı 40.000 TL olduğundan sonuç 660.000 TL'dir.
+    celdiriciler:
+      A: '500.000: dönem sonu stokunun üretim maliyetinden çıkarılmasıyla yanlış yönde işlem yapılmıştır.'
+      B: '540.000: net stok azalması üretim maliyetinden çıkarılmıştır.'
+      C: '580.000: stok farkı ters yönde uygulanmıştır.'
+      E: '800.000: dönem başı ve dönem sonu stoklarının ikisi de üretim maliyetine eklenmiştir.'
+    hesap_adimlari:
+    - Mamul stok farkı = 180.000 − 140.000 = 40.000 TL
+    - Satılan mamul maliyeti = 620.000 + 40.000 = 660.000 TL
+  kaynaklar:
+  - &id001
+    mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — E. Mamül Stoklarında Değişim
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamül kullanım tutarlarının toplamı
+      üretim maliyetini verir. Dönem başı mamül stoku ile dönem sonu mamül stoku arasındaki farkı ifade eden mamül stok farkının
+      üretim maliyetine eklenmesiyle satılan mamülün maliyetine ulaşılır.(1)
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 620000 + (180000 - 140000)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-06-G02 #7'
+- id: SMMM-MAL-TBL-0009
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan ticari mal maliyeti
+  tip: bilgi
+  zorluk: 2
+  kok: Bir işletme, herhangi bir değişikliğe tabi tutmadan yeniden satmak amacıyla satın aldığı ticari malları izlemektedir.
+    Bu malların maliyetini aşağıdaki hesaplardan hangisi kapsar?
+  secenekler:
+    A: 620 Satılan Mamuller Maliyeti
+    B: 621 Satılan Ticari Mallar Maliyeti
+    C: 622 Satılan Hizmet Maliyeti
+    D: 630 Araştırma ve Geliştirme Giderleri
+    E: 730 Genel Üretim Giderleri
+  dogru: B
+  aciklama:
+    dogru_neden: 621 hesabı, herhangi bir değişikliğe tabi olmadan satılmak amacıyla alınan ticari mallar ve benzeri kalemlerin
+      maliyetini kapsar.
+    celdiriciler:
+      A: 620 satılan mamullerin maliyet hesabıdır; burada satın alınan ve değişiklik yapılmadan satılan ticari mal vardır.
+      C: 622 satılan hizmet maliyetini izler; ticari mal maliyeti değildir.
+      D: 630 araştırma ve geliştirme giderleri hesabıdır; ticari mal maliyeti değildir.
+      E: 730 genel üretim giderleri hesabıdır; satın alınan ticari malların satış maliyetini izlemez.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 621. Satılan Ticari Mallar Maliyeti Hesabı
+    alinti: Herhangi bir değişikliğe tabi olmadan satılmak amacıyla alınan ticari mallar (emtia) ve benzeri kalemlerin maliyetini
+      kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-06-G02 #11'
+- id: SMMM-MAL-TBL-0010
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: ilk madde gideri
+  tip: hesaplama
+  zorluk: 3
+  kok: Üretim işletmesi P'nin dönem içinde ambardan üretime verdiği direkt ilk madde ve malzeme 420.000 TL'dir. Aynı dönemde
+    üretimde kullanılmayan 30.000 TL tutarında ilk madde ve malzeme satılmıştır. 710 Direkt İlkmadde ve Malzeme Giderleri
+    hesabında izlenecek tutar kaç TL'dir?
+  secenekler:
+    A: '30.000'
+    B: '390.000'
+    C: '420.000'
+    D: '450.000'
+    E: '840.000'
+  dogru: C
+  aciklama:
+    dogru_neden: '710 hesabı üretimde kullanılan ve mamulün bünyesine doğrudan yüklenebilen maddelerin kullanımını izler;
+      üretimde kullanılmayan ve satılan ilkmadde ve malzemenin maliyeti bu hesapta izlenmez. Bu nedenle 420.000 TL''nin tamamı
+      710 hesabında izlenir; 30.000 TL ayrıca dikkate alınmaz. Püf noktaları: ''Satılan ilk madde'' ifadesi 710''a ek bir
+      tutar değil, 710 kapsamı dışında bırakılan bir kalemdir.'
+    celdiriciler:
+      A: '30.000: yalnız satılan ilk madde ve malzemenin tutarı 710''a alınmıştır.'
+      B: '390.000: 30.000 TL''lik satılan malzeme 420.000 TL üretim kullanımından düşülmüştür.'
+      D: '450.000: satılan ilk madde ve malzeme de üretimde kullanılmış gibi 710''a eklenmiştir.'
+      E: '840.000: 420.000 TL üretim kullanımı ve 420.000 TL''nin ikinci kez eklenmesiyle oluşan dayanaksız tutardır.'
+    hesap_adimlari:
+    - Üretimde kullanılan direkt ilk madde ve malzeme = 420.000 TL
+    - Üretimde kullanılmayan ve satılan 30.000 TL 710 hesabında izlenmez
+    - 710 tutarı = 420.000 TL
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 710. Direkt İlkmadde ve Malzeme Giderleri
+    alinti: Bu giderler, esas üretim gider yerleri ile ilgili olup, mamülün bünyesine giren, mamülün temel öğesini oluşturan
+      ve mamülün bünyesine doğrudan yüklenebilen maddelerin kullanımı fiili tutarlarla bu hesapta izlenir. Üretimde kullanılmayan
+      ve satılan ilkmadde ve malzemenin maliyeti bu hesapta izlenmez.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 420000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-06-G02 #16'
+- id: SMMM-MAL-TBL-0011
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: üretim maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: S İşletmesinde dönem içinde direkt ilk madde ve malzeme giderleri 240.000 TL, direkt işçilik giderleri 160.000 TL,
+    genel üretim giderleri 100.000 TL ve yarı mamul kullanım tutarı 50.000 TL'dir. Buna göre üretim maliyeti kaç TL'dir?
+  secenekler:
+    A: '400.000'
+    B: '450.000'
+    C: '500.000'
+    D: '550.000'
+    E: '600.000'
+  dogru: D
+  aciklama:
+    dogru_neden: Kaynak, bu dört kalemin toplamının üretim maliyetini verdiğini belirtmektedir. 240.000 + 160.000 + 100.000
+      + 50.000 = 550.000 TL.
+    celdiriciler:
+      A: '400.000: genel üretim giderleri ve yarı mamul kullanım tutarı dışarıda bırakılmıştır.'
+      B: '450.000: genel üretim giderleri dışarıda bırakılmıştır.'
+      C: '500.000: yarı mamul kullanım tutarı dışarıda bırakılmıştır.'
+      E: '600.000: verilen dört kalemin toplamına 50.000 TL daha eklenmiştir.'
+    hesap_adimlari:
+    - 240.000 + 160.000 = 400.000 TL
+    - 400.000 + 100.000 = 500.000 TL
+    - 500.000 + 50.000 = 550.000 TL
+  kaynaklar:
+  - *id001
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 240000 + 160000 + 100000 + 50000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-06-G02 #25'
+- id: SMMM-MAL-TBL-0012
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan mamul maliyeti
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir üretim işletmesinde direkt ilk madde ve malzeme giderleri 180.000 TL, direkt işçilik giderleri 120.000 TL, genel
+    üretim giderleri 60.000 TL ve yarı mamul kullanım tutarı 40.000 TL'dir. Dönem başı mamul stoku 70.000 TL, dönem sonu mamul
+    stoku 50.000 TL'dir. Buna göre satılan mamul maliyeti kaç TL'dir?
+  secenekler:
+    A: '390.000'
+    B: '400.000'
+    C: '410.000'
+    D: '420.000'
+    E: '470.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Kaynağa göre direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım
+      tutarlarının toplamı üretim maliyetidir: 180.000 + 120.000 + 60.000 + 40.000 = 400.000 TL. Dönem başı ve dönem sonu
+      mamul stoku arasındaki fark 70.000 − 50.000 = 20.000 TL olduğundan satılan mamul maliyeti 400.000 + 20.000 = 420.000
+      TL''dir. Doğru seçenek D''dir.'
+    celdiriciler:
+      A: Üretim maliyetinden mamul stok farkının yanlış yönde çıkarılmasıyla bulunur.
+      B: Mamul stoklarındaki değişim hiç dikkate alınmadan üretim maliyeti alınmıştır.
+      C: Yarı mamul kullanım tutarı üretim maliyetine dahil edilmemiştir.
+      E: Dönem başı ve dönem sonu mamul stokları yanlış yönde birlikte eklenmiştir.
+    hesap_adimlari:
+    - Üretim maliyeti = 180.000 + 120.000 + 60.000 + 40.000 = 400.000 TL
+    - Mamul stok farkı = 70.000 − 50.000 = 20.000 TL
+    - Satılan mamul maliyeti = 400.000 + 20.000 = 420.000 TL
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi
+    madde: Satışların Maliyeti Tablosu — E. Mamül Stoklarında Değişim
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamül kullanım tutarlarının toplamı
+      üretim maliyetini verir. Dönem başı mamül stoku ile dönem sonu mamül stoku arasındaki farkı ifade eden mamül stok farkının
+      üretim maliyetine eklenmesiyle satılan mamülün maliyetine ulaşılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'uretim = 180000 + 120000 + 60000 + 40000
+
+      stok_farki = 70000 - 50000
+
+      sonuc = uretim + stok_farki'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-06-G03 #4'
+- id: SMMM-MAL-TBL-0013
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan ticari mal maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletmenin dönem satışların maliyeti toplamı 500.000 TL'dir. Bunun 310.000 TL'si satılan mamul maliyeti, 70.000
+    TL'si satılan hizmet maliyetidir. Buna göre satılan ticari mal maliyeti kaç TL'dir?
+  secenekler:
+    A: '100.000'
+    B: '110.000'
+    C: '120.000'
+    D: '130.000'
+    E: '140.000'
+  dogru: C
+  aciklama:
+    dogru_neden: Kaynağa göre satışların maliyeti; satılan mamul maliyeti, satılan ticari mal maliyeti ve satılan hizmet maliyetinin
+      toplamıdır. Bu nedenle satılan ticari mal maliyeti = 500.000 − 310.000 − 70.000 = 120.000 TL'dir. Doğru seçenek C'dir.
+    celdiriciler:
+      A: Satılan hizmet maliyeti yanlışlıkla 90.000 TL alınarak hesaplanmıştır.
+      B: Satılan mamul maliyetinden 20.000 TL fazla çıkarılmıştır.
+      D: Satılan hizmet maliyeti toplamdan hiç düşülmemiştir.
+      E: Mamul ve hizmet maliyetlerinin toplamı yanlışlıkla 260.000 TL alınmıştır.
+    hesap_adimlari:
+    - Satışların maliyeti = satılan mamul maliyeti + satılan ticari mal maliyeti + satılan hizmet maliyeti
+    - Satılan ticari mal maliyeti = 500.000 − 310.000 − 70.000 = 120.000 TL
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi
+    madde: Satışların Maliyeti Tablosu
+    alinti: İşletmenin satılan mamul maliyeti, satılan ticari mal maliyeti ve satılan hizmet maliyetinin toplamı, gelir tablosunda
+      "Satışların Maliyeti" bölümünde yer alan tutarları ifade eder.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 500000 - 310000 - 70000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-06-G03 #8'
+- id: SMMM-MAL-TBL-0014
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: ilk madde gideri
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin üretim maliyeti 420.000 TL'dir. Bu tutarın içinde 150.000 TL direkt işçilik, 90.000 TL genel üretim
+    gideri ve 30.000 TL yarı mamul kullanım tutarı bulunmaktadır. Buna göre direkt ilk madde ve malzeme giderleri kaç TL'dir?
+  secenekler:
+    A: '120.000'
+    B: '130.000'
+    C: '140.000'
+    D: '150.000'
+    E: '180.000'
+  dogru: D
+  aciklama:
+    dogru_neden: Kaynağa göre direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım tutarlarının
+      toplamı üretim maliyetini verir. Bu nedenle direkt ilk madde ve malzeme giderleri = 420.000 − 150.000 − 90.000 − 30.000
+      = 150.000 TL'dir. Doğru seçenek D'dir.
+    celdiriciler:
+      A: Yarı mamul kullanım tutarı iki kez dikkate alınarak fazla düşülmüştür.
+      B: Genel üretim giderleri eksik düşülmüştür.
+      C: Direkt işçilik tutarı yanlışlıkla 160.000 TL kabul edilmiştir.
+      E: Üretim maliyetinden yalnız direkt işçilik ve genel üretim giderleri düşülmüştür.
+    hesap_adimlari:
+    - Direkt ilk madde ve malzeme giderleri = üretim maliyeti − direkt işçilik − genel üretim giderleri − yarı mamul kullanım
+      tutarı
+    - 420.000 − 150.000 − 90.000 − 30.000 = 150.000 TL
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi
+    madde: Satışların Maliyeti Tablosu — A. Direkt İlk Madde ve Malzeme Giderleri / E. Mamül Stoklarında Değişim
+    alinti: Mamülün bünyesine giren mamülün temel öğesini oluşturan ve mamülün bünyesine doğrudan yüklenebilen maddelerin
+      kullanımı bu grupta yer alır. Üretimde kullanılmayan ve satılan ilk madde ve malzemenin maliyeti, tablonun ticari faaliyete
+      ilişkin bölümünde dikkate alınır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 420000 - 150000 - 90000 - 30000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-06-G03 #12'
+- id: SMMM-MAL-TBL-0015
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: üretim maliyeti
+  tip: hesaplama
+  zorluk: 1
+  kok: KP İşletmesi'nin dönem içinde kullandığı direkt ilkmadde 200.000 TL, direkt işçilik giderleri 150.000 TL ve genel üretim
+    giderleri 100.000 TL'dir. Dönem başı yarı mamul stoku 30.000 TL, dönem sonu yarı mamul stoku 50.000 TL'dir. Üretim maliyeti
+    tablosunda "dönem üretim maliyeti", dönem içinde üretime giren direkt ilkmadde ve malzeme, direkt işçilik ve genel üretim
+    giderlerinin toplamıdır. KDV dikkate alınmayacaktır. Dönem üretim maliyeti kaç TL'dir?
+  secenekler:
+    A: '300.000'
+    B: '350.000'
+    C: '430.000'
+    D: '450.000'
+    E: '470.000'
+  dogru: D
+  aciklama:
+    dogru_neden: Yarı mamuller-üretim hesabı, maliyet dönemi sonunda direkt ilkmadde ve malzeme, direkt işçilik ve genel üretim
+      giderleri tutarları kadar borçlandırılır (THP 151). Dönem üretim maliyeti = 200.000 + 150.000 + 100.000 = 450.000 TL.
+      Yarı mamul stoklarındaki değişim ancak üretilen (tamamlanan) mamul maliyetinin bulunmasında kullanılır; dönem üretim
+      maliyetini değiştirmez.
+    celdiriciler:
+      A: '300.000: Yalnızca direkt işçilik ile genel üretim giderleri (dönüştürme maliyeti) toplanmış, direkt ilkmadde unutulmuştur.'
+      B: '350.000: Genel üretim giderleri unutulmuş; yalnızca direkt ilkmadde ve direkt işçilik (asal maliyet) toplanmıştır.'
+      C: '430.000: Yarı mamul stok değişimi (başı 30.000 − sonu 50.000) üretim maliyetine yansıtılmıştır; bu işlem üretilen
+        mamul maliyetini verir, dönem üretim maliyetini değil.'
+      E: '470.000: Yarı mamul stok değişimi ters yönde işlenmiştir; üstelik stok değişimi dönem üretim maliyetine hiç etki
+        etmez.'
+    hesap_adimlari:
+    - Dönem üretim maliyeti = DİM + DİŞ + GÜG = 200.000 + 150.000 + 100.000 = 450.000 TL
+    - Yarı mamul stokları bu tutarı etkilemez (yalnızca üretilen mamul maliyetinde kullanılır)
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 151. Yarı Mamuller-Üretim
+    alinti: Maliyet dönemi sonunda direkt ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu
+      hesap borçlandırılır. Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına
+      aktarılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'sonuc = 200000 + 150000 + 100000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #2'
+- id: SMMM-MAL-TBL-0016
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan mamul maliyeti
+  tip: hesaplama
+  zorluk: 3
+  kok: 'RS İşletmesi''nin dönem verileri aşağıdadır (tüm ilkmaddeler direkt ilkmaddedir):
+
+
+    - İlkmadde: dönem başı stok 80.000 TL, dönem içi alımlar 420.000 TL, alımlardan iadeler 30.000 TL, dönem sonu stok 100.000
+    TL
+
+    - Direkt işçilik giderleri 300.000 TL; genel üretim giderleri 220.000 TL
+
+    - Yarı mamul: dönem başı 50.000 TL, dönem sonu 70.000 TL
+
+    - Mamul: dönem başı 120.000 TL, dönem sonu 90.000 TL
+
+    - Pazarlama, satış ve dağıtım giderleri 110.000 TL; genel yönetim giderleri 90.000 TL; finansman giderleri 40.000 TL
+
+
+    KDV dikkate alınmayacaktır. Dönem satılan mamuller maliyeti kaç TL''dir?'
+  secenekler:
+    A: '840.000'
+    B: '890.000'
+    C: '900.000'
+    D: '930.000'
+    E: 1.030.000
+  dogru: C
+  aciklama:
+    dogru_neden: 'İlkmadde kullanımı: 80.000 + 420.000 − 30.000 − 100.000 = 370.000 TL. Dönem üretim maliyeti = 370.000 +
+      300.000 + 220.000 = 890.000 TL. Üretilen mamul maliyeti = 890.000 + 50.000 − 70.000 = 870.000 TL (üretimi tamamlananların
+      maliyeti yarı mamul hesabından stok hesabına aktarılır, THP 151). Satılan mamuller maliyeti = 120.000 + 870.000 − 90.000
+      = 900.000 TL (THP 620: 152 Mamuller alacak, 620 borç). Pazarlama, genel yönetim ve finansman giderleri üretim maliyetine
+      yüklenmez.
+
+
+      Püf noktaları: İki ayrı stok vardır; yarı mamul değişimi üretilen mamulü, mamul değişimi ise satılan mamulü bulur. İade,
+      alım tutarından düşülmeden ilkmadde kullanımı doğru çıkmaz. Pazarlama giderleri çözüme etki etmeyen veridir; genel yönetim
+      ve finansman giderleri ise çözümü bozmak için konmuş tuzaktır.'
+    celdiriciler:
+      A: '840.000: Mamul stok değişimi ters yönde işlenmiştir (870.000 − 120.000 + 90.000).'
+      B: '890.000: Dönem üretim maliyeti satılan mamul maliyeti sanılmış; yarı mamul ve mamul stok değişimleri hesaba katılmamıştır.'
+      D: '930.000: Alımlardan iadeler düşülmemiş, ilkmadde kullanımı 400.000 TL alınmıştır (üretilen mamul 900.000 TL, satılan
+        930.000 TL).'
+      E: '1.030.000: Genel yönetim (90.000) ve finansman (40.000) giderleri satılan mamul maliyetine eklenmiştir; bunlar üretim
+        maliyetine yüklenmez, sonuç hesaplarına aktarılır.'
+    hesap_adimlari:
+    - 'İlkmadde kullanımı: 80.000 + 420.000 − 30.000 − 100.000 = 370.000 TL'
+    - 'Dönem üretim maliyeti: 370.000 + 300.000 + 220.000 = 890.000 TL'
+    - 'Üretilen mamul maliyeti: 890.000 + 50.000 − 70.000 = 870.000 TL'
+    - 'Satılan mamuller maliyeti: 120.000 + 870.000 − 90.000 = 900.000 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 151. Yarı Mamuller-Üretim
+    alinti: Maliyet dönemi sonunda direkt ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu
+      hesap borçlandırılır. Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına
+      aktarılır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 620. Satılan Mamuller Maliyeti
+    alinti: Satılan mamullerin maliyet tutarı 152 nolu hesaba (Mamuller Hs.) alacak, bu hesaba ise borç kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 63. Faaliyet Giderleri (grup açıklaması)
+    alinti: İşletmenin esas faaliyeti ile ilgili bulunan ve üretim maliyetlerine yüklenmeyen araştırma ve geliştirme giderleri;
+      pazarlama, satış ve dağıtım giderleri ve genel yönetim giderlerinden oluşan hesap grubudur.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 78. Finansman Giderleri (grup açıklaması)
+    alinti: Bu grupta işletmenin borçlandığı tutarlarla ilgili olarak katlanılan ve varlıkların maliyetine eklenmemiş bulunan
+      faiz ve benzeri giderlerle, yansıtma ve fark hesapları yer alır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'dim = 80000 + 420000 - 30000 - 100000
+
+      uretim = dim + 300000 + 220000
+
+      uretilen = uretim + 50000 - 70000
+
+      sonuc = 120000 + uretilen - 90000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #6'
+- id: SMMM-MAL-TBL-0017
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan ticari mal maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: TM İşletmesi ticari mal alım satımı yapmaktadır. Dönem başı ticari mal stoku 60.000 TL, dönem içi mal alımları 500.000
+    TL, alımlardan iadeler 20.000 TL, alım iskontoları 10.000 TL ve dönem sonu ticari mal stoku 85.000 TL'dir. Dönem içinde
+    satılan malların alıcılara teslimi için 12.000 TL nakliye gideri yapılmıştır. Alım iade ve iskontoları alış maliyetinden
+    düşülmektedir. KDV dikkate alınmayacaktır. Dönem satılan ticari mallar maliyeti kaç TL'dir?
+  secenekler:
+    A: '445.000'
+    B: '455.000'
+    C: '457.000'
+    D: '475.000'
+    E: '495.000'
+  dogru: A
+  aciklama:
+    dogru_neden: Satılan ticari mallar maliyeti = dönem başı stok + net alımlar − dönem sonu stok'tur. Net alımlar = 500.000
+      − 20.000 − 10.000 = 470.000 TL. SMM = 60.000 + 470.000 − 85.000 = 445.000 TL. Satılan ticari malların maliyeti 153 Ticari
+      Mallar hesabına alacak, 621 hesabına borç yazılır (THP 621); ticari mallar maliyet bedeli ile izlenir (THP 153). Mamulün/malın
+      alıcıya teslimine kadar yapılan giderler ise 760 Pazarlama Satış ve Dağıtım Giderleri'ne gider.
+    celdiriciler:
+      B: '455.000: Alım iskontoları (10.000 TL) alış maliyetinden düşülmemiştir.'
+      C: '457.000: Satılan mallara ait nakliye gideri (12.000 TL) maliyete eklenmiştir; teslime kadar yapılan giderler 760''ta
+        izlenir, ticari mal maliyetine girmez.'
+      D: '475.000: Alım iade ve iskontoları düşülmemiştir (60.000 + 500.000 − 85.000).'
+      E: '495.000: Başlangıç stoku ve dönem sonu stok ters yönde işlenmiştir (470.000 − 60.000 + 85.000).'
+    hesap_adimlari:
+    - 'Net alımlar: 500.000 − 20.000 − 10.000 = 470.000 TL'
+    - 'Satılan ticari mallar maliyeti: 60.000 + 470.000 − 85.000 = 445.000 TL'
+    - Satış nakliyesi (12.000 TL) maliyete girmez
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 621. Satılan Ticari Mallar Maliyeti
+    alinti: Satılan ticari malların maliyet tutarı "153. Ticari Mallar Hesabı"na alacak, bu hesaba borç kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 153. Ticari Mallar
+    alinti: Satın alınan ticari mallar (emtia) maliyet bedeli ile bu hesaba borç, satılması veya herhangi bir nedenle ambardan
+      çekilmesinde ise maliyet bedeli ile alacak kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 760. Pazarlama Satış ve Dağıtım Giderleri
+    alinti: Mamülün stoklara verildiği ve hizmetin tamamlandığı andan itibaren bu mal ve hizmetlerin alıcılara teslimine kadar
+      yapılan giderler bu hesaba borç kaydedilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'net_alim = 500000 - 20000 - 10000
+
+      sonuc = 60000 + net_alim - 85000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #12'
+- id: SMMM-MAL-TBL-0018
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: ilk madde gideri
+  tip: hesaplama
+  zorluk: 2
+  kok: 'SD İşletmesi''nin ilkmadde ve malzeme hareketleri şöyledir: dönem başı stok 90.000 TL, dönem içi alımlar 460.000 TL,
+    alımlardan iadeler 15.000 TL, alım iskontoları 5.000 TL, dönem sonu stok 110.000 TL. Dönem içinde maliyeti 30.000 TL olan
+    ilkmadde üretimde kullanılmayıp başka bir işletmeye satılmıştır; diğer tüm çıkışlar üretimde kullanılmış olup kullanılanların
+    tamamı direkt ilkmaddedir. 7/A seçeneğini uygulayan işletmenin dönem içinde 710 Direkt İlkmadde ve Malzeme Giderleri hesabında
+    izleyeceği tutar kaç TL''dir? KDV dikkate alınmayacaktır.'
+  secenekler:
+    A: '390.000'
+    B: '395.000'
+    C: '405.000'
+    D: '420.000'
+    E: '450.000'
+  dogru: A
+  aciklama:
+    dogru_neden: Stok eşitliğine göre toplam çıkış = 90.000 + 460.000 − 15.000 − 5.000 − 110.000 = 420.000 TL'dir. Bu tutarın
+      30.000 TL'si satılan ilkmaddeye aittir; üretimde kullanılmayan ve satılan ilkmadde ve malzemenin maliyeti 710 hesabında
+      izlenmez (THP 710). Üretimde kullanılan direkt ilkmadde = 420.000 − 30.000 = 390.000 TL'dir. Ürün bünyesine katılan
+      direkt ilkmadde, 150 İlk Madde ve Malzeme hesabının alacağı karşılığında 710'a borç kaydedilir.
+    celdiriciler:
+      B: '395.000: Alımlardan iadeler düşülmüş, ancak alım iskontoları (5.000 TL) düşülmemiştir.'
+      C: '405.000: Alım iskontoları düşülmüş, ancak alımlardan iadeler (15.000 TL) düşülmemiştir.'
+      D: '420.000: Stok eşitliğinden bulunan toplam çıkış tutarıdır; satılan ilkmaddenin maliyeti (30.000 TL) düşülmemiştir.'
+      E: '450.000: Satılan ilkmadde maliyeti 420.000 TL''den düşülmesi gerekirken eklenmiştir (ters işlem).'
+    hesap_adimlari:
+    - 'Toplam çıkış: 90.000 + 460.000 − 15.000 − 5.000 − 110.000 = 420.000 TL'
+    - 'Satılan ilkmadde maliyeti: 30.000 TL (710''da izlenmez)'
+    - 'Üretimde kullanılan direkt ilkmadde: 420.000 − 30.000 = 390.000 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 710. Direkt İlkmadde ve Malzeme Giderleri Hesabı
+    alinti: Bu giderler, esas üretim gider yerleri ile ilgili olup, mamülün bünyesine giren, mamülün temel öğesini oluşturan
+      ve mamülün bünyesine doğrudan yüklenebilen maddelerin kullanımı fiili tutarlarla bu hesapta izlenir. Üretimde kullanılmayan
+      ve satılan ilkmadde ve malzemenin maliyeti bu hesapta izlenmez.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 150. İlk Madde ve Malzeme
+    alinti: Satın alındıkları ya da üretildikleri maliyet bedelleri ile bu hesabın borcuna, üretime verildiğinde, tüketildiğinde,
+      satıldığında veya devredildiğinde ise hesabın alacağına kaydedilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'cikis = 90000 + 460000 - 15000 - 5000 - 110000
+
+      sonuc = cikis - 30000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #16'
+- id: SMMM-MAL-TBL-0019
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: zincirleme dönem tabloları
+  tip: hesaplama
+  zorluk: 3
+  kok: 'NS İşletmesi''nin art arda iki yıllık maliyet tabloları hazırlanmaktadır; 1. yıl sonundaki stoklar 2. yılın başlangıç
+    stoklarıdır. Verilenler:
+
+
+    1. yıl: Kullanılan direkt ilkmadde 500.000 TL, direkt işçilik 300.000 TL, genel üretim giderleri 200.000 TL; yarı mamul
+    stoku yıl başı 60.000 TL, yıl sonu 90.000 TL; mamul stoku yıl başı 100.000 TL; satılan mamuller maliyeti 930.000 TL; pazarlama
+    giderleri 80.000 TL.
+
+
+    2. yıl: Kullanılan direkt ilkmadde 540.000 TL, direkt işçilik 310.000 TL, genel üretim giderleri 210.000 TL; yarı mamul
+    stoku yıl sonu 70.000 TL; satılan mamuller maliyeti 1.020.000 TL.
+
+
+    KDV dikkate alınmayacaktır. İşletmenin 2. yıl sonundaki mamul stoku kaç TL''dir?'
+  secenekler:
+    A: '160.000'
+    B: '170.000'
+    C: '180.000'
+    D: '200.000'
+    E: '230.000'
+  dogru: D
+  aciklama:
+    dogru_neden: '1. yıl dönem üretim maliyeti = 500.000 + 300.000 + 200.000 = 1.000.000 TL; üretilen mamul maliyeti = 1.000.000
+      + 60.000 − 90.000 = 970.000 TL. Satılan mamuller maliyeti 930.000 TL olduğundan 1. yıl sonu mamul stoku = 100.000 +
+      970.000 − 930.000 = 140.000 TL''dir. Bu tutar ile 1. yıl sonu yarı mamul stoku (90.000 TL) 2. yılın başlangıç stoklarıdır.
+      2. yıl üretim maliyeti = 540.000 + 310.000 + 210.000 = 1.060.000 TL; üretilen mamul maliyeti = 1.060.000 + 90.000 −
+      70.000 = 1.080.000 TL. 2. yıl sonu mamul stoku = 140.000 + 1.080.000 − 1.020.000 = 200.000 TL. Üretimi tamamlananların
+      maliyeti yarı mamul hesabından stok hesabına aktarılır, satılan mamullerin maliyeti 152''den 620''ye geçer (THP 151,
+      620).
+
+
+      Püf noktaları: 1. yıl sonu mamul stoku verilmemiş, geri hesapla bulunmalıdır. İki yılın bağlantısı hem yarı mamul hem
+      mamul stokundadır; ikisini birden taşımak gerekir. Pazarlama giderleri çözüme etki etmeyen veridir.'
+    celdiriciler:
+      A: '160.000: 2. yıl başı mamul stoku olarak 1. yıl başı stok (100.000 TL) alınmıştır; 1. yıl sonu mamul stoku zincirleme
+        taşınmamıştır.'
+      B: '170.000: 2. yıl başı yarı mamul olarak 1. yıl başı stok (60.000 TL) alınmıştır; 1. yıl sonu yarı mamul stoku (90.000
+        TL) zincirleme taşınmamıştır.'
+      C: '180.000: 2. yılda yarı mamul stok değişimi (başı 90.000, sonu 70.000) hesaba katılmamıştır.'
+      E: '230.000: 1. yıl sonu mamul stoku, yarı mamul değişimi hesaba katılmadan 170.000 TL bulunmuş ve 2. yıla bu tutarla
+        devredilmiştir.'
+    hesap_adimlari:
+    - '1. yıl üretim maliyeti: 500.000 + 300.000 + 200.000 = 1.000.000 TL'
+    - '1. yıl üretilen mamul: 1.000.000 + 60.000 − 90.000 = 970.000 TL'
+    - '1. yıl sonu mamul stoku: 100.000 + 970.000 − 930.000 = 140.000 TL'
+    - '2. yıl üretim maliyeti: 540.000 + 310.000 + 210.000 = 1.060.000 TL'
+    - '2. yıl üretilen mamul: 1.060.000 + 90.000 − 70.000 = 1.080.000 TL'
+    - '2. yıl sonu mamul stoku: 140.000 + 1.080.000 − 1.020.000 = 200.000 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 151. Yarı Mamuller-Üretim
+    alinti: Maliyet dönemi sonunda direkt ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu
+      hesap borçlandırılır. Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına
+      aktarılır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 620. Satılan Mamuller Maliyeti
+    alinti: Satılan mamullerin maliyet tutarı 152 nolu hesaba (Mamuller Hs.) alacak, bu hesaba ise borç kaydedilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'uretim1 = 500000 + 300000 + 200000
+
+      uretilen1 = uretim1 + 60000 - 90000
+
+      mamul_sonu1 = 100000 + uretilen1 - 930000
+
+      uretim2 = 540000 + 310000 + 210000
+
+      uretilen2 = uretim2 + 90000 - 70000
+
+      sonuc = mamul_sonu1 + uretilen2 - 1020000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #20'
+- id: SMMM-MAL-TBL-0020
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan ticari mal maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Ticari mal alım-satımı yapan M İşletmesi''nin dönem verileri şöyledir:
+
+    - Dönem başı ticari mal stoku: 120.000 TL
+
+    - Dönem içi ticari mal alışları: 700.000 TL
+
+    - Alınan mallardan iade edilenler: 40.000 TL
+
+    - Alışlarda satıcıdan alınan iskontolar: 20.000 TL
+
+    - Satılan mallar için müşterilere yapılan sevk (nakliye) giderleri: 25.000 TL
+
+    - Dönem sonu ticari mal stoku: 150.000 TL
+
+    - Net satışlar: 1.000.000 TL
+
+    Alış iadeleri ve alış iskontoları, alış maliyetinden düşülmektedir. KDV dikkate alınmayacaktır.
+
+
+    Bu işletmenin dönem sonunda 621 Satılan Ticari Mallar Maliyeti hesabına borç kaydedeceği tutar kaç TL''dir?'
+  secenekler:
+    A: '610.000'
+    B: '630.000'
+    C: '635.000'
+    D: '670.000'
+    E: '910.000'
+  dogru: A
+  aciklama:
+    dogru_neden: Ticari mallar, 153 hesapta maliyet bedeli ile izlenir; satılan ticari malların maliyeti 621 hesaba borç,
+      153 hesaba alacak kaydedilir. Satılan ticari mal maliyeti = dönem başı stok + net alışlar − dönem sonu stok formülüyle
+      bulunur. Net alışlar = 700.000 − 40.000 − 20.000 = 640.000 TL. Satılan ticari mal maliyeti = 120.000 + 640.000 − 150.000
+      = 610.000 TL. Müşterilere yapılan sevk giderleri satışların maliyetine değil, faaliyet giderleri içindeki pazarlama,
+      satış ve dağıtım giderlerine girer; net satışlar ise maliyetin hesabında kullanılmaz.
+    celdiriciler:
+      B: '630.000: yalnızca alış iadeleri (40.000 TL) düşülmüş, alış iskontoları (20.000 TL) unutulmuştur.'
+      C: '635.000: müşterilere yapılan sevk giderleri (25.000 TL) satılan ticari mal maliyetine eklenmiştir; oysa bu gider
+        pazarlama, satış ve dağıtım giderleridir.'
+      D: '670.000: alış iadeleri ve alış iskontoları (toplam 60.000 TL) net alışlardan düşülmemiştir.'
+      E: '910.000: dönem sonu stok (150.000 TL) maliyetten düşülecek yerde eklenmiştir (ters işaret).'
+    hesap_adimlari:
+    - 'Net alışlar: 700.000 − 40.000 − 20.000 = 640.000 TL'
+    - 'Satılabilir mal tutarı: 120.000 + 640.000 = 760.000 TL'
+    - 'Satılan ticari mal maliyeti: 760.000 − 150.000 = 610.000 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 153. Ticari Mallar — İşleyişi
+    alinti: Satın alınan ticari mallar (emtia) maliyet bedeli ile bu hesaba borç, satılması veya herhangi bir nedenle ambardan
+      çekilmesinde ise maliyet bedeli ile alacak kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 621. Satılan Ticari Mallar Maliyeti — İşleyişi
+    alinti: Satılan ticari malların maliyet tutarı "153. Ticari Mallar Hesabı"na alacak, bu hesaba borç kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: Gelir Tablosu — Faaliyet Giderleri
+    alinti: D. FAALİYET GİDERLERİ (-) 1. ARAŞTIRMA VE GELİŞTİRME GİDERLERİ (-) 2. PAZARLAMA, SATIŞ VE DAĞITIM GİDERLERİ (-)
+      3. GENEL YÖNETİM GİDERLERİ (-)
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'net_alis = 700000 - 40000 - 20000
+
+      sonuc = 120000 + net_alis - 150000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G09 #2'
+- id: SMMM-MAL-TBL-0021
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: ilk madde gideri
+  tip: hesaplama
+  zorluk: 2
+  kok: 'P İşletmesi 7/A seçeneğini uygulamaktadır. Dönem başında 150 İlk Madde ve Malzeme hesabında 200.000 TL tutarında ilk
+    madde bulunmaktadır. Dönem içinde 900.000 TL''lik ilk madde satın alınmış, bunun 50.000 TL''lik kısmı satıcıya iade edilmiştir
+    (alış iadeleri alış maliyetinden düşülmektedir). Dönem sonu ilk madde stoku 250.000 TL''dir. Dönem içinde stoktaki ilk
+    maddenin 30.000 TL maliyetli kısmı üretime verilmeden başka bir işletmeye satılmıştır. Kalan tüm ilk madde tüketimi mamüllerin
+    bünyesine giren ve doğrudan yüklenebilen niteliktedir. KDV dikkate alınmayacaktır.
+
+
+    Dönem içinde 710 Direkt İlkmadde ve Malzeme Giderleri hesabına borç kaydedilecek tutar kaç TL''dir?'
+  secenekler:
+    A: '850.000'
+    B: '830.000'
+    C: '820.000'
+    D: '800.000'
+    E: '770.000'
+  dogru: E
+  aciklama:
+    dogru_neden: Dönem içinde stoktan çıkan toplam ilk madde = dönem başı stok + net alışlar − dönem sonu stok = 200.000 +
+      (900.000 − 50.000) − 250.000 = 800.000 TL'dir. Bunun 30.000 TL'si üretimde kullanılmadan satıldığından 710 hesabında
+      izlenmez (satılan ilk madde ve malzemenin maliyeti ticari faaliyet bölümünde dikkate alınır). Direkt ilkmadde gideri
+      = 800.000 − 30.000 = 770.000 TL.
+    celdiriciler:
+      A: '850.000: hem alış iadesi (50.000 TL) hem de üretime verilmeden satılan kısım (30.000 TL) dikkate alınmamıştır.'
+      B: '830.000: satılan ilk maddenin maliyeti (30.000 TL) düşülecek yerde eklenmiştir (ters işaret).'
+      C: '820.000: alış iadesi dikkate alınmamış, yalnızca satılan kısım düşülmüştür.'
+      D: '800.000: stoktan çıkan toplam tutar alınmış, üretimde kullanılmayıp satılan 30.000 TL ayrılmamıştır.'
+    hesap_adimlari:
+    - 'Net alışlar: 900.000 − 50.000 = 850.000 TL'
+    - 'Stoktan çıkan: 200.000 + 850.000 − 250.000 = 800.000 TL'
+    - 'Üretimde kullanılmayan, satılan: 30.000 TL'
+    - '710 hesabına borç: 800.000 − 30.000 = 770.000 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 710. Direkt İlkmadde ve Malzeme Giderleri
+    alinti: Üretimde kullanılmayan ve satılan ilkmadde ve malzemenin maliyeti bu hesapta izlenmez.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: Satışların Maliyeti Tablosu — A. Direkt İlk Madde ve Malzeme Giderleri
+    alinti: Üretimde kullanılmayan ve satılan ilk madde ve malzemenin maliyeti, tablonun ticari faaliyete ilişkin bölümünde
+      dikkate alınır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 150. İlk Madde ve Malzeme — İşleyişi
+    alinti: Satın alındıkları ya da üretildikleri maliyet bedelleri ile bu hesabın borcuna, üretime verildiğinde, tüketildiğinde,
+      satıldığında veya devredildiğinde ise hesabın alacağına kaydedilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'net_alis = 900000 - 50000
+
+      stoktan_cikan = 200000 + net_alis - 250000
+
+      sonuc = stoktan_cikan - 30000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G09 #8'
+- id: SMMM-MAL-TBL-0022
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: zincirleme dönem tabloları
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Mamul üreten V İşletmesi, birbirini izleyen X1 ve X2 dönemlerinin satışların maliyeti tablolarını düzenlemektedir.
+    Yarı mamul ve mamul stoklarındaki değişim, ilgili stokun dönem başı tutarından dönem sonu tutarı çıkarılarak bulunmakta
+    ve işaretiyle birlikte ilgili toplama eklenmektedir. Dönemlerin verileri şöyledir (TL):
+
+
+    X1 dönemi: Direkt ilk madde ve malzeme 400.000; direkt işçilik 300.000; genel üretim giderleri 200.000; dönem başı yarı
+    mamul stoku 40.000; dönem sonu yarı mamul stoku 70.000; dönem başı mamul stoku 100.000; satılan mamul maliyeti 840.000.
+    Dönem sonu mamul stoku verilmemiştir.
+
+
+    X2 dönemi: Direkt ilk madde ve malzeme 450.000; direkt işçilik 330.000; genel üretim giderleri 220.000; dönem sonu yarı
+    mamul stoku 50.000; dönem sonu mamul stoku 90.000. İşletmenin X2 dönemi başı stokları, X1 dönemi sonu stoklarına eşittir.
+
+
+    X2 dönemi satılan mamul maliyeti kaç TL''dir? KDV dikkate alınmayacaktır.'
+  secenekler:
+    A: '940.000'
+    B: 1.000.000
+    C: 1.020.000
+    D: 1.040.000
+    E: 1.060.000
+  dogru: E
+  aciklama:
+    dogru_neden: 'Satışların maliyeti tablosunda direkt ilk madde, direkt işçilik ve genel üretim giderleri ile yarı mamul
+      stoklarındaki değişim toplanarak üretim maliyeti bulunur; mamul stoklarındaki değişimin üretim maliyetine eklenmesi
+      veya çıkarılması ile satılan mamul maliyetine ulaşılır. X1: üretim maliyeti = 400.000 + 300.000 + 200.000 + (40.000
+      − 70.000) = 870.000 TL; satılan mamul maliyeti 840.000 = 870.000 + (100.000 − dönem sonu mamul) olduğundan X1 sonu mamul
+      stoku 130.000 TL''dir. Bu tutarlar X2 dönemi başı stoklarıdır (yarı mamul 70.000; mamul 130.000). X2: üretim maliyeti
+      = 450.000 + 330.000 + 220.000 + (70.000 − 50.000) = 1.020.000 TL; satılan mamul maliyeti = 1.020.000 + (130.000 − 90.000)
+      = 1.060.000 TL.
+
+
+      Püf noktaları: X2''nin dönem başı stokları X1 tablosundan geri hesapla bulunmalıdır; mamul stoku X1''de verilmemiştir.
+      X1''in dönem başı stokları (40.000 ve 100.000) X2''de kullanılamaz. İki stok değişiminin de "dönem başı − dönem sonu"
+      işaretiyle eklendiğine dikkat edilmelidir.'
+    celdiriciler:
+      A: '940.000: iki stok değişimi de ters işaretle uygulanmıştır (1.000.000 − 20.000 − 40.000).'
+      B: '1.000.000: zincir kopartılarak X1 dönemi başı stokları (40.000 ve 100.000) kullanılmıştır; (1.000.000 + (40.000
+        − 50.000) + (100.000 − 90.000)).'
+      C: '1.020.000: yalnızca üretim maliyeti alınmış, mamul stoklarındaki değişim (40.000 TL) eklenmemiştir.'
+      D: '1.040.000: yarı mamul stoklarındaki değişim (20.000 TL) unutulmuş, yalnızca mamul stok değişimi eklenmiştir (1.000.000
+        + 40.000).'
+    hesap_adimlari:
+    - 'X1 üretim maliyeti: 900.000 + (40.000 − 70.000) = 870.000 TL'
+    - 'X1 sonu mamul stoku: 840.000 = 870.000 + (100.000 − S) → S = 130.000 TL'
+    - 'X2 üretim maliyeti: 1.000.000 + (70.000 − 50.000) = 1.020.000 TL'
+    - 'X2 satılan mamul maliyeti: 1.020.000 + (130.000 − 90.000) = 1.060.000 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: Satışların Maliyeti Tablosu — D. Yarı Mamül Stoklarında Değişim
+    alinti: Henüz mamül haline gelmemiş fakat ilk madde ve malzeme ile işçilik ve genel üretim giderlerinden pay almış, üretim
+      aşamasındaki maddelerin dönem başı stoku ile dönem sonu stoku arasındaki fark bu grupta yer alır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:2)
+    madde: C-1. Satışların Maliyeti Tablosu — E. Mamül Stoklarında Değişim (düzeltilmiş paragraf)
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım tutarlarının toplamı
+      üretim maliyetini verir. Dönem başı mamul stoku ile dönem sonu mamul stoku ve mamullerinin bir bölümünü iç tüketimde
+      kullanan işletmelerde, sözkonusu tüketim miktarının toplamı arasındaki fark "Mamul Stoklarında Değişim" tutarını oluşturur.
+      Bu tutarın üretim maliyetine eklenmesi veya çıkarılması ile satılan mamul maliyetine ulaşılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'uretim1 = 400000 + 300000 + 200000 + (40000 - 70000)
+
+      son_mamul1 = 100000 - (840000 - uretim1)
+
+      uretim2 = 450000 + 330000 + 220000 + (70000 - 50000)
+
+      sonuc = uretim2 + (son_mamul1 - 90000)
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G09 #12'
+- id: SMMM-MAL-TBL-0023
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: üretim maliyeti
+  tip: bilgi
+  zorluk: 1
+  kok: Muhasebe Sistemi Uygulama Genel Tebliği'nde yer alan Satışların Maliyeti Tablosu açıklamalarına göre, aşağıdaki kalemlerin
+    hangisinin toplamı üretim maliyetini verir?
+  secenekler:
+    A: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım tutarlarının toplamı
+    B: Direkt ilk madde ve malzeme, direkt işçilik, genel yönetim giderleri ve yarı mamul kullanım tutarlarının toplamı
+    C: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve pazarlama, satış ve dağıtım giderlerinin toplamı
+    D: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve finansman giderlerinin toplamı
+    E: Direkt ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri ile dönem sonu mamul stokunun toplamı
+  dogru: A
+  aciklama:
+    dogru_neden: Satışların Maliyeti Tablosu açıklamasına göre direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri
+      ve yarı mamul kullanım tutarlarının toplamı üretim maliyetini verir. Dönem başı ve dönem sonu mamul stokları arasındaki
+      fark ise bu tutara eklenerek satılan mamul maliyetine ulaşılır.
+    celdiriciler:
+      B: Genel yönetim giderleri üretim maliyetinin unsuru değildir; maliyete giren gider genel üretim giderleridir.
+      C: Pazarlama, satış ve dağıtım giderleri faaliyet giderleridir; üretim maliyetine girmez.
+      D: Finansman giderleri üretim maliyetine katılmaz; 78 grubunda izlenir ve 66 grubuna aktarılır.
+      E: Dönem sonu mamul stoku üretim maliyetinin değil, satılan mamul maliyetine geçişte kullanılan stok farkının unsurudur.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: Satışların Maliyeti Tablosu — E. Mamül Stoklarında Değişim
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamül kullanım tutarlarının toplamı
+      üretim maliyetini verir. Dönem başı mamül stoku ile dönem sonu mamül stoku arasındaki farkı ifade eden mamül stok farkının
+      üretim maliyetine eklenmesiyle satılan mamülün maliyetine ulaşılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G09 #16'
+- id: SMMM-MAL-TBL-0024
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan mamul maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Yarı mamul stoku bulunmayan BT İşletmesi''nin cari dönem verileri şöyledir:
+
+
+    - Direkt ilk madde ve malzeme giderleri: 260.000 TL
+
+    - Direkt işçilik giderleri: 180.000 TL
+
+    - Genel üretim giderleri: 120.000 TL
+
+    - Pazarlama, satış ve dağıtım giderleri: 70.000 TL
+
+    - Genel yönetim giderleri: 50.000 TL
+
+    - Dönem başı mamul stoku: 70.000 TL
+
+    - Dönem sonu mamul stoku: 100.000 TL
+
+
+    Satışların maliyeti tablosuna göre cari dönemde satılan mamul maliyeti kaç TL''dir? KDV dikkate alınmayacaktır.'
+  secenekler:
+    A: '460.000'
+    B: '490.000'
+    C: '530.000'
+    D: '560.000'
+    E: '590.000'
+  dogru: C
+  aciklama:
+    dogru_neden: Satışların maliyeti tablosunda direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı
+      mamul kullanım tutarlarının toplamı üretim maliyetini verir; üretim maliyetine mamul stoklarındaki değişim (dönem başı
+      stok − dönem sonu stok) eklenerek satılan mamul maliyetine ulaşılır. Pazarlama ve genel yönetim giderleri üretim maliyetine
+      girmez; bunlar faaliyet giderleridir. Üretim maliyeti = 260.000 + 180.000 + 120.000 = 560.000 TL. Mamul stoku 70.000
+      TL'den 100.000 TL'ye çıktığından stok farkı 70.000 − 100.000 = −30.000 TL'dir. Satılan mamul maliyeti = 560.000 − 30.000
+      = 530.000 TL.
+    celdiriciler:
+      A: '460.000: Dönem başı mamul stoku unutulmuş, yalnızca dönem sonu stoku (100.000 TL) üretim maliyetinden düşülmüştür.'
+      B: '490.000: Yalnızca dönem başı mamul stoku (70.000 TL) üretim maliyetinden düşülmüştür; stok farkı yanlış kurulmuştur.'
+      D: '560.000: Mamul stoklarındaki değişim dikkate alınmamış, üretim maliyeti satılan mamul maliyeti sayılmıştır.'
+      E: '590.000: Stok farkı ters işaretle (+30.000 TL) üretim maliyetine eklenmiştir; stok artışı satılan mamul maliyetini
+        azaltır.'
+    hesap_adimlari:
+    - 'Üretim maliyeti: 260.000 + 180.000 + 120.000 = 560.000 TL (pazarlama ve genel yönetim giderleri dahil değildir)'
+    - 'Mamul stoklarında değişim: 70.000 − 100.000 = −30.000 TL'
+    - 'Satılan mamul maliyeti: 560.000 − 30.000 = 530.000 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:2) — 1 Sıra No'lu Tebliğe İlişkin Düzeltmeler
+    madde: 'C-1: Satışların Maliyeti Tablosu, E. Mamül Stoklarında Değişim'
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım tutarlarının toplamı
+      üretim maliyetini verir. … Bu tutarın üretim maliyetine eklenmesi veya çıkarılması ile satılan mamul maliyetine ulaşılır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — E. Mamül Stoklarında Değişim
+    alinti: Dönem başı mamül stoku ile dönem sonu mamül stoku arasındaki farkı ifade eden mamül stok farkının üretim maliyetine
+      eklenmesiyle satılan mamülün maliyetine ulaşılır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 620. Satılan Mamuller Maliyeti
+    alinti: Satılan mamullerin maliyet tutarı 152 nolu hesaba (Mamuller Hs.) alacak, bu hesaba ise borç kaydedilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'uretim_maliyeti = 260000 + 180000 + 120000
+
+      sonuc = uretim_maliyeti + 70000 - 100000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G10 #2'
+- id: SMMM-MAL-TBL-0025
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan ticari mal maliyeti
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Ticari mal alım satımı yapan KL İşletmesi, ticari mallarını Vergi Usul Kanunu''ndaki maliyet bedeli tanımına göre
+    değerlemektedir. Cari dönem verileri şöyledir:
+
+
+    - Dönem başı ticari mal stoku (maliyet bedeli ile): 150.000 TL
+
+    - Dönem içi ticari mal alışları (satıcı faturalarındaki bedel): 900.000 TL
+
+    - İthal edilen mallar için ödenen gümrük vergisi: 20.000 TL
+
+    - Alınan malların stoklara girişine kadar yapılan nakliye gideri: 30.000 TL
+
+    - Satılan malların müşterilere teslimi için yapılan nakliye gideri: 25.000 TL
+
+    - Dönem içinde 621 Satılan Ticari Mallar Maliyeti hesabına borç kaydedilen tutar: 890.000 TL
+
+
+    Dönem içinde alınan tüm mallar stoklara girmiştir. Buna göre dönem sonu ticari mal stoku kaç TL''dir? KDV dikkate alınmayacaktır.'
+  secenekler:
+    A: '235.000'
+    B: '210.000'
+    C: '185.000'
+    D: '160.000'
+    E: '60.000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'VUK md. 262''ye göre maliyet bedeli, iktisadi kıymetin iktisabı için yapılan ödemelerle bunlara müteferri
+      bilümum giderlerin toplamıdır; gümrük vergileri ve nakliye giderleri iktisapla doğrudan ilgili olduğundan maliyet bedeline
+      girer. (Faturadaki satın alma bedelini ifade eden alış bedeli, md. 268/A uyarınca diğer iktisap giderlerini içermez.)
+      153 Ticari Mallar hesabı maliyet bedeli ile borçlandırılır, satılan malların maliyet bedeli ile alacaklandırılır ve
+      karşılığında 621''e borç kaydedilir. Müşteriye teslim nakliyesi ise satış fonksiyonunun gideri olup (631) ticari mal
+      maliyetine girmez. Alışların maliyeti = 900.000 + 20.000 + 30.000 = 950.000 TL. Dönem sonu stok = 150.000 + 950.000
+      − 890.000 = 210.000 TL.
+
+
+      Püf noktaları: Burada iki kavram ayrılmalıdır: faturadaki alış bedeli ile gümrük ve nakliye gibi müteferri giderleri
+      de içeren maliyet bedeli. Ayrıca 621''e giden tutar stok hesabından çıkan maliyet olduğundan hesap geriye doğru yapılır
+      (dönem sonu stok = dönem başı + alışların maliyeti − satılan malın maliyeti). Satış nakliyesi stoklara girişten sonra
+      doğan bir giderdir; stok hesabını etkilemez.'
+    celdiriciler:
+      A: '235.000: Satış nakliyesi (25.000 TL) alışların maliyetine eklenmiştir; teslim nakliyesi stoklara girişten sonra
+        doğan pazarlama giderdir ve stok maliyetine girmez.'
+      C: '185.000: Satış nakliyesi (25.000 TL) ters işaretle hesaba katılmıştır; bu gider stok hesabını hiç etkilemez.'
+      D: '160.000: Yalnızca faturadaki alış bedeli alınmış, gümrük vergisi ve nakliye maliyet bedeline eklenmemiştir (150.000
+        + 900.000 − 890.000); VUK md. 262 bu giderlerin maliyet bedeline girdiğini belirtir.'
+      E: '60.000: Dönem başı stok unutulmuştur (950.000 − 890.000); 153 hesabında dönem başı bakiye de satılabilir mal olarak
+        yer alır.'
+    hesap_adimlari:
+    - 'Alışların maliyeti: 900.000 + 20.000 (gümrük vergisi) + 30.000 (stoklara girişe kadar nakliye) = 950.000 TL'
+    - Satış nakliyesi (25.000 TL) 631'e gider yazılır, stok maliyetine girmez
+    - 'Satılabilir mal: 150.000 + 950.000 = 1.100.000 TL'
+    - 'Dönem sonu stok: 1.100.000 − 890.000 (621''e aktarılan maliyet) = 210.000 TL'
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 262/1
+    alinti: Maliyet bedeli, iktisadi bir kıymetin iktisap edilmesi veyahut değerinin artırılması münasebetiyle yapılan ödemelerle
+      bunlara müteferri bilümum giderlerin toplamını ifade eder.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 262/2-(a)
+    alinti: İktisadi kıymetin iktisap edilmesi veya değerinin artırılması ile doğrudan ilgili; gümrük vergileri, gümrük komisyonları,
+      yükleme, boşaltma, nakliye ve montaj giderleri,
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 268/A
+    alinti: Alış bedeli, bir iktisadi kıymetin satın alma bedelidir. İktisadi bir kıymetin iktisap edilmesi ile ilgili diğer
+      giderler alış bedeline dâhil değildir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 153. Ticari Mallar
+    alinti: Satın alınan ticari mallar (emtia) maliyet bedeli ile bu hesaba borç, satılması veya herhangi bir nedenle ambardan
+      çekilmesinde ise maliyet bedeli ile alacak kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 621. Satılan Ticari Mallar Maliyeti
+    alinti: Satılan ticari malların maliyet tutarı "153. Ticari Mallar Hesabı"na alacak, bu hesaba borç kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 631. Pazarlama, Satış ve Dağıtım Giderleri
+    alinti: Mal ve hizmetlerin pazarlama, satış ve dağıtım faaliyetleri ile ilgili olarak yapılan endirekt malzeme, endirekt
+      işçilik, personel giderleri, dışardan sağlanan fayda ve hizmetler, çeşitli giderler, vergi resim ve harçlar, amortismanlar
+      ve tükenme paylarından oluşur.
+  gecerlilik:
+    baslangic: '2021-10-26'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'alis_maliyeti = 900000 + 20000 + 30000
+
+      sonuc = 150000 + alis_maliyeti - 890000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G10 #6'
+- id: SMMM-MAL-TBL-0026
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: ilk madde gideri
+  tip: hesaplama
+  zorluk: 2
+  kok: 'ZK İşletmesi''nin cari dönemde 150 İlk Madde ve Malzeme hesabına ilişkin verileri şöyledir:
+
+
+    - Dönem başı stok: 40.000 TL
+
+    - Dönem içi alışlar (maliyet bedeli ile): 260.000 TL
+
+    - Dönem sonu stok: 50.000 TL
+
+
+    Dönem içinde ambardan çekilen malzemelerin 20.000 TL''si ilk madde olarak üçüncü kişilere satılmış, 30.000 TL''si makinelerin
+    bakımında kullanılan yağlama ve temizlik malzemesi olarak tüketilmiş, geri kalanı ise mamulün bünyesine giren ana madde
+    olarak üretimde kullanılmıştır. Satışların maliyeti tablosunda yer alacak direkt ilk madde ve malzeme giderleri kaç TL''dir?
+    KDV dikkate alınmayacaktır.'
+  secenekler:
+    A: '200.000'
+    B: '210.000'
+    C: '220.000'
+    D: '230.000'
+    E: '250.000'
+  dogru: A
+  aciklama:
+    dogru_neden: '150 hesabından dönem içinde çıkan tutar: 40.000 + 260.000 − 50.000 = 250.000 TL''dir. 710 hesabında yalnızca
+      mamülün bünyesine giren, temel öğesini oluşturan ve doğrudan yüklenebilen maddelerin kullanımı izlenir; üretimde kullanılmayan
+      ve satılan ilk madde ve malzemenin maliyeti bu hesapta izlenmez. Makine bakımında tüketilen yağlama ve temizlik malzemesi
+      ise direkt ilk madde değil, 730 Genel Üretim Giderleri hesabında izlenen dolaylı bir üretim giderdir. Direkt ilk madde
+      ve malzeme gideri = 250.000 − 20.000 − 30.000 = 200.000 TL.'
+    celdiriciler:
+      B: '210.000: Dönem başı stok unutulmuştur (260.000 − 50.000); dönem başı stok da dönem içinde çıkışa konu olabilir.'
+      C: '220.000: Satılan ilk madde (20.000 TL) direkt ilk madde giderinden düşülmemiştir (250.000 − 30.000).'
+      D: '230.000: Yağlama ve temizlik malzemesi (30.000 TL) genel üretim gideri olduğu halde direkt ilk madde giderinde bırakılmıştır
+        (250.000 − 20.000).'
+      E: '250.000: 150 hesabından çıkan malzemenin tamamı direkt ilk madde gideri sayılmıştır; satılan ve dolaylı kullanılan
+        kısımlar ayrıştırılmamıştır.'
+    hesap_adimlari:
+    - '150 hesabından çıkan tutar: 40.000 + 260.000 − 50.000 = 250.000 TL'
+    - 'Satılan ilk madde: − 20.000 TL (direkt ilk madde gideri değildir)'
+    - 'Yağlama ve temizlik malzemesi: − 30.000 TL (730 Genel Üretim Giderleri)'
+    - 'Direkt ilk madde ve malzeme gideri: 250.000 − 20.000 − 30.000 = 200.000 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 710. Direkt İlkmadde Ve Malzeme Giderleri
+    alinti: mamülün bünyesine giren, mamülün temel öğesini oluşturan ve mamülün bünyesine doğrudan yüklenebilen maddelerin
+      kullanımı fiili tutarlarla bu hesapta izlenir. Üretimde kullanılmayan ve satılan ilkmadde ve malzemenin maliyeti bu
+      hesapta izlenmez.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 150. İlk Madde ve Malzeme
+    alinti: Satın alındıkları ya da üretildikleri maliyet bedelleri ile bu hesabın borcuna, üretime verildiğinde, tüketildiğinde,
+      satıldığında veya devredildiğinde ise hesabın alacağına kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 730. Genel Üretim Giderleri
+    alinti: İşletmenin üretimi ve bu üretime bağlı hizmetler için yapılan direkt işçilik ve direkt ilkmadde ve malzeme dışında
+      kalan giderlerin izlendiği hesaptır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — A. Direkt İlk Madde ve Malzeme Giderleri
+    alinti: Mamülün bünyesine giren mamülün temel öğesini oluşturan ve mamülün bünyesine doğrudan yüklenebilen maddelerin
+      kullanımı bu grupta yer alır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'cikan = 40000 + 260000 - 50000
+
+      sonuc = cikan - 20000 - 30000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G10 #9'
+- id: SMMM-MAL-TBL-0027
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: zincirleme dönem tabloları
+  tip: hesaplama
+  zorluk: 3
+  kok: 'GM İşletmesi''nin satışların maliyeti tablosuna ilişkin bilgileri şöyledir:
+
+
+    20X1 dönemi
+
+    - Direkt ilk madde ve malzeme giderleri: 300.000 TL
+
+    - Direkt işçilik giderleri: 180.000 TL
+
+    - Genel üretim giderleri: 120.000 TL
+
+    - Dönem başı yarı mamul stoku: 20.000 TL
+
+    - Dönem sonu yarı mamul stoku: 50.000 TL
+
+    - Dönem başı mamul stoku: 40.000 TL
+
+    - Satılan mamul maliyeti: 520.000 TL
+
+
+    20X2 dönemi
+
+    - Direkt ilk madde ve malzeme giderleri: 400.000 TL
+
+    - Direkt işçilik giderleri: 250.000 TL
+
+    - Genel üretim giderleri: 150.000 TL
+
+    - Dönem sonu yarı mamul stoku: 40.000 TL
+
+    - Satılan mamul maliyeti: 830.000 TL
+
+    - Pazarlama, satış ve dağıtım giderleri: 90.000 TL
+
+
+    Dönem başı yarı mamul stoku dönem içinde üretime devredilmekte, dönem sonu yarı mamul stoku ise izleyen döneme devredilmektedir.
+    20X1 dönem sonu stokları, 20X2 dönem başı stoklarıdır. Buna göre 20X2 dönem sonu mamul stoku kaç TL''dir? KDV dikkate
+    alınmayacaktır.'
+  secenekler:
+    A: '20.000'
+    B: '50.000'
+    C: '60.000'
+    D: '70.000'
+    E: '100.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Satışların maliyeti tablosunda direkt ilk madde, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım
+      tutarlarının toplamı üretim maliyetini verir; üretim maliyeti ile dönem başı mamul stokunun toplamından dönem sonu mamul
+      stoku düşüldüğünde satılan mamul maliyeti bulunur. Yarı mamul stoklarındaki değişim, dönem başı ile dönem sonu stoku
+      arasındaki farktır. 20X2 dönem başı stokları bilinmediğinden önce 20X1 tablosu çözülür.
+
+      20X1 üretim maliyeti = 600.000 + 20.000 − 50.000 = 570.000 TL. 20X1 dönem sonu mamul stoku = 570.000 + 40.000 − 520.000
+      = 90.000 TL (20X2 dönem başı mamul stoku). 20X2 dönem başı yarı mamul stoku 50.000 TL''dir.
+
+      20X2 üretim maliyeti = 800.000 + 50.000 − 40.000 = 810.000 TL. 20X2 dönem sonu mamul stoku = 810.000 + 90.000 − 830.000
+      = 70.000 TL.
+
+
+      Püf noktaları: Soruda 20X2 dönem başı stokları verilmemiştir; bunlar 20X1 tablosundan geri hesapla bulunur ve 20X1''deki
+      hata 20X2''ye aynen taşınır. İki dönemde de yarı mamul stok değişimi üretim maliyetini etkiler. Pazarlama giderleri
+      üretim maliyetine girmez; satış hasılatı ve pazarlama gideri çözüme etki etmeyen verilerdir.'
+    celdiriciler:
+      A: '20.000: 20X2 dönem başı mamul stoku olarak 20X1 dönem başı stoku (40.000 TL) alınmıştır; zincirleme geçişte dönem
+        sonu stoku bir sonraki dönemin başı sayılmalıdır.'
+      B: '50.000: 20X2''de yarı mamul stok değişimi ters işaretle uygulanmıştır (800.000 − 10.000); dönem başı yarı mamul
+        stokundaki azalış üretim maliyetini artırır.'
+      C: '60.000: 20X2''de yarı mamul stoklarındaki değişim hiç dikkate alınmamıştır (800.000 + 90.000 − 830.000).'
+      E: '100.000: 20X1''de yarı mamul stok değişimi unutulduğu için 20X1 dönem sonu mamul stoku 120.000 TL bulunmuş, hata
+        20X2''ye taşınmıştır.'
+    hesap_adimlari:
+    - '20X1 üretim maliyeti: 300.000 + 180.000 + 120.000 + 20.000 − 50.000 = 570.000 TL'
+    - '20X1 dönem sonu mamul stoku: 570.000 + 40.000 − 520.000 = 90.000 TL (= 20X2 dönem başı)'
+    - '20X2 üretim maliyeti: 400.000 + 250.000 + 150.000 + 50.000 − 40.000 = 810.000 TL'
+    - '20X2 dönem sonu mamul stoku: 810.000 + 90.000 − 830.000 = 70.000 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — D. Yarı Mamül Stoklarında Değişim
+    alinti: Henüz mamül haline gelmemiş fakat ilk madde ve malzeme ile işçilik ve genel üretim giderlerinden pay almış, üretim
+      aşamasındaki maddelerin dönem başı stoku ile dönem sonu stoku arasındaki fark bu grupta yer alır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:2) — 1 Sıra No'lu Tebliğe İlişkin Düzeltmeler
+    madde: 'C-1: Satışların Maliyeti Tablosu, E. Mamül Stoklarında Değişim'
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım tutarlarının toplamı
+      üretim maliyetini verir. … Bu tutarın üretim maliyetine eklenmesi veya çıkarılması ile satılan mamul maliyetine ulaşılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'pm1 = 300000 + 180000 + 120000 + 20000 - 50000
+
+      ds1 = pm1 + 40000 - 520000
+
+      pm2 = 400000 + 250000 + 150000 + 50000 - 40000
+
+      sonuc = pm2 + ds1 - 830000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G10 #16'
+- id: SMMM-MAL-TBL-0028
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: üretim maliyeti
+  tip: hesaplama
+  zorluk: 1
+  kok: 'Yarı mamul stoku bulunmayan DÜ İşletmesi''nin cari dönem giderleri şöyledir:
+
+
+    - Direkt ilk madde ve malzeme giderleri: 120.000 TL
+
+    - Direkt işçilik giderleri: 90.000 TL
+
+    - Genel üretim giderleri: 60.000 TL
+
+    - Pazarlama, satış ve dağıtım giderleri: 40.000 TL
+
+    - Genel yönetim giderleri: 30.000 TL
+
+    - Finansman giderleri: 20.000 TL
+
+
+    Satışların maliyeti tablosuna göre cari dönem üretim maliyeti kaç TL''dir? KDV dikkate alınmayacaktır.'
+  secenekler:
+    A: '210.000'
+    B: '270.000'
+    C: '310.000'
+    D: '340.000'
+    E: '360.000'
+  dogru: B
+  aciklama:
+    dogru_neden: Satışların maliyeti tablosuna göre direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve
+      yarı mamul kullanım tutarlarının toplamı üretim maliyetini verir. Yarı mamul stoku bulunmadığından üretim maliyeti =
+      120.000 + 90.000 + 60.000 = 270.000 TL'dir. Pazarlama, satış ve dağıtım, genel yönetim ve finansman giderleri üretim
+      maliyetine katılmaz; bu giderler faaliyet giderleri ve finansman giderleri olarak gelir tablosuna aktarılır.
+    celdiriciler:
+      A: '210.000: Genel üretim giderleri unutulmuştur (120.000 + 90.000); genel üretim giderleri üretim maliyetinin üçüncü
+        unsurudur.'
+      C: '310.000: Pazarlama, satış ve dağıtım giderleri (40.000 TL) üretim maliyetine eklenmiştir; bu gider satış fonksiyonuna
+        aittir.'
+      D: '340.000: Pazarlama ve genel yönetim giderleri üretim maliyetine eklenmiştir; ikisi de üretim fonksiyonuna ait değildir.'
+      E: '360.000: Tüm giderler toplanmıştır; pazarlama, genel yönetim ve finansman giderleri üretim maliyetine girmez.'
+    hesap_adimlari:
+    - 'Üretim maliyeti: 120.000 + 90.000 + 60.000 = 270.000 TL'
+    - Pazarlama (40.000), genel yönetim (30.000) ve finansman (20.000) giderleri dahil edilmez
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:2) — 1 Sıra No'lu Tebliğe İlişkin Düzeltmeler
+    madde: 'C-1: Satışların Maliyeti Tablosu, E. Mamül Stoklarında Değişim'
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım tutarlarının toplamı
+      üretim maliyetini verir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 632. Genel Yönetim Giderleri
+    alinti: İşletmenin genel yönetim fonksiyonu ile ilgili olarak yapılan ve üretimle ya da satılan mal maliyeti ile doğrudan
+      ilişkisi kurulamayan endirekt malzeme, endirekt işçilik, personel giderleri, dışardan sağlanan fayda ve hizmetler, çeşitli
+      giderler, vergi resim ve harçlar, amortisman giderlerinden oluşur.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 780. Finansman Giderleri Hesabı
+    alinti: İşletme faaliyetlerinin aksamadan yürütülebilmesi amacıyla borçlanılan tutarlarla ilgili faiz, kur farkları, komisyon
+      ve benzeri giderler bu hesaba borç kaydedilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'sonuc = 120000 + 90000 + 60000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G10 #20'
+- id: SMMM-MAL-TBL-0029
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: üretim maliyeti
+  tip: bilgi
+  zorluk: 1
+  kok: Satışların maliyet tablosuna göre üretim maliyetini oluşturan unsurlar aşağıdakilerden hangisinde doğru olarak sıralanmıştır?
+  secenekler:
+    A: Direkt ilk madde ve malzeme + Direkt işçilik + Genel üretim giderleri + Yarı mamul kullanım tutarları
+    B: Direkt ilk madde ve malzeme + Direkt işçilik + Genel yönetim giderleri
+    C: Direkt ilk madde ve malzeme + Pazarlama satış dağıtım giderleri + Genel üretim giderleri
+    D: Direkt işçilik + Genel üretim giderleri + Finansman giderleri
+    E: Direkt ilk madde ve malzeme + Direkt işçilik + Araştırma geliştirme giderleri
+  dogru: A
+  aciklama:
+    dogru_neden: 'MSUGT düzeltmesine göre direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul
+      kullanım tutarlarının toplamı üretim maliyetini verir. Püf noktaları: Yalnız üretimle ilgili unsurlar alınır; faaliyet
+      ve finansman giderleri üretim maliyetine girmez.'
+    celdiriciler:
+      B: Genel yönetim giderleri üretim maliyeti unsuru değildir.
+      C: Pazarlama satış dağıtım giderleri üretim maliyeti unsuru değildir.
+      D: Finansman giderleri üretim maliyeti unsuru değildir.
+      E: Araştırma geliştirme giderleri üretim maliyeti unsuru değildir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 2 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği
+    madde: C_1 (e- SATIŞLARIN MALİYET TABLOSU düzeltmesi)
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım tutarlarının toplamı
+      üretim maliyetini verir. Dönem başı mamul stoku ile dönem sonu mamul stoku ve mamullerinin bir bölümünü iç tüketimde
+      kullanan işletmelerde, sözkonusu tüketim miktarının toplamı arasındaki fark "Mamul Stoklarında Değişim" tutarını oluşturur.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-06-G05 #6'
+- id: SMMM-MAL-TBL-0030
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan mamul maliyeti
+  tip: kavrama
+  zorluk: 2
+  kok: Satışların maliyet tablosunda satılan mamul maliyetine ulaşmak için üretim maliyetine hangi işlemin uygulanması gerekir?
+  secenekler:
+    A: Dönem başı mamul stoku ile dönem sonu mamul stoku (ve varsa iç tüketim) arasındaki farkın eklenmesi veya çıkarılması
+    B: Dönem başı yarı mamul stokunun eklenmesi
+    C: Dönem sonu ticari mal stokunun çıkarılması
+    D: Finansman giderlerinin eklenmesi
+    E: Pazarlama satış dağıtım giderlerinin çıkarılması
+  dogru: A
+  aciklama:
+    dogru_neden: 'Üretim maliyetine, dönem başı mamul stoku ile dönem sonu mamul stoku ve varsa iç tüketim tutarları arasındaki
+      farkın (Mamul Stoklarında Değişim) eklenmesi veya çıkarılması ile satılan mamul maliyetine ulaşılır. Püf noktaları:
+      Stok değişimi işareti, stok artışı veya azalışına göre değişir.'
+    celdiriciler:
+      B: Yarı mamul stoku üretim maliyeti hesabında zaten dikkate alınır; satılan mamul için mamul stok değişimi kullanılır.
+      C: Ticari mal stoku satılan ticari mal maliyeti hesabına aittir.
+      D: Finansman giderleri satılan mamul maliyetine eklenmez.
+      E: Pazarlama satış dağıtım giderleri faaliyet gideridir, satılan mamul maliyetinden düşülmez.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 2 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği
+    madde: C_1 (e- SATIŞLARIN MALİYET TABLOSU düzeltmesi)
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım tutarlarının toplamı
+      üretim maliyetini verir. Dönem başı mamul stoku ile dönem sonu mamul stoku ve mamullerinin bir bölümünü iç tüketimde
+      kullanan işletmelerde, sözkonusu tüketim miktarının toplamı arasındaki fark "Mamul Stoklarında Değişim" tutarını oluşturur.
+      Bu tutarın üretim maliyetine eklenmesi veya çıkarılması ile satılan mamul maliyetine ulaşılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-06-G05 #9'
+- id: SMMM-MAL-TBL-0031
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan ticari mal maliyeti
+  tip: bilgi
+  zorluk: 3
+  kok: Tekdüzen Hesap Planı'na göre satılan ticari malların maliyet tutarının kaydedilmesine ilişkin işleyiş aşağıdakilerden
+    hangisinde doğru olarak ifade edilmiştir?
+  secenekler:
+    A: Satılan ticari malların maliyet tutarı 153 Ticari Mallar Hesabı'na alacak, 621 Satılan Ticari Mallar Maliyeti Hesabı'na
+      borç kaydedilir.
+    B: Satılan ticari malların maliyet tutarı 153 Ticari Mallar Hesabı'na borç, 621 Satılan Ticari Mallar Maliyeti Hesabı'na
+      alacak kaydedilir.
+    C: Satılan ticari malların maliyet tutarı 152 Mamuller Hesabı'na alacak, 620 Satılan Mamuller Maliyeti Hesabı'na borç
+      kaydedilir.
+    D: Satılan ticari malların maliyet tutarı 150 İlkmadde ve Malzeme Hesabı'na alacak, 621 Satılan Ticari Mallar Maliyeti
+      Hesabı'na borç kaydedilir.
+    E: Satılan ticari malların maliyet tutarı 153 Ticari Mallar Hesabı'na alacak, 622 Satılan Hizmet Maliyeti Hesabı'na borç
+      kaydedilir.
+  dogru: A
+  aciklama:
+    dogru_neden: '621 Satılan Ticari Mallar Maliyeti hesabının işleyişine göre, satılan ticari malların maliyet tutarı 153
+      Ticari Mallar Hesabı''na alacak, 621 hesabına borç kaydedilir. Püf noktaları: Ticari mal (emtia) için 153 ve 621 kullanılır;
+      mamul (152-620) veya hizmet (622) ile karıştırılmamalıdır.'
+    celdiriciler:
+      B: Kayıt yönü terstir; stok hesabı alacaklanır, maliyet hesabı borçlanır.
+      C: Bu kayıt satılan mamuller içindir (620-152).
+      D: 150 ilk madde ve malzeme hesabıdır; ticari mal için 153 kullanılır.
+      E: 622 satılan hizmet maliyetidir; ticari mal için 621 kullanılır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği (Tekdüzen Hesap Planı)
+    madde: 621. SATILAN TİCARİ MALLAR MALİYETİ (-)
+    alinti: Satılan ticari malların maliyet tutarı "153. Ticari Mallar Hesabı"na alacak, bu hesaba borç kaydedilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-06-G05 #12'
+- id: SMMM-MAL-TBL-0032
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: ilk madde gideri
+  tip: kavrama
+  zorluk: 2
+  kok: 7/A seçeneğinde 710 Direkt İlkmadde ve Malzeme Giderleri hesabına kaydedilen tutarların niteliği aşağıdakilerden hangisinde
+    doğru olarak belirtilmiştir?
+  secenekler:
+    A: Esas üretim gider yerlerinde mamulün bünyesine giren, mamulün temel öğesini oluşturan ve doğrudan yüklenebilen maddelerin
+      fiili kullanım tutarları
+    B: Satılan ilk madde ve malzemenin maliyeti
+    C: Üretimde kullanılmayan ilk madde ve malzemenin maliyeti
+    D: Genel üretim gider yerlerinde kullanılan endirekt madde tutarları
+    E: Pazarlama faaliyetlerinde kullanılan ambalaj malzemesi tutarları
+  dogru: A
+  aciklama:
+    dogru_neden: '710 hesabı, esas üretim gider yerleri ile ilgili olup mamulün bünyesine giren, temel öğesini oluşturan ve
+      doğrudan yüklenebilen maddelerin fiili tutarlarını izler. Üretimde kullanılmayan veya satılan ilk madde maliyeti bu
+      hesapta izlenmez. Püf noktaları: Direkt (doğrudan yüklenebilir) ve üretimde kullanılan olma şartı aranır.'
+    celdiriciler:
+      B: Satılan ilk madde maliyeti 710'da izlenmez.
+      C: Üretimde kullanılmayan tutarlar 710'da izlenmez.
+      D: Endirekt maddeler genel üretim giderleri (730) grubunda izlenir.
+      E: Pazarlama malzemeleri 760 grubunda izlenir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği (Tekdüzen Hesap Planı)
+    madde: 710. Direkt İlkmadde Ve Malzeme Giderleri
+    alinti: Bu giderler, esas üretim gider yerleri ile ilgili olup, mamülün bünyesine giren, mamülün temel öğesini oluşturan
+      ve mamülün bünyesine doğrudan yüklenebilen maddelerin kullanımı fiili tutarlarla bu hesapta izlenir. Üretimde kullanılmayan
+      ve satılan ilkmadde ve malzemenin maliyeti bu hesapta izlenmez.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-06-G05 #20'
+- id: SMMM-MAL-TBL-0033
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: üretim maliyeti
+  tip: bilgi
+  zorluk: 1
+  kok: Satışların maliyeti tablosuna göre üretim maliyeti aşağıdakilerden hangisinin toplamından oluşur?
+  secenekler:
+    A: Direkt ilk madde ve malzeme giderleri + Direkt işçilik giderleri + Genel üretim giderleri + Yarı mamul stoklarında
+      değişim
+    B: Direkt ilk madde ve malzeme giderleri + Direkt işçilik giderleri + Genel üretim giderleri
+    C: Direkt ilk madde ve malzeme giderleri + Direkt işçilik giderleri + Genel üretim giderleri + Mamul stoklarında değişim
+    D: Satılan mamul maliyeti + Dönem sonu mamul stoku − Dönem başı mamul stoku
+    E: Direkt ilk madde ve malzeme giderleri + Direkt işçilik giderleri + Genel üretim giderleri − Yarı mamul stoklarında
+      değişim
+  dogru: A
+  aciklama:
+    dogru_neden: MSUGT Satışların Maliyeti Tablosu açıklamasına göre; Direkt ilk madde ve malzeme, direkt işçilik, genel üretim
+      giderleri ve yarı mamul kullanım tutarlarının (yarı mamul stoklarında değişim) toplamı üretim maliyetini verir.
+    celdiriciler:
+      B: Yarı mamul stoklarında değişim kalemi unutulmuştur; bu kalem üretim maliyetinin parçasıdır.
+      C: Mamul stoklarında değişim satılan mamul maliyetine ulaşmak için kullanılır; üretim maliyetinin unsuru değildir.
+      D: Bu ifade satılan mamul maliyetinden geriye doğru üretim maliyetine ulaşma formülüdür; doğrudan üretim maliyeti tanımı
+        değildir.
+      E: Yarı mamul stoklarında değişim çıkarılmak yerine eklenir (veya işaretine göre işlenir); tanıma aykırıdır.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi
+    madde: e- SATIŞLARIN MALİYET TABLOSU — E. Mamül Stoklarında Değişim
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamül kullanım tutarlarının toplamı
+      üretim maliyetini verir. Dönem başı mamül stoku ile dönem sonu mamül stoku arasındaki farkı ifade eden mamül stok farkının
+      üretim maliyetine eklenmesiyle satılan mamülün maliyetine ulaşılır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:2)
+    madde: C.1 — Satışların Maliyeti Tablosu düzeltmesi
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım tutarlarının toplamı
+      üretim maliyetini verir. Dönem başı mamul stoku ile dönem sonu mamul stoku ve mamullerinin bir bölümünü iç tüketimde
+      kullanan işletmelerde, sözkonusu tüketim miktarının toplamı arasındaki fark "Mamul Stoklarında Değişim" tutarını oluşturur.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-06-G06 #7'
+- id: SMMM-MAL-TBL-0034
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan mamul maliyeti
+  tip: uygulama
+  zorluk: 2
+  kok: 'Bir üretim işletmesinin satışların maliyeti tablosu verileri şöyledir: Direkt ilk madde ve malzeme giderleri 320.000
+    TL, Direkt işçilik giderleri 180.000 TL, Genel üretim giderleri 140.000 TL, Yarı mamul stoklarında artış 25.000 TL, Dönem
+    başı mamul stoku 90.000 TL, Dönem sonu mamul stoku 70.000 TL. Buna göre satılan mamul maliyeti kaç TL’dir? KDV dikkate
+    alınmayacaktır.'
+  secenekler:
+    A: 615.000 TL
+    B: 635.000 TL
+    C: 645.000 TL
+    D: 665.000 TL
+    E: 685.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Üretim maliyeti = Direkt İMM + Direkt işçilik + GÜG + Yarı mamul stoklarında değişim. Yarı mamul stoklarında
+      artış (kullanım negatif etki) olduğu için üretim maliyetinden düşülür: 320.000 + 180.000 + 140.000 − 25.000 = 615.000
+      TL. Satılan mamul maliyeti = Üretim maliyeti + Dönem başı mamul − Dönem sonu mamul = 615.000 + 90.000 − 70.000 = 635.000
+      TL.'
+    celdiriciler:
+      A: '615.000 TL: Yalnız üretim maliyeti hesaplanmış; mamul stok değişimi eklenmemiştir.'
+      C: '645.000 TL: Yarı mamul artışı eklenerek (yanlış işaret) üretim maliyeti 640.000 alınmış, sonra mamul farkı uygulanmıştır.'
+      D: '665.000 TL: Yarı mamul değişimi yok sayılarak 640.000 + 90.000 − 70.000 = 660.000 civarı yanlış yuvarlama veya ekleme
+        yapılmıştır.'
+      E: '685.000 TL: Tüm kalemler (yarı mamul artışı dahil) toplanmış ve mamul stok farkı yanlış işaretle işlenmiştir.'
+    hesap_adimlari:
+    - Üretim maliyeti = 320.000 + 180.000 + 140.000 − 25.000 (yarı mamul artışı) = 615.000 TL
+    - Satılan mamul maliyeti = 615.000 + 90.000 − 70.000 = 635.000 TL
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi
+    madde: e- SATIŞLARIN MALİYET TABLOSU — E. Mamül Stoklarında Değişim
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamül kullanım tutarlarının toplamı
+      üretim maliyetini verir. Dönem başı mamül stoku ile dönem sonu mamül stoku arasındaki farkı ifade eden mamül stok farkının
+      üretim maliyetine eklenmesiyle satılan mamülün maliyetine ulaşılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'uretim = 320000 + 180000 + 140000 - 25000
+
+      satilan = uretim + 90000 - 70000
+
+      sonuc = satilan'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-06-G06 #13'
+- id: SMMM-MAL-TBL-0035
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan ticari mal maliyeti
+  tip: uygulama
+  zorluk: 2
+  kok: 'Ticaret işletmesi olan KL Ltd. Şti.’nin dönem verileri şöyledir: Dönem başı ticari mal stoku 120.000 TL, Dönem içi
+    net alımlar 480.000 TL, Dönem sonu ticari mal stoku 95.000 TL. Buna göre satılan ticari mallar maliyeti kaç TL’dir? KDV
+    dikkate alınmayacaktır.'
+  secenekler:
+    A: 455.000 TL
+    B: 505.000 TL
+    C: 515.000 TL
+    D: 575.000 TL
+    E: 695.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: Satılan ticari mal maliyeti = Dönem başı ticari mal stoku + Net alımlar − Dönem sonu ticari mal stoku = 120.000
+      + 480.000 − 95.000 = 505.000 TL. Bu tutar satışların maliyeti tablosunda ve gelir tablosunda 621 Satılan Ticari Mallar
+      Maliyeti hesabına karşılık gelir.
+    celdiriciler:
+      A: '455.000 TL: Net alımlar yerine başka bir tutar (örneğin alımlardan bir indirim) kullanılarak hesaplanmıştır.'
+      C: '515.000 TL: Dönem sonu stok yanlışlıkla eklenmiş veya farklı stok tutarı kullanılmıştır.'
+      D: '575.000 TL: Dönem sonu stok düşülmeden (120.000 + 480.000 − 25.000 gibi) hesaplanmıştır.'
+      E: '695.000 TL: Tüm stok ve alım tutarları toplanmıştır.'
+    hesap_adimlari:
+    - Satılan ticari mal maliyeti = 120.000 + 480.000 − 95.000 = 505.000 TL
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi
+    madde: e- SATIŞLARIN MALİYET TABLOSU
+    alinti: İşletmenin satılan mamul maliyeti, satılan ticari mal maliyeti ve satılan hizmet maliyetinin toplamı, gelir tablosunda
+      "Satışların Maliyeti" bölümünde yer alan tutarları ifade eder.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 621. SATILAN TİCARİ MALLAR MALİYETİ (-)
+    alinti: 'Herhangi bir değişikliğe tabi olmadan satılmak amacıyla alınan ticari mallar (emtia) ve benzeri kalemlerin maliyetini
+      kapsar. İşleyişi : Satılan ticari malların maliyet tutarı "153. Ticari Mallar Hesabı"na alacak, bu hesaba borç kaydedilir.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 120000 + 480000 - 95000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-06-G06 #17'
+- id: SMMM-MAL-TBL-0036
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan ticari mal maliyeti
+  tip: bilgi
+  zorluk: 2
+  kok: Tekdüzen Hesap Planı’na göre, herhangi bir değişikliğe tabi olmadan satılmak amacıyla alınan ticari malların maliyetinin
+    izlendiği hesap ve bu hesabın işleyişi aşağıdakilerden hangisinde doğru olarak verilmiştir?
+  secenekler:
+    A: 620 Satılan Mamuller Maliyeti; satılan tutar 152 Mamuller hesabına alacak, 620’ye borç kaydedilir.
+    B: 621 Satılan Ticari Mallar Maliyeti; satılan tutar 153 Ticari Mallar hesabına alacak, 621’ye borç kaydedilir.
+    C: 622 Satılan Hizmet Maliyeti; satılan tutar 151 Yarı Mamuller-Üretim hesabına alacak, 622’ye borç kaydedilir.
+    D: 623 Diğer Satışların Maliyeti; satılan tutar 150 İlk Madde ve Malzeme hesabına alacak, 623’e borç kaydedilir.
+    E: 621 Satılan Ticari Mallar Maliyeti; satılan tutar 152 Mamuller hesabına alacak, 621’ye borç kaydedilir.
+  dogru: B
+  aciklama:
+    dogru_neden: MSUGT Tekdüzen Hesap Planı’nda 621 Satılan Ticari Mallar Maliyeti hesabı, herhangi bir değişikliğe tabi olmadan
+      satılmak amacıyla alınan ticari malların (emtia) maliyetini kapsar. İşleyişinde satılan ticari malların maliyet tutarı
+      153 Ticari Mallar Hesabı’na alacak, 621’e borç kaydedilir.
+    celdiriciler:
+      A: 620 hesabı mamuller içindir; 152’ye alacak kaydı doğru olsa da hesap kodu yanlıştır.
+      C: 622 hizmet maliyeti içindir; 151 yarı mamul hesabı kullanılmaz.
+      D: 623 diğer satışlar içindir; 150 ilk madde hesabı ticari mal için kullanılmaz.
+      E: Hesap kodu doğru olsa da 152 mamuller hesabı yerine 153 kullanılmalıdır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 621. SATILAN TİCARİ MALLAR MALİYETİ (-)
+    alinti: 'Herhangi bir değişikliğe tabi olmadan satılmak amacıyla alınan ticari mallar (emtia) ve benzeri kalemlerin maliyetini
+      kapsar. İşleyişi : Satılan ticari malların maliyet tutarı "153. Ticari Mallar Hesabı"na alacak, bu hesaba borç kaydedilir.'
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-06-G08 #1'
+- id: SMMM-MAL-TBL-0037
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: ilk madde gideri
+  tip: hesaplama
+  zorluk: 3
+  kok: '7/A seçeneğini ve fiili maliyet yöntemini uygulayan bir üretim işletmesinde dönem içinde şu işlemler gerçekleşmiştir:
+
+    - Ambardan üretime çekilen direkt ilk madde ve malzeme: 1.200.000 TL
+
+    - Üretimde kullanılmayan ve satılan ilk madde maliyeti: 80.000 TL
+
+    - Dönem sonunda 710 hesabının yansıtma kaydı yapılmıştır.
+
+    710 Direkt İlkmadde ve Malzeme Giderleri hesabından 151 Yarı Mamuller-Üretim hesabına aktarılacak tutar kaç TL’dir? KDV
+    dikkate alınmayacaktır.'
+  secenekler:
+    A: 1.120.000
+    B: 1.200.000
+    C: 1.280.000
+    D: '80.000'
+    E: 1.000.000
+  dogru: B
+  aciklama:
+    dogru_neden: '710 hesabında yalnızca mamulün bünyesine giren ve doğrudan yüklenebilen maddelerin kullanımı izlenir. Üretimde
+      kullanılmayan ve satılan ilk madde maliyeti bu hesapta izlenmez. Dolayısıyla ambardan üretime çekilen 1.200.000 TL tutarın
+      tamamı 711 yansıtma hesabı aracılığıyla 151’e aktarılır.
+
+
+      Püf noktaları: Satılan ilk madde maliyeti 710’a hiç kaydedilmez; bu tutar ayrı bir satış maliyeti hesabında izlenir.'
+    celdiriciler:
+      A: Satılan 80.000 TL’nin 710’dan düşülmesiyle elde edilmiştir; oysa bu tutar 710’a hiç girmez.
+      C: Satılan tutarın eklenmesiyle elde edilmiştir.
+      D: Yalnızca satılan tutar alınmıştır.
+      E: Rastgele azaltılmış tutardır.
+    hesap_adimlari:
+    - Üretime çekilen direkt madde = 1.200.000 TL
+    - Satılan ilk madde 710’a kaydedilmez
+    - 151’e aktarılacak = 1.200.000 TL
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 710. Direkt İlkmadde Ve Malzeme Giderleri
+    alinti: Bu giderler, esas üretim gider yerleri ile ilgili olup, mamülün bünyesine giren, mamülün temel öğesini oluşturan
+      ve mamülün bünyesine doğrudan yüklenebilen maddelerin kullanımı fiili tutarlarla bu hesapta izlenir. Üretimde kullanılmayan
+      ve satılan ilkmadde ve malzemenin maliyeti bu hesapta izlenmez.
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 711. Direkt İlkmadde ve Malzeme Yansıtma Hesabı
+    alinti: Fiili maliyet yönteminin uygulandığı durumlarda "710- Direkt İlkmadde ve Malzeme Giderleri Hesabı"nın borcuna
+      gider çeşidi olarak kaydedilen giderler ile, önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda, önceden
+      hesaplanmış giderler, maliyet unsuru olarak bu hesabın alacağı karşılığında "151- Yarı Mamüller-Üretim Hesabı"na borç
+      kaydedilir.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 1200000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-06-G08 #5'
+- id: SMMM-MAL-TBL-0038
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: üretim maliyeti
+  tip: bilgi
+  zorluk: 1
+  kok: Tekdüzen Hesap Planı’na göre, henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme, direkt işçilik ve
+    genel üretim giderlerinden belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesap hangisidir?
+  secenekler:
+    A: 150 İlk Madde ve Malzeme
+    B: 151 Yarı Mamuller-Üretim
+    C: 152 Mamuller
+    D: 153 Ticari Mallar
+    E: 157 Diğer Stoklar
+  dogru: B
+  aciklama:
+    dogru_neden: 151 Yarı Mamuller-Üretim hesabı, henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt
+      işçilik ve genel üretim giderlerinden belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır.
+    celdiriciler:
+      A: 150 hammaddelerin izlendiği hesaptır.
+      C: 152 tamamlanmış mamullerin izlendiği hesaptır.
+      D: 153 ticari mallar içindir.
+      E: 157 artık, hurda vb. diğer stoklar içindir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 151. YARI MAMULLER-ÜRETİM
+    alinti: Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-06-G08 #14'
+- id: SMMM-MAL-TBL-0039
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Maliyet tabloları ve geri hesaplar
+  konu: TBL
+  kazanim: satılan mamul maliyeti
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir üretim işletmesinde dönem başı mamul stoku 400.000 TL, dönem içinde üretilen mamullerin maliyeti 2.600.000 TL ve
+    dönem sonu mamul stoku 500.000 TL’dir. Satılan mamuller maliyeti kaç TL’dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 2.500.000
+    B: 2.600.000
+    C: 2.700.000
+    D: 3.100.000
+    E: 2.100.000
+  dogru: A
+  aciklama:
+    dogru_neden: 'Satılan mamuller maliyeti = Dönem başı mamul + Dönem üretim maliyeti − Dönem sonu mamul = 400.000 + 2.600.000
+      − 500.000 = 2.500.000 TL. Bu tutar 152 Mamuller hesabına alacak, 620 Satılan Mamuller Maliyeti hesabına borç kaydedilir.
+
+
+      Püf noktaları: Dönem sonu stok çıkarılır; üretim maliyeti tek başına satılan maliyet değildir.'
+    celdiriciler:
+      B: Yalnızca dönem üretim maliyeti alınmıştır.
+      C: Dönem sonu stok eklenmiştir (400+2.600+500).
+      D: Dönem başı + üretim alınmış, dönem sonu çıkarılmamıştır.
+      E: Dönem başı stok çıkarılmıştır.
+    hesap_adimlari:
+    - 'Dönem başı mamul: 400.000'
+    - 'Dönem üretim maliyeti: 2.600.000'
+    - 'Dönem sonu mamul: 500.000'
+    - SMM = 400.000 + 2.600.000 − 500.000 = 2.500.000
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 620. SATILAN MAMULLER MALİYET (-)
+    alinti: 'İşleyişi : Satılan mamullerin maliyet tutarı 152 nolu hesaba (Mamuller Hs.) alacak, bu hesaba ise borç kaydedilir.'
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 152. MAMULLER
+    alinti: Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle
+      ambardan çekilmesi ile alacaklandırılır.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 400000 + 2600000 - 500000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-06-G08 #19'

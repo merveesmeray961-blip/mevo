@@ -1,0 +1,155 @@
+- id: SMMM-MAL-SIP-0003
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: GÜG yükleme oranı
+  tip: hesaplama
+  zorluk: 2
+  kok: Sipariş maliyet sistemini uygulayan TA İşletmesi, genel üretim giderlerini direkt işçilik saati üzerinden siparişlere
+    yüklemektedir. Dönem başında bütçelenen sabit GÜG 360.000 TL, değişken GÜG ise direkt işçilik saati başına 6 TL'dir. Normal
+    kapasite 20.000 direkt işçilik saatidir; dönem içinde fiilen 18.000 direkt işçilik saati kullanılmıştır. GÜG yükleme oranı,
+    normal kapasite düzeyindeki bütçelenmiş toplam GÜG'nin normal kapasitedeki direkt işçilik saatine bölünmesiyle bulunmaktadır.
+    KDV dikkate alınmayacaktır. Bu işletmenin direkt işçilik saati başına GÜG yükleme oranı kaç TL'dir?
+  secenekler:
+    A: '18'
+    B: '24'
+    C: '26'
+    D: '30'
+    E: '36'
+  dogru: B
+  aciklama:
+    dogru_neden: Bütçelenmiş toplam GÜG, normal kapasitede = sabit 360.000 + değişken 6 × 20.000 = 480.000 TL'dir. Yükleme
+      oranı = 480.000 ÷ 20.000 saat = 24 TL/saattir. Fiili saat (18.000) oranın belirlenmesinde değil, siparişlere yüklenecek
+      tutarın hesabında kullanılır (önceden saptanmış genel üretim giderleri, 731 yansıtma hesabı).
+    celdiriciler:
+      A: '18: Yalnızca sabit GÜG (360.000 ÷ 20.000) dikkate alınmış, değişken GÜG (6 TL) yükleme oranına eklenmemiştir.'
+      C: '26: Oran normal kapasite yerine fiili saat (18.000) üzerinden hesaplanmıştır: (360.000 + 6 × 18.000) ÷ 18.000.'
+      D: '30: Değişken GÜG oranı (6 TL) iki kez eklenmiştir (18 + 6 + 6).'
+      E: '36: Sabit GÜG iki kez toplama alınmıştır: (360.000 + 360.000) ÷ 20.000.'
+    hesap_adimlari:
+    - 'Değişken GÜG (normal kapasitede): 6 × 20.000 = 120.000 TL'
+    - 'Toplam bütçelenmiş GÜG: 360.000 + 120.000 = 480.000 TL'
+    - 'Yükleme oranı: 480.000 ÷ 20.000 = 24 TL/saat'
+  kaynaklar:
+  - mevzuat: Yöntem sorusu — kaynaklar/ içinde yasal metni bulunmayan standart maliyet yöntemi
+    madde: '-'
+    alinti: ''
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 731. Genel Üretim Giderleri Yansıtma Hesabı
+    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda, önceden saptanmış genel üretim giderleri,
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'sonuc = (360000 + 6 * 20000) / 20000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #5'
+- id: SMMM-MAL-SIP-0004
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: fazla/eksik yükleme
+  tip: uygulama
+  zorluk: 2
+  kok: Sipariş maliyet sistemini uygulayan EG İşletmesi, genel üretim giderlerini direkt işçilik saati üzerinden siparişlere
+    yüklemektedir. Yıl başında normal kapasite 20.000 direkt işçilik saati ve bütçelenmiş toplam GÜG 480.000 TL olarak belirlenmiştir.
+    Dönem içinde siparişler için 21.000 direkt işçilik saati kullanılmış, fiili GÜG 515.000 TL olmuştur. Siparişlere yüklenen
+    GÜG, yükleme oranı ile fiili direkt işçilik saatinin çarpımıdır. KDV dikkate alınmayacaktır. Dönem sonunda yüklenen GÜG
+    ile fiili GÜG arasındaki farka ilişkin aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: 11.000 TL fazla yükleme
+    B: 24.000 TL fazla yükleme
+    C: 35.000 TL eksik yükleme
+    D: 35.000 TL fazla yükleme
+    E: 11.000 TL eksik yükleme
+  dogru: E
+  aciklama:
+    dogru_neden: 'Yükleme oranı = 480.000 ÷ 20.000 = 24 TL/saattir. Siparişlere yüklenen GÜG = 24 × 21.000 = 504.000 TL''dir
+      (önceden saptanmış genel üretim giderleri). Fiili GÜG 515.000 TL olduğundan yüklenen tutar fiilinin altında kalmıştır:
+      515.000 − 504.000 = 11.000 TL eksik yükleme. THP''ye göre fiili GÜG ile maliyetlere yüklenen önceden saptanmış giderler
+      arasındaki fark ayrı fark hesabında izlenir (732).'
+    celdiriciler:
+      A: Fark tutarı doğru bulunmuş, ancak yön ters yorumlanmıştır; yüklenen GÜG (504.000 TL) fiili GÜG'den (515.000 TL) az
+        olduğundan eksik yükleme vardır.
+      B: Yüklenen GÜG (504.000 TL) bütçelenmiş GÜG (480.000 TL) ile kıyaslanmıştır; sorulan fark yüklenen GÜG ile fiili GÜG
+        arasındadır.
+      C: Fiili GÜG (515.000 TL) bütçelenmiş GÜG (480.000 TL) ile kıyaslanmıştır; yükleme oranı ve fiili saat hesaba katılmamıştır.
+      D: Fiili GÜG bütçelenmiş GÜG ile kıyaslanmış ve yön de ters yorumlanmıştır; yükleme oranı hesaba katılmamıştır.
+    hesap_adimlari:
+    - 'Yükleme oranı: 480.000 ÷ 20.000 = 24 TL/saat'
+    - 'Yüklenen GÜG: 24 × 21.000 = 504.000 TL'
+    - 'Fiili GÜG − yüklenen GÜG: 515.000 − 504.000 = 11.000 TL → eksik yükleme'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 732. Genel Üretim Giderleri Bütçe Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz
+      bütçe farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem
+      sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #15'

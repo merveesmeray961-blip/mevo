@@ -1,0 +1,750 @@
+- id: SMMM-TAB-DVR-0006
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: stok (ilk madde
+  tip: hesaplama
+  zorluk: 1
+  kok: Bir üretim işletmesinde ilk madde ve malzeme stokunun dönem başı tutarı 80 bin TL, dönem sonu tutarı 120 bin TL'dir.
+    Dönem içinde üretimde kullanılan ilk madde ve malzeme maliyeti 400 bin TL'dir. İlk madde ve malzeme devir hızı = kullanılan
+    ilk madde ve malzeme maliyeti / ortalama ilk madde ve malzeme stoku olarak alınacaktır. Devir hızı kaçtır?
+  secenekler:
+    A: '2'
+    B: '3'
+    C: '4'
+    D: '5'
+    E: '6'
+  dogru: C
+  aciklama:
+    dogru_neden: Ortalama ilk madde ve malzeme stoku (80 + 120) / 2 = 100 bin TL'dir. Devir hızı 400 / 100 = 4'tür.
+    celdiriciler:
+      A: Dönem sonu stok 120 bin TL doğrudan payda alınmıştır.
+      B: Dönem başı stok 80 bin TL doğrudan payda alınmıştır.
+      D: Kullanılan maliyet ile dönem sonu stok toplanarak yanlış bir payda oluşturulmuştur.
+      E: İki dönem stok toplamı 200 bin TL, ortalama yerine doğrudan payda alınmıştır.
+    hesap_adimlari:
+    - 'Ortalama stok: (80 + 120) / 2 = 100'
+    - 'Devir hızı: 400 / 100 = 4'
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı Açıklamaları
+    madde: 150. İlk Madde ve Malzeme
+    alinti: 'Üretimde veya diğer faaliyetlerde kullanılmak üzere işletmede bulundurulan hammadde, yardımcı
+
+      madde, işletme malzemesi, ambalaj malzemesi ve diğer malzemelerin izlendiği hesaptır.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 400 / ((80+120)/2)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G01 #3'
+- id: SMMM-TAB-DVR-0007
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: yarı mamul
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir üretim işletmesinde yarı mamul stokunun dönem başı tutarı 100 bin TL, dönem sonu tutarı 140 bin TL'dir. Dönem içinde
+    üretimi tamamlanan yarı mamullerin maliyet tutarı 480 bin TL'dir. Yarı mamul devir hızı = tamamlanan üretim maliyeti /
+    ortalama yarı mamul stoku olarak alınacaktır. Yarı mamul devir hızı kaçtır?
+  secenekler:
+    A: '3'
+    B: 3,5
+    C: '4'
+    D: 4,8
+    E: '5'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Ortalama yarı mamul stoku (100 + 140) / 2 = 120 bin TL''dir. Devir hızı 480 / 120 = 4''tür. Püf noktaları:
+      151 hesabı üretim aşamasındaki mamulleri izler; hesaplamada dönem başı ve dönem sonu stoklarının ortalaması kullanılmalıdır.'
+    celdiriciler:
+      A: 480 / 140 = 3,43'e yakın değer kullanılmıştır; dönem sonu tek başına payda olamaz.
+      B: 480 / 140 işlemi yaklaşık 3,5 alınmıştır; ortalama stok 120'dir.
+      D: 480 / 100 = 4,8 ile yalnız dönem başı stok kullanılmıştır.
+      E: 480 / 96 gibi farklı bir ortalama kullanılmıştır; verilen iki stoktan doğru ortalama 120'dir.
+    hesap_adimlari:
+    - 'Ortalama yarı mamul: (100 + 140) / 2 = 120'
+    - 'Devir hızı: 480 / 120 = 4'
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı Açıklamaları
+    madde: 151. Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim
+
+      giderlerinden belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 480 / ((100+140)/2)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G01 #7'
+- id: SMMM-TAB-DVR-0008
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: mamul
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir üretim işletmesinde mamul stokunun dönem başı tutarı 160 bin TL, dönem sonu tutarı 240 bin TL'dir. Satılan mamul
+    maliyeti 1.000 bin TL'dir. Mamul devir hızı = satılan mamul maliyeti / ortalama mamul stoku olarak alınacaktır. Devir
+    hızı kaçtır?
+  secenekler:
+    A: '4'
+    B: '5'
+    C: 5,5
+    D: '6'
+    E: 6,25
+  dogru: B
+  aciklama:
+    dogru_neden: 'Ortalama mamul stoku (160 + 240) / 2 = 200 bin TL''dir. Mamul devir hızı 1.000 / 200 = 5''tir. Püf noktaları:
+      152 hesabı satışa hazır mamulleri izler; ortalama stok kullanılması nedeniyle yalnızca 240 bin TL''lik dönem sonu stok
+      payda yapılmamalıdır.'
+    celdiriciler:
+      A: 1.000 / 240 = 4,17 civarı alınarak dönem sonu stok tek başına kullanılmıştır.
+      C: 1.000 / 160 = 6,25 sonucunun yanlış yuvarlanmış biçimidir; yalnız dönem başı stok kullanılmıştır.
+      D: 1.000 / 200 işlemi 6 kabul edilmiştir; doğru sonuç 5'tir.
+      E: Dönem başı ve sonu stokları toplanıp 400 doğrudan payda alınmıştır; ortalama 200'dür.
+    hesap_adimlari:
+    - 'Ortalama mamul stoku: (160 + 240) / 2 = 200'
+    - 'Devir hızı: 1.000 / 200 = 5'
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı Açıklamaları
+    madde: 152. Mamuller
+    alinti: 'Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği
+
+      hesaptır.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 1000 / ((160+240)/2)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G01 #11'
+- id: SMMM-TAB-DVR-0009
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: ticari mal) devir hızı/süresi
+  tip: hesaplama
+  zorluk: 1
+  kok: Bir ticaret işletmesinde satılan ticari mal maliyeti 900 bin TL, ortalama ticari mal stoku 150 bin TL'dir. Ticari mal
+    devir hızı = satılan ticari mal maliyeti / ortalama ticari mal stoku; devir süresi = 360 / devir hızı olarak alınacaktır.
+    Ticari mal devir hızı ve süresi hangisidir?
+  secenekler:
+    A: 5 kez ve 72 gün
+    B: 6 kez ve 60 gün
+    C: 6 kez ve 72 gün
+    D: 7 kez ve 60 gün
+    E: 9 kez ve 40 gün
+  dogru: B
+  aciklama:
+    dogru_neden: Devir hızı 900 / 150 = 6 kezdir. Süre 360 / 6 = 60 gündür.
+    celdiriciler:
+      A: 900 / 150 = 6 yerine 5 alınmıştır; 72 gün sonucu da buna dayanır.
+      C: Devir hızı doğru bulunmuş ancak 360 / 6 yerine 360 / 5 kullanılmıştır.
+      D: 900 / 150 işlemi 7 olarak hesaplanmıştır.
+      E: Devir hızı 9 olarak yanlış hesaplanmıştır; 900 / 150 = 6'dır.
+    hesap_adimlari:
+    - 'Devir hızı: 900 / 150 = 6'
+    - 'Devir süresi: 360 / 6 = 60 gün'
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı Açıklamaları
+    madde: 153. Ticari Mallar
+    alinti: 'Herhangi bir değişikliğe tabi tutulmadan satmak amacı ile işletmeye alınan ticari mallar (emtia) ve
+
+      benzeri kalemler bu hesapta yer alır.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'sonuc = 900/150
+
+      sure = 360/sonuc'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G01 #15'
+- id: SMMM-TAB-DVR-0010
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: alacak tahsil süresi
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletmenin net satışları 1.800 bin TL, ortalama ticari alacakları 300 bin TL'dir. Alacak devir hızı = net satışlar
+    / ortalama ticari alacaklar ve alacak tahsil süresi = 360 / alacak devir hızı olarak alınacaktır. Alacak tahsil süresi
+    kaç gündür?
+  secenekler:
+    A: '45'
+    B: '60'
+    C: '72'
+    D: '90'
+    E: '120'
+  dogru: B
+  aciklama:
+    dogru_neden: Alacak devir hızı 1.800 / 300 = 6 kezdir. Tahsil süresi 360 / 6 = 60 gündür.
+    celdiriciler:
+      A: 1.800 / 300 = 6 yerine 8 alınarak 45 gün bulunmuştur.
+      C: 360 / 5 gibi yanlış bir devir hızı kullanılarak 72 gün bulunmuştur.
+      D: Devir hızı 4 kabul edilerek 90 gün bulunmuştur.
+      E: 360 / 3 = 120 hesabı yapılmıştır; doğru devir hızı 6'dır.
+    hesap_adimlari:
+    - 'Alacak devir hızı: 1.800 / 300 = 6'
+    - 'Tahsil süresi: 360 / 6 = 60 gün'
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Çerçevesi ve Hesap Planı Açıklamaları
+    madde: 12. Ticari Alacaklar
+    alinti: '12. TİCARİ ALACAKLAR
+
+
+      120. ALICILAR'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 360 / (1800/300)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G01 #19'
+- id: SMMM-TAB-DVR-0011
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: ticari mal devir hızı/süresi
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmede satılan ticari malların maliyeti 1.080 bin ₺dir. Ticari malların dönem başı stoku 180 bin ₺, dönem sonu
+    stoku 220 bin ₺dir. Devir hızında ortalama stok, sürede 360 gün kullanılacaktır. Ticari mal devir hızı ve devir süresi
+    aşağıdakilerden hangisidir?
+  secenekler:
+    A: 4 kez ve 90 gün
+    B: 5 kez ve 72 gün
+    C: 5,4 kez ve 67 gün
+    D: 6 kez ve 60 gün
+    E: 6 kez ve 72 gün
+  dogru: C
+  aciklama:
+    dogru_neden: 'Ortalama ticari mal stoku (180 + 220) / 2 = 200 bin ₺dir. Devir hızı 1.080 / 200 = 5,4 kez, süre ise 360
+      / 5,4 = 66,67 gündür. Doğru seçenek Cdir. Püf noktaları: Devir hızında dönem başı ve dönem sonu stoklarının ortalaması
+      kullanılır; süre devir hızının 360 güne bölünmesiyle bulunur.'
+    celdiriciler:
+      A: 4 kez ve 90 gün, 1.080 bin ₺ maliyetin 270 bin ₺ ortalama stok varmış gibi yanlış kullanılmasına dayanır.
+      B: 5 kez ve 72 gün, maliyetin ortalama stokla bölünmesinde 5,4 değeri yerine aşağı yuvarlanmış 5 alınmasıyla oluşur.
+      D: 6 kez ve 60 gün, dönem sonu stokunun ortalamaya katılmaması veya farklı bir stok tutarı kullanılmasıyla elde edilen
+        yakın sonuçtur.
+      E: 6 kez ve 72 gün, hız ile sürenin birbirine tutarlı çevrilmemesinden kaynaklanır.
+    hesap_adimlari:
+    - 'Ortalama stok: (180 + 220) / 2 = 200'
+    - 'Devir hızı: 1.080 / 200 = 5,4'
+    - 'Devir süresi: 360 / 5,4 = 66,67 gün'
+  kaynaklar:
+  - mevzuat: MSUGT 1 Sıra No.lu Genel Tebliğ — Tekdüzen Hesap Planı
+    madde: 15. Stoklar
+    alinti: 'Bu grup, işletmenin satmak, üretimde kullanmak veya tüketmek amacıyla edindiği, ilk madde
+
+      ve malzeme, yarı mamul, mamul, ticari mal, yan ürün, artık ve hurda gibi bir yıldan az bir
+
+      sürede kullanılacak olan veya bir yıl içerisinde nakde çevrilebileceği düşünülen varlıklardan
+
+      oluşur.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ortalama = (180 + 220) / 2
+
+      hiz = 1080 / ortalama
+
+      sure = 360 / hiz
+
+      sonuc = round(sure, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G03 #2'
+- id: SMMM-TAB-DVR-0012
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: alacak tahsil süresi
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletmenin yıllık net satışları 2.400 bin ₺, dönem başı ticari alacakları 300 bin ₺ ve dönem sonu ticari alacakları
+    500 bin ₺dir. Alacak devir hızında ortalama ticari alacak kullanılacak, yıl 360 gün alınacaktır. Alacak tahsil süresi
+    kaç gündür?
+  secenekler:
+    A: '45'
+    B: '50'
+    C: '60'
+    D: '75'
+    E: '90'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Ortalama ticari alacak (300+500)/2 = 400 bin ₺dir. Devir hızı 2.400/400 = 6 kez; tahsil süresi 360/6 = 60
+      gündür. Doğru seçenek Cdir. Püf noktaları: Ortalama alacak kullanılır ve süre devir hızının 360 güne bölünmesiyle bulunur.'
+    celdiriciler:
+      A: 45, ortalama alacak 300 bin ₺ alınırsa 2.400 / 300 = 8 ve 360 / 8 = 45 sonucuna götüren hatadır.
+      B: 50, dönem sonu alacağın 480 bin ₺ gibi farklı bir tutarla alınmasıyla oluşan yakın sonuçtur.
+      D: 75, devir hızının 4,8 kez gibi yanlış hesaplanmasıyla elde edilir.
+      E: 90, devir hızının 4 kez alınmasıyla bulunan sonuçtur.
+    hesap_adimlari:
+    - 'Ortalama alacak: (300+500)/2 = 400'
+    - 'Alacak devir hızı: 2.400/400 = 6'
+    - 'Tahsil süresi: 360/6 = 60 gün'
+  kaynaklar:
+  - mevzuat: MSUGT 1 Sıra No.lu Genel Tebliğ — Tekdüzen Hesap Planı
+    madde: 220. Alıcılar
+    alinti: 'Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan
+
+      senetsiz alacaklarının izlenmesi için kullanılır.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ortalama = (300+500)/2
+
+      hiz = 2400/ortalama
+
+      sonuc = round(360/hiz,2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G03 #7'
+- id: SMMM-TAB-DVR-0013
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: borç ödeme süresi
+  tip: hesaplama
+  zorluk: 1
+  kok: Bir işletmenin yıl içindeki ticari mal alışları 900 bin ₺, dönem başı ticari borçları 120 bin ₺ ve dönem sonu ticari
+    borçları 180 bin ₺dir. Borç ödeme süresinde ortalama ticari borç ve 360 gün esas alınacaktır. Borç ödeme süresi kaç gündür?
+  secenekler:
+    A: '48'
+    B: '60'
+    C: '72'
+    D: '90'
+    E: '120'
+  dogru: B
+  aciklama:
+    dogru_neden: Ortalama ticari borç (120+180)/2 = 150 bin ₺dir. Borç devir hızı 900/150 = 6 kez, ödeme süresi 360/6 = 60
+      gündür.
+    celdiriciler:
+      A: 48, dönem sonu borcun 180 bin ₺ alınarak 900/180 = 5 ve 360/5 işleminden farklı bir ters hesaplama yapılmasıyla ilişkilidir.
+      C: 72, devir hızının 5 kez alınmasıyla bulunan sonuçtur.
+      D: 90, devir hızının 4 kez alınmasıyla bulunur.
+      E: 120, devir hızının 3 kez alınmasıyla elde edilir.
+    hesap_adimlari:
+    - 'Ortalama ticari borç: (120+180)/2 = 150'
+    - 'Devir hızı: 900/150 = 6'
+    - 'Ödeme süresi: 360/6 = 60 gün'
+  kaynaklar:
+  - mevzuat: MSUGT 1 Sıra No.lu Genel Tebliğ — Ticari Borçlar
+    madde: 32. Ticari Borçlar / 320. Satıcılar
+    alinti: 'İşletmenin faaliyet konusu ile ilgili her türlü mal ve hizmet alımlarından kaynaklanan senetsiz
+
+      borçların izlendiği hesaptır. Ortaklar, ana kuruluş, iştirakler ve bağlı ortaklıklara olan senetsiz
+
+      ticari borçların bilanço dipnotlarında gösterilmesi gerekir.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ortalama = (120+180)/2
+
+      hiz = 900/ortalama
+
+      sonuc = round(360/hiz,2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G03 #11'
+- id: SMMM-TAB-DVR-0014
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: hedef süreden geri hesap
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin 2027 yılında net satışlarının 3.600 bin ₺ olması beklenmektedir. Yönetim, alacak tahsil süresini 30
+    gün olarak hedeflemektedir. Alacak devir hızında net satışlar ve ortalama ticari alacak kullanılacak, yıl 360 gün alınacaktır.
+    2027 yılı başındaki ticari alacak 420 bin ₺ olduğuna göre hedefe ulaşılması için 2027 yılı sonundaki ticari alacak kaç
+    bin ₺ olmalıdır?
+  secenekler:
+    A: '120'
+    B: '180'
+    C: '240'
+    D: '300'
+    E: '420'
+  dogru: B
+  aciklama:
+    dogru_neden: '30 günlük hedef süre için devir hızı 360/30 = 12 kezdir. Ortalama alacak 3.600/12 = 300 bin ₺ olmalıdır.
+      Ortalama alacak (420 + dönem sonu alacak)/2 olduğundan dönem sonu alacak 2×300−420 = 180 bin ₺dir. Püf noktaları: Hedef
+      süreden önce devir hızı, sonra ortalama alacak, son olarak dönem sonu alacak geri hesaplanır.'
+    celdiriciler:
+      A: 120, 420 bin ₺ başlangıç alacağının 300 bin ₺ ortalamadan iki kat çıkarılmasıyla yapılan hatalı işlemdir.
+      C: 240, ortalama alacak ile dönem sonu alacağın birbirine eşit kabul edilmesinden doğar.
+      D: 300, bulunan ortalama alacağın dönem sonu alacağı sanılmasıdır.
+      E: 420, başlangıç alacağının değişmeyeceğinin varsayılmasıdır.
+    hesap_adimlari:
+    - 'Devir hızı: 360/30 = 12'
+    - 'Ortalama alacak: 3.600/12 = 300'
+    - 'Dönem sonu alacak: 2×300−420 = 180'
+  kaynaklar:
+  - mevzuat: MSUGT 1 Sıra No.lu Genel Tebliğ — 220. Alıcılar
+    madde: 220. Alıcılar
+    alinti: 'Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan
+
+      senetsiz alacaklarının izlenmesi için kullanılır.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'hiz = 360/30
+
+      ortalama = 3600/hiz
+
+      sonuc = 2*ortalama-420'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G03 #15'
+- id: SMMM-TAB-DVR-0015
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: stok (ilk madde
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir üretim işletmesinde dönem içinde üretime verilen ilk madde ve malzeme maliyeti 720 bin ₺dir. Dönem başı ilk madde
+    ve malzeme stoku 160 bin ₺, dönem sonu stoku 200 bin ₺dir. İlk madde ve malzeme devir hızı = üretime verilen ilk madde
+    ve malzeme maliyeti / ortalama ilk madde ve malzeme stoku; devir süresi = 360 / devir hızı olarak alınacaktır. Devir hızı
+    ve süresi kaçtır?
+  secenekler:
+    A: 3 kez ve 120 gün
+    B: 4 kez ve 90 gün
+    C: 4,5 kez ve 80 gün
+    D: 5 kez ve 72 gün
+    E: 5,4 kez ve 67 gün
+  dogru: B
+  aciklama:
+    dogru_neden: Ortalama ilk madde ve malzeme stoku (160+200)/2 = 180 bin ₺dir. Devir hızı 720/180 = 4 kez; süre 360/4 =
+      90 gündür.
+    celdiriciler:
+      A: 3 kez ve 120 gün, ortalama stokun 240 bin ₺ gibi yanlış alınmasıyla oluşur.
+      C: 4,5 kez ve 80 gün, ortalama stokun 160 bin ₺ alınmasıyla elde edilir.
+      D: 5 kez ve 72 gün, dönem başı ve dönem sonu stoklarının ortalamasının 144 bin ₺ kabul edilmesiyle oluşur.
+      E: 5,4 kez ve 67 gün, dönem sonu stokunun ortalamaya dahil edilmemesiyle veya farklı bir payda kullanılmasıyla oluşur.
+    hesap_adimlari:
+    - 'Ortalama stok: (160+200)/2 = 180'
+    - 'Devir hızı: 720/180 = 4'
+    - 'Devir süresi: 360/4 = 90 gün'
+  kaynaklar:
+  - mevzuat: MSUGT 1 Sıra No.lu Genel Tebliğ — 150. İlk Madde ve Malzeme
+    madde: 15. Stoklar / 150. İlk Madde ve Malzeme
+    alinti: 'Üretimde veya diğer faaliyetlerde kullanılmak üzere işletmede bulundurulan hammadde,
+
+      yardımcı madde, işletme malzemesi, ambalaj malzemesi ve diğer malzemelerin izlendiği
+
+      hesaptır.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ortalama=(160+200)/2
+
+      hiz=720/ortalama
+
+      sonuc=round(360/hiz,2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G03 #19'

@@ -1,0 +1,499 @@
+- id: SMMM-TAB-LIK-0005
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Likidite ve finansal yapı oranları
+  konu: LIK
+  kazanim: net ve brüt işletme sermayesi
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin dönen varlıkları 900 bin TL, kısa vadeli yabancı kaynakları 600 bin TL'dir. Brüt işletme sermayesi =
+    dönen varlıklar; net işletme sermayesi = dönen varlıklar − kısa vadeli yabancı kaynaklar olarak tanımlanacaktır. Buna
+    göre brüt ve net işletme sermayesi ile aralarındaki fark hangisidir?
+  secenekler:
+    A: Brüt 300, net 600, fark 300
+    B: Brüt 900, net 300, fark 600
+    C: Brüt 900, net 600, fark 300
+    D: Brüt 1.500, net 300, fark 1.200
+    E: Brüt 600, net 300, fark 300
+  dogru: B
+  aciklama:
+    dogru_neden: 'Brüt işletme sermayesi dönen varlıklar olduğundan 900 bin TL''dir. Net işletme sermayesi 900 − 600 = 300
+      bin TL''dir. Aralarındaki fark 600 bin TL, yani kısa vadeli yabancı kaynaklar tutarıdır. Püf noktaları: Net işletme
+      sermayesinde kısa vadeli yabancı kaynaklar düşülür; brüt tutar ise yalnızca dönen varlıkları ifade eder.'
+    celdiriciler:
+      A: Brüt ve net tutarlar ters yazılmıştır.
+      C: Net işletme sermayesi 600 değil 300 bin TL'dir.
+      D: Dönen varlıklarla kısa vadeli yabancı kaynaklar toplanarak brüt sermaye 1.500 alınmıştır.
+      E: Brüt işletme sermayesi kısa vadeli yabancı kaynaklara eşit kabul edilmiştir.
+    hesap_adimlari:
+    - 'Brüt işletme sermayesi: 900'
+    - 'Net işletme sermayesi: 900 − 600 = 300'
+    - 'Fark: 900 − 300 = 600'
+  kaynaklar:
+  - mevzuat: MSUGT Sıra No 1 – Ek 4
+    madde: Net İşletme (Çalışma) Sermayesindeki Değişim Tablosu
+    alinti: '_ Net İşletme (Çalışma) Sermayesindeki Değişim Tablosu: İşletmenin belirli bir hesap döneminde, net işletme sermayesinin
+      kaynaklarını ve kullanım yerlerini gösteren tablodur. Bu tabloda, fon kavramı dönen varlıklar ile kısa vadeli yabancı
+      kaynaklar far-kını belirten net işletme (çalışma) sermayesini kapsar.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 900 - 600
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G01 #6'
+- id: SMMM-TAB-LIK-0006
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Likidite ve finansal yapı oranları
+  konu: LIK
+  kazanim: cari oran
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin başlangıçta dönen varlıkları 1.200 bin TL ve kısa vadeli yabancı kaynakları 800 bin TL'dir. İşletme
+    100 bin TL nakit kullanarak kısa vadeli borcunun 100 bin TL'sini ödemiştir. Cari oran = dönen varlıklar / kısa vadeli
+    yabancı kaynaklar olarak alınacaktır. Ödeme sonrasında cari oran kaçtır?
+  secenekler:
+    A: 1,25
+    B: 1,40
+    C: 1,50
+    D: 1,57
+    E: 1,63
+  dogru: D
+  aciklama:
+    dogru_neden: 'Ödeme dönen varlıkları 100 bin TL, kısa vadeli yabancı kaynakları da 100 bin TL azaltır. Yeni tutarlar 1.100
+      ve 700 bin TL''dir. Cari oran 1.100 / 700 = 1,57''dir. Püf noktaları: Borç ödemesi iki tarafı da azaltır; yalnızca borcu
+      700''e indirip dönen varlıkları 1.200''de bırakmak oranı gereğinden yüksek çıkarır.'
+    celdiriciler:
+      A: Başlangıç cari oranı olan 1,50 ödeme sonrası oran sanılmıştır.
+      B: 1.100 / 800 işlemiyle yalnızca dönen varlık azaltılmıştır.
+      C: 1.200 / 700 işlemiyle yalnızca borç azaltılmıştır.
+      E: 1.100 / 675 gibi verilen verilerden çıkmayan bir kısa vadeli borç tutarı kullanılmıştır.
+    hesap_adimlari:
+    - 'Ödeme sonrası dönen varlıklar: 1.200 − 100 = 1.100'
+    - 'Ödeme sonrası kısa vadeli yabancı kaynaklar: 800 − 100 = 700'
+    - 'Cari oran: 1.100 / 700 = 1,57'
+  kaynaklar:
+  - mevzuat: MSUGT Sıra No 1 – Ek 4
+    madde: Bilanço tanımı
+    alinti: Bilanço, bir işletmenin belli bir tarihte sahip olduğu varlıklar ile bu varlıkların sağladığı kaynakları gösteren
+      mali tablodur.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 1100 / 700
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G01 #10'
+- id: SMMM-TAB-LIK-0007
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Likidite ve finansal yapı oranları
+  konu: LIK
+  kazanim: kaldıraç
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletmenin toplam varlıkları 1.500 bin TL, toplam yabancı kaynakları 900 bin TL'dir. Kaldıraç oranı = toplam yabancı
+    kaynaklar / toplam varlıklar × 100 olarak alınacaktır. Kaldıraç oranı kaçtır?
+  secenekler:
+    A: '40'
+    B: '50'
+    C: '60'
+    D: 66,67
+    E: '75'
+  dogru: C
+  aciklama:
+    dogru_neden: Kaldıraç oranı 900 / 1.500 × 100 = %60'tır.
+    celdiriciler:
+      A: Özkaynak oranı %40, kaldıraç oranı sanılmıştır.
+      B: 900 / 1.500 işlemi %50 olarak yanlış hesaplanmıştır.
+      D: 900 / 1.350 gibi verilmeyen bir varlık tutarı kullanılmıştır.
+      E: 900 / 1.200 gibi verilmeyen bir baz kullanılmıştır.
+    hesap_adimlari:
+    - 'Kaldıraç oranı: 900 / 1.500 × 100 = %60'
+  kaynaklar:
+  - mevzuat: MSUGT Sıra No 1 – Ek 4
+    madde: Bilanço tanımı
+    alinti: Bilanço, bir işletmenin belli bir tarihte sahip olduğu varlıklar ile bu varlıkların sağladığı kaynakları gösteren
+      mali tablodur.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 900/1500*100
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G01 #16'
+- id: SMMM-TAB-LIK-0008
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Likidite ve finansal yapı oranları
+  konu: LIK
+  kazanim: likidite (asit-test) oranı
+  tip: hesaplama
+  zorluk: 1
+  kok: Bir işletmenin dönen varlıkları 900 bin ₺, stokları 300 bin ₺, gelecek aylara ait giderleri 100 bin ₺ ve kısa vadeli
+    yabancı kaynakları 500 bin ₺dir. Asit-test oranı = (dönen varlıklar − stoklar − gelecek aylara ait giderler) / kısa vadeli
+    yabancı kaynaklar olarak hesaplanacaktır. Oran kaçtır?
+  secenekler:
+    A: 0,8
+    B: 1,0
+    C: 1,2
+    D: 1,4
+    E: 1,8
+  dogru: B
+  aciklama:
+    dogru_neden: 'Asit-test oranı = (900 − 300 − 100) / 500 = 500 / 500 = 1,0dır. Püf noktaları: Stoklar ve gelecek aylara
+      ait giderler hızlı likit varlıklar toplamından çıkarılmıştır.'
+    celdiriciler:
+      A: 0,8, yalnız stokların çıkarılmasıyla 600 / 750 benzeri farklı bir veri seti kullanılması hatasına karşılık gelir.
+      C: 1,2, gelecek aylara ait giderlerin çıkarılmamasıyla (900 − 300) / 500 sonucu elde edilir.
+      D: 1,4, dönen varlıkların kısa vadeli yabancı kaynaklara doğrudan oranlanmasıyla bulunan 900 / 650 benzeri yanlış yaklaşıma
+        karşılık gelir.
+      E: 1,8, dönen varlıkların tamamının kısa vadeli kaynaklara bölünmesiyle bulunan 900 / 500 sonucudur.
+    hesap_adimlari:
+    - 'Hızlı varlıklar: 900 − 300 − 100 = 500'
+    - 'Asit-test oranı: 500 / 500 = 1,0'
+  kaynaklar:
+  - mevzuat: MSUGT 1 Sıra No.lu Genel Tebliğ — Dönen Varlıklar
+    madde: 1. Dönen Varlıklar
+    alinti: 'Dönen Varlıklar; hazır değerler menkul kıymetler, ticari alacaklar, diğer kısa vadeli alacaklar,
+
+      stoklar, gelecek döneme ait giderler ve gelir tahakkukları ile diğer dönen varlıklar şeklinde
+
+      bölümlenir.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (900 - 300 - 100) / 500
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G03 #5'
+- id: SMMM-TAB-LIK-0009
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Likidite ve finansal yapı oranları
+  konu: LIK
+  kazanim: nakit oran
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletmenin hazır değerleri 140 bin ₺, kısa vadeli menkul kıymetleri 60 bin ₺ ve kısa vadeli yabancı kaynakları
+    400 bin ₺dir. Nakit oranı = (hazır değerler + kısa vadeli menkul kıymetler) / kısa vadeli yabancı kaynaklar olarak hesaplanacaktır.
+    Nakit oran kaçtır?
+  secenekler:
+    A: 0,25
+    B: 0,35
+    C: 0,40
+    D: 0,50
+    E: 0,60
+  dogru: D
+  aciklama:
+    dogru_neden: 'Nakit oranı = (140+60)/400 = 200/400 = 0,50dir. Püf noktaları: Nakit oranında stoklar ve ticari alacaklar
+      değil, nakit niteliğindeki değerler kullanılır.'
+    celdiriciler:
+      A: 0,25, yalnız hazır değerlerin kısa vadeli kaynaklara oranlanmasıyla bulunur.
+      B: 0,35, hazır değerlerin 140 bin ₺ olarak doğrudan 400e bölünmesiyle oluşan 0,35 sonucudur.
+      C: 0,40, kısa vadeli menkul kıymetlerin tek başına 160 bin ₺ gibi alınmasıyla elde edilen yakın sonuçtur.
+      E: 0,60, payın 240 bin ₺ alınmasıyla elde edilen sonuçtur; verilen hazır değer ve menkul kıymet toplamı 200 bindir.
+    hesap_adimlari:
+    - 'Nakit niteliğindeki varlıklar: 140+60 = 200'
+    - 'Nakit oranı: 200/400 = 0,50'
+  kaynaklar:
+  - mevzuat: MSUGT 1 Sıra No.lu Genel Tebliğ — Hazır Değerler
+    madde: 10. Hazır Değerler
+    alinti: 'Bu grup, nakit olarak elde veya bankada bulunan varlıklar ile istenildiği zaman değer kaybına
+
+      uğramadan paraya çevirme imkânı bulunan varlıkları (Menkul kıymetler hariç) kapsar.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (140 + 60) / 400
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G03 #9'
+- id: SMMM-TAB-LIK-0010
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Likidite ve finansal yapı oranları
+  konu: LIK
+  kazanim: kaldıraç
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin toplam aktifleri 1.000 bin ₺, toplam yabancı kaynakları 600 bin ₺dir. İşletme yıl içinde 100 bin ₺ banka
+    kredisi almış ve bu işlemle toplam aktifleri de 100 bin ₺ artmıştır. Kaldıraç oranı = toplam yabancı kaynaklar / toplam
+    aktifler × 100 olarak hesaplanacaktır. Yeni işlem sonrasında kaldıraç oranı kaçtır?
+  secenekler:
+    A: 54,55
+    B: 60,00
+    C: 63,64
+    D: 66,67
+    E: 70,00
+  dogru: C
+  aciklama:
+    dogru_neden: 'Yeni yabancı kaynak 600+100 = 700 bin ₺, yeni toplam aktif 1.000+100 = 1.100 bin ₺dir. Kaldıraç oranı 700/1.100×100
+      = %63,64tür. Püf noktaları: Borçlanma işlemi hem borçları hem aktifleri aynı tutarda artırır; yalnız borcu 700, aktifi
+      1.000 almak yanlış bazdır.'
+    celdiriciler:
+      A: 54,55, 600 bin ₺ borcun yeni 1.100 bin ₺ aktife oranlanmasıyla elde edilen hatalı sonuçtur.
+      B: 60,00, işlem öncesi kaldıraç oranıdır; yeni kredi dikkate alınmamıştır.
+      D: 66,67, yeni 700 bin ₺ borcun 1.050 bin ₺ gibi yanlış bir aktif tutarına bölünmesiyle oluşur.
+      E: 70,00, yeni borcun yeni aktiflere oranının %70 olduğu varsayımıdır.
+    hesap_adimlari:
+    - 'Yeni yabancı kaynak: 600+100 = 700'
+    - 'Yeni toplam aktif: 1.000+100 = 1.100'
+    - 'Kaldıraç: 700/1.100×100 = %63,64'
+  kaynaklar:
+  - mevzuat: MSUGT 1 Sıra No.lu Genel Tebliğ — Bilanço İlkeleri
+    madde: 2. Bilanço İlkeleri
+    alinti: Bütün varlıklar, yabancı kaynaklar ve öz kaynaklar bilançoda gayrisafi değerleri ile gösterilirler.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 700/1100*100
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G03 #16'
+- id: SMMM-TAB-LIK-0011
+  sinav: smmm
+  bolum:
+  - YET
+  ders: TAB
+  unite: Likidite ve finansal yapı oranları
+  konu: LIK
+  kazanim: devamlı sermaye oranları
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletmenin özkaynakları 600 bin ₺, uzun vadeli yabancı kaynakları 300 bin ₺ ve duran varlıkları 750 bin ₺dir. Devamlı
+    sermaye = özkaynaklar + uzun vadeli yabancı kaynaklar; devamlı sermaye oranı = devamlı sermaye / duran varlıklar × 100
+    olarak alınacaktır. Devamlı sermaye oranı kaçtır?
+  secenekler:
+    A: '80'
+    B: '100'
+    C: '110'
+    D: '120'
+    E: '150'
+  dogru: D
+  aciklama:
+    dogru_neden: Devamlı sermaye 600+300 = 900 bin ₺dir. Oran 900/750×100 = %120dir.
+    celdiriciler:
+      A: 80, devamlı sermayenin duran varlıklara değil farklı bir varlık toplamına oranlanmasıyla oluşur.
+      B: 100, devamlı sermayenin duran varlıklara eşit olduğu varsayımıdır.
+      C: 110, 900 bin ₺ devamlı sermayenin yaklaşık 818 bin ₺ duran varlığa bölünmesiyle elde edilecek yakın değerdir.
+      E: 150, 900/600 işlemiyle özkaynakların paydaya alınmasından kaynaklanır.
+    hesap_adimlari:
+    - 'Devamlı sermaye: 600+300 = 900'
+    - 'Devamlı sermaye oranı: 900/750×100 = %120'
+  kaynaklar:
+  - mevzuat: MSUGT 1 Sıra No.lu Genel Tebliğ — Bilanço İlkeleri
+    madde: c/1
+    alinti: İşletme sahip veya ortaklarının sahip veya ortak sıfatıyla işletme varlıkları üzerindeki hakları özkaynaklar grubunu
+      oluşturur.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'devamli=600+300
+
+      sonuc=devamli/750*100'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_TAB.yaml, satır ristaycraft_TAB-2026-10-06-G03 #20'

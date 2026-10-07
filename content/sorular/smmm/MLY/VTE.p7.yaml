@@ -1,0 +1,829 @@
+- id: SMMM-MLY-VTE-0003
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: MLY
+  unite: Vergi teorisi
+  konu: VTE
+  kazanim: çifte vergilendirme
+  tip: uygulama
+  zorluk: 3
+  kok: Türkiye’de yerleşik bir mükellef, yurt dışında elde ettiği ticari kazanç üzerinden kaynak ülkede %15 stopaj ödemiş,
+    aynı kazanç Türkiye’de de gelir vergisine tabi tutulmuştur. Çifte vergilendirmeyi önleme anlaşması (ÇVÖA) kapsamında mahsup
+    yöntemi uygulandığında, aşağıdaki sonuçlardan hangisi doğrudur? (Türkiye’de ilgili kazanç için uygulanacak gelir vergisi
+    oranı %35, kaynak ülkede ödenen stopaj 150.000 TL, Türkiye’de hesaplanan vergi 350.000 TL’dir.)
+  secenekler:
+    A: Türkiye’de ödenecek vergi 350.000 TL’dir; yurt dışında ödenen hiç mahsup edilemez.
+    B: Türkiye’de ödenecek vergi 200.000 TL’dir; yurt dışında ödenen 150.000 TL’nin tamamı mahsup edilir.
+    C: Türkiye’de ödenecek vergi 0 TL’dir; yurt dışında ödenen stopaj Türkiye vergisini tamamen karşılar.
+    D: Türkiye’de ödenecek vergi 350.000 TL’dir; ancak 150.000 TL iade alınır.
+    E: Türkiye’de ödenecek vergi 150.000 TL’dir; mahsup yalnızca stopaj tutarı kadar yapılır.
+  dogru: B
+  aciklama:
+    dogru_neden: Mahsup yönteminde, kaynak ülkede ödenen vergi, Türkiye’de aynı kazanç üzerinden hesaplanan vergiden düşülür;
+      ancak mahsup edilecek tutar, Türkiye’de hesaplanan vergiyi aşamaz. 150.000 TL < 350.000 TL olduğundan tamamı mahsup
+      edilir ve Türkiye’de ödenecek net vergi 200.000 TL olur. Çifte vergilendirme teorisinde mahsup (kredi) yönteminin temel
+      kuralıdır.
+    celdiriciler:
+      A: Mahsup yöntemi yurt dışında ödenen verginin düşülmesine imkân verir; hiç mahsup edilmez demek yanlıştır.
+      C: Kaynak ülkede ödenen 150.000 TL, Türkiye vergisini (350.000 TL) karşılamaz; sıfır olmaz.
+      D: Mahsup, iade değil, Türkiye’de hesaplanan vergiden düşme işlemidir; fazla ödeme yoktur.
+      E: Mahsup üst sınırı Türkiye’de hesaplanan vergidir; stopaj tutarıyla sınırlı değildir, ancak bu örnekte stopaj daha
+        küçüktür.
+    hesap_adimlari:
+    - 'Türkiye’de hesaplanan vergi: 350.000 TL'
+    - 'Kaynak ülkede ödenen: 150.000 TL'
+    - Mahsup edilebilir tutar = min(150.000, 350.000) = 150.000 TL
+    - Türkiye’de ödenecek net vergi = 350.000 − 150.000 = 200.000 TL
+  kaynaklar:
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: Çifte vergilendirme — mahsup (kredi) yöntemi
+    alinti: ''
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: Ek Madde 14
+    alinti: Mükellefler, usulüne uygun yürürlüğe konulmuş bir çifte vergilendirmeyi önleme anlaşması hükümlerine aykırı olarak
+      vergilendirildiği veya bu şekilde vergilendirileceğine ilişkin kuvvetli emareler bulunduğu iddiasıyla anlaşmanın “Karşılıklı
+      Anlaşma Usulü” hükümlerine göre Gelir İdaresi Başkanlığına başvurabilir.
+  gecerlilik:
+    baslangic: '1961-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 350000 - 150000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MLY.yaml, satır Grok_MLY-2026-10-06-G01 #3'
+- id: SMMM-MLY-VTE-0004
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: MLY
+  unite: Vergi teorisi
+  konu: VTE
+  kazanim: dolaylı ve servet vergileri
+  tip: kavrama
+  zorluk: 2
+  kok: Aşağıdakilerden hangisi dolaylı vergi ile servet vergisi ayrımına göre doğru sınıflandırılmıştır?
+  secenekler:
+    A: Katma değer vergisi — servet vergisi; motorlu taşıtlar vergisi — dolaylı vergi
+    B: Katma değer vergisi — dolaylı vergi; emlak vergisi — servet vergisi
+    C: Gelir vergisi — dolaylı vergi; veraset ve intikal vergisi — dolaylı vergi
+    D: Özel tüketim vergisi — servet vergisi; damga vergisi — servet vergisi
+    E: Kurumlar vergisi — dolaylı vergi; emlak vergisi — dolaylı vergi
+  dogru: B
+  aciklama:
+    dogru_neden: Dolaylı vergiler, tüketim veya harcama üzerinden alınan ve yansıma imkânı yüksek olan vergilerdir (KDV, ÖTV).
+      Servet vergileri ise servetin mülkiyeti veya intikali üzerinden alınan vergilerdir (emlak vergisi, veraset ve intikal
+      vergisi, motorlu taşıtlar vergisi). KDV dolaylı, emlak vergisi servet vergisidir.
+    celdiriciler:
+      A: KDV dolaylı, MTV servet vergisidir; ters sınıflandırılmıştır.
+      C: Gelir vergisi dolaysız (şahsi) vergidir; VİV servet vergisidir, dolaylı değildir.
+      D: ÖTV dolaylı vergidir; damga vergisi işlem vergisidir, servet vergisi değildir.
+      E: Kurumlar vergisi dolaysızdır; emlak vergisi servet vergisidir, dolaylı değildir.
+  kaynaklar:
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: Dolaylı vergi — servet vergisi ayrımı
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MLY.yaml, satır Grok_MLY-2026-10-06-G01 #5'
+- id: SMMM-MLY-VTE-0005
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: MLY
+  unite: Vergi teorisi
+  konu: VTE
+  kazanim: negatif gelir vergisi
+  tip: uygulama
+  zorluk: 3
+  kok: Negatif gelir vergisi sisteminde garanti edilen asgari gelir (temel gelir) G = 12.000 TL, vergi oranı t = %30’dur (hem
+    pozitif hem negatif bölgede aynı oran uygulanır). Yıllık geliri Y = 20.000 TL olan bir bireyin eline geçecek net gelir
+    kaç TL’dir? (Net gelir = G + (1 − t)·Y)
+  secenekler:
+    A: 6.000 TL
+    B: 14.000 TL
+    C: 20.000 TL
+    D: 26.000 TL
+    E: 32.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: Negatif gelir vergisi formülü Net = G + (1 − t)·Y şeklindedir. G = 12.000, t = 0,30, Y = 20.000 için Net
+      = 12.000 + 0,70 × 20.000 = 12.000 + 14.000 = 26.000 TL. Birey 6.000 TL net transfer almış olur (çünkü t·(Y − G/t) =
+      0,30·(20.000 − 40.000) = −6.000).
+    celdiriciler:
+      A: Bu tutar alınan net transferdir; soru net geliri sormaktadır.
+      B: Bu tutar yalnızca (1−t)·Y kısmıdır; G eklenmemiştir.
+      C: Bu, transfer ve vergi hiç yokmuş gibi brüt gelirdir.
+      E: G’nin iki katı eklenmesi veya yanlış oran kullanımı sonucu ortaya çıkar.
+    hesap_adimlari:
+    - G = 12.000 TL
+    - (1 − t) = 0,70
+    - (1 − t)·Y = 0,70 × 20.000 = 14.000 TL
+    - Net gelir = 12.000 + 14.000 = 26.000 TL
+  kaynaklar:
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: Negatif gelir vergisi (Friedman tipi)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 12000 + (1 - 0.30) * 20000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MLY.yaml, satır Grok_MLY-2026-10-06-G01 #8'
+- id: SMMM-MLY-VTE-0006
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: MLY
+  unite: Vergi teorisi
+  konu: VTE
+  kazanim: artan/düz/azalan oranlı vergi
+  tip: kavrama
+  zorluk: 2
+  kok: Bir vergi tarifesinde matrah arttıkça ortalama vergi oranı düşüyorsa bu tarife hangi türdür?
+  secenekler:
+    A: Artan oranlı (progresif)
+    B: Düz oranlı (proportional)
+    C: Azalan oranlı (regresif)
+    D: Artan oranlı dilimli tarife
+    E: Sabit tutarlı tarife
+  dogru: C
+  aciklama:
+    dogru_neden: 'Azalan oranlı (regresif) tarifede matrah büyüdükçe ortalama vergi yükü azalır. Tipik örnekler: bazı tüketim
+      vergileri (düşük gelirlilerin tüketim payı yüksek olduğu için). Artan oranlıda ortalama oran yükselir, düz oranlıda
+      sabit kalır.'
+    celdiriciler:
+      A: Artan oranlıda matrah arttıkça ortalama oran yükselir.
+      B: Düz oranlıda ortalama oran matrahtan bağımsız sabittir.
+      D: Artan oranlı dilimli tarife progresiftir.
+      E: Sabit tutarlı tarife (poll tax) mutlak tutar olarak sabittir; oran olarak regresif etki yaratabilir ama tanım olarak
+        ‘azalan oranlı tarife’ değildir.
+  kaynaklar:
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: Artan / düz / azalan oranlı vergi tarifesi
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MLY.yaml, satır Grok_MLY-2026-10-06-G01 #11'
+- id: SMMM-MLY-VTE-0007
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: MLY
+  unite: Vergi teorisi
+  konu: VTE
+  kazanim: Laffer eğrisi
+  tip: uygulama
+  zorluk: 3
+  kok: Tek tepeli Laffer eğrisinin geçerli olduğu bir ekonomide vergi oranı %25 iken vergi geliri 200 milyar TL, oran %40’a
+    çıkarıldığında matrah daralması nedeniyle vergi geliri 180 milyar TL’ye gerilemiştir. Buna göre aşağıdaki ifadelerden
+    hangisi doğrudur?
+  secenekler:
+    A: Ekonomi eğrinin yükselen bölgesindedir; oran artışı geliri artırmıştır.
+    B: '%40 oranı tepe noktasının sağındaki yasak bölgededir; gelir 20 milyar TL azalmıştır.'
+    C: Matrah daralması %10 olduğu için gelir de %10 azalmıştır.
+    D: Vergi gelirini maksimize eden oran %40’ın üzerindedir.
+    E: Oran %25’e indirilirse gelir 180 milyar TL’nin altına düşer.
+  dogru: B
+  aciklama:
+    dogru_neden: Oran artışı vergi gelirini azalttığına göre ekonomi tepe noktasının sağındadır (yasak / engelleyici bölge).
+      Gelir 200’den 180’e, yani 20 milyar TL düşmüştür. Tek tepeli varsayımda tepe noktası %40’ın altındadır.
+    celdiriciler:
+      A: Gelir azalmıştır; yükselen bölgede olsaydı artardı.
+      C: Matrah daralma oranı ile gelir değişim oranı aynı değildir; oran da değişmiştir.
+      D: Gelir azaldığına göre tepe noktası %40’ın altındadır.
+      E: Eğri değişmediği sürece oran %25’e inince gelir tekrar 200 milyar TL’ye yükselir.
+  kaynaklar:
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: Laffer eğrisi (yükselen bölge, tepe noktası, yasak bölge)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MLY.yaml, satır Grok_MLY-2026-10-06-G01 #13'
+- id: SMMM-MLY-VTE-0008
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: MLY
+  unite: Vergi teorisi
+  konu: VTE
+  kazanim: çifte vergilendirme
+  tip: bilgi
+  zorluk: 1
+  kok: Uluslararası çifte vergilendirmeyi önlemede kullanılan temel yöntemlerden biri olan ‘mahsup (kredi) yöntemi’ne göre
+    kaynak ülkede ödenen vergi ne olur?
+  secenekler:
+    A: Tamamen yok sayılır; yerleşiklik ülkesi tam vergi alır.
+    B: Yerleşiklik ülkesinde aynı kazanç üzerinden hesaplanan vergiden düşülür (üst sınır yerleşiklik ülkesi vergisidir).
+    C: Kaynak ülkede ödenen verginin iki katı iade edilir.
+    D: Yalnızca anapara üzerinden mahsup yapılır, faiz hariç tutulur.
+    E: Mahsup yerine yalnızca istisna uygulanır.
+  dogru: B
+  aciklama:
+    dogru_neden: Mahsup (tax credit) yönteminde, kaynak ülkede ödenen vergi, yerleşiklik ülkesinde aynı gelir üzerinden hesaplanan
+      vergiden indirilir; indirilecek tutar, yerleşiklik ülkesinin hesapladığı vergiyi aşamaz. Böylece çifte vergilendirme
+      önlenir veya azaltılır.
+    celdiriciler:
+      A: Bu, hiçbir önlem alınmayan durumdur.
+      C: İade iki katı olmaz; mahsup üst sınırlıdır.
+      D: Mahsup, ilgili kazanç üzerinden ödenen vergiye uygulanır; anapara-faiz ayrımı genel kural değildir.
+      E: İstisna yöntemi ayrı bir yöntemdir; mahsup ile karıştırılmamalıdır.
+  kaynaklar:
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: Çifte vergilendirme — mahsup yöntemi
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MLY.yaml, satır Grok_MLY-2026-10-06-G01 #16'
+- id: SMMM-MLY-VTE-0009
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: MLY
+  unite: Vergi teorisi
+  konu: VTE
+  kazanim: çifte vergilendirme
+  tip: bilgi
+  zorluk: 1
+  kok: 'Aynı vergi matrahının aynı dönemde birden fazla vergi otoritesi tarafından vergilendirilmesi durumuna ne ad verilir?
+
+    '
+  secenekler:
+    A: Vergi yansıması
+    B: Çifte vergilendirme
+    C: Vergi kayması
+    D: Vergi affı
+    E: Vergi ertelemesi
+  dogru: B
+  aciklama:
+    dogru_neden: 'Çifte vergilendirme, aynı matrahın aynı dönemde birden fazla (genellikle farklı ülkelerin veya aynı ülkenin
+      farklı düzeylerinin) vergi otoritesi tarafından vergilendirilmesidir. Klasik tanım budur.
+
+      '
+    celdiriciler:
+      A: Vergi yansıması, verginin hukuki mükellefinden iktisadi yükleniciye aktarılmasıdır; çifte vergilendirme değildir.
+      C: Vergi kayması, yansıma sürecinin bir aşamasını ifade eder.
+      D: Vergi affı, borçların silinmesi veya indirilmesi anlamına gelir.
+      E: Vergi ertelemesi, ödeme vadesinin ileriye bırakılmasıdır.
+  kaynaklar:
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: çifte vergilendirme
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MLY.yaml, satır grok_MLY-2026-10-06-G04 #2'
+- id: SMMM-MLY-VTE-0010
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: MLY
+  unite: Vergi teorisi
+  konu: VTE
+  kazanim: dolaylı ve servet vergileri
+  tip: kavrama
+  zorluk: 2
+  kok: 'Aşağıdaki vergi türlerinden hangisi hem dolaylı vergi hem de servet vergisi niteliği taşır?
+
+    '
+  secenekler:
+    A: Gelir vergisi
+    B: Kurumlar vergisi
+    C: Katma değer vergisi
+    D: Motorlu taşıtlar vergisi
+    E: Veraset ve intikal vergisi
+  dogru: D
+  aciklama:
+    dogru_neden: 'Motorlu taşıtlar vergisi, taşıtın mülkiyetine (servete) bağlı olarak alınan bir servet vergisidir; aynı
+      zamanda vergi yükünün tüketiciye yansıtılabildiği ve harcama üzerinden alındığı için dolaylı vergi özelliği de gösterir.
+      Diğer şıklar ya salt dolaysız gelir/servet vergisi ya da salt dolaylı harcama vergisidir.
+
+      '
+    celdiriciler:
+      A: Gelir vergisi dolaysız ve gelir üzerinden alınan bir vergidir; servet vergisi değildir.
+      B: Kurumlar vergisi dolaysız gelir vergisidir.
+      C: KDV klasik dolaylı harcama vergisidir; servet vergisi değildir.
+      E: Veraset ve intikal vergisi dolaysız servet (intikal) vergisidir; dolaylı değildir.
+  kaynaklar:
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: dolaylı vergiler ve servet vergileri
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MLY.yaml, satır grok_MLY-2026-10-06-G04 #4'
+- id: SMMM-MLY-VTE-0011
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: MLY
+  unite: Vergi teorisi
+  konu: VTE
+  kazanim: negatif gelir vergisi
+  tip: uygulama
+  zorluk: 3
+  kok: 'Negatif gelir vergisi sisteminde temel gelir garantisi (garanti edilen asgari gelir) 12.000 TL, marjinal vergi oranı
+    %40 olarak belirlenmiştir. Yıllık geliri 20.000 TL olan bir kişi için ödenecek negatif gelir vergisi (yani devletin yapacağı
+    net transfer) tutarı aşağıdakilerden hangisidir?
+
+    '
+  secenekler:
+    A: 0 TL
+    B: 2.000 TL
+    C: 4.000 TL
+    D: 8.000 TL
+    E: 12.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Negatif gelir vergisi formülü: Transfer = Garanti edilen gelir − (marjinal oran × fiili gelir). 12.000 −
+      (0,40 × 20.000) = 12.000 − 8.000 = 4.000 TL. Kişi 20.000 TL gelir elde ettiği halde 4.000 TL net transfer alır; toplam
+      kullanılabilir geliri 24.000 TL olur. Püf noktaları: Break-even noktası = 12.000 / 0,40 = 30.000 TL’dir; bu noktanın
+      altında kalan her gelir düzeyinde pozitif transfer yapılır.
+
+      '
+    celdiriciler:
+      A: Gelirin pozitif olmasını transfer yapılmaması sanmak.
+      B: Garanti edilen gelir ile fiili gelir farkının yarısını almak veya oranı yanlış uygulamak.
+      D: Yalnızca marjinal oran × gelir = 8.000 TL’yi transfer sanmak.
+      E: Garanti edilen tutarı olduğu gibi transfer etmek; fiili geliri hiç dikkate almamak.
+    hesap_adimlari:
+    - Vergiye tabi tutulan kısım = 0,40 × 20.000 = 8.000
+    - Transfer = 12.000 − 8.000 = 4.000
+  kaynaklar:
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: negatif gelir vergisi (Friedman)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 12000 - (0.40 * 20000)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MLY.yaml, satır grok_MLY-2026-10-06-G04 #7'
+- id: SMMM-MLY-VTE-0012
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: MLY
+  unite: Vergi teorisi
+  konu: VTE
+  kazanim: artan/düz/azalan oranlı vergi
+  tip: kavrama
+  zorluk: 2
+  kok: 'Matrah arttıkça ortalama vergi oranının düştüğü vergi sistemine ne ad verilir?
+
+    '
+  secenekler:
+    A: Artan oranlı (progressive) vergi
+    B: Düz oranlı (proportional) vergi
+    C: Azalan oranlı (regressive) vergi
+    D: Negatif oranlı vergi
+    E: Marjinal oranlı vergi
+  dogru: C
+  aciklama:
+    dogru_neden: 'Azalan oranlı (regressive) vergide matrah yükseldikçe ortalama vergi oranı düşer. Tipik örnekleri dolaylı
+      vergilerdir; düşük gelirliler gelirlerinin daha büyük bir kısmını bu vergilere ayırır.
+
+      '
+    celdiriciler:
+      A: Artan oranlı vergide matrah arttıkça ortalama oran yükselir.
+      B: Düz oranlı vergide ortalama oran matrahtan bağımsız sabittir.
+      D: Negatif oranlı vergi terimi standart sınıflandırmada yer almaz; negatif gelir vergisi ayrı bir mekanizmadır.
+      E: Marjinal oran, bir birim ek matrah üzerinden alınan orandır; sistemin adını belirtmez.
+  kaynaklar:
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: artan, düz ve azalan oranlı vergiler
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MLY.yaml, satır grok_MLY-2026-10-06-G04 #10'
+- id: SMMM-MLY-VTE-0013
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: MLY
+  unite: Vergi teorisi
+  konu: VTE
+  kazanim: Laffer eğrisi
+  tip: uygulama
+  zorluk: 3
+  kok: 'Tek tepeli bir Laffer eğrisinin geçerli olduğu bir ekonomide gelir vergisi oranı %25 iken vergi matrahı 800 milyar
+    TL, oran %40’a yükseltildiğinde matrah 450 milyar TL’ye gerilemiştir. Buna göre aşağıdaki ifadelerden hangisi doğrudur?
+
+    '
+  secenekler:
+    A: Vergi geliri artmıştır; ekonomi eğrinin yükselen bölgesindedir.
+    B: Vergi geliri 20 milyar TL azalmıştır; %40 oranı tepe noktasının sağındaki yasak bölgededir.
+    C: Matrah %43,75 daraldığından vergi geliri de aynı oranda azalmıştır.
+    D: Vergi oranını %25’e indirmek vergi gelirini bugünkü düzeyinin altına düşürür.
+    E: Vergi gelirini en yüksek yapan oran %40’ın üzerindedir.
+  dogru: B
+  aciklama:
+    dogru_neden: '%25 oranında gelir = 0,25 × 800 = 200 milyar TL. %40 oranında gelir = 0,40 × 450 = 180 milyar TL. Oran artışı
+      geliri 20 milyar TL azaltmıştır. Tek tepeli Laffer eğrisinde tepe noktasının sağında (yasak bölgede) oran artışı vergi
+      gelirini düşürür; dolayısıyla %40 oranı tepe noktasının sağındadır. Püf noktaları: Matrah daralma oranı (%43,75) ile
+      gelir daralma oranı (%10) özdeş değildir; tepe noktasının yeri yalnızca gelirin işaretine bakılarak bulunur.
+
+      '
+    celdiriciler:
+      A: Gelir 200’den 180’e düşmüştür; artış yoktur, ekonomi yükselen bölgede değildir.
+      C: Matrah %43,75 daralırken gelir yalnızca %10 azalmıştır; oranlar eşit değildir.
+      D: Eğri değişmediğinden oran %25’e indirilince matrah 800’e döner ve gelir 200’e yükselir; düşmez.
+      E: Tepe noktası %40’ın üzerinde olsaydı oran artışı geliri yükseltirdi; gelir azaldığına göre tepe noktası %40’ın altındadır.
+  kaynaklar:
+  - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
+    madde: Laffer eğrisi
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 0.25*800 - 0.40*450
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MLY.yaml, satır grok_MLY-2026-10-06-G04 #12'
+- id: SMMM-MLY-VTE-0014
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: MLY
+  unite: Vergi teorisi
+  konu: VTE
+  kazanim: çifte vergilendirme
+  tip: bilgi
+  zorluk: 1
+  kok: 'Uluslararası çifte vergilendirmeyi önlemek amacıyla ülkeler arasında imzalanan anlaşmalara ne ad verilir?
+
+    '
+  secenekler:
+    A: Vergi affı anlaşmaları
+    B: Çifte vergilendirmeyi önleme anlaşmaları
+    C: Gümrük birliği anlaşmaları
+    D: Serbest ticaret anlaşmaları
+    E: Yatırım teşvik anlaşmaları
+  dogru: B
+  aciklama:
+    dogru_neden: 'Aynı gelirin iki ülkede birden vergilendirilmesini engellemek için imzalanan ikili veya çok taraflı anlaşmalar
+      “çifte vergilendirmeyi önleme anlaşmaları” olarak adlandırılır. VUK’ta da “çifte vergilendirmeyi önleme anlaşması” ifadesi
+      kullanılmaktadır.
+
+      '
+    celdiriciler:
+      A: Vergi affı, borçların silinmesi veya indirilmesi işlemidir; uluslararası anlaşma türü değildir.
+      C: Gümrük birliği, mal ticaretindeki gümrük vergilerini kaldıran anlaşmalardır.
+      D: Serbest ticaret anlaşmaları ticaret engellerini azaltır; vergi matrahı çakışmasını çözmez.
+      E: Yatırım teşvik anlaşmaları yabancı yatırımı korur ve teşvik eder; çifte vergileme konusu değildir.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: Ek Madde 14
+    alinti: Mükellefler, usulüne uygun yürürlüğe konulmuş bir çifte vergilendirmeyi önleme anlaşması hükümlerine aykırı olarak
+      vergilendirildiği veya bu şekilde vergilendirileceğine ilişkin kuvvetli emareler bulunduğu iddiasıyla anlaşmanın “Karşılıklı
+      Anlaşma Usulü” hükümlerine göre Gelir İdaresi Başkanlığına başvurabilir.
+  gecerlilik:
+    baslangic: '2021-10-14'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MLY.yaml, satır grok_MLY-2026-10-06-G04 #15'

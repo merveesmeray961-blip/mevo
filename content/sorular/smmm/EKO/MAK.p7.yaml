@@ -1,0 +1,2306 @@
+- id: SMMM-EKO-MAK-0002
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: para politikası ve para çarpanı
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Basit para çarpanı modelinde zorunlu karşılık oranı %20, bankaların elinde tuttuğu aşırı rezerv oranı %5 ve halkın
+    elinde tuttuğu nakit/mevduat oranı %15''tir. Merkez bankası açık piyasa işlemleriyle 40 milyar TL''lik devlet tahvili
+    satın almıştır. Diğer koşullar sabitken para arzındaki maksimum değişim kaç milyar TL''dir?
+
+    '
+  secenekler:
+    A: '80'
+    B: '100'
+    C: '115'
+    D: 133,3
+    E: '200'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Para çarpanı m = (1 + c) / (rr + er + c) formülüyle hesaplanır; burada c nakit/mevduat oranı, rr zorunlu
+      karşılık oranı, er aşırı rezerv oranıdır. m = (1 + 0,15) / (0,20 + 0,05 + 0,15) = 1,15 / 0,40 = 2,875. Para arzı değişimi
+      ΔM = m × ΔMB = 2,875 × 40 = 115.
+
+      Püf noktaları: Basit çarpan (1/rr) kullanılmamalıdır; nakit sızıntısı ve aşırı rezervler çarpanı küçültür.
+
+      '
+    hesap_adimlari:
+    - c = 0,15; rr = 0,20; er = 0,05
+    - m = (1 + 0,15) / (0,20 + 0,05 + 0,15) = 1,15 / 0,40 = 2,875
+    - ΔM = 2,875 × 40 = 115
+    celdiriciler:
+      A: Yalnız zorunlu karşılık oranı dikkate alınarak 1/0,20 = 5 ve 40 × 2 = 80 alınmıştır; nakit ve aşırı rezerv sızıntıları
+        ihmal edilmiştir.
+      B: 1/(rr+er) = 1/0,25 = 4 ve 40 × 2,5 = 100 alınmıştır; nakit oranı hesaba katılmamıştır.
+      D: 1/rr = 5 ve 40 × 3,333 ≈ 133,3 alınmıştır; sızıntılar yok sayılmıştır.
+      E: 1/rr = 5 ve 40 × 5 = 200 alınmıştır; en basit (ve en yüksek) çarpan kullanılmıştır.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Para çarpanı (zorunlu karşılık, aşırı rezerv, nakit sızıntısı)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'c = 0.15
+
+      rr = 0.20
+
+      er = 0.05
+
+      m = (1 + c) / (rr + er + c)
+
+      sonuc = m * 40
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır EkoYazar_EKO-2026-10-06-G02 #2'
+- id: SMMM-EKO-MAK-0003
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: GSYH ve deflatör
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir ekonomide yalnızca elma ve armut üretilmektedir. 2024 ve 2025 yıllarına ait üretim ve fiyat verileri şöyledir:
+
+
+    | Yıl | Elma miktarı | Elma fiyatı (TL) | Armut miktarı | Armut fiyatı (TL) |
+
+    |---|---|---|---|---|
+
+    | 2024 | 100 | 10 | 50 | 20 |
+
+    | 2025 | 100 | 15 | 50 | 30 |
+
+
+    2024 baz yılı kabul edildiğinde 2025 yılı GSYH deflatörü kaçtır? (GSYH deflatörü = (Nominal GSYH / Reel GSYH) × 100)
+
+    '
+  secenekler:
+    A: '120'
+    B: '125'
+    C: '140'
+    D: '150'
+    E: '160'
+  dogru: D
+  aciklama:
+    dogru_neden: '2025 nominal GSYH = 100 × 15 + 50 × 30 = 1500 + 1500 = 3000.
+
+      2025 reel GSYH (2024 fiyatlarıyla) = 100 × 10 + 50 × 20 = 1000 + 1000 = 2000.
+
+      Deflatör = (3000 / 2000) × 100 = 150.
+
+      Püf noktaları: Deflatör tüm mal ve hizmetleri kapsar ve cari yıl miktarlarını kullanır; TÜFE sabit sepet kullanır. Bu
+      örnekte miktarlar değişmediği için deflatör yalnızca fiyat değişimini yansıtır.
+
+      '
+    hesap_adimlari:
+    - Nominal GSYH 2025 = 100×15 + 50×30 = 3000
+    - Reel GSYH 2025 (2024 fiyatları) = 100×10 + 50×20 = 2000
+    - Deflatör = (3000/2000)×100 = 150
+    celdiriciler:
+      A: Yanlış reel veya nominal ile 120 bulunmuştur.
+      B: Yanlış hesapla 125 bulunmuştur.
+      C: Yaklaşık değer ile 140 bulunmuştur.
+      E: Yanlış (nominal/reel) ile 160 bulunmuştur.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: GSYH deflatörü (nominal / reel GSYH)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'nom = 100*15 + 50*30
+
+      reel = 100*10 + 50*20
+
+      sonuc = (nom / reel) * 100
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır EkoYazar_EKO-2026-10-06-G02 #4'
+- id: SMMM-EKO-MAK-0004
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: TÜFE
+  tip: bilgi
+  zorluk: 1
+  kok: 'Tüketici fiyat endeksi (TÜFE) ile ilgili aşağıdaki ifadelerden hangisi doğrudur?
+
+    '
+  secenekler:
+    A: TÜFE, üretilen tüm nihai mal ve hizmetleri kapsar.
+    B: TÜFE, sabit bir mal sepetinin fiyat değişimini ölçer.
+    C: TÜFE, yalnızca ithal malların fiyatlarını dikkate alır.
+    D: TÜFE, GSYH deflatöründen her zaman daha yüksektir.
+    E: TÜFE, üretici fiyatlarını yansıtır.
+  dogru: B
+  aciklama:
+    dogru_neden: 'TÜFE, tipik bir tüketicinin satın aldığı sabit bir mal ve hizmet sepetinin fiyatlarındaki değişimi ölçer.
+      Bu nedenle sepet bileşimi belirli bir baz döneminde sabitlenir.
+
+      '
+    celdiriciler:
+      A: Tüm nihai mal ve hizmetleri kapsayan endeks GSYH deflatörüdür; TÜFE yalnızca tüketici sepetini kapsar.
+      C: TÜFE hem yerli hem ithal tüketim mallarını içerir; yalnızca ithal malları kapsamaz.
+      D: TÜFE ile GSYH deflatörü arasındaki ilişki sabit değildir; sepet ve kapsam farkları nedeniyle her zaman daha yüksek
+        olması gerekmez.
+      E: Üretici fiyatlarını yansıtan endeks ÜFE'dir; TÜFE tüketici fiyatlarını ölçer.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Tüketici fiyat endeksi (TÜFE) tanımı
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır EkoYazar_EKO-2026-10-06-G02 #5'
+- id: SMMM-EKO-MAK-0005
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: Keynesyen çarpan
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Basit Keynesyen modelde kapalı bir ekonomide marjinal tüketim eğilimi 0,8''dir. Yatırımlar 25 milyar TL artmış, hükûmet
+    götürü vergileri 10 milyar TL yükseltmiştir. Diğer koşullar sabitken denge milli gelirdeki net değişim kaç milyar TL''dir?
+
+    '
+  secenekler:
+    A: '50'
+    B: '75'
+    C: '85'
+    D: '100'
+    E: '125'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Harcama çarpanı = 1/(1-0,8) = 5. Vergi çarpanı = -0,8/(1-0,8) = -4.
+
+      Yatırım artışı etkisi: 25 × 5 = 125.
+
+      Vergi artışı etkisi: 10 × (-4) = -40.
+
+      Net değişim: 125 - 40 = 85 milyar TL.
+
+      Püf noktaları: İki çarpanın etkisi birlikte hesaplanır; vergi artışı harcanabilir geliri azaltır.
+
+      '
+    hesap_adimlari:
+    - Harcama çarpanı = 1/(1-0,8) = 5
+    - Vergi çarpanı = -0,8/(1-0,8) = -4
+    - Yatırım etkisi = 25×5 = 125
+    - Vergi etkisi = 10×(-4) = -40
+    - Net = 125-40 = 85
+    celdiriciler:
+      A: Yalnız vergi çarpanı büyüklüğü (4) ile 10×5=50 alınmıştır.
+      B: Vergi çarpanı yanlışlıkla -3 alınarak 125-50=75 bulunmuştur.
+      D: Yalnız yatırım etkisi (125) alınmış, vergi daraltıcı etkisi ihmal edilmiştir.
+      E: Vergi etkisi ters işaretle eklenerek 125+0 alınmış veya yanlış çarpan kullanılmıştır.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Keynesyen harcama ve vergi çarpanları
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'mte = 0.8
+
+      dI = 25
+
+      dT = 10
+
+      harcama_carpani = 1 / (1 - mte)
+
+      vergi_carpani = -mte / (1 - mte)
+
+      sonuc = dI * harcama_carpani + dT * vergi_carpani
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır EkoYazar_EKO-2026-10-06-G02 #8'
+- id: SMMM-EKO-MAK-0006
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: makro okullar ve beklentiler
+  tip: kavrama
+  zorluk: 3
+  kok: 'Aşağıdaki ifadelerden hangisi rasyonel beklentiler hipotezi ve yeni klasik makro iktisat yaklaşımıyla tutarlıdır?
+
+    '
+  secenekler:
+    A: Beklentiler yalnızca geçmiş enflasyon oranlarına bakılarak oluşturulur.
+    B: Sistematik para politikası kısa dönemde bile reel değişkenleri etkileyemez.
+    C: Ekonomi her zaman eksik istihdam dengesindedir.
+    D: Fiyatlar ve ücretler yapışkandır; piyasalar yavaş temizlenir.
+    E: Aktif maliye politikası çarpan etkisiyle toplam talebi kalıcı olarak artırır.
+  dogru: B
+  aciklama:
+    dogru_neden: 'Rasyonel beklentiler hipotezine göre bireyler mevcut tüm bilgiyi kullanarak en iyi tahminleri oluşturur.
+      Yeni klasik yaklaşıma göre sistematik (öngörülebilir) para politikası beklentilere yansır ve kısa dönemde bile reel
+      çıktı ve istihdamı etkileyemez; yalnızca sürpriz politikalar geçici etki yaratır (politika etkisizliği önermesi).
+
+      Püf noktaları: Adaptif beklentiler geçmişe bakar; rasyonel beklentiler ileriye dönüktür. Yapışkan fiyat varsayımı yeni
+      Keynesyen yaklaşıma aittir.
+
+      '
+    celdiriciler:
+      A: Bu adaptif beklentiler tanımıdır; rasyonel beklentiler tüm mevcut bilgiyi kullanır.
+      C: Yeni klasik yaklaşım ekonominin doğal oran etrafında dengede olduğunu, eksik istihdamın kalıcı olmadığını savunur.
+      D: Yapışkan fiyat ve yavaş temizlenme yeni Keynesyen yaklaşıma aittir.
+      E: Yeni klasik yaklaşımda sistematik maliye politikası da beklentilere yansır ve kalıcı reel etki yaratmaz.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Rasyonel beklentiler ve yeni klasik makro iktisat (politika etkisizliği)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır EkoYazar_EKO-2026-10-06-G02 #10'
+- id: SMMM-EKO-MAK-0007
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: para politikası ve para çarpanı
+  tip: uygulama
+  zorluk: 2
+  kok: 'Merkez bankası zorunlu karşılık oranını %10''dan %15''e yükseltmiştir. Diğer koşullar (nakit oranı ve aşırı rezerv
+    oranı) sabitken bu politikanın para çarpanı ve para arzı üzerindeki etkisi aşağıdakilerden hangisidir?
+
+    '
+  secenekler:
+    A: Para çarpanı büyür, para arzı artar.
+    B: Para çarpanı küçülür, para arzı azalır.
+    C: Para çarpanı değişmez, para arzı artar.
+    D: Para çarpanı büyür, para arzı azalır.
+    E: Para çarpanı küçülür, para arzı değişmez.
+  dogru: B
+  aciklama:
+    dogru_neden: 'Para çarpanı m = (1+c)/(rr+er+c) formülünde rr''nin artması paydayı büyütür, dolayısıyla çarpan küçülür.
+      Çarpan küçüldüğünde aynı parasal taban ile yaratılabilecek para arzı azalır. Bu daraltıcı bir para politikası aracıdır.
+
+      '
+    celdiriciler:
+      A: Zorunlu karşılık artışı çarpanı büyütmez, küçültür.
+      C: Çarpan rr'ye bağlıdır; değişmez varsayımı yanlıştır.
+      D: Çarpan büyür ifadesi yanlıştır; küçülür.
+      E: Para arzı çarpanla birlikte değişir; değişmez varsayımı yanlıştır.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Zorunlu karşılık oranı ve para çarpanı ilişkisi
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır EkoYazar_EKO-2026-10-06-G02 #13'
+- id: SMMM-EKO-MAK-0008
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: GSYH ve deflatör
+  tip: uygulama
+  zorluk: 3
+  kok: 'Bir ekonomide 2024 yılında nominal GSYH 800 milyar TL, GSYH deflatörü 125''tir. 2025 yılında nominal GSYH 960 milyar
+    TL, GSYH deflatörü 150 olmuştur. Buna göre 2025 yılında reel GSYH büyüme oranı yaklaşık yüzde kaçtır?
+
+    '
+  secenekler:
+    A: '%0'
+    B: '%4'
+    C: '%8'
+    D: '%12'
+    E: '%20'
+  dogru: A
+  aciklama:
+    dogru_neden: 'Reel GSYH = Nominal GSYH / (Deflatör/100).
+
+      2024 reel GSYH = 800 / 1,25 = 640 milyar TL.
+
+      2025 reel GSYH = 960 / 1,50 = 640 milyar TL.
+
+      Büyüme oranı = (640-640)/640 × 100 = %0.
+
+      Püf noktaları: Nominal büyüme (%20) tamamen fiyat artışından kaynaklanmıştır; reel büyüme sıfırdır.
+
+      '
+    hesap_adimlari:
+    - 2024 reel = 800 / 1,25 = 640
+    - 2025 reel = 960 / 1,50 = 640
+    - Büyüme = (640-640)/640 × 100 = 0%
+    celdiriciler:
+      B: Yanlış yuvarlama veya ara hesap hatasıyla %4 bulunmuştur.
+      C: Nominal artışın bir kısmı alınarak %8 bulunmuştur.
+      D: Nominal artışın yarısı alınarak %12 bulunmuştur.
+      E: Yalnızca nominal GSYH artış oranı (%20) hesaplanmıştır; deflatör dikkate alınmamıştır.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Reel GSYH ve GSYH deflatörü ilişkisi
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'reel_2024 = 800 / 1.25
+
+      reel_2025 = 960 / 1.50
+
+      sonuc = round(((reel_2025 - reel_2024) / reel_2024) * 100)
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır EkoYazar_EKO-2026-10-06-G02 #15'
+- id: SMMM-EKO-MAK-0009
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: TÜFE
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Bir tüketici sepetinde yalnızca ekmek ve süt bulunmaktadır. Baz yılında ekmek fiyatı 2 TL, süt fiyatı 4 TL''dir ve
+    sepet 10 ekmek + 5 sütten oluşur. Cari yılda ekmek fiyatı 3 TL, süt fiyatı 6 TL olmuştur. Cari yıl TÜFE değeri kaçtır?
+    (Baz yıl endeksi = 100)
+
+    '
+  secenekler:
+    A: '125'
+    B: '140'
+    C: '150'
+    D: '160'
+    E: '175'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Baz yıl sepet maliyeti = 10×2 + 5×4 = 20 + 20 = 40 TL.
+
+      Cari yıl sepet maliyeti = 10×3 + 5×6 = 30 + 30 = 60 TL.
+
+      TÜFE = (60 / 40) × 100 = 150.
+
+      Püf noktaları: TÜFE sabit sepet kullanır; miktarlar baz yılına aittir. Fiyatlar her iki malda da %50 arttığı için endeks
+      de 150 olur.
+
+      '
+    hesap_adimlari:
+    - Baz sepet = 10×2 + 5×4 = 40
+    - Cari sepet = 10×3 + 5×6 = 60
+    - TÜFE = (60/40)×100 = 150
+    celdiriciler:
+      A: Yalnızca ekmek fiyat artış oranı (%50) alınarak 125 bulunmuştur.
+      B: Ağırlıklı ortalama yanlış hesaplanarak 140 bulunmuştur.
+      D: Sepet maliyetleri yanlış (64/40) alınarak 160 bulunmuştur.
+      E: Sepet maliyetleri yanlış (70/40) alınarak 175 bulunmuştur.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: TÜFE hesaplama (sabit sepet)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'baz = 10*2 + 5*4
+
+      cari = 10*3 + 5*6
+
+      sonuc = (cari / baz) * 100
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır EkoYazar_EKO-2026-10-06-G02 #17'
+- id: SMMM-EKO-MAK-0010
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: Keynesyen çarpan
+  tip: hesaplama
+  zorluk: 1
+  kok: 'Kapalı bir ekonomide marjinal tüketim eğilimi 0,8’dir. Yatırımlardaki 50 milyar TL’lik otonom artış, diğer koşullar
+    sabitken denge milli geliri ne kadar artırır?
+
+    '
+  secenekler:
+    A: 50 milyar TL
+    B: 100 milyar TL
+    C: 200 milyar TL
+    D: 250 milyar TL
+    E: 400 milyar TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Basit Keynesyen modelde yatırım çarpanı 1 / (1 − MTE) = 1 / (1 − 0,8) = 5’tir. 50 × 5 = 250 milyar TL.
+
+      Püf noktaları: Otonom yatırım artışı doğrudan çarpanla çarpılır; tüketim eğilimi yüksekse çarpan büyür.
+
+      '
+    hesap_adimlari:
+    - Çarpan = 1 / (1 − 0,8) = 5
+    - Gelir artışı = 50 × 5 = 250
+    celdiriciler:
+      A: Çarpanı 1 alarak yalnızca otonom artışı verir.
+      B: Çarpanı 2 (1/(1−0,5) gibi) varsayarak 100 bulur.
+      C: Çarpanı 4 (MTE=0,75) alarak 200 bulur.
+      E: Çarpanı 8 (yanlış 1/MTE) alarak 400 bulur.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Keynesyen yatırım çarpanı (kapalı ekonomi, götürü vergi yok)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'mte = 0.8
+
+      dI = 50
+
+      carpani = 1 / (1 - mte)
+
+      sonuc = dI * carpani
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G03 #2'
+- id: SMMM-EKO-MAK-0011
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: makro okullar ve beklentiler
+  tip: kavrama
+  zorluk: 3
+  kok: 'Rasyonel beklentiler hipotezini benimseyen yeni klasik yaklaşım ile uyarlanabilir beklentiler kullanan geleneksel
+    Keynesyen yaklaşım karşılaştırıldığında, sistematik para politikası şoklarının kısa dönem etkisine ilişkin aşağıdaki ifadelerden
+    hangisi doğrudur?
+
+    '
+  secenekler:
+    A: Her iki yaklaşımda da sistematik para politikası kısa dönemde çıktıyı mutlaka artırır.
+    B: Yeni klasik modelde sistematik para politikası kısa dönemde bile reel etkisizdir (politika etkisizliği).
+    C: Uyarlanabilir beklentilerde ajanlar tüm bilgiyi anında kullanır, bu yüzden politika etkisizdir.
+    D: Yeni klasik modelde yalnızca öngörülmeyen politikalar etkisizdir; sistematik olanlar etkilidir.
+    E: Her iki modelde de Phillips eğrisi uzun dönemde negatif eğimlidir.
+  dogru: B
+  aciklama:
+    dogru_neden: 'Yeni klasik (Lucas) yaklaşımda rasyonel beklentiler ve esnek fiyatlar varsayımıyla, sistematik (öngörülebilir)
+      para politikası ajanlar tarafından önceden hesaba katılır; kısa dönemde bile yalnızca öngörülmeyen şoklar reel etki
+      yaratır. Politika etkisizliği önermesi bu nedenle geçerlidir.
+
+      Püf noktaları: “Sistematik” = kurala bağlı / öngörülebilir; rasyonel beklenti + esnek fiyat = kısa dönemde de etkisizlik.
+
+      '
+    celdiriciler:
+      A: Yeni klasik modelde sistematik politika reel etki yaratmaz.
+      C: Uyarlanabilir beklentilerde ajanlar geçmiş hatalardan yavaş öğrenir; sistematik politika kısa dönemde etkilidir.
+      D: Tersine, sistematik politikalar etkisiz, öngörülmeyenler etkilidir.
+      E: Her iki modelde de uzun dönem Phillips eğrisi dikeydir (doğal oran hipotezi).
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Yeni klasik model, rasyonel beklentiler ve politika etkisizliği
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G03 #5'
+- id: SMMM-EKO-MAK-0012
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: para politikası ve para çarpanı
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Zorunlu karşılık oranı %10, nakit tercih oranı (halkın elindeki nakit / mevduat) %20’dir. Merkez bankasının açık piyasa
+    işlemiyle 100 milyon TL tutarında devlet tahvili satın alması durumunda, basit para çarpanı modelinde para arzındaki maksimum
+    artış ne kadardır?
+
+    '
+  secenekler:
+    A: 100 milyon TL
+    B: 250 milyon TL
+    C: 400 milyon TL
+    D: 500 milyon TL
+    E: 1000 milyon TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Para çarpanı = (1 + c) / (c + r) burada c = nakit/mevduat = 0,20, r = 0,10.
+
+      Çarpan = 1,20 / (0,20 + 0,10) = 1,20 / 0,30 = 4.
+
+      ΔM = 100 × 4 = 400 milyon TL.
+
+      Püf noktaları: Nakit tercih oranı çarpanı küçültür; basit 1/r formülü nakit sızıntısını yok sayar.
+
+      '
+    hesap_adimlari:
+    - c = 0,20, r = 0,10
+    - m = (1 + 0,20) / (0,20 + 0,10) = 1,20 / 0,30 = 4
+    - ΔM = 100 × 4 = 400
+    celdiriciler:
+      A: Yalnızca baz paranın artışını verir; çarpanı 1 alır.
+      B: Yanlış oran kombinasyonuyla (ör. 1/(c+r)=1/0,4) 250 bulur.
+      D: Yalnız r’yi kullanarak yaklaşık 1/(r−c) veya 5 ile 500 bulur.
+      E: Basit çarpan 1/r = 10 alarak 1000 bulur; nakit tercihini yok sayar.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Para çarpanı (nakit tercih oranı dâhil)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'c = 0.20
+
+      r = 0.10
+
+      m = (1 + c) / (c + r)
+
+      sonuc = 100 * m
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G03 #7'
+- id: SMMM-EKO-MAK-0013
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: GSYH ve deflatör
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Bir ekonomide 2024 yılında nominal GSYH 1 200 milyar TL, 2025 yılında nominal GSYH 1 500 milyar TL’dir. Aynı yıllarda
+    reel GSYH (2024 bazlı) sırasıyla 1 200 ve 1 250 milyar TL’dir. 2025 yılı GSYH deflatörü (2024 = 100) kaçtır?
+
+    '
+  secenekler:
+    A: '100'
+    B: '104'
+    C: '120'
+    D: '125'
+    E: '150'
+  dogru: C
+  aciklama:
+    dogru_neden: 'GSYH deflatörü = (Nominal GSYH / Reel GSYH) × 100.
+
+      2025 için: (1 500 / 1 250) × 100 = 1,2 × 100 = 120.
+
+      Püf noktaları: Baz yıl deflatörü 100’dür; artış fiyat düzeyindeki artışı gösterir.
+
+      '
+    hesap_adimlari:
+    - Deflatör_2025 = (1500 / 1250) × 100 = 120
+    celdiriciler:
+      A: Baz yıl değerini (2024) verir.
+      B: Reel büyüme oranını (≈4 %) deflatör sanır.
+      D: Nominal / baz yıl reel (1500/1200)×100 = 125 alır.
+      E: Yalnızca nominal büyümeyi (1500/1000 varsayımı) kullanır.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: GSYH deflatörü tanımı
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'sonuc = (1500 / 1250) * 100
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G03 #10'
+- id: SMMM-EKO-MAK-0014
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: TÜFE
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir sepet malın 2024 fiyatları: A malı 10 TL (miktar 4), B malı 20 TL (miktar 3). 2025 fiyatları: A 12 TL, B 25 TL.
+    2024 bazlı Laspeyres TÜFE (2024 = 100) 2025 için kaçtır? (Miktarlar baz yıl miktarlarıdır.)
+
+    '
+  secenekler:
+    A: '110'
+    B: '115'
+    C: '120'
+    D: '123'
+    E: '125'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Laspeyres endeksi = (Σ P₁Q₀ / Σ P₀Q₀) × 100.
+
+      Baz yıl sepet değeri: 10·4 + 20·3 = 40 + 60 = 100.
+
+      Cari yıl aynı miktarlarla: 12·4 + 25·3 = 48 + 75 = 123.
+
+      Endeks = (123 / 100) × 100 = 123.
+
+      Püf noktaları: Laspeyres baz yıl miktarlarını sabit tutar; Paasche cari miktarları kullanır.
+
+      '
+    hesap_adimlari:
+    - Σ P₀Q₀ = 10·4 + 20·3 = 100
+    - Σ P₁Q₀ = 12·4 + 25·3 = 48 + 75 = 123
+    - TÜFE = (123 / 100) × 100 = 123
+    celdiriciler:
+      A: Yalnız A malındaki %20 artışı genel endeks sanır.
+      B: Ağırlıksız ortalama veya kısmi ağırlık hatası.
+      C: B malındaki %25 artışı veya yuvarlama hatası.
+      E: Nominal / baz veya yanlış miktar varsayımıyla 125 bulur.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Laspeyres fiyat endeksi (TÜFE)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'base = 10*4 + 20*3
+
+      current = 12*4 + 25*3
+
+      sonuc = (current / base) * 100
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G03 #11'
+- id: SMMM-EKO-MAK-0015
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: Keynesyen çarpan
+  tip: hesaplama
+  zorluk: 1
+  kok: 'Basit Keynesyen modelde marjinal tasarruf eğilimi 0,25’tir. Otonom kamu harcamalarındaki 80 milyar TL’lik artış denge
+    gelirini ne kadar yükseltir? (Vergi yok, kapalı ekonomi)
+
+    '
+  secenekler:
+    A: 80 milyar TL
+    B: 160 milyar TL
+    C: 240 milyar TL
+    D: 320 milyar TL
+    E: 400 milyar TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'MTE = 1 − MSE = 0,75. Çarpan = 1 / (1 − MTE) = 1 / 0,25 = 4.
+
+      80 × 4 = 320 milyar TL.
+
+      Püf noktaları: MSE doğrudan çarpanın paydasıdır; 1/MSE = çarpan.
+
+      '
+    hesap_adimlari:
+    - Çarpan = 1 / 0,25 = 4
+    - ΔY = 80 × 4 = 320
+    celdiriciler:
+      A: Çarpanı 1 alır.
+      B: Çarpanı 2 alır.
+      C: Çarpanı 3 alır.
+      E: Çarpanı 5 (MSE=0,2) alır.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Keynesyen harcama çarpanı
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'mse = 0.25
+
+      dG = 80
+
+      sonuc = dG / mse
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G03 #13'
+- id: SMMM-EKO-MAK-0016
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: makro okullar ve beklentiler
+  tip: kavrama
+  zorluk: 2
+  kok: 'Monetarist (Friedman) yaklaşımda kısa dönem Phillips eğrisinin varlığına ilişkin temel açıklama aşağıdakilerden hangisidir?
+
+    '
+  secenekler:
+    A: İşçiler her zaman rasyonel beklentiye sahiptir ve enflasyonu tam öngörür.
+    B: Beklenen enflasyon ile gerçekleşen enflasyon arasındaki fark (sürpriz enflasyon) kısa dönemde işsizliği etkiler.
+    C: Para arzı artışı uzun dönemde de işsizliği kalıcı olarak düşürür.
+    D: Fiyatlar tamamen esnek olduğu için kısa dönem Phillips eğrisi yoktur.
+    E: Hükûmetin maliye politikası kısa dönemde etkisizdir.
+  dogru: B
+  aciklama:
+    dogru_neden: 'Friedman’ın doğal oran hipotezinde kısa dönem Phillips eğrisi, beklenen enflasyonun gerçekleşenden sapması
+      nedeniyle ortaya çıkar. İşçiler beklenen enflasyona göre nominal ücret pazarlığı yapar; sürpriz enflasyon reel ücreti
+      düşürerek istihdamı artırır.
+
+      Püf noktaları: Uzun dönemde beklentiler uyum sağlar, Phillips eğrisi dikeyleşir (doğal işsizlik oranı).
+
+      '
+    celdiriciler:
+      A: Monetarist modelde uyarlanabilir (veya yavaş rasyonel) beklenti kullanılır; anında tam öngörü varsayılmaz.
+      C: Uzun dönemde para yansızdır; işsizlik doğal orana döner.
+      D: Kısa dönemde nominal katılıklar nedeniyle Phillips eğrisi vardır.
+      E: Monetarizm esas olarak para politikası ve enflasyon üzerine odaklanır; maliye politikası ikincildir.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Friedman doğal oran hipotezi ve kısa dönem Phillips eğrisi
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G03 #16'
+- id: SMMM-EKO-MAK-0017
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: para politikası ve para çarpanı
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Kapalı bir ekonomide bankacılık sisteminin zorunlu karşılık oranı %10''dur. Merkez bankası açık piyasa işlemiyle 200
+    milyar TL tutarında devlet tahvili satın almıştır. Ticari bankalar bu işlemin tamamını zorunlu karşılık olarak tutmak
+    yerine, yeni kredilerin %20''sini gönüllü (fazla) rezerv olarak tutmayı tercih etmektedir. Diğer koşullar sabitken, bu
+    işlemin maksimum yaratabileceği para arzı artışı kaç milyar TL''dir?
+
+    '
+  secenekler:
+    A: '500'
+    B: '667'
+    C: '1000'
+    D: '1600'
+    E: '2000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Etkili rezerv oranı = zorunlu karşılık oranı + gönüllü rezerv oranı = 0,10 + 0,20 = 0,30''tur. Para çarpanı
+      = 1 / 0,30 ≈ 3,333''tür. Merkez bankasının tahvil alımı banka rezervlerini 200 milyar TL artırır. Maksimum para arzı
+      artışı = 200 × (1 / 0,30) ≈ 666,67 ≈ 667 milyar TL''dir.
+
+      Püf noktaları: Gönüllü rezervler zorunlu karşılık oranına eklenerek etkili rezerv oranını yükseltir ve çarpanı küçültür.
+      Yalnız zorunlu karşılık oranıyla (çarpan 10) hesaplamak veya gönüllü rezervi ihmal etmek tipik hatalardır.
+
+      '
+    hesap_adimlari:
+    - Zorunlu karşılık oranı (rr) = 0,10
+    - Gönüllü (fazla) rezerv oranı (er) = 0,20
+    - Etkili rezerv oranı = rr + er = 0,30
+    - Para çarpanı = 1 / 0,30 ≈ 3,333
+    - Rezerv artışı (ΔR) = 200 milyar TL
+    - Para arzı artışı = 200 × (1 / 0,30) ≈ 667 milyar TL
+    celdiriciler:
+      A: 500, etkili oranın 0,40 alınması veya başka bir kombinasyonla bulunur.
+      C: 1000, zorunlu karşılık oranıyla (çarpan 10) hesaplanan tutarın yarısıdır; gönüllü rezervler ihmal edilmiştir.
+      D: 1600, gönüllü rezerv oranının yanlış eklenmesi veya çarpanın 8 alınmasıyla elde edilir.
+      E: 2000, yalnız zorunlu karşılık oranıyla (1/0,10 = 10) hesaplanır; bankaların gönüllü rezerv tuttuğu göz ardı edilmiştir.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Para çarpanı (zorunlu ve fazla rezerv oranları)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'rr = 0.10
+
+      er = 0.20
+
+      delta_R = 200
+
+      carpani = 1 / (rr + er)
+
+      sonuc = round(delta_R * carpani)
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G04 #1'
+- id: SMMM-EKO-MAK-0018
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: GSYH ve deflatör
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Bir ekonomide 2024 yılında nominal GSYH 1.200 milyar TL, 2025 yılında ise 1.440 milyar TL olarak gerçekleşmiştir.
+    Aynı dönemde GSYH deflatörü 120''den 144''e yükselmiştir. Buna göre 2025 yılında reel GSYH, 2024 yılına göre yüzde kaç
+    değişmiştir?
+
+    '
+  secenekler:
+    A: '%0'
+    B: '%5'
+    C: '%10'
+    D: '%20'
+    E: '%25'
+  dogru: A
+  aciklama:
+    dogru_neden: 'Reel GSYH = (Nominal GSYH / Deflatör) × 100. 2024 reel GSYH = (1200 / 120) × 100 = 1000 milyar TL. 2025
+      reel GSYH = (1440 / 144) × 100 = 1000 milyar TL. Reel GSYH değişmemiştir; yüzde değişim %0''dır.
+
+      '
+    hesap_adimlari:
+    - 2024 reel GSYH = (1200 / 120) × 100 = 1000
+    - 2025 reel GSYH = (1440 / 144) × 100 = 1000
+    - Yüzde değişim = [(1000 - 1000) / 1000] × 100 = 0
+    celdiriciler:
+      B: '%5, nominal artışın bir kısmının fiyat etkisinden arındırılmasıyla elde edilen yanlış ara sonuçtur.'
+      C: '%10, yalnızca nominal GSYH artış oranının yarısı alınarak bulunur.'
+      D: '%20, yalnız nominal GSYH''nin artış oranıdır (1440/1200 - 1); deflatör dikkate alınmamıştır.'
+      E: '%25, deflatör artış oranının (144/120 - 1) yanlışlıkla reel artış sanılmasıdır.'
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: GSYH deflatörü ve reel GSYH
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'nom_2024 = 1200
+
+      def_2024 = 120
+
+      nom_2025 = 1440
+
+      def_2025 = 144
+
+      reel_2024 = (nom_2024 / def_2024) * 100
+
+      reel_2025 = (nom_2025 / def_2025) * 100
+
+      sonuc = round(((reel_2025 - reel_2024) / reel_2024) * 100, 2)
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G04 #4'
+- id: SMMM-EKO-MAK-0019
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: TÜFE
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir tüketici sepetinde yalnızca iki mal bulunmaktadır: ekmek ve süt. Baz yılında ekmek fiyatı 4 TL, süt fiyatı 8 TL''dir;
+    sepet 5 ekmek ve 3 sütten oluşur. Cari yılda ekmek fiyatı 6 TL''ye, süt fiyatı 10 TL''ye yükselmiştir. Tüketici cari yılda
+    sepetini 4 ekmek ve 4 süt olacak şekilde değiştirmiştir. Laspeyres tipi TÜFE''ye göre enflasyon oranı yüzde kaçtır?
+
+    '
+  secenekler:
+    A: '%25'
+    B: '%30'
+    C: '%36,4'
+    D: '%40'
+    E: '%50'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Laspeyres tipi TÜFE baz yılı miktarlarını kullanır. Baz yılı sepet değeri = 5×4 + 3×8 = 44 TL. Cari yıl
+      fiyatlarıyla aynı sepet = 5×6 + 3×10 = 60 TL. Enflasyon oranı = (60/44 - 1) × 100 ≈ %36,36 ≈ %36,4.
+
+      Püf noktaları: Laspeyres endeksi cari yıl miktarlarını değil, baz yılı miktarlarını kullanır. Cari sepet değişikliği
+      (4 ekmek + 4 süt) dikkate alınmaz; bu Paasche endeksiyle karıştırılan tipik hatadır.
+
+      '
+    hesap_adimlari:
+    - Baz yılı sepet değeri = 5×4 + 3×8 = 44 TL
+    - Cari fiyatlarla baz sepet = 5×6 + 3×10 = 60 TL
+    - Enflasyon = (60/44 - 1)×100 ≈ %36,36 ≈ %36,4
+    celdiriciler:
+      A: '%25, yalnızca ekmek fiyat artışının (6/4-1) alınması veya sütün ihmal edilmesidir.'
+      B: '%30, cari yıl sepetiyle (4×6 + 4×10 = 64) yanlış hesap yapılması veya yaklaşık değerdir.'
+      D: '%40, toplam fiyat artışlarının basit ortalaması veya (6+10)/(4+8)-1 gibi hatalı formüldür.'
+      E: '%50, yalnız süt fiyat artışının (10/8-1) veya abartılı yuvarlamadır.'
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Laspeyres tipi TÜFE ve enflasyon oranı
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'baz_deger = 5*4 + 3*8
+
+      cari_deger = 5*6 + 3*10
+
+      sonuc = round(((cari_deger / baz_deger) - 1) * 100, 1)
+
+      # 36.4
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G04 #5'
+- id: SMMM-EKO-MAK-0020
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: Keynesyen çarpan
+  tip: hesaplama
+  zorluk: 1
+  kok: 'Basit Keynesyen modelde marjinal tüketim eğilimi 0,80''dir. Otonom yatırımlardaki 50 milyar TL''lik artış, denge milli
+    geliri ne kadar artırır? (Kapalı ekonomi, vergi yoktur.)
+
+    '
+  secenekler:
+    A: 50 milyar TL
+    B: 100 milyar TL
+    C: 200 milyar TL
+    D: 250 milyar TL
+    E: 400 milyar TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Yatırım çarpanı = 1 / (1 - MTE) = 1 / (1 - 0,80) = 1 / 0,20 = 5. Denge gelir artışı = 50 × 5 = 250 milyar
+      TL.
+
+      '
+    hesap_adimlari:
+    - Çarpan = 1 / (1 - 0,80) = 5
+    - ΔY = 50 × 5 = 250
+    celdiriciler:
+      A: 50, çarpanın 1 alınmasıdır (çarpan etkisi yok sayılmıştır).
+      B: 100, çarpanın 2 alınmasıyla bulunur.
+      C: 200, çarpanın 4 (MTE=0,75) alınmasıyla elde edilir.
+      E: 400, çarpanın 8 veya MTE'nin yanlış kullanılmasıyla bulunur.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Keynesyen yatırım çarpanı
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'mte = 0.80
+
+      dI = 50
+
+      carpani = 1 / (1 - mte)
+
+      sonuc = dI * carpani
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G04 #8'
+- id: SMMM-EKO-MAK-0021
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: makro okullar ve beklentiler
+  tip: kavrama
+  zorluk: 2
+  kok: 'Rasyonel beklentiler hipotezine göre, sistematik para politikası sürprizlerinin uzun dönemde üretim üzerindeki etkisi
+    hakkında aşağıdaki ifadelerden hangisi doğrudur?
+
+    '
+  secenekler:
+    A: Üretimi kalıcı olarak artırır.
+    B: Yalnızca fiyatlar genel düzeyini yükseltir; üretim doğal düzeyinde kalır.
+    C: Kısa dönemde üretimi düşürür, uzun dönemde artırır.
+    D: Hem fiyatları hem üretimi belirsiz yönde etkiler.
+    E: Yalnızca faiz oranlarını düşürür; üretim etkilenmez.
+  dogru: B
+  aciklama:
+    dogru_neden: 'Rasyonel beklentiler hipotezinde ekonomik birimler mevcut bilgiyi etkin kullanır ve sistematik politikaları
+      önceden tahmin eder. Bu nedenle sistematik para politikası sürprizleri (beklenen politikalar) yalnızca nominal değişkenleri
+      (fiyatlar) etkiler; reel üretim doğal (potansiyel) düzeyinde kalır (politika etkisizliği önermesi).
+
+      '
+    celdiriciler:
+      A: Klasik dikotomi ve rasyonel beklentiler altında sistematik politika reel etki yaratmaz.
+      C: Beklenen politika kısa dönemde de reel etki yaratmaz; yalnızca sürpriz (beklenmeyen) şoklar geçici etki yapabilir.
+      D: 'Model öngörüsü belirsiz değil, nettir: yalnızca fiyat etkisi.'
+      E: Faiz kanalı kısa dönem IS-LM analizine aittir; rasyonel beklentiler uzun dönem sonucunu tarif eder.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Rasyonel beklentiler ve politika etkisizliği
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G04 #10'
+- id: SMMM-EKO-MAK-0022
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: para politikası ve para çarpanı
+  tip: kavrama
+  zorluk: 2
+  kok: 'Merkez bankasının zorunlu karşılık oranını yükseltmesi durumunda para çarpanı ve para arzı üzerindeki beklenen etki
+    aşağıdakilerden hangisidir?
+
+    '
+  secenekler:
+    A: Para çarpanı artar, para arzı artar.
+    B: Para çarpanı azalır, para arzı azalır.
+    C: Para çarpanı artar, para arzı azalır.
+    D: Para çarpanı değişmez, para arzı artar.
+    E: Para çarpanı azalır, para arzı değişmez.
+  dogru: B
+  aciklama:
+    dogru_neden: 'Para çarpanı ≈ 1 / zorunlu karşılık oranı olduğundan, zorunlu karşılık oranının yükselmesi çarpanı küçültür.
+      Daha yüksek karşılık oranı bankaların kredi verebileceği fonları azaltır; dolayısıyla para arzı daralır (diğer koşullar
+      sabitken).
+
+      '
+    celdiriciler:
+      A: Zorunlu karşılık artışı çarpanı büyütmez, küçültür.
+      C: Çarpan artmaz; ters yönlü ilişki vardır.
+      D: Çarpan değişmez varsayımı yanlıştır; karşılık oranı çarpanın temel belirleyicisidir.
+      E: Para arzı da etkilenir; rezervlerin krediye dönüşme oranı düşer.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Zorunlu karşılık oranı ve para çarpanı
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G04 #13'
+- id: SMMM-EKO-MAK-0023
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: GSYH ve deflatör
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir ekonomide iki mal üretilmektedir: X ve Y. 2024 (baz) yılında X''ten 100 birim (fiyat 10 TL), Y''den 50 birim (fiyat
+    20 TL) üretilmiştir. 2025 yılında X''ten 120 birim (fiyat 12 TL), Y''den 60 birim (fiyat 25 TL) üretilmiştir. Buna göre
+    2025 yılı GSYH deflatörü (2024=100) kaçtır?
+
+    '
+  secenekler:
+    A: '110'
+    B: '120'
+    C: 122,5
+    D: '130'
+    E: '140'
+  dogru: C
+  aciklama:
+    dogru_neden: 'GSYH deflatörü = (Nominal GSYH / Reel GSYH) × 100. 2025 nominal GSYH = 120×12 + 60×25 = 2940. 2025 reel
+      GSYH (2024 fiyatlarıyla) = 120×10 + 60×20 = 2400. Deflatör = (2940 / 2400) × 100 = 122,5.
+
+      Püf noktaları: Deflatör cari yıl miktarlarını baz yıl fiyatlarıyla değerleyerek reel GSYH''yi bulur. TÜFE ile karıştırılmamalıdır
+      (TÜFE sabit sepet kullanır).
+
+      '
+    hesap_adimlari:
+    - 2025 nominal = 120×12 + 60×25 = 2940
+    - 2025 reel (2024 fiyat) = 120×10 + 60×20 = 2400
+    - Deflatör = (2940 / 2400) × 100 = 122,5
+    celdiriciler:
+      A: 110, yalnız X malı fiyat artışının (12/10) veya kısmi hesaplanmasıdır.
+      B: 120, ortalama fiyat artışı veya X'in ağırlıklı katkısıyla yaklaşık değerdir.
+      D: 130, Y malı fiyat artışının (25/20=1,25) yanlışlıkla tüm ekonomiye uygulanmasıdır.
+      E: 140, nominal artış oranının (2940 / (100×10+50×20) = 2940/2000 = 1,47) yanlış kullanılmasıdır.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: GSYH deflatörü hesaplaması
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'nom = 120*12 + 60*25
+
+      reel = 120*10 + 60*20
+
+      sonuc = round((nom / reel) * 100, 1)
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır Grok_EKO-2026-10-06-G04 #15'
+- id: SMMM-EKO-MAK-0024
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: GSYH ve deflatör
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Bir ekonomide 2024 yılında üretilen mal ve hizmetlerin piyasa fiyatlarıyla değeri 800 milyar TL, 2025 yılında aynı
+    mal ve hizmet sepetinin piyasa fiyatlarıyla değeri 960 milyar TL olarak ölçülmüştür. 2024 yılı baz yılıdır. Buna göre
+    2025 yılı GSYH deflatörü ve enflasyon oranı sırasıyla yüzde kaçtır?
+
+    '
+  secenekler:
+    A: 100 ve 20
+    B: 120 ve 16,7
+    C: 120 ve 20
+    D: 125 ve 20
+    E: 125 ve 25
+  dogru: C
+  aciklama:
+    dogru_neden: 'GSYH deflatörü = (Nominal GSYH / Reel GSYH) × 100. Baz yılı 2024 olduğundan reel GSYH = 800 milyar TL''dir.
+      2025 deflatörü = (960 / 800) × 100 = 120. Enflasyon oranı = [(120 − 100) / 100] × 100 = %20.
+
+      Püf noktaları: Deflatör her zaman baz yılında 100''dür; enflasyon hesabında bir önceki yıl deflatörü (burada 100) kullanılır.
+
+      '
+    celdiriciler:
+      A: Deflatörü baz yılı değeri olan 100 alarak yalnızca enflasyon oranını yazmıştır.
+      B: Deflatörü doğru bulmuş ancak enflasyonu (960 − 800) / 960 şeklinde yanlış bazla hesaplamıştır.
+      D: Deflatörü (1000 / 800) × 100 = 125 gibi yuvarlak bir hata ile bulmuş, enflasyonu ise doğru yazmıştır.
+      E: Hem deflatörü hem enflasyonu (960 − 800) / 800 = %25 şeklinde yanlış hesaplamıştır.
+    hesap_adimlari:
+    - Deflatör_2025 = (960 / 800) × 100 = 120
+    - Enflasyon = (120 − 100) / 100 × 100 = %20
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: GSYH deflatörü ve enflasyon oranı
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'nominal = 960
+
+      reel = 800
+
+      deflator = (nominal / reel) * 100
+
+      enflasyon = ((deflator - 100) / 100) * 100
+
+      sonuc = (deflator, enflasyon)
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır grok_EKO-2026-10-06-G01 #1'
+- id: SMMM-EKO-MAK-0025
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: TÜFE
+  tip: bilgi
+  zorluk: 1
+  kok: 'Tüketici fiyat endeksi (TÜFE) ile ilgili aşağıdaki ifadelerden hangisi doğrudur?
+
+    '
+  secenekler:
+    A: Yalnızca yurt içinde üretilen mal ve hizmetlerin fiyatlarını ölçer.
+    B: Üreticilerin satış fiyatlarındaki değişmeleri yansıtır.
+    C: Hanehalklarının satın aldığı mal ve hizmet sepetinin fiyat değişimini ölçer.
+    D: Yalnızca yatırım mallarının fiyat değişimini kapsar.
+    E: GSYH deflatörüyle her zaman aynı değeri alır.
+  dogru: C
+  aciklama:
+    dogru_neden: 'TÜFE, hanehalklarının tüketim harcamalarında yer alan mal ve hizmetlerden oluşan sabit bir sepetin fiyatlarındaki
+      değişimi ölçen endekstir. Bu nedenle C seçeneği doğrudur.
+
+      '
+    celdiriciler:
+      A: TÜFE ithal malları da kapsar; yalnızca yurt içi üretimi ölçen endeks GSYH deflatörüdür.
+      B: Üretici fiyat endeksi (ÜFE) üreticilerin satış fiyatlarını yansıtır; TÜFE tüketici tarafındadır.
+      D: TÜFE tüketim mallarını kapsar; yatırım malları GSYH deflatörü kapsamında daha belirgindir.
+      E: TÜFE sabit sepet, GSYH deflatörü değişken sepet kullandığı için genellikle farklı değerler alır.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Tüketici fiyat endeksi (TÜFE)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır grok_EKO-2026-10-06-G01 #2'
+- id: SMMM-EKO-MAK-0026
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: makro okullar ve beklentiler
+  tip: kavrama
+  zorluk: 2
+  kok: 'Rasyonel beklentiler hipotezine göre, beklenmeyen bir para politikası genişlemesinin kısa dönem etkisiyle ilgili aşağıdaki
+    ifadelerden hangisi doğrudur?
+
+    '
+  secenekler:
+    A: Çıktı ve istihdam üzerinde hiçbir etki yaratmaz.
+    B: Çıktıyı artırır ancak uzun dönemde nötr kalır.
+    C: Hem kısa hem uzun dönemde çıktıyı kalıcı olarak artırır.
+    D: Yalnızca fiyat düzeyini düşürür, çıktıyı etkilemez.
+    E: Beklenen politika ile aynı etkiyi yaratır.
+  dogru: B
+  aciklama:
+    dogru_neden: 'Rasyonel beklentiler (yeni klasik) yaklaşımda yalnızca beklenmeyen politika şokları kısa dönemde Lucas arz
+      eğrisi boyunca çıktıyı etkiler; ajanlar hatayı fark edince beklentiler güncellenir ve uzun dönemde para nötrdür. Bu
+      nedenle B doğrudur.
+
+      '
+    celdiriciler:
+      A: Beklenen politika için geçerlidir; beklenmeyen şok kısa dönemde etkilidir.
+      C: Uzun dönemde para nötrdür; kalıcı çıktı artışı yoktur.
+      D: Beklenmeyen genişleme fiyatları yükseltir, düşürmez.
+      E: Beklenen politika etkisizken beklenmeyen politika kısa dönemde etkilidir; aynı değildir.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Rasyonel beklentiler ve politika etkinsizliği
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır grok_EKO-2026-10-06-G01 #5'
+- id: SMMM-EKO-MAK-0027
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: para politikası ve para çarpanı
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir ekonomide zorunlu karşılık oranı %10, nakit tercih oranı (nakit/mevduat) %20 ve fazla rezerv oranı sıfırdır. Merkez
+    bankası açık piyasa işlemiyle 140 milyon TL''lik devlet tahvili satın almıştır. Para çarpanı modeline göre para arzındaki
+    maksimum artış ne kadardır?
+
+    '
+  secenekler:
+    A: 280 milyon TL
+    B: 400 milyon TL
+    C: 560 milyon TL
+    D: 700 milyon TL
+    E: 1400 milyon TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Para çarpanı m = (1 + c) / (c + r + e) formülüyle bulunur. c = 0,20, r = 0,10, e = 0 olduğundan m = 1,20
+      / 0,30 = 4. ΔM = 4 × 140 = 560 milyon TL.
+
+      Püf noktaları: Nakit tercih oranı çarpanı küçültür; fazla rezerv yokken formül (1+c)/(c+r) olur.
+
+      '
+    celdiriciler:
+      A: Yalnız (1/r) yerine 1/(c+r) = 1/0,5 = 2 × 140 = 280 bulmuştur.
+      B: Çarpanı 1/c = 5 veya 140 × (1/0,35) gibi yanlış payda kullanmıştır.
+      D: Yalnız r=0,2 alarak 1/0,2 = 5 × 140 = 700 bulmuştur.
+      E: Yalnız zorunlu karşılık çarpanı 1/0,10 = 10 × 140 = 1400'dür; nakit tercihini ihmal etmiştir.
+    hesap_adimlari:
+    - m = (1 + 0,20) / (0,20 + 0,10) = 1,20 / 0,30 = 4
+    - ΔM = 4 × 140 = 560
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: Para çarpanı (nakit tercih oranlı)
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'c = 0.20
+
+      r = 0.10
+
+      e = 0
+
+      m = (1 + c) / (c + r + e)
+
+      sonuc = m * 140
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır grok_EKO-2026-10-06-G01 #7'
+- id: SMMM-EKO-MAK-0028
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: GSYH ve deflatör
+  tip: uygulama
+  zorluk: 2
+  kok: 'Aşağıdakilerden hangisi GSYH deflatörünün TÜFE''den farklarından biri değildir?
+
+    '
+  secenekler:
+    A: GSYH deflatörü yurt içinde üretilen tüm malları kapsar, TÜFE yalnızca tüketim sepetini.
+    B: GSYH deflatörü değişken sepet, TÜFE sabit sepet kullanır.
+    C: GSYH deflatörü ithal malların fiyat değişimini de yansıtır.
+    D: GSYH deflatörü yatırım ve kamu mallarını da kapsar.
+    E: GSYH deflatörü nominal GSYH'nin reel GSYH'ye oranından elde edilir.
+  dogru: C
+  aciklama:
+    dogru_neden: 'GSYH deflatörü yalnızca yurt içinde üretilen mal ve hizmetleri kapsar; ithal mallar GSYH''ye girmez. TÜFE
+      ise ithal tüketim mallarını da içerir. Bu nedenle C ifadesi yanlıştır (fark değildir, tam tersidir) ve doğru cevaptır.
+
+      '
+    celdiriciler:
+      A: Doğru bir farktır; kapsam farklıdır.
+      B: Doğru bir farktır; sepet yöntemi farklıdır.
+      D: Doğru bir farktır; GSYH tüm nihai malları kapsar.
+      E: Doğru bir tanımsal ifadedir.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: GSYH deflatörü ile TÜFE karşılaştırması
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır grok_EKO-2026-10-06-G01 #10'
+- id: SMMM-EKO-MAK-0029
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: TÜFE
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir ekonomide baz yılında elma 2 TL, ekmek 4 TL''dir ve sepet 10 elma + 5 ekmekten oluşur. Cari yılda elma 3 TL, ekmek
+    6 TL olmuştur. Aynı yılda GSYH deflatörü 130 olarak ölçülmüştür. Buna göre cari yıl TÜFE''si ile deflatör arasındaki fark
+    (TÜFE − deflatör) yüzde puan olarak kaçtır? (Baz yılı endeks = 100)
+
+    '
+  secenekler:
+    A: '10'
+    B: '15'
+    C: '20'
+    D: '25'
+    E: '30'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Baz yılı sepet değeri = 10 × 2 + 5 × 4 = 40. Cari sepet değeri = 10 × 3 + 5 × 6 = 30 + 30 = 60. TÜFE = (60
+      / 40) × 100 = 150. Fark = 150 − 130 = 20 yüzde puan.
+
+      Püf noktaları: TÜFE sabit sepet kullanır; deflatör ile fark sepet ve kapsam farklılığından doğar.
+
+      '
+    celdiriciler:
+      A: Yalnız elma enflasyonunu (50 %) veya yanlış ağırlık kullanmıştır.
+      B: Sepeti 10 elma + 10 ekmek gibi yanlış varsaymıştır.
+      D: Deflatörü 125 kabul ederek 150 − 125 = 25 bulmuştur.
+      E: TÜFE'yi (60 / 40) × 100 yerine 180 gibi yanlış hesaplamıştır.
+    hesap_adimlari:
+    - Baz sepet = 10×2 + 5×4 = 40
+    - Cari sepet = 10×3 + 5×6 = 60
+    - TÜFE = 60/40 × 100 = 150
+    - Fark = 150 − 130 = 20
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: TÜFE hesaplama ve deflatör karşılaştırması
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'baz = 10*2 + 5*4
+
+      cari = 10*3 + 5*6
+
+      tufe = (cari / baz) * 100
+
+      fark = tufe - 130
+
+      sonuc = fark
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır grok_EKO-2026-10-06-G01 #11'
+- id: SMMM-EKO-MAK-0030
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: makro okullar ve beklentiler
+  tip: kavrama
+  zorluk: 2
+  kok: 'Keynesyen ve monetarist yaklaşımların kısa dönem Phillips eğrisi yorumuyla ilgili aşağıdaki ifadelerden hangisi doğrudur?
+
+    '
+  secenekler:
+    A: Her iki okul da Phillips eğrisinin her zaman dikey olduğunu savunur.
+    B: Keynesyenler kısa dönemde enflasyon-işsizlik trade-off'unu kabul ederken monetaristler doğal işsizlik oranına dönüşü
+      vurgular.
+    C: Monetaristler aktif talep yönetimini savunurken Keynesyenler para politikasının etkisiz olduğunu ileri sürer.
+    D: Her iki okul da uzun dönemde trade-off'un varlığını kabul eder.
+    E: Keynesyenler rasyonel beklentileri, monetaristler adaptif beklentileri temel alır.
+  dogru: B
+  aciklama:
+    dogru_neden: 'Geleneksel Keynesyen yaklaşım kısa dönemde enflasyon ile işsizlik arasında trade-off (negatif eğimli Phillips)
+      kabul eder. Monetaristler (Friedman) beklentilerin uyum sağlamasıyla uzun dönemde doğal işsizlik oranına dönüleceğini
+      ve uzun dönem Phillips''in dikey olduğunu savunur. B doğrudur.
+
+      '
+    celdiriciler:
+      A: Kısa dönemde en azından Keynesyen yaklaşım negatif eğimli kabul eder; dikey uzun dönemdir.
+      C: 'Tam tersi: Keynesyenler talep yönetimini, monetaristler para kuralını savunur.'
+      D: Uzun dönemde her iki okul da (özellikle monetarist) trade-off'un olmadığını kabul eder.
+      E: Monetaristler adaptif, yeni klasikler rasyonel beklenti kullanır; Keynesyenler genellikle adaptif veya yapışkan ücret
+        varsayar.
+  kaynaklar:
+  - mevzuat: İktisat teorisi — genel kabul görmüş tanım
+    madde: 'Phillips eğrisi: Keynesyen vs monetarist'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_EKO.yaml, satır grok_EKO-2026-10-06-G01 #16'

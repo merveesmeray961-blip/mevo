@@ -1,0 +1,103 @@
+- id: SMMM-MAL-DIG-0003
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: FIFO ve hareketli ortalama
+  tip: hesaplama
+  zorluk: 3
+  kok: 'HK İşletmesi''nin Ocak ayı ilkmadde hareketleri şöyledir:
+
+
+    - 1 Ocak: dönem başı stok 400 birim × 50 TL
+
+    - 10 Ocak: alım 600 birim × 60 TL
+
+    - 15 Ocak: üretime çıkış 700 birim
+
+    - 25 Ocak: alım 300 birim × 70 TL
+
+    - 28 Ocak: üretime çıkış 400 birim
+
+
+    Hareketli ortalama yönteminde her alımdan sonra ortalama birim maliyet yeniden hesaplanmaktadır. KDV dikkate alınmayacaktır.
+    Ay sonu ilkmadde stokunun FIFO (ilk giren ilk çıkar) yöntemine göre değeri, hareketli ortalama yöntemine göre değerinden
+    kaç TL fazladır?'
+  secenekler:
+    A: '1.200'
+    B: '1.400'
+    C: '2.000'
+    D: '2.800'
+    E: '4.000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'FIFO: 15 Ocak çıkışı 400 × 50 + 300 × 60 = 38.000 TL; kalan 300 birim × 60 TL. 25 Ocak alımından sonra 28
+      Ocak çıkışı 300 × 60 + 100 × 70 = 25.000 TL; ay sonu stok 200 birim × 70 TL = 14.000 TL. Hareketli ortalama: 10 Ocak
+      sonrası (400 × 50 + 600 × 60) ÷ 1.000 = 56 TL; çıkış 700 × 56 = 39.200, kalan 300 × 56 = 16.800 TL. 25 Ocak sonrası
+      (16.800 + 21.000) ÷ 600 = 63 TL; çıkış 400 × 63 = 25.200, ay sonu stok 200 × 63 = 12.600 TL. Fark = 14.000 − 12.600
+      = 1.400 TL. İlkmadde stokları satın alındıkları maliyet bedeliyle hesaba alınır, çıkışta alacak kaydedilir (THP 150);
+      çıkış maliyetinin hangi birim fiyatla yapılacağını ise seçilen stok değerleme yöntemi belirler.
+
+
+      Püf noktaları: Hareketli ortalamada her alımdan sonra birim maliyet yenilenir, ikinci partiyi unutmak 2.800''e götürür.
+      FIFO''da ay sonu stok en son alınan partiden oluşur. Fark hem çıkış maliyetinde hem stokta aynıdır; yalnızca stok tarafından
+      çözmek iki yöntemi ayrı ayrı izlemeyi gerektirir.'
+    celdiriciler:
+      A: '1.200: Yalnızca 15 Ocak çıkışındaki maliyet farkı (39.200 − 38.000) alınmış, ikinci alım ve çıkışın etkisi hesaba
+        katılmamıştır.'
+      C: '2.000: Hareketli ortalama birim maliyeti yerine 10 Ocak alım fiyatı (60 TL) kullanılmıştır (14.000 − 12.000).'
+      D: '2.800: Ortalama maliyet 25 Ocak alımından sonra yeniden hesaplanmamış, 56 TL ile devam edilmiştir (14.000 − 200
+        × 56).'
+      E: '4.000: FIFO yerine ilk partinin fiyatı (50 TL) ile değerlenmiş stok (10.000 TL) ile karşılaştırılmıştır.'
+    hesap_adimlari:
+    - 'FIFO 15 Ocak çıkış: 400 × 50 + 300 × 60 = 38.000 TL; kalan 300 × 60'
+    - 'FIFO 28 Ocak çıkış: 300 × 60 + 100 × 70 = 25.000 TL; ay sonu stok 200 × 70 = 14.000 TL'
+    - 'Hareketli ortalama 10 Ocak: 56.000 ÷ 1.000 = 56 TL; çıkış 39.200; kalan 300 × 56 = 16.800 TL'
+    - 'Hareketli ortalama 25 Ocak: (16.800 + 21.000) ÷ 600 = 63 TL; çıkış 25.200; ay sonu stok 200 × 63 = 12.600 TL'
+    - 'Fark: 14.000 − 12.600 = 1.400 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 150. İlk Madde ve Malzeme
+    alinti: Satın alındıkları ya da üretildikleri maliyet bedelleri ile bu hesabın borcuna, üretime verildiğinde, tüketildiğinde,
+      satıldığında veya devredildiğinde ise hesabın alacağına kaydedilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "# FIFO\ncatmanlar = [[400, 50]]\ndef cik_fifo(c, n):\n    maliyet = 0\n    while n > 0:\n        k = min(n, c[0][0])\n\
+      \        maliyet += k * c[0][1]\n        c[0][0] -= k\n        n -= k\n        if c[0][0] == 0:\n            c.pop(0)\n\
+      \    return maliyet\nc = [[400, 50]]\nc.append([600, 60])\ncik_fifo(c, 700)\nc.append([300, 70])\ncik_fifo(c, 400)\n\
+      fifo_stok = sum(a * b for a, b in c)\n# Hareketli ortalama\nmiktar, deger = 400, 20000\nmiktar += 600\ndeger += 36000\n\
+      birim = deger / miktar\nmiktar -= 700\ndeger = miktar * birim\nmiktar += 300\ndeger += 21000\nbirim = deger / miktar\n\
+      miktar -= 400\nho_stok = miktar * birim\nsonuc = fifo_stok - ho_stok\n"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #8'

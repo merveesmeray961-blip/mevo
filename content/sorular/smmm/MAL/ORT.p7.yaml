@@ -1,0 +1,173 @@
+- id: SMMM-MAL-ORT-0004
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: yan ürün geri hesap
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Tek bir ortak üretim sürecinden 40.000 birim ana ürün ve 5.000 birim yan ürün elde eden VE İşletmesi, ayrılma noktasına
+    kadar 1.000.000 TL ortak maliyet oluşturmuştur. Ana ürüne yüklenen ortak maliyet birim başına 22 TL''dir; ortak maliyetin
+    geri kalanı yan ürüne yüklenmiştir. Ana ürünün birim satış fiyatı 30 TL''dir.
+
+
+    Yan ürün için ayrılma noktasından sonra 20.000 TL ek işleme gideri ve 10.000 TL satış gideri yapılmıştır. Yan ürüne yüklenen
+    ortak maliyet, yan ürün satış hasılatından ek işleme gideri, satış gideri ve normal kâr payının (satış hasılatının %25''i)
+    düşülmesiyle bulunmuştur. KDV dikkate alınmayacaktır.
+
+
+    Yan ürünün birim satış fiyatı kaç TL''dir?'
+  secenekler:
+    A: '24'
+    B: '30'
+    C: '32'
+    D: 37,5
+    E: '40'
+  dogru: E
+  aciklama:
+    dogru_neden: 'Ana ürüne yüklenen ortak maliyet 40.000 × 22 = 880.000 TL''dir; yan ürüne 1.000.000 − 880.000 = 120.000
+      TL kalır. Kökteki yönteme göre H, yan ürün satış hasılatı olmak üzere H − 20.000 − 10.000 − 0,25 × H = 120.000''dir.
+      Buradan 0,75 × H = 150.000 ve H = 200.000 TL bulunur. Birim satış fiyatı 200.000 ÷ 5.000 = 40 TL''dir. Yan ürün de stoklar
+      grubunda yer alan bir stok kalemidir (THP 15 Stoklar); bu soruda yan ürünün maliyeti, yukarıdaki yöntemle geri hesaplanmıştır.
+
+
+      Püf noktaları: Yan ürüne düşen ortak maliyet, ana ürün payı çıkarılarak geri hesapla bulunur. Kâr payı hasılatın yüzdesi
+      olduğundan hasılat 1 − 0,25 = 0,75 katsayısıyla çözülür; kâr payını maliyete yüzde olarak eklemek 37,5''a götürür. Ana
+      ürünün satış fiyatı çözüme etki etmez.'
+    celdiriciler:
+      A: '24: Ek işleme ve satış giderleri hasılata eklenmesi gerekirken ortak maliyetten düşülmüştür (işaret hatası): 0,75
+        × H = 120.000 − 30.000.'
+      B: '30: Normal kâr payı hesaba katılmamıştır; (120.000 + 30.000) ÷ 5.000.'
+      C: '32: Ek işleme ve satış giderleri unutulmuş, yalnızca kâr payı dikkate alınmıştır: 120.000 ÷ 0,75 ÷ 5.000.'
+      D: '37,5: Kâr payı hasılatın %25''i yerine, diğer unsurların toplamının %25''i olarak ilave edilmiştir: 150.000 × 1,25
+        ÷ 5.000.'
+    hesap_adimlari:
+    - 'Ana ürün payı: 40.000 × 22 = 880.000 TL'
+    - 'Yan ürüne yüklenen ortak maliyet: 1.000.000 − 880.000 = 120.000 TL'
+    - H − 20.000 − 10.000 − 0,25 H = 120.000 → 0,75 H = 150.000 → H = 200.000 TL
+    - 'Birim satış fiyatı: 200.000 ÷ 5.000 = 40 TL'
+  kaynaklar:
+  - &id001
+    mevzuat: Yöntem sorusu — kaynaklar/ içinde yasal metni bulunmayan standart maliyet yöntemi
+    madde: '-'
+    alinti: ''
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 15. Stoklar (grup açıklaması)
+    alinti: Bu grup, işletmenin satmak, üretimde kullanmak veya tüketmek amacıyla edindiği, ilk madde ve malzeme, yarı mamul,
+      mamul, ticari mal, yan ürün, artık ve hurda gibi bir yıldan az bir sürede kullanılacak olan veya bir yıl içerisinde
+      nakde çevrilebileceği düşünülen varlıklardan oluşur.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'yan_pay = 1000000 - 40000 * 22
+
+      h = (yan_pay + 20000 + 10000) / (1 - 0.25)
+
+      sonuc = h / 5000
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #10'
+- id: SMMM-MAL-ORT-0005
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: satış değeri yöntemi
+  tip: hesaplama
+  zorluk: 1
+  kok: Tek bir ortak süreçten X ve Y ürünlerini elde eden SA İşletmesi'nin ayrılma noktasına kadar ortak maliyeti 450.000
+    TL'dir. Ayrılma noktasındaki toplam satış değerleri X için 360.000 TL, Y için 240.000 TL'dir. Y ürünü ayrılma noktasından
+    sonra 60.000 TL ek işleme gideri ile işlenerek satılacaktır. Ortak maliyet, ayrılma noktasındaki satış değerleri oranında
+    dağıtılmaktadır (satış değeri yöntemi). KDV dikkate alınmayacaktır. X ürününe dağıtılacak ortak maliyet kaç TL'dir?
+  secenekler:
+    A: '180.000'
+    B: '225.000'
+    C: '240.000'
+    D: '270.000'
+    E: '300.000'
+  dogru: D
+  aciklama:
+    dogru_neden: Satış değeri yönteminde ortak maliyet, ürünlerin ayrılma noktasındaki satış değerleri oranında dağıtılır.
+      Toplam satış değeri 360.000 + 240.000 = 600.000 TL, X'in oranı 360.000 ÷ 600.000 = %60'tır. X'e düşen pay = 450.000
+      × 0,60 = 270.000 TL. Y'nin ayrılma noktasından sonraki ek işleme gideri bu yöntemde dağıtımı etkilemez.
+    celdiriciler:
+      A: '180.000: Y ürününe düşen pay bulunmuştur (450.000 × 240 ÷ 600).'
+      B: '225.000: Ortak maliyet iki ürüne eşit paylaştırılmıştır; satış değerleri oranı kullanılmamıştır.'
+      C: '240.000: Y ürününün ayrılma noktasındaki satış değeri, maliyet payı sanılmıştır.'
+      E: '300.000: Y''nin ek işleme gideri satış değerinden düşülmüş (net değer: 180.000), pay 450.000 × 360 ÷ 540 bulunmuştur;
+        kökte satış değerleri ayrılma noktası itibarıyla verilmiştir.'
+    hesap_adimlari:
+    - 'Toplam satış değeri: 360.000 + 240.000 = 600.000 TL'
+    - 'X''in oranı: 360.000 ÷ 600.000 = %60'
+    - 'X''e düşen ortak maliyet: 450.000 × 0,60 = 270.000 TL'
+  kaynaklar:
+  - *id001
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'sonuc = 450000 * 360000 / (360000 + 240000)
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #17'

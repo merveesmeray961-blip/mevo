@@ -1,0 +1,184 @@
+- id: SMMM-MAL-SAF-0004
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: tamamlanma derecesi geri hesap
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Tek safhalı üretim yapan SM İşletmesi ağırlıklı ortalama yöntemini uygulamaktadır. Dönem başında yarı mamul yoktur.
+    Dönem içinde 5.000 birimlik üretime başlanmış; 4.000 birim tamamlanarak mamul stoklarına aktarılmış, 1.000 birim dönem
+    sonu yarı mamul olarak kalmıştır. İlkmadde üretimin başında tamamen verilmiş olup dönem ilkmadde maliyeti 300.000 TL''dir.
+    Dönüştürme maliyetleri (direkt işçilik ve genel üretim giderleri) üretim boyunca düzgün oluşmaktadır; dönem dönüştürme
+    maliyeti toplamı 460.000 TL olup bunun 400.000 TL''si tamamlanan 4.000 birime, 60.000 TL''si dönem sonu yarı mamullere
+    isabet etmektedir.
+
+
+    Dönem sonu yarı mamullerin dönüştürme maliyeti bakımından tamamlanma derecesi yüzde kaçtır? KDV dikkate alınmayacaktır.'
+  secenekler:
+    A: '12'
+    B: '40'
+    C: '60'
+    D: '80'
+    E: '92'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Dönüştürme maliyeti için birim maliyet, tamamlanan birimlerden bulunur: 400.000 ÷ 4.000 = 100 TL/eşdeğer
+      birim. Dönem sonu yarı mamullere isabeden 60.000 TL, 60.000 ÷ 100 = 600 eşdeğer birime karşılık gelir. 1.000 fiziki
+      birim 600 eşdeğer birim ise tamamlanma derecesi 600 ÷ 1.000 = %60''tır. Kontrol: toplam eşdeğer birim 4.000 + 600 =
+      4.600; 460.000 ÷ 4.600 = 100 TL. Yarı mamul, direkt ilkmadde ve işçilik ile genel üretim giderlerinden belli oranlarda
+      pay almış üretim aşamasındaki mamuldür (THP 151).'
+    celdiriciler:
+      A: '12: Dönem sonu yarı mamullerin eşdeğer birimi (600), tamamlanma derecesi yerine başlanan 5.000 birime bölünmüştür.'
+      B: '40: Tamamlanmamış kısım bulunmuştur (1 − 0,60); sorulan tamamlanma derecesidir.'
+      D: '80: Tamamlanan birimlerin başlanan birimlere oranı (4.000 ÷ 5.000) tamamlanma derecesi sanılmıştır.'
+      E: '92: Toplam eşdeğer birimin (4.600) başlanan birime (5.000) oranı alınmıştır; bu oran yarı mamullerin değil, tüm
+        üretimin ortalama tamamlanmasıdır.'
+    hesap_adimlari:
+    - 'Dönüştürme birim maliyeti: 400.000 ÷ 4.000 = 100 TL'
+    - 'Yarı mamullerin eşdeğer birimi: 60.000 ÷ 100 = 600 birim'
+    - 'Tamamlanma derecesi: 600 ÷ 1.000 = %60'
+    - 'Kontrol: 460.000 ÷ (4.000 + 600) = 100 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 151. Yarı Mamuller-Üretim
+    alinti: Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'birim = 400000 / 4000
+
+      es_birim = 60000 / birim
+
+      sonuc = es_birim / 1000 * 100
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #4'
+- id: SMMM-MAL-SAF-0005
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Tek safhalı üretim yapan BN İşletmesi, safha maliyetinde FIFO yöntemini uygulamaktadır. Dönem başında 1.000 birim
+    yarı mamul vardır (ilkmadde %100, dönüştürme %50 tamamlanmış); bunların birikmiş maliyeti ilkmadde 15.000 TL, dönüştürme
+    9.000 TL''dir. Dönem içinde 4.000 birimlik yeni üretime başlanmış; 4.000 birim tamamlanıp mamule aktarılmış, 1.000 birim
+    dönem sonu yarı mamul (ilkmadde %100, dönüştürme %50) olarak kalmıştır. Dönem maliyetleri: ilkmadde 40.000 TL, dönüştürme
+    (direkt işçilik ve genel üretim giderleri) 36.000 TL''dir.
+
+
+    KDV dikkate alınmayacaktır. FIFO yöntemine göre tamamlanıp mamule aktarılan birimlerin maliyeti kaç TL''dir?'
+  secenekler:
+    A: '61.500'
+    B: '81.000'
+    C: '84.000'
+    D: '85.500'
+    E: '90.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'FIFO''da önce dönem başı yarı mamul tamamlanır. Cari dönem eşdeğer birimleri: ilkmadde 4.000 (başlanan birimler;
+      başı stoktaki ilkmadde zaten %100''dür); dönüştürme 4.000 − 500 + 500 = 4.000 (başı yarı mamulün kalan %50''si 500,
+      3.000 başlanıp tamamlanan, sonu 500). Cari birim maliyetler: ilkmadde 40.000 ÷ 4.000 = 10 TL; dönüştürme 36.000 ÷ 4.000
+      = 9 TL. Aktarılan maliyet = başı birikmiş 24.000 + tamamlama 500 × 9 = 4.500 + başlanıp tamamlanan 3.000 × (10 + 9)
+      = 57.000 → 85.500 TL. Kontrol: toplam maliyet 100.000 − sonu yarı mamul (1.000 × 10 + 500 × 9 = 14.500) = 85.500 TL.
+      Yarı mamul hesabı borçlandırıldıktan sonra tamamlananların maliyeti stok hesabına aktarılır (THP 151).'
+    celdiriciler:
+      A: '61.500: Dönem başı yarı mamulün birikmiş maliyeti (24.000 TL) eklenmemiş; yalnızca cari dönem maliyetleri (4.500
+        + 57.000) alınmıştır.'
+      B: '81.000: Dönem başı yarı mamulün tamamlanması için cari dönemde yapılan dönüştürme maliyeti (500 × 9 = 4.500 TL)
+        unutulmuştur (24.000 + 57.000).'
+      C: '84.000: Ağırlıklı ortalama yöntemiyle bulunan tutardır (4.000 × 21); kökte FIFO istenmiştir.'
+      E: '90.000: Dönem başı yarı mamulü tamamlamak için dönüştürmenin %100''ü (1.000 × 9) cari dönem maliyetine eklenmiştir;
+        oysa %50''si önceki dönemde tamamlanmıştır.'
+    hesap_adimlari:
+    - 'Cari birim maliyetler: ilkmadde 40.000 ÷ 4.000 = 10 TL; dönüştürme 36.000 ÷ 4.000 = 9 TL'
+    - 'Dönem başı yarı mamul: 24.000 + tamamlama (500 × 9) 4.500 = 28.500 TL'
+    - 'Başlanıp tamamlanan 3.000 birim: 3.000 × 19 = 57.000 TL'
+    - 'Aktarılan: 28.500 + 57.000 = 85.500 TL'
+    - 'Kontrol: 100.000 − (1.000 × 10 + 500 × 9) = 85.500 TL'
+    - 'Karşılaştırma: ağırlıklı ortalamada birim maliyet (15.000 + 40.000) ÷ 5.000 + (9.000 + 36.000) ÷ 4.500 = 11 + 10 =
+      21 TL; aktarılan 4.000 × 21 = 84.000 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 151. Yarı Mamuller-Üretim
+    alinti: Maliyet dönemi sonunda direkt ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu
+      hesap borçlandırılır. Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına
+      aktarılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'basi = 15000 + 9000
+
+      tamamlama = 500 * (36000 / 4000)
+
+      baslanip_biten = 3000 * (40000 / 4000 + 36000 / 4000)
+
+      sonuc = basi + tamamlama + baslanip_biten
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Claude_MAL-2026-10-06-G04 #14'
