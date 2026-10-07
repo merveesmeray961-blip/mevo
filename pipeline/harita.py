@@ -20,9 +20,9 @@ import yaml
 from pipeline import g2_yapi
 
 KOK = g2_yapi.KOK
-# PLAN.md §8 "Hedef (2000)" sütunu (+ GKY 200: SGS Türkçe/Matematik/Tarih/İngilizce); Finansal Muhasebe 340 = FIN 280 + Muhasebe Standartları 60, Ekonomi+Maliye 140 = 70 + 70.
+# PLAN.md §8 "Hedef (2000)" sütunu (+ GKY 300: SGS Türkçe/Matematik/Tarih/İngilizce); Finansal Muhasebe 340 = FIN 280 + Muhasebe Standartları 60, Ekonomi+Maliye 140 = 70 + 70.
 HEDEF = {"FIN": 280, "STD": 60, "TAB": 200, "MAL": 220, "DEN": 220, "VER": 300, "HUK": 300,
-         "SPK": 140, "MES": 140, "EKO": 70, "MLY": 70, "GKY": 200}
+         "SPK": 140, "MES": 140, "EKO": 70, "MLY": 70, "GKY": 300}
 YET_ASGARI = 20
 ZORLUK_ORANI = (0.20, 0.45, 0.35)
 
