@@ -1,0 +1,80 @@
+- id: SMMM-MAL-SIP-0005
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: fazla/eksik yükleme
+  tip: uygulama
+  zorluk: 3
+  kok: Önceden saptanmış maliyet yöntemini kullanan CN İşletmesi'nde fiili genel üretim giderleri 148.000 TL, maliyetlere
+    yüklenen önceden saptanmış genel üretim giderleri 140.000 TL'dir. Bu soruda fiili tutar yüklenen tutarı aşıyorsa eksik
+    yükleme kabul edilecektir. Aradaki farkın niteliği ve 732 hesabındaki kayıt yönü aşağıdakilerden hangisidir?
+  secenekler:
+    A: 8.000 TL fazla yükleme; 732 hesabına alacak
+    B: 8.000 TL eksik yükleme; 732 hesabına borç
+    C: 8.000 TL eksik yükleme; 732 hesabına alacak
+    D: 12.000 TL eksik yükleme; 732 hesabına borç
+    E: 12.000 TL fazla yükleme; 732 hesabına alacak
+  dogru: B
+  aciklama:
+    dogru_neden: 'Fiili GÜG 148.000 TL, yüklenen önceden saptanmış GÜG 140.000 TL olduğundan fark 8.000 TL''dir ve kökteki
+      tanıma göre bu eksik yüklemedir. Kaynakta 732 hesabının fiili üretim genel giderleri ile maliyetlere yüklenen önceden
+      saptanmış giderler arasındaki bütçe farklarını izlediği ve olumsuz farkların borca kaydedildiği belirtilmektedir. Püf
+      noktaları: Önce fiili ve yüklenen tutarı karşılaştırın; sonra kökte verilen eksik/fazla yükleme yönünü kaynakta belirtilen
+      olumlu/olumsuz fark yönüyle eşleştirin.'
+    celdiriciler:
+      A: 8.000 TL tutarı doğru olsa da farkın yönü ve 732 hesabının borç/alacak tarafı ters kurulmuştur.
+      C: 8.000 TL fark doğru hesaplanmıştır ancak olumsuz farkın borca kaydedileceği kuralı ters çevrilmiştir.
+      D: Fark 148.000 − 140.000 = 8.000 TL iken 12.000 TL alınmıştır.
+      E: Hem fark tutarı 12.000 TL olarak yanlış hesaplanmış hem de farkın yönü ters kurulmuştur.
+    hesap_adimlari:
+    - Fiili GÜG − yüklenen GÜG = 148.000 − 140.000 = 8.000 TL
+    - Fiili tutar daha yüksek olduğundan kökteki tanıma göre eksik yükleme vardır.
+    - Olumsuz fark 732 hesabının borcuna kaydedilir.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 732. Genel Üretim Giderleri Bütçe Farkları
+    alinti: 'Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki
+
+      olumlu ya da olumsuz bütçe farklarının izlendiği hesaptır.'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 732. Genel Üretim Giderleri Bütçe Farkları
+    alinti: 'Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem sonlarında
+
+      bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 148000 - 140000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-07'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-07'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-07'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ristraycraft_MAL-2026-10-07-G03 #15'
