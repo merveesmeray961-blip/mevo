@@ -46,3 +46,18 @@ Sayılar bulunabilen en güncel resmî/basın verisidir; tarih ve kaynak her sat
 | SRC | En az 4 iOS uygulaması (çıkmış sorular, kurs uygulamaları; çoğu ücretsiz) | Orta rekabet; 2026 sistem değişikliği eski uygulamaları eskitir → fırsat |
 | Leben in Deutschland (Türkçe) | En az 6 uygulama zaten Türkçe destekli, çoğu ücretsiz | **Doymuş → listeden çıkarıldı** |
 | HMGS, ÖGG, İSG, Emlak | Arama motoru mağaza kaydı döndürmedi | Google Play'de elle kontrol edilmeli |
+
+## Yurt dışı — ülkeye özel, mevzuata dayalı sınavlar (Türkçe değil, o ülkenin dilinde)
+
+| # | Ülke / sınav | Veri | Uygunluk | Risk |
+|---|---|---|---|---|
+| 1 | **ABD — eyalet emlak lisans sınavları** (California, Texas, Florida…) | California'da tek yılda **46.412** salesperson sınavı (2023-24, DRE); ilk denemede geçme ~%63, toplam ~%51. Ülke geneli tahmini 300-400 bin aday/yıl (blog tahmini) | Eyalet yasaları kamu malı (telif yok) → alıntı doğrulamalı hattımız birebir uyar; her eyalet ayrı uygulama | Rekabet var (büyük kurs şirketleri); fark: eyalet yasasına madde atıflı açıklama |
+| 2 | **Almanya — §34a GewO Sachkundeprüfung** (özel güvenlik, IHK) | Tek bir IHK'da 2024'te **1.244** aday; Almanya'da 79 IHK var (toplam yayımlanmıyor) | ÖGG'nin Almanca karşılığı: BGB, StGB, GewO, BewachV, DSGVO — tamamı resmî metin | Toplam aday sayısı doğrulanamadı |
+| 3 | **İngiltere — CITB HS&E (CSCS kartı)** | Yalnız "Managers & Professionals" testine 4,5 ayda **22.000** giriş (2023, FOI) → yılda ~55 bin (kaba tahmin); işçi testi daha büyük | İnşaat sahasına girmek için zorunlu | Resmî soru bankası CITB'ye ait; özgün soru yazılmalı |
+| 4 | Almanya — §34d/§34f/§34i (sigorta, finans, kredi aracılığı) | Sayı yayımlanmıyor | SPK/SEGEM motorumuzun Almanca karşılığı | Doğrulanmalı |
+
+Öneri: yurt dışında **ABD emlak (önce California)** en güçlü veriye sahip; ikinci **Almanya §34a**. Motorumuz dil bağımsız;
+üretim paketleri İngilizce/Almanca manifesto ile aynı şekilde çalışır.
+
+Kaynaklar: https://journal.firsttuesday.us/dre-licensee-profile/ · https://realestateu.com/real-estate/faqs/what-is-the-pass-rate-for-the-real-estate-licensing-exam ·
+https://www.ihk.de/meo/standortpolitik/jahresbericht2024/bildung-und-pruefung-6562076 · https://www.citb.co.uk/media/atsbv5pi/hsande-test-figures-2023-262023.pdf
