@@ -42,14 +42,14 @@ mevzuat.gov.tr / KGK / SPK / GİB / TÜRMOB'dan alındı; Resmî Gazete günlük
 
 | Grup | Arşivde | Not |
 |---|---|---|
-| 3568'e dayalı TÜRMOB yönetmelikleri (çalışma usul, disiplin, etik, ücret, SMGE, odalar, YMM tasdik) | 11 | 2026 ücret tarifesi dahil |
+| 3568'e dayalı TÜRMOB yönetmelikleri (çalışma usul, disiplin, etik, ücret, SMGE, odalar, YMM tasdik) | 12 | 2026 ücret tarifesi dahil |
 | KGK: BDS (TDS 2026 seti), SBDS, GDS, İHS, KYS 1–2, Etik Kurallar, BD Yönetmeliği | 47 | |
-| Muhasebe: MSUGT 1 ve ekleri (THP), MSUGT 2–15, Kavramsal Çerçeve, TMS/TFRS (33), BOBİ FRS | 46 | |
-| Vergi tebliğleri: KDV GUT, KV GT 1 ve 23, GV 329/332, VUK 577/588, ÖTV listeleri, CBK 3490, asgari KV | 16 | 2026 hadleri dahil |
-| SPK tebliğleri (II-5.1, 5.2, 15.1, 17.1, 18.1, 19.1, 23.2, 23.3; III-35/A.2, 35/B.1–2, 37.1, 48.1, 52.1; VII-128.1) | 18 | konsolide metinler |
+| Muhasebe: MSUGT 1 ve ekleri (THP), MSUGT 2–15, Kavramsal Çerçeve, TMS/TFRS (33), BOBİ FRS | 40 | |
+| Vergi tebliğleri: KDV GUT, KV GT 1 ve 23, GV 329/332, VUK 577/588, ÖTV listeleri, CBK 3490, asgari KV | 19 | 2026 hadleri dahil |
+| SPK tebliğleri (II-5.1, 5.2, 15.1, 17.1, 18.1, 19.1, 23.2, 23.3; III-35/A.2, 35/B.1–2, 37.1, 48.1, 52.1; VII-128.1) | 19 dosya | konsolide metinler |
 | SGK / İş: Sosyal Sigorta İşlemleri Yönetmeliği ve ekleri | 2 | |
 
-Toplam arşiv: 120+ belge, metin olarak taranabilir. Eksik bilinen ikincil düzenleme yok; KDV GUT ekleri (form örnekleri)
+Toplam arşiv: 164 metin dosyası, metin olarak taranabilir. Eksik bilinen ikincil düzenleme yok; KDV GUT ekleri (form örnekleri)
 ve BOBİ FRS eğitim modülleri bilerek alınmadı.
 
 ## Güncellik güvencesi
