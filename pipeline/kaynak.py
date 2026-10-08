@@ -41,6 +41,10 @@ KANUNLAR = {
     "7036": ("is_mahkemeleri", "7036 sayılı İş Mahkemeleri Kanunu"),
     "5018": ("kmyk", "5018 sayılı Kamu Malî Yönetimi ve Kontrol Kanunu"),
     "492": ("harclar", "492 sayılı Harçlar Kanunu"),
+    "4447": ("issizlik", "4447 sayılı İşsizlik Sigortası Kanunu"),
+    "tmk": ("tmk", "4721 sayılı Türk Medeni Kanunu"),
+    "anayasa": ("anayasa", "2709 sayılı Türkiye Cumhuriyeti Anayasası"),
+    "660": ("kgk_660_khk", "660 sayılı Kamu Gözetimi, Muhasebe ve Denetim Standartları Kurumunun Teşkilat ve Görevleri Hakkında Kanun Hükmünde Kararname"),
     "2576": ("idare_mahkemeleri", "2576 sayılı Bölge İdare Mahkemeleri, İdare Mahkemeleri ve Vergi Mahkemelerinin Kuruluşu ve Görevleri Hakkında Kanun"),
 }
 

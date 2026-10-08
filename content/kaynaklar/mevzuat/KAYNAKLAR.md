@@ -219,3 +219,14 @@ Metin üretimi: PDF’ler için `pdftotext -layout`; Word/Excel ekleri için Lib
 - **BOBİ FRS**: KGK’da yayımlanmış en güncel sürüm 2021 sürümü. Modül dokümanları (25 adet, eğitim amaçlı) arşive alınmadı. Taslak KAGİ FRS ve KÜMİ FRS istenmediği için alınmadı.
 - **TDS 2026 Seti**: KGK sayfası 2026 setini listeliyor; dosyalar sunucuda `TDS_2025_Seti` klasöründe duruyor. BDS 600 dosyası 2026 tarihli. İstenen BDS’lere ek olarak setteki diğer BDS’ler (250, 260, 402, 510, 540, 550, 560, 600, 610, 620, 710, 800, 805, 810) ile SBDS 2400/2410, GDS 3000 ve İHS 4400/4410 da alındı. Faizsiz finans standartları (FFDS) ve uygulama rehberleri alınmadı.
 
+
+## G) 8 Ekim 2026 eklemeleri (kapsam denetimi sonrası)
+
+| dosya | metin | belge adı | kaynak URL | SHA-256 (ilk 16) | indirme tarihi |
+|---|---|---|---|---|---|
+| issizlik.pdf | issizlik.txt | 4447 sayılı İşsizlik Sigortası Kanunu | https://www.mevzuat.gov.tr/MevzuatMetin/1.5.4447.pdf | 475d05ce475d350b | 2026-10-08 |
+| tmk.pdf | tmk.txt | 4721 sayılı Türk Medeni Kanunu | https://www.mevzuat.gov.tr/MevzuatMetin/1.5.4721.pdf | e08a8b2e6df1d426 | 2026-10-08 |
+| anayasa.pdf | anayasa.txt | 2709 sayılı Türkiye Cumhuriyeti Anayasası | https://www.mevzuat.gov.tr/MevzuatMetin/1.5.2709.pdf | 58de994c36ae00e6 | 2026-10-08 |
+| kgk_660_khk.pdf | kgk_660_khk.txt | 660 sayılı KGK Teşkilat ve Görevleri Hakkında KHK | https://www.mevzuat.gov.tr/MevzuatMetin/4.5.660.pdf | 17c9d723170d2b39 | 2026-10-08 |
+
+5549 sayılı Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun indirilemedi (mevzuat.gov.tr zaman aşımı); bir sonraki denemede alınacak.
