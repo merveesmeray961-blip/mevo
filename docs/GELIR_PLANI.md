@@ -40,3 +40,18 @@ zorunlu ihtiyaç (sınav/mevzuat) + ödeme gücü olan kitle + rakipsiz niş + d
 Kaynaklar: https://hackernoon.com/nobody-wants-to-pay-for-apps-anymoreexcept-when-ai-is-involved ·
 https://subscriptioninsider.com/article-type/news/revenuecats-state-of-subscription-apps-2025-report-ais-dominance-retention-challenges-and-the-shift-away-from-pure-subscriptions ·
 https://www.revenuecat.com/state-of-subscription-apps-2025/ · https://gigazine.net/gsc_news/en/20250318-mobile-apps-subscriptions-revenue
+
+## Sınav dışı nişler (veriye göre)
+- Yeni uygulamalarda ayda 1.000 $'ı en sık geçen kategori **Fotoğraf & Video (%21,4)**; 10.000 $ katmanında **Oyun (%8,9)** önde.
+- Yapay zekâ destekli uygulamalar kurulum başına ~0,63 $ (genel ortanca 0,31 $).
+- Sert ödeme duvarı dönüşümü ~%12, freemium ~%2 (Adapty, ikincil kaynak) → tek seferlik/sert ödeme duvarı.
+- Örnek: tek geliştiricili alışkanlık takip uygulaması HabitKit 2025'te 600 bin $+ (kurucunun yazısı); 30+ uygulamalık portföyle ayda 22 bin $ (anekdot).
+
+| # | Fikir | Kategori | Neden | Sunucu maliyeti |
+|---|---|---|---|---|
+| 1 | Vesikalık / biyometrik / vize-pasaport fotoğrafı (cihazda arka plan silme, ülke ölçüleri) | Fotoğraf | En yüksek 1k$ oranı + acil ihtiyaç + tek seferlik ödeme; dünya geneli | Yok |
+| 2 | Maaş, bordro, kıdem-ihbar, emeklilik, vergi hesaplayıcı (TR) | Finans | Mevzuat bilgimiz hazır; çok yüksek arama hacmi; reklam + premium | Yok |
+| 3 | Tansiyon / şeker / ilaç takip (yaşlılar ve aileleri, PDF rapor) | Sağlık | Sağlıkta ödeme isteği yüksek; çevrimdışı | Yok |
+| 4 | Niş alışkanlık/rutin takip (ör. namaz-oruç, su, sigara bırakma) | Sağlık/Yaşam | HabitKit modeli kanıtlı | Yok |
+| 5 | Türkçe kelime/sayı bulmaca oyunu (günlük bulmaca + seri) | Oyun | Oyun 10k$ katmanında önde; Türkçe niş | Yok |
+| 6 | Abonelik/fatura/kira takip ve hatırlatıcı | Finans | Sürekli ihtiyaç | Yok |
