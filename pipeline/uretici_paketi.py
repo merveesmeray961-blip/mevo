@@ -56,14 +56,42 @@ def _ornekler(ders: str, n: int = 3) -> list[dict]:
     return [{k: s[k] for k in YAZAR_ALANLARI if k in s} for s in list(secilen.values())[:n]]
 
 
+_BANKA: dict = {}
+
+
+def _bankadaki_kokler() -> dict:
+    """(ders, konu, kazanım) → bankadaki soru kökleri (tekrarı önlemek için görev dosyasına yazılır)."""
+    if not _BANKA:
+        for _, s in g2_yapi.dosyalari_yukle(SORULAR, []):
+            if s.get("durum") != "geri_cekildi":
+                kok = " ".join(str(s["kok"]).split())
+                _BANKA.setdefault((s["ders"], s["konu"], str(s.get("kazanim", "")).strip().lower()), []).append(kok)
+    return _BANKA
+
+
 def _gorev_metni(kod: str, plan: list[dict], ders: str) -> str:
     satirlar = [f"# Görev {kod}", "",
                 f"Yazacağın {len(plan)} soru aşağıda. Her satır için **tam o kazanımda, o zorlukta** bir soru yaz "
                 "(1 kolay · 2 orta · 3 zor). Kurallar `MANIFESTO.md`'de; teslimde `gorev` alanına "
                 f"`{kod}` yaz, her soruya `gorev_satiri` ver. Teslim dosyasının adı: `teslim_<adın>_{kod}.yaml`.", "",
-                "| # | Ders | Konu kodu | Konu | Kazanım | Zorluk | Bölüm |", "|---|---|---|---|---|---|---|"]
+                "Her satırdaki **Soru biçimi** zorunludur; aynı kazanım farklı asistanlara farklı biçimlerle verilir, "
+                "böylece sorular birbirine benzemez.", "",
+                "| # | Ders | Konu kodu | Konu | Kazanım | Zorluk | Soru biçimi | Bölüm |",
+                "|---|---|---|---|---|---|---|---|"]
     satirlar += [f"| {i} | {p['ders']} | {p['konu']} | {p['konu_ad']} | {p['kazanim']} | {p['zorluk']} | "
-                 f"{','.join(p['bolum'])} |" for i, p in enumerate(plan, 1)]
+                 f"{p.get('bicim', '-')} | {','.join(p['bolum'])} |" for i, p in enumerate(plan, 1)]
+    banka, yazilan = _bankadaki_kokler(), set()
+    ornek = []
+    for p in plan:
+        anahtar = (p["ders"], p["konu"], str(p["kazanim"]).strip().lower())
+        if anahtar in yazilan:
+            continue
+        yazilan.add(anahtar)
+        for kok in banka.get(anahtar, [])[:6]:
+            ornek.append(f"- [{p['konu']} · {p['kazanim']}] {kok[:140]}")
+    if ornek:
+        satirlar += ["", "## Bankada bu kazanımlarda ZATEN OLAN sorular — aynı bilgiyi, kurguyu veya sayısal senaryoyu tekrar etme",
+                     "", "Bu kazanımlardan başka bir hükmü, istisnayı, şartı veya uygulama durumunu sor.", ""] + ornek
     if not DERS_KAYNAK[ders]:
         satirlar += ["", "Bu derste resmî metin yoktur; sorular genel kabul görmüş ders bilgisine dayanır "
                      "(MANIFESTO'daki GKY kuralları). `alinti` boş kalabilir."]

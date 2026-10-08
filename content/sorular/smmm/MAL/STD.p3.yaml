@@ -2,6 +2,7 @@
   sinav: smmm
   bolum:
   - YET
+  - SGS
   ders: MAL
   unite: Maliyet Muhasebesi
   konu: STD
@@ -9,10 +10,9 @@
   tip: hesaplama
   zorluk: 2
   soru_bicimi: standart
-  kok: 'Standart maliyet sistemi uygulayan MN İşletmesi''nde bir birim mamul için standart direkt işçilik süresi
-    3 saat, standart saat ücreti 20 TL''dir. Dönemde 4.000 birim mamul üretilmiş, bunun için 12.600 direkt işçilik
-    saati kullanılmış ve direkt işçilik için toplam 302.400 TL ödenmiştir (saat başına ortalama 24 TL). KDV dikkate
-    alınmayacaktır.
+  kok: 'Standart maliyet sistemi uygulayan MN İşletmesi''nde bir birim mamul için standart direkt işçilik süresi 3 saat, standart
+    saat ücreti 20 TL''dir. Dönemde 4.000 birim mamul üretilmiş, bunun için 12.600 direkt işçilik saati kullanılmış ve direkt
+    işçilik için toplam 302.400 TL ödenmiştir (saat başına ortalama 24 TL). KDV dikkate alınmayacaktır.
 
 
     Direkt işçilik zaman (verimlilik) sapması kaç TL''dir? (Sapma tutarı mutlak değer olarak istenmektedir.)'
@@ -24,10 +24,9 @@
     E: '600'
   dogru: D
   aciklama:
-    dogru_neden: Zaman (süre) sapması = (fiili saat − fiili üretime izin verilen standart saat) × standart saat
-      ücretidir. Standart saat = 4.000 × 3 = 12.000 saattir. Zaman sapması = (12.600 − 12.000) × 20 = 12.000 TL
-      (olumsuz). MSUGT'de zaman farkları 723 Direkt İşçilik Süre (Zaman) Farkları hesabında izlenir; olumsuz farklar
-      hesabın borcuna kaydedilir.
+    dogru_neden: Zaman (süre) sapması = (fiili saat − fiili üretime izin verilen standart saat) × standart saat ücretidir.
+      Standart saat = 4.000 × 3 = 12.000 saattir. Zaman sapması = (12.600 − 12.000) × 20 = 12.000 TL (olumsuz). MSUGT'de zaman
+      farkları 723 Direkt İşçilik Süre (Zaman) Farkları hesabında izlenir; olumsuz farklar hesabın borcuna kaydedilir.
     celdiriciler:
       A: '62.400: toplam direkt işçilik sapmasıdır (302.400 − 240.000); ücret ve zaman sapmalarının toplamıdır.'
       B: '50.400: ücret sapmasıdır ((24 − 20) × 12.600); zaman sapması değildir.'
@@ -40,13 +39,13 @@
   kaynaklar:
   - mevzuat: MSUGT Tekdüzen Hesap Planı
     madde: 723. Direkt İşçilik Süre (Zaman) Farkları
-    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda fiili giderler ile önceden saptanmış
-      giderler arasındaki olumlu ya da olumsuz süre (zaman) farklarının kaydedildiği hesaptır.
+    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda fiili giderler ile önceden saptanmış giderler arasındaki
+      olumlu ya da olumsuz süre (zaman) farklarının kaydedildiği hesaptır.
   - mevzuat: MSUGT Tekdüzen Hesap Planı
     madde: 722. Direkt İşçilik Ücret Farkları
-    alinti: Önceden saptanmış maliyet hesaplama yöntemlerinin uygulandığı durumlarda, fiili direkt işçilik giderleri
-      ile önceden saptanmış ve maliyetlere yüklenmiş direkt işçilik giderleri arasındaki olumlu veya olumsuz ücret
-      farklarının izlendiği hesaptır.
+    alinti: Önceden saptanmış maliyet hesaplama yöntemlerinin uygulandığı durumlarda, fiili direkt işçilik giderleri ile önceden
+      saptanmış ve maliyetlere yüklenmiş direkt işçilik giderleri arasındaki olumlu veya olumsuz ücret farklarının izlendiği
+      hesaptır.
   dogrulama:
     python: 'sonuc = (12600 - 4000 * 3) * 20
 
@@ -69,8 +68,8 @@
       G5:
         sonuc: gecti
         tarih: '2026-10-04'
-        not: 'Hata yok: (12.600 − 12.000) × 20 = 12.000 olumsuz (D); ücret sapması 50.400, toplam 62.400, 600 ×
-          24 = 14.400 ve 600 saat kesin yanlış.'
+        not: 'Hata yok: (12.600 − 12.000) × 20 = 12.000 olumsuz (D); ücret sapması 50.400, toplam 62.400, 600 × 24 = 14.400
+          ve 600 saat kesin yanlış.'
       G6:
         sonuc: gecti
         tarih: '2026-10-04'

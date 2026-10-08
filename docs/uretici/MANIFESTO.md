@@ -16,6 +16,20 @@ soru doğrudan reddedilir. Az ama kusursuz soru, çok ama şüpheli sorudan değ
 | `ORNEKLER.yaml` | Bankamızdan, tüm denetimlerden geçmiş örnek sorular — biçim ve kalite çıtası |
 | `kaynaklar/` | Dayanacağın resmî metinler (kanun, yönetmelik, tebliğ, standart). **Tek bilgi kaynağın bunlar.** |
 
+## 1a. Kalite çıtası: sınav mantığı (4000 soruluk bankanın her sorusu için)
+
+- **Gerçek sınav sorusu gibi yaz.** Soru, konuyu çalışmış adayı ayırt etmeli: şart, istisna, süre/oran, hesap adımı
+  ya da iki hükmün birlikte uygulanmasını sınar. "Kanun hangi konuyu düzenler?", "Hangisi bir hesaptır?" gibi bariz
+  ya da tanım ezberi düzeyindeki sorular kabul edilmez (zorluk 1 bile olsa bir bilgiyi ayırt etmeli).
+- **Her yanlış şık makul olmalı.** Konuyu yarım bilen adayı çekecek komşu madde, yakın süre/oran, ters yön, eksik şart,
+  yanlış hesap adımı. Saçma, şaka ya da konu dışı şık (ör. "Yargıtay", "her durumda yasaktır", "hiçbiri") yazma.
+- **Tekrar yasak.** `GOREV_XX.md` sonunda bankada **zaten olan** sorular listelenir: aynı bilgiyi, aynı olay kurgusunu,
+  aynı sayısal senaryoyu tekrar sorma; aynı kazanımın başka bir hükmünü/istisnasını/uygulamasını sor. Kendi teslimin
+  içinde de iki soru aynı bilgiyi sınamamalı. Benzerlik taramasında yakın çıkan soru otomatik elenir.
+- **Soru biçimi** sütunu zorunludur (olay/senaryo, öncüllü I-II-III, olumsuz kök, kavram ayrımı, hesaplama, eşleştirme).
+- **Kök kendi kendine yeterli** olmalı; çözüm için gereken her veri kökte olmalı, tek doğru cevap olmalı.
+- **Güncel mevzuat**: 2026 yılı itibarıyla yürürlükteki metni kullan (kaynaklar/ klasöründeki metinler günceldir).
+
 ## 2. Değişmez kurallar
 
 1. **Yalnız `kaynaklar/` klasöründeki metinlere dayan.** Bellekten, internetten, ders kitabından bilgi yazma. Bir kazanım için

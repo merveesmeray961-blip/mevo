@@ -20,9 +20,12 @@ import yaml
 from pipeline import g2_yapi
 
 KOK = g2_yapi.KOK
-# PLAN.md §8 "Hedef (2000)" sütunu (+ GKY 300: SGS Türkçe/Matematik/Tarih/İngilizce); Finansal Muhasebe 340 = FIN 280 + Muhasebe Standartları 60, Ekonomi+Maliye 140 = 70 + 70.
-HEDEF = {"FIN": 280, "STD": 60, "TAB": 200, "MAL": 220, "DEN": 220, "VER": 300, "HUK": 300,
-         "SPK": 140, "MES": 140, "EKO": 70, "MLY": 70, "GKY": 300}
+# Hedef 4000 (8 Ekim 2026 kararı). Eski PLAN.md §8 notu: Finansal Muhasebe 340 = FIN 280 + Muhasebe Standartları 60, Ekonomi+Maliye 140 = 70 + 70.
+HEDEF = {"FIN": 380, "TAB": 380, "MAL": 380, "DEN": 380, "VER": 380, "HUK": 380, "SPK": 380, "MES": 380,
+         "STD": 140, "EKO": 110, "MLY": 110, "GKY": 600}  # 4000: Yeterlilik dersleri eşit, SGS'ye özgü dersler 960
+HESAPLI = {"FIN", "TAB", "MAL", "VER", "GKY"}
+BICIMLER = ("olay/senaryo", "öncüllü (I, II, III)", "olumsuz kök (**yanlıştır**)", "kavram ayrımı / karşılaştırma",
+            "hesaplama / sayısal", "eşleştirme veya sıralama")
 YET_ASGARI = 20
 ZORLUK_ORANI = (0.20, 0.45, 0.35)
 
@@ -52,6 +55,7 @@ def harita() -> tuple[dict, dict]:
         kota[d["kod"]] = {
             "ad": d["ad"],
             "yet": d["soru"].get("yet", 0) > 0,
+            "sgs": d["soru"].get("sgs", 0) > 0,
             "konular": {
                 k["kod"]: {
                     "ad": k["ad"],
@@ -123,8 +127,11 @@ def sonraki(n: int, ders: str | None = None) -> list[dict]:
         kaz = min(kazanimlar, key=lambda z: (mev["konu"][(d, k)]["kazanim"][z.lower()] + eklenen_kaz[(d, k, z)])
                   / max(1, kazanimlar[z]))
         zor = _zorluk_sec(mev["konu"][(d, k)]["zorluk"], eklenen_zor[(d, k)])
+        sira = mev["konu"][(d, k)]["kazanim"][kaz.lower()] + eklenen_kaz[(d, k, kaz)]
+        bicimler = [b for b in BICIMLER if d in HESAPLI or not b.startswith("hesaplama")]
         plan.append({"ders": d, "konu": k, "konu_ad": konular[k]["ad"], "kazanim": kaz, "zorluk": zor,
-                     "bolum": ["YET"] if kota[d]["yet"] else ["SGS"]})
+                     "bicim": bicimler[(sira + len(plan)) % len(bicimler)],
+                     "bolum": (["YET", "SGS"] if kota[d]["sgs"] else ["YET"]) if kota[d]["yet"] else ["SGS"]})
         eklenen_ders[d] += 1
         eklenen_konu[(d, k)] += 1
         eklenen_kaz[(d, k, kaz)] += 1
