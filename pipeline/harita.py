@@ -21,8 +21,12 @@ from pipeline import g2_yapi
 
 KOK = g2_yapi.KOK
 # Hedef 4000 (8 Ekim 2026 kararı). Eski PLAN.md §8 notu: Finansal Muhasebe 340 = FIN 280 + Muhasebe Standartları 60, Ekonomi+Maliye 140 = 70 + 70.
-HEDEF = {"FIN": 380, "TAB": 380, "MAL": 380, "DEN": 380, "VER": 380, "HUK": 380, "SPK": 380, "MES": 380,
-         "STD": 140, "EKO": 110, "MLY": 110, "GKY": 600}  # 4000: Yeterlilik dersleri eşit, SGS'ye özgü dersler 960
+# Banka hedefi 4000 (Yeterlilik dersleri eşit 380'er, SGS'ye özgü dersler 960). Denetimde ~%20 elendiği için
+# üretim hedefi %20 fazlasıdır: 4800.
+BANKA_HEDEFI = {"FIN": 380, "TAB": 380, "MAL": 380, "DEN": 380, "VER": 380, "HUK": 380, "SPK": 380, "MES": 380,
+                "STD": 140, "EKO": 110, "MLY": 110, "GKY": 600}
+URETIM_PAYI = 1.2
+HEDEF = {d: round(n * URETIM_PAYI) for d, n in BANKA_HEDEFI.items()}
 HESAPLI = {"FIN", "TAB", "MAL", "VER", "GKY"}
 BICIMLER = ("olay/senaryo", "öncüllü (I, II, III)", "olumsuz kök (**yanlıştır**)", "kavram ayrımı / karşılaştırma",
             "hesaplama / sayısal", "eşleştirme veya sıralama")

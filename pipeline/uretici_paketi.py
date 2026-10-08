@@ -98,9 +98,9 @@ def _gorev_metni(kod: str, plan: list[dict], ders: str) -> str:
     return "\n".join(satirlar) + "\n"
 
 
-def olustur(ders: str, adet: int, cikti: Path, atla: int = 0, dilim: int = 1) -> Path:
+def olustur(ders: str, adet: int, cikti: Path, atla: int = 0, dilim: int = 1, seri: str = "") -> Path:
     """Haritadan sıradaki `adet × dilim` satırı alır; dilim > 1 ise her asistana ayrı GOREV_XX.md yazar."""
-    tarih = dt.date.today().isoformat()
+    tarih = dt.date.today().isoformat() + seri
     ad = f"{ders}-{tarih}-{atla + 1}-{atla + adet * dilim}"
     klasor = cikti / f"uretici_{ad}"
     if klasor.exists():
