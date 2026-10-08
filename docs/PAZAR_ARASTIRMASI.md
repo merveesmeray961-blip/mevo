@@ -37,3 +37,12 @@ Sayılar bulunabilen en güncel resmî/basın verisidir; tarih ve kaynak her sat
 - SEGEM 2026 kılavuzu: https://segem.org.tr/files/kilavuzlar/tpys/2026/19_Eylul_2026_TPYS_Kilavuzu.pdf
 - HMGS 2025/2 başvuru: https://www.benguturk.com/egitim/hukuk-mesleklerine-giris-sinavi-ve-idari-yargi-on-sinavi-yapildi-236506h
 - İSG 2026 duyurusu: https://csgb.gov.tr/isggm/duyurular/18112025/
+
+## Mağaza rekabeti (8 Ekim 2026, App Store araması; Google Play bu ortamdan erişilemedi)
+
+| Sınav | Bulunan rakip uygulama | Değerlendirme |
+|---|---|---|
+| SPK Lisanslama | Yalnız 1 üçüncü taraf iOS uygulaması (SPL Prep) | **Rekabet düşük → en iyi fırsat** |
+| SRC | En az 4 iOS uygulaması (çıkmış sorular, kurs uygulamaları; çoğu ücretsiz) | Orta rekabet; 2026 sistem değişikliği eski uygulamaları eskitir → fırsat |
+| Leben in Deutschland (Türkçe) | En az 6 uygulama zaten Türkçe destekli, çoğu ücretsiz | **Doymuş → listeden çıkarıldı** |
+| HMGS, ÖGG, İSG, Emlak | Arama motoru mağaza kaydı döndürmedi | Google Play'de elle kontrol edilmeli |
