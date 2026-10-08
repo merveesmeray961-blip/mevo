@@ -31,6 +31,24 @@ HESAPLI = {"FIN", "TAB", "MAL", "VER", "GKY"}
 BICIMLER = ("olay/senaryo", "öncüllü (I, II, III)", "olumsuz kök (**yanlıştır**)", "kavram ayrımı / karşılaştırma",
             "hesaplama / sayısal", "eşleştirme veya sıralama")
 YET_ASGARI = 20
+
+# Çoklu sınav: varsayılan SMMM; sinav_sec("spk") ile content/mufredat/spk.yaml ve content/sorular/spk kullanılır.
+# SMMM dışı müfredatlarda her ders "hedef" (üretim hedefi), "soru" ({bölüm: soru sayısı}) ve isteğe bağlı
+# "kaynak_dosyalari" (kaynaklar/ içindeki .txt ön ekleri) taşır.
+SINAV = "smmm"
+MUFREDAT = KOK / "content/mufredat/smmm.yaml"
+SORU_DIZINI = KOK / "content/sorular/smmm"
+KAYNAK_ONEK: dict[str, list[str]] = {}
+
+
+def sinav_sec(kod: str) -> None:
+    global SINAV, MUFREDAT, SORU_DIZINI, HEDEF
+    SINAV, MUFREDAT, SORU_DIZINI = kod, KOK / f"content/mufredat/{kod}.yaml", KOK / f"content/sorular/{kod}"
+    if kod != "smmm":
+        m = yaml.safe_load(MUFREDAT.read_text(encoding="utf-8"))
+        HEDEF = {d["kod"]: int(d["hedef"]) for d in m["dersler"]}
+        KAYNAK_ONEK.clear()
+        KAYNAK_ONEK.update({d["kod"]: list(d.get("kaynak_dosyalari") or []) for d in m["dersler"]})
 ZORLUK_ORANI = (0.20, 0.45, 0.35)
 
 
@@ -48,17 +66,19 @@ def _dagit(toplam: int, agirliklar: dict[str, float]) -> dict[str, int]:
 
 
 def harita() -> tuple[dict, dict]:
-    m = yaml.safe_load((KOK / "content/mufredat/smmm.yaml").read_text(encoding="utf-8"))
+    m = yaml.safe_load(MUFREDAT.read_text(encoding="utf-8"))
     kota: dict = {}
     for d in m["dersler"]:
         if d["kod"] not in HEDEF:
             continue
-        agirlik = {k["kod"]: float(k.get("agirlik", {}).get("yet") or k.get("agirlik", {}).get("sgs") or 0)
+        agirlik = {k["kod"]: float(k.get("agirlik", {}).get("yet") or k.get("agirlik", {}).get("sgs")
+                                   or max((k.get("agirlik") or {}).values(), default=0) or 0)
                    for k in d["konular"]}
         konu_kota = _dagit(HEDEF[d["kod"]], agirlik)
         kota[d["kod"]] = {
             "ad": d["ad"],
-            "yet": d["soru"].get("yet", 0) > 0,
+            "yet": SINAV == "smmm" and d["soru"].get("yet", 0) > 0,
+            "bolumler": [b for b, n in (d.get("soru") or {}).items() if n],
             "sgs": d["soru"].get("sgs", 0) > 0,
             "konular": {
                 k["kod"]: {
@@ -71,7 +91,7 @@ def harita() -> tuple[dict, dict]:
         }
     mevcut: dict = defaultdict(lambda: {"toplam": 0, "zorluk": Counter(), "kazanim": Counter()})
     yet_ders: Counter = Counter()
-    for _, s in g2_yapi.dosyalari_yukle(KOK / "content/sorular/smmm", []):
+    for _, s in (g2_yapi.dosyalari_yukle(SORU_DIZINI, []) if SORU_DIZINI.exists() else []):
         if s.get("durum") == "geri_cekildi":
             continue
         k = mevcut[(s["ders"], s["konu"])]
@@ -135,7 +155,8 @@ def sonraki(n: int, ders: str | None = None) -> list[dict]:
         bicimler = [b for b in BICIMLER if d in HESAPLI or not b.startswith("hesaplama")]
         plan.append({"ders": d, "konu": k, "konu_ad": konular[k]["ad"], "kazanim": kaz, "zorluk": zor,
                      "bicim": bicimler[(sira + len(plan)) % len(bicimler)],
-                     "bolum": (["YET", "SGS"] if kota[d]["sgs"] else ["YET"]) if kota[d]["yet"] else ["SGS"]})
+                     "bolum": ((["YET", "SGS"] if kota[d]["sgs"] else ["YET"]) if kota[d]["yet"] else ["SGS"])
+                     if SINAV == "smmm" else kota[d]["bolumler"]})
         eklenen_ders[d] += 1
         eklenen_konu[(d, k)] += 1
         eklenen_kaz[(d, k, kaz)] += 1
@@ -144,6 +165,8 @@ def sonraki(n: int, ders: str | None = None) -> list[dict]:
 
 
 def main(argv: list[str]) -> int:
+    if "--sinav" in argv:
+        sinav_sec(argv[argv.index("--sinav") + 1])
     if len(argv) >= 2 and argv[1] == "durum":
         print(durum())
         return 0

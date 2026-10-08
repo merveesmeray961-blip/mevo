@@ -230,3 +230,27 @@ Metin üretimi: PDF’ler için `pdftotext -layout`; Word/Excel ekleri için Lib
 | kgk_660_khk.pdf | kgk_660_khk.txt | 660 sayılı KGK Teşkilat ve Görevleri Hakkında KHK | https://www.mevzuat.gov.tr/MevzuatMetin/4.5.660.pdf | 17c9d723170d2b39 | 2026-10-08 |
 
 5549 sayılı Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun indirilemedi (mevzuat.gov.tr zaman aşımı); bir sonraki denemede alınacak.
+
+## H) 8 Ekim 2026 — yeni sınavlar (SPK, İSG, HMGS, Emlak) için
+
+Kaynak: https://www.mevzuat.gov.tr/MevzuatMetin/<tertip>.<no>.pdf (indirme 2026-10-08; SHA-256 ilk 16 hane).
+
+| dosya | belge | SHA-256 |
+|---|---|---|
+| isg_6331 | 6331 İş Sağlığı ve Güvenliği Kanunu | 2c48625014462710 |
+| tck | 5237 Türk Ceza Kanunu | cf8ba250fadbc51c |
+| cmk | 5271 Ceza Muhakemesi Kanunu | 46d9b6447ac516ea |
+| hmk | 6100 Hukuk Muhakemeleri Kanunu | 481c1389a8b144ff |
+| iik | 2004 İcra ve İflas Kanunu | 1365a10578f7a12c |
+| avukatlik | 1136 Avukatlık Kanunu | 7a1f2820ca77f490 |
+| kat_mulkiyeti | 634 Kat Mülkiyeti Kanunu | 0452d8f449ca98eb |
+| tapu | 2644 Tapu Kanunu | 46b7c084f7759cd2 |
+| imar | 3194 İmar Kanunu | 5557b139186efcd6 |
+| kvkk | 6698 Kişisel Verilerin Korunması Kanunu | 1ad27253b0068d4c |
+| tuketici | 6502 Tüketicinin Korunması Hakkında Kanun | 943f70aa212af092 |
+| kabahatler | 5326 Kabahatler Kanunu | 9ec5e7408a4d913e |
+| kamulastirma | 2942 Kamulaştırma Kanunu | 83c749e438b6649a |
+| dmk | 657 Devlet Memurları Kanunu | e9c168f3b8d5d9f4 |
+| aklama_5549 | 5549 Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun | b0dacc3bf4148e3a |
+
+Eksik (elle eklenecek): Taşınmaz Ticareti Hakkında Yönetmelik (`tasinmaz_ticareti`), İSG yönetmelikleri (risk değerlendirmesi, İSG hizmetleri, eğitimler), SPL lisanslama konu listesi.

@@ -34,7 +34,7 @@ DERS_KAYNAK = {
             "vivk", "mtvk", "evk", "harclar", "fgk_cbk", "iyuk", "idare_mahkemeleri"],
     "HUK": ["ttk", "tbk", "isk", "sgk", "sosyal_sigorta", "sendikalar", "is_mahkemeleri", "iyuk", "aatuhk", "issizlik", "tmk"],
     "SPK": ["spk", "ttk"],
-    "MES": ["smmm_", "ymm_", "turmob", "disiplin_yon", "calisma_usul_yon", "etik_ilkeler_yon", "haksiz_rekabet_yon",
+    "MES": ["aklama_5549", "smmm_", "ymm_", "turmob", "disiplin_yon", "calisma_usul_yon", "etik_ilkeler_yon", "haksiz_rekabet_yon",
             "smge_yon", "ucretler_yon"],
     "EKO": [],
     "GKY": [],
@@ -44,12 +44,16 @@ YAZAR_ALANLARI = ("bolum", "ders", "konu", "kazanim", "tip", "zorluk", "kok", "s
                   "kaynaklar", "gecerlilik", "dogrulama")
 
 
+def _onekler(ders: str) -> list[str]:
+    return harita.KAYNAK_ONEK.get(ders, []) if harita.SINAV != "smmm" else DERS_KAYNAK.get(ders, [])
+
+
 def _kaynak_dosyalari(ders: str) -> list[Path]:
-    return sorted(p for p in MEVZUAT.glob("*.txt") if any(p.stem.startswith(o) for o in DERS_KAYNAK[ders]))
+    return sorted(p for p in MEVZUAT.glob("*.txt") if any(p.stem.startswith(o) for o in _onekler(ders)))
 
 
 def _ornekler(ders: str, n: int = 3) -> list[dict]:
-    sorular = [s for _, s in g2_yapi.dosyalari_yukle(SORULAR, []) if s["ders"] == ders and s.get("durum") == "kontrolde"]
+    sorular = [s for _, s in (g2_yapi.dosyalari_yukle(harita.SORU_DIZINI, []) if harita.SORU_DIZINI.exists() else []) if s["ders"] == ders and s.get("durum") == "kontrolde"]
     secilen = {}
     for s in sorted(sorular, key=lambda s: -s.get("zorluk", 2)):
         secilen.setdefault(s.get("zorluk"), s)  # her zorluktan bir tane
@@ -62,7 +66,7 @@ _BANKA: dict = {}
 def _bankadaki_kokler() -> dict:
     """(ders, konu, kazanım) → bankadaki soru kökleri (tekrarı önlemek için görev dosyasına yazılır)."""
     if not _BANKA:
-        for _, s in g2_yapi.dosyalari_yukle(SORULAR, []):
+        for _, s in (g2_yapi.dosyalari_yukle(harita.SORU_DIZINI, []) if harita.SORU_DIZINI.exists() else []):
             if s.get("durum") != "geri_cekildi":
                 kok = " ".join(str(s["kok"]).split())
                 _BANKA.setdefault((s["ders"], s["konu"], str(s.get("kazanim", "")).strip().lower()), []).append(kok)
@@ -92,7 +96,7 @@ def _gorev_metni(kod: str, plan: list[dict], ders: str) -> str:
     if ornek:
         satirlar += ["", "## Bankada bu kazanımlarda ZATEN OLAN sorular — aynı bilgiyi, kurguyu veya sayısal senaryoyu tekrar etme",
                      "", "Bu kazanımlardan başka bir hükmü, istisnayı, şartı veya uygulama durumunu sor.", ""] + ornek
-    if not DERS_KAYNAK[ders]:
+    if not _onekler(ders):
         satirlar += ["", "Bu derste resmî metin yoktur; sorular genel kabul görmüş ders bilgisine dayanır "
                      "(MANIFESTO'daki GKY kuralları). `alinti` boş kalabilir."]
     return "\n".join(satirlar) + "\n"
@@ -101,7 +105,8 @@ def _gorev_metni(kod: str, plan: list[dict], ders: str) -> str:
 def olustur(ders: str, adet: int, cikti: Path, atla: int = 0, dilim: int = 1, seri: str = "") -> Path:
     """Haritadan sıradaki `adet × dilim` satırı alır; dilim > 1 ise her asistana ayrı GOREV_XX.md yazar."""
     tarih = dt.date.today().isoformat() + seri
-    ad = f"{ders}-{tarih}-{atla + 1}-{atla + adet * dilim}"
+    on = "" if harita.SINAV == "smmm" else f"{harita.SINAV.upper()}-"
+    ad = f"{on}{ders}-{tarih}-{atla + 1}-{atla + adet * dilim}"
     klasor = cikti / f"uretici_{ad}"
     if klasor.exists():
         shutil.rmtree(klasor)
@@ -113,7 +118,7 @@ def olustur(ders: str, adet: int, cikti: Path, atla: int = 0, dilim: int = 1, se
         for i in range(dilim):
             parca = plan[i * adet:(i + 1) * adet]
             if parca:
-                kod = f"{ders}-{tarih}-G{i + 1:02d}"
+                kod = f"{on}{ders}-{tarih}-G{i + 1:02d}"
                 (klasor / f"GOREV_{i + 1:02d}.md").write_text(_gorev_metni(kod, parca, ders), encoding="utf-8")
     shutil.copy(KOK / "docs/uretici/MANIFESTO.md", klasor / "MANIFESTO.md")
     shutil.copy(KOK / "pipeline/istemler/uretim.md", klasor / "URETIM_KURALLARI.md")
@@ -154,7 +159,7 @@ def alinti_sorunlari(kaynaklar: list[dict]) -> list[str]:
 
 def _sonraki_no() -> dict[tuple[str, str], int]:
     en_buyuk: dict = defaultdict(int)
-    for _, s in g2_yapi.dosyalari_yukle(SORULAR, []):
+    for _, s in (g2_yapi.dosyalari_yukle(harita.SORU_DIZINI, []) if harita.SORU_DIZINI.exists() else []):
         m = re.search(r"(\d+)$", s["id"])
         en_buyuk[(s["ders"], s["konu"])] = max(en_buyuk[(s["ders"], s["konu"])], int(m.group(1)) if m else 0)
     return en_buyuk
@@ -162,7 +167,7 @@ def _sonraki_no() -> dict[tuple[str, str], int]:
 
 def al(teslim: Path, parti: int) -> list[str]:
     veri = yaml.safe_load(teslim.read_text(encoding="utf-8"))
-    mufredat = yaml.safe_load((KOK / "content/mufredat/smmm.yaml").read_text(encoding="utf-8"))
+    mufredat = yaml.safe_load(harita.MUFREDAT.read_text(encoding="utf-8"))
     konu_ad = {(d["kod"], k["kod"]): k["ad"] for d in mufredat["dersler"] for k in d["konular"]}
     no = _sonraki_no()
     bugun = dt.date.today().isoformat()
@@ -180,7 +185,7 @@ def al(teslim: Path, parti: int) -> list[str]:
             rapor.append(f"REDDEDİLDİ soru {i} (satır {s.get('gorev_satiri')}): alıntı metinde yok → " + " | ".join(sorun))
             continue
         no[anahtar] += 1
-        yeni = {"id": f"SMMM-{anahtar[0]}-{anahtar[1]}-{no[anahtar]:04d}", "sinav": "smmm",
+        yeni = {"id": f"{harita.SINAV.upper()}-{anahtar[0]}-{anahtar[1]}-{no[anahtar]:04d}", "sinav": harita.SINAV,
                 "bolum": s["bolum"], "ders": s["ders"], "unite": konu_ad[anahtar]}
         yeni.update({k: s[k] for k in YAZAR_ALANLARI if k in s and k not in yeni})
         yeni.update({"durum": "taslak", "surum": 1, "uretim": {
@@ -194,7 +199,7 @@ def al(teslim: Path, parti: int) -> list[str]:
         dosyalar[anahtar].append(yeni)
         rapor.append(f"alındı {yeni['id']} (satır {s.get('gorev_satiri')})")
     for (ders, konu), liste in dosyalar.items():
-        yol = SORULAR / ders / f"{konu}.p{parti}.yaml"
+        yol = harita.SORU_DIZINI / ders / f"{konu}.p{parti}.yaml"
         onceki = yaml.safe_load(yol.read_text(encoding="utf-8")) if yol.exists() else []
         yol.parent.mkdir(parents=True, exist_ok=True)
         yol.write_text(yaml.safe_dump(onceki + liste, allow_unicode=True, sort_keys=False, width=120), encoding="utf-8")
@@ -202,6 +207,8 @@ def al(teslim: Path, parti: int) -> list[str]:
 
 
 def main(argv: list[str]) -> int:
+    if "--sinav" in argv:
+        harita.sinav_sec(argv[argv.index("--sinav") + 1])
     if len(argv) >= 4 and argv[1] == "olustur":
         cikti = Path(argv[argv.index("--cikti") + 1]) if "--cikti" in argv else KOK / "uretici_paketleri"
         atla = int(argv[argv.index("--atla") + 1]) if "--atla" in argv else 0

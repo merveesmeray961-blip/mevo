@@ -34,9 +34,9 @@ mevzuat.gov.tr / KGK / SPK / GİB / TÜRMOB'dan alındı; Resmî Gazete günlük
 | 24 | 4721 Türk Medeni Kanunu | Hukuk (temel kavramlar, kişiler, eşya) | ✅ 8 Ekim'de eklendi |
 | 25 | 2709 Anayasa (md. 73, 161–165) | Maliye, Vergi | ✅ 8 Ekim'de eklendi |
 | 26 | 660 sayılı KHK (KGK) | Denetim | ✅ 8 Ekim'de eklendi |
-| 27 | 5549 Suç Gelirlerinin Aklanmasının Önlenmesi Hk. Kanun | Meslek Hukuku (yükümlülükler) | ❌ indirilemedi, sonraki denemede |
+| 27 | 5549 Suç Gelirlerinin Aklanmasının Önlenmesi Hk. Kanun | Meslek Hukuku (yükümlülükler) | ✅ 8 Ekim'de eklendi |
 
-**Denklem: 27 kanun gerekli → 26 arşivde, 1 eksik (5549).**
+**Denklem: 27 kanun gerekli → 27 arşivde, eksik yok.**
 
 ## İkincil mevzuat (yönetmelik, tebliğ, standart)
 
