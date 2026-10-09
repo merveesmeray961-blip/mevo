@@ -26,9 +26,12 @@ Flutter ile yazılmış, internetsiz çalışan SMMM (Staja Giriş ve Yeterlilik
     flutter test          # birim ve ekran testleri (düzen testleri dahil)
     flutter analyze
     flutter build web --release --no-web-resources-cdn   # önizleme (sahte ödeme)
-    flutter build appbundle --release                     # Android mağaza paketi
-    flutter build apk --release --split-per-abi           # elle kurulacak APK
-    flutter build ipa --release                           # iOS (yalnızca Mac + Xcode)
+    flutter build appbundle --release --obfuscate --split-debug-info=build/hata-ayiklama   # Android mağaza paketi
+    flutter build apk --release --split-per-abi --obfuscate --split-debug-info=build/hata-ayiklama  # elle kurulacak APK
+    flutter build ipa --release --obfuscate --split-debug-info=build/hata-ayiklama         # iOS (yalnızca Mac + Xcode)
+
+Soru bankası uygulamaya `assets/sorular/smmm.paket` olarak (sıkıştırılmış ve karartılmış) gömülür;
+`smmm.json` yalnız testler içindir. İkisini de `python -m pipeline.disa_aktar app/assets/sorular/smmm.json --uygulama` üretir.
 
 Android derlemesi için Android SDK (`ANDROID_HOME`) gerekir. Yayın imzası `android/key.properties` dosyasından okunur
 (git'e girmez; yoksa debug anahtarı kullanılır ve paket mağazaya yüklenemez). Mağaza adımları, anahtar yedeği ve

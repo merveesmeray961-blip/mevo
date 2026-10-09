@@ -15,15 +15,17 @@ import 'veri/depo.dart';
 import 'veri/ilerleme.dart';
 import 'veri/modeller.dart';
 import 'veri/notlar.dart';
+import 'veri/paket.dart';
 
-const soruPaketi = 'assets/sorular/smmm.json';
+const soruPaketi = 'assets/sorular/smmm.paket';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Kenardan kenara çizim (Android 15+ zaten böyledir); sistem çubuklarının arkası uygulama rengiyle dolar.
   unawaited(SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge));
   final depo = await CihazDepo.ac();
-  final banka = SoruBankasi.fromJson(jsonDecode(await rootBundle.loadString(soruPaketi)) as Map<String, dynamic>);
+  final paket = (await rootBundle.load(soruPaketi)).buffer.asUint8List();
+  final banka = SoruBankasi.fromJson(jsonDecode(paketCoz(paket)) as Map<String, dynamic>);
   // Android ve iOS'ta gerçek mağaza ödemesi; web önizlemesinde (mağaza yok) sahte önizleme ödemesi.
   final gercekMagaza =
       !kIsWeb && (defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.iOS);

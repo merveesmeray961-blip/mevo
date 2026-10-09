@@ -163,7 +163,7 @@ karşılaşırsan Claude'a hata mesajını gönder.
 
 ### B4. Derle ve yükle
 
-1. Terminal (`app` klasöründe): `flutter build ipa --release` (alternatif: Xcode'da Product → Archive).
+1. Terminal (`app` klasöründe): `flutter build ipa --release --obfuscate --split-debug-info=build/hata-ayiklama` (alternatif: Xcode'da Product → Archive).
 2. Çıkan arşivi Xcode **Organizer → Distribute App → App Store Connect → Upload** ile yükle (ya da Transporter uygulamasıyla `build/ios/ipa/*.ipa`).
 3. Yükleme işlendikten (10–30 dk) sonra App Store Connect'te sürüme **yapıyı seç**, uygulama içi satın alımı sürüme **ekle**.
 4. **Test için TestFlight:** yapıyı iç/dış test kullanıcılarına dağıtabilirsin. **Sandbox** satın alma: Users and Access →
@@ -208,8 +208,10 @@ Her yüklemede yapı numarası **mutlaka artmalıdır** (mağaza aynı numarayı
 cd app
 flutter analyze
 flutter test
-flutter build appbundle --release     # Android → build/app/outputs/bundle/release/app-release.aab
-flutter build ipa --release           # iOS (yalnızca Mac'te)
+flutter build appbundle --release --obfuscate --split-debug-info=build/hata-ayiklama   # Android → build/app/outputs/bundle/release/app-release.aab
+flutter build ipa --release --obfuscate --split-debug-info=build/hata-ayiklama         # iOS (yalnızca Mac'te)
+# --obfuscate: kod karıştırılır (soru paketinin anahtarını ve satın alma mantığını bulmak zorlaşır).
+# build/hata-ayiklama klasörünü sakla ama paylaşma: çökme kayıtlarını okunur hâle getirmek için gerekir.
 ```
 
 Android derlemesi `app/android/key.properties` dosyasını ve `.gizli/upload-keystore.jks` anahtarını bulamazsa
