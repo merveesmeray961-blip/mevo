@@ -84,6 +84,11 @@ class DenemeKaydi {
   final double puan;
   final bool? gecti;
 
+  /// Denemedeki soruların kimlikleri (sırasıyla) ve verilen cevaplar; geçmiş deneme yeniden incelenebilsin diye
+  /// saklanır. Bu alanlar eklenmeden önce kaydedilen denemelerde boştur.
+  final List<String> soruIdler;
+  final Map<String, String> cevaplar;
+
   const DenemeKaydi({
     required this.tarih,
     required this.bolum,
@@ -93,6 +98,8 @@ class DenemeKaydi {
     required this.dersler,
     required this.puan,
     required this.gecti,
+    this.soruIdler = const [],
+    this.cevaplar = const {},
   });
 
   Map<String, dynamic> toJson() => {
@@ -104,6 +111,8 @@ class DenemeKaydi {
     'd': {for (final e in dersler.entries) e.key: e.value.toJson()},
     'p': puan,
     'g': gecti,
+    if (soruIdler.isNotEmpty) 'q': soruIdler,
+    if (cevaplar.isNotEmpty) 'c': cevaplar,
   };
 
   factory DenemeKaydi.fromJson(Map<String, dynamic> j) => DenemeKaydi(
@@ -117,6 +126,8 @@ class DenemeKaydi {
     },
     puan: (j['p'] as num).toDouble(),
     gecti: j['g'] as bool?,
+    soruIdler: List<String>.from((j['q'] ?? const []) as List),
+    cevaplar: Map<String, String>.from((j['c'] ?? const {}) as Map),
   );
 }
 

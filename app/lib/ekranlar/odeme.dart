@@ -64,6 +64,25 @@ class _OdemeEkraniState extends State<OdemeEkrani> {
     );
   }
 
+  Widget _hucre(BuildContext context, String metin, {bool baslik = false, bool vurgu = false}) {
+    final t = Theme.of(context).textTheme;
+    final r = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 12),
+      // "✓" gömülü yazı tipinde olmadığı için simgeyle çizilir.
+      child: metin == '✓'
+          ? Icon(Icons.check_rounded, size: 20, color: vurgu ? r.primary : r.onSurfaceVariant)
+          : Text(
+              metin,
+              textAlign: TextAlign.center,
+              style: (baslik ? t.titleSmall : t.bodyMedium)?.copyWith(
+                fontWeight: vurgu || baslik ? FontWeight.w700 : null,
+                color: vurgu ? r.primary : null,
+              ),
+            ),
+    );
+  }
+
   Widget _govde(BuildContext context, AbonelikServisi abonelik) {
     final t = Theme.of(context).textTheme;
     final r = Theme.of(context).colorScheme;
@@ -86,24 +105,58 @@ class _OdemeEkraniState extends State<OdemeEkrani> {
               ),
               const SizedBox(height: 12),
             ],
+            Icon(Icons.workspace_premium_rounded, size: 56, color: r.primary),
+            const SizedBox(height: 4),
             Text(
               'Sınırsız çalış',
               style: t.headlineMedium?.copyWith(fontWeight: FontWeight.w800),
               textAlign: TextAlign.center,
             ),
+            const SizedBox(height: 4),
+            Text(
+              'Tek seferlik ödemeyle bütün soru bankası ve denemeler senin.',
+              style: t.bodyMedium?.copyWith(color: r.onSurfaceVariant),
+              textAlign: TextAlign.center,
+            ),
             const SizedBox(height: 20),
-            for (final (ikon, metin) in [
-              (Icons.all_inclusive, 'Günlük soru sınırı yok'),
-              (Icons.timer_outlined, 'Gerçek sınav kurallarıyla sınırsız deneme'),
-              (Icons.replay, 'Yanlış defteri ve aralıklı tekrar'),
-              (Icons.menu_book_outlined, 'Her sorunun kanun maddesine dayanan açıklaması'),
-              (Icons.system_update_alt, 'Uygulama güncellemeleriyle gelen yeni sorular'),
-            ])
-              ListTile(
-                leading: Icon(ikon, color: r.primary),
-                title: Text(metin),
-                dense: true,
+            // Ücretsiz ve tam erişim karşılaştırması: öğrenci neye ödeme yaptığını tek bakışta görür.
+            Card(
+              clipBehavior: Clip.antiAlias,
+              child: Table(
+                columnWidths: const {0: FlexColumnWidth(2.2), 1: FlexColumnWidth(1), 2: FlexColumnWidth(1.1)},
+                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                children: [
+                  TableRow(
+                    decoration: BoxDecoration(color: r.surfaceContainerHighest),
+                    children: [
+                      const SizedBox(),
+                      _hucre(context, 'Ücretsiz', baslik: true),
+                      _hucre(context, 'Tam', baslik: true, vurgu: true),
+                    ],
+                  ),
+                  for (final (ozellik, ucretsiz, tam) in [
+                    ('Günlük soru', '$ucretsizGunlukSoru', 'Sınırsız'),
+                    ('Deneme sınavı', '$ucretsizDeneme', 'Sınırsız'),
+                    ('Yanlış defteri ve aralıklı tekrar', '✓', '✓'),
+                    ('Kanun maddeli açıklamalar', '✓', '✓'),
+                    ('Güncellemelerle gelen yeni sorular', '✓', '✓'),
+                  ])
+                    TableRow(
+                      decoration: BoxDecoration(
+                        border: Border(top: BorderSide(color: r.outlineVariant)),
+                      ),
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(14, 12, 8, 12),
+                          child: Text(ozellik, style: t.bodyMedium),
+                        ),
+                        _hucre(context, ucretsiz),
+                        _hucre(context, tam, vurgu: true),
+                      ],
+                    ),
+                ],
               ),
+            ),
             const SizedBox(height: 12),
             Card(
               shape: RoundedRectangleBorder(

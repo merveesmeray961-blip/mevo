@@ -66,7 +66,32 @@ class DenemeSonucu {
     dersler: dersler,
     puan: puan,
     gecti: gecti,
+    soruIdler: [for (final s in plan.sorular) s.id],
+    cevaplar: cevaplar,
   );
+
+  /// Kayıtlı bir denemeyi sonuç ekranında yeniden göstermek için sonucu geri kurar. Bankadan çıkarılmış sorular
+  /// atlanır; puanlar kayıttaki gibi kalır. Soru listesi saklanmamış eski kayıtlarda null döner.
+  static DenemeSonucu? kayittan(SoruBankasi banka, DenemeKaydi k) {
+    if (k.soruIdler.isEmpty) return null;
+    final sorular = [for (final id in k.soruIdler) ?banka.soru(id)];
+    return DenemeSonucu(
+      plan: DenemePlani(
+        tur: k.bolum == 'SGS' ? DenemeTuru.sgs : (k.dersler.length > 1 ? DenemeTuru.yetOturum : DenemeTuru.yetDers),
+        bolum: k.bolum,
+        baslik: k.baslik,
+        dersler: k.dersler.keys.toList(),
+        hedef: {for (final e in k.dersler.entries) e.key: e.value.soru},
+        sorular: sorular,
+        sureSn: k.sureSn,
+      ),
+      cevaplar: k.cevaplar,
+      dersler: k.dersler,
+      puan: k.puan,
+      gecti: k.gecti,
+      kullanilanSn: k.kullanilanSn,
+    );
+  }
 }
 
 /// Soru başına süre, gerçek sınavın süre/soru oranından hesaplanır; böylece bankada eksik soru

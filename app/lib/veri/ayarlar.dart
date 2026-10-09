@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 
 import 'depo.dart';
 
-/// Yazı boyutu seçenekleri (Küçük, Orta, Büyük); varsayılan Orta.
-const yaziSecenekleri = {'Küçük': 0.84, 'Orta': 0.92, 'Büyük': 1.0};
-const yaziVarsayilan = 0.92;
+/// Yazı boyutu seçenekleri; varsayılan Normal (telefonun kendi yazı boyutu). Uzun süre mevzuat metni okuyan
+/// kullanıcı için büyütme seçenekleri sistem boyutunun üstüne çıkar.
+const yaziSecenekleri = {'Küçük': 0.92, 'Normal': 1.0, 'Büyük': 1.15, 'En büyük': 1.3};
+const yaziVarsayilan = 1.0;
 
 class Ayarlar extends ChangeNotifier {
   static const _anahtar = 'ayarlar.v1';
@@ -25,6 +26,16 @@ class Ayarlar extends ChangeNotifier {
     _tema = ThemeMode.values.firstWhere((t) => t.name == j['tema'], orElse: () => ThemeMode.system);
     _oturumBoyu = (j['oturum'] ?? 10) as int;
     _yazi = ((j['yazi'] ?? yaziVarsayilan) as num).toDouble();
+    // Eski sürümün ölçeği (0.84/0.92/1.0) yeni ölçeğe taşınır; eski varsayılan 0.92 artık Normal'dir.
+    if (j['yaziSurum'] != 2) {
+      _yazi = switch (_yazi) {
+        0.84 => 0.92,
+        0.92 => 1.0,
+        1.0 => 1.15,
+        _ => yaziVarsayilan,
+      };
+    }
+    if (!yaziSecenekleri.containsValue(_yazi)) _yazi = yaziVarsayilan;
   }
 
   /// Kullanıcının hazırlandığı bölüm: 'SGS' veya 'YET'. İlk açılışta null (bölüm seçimi gösterilir).
@@ -43,6 +54,9 @@ class Ayarlar extends ChangeNotifier {
   Future<void> _guncelle(void Function() f) async {
     f();
     notifyListeners();
-    await _depo.yaz(_anahtar, jsonEncode({'bolum': _bolum, 'tema': _tema.name, 'oturum': _oturumBoyu, 'yazi': _yazi}));
+    await _depo.yaz(
+      _anahtar,
+      jsonEncode({'bolum': _bolum, 'tema': _tema.name, 'oturum': _oturumBoyu, 'yazi': _yazi, 'yaziSurum': 2}),
+    );
   }
 }

@@ -48,13 +48,40 @@ class Kapsam extends InheritedWidget {
 const anaRenk = Color(0xFF0F6B5C);
 
 ThemeData tema(Brightness parlaklik) {
-  final renkler = ColorScheme.fromSeed(seedColor: anaRenk, brightness: parlaklik);
+  // Koyu temada "canlı" şema: ana düğmeler soluk nane rengine dönmeden belirgin kalır. Açık temada varsayılan
+  // (yumuşak tonlu) şema, canlı şemanın neon tonlarından daha dinlendiricidir.
+  final renkler = ColorScheme.fromSeed(
+    seedColor: anaRenk,
+    brightness: parlaklik,
+    dynamicSchemeVariant: parlaklik == Brightness.dark ? DynamicSchemeVariant.vibrant : DynamicSchemeVariant.tonalSpot,
+  );
+  final temel = ThemeData(brightness: parlaklik, fontFamily: 'Roboto', useMaterial3: true).textTheme;
+  // Başlıklar daha karakterli: kalın ağırlık, hafif sıkı harf aralığı; gövde metni okunaklı kalır.
+  final yazilar = temel.copyWith(
+    headlineMedium: temel.headlineMedium?.copyWith(fontWeight: FontWeight.w800, letterSpacing: -0.5),
+    headlineSmall: temel.headlineSmall?.copyWith(fontWeight: FontWeight.w800, letterSpacing: -0.3),
+    titleLarge: temel.titleLarge?.copyWith(fontWeight: FontWeight.w700, letterSpacing: -0.2),
+    titleMedium: temel.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+  );
   return ThemeData(
     colorScheme: renkler,
     // Yazı tipi uygulamaya gömülüdür; web sürümü internetten yazı tipi indirmez.
     fontFamily: 'Roboto',
+    textTheme: yazilar,
     useMaterial3: true,
-    appBarTheme: AppBarTheme(backgroundColor: renkler.surface, scrolledUnderElevation: 1),
+    appBarTheme: AppBarTheme(
+      backgroundColor: renkler.surface,
+      scrolledUnderElevation: 1,
+      titleTextStyle: yazilar.titleLarge?.copyWith(color: renkler.onSurface),
+    ),
+    navigationBarTheme: NavigationBarThemeData(
+      indicatorColor: renkler.primaryContainer,
+      labelTextStyle: WidgetStateProperty.resolveWith(
+        (s) =>
+            TextStyle(fontSize: 12, fontWeight: s.contains(WidgetState.selected) ? FontWeight.w700 : FontWeight.w500),
+      ),
+    ),
+    chipTheme: ChipThemeData(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
     cardTheme: CardThemeData(
       elevation: 0,
       shape: RoundedRectangleBorder(

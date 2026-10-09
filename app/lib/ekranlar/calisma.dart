@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 
 import '../bilesenler/soru_gorunumu.dart';
 import '../uygulama.dart';
@@ -61,12 +62,18 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
       _secilen = h;
       _cevaplar[_soru.id] = h;
     });
-    // Açıklamanın başı ekranın ortasına gelecek kadar kaydır; şıklar mümkün olduğunca ekranda kalır.
+    // Dokunsal geri bildirim: doğru cevapta hafif, yanlışta belirgin titreşim.
+    if (h == _soru.dogru) {
+      HapticFeedback.lightImpact();
+    } else {
+      HapticFeedback.mediumImpact();
+    }
+    // Açıklamanın başı ekranın alt çeyreğine gelecek kadar kaydır; seçilen şık ve doğru şık ekranda kalır.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final kutu = _aciklamaAnahtari.currentContext?.findRenderObject();
       if (kutu == null || !_kaydirma.hasClients) return;
       final p = _kaydirma.position;
-      final ust = RenderAbstractViewport.of(kutu).getOffsetToReveal(kutu, 0).offset - p.viewportDimension * 0.45;
+      final ust = RenderAbstractViewport.of(kutu).getOffsetToReveal(kutu, 0).offset - p.viewportDimension * 0.72;
       if (ust > p.pixels) {
         _kaydirma.animateTo(
           ust.clamp(p.minScrollExtent, p.maxScrollExtent),
@@ -89,7 +96,17 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
     }
     setState(() {
       _sira++;
-      _secilen = null;
+      _secilen = _cevaplar[_soru.id];
+    });
+    _kaydirma.jumpTo(0);
+  }
+
+  /// Önceki soruya döner (cevabı ve açıklamasıyla birlikte, salt okunur).
+  void _onceki() {
+    if (_sira == 0) return;
+    setState(() {
+      _sira--;
+      _secilen = _cevaplar[_soru.id];
     });
     _kaydirma.jumpTo(0);
   }
@@ -101,7 +118,24 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
     final konu = ders?.konular[_soru.konu] ?? _soru.konu;
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.baslik} · ${_sira + 1}/${widget.sorular.length}'),
+        titleSpacing: 0,
+        // Sayaç her zaman görünür; oturum adı küçük ikinci satırda (uzun adlar kesilse de sayaç kaybolmaz).
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              '${_sira + 1} / ${widget.sorular.length}',
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+            ),
+            Text(
+              widget.baslik,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ],
+        ),
         actions: [
           IconButton(
             tooltip: 'Hesap makinesi',
@@ -155,15 +189,30 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
           ),
         ),
       ),
-      bottomNavigationBar: _cevaplandi
+      bottomNavigationBar: _cevaplandi || _sira > 0
           ? SafeArea(
               child: OrtalaGenislik(
                 icerikYuksekligi: true,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
-                  child: FilledButton(
-                    onPressed: _sonraki,
-                    child: Text(_sira + 1 >= widget.sorular.length ? 'Bitir' : 'Sonraki soru'),
+                  child: Row(
+                    children: [
+                      if (_sira > 0) ...[
+                        IconButton.outlined(
+                          tooltip: 'Önceki soru',
+                          icon: const Icon(Icons.arrow_back),
+                          onPressed: _onceki,
+                        ),
+                        const SizedBox(width: 12),
+                      ],
+                      if (_cevaplandi)
+                        Expanded(
+                          child: FilledButton(
+                            onPressed: _sonraki,
+                            child: Text(_sira + 1 >= widget.sorular.length ? 'Bitir' : 'Sonraki soru'),
+                          ),
+                        ),
+                    ],
                   ),
                 ),
               ),
@@ -199,7 +248,21 @@ class CalismaOzeti extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(20),
           children: [
-            const SizedBox(height: 12),
+            // Oturum sonu geri bildirimi: başarıya göre kutlama ya da cesaretlendirme.
+            Icon(
+              oran >= 0.8
+                  ? Icons.emoji_events_rounded
+                  : (oran >= 0.5 ? Icons.trending_up_rounded : Icons.school_rounded),
+              size: 44,
+              color: oran >= 0.8 ? const Color(0xFFE0A100) : Theme.of(context).colorScheme.primary,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              oran >= 0.8 ? 'Harika iş!' : (oran >= 0.5 ? 'İyi gidiyorsun' : 'Tekrar, öğrenmenin yarısıdır'),
+              style: t.headlineSmall,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
             Center(
               child: SizedBox(
                 width: 140,

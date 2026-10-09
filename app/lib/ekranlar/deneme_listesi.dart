@@ -74,7 +74,6 @@ class DenemeListesi extends StatelessWidget {
                             'hesap makinesi yok.',
                   style: t.bodyMedium,
                 ),
-                ...kartlar,
                 if (gecmis.isNotEmpty) ...[
                   _Baslik('Geçmiş denemelerim'),
                   for (final d in gecmis)
@@ -82,27 +81,44 @@ class DenemeListesi extends StatelessWidget {
                       margin: const EdgeInsets.only(bottom: 8),
                       child: ListTile(
                         title: Text(d.baslik),
-                        subtitle: Text('${tarihYaz(d.tarih)} · ${sureYaz(d.kullanilanSn)}'),
-                        trailing: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              bolum == 'YET' ? sayiYaz(d.puan, basamak: 2) : '%${d.puan.round()}',
-                              style: t.titleMedium?.copyWith(fontWeight: FontWeight.w700),
-                            ),
-                            if (d.gecti != null)
-                              Text(
-                                d.gecti! ? 'Barajı geçti' : 'Baraj altı',
-                                style: t.labelSmall?.copyWith(
-                                  color: d.gecti! ? dogruRenk(context) : yanlisRenk(context),
-                                ),
+                        subtitle: Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(text: '${tarihYaz(d.tarih)} · ${sureYaz(d.kullanilanSn)}\n'),
+                              TextSpan(
+                                text: bolum == 'YET'
+                                    ? 'Puan ${sayiYaz(d.puan, basamak: 2)}'
+                                    : 'Doğru %${d.puan.round()}',
+                                style: t.titleSmall?.copyWith(fontWeight: FontWeight.w700),
                               ),
-                          ],
+                              if (d.gecti != null)
+                                TextSpan(
+                                  text: d.gecti! ? ' · Barajı geçti' : ' · Baraj altı',
+                                  style: TextStyle(color: d.gecti! ? dogruRenk(context) : yanlisRenk(context)),
+                                ),
+                            ],
+                          ),
                         ),
+                        isThreeLine: true,
+                        onTap: () {
+                          final sonuc = DenemeSonucu.kayittan(banka, d);
+                          if (sonuc == null) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Bu deneme eski sürümde çözüldüğü için ayrıntısı saklanmadı.'),
+                              ),
+                            );
+                            return;
+                          }
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (_) => DenemeSonucEkrani(sonuc: sonuc)));
+                        },
+                        // Puan ve baraj durumu alt satırda; büyük yazıda da satır yüksekliğine sığar.
+                        trailing: const Icon(Icons.chevron_right),
                       ),
                     ),
                 ],
+                ...kartlar,
               ],
             ),
           ),

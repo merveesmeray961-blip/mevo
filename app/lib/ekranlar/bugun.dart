@@ -51,8 +51,13 @@ class BugunEkrani extends StatelessWidget {
                     padding: const EdgeInsets.all(16),
                     child: Row(
                       children: [
-                        _Sayac(deger: '${il.bugunCozulen}', etiket: 'bugün çözülen'),
-                        _Sayac(deger: '${il.seri}', etiket: 'gün üst üste'),
+                        _GunlukHedef(cozulen: il.bugunCozulen),
+                        _Sayac(
+                          deger: '${il.seri}',
+                          etiket: 'gün üst üste',
+                          ikon: Icons.local_fire_department_rounded,
+                          ikonRengi: il.seri > 0 ? const Color(0xFFF26B1D) : null,
+                        ),
                         _Sayac(deger: '${ist.cozulen}/${ist.toplam}', etiket: 'soru görüldü'),
                       ],
                     ),
@@ -83,37 +88,59 @@ class BugunEkrani extends StatelessWidget {
                   ),
                 ],
                 const SizedBox(height: 16),
-                _ListeKarti(
-                  ikon: Icons.replay,
-                  baslik: 'Tekrar zamanı gelenler',
-                  aciklama: 'Unutmadan önce yeniden sorulan sorular',
-                  sayi: tekrar.length,
-                  onTap: () => calismayaBasla(context, baslik: 'Tekrar', sorular: il.calismaSirasi(tekrar, 50)),
-                ),
-                const SizedBox(height: 8),
-                _ListeKarti(
-                  ikon: Icons.close_rounded,
-                  baslik: 'Yanlış defterim',
-                  aciklama: 'Son cevabını yanlış verdiğin sorular',
-                  sayi: yanlis.length,
-                  onTap: () => calismayaBasla(context, baslik: 'Yanlış defterim', sorular: yanlis),
-                ),
-                const SizedBox(height: 8),
-                _ListeKarti(
-                  ikon: Icons.bookmark_outline,
-                  baslik: 'İşaretlediklerim',
-                  aciklama: 'Sonra bakmak için ayırdığın sorular',
-                  sayi: isaretli.length,
-                  onTap: () => calismayaBasla(context, baslik: 'İşaretlediklerim', sorular: isaretli),
-                ),
-                const SizedBox(height: 8),
-                _ListeKarti(
-                  ikon: Icons.edit_note,
-                  baslik: 'Notlarım',
-                  aciklama: 'Sorulara yazdığın kişisel notlar',
-                  sayi: notlu.length,
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const NotlarimEkrani())),
-                ),
+                // Yeni kullanıcı devre dışı gri kartlar yerine ne yapacağını söyleyen tek bir kart görür;
+                // listeler yalnızca içlerinde soru olduğunda gösterilir.
+                if (ist.cozulen == 0)
+                  Card(
+                    color: r.secondaryContainer,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Row(
+                        children: [
+                          Icon(Icons.rocket_launch_outlined, color: r.onSecondaryContainer, size: 32),
+                          const SizedBox(width: 14),
+                          Expanded(
+                            child: Text(
+                              'İlk ${durum.ayarlar.oturumBoyu} sorunu çöz; yanlışların, tekrar zamanı gelen sorular '
+                              've işaretlediklerin burada birikir.',
+                              style: t.bodyMedium?.copyWith(color: r.onSecondaryContainer),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                for (final k in [
+                  _ListeKarti(
+                    ikon: Icons.replay,
+                    baslik: 'Tekrar zamanı gelenler',
+                    aciklama: 'Unutmadan önce yeniden sorulan sorular',
+                    sayi: tekrar.length,
+                    onTap: () => calismayaBasla(context, baslik: 'Tekrar', sorular: il.calismaSirasi(tekrar, 50)),
+                  ),
+                  _ListeKarti(
+                    ikon: Icons.close_rounded,
+                    baslik: 'Yanlış defterim',
+                    aciklama: 'Son cevabını yanlış verdiğin sorular',
+                    sayi: yanlis.length,
+                    onTap: () => calismayaBasla(context, baslik: 'Yanlış defterim', sorular: yanlis),
+                  ),
+                  _ListeKarti(
+                    ikon: Icons.bookmark_outline,
+                    baslik: 'İşaretlediklerim',
+                    aciklama: 'Sonra bakmak için ayırdığın sorular',
+                    sayi: isaretli.length,
+                    onTap: () => calismayaBasla(context, baslik: 'İşaretlediklerim', sorular: isaretli),
+                  ),
+                  _ListeKarti(
+                    ikon: Icons.edit_note,
+                    baslik: 'Notlarım',
+                    aciklama: 'Sorulara yazdığın kişisel notlar',
+                    sayi: notlu.length,
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const NotlarimEkrani())),
+                  ),
+                ])
+                  if (k.sayi > 0) Padding(padding: const EdgeInsets.only(bottom: 8), child: k),
                 const SizedBox(height: 24),
                 Text(
                   durum.banka.uyari,
@@ -184,8 +211,10 @@ class _GeriSayim extends StatelessWidget {
 class _Sayac extends StatelessWidget {
   final String deger;
   final String etiket;
+  final IconData? ikon;
+  final Color? ikonRengi;
 
-  const _Sayac({required this.deger, required this.etiket});
+  const _Sayac({required this.deger, required this.etiket, this.ikon, this.ikonRengi});
 
   @override
   Widget build(BuildContext context) {
@@ -193,8 +222,63 @@ class _Sayac extends StatelessWidget {
     return Expanded(
       child: Column(
         children: [
-          Text(deger, style: t.titleLarge?.copyWith(fontWeight: FontWeight.w700)),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (ikon != null) ...[
+                Icon(ikon, size: 22, color: ikonRengi ?? Theme.of(context).colorScheme.outline),
+                const SizedBox(width: 2),
+              ],
+              Flexible(
+                child: Text(deger, style: t.titleLarge?.copyWith(fontWeight: FontWeight.w700), maxLines: 1),
+              ),
+            ],
+          ),
           Text(etiket, style: t.bodySmall, textAlign: TextAlign.center),
+        ],
+      ),
+    );
+  }
+}
+
+/// Günlük hedef halkası: bugün çözülen soru sayısı ve hedefe ne kadar kaldığı.
+class _GunlukHedef extends StatelessWidget {
+  static const hedef = 30;
+  final int cozulen;
+
+  const _GunlukHedef({required this.cozulen});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = Theme.of(context).textTheme;
+    final r = Theme.of(context).colorScheme;
+    final tamam = cozulen >= hedef;
+    return Expanded(
+      child: Column(
+        children: [
+          SizedBox(
+            width: 52,
+            height: 52,
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                CircularProgressIndicator(
+                  value: (cozulen / hedef).clamp(0, 1).toDouble(),
+                  strokeWidth: 5,
+                  strokeCap: StrokeCap.round,
+                  backgroundColor: r.surfaceContainerHighest,
+                  color: tamam ? dogruRenk(context) : r.primary,
+                ),
+                Center(
+                  child: tamam
+                      ? Icon(Icons.check_rounded, color: dogruRenk(context))
+                      : Text('$cozulen', style: t.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(tamam ? 'günlük hedef tamam' : 'bugün · hedef $hedef', style: t.bodySmall, textAlign: TextAlign.center),
         ],
       ),
     );
@@ -218,14 +302,29 @@ class _ListeKarti extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final r = Theme.of(context).colorScheme;
     return Card(
+      margin: EdgeInsets.zero,
       child: ListTile(
-        enabled: sayi > 0,
-        leading: Icon(ikon),
+        leading: Icon(ikon, color: r.primary),
         title: Text(baslik),
         subtitle: Text(aciklama),
-        trailing: Badge(label: Text('$sayi'), isLabelVisible: sayi > 0, child: const Icon(Icons.chevron_right)),
-        onTap: sayi > 0 ? onTap : null,
+        // Sayı oka binmeyen, sakin renkli bir etiket olarak gösterilir.
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+              decoration: BoxDecoration(color: r.primaryContainer, borderRadius: BorderRadius.circular(20)),
+              child: Text(
+                '$sayi',
+                style: TextStyle(color: r.onPrimaryContainer, fontWeight: FontWeight.w700),
+              ),
+            ),
+            const Icon(Icons.chevron_right),
+          ],
+        ),
+        onTap: onTap,
       ),
     );
   }

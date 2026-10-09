@@ -102,7 +102,8 @@ class BasariRozeti extends StatelessWidget {
     final renk = oran >= 0.7
         ? dogruRenk(context)
         : oran >= 0.5
-        ? const Color(0xFFE09B00)
+        // Amber, açık temada beyaz zemin üstünde okunabilsin diye koyulaştırılır (WCAG AA ≥ 4.5:1).
+        ? (Theme.of(context).brightness == Brightness.dark ? const Color(0xFFFFC94D) : const Color(0xFF8A5A00))
         : yanlisRenk(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),

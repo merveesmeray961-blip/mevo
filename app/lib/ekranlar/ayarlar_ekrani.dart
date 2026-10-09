@@ -36,13 +36,28 @@ class AyarlarEkrani extends StatelessWidget {
                   title: const Text('Yazı boyutu'),
                   subtitle: Padding(
                     padding: const EdgeInsets.only(top: 8),
-                    child: SegmentedButton<double>(
-                      segments: [
-                        for (final e in yaziSecenekleri.entries) ButtonSegment(value: e.value, label: Text(e.key)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        SegmentedButton<double>(
+                          segments: [
+                            for (final e in yaziSecenekleri.entries)
+                              ButtonSegment(
+                                value: e.value,
+                                label: Text(e.key, maxLines: 1, softWrap: false, overflow: TextOverflow.fade),
+                              ),
+                          ],
+                          selected: {ay.yazi},
+                          onSelectionChanged: (s) => ay.yaziSec(s.first),
+                          showSelectedIcon: false,
+                        ),
+                        const SizedBox(height: 10),
+                        // Canlı önizleme: seçilen boyut soru ekranında böyle görünür.
+                        Text(
+                          'Örnek: Aşağıdakilerden hangisi dönen varlıklar arasında yer alır?',
+                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.45),
+                        ),
                       ],
-                      selected: {ay.yazi},
-                      onSelectionChanged: (s) => ay.yaziSec(s.first),
-                      showSelectedIcon: false,
                     ),
                   ),
                 ),

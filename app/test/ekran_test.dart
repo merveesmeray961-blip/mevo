@@ -46,7 +46,7 @@ void main() {
     await tester.tap(find.textContaining('Hızlı çalış'));
     await tester.pumpAndSettle();
     for (var i = 0; i < 10; i++) {
-      expect(find.textContaining('${i + 1}/10'), findsOneWidget);
+      expect(find.text('${i + 1} / 10'), findsOneWidget);
       await cevaplaVeGec(tester);
     }
     expect(find.textContaining('doğru ·'), findsOneWidget);
@@ -71,7 +71,8 @@ void main() {
     await tester.tap(find.text('Tam erişimi aç'));
     await tester.pumpAndSettle();
     expect(durum.abonelik.premium, isTrue);
-    expect(find.textContaining('Hızlı çalışma ·'), findsOneWidget);
+    expect(find.text('Hızlı çalışma'), findsOneWidget);
+    expect(find.textContaining(' / '), findsWidgets);
   });
 
   testWidgets('deneme: kurallar, cevap, bitirme ve sonuç', (tester) async {
@@ -104,6 +105,17 @@ void main() {
     expect(find.text('ders puanı'), findsOneWidget);
     expect(durum.ilerleme.denemeler, hasLength(1));
     expect(durum.denemeHakkiVar, isFalse);
+    // Kayıt soruları ve cevapları saklar; geçmiş deneme listeden yeniden açılır.
+    final kayit = durum.ilerleme.denemeler.single;
+    expect(kayit.soruIdler, hasLength(n));
+    expect(kayit.cevaplar, hasLength(1));
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    // Liste en son ders kartına kaydırılmıştı; geçmiş en üstte.
+    await tester.scrollUntilVisible(find.text('Geçmiş denemelerim'), -300, scrollable: find.byType(Scrollable).last);
+    await tester.tap(find.textContaining('Puan ').first);
+    await tester.pumpAndSettle();
+    expect(find.text('Deneme sonucu'), findsOneWidget);
   });
 
   for (final bolum in ['YET', 'SGS']) {

@@ -123,33 +123,50 @@ class _DenemeEkraniState extends State<DenemeEkrani> {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
             child: SingleChildScrollView(
-              child: Wrap(
-                spacing: 8,
-                runSpacing: 8,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  for (var i = 0; i < _sorular.length; i++)
-                    InkWell(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                        _git(i);
-                      },
-                      child: Container(
-                        width: 44,
-                        height: 44,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: _cevaplar.containsKey(_sorular[i].id) ? r.primaryContainer : null,
-                          border: Border.all(
-                            color: i == _sira
-                                ? r.primary
-                                : (_isaretli.contains(_sorular[i].id) ? r.tertiary : r.outlineVariant),
-                            width: i == _sira || _isaretli.contains(_sorular[i].id) ? 2 : 1,
+                  // Renklerin anlamı: ızgarayı ilk kez gören aday neyin ne olduğunu bilsin.
+                  Wrap(
+                    spacing: 16,
+                    runSpacing: 6,
+                    children: [
+                      _Lejant(dolgu: r.primaryContainer, kenar: r.outlineVariant, metin: 'Cevaplandı'),
+                      _Lejant(kenar: r.tertiary, kalin: true, metin: 'İşaretli'),
+                      _Lejant(kenar: r.primary, kalin: true, metin: 'Şu anki soru'),
+                      _Lejant(kenar: r.outlineVariant, metin: 'Boş'),
+                    ],
+                  ),
+                  const SizedBox(height: 14),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      for (var i = 0; i < _sorular.length; i++)
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pop();
+                            _git(i);
+                          },
+                          child: Container(
+                            width: 44,
+                            height: 44,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: _cevaplar.containsKey(_sorular[i].id) ? r.primaryContainer : null,
+                              border: Border.all(
+                                color: i == _sira
+                                    ? r.primary
+                                    : (_isaretli.contains(_sorular[i].id) ? r.tertiary : r.outlineVariant),
+                                width: i == _sira || _isaretli.contains(_sorular[i].id) ? 2 : 1,
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Text('${i + 1}'),
                           ),
-                          borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text('${i + 1}'),
-                      ),
-                    ),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -497,4 +514,32 @@ class _DenemeIncelemeState extends State<DenemeInceleme> {
       ),
     );
   }
+}
+
+/// Deneme soru ızgarasındaki kutu türlerinin küçük açıklaması.
+class _Lejant extends StatelessWidget {
+  final Color? dolgu;
+  final Color kenar;
+  final bool kalin;
+  final String metin;
+
+  const _Lejant({this.dolgu, required this.kenar, this.kalin = false, required this.metin});
+
+  @override
+  Widget build(BuildContext context) => Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Container(
+        width: 16,
+        height: 16,
+        decoration: BoxDecoration(
+          color: dolgu,
+          border: Border.all(color: kenar, width: kalin ? 2 : 1),
+          borderRadius: BorderRadius.circular(4),
+        ),
+      ),
+      const SizedBox(width: 6),
+      Text(metin, style: Theme.of(context).textTheme.bodySmall),
+    ],
+  );
 }

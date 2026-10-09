@@ -184,7 +184,7 @@ void main() {
       // Dokununca çalışma oturumu açılır; soru cevaplanınca "Notun" kartı görünür.
       await tester.tap(find.text('Bunu tekrar et'));
       await tester.pumpAndSettle();
-      expect(find.textContaining('1/1'), findsOneWidget);
+      expect(find.text('1 / 1'), findsOneWidget);
       expect(find.text('Notun'), findsNothing);
       await tester.ensureVisible(find.text('A').first);
       await tester.tap(find.text('A').first);
@@ -216,6 +216,7 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.byTooltip('Ayarlar'));
       await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.text('Notlarımı sil'), 200);
       await tester.tap(find.text('Notlarımı sil'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Sil'));

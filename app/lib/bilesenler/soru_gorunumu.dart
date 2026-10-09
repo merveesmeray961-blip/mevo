@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../uygulama.dart';
@@ -92,45 +94,97 @@ class _Sik extends StatelessWidget {
       _SikDurumu.yanlis => Icon(Icons.cancel, color: yanlisRenk(context)),
       _ => null,
     };
-    return Opacity(
-      opacity: durum == _SikDurumu.soluk ? 0.6 : 1,
-      child: Material(
-        color: zemin ?? Colors.transparent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-          side: BorderSide(color: kenar, width: durum == _SikDurumu.normal || durum == _SikDurumu.soluk ? 1 : 2),
-        ),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(12),
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  radius: 14,
-                  backgroundColor: harfZemin,
-                  child: Text(
-                    harf,
-                    style: TextStyle(color: harfYazi, fontWeight: FontWeight.w700, fontSize: 14),
+    return _Vurgu(
+      etkin: durum == _SikDurumu.dogru || durum == _SikDurumu.yanlis,
+      sarsinti: durum == _SikDurumu.yanlis,
+      child: Opacity(
+        opacity: durum == _SikDurumu.soluk ? 0.6 : 1,
+        child: Material(
+          color: zemin ?? Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: BorderSide(color: kenar, width: durum == _SikDurumu.normal || durum == _SikDurumu.soluk ? 1 : 2),
+          ),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(12),
+            onTap: onTap,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 14,
+                    backgroundColor: harfZemin,
+                    child: Text(
+                      harf,
+                      style: TextStyle(color: harfYazi, fontWeight: FontWeight.w700, fontSize: 14),
+                    ),
                   ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 3),
-                    child: Text.rich(TextSpan(children: satirIci(metin, Theme.of(context).textTheme.bodyLarge!))),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 3),
+                      child: Text.rich(TextSpan(children: satirIci(metin, Theme.of(context).textTheme.bodyLarge!))),
+                    ),
                   ),
-                ),
-                if (ikon != null) ...[const SizedBox(width: 8), ikon],
-              ],
+                  if (ikon != null) ...[const SizedBox(width: 8), ikon],
+                ],
+              ),
             ),
           ),
         ),
       ),
     );
   }
+}
+
+/// Cevap açıklandığında şıkka kısa bir geri bildirim hareketi verir: doğru şık hafifçe büyüyüp yerine oturur,
+/// yanlış seçim yana doğru kısaca titrer. Sistemde "animasyonları azalt" açıksa hareket yapılmaz.
+class _Vurgu extends StatefulWidget {
+  final bool etkin;
+  final bool sarsinti;
+  final Widget child;
+
+  const _Vurgu({required this.etkin, required this.sarsinti, required this.child});
+
+  @override
+  State<_Vurgu> createState() => _VurguState();
+}
+
+class _VurguState extends State<_Vurgu> with SingleTickerProviderStateMixin {
+  late final _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 360));
+
+  @override
+  void didUpdateWidget(_Vurgu eski) {
+    super.didUpdateWidget(eski);
+    if (widget.etkin && !eski.etkin && !(MediaQuery.maybeDisableAnimationsOf(context) ?? false)) {
+      _c.forward(from: 0);
+    }
+  }
+
+  @override
+  void dispose() {
+    _c.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+    animation: _c,
+    child: widget.child,
+    builder: (context, child) {
+      final x = _c.value;
+      if (x == 0 || x == 1) return child!;
+      if (widget.sarsinti) {
+        // Sönümlü yatay titreşim: ±6 px, üç salınım.
+        final dx = 6 * (1 - x) * math.sin(x * math.pi * 6);
+        return Transform.translate(offset: Offset(dx, 0), child: child);
+      }
+      final olcek = 1 + 0.035 * math.sin(x * math.pi);
+      return Transform.scale(scale: olcek, child: child);
+    },
+  );
 }
 
 /// Cevaptan sonra gösterilen açıklama: doğru cevabın gerekçesi, seçilen yanlış şıkkın neden yanlış olduğu,

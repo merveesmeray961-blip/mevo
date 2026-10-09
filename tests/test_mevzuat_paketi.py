@@ -105,3 +105,13 @@ def test_gercek_paket_telif_kurali():
             assert "tam_metin" not in x, x["kaynak"]
         assert x["soru_idler"]
     assert any(x.get("tam_metin") for x in paket["mevzuat"])
+
+
+def test_yazim_farki_olan_kaynaklar_birlesir():
+    def yok(kod, anahtar):
+        raise KeyError(anahtar)
+    r = mp.kaynaklari_derle([
+        soru("S1", ("1319 sayılı Emlak Vergisi Kanunu", "md. 1", "a")),
+        soru("S2", ("1319 sayılı Emlâk Vergisi Kanunu", "md. 1", "b")),
+    ], yok)
+    assert len(r) == 1 and r[0]["soru_idler"] == ["S1", "S2"]

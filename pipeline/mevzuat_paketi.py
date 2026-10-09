@@ -132,12 +132,20 @@ def tam_metin_getir(kod: str, anahtar: str) -> tuple[str | None, str]:
     return tum[anahtar]
 
 
+def _ad_anahtari(ad: str) -> str:
+    """Yalnız büyük/küçük harf veya şapka (â, î, û) farkı olan adlar aynı kaynaktır: 'Emlâk' = 'Emlak'."""
+    return ad.casefold().translate(str.maketrans("âîû", "aiu"))
+
+
 def kaynaklari_derle(sorular: list[dict], tam_metin_getir=tam_metin_getir) -> list[dict]:
     """Soruların kaynaklarından madde listesi: [{kaynak, tur, kod?, madde, tam_metin?, alintilar, soru_idler, ...}]."""
     gruplar: dict[tuple[str, str], dict] = {}
+    ilk_ad: dict[str, str] = {}
     for s in sorular:
         for k in s.get("kaynaklar", []):
             ad = kaynak_adi(k["mevzuat"])
+            # Aynı kaynağın yazım farkları (büyük/küçük harf, şapka) ilk görülen adla birleştirilir.
+            ad = ilk_ad.setdefault(_ad_anahtari(ad), ad)
             kod = kod_bul(ad)
             etiket, anahtar = madde_normallestir(k["madde"], ad, kod)
             if ad == MSUGT and (ek := ek_etiketi(k["mevzuat"])):
