@@ -59,7 +59,7 @@ def kaynak_adi(ad: str) -> str:
 
 
 def kaynak_turu(ad: str) -> str:
-    if ad in AD_KOD.values() or "sayılı" in ad and "Kanun" in ad and not ad.endswith("Yönetmeliği"):
+    if ad in AD_KOD and "Kanun" in ad or "sayılı" in ad and "Kanun" in ad and not ad.endswith("Yönetmeliği"):
         return "kanun"
     if re.match(r"(TMS|TFRS|BDS|KYS|SBDS|GDS|İHS)\s", ad):
         return "standart"
