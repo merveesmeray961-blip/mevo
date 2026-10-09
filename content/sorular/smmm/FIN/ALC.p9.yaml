@@ -1,0 +1,942 @@
+- id: SMMM-FIN-ALC-0016
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: senet yenileme ve iskonto
+  tip: hesaplama
+  zorluk: 1
+  kok: Bir işletmenin 72.000 TL nominal değerli, vadesine 60 gün kalan ve yıllık faiz oranı %5 olan bir alacak senedi bulunmaktadır.
+    Senette faiz oranı açıklandığından bu oran kullanılacaktır. Reeskont, basit faiz yöntemiyle nominal değer × yıllık faiz
+    oranı × kalan gün / 360 formülüne göre hesaplanacaktır. Buna göre reeskont tutarı kaç TL'dir?
+  secenekler:
+    A: 500 TL
+    B: 600 TL
+    C: 700 TL
+    D: 800 TL
+    E: 900 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'VUK md. 281''e göre senette faiz oranı açıklanmışsa bu oran esas alınır. Kökte verilen basit faiz reeskont
+      formülüyle 72.000 × %5 × 60/360 = 600 TL bulunur. Püf noktaları: Resmî iskonto haddi ancak senette faiz oranı açıklanmamışsa
+      devreye girer.'
+    celdiriciler:
+      A: 500 TL, 60 günlük süre veya faiz oranının eksik uygulanmasıyla elde edilen tipik bir düşük hesaplamadır.
+      C: 700 TL, verilen nominal değer, oran ve gün sayısının birlikte yanlış çarpılmasıyla elde edilir.
+      D: 800 TL, 60 günlük sürenin 360 günlük esasa yanlış çevrilmesi veya oran bazının hatalı alınması sonucudur.
+      E: 900 TL, nominal tutara faiz tutarının yanlış bir dönemle uygulanması sonucu oluşan yüksek hesaplamadır.
+    hesap_adimlari:
+    - 72.000 × 0,05 = 3.600 TL yıllık faiz tutarı.
+    - 3.600 × 60 / 360 = 600 TL reeskont.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 281
+    alinti: Vadesi gelmemiş olan senede bağlı alacaklar değerleme gününün kıymetine irca olunabilir. Bu takdirde, senette
+      faiz nispeti açıklanmış ise bu nispet, açıklanmamışsa Cumhuriyet Merkez Bankasının resmi iskonto haddi uygulanır.
+  gecerlilik:
+    baslangic: '1961-01-10'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 72000 * 0.05 * 60 / 360
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G01 #15'
+- id: SMMM-FIN-ALC-0017
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: ileri tarihli çek
+  tip: uygulama
+  zorluk: 2
+  kok: (U) A.Ş. 20 Aralık 2026'da müşterisinden, üzerinde 15 Ocak 2027 ödeme tarihi bulunan bir çek almıştır. Çek henüz bankaya
+    tahsil için verilmemiştir. İşletmenin bu çeki 31 Aralık 2026 itibarıyla hangi hesapta izlemesi uygundur?
+  secenekler:
+    A: 102 Bankalar
+    B: 101 Alınan Çekler
+    C: 121 Alacak Senetleri
+    D: 126 Verilen Depozito ve Teminatlar
+    E: 120 Alıcılar
+  dogru: B
+  aciklama:
+    dogru_neden: 'Kaynak metinde 101 hesabın, işletmeye verilmiş ve henüz tahsil için bankaya verilmemiş veya ciro edilmemiş
+      çekleri izlediği belirtilir. Püf noktaları: Çekin ileri tarihli olması tek başına onu alacak senedine dönüştürmez; soruda
+      çekin bankaya henüz verilmediği özellikle belirleyicidir.'
+    celdiriciler:
+      A: 102, bankalara yatırılan ve çekilen paraları izler; henüz tahsil edilmemiş alınan çek burada izlenmez.
+      C: 121 senetli ticari alacakları izler; kökteki araç çektir.
+      D: 126 üçüncü kişilere verilen depozito ve teminatlar içindir.
+      E: 120 mal ve hizmet satışından doğan alıcı alacaklarını izler; çekin kendisi 101'de izlenir.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 101. Alınan Çekler
+    alinti: Bu hesap gerçek ve tüzel kişiler tarafından işletmeye verilmiş olup, henüz tahsil için bankaya verilmemiş veya
+      ciro edilmemiş olan çeklerin izlenmesini sağlar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G03 #2'
+- id: SMMM-FIN-ALC-0018
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: depozito ve teminatlar
+  tip: hesaplama
+  zorluk: 2
+  kok: (E) A.Ş. 1 Mart 2026'da 40.000 TL depozito vermiştir. Depozitonun geri alınması 1 Ekim 2027'de beklenmektedir. Aynı
+    gün işletme 25.000 TL tutarında, 31 Aralık 2026'da geri alınacak başka bir teminat vermiştir. Bu iki tutarın ilk kayıtta
+    kullanılacak hesaplarının toplamı kaç TL'dir?
+  secenekler:
+    A: '126 hesabı: 25.000 TL; 226 hesabı: 40.000 TL'
+    B: '126 hesabı: 40.000 TL; 226 hesabı: 25.000 TL'
+    C: '126 hesabı: 65.000 TL; 226 hesabı: 0 TL'
+    D: '226 hesabı: 65.000 TL; 126 hesabı: 0 TL'
+    E: '126 hesabı: 15.000 TL; 226 hesabı: 50.000 TL'
+  dogru: A
+  aciklama:
+    dogru_neden: '25.000 TL''lik teminat 31 Aralık 2026''da geri alınacağından bir yıldan kısa vadelidir ve 126''da; 40.000
+      TL''lik depozito ise 1 Ekim 2027''de geri alınacağından bir yıldan uzun vadelidir ve 226''da izlenir. Toplam tutar 65.000
+      TL''dir. Püf noktaları: Sınıflandırmada işlem türü kadar vade de belirleyicidir.'
+    celdiriciler:
+      B: Kısa ve uzun vadeli tutarları ters sınıflandırmıştır.
+      C: 126 toplamı 65.000 olamaz; 40.000 TL'lik tutarın vadesi bir yıldan uzundur.
+      D: İki tutarın da uzun vadeli sayılması kaynak koşuluna aykırıdır.
+      E: Tutarlar verilen vadelerden farklı bölünmüştür.
+    hesap_adimlari:
+    - 25.000 TL kısa vadeli → 126; 40.000 TL uzun vadeli → 226.
+    - Toplam verilen depozito ve teminat = 25.000 + 40.000 = 65.000 TL.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 126. Verilen Depozito ve Teminatlar
+    alinti: İşletmece üçüncü kişilere karşı bir işin yapılmasının üstlenilmesi veya bir sözleşmenin ya da diğer işlemlerin
+      karşılığı olarak geri alınmak üzere verilen depozito ve teminat niteliğindeki değerlerin izlendiği hesaptır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 226. Verilen Depozito ve Teminatlar
+    alinti: İşletmede, üçüncü kişilere karşı bir işin yapılmasının üstlenilmesi ve bir akdin karşılığı olarak, geri alınmak
+      üzere verilen, bir yıldan uzun süreli depozito ve teminat niteliğindeki değerlerin izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 25000 + 40000
+  durum: geri_cekildi
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G03 #12'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'durum: taslak → geri_cekildi.'
+    neden: otomatik kapı hatası veya bankada aynı kök
+- id: SMMM-FIN-ALC-0019
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: akreditif
+  tip: kavrama
+  zorluk: 3
+  kok: '(P) A.Ş. ithalat işlemi için bankasına akreditif teyidi vermiştir. İşlem nedeniyle işletmenin bilançosunda pasif kalemlerinde
+    ayrıca bir borç kaydı doğmadığı, ancak üçüncü kişilere karşı bir sorumluluk ilişkisi oluştuğu varsayılmaktadır.
+
+    I. Akreditif teyitlerinden doğan sorumluluklar TTK md. 77 kapsamındadır.
+
+    II. Bu tür sorumluluklar pasifte gösterilmemişse bilanço altında veya ekte açıklanır.
+
+    III. Akreditif teyidi doğrudan ticari mal maliyetine eşittir.
+
+    Hangisi doğrudur?'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: II ve III
+    E: I, II ve III
+  dogru: C
+  aciklama:
+    dogru_neden: 'TTK md. 77, akreditif teyitlerinden doğan sorumlulukları sayar ve pasifte gösterilmemişlerse bilançonun
+      altında veya ekte açıklanacağını düzenler. III ise sorumluluk ilişkisinin doğrudan ticari mal maliyeti olduğu sonucunu
+      desteklemez. Püf noktaları: Akreditif teyidinde sorumluluk ilişkisinin bilanço dışı açıklama boyutunu, malın maliyetinden
+      ayrı düşünün.'
+    celdiriciler:
+      A: II de doğru olduğu için yalnız I eksik kalır.
+      B: I de doğru olduğu için yalnız II eksik kalır.
+      D: III kaynakta desteklenmediğinden II-III birlikte doğru değildir.
+      E: III yanlış olduğu için üçü birlikte doğru olamaz.
+  kaynaklar:
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 77/1
+    alinti: Bono düzenlenmesi ile poliçe ve çek düzenlenmesinden, devrinden, poliçenin kabulünden, kefaletlerden, avalden,
+      garanti sözleşmelerinden, akreditif teyitlerinden, üçüncü kişilerin borçları için verilen teminatlardan, üçüncü kişiler
+      lehine taahhütlerden doğan sorumluluklar ile Türkiye Muhasebe Standartlarında öngörülen diğer sorumluluklar pasifte
+      gösterilmemişlerse, bilançonun altında veya ekte Türkiye Muhasebe Standartlarına göre açıklanır.
+  gecerlilik:
+    baslangic: '2011-07-14'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G03 #21'
+- id: SMMM-FIN-ALC-0020
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: şüpheli alacak (128/129/689/654)
+  tip: uygulama
+  zorluk: 2
+  kok: (P) A.Ş.'nin ticari faaliyetinden doğan 40.000 TL tutarında bir alacağı dava safhasındadır. Alacağın 10.000 TL'lik
+    kısmı teminatla güvence altındadır ve kalan 30.000 TL için başka bir teminat bulunmamaktadır. İşletme değerleme gününde
+    karşılık ayırmak istemektedir. VUK 323'e göre karşılık ayrılabilecek tutar kaç TL'dir?
+  secenekler:
+    A: 10.000 TL
+    B: 20.000 TL
+    C: 30.000 TL
+    D: 40.000 TL
+    E: 50.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: Dava safhasındaki ticari alacak şüpheli alacak kapsamındadır; ancak teminatlı alacaklarda karşılık teminattan
+      geri kalan miktarla sınırlıdır. 40.000 TL - 10.000 TL = 30.000 TL.
+    celdiriciler:
+      A: Teminat tutarını karşılık ayrılabilecek tutar sanır.
+      B: Toplam alacaktan teminatın yalnız yarısını düşen hatalı hesaplamadır.
+      D: Teminat kuralını göz ardı ederek alacağın tamamına karşılık ayırır.
+      E: Alacağın üzerine teminat tutarını ekleyen hatalı hesaplamadır.
+    hesap_adimlari:
+    - 40.000 - 10.000 = 30.000 TL
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 323
+    alinti: Dava veya icra safhasında bulunan alacaklar;
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 323
+    alinti: Teminatlı alacaklarda bu karşılık teminattan geri kalan miktara inhisar eder.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: sonuc = 40000 - 10000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G06 #15'
+- id: SMMM-FIN-ALC-0021
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: ileri tarihli çek
+  tip: kavrama
+  zorluk: 2
+  kok: Tekdüzen Muhasebe Sistemi ile vergi uygulamasının ileri tarihli çeklere yaklaşımı birlikte değerlendirildiğinde aşağıdakilerden
+    hangisi doğrudur?
+  secenekler:
+    A: Her iki uygulamada da ileri tarihli çekler yalnızca kasa hesabında izlenir.
+    B: Vergi uygulamasında normal çek, Muhasebe Sisteminde ise alacak veya borç senedi kabul edilerek reeskonta tabi tutulur.
+    C: Vergi uygulamasında alacak veya borç senedi, Muhasebe Sisteminde normal çek kabul edilir ve reeskont uygulanmaz.
+    D: İleri tarihli çekler her iki uygulamada da reeskonta tabi tutulmaz.
+    E: İleri tarihli çekler vergi uygulamasında borç senedi, Muhasebe Sisteminde ise yalnızca nakit değer kabul edilir.
+  dogru: B
+  aciklama:
+    dogru_neden: Kaynak, vergi uygulamasında ileri tarihli çeklerin normal çek; Muhasebe Sisteminde ise özün önceliği gereğince
+      alacak veya borç senedi kabul edildiğini ve reeskonta tabi tutulduğunu belirtir.
+    celdiriciler:
+      A: Kaynakta iki sistemin aynı yaklaşımı benimsediği söylenmemektedir.
+      C: Kaynakta vergi uygulaması ile Muhasebe Sisteminin yönleri bunun tersidir.
+      D: Muhasebe Sistemi açısından reeskont uygulaması açıkça belirtilmiştir.
+      E: Kaynak, vergi uygulamasında borç senedi sınıflamasını değil normal çek kabulünü belirtmektedir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliğleri – Sıra No 2–15
+    madde: ilgili açıklama
+    alinti: ileri tarihli çekler vergi uygulamasında normal çek olarak kabul edilirken, Muhasebe Sisteminde "özün önceliği
+      kuralı" gereğince alacak ya da borç senedi olarak kabul edilmekte ve reeskonta tabi tutulmaktadır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G09 #1'
+- id: SMMM-FIN-ALC-0022
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: depozito ve teminatlar
+  tip: uygulama
+  zorluk: 3
+  kok: Bir işletme, müşterisinden sözleşme teminatı olarak 70.000 TL nakit almıştır. Tutarın 9 ay içinde iade edilmesi beklenmektedir.
+    İşletme bu tutarı hangi hesapta izlemelidir?
+  secenekler:
+    A: 126 Verilen Depozito ve Teminatlar
+    B: 226 Verilen Depozito ve Teminatlar
+    C: 326 Alınan Depozito ve Teminatlar
+    D: 426 Alınan Depozito ve Teminatlar
+    E: 340 Alınan Sipariş Avansları
+  dogru: C
+  aciklama:
+    dogru_neden: Tutar işletme tarafından verilmemiş, müşteriden alınmıştır ve kısa vadelidir. Bu nedenle 326 Alınan Depozito
+      ve Teminatlar hesabı kullanılır.
+    celdiriciler:
+      A: 126 verilen depozito ve teminatları, yani işletmenin verdiği tutarları izler.
+      B: 226 verilen depozito ve teminatların duran varlık niteliğindeki kısmıdır; ayrıca olayda tutar alınmıştır.
+      D: 426 alınan depozito ve teminatların uzun vadeli hesabıdır; burada iade süresi 9 aydır.
+      E: Olay sözleşme teminatıdır, sipariş avansı değildir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Tekdüzen Hesap Planı
+    madde: '326'
+    alinti: 326. ALINAN DEPOZİTO VE TEMİNATLAR
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G09 #11'
+- id: SMMM-FIN-ALC-0023
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: akreditif
+  tip: kavrama
+  zorluk: 2
+  kok: 'Aşağıdaki üç durum için TTK md. 77/1''deki sonuçları eşleştiriniz: (I) akreditif teyitinden doğan sorumluluk pasifte
+    gösterilmemiştir; (II) üçüncü kişinin borcu için verilen teminat pasifte zaten gösterilmiştir; (III) üçüncü kişiler lehine
+    taahhütten doğan sorumluluk pasifte gösterilmemiştir. Hangi seçenek doğru eşleştirmedir?'
+  secenekler:
+    A: I- açıklanır; II- md. 77/1 kapsamında ayrıca açıklanmaz; III- açıklanır
+    B: I- açıklanmaz; II- açıklanır; III- açıklanmaz
+    C: I- açıklanır; II- açıklanır; III- açıklanmaz
+    D: I- açıklanmaz; II- açıklanmaz; III- açıklanır
+    E: I- yalnız dipnotta; II- bilanço altında; III- yalnız dipnotta
+  dogru: A
+  aciklama:
+    dogru_neden: Md. 77/1, sayılan sorumlulukların pasifte gösterilmemiş olmaları halinde bilançonun altında veya ekte açıklanmasını
+      öngörür. Bu nedenle I ve III açıklanır; II zaten pasifte gösterildiğinden bu özel açıklama koşulu oluşmaz.
+    celdiriciler:
+      B: I ve III için açıklama sonucunu ters çevirmektedir.
+      C: II için ayrıca açıklama sonucuna varmaktadır; oysa pasifte gösterilmemiş olma şartı gerçekleşmemiştir.
+      D: I için açıklama sonucunu ters çevirmektedir.
+      E: Madde yalnız dipnot veya yalnız bilanço altı şeklinde bir ayrım kurmamaktadır; 'bilançonun altında veya ekte' demektedir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 77/1
+    alinti: 'Bono düzenlenmesi ile poliçe ve çek düzenlenmesinden, devrinden,
+
+      poliçenin kabulünden, kefaletlerden, avalden, garanti sözleşmelerinden, akreditif teyitlerinden,
+
+      üçüncü kişilerin borçları için verilen teminatlardan, üçüncü kişiler lehine taahhütlerden doğan
+
+      sorumluluklar ile Türkiye Muhasebe Standartlarında öngörülen diğer sorumluluklar pasifte
+
+      gösterilmemişlerse, bilançonun altında veya ekte Türkiye Muhasebe Standartlarına göre
+
+      açıklanır.'
+  gecerlilik:
+    baslangic: '2012-07-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G09 #22'
+- id: SMMM-FIN-ALC-0024
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: senet yenileme ve iskonto
+  tip: hesaplama
+  zorluk: 1
+  kok: Bir işletmenin bilanço tarihinde 150.000 TL alacak senedi ve 90.000 TL borç senedi bulunmaktadır. İşletme alacak senetlerini
+    değerleme gününün kıymetine irca etmeyi seçmiştir. Vergi Usul Kanunu bakımından aynı tarihte reeskonta tabi tutulması
+    gereken senetlerin toplam nominal tutarı kaç TL’dir?
+  secenekler:
+    A: 60.000 TL
+    B: 90.000 TL
+    C: 150.000 TL
+    D: 180.000 TL
+    E: 240.000 TL
+  dogru: E
+  aciklama:
+    dogru_neden: Doğru cevap E’dir. Alacak senetlerini değerleme gününün kıymetine irca eden mükellef, borç senetlerini de
+      aynı şekilde işleme tabi tutmak zorundadır. Bu nedenle 150.000 + 90.000 = 240.000 TL nominal tutar kapsamda olur.
+    celdiriciler:
+      A: Borç senetlerini kapsam dışı bırakır.
+      B: Yalnız borç senetlerini esas alır.
+      C: Yalnız alacak senetlerini esas alır.
+      D: İki tutarın farkını reeskonta tabi toplam sanır.
+    hesap_adimlari:
+    - 'Alacak senetleri: 150.000 TL.'
+    - 'Borç senetleri: 90.000 TL.'
+    - 'Toplam: 150.000 + 90.000 = 240.000 TL.'
+  kaynaklar:
+  - mevzuat: Vergi Usul Kanunu
+    madde: md. 285
+    alinti: '(Ek: 4/12/1985-3239/22 md.) Alacak senetlerini değerleme gününün kıymetine irca eden mükellefler, borç senetlerini
+      de aynı şekilde işleme tabi tutmak zorundadırlar.'
+  gecerlilik:
+    baslangic: '1985-12-04'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: toplam = 150000 + 90000; assert toplam == 240000
+  durum: geri_cekildi
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G12 #4'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'durum: taslak → geri_cekildi.'
+    neden: otomatik kapı hatası veya bankada aynı kök
+- id: SMMM-FIN-ALC-0025
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: şüpheli alacak (128/129/689/654)
+  tip: hesaplama
+  zorluk: 2
+  kok: İşletmenin ticari faaliyetinden doğan 100.000 TL tutarında bir alacağı dava safhasındadır. Alacağın 30.000 TL’lik kısmı
+    geçerli bir teminatla güvence altındadır. İşletme, şüpheli alacak karşılığı ayıracaktır. Teminatlı alacaklarda karşılığın
+    teminatı aşan kısım için ayrılacağı dikkate alındığında karşılık konusu olabilecek tutar kaç TL’dir?
+  secenekler:
+    A: 30.000 TL
+    B: 70.000 TL
+    C: 100.000 TL
+    D: 130.000 TL
+    E: 0 TL
+  dogru: B
+  aciklama:
+    dogru_neden: Doğru cevap B’dir. VUK md. 323’e göre teminatlı alacaklarda karşılık teminatı aşan kısma inhisar eder. 100.000
+      - 30.000 = 70.000 TL karşılık konusu olabilir.
+    celdiriciler:
+      A: Teminat tutarını karşılık konusu alacak olarak almıştır.
+      C: Teminatı dikkate almadan toplam alacağı esas almıştır.
+      D: Teminatı alacağa eklemiştir.
+      E: Dava safhasındaki alacağın şüpheli olamayacağını varsaymıştır.
+    hesap_adimlari:
+    - 'Toplam alacak: 100.000 TL.'
+    - 'Teminat: 30.000 TL.'
+    - 'Karşılık konusu: 100.000 - 30.000 = 70.000 TL.'
+  kaynaklar:
+  - mevzuat: Vergi Usul Kanunu
+    madde: md. 323
+    alinti: Yukarıda yazılı şüpheli alacaklar için değerleme gününün tasarruf değerine göre pasifte karşılık ayrılabilir.
+      Bu karşılığın hangi alacaklara ait olduğu karşılık hesabında gösterilir. Teminatlı alacaklarda bu karşılık teminattan
+      geri kalan miktara inhisar eder.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: karsilik_tutari = 100000 - 30000; assert karsilik_tutari == 70000
+  durum: geri_cekildi
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G12 #16'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'durum: taslak → geri_cekildi.'
+    neden: otomatik kapı hatası veya bankada aynı kök
+- id: SMMM-FIN-ALC-0026
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: şüpheli alacak (128/129/689/654)
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin 128 Şüpheli Ticari Alacaklar hesabında 100.000 TL alacağı ve bu alacak için daha önce 100.000 TL karşılık
+    ayrılmıştır. Dönem içinde alacağın 30.000 TL'si tahsil edilmiş, kalan alacağın tahsil edilememesi kesinleşmemiştir. Tahsil
+    nedeniyle gerçekleşmeyen karşılık kısmı için yapılacak düzeltme tutarı kaç TL'dir?
+  secenekler:
+    A: 0 TL
+    B: 10.000 TL
+    C: 20.000 TL
+    D: 30.000 TL
+    E: 70.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: '100.000 TL karşılık ayrılmışken 30.000 TL tahsil edilmesi, tahmin edilen zararın 30.000 TL''lik kısmının
+      gerçekleşmemesi anlamına gelir; bu kısım 644''e aktarılır. Püf noktaları: Kalan alacak 70.000 TL olsa da çözülen karşılık
+      tutarı tahsil edilen kısma karşılık gelir.'
+    celdiriciler:
+      A: Tahsilat nedeniyle karşılığın bir kısmı çözülür.
+      B: 10.000 TL kökteki verilere göre hesaplanmaz.
+      C: 20.000 TL doğru düzeltme tutarı değildir.
+      E: 70.000 TL kalan alacak tutarıdır, çözülecek karşılık değildir.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 129. Şüpheli Ticari Alacaklar Karşılığı (-) — İşleyişi
+    alinti: Şüpheli alacağın tahsiline bağlı olarak, tahmin olunan zararın kısmen ya da tamamen gerçekleşmemesi halinde, gerçekleşmeyen
+      kısım "644. Konusu Kalmayan Karşılıklar Hesabı" alacağına devredilerek bu hesaba borç kaydedilir.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 323
+    alinti: Şüpheli alacakların sonradan tahsil edilen miktarları tahsil edildikleri dönemde kar-zarar hesabına intikal ettirilir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 30000
+  durum: geri_cekildi
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır GPT_FIN-2026-10-08v2-G02 #19'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'durum: taslak → geri_cekildi.'
+    neden: otomatik kapı hatası veya bankada aynı kök
+- id: SMMM-FIN-ALC-0027
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: ileri tarihli çek
+  tip: uygulama
+  zorluk: 2
+  kok: Bir işletme, üzerinde 18 Ekim 2026 düzenlenme günü bulunan bir çeki 12 Ekim 2026 tarihinde bankaya ödeme için ibraz
+    etmiştir. Türk Ticaret Kanunu açısından çekin ödeme günü ve ödenmesi gereken tarih aşağıdakilerden hangisidir?
+  secenekler:
+    A: 18 Ekim 2026; çek üzerinde yazılı tarihten önce ödenemez.
+    B: 19 Ekim 2026; düzenlenme gününün ertesi günü ödeme yapılır.
+    C: 12 Ekim 2026; düzenlenme günü olarak gösterilen tarihten önce ibraz edildiği için ibraz günü ödenir.
+    D: İbraz süresi dolana kadar; ödeme günü ayrıca belirlenir.
+    E: 18 Ekim 2026; ancak düzenleyenin ayrıca onay vermesi hâlinde 12 Ekim'de ödenebilir.
+  dogru: C
+  aciklama:
+    dogru_neden: Türk Ticaret Kanunu md. 795/2, düzenlenme günü olarak gösterilen günden önce ödeme için ibraz edilen çekin
+      ibraz günü ödeneceğini düzenler. Bu nedenle 12 Ekim'deki ibrazda ödeme tarihi 12 Ekim 2026'dır.
+    celdiriciler:
+      A: Çekin üzerinde yazılı tarihin ödeme günü olduğu varsayılmıştır; md. 795/2 erken ibrazı ayrıca düzenler.
+      B: Kanunda düzenlenme gününün ertesi günü şeklinde bir ödeme kuralı yoktur.
+      D: Erken ibraz hâlinde ödeme gününü belirlemek için ayrıca bir tarih belirlenmesi gerekmez.
+      E: Düzenleyenin ayrıca onayı kanunda aranan bir şart değildir.
+  kaynaklar:
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 795/2
+    alinti: Düzenlenme günü olarak gösterilen günden önce ödenmek için ibraz olunan çek, ibraz günü ödenir.
+  gecerlilik:
+    baslangic: '2012-07-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır merve_FIN-2026-10-08v2-G07 #2'
+- id: SMMM-FIN-ALC-0028
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Alacaklar ve senetler
+  konu: ALC
+  kazanim: depozito ve teminatlar
+  tip: uygulama
+  zorluk: 3
+  kok: Bir işletmenin 426 Alınan Depozito ve Teminatlar hesabında izlediği 90.000 TL tutarındaki depozitonun bilanço tarihinde
+    geri verilmesine 8 ay kalmıştır. Tutar henüz iade edilmemiştir. Bu durumda doğru aktarım kaydı aşağıdakilerden hangisidir?
+  secenekler:
+    A: 426 B 90.000 / 326 A 90.000
+    B: 350 B 90.000 / 426 A 90.000
+    C: 426 B 90.000 / 350 A 90.000
+    D: 350 B 90.000 / 326 A 90.000
+    E: 326 B 90.000 / 426 A 90.000
+  dogru: A
+  aciklama:
+    dogru_neden: '426 hesabında bulunan alınan depozito ve teminatın vadesi bilanço tarihinde bir yılın altına düştüğünde
+      426 borçlandırılır ve 326 Alınan Depozito ve Teminatlar hesabına aktarılır. Sekiz ay kaldığı için aktarım 426 B / 326
+      A şeklindedir. Püf noktaları: Vade ayrımı işlem tarihine değil bilanço tarihindeki kalan vadeye göre değerlendirilir.'
+    celdiriciler:
+      B: 426'nın kapatılması için hesabın borçlandırılması gerekir; ayrıca 350 bu işlemde kullanılmaz.
+      C: Tutar vergi borcu değildir; 350 kullanılmaz ve 326 kısa vadeli alınan depozito hesabıdır.
+      D: 426'nın yerine 326'ya aktarım yapılır; 350 kullanılmaz.
+      E: 326'nın borçlandırılması yanlıştır; kısa vadeli alınan depozito hesabı alacaklandırılır.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 426. Alınan Depozito ve Teminatlar
+    alinti: Alınan depozito ve teminatlar bu hesabın alacağına, geri verilenler veya hesaba sayılanlarla, geri verilmemiş
+      bilanço gününde vadeleri bir yılın altına düşenler bu hesabın borcuna yazılarak "326. Alınan Depozito ve Teminatlar
+      Hesabı"na aktarılarak kapatılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır merve_FIN-2026-10-08v2-G07 #12'

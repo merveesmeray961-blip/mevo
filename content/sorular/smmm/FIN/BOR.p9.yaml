@@ -1,0 +1,1418 @@
+- id: SMMM-FIN-BOR-0020
+  sinav: smmm
+  bolum:
+  - YET
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: kur farkı
+  tip: hesaplama
+  zorluk: 3
+  kok: (F) A.Ş., 1 Ekim 2026'da 50.000 USD tutarında banka kredisi kullanmış ve krediyi 1 USD = 32 TL kurundan 300 Banka Kredileri
+    hesabına kaydetmiştir. 31 Aralık 2026'da kredi tamamen ödenmemiştir ve bilanço günü kuru 35 TL'dir. Faiz dikkate alınmayacaktır.
+    Buna göre dönem sonu değerlemesinde oluşan kur farkının tutarı ve kaydedileceği sonuç hesabı hangisidir?
+  secenekler:
+    A: 150.000 TL; 656 Kambiyo Zararları
+    B: 150.000 TL; 780 Finansman Giderleri
+    C: 100.000 TL; 780 Finansman Giderleri
+    D: 50.000 TL; 780 Finansman Giderleri
+    E: 150.000 TL; 646 Kambiyo Kârları
+  dogru: B
+  aciklama:
+    dogru_neden: 'VUK md. 280 yabancı para borçların da değerleme hükümlerine tabi olduğunu belirtir. 50.000 USD × (35−32)
+      = 150.000 TL kur farkıdır. MSUGT''de borçlanma ile ilgili kur farklarının 656 Kambiyo Zararları hesabına alınmayıp finansman
+      gideri olarak muhasebeleştirileceği belirtilmiştir. Bu nedenle sonuç 780 Finansman Giderleri''dir. Püf noktaları: Tutarı
+      bulmak tek başına yeterli değildir; borçlanmaya ilişkin kur farkının 656 yerine finansman gideri olarak sınıflandırılması
+      ikinci adımdır.'
+    celdiriciler:
+      A: Tutar doğru olsa da borçlanma ile ilgili kur farkının 656'ya alınmaması gerekir.
+      C: Kur farkı yalnız 3 TL değil, 32 TL kayıtlı kurdan 35 TL bilanço kuruna kadar olan 3 TL farkın 50.000 USD ile çarpılmasıdır.
+      D: Kur farkı 1 TL kabul edilerek hesaplanmıştır.
+      E: Borç yükseldiği için kâr değil zarar oluşur; ayrıca borçlanma kur farkı finansman gideridir.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 280
+    alinti: 'Yabancı paralar borsa rayici ile değerlenir. Borsa rayicinin takarrüründe muvazaa olduğu anlaşılırsa bu rayiç
+      yerine alış bedeli esas alınır. Yabancı paranın borsada rayici yoksa, değerlemeye uygulanacak kur Maliye Bakanlığınca
+      tesbit olunur. (Değişik: 22/7/1998-4369/7 md.) Bu madde hükmü yabancı para ile olan senetli veya senetsiz alacaklar
+      ve borçlar hakkında da caridir.'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 656. Kambiyo Zararları
+    alinti: Kambiyo zararlarının izlendiği hesaptır. (Borçlanma ile ilgili kur farkları bu hesaba alınmaz, finansman gideri
+      olarak muhasebeleştirilir.)
+  gecerlilik:
+    baslangic: '1961-01-10'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 50000 * (35 - 32)
+  durum: geri_cekildi
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-06-G04 #13'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'durum: taslak → geri_cekildi.'
+    neden: otomatik kapı hatası veya bankada aynı kök
+- id: SMMM-FIN-BOR-0021
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: bono ve tahvil ihracı (305/308/405/408)
+  tip: kavrama
+  zorluk: 2
+  kok: 'Bir işletme aynı tarihte iki finansman aracı ihraç etmiştir: 6 ay vadeli finansman bonosu ve vadesine 20 ay kalan,
+    nominal değerinin altında ihraç edilmiş tahvil. Aşağıdaki öncüllerden hangileri doğrudur?
+
+    I. 6 ay vadeli finansman bonosu 305 hesapta izlenir.
+
+    II. Vadesi bir yılı aşan tahvil 405 hesapta izlenir.
+
+    III. Nominal değer ile satış fiyatı arasındaki gelecek yıllara ait fark 408 hesapta izlenebilir.'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: II ve III
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: '305 kısa vadeli finansman bonosu ve banka bonosu gibi araçları; 405 vadesi bir yılı aşan tahvilleri; 408
+      ise nominal değerinin altında ihraç edilen tahvil ve benzeri araçların gelecek yıllara ait ihraç farkını izler. Bu nedenle
+      üç öncül de doğrudur. Püf noktaları: 305/405 ayrımında esas belirleyici vade, 408''de ise nominal değer ile satış fiyatı
+      arasındaki farktır.'
+    celdiriciler:
+      A: II ve III de doğrudur; 305 yalnız I'i açıklamaz.
+      B: II doğrudur ancak I ve III de kaynakla uyumludur.
+      C: III de doğru olduğu için yalnız I-II seçeneği eksiktir.
+      D: I de doğru olduğundan yalnız II-III seçeneği eksiktir.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 305. Çıkarılmış Bonolar ve Senetler
+    alinti: Tedavüldeki finansman bonoları ve banka bonoları gibi kısa vadeli para ve sermaye piyasası araçları karşılığında
+      sağlanan fonlar bu hesapta izlenir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 405. Çıkarılmış Tahviller
+    alinti: İşletme tarafından çıkarılmış bulunan tahvillerden vadesi bir yılı aşanlar bu hesapta izlenir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 408. Menkul Kıymetler İhraç Farkı (-)
+    alinti: Nominal değerinin altında ihraç edilen tahvil, senet ve diğer menkul kıymetlerin nominal değerleri ile satış fiyatı
+      arasındaki farkın gelecek yıllara ait olan kısmı bu hesapta izlenir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G03 #3'
+- id: SMMM-FIN-BOR-0022
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: kur farkı
+  tip: kavrama
+  zorluk: 2
+  kok: (I) A.Ş. yabancı para cinsinden bir borcunu dönem sonunda değerlemiştir. Borcun yabancı para olması nedeniyle oluşan
+    değerleme farkının muhasebe niteliğini aşağıdaki eşleştirmelerden hangisi doğru açıklar?
+  secenekler:
+    A: Yabancı para borcu değerleme farkı → kambiyo kârı/zararı; borçlanma ile ilgili gider farkı → finansman giderleri
+    B: Yabancı para borcu değerleme farkı → satış iskontosu; borçlanma ile ilgili gider farkı → karşılık gideri
+    C: Yabancı para borcu değerleme farkı → iştirak geliri; borçlanma ile ilgili gider farkı → stok maliyeti
+    D: Yabancı para borcu değerleme farkı → reeskont geliri; borçlanma ile ilgili gider farkı → satış maliyeti
+    E: Yabancı para borcu değerleme farkı → özel fon; borçlanma ile ilgili gider farkı → yasal yedek
+  dogru: A
+  aciklama:
+    dogru_neden: 'VUK md. 280 yabancı paraların değerlenmesini düzenler. THP açıklamasında ayrıca borçlanma ile ilgili kur
+      farklarının kambiyo zararlarına alınmayıp finansman gideri olarak muhasebeleştirildiği belirtilir. Püf noktaları: Yabancı
+      para değerlemesinin genel kuralı ile borçlanmaya ilişkin giderin hesap sınıfını birlikte düşünün.'
+    celdiriciler:
+      B: Kur farkı satış iskontosu değildir; borçlanma gideri de karşılık hesabına alınmaz.
+      C: Kur farkı iştirak geliri değildir; borçlanma giderinin stok maliyeti olarak gösterileceği kaynakta belirtilmemiştir.
+      D: Reeskont ile kur farkı farklı işlemlerdir.
+      E: Kaynakta bu farkların özel fon veya yasal yedek olarak sınıflandırılması öngörülmez.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 280
+    alinti: Yabancı paralar borsa rayici ile değerlenir. Borsa rayicinin takarrüründe muvazaa olduğu anlaşılırsa bu rayiç
+      yerine alış bedeli esas alınır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 656. Kambiyo Zararları
+    alinti: Kambiyo zararlarının izlendiği hesaptır. (Borçlanma ile ilgili kur farkları bu hesaba alınmaz, finansman gideri
+      olarak muhasebeleştirilir.)
+  gecerlilik:
+    baslangic: '1961-01-10'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G03 #13'
+- id: SMMM-FIN-BOR-0023
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: stopaj
+  tip: uygulama
+  zorluk: 3
+  kok: (P) A.Ş. bir ödeme sırasında vergi kesintisi yapmış ve kesilen tutarı henüz vergi dairesine ödememiştir. Borcun bir
+    yıldan daha uzun süre için ertelendiği veya takside bağlandığı da ayrıca kesinleşmiştir. Aşağıdakilerden hangisi **yanlıştır**?
+  secenekler:
+    A: Vergi kesintisinden doğan borç, ödenene kadar vergi ve fonlar hesabında izlenebilir.
+    B: Tahakkuk gerektiren işlem ortaya çıktığında ilgili vergi hesabı alacaklanır.
+    C: Ödeme yapıldığında ilgili vergi hesabı borçlanır.
+    D: Bir yıldan uzun süre ertelenen veya takside bağlanan vergi borcu 438 hesabına aktarılır.
+    E: Stopaj borcu doğduğu anda doğrudan 500 Sermaye hesabına aktarılır.
+  dogru: E
+  aciklama:
+    dogru_neden: '360 açıklaması, işletmenin üçüncü kişilerle ilgili olarak sorumlu sıfatıyla ödeyeceği vergilerin bu grupta
+      izlendiğini; tahakkukta alacak, ödemede borç çalıştığını ve bir yıldan uzun ertelenen vergilerin 438''e aktarılacağını
+      belirtir. Sermaye hesabına aktarım yoktur. Püf noktaları: Stopajın işletme açısından gelir veya sermaye değil, mevzuattan
+      doğan bir vergi borcu olduğunu; uzun vadeli ertelemede 438 aktarımını ayrıca izleyin.'
+    celdiriciler:
+      A: 360 vergi ve fonların izlendiği hesaptır.
+      B: Kaynak tahakkukta hesabın alacaklanacağını söyler.
+      C: Kaynak ödemelerde hesabın borçlanacağını söyler.
+      D: Kaynak bir yıldan uzun ertelenmiş veya taksitlendirilmiş vergiler için 438'i açıkça belirtir.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 360. Ödenecek Vergi ve Fonlar
+    alinti: İşletmenin ekonomik faaliyetlerde bulunmasının sonucu ilgili mali mevzuat uyarınca mükellef veya sorumlu sıfatıyla
+      işletmenin kendisine, personeline ve üçüncü kişilere ilişkin olarak ödenmesi gereken vergi, resim, harç ve fonların
+      izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G03 #22'
+- id: SMMM-FIN-BOR-0024
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: kur farkı
+  tip: kavrama
+  zorluk: 2
+  kok: Yabancı para cinsinden bir banka kredisi dönem sonunda değerlenmiş ve kur değişimi nedeniyle borcun TL karşılığında
+    artış oluşmuştur. Bu artışın niteliği bakımından aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Kur farkı hiçbir koşulda muhasebeleştirilmez.
+    B: Kur değişiminden doğan kazanç veya kayıp, nakit hareketine neden olmadığından nakit akışı olarak nitelenmez.
+    C: Kur farkı her durumda satış geliri sayılır.
+    D: Kur farkı yalnız özkaynakta izlenir.
+    E: Kur farkı yalnız tahsilat gerçekleştiğinde oluşur.
+  dogru: B
+  aciklama:
+    dogru_neden: BOBİ FRS 2.20, döviz kurlarındaki değişimlerden doğan kazanç ve kayıpların nakit hareketine neden olmadığını
+      ve nakit akışı olarak nitelendirilmediğini belirtir.
+    celdiriciler:
+      A: Kaynak kur değişiminden doğan kazanç ve kayıpları açıkça düzenler.
+      C: Kur farkının her durumda satış geliri olduğu kaynakta yer almaz.
+      D: Kaynak kur farklarını yalnız özkaynakla sınırlamaz.
+      E: Değerleme kaynaklı kur farkı nakit hareketi olmadan da ortaya çıkabilir.
+  kaynaklar:
+  - mevzuat: BOBİ FRS
+    madde: '2.20'
+    alinti: Döviz kurlarındaki değişimler nedeniyle değerlemeden ortaya çıkan kazanç ve kayıp tutarları, nakit hareketine
+      neden olmadığından nakit akışı olarak nitelendirilmez.
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G05 #14'
+- id: SMMM-FIN-BOR-0025
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: stopaj
+  tip: hesaplama
+  zorluk: 3
+  kok: İşletmenin 360 Ödenecek Vergi ve Fonlar hesabında önceki dönemden 18.000 TL stopaj borcu bulunmaktadır. Cari dönemde
+    yaptığı bir ödeme nedeniyle 12.000 TL yeni stopaj doğmuş ve dönem içinde vergi dairesine 10.000 TL ödeme yapılmıştır.
+    Dönem sonunda 360 hesabının stopajdan kaynaklanan bakiyesi kaç TL'dir?
+  secenekler:
+    A: 8.000 TL
+    B: 10.000 TL
+    C: 18.000 TL
+    D: 20.000 TL
+    E: 30.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: '360 hesabında önceki 18.000 TL borç, yeni stopajla 12.000 TL artar; yapılan 10.000 TL ödeme hesabı azaltır.
+      Kalan borç 18.000 + 12.000 - 10.000 = 20.000 TL''dir. Püf noktaları: Stopajın tahakkuku 360''ı artırır, vergi dairesine
+      ödeme ise aynı hesabı azaltır.'
+    celdiriciler:
+      A: Yalnız 18.000 - 10.000 işlemi yapılmış, yeni 12.000 TL stopaj unutulmuştur.
+      B: Yalnız cari stopajdan ödeme düşülmüştür.
+      C: Ödeme dikkate alınmamıştır.
+      E: 18.000 + 12.000 toplanmış, 10.000 TL ödeme düşülmemiştir.
+    hesap_adimlari:
+    - 'Başlangıç borcu: 18.000 TL'
+    - 'Yeni stopaj: 18.000 + 12.000 = 30.000 TL'
+    - 'Ödeme: 30.000 - 10.000 = 20.000 TL'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı
+    madde: 360. Ödenecek Vergi ve Fonlar — İşleyişi
+    alinti: Vergi, resim, harçların tahakkuk ettirilmesini gerektiren olaylar ve işlemler ortaya çıktıkça anılan hesaplar
+      alacaklanır, ödemeler yapıldıkça borçlanır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 18000 + 12000 - 10000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G05 #23'
+- id: SMMM-FIN-BOR-0026
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: banka kredileri ve faiz tahakkuku
+  tip: uygulama
+  zorluk: 1
+  kok: 'Aşağıdaki dört finansman unsurunun Tekdüzen Hesap Planındaki ilgili hesaplarla eşleştirilmesi hangi seçenekte doğru
+    verilmiştir?
+
+
+    I. Vadesi kısa olan banka kredisi
+
+    II. Uzun vadeli kredinin bilanço tarihinden itibaren bir yıl içinde ödenecek anapara taksiti ve tahakkuk etmiş faizi
+
+    III. Kısa vadeli finansman bonosu
+
+    IV. Vadesi bir yılı aşan çıkarılmış tahvil'
+  secenekler:
+    A: I-300, II-303, III-305, IV-405
+    B: I-303, II-300, III-305, IV-405
+    C: I-300, II-304, III-305, IV-405
+    D: I-300, II-303, III-405, IV-305
+    E: I-303, II-304, III-405, IV-305
+  dogru: A
+  aciklama:
+    dogru_neden: Kısa vadeli banka kredileri 300'de; uzun vadeli kredilerin bir yıl içinde ödenecek taksit ve tahakkuk etmiş
+      faizleri 303'te; kısa vadeli finansman bonoları 305'te; vadesi bir yılı aşan tahviller 405'te izlenir.
+    celdiriciler:
+      B: 300 ve 303 hesaplarının işlevlerini tersine çevirir.
+      C: Bir yıl içinde ödenecek uzun vadeli kredi taksit/faizini 304 tahvil hesabıyla karıştırır.
+      D: 305 kısa vadeli bonolar ile 405 uzun vadeli tahvilleri tersine çevirir.
+      E: Hem kredi taksit/faiz hem de tahvil sınıflamasını yanlış eşleştirir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği — Tekdüzen Hesap Planı
+    madde: 300 Banka Kredileri
+    alinti: 300. BANKA KREDİLERİ Bu hesap, banka ve diğer finans kuruluşlarından sağlanan kısa vadeli kredilere ilişkin tutarları
+      içeren hesap kalemidir.
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği — Tekdüzen Hesap Planı
+    madde: 303 Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri
+    alinti: Vadelerine bir yıldan fazla süre bulunmakla birlikte uzun vadeli kredilerin, bilanço tarihinden itibaren bir yıl
+      içinde ödenecek anapara taksitleri ile vadesi bir yılın altına düşenleri ve bunların tahakkuk ettiği halde henüz ödenmeyen
+      faizlerini kapsar.
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği — Tekdüzen Hesap Planı
+    madde: 305 Çıkarılmış Bonolar ve Senetler
+    alinti: Tedavüldeki finansman bonoları ve banka bonoları gibi kısa vadeli para ve sermaye piyasası araçları karşılığında
+      sağlanan fonlar bu hesapta izlenir.
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği — Tekdüzen Hesap Planı
+    madde: 405 Çıkarılmış Tahviller
+    alinti: İşletme tarafından çıkarılmış bulunan tahvillerden vadesi bir yılı aşanlar bu hesapta izlenir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G06 #8'
+- id: SMMM-FIN-BOR-0027
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: uzun vadeli borcun kısa vadeye aktarılması
+  tip: kavrama
+  zorluk: 2
+  kok: 31.12.2026 tarihinde 400 Uzun Vadeli Yabancı Kaynaklar kapsamında izlenen bir kredinin, 2027 içinde ödenecek anapara
+    taksitleri ve faizleri için Tekdüzen Hesap Planında hangi hesap kullanılmalıdır?
+  secenekler:
+    A: 300 Banka Kredileri
+    B: 303 Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri
+    C: 320 Satıcılar
+    D: 400 Banka Kredileri
+    E: 409 Diğer Mali Borçlar
+  dogru: B
+  aciklama:
+    dogru_neden: 303 hesabın adı doğrudan uzun vadeli kredilerin anapara taksitleri ve faizlerini kapsar; soru, uzun vadeli
+      borcun gelecek dönemdeki kısa vadeli kısmını ayırmaktadır.
+    celdiriciler:
+      A: 300 Banka Kredileri genel kısa vadeli banka kredileri hesabıdır; kaynakta aranan özel aktarım hesabı 303'tür.
+      C: 320 ticari borçlar için kullanılır; banka kredisi niteliğindeki borca uygulanmaz.
+      D: 400 Banka Kredileri uzun vadeli mali borç hesabıdır; gelecek yıl ödenecek kısmın özel hesabı 303'tür.
+      E: 409 diğer mali borçlar için ayrılmıştır; uzun vadeli kredi taksitleri ve faizleri için özel hesap 303'tür.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Tekdüzen Hesap Planı
+    madde: '303'
+    alinti: 303. UZUN VADELİ KREDİLERİN ANAPARA TAKSİTLERİ VE FAİZLERİ
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G09 #2'
+- id: SMMM-FIN-BOR-0028
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: kur farkı
+  tip: kavrama
+  zorluk: 3
+  kok: Aşağıdaki ifadelerden hangisi Tekdüzen Hesap Planında kambiyo kârı ve kambiyo zararı ile ihracata ilişkin dönem içi
+    kur farklarının izlenmesi bakımından doğrudur?
+  secenekler:
+    A: Tüm kur farkları 646 Kambiyo Kârları hesabında izlenir.
+    B: Kambiyo kârları 646, kambiyo zararları 656 hesabında izlenir; ihracatla ilgili dönem içinde ortaya çıkan kur farkları
+      ise 646 yerine 601 Yurtdışı Satışlar hesabına aktarılır.
+    C: Kambiyo kârları 656, kambiyo zararları 646 hesabında izlenir.
+    D: İhracatla ilgili dönem içi kur farkları 656 Kambiyo Zararları hesabına aktarılır.
+    E: Kambiyo kârları ve zararları yalnızca 600 Yurtiçi Satışlar hesabında izlenir.
+  dogru: B
+  aciklama:
+    dogru_neden: 646 kambiyo kârlarını, 656 kambiyo zararlarını izler. Kaynak ayrıca ihracatla ilgili dönem içinde ortaya
+      çıkan kur farklarının 646'ya değil 601 Yurtdışı Satışlar hesabına aktarılacağını özel olarak belirtir.
+    celdiriciler:
+      A: İhracata ilişkin dönem içi kur farkları için kaynak özel bir istisna getirir.
+      C: 646 kâr, 656 zarar hesabıdır; yönleri ters verilmiştir.
+      D: İhracatla ilgili dönem içi kur farklarının kaynakta 601'e aktarılacağı belirtilmiştir.
+      E: 600 yurtiçi satışlar hesabı bu kur farklarının özel hesabı değildir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Tekdüzen Hesap Planı
+    madde: 646-656
+    alinti: '646. KAMBİYO KARLARI
+
+
+      Kambiyo kârlarının izlendiği hesaptır. (İhracatla ilgili dönem içinde ortaya çıkan kur farkları
+
+      bu hesaba değil, "601- YURT DIŞI SATIŞLAR" hesabına aktarılır.)
+
+
+      İşleyişi:
+
+
+      Kambiyo işlemlerinden doğan kârlar bu hesaba alacak yazılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G09 #12'
+- id: SMMM-FIN-BOR-0029
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: banka kredileri ve faiz tahakkuku
+  tip: kavrama
+  zorluk: 1
+  kok: Uzun vadeli banka kredilerinin ve dönem sonunda tahakkuk eden gider tahakkuklarının Tekdüzen Hesap Planı'ndaki yerleri
+    birlikte değerlendirildiğinde aşağıdaki eşleştirmelerden hangisi doğrudur?
+  secenekler:
+    A: 400 Banka Kredileri — 381 Gider Tahakkukları
+    B: 300 Banka Kredileri — 381 Gider Tahakkukları
+    C: 400 Banka Kredileri — 373 Maliyet Giderleri Karşılığı
+    D: 405 Çıkarılmış Tahviller — 381 Gider Tahakkukları
+    E: 400 Banka Kredileri — 397 Sayım ve Tesellüm Fazlaları
+  dogru: A
+  aciklama:
+    dogru_neden: 400 uzun vadeli banka kredilerini, 381 ise gelecek aylarda ödenecek ve belgeye dayalı gider tahakkuklarını
+      izler.
+    celdiriciler:
+      B: 300 hesabı kısa vadeli banka kredileridir; verilen eşleştirme kaynakta bu şekilde yer almamaktadır.
+      C: 373 tahmini maliyet gideri karşılığıdır.
+      D: 405 tahvil ihracını izler.
+      E: 397 stok/kasa gibi sayım fazlalarının geçici hesabıdır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 400 ve 381 hesap açıklamaları
+    alinti: 'Banka ve diğer finans kuruluşlarından alınan uzun vadeli kredilerin yer aldığı hesaptır. İşleyişi : Alınan uzun
+      vadeli krediler bu hesaba alacak, ödenmeleri halinde borç kaydedilir.'
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 381 Gider Tahakkukları
+    alinti: Gelecek aylarda ödemesi yapılacak ve kesinlikle belgeye dayalı gider tahakkuklarının izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G10 #6'
+- id: SMMM-FIN-BOR-0030
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: bono ve tahvil ihracı (305/308/405/408)
+  tip: kavrama
+  zorluk: 3
+  kok: 'Bir işletmenin ihraç ettiği menkul kıymetlerle ilgili aşağıdaki öncüllerden hangileri doğrudur?
+
+
+    I. Nominal değerin altında ihraç edilen menkul kıymetlerin gelecek döneme ait ihraç farkı 308 hesabında izlenir.
+
+    II. 305 hesabı çıkarılmış bonolar ve senetleri izler.
+
+    III. 405 hesabı çıkarılmış tahvilleri izler.'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: II ve III
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: Kaynakta 308 ihraç farkının gelecek döneme ait kısmını; 305 çıkarılmış bono ve senetleri; 405 ise çıkarılmış
+      tahvilleri gösterir.
+    celdiriciler:
+      A: II ve III de kaynakta açıkça yer alır.
+      B: I ve III de kaynakta yer alır.
+      C: III de doğrudur.
+      D: I de doğrudur.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 305 ve 308
+    alinti: 305. ÇIKARILMIŞ BONOLAR VE SENETLER  306. ÇIKARILMIŞ DİĞER MENKUL KIYMETLER  307.  308. MENKUL KIYMETLER İHRAÇ
+      FARKI (-)
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 405 ve 408
+    alinti: 405. ÇIKARILMIŞ TAHVİLLER  406.  407. ÇIKARILMIŞ DİĞER MENKUL KIYMETLER  408. MENKUL KIYMETLER İHRAÇ FARKI (-)
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G10 #16'
+- id: SMMM-FIN-BOR-0031
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: banka kredileri ve faiz tahakkuku
+  tip: kavrama
+  zorluk: 1
+  kok: 'Aşağıdaki üç durumu Tekdüzen Hesap Planındaki hesaplarla eşleştiriniz: (I) vadesi bir yıldan kısa banka kredisi, (II)
+    bilanço tarihinde vadesi bir yıldan fazla olan banka kredisi, (III) uzun vadeli kredinin bilanço tarihinden itibaren bir
+    yıl içinde ödenecek anapara taksitleri ve faizleri. Doğru eşleştirme hangi seçenektedir?'
+  secenekler:
+    A: I-300, II-400, III-303
+    B: I-400, II-300, III-304
+    C: I-300, II-303, III-400
+    D: I-303, II-400, III-300
+    E: I-305, II-405, III-304
+  dogru: A
+  aciklama:
+    dogru_neden: Doğru cevap A’dır. 300 kısa vadeli banka kredilerini, 400 bilanço tarihi itibarıyla vadesine bir yıldan fazla
+      süre kalan uzun vadeli banka kredilerini; 303 ise uzun vadeli kredilerin bir yıl içinde ödenecek anapara taksitleri
+      ve faizlerini izler.
+    celdiriciler:
+      B: 300 ile 400’ü terslemiş, ayrıca 304’ü tahvil hesabıyla karıştırmıştır.
+      C: 303 ile 400’ün kapsamını karıştırmıştır.
+      D: 303’ü uzun vadeli kredinin tamamı yerine kısa vadeli kredi hesabı olarak kullanmıştır.
+      E: 305 ve 405 menkul kıymet ihracıyla ilgilidir; banka kredisi değildir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Tekdüzen Hesap Planı)
+    madde: THP 300, 400 ve 303
+    alinti: Bu hesap, banka ve diğer finans kuruluşlarından sağlanan kısa vadeli kredilere ilişkin tutarları içeren hesap
+      kalemidir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Tekdüzen Hesap Planı)
+    madde: THP 400 ve 303
+    alinti: Bilanço tarihinden itibaren bir yıl içinde ödenecek ana para taksitleri ile vadesi bir yıla düşen tutarlar "303.
+      Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri Hesabı" nın alacağına aktarılmak suretiyle bu hesaba borç kaydedilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G12 #5'
+- id: SMMM-FIN-BOR-0032
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: bono ve tahvil ihracı (305/308/405/408)
+  tip: kavrama
+  zorluk: 2
+  kok: 'Aşağıdaki iki ihraç işlemi için hesapları eşleştiriniz: (I) nominal değeri 500.000 TL olan, 9 ay vadeli bono 490.000
+    TL’ye ihraç edilmiştir; (II) nominal değeri 1.000.000 TL olan, 30 ay vadeli tahvil 970.000 TL’ye ihraç edilmiştir. Gelecek
+    dönemlere ait ihraç farkları da ayrıca izlenecektir. Doğru eşleştirme hangisidir?'
+  secenekler:
+    A: 'I: 305 ve 308; II: 405 ve 408'
+    B: 'I: 405 ve 408; II: 305 ve 308'
+    C: 'I: 305 ve 405; II: 308 ve 408'
+    D: 'I: 308; II: 408'
+    E: 'I: 305; II: 405'
+  dogru: A
+  aciklama:
+    dogru_neden: Doğru cevap A’dır. 305 kısa vadeli çıkarılmış bono ve senetleri, 405 vadesi bir yılı aşan çıkarılmış tahvilleri
+      izler. Nominal değerin altında ihraç farkının gelecek dönemlere ait kısmı kısa vadeli işlemde 308, uzun vadeli işlemde
+      408 ile izlenir.
+    celdiriciler:
+      B: Vade ayrımını tersine çevirmiştir.
+      C: İhraç farkı hesaplarını ana ihraç hesaplarıyla karıştırmıştır.
+      D: Ana ihraç hesaplarını dışarıda bırakmıştır.
+      E: İhraç farkı hesaplarını dışarıda bırakmıştır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Tekdüzen Hesap Planı)
+    madde: THP 305, 308, 405, 408
+    alinti: Nominal değerinin altında ihraç edilen tahvil, senet ve diğer menkul kıymetlerin nominal değerleri ile satış fiyatı
+      arasındaki farkın gelecek yıllara ait olan kısmı bu hesapta izlenir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Tekdüzen Hesap Planı)
+    madde: THP 305
+    alinti: Tedavüldeki finansman bonoları ve banka bonoları gibi kısa vadeli para ve sermaye piyasası araçları karşılığında
+      sağlanan fonlar bu hesapta izlenir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Tekdüzen Hesap Planı)
+    madde: THP 405
+    alinti: İşletme tarafından çıkarılmış bulunan tahvillerden vadesi bir yılı aşanlar bu hesapta izlenir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G12 #17'
+- id: SMMM-FIN-BOR-0033
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: kur farkı
+  tip: hesaplama
+  zorluk: 1
+  kok: (S) A.Ş.'nin 31.12.2026 tarihinde 20.000 USD tutarında yabancı para borcu bulunmaktadır. Borcun oluştuğu tarihte 1
+    USD = 32 TL, değerleme gününde 1 USD = 35 TL'dir. Yabancı paranın borsada rayici yoktur ve değerlemede Bakanlığın belirlediği
+    kurun 35 TL olduğu kabul edilmektedir. Borcun TL karşılığındaki değerleme farkı kaç TL'dir?
+  secenekler:
+    A: 20.000 TL
+    B: 40.000 TL
+    C: 60.000 TL
+    D: 70.000 TL
+    E: 100.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 20.000 USD borcun TL karşılığı 640.000 TL'den 700.000 TL'ye çıkar; fark 60.000 TL'dir.
+    celdiriciler:
+      A: 20.000 TL USD tutarıdır; kur farkı değildir.
+      B: 2 TL'lik kur farkı kullanılmıştır; doğru fark 3 TL'dir.
+      D: 70.000 TL değerleme günündeki toplam TL karşılığıdır.
+      E: Verilen tutarlardan 100.000 TL çıkmaz.
+    hesap_adimlari:
+    - 20.000 × 32 = 640.000 TL
+    - 20.000 × 35 = 700.000 TL
+    - 700.000 − 640.000 = 60.000 TL
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 280
+    alinti: Yabancı paranın borsada rayici yoksa, değerlemeye uygulanacak kur Maliye Bakanlığınca tesbit olunur.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 280
+    alinti: Bu madde hükmü yabancı para ile olan senetli veya senetsiz alacaklar ve borçlar hakkında da caridir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 20000 * (35 - 32)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır GPT_FIN-2026-10-08v2-G02 #8'
+- id: SMMM-FIN-BOR-0034
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: banka kredileri ve faiz tahakkuku
+  tip: uygulama
+  zorluk: 3
+  kok: 'Aşağıdaki üç borcun bilanço tarihindeki hesaplarla eşleştirilmesi istenmektedir: I. yeni alınmış 8 aylık banka kredisi,
+    II. daha önce uzun vadeli alınmış ancak bilanço tarihinden itibaren 9 ay içinde ödenecek anapara taksiti, III. uzun vadeli
+    banka kredisinin bilanço tarihinden itibaren bir yıldan uzun süre sonra ödenecek kısmı. Doğru eşleştirme hangisidir?'
+  secenekler:
+    A: I-300, II-303, III-400
+    B: I-400, II-300, III-303
+    C: I-303, II-400, III-300
+    D: I-300, II-400, III-303
+    E: I-303, II-300, III-400
+  dogru: A
+  aciklama:
+    dogru_neden: 'Kısa vadeli banka kredisi 300''de, uzun vadeli kredinin bilanço tarihinden itibaren bir yıl içinde ödenecek
+      kısmı 303''te, uzun vadeli kredi 400''de izlenir. Püf noktaları: Uzun vadeli borcun cari kısmı bilanço tarihindeki vade
+      durumuna göre 303''e aktarılır.'
+    celdiriciler:
+      B: 300 ve 400 hesapları ters çevrilmiştir.
+      C: 8 aylık kredi 303 değil 300 kapsamındadır.
+      D: 9 ay içinde ödenecek taksit 303'e aktarılır.
+      E: Bir yıldan uzun kısım 400'de izlenir.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 300. Banka Kredileri
+    alinti: Bu hesap, banka ve diğer finans kuruluşlarından sağlanan kısa vadeli kredilere ilişkin tutarları içeren hesap
+      kalemidir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 303. Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri
+    alinti: Vadelerine bir yıldan fazla süre bulunmakla birlikte uzun vadeli kredilerin, bilanço tarihinden itibaren bir yıl
+      içinde ödenecek anapara taksitleri ile vadesi bir yılın altına düşenleri ve bunların tahakkuk ettiği halde henüz ödenmeyen
+      faizlerini kapsar.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 400. Banka Kredileri
+    alinti: Banka ve diğer finans kuruluşlarından alınan uzun vadeli kredilerin yer aldığı hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır GPT_FIN-2026-10-08v2-G02 #20'
+- id: SMMM-FIN-BOR-0035
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: kur farkı
+  tip: kavrama
+  zorluk: 2
+  kok: Aşağıdaki işlemlerden hangisinde ortaya çıkan kur farkının hesabı diğerlerinden farklıdır?
+  secenekler:
+    A: İhracatla ilgili dönem içinde ortaya çıkan kur farkı
+    B: İhracat bedelinin tahsilinden kaynaklanan kur farkı
+    C: İşletmenin faaliyetlerini yürütmek amacıyla kullandığı borçlanmaya ilişkin kur farkı
+    D: İhracat satışına bağlı olarak dönem içinde oluşan kur farkı
+    E: Yurt dışı satışla doğrudan ilişkili dönem içi kur farkı
+  dogru: C
+  aciklama:
+    dogru_neden: MSUGT'ye göre ihracatla ilgili dönem içinde ortaya çıkan kur farkları 601 Yurtdışı Satışlar hesabına aktarılır.
+      Buna karşılık borçlanma ile ilgili kur farkları 656 Kambiyo Zararları hesabına alınmaz; finansman gideri olarak muhasebeleştirilir.
+      Bu nedenle C seçeneği diğerlerinden farklıdır.
+    celdiriciler:
+      A: İhracatla ilgili dönem içi kur farkı 601 Yurtdışı Satışlar kapsamında ele alınır.
+      B: Soruda ihracatla ilişkili kur farkı ifade edildiğinden ihracat kur farklarına ilişkin uygulama geçerlidir.
+      D: Yurt dışı satışla ilgili dönem içi kur farkı ihracat kur farkı niteliğindedir.
+      E: Yurt dışı satışla doğrudan ilişkili dönem içi kur farkı ihracatla ilgili kur farkıdır.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 646. Kambiyo Kârları
+    alinti: 'Kambiyo kârlarının izlendiği hesaptır. (İhracatla ilgili dönem içinde ortaya çıkan kur farkları
+
+      bu hesaba değil, "601- YURT DIŞI SATIŞLAR" hesabına aktarılır.)'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 656. Kambiyo Zararları
+    alinti: 'Kambiyo zararlarının izlendiği hesaptır. (Borçlanma ile ilgili kur farkları bu hesaba alınmaz,
+
+      finansman gideri olarak muhasebeleştirilir.)'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 780. Finansman Giderleri Hesabı
+    alinti: 'İşletme faaliyetlerinin aksamadan yürütülebilmesi amacıyla borçlanılan tutarlarla ilgili faiz, kur farkları,
+
+      komisyon ve benzeri giderler bu hesaba borç kaydedilir.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır OpenAI_FIN-2026-10-08v2-G13 #12'
+- id: SMMM-FIN-BOR-0036
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: uzun vadeli borcun kısa vadeye aktarılması
+  tip: kavrama
+  zorluk: 2
+  kok: 'Bir işletmenin bilanço tarihi itibarıyla uzun vadeli borçlarının gelecek bir yıl içinde ödenecek kısımları hakkında
+    aşağıdaki ifadelerden hangileri doğrudur?
+
+    I. Uzun vadeli kredi anapara taksitleri 303 hesabına aktarılır.
+
+    II. Bu kredilere ilişkin tahakkuk etmiş ancak ödenmemiş faizler de 303 hesabında izlenebilir.
+
+    III. Aynı nitelikteki tahvil anapara taksitleri 304 hesabında izlenir.
+
+    '
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: I ve III
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: 303 hesabı, uzun vadeli kredilerin bilanço tarihinden itibaren bir yıl içinde ödenecek anapara taksitleri
+      ile vadesi bir yılın altına düşen ve tahakkuk etmiş ancak ödenmemiş faizlerini kapsar. Tahvillerin bir yıl içinde ödenecek
+      anapara taksitleri ve tahakkuk etmiş faizleri ise 304 hesabında izlenir. Bu nedenle üç ifade de doğrudur.
+    celdiriciler:
+      A: II ve III de kaynak hükmünde açıkça yer aldığı için yalnız I doğru değildir.
+      B: I ve III de doğrudur; 303 yalnız faiz hesabı değildir.
+      C: III dışarıda bırakılamaz; tahvil taksitleri 304 hesabının kapsamındadır.
+      D: II de doğrudur; 303 hesabı tahakkuk etmiş ve henüz ödenmemiş faizleri de kapsar.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 303. Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri
+    alinti: 3. KISA VADELİ YABANCI KAYNAKLAR  Kısa vadeli yabancı kaynaklar, dönen varlıkların ayrılmasında kullanılan ölçüye
+      uygun olarak, en çok bir yıl veya işletmenin normal faaliyet dönemi sonunda ödenecek yabancı kaynakları kapsar.  Kısa
+      Vadeli Yabancı Kaynaklar, Mali Borçlar, Ticari Borçlar, Diğer Borçlar, Alınan Avanslar,
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 304. Tahvil Anapara Borç Taksit ve Faizleri
+    alinti: Gelirler ve Gider Tahakkukları ile Diğer Kısa Vadeli Yabancı Kaynaklar şeklinde bölümlenir.  30. MALİ BORÇLAR  Kredi
+      kurumlarına olan kısa vadeli borçlar ile kısa vadeli para ve sermaye piyasası araçları ile sağlanan krediler ve vadesine
+      bir yıldan daha az bir süre kalan uzun vadeli mali borçların ana
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır merve_FIN-2026-10-08v2-G07 #3'
+- id: SMMM-FIN-BOR-0037
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: kur farkı
+  tip: kavrama
+  zorluk: 3
+  kok: Aşağıdaki üç işlemin her biri için doğru hesap eşleştirmesi hangisidir? (I) İhracatla ilgili dönem içinde ortaya çıkan
+    kur farkından doğan olumlu fark, (II) bir yıla kadar vadeli borçlanmaya ilişkin kur farkı zararı, (III) bir yılı aşan
+    vadeli borçlanmaya ilişkin kur farkı zararı.
+  secenekler:
+    A: 601 - 660 - 661
+    B: 646 - 660 - 661
+    C: 601 - 656 - 661
+    D: 646 - 656 - 660
+    E: 601 - 661 - 660
+  dogru: A
+  aciklama:
+    dogru_neden: 'MSUGT''ye göre ihracatla ilgili dönem içinde ortaya çıkan kur farkları 646 Kambiyo Kârları hesabına değil
+      601 Yurt Dışı Satışlar hesabına aktarılır. Borçlanmayla ilgili kur farkları ise 656 Kambiyo Zararları hesabına alınmaz;
+      finansman gideridir. Bir yıla kadar vadeli borçlanma giderleri 660, bir yılı aşan borçlanma giderleri 661 hesabında
+      izlenir. Püf noktaları: İhracat kur farkının 646''ya değil 601''e gitmesi ve borçlanma kur farkının 656''da izlenmemesi
+      iki ayrı ayrımı birlikte gerektirir.'
+    celdiriciler:
+      B: İhracat kur farkı olumlu olsa da 646 değil 601'e aktarılır.
+      C: Borçlanma kur farkı 656'da değil finansman giderlerinde izlenir.
+      D: Hem ilk hem ikinci işlem için yanlış hesaplar kullanılmıştır.
+      E: Vade sırası ters çevrilmiştir; bir yıla kadar olan borçlanma 660'tır.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 646. Kambiyo Kârları
+    alinti: Kambiyo kârlarının izlendiği hesaptır. (İhracatla ilgili dönem içinde ortaya çıkan kur farkları bu hesaba değil,
+      "601- YURT DIŞI SATIŞLAR" hesabına aktarılır.)
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 66. Finansman Giderleri; 660 ve 661
+    alinti: İşletmenin borçlandığı tutarlarla ilgili olarak katlanılan ve varlıkların maliyetine eklenmemiş bulunan faiz,
+      kur farkları, kredi komisyonları ve benzeri diğer giderleri kapsar.  660. KISA VADELİ BORÇLANMA GİDERLERİ (-)  Bir yıla
+      kadar vadeli olan borçlanmalarla ilgili olarak yüklenilen ve varlıkların maliyetine eklenmeyen faiz ve benzeri diğer
+      giderlerin izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır merve_FIN-2026-10-08v2-G07 #13'
+- id: SMMM-FIN-BOR-0038
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Yabancı kaynaklar ve mali borçlar
+  konu: BOR
+  kazanim: stopaj
+  tip: kavrama
+  zorluk: 1
+  kok: Bir işletmenin sorumlu sıfatıyla yaptığı vergi kesintisinin ödeme vadesi bir yıldan uzun süreyle ertelenmiş ve takside
+    bağlanmıştır. Tekdüzen Hesap Planı'na göre aşağıdakilerden hangisi **yanlıştır**?
+  secenekler:
+    A: Tahakkuk eden vergi, resim veya harçlar ilgili kısa vadeli yükümlülük hesabında izlenebilir.
+    B: Bir yıldan daha uzun sürede ödenecek ertelenmiş veya takside bağlanmış vergi 438 hesabına aktarılır.
+    C: 360 Ödenecek Vergi ve Fonlar hesabı, tahakkuk eden vergi ve benzeri yükümlülüklerin izlenmesinde kullanılır.
+    D: Bir yıldan uzun ödeme süresi bulunan ertelenmiş vergi 360 hesabında kalmaya devam eder.
+    E: Ödeme yapıldıkça 360 hesabı borçlandırılır.
+  dogru: D
+  aciklama:
+    dogru_neden: MSUGT'ye göre 360 hesabı vergi, resim, harç ve fonların izlenmesinde kullanılır; tahakkukta alacak, ödemede
+      borç çalışır. Ancak bir yıldan daha uzun sürede ödenecek ertelenmiş veya takside bağlanmış vergiler 438 Kamuya Olan
+      Ertelenmiş veya Taksitlendirilmiş Borçlar hesabına aktarılır. Bu nedenle D yanlıştır.
+    celdiriciler:
+      A: 360'ın temel işleyişiyle uyumludur.
+      B: Kaynak metin bir yıldan uzun sürede ödenecek ertelenmiş veya taksitlendirilmiş vergilerin 438'e aktarılacağını belirtir.
+      C: 360'ın hesap açıklamasıyla uyumludur.
+      E: 360 hesabında ödeme yapıldıkça borç kaydı yapılır.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 360. Ödenecek Vergi ve Fonlar
+    alinti: Vergi, resim, harçların tahakkuk ettirilmesini gerektiren olaylar ve işlemler ortaya çıktıkça anılan hesaplar
+      alacaklanır, ödemeler yapıldıkça borçlanır. Bir yıldan daha uzun sürede ödenecek ertelenmiş veya takside bağlanmış vergiler
+      varsa, bunlar "438. Kamuya Olan Ertelenmiş veya Taksitlendirilmiş Borçlar Hesabı" na aktarılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır merve_FIN-2026-10-08v2-G07 #22'

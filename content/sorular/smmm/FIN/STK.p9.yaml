@@ -1,0 +1,2743 @@
+- id: SMMM-FIN-STK-0031
+  sinav: smmm
+  bolum:
+  - YET
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: TMS 2 net gerçekleşebilir değer ve normal kapasite
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir üretim işletmesinde normal üretim kapasitesi 10.000 birim, dönem içindeki fiili üretim 6.000 birimdir. Sabit genel
+    üretim giderleri toplamı 120.000 TL'dir. BOBİ FRS'nin normal maliyet yöntemi esas alınacaktır. Düşük kapasite nedeniyle
+    birim başına sabit genel üretim gideri artırılmayacağına göre stoklara dağıtılacak sabit genel üretim gideri ve dönem
+    gideri olarak kalacak dağıtılmamış tutar sırasıyla kaç TL'dir?
+  secenekler:
+    A: 60.000 TL ve 60.000 TL
+    B: 72.000 TL ve 48.000 TL
+    C: 80.000 TL ve 40.000 TL
+    D: 120.000 TL ve 0 TL
+    E: 48.000 TL ve 72.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Normal kapasite 10.000 birimdir. Sabit genel üretim gideri birim başına 120.000 / 10.000 = 12 TL olarak
+      dağıtılır. 6.000 birim üretime 72.000 TL dağıtılır; düşük kapasite nedeniyle artırılamayan 48.000 TL dağıtılmamış genel
+      üretim gideri dönem gideri olarak kâr veya zarara yansıtılır. Püf noktaları: Dağıtım fiili üretime göre 20 TL/birim
+      yapılmaz; düşük kapasite stok maliyetini şişirecek şekilde kullanılmaz.'
+    celdiriciler:
+      A: 120.000 TL'nin yarısı hem stoklara hem döneme dağıtılarak kapasite kuralı yanlış uygulanmıştır.
+      C: Sabit gider 6.000 fiili birime bölünerek 20 TL/birim bulunmuş ve düşük kapasite nedeniyle birim maliyet artırılmıştır.
+      D: Tüm sabit genel üretim giderinin stoklara verilmesi kaynakta öngörülen düşük kapasite kuralına aykırıdır.
+      E: Dağıtılan ve dağıtılmayan tutarlar ters çevrilmiştir.
+    hesap_adimlari:
+    - Birim sabit genel üretim gideri = 120.000 / 10.000 = 12 TL.
+    - Stoklara dağıtılan = 6.000 × 12 = 72.000 TL.
+    - Dağıtılmayan = 120.000 − 72.000 = 48.000 TL.
+  kaynaklar:
+  - mevzuat: BOBİ FRS, Bölüm 6 Stoklar
+    madde: '6.13'
+    alinti: Her bir üretim birimine dağıtılan sabit genel üretim gider tutarı, düşük kapasite ya da atıl kapasite nedeniyle
+      arttırılamaz. Dağıtılmayan genel üretim gideri, gerçekleştiği dönemde “Satışların Maliyeti” kaleminde gösterilir.
+  gecerlilik:
+    baslangic: '2021-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'birim = 120000 / 10000
+
+      stok = 6000 * birim
+
+      sonuc = (stok, 120000 - stok)'
+  durum: geri_cekildi
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-06-G04 #28'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'durum: taslak → geri_cekildi.'
+    neden: otomatik kapı hatası veya bankada aynı kök
+- id: SMMM-FIN-STK-0032
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: TMS 2 net gerçekleşebilir değer ve normal kapasite
+  tip: kavrama
+  zorluk: 3
+  kok: BOBİ FRS'nin stok maliyetlerinde sabit genel üretim giderlerinin ele alınmasına ilişkin aşağıdaki öncüllerden hangileri
+    doğrudur? I. Faaliyeti geçici veya kalıcı olarak duran ya da henüz faaliyete geçmemiş bölümlere ilişkin sabit genel üretim
+    giderleri dönüştürme maliyetine dahil edilmez ve satışların maliyetinde gider gösterilir. II. Normal maliyet yönteminde
+    normal üretim kapasitesi, planlanan bakım-onarım çalışmalarından kaynaklanacak kapasite düşüklüğü de dikkate alınarak
+    beklenen ortalama üretim miktarıdır. III. Anormal derecede yüksek üretim dönemlerinde birim başına dağıtılmış sabit genel
+    üretim gideri düşürülür.
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: I, II ve III
+    E: II ve III
+  dogru: D
+  aciklama:
+    dogru_neden: 'Üç öncül de BOBİ FRS Bölüm 6''da açıkça düzenlenmiştir. Duran veya henüz başlamamış bölümlerin sabit genel
+      üretim giderleri dönüştürme maliyetine alınmaz; normal kapasite bakım-onarım kaynaklı düşüşleri de dikkate alan beklenen
+      ortalama üretim miktarıdır; anormal yüksek üretimde birim başına sabit genel üretim gideri düşürülür. Püf noktaları:
+      Düşük kapasite sabit gideri birim başına artırma gerekçesi değildir; yüksek üretimde de stokların maliyetinin üzerine
+      çıkmasını önlemek için dağıtım azaltılır.'
+    celdiriciler:
+      A: II ve III de kaynakta açıkça düzenlendiği için yalnız I eksiktir.
+      B: I ve III de doğrudur; yalnız II seçeneği eksik kalır.
+      C: III de doğrudur; anormal yüksek üretimde birim başına sabit genel üretim gideri düşürülür.
+      E: I de doğrudur; geçici/kalıcı duruş veya faaliyete geçmeme halinde sabit genel üretim gideri satışların maliyetinde
+        gösterilir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Büyük ve Orta Boy İşletmeler İçin Finansal Raporlama Standardı (BOBİ FRS), Bölüm 6
+    madde: '6.12'
+    alinti: Tam maliyet yönteminde, sabit ve değişken genel üretim giderlerinin tamamı dönüştürme maliyetine dâhil edilir.
+      Ancak faaliyetleri geçici veya kalıcı olarak durdurulan ya da henüz faaliyete geçmemiş bölümlere ilişkin sabit genel
+      üretim giderleri dönüştürme maliyetine dâhil edilmez, gider olarak “Satışların Maliyeti” kaleminde gösterilir.
+  - mevzuat: Büyük ve Orta Boy İşletmeler İçin Finansal Raporlama Standardı (BOBİ FRS), Bölüm 6
+    madde: '6.13'
+    alinti: Bununla birlikte, sabit genel üretim giderlerinin, normal üretim kapasitesi esas alınarak dönüştürme maliyetine
+      dâhil edilmesi de mümkündür (normal maliyet yöntemi). Bu durumda normal üretim kapasitesi, planlanan bakım-onarım çalışmalarından
+      kaynaklanacak kapasite düşüklüğü de dikkate alınarak, normal şartlarda bir veya birkaç dönem veya sezonda elde edilmesi
+      beklenen ortalama üretim miktarıdır.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G01 #6'
+- id: SMMM-FIN-STK-0033
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: TMS 2 net gerçekleşebilir değer ve normal kapasite
+  tip: kavrama
+  zorluk: 3
+  kok: BOBİ FRS'nin stokların ölçüm hükümlerine ilişkin istisnaları bakımından aşağıdaki öncüllerden hangileri doğrudur? I.
+    Tarım ve orman ürünleri, hasat sonrası tarımsal ürünler, madenler ve madeni ürünleri belirli yerleşik uygulamaya göre
+    satış maliyetleri düşülmüş gerçeğe uygun değer üzerinden ölçen üreticiler, genel stok ölçüm hükümlerinin istisnası kapsamındadır.
+    II. Stoklarını satış maliyetleri düşülmüş gerçeğe uygun değer üzerinden ölçen emtia alım satımına aracılık edenlerin stokları
+    genel ölçüm hükümlerinin istisnasıdır. III. Bu istisna kapsamındaki stoklar satış maliyetleri düşülmüş gerçeğe uygun değer
+    üzerinden ölçülüyorsa, değerdeki dönemsel değişiklikler kâr veya zarara yansıtılır.
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: I ve III
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: 'BOBİ FRS 6.5(a) tarım, orman, hasat sonrası tarımsal ürün, maden ve madeni ürün üreticilerine ilişkin; 6.5(b)
+      ise stoklarını satış maliyetleri düşülmüş gerçeğe uygun değer üzerinden ölçen emtia alım satımına aracılık edenlere
+      ilişkin istisnayı düzenler. Aynı paragraf, bu stoklar söz konusu değer üzerinden ölçülüyorsa dönemsel değer değişikliklerinin
+      kâr veya zarara yansıtılacağını belirtir. Püf noktaları: İstisna, genel maliyet/NRD ölçüm kuralının yerine özel bir
+      ölçüm esasının kullanılmasına ilişkindir; değer değişimi de doğrudan kâr veya zarara gider.'
+    celdiriciler:
+      A: II ve III de 6.5'te açıkça düzenlendiği için yalnız I eksiktir.
+      B: I ve III de doğrudur; yalnız II'yi seçmek eksik kalır.
+      C: III de doğrudur; dönemsel değişiklikler kâr veya zarara yansıtılır.
+      D: II de doğrudur; emtia alım satımına aracılık edenler de istisna kapsamındadır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Büyük ve Orta Boy İşletmeler İçin Finansal Raporlama Standardı (BOBİ FRS), Bölüm 6
+    madde: '6.5'
+    alinti: 'Bununla birlikte aşağıdakiler tarafından elde tutulan stokların ölçümünde bu Standardın ölçüm hükümleri uygulanmaz:
+      a) Tarım ve orman ürünlerinin, hasat sonrası tarımsal ürünlerin, madenlerin ve madeni ürünlerin sektördeki yerleşik
+      uygulamalara göre satış maliyetleri düşülmüş gerçeğe uygun değeri üzerinden ölçülmesi halinde bunların üretimini yapanlar.
+      b) Stoklarını satış maliyetleri düşülmüş gerçeğe uygun değeri üzerinden ölçen emtia alım satımına aracılık edenler.'
+  - mevzuat: Büyük ve Orta Boy İşletmeler İçin Finansal Raporlama Standardı (BOBİ FRS), Bölüm 6
+    madde: '6.5'
+    alinti: Yukarıda belirtilen stokların satış maliyetleri düşülmüş gerçeğe uygun değerleri üzerinden ölçülmesi durumunda,
+      söz konusu değerde dönemde meydana gelen değişiklikler kâr veya zarara yansıtılır.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G01 #17'
+- id: SMMM-FIN-STK-0034
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: FIFO/ortalama ile maliyet
+  tip: uygulama
+  zorluk: 2
+  kok: (R) A.Ş. birbirine benzer nitelikte ve benzer kullanım alanına sahip X ve Y stoklarını aynı dönemde izlemektedir. İşletme
+    X stoklarında FIFO, Y stoklarında ağırlıklı ortalama maliyet yöntemini kullanmak istemektedir. BOBİ FRS 6.20 esas alındığında
+    bu uygulama için aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Her iki stok için farklı yöntem kullanılması zorunludur.
+    B: Uygulama uygundur; FIFO ve ağırlıklı ortalama aynı anda her benzer stokta serbestçe seçilebilir.
+    C: Uygulama uygun değildir; benzer nitelik ve kullanıma sahip tüm stoklar için aynı maliyet hesaplama yöntemi kullanılmalıdır.
+    D: Yalnızca Y stokunda ağırlıklı ortalama kullanılabilir, X için LIFO kullanılmalıdır.
+    E: Her iki stok için yalnız LIFO kullanılabilir.
+  dogru: C
+  aciklama:
+    dogru_neden: BOBİ FRS 6.20, stok maliyetinin FIFO veya ağırlıklı ortalama yöntemlerinden biriyle hesaplanacağını ve benzer
+      niteliklere ve benzer kullanıma sahip tüm stoklar için aynı maliyet hesaplama yönteminin kullanılacağını belirtir. Bu
+      nedenle X ve Y için farklı yöntem seçilmesi uygun değildir.
+    celdiriciler:
+      A: Kaynak farklı yöntemi zorunlu kılmamakta, benzer stoklarda aynı yöntemin kullanılmasını öngörmektedir.
+      B: Benzer nitelik ve kullanıma sahip stoklarda yöntem serbestçe farklılaştırılamaz.
+      D: LIFO'nun kullanımı zaten yasaktır; ayrıca X için LIFO zorunluluğu yoktur.
+      E: BOBİ FRS LIFO kullanımına izin vermemektedir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Büyük ve Orta Boy İşletmeler İçin Finansal Raporlama Standardı (BOBİ FRS), Bölüm 6
+    madde: '6.20'
+    alinti: Stokların maliyeti, ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemlerinden biri kullanılarak
+      hesaplanır. Benzer niteliklere ve benzer kullanıma sahip tüm stoklar için aynı maliyet hesaplama yöntemi kullanılır.
+      Nitelikleri veya kullanım alanları itibarıyla farklı olan stoklar için farklı maliyet hesaplama yöntemleri kullanılabilir.
+      Son giren ilk çıkar (LIFO) yönteminin kullanımına ise izin verilmemektedir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G01 #21'
+- id: SMMM-FIN-STK-0035
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: FIFO/ortalama ile maliyet
+  tip: uygulama
+  zorluk: 3
+  kok: (P) A.Ş. benzer nitelik ve kullanıma sahip ticari mallarında maliyet yöntemi seçmektedir. İşletme iki mal grubundan
+    birinde FIFO, diğerinde ağırlıklı ortalama kullanmayı; aynı nitelik ve kullanıma sahip mallar içinde ise dönemden döneme
+    yöntem değiştirmeyi planlamaktadır. Aşağıdakilerden hangisi kaynak metne uygundur?
+  secenekler:
+    A: FIFO ve ağırlıklı ortalama kullanılabilir; aynı nitelik ve kullanıma sahip tüm stoklarda aynı yöntem uygulanmalıdır.
+    B: Yalnız FIFO kullanılabilir; ağırlıklı ortalama yalnız üretim stoklarında geçerlidir.
+    C: Yalnız ağırlıklı ortalama kullanılabilir; FIFO kabul edilmez.
+    D: LIFO kullanılabilir; FIFO ve ağırlıklı ortalama birlikte kullanılamaz.
+    E: Aynı nitelikteki mallarda yöntem her dönem serbestçe değiştirilebilir.
+  dogru: A
+  aciklama:
+    dogru_neden: 'BOBİ FRS 6.20, stok maliyetinin FIFO veya ağırlıklı ortalama maliyet yöntemlerinden biriyle hesaplanacağını;
+      benzer nitelik ve kullanıma sahip tüm stoklarda aynı yöntemin kullanılacağını ve LIFO''ya izin verilmediğini söyler.
+      Püf noktaları: Soruda iki ayrı seçim vardır: izin verilen yöntemler ve aynı nitelikteki stoklarda yöntemin tutarlılığı.'
+    celdiriciler:
+      B: Metin ağırlıklı ortalama maliyeti açıkça izin verilen yöntemlerden biri sayar.
+      C: FIFO da açıkça izin verilen yöntemlerden biridir.
+      D: Metin LIFO'yu özellikle izin verilmeyen yöntem olarak belirtir.
+      E: Aynı nitelik ve kullanıma sahip stoklarda aynı yöntemin kullanılması gerekir.
+  kaynaklar:
+  - mevzuat: BOBİ FRS
+    madde: '6.20'
+    alinti: Stokların maliyeti, ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemlerinden biri kullanılarak
+      hesaplanır. Benzer niteliklere ve benzer kullanıma sahip tüm stoklar için aynı maliyet hesaplama yöntemi kullanılır.
+      Nitelikleri veya kullanım alanları itibarıyla farklı olan stoklar için farklı maliyet hesaplama yöntemleri kullanılabilir.
+      Son giren ilk çıkar (LIFO) yönteminin kullanımına ise izin verilmemektedir.
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G03 #6'
+- id: SMMM-FIN-STK-0036
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: alış/satış iade ve iskontoları
+  tip: kavrama
+  zorluk: 2
+  kok: 'Bir satıştan sonra yapılan iki indirim vardır: biri müşterinin vadesinden önce ödeme yapması nedeniyle, diğeri malların
+    taşıma sırasında hasara uğraması nedeniyle uygulanmıştır. Bu iki indirimin THP''deki sınıflandırması açısından aşağıdakilerden
+    hangisi doğrudur?'
+  secenekler:
+    A: İlki 611 Satış İskontoları, ikincisi 612 Diğer İndirimler
+    B: İlki 612 Diğer İndirimler, ikincisi 611 Satış İskontoları
+    C: Her ikisi 610 Satıştan İadeler
+    D: Her ikisi 621 Satılan Ticari Mallar Maliyeti
+    E: İlki 610, ikincisi 611
+  dogru: A
+  aciklama:
+    dogru_neden: '611 açıklaması kasa ve miktar iskontolarını; 612 açıklaması ise malların hatalı/noksan olması veya taşıma
+      sırasında hasar görmesi nedeniyle yapılan zorunlu indirimleri kapsar. Püf noktaları: İndirimin nedenini okuyun; ödeme
+      zamanına bağlı iskonto ile malın niteliğinden doğan indirim aynı hesap değildir.'
+    celdiriciler:
+      B: Kökteki ilk indirim erken ödeme karşılığıdır ve 611 kapsamındadır.
+      C: Hasarlı mal nedeniyle yapılan indirim satıştan iade değildir; kaynak 612'yi gösterir.
+      D: 621 satış maliyeti hesabıdır, satış indirimi hesabı değildir.
+      E: İlk olay iade değil kasa iskontosudur.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 611. Satış İskontoları (-)
+    alinti: Satışla ilgili faturanın düzenlenip satışın gerçekleşmesinden sonra yapılan her türlü kasa ve miktar iskontoları
+      bu hesapta yer alır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 612. Diğer İndirimler (-)
+    alinti: Satıcı tarafından, alıcı hesabına, malın sevki sırasında ödenen giderleri ifade eden ve satılan mallara ait olan
+      sevk giderleri, satılan malların hatalı ve noksan olması ya da taşıma sırasında hasara uğramış olması nedeniyle yapılması
+      zorunlu indirimler ile satış vergileri, fonlar (KDV hariç) ve benzerleri bu kalemde gösterilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G03 #15'
+- id: SMMM-FIN-STK-0037
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: sayım farkları (197 noksan / 397 fazla)
+  tip: kavrama
+  zorluk: 3
+  kok: 'Dönem sonu sayımında iki fark tespit edilmiştir: stoklarda 8.000 TL noksan ve kasada 3.000 TL fazla. Her iki farkın
+    da nedeni henüz belirlenmemiştir.
+
+    I. Stok noksanı geçici olarak 197 hesabında izlenebilir.
+
+    II. Kasa fazlası geçici olarak 397 hesabında izlenebilir.
+
+    III. 197 hesabında noksanlık ortaya çıktığında hesap borçlandırılır.
+
+    Hangisi doğrudur?'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: II ve III
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: '197, kasa, stok ve maddi duran varlık noksanlarını geçici olarak izler ve noksanlık ortaya çıktığında borçlandırılır.
+      397 ise kasa, stok ve maddi duran varlık fazlalarını geçici olarak izler. Bu nedenle üç öncül de doğrudur. Püf noktaları:
+      Noksanda 197 borç; fazlada 397 alacak mantığını karıştırmayın.'
+    celdiriciler:
+      A: II ve III de kaynakla uyumlu olduğundan yalnız I eksiktir.
+      B: I ve III de kaynakla uyumludur; yalnız II denemez.
+      C: III de doğru olduğu için yalnız I-II eksiktir.
+      D: I de doğru olduğundan yalnız II-III eksiktir.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 197. Sayım ve Tesellüm Noksanları
+    alinti: 'Sayımlar sonucunda tespit edilen kasa, stok ve maddi duran varlıklar noksanlarıyla, tesellüm sırasında ortaya
+      çıkan noksanların geçici olarak kayıt ve izleneceği hesaptır. İşleyişi: Noksanlığın ortaya çıkması ile hesaba borç,
+      sorumlularından tahsili veya zarar kaydedilmesi halinde ise alacak kaydedilir.'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 397. Sayım ve Tesellüm Fazlaları
+    alinti: Sayımlar sonunda tespit edilen kasa, stok ve maddi duran varlıklar fazlalarıyla, üniteler arası yoklamada ortaya
+      çıkan fazlaların geçici olarak kayıt edileceği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G03 #19'
+- id: SMMM-FIN-STK-0038
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: stok değer düşüklüğü (158/654)
+  tip: kavrama
+  zorluk: 3
+  kok: 'Stok değer düşüklüğü karşılığının ayrılması ve daha sonra stokun işletme içinde kullanılmasıyla ilgili aşağıdaki önermelerden
+    hangileri doğrudur?
+
+    I. Değer düşüklüğü tespit edildiğinde 654 borç, 158 alacak kaydedilir.
+
+    II. Stok işletme içinde kullanıldığında daha önce ayrılan karşılık 644 hesabına aktarılır.
+
+    III. Karşılığın kapatılmasında 654 borç, 158 alacak kaydı yapılır.'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: II ve III
+    E: I, II ve III
+  dogru: C
+  aciklama:
+    dogru_neden: 'THP 158''e göre değer düşüklüğü tespitinde 654 borç, 158 alacak kaydı yapılır. Stok kullanıldığında daha
+      önce ayrılan karşılık 644 Konusu Kalmayan Karşılıklar hesabına aktarılarak kapatılır. Bu nedenle I ve II doğrudur. Püf
+      noktaları: İlk karşılık kaydı ile daha sonra karşılığın kapatılması birbirine karıştırılmamalıdır.'
+    celdiriciler:
+      A: II de doğrudur; karşılık stok kullanıldığında 644'e aktarılır.
+      B: I de doğrudur; ilk karşılık kaydı 654/158'dir.
+      D: III yanlıştır; kapatma işlemi 158 borç ve 644 alacak yönündedir.
+      E: III yanlıştır.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı
+    madde: 158. Stok Değer Düşüklüğü Karşılığı (-) — İşleyişi
+    alinti: Karşılık ayrılan stok kaleminin işletme içinde kullanılması ya da satılması halinde; ilgili stok hesabının alacağı
+      ile karşılaştırılarak daha önce ayrılan karşılık "644. Konusu Kalmayan Karşılıklar Hesabı"na aktarılarak kapatılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G05 #16'
+- id: SMMM-FIN-STK-0039
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: TMS 2 net gerçekleşebilir değer ve normal kapasite
+  tip: kavrama
+  zorluk: 2
+  kok: 'Normal maliyet yöntemindeki aşağıdaki durum-sonuç eşleştirmelerinden hangisi doğrudur?
+
+    I. Düşük veya atıl kapasite → birimlere dağıtılan sabit genel üretim gideri artırılmaz.
+
+    II. Dağıtılamayan genel üretim gideri → gerçekleştiği dönemde Satışların Maliyeti.
+
+    III. Anormal derecede yüksek üretim → birim başına dağıtılan sabit genel üretim gideri düşürülür.'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: II ve III
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: BOBİ FRS 6.13, düşük veya atıl kapasite nedeniyle sabit genel üretim giderinin birimlere yüklenerek artırılamayacağını,
+      dağıtılmayan kısmın dönemde Satışların Maliyeti olarak gösterileceğini ve anormal yüksek üretimde birimlere dağıtılan
+      tutarın düşürüleceğini belirtir.
+    celdiriciler:
+      A: II ve III de kaynakta yer alır.
+      B: I ve III de kaynakta yer alır.
+      C: III de doğrudur.
+      D: I de doğrudur.
+  kaynaklar:
+  - mevzuat: BOBİ FRS
+    madde: 6.13, normal maliyet yöntemi
+    alinti: Her bir üretim birimine dağıtılan sabit genel üretim gider tutarı, düşük kapasite ya da atıl kapasite nedeniyle
+      arttırılamaz. Dağıtılmayan genel üretim gideri, gerçekleştiği dönemde “Satışların Maliyeti” kaleminde gösterilir.
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G05 #20'
+- id: SMMM-FIN-STK-0040
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: FIFO/ortalama ile maliyet
+  tip: kavrama
+  zorluk: 1
+  kok: BOBİ FRS'ye göre benzer nitelik ve kullanıma sahip iki stok grubundan biri FIFO, diğeri ağırlıklı ortalama yöntemiyle
+    izlenmek istenmektedir. Aşağıdaki değerlendirmelerden hangisi doğrudur?
+  secenekler:
+    A: Benzer nitelik ve kullanıma sahip oldukları için aynı maliyet hesaplama yöntemi kullanılmalıdır.
+    B: Her iki stok grubu için LIFO zorunludur.
+    C: Benzer stoklarda her dönem farklı yöntem seçilebilir.
+    D: FIFO yalnız özel projelerde, ağırlıklı ortalama yalnız ticari mallarda kullanılabilir.
+    E: Benzer stoklar için hiçbir maliyet hesaplama yöntemi kullanılamaz.
+  dogru: A
+  aciklama:
+    dogru_neden: BOBİ FRS 6.20, benzer nitelik ve kullanıma sahip tüm stoklar için aynı maliyet hesaplama yönteminin kullanılacağını;
+      farklı nitelik veya kullanım alanına sahip stoklar için farklı yöntemlerin kullanılabileceğini düzenler.
+    celdiriciler:
+      B: LIFO'ya izin verilmemektedir.
+      C: Benzer stoklarda aynı yöntemin kullanılması gerekir.
+      D: Kaynak FIFO ve ağırlıklı ortalamayı stok türleriyle bu şekilde sınırlamaz.
+      E: Kaynak FIFO veya ağırlıklı ortalama yöntemlerinden birinin kullanılmasına izin verir.
+  kaynaklar:
+  - mevzuat: BOBİ FRS
+    madde: '6.20'
+    alinti: Stokların maliyeti, ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemlerinden biri kullanılarak
+      hesaplanır. Benzer niteliklere ve benzer kullanıma sahip tüm stoklar için aynı maliyet hesaplama yöntemi kullanılır.
+      Nitelikleri veya kullanım alanları itibarıyla farklı olan stoklar için farklı maliyet hesaplama yöntemleri kullanılabilir.
+      Son giren ilk çıkar (LIFO) yönteminin kullanımına ise izin verilmemektedir.
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G05 #25'
+- id: SMMM-FIN-STK-0041
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: alış/satış iade ve iskontoları
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletmenin brüt satışları 180.000 TL'dir. Satıştan sonra 12.000 TL tutarında mal iadesi alınmış, kalan alıcı borcunun
+    erken ödenmesi nedeniyle 8.000 TL kasa iskontosu yapılmış ve taşıma sırasında hasar gören mallar nedeniyle 5.000 TL zorunlu
+    indirim uygulanmıştır. Buna göre net satış hasılatı kaç TL'dir?
+  secenekler:
+    A: 150.000 TL
+    B: 155.000 TL
+    C: 160.000 TL
+    D: 165.000 TL
+    E: 175.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: Satış iadeleri, satış iskontoları ve diğer indirimler brüt satışlardan indirilir. 180.000 - 12.000 - 8.000
+      - 5.000 = 155.000 TL net satış hasılatıdır.
+    celdiriciler:
+      A: Toplam indirimleri 30.000 TL kabul ederek 5.000 TL zorunlu indirimi dışarıda bırakır.
+      C: Sadece 20.000 TL'lik iade ve iskontoyu dikkate alır.
+      D: Yalnız 15.000 TL'lik iade ve zorunlu indirimi düşer.
+      E: Sadece 5.000 TL zorunlu indirimi düşerek hesaplar.
+    hesap_adimlari:
+    - 180.000 - 12.000 = 168.000 TL
+    - 168.000 - 8.000 = 160.000 TL
+    - 160.000 - 5.000 = 155.000 TL
+  kaynaklar:
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği — Tekdüzen Hesap Planı
+    madde: 610 Satıştan İadeler
+    alinti: Satılan malların iade edilen bölümünün fatura tutarlarını kapsar.
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği — Tekdüzen Hesap Planı
+    madde: 611 Satış İskontoları
+    alinti: Satışla ilgili faturanın düzenlenip satışın gerçekleşmesinden sonra yapılan her türlü kasa ve miktar iskontoları
+      bu hesapta yer alır.
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği — Tekdüzen Hesap Planı
+    madde: 612 Diğer İndirimler
+    alinti: Satıcı tarafından, alıcı hesabına, malın sevki sırasında ödenen giderleri ifade eden ve satılan mallara ait olan
+      sevk giderleri, satılan malların hatalı ve noksan olması ya da taşıma sırasında hasara uğramış olması nedeniyle yapılması
+      zorunlu indirimler ile satış vergileri, fonlar (KDV hariç) ve benzerleri bu kalemde gösterilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 180000 - 12000 - 8000 - 5000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G06 #11'
+- id: SMMM-FIN-STK-0042
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: sayım farkları (197 noksan / 397 fazla)
+  tip: kavrama
+  zorluk: 3
+  kok: 'Sayım farklarının geçici hesaplarda izlenmesiyle ilgili aşağıdaki öncüllerden hangileri doğrudur?
+
+
+    I. Sayım sonucu kasa, stok veya maddi duran varlık noksanları 197 hesabında geçici olarak izlenir.
+
+    II. Stok sayım fazlası tespit edildiğinde emsal değeri üzerinden 397 hesabına alacak, ilgili stok hesabına borç kayıt
+    yapılır.
+
+    III. Bekleme süresini dolduran ve 397 hesabında kalan kasa sayım fazlası 671 Önceki Dönem Gelir ve Kârlar hesabına aktarılır.'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: II ve III
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: 197 hesabı sayım noksanlarının; 397 hesabı sayım fazlalarının geçici izlendiği hesaplardır. Kaynak ayrıca
+      kasa sayım fazlasının bekleme süresini dolduran kalıntısının 671'e aktarılacağını düzenler.
+    celdiriciler:
+      A: II ve III de kaynakla uyumlu olduğundan eksiktir.
+      B: I ve III de kaynakla uyumlu olduğundan eksiktir.
+      C: III öncülünü dışarıda bırakır; 397 bakiyesinin bekleme süresi sonrası 671'e aktarılması kaynakta yer alır.
+      D: I öncülünü dışarıda bırakır; 197 sayım noksanlarını geçici olarak izler.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği — Tekdüzen Hesap Planı
+    madde: 197 Sayım ve Tesellüm Noksanları
+    alinti: Sayımlar sonucunda tespit edilen kasa, stok ve maddi duran varlıklar noksanlarıyla, tesellüm sırasında ortaya
+      çıkan noksanların geçici olarak kayıt ve izleneceği hesaptır.
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği — Tekdüzen Hesap Planı
+    madde: 397 Sayım ve Tesellüm Fazlaları
+    alinti: Stok sayım fazlalarının tespitinde, emsal değeri üzerinden bu hesaba alacak, ilgili stok hesabına borç yazılır.
+      Sayım dönemi içinde normal olduğu belgelenen fazlalar ilgili maliyet hesapları karşılığında bu hesaba borç kaydolunur.
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği — Tekdüzen Hesap Planı
+    madde: 397 Sayım ve Tesellüm Fazlaları
+    alinti: Bu hesaptaki kalıntıdan bekleme süresini dolduranlar "671- Önceki Dönem Gelir ve Kârlar" hesabı alacağına aktarılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G06 #14'
+- id: SMMM-FIN-STK-0043
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: stok değer düşüklüğü (158/654)
+  tip: uygulama
+  zorluk: 1
+  kok: Bir stok kalemi için daha önce ayrılmış değer düşüklüğü karşılığı, stokun işletme içinde kullanılması nedeniyle artık
+    konusuz kalmıştır. Tekdüzen Hesap Planına göre aşağıdaki muhasebe işlemlerinden hangisi doğrudur?
+  secenekler:
+    A: 158 borç, 644 alacak
+    B: 158 alacak, 644 borç
+    C: 654 borç, 158 alacak
+    D: 654 alacak, 158 borç
+    E: 153 borç, 654 alacak
+  dogru: A
+  aciklama:
+    dogru_neden: Karşılık ayrılan stok işletme içinde kullanıldığında daha önce ayrılan karşılık 158 hesabından 644 Konusu
+      Kalmayan Karşılıklar hesabına aktarılır; 158 borç, 644 alacak çalışır.
+    celdiriciler:
+      B: Hesapların borç/alacak yönlerini tersine çevirir.
+      C: Bu kayıt ilk değer düşüklüğü tespitinde kullanılan 654-158 ilişkisidir; karşılığın konusunun kalmadığı durum değildir.
+      D: İlk karşılık kaydının yönünü de tersine çevirir.
+      E: Karşılık iptalinde 153 ile 654 arasında böyle bir kayıt kaynakta düzenlenmemiştir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği — Tekdüzen Hesap Planı
+    madde: 158 Stok Değer Düşüklüğü Karşılığı
+    alinti: Karşılık ayrılan stok kaleminin işletme içinde kullanılması ya da satılması halinde; ilgili stok hesabının alacağı
+      ile karşılaştırılarak daha önce ayrılan karşılık "644. Konusu Kalmayan Karşılıklar Hesabı"na aktarılarak kapatılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G06 #24'
+- id: SMMM-FIN-STK-0044
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: alış/satış iade ve iskontoları
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletmenin brüt satışları 180.000 TL'dir. Satış sonrasında 12.000 TL tutarında mal iadesi yapılmış; ayrıca müşterinin
+    vadesinden önce ödeme yapması nedeniyle 6.000 TL kasa iskontosu uygulanmıştır. Net satış hasılatı kaç TL'dir?
+  secenekler:
+    A: 156.000 TL
+    B: 162.000 TL
+    C: 168.000 TL
+    D: 174.000 TL
+    E: 180.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: Satış iadeleri ve satış iskontoları net satış hasılatına ulaşırken brüt satışlardan indirilir. 180.000 -
+      12.000 - 6.000 = 162.000 TL.
+    celdiriciler:
+      A: İade ve iskontonun toplamı 24.000 TL değil; toplam indirim 18.000 TL'dir.
+      C: Yalnız 12.000 TL iadenin düşülmesiyle bulunan tutardır; 6.000 TL kasa iskontosu da düşülmelidir.
+      D: Yalnız 6.000 TL iskontonun düşülmesiyle bulunan tutardır; iade de düşülmelidir.
+      E: Brüt satış tutarıdır; satış indirimleri dikkate alınmamıştır.
+    hesap_adimlari:
+    - 'Brüt satış: 180.000 TL'
+    - 'Satıştan iade: 12.000 TL'
+    - 'Kasa iskontosu: 6.000 TL'
+    - 'Net satış: 180.000 - 12.000 - 6.000 = 162.000 TL'
+  kaynaklar:
+  - mevzuat: Tekdüzen Hesap Planı
+    madde: '61'
+    alinti: '61. SATIŞ İNDİRİMLERİ (-)
+
+
+      Net satış hasılatına ulaşabilmek için brüt satışlardan indirilmesi gereken değerleri kapsar.
+
+
+      Satıştan iadeler, satış iskontoları ve diğer indirimler şeklinde bölümlenir.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 180000 - 12000 - 6000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G09 #6'
+- id: SMMM-FIN-STK-0045
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: sayım farkları (197 noksan / 397 fazla)
+  tip: kavrama
+  zorluk: 2
+  kok: Dönem içindeki stok sayımında 4.800 TL emsal değerinde stok fazlası tespit edilmiş ve fazlanın sayım dönemi içinde
+    normal olduğu belgelenmiştir. Aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: 397 Sayım ve Tesellüm Fazlaları hesabı ilk aşamada kullanılır.
+    B: Stok fazlası, 397 hesabının alacağına kaydedilebilir.
+    C: Sayım dönemi içinde normal olduğu belgelenen fazlanın 397 hesabı borçlandırılarak ilgili maliyet hesaplarıyla ilişkilendirilmesi
+      mümkündür.
+    D: Bu olayda fark kesinlikle 197 Sayım ve Tesellüm Noksanları hesabına borç yazılmalıdır.
+    E: Fazlanın geçici kaydı ile normal olduğunun belgelenmesi sonrası kapatma işlemi farklı aşamalardır.
+  dogru: D
+  aciklama:
+    dogru_neden: Kaynak, stok sayım fazlalarının 397'ye alacak kaydedildiğini ve sayım dönemi içinde normal olduğu belgelenen
+      fazlaların ilgili maliyet hesapları karşılığında 397'nin borcuna kaydedildiğini belirtir; 197 noksan hesabı bu olayın
+      hesabı değildir.
+    celdiriciler:
+      A: 397 hesabı sayım fazlalarının geçici kaydı için kullanılır.
+      B: Stok sayım fazlasında 397 hesabına alacak kaydı yapılır.
+      C: Kaynak bu özel durumda 397'nin borçlandırılmasını açıkça belirtir.
+      E: Kaynakta geçici kayıt ve sonrasında normal olduğu belgelenen fazlanın kapatılması ayrı işlemler olarak açıklanmıştır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Tekdüzen Hesap Planı
+    madde: '397'
+    alinti: 'Stok sayım fazlalarının tespitinde, emsal değeri üzerinden bu hesaba alacak, ilgili stok
+
+      hesabına borç yazılır. Sayım dönemi içinde normal olduğu belgelenen fazlalar ilgili maliyet
+
+      hesapları karşılığında bu hesaba borç kaydolunur.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G09 #10'
+- id: SMMM-FIN-STK-0046
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: normal fire
+  tip: kavrama
+  zorluk: 3
+  kok: Aşağıdaki ifadelerden hangisi BOBİ FRS'nin stok maliyetine dahil edilmeyen giderler yaklaşımına göre **yanlıştır**?
+  secenekler:
+    A: Normalin üstünde gerçekleşen fire ve kayıplar oluştukları dönemde giderleştirilir.
+    B: Bir sonraki üretim aşaması için zorunlu olmayan depolama giderleri stok maliyetine dahil edilmez.
+    C: Stokların bulunduğu yere ve mevcut durumuna getirilmesine katkısı olmayan genel yönetim giderleri stok maliyetine dahil
+      edilmez.
+    D: Satış giderleri stok maliyetine dahil edilmeyen giderler arasındadır.
+    E: Üretim sürecindeki her türlü fire, normal düzeyde olsa bile, mutlaka stok maliyetinden çıkarılır.
+  dogru: E
+  aciklama:
+    dogru_neden: 6.15 yalnızca normalin üstünde gerçekleşen fire ve kayıpları stok maliyetine dahil edilmeyen maliyetler arasında
+      sayar. Bu nedenle her türlü, yani normal fireyi de kapsayan mutlak ifade yanlıştır.
+    celdiriciler:
+      A: 6.15(a) normalin üstünde gerçekleşen fire ve kayıpları açıkça dışlar.
+      B: 6.15(b) zorunlu olmayan depolama giderlerini dışlar.
+      C: 6.15(c) ilgili genel yönetim giderlerini dışlar.
+      D: 6.15(ç) satış giderlerini dışlar.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: BOBİ FRS
+    madde: '6.15'
+    alinti: "a)    Normalin üstünde gerçekleşen; fire ve kayıplar, işçilik ve diğer dönüştürme\n             maliyetleri.\n\
+      \n       b)    Bir sonraki üretim aşaması için zorunlu olanlar dışındaki depolama giderleri.\n\n       c)    Stokların\
+      \ bulunduğu yere ve mevcut durumuna getirilmesinde katkısı olmayan\n             genel yönetim giderleri.\n\n      \
+      \ ç)    Satış giderleri."
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G09 #16'
+- id: SMMM-FIN-STK-0047
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: stok değer düşüklüğü (158/654)
+  tip: uygulama
+  zorluk: 1
+  kok: Daha önce stok için 158 Stok Değer Düşüklüğü Karşılığı hesabında karşılık ayrılmıştır. İzleyen dönemde karşılık ayrılan
+    stok tamamen satılmış ve ayrılan karşılığın tamamının artık konusunun kalmadığı kesinleşmiştir. Bu durumda önceki karşılık
+    hangi hesap üzerinden kapatılmalıdır?
+  secenekler:
+    A: 644 Konusu Kalmayan Karşılıklar
+    B: 645 Menkul Kıymet Satış Kârları
+    C: 654 Karşılık Giderleri
+    D: 656 Kambiyo Zararları
+    E: 690 Dönem Kârı veya Zararı
+  dogru: A
+  aciklama:
+    dogru_neden: Kaynak, karşılık ayrılan stokun kullanılması veya satılması halinde daha önce ayrılan karşılığın 644 Konusu
+      Kalmayan Karşılıklar hesabına aktarılarak kapatılacağını belirtir.
+    celdiriciler:
+      B: 645 menkul kıymet satış kârları içindir; stok karşılığının iptal hesabı değildir.
+      C: 654 karşılık gideridir; ilk karşılık ayrılırken kullanılır, konusunun kalmaması halinde 644'e aktarım yapılır.
+      D: 656 kambiyo zararlarını izler.
+      E: 690 dönem kârı veya zararı hesabıdır; karşılığın özel iptal hesabı değildir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Tekdüzen Hesap Planı
+    madde: '158'
+    alinti: 'Karşılık ayrılan stok kaleminin işletme içinde
+
+      kullanılması ya da satılması halinde; ilgili stok hesabının alacağı ile karşılaştırılarak daha
+
+      önce ayrılan karşılık "644. Konusu Kalmayan Karşılıklar Hesabı"na aktarılarak kapatılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G09 #20'
+- id: SMMM-FIN-STK-0048
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: TMS 2 net gerçekleşebilir değer ve normal kapasite
+  tip: kavrama
+  zorluk: 2
+  kok: Aşağıdaki eşleştirmelerden hangisi BOBİ FRS'nin stok ölçümü ve normal üretim kapasitesi hükümlerini doğru verir?
+  secenekler:
+    A: 'Stok ölçümü: maliyet ile net gerçekleşebilir değerden yüksek olanı; normal kapasite: fiili üretimin her durumda tamamı'
+    B: 'Stok ölçümü: yalnız net gerçekleşebilir değer; normal kapasite: planlanan bakım duruşları dikkate alınmaz'
+    C: 'Stok ölçümü: maliyet ile net gerçekleşebilir değerden düşük olanı; normal kapasite: normal şartlarda beklenen ortalama
+      üretim miktarı'
+    D: 'Stok ölçümü: yalnız maliyet; normal kapasite: düşük kapasite nedeniyle sabit genel üretim giderleri artırılır'
+    E: 'Stok ölçümü: satış fiyatı ile tamamlanma maliyetinin toplamı; normal kapasite: yalnız geçmiş yıl üretimi'
+  dogru: C
+  aciklama:
+    dogru_neden: 6.4 stokların maliyet bedeli ile net gerçekleşebilir değerden düşük olanı üzerinden ölçülmesini; 6.13 normal
+      kapasiteyi planlanan bakım-onarım kaynaklı kapasite düşüklüğünü de dikkate alan normal şartlarda beklenen ortalama üretim
+      miktarı olarak tanımlar.
+    celdiriciler:
+      A: Ölçümde yüksek olan değil düşük olan değer esas alınır; normal kapasite de her durumda fiili üretimin tamamı değildir.
+      B: Stoklar yalnız net gerçekleşebilir değerden ölçülmez; ayrıca normal kapasite belirlenirken planlanan bakım-onarım
+        dikkate alınır.
+      D: 6.13 düşük veya atıl kapasite nedeniyle birim başına sabit genel üretim giderinin artırılamayacağını belirtir.
+      E: Net gerçekleşebilir değer formülü satış fiyatından tamamlanma ve satış maliyetlerinin çıkarılmasını gerektirir; verilen
+        eşleştirme bunu karşılamaz.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: BOBİ FRS
+    madde: '6.4'
+    alinti: "6.4     Stoklar, maliyet bedeli ile net gerçekleşebilir değerden düşük olanı üzerinden\n        ölçülür. Net\
+      \ gerçekleşebilir değer; olağan işletme faaliyetleri kapsamında tahmin\n        edilen satış fiyatından, tahmini tamamlanma\
+      \ maliyetlerinin ve satışı gerçekleştirmek\n        için gerekli olan tahmini maliyetlerin çıkarılmasıyla elde edilen\
+      \ tutardır."
+  - mevzuat: BOBİ FRS
+    madde: '6.13'
+    alinti: "Bununla birlikte, sabit genel üretim giderlerinin, normal üretim kapasitesi esas\n        alınarak dönüştürme\
+      \ maliyetine dâhil edilmesi de mümkündür (normal maliyet\n        yöntemi). Bu durumda normal üretim kapasitesi, planlanan\
+      \ bakım-onarım\n        çalışmalarından kaynaklanacak kapasite düşüklüğü de dikkate alınarak, normal\n        şartlarda\
+      \ bir veya birkaç dönem veya sezonda elde edilmesi beklenen ortalama üretim\n        miktarıdır."
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G09 #25'
+- id: SMMM-FIN-STK-0049
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: FIFO/ortalama ile maliyet
+  tip: hesaplama
+  zorluk: 3
+  kok: BOBİ FRS'ye göre aynı nitelik ve kullanıma sahip stokları FIFO yöntemiyle izleyen (R) A.Ş.'de 1 Mart'ta 100 adet 20
+    TL'den, 10 Mart'ta 60 adet 24 TL'den mal alınmıştır. 15 Mart'ta 120 adet satılmıştır. Satıştan sonra kalan stokun maliyeti
+    kaç TL'dir?
+  secenekler:
+    A: '840'
+    B: '960'
+    C: '1.000'
+    D: '1.040'
+    E: '1.120'
+  dogru: B
+  aciklama:
+    dogru_neden: FIFO'da ilk giren 100 adet ile ikinci partiden 20 adet satılmış kabul edilir; kalan 40 adet 24 TL'den 960
+      TL'dir.
+    celdiriciler:
+      A: Kalan miktarı yanlış belirler.
+      C: İkinci partinin tamamını veya farklı miktarı kalan sayar.
+      D: Toplam alış maliyetine yakın ama kalan stok değildir.
+      E: Satılan miktarla kalan miktarı karıştırır.
+    hesap_adimlari:
+    - 100×20=2.000 TL ilk parti
+    - 60×24=1.440 TL ikinci parti
+    - FIFO ile 120 adet satılınca ilk 100 adet ve ikinci partiden 20 adet çıkar
+    - Kalan 40×24=960 TL
+  kaynaklar:
+  - mevzuat: BOBİ FRS
+    madde: '6.20'
+    alinti: Stokların maliyeti, ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemlerinden biri kullanılarak
+      hesaplanır. Benzer niteliklere ve benzer kullanıma sahip tüm stoklar için aynı maliyet hesaplama yöntemi kullanılır.
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 40 * 24
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G10 #4'
+- id: SMMM-FIN-STK-0050
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: alış/satış iade ve iskontoları
+  tip: kavrama
+  zorluk: 3
+  kok: Aşağıdakilerden hangisi Tekdüzen Hesap Planı'ndaki satış indirimleri sınıflaması bakımından **yanlıştır**?
+  secenekler:
+    A: Satıştan iadeler 610 hesabında izlenir.
+    B: Satış iskontoları 611 hesabında izlenir.
+    C: Diğer indirimler 612 hesabında izlenir.
+    D: Satıştan iadeler 611 hesabında izlenir.
+    E: 610, 611 ve 612 hesapları satış indirimleri grubundadır.
+  dogru: D
+  aciklama:
+    dogru_neden: 610 satıştan iadeler, 611 satış iskontoları ve 612 diğer indirimlerdir.
+    celdiriciler:
+      A: 610 hesabının doğru adıdır.
+      B: 611 hesabının doğru adıdır.
+      C: 612 hesabının doğru adıdır.
+      E: Üç hesabın da satış indirimleri grubunda olduğu kaynakta gösterilir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 61 Satış İndirimleri
+    alinti: 61 SATIŞ İNDİRİMLERİ (-)  610. SATIŞTAN İADELER (-)  611. SATIŞ İSKONTOLARI (-)  612. DİĞER İNDİRİMLER (-)
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G10 #14'
+- id: SMMM-FIN-STK-0051
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: sayım farkları (197 noksan / 397 fazla)
+  tip: kavrama
+  zorluk: 2
+  kok: Dönem sonu sayımında stok fazlası tespit edilmiş ve farkın emsal değerinin 18.000 TL olduğu belirlenmiştir. Noksan
+    hesabı yerine fazlanın geçici kaydında hangi hesap borçlanır ve hangi hesap alacaklanır?
+  secenekler:
+    A: 197 borç, 153 alacak
+    B: 153 borç, 397 alacak
+    C: 397 borç, 153 alacak
+    D: 654 borç, 397 alacak
+    E: 397 borç, 679 alacak
+  dogru: B
+  aciklama:
+    dogru_neden: Stok sayım fazlasında 397 alacak, ilgili stok hesabı 153 borçlandırılır.
+    celdiriciler:
+      A: Noksan hesabını kullanır.
+      C: 397'nin yönünü ters çevirir.
+      D: Karşılık gideri hesabını yanlış yere koyar.
+      E: Kâr kaydı gerektiren ve dönem içinde belgelenen fazlaya ilişkin sonraki aşamayı ilk kayda taşır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 397 Sayım ve Tesellüm Fazlaları
+    alinti: Stok sayım fazlalarının tespitinde, emsal değeri üzerinden bu hesaba alacak, ilgili stok hesabına borç yazılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G10 #21'
+- id: SMMM-FIN-STK-0052
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: alış/satış iade ve iskontoları
+  tip: hesaplama
+  zorluk: 1
+  kok: Bir işletmenin 240.000 TL tutarındaki satışından sonra, malların sevki sırasında meydana gelen hasar nedeniyle 15.000
+    TL zorunlu indirim yapılmış; müşteri bedeli vadesinden önce ödediği için ayrıca 5.000 TL kasa iskontosu uygulanmıştır.
+    Buna göre net satış tutarı ile 611 ve 612 hesaplarına konu olacak tutarlar aşağıdakilerin hangisinde doğru verilmiştir?
+  secenekler:
+    A: 'Net satış 220.000 TL; 611: 5.000 TL; 612: 15.000 TL'
+    B: 'Net satış 220.000 TL; 611: 15.000 TL; 612: 5.000 TL'
+    C: 'Net satış 225.000 TL; 611: 5.000 TL; 612: 10.000 TL'
+    D: 'Net satış 215.000 TL; 611: 10.000 TL; 612: 15.000 TL'
+    E: 'Net satış 220.000 TL; 611: 20.000 TL; 612: 0 TL'
+  dogru: A
+  aciklama:
+    dogru_neden: Doğru cevap A’dır. 611, satıştan sonra yapılan kasa ve miktar iskontolarını; 612 ise hasar, noksanlık gibi
+      zorunlu indirimleri kapsar. 240.000 - 15.000 - 5.000 = 220.000 TL.
+    celdiriciler:
+      B: 611 ile 612’nin kapsamlarını ters çevirmiştir.
+      C: 612 tutarını 10.000 TL alarak kökteki 15.000 TL zorunlu indirimi eksiltmiştir.
+      D: Her iki indirim tutarını yanlış dağıtmış ve net satışı da hatalı hesaplamıştır.
+      E: İki indirimi tek hesapta toplamıştır; 612 ayrı olarak izlenmelidir.
+    hesap_adimlari:
+    - 'Satış tutarı: 240.000 TL.'
+    - '612 indirimi: 15.000 TL.'
+    - '611 kasa iskontosu: 5.000 TL.'
+    - 'Net satış: 240.000 - 15.000 - 5.000 = 220.000 TL.'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Tekdüzen Hesap Planı)
+    madde: THP 611-612
+    alinti: Satışla ilgili faturanın düzenlenip satışın gerçekleşmesinden sonra yapılan her türlü kasa ve miktar iskontoları
+      bu hesapta yer alır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Tekdüzen Hesap Planı)
+    madde: THP 612
+    alinti: Satıcı tarafından, alıcı hesabına, malın sevki sırasında ödenen giderleri ifade eden ve satılan mallara ait olan
+      sevk giderleri, satılan malların hatalı ve noksan olması ya da taşıma sırasında hasara uğramış olması nedeniyle yapılması
+      zorunlu indirimler ile satış vergileri, fonlar (KDV hariç) ve benzerleri bu kalemde gösterilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: net_satis = 240000 - 15000 - 5000; assert net_satis == 220000
+  durum: geri_cekildi
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G12 #1'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'durum: taslak → geri_cekildi.'
+    neden: otomatik kapı hatası veya bankada aynı kök
+- id: SMMM-FIN-STK-0053
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: sayım farkları (197 noksan / 397 fazla)
+  tip: uygulama
+  zorluk: 2
+  kok: Dönem sonu sayımında henüz nedeni kesinleşmemiş 8.000 TL stok noksanı, 3.000 TL kasa noksanı ve 2.000 TL maddi duran
+    varlık noksanı; ayrıca 4.000 TL stok fazlası ve 1.000 TL kasa fazlası belirlenmiştir. Farkların tamamı yıl sonuna kadar
+    kesin hesaplara aktarılamamıştır. Bu durumda 199 hesabında ayrılacak karşılık tutarı kaç TL’dir?
+  secenekler:
+    A: 0 TL
+    B: 3.000 TL
+    C: 5.000 TL
+    D: 8.000 TL
+    E: 13.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: Doğru cevap D’dir. Noksanların toplamı 13.000 TL, fazlaların toplamı 5.000 TL’dir. Noksanların fazlalardan
+      8.000 TL fazla olduğu için 199 hesabında bu fark kadar karşılık ayrılır.
+    celdiriciler:
+      A: 199 hesabının hiç kullanılmayacağını varsayar.
+      B: Yalnız bir noksan kalemini dikkate alır.
+      C: Yalnız fazlaların toplamını cevap kabul eder.
+      E: Noksanların toplamını fazlalarla mahsup etmeden alır.
+    hesap_adimlari:
+    - 'Noksanlar: 8.000 + 3.000 + 2.000 = 13.000 TL.'
+    - 'Fazlalar: 4.000 + 1.000 = 5.000 TL.'
+    - 'Fark: 13.000 - 5.000 = 8.000 TL.'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Tekdüzen Hesap Planı)
+    madde: THP 199
+    alinti: Yıl sonunda ilgili kesin hesaplarına aktarılması imkanı bulunmayan kasa, stok ve maddi duran varlık sayım noksanları
+      tutarının, sayım fazlaları tutarının üstünde olması halinde fark kadar ayrılacak karşılıkları kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: karsilik = (8000+3000+2000) - (4000+1000); assert karsilik == 8000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G12 #3'
+- id: SMMM-FIN-STK-0054
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: normal fire
+  tip: kavrama
+  zorluk: 3
+  kok: Aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Normalin üstünde gerçekleşen fire ve kayıplar stok maliyetine dahil edilemeyen maliyetlere örnektir.
+    B: Normalin üstünde gerçekleşen fire ve kayıplar oluştukları dönemde gider olarak kâr veya zarara yansıtılır.
+    C: Normalin üstünde gerçekleşen fire ile satış giderleri, stok maliyetine dahil edilmeyen kalemler arasında sayılabilir.
+    D: Normalin üstünde gerçekleşen fire ve kayıpların stok maliyetine eklenmesi BOBİ FRS’nin açıkça öngördüğü bir uygulamadır.
+    E: Stok maliyetine dahil edilmeyen giderler, oluştukları dönemde gider olarak kâr veya zarara yansıtılır.
+  dogru: D
+  aciklama:
+    dogru_neden: Doğru cevap D’dir. BOBİ FRS 6.15, normalin üstünde gerçekleşen fire ve kayıpları stok maliyetine dahil edilemeyen
+      maliyetler arasında sayar ve bunların oluştukları dönemde gider olarak kâr veya zarara yansıtılacağını belirtir.
+    celdiriciler:
+      A: Kaynak hükmünü doğrudan yansıtır.
+      B: Kaynak hükmündeki dönemsel giderleştirmeyi doğru verir.
+      C: Satış giderlerinin de aynı listede yer almasına dayanır.
+      E: 6.15’in genel sonucunu doğru ifade eder.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: BOBİ FRS
+    madde: '6.15'
+    alinti: a)    Normalin üstünde gerçekleşen; fire ve kayıplar, işçilik ve diğer dönüştürme maliyetleri.
+  gecerlilik:
+    baslangic: '2021-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: geri_cekildi
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G12 #11'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'durum: taslak → geri_cekildi.'
+    neden: otomatik kapı hatası veya bankada aynı kök
+- id: SMMM-FIN-STK-0055
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: stok değer düşüklüğü (158/654)
+  tip: uygulama
+  zorluk: 2
+  kok: Bir stok kalemi için 30.000 TL değer düşüklüğü karşılığı ayrılmıştır. Daha sonra aynı stok kalemi işletme içinde kullanılmış
+    ve daha önce ayrılan karşılığın tamamının konusu kalmamıştır. Karşılığın kapatılmasında hangi hesaplar ve tutar kullanılmalıdır?
+  secenekler:
+    A: 158 borç 30.000 TL; 644 alacak 30.000 TL
+    B: 158 alacak 30.000 TL; 654 borç 30.000 TL
+    C: 654 borç 30.000 TL; 158 alacak 30.000 TL
+    D: 644 borç 30.000 TL; 158 alacak 30.000 TL
+    E: 158 borç 30.000 TL; 654 alacak 30.000 TL
+  dogru: A
+  aciklama:
+    dogru_neden: Doğru cevap A’dır. Stok kullanıldığında daha önce ayrılan karşılık 644 Konusu Kalmayan Karşılıklar hesabına
+      aktarılır. Karşılığın kapatılması için 158 borçlandırılır, 644 alacaklandırılır.
+    celdiriciler:
+      B: Karşılığın yeniden giderleştirilmesini öngörür.
+      C: İlk karşılık ayrılışındaki 654-158 yönünü tekrarlar; burada karşılık konusu kalmamıştır.
+      D: 644 hesabının borç/alacak yönünü ters kurar.
+      E: 654’ü alacaklandırarak karşılık iptalini yanlış hesaba bağlar.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Tekdüzen Hesap Planı)
+    madde: THP 158
+    alinti: Karşılık ayrılan stok kaleminin işletme içinde kullanılması ya da satılması halinde; ilgili stok hesabının alacağı
+      ile karşılaştırılarak daha önce ayrılan karşılık "644. Konusu Kalmayan Karşılıklar Hesabı"na aktarılarak kapatılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G12 #15'
+- id: SMMM-FIN-STK-0056
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: TMS 2 net gerçekleşebilir değer ve normal kapasite
+  tip: kavrama
+  zorluk: 3
+  kok: 'Aşağıdaki dört ifadeyi ilgili kavramlarla eşleştiren seçenek hangisidir? (I) Tahmini satış fiyatından tahmini tamamlanma
+    ve satış maliyetlerinin çıkarılması; (II) normal şartlarda beklenen ortalama üretim miktarı; (III) düşük veya atıl kapasite
+    nedeniyle dağıtılamayan sabit genel üretim giderinin dönem gideri olması; (IV) anormal yüksek üretimde birim başına dağıtılan
+    sabit genel üretim giderinin düşürülmesi. Kavramlar: a- net gerçekleşebilir değer, b- normal üretim kapasitesi, c- düşük
+    kapasite uygulaması, d- yüksek üretim uygulaması.'
+  secenekler:
+    A: I-a, II-b, III-c, IV-d
+    B: I-b, II-a, III-d, IV-c
+    C: I-a, II-c, III-b, IV-d
+    D: I-c, II-b, III-a, IV-d
+    E: I-d, II-b, III-c, IV-a
+  dogru: A
+  aciklama:
+    dogru_neden: Doğru cevap A’dır. BOBİ FRS 6.4 net gerçekleşebilir değeri satış fiyatından tamamlanma ve satış maliyetlerinin
+      çıkarılmasıyla tanımlar; 6.13 normal kapasiteyi beklenen ortalama üretim miktarı olarak tanımlar ve düşük/atıl kapasite
+      ile anormal yüksek üretim için ayrı sonuçlar öngörür.
+    celdiriciler:
+      B: Net gerçekleşebilir değer ile normal kapasitenin tanımlarını ters çevirmiştir.
+      C: Düşük kapasite sonucunu normal kapasite tanımıyla karıştırmıştır.
+      D: Düşük kapasiteyi net gerçekleşebilir değer kavramına bağlamıştır.
+      E: Yüksek üretim ile net gerçekleşebilir değer kavramlarını karıştırmıştır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: BOBİ FRS
+    madde: 6.4 ve 6.13
+    alinti: Stoklar, maliyet bedeli ile net gerçekleşebilir değerden düşük olanı üzerinden ölçülür. Net gerçekleşebilir değer;
+      olağan işletme faaliyetleri kapsamında tahmin edilen satış fiyatından, tahmini tamamlanma maliyetlerinin ve satışı gerçekleştirmek
+      için gerekli olan tahmini maliyetlerin çıkarılmasıyla elde edilen tutardır.
+  - mevzuat: BOBİ FRS
+    madde: '6.13'
+    alinti: Fiili üretim düzeyi normal üretim kapasitesine yakınsa, söz konusu üretim düzeyi normal üretim kapasitesi olarak
+      dikkate alınabilir. Her bir üretim birimine dağıtılan sabit genel üretim gider tutarı, düşük kapasite ya da atıl kapasite
+      nedeniyle arttırılamaz. Dağıtılmayan genel üretim gideri, gerçekleştiği dönemde “Satışların Maliyeti” kaleminde gösterilir.
+      Anormal bir şekilde yüksek üretimin gerçekleştiği dönemlerde her bir üretim birimine dağıtılmış sabit genel üretim gideri
+      düşürülür ve böylece stokların maliyetinin üzerinde değerlenmemesi sağlanır.
+  gecerlilik:
+    baslangic: '2021-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G12 #20'
+- id: SMMM-FIN-STK-0057
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: FIFO/ortalama ile maliyet
+  tip: kavrama
+  zorluk: 1
+  kok: Dönem başında 60 adet ticari mal birim 12 TL maliyetle bulunmaktadır. Dönem içinde 40 adet daha birim 18 TL’den alınmış
+    ve 50 adet satılmıştır. BOBİ FRS’ye göre (I) FIFO yöntemi ve (II) ağırlıklı ortalama maliyet yöntemi kullanıldığında satılan
+    malların maliyeti sırasıyla kaç TL olur?
+  secenekler:
+    A: 600 TL; 720 TL
+    B: 720 TL; 600 TL
+    C: 720 TL; 720 TL
+    D: 600 TL; 700 TL
+    E: 900 TL; 720 TL
+  dogru: A
+  aciklama:
+    dogru_neden: 'Doğru cevap A’dır. FIFO’da 50 adet ilk partiden 12 TL ile satılır: 600 TL. Ağırlıklı ortalama birim maliyet
+      (60x12 + 40x18)/100 = 14,40 TL olduğundan 50 adet için 720 TL’dir.'
+    celdiriciler:
+      B: FIFO ile ağırlıklı ortalamanın sonuçlarını ters çevirmiştir.
+      C: İki yöntemi aynı sonuç verecek biçimde hesaplamıştır.
+      D: Ağırlıklı ortalama maliyeti 14 TL kabul etmiştir.
+      E: FIFO’da ikinci partinin tamamını önce tüketmiştir.
+    hesap_adimlari:
+    - 'FIFO: 50 x 12 = 600 TL.'
+    - 'Ağırlıklı ortalama birim maliyet: (60x12 + 40x18)/100 = 14,40 TL.'
+    - 'Ağırlıklı ortalama ile satış maliyeti: 50 x 14,40 = 720 TL.'
+  kaynaklar:
+  - mevzuat: BOBİ FRS
+    madde: '6.20'
+    alinti: Stokların maliyeti, ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemlerinden biri kullanılarak
+      hesaplanır. Benzer niteliklere ve benzer kullanıma sahip tüm stoklar için aynı maliyet hesaplama yöntemi kullanılır.
+      Nitelikleri veya kullanım alanları itibarıyla farklı olan stoklar için farklı maliyet hesaplama yöntemleri kullanılabilir.
+      Son giren ilk çıkar (LIFO) yönteminin kullanımına ise izin verilmemektedir.
+  gecerlilik:
+    baslangic: '2021-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: fifo=50*12; ort=(60*12+40*18)/100; avg=50*ort; assert fifo==600 and avg==720
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G12 #25'
+- id: SMMM-FIN-STK-0058
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: alış/satış iade ve iskontoları
+  tip: kavrama
+  zorluk: 2
+  kok: Aşağıdaki işlemlerden hangisi Tekdüzen Hesap Planı ile BOBİ FRS'nin verilen hükümleri birlikte dikkate alındığında
+    doğru bir kavram ayrımı yapmaktadır?
+  secenekler:
+    A: Satıştan sonra yapılan miktar iskontosu 610 Satıştan İadeler hesabında izlenir.
+    B: Satın alma sırasında elde edilen ticari iskontolar stok maliyetine eklenir.
+    C: Satıştan sonra yapılan kasa veya miktar iskontosu 611 Satış İskontoları hesabında izlenir; satın alma maliyetinde ticari
+      iskontolar indirim konusu yapılır.
+    D: Satıştan sonra yapılan kasa iskontosu stok maliyetini artırır.
+    E: Satılan malın iade edilmesi 611 hesabının alacağına kaydedilir.
+  dogru: C
+  aciklama:
+    dogru_neden: 611 satıştan sonra yapılan kasa ve miktar iskontolarını kapsar; BOBİ FRS 6.7 ticari iskontoların satın alma
+      maliyetinde indirim konusu yapılacağını söyler.
+    celdiriciler:
+      A: 610 iadeler içindir; satış sonrası iskonto 611'dir.
+      B: Ticari iskontolar satın alma maliyetinden indirilir.
+      D: Satış sonrası iskonto stok maliyetini artıran bir unsur değildir.
+      E: İade 610 hesabının kapsamındadır.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 611. Satış İskontoları
+    alinti: Satışla ilgili faturanın düzenlenip satışın gerçekleşmesinden sonra yapılan her türlü kasa ve miktar iskontoları
+      bu hesapta yer alır.
+  - mevzuat: BOBİ FRS
+    madde: '6.7'
+    alinti: Ticari iskontolar, indirimler ve diğer benzeri kalemler, satın alma maliyetinin belirlenmesinde indirim konusu
+      yapılır.
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır GPT_FIN-2026-10-08v2-G02 #5'
+- id: SMMM-FIN-STK-0059
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: sayım farkları (197 noksan / 397 fazla)
+  tip: kavrama
+  zorluk: 3
+  kok: Dönem sonu sayımında 12.000 TL stok noksanı ve 9.000 TL stok fazlası belirlenmiş, nedenler henüz kesinleşmemiştir.
+    İşletme bu iki farkı geçici olarak izlemektedir. Aşağıdaki karşılaştırmalardan hangisi doğrudur?
+  secenekler:
+    A: Her iki fark 197'de izlenir; noksan alacak, fazla borç kaydedilir.
+    B: Noksan 197'ye borç, fazla 397'ye alacak kaydedilir.
+    C: Noksan 397'ye borç, fazla 197'ye alacak kaydedilir.
+    D: Noksan 197'ye alacak, fazla 397'ye borç kaydedilir.
+    E: Her iki fark doğrudan 689'a aktarılır; geçici hesap kullanılmaz.
+  dogru: B
+  aciklama:
+    dogru_neden: '197 sayım ve tesellüm noksanlarını geçici olarak izler ve noksanlığın ortaya çıkmasıyla borçlanır. 397 sayım
+      ve tesellüm fazlalarını izler; stok fazlasında alacaklandırılır. Püf noktaları: Noksan ve fazla hesaplarının yönleri
+      birbirinin tersidir.'
+    celdiriciler:
+      A: Fazlalar 397'de, noksanlar 197'de izlenir; yönler de ters verilmiştir.
+      C: 197 noksan, 397 fazla hesabıdır.
+      D: Her iki hesabın işleyiş yönü ters çevrilmiştir.
+      E: Kaynaklar her iki fark için geçici hesap öngörmektedir.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 197. Sayım ve Tesellüm Noksanları
+    alinti: Noksanlığın ortaya çıkması ile hesaba borç, sorumlularından tahsili veya zarar kaydedilmesi halinde ise alacak
+      kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 397. Sayım ve Tesellüm Fazlaları
+    alinti: Stok sayım fazlalarının tespitinde, emsal değeri üzerinden bu hesaba alacak, ilgili stok hesabına borç yazılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır GPT_FIN-2026-10-08v2-G02 #11'
+- id: SMMM-FIN-STK-0060
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: normal fire
+  tip: uygulama
+  zorluk: 2
+  kok: Bir üretim işletmesinde üretim sürecinde normal koşulların belirgin biçimde üzerinde fire meydana gelmiştir. BOBİ FRS'ye
+    göre aşağıdaki ifadelerden hangisi doğrudur?
+  secenekler:
+    A: Normalin üstünde gerçekleşen fire stok maliyetine dahil edilir.
+    B: Normalin üstünde gerçekleşen fire oluştuğu dönemde gider olarak kâr veya zarara yansıtılır.
+    C: Normalin üstündeki fire aktifleştirilir.
+    D: Fire miktarı ne olursa olsun stok maliyetine eklenir.
+    E: Normalin üstündeki fire yalnız sonraki dönemde giderleştirilir.
+  dogru: B
+  aciklama:
+    dogru_neden: BOBİ FRS 6.15(a), normalin üstünde gerçekleşen fire ve kayıpları stok maliyetine dahil edilemeyen ve oluştukları
+      dönemde kâr veya zarara yansıtılan maliyetler arasında sayar.
+    celdiriciler:
+      A: Kaynak normalin üstündeki fireyi maliyete dahil edilemeyen giderler arasında sayar.
+      C: Fire aktifleştirilmez; oluştuğu dönemde giderleştirilir.
+      D: Kaynak tüm fireleri değil normalin üstündeki fireyi düzenler.
+      E: Giderleştirme oluştuğu dönemdedir.
+  kaynaklar:
+  - mevzuat: BOBİ FRS
+    madde: 6.15/a
+    alinti: Normalin üstünde gerçekleşen; fire ve kayıplar, işçilik ve diğer dönüştürme maliyetleri.
+  - mevzuat: BOBİ FRS
+    madde: '6.15'
+    alinti: Bu tür maliyetler, oluştukları dönemde gider olarak kâr veya zarara yansıtılır.
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır GPT_FIN-2026-10-08v2-G02 #14'
+- id: SMMM-FIN-STK-0061
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: stok değer düşüklüğü (158/654)
+  tip: kavrama
+  zorluk: 3
+  kok: Stoklarında değer düşüklüğü bulunan bir işletme için aşağıdaki öncüllerden hangileri doğrudur? I. Değer düşüklüğünde
+    654 Karşılık Giderleri borçlandırılır. II. Karşılık 158 hesabına alacak kaydedilir. III. Karşılık ayrılan stok satıldığında
+    daha önce ayrılan karşılık 644 Konusu Kalmayan Karşılıklar hesabına aktarılabilir.
+  secenekler:
+    A: Yalnız I
+    B: I ve II
+    C: I ve III
+    D: II ve III
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: 'Üç öncül de 158 hesabının işleyişine uygundur. Değer düşüklüğünde 654 borç, 158 alacak; stok satıldığında
+      önceki karşılık 644''e aktarılır. Püf noktaları: İlk karşılık kaydı ile karşılığın çözülmesi farklı yönlerde yapılır.'
+    celdiriciler:
+      A: II ve III de doğrudur.
+      B: III de doğrudur.
+      C: II de doğrudur.
+      D: I de doğrudur.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 158. Stok Değer Düşüklüğü Karşılığı (-) — İşleyişi
+    alinti: Stok değer düşüklüğü tespit edildiğinde "654. Karşılık Giderleri Hesabı"nın borcu karşılığında bu hesaba alacak
+      kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 158. Stok Değer Düşüklüğü Karşılığı (-) — İşleyişi
+    alinti: Karşılık ayrılan stok kaleminin işletme içinde kullanılması ya da satılması halinde; ilgili stok hesabının alacağı
+      ile karşılaştırılarak daha önce ayrılan karşılık "644. Konusu Kalmayan Karşılıklar Hesabı"na aktarılarak kapatılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır GPT_FIN-2026-10-08v2-G02 #21'
+- id: SMMM-FIN-STK-0062
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: TMS 2 net gerçekleşebilir değer ve normal kapasite
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir üretim işletmesinde sabit genel üretim giderleri 240.000 TL, normal üretim kapasitesi 12.000 birim ve fiili üretim
+    8.000 birimdir. Normal maliyet yöntemi uygulanmaktadır. Düşük kapasite nedeniyle birim başına sabit genel üretim gideri
+    artırılmadan, fiili üretime dağıtılacak sabit genel üretim gideri toplamı kaç TL olmalıdır?
+  secenekler:
+    A: 120.000 TL
+    B: 160.000 TL
+    C: 180.000 TL
+    D: 200.000 TL
+    E: 240.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Normal kapasitede birim sabit genel üretim gideri 240.000 / 12.000 = 20 TL''dir. Fiili 8.000 birime 20 TL
+      dağıtılırsa 160.000 TL stok maliyetine dağıtılır; düşük kapasite nedeniyle birim tutar artırılamaz. Püf noktaları: Dağıtılmayan
+      80.000 TL dönem gideridir.'
+    celdiriciler:
+      A: 15 TL/birim kullanılmış olur; normal kapasite tutarı 20 TL'dir.
+      C: 22,50 TL/birim kullanmak düşük kapasite nedeniyle birim tutarı artırır.
+      D: 25 TL/birim kullanmak kaynak hükmüne aykırıdır.
+      E: 240.000 TL'nin tamamı düşük kapasitede stoklara yüklenemez.
+    hesap_adimlari:
+    - 240.000 / 12.000 = 20 TL/birim
+    - 8.000 × 20 = 160.000 TL
+    - 'Dağıtılmayan: 240.000 − 160.000 = 80.000 TL'
+  kaynaklar:
+  - mevzuat: BOBİ FRS
+    madde: '6.13'
+    alinti: Her bir üretim birimine dağıtılan sabit genel üretim gider tutarı, düşük kapasite ya da atıl kapasite nedeniyle
+      arttırılamaz.
+  - mevzuat: BOBİ FRS
+    madde: '6.13'
+    alinti: Dağıtılmayan genel üretim gideri, gerçekleştiği dönemde “Satışların Maliyeti” kaleminde gösterilir.
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 8000 * (240000 / 12000)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır GPT_FIN-2026-10-08v2-G02 #24'
+- id: SMMM-FIN-STK-0063
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: alış/satış iade ve iskontoları
+  tip: kavrama
+  zorluk: 2
+  kok: Tekdüzen Hesap Planı açısından aşağıdaki işlemlerden hangisinin hesabı diğerlerinden farklı bir nitelikte izlenir?
+  secenekler:
+    A: Satıştan sonra kredili satışın vadesinden önce ödenmesi nedeniyle yapılan kasa iskontosu
+    B: Satıştan sonra belli miktar üzerinde alım yapıldığı için müşteriye yapılan miktar iskontosu
+    C: Satılan malın taşıma sırasında hasara uğraması nedeniyle yapılması zorunlu indirim
+    D: Satılan malın hatalı veya noksan olması nedeniyle yapılması zorunlu indirim
+    E: Satılan malın fatura tutarının müşteri tarafından kısmen iade edilmesi
+  dogru: E
+  aciklama:
+    dogru_neden: A ve B satış iskontolarıdır ve 611 Satış İskontoları hesabında; C ve D ise 612 Diğer İndirimler hesabında
+      izlenir. E seçeneğinde ise malın kısmen veya tamamen iade edilmesi söz konusudur ve bu işlem 610 Satıştan İadeler hesabında
+      izlenir. Dolayısıyla diğerlerinden farklı olan E'dir.
+    celdiriciler:
+      A: Kredili satışın vadesinden önce ödenmesi nedeniyle yapılan kasa iskontosu 611 kapsamındadır.
+      B: Miktar iskontosu 611 Satış İskontoları hesabında izlenir.
+      C: Hasar nedeniyle zorunlu indirim 612 Diğer İndirimler kapsamındadır.
+      D: Malın hatalı veya noksan olması nedeniyle zorunlu indirim 612 kapsamındadır.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 610. Satıştan İadeler
+    alinti: Satılan malların iade edilen bölümünün fatura tutarlarını kapsar.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 611. Satış İskontoları
+    alinti: 'Satışla ilgili faturanın düzenlenip satışın gerçekleşmesinden sonra yapılan her türlü kasa ve miktar
+
+      iskontoları bu hesapta yer alır.'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 612. Diğer İndirimler
+    alinti: 'Satıcı tarafından, alıcı hesabına, malın sevki sırasında ödenen giderleri ifade eden ve satılan mallara
+
+      ait olan sevk giderleri, satılan malların hatalı ve noksan olması ya da taşıma sırasında hasara uğramış
+
+      olması nedeniyle yapılması zorunlu indirimler ile satış vergileri, fonlar (KDV hariç) ve benzerleri bu
+
+      kalemde gösterilir.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır OpenAI_FIN-2026-10-08v2-G13 #10'
+- id: SMMM-FIN-STK-0064
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: sayım farkları (197 noksan / 397 fazla)
+  tip: kavrama
+  zorluk: 3
+  kok: (N) A.Ş.'nin dönem sonu stok sayımında 6.200 TL stok fazlası tespit edilmiştir. Fazlanın sayım dönemi içinde normal
+    olduğu belgelenmiştir. Aynı işletmede başka bir stokta 4.000 TL noksan tespit edilmiş ve noksanlığın sorumludan tahsili
+    kararlaştırılmıştır. Bu iki farkın hesap işleyişi bakımından aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Fazla 197'ye borç, noksan 397'ye alacak kaydedilir.
+    B: Fazla 397'ye alacak; normal olduğu belgelendiğinde ilgili maliyet hesabı karşılığında 397'ye borç, noksan 197'ye borç
+      ve sorumludan tahsil edilince 197'ye alacak kaydedilir.
+    C: Fazla ve noksanın her ikisi de 197 hesabında izlenir.
+    D: Fazla 397'ye borç, noksan 197'ye alacak kaydedilir.
+    E: Fazla 397'ye alacak, noksan 197'ye alacak kaydedilir.
+  dogru: B
+  aciklama:
+    dogru_neden: 397 Sayım ve Tesellüm Fazlaları hesabı sayımda bulunan stok fazlalarının geçici olarak izlenmesinde kullanılır;
+      stok fazlası emsal değeri üzerinden 397 hesabın alacağına, ilgili stok hesabının borcuna kaydedilir ve sayım dönemi
+      içinde normal olduğu belgelenen fazlalar ilgili maliyet hesapları karşılığında 397'nin borcuna alınır. 197 Sayım ve
+      Tesellüm Noksanları hesabında ise noksanlık ortaya çıktığında hesap borçlandırılır; sorumludan tahsil edilmesi halinde
+      alacaklandırılır.
+    celdiriciler:
+      A: 197 ve 397 hesaplarının yönleri ters çevrilmiştir.
+      C: Stok fazlası için 397, stok noksanı için 197 kullanılır; ikisi aynı hesapta izlenmez.
+      D: Fazlanın 397'ye borç ve noksanın 197'ye alacak kaydı ilk tespit aşamasındaki işleyişe aykırıdır.
+      E: Noksanlık ilk ortaya çıktığında 197 borçlandırılır; sorumluya yüklenmesi halinde alacaklandırılır.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 197. Sayım ve Tesellüm Noksanları
+    alinti: 'Noksanlığın ortaya çıkması ile hesaba borç, sorumlularından tahsili veya zarar kaydedilmesi halinde
+
+      ise alacak kaydedilir.'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 397. Sayım ve Tesellüm Fazlaları
+    alinti: 'Stok sayım fazlalarının tespitinde, emsal değeri üzerinden bu hesaba alacak, ilgili stok hesabına borç
+
+      yazılır. Sayım dönemi içinde normal olduğu belgelenen fazlalar ilgili maliyet hesapları karşılığında bu
+
+      hesaba borç kaydolunur.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır OpenAI_FIN-2026-10-08v2-G13 #16'
+- id: SMMM-FIN-STK-0065
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: TMS 2 net gerçekleşebilir değer ve normal kapasite
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmede tek bir ürünün birim üretim maliyeti 780 TL'dir. Raporlama tarihinde tahmini satış fiyatı 1.000 TL, tahmini
+    tamamlanma maliyeti 180 TL ve satış için gerekli tahmini maliyet 70 TL'dir. Üretimde sabit genel üretim giderleri 600.000
+    TL, normal üretim kapasitesi 10.000 birim, fiili üretim 6.000 birimdir. BOBİ FRS 6.4 ve 6.13 birlikte uygulandığında birim
+    stok ölçümü ile normal maliyet yönteminde birim başına dağıtılacak sabit genel üretim gideri aşağıdakilerden hangisidir?
+  secenekler:
+    A: 780 TL ve 60 TL
+    B: 750 TL ve 60 TL
+    C: 750 TL ve 100 TL
+    D: 850 TL ve 60 TL
+    E: 930 TL ve 100 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Net gerçekleşebilir değer 1.000 − 180 − 70 = 750 TL''dir; stok maliyet ile net gerçekleşebilir değerden
+      düşük olan üzerinden ölçüldüğünden birim değer 750 TL olur. Normal kapasite esas alınırsa sabit genel üretim gideri
+      birim başına 600.000 / 10.000 = 60 TL''dir; düşük kapasite nedeniyle bu tutar 100 TL''ye yükseltilmez. Püf noktaları:
+      Değer düşüklüğünde maliyet ile net gerçekleşebilir değer karşılaştırılır; normal maliyet yönteminde düşük kapasitenin
+      birim sabit gideri şişirmesine izin verilmez.'
+    celdiriciler:
+      A: Net gerçekleşebilir değer 750 TL olmasına rağmen maliyet olan 780 TL seçilmiştir; düşük olan esas alınır.
+      C: Sabit genel üretim gideri fiili üretime bölünerek 100 TL yapılmıştır; normal kapasite esas alınmalıdır.
+      D: Net gerçekleşebilir değer hesabında tamamlanma ve satış maliyetleri yanlış ele alınmıştır.
+      E: Hem stok ölçümü hem sabit genel üretim gideri yanlış hesaplanmıştır.
+    hesap_adimlari:
+    - Net gerçekleşebilir değer = 1.000 − 180 − 70 = 750 TL.
+    - Stok ölçümü = min(780, 750) = 750 TL.
+    - Normal kapasiteye göre sabit genel üretim gideri = 600.000 / 10.000 = 60 TL/birim.
+  kaynaklar:
+  - mevzuat: BOBİ FRS Bölüm 6, Stoklar
+    madde: '6.4'
+    alinti: Stoklar, maliyet bedeli ile net gerçekleşebilir değerden düşük olanı üzerinden ölçülür. Net gerçekleşebilir değer;
+      olağan işletme faaliyetleri kapsamında tahmin edilen satış fiyatından, tahmini tamamlanma maliyetlerinin ve satışı gerçekleştirmek
+      için gerekli olan tahmini maliyetlerin çıkarılmasıyla elde edilen tutardır.
+  - mevzuat: BOBİ FRS Bölüm 6, Stoklar
+    madde: '6.13'
+    alinti: 6.13    Bununla birlikte, sabit genel üretim giderlerinin, normal üretim kapasitesi esas         alınarak dönüştürme
+      maliyetine dâhil edilmesi de mümkündür (normal maliyet         yöntemi). Bu durumda normal üretim kapasitesi, planlanan
+      bakım-onarım
+  - mevzuat: BOBİ FRS Bölüm 6, Stoklar
+    madde: '6.13'
+    alinti: düzeyi normal üretim kapasitesi olarak dikkate alınabilir. Her bir üretim birimine         dağıtılan sabit genel
+      üretim gider tutarı, düşük kapasite ya da atıl kapasite nedeniyle         arttırılamaz. Dağıtılmayan genel üretim gideri,
+      gerçekleştiği dönemde “Satışların
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ngr = 1000 - 180 - 70
+
+      stok = min(780, ngr)
+
+      birim_sabit = 600000 / 10000
+
+      sonuc = (stok, birim_sabit)'
+  durum: geri_cekildi
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır merve_FIN-2026-10-08v2-G07 #5'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'durum: taslak → geri_cekildi.'
+    neden: otomatik kapı hatası veya bankada aynı kök
+- id: SMMM-FIN-STK-0066
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: FIFO/ortalama ile maliyet
+  tip: kavrama
+  zorluk: 2
+  kok: Benzer nitelik ve kullanıma sahip stokları için tek bir maliyet yöntemi kullanan bir işletme, üç yöntem arasında seçim
+    yapmak istemektedir. BOBİ FRS 6.20'ye göre aşağıdaki seçeneklerden hangisi mümkündür?
+  secenekler:
+    A: LIFO veya FIFO; her stok grubunda yöntem değiştirilebilir.
+    B: Yalnız LIFO; benzer stoklarda farklı yöntemler kullanılabilir.
+    C: FIFO veya ağırlıklı ortalama; benzer nitelik ve kullanımdaki stoklarda aynı yöntem kullanılır.
+    D: FIFO, ağırlıklı ortalama ve LIFO'nun tamamı; seçim serbesttir.
+    E: Yalnız ağırlıklı ortalama; farklı nitelikte stoklarda da aynı yöntem zorunludur.
+  dogru: C
+  aciklama:
+    dogru_neden: BOBİ FRS 6.20, stok maliyetinin FIFO veya ağırlıklı ortalama maliyet yöntemlerinden biriyle hesaplanmasını;
+      benzer nitelik ve kullanıma sahip tüm stoklarda aynı yöntemin kullanılmasını öngörür. LIFO kullanımına izin verilmez.
+    celdiriciler:
+      A: LIFO'ya izin verilmez ve benzer stoklarda yöntem serbestçe değiştirilemez.
+      B: LIFO yasaktır; ayrıca yalnız LIFO seçeneği hükme aykırıdır.
+      D: Üç yöntem birlikte serbest değildir; LIFO açıkça yasaktır.
+      E: FIFO da kabul edilen yöntemdir; farklı nitelikte stoklarda farklı yöntem kullanılabilmesi mümkündür.
+  kaynaklar:
+  - mevzuat: BOBİ FRS Bölüm 6, Stoklar
+    madde: '6.20'
+    alinti: Stokların maliyeti, ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemlerinden biri kullanılarak
+      hesaplanır. Benzer niteliklere ve benzer kullanıma sahip tüm stoklar için aynı maliyet hesaplama yöntemi kullanılır.
+      Nitelikleri veya kullanım alanları itibarıyla farklı olan stoklar için farklı maliyet hesaplama yöntemleri kullanılabilir.
+      Son giren ilk çıkar (LIFO) yönteminin kullanımına ise izin verilmemektedir.
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır merve_FIN-2026-10-08v2-G07 #10'
+- id: SMMM-FIN-STK-0067
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: FIN
+  unite: Stoklar ve ticari mallar
+  konu: STK
+  kazanim: alış/satış iade ve iskontoları
+  tip: kavrama
+  zorluk: 3
+  kok: Satış indirimleri ve brüt satışlar bakımından aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Satılan malların iade edilen bölümünün fatura tutarı 610 Satıştan İadeler hesabında izlenir.
+    B: Satış faturası düzenlenip satış gerçekleştikten sonra yapılan kasa iskontoları 611 Satış İskontoları hesabında izlenir.
+    C: Satış faturası düzenlenip satış gerçekleştikten sonra yapılan miktar iskontoları 611 Satış İskontoları hesabında izlenir.
+    D: Satıştan iadeler ve satış iskontoları, net satış hasılatına ulaşmak için brüt satışlardan indirilen değerler arasındadır.
+    E: İhracatla ilgili dönem içinde ortaya çıkan kur farkları 611 Satış İskontoları hesabında izlenir.
+  dogru: E
+  aciklama:
+    dogru_neden: MSUGT, satıştan iadeler ve satış iskontolarını net satış hasılatına ulaşmak için brüt satışlardan indirilen
+      değerler arasında sayar; 610 iade edilen malların fatura tutarlarını, 611 ise satış gerçekleştikten sonra yapılan kasa
+      ve miktar iskontolarını izler. İhracatla ilgili dönem içi kur farkları ise 601 Yurt Dışı Satışlar hesabına aktarılır.
+      Bu nedenle E yanlıştır.
+    celdiriciler:
+      A: 610 hesabının açıklamasıyla uyumludur.
+      B: 611 hesabının kasa iskontolarına ilişkin açıklamasıyla uyumludur.
+      C: 611 hesabının miktar iskontolarına ilişkin açıklamasıyla uyumludur.
+      D: 61 Satış İndirimleri grubunun açıklamasıyla uyumludur.
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 61. Satış İndirimleri; 610 ve 611
+    alinti: '59. DÖNEM NET KARI (ZARARI)  Bu grup işletmenin nihai faaliyet sonucunu gösteren hesapları kapsar.  590. DÖNEM
+      NET KARI  İşletmenin faaliyet dönemine ilişkin vergi sonrası net kâr tutarının izlendiği hesaptır.  İşleyişi :  Sonuç
+      hesaplarında yer alan "692. Dönem Net Kârı veya Zararı Hesabı"ndan aktarılan tutarlar bu hesaba alacak, aynı hesaba
+      borç kaydedilir.  591. DÖNEM NET ZARARI (-)'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 646. Kambiyo Kârları
+    alinti: Kambiyo kârlarının izlendiği hesaptır. (İhracatla ilgili dönem içinde ortaya çıkan kur farkları bu hesaba değil,
+      "601- YURT DIŞI SATIŞLAR" hesabına aktarılır.)
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_FIN.yaml, satır merve_FIN-2026-10-08v2-G07 #19'

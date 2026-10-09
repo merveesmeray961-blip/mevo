@@ -1,0 +1,373 @@
+- id: SMMM-MAL-SAF-0006
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmede dönem başında 200 birim yarı mamulün birim maliyeti 10 TL, dönem içinde 100 birim yarı mamulün birim
+    maliyeti 16 TL'dir. Dönemde 180 birim satılmıştır. Bu soruda FIFO yöntemi, en eski maliyetli birimlerin önce satıldığını;
+    ağırlıklı ortalama yöntem ise toplam maliyetin toplam birim sayısına bölünmesiyle bulunan ortalama birim maliyetin satılan
+    birimlere uygulanmasını ifade etmektedir. Buna göre FIFO ile ağırlıklı ortalama yöntemine göre hesaplanan satılan mamul
+    maliyetleri arasındaki fark kaç TL'dir?
+  secenekler:
+    A: 240 TL
+    B: 300 TL
+    C: 360 TL
+    D: 420 TL
+    E: 480 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'FIFO''da satılan 180 birimin maliyeti 180 × 10 = 1.800 TL''dir. Ağırlıklı ortalama birim maliyet (200 ×
+      10 + 100 × 16) / 300 = 12 TL''dir; satılan mamul maliyeti 180 × 12 = 2.160 TL olur. Aradaki fark 2.160 − 1.800 = 360
+      TL''dir. Püf noktaları: Önce toplam stok maliyeti ve birim sayısından ortalama maliyet bulunmalı, sonra iki yöntemin
+      satılan birimlere uygulanması karşılaştırılmalıdır.'
+    celdiriciler:
+      A: 240 TL, ağırlıklı ortalama birim maliyet ile FIFO maliyeti arasındaki farkı tek bir birim üzerinden almaya karşılık
+        gelir.
+      B: 300 TL, toplam birim sayısını fark tutarıymış gibi kullanmaya dayanan hatalı sonuçtur.
+      D: 420 TL, iki yöntemin maliyet farkına stokta kalan birimlerin ayrıca eklenmesiyle oluşan hatalı sonuçtur.
+      E: 480 TL, toplam maliyet farkının satılan birim sayısına yanlış biçimde uygulanmasıyla oluşur.
+    hesap_adimlari:
+    - Toplam stok maliyeti = 200 × 10 + 100 × 16 = 3.600 TL.
+    - FIFO satılan mamul maliyeti = 180 × 10 = 1.800 TL.
+    - Ağırlıklı ortalama birim maliyet = 3.600 / 300 = 12 TL.
+    - Ağırlıklı ortalama satılan mamul maliyeti = 180 × 12 = 2.160 TL.
+    - Yöntemler arasındaki fark = 2.160 − 1.800 = 360 TL.
+  kaynaklar:
+  - mevzuat: MSUGT Sıra No 2 – 1 Sıra No'lu MSUGT'ye ilişkin düzeltmeler
+    madde: Gelir Tablosu Dipnotları, 9 numaralı dipnot
+    alinti: Maliyet hesaplama sistemleri (safha veya sipariş) ve stok değerleme yöntemleri (ağırlıklı ortalama maliyet, ilk
+      giren ilk çıkar, hareketli ortalama maliyet vs.. gibi)
+  gecerlilik:
+    baslangic: '1993-12-16'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (3600/300)*180 - 180*10
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-08v2-G04 #22'
+- id: SMMM-MAL-SAF-0007
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: uygulama
+  zorluk: 2
+  kok: Aşağıdaki kavram–açıklama eşleştirmelerinden hangisi doğrudur? I. Safha maliyet sistemi — üretim maliyetlerinin safhalar
+    itibarıyla izlenmesi. II. Sipariş maliyet sistemi — maliyetlerin siparişler itibarıyla izlenmesi. III. Hareketli ortalama
+    maliyet — stok değerleme yöntemlerinden biri.
+  secenekler:
+    A: Yalnız I
+    B: I ve II
+    C: I ve III
+    D: II ve III
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: MSUGT, safha veya sipariş maliyet hesaplama sistemleri ile hareketli ortalama maliyet gibi stok değerleme
+      yöntemlerini birlikte anmaktadır; verilen eşleştirmeler doğrudur.
+    celdiriciler:
+      A: II ve III de doğru eşleştirmelerdir.
+      B: III de doğru eşleştirmedir.
+      C: II de doğru eşleştirmedir.
+      D: I de doğru eşleştirmedir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:2)
+    madde: MSUGT Sıra No:2 — gelir tablosu dipnotu
+    alinti: Maliyet hesaplama sistemleri (safha veya sipariş) ve stok değerleme yöntemleri (ağırlıklı ortalama maliyet, ilk
+      giren ilk çıkar, hareketli ortalama maliyet vs.. gibi)
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-08v2-G14 #9'
+- id: SMMM-MAL-SAF-0008
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: tamamlanma derecesi geri hesap
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Tek safhalı üretim yapan RM İşletmesi ağırlıklı ortalama yöntemini uygulamaktadır. Dönem başında yarı mamul yoktur.
+    Dönem içinde 5.000 birim üretime alınmış, 4.000 birim tamamlanmış ve 1.000 birim yarı mamul kalmıştır. Dönem sonu yarı
+    mamullerin tamamlanma derecesi %50’dir. Dönem içinde 270.000 TL dönüştürme maliyeti oluşmuştur. Dönem sonu yarı mamullere
+    yüklenecek dönüştürme maliyeti kaç TL’dir?
+
+    '
+  secenekler:
+    A: 30.000 TL
+    B: 45.000 TL
+    C: 54.000 TL
+    D: 60.000 TL
+    E: 90.000 TL
+  dogru: A
+  aciklama:
+    dogru_neden: 'Eşdeğer birim = tamamlanan 4.000 + (1.000 × %50) = 4.500. Birim dönüştürme maliyeti = 270.000 / 4.500 =
+      60 TL. Dönem sonu yarı mamule = 1.000 × %50 × 60 = 30.000 TL. Püf noktaları: Ağırlıklı ortalama ve tamamlanma derecesi
+      çarpımı ile eşdeğer bulunur.'
+    celdiriciler:
+      B: Tamamlanma derecesi %75 alınarak bulunur.
+      C: Eşdeğer birim 5.000 kabul edilerek bulunur.
+      D: Tamamlanma derecesi %100 alınarak bulunur.
+      E: Eşdeğer birim 3.000 kabul edilerek bulunur.
+    hesap_adimlari:
+    - Eşdeğer birim (dönüştürme) = 4.000 + 1.000×0,5 = 4.500
+    - Birim maliyet = 270.000 / 4.500 = 60
+    - Yarı mamul dönüştürme = 500 × 60 = 30.000
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: Maliyet hesapları
+    alinti: Maliyet hesapları, mal ve hizmetlerin planlanan biçim ve niteliğe getirilmesi için yapılan giderlerin toplandığı
+      ve maliyet unsurlarına dönüştürülerek izlendiği hesaplardır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 1000 * 0.5 * (270000 / (4000 + 1000 * 0.5))
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-08v2-G09 #6'
+- id: SMMM-MAL-SAF-0009
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: uygulama
+  zorluk: 3
+  kok: 'Tek safhalı üretim yapan bir işletmede FIFO yöntemi uygulanmaktadır. Dönem başı yarı mamul 1.200 birim (%30 tamamlanmış,
+    DİMM %100), dönem içinde üretime alınan 5.000 birim, tamamlanan 5.400 birim, dönem sonu yarı mamul 800 birim (%60 tamamlanmış,
+    DİMM %100). Dönüştürme maliyetleri için FIFO eşdeğer birim hesabında hangi ifade doğrudur?
+
+    I. Dönem başı yarı mamulün tamamlanması için gerekli eşdeğer = 1.200 × %70
+
+    II. Dönem içinde başlanıp tamamlanan = 5.400 − 1.200
+
+    III. Dönem sonu yarı mamul eşdeğer = 800 × %60
+
+    '
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: II ve III
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: 'FIFO’da dönem başı yarı mamulün kalan tamamlanma derecesi, yeni başlayanların tamamlanan kısmı ve dönem
+      sonu yarı mamul ayrı ayrı hesaplanır. Üç ifade de doğrudur. Püf noktaları: FIFO’da dönem başı stokun kalan kısmı ayrı
+      izlenir; ortalama yöntemde birleştirilir.'
+    celdiriciler:
+      A: Yalnız dönem başı kalanını kabul eder.
+      B: Yalnız tamamlanan yeni birimleri kabul eder.
+      C: Dönem sonu yarı mamulü dışlar.
+      D: Dönem başı kalanını dışlar.
+  kaynaklar:
+  - mevzuat: MSUGT 2-15
+    madde: Maliyet hesaplama sistemleri
+    alinti: '"Maliyet hesaplama sistemleri (safha veya sipariş) ve stok değerleme yöntemleri (ağırlıklı ortalama maliyet,
+      ilk giren ilk çıkar, hareketli ortalama maliyet vs.. gibi)"'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-08v2-G09 #14'
+- id: SMMM-MAL-SAF-0010
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: kavrama
+  zorluk: 2
+  kok: 'Safha maliyet sisteminde eşdeğer birim kavramıyla ilgili aşağıdaki eşleştirmelerden hangisi doğrudur?
+
+    I. Tamamlanan birimler → %100 eşdeğer
+
+    II. Dönem sonu yarı mamul → tamamlanma derecesi oranında eşdeğer
+
+    III. Dönem başı yarı mamul (FIFO) → kalan tamamlanma derecesi oranında eşdeğer
+
+    '
+  secenekler:
+    A: Yalnız I
+    B: I ve II
+    C: II ve III
+    D: I ve III
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: 'Eşdeğer birim, tamamlananların tamamı, yarı mamullerin ise tamamlanma derecesi kadar kabul edilir. FIFO’da
+      dönem başı yarı mamulün kalan kısmı ayrı hesaplanır. Üçü de doğrudur. Püf noktaları: Ortalama yöntemde dönem başı da
+      birleştirilir; FIFO’da ayrılır.'
+    celdiriciler:
+      A: Yalnız tamamlananları kabul eder.
+      B: FIFO dönem başı kalanını dışlar.
+      C: Tamamlananları dışlar.
+      D: Dönem sonu yarı mamulü dışlar.
+  kaynaklar:
+  - mevzuat: MSUGT 2-15
+    madde: Maliyet hesaplama sistemleri
+    alinti: '"Maliyet hesaplama sistemleri (safha veya sipariş) ve stok değerleme yöntemleri (ağırlıklı ortalama maliyet,
+      ilk giren ilk çıkar, hareketli ortalama maliyet vs.. gibi)"'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-08v2-G09 #24'

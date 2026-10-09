@@ -1,0 +1,676 @@
+- id: SMMM-MAL-DIG-0005
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: FIFO ve hareketli ortalama
+  tip: hesaplama
+  zorluk: 1
+  kok: Stok değerleme yönteminin hareketli ortalama olduğu bir işletmede, eldeki 10 birim stokun birim maliyeti 20 TL’dir.
+    10 birim daha 30 TL’den alındığında, alım sonrası hareketli ortalama birim maliyet kaç TL olur?
+  secenekler:
+    A: 20 TL
+    B: 22 TL
+    C: 25 TL
+    D: 28 TL
+    E: 30 TL
+  dogru: C
+  aciklama:
+    dogru_neden: Toplam maliyet 10×20 + 10×30 = 500 TL; toplam miktar 20 birimdir. Hareketli ortalama birim maliyet 500/20=25
+      TL’dir.
+    celdiriciler:
+      A: Yeni alımın maliyeti dikkate alınmamıştır.
+      B: Toplam maliyet yanlış bölünmüştür.
+      D: Maliyet ağırlıkları yanlış hesaplanmıştır.
+      E: Yalnız son alım fiyatı alınmıştır.
+    hesap_adimlari:
+    - 'Dönem başı stok maliyeti: 10×20=200 TL'
+    - 'Alım maliyeti: 10×30=300 TL'
+    - Toplam maliyet / toplam miktar = 500/20 = 25 TL
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:2)
+    madde: MSUGT Sıra No:2 — gelir tablosu dipnotu
+    alinti: Maliyet hesaplama sistemleri (safha veya sipariş) ve stok değerleme yöntemleri (ağırlıklı ortalama maliyet, ilk
+      giren ilk çıkar, hareketli ortalama maliyet vs.. gibi)
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (10*20 + 10*30) / 20
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_MAL-2026-10-08v2-G14 #5'
+- id: SMMM-MAL-DIG-0006
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: bina vergisi mükellefiyeti
+  tip: kavrama
+  zorluk: 1
+  kok: Bir bina üzerinde malik bulunmamakta, ancak tapuya tescilli intifa hakkı bulunmaktadır. Bina vergisi mükellefiyeti
+    bakımından aşağıdaki değerlendirmelerden hangisi doğrudur?
+  secenekler:
+    A: Vergiyi yalnız kiracı öder.
+    B: İntifa hakkı sahibi mükelleftir.
+    C: Vergi, binayı fiilen kullanan komşuya düşer.
+    D: Verginin mükellefi belediyedir.
+    E: Bina vergisi doğmaz.
+  dogru: B
+  aciklama:
+    dogru_neden: Emlak Vergisi Kanunu bina vergisi bakımından malik yanında intifa hakkı sahibini de esas alır.
+    celdiriciler:
+      A: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
+      C: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
+      D: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
+      E: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
+  kaynaklar:
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: ilgili madde
+    alinti: Madde 3 – Bina Vergisini, binanın maliki, varsa intifa hakkı sahibi, her ikisi de yoksa
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_VER-2026-10-08v2-G05(1) #2'
+- id: SMMM-MAL-DIG-0007
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: ÖTV listeleri ve istisnalar
+  tip: kavrama
+  zorluk: 3
+  kok: 4760 sayılı Kanun’da vergiyi doğuran olay bakımından aşağıdaki eşleştirmelerden hangisi doğrudur?
+  secenekler:
+    A: I sayılı liste — kayıt ve tescile tabi malların ilk iktisabı
+    B: II sayılı liste — listedeki kayıt ve tescile tabi malların ilk iktisabı
+    C: III sayılı liste — yalnız yurt içi perakende satış
+    D: IV sayılı liste — yalnız ücret karşılığı hizmet sunumu
+    E: I sayılı liste — yalnız tüketicinin kişisel kullanımı
+  dogru: B
+  aciklama:
+    dogru_neden: 'ÖTV Kanunu md. 1, II sayılı listedeki kayıt ve tescile tabi mallar için ilk iktisabı vergiyi doğuran olay
+      olarak sayar. Püf noktaları: listedeki mallar bakımından teslim, ithalat ve ilk iktisap ayrımı yapılır.'
+    celdiriciler:
+      A: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
+      C: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
+      D: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
+      E: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: ilgili madde
+    alinti: "b) (II) sayılı listedeki mallardan kayıt ve tescile tâbi olanların ilk iktisabı,\n         c) (II) sayılı listedeki\
+      \ mallardan kayıt ve tescile tâbi olmayanlar ile (III) ve (IV) sayılı"
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır ChatGPT_VER-2026-10-08v2-G05(1) #9'
+- id: SMMM-MAL-DIG-0008
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: değişken
+  tip: uygulama
+  zorluk: 1
+  kok: 'KDV dikkate alınmayacaktır. Üretim işletmesi KL, değişken maliyet yöntemini uygulamaktadır. Dönem içinde toplam üretim
+    maliyeti 800.000 TL olarak hesaplanmış olup bunun 320.000 TL’si sabit genel üretim gideridir. Dönem içinde üretilen 4.000
+    birim mamulün tamamı satılmıştır. Değişken maliyet yöntemine göre dönem stok maliyetine yüklenecek tutar kaç TL’dir?
+
+    '
+  secenekler:
+    A: 0 TL
+    B: 320.000 TL
+    C: 480.000 TL
+    D: 800.000 TL
+    E: 1.120.000 TL
+  dogru: A
+  aciklama:
+    dogru_neden: 'Değişken maliyet yönteminde sabit genel üretim giderleri dönem gideri olarak kabul edilir ve stoklara yüklenmez.
+      Üretilen mamullerin tamamı satıldığı için stokta kalan tutar sıfırdır. Püf noktaları: Değişken maliyetle sabit GÜG stoka
+      girmeyeceği için satışların tamamı gerçekleştiğinde stok maliyeti sıfır olur.'
+    celdiriciler:
+      B: Sabit GÜG’nin stoka yüklendiği varsayımıyla bulunur.
+      C: Değişken kısmın (800.000 − 320.000) stoka yüklendiği varsayımıyla bulunur.
+      D: Toplam üretim maliyetinin stoka yüklendiği varsayımıyla bulunur.
+      E: Sabit ve değişken toplamın yanlış eklenmesiyle bulunur.
+    hesap_adimlari:
+    - Değişken maliyet yönteminde sabit GÜG dönem gideridir.
+    - Üretilenlerin tamamı satıldığı için stok = 0.
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 0-9 Gider Çeşitleri
+    alinti: Gider çeşitleri hesaplarının sabit, değişken ve yarı değişken olarak gruplandırılması mümkündür. Gruplar içindeki
+      gider çeşitlerinin sabit, değişken ve yarı değişken biçimde ayırımı işletmelerin kendi ihtiyaç ve insiyatiflerine bırakılmıştır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 0
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-08v2-G09 #1'
+- id: SMMM-MAL-DIG-0009
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: tam ve normal maliyet
+  tip: hesaplama
+  zorluk: 2
+  kok: 'KDV dikkate alınmayacaktır. Bir üretim işletmesinde dönem içinde 5.000 birim üretilmiş, 4.000 birim satılmıştır. Değişken
+    üretim maliyeti birim başına 80 TL, sabit genel üretim gideri toplam 100.000 TL’dir. Tam maliyet yöntemine göre satılan
+    mamul maliyeti kaç TL’dir?
+
+    '
+  secenekler:
+    A: 320.000 TL
+    B: 360.000 TL
+    C: 400.000 TL
+    D: 480.000 TL
+    E: 500.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Tam maliyet yönteminde birim maliyet = değişken 80 + (100.000 / 5.000) = 80 + 20 = 100 TL. Satılan mamul
+      maliyeti = 4.000 × 100 = 400.000 TL. Püf noktaları: Sabit GÜG üretilen birimlere dağıtılır; satılanlara yüklenir.'
+    celdiriciler:
+      A: Yalnız değişken maliyeti dikkate alır (değişken maliyet yöntemi).
+      B: Sabit GÜG’yi satılan birimlere dağıtarak (100.000/4.000) yanlış hesaplar.
+      D: Üretilen tüm birimlerin maliyetini alır.
+      E: Sabit GÜG’yi ekleyerek abartır.
+    hesap_adimlari:
+    - Birim sabit GÜG = 100000 / 5000 = 20
+    - Birim tam maliyet = 80 + 20 = 100
+    - SMM = 4000 * 100 = 400000
+  kaynaklar:
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 0-9 Gider Çeşitleri
+    alinti: Gider çeşitleri hesaplarının sabit, değişken ve yarı değişken olarak gruplandırılması mümkündür.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 4000 * (80 + 100000 / 5000)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-08v2-G09 #17'
+- id: SMMM-MAL-DIG-0010
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: MTV istisnaları
+  tip: kavrama
+  zorluk: 2
+  kok: 'Aşağıdaki durumlar ile Motorlu Taşıtlar Vergisi Kanunu md.4 kapsamındaki istisna türleri eşleştirildiğinde doğru eşleştirme
+    hangisidir?
+
+
+    I. Engellilik oranı %90 ve üzeri olan kişinin adına kayıtlı taşıt
+
+    II. Diğer malûl ve engellinin durumuna uygun özel tertibatlı taşıtı
+
+    III. Türkiye''deki yabancı devlet elçiliğine ait taşıt
+
+    IV. Tasfiyesi TMSF eliyle yürütülen müflis bankanın iflas idaresine ait taşıt
+
+
+    a. Yabancı devlet diplomatik istisnası
+
+    b. Malûl ve engelli istisnası
+
+    c. TMSF kapsamındaki banka istisnası'
+  secenekler:
+    A: I-b, II-b, III-a, IV-c
+    B: I-a, II-b, III-c, IV-b
+    C: I-b, II-a, III-b, IV-c
+    D: I-c, II-b, III-a, IV-b
+    E: I-a, II-c, III-b, IV-c
+  dogru: A
+  aciklama:
+    dogru_neden: I ve II md.4/c'deki malûl ve engelli istisnasına; III md.4/b'deki yabancı diplomatik istisnaya; IV md.4/d'deki
+      TMSF kapsamındaki banka istisnasına girer.
+    celdiriciler:
+      B: I'i diplomatik, IV'ü malûl-engelli istisnasına kaydırmaktadır.
+      C: II ve III için istisna türlerini karıştırmaktadır.
+      D: I'i TMSF istisnasına bağlamaktadır.
+      E: I'i diplomatik, II'yi TMSF istisnasına bağlamaktadır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
+    madde: md. 4/b-c-d
+    alinti: "c) (Değişik: 25/12/2003-5035/22 md.) Engellilik oranı % 90 ve daha fazla olan malûl\nve engellilerin adlarına\
+      \ kayıtlı taşıtlar ile diğer malûl ve engellilerin, bu durumlarına uygun\nhale getirilmiş özel tertibatlı taşıtlar.10\n\
+      \       d) (Ek: 12/12/2003-5020/7 md.)18.6.1999 tarihli ve 4389 sayılı Bankalar Kanunu\nhükümlerine göre temettü hariç\
+      \ ortaklık hakları ile yönetim ve denetimleri veya hisseleri\nkısmen veya tamamen Tasarruf Mevduatı Sigorta Fonuna intikal\
+      \ eden bankalara, tasfiyeleri\nTasarruf Mevduatı Sig"
+  - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
+    madde: md. 4/b
+    alinti: "b) Karşılıklı olmak şartiyle, yabancı devletlerin Türkiye'de bulunan elçilik ve\nkonsolosluklarıyla, elçi, maslahatgüzar\
+      \ ve konsoloslarına (Fahri konsoloslar hariç) ve o devletin\nuyruğunda bulunan elçilik ve konsolosluk memurlarına ve\
+      \ merkezi Türkiye'de\nbulunan uluslararası kurullar ile bu kurulların yabancı uyruklu memurlarına ve resmi bir\n\n5\n\
+      \  6/5/2009 tarihli ve 5897 sayılı Kanunun 3 üncü maddesiyle; bu bentte yer "
+  gecerlilik:
+    baslangic: '1963-02-23'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Merve_VER-2026-10-08v2-G03 #13'
+- id: SMMM-MAL-DIG-0011
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: bina vergisi mükellefiyeti
+  tip: kavrama
+  zorluk: 1
+  kok: Bina vergisi mükellefiyeti bakımından aşağıdaki eşleştirmelerden hangisi doğrudur?
+  secenekler:
+    A: Tek malik → intifa hakkı sahibi; intifa hakkı → malik; elbirliği → hisseleri oranında.
+    B: Tek malik → malik; intifa hakkı → malik; elbirliği → yalnız en büyük pay sahibi.
+    C: Tek malik → malik; intifa hakkı → malik gibi tasarruf eden; elbirliği → hisseleri oranında.
+    D: Tek malik → malik; intifa hakkı → malik; elbirliği → müteselsil sorumluluk yok.
+    E: Tek malik → malik; intifa hakkı sahibi → intifa hakkı sahibi; elbirliği mülkiyet → malikler vergiden müteselsilen sorumlu.
+  dogru: E
+  aciklama:
+    dogru_neden: EVK md.3'e göre bina vergisini malik, varsa intifa hakkı sahibi; her ikisi de yoksa malik gibi tasarruf edenler
+      öder. Elbirliği mülkiyette malikler vergiden müteselsilen sorumludur.
+    celdiriciler:
+      A: Malik ve intifa hakkı sahiplerinin sırasını ve elbirliği sonucunu yanlış verir.
+      B: İntifa hakkı sahibini malik kabul eder ve elbirliği kuralını yanlış belirler.
+      C: İntifa hakkı ve elbirliği sonuçlarını yanlış verir.
+      D: İntifa hakkı sahibini dışarıda bırakır ve müteselsil sorumluluğu reddeder.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 3
+    alinti: "Madde 3 – Bina Vergisini, binanın maliki, varsa intifa hakkı sahibi, her ikisi de yoksa\nbinaya malik gibi tasarruf\
+      \ edenler öder.\n        Bir binaya paylı mülkiyet halinde malik olanlar, hisseleri oranında mükelleftirler.\nElbirliği\
+      \ mülkiyette malikler vergiden müteselsilen sorumlu olurlar.1\n\n\n\n\n1\n 3/4/2002 tarihli ve 4751 sayılı Kanunla bu"
+  gecerlilik:
+    baslangic: '1970-08-11'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Merve_VER-2026-10-08v2-G03 #19'
+- id: SMMM-MAL-DIG-0012
+  sinav: smmm
+  bolum:
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: ÖTV listeleri ve istisnalar
+  tip: kavrama
+  zorluk: 3
+  kok: 'ÖTV Kanunu''ndaki liste ve istisna hükümleri aşağıdaki durumlarla eşleştirilmiştir. Doğru eşleştirme hangisidir?
+
+
+    I. Ekli listelerdeki malların ihracat teslimleri → ihracat istisnası
+
+    II. Ekli (I), (II) ve (III) sayılı listedeki malların diplomatik temsilciliklerin kendi ihtiyaçları için ilk iktisabı/ithali/teslimi
+    → diplomatik istisna
+
+    III. (III) ve (IV) sayılı listedeki malların gümrüksüz satış mağazalarında satılmak üzere teslimi → ihracat istisnası
+    kapsamında özel düzenleme
+
+    IV. (I) sayılı listedeki malların belirli kamu kuruluşlarının ihtiyacı için koşullu teslimi → diğer istisnalar'
+  secenekler:
+    A: I-5, II-7, III-6, IV-5
+    B: I-6, II-5, III-7, IV-6
+    C: I-5, II-6, III-7, IV-5
+    D: I-7, II-6, III-5, IV-7
+    E: I-5, II-6, III-5, IV-7
+  dogru: E
+  aciklama:
+    dogru_neden: I md.5'te ihracat istisnasıdır; II md.6'daki diplomatik istisnadır; III md.5/2'de gümrüksüz satış mağazaları
+      için özel ihracat istisnasıdır; IV md.7'de diğer istisnalar arasındadır.
+    celdiriciler:
+      A: II ve III'ün madde numaralarını karıştırmaktadır.
+      B: İhracat istisnasını md.6'ya bağlamaktadır.
+      C: IV'ü md.5'e bağlamaktadır.
+      D: I'i ve IV'ü md.7'ye bağlamaktadır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 5
+    alinti: "Madde 5 – 1. Bu Kanuna ekli listelerdeki malların ihracat teslimleri aşağıdaki şartlarla\nvergiden müstesnadır.\n\
+      \        a) Teslim yurt dışındaki bir müşteriye yapılmalıdır. Yurt dışındaki müşteri tabiri;\nikametgâhı, işyeri, kanuni\
+      \ ve iş merkezleri yurt dışında olan alıcılar ile yurt içinde bulunan bir\nişletmenin, yurt dışında faaliyet gösteren\
+      \ şubelerini ifade eder.\n        b) Teslim konusu mal, Türkiye Cumhuriyeti Gümrük Bölgesinden çıkmış olmalıdır.\nMalın\
+      \ ihraç edilmeden önce yurt dışındaki alı"
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 6
+    alinti: 'Madde 6 – Bu Kanuna ekli (I), (II) ve (III) sayılı listelerde yer alan malların, karşılıklı
+
+      olmak kaydıyla yabancı devletlerin Türkiye’deki diplomatik temsilcilikleri, konsoloslukları ve
+
+      uluslararası anlaşmalarla vergi muafiyeti tanınan uluslararası kuruluşlar ve bunların diplomatik
+
+      haklara sahip mensupları tarafından kendi ihtiyaçları için ilk iktisabı, ithali veya bunlara teslimi
+
+      ile ev sahibi hükümet anlaşmaları veya ülkemi'
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 7
+    alinti: "Madde 7 – Bu Kanuna ekli;\n         1. (I) sayılı listede yer alan malların;\n         a) Milli Savunma Bakanlığı,\
+      \ Jandarma Genel Komutanlığı, Sahil Güvenlik Komutanlığı ve\nMilli İstihbarat Teşkilâtının ihtiyacı için bu kuruluşlara\
+      \ veya bunların gerek göstermeleri üzerine ve\nişlemlerin bu kuruluşlar adına yapılması koşuluyla akaryakıt ikmalini\
+      \ yapanlara teslimi,\n         b) 6326 sayılı Petrol Kanunu hükümlerine göre petrol arama ve istihsal faaliyetlerinde\n\
+      kullanılmak üzere bu faaliyetleri yapanla"
+  gecerlilik:
+    baslangic: '2002-06-12'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır Merve_VER-2026-10-08v2-G03 #24'
+- id: SMMM-MAL-DIG-0013
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: FIFO ve hareketli ortalama
+  tip: kavrama
+  zorluk: 3
+  kok: 'Muhasebe Sistemi Uygulama Genel Tebliği''ndeki gelir tablosu dipnotu düzenlemesine göre stok değerleme yöntemleri
+    arasında yer alan yöntemlerin eşleştirilmesi aşağıdakilerden hangisinde doğru verilmiştir?
+
+    I. İlk giren ilk çıkar
+
+    II. Hareketli ortalama maliyet
+
+    III. Ağırlıklı ortalama maliyet
+
+    '
+  secenekler:
+    A: I ve II stok değerleme yöntemidir, III değildir.
+    B: I, II ve III stok değerleme yöntemidir.
+    C: Yalnız I ve III stok değerleme yöntemidir.
+    D: Yalnız II ve III stok değerleme yöntemidir.
+    E: Yalnız I stok değerleme yöntemidir.
+  dogru: B
+  aciklama:
+    dogru_neden: MSUGT dipnot düzenlemesinde maliyet hesaplama sistemleri (safha veya sipariş) ve stok değerleme yöntemleri
+      olarak ağırlıklı ortalama maliyet, ilk giren ilk çıkar, hareketli ortalama maliyet vs. gibi yöntemler açıkça sayılmıştır.
+      Dolayısıyla I, II ve III hepsi stok değerleme yöntemidir.
+    celdiriciler:
+      A: III'ü dışarıda bırakmıştır; oysa ağırlıklı ortalama da sayılmıştır.
+      C: II'yi dışarıda bırakmıştır.
+      D: I'i dışarıda bırakmıştır.
+      E: Yalnızca birini kabul etmiştir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: MSUGT 2 Sıra No'lu Tebliğ
+    madde: Gelir Tablosu Dipnotları düzeltmesi
+    alinti: '"f- GELİR TABLOSU DİPNOTLARI:" bölümünün 9 numaralı dipnotu aşağıdaki şekilde düzeltilmiştir. "Maliyet hesaplama
+      sistemleri (safha veya sipariş) ve stok değerleme yöntemleri (ağırlıklı ortalama maliyet, ilk giren ilk çıkar, hareketli
+      ortalama maliyet vs.. gibi)"'
+  gecerlilik:
+    baslangic: '1993-12-16'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-09'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-09'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-09'
+    kim: uretici
+    ne: 'harici teslim aday_MAL.yaml, satır grok_MAL-2026-10-08v2-G08 #14'
