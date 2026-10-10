@@ -27,7 +27,8 @@ BANKA_HEDEFI = {"FIN": 380, "TAB": 380, "MAL": 380, "DEN": 380, "VER": 380, "HUK
                 "STD": 250, "EKO": 250, "MLY": 250, "GKY": 600}
 URETIM_PAYI = 1.2
 HEDEF = {d: round(n * URETIM_PAYI) for d, n in BANKA_HEDEFI.items()}
-HESAPLI = {"FIN", "TAB", "MAL", "VER", "GKY"}
+_HESAPLI_SMMM = frozenset({"FIN", "TAB", "MAL", "VER", "GKY"})
+HESAPLI = set(_HESAPLI_SMMM)
 BICIMLER = ("olay/senaryo", "öncüllü (I, II, III)", "olumsuz kök (**yanlıştır**)", "kavram ayrımı / karşılaştırma",
             "hesaplama / sayısal", "eşleştirme veya sıralama")
 YET_ASGARI = 20
@@ -44,11 +45,15 @@ KAYNAK_ONEK: dict[str, list[str]] = {}
 def sinav_sec(kod: str) -> None:
     global SINAV, MUFREDAT, SORU_DIZINI, HEDEF
     SINAV, MUFREDAT, SORU_DIZINI = kod, KOK / f"content/mufredat/{kod}.yaml", KOK / f"content/sorular/{kod}"
+    HESAPLI.clear()
+    HESAPLI.update(_HESAPLI_SMMM if kod == "smmm" else ())
     if kod != "smmm":
         m = yaml.safe_load(MUFREDAT.read_text(encoding="utf-8"))
         HEDEF = {d["kod"]: int(d["hedef"]) for d in m["dersler"]}
         KAYNAK_ONEK.clear()
         KAYNAK_ONEK.update({d["kod"]: list(d.get("kaynak_dosyalari") or []) for d in m["dersler"]})
+        # Diğer sınavlarda hesap sorusu sorulan dersler müfredatta `hesapli: true` ile işaretlenir.
+        HESAPLI.update(d["kod"] for d in m["dersler"] if d.get("hesapli"))
 ZORLUK_ORANI = (0.20, 0.45, 0.35)
 
 

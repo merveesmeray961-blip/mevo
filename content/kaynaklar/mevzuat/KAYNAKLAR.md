@@ -254,3 +254,13 @@ Kaynak: https://www.mevzuat.gov.tr/MevzuatMetin/<tertip>.<no>.pdf (indirme 2026-
 | aklama_5549 | 5549 Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun | b0dacc3bf4148e3a |
 
 Eksik (elle eklenecek): Taşınmaz Ticareti Hakkında Yönetmelik (`tasinmaz_ticareti`), İSG yönetmelikleri (risk değerlendirmesi, İSG hizmetleri, eğitimler), SPL lisanslama konu listesi.
+
+## I. YMM sınavı için eklenenler (10 Ekim 2026)
+
+| Dosya | Mevzuat | Kaynak |
+|---|---|---|
+| `sinav_yon.txt` | Yeminli Mali Müşavirlik ve Serbest Muhasebeci Mali Müşavirlik Sınav Yönetmeliği (24/2/2025 değişiklikleri işlenmiş) | TÜRMOB yönetmelikler arşivi (YONETMELIKLER_3MART2025/6-Sınav-2025.pdf) |
+| `gumruk.txt` | 4458 sayılı Gümrük Kanunu | mevzuat.gov.tr (MevzuatMetin/1.5.4458.pdf) |
+| `tpkk_32.txt` | Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar (güncel metin) | Hazine ve Maliye Bakanlığı (ms.hmb.gov.tr, 2025/07) |
+
+Eksik (eklenecek): 3218 sayılı Serbest Bölgeler Kanunu, İhracat ve İthalat Rejimi Kararları, 32 sayılı Karara ilişkin Tebliğ (2008-32/34).
