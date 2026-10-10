@@ -175,6 +175,38 @@ class Ders {
   String gorunenAd(String bolum) => bolum == 'SGS' ? sgsAd : ad;
 }
 
+/// Bir konunun anlatımı: öğrenci soru çözmeden önce okur. Metin sade Markdown'dur (başlık, madde, tablo, alıntı).
+class KonuAnlatimi {
+  final String ders;
+  final String konu;
+  final String baslik;
+  final String metin;
+  final int okumaDk;
+
+  /// Anlatımın dayandığı maddeler: "Kaynak · md. X" biçiminde.
+  final List<String> kaynaklar;
+
+  const KonuAnlatimi({
+    required this.ders,
+    required this.konu,
+    required this.baslik,
+    required this.metin,
+    required this.okumaDk,
+    this.kaynaklar = const [],
+  });
+
+  String get anahtar => '$ders/$konu';
+
+  factory KonuAnlatimi.fromJson(Map<String, dynamic> j) => KonuAnlatimi(
+    ders: j['ders'] as String,
+    konu: j['konu'] as String,
+    baslik: j['baslik'] as String,
+    metin: j['metin'] as String,
+    okumaDk: (j['okuma_dk'] ?? 1) as int,
+    kaynaklar: List<String>.from((j['kaynaklar'] ?? const []) as List),
+  );
+}
+
 /// Bölüm (SGS / YET) sınav kuralları.
 class SinavFormati {
   final String kod;
@@ -253,6 +285,9 @@ class SoruBankasi {
 
   /// Mevzuat metinlerinin alındığı tarih (yyyy-aa-gg); yoksa null.
   final String? mevzuatTarihi;
+
+  /// Konu anlatımları, "DERS/KONU" anahtarıyla; anlatımı henüz yazılmamış konular burada yoktur.
+  final Map<String, KonuAnlatimi> anlatimlar;
   final Map<String, Soru> _idIle;
 
   SoruBankasi({
@@ -264,6 +299,7 @@ class SoruBankasi {
     required this.takvim,
     this.mevzuat = const [],
     this.mevzuatTarihi,
+    this.anlatimlar = const {},
   }) : _idIle = {for (final s in sorular) s.id: s};
 
   factory SoruBankasi.fromJson(Map<String, dynamic> j) {
@@ -293,10 +329,16 @@ class SoruBankasi {
       takvim: takvim,
       mevzuat: [for (final m in (j['mevzuat'] ?? const []) as List) MevzuatMaddesi.fromJson(m as Map<String, dynamic>)],
       mevzuatTarihi: j['mevzuat_tarihi'] as String?,
+      anlatimlar: {
+        for (final a in (j['anlatimlar'] ?? const []) as List)
+          if (KonuAnlatimi.fromJson(a as Map<String, dynamic>) case final k) k.anahtar: k,
+      },
     );
   }
 
   Soru? soru(String id) => _idIle[id];
+
+  KonuAnlatimi? anlatim(String ders, String konu) => anlatimlar['$ders/$konu'];
 
   /// SGS'nin hukuk dersi (SHK: iş-SGK, vergi, ticaret, borçlar) için ayrı soru üretilmez; Yeterlilik'in hukuk ve
   /// vergi soruları SGS konularına eşlenir (idari yargılama SGS'de yoktur). Anahtar: SHK konusu → (ders, konu?).

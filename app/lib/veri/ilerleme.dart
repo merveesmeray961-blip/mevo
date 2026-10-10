@@ -149,6 +149,7 @@ class Ilerleme extends ChangeNotifier {
   static const _anahtarDenemeler = 'ilerleme.denemeler.v1';
   static const _anahtarGunluk = 'ilerleme.gunluk.v1';
   static const _anahtarBildirimler = 'ilerleme.bildirimler.v1';
+  static const _anahtarAnlatimlar = 'ilerleme.anlatimlar.v1';
 
   final Depo _depo;
   final DateTime Function() _simdi;
@@ -156,6 +157,7 @@ class Ilerleme extends ChangeNotifier {
   final List<DenemeKaydi> _denemeler = [];
   final Map<String, int> _gunluk = {};
   final List<Map<String, dynamic>> _bildirimler = [];
+  final Set<String> _okunanlar = {};
 
   Ilerleme(this._depo, {DateTime Function()? simdi}) : _simdi = simdi ?? DateTime.now {
     final s = _depo.oku(_anahtarSorular);
@@ -172,6 +174,19 @@ class Ilerleme extends ChangeNotifier {
     if (g != null) _gunluk.addAll(Map<String, int>.from(jsonDecode(g) as Map));
     final b = _depo.oku(_anahtarBildirimler);
     if (b != null) _bildirimler.addAll([for (final j in jsonDecode(b) as List) Map<String, dynamic>.from(j as Map)]);
+    final a = _depo.oku(_anahtarAnlatimlar);
+    if (a != null) _okunanlar.addAll(List<String>.from(jsonDecode(a) as List));
+  }
+
+  /// Konu anlatımı okundu mu? Anahtar "DERS/KONU".
+  bool okundu(String anahtar) => _okunanlar.contains(anahtar);
+
+  int get okunanSayisi => _okunanlar.length;
+
+  Future<void> okunduIsaretle(String anahtar) async {
+    if (!_okunanlar.add(anahtar)) return;
+    notifyListeners();
+    await _depo.yaz(_anahtarAnlatimlar, jsonEncode(_okunanlar.toList()..sort()));
   }
 
   DateTime get simdi => _simdi();
@@ -254,7 +269,9 @@ class Ilerleme extends ChangeNotifier {
     _durumlar.clear();
     _denemeler.clear();
     _gunluk.clear();
+    _okunanlar.clear();
     notifyListeners();
+    await _depo.sil(_anahtarAnlatimlar);
     await _depo.sil(_anahtarSorular);
     await _depo.sil(_anahtarDenemeler);
     await _depo.sil(_anahtarGunluk);

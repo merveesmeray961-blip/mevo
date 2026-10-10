@@ -18,7 +18,7 @@ from pathlib import Path
 
 import yaml
 
-from pipeline import g2_yapi, g4_hesap, mevzuat_paketi, paket_sifre
+from pipeline import anlatim, g2_yapi, g4_hesap, mevzuat_paketi, paket_sifre
 
 KOK = g2_yapi.KOK
 AKTARILAN_DURUMLAR = {"kontrolde", "onayli", "yayinda"}
@@ -121,6 +121,9 @@ def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool =
     if puf_ayir:  # uygulama paketi: "Mevzuat" bölümü (yalnız sorularda atıf yapılan maddeler)
         paket["mevzuat_tarihi"] = mevzuat_paketi.MEVZUAT_TARIHI
         paket["mevzuat"] = mevzuat_paketi.kaynaklari_derle(sorular)
+        # Konu anlatımları: denetimden geçen ve yayına aday olanlar.
+        paket["anlatimlar"], anlatim_elenen = anlatim.paket_icin()
+        elenen += [{"id": e["dosya"], "hatalar": e["hatalar"]} for e in anlatim_elenen]
     hedef.parent.mkdir(parents=True, exist_ok=True)
     metin = json.dumps(paket, ensure_ascii=False, separators=(",", ":"))
     hedef.write_text(metin, encoding="utf-8")

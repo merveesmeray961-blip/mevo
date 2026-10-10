@@ -92,6 +92,37 @@ class _Tablo extends StatelessWidget {
     TextStyle hucreStili(int i) => i == 0 ? kucuk.copyWith(fontWeight: FontWeight.w600) : kucuk;
     String hucre(int i, int j) => j < satirlar[i].length ? satirlar[i][j] : '';
 
+    // Metin tablosu (ör. konu anlatımında "hesap | ne izlenir"): sütunlar kaydırılarak sola yaslı yazılır.
+    // Sayı tablosu (soru kökündeki bilanço vb.): sayı sütunları tek satır ve sağa yaslıdır.
+    final harf = RegExp(r'[A-Za-zÇĞİÖŞÜçğıöşü]{3}');
+    final metinTablosu = [
+      for (var i = 1; i < satirlar.length; i++)
+        for (var j = 1; j < sutun; j++) hucre(i, j),
+    ].any((h) => harf.hasMatch(h) && h.length > 12);
+    if (metinTablosu) {
+      return Table(
+        columnWidths: {for (var j = 0; j < sutun; j++) j: FlexColumnWidth(j == 0 ? 1 : 1.6)},
+        border: TableBorder.all(color: renk.outlineVariant),
+        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+        children: [
+          for (var i = 0; i < satirlar.length; i++)
+            TableRow(
+              decoration: i == 0 ? BoxDecoration(color: renk.primaryContainer.withValues(alpha: 0.5)) : null,
+              children: [
+                for (var j = 0; j < sutun; j++)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                    child: Text.rich(
+                      TextSpan(children: satirIci(hucre(i, j), hucreStili(i))),
+                      style: hucreStili(i),
+                    ),
+                  ),
+              ],
+            ),
+        ],
+      );
+    }
+
     // Sayı sütunlarının doğal genişliği (en geniş hücre + iç boşluk).
     var sayiGenisligi = 0.0;
     for (var j = 1; j < sutun; j++) {

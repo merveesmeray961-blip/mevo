@@ -4,6 +4,7 @@ import '../uygulama.dart';
 import '../veri/ilerleme.dart';
 import '../veri/modeller.dart';
 import 'calisma.dart';
+import 'konu.dart';
 import '../bilesenler/duzen.dart';
 
 class DerslerEkrani extends StatelessWidget {
@@ -135,9 +136,11 @@ class DersDetay extends StatelessWidget {
             if (s.zorluk == 3) s,
         ];
         final yanlislar = il.yanlislar(havuz);
+        // Sorusu ya da anlatımı olan konular; SGS hukuk gibi eşlenen derslerde konu, bankanın sorgusuyla bulunur.
+        final konuSorulari = {for (final k in ders.konular.keys) k: durum.banka.dersSorulari(bolum, ders.kod, konu: k)};
         final konular = [
           for (final e in ders.konular.entries)
-            if (havuz.any((s) => s.konu == e.key)) e,
+            if (konuSorulari[e.key]!.isNotEmpty || durum.banka.anlatim(ders.kod, e.key) != null) e,
         ];
         final t = Theme.of(context).textTheme;
         return Scaffold(
@@ -186,20 +189,31 @@ class DersDetay extends StatelessWidget {
                 for (final k in konular)
                   Builder(
                     builder: (context) {
-                      final sorular = [
-                        for (final s in havuz)
-                          if (s.konu == k.key) s,
-                      ];
-                      final ist = il.istatistik(sorular);
+                      final ist = il.istatistik(konuSorulari[k.key]!);
+                      final anlatim = durum.banka.anlatim(ders.kod, k.key);
+                      final okundu = anlatim != null && il.okundu(anlatim.anahtar);
                       return Card(
                         margin: const EdgeInsets.only(bottom: 8),
                         child: ListTile(
+                          leading: Icon(
+                            okundu ? Icons.menu_book_rounded : Icons.menu_book_outlined,
+                            color: anlatim == null
+                                ? Theme.of(context).disabledColor
+                                : Theme.of(context).colorScheme.primary,
+                          ),
                           title: Text(k.value),
-                          subtitle: Text('${ist.cozulen}/${ist.toplam} soru görüldü'),
+                          subtitle: Text(
+                            '${anlatim == null ? '' : (okundu ? 'Anlatım okundu · ' : 'Anlatım var · ')}'
+                            '${ist.cozulen}/${ist.toplam} soru görüldü',
+                          ),
                           trailing: ist.basari == null
                               ? const Icon(Icons.chevron_right)
                               : BasariRozeti(oran: ist.basari!),
-                          onTap: () => calismayaBasla(context, baslik: k.value, sorular: il.calismaSirasi(sorular, 50)),
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => KonuEkrani(ders: ders, konu: k.key),
+                            ),
+                          ),
                         ),
                       );
                     },

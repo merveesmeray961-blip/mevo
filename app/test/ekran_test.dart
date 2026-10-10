@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mevo/ekranlar/konu.dart';
 import 'package:mevo/abonelik/abonelik.dart';
 import 'package:mevo/main.dart';
 import 'package:mevo/uygulama.dart';
@@ -73,6 +74,31 @@ void main() {
     expect(durum.abonelik.premium, isTrue);
     expect(find.text('Hızlı çalışma'), findsOneWidget);
     expect(find.textContaining(' / '), findsWidgets);
+  });
+
+  testWidgets('konu: önce anlatım, okununca o konudan soru çözülür', (tester) async {
+    final durum = durumOlustur(bolum: 'YET');
+    final ders = durum.banka.dersler['FIN']!;
+    final anlatim = durum.banka.anlatim('FIN', 'ALC');
+    expect(anlatim, isNotNull);
+    await tester.pumpWidget(
+      Kapsam(
+        durum: durum,
+        child: MaterialApp(home: KonuEkrani(ders: ders, konu: 'ALC')),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Konuyu çalış'), findsOneWidget);
+    await tester.tap(find.text('Anlatımı aç'));
+    await tester.pumpAndSettle();
+    expect(find.text('Bu konuda neler öğreneceksin'), findsOneWidget);
+    final bitir = find.textContaining('Okudum, şimdi soru çöz');
+    await tester.scrollUntilVisible(bitir, 400);
+    await tester.tap(bitir);
+    await tester.pumpAndSettle();
+    expect(durum.ilerleme.okundu('FIN/ALC'), isTrue);
+    // Sorular konu ekranından başlar: çalışma ekranında sayaç görünür.
+    expect(find.text('1 / ${durum.banka.dersSorulari('YET', 'FIN', konu: 'ALC').length.clamp(0, 50)}'), findsOneWidget);
   });
 
   testWidgets('deneme: kurallar, cevap, bitirme ve sonuç', (tester) async {
