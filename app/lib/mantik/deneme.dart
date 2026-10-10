@@ -119,7 +119,7 @@ DenemePlani denemePlanla(SoruBankasi banka, DenemeTuru tur, {String? ders, int o
         for (final d in banka.dersler.values)
           if (d.sgsSoru > 0 && banka.dersSorulari('SGS', d.kod).isNotEmpty) d.kod: d.sgsSoru,
       };
-      baslik = 'Staja Giriş Sınavı denemesi (alan bilgisi)';
+      baslik = 'Staja Giriş Sınavı denemesi';
   }
   final sorular = <Soru>[];
   for (final e in hedef.entries) {
@@ -170,7 +170,7 @@ DenemeSonucu denemePuanla(SoruBankasi banka, DenemePlani plan, Map<String, Strin
   for (final d in plan.dersler) {
     final sorular = [
       for (final s in plan.sorular)
-        if (s.ders == d) s,
+        if (banka.sinavDersi(s, plan.bolum) == d) s,
     ];
     var dogru = 0, yanlis = 0;
     for (final s in sorular) {

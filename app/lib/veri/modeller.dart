@@ -298,21 +298,53 @@ class SoruBankasi {
 
   Soru? soru(String id) => _idIle[id];
 
+  /// SGS'nin hukuk dersi (SHK: iş-SGK, vergi, ticaret, borçlar) için ayrı soru üretilmez; Yeterlilik'in hukuk ve
+  /// vergi soruları SGS konularına eşlenir (idari yargılama SGS'de yoktur). Anahtar: SHK konusu → (ders, konu?).
+  static const sgsHukukEslemesi = {
+    'ISG': [('HUK', 'ISH'), ('HUK', 'SGK')],
+    'VRG': [('VER', null)],
+    'TCR': [('HUK', 'TIC')],
+    'BRC': [('HUK', 'BRC')],
+  };
+
+  /// Sorunun SGS hukuk dersindeki konusu; eşlenmiyorsa null.
+  static String? sgsHukukKonusu(Soru s) {
+    for (final e in sgsHukukEslemesi.entries) {
+      for (final (ders, konu) in e.value) {
+        if (s.ders == ders && (konu == null || s.konu == konu)) return e.key;
+      }
+    }
+    return null;
+  }
+
+  /// Sorunun verilen bölümün sınavında sayıldığı ders: SGS'de hukuk/vergi soruları SHK'ya, diğerleri kendi dersine.
+  String sinavDersi(Soru s, String bolum) => bolum == 'SGS' && sgsHukukKonusu(s) != null ? 'SHK' : s.ders;
+
+  bool _bolumde(Soru s, String bolum) => s.bolumde(bolum) || (bolum == 'SGS' && sgsHukukKonusu(s) != null);
+
   List<Soru> bolumSorulari(String bolum) => [
     for (final s in sorular)
-      if (s.bolumde(bolum)) s,
+      if (_bolumde(s, bolum)) s,
   ];
 
-  List<Soru> dersSorulari(String bolum, String ders, {String? konu}) => [
-    for (final s in sorular)
-      if (s.bolumde(bolum) && s.ders == ders && (konu == null || s.konu == konu)) s,
-  ];
+  List<Soru> dersSorulari(String bolum, String ders, {String? konu}) {
+    if (bolum == 'SGS' && ders == 'SHK') {
+      return [
+        for (final s in sorular)
+          if (sgsHukukKonusu(s) case final k? when konu == null || k == konu) s,
+      ];
+    }
+    return [
+      for (final s in sorular)
+        if (s.bolumde(bolum) && s.ders == ders && (konu == null || s.konu == konu)) s,
+    ];
+  }
 
   /// Bölümün sınavında yer alan ve bankada en az bir sorusu bulunan dersler, müfredat sırasıyla.
   List<Ders> bolumDersleri(String bolum) {
     final dolu = {
       for (final s in sorular)
-        if (s.bolumde(bolum)) s.ders,
+        if (_bolumde(s, bolum)) sinavDersi(s, bolum),
     };
     return [
       for (final d in dersler.values)

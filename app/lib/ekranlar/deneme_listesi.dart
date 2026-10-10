@@ -52,8 +52,8 @@ class DenemeListesi extends StatelessWidget {
           kartlar.add(_Baslik('Tam deneme'));
           kartlar.add(
             _DenemeKarti(
-              baslik: 'Alan bilgisi denemesi',
-              aciklama: 'Genel kültür, yetenek ve yabancı dil bölümleri sonraki sürümde eklenecek.',
+              baslik: 'Staja Giriş Sınavı denemesi',
+              aciklama: 'Alan bilgisi, genel kültür-yetenek ve yabancı dil bölümleriyle tam deneme.',
               plan: denemePlanla(banka, DenemeTuru.sgs),
               olustur: () => denemePlanla(banka, DenemeTuru.sgs),
             ),

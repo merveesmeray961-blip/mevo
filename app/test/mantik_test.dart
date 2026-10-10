@@ -84,6 +84,29 @@ void main() {
     });
   });
 
+  group('SGS hukuk dersi', () {
+    test('SHK, Yeterlilik hukuk ve vergi sorularından beslenir; idari yargılama girmez', () {
+      final shk = banka.dersSorulari('SGS', 'SHK');
+      expect(shk, isNotEmpty);
+      expect(shk.every((s) => s.ders == 'HUK' || s.ders == 'VER'), isTrue);
+      expect(shk.any((s) => s.konu == 'IYU'), isFalse);
+      expect(banka.bolumDersleri('SGS').map((d) => d.kod), contains('SHK'));
+      for (final k in ['ISG', 'VRG', 'TCR', 'BRC']) {
+        expect(banka.dersSorulari('SGS', 'SHK', konu: k), isNotEmpty, reason: k);
+      }
+    });
+
+    test('SGS denemesi gerçek sınav kadar (130) soru içerir ve hukuk soruları SHK altında puanlanır', () {
+      final plan = denemePlanla(banka, DenemeTuru.sgs, rastgele: Random(3));
+      expect(plan.sorular, hasLength(130));
+      expect(plan.eksik, isFalse);
+      final cevaplar = {for (final s in plan.sorular) s.id: s.dogru};
+      final sonuc = denemePuanla(banka, plan, cevaplar, 60);
+      expect(sonuc.dersler['SHK']!.soru, 24);
+      expect(sonuc.dogru, 130);
+    });
+  });
+
   group('Deneme planı', () {
     test('ders denemesi en fazla 20 soru, süre soru başına 135 sn', () {
       final p = denemePlanla(banka, DenemeTuru.yetDers, ders: 'FIN', rastgele: Random(1));
@@ -102,7 +125,9 @@ void main() {
 
     test('SGS denemesi yalnız SGS sorularından ve süre 165/130 oranında', () {
       final p = denemePlanla(banka, DenemeTuru.sgs, rastgele: Random(1));
-      expect(p.sorular.every((s) => s.bolumde('SGS')), isTrue);
+      // SGS havuzu: SGS etiketli sorular + SGS hukuk dersine (SHK) eşlenen hukuk/vergi soruları.
+      final havuz = banka.bolumSorulari('SGS').toSet();
+      expect(p.sorular.every(havuz.contains), isTrue);
       expect(p.sureSn, p.sorular.length * (165 * 60 / 130).round());
     });
 

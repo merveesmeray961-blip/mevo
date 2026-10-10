@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../bilesenler/soru_gorunumu.dart';
 import '../uygulama.dart';
@@ -342,7 +343,12 @@ Future<void> hataBildir(BuildContext context, Soru soru) async {
           children: [
             Text('Bu soruda hata mı var?', style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 4),
-            Text('Bildirimin uzmanlarımızca incelenir.', style: Theme.of(context).textTheme.bodyMedium),
+            Text(
+              destekEposta.isEmpty
+                  ? 'Bildirimin bu cihaza kaydedilir.'
+                  : 'Gönder\'e basınca e-posta uygulaman hazır bir iletiyle açılır; gönderdiğinde ekibimiz inceler.',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
             const SizedBox(height: 12),
             Wrap(
               spacing: 8,
@@ -372,10 +378,40 @@ Future<void> hataBildir(BuildContext context, Soru soru) async {
     ),
   );
   if (gonderildi == true && tur != null) {
-    await durum.ilerleme.bildirimEkle(soru, tur!, not.text.trim());
+    final aciklama = not.text.trim();
+    await durum.ilerleme.bildirimEkle(soru, tur!, aciklama);
+    // Bildirim e-postayla iletilir; uygulama sunucuya bağlanmaz, gönderimi kullanıcı kendi e-posta uygulamasından yapar.
+    var acildi = false;
+    if (destekEposta.isNotEmpty) {
+      final ileti = Uri(
+        scheme: 'mailto',
+        path: destekEposta,
+        query: _sorguKodla({
+          'subject': 'Mevo SMMM hata bildirimi: ${soru.id}',
+          'body': 'Soru: ${soru.id} (sürüm ${soru.surum})\nTür: $tur\nAçıklama: ${aciklama.isEmpty ? '-' : aciklama}\n',
+        }),
+      );
+      try {
+        acildi = await launchUrl(ileti, mode: LaunchMode.externalApplication);
+      } catch (_) {
+        acildi = false;
+      }
+    }
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Teşekkürler! Bildirimin kaydedildi.')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            acildi || destekEposta.isEmpty
+                ? 'Teşekkürler! Bildirimin kaydedildi.'
+                : 'E-posta uygulaması açılamadı. Bildirimini $destekEposta adresine yazabilirsin (soru: ${soru.id}).',
+          ),
+        ),
+      );
     }
   }
   not.dispose();
 }
+
+/// mailto sorgusu: Uri.queryParameters boşlukları "+" yaptığı için e-posta uygulamalarında bozulur; %20 kullanılır.
+String _sorguKodla(Map<String, String> p) =>
+    p.entries.map((e) => '${e.key}=${Uri.encodeComponent(e.value)}').join('&');
