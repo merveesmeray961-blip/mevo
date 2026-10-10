@@ -46,6 +46,9 @@ Hazır metinler: `docs/magaza/MAGAZA_METNI.md` (açıklamalar, anahtar kelimeler
 
 ### 0.4 Ekran görüntüleri ve simge
 
+> **Hazır:** `docs/magaza/gorseller/` klasöründe 7 telefon ekran görüntüsü (1080×1920, başlıklı), öne çıkan görsel
+> (1024×500) ve 512×512 simge var; doğrudan Play Console'a yükleyebilirsin. Aşağıdaki adımlar yenilemek istersen içindir.
+
 - Telefonda uygulamayı aç, 5–8 ekran görüntüsü al (Bugün, Dersler, soru + çözüm, deneme sonucu, İstatistik, tam erişim ekranı).
 - Tablet görüntüsü (7" ve 10") eklersen tabletlerde daha iyi görünür; iPad için Apple **zorunlu** tutar.
 - Simge: `app/assets/ikon/ikon.png` (1024×1024). Play için 512×512'ye küçült; Apple 1024×1024'ü uygulamanın içinden alır.
