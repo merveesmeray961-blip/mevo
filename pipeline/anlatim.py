@@ -16,7 +16,8 @@ Dosya biçimi: YAML ön bilgi + sade Markdown gövde.
     ## Başlık
     Paragraf, **kalın**, - madde, 1. sıralı, > not kutusu, | tablo |
 
-    python -m pipeline.anlatim denetle      # bütün anlatımları denetler
+    python -m pipeline.anlatim                          # bütün anlatımları denetler
+    python -m pipeline.anlatim paket FIN,TAB [--cikti D]  # dış üretici için anlatım paketi (zip)
 """
 from __future__ import annotations
 
@@ -96,7 +97,51 @@ def paket_icin(klasor: Path = KLASOR) -> tuple[list[dict], list[dict]]:
     return girenler, elenen
 
 
+def paket_olustur(ders: str, cikti: Path) -> Path:
+    """Dış üretici için konu anlatımı paketi: GOREV.md (konular ve kazanımlar), kurallar, örnek ve kaynaklar."""
+    import datetime as dt
+    import shutil
+
+    from pipeline import uretici_paketi
+
+    m = yaml.safe_load((KOK / "content/mufredat/smmm.yaml").read_text(encoding="utf-8"))
+    d = next(x for x in m["dersler"] if x["kod"] == ders)
+    mevcut = {p.stem for p in (KLASOR / ders).glob("*.md")} if (KLASOR / ders).exists() else set()
+    konular = [k for k in d["konular"] if k["kod"] not in mevcut]
+    ad = f"anlatim_{ders}-{dt.date.today().isoformat()}-{len(konular)}konu"
+    klasor = cikti / ad
+    if klasor.exists():
+        shutil.rmtree(klasor)
+    (klasor / "kaynaklar").mkdir(parents=True)
+    satirlar = [
+        f"# GÖREV {ad}: {d['ad']} — konu anlatımları",
+        "",
+        "Önce `ANLATIM_KURALLARI.md` ve `ORNEK_ANLATIM.md` dosyalarını oku. Aşağıdaki **her konu için ayrı bir `.md`**",
+        "dosyası yaz (dosya adı = konu kodu) ve hepsini tek zip olarak teslim et. Kaynak metinler `kaynaklar/` klasöründe.",
+        "Her konunun kazanımlarının hepsi anlatımda işlenmelidir.",
+        "",
+        "| # | Konu kodu | Konu | İşlenecek kazanımlar | Kaynak ipucu |",
+        "|---|---|---|---|---|",
+    ]
+    for i, k in enumerate(konular, 1):
+        kaz = "; ".join(str(z) for z in k.get("kazanimlar", []))
+        satirlar.append(f"| {i} | {k['kod']} | {k['ad']} | {kaz} | {', '.join(map(str, k.get('kaynaklar', [])))} |")
+    satirlar += ["", f"Ön bilgide `ders: {ders}` ve ilgili `konu:` kodunu kullan; `durum: taslak` yaz.", ""]
+    (klasor / "GOREV.md").write_text("\n".join(satirlar), encoding="utf-8")
+    shutil.copy(KOK / "docs/uretici/ANLATIM_KURALLARI.md", klasor / "ANLATIM_KURALLARI.md")
+    shutil.copy(KLASOR / "FIN" / "ALC.md", klasor / "ORNEK_ANLATIM.md")
+    for kaynak in uretici_paketi._kaynak_dosyalari(ders):
+        shutil.copy(kaynak, klasor / "kaynaklar" / kaynak.name)
+    zip_yolu = shutil.make_archive(str(klasor), "zip", root_dir=klasor.parent, base_dir=klasor.name)
+    return Path(zip_yolu)
+
+
 def main(argv: list[str]) -> int:
+    if len(argv) >= 3 and argv[1] == "paket":
+        cikti = Path(argv[argv.index("--cikti") + 1]) if "--cikti" in argv else KOK / "uretici_paketleri"
+        for ders in argv[2].split(","):
+            print(paket_olustur(ders.upper(), cikti))
+        return 0
     dersler = _dersler()
     hata = 0
     for yol in sorted(KLASOR.glob("*/*.md")):
