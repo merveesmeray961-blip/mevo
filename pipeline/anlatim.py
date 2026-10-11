@@ -39,11 +39,30 @@ _ON_BILGI = re.compile(r"\A---\n(.*?)\n---\n(.*)\Z", re.S)
 _IZINLI_BASLIK = re.compile(r"^#{2,3} \S")
 
 
+_ALAN = re.compile(r'^(\s*(?:-\s+)?)([A-Za-z_]+):\s+(.*\S)\s*$')
+
+
+def _tirnakla(on_bilgi: str) -> str:
+    """Üreticilerin sık hatası: değerde tırnaksız ': ' ("Sıra No: 1") YAML'ı bozar. Böyle değerler tırnağa alınır."""
+    satirlar = []
+    for s in on_bilgi.splitlines():
+        m = _ALAN.match(s)
+        if m and ": " in m.group(3) and m.group(3)[0] not in "\"'[{|>":
+            deger = m.group(3).replace("\\", "\\\\").replace('"', '\\"')
+            s = f'{m.group(1)}{m.group(2)}: "{deger}"'
+        satirlar.append(s)
+    return "\n".join(satirlar)
+
+
 def oku(yol: Path) -> tuple[dict, str]:
-    m = _ON_BILGI.match(yol.read_text(encoding="utf-8"))
+    m = _ON_BILGI.match(yol.read_text(encoding="utf-8").lstrip("\ufeff").replace("\r\n", "\n"))
     if not m:
         raise ValueError(f"{yol}: YAML ön bilgisi (--- ... ---) yok")
-    return yaml.safe_load(m.group(1)) or {}, m.group(2).strip() + "\n"
+    try:
+        bilgi = yaml.safe_load(m.group(1))
+    except yaml.YAMLError:
+        bilgi = yaml.safe_load(_tirnakla(m.group(1)))
+    return bilgi or {}, m.group(2).strip() + "\n"
 
 
 def denetle(bilgi: dict, metin: str, dersler: dict[str, set[str]]) -> list[str]:

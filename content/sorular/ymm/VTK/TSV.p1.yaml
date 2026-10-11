@@ -1,0 +1,67 @@
+- id: YMM-VTK-TSV-0001
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Teşvikler ve özel uygulamalar
+  konu: TSV
+  kazanim: asgari kurumlar vergisi
+  tip: hesaplama
+  zorluk: 2
+  kok: İndirim ve istisnalar öncesi kurum kazancı 1.000.000 TL’dir. 32/C kapsamındaki asgari kurumlar vergisi alt
+    sınırı kaç TL’dir?
+  secenekler:
+    A: '50.000'
+    B: '80.000'
+    C: '100.000'
+    D: '150.000'
+    E: '200.000'
+  dogru: C
+  aciklama:
+    dogru_neden: '%10 alt sınır uygulanır: 1.000.000 × %10 = 100.000 TL.'
+    celdiriciler:
+      A: Bu seçenek, sorudaki hükmün şartını veya sonucunu yanlış uygular.
+      B: Bu seçenek, sorudaki hükmün şartını veya sonucunu yanlış uygular.
+      D: Bu seçenek, sorudaki hükmün şartını veya sonucunu yanlış uygular.
+      E: Bu seçenek, sorudaki hükmün şartını veya sonucunu yanlış uygular.
+    hesap_adimlari:
+    - 1.000.000 × %10 = 100.000 TL.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 32/C
+    alinti: 32 nci ve 32/A maddeleri hükümleri dikkate alınarak hesaplanan kurumlar vergisi, indirim ve istisnalar
+      düşülmeden önceki kurum kazancının %10’undan az olamaz.
+  gecerlilik:
+    baslangic: '2024-07-28'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 1000000 * 0.10
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: coklu'
+    istem_surumu: uretici paketi toplu-2026-10-07
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: 'harici teslim aday_VTK.yaml, satır ChatGPT_YMM-VTK-2026-10-10-G01 #5'
