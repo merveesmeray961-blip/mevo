@@ -38,11 +38,12 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
    Ölçüm: yazar ajanı ~300–350 bin token / 24 soru + 3 klasik; hakem ~150–200 bin token.
    **Durum (2026-10-11 akşam):** YMM bankası 657 test + 43 klasik soru `kontrolde` (iç hattan 366 test yeni).
    Tamam: GUV, IFM, VTK, HSV, REV, DRM, SPM (iki yarı), DTK-1, FYN-1. DTK-2 yarım teslim taslak olarak alındı (hakem bekliyor).
-   YMM YAYINDA (`yayinda: true`, sürüm 1.0.6+7): paket 4021 soru (657 YMM) + 43 klasik; 315 Flutter + 72 Python testi geçiyor.
-   APK alınmadı: bu konteynerde Android SDK yok.
-   Paket artık hiçbir soruyu elemiyor (4021 soru + 43 klasik): 5 YMM + 2 SMMM sorusu denetleyici düzeltmesiyle geri alındı.
-   KALAN üretim (kullanıcı başka oturumda ajanlarla yaptıracak, bu hat kontrol eder): DTK-2 (10 taslak hakem bekliyor + eksik
-   konu), FYN-2, YNM-1, YNM-2. Kontrol adımları: `uretici_paketi al … --sinav ymm`, `klasik al`, hakem_girdi.py → hakem,
+   YMM YAYINDA (`yayinda: true`, sürüm 1.0.6+7): paket 4031 soru (667 YMM) + 43 klasik; 315 Flutter + 72 Python testi geçiyor.
+   APK: Android SDK /opt/android-sdk'ya kurulur (cmdline-tools + platforms;android-36 + build-tools;36.0.0, `flutter config --android-sdk`).
+   Keystore konteynerde yok → release APK debug anahtarıyla imzalanır (yalnız test; Play'e gitmez). Maven 429 verirse bekleyip tekrar dene.
+   Paket hiçbir soruyu elemiyor (4031 soru + 43 klasik): 5 YMM + 2 SMMM sorusu denetleyici düzeltmesiyle geri alındı.
+   KALAN üretim (kullanıcı başka oturumda ajanlarla yaptıracak, bu hat kontrol eder): DTK-2 eksik kısmı (VRG konusu;
+   KMB'den 10 soru kabul edildi), FYN-2, YNM-1, YNM-2. Kontrol adımları: `uretici_paketi al … --sinav ymm`, `klasik al`, hakem_girdi.py → hakem,
    ymm_terfi.py / `klasik terfi`, sonra `disa_aktar --uygulama` ELENDİ listesini temizle.
    Kullanıcı kota tüketiminden rahatsız: kullanıcı açıkça istemeden yeni ajan BAŞLATMA; başlatılırsa tek tek.
    Hakem girdisi: `<SCRATCHPAD>/hakem_girdi.py DERS klasör` (kor/anahtar/klasik dosyaları), terfi: ymm_terfi.py karar dosyasıyla.
