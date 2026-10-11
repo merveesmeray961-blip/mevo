@@ -1,0 +1,707 @@
+- id: YMM-SPM-SUC-0021
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: piyasa dolandırıcılığı
+  tip: hesaplama
+  zorluk: 1
+  kok: 'Borsada işlem gören bir payda, fiyatlara ilişkin yanıltıcı izlenim uyandırmak amacıyla alım satım yaparak (6362 sayılı
+    Kanun md. 107/1) 1.500.000 TL menfaat elde eden (X), hakkında soruşturma başlatıldıktan sonra ve kovuşturma evresine geçilmeden
+    önce pişmanlık göstererek Hazineye ödeme yapmak istemektedir.
+
+
+    X''in etkin pişmanlıktan yararlanabilmesi için ödemesi gereken asgari tutar ve bu ödemenin sonucu aşağıdakilerden hangisinde
+    doğru olarak verilmiştir?'
+  secenekler:
+    A: 1.500.000 TL – verilecek ceza yarısı oranında indirilir
+    B: 1.500.000 TL – verilecek ceza üçte biri oranında indirilir
+    C: 3.000.000 TL – verilecek ceza yarısı oranında indirilir
+    D: 3.000.000 TL – hakkında cezaya hükmolunmaz
+    E: 4.500.000 TL – verilecek ceza üçte biri oranında indirilir
+  dogru: C
+  aciklama:
+    dogru_neden: 'SPKn md. 107/3 uyarınca birinci fıkradaki suçu işleyen kişi, 500.000 TL''den az olmamak üzere elde ettiği
+      menfaatin iki katını Hazineye öder: 2 × 1.500.000 = 3.000.000 TL (500.000 TL''nin üzerinde). Ödeme soruşturma evresinde
+      yapıldığından verilecek ceza yarısı oranında indirilir (md. 107/3-b).'
+    celdiriciler:
+      A: Evre doğru, ancak ödenecek tutar menfaatin kendisi değil iki katıdır.
+      B: Ödenecek tutar menfaatin iki katıdır; üçte bir indirim kovuşturma evresinde hüküm verilinceye kadar yapılan ödemeye
+        bağlanmıştır.
+      D: Cezaya hükmolunmaması, ödemenin soruşturma başlamadan önce yapılmasına bağlıdır; soruşturma başlamıştır.
+      E: Kanun menfaatin üç katını değil iki katını arar; üçte bir indirim de kovuşturma evresine özgüdür.
+    hesap_adimlari:
+    - 'Ödeme: max(500.000; 2 × 1.500.000) = 3.000.000 TL'
+    - Soruşturma evresi → ceza yarısı oranında indirilir
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 107/3
+    alinti: (3) Birinci fıkrada tanımlanan suçu işleyen kişi pişmanlık göstererek, beş yüz bin Türk Lirasından az olmamak
+      üzere, elde ettiği veya elde edilmesine sebep olduğu menfaatin iki katı miktarı kadar parayı, Hazineye; a) Henüz soruşturma
+      başlamadan önce ödediği takdirde, hakkında cezaya hükmolunmaz. b) Soruşturma evresinde ödediği takdirde, verilecek ceza
+      yarısı oranında indirilir. c) Kovuşturma evresinde hüküm verilinceye kadar ödediği takdirde, verilecek ceza üçte biri
+      oranında indirilir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = max(500000, 2 * 1500000)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi SPM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_SPM-2.yaml, satır 17
+- id: YMM-SPM-SUC-0022
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: piyasa dolandırıcılığı
+  tip: bilgi
+  zorluk: 1
+  kok: 6362 sayılı Kanun'a göre sermaye piyasası suçlarında soruşturma ve yargılama usulüne ilişkin aşağıdaki ifadelerden
+    hangisi **yanlıştır**?
+  secenekler:
+    A: Bilgi suistimali suçundan soruşturma yapılması Kurulun Cumhuriyet başsavcılığına yazılı başvurusuna bağlıdır ve bu
+      başvuru muhakeme şartıdır.
+    B: Kurulun başvurusu üzerine kamu davası açılırsa, iddianamenin kabulü ile birlikte Kurul katılan sıfatını kazanır.
+    C: Soruşturmada kovuşturmaya yer olmadığı kararı verilmesi hâlinde Kurul bu karara karşı itiraza yetkilidir.
+    D: Piyasa dolandırıcılığı suçundan dolayı yargılama, ağır ceza mahkemelerinin görev alanındadır.
+    E: Cumhuriyet savcısı soruşturmada Kurul meslek personelinden yararlanabilir; ifade alınırken bu personelin hazır bulunması
+      sağlanabilir.
+  dogru: D
+  aciklama:
+    dogru_neden: SPKn md. 116 uyarınca Kanunda tanımlanan veya atıfta bulunulan suçlardan dolayı yargılama yapmaya Hâkimler
+      ve Savcılar Kurulunun ihtisas mahkemesi olarak görevlendireceği asliye ceza mahkemeleri yetkilidir. Piyasa dolandırıcılığı
+      bu genel kurala tabidir; ağır ceza mahkemesi görevi yalnız kripto varlık hizmet sağlayıcılarda zimmet suçu için öngörülmüştür
+      (md. 115/A-3).
+    celdiriciler:
+      A: md. 115/1 uyarınca soruşturma Kurulun yazılı başvurusuna bağlıdır ve bu başvuru muhakeme şartı niteliğindedir.
+      B: md. 115/2 uyarınca iddianamenin kabulü ile birlikte bir örneği Kurula tebliğ edilir ve Kurul katılan sıfatını kazanır.
+      C: md. 115/4 uyarınca Kurul kovuşturmaya yer olmadığı kararına itiraza yetkilidir.
+      E: md. 115/3 savcının Kurul meslek personelinden yararlanabileceğini ve ifade alınırken bu personelin hazır bulunmasının
+        sağlanabileceğini düzenler.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 116/1
+    alinti: MADDE 116 – (1) Bu Kanunda tanımlanan veya atıfta bulunulan suçlardan dolayı yargılama yapmaya Hâkimler ve Savcılar
+      Yüksek Kurulunun ihtisas mahkemesi olarak görevlendireceği asliye ceza mahkemeleri yetkilidir.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 115/1-2
+    alinti: MADDE 115 – (1) Bu Kanunda tanımlanan veya atıfta bulunulan suçlardan dolayı soruşturma yapılması, Kurul tarafından
+      Cumhuriyet başsavcılığına yazılı başvuruda bulunulmasına bağlıdır. Bu başvuru muhakeme şartı niteliğindedir. (2) Başvuru
+      üzerine kamu davası açılması hâlinde iddianamenin kabulü ile birlikte, bir örneği Kurula tebliğ edilir ve Kurul aynı
+      zamanda katılan sıfatını kazanır.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 115/4
+    alinti: (4) Bu Kanunda tanımlanan veya atıfta bulunulan suçlardan dolayı yapılan soruşturmada kovuşturmaya yer olmadığı
+      kararının verilmesi hâlinde, Kurul bu karara karşı itiraza yetkilidir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi SPM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_SPM-2.yaml, satır 18
+- id: YMM-SPM-SUC-0023
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: piyasa dolandırıcılığı
+  tip: uygulama
+  zorluk: 2
+  kok: 'Aşağıdaki işlemlerden hangileri, 6362 sayılı Kanun''un 108 inci maddesinde bilgi suistimali veya piyasa dolandırıcılığı
+    sayılmayan hâller arasında yer alır?
+
+
+    I. Payları yeni halka arz edilen bir ortaklığın paylarında, Kurulun fiyat istikrarını sağlayıcı işlemlere ilişkin düzenlemelerine
+    uygun olarak, münhasıran piyasa fiyatının önceden belirlenmiş bir süre için desteklenmesi amacıyla alım yapılması
+
+    II. Ortaklığın, Kurul düzenlemelerine göre uygulanan bir geri alım programı çerçevesinde kendi paylarını satın alması
+
+    III. Ortaklığın hâkim pay sahibinin, pay fiyatının belirli bir seviyenin altına düşmesini önlemek amacıyla, bir Kurul
+    düzenlemesine dayanmaksızın kendi hesabına sürekli alış emirleri vermesi
+
+    IV. TCMB''nin para politikasının uygulanması amacıyla devlet iç borçlanma senetlerinde işlem yapması'
+  secenekler:
+    A: I ve II
+    B: I, II ve IV
+    C: II ve III
+    D: I, III ve IV
+    E: II, III ve IV
+  dogru: B
+  aciklama:
+    dogru_neden: SPKn md. 108/1 uyarınca TCMB veya yetkili resmî kurumların para, döviz kuru, kamu borç yönetimi veya finansal
+      istikrar amaçlı işlemleri (IV), Kurul düzenlemelerine göre uygulanan geri alım programları (II) ve Kurulun fiyat istikrarını
+      sağlayıcı işlemlere ilişkin düzenlemelerine uygun olarak, piyasa fiyatının önceden belirlenmiş bir süre için desteklenmesi
+      amacıyla yapılan işlemler (I) bilgi suistimali veya piyasa dolandırıcılığı sayılmaz. III'teki fiyat desteği bir Kurul
+      düzenlemesine dayanmadığından istisna kapsamında değildir.
+    celdiriciler:
+      A: TCMB'nin para politikası amaçlı işlemleri (IV) de md. 108/1-(a) uyarınca istisna kapsamındadır.
+      C: III istisna değildir; fiyat desteğinin istisna sayılması Kurulun fiyat istikrarı düzenlemelerine uygunluğa bağlıdır.
+        I de istisnadır.
+      D: III'te fiyat desteği Kurul düzenlemesine dayanmamaktadır; buna karşılık geri alım programı (II) istisnadır.
+      E: III istisna kapsamında değildir; fiyat istikrarını sağlayıcı işlemler (I) ise istisnadır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 108/1-(a)
+    alinti: a) TCMB ya da yetkilendirilmiş başka bir resmî kurum veya bunlar adına hareket eden kişiler tarafından para, döviz
+      kuru, kamu borç yönetim politikalarının uygulanması veya finansal istikrarın sağlanması amacıyla işlem yapılması
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 108/1-(b)
+    alinti: b) Kurul düzenlemelerine göre uygulanan geri alım programları, çalışanlara pay edindirme programları ya da ihraççı
+      veya bağlı ortaklığının çalışanlarına yönelik diğer pay tahsis edilmesi
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 108/1-(c)
+    alinti: c) Kurulun bu Kanun kapsamındaki fiyat istikrarını sağlayıcı işlemlere ve piyasa yapıcılığına ilişkin düzenlemelerine
+      uygun olarak icra edilmeleri kaydıyla, münhasıran bu araçların piyasa fiyatının önceden belirlenmiş bir süre için desteklenmesi
+      amacıyla sermaye piyasası araçlarının alım veya satımının yapılması yahut emir verilmesi veya emir iptal edilmesi
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi SPM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_SPM-2.yaml, satır 19
+- id: YMM-SPM-SUC-0024
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: güveni kötüye kullanma
+  tip: uygulama
+  zorluk: 2
+  kok: 'Halka açık Omikron A.Ş.''nin yönetim kurulu başkanı (V), sermaye bakımından ilişkili olduğu bir şirkete, emsallerine
+    göre bariz şekilde düşük bedelle mal satışı yaptırarak Omikron''un kârını azaltmıştır (6362 sayılı Kanun md. 110/1-b).
+    Kurul kazanç aktarımını tespit etmiş olup Kanun''un 21 inci maddesinin dördüncü fıkrası uyarınca kanuni faiziyle birlikte
+    Omikron''a iade edilmesi gereken tutar 2.200.000 TL''dir. Hakkında henüz soruşturma başlamamış olan V, etkin pişmanlık
+    göstermek istemektedir.
+
+
+    6362 sayılı Kanun''a göre aşağıdakilerden hangisi doğrudur?'
+  secenekler:
+    A: V, Omikron'a 2.200.000 TL'yi iade eder ve Hazineye 2.200.000 TL öderse hakkında cezaya hükmolunmaz.
+    B: V, Omikron'a iade yapmaksızın Hazineye 4.400.000 TL öderse verilecek ceza yarısı oranında indirilir.
+    C: V, Omikron'a 2.200.000 TL'yi iade eder ve Hazineye 4.400.000 TL öderse verilecek ceza yarısı oranında indirilir.
+    D: Etkin pişmanlık yalnız md. 110/1-(a) kapsamındaki fiiller için öngörüldüğünden V bu imkândan yararlanamaz.
+    E: V, Omikron'a 2.200.000 TL'yi iade eder ve Hazineye 4.400.000 TL öderse hakkında cezaya hükmolunmaz.
+  dogru: E
+  aciklama:
+    dogru_neden: 'SPKn md. 110/3 uyarınca birinci fıkranın (b) ve (c) bentlerindeki güveni kötüye kullanma suçunu işleyen
+      kişi, md. 21/4''te yer alan ödemenin (aktarılan tutarın kanuni faiziyle ortaklığa iadesi: 2.200.000 TL) yanı sıra bunun
+      iki katı parayı (2 × 2.200.000 = 4.400.000 TL) Hazineye henüz soruşturma başlamadan önce öderse hakkında cezaya hükmolunmaz.'
+    celdiriciler:
+      A: Hazineye ödenecek tutar md. 21/4'teki ödemenin kendisi değil iki katıdır (4.400.000 TL).
+      B: Etkin pişmanlık, ortaklığa yapılacak md. 21/4 ödemesinin yanı sıra Hazineye ödemeyi gerektirir; ayrıca soruşturma
+        başlamadan önceki ödeme cezaya hükmolunmaması sonucunu doğurur.
+      C: Tutarlar doğrudur; ancak yarı oranında indirim soruşturma evresindeki ödemeye bağlanmıştır. Soruşturma başlamadan
+        önce ödemede cezaya hükmolunmaz.
+      D: md. 110/3 etkin pişmanlığı (b) ve (c) bentleri için öngörür; (a) bendindeki fiiller bu imkânın dışındadır.
+    hesap_adimlari:
+    - 'Ortaklığa iade (md. 21/4): 2.200.000 TL'
+    - 'Hazineye: 2 × 2.200.000 = 4.400.000 TL'
+    - Soruşturma öncesi → cezaya hükmolunmaz
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 110/3
+    alinti: (3) Birinci fıkranın (b) ve (c) bentleri kapsamına giren güveni kötüye kullanma suçunu işleyen kişi, etkin pişmanlık
+      göstererek 21 inci maddenin dördüncü fıkrasında yer alan ödemenin yanı sıra bunun iki katı parayı Hazineye; a) Henüz
+      soruşturma başlamadan önce ödediği takdirde, hakkında cezaya hükmolunmaz,
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 21/4
+    alinti: Kendilerine kazanç aktarımı yapılan taraflar Kurulca belirlenecek süre içinde aktarılan tutarı kanuni faizi ile
+      birlikte iade etmek zorundadır.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi SPM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_SPM-2.yaml, satır 20
+- id: YMM-SPM-SUC-0025
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: idari para cezaları ve tedbirler
+  tip: uygulama
+  zorluk: 2
+  kok: 'Payları borsada işlem gören Teta A.Ş.''nin yönetim kurulu üyesi (Z), şirkete ilişkin kamuya açıklanmamış herhangi
+    bir bilgiye sahip olmaksızın ve Kurulca izin verilen hâller dışında, Kurulca belirlenen zaman dilimi içinde Teta paylarını
+    alıp satarak 300.000 TL net kazanç elde etmiştir.
+
+
+    6362 sayılı Kanun''a göre Z bakımından aşağıdakilerden hangisi doğrudur?'
+  secenekler:
+    A: Z, net kazancı otuz gün içinde Teta'ya vermekle yükümlüdür; vermezse 600.000 TL idari para cezası verilir.
+    B: Z, net kazancı otuz gün içinde Hazineye ödemekle yükümlüdür; ödemezse 300.000 TL idari para cezası verilir.
+    C: Z, net kazancı altmış gün içinde Teta'ya vermekle yükümlüdür; vermezse 900.000 TL idari para cezası verilir.
+    D: Bilgi suistimali unsurları oluşmadığından Z'nin kazancı iade yükümlülüğü yoktur; işlemler yalnız kamuya açıklanır.
+    E: Z, net kazancı altmış gün içinde Hazineye ödemekle yükümlüdür; ödemezse 300.000 TL idari para cezası verilir.
+  dogru: A
+  aciklama:
+    dogru_neden: SPKn md. 103/4 uyarınca, md. 106'daki nitelikte bir bilginin varlığı aranmaksızın, Kurulca belirlenen zaman
+      dilimi içinde ihraççının sermaye piyasası araçlarının alım satımından kazanç elde eden yönetim kurulu üyeleri ve yöneticiler
+      net kazancı ihraççıya vermekle yükümlüdür; yükümlülüğü otuz gün içinde yerine getirmeyenlere elde ettikleri menfaatin
+      iki katı (2 × 300.000 = 600.000 TL) idari para cezası verilir.
+    celdiriciler:
+      B: Kazanç Hazineye değil ihraççıya (Teta) verilir; ceza menfaatin kendisi değil iki katıdır.
+      C: Süre otuz gündür ve ceza menfaatin üç katı değil iki katıdır.
+      D: md. 103/4, içeriden öğrenilen bilginin varlığını aramaz; yükümlülük yalnız Kurulca belirlenen dönemde işlem yapılmasına
+        bağlıdır.
+      E: Kazanç ihraççıya verilir, süre otuz gündür ve ceza menfaatin iki katıdır.
+    hesap_adimlari:
+    - 'İdari para cezası: 2 × 300.000 = 600.000 TL'
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 103/4
+    alinti: (4) 106 ncı maddede belirtilen nitelikte bir bilginin varlığı aranmaksızın, Kurulca izin verilen hâller hariç
+      olmak üzere ve Kurulca belirlenen zaman dilimi içinde ilgili sermaye piyasası araçlarının alım satımından kazanç elde
+      eden ihraççıların yönetim kurulu üyeleri ve yöneticileri elde ettikleri net kazancı ihraççıya vermekle yükümlüdürler.
+      Bu yükümlülüğü otuz gün içinde yerine getirmeyenler hakkında Kurul tarafından elde ettikleri menfaatin iki katı idari
+      para cezası verilir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi SPM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_SPM-2.yaml, satır 21
+- id: YMM-SPM-SUC-0026
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: idari para cezaları ve tedbirler
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Halka açık Kappa A.Ş.''nin yönetim kurulu üyesi, Kappa''nın faaliyeti çerçevesinde, Kurulun özel nitelikteki bir kararına
+    15 Mart 2026 tarihinde aykırı hareket etmiştir. Aykırılık Kappa''nın zararına bir sonuç doğurmamış ve aykırılık dolayısıyla
+    menfaat temin edilmemiştir. Kappa''nın yıllık finansal tablolarına ilişkin bilgiler:
+
+
+    | Hesap dönemi | Bağımsız denetim raporu tarihi | Brüt satış hasılatı | Vergi öncesi kâr |
+
+    |---|---|---|---|
+
+    | 2025 | 27 Şubat 2026 | 900 milyon TL | 60 milyon TL |
+
+    | 2026 | 26 Şubat 2027 | 1.500 milyon TL | 40 milyon TL |
+
+
+    6362 sayılı Kanun''un 103 üncü maddesi uyarınca bu aykırılık nedeniyle Kappa''ya verilebilecek idari para cezasının üst
+    sınırı kaç milyon TL''dir? (Kanundaki maktu asgari tutarın hesaplamayı etkilemediği varsayılacaktır.)'
+  secenekler:
+    A: '8'
+    B: '9'
+    C: '12'
+    D: '15'
+    E: '21'
+  dogru: C
+  aciklama:
+    dogru_neden: 'SPKn md. 103/2 uyarınca aykırılık tüzel kişinin organı tarafından onun faaliyeti çerçevesinde işlendiğinden
+      ve tüzel kişinin zararına sonuç doğurmadığından tüzel kişiye de idari para cezası verilir. md. 103/1 uyarınca tüzel
+      kişilere verilecek ceza, aykırılık tarihinden önceki son bağımsız denetimden geçmiş yıllık finansal tablolardaki brüt
+      satış hasılatının %1''i ile vergi öncesi kârın %20''sinden yüksek olanına kadardır. Aykırılık tarihinden (15.03.2026)
+      önceki son denetimli tablolar 2025 yılına aittir: %1 × 900 = 9; %20 × 60 = 12 → üst sınır 12 milyon TL. Püf noktaları:
+      2026 tabloları aykırılıktan sonra denetlendiği için kullanılmaz; iki ölçüt toplanmaz, yüksek olanı alınır. Ayrıca üst
+      sınırı yalnız hasılattan hesaplamak sık yapılan bir hatadır.'
+    celdiriciler:
+      A: 2026 tablolarının vergi öncesi kârı esas alınmıştır (%20 × 40 = 8); aykırılıktan önceki son denetimli tablolar 2025'e
+        aittir ve ölçütlerden yüksek olanı alınır.
+      B: Yalnız brüt satış hasılatı ölçütü uygulanmıştır (%1 × 900); vergi öncesi kâr ölçütü (12) daha yüksektir.
+      D: Aykırılıktan sonraki 2026 tabloları kullanılmıştır (%1 × 1.500 = 15); Kanun aykırılık tarihinden önceki son denetimli
+        tabloları esas alır.
+      E: İki ölçüt toplanmıştır (9 + 12); Kanun bunlardan yüksek olanını üst sınır olarak belirler.
+    hesap_adimlari:
+    - 'Esas tablolar: aykırılık tarihinden (15.03.2026) önceki son denetimli yıllık tablolar → 2025'
+    - '%1 × 900 = 9 milyon TL; %20 × 60 = 12 milyon TL'
+    - Üst sınır = max(9; 12) = 12 milyon TL
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 103/1
+    alinti: Tüzel kişilere, aykırılığın ağırlığı ve etkilediği mağdur sayısı dikkate alınarak bu fıkranın birinci cümlesinde
+      yer alan asgari miktardan az olmamak üzere aykırılık tarihinden önceki son bağımsız denetimden geçmiş yıllık finansal
+      tablolarında yer alan brüt satış hasılatının %1’i ile vergi öncesi kârının %20’sinden yüksek olanına kadar idari para
+      cezası verilir.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 103/2
+    alinti: (2) Birinci fıkradaki yükümlülüklere aykırı hareket eden kişinin bir özel hukuk tüzel kişisinin organ veya temsilcisi
+      olması veya organ veya temsilcisi olmamakla birlikte bu tüzel kişinin faaliyeti çerçevesinde görev üstlenen bir kişi
+      olması hâlinde, ayrıca tüzel kişi hakkında da birinci fıkra hükmüne göre idari para cezası verilir. Aykırılığın, temsilcisi
+      olunan veya adına hareket edilen tüzel kişinin zararına bir sonuç doğurması hâlinde, tüzel kişiye idari para cezası
+      verilmez.
+  gecerlilik:
+    baslangic: '2024-07-02'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'hasilat, vok = 900, 60
+
+      sonuc = max(hasilat * 1 // 100, vok * 20 // 100)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi SPM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_SPM-2.yaml, satır 22
+- id: YMM-SPM-SUC-0027
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: güveni kötüye kullanma
+  tip: kavrama
+  zorluk: 3
+  kok: '6362 sayılı Kanun''un kripto varlık hizmet sağlayıcılarda zimmet suçuna ilişkin hükümleri bakımından aşağıdaki ifadelerden
+    hangileri doğrudur?
+
+
+    I. Faaliyet izni kaldırılan bir kripto varlık hizmet sağlayıcının yönetimini fiilen elinde bulunduran gerçek kişi ortaklarının,
+    kuruluşun kaynaklarını emin çalışmasını tehlikeye düşürecek şekilde kendi menfaatlerine kullandırarak müşterileri zarara
+    uğratması zimmet sayılır; bu suçtan soruşturma, gecikmesinde sakınca görülen hâllerde Cumhuriyet savcılarınca resen yapılabilir.
+
+    II. Kripto varlık hizmet sağlayıcının yönetim kurulu üyesi, zimmete geçirdiği kripto varlıkları soruşturma başlamadan
+    önce aynen iade ederse verilecek cezanın üçte ikisi indirilir.
+
+    III. Zimmet suçlarından mahkûm olanlar hakkında, Hazineye olan borçları ve tazminatlar ödenmedikçe veya malvarlıklarından
+    tahsil olunamadıkça koşullu salıverilme hükümleri uygulanmaz.
+
+    IV. Zimmet suçuna ait davalar, Hâkimler ve Savcılar Kurulunun ihtisas mahkemesi olarak görevlendirdiği asliye ceza mahkemelerinde
+    görülür.'
+  secenekler:
+    A: I ve II
+    B: I, II ve III
+    C: II ve IV
+    D: I, III ve IV
+    E: II, III ve IV
+  dogru: B
+  aciklama:
+    dogru_neden: 'I: md. 110/A-3 bu fiili zimmet sayar; md. 115/A-1 uyarınca bu suçtan soruşturma Kurulun yazılı bildirimi
+      üzerine veya gecikmesinde sakınca görülen hâllerde resen yapılır (doğru). II: md. 110/A-4 uyarınca soruşturma başlamadan
+      önce aynen iade veya zararın tamamen tazmini hâlinde cezanın üçte ikisi indirilir (doğru). III: md. 115/A-5 (doğru).
+      IV: md. 115/A-3 uyarınca zimmet davaları (1) numaralı ağır ceza mahkemelerinde görülür (yanlış). Püf noktaları: md.
+      115 ve 116''daki genel usul (Kurul başvurusu muhakeme şartı, ihtisas asliye ceza mahkemesi) kripto varlık zimmetinde
+      değişir: resen soruşturma imkânı ve ağır ceza mahkemesi. İade indirimleri evreye göre üçte iki, yarı ve üçte birdir.'
+    celdiriciler:
+      A: III de doğrudur; md. 115/A-5 koşullu salıverilmeyi borç ve tazminatların ödenmesine bağlar.
+      C: IV yanlıştır; zimmet davaları ağır ceza mahkemelerinde görülür. I ve III ise doğrudur.
+      D: IV yanlıştır; md. 116'daki asliye ceza kuralı zimmet suçu için md. 115/A-3 ile değiştirilmiştir. II ise doğrudur.
+      E: IV'teki genel görev kuralı zimmet suçuna uygulanmaz; resen soruşturma imkânını içeren I ise doğrudur.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 115/A-1
+    alinti: (1) Bu Kanunun 110/A maddesinin üçüncü fıkrasında belirtilen suçtan dolayı soruşturma ve kovuşturmalar Kurulun
+      yazılı bildirimi üzerine veya gecikmesinde sakınca görülen hâllerde resen Cumhuriyet savcılarınca yapılır ve Kurul haberdar
+      edilir.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 110/A-4
+    alinti: (4) Soruşturma başlamadan önce, zimmete geçirilen para veya para yerine geçen evrak veya senetlerin, diğer malların
+      veya kripto varlıkların aynen iade edilmesi veya uğranılan zararın tamamen tazmin edilmesi hâlinde, verilecek cezanın
+      üçte ikisi indirilir.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 115/A-3
+    alinti: (3) Bu Kanunda tanımlanan zimmet suçuna ait davalar, fiilin işlendiği yerin bağlı olduğu ilin adıyla anılan (1)
+      numaralı ağır ceza mahkemelerinde görülür.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 115/A-5
+    alinti: (5) Bu Kanunun 110/A maddesinde yazılı suçlardan dolayı mahkûm olanlar, Hazineye olan borçları ve tazminatları
+      ödemediği veya bu borçlar ve tazminatlar malvarlıklarından tahsil olunamadığı sürece, bunlar hakkında koşullu salıverilme
+      hükümleri uygulanmaz.
+  gecerlilik:
+    baslangic: '2024-07-02'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi SPM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_SPM-2.yaml, satır 23
+- id: YMM-SPM-SUC-0028
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: idari para cezaları ve tedbirler
+  tip: hesaplama
+  zorluk: 3
+  kok: '(M), Kurulca belirlenen piyasa bozucu eylemlerden birini gerçekleştirmiştir; eylem bir suç oluşturmamaktadır. M''nin
+    bu eylemle bağlantılı işlemlerine ilişkin bilgiler şöyledir:
+
+
+    - Satılarak nakde çevrilen pozisyonlardan elde edilen kazanç: 200.000 TL
+
+    - Hâlen M''nin hesabında bulunan, nakde çevrilmemiş pozisyonlardaki kazanç: 60.000 TL
+
+    - Bu işlemler için ödenen aracı kurum komisyonları ve vergiler: 20.000 TL
+
+
+    Alım satım işlemlerine ilişkin fiyat ve maliyet esaslarının kazanç tutarlarını değiştirmediği ve Kanundaki maktu asgari
+    tutarın hesaplamayı etkilemediği varsayıldığında, 6362 sayılı Kanun''a göre M''ye verilecek idari para cezasının asgari
+    tutarı kaç TL''dir?'
+  secenekler:
+    A: '360.000'
+    B: '400.000'
+    C: '480.000'
+    D: '520.000'
+    E: '780.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'SPKn md. 104/1 uyarınca piyasa bozucu eylemle menfaat temin edilmişse verilecek idari para cezası bu menfaatin
+      iki katından az olamaz. md. 103/9 uyarınca 104 üncü maddedeki menfaat hesaplamasında komisyonlar, vergiler ve benzeri
+      maliyetler dikkate alınmaz ve menfaatin nakde çevrilip çevrilmediğine bakılmaz. Menfaat = 200.000 + 60.000 = 260.000
+      TL; asgari ceza = 2 × 260.000 = 520.000 TL. Püf noktaları: Menfaatten maliyet düşmeyin ve nakde çevrilmemiş kazancı
+      da dahil edin. Piyasa bozucu eylemde katsayı ikidir; üç kat alt sınır, kabahatin idari yaptırım kararından önce birden
+      çok işlenmesi hâline (md. 105/2) özgüdür.'
+    celdiriciler:
+      A: 'Nakde çevrilmemiş kazanç dışlanmış ve komisyon-vergiler düşülmüştür: 2 × (200.000 − 20.000).'
+      B: 'Yalnız nakde çevrilen kazanç esas alınmıştır: 2 × 200.000; md. 103/9 nakde çevrilmemiş kazancı da kapsar.'
+      C: 'Komisyon ve vergiler menfaatten düşülmüştür: 2 × (260.000 − 20.000); md. 103/9 bu maliyetlerin dikkate alınmayacağını
+        öngörür.'
+      E: Üç kat katsayısı uygulanmıştır; bu katsayı md. 105/2'deki tekrar hâline ilişkindir, md. 104'te alt sınır menfaatin
+        iki katıdır.
+    hesap_adimlari:
+    - Menfaat = 200.000 + 60.000 = 260.000 TL (komisyon ve vergiler düşülmez)
+    - Asgari ceza = 2 × 260.000 = 520.000 TL
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 104/1
+    alinti: Kurulca belirlenen piyasa bozucu eylemleri gerçekleştiren kişilere Kurul tarafından yirmi bin Türk Lirasından
+      beş yüz bin Türk Lirasına kadar idari para cezası verilir. Ancak, bu suretle menfaat temin edilmiş olması hâlinde verilecek
+      idari para cezasının miktarı bu menfaatin iki katından az olamaz.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 103/9
+    alinti: (9) (Ek:26/6/2024-7518/11 md.) Bu maddede ve Kanunun 104 üncü maddesinde belirtilen menfaat hesaplamalarında;
+      kişinin menfaatin elde edilmesiyle bağlantılı işlemler ve faaliyetlerde ödediği komisyonlar, vergiler, kredi faizleri,
+      danışmanlık ücretleri ve Kurulca benzer kapsamda olduğu değerlendirilen diğer maliyetler dikkate alınmaksızın ve elde
+      edilen menfaatin nakde çevrilip çevrilmediğine bakılmaksızın hesaplama yapılır.
+  gecerlilik:
+    baslangic: '2024-07-02'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'menfaat = 200000 + 60000
+
+      sonuc = 2 * menfaat'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi SPM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_SPM-2.yaml, satır 24
