@@ -198,7 +198,7 @@
       \ - (2000000 - 1400000)) * t\ndegisim = kapanis - acilis\ndkg = aktuer * t\nsonuc = {'dava_karsiligi': karsilik, 'net_faiz':\
       \ faiz, 'kz_kidem': kz_kidem, 'beklenen_kapanis': beklenen,\n         'aktueryal_kayip': aktuer, 'evv_acilis': acilis,\
       \ 'evv_kapanis': kapanis, 'degisim': degisim,\n         'dkg_vergi': dkg, 'kz_vergi_geliri': degisim - dkg}"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -209,8 +209,14 @@
         sonuc: gecti
         tarih: '2026-10-11'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-11'
     kim: uretici
     ne: harici teslim t_IFM-2.yaml, klasik 2
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü

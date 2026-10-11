@@ -225,7 +225,7 @@
       \ + serefiye\nalacak = 2500000 + 1500000 + evy + yeni_pay + (bedel - yeni_pay)\nassert abs(borc - alacak) < 1\nsonuc\
       \ = {'degisim_orani': oran, 'yeni_pay': yeni_pay, 'bedel': bedel, 'kayitli_net': kayitli,\n         'gud_farki': fark,\
       \ 'evy': evy, 'net_varlik': net, 'serefiye': serefiye,\n         'ihrac_primi': bedel - yeni_pay, 'kayit_toplami': borc}"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -236,8 +236,14 @@
         sonuc: gecti
         tarih: '2026-10-11'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-11'
     kim: uretici
     ne: harici teslim t_IFM-2.yaml, klasik 3
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
