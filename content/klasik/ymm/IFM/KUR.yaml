@@ -143,7 +143,7 @@
       kapanis = (500000 + 80000) * 45\nkar_tl = 80000 * 43\ncevrim = kapanis - 500000 * 40 - kar_tl\nsonuc = {'tahsil_kur_farki':\
       \ tahsil, 'alacak_degerleme': alacak, 'kredi_kur_farki': kredi, 'net_kur': net,\n         'kapanis_net_varlik': kapanis,\
       \ 'kar_tl': kar_tl, 'cevrim_farki': cevrim, 'kgop_payi': cevrim * 0.30}"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -154,8 +154,14 @@
         sonuc: gecti
         tarih: '2026-10-11'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-11'
     kim: uretici
     ne: harici teslim t_IFM-1.yaml, klasik 4
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
