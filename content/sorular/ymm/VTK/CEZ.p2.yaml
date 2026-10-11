@@ -1,0 +1,708 @@
+- id: YMM-VTK-CEZ-0002
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Vergi cezaları ve uzlaşma
+  konu: CEZ
+  kazanim: vergi ziyaı ve usulsüzlük cezaları
+  tip: hesaplama
+  zorluk: 1
+  kok: Vergi kanunlarına göre mükellefiyet tesis ettirmesi gerektiği hâlde bu zorunluluğa uymayan Bay (R), 2025 yılında vergi
+    dairesinin ıttılaı dışında ticari faaliyette bulunmuştur. Yapılan inceleme sonucunda 2025 yılı için 300.000 TL gelir vergisi
+    re'sen tarh edilmiştir. Fiil VUK md. 359 kapsamında değildir; (R) hakkında daha önce kesinleşmiş vergi cezası bulunmamaktadır.
+    Buna göre (R) adına bu tarhiyat nedeniyle kesilecek vergi ziyaı cezası kaç TL'dir?
+  secenekler:
+    A: '300.000'
+    B: '450.000'
+    C: '600.000'
+    D: '900.000'
+    E: 1.350.000
+  dogru: B
+  aciklama:
+    dogru_neden: 'VUK md. 344/1''e göre vergi ziyaı cezası ziyaa uğratılan verginin bir katıdır (300.000 TL). 7524 sayılı
+      Kanun''la eklenen fıkraya göre mükellefiyet tesis ettirmeksizin vergi dairesinin ıttılaı dışında ticari faaliyette bulunularak
+      vergi ziyaına sebebiyet verilmesi hâlinde bu ceza %50 artırılarak uygulanır: 300.000 x 1,5 = 450.000 TL.'
+    celdiriciler:
+      A: Bir kat ceza bulunmuş, ancak kayıt dışı faaliyet nedeniyle öngörülen %50 artırım uygulanmamıştır.
+      C: Artırım %50 değil %100 (iki kat) olarak uygulanmıştır.
+      D: Üç kat ceza, vergi ziyaına VUK md. 359'daki fiillerle sebebiyet verilmesi hâline özgüdür; olayda bu fiiller yoktur.
+      E: Üç kat ceza üzerine %50 artırım uygulanmıştır; fiil md. 359 kapsamında olmadığından esas ceza bir kattır.
+    hesap_adimlari:
+    - Esas VZC = 300.000 x 1 = 300.000
+    - Artırımlı VZC = 300.000 x 1,5 = 450.000
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 344 (son fıkra)
+    alinti: (Ek fıkra:28/7/2024-7524/9 md.) Vergi kanunlarına göre mükellefiyet tesis ettirilmesi gerektiği halde bu zorunluluğa
+      uyulmaksızın vergi dairesinin ıttılaı dışında ticari, zirai veya mesleki faaliyette bulunmak suretiyle vergi ziyaına
+      sebebiyet verilmesi durumunda, birinci, ikinci ve üçüncü fıkralara göre kesilecek vergi ziyaı cezası yüzde elli artırılarak
+      uygulanır. Aynı vergi türü ve dönemine ilişkin daha sonra yapılacak tarhiyatlar nedeniyle kesilecek vergi ziyaı cezalarına
+      da aynı artırım hükmü tatbik edilir.
+  gecerlilik:
+    baslangic: '2024-08-02'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 300000 * 1 * 1.5
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-2.yaml, satır 17
+- id: YMM-VTK-CEZ-0003
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Vergi cezaları ve uzlaşma
+  konu: CEZ
+  kazanim: ceza indirimi
+  tip: hesaplama
+  zorluk: 1
+  kok: Vergi incelemesi sonucunda (V) AŞ adına 2024 dönemine ilişkin 90.000 TL KDV ikmalen tarh edilmiş ve bir kat (90.000
+    TL) vergi ziyaı cezası kesilmiştir; ihbarname 3/8/2026'da tebliğ edilmiştir. Şirket daha önce de başka bir tarhiyat için
+    VUK md. 376 indiriminden yararlanmıştır. (V) AŞ, ihbarnamenin tebliğinden itibaren otuz gün içinde vergi dairesine başvurarak
+    vergi ile indirimli cezayı vadesinde ödeyeceğini bildirmiş ve süresinde ödemiştir; uzlaşma talebi ve dava yoktur. Buna
+    göre şirketin ödediği vergi ve ceza toplamı kaç TL'dir? (Gecikme faizi dikkate alınmayacaktır.)
+  secenekler:
+    A: '90.000'
+    B: '112.500'
+    C: '135.000'
+    D: '150.000'
+    E: '180.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'VUK md. 376/1-(1)''e göre ikmalen tarh edilen vergiyi ve cezanın yarısını otuz gün içinde başvurup vadesinde
+      ödeyeceğini bildiren ve ödeyen mükellefin cezasının yarısı indirilir. Daha önce yararlanılmış olması önem taşımaz; sonraki
+      tarhiyatlarda daha düşük indirim öngören (2) numaralı bent 7524 sayılı Kanun''la yürürlükten kaldırılmıştır. Ödenen:
+      90.000 (vergi) + 45.000 (cezanın yarısı) = 135.000 TL.'
+    celdiriciler:
+      A: İndirim yalnız cezaya uygulanır; vergi aslının tamamı ödenir.
+      B: '%50 artırımlı indirim (%75), Ek md. 1''e göre yalnız 40.000 TL''yi aşmayan usulsüzlük ve özel usulsüzlük cezaları
+        içindir.'
+      D: Cezanın üçte birinin indirilmesi, mülga 376/1-(2) hükmüne dayanır; 2026'da uygulanmaz.
+      E: Şartlar yerine getirildiğinden cezanın yarısı indirilir; vergi ve cezanın tamamı ödenmez.
+    hesap_adimlari:
+    - Ödenecek = 90.000 + 90.000 / 2 = 135.000
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 376/1
+    alinti: (Değişik birinci fıkra:5/12/2019-7194/26 md.) Mükellef veya vergi sorumlusu; 1. İkmalen, resen veya idarece tarh
+      edilen vergiyi veya vergi farkını ve vergi ziyaı, usulsüzlük ve özel usulsüzlük cezalarının yarısını ihbarnamelerin
+      tebliğ tarihinden itibaren otuz gün içinde ilgili vergi dairesine başvurarak vadesinde veya 6183 sayılı Kanunda belirtilen
+      türden teminat göstererek vadenin bitmesinden itibaren üç ay içinde ödeyeceğini bildirirse kesilen cezanın yarısı, 2.
+      (Mülga:28/7/2024-7524/14 md.) indirilir.
+  gecerlilik:
+    baslangic: '2024-08-02'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 90000 + 90000 / 2
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-2.yaml, satır 18
+- id: YMM-VTK-CEZ-0004
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Vergi cezaları ve uzlaşma
+  konu: CEZ
+  kazanim: pişmanlık ve ıslah
+  tip: uygulama
+  zorluk: 2
+  kok: '(E) AŞ ile ilgili aşağıdaki ifadelerden hangileri, VUK md. 371''deki pişmanlık hükümleri bakımından doğrudur?
+
+
+    I. Şirket nezdinde yalnız kurumlar vergisi incelemesi başlamışken, Mart 2026 KDV beyanındaki eksikliği bu inceleme başladıktan
+    sonra dilekçeyle kendiliğinden haber veren şirket, diğer şartları da taşırsa KDV bakımından pişmanlıktan yararlanabilir.
+
+    II. Şirketin haber verme dilekçesinden önce bir muhbirin aynı hususu dilekçeyle ihbar ettiği ve dilekçenin resmî kayıtlara
+    geçtiği durumda da şirket pişmanlıktan yararlanabilir.
+
+    III. Haber verme dilekçesinin verildiği tarihten itibaren yirminci gün düzeltme beyannamesini veren ve vergiyi pişmanlık
+    zammıyla aynı gün ödeyen şirket pişmanlıktan yararlanır.
+
+    IV. Pişmanlıkla ödenecek vergiye, ödemenin geciktiği her ay ve kesri için 6183 sayılı Kanun md. 51''deki gecikme zammı
+    oranında zam uygulanır.'
+  secenekler:
+    A: I ve IV
+    B: I ve II
+    C: II ve III
+    D: I, III ve IV
+    E: II ve IV
+  dogru: A
+  aciklama:
+    dogru_neden: 'I doğrudur: 7338 sayılı Kanun''la değişik md. 371/2''ye göre engel, haber verilen olayın ilgili olduğu vergi
+      türüne ilişkin incelemenin başlamasıdır; kurumlar vergisi incelemesi KDV bakımından pişmanlığa engel değildir. IV doğrudur:
+      ödeme süresi geçmiş vergiler, her ay ve kesri için gecikme zammı oranında bir zamla ödenir. II yanlıştır: haber vermeden
+      önce muhbir ihbarı resmî kayda geçmişse pişmanlık şartı (md. 371/1) sağlanmaz. III yanlıştır: eksik beyanın tamamlanması
+      ve ödeme, haber verme tarihinden başlayarak on beş gün içinde yapılmalıdır.'
+    celdiriciler:
+      B: II yanlıştır; muhbir ihbarının haber vermeden önce resmî kayda geçmesi pişmanlığa engeldir.
+      C: 'Her iki ifade de yanlıştır: muhbir ihbarı engeldir, yirminci günde yapılan beyan ve ödeme on beş günlük süreyi aşar.'
+      D: III yanlıştır; düzeltme ve ödeme için süre on beş gündür.
+      E: II yanlış, I ise doğrudur; inceleme başka bir vergi türüne ilişkin olduğundan KDV için pişmanlık mümkündür.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 371/1-1
+    alinti: 1. Mükellefin keyfiyeti haber verdiği tarihten önce bir muhbir tarafından her hangi resmi bir makama dilekçe ile
+      veya şifahi beyanı tutanakla tevsik edilmek suretiyle haber verilen husus hakkında ihbarda bulunulmamış olması (Dilekçe
+      veya tutanağın resmi kayıtlara geçirilmiş olması şarttır.).
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 371/1-2
+    alinti: 2. Haber verme dilekçesinin yetkili memurlar tarafından mükellef nezdinde haber verilen olayın ilgili olduğu vergi
+      türüne ilişkin bir vergi incelemesine başlandığı veya olayın ve ilgili olduğu vergi türünün takdir komisyonuna intikal
+      ettirildiği günden evvel (Kaçakçılık suçu teşkil eden fiillerin işlendiğinin tespitinden önce) verilmiş ve resmi kayıtlara
+      geçirilmiş olması.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 371/1-4, 5
+    alinti: 4. Eksik veya yanlış yapılan vergi beyanının mükellefin keyfiyeti haber verme tarihinden başlayarak onbeş gün
+      içinde tamamlanması veya düzeltilmesi. 5. Mükellefçe haber verilen ve ödeme süresi geçmiş bulunan vergilerin, ödemenin
+      geciktiği her ay ve kesri için, 6183 sayılı Kanunun 51 inci maddesinde belirtilen nispette uygulanacak gecikme zammı
+      oranında bir zamla birlikte haber verme tarihinden başlayarak onbeş gün içinde ödenmesi.
+  gecerlilik:
+    baslangic: '2021-10-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-2.yaml, satır 19
+- id: YMM-VTK-CEZ-0005
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Vergi cezaları ve uzlaşma
+  konu: CEZ
+  kazanim: uzlaşma ve izaha davet
+  tip: kavrama
+  zorluk: 2
+  kok: VUK md. 370 kapsamındaki izaha davet uygulamasına ilişkin aşağıdaki ifadelerden hangisi **yanlıştır**? (2026 yılı tutarları
+    esas alınacaktır.)
+  secenekler:
+    A: İzaha davet yazısı tebliğ edilen mükellef, davet konusu tespitle sınırlı olarak pişmanlık hükümlerinden yararlanamaz.
+    B: Yapılan izah sonucu vergi ziyaı olmadığı idarece anlaşılırsa, mükellef bu tespitle ilgili vergi incelemesine tabi tutulmaz.
+    C: İzah yeterli bulunmaz da otuz gün içinde beyan düzeltilip vergi zamla ödenirse vergi ziyaı cezası %20 oranında kesilir.
+    D: 2026'da 1.000.000 TL sahte belge kullandığı ön tespit edilen, yıllık alışları 25.000.000 TL olan mükellefe yazı tebliğ
+      edilebilir.
+    E: '%20 oranında vergi ziyaı cezası uygulanması, aynı konuda vergi incelemesi yapılmasına ve tarhiyatın ikmaline engeldir.'
+  dogru: E
+  aciklama:
+    dogru_neden: Md. 370/a'ya göre izah yeterli bulunmayıp otuz gün içinde beyan düzeltilir ve vergi zamla ödenirse vergi
+      ziyaı cezası %20 oranında kesilir; ancak kanun açıkça "Bu durum vergi incelemesi yapılmasına ve gerekirse tarhiyatın
+      ikmaline engel teşkil etmez" demektedir. Bu nedenle E yanlıştır.
+    celdiriciler:
+      A: Doğrudur; davet yazısı tebliğ edilen mükellef, davet konusu tespitle sınırlı olarak md. 371'den yararlanamaz.
+      B: Doğrudur; izah sonucu vergi ziyaı olmadığı anlaşılırsa o tespitle ilgili inceleme yapılmaz, takdire sevk edilmez.
+      C: Doğrudur; bu, md. 370/a-2'deki %20 oranlı vergi ziyaı cezası uygulamasıdır.
+      D: Doğrudur; belge tutarı 870.000 TL'yi aşsa da yıllık mal ve hizmet alışlarının %5'ini (1.250.000 TL) aşmadığından
+        ön tespit yazısı tebliğ edilebilir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 370/a
+    alinti: Kendisine izaha davet yazısı tebliğ edilen mükellefler, davet konusu tespitle sınırlı olarak, bu Kanunun 371 inci
+      maddesinde yer alan pişmanlık hükümlerinden yararlanamaz.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 370/a-1
+    alinti: 1. Mükelleflerce yapılan izah sonucu vergi ziyaına sebebiyet verilmediğinin idarece anlaşılması hâlinde mükellefler
+      söz konusu tespitle ilgili olarak vergi incelemesine tabi tutulmaz veya takdir komisyonuna sevk edilmez.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 370/a-2
+    alinti: üzerinden %20 oranında kesilir. Bu durum vergi incelemesi yapılmasına ve gerekirse tarhiyatın ikmaline engel teşkil
+      etmez.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 370/b
+    alinti: Şu kadar ki, sahte veya muhteviyatı itibarıyla yanıltıcı belge kullanma fiilinin işlenmiş olabileceğine dair yapılan
+      ön tespitlerde, kullanılan sahte veya muhteviyatı itibarıyla yanıltıcı belge tutarı, bir takvim yılında 100 bin (870.000
+      TL) Türk lirasını geçmeyen veya bu tutarı geçse bile ilgili yıldaki toplam mal ve hizmet alışlarının %5’ini aşmayan
+      mükelleflere ön tespite ilişkin yazı tebliğ edilebilir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-2.yaml, satır 20
+- id: YMM-VTK-CEZ-0006
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Vergi cezaları ve uzlaşma
+  konu: CEZ
+  kazanim: uzlaşma ve izaha davet
+  tip: kavrama
+  zorluk: 2
+  kok: '2026 yılında yapılan bir vergi incelemesine dayanan tarhiyat ve cezalarla ilgili olarak, VUK''un uzlaşmaya ilişkin
+    hükümlerine göre aşağıdaki ifadelerden hangileri doğrudur? (2026 yılı için uzlaşmaya konu edilebilecek usulsüzlük ve özel
+    usulsüzlük cezalarında sınır 40.000 TL''dir.)
+
+
+    I. İkmalen tarh edilen vergi aslı ile buna bağlı vergi ziyaı cezası birlikte uzlaşmaya konu edilebilir.
+
+    II. Cezayı gerektiren fiil bazında toplamı 35.000 TL olan usulsüzlük cezası uzlaşmaya konu edilemez; bu ceza için VUK
+    md. 376''daki indirim oranı %50 artırımlı uygulanır.
+
+    III. Üzerinde uzlaşılan cezalar hakkında ayrıca VUK md. 376''daki indirim uygulanmaz.
+
+    IV. Tarhiyat öncesi uzlaşmada uzlaşmaya varılamazsa, mükellef ceza kesildikten sonra tarhiyat sonrası uzlaşma talep edebilir.'
+  secenekler:
+    A: I ve II
+    B: I ve IV
+    C: III ve IV
+    D: I, II ve III
+    E: II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: 7524 sayılı Kanun'la Ek md. 1'den "tarh edilen vergi" ibaresi çıkarılmış; uzlaşmanın konusu yalnız vergi
+      ziyaı cezaları ile 40.000 TL'yi aşan usulsüzlük ve özel usulsüzlük cezalarıdır (I yanlış). Fiil bazında 40.000 TL'yi
+      aşmayan usulsüzlük cezası uzlaşmaya konu edilemez ve bunlar için md. 376'daki indirim oranı %50 artırımlı uygulanır
+      (II doğru). Ek md. 9'a göre üzerinde uzlaşılan cezalar hakkında başkaca bir indirim uygulanmaz (III doğru). Ek md. 11'e
+      göre tarhiyat öncesi uzlaşma temin edilemezse ceza kesildikten sonra uzlaşma talep edilemez (IV yanlış).
+    celdiriciler:
+      A: I yanlıştır; 2024'ten bu yana vergi aslı uzlaşmaya konu edilemez, yalnız cezalar uzlaşılabilir.
+      B: 'Her iki ifade de yanlıştır: vergi aslı uzlaşma dışıdır, tarhiyat öncesi uzlaşması sonuçsuz kalan mükellef sonradan
+        uzlaşma isteyemez.'
+      C: IV yanlıştır; tarhiyat öncesi uzlaşmada uzlaşılamazsa ceza kesildikten sonra uzlaşma talep edilemez.
+      D: I yanlıştır; tarh edilen vergi uzlaşma kapsamından çıkarılmıştır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: Ek md. 1
+    alinti: Mükellef tarafından, ikmalen, re'sen veya idarece tarh edilen vergilere ilişkin vergi ziyaı cezaları ile 5.000
+      (40.000 üzeri) Türk lirasını aşan usulsüzlük ve özel usulsüzlük cezalarının
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: Ek md. 1
+    alinti: Uzlaşmaya konu edilebilecek usulsüzlük ve özel usulsüzlük cezalarının tespitinde cezayı gerektiren fiil bazında
+      kesilecek toplam ceza tutarı dikkate alınır ve 5.000 (40.000 ve altı) Türk lirasını aşmayan usulsüzlük ve özel usulsüzlük
+      cezaları için Kanunun 376 ncı maddesindeki indirim oranı %50 artırımlı olarak uygulanır.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: Ek md. 9
+    alinti: Bu bölüm uyarınca üzerinde uzlaşılan cezalar hakkında başkaca bir indirim uygulanmaz.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: Ek md. 11
+    alinti: Tarhiyat öncesi uzlaşmanın temini edilememiş veya uzlaşma müzakeresinde uzlaşmaya varılamamış olması halinde mükellefler
+      veya ceza muhatabı olanlar (…)161 cezanın kesilmesinden sonra uzlaşma talep edemezler.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-2.yaml, satır 21
+- id: YMM-VTK-CEZ-0007
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Vergi cezaları ve uzlaşma
+  konu: CEZ
+  kazanim: vergi ziyaı ve usulsüzlük cezaları
+  tip: hesaplama
+  zorluk: 3
+  kok: (S) Ltd. Şti. nezdinde 2026 yılında yapılan ve bu yıl içindeki ilk tespit olan denetimde, şirketin aynı tespitte üç
+    ayrı satışı için fatura düzenlemediği belirlenmiştir. Faturalara yazılması gereken meblağlar (KDV dahil) 400.000 TL, 120.000
+    TL ve 90.000 TL'dir. 400.000 TL'lik satışın alıcısı (A) AŞ, faturanın düzenlenmediğini idarenin bilgisine girmeden önce
+    ve faturanın düzenlenmesi gereken süreyi takip eden beş iş günü içinde idareye bildirmiştir; diğer alıcılar bildirimde
+    bulunmamıştır. VUK md. 353/1'deki en az ceza tutarı 2026 yılı için ilk tespitte belge başına 17.000 TL'dir. Buna göre
+    fatura düzenlemeyen (S) Ltd. Şti. adına kesilecek özel usulsüzlük cezası toplamı kaç TL'dir?
+  secenekler:
+    A: '61.000'
+    B: '74.000'
+    C: '141.000'
+    D: '154.000'
+    E: '222.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Md. 353/1''e göre her bir belge için meblağın %10''u, ilk tespitte 17.000 TL''den aşağı olmamak üzere ceza
+      kesilir; tek tespitte birden fazla belge düzenlenmemişse her belge için ayrı ceza kesilir ve bu tespit tek tespit sayılır.
+      400.000 TL''lik fatura: %10 = 40.000 TL; alıcı süresinde bildirimde bulunduğundan alıcıya ceza kesilmez, düzenleyene
+      ceza üç kat uygulanır: 120.000 TL. 120.000 TL''lik fatura: %10 = 12.000 TL < 17.000 → 17.000 TL. 90.000 TL''lik fatura:
+      9.000 TL < 17.000 → 17.000 TL. Toplam 154.000 TL. Püf noktaları: En az tutar her belge için ayrı uygulanır ve tek tespitteki
+      belgelerin tamamı ''ilk tespit'' tutarına tabidir. Üç kat artırım yalnız alıcının süresinde bildirdiği belge için düzenleyene
+      uygulanır.'
+    celdiriciler:
+      A: En az tutar ve üç kat artırım uygulanmadan yalnız %10 hesaplanmıştır (40.000 + 12.000 + 9.000).
+      B: En az tutar doğru uygulanmış, ancak alıcının bildirimi nedeniyle düzenleyene uygulanacak üç kat artırım atlanmıştır.
+      C: Üç kat artırım uygulanmış, ancak küçük faturalarda en az ceza tutarı (17.000 TL) dikkate alınmamıştır.
+      E: Üç kat artırım bütün belgelere uygulanmıştır; oysa yalnız alıcının süresinde bildirdiği belge için geçerlidir.
+    hesap_adimlari:
+    - 400.000 x %10 = 40.000; x 3 = 120.000
+    - 120.000 x %10 = 12.000 → en az 17.000
+    - 90.000 x %10 = 9.000 → en az 17.000
+    - Toplam = 154.000
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 353/1
+    alinti: bu belgeleri düzenlemek ve almak zorunda olanların her birine, her bir belge için bir takvim yılı içinde ilk tespitte
+      10.000 (17.000 TL) Türk lirasından, sonraki tespitlerde Kanuna bağlı 2 sayılı cetvelde yer alan tutarlardan aşağı olmamak
+      üzere bu belgelere yazılması gereken meblağın veya meblağ farkının %10’u nispetinde özel usulsüzlük cezası kesilir.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 353/1
+    alinti: Tek tespitte aynı neviden birden fazla belgenin düzenlenmediğinin tespit edilmesi durumunda her bir belge için
+      ayrı ayrı ceza kesilir ancak bu tespit, bu bent uyarınca kesilecek ceza uygulamasında, Kanuna bağlı 2 sayılı cetvelde
+      yer alan tespit sayısının belirlenmesinde bir adet tespit olarak değerlendirilir.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 353/1
+    alinti: Bu bent kapsamındaki belgelerin düzenlenmediğinin belgeyi almak zorunda olanlar tarafından, idarenin bilgisine
+      girmeden önce belgenin düzenlenmesi gereken süreyi takip eden beş iş günü içerisinde idareye bildirildiği durumlarda,
+      belgeleri düzenlemek zorunda olanlar adına bu bentte yer alan özel usulsüzlük cezası üç kat olarak uygulanır.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: "def c(m):\n    return max(m * 0.10, 17000)\nsonuc = 3 * c(400000) + c(120000) + c(90000)"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-2.yaml, satır 22
+- id: YMM-VTK-CEZ-0008
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Vergi cezaları ve uzlaşma
+  konu: CEZ
+  kazanim: vergi ziyaı ve usulsüzlük cezaları
+  tip: hesaplama
+  zorluk: 3
+  kok: (P) AŞ, Mart 2026 dönemine ait KDV beyannamesini kanuni süresinde vermemiştir. Şirket, hakkında herhangi bir inceleme,
+    takdir sevki veya ihbar bulunmadan 10/6/2026'da pişmanlık dilekçesiyle birlikte beyannameyi vermiş; ancak tahakkuk eden
+    200.000 TL KDV'yi on beş günlük süre geçtikten sonra, 30/6/2026'da ödemiştir. Şirket adına 2023 yılında kesilen 30.000
+    TL vergi ziyaı cezası aynı yıl kesinleşmiştir; başka kesinleşmiş cezası yoktur. Beyannamenin süresinde verilmemesi nedeniyle
+    ayrıca kesilebilecek usulsüzlük cezası 4.000 TL'dir. VUK md. 359 kapsamında bir fiil yoktur. Buna göre bu fiil nedeniyle
+    (P) AŞ adına kesilecek vergi cezalarının toplamı kaç TL'dir?
+  secenekler:
+    A: '100.000'
+    B: '130.000'
+    C: '134.000'
+    D: '150.000'
+    E: '230.000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Ödeme on beş gün içinde yapılmadığından pişmanlık şartı (md. 371/5) gerçekleşmemiştir. Beyanname, inceleme
+      ve takdir sevkinden önce kanuni süresi geçtikten sonra verildiğinden md. 344/3 uyarınca vergi ziyaı cezası %50 oranında
+      uygulanır: 200.000 x %50 = 100.000 TL. 2023''te kesinleşen vergi ziyaı cezası beş yıllık tekerrür süresi içinde olduğundan
+      ceza %50 artırılır (50.000 TL); ancak artırım kesinleşen cezayı (30.000 TL) aşamaz: 100.000 + 30.000 = 130.000 TL. Tek
+      fiille vergi ziyaı ve usulsüzlük birlikte işlendiğinden md. 336 uyarınca yalnız miktarca en ağır olan vergi ziyaı cezası
+      kesilir; 4.000 TL''lik usulsüzlük cezası ayrıca kesilmez. Püf noktaları: Pişmanlık şartları bozulsa da kendiliğinden
+      geç verilen beyanname %50''lik vergi ziyaı cezasıyla sonuçlanır. Tekerrür artırımı önceki kesinleşmiş cezayla sınırlıdır;
+      içtima kuralı usulsüzlüğün eklenmesini önler.'
+    celdiriciler:
+      A: Md. 344/3 doğru uygulanmış, ancak tekerrür artırımı göz ardı edilmiştir.
+      C: Md. 336'daki içtima kuralı atlanarak 4.000 TL'lik usulsüzlük cezası da eklenmiştir.
+      D: Tekerrür artırımı (50.000 TL), kesinleşen ceza tutarıyla (30.000 TL) sınırlandırılmamıştır.
+      E: Kendiliğinden geç verilen beyanname için öngörülen %50 oranı uygulanmamış, ceza bir kat (200.000 TL) alınmıştır.
+    hesap_adimlari:
+    - 'Md. 344/3: 200.000 x %50 = 100.000'
+    - Tekerrür artırımı = min(100.000 x %50; 30.000) = 30.000
+    - VZC = 130.000; md. 336 → usulsüzlük kesilmez
+    - Toplam = 130.000
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 344/3
+    alinti: Vergi incelemesine başlanılmasından veya takdir komisyonuna sevk edilmesinden sonra verilenler hariç olmak üzere,
+      kanuni süresi geçtikten sonra verilen vergi beyannameleri için bu madde uyarınca kesilecek ceza yüzde elli oranında
+      uygulanır.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 339/1
+    alinti: Vergi ziyaına sebebiyet vermekten veya usulsüzlükten dolayı ceza kesilen ve cezası kesinleşenlere, vergi ziyaı
+      cezasında cezanın kesinleştiği tarihi izleyen günden itibaren beşinci yılın isabet ettiği takvim yılının sonuna kadar,
+      usulsüzlükte cezanın kesinleştiği tarihi izleyen günden itibaren ikinci yılın isabet ettiği takvim yılının sonuna kadar
+      tekrar ceza kesilmesi durumunda, vergi ziyaı cezası yüzde elli, usulsüzlük cezası yüzde yirmibeş oranında artırılmak
+      suretiyle uygulanır.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 339/1
+    alinti: Şu kadar ki, artırım tutarı kesinleşen cezadan (kesinleşen birden fazla ceza olması durumunda bunlardan tutar
+      itibarıyla en yükseğinden) fazla olamaz.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 336/1
+    alinti: Cezayı istilzam eden tek bir fiil ile vergi ziyaı ve usulsüzlük birlikte işlenmiş olursa bunlara ait cezalardan
+      sadece miktar itibariyle en ağırı kesilir.
+  gecerlilik:
+    baslangic: '2021-10-26'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'vzc = 200000 * 0.5
+
+      art = min(vzc * 0.5, 30000)
+
+      sonuc = max(vzc + art, 4000)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-2.yaml, satır 23
+- id: YMM-VTK-CEZ-0009
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Vergi cezaları ve uzlaşma
+  konu: CEZ
+  kazanim: vergi ziyaı ve usulsüzlük cezaları
+  tip: uygulama
+  zorluk: 3
+  kok: 'Ekim 2026''da tamamlanan bir vergi incelemesine dayanan ceza ihbarnamelerinin Kasım 2026''da tebliğ edileceği varsayımıyla,
+    aşağıdaki cezalardan hangileri VUK md. 374''e göre ceza kesmede zamanaşımına uğramamıştır? (Takdir komisyonuna sevk edilen
+    bir husus yoktur.)
+
+
+    I. Aralık 2020 vergilendirme dönemine ait KDV''nin eksik beyanı nedeniyle kesilecek vergi ziyaı cezası
+
+    II. 2023 yılında düzenlenmeyen faturalar nedeniyle md. 353/1 uyarınca kesilecek özel usulsüzlük cezası
+
+    III. 2023 yılında işlenen, vergi ziyaına yol açmayan ve vergi kanunlarında yazılı bir bildirimin zamanında yapılmamasından
+    ibaret II. derece usulsüzlük için kesilecek ceza
+
+    IV. 2023 hesap dönemine ait kurumlar vergisi beyannamesinin verilmemesi suretiyle hem vergi ziyaına hem usulsüzlüğe yol
+    açan fiil için md. 336 uyarınca kesilecek ceza'
+  secenekler:
+    A: II ve IV
+    B: I ve II
+    C: III ve IV
+    D: II, III ve IV
+    E: I, II ve IV
+  dogru: A
+  aciklama:
+    dogru_neden: 'Md. 374/1: Vergi ziyaı cezasında süre, vergi alacağının doğduğu yılı izleyen yılın başından; md. 353 ve
+      mükerrer 355 cezalarında usulsüzlüğün yapıldığı yılı izleyen yılın başından itibaren beş yıldır. Md. 374/2: Diğer usulsüzlüklerde
+      süre iki yıldır; ancak md. 336''ya göre vergi ziyaı ile birleşen usulsüzlükte ceza, vergi ziyaı cezası için belli edilen
+      süre içinde kesilir. I: 2020 alacağı için süre 1/1/2021''de başlar, 31/12/2025''te dolar; zamanaşımına uğramıştır. II:
+      1/1/2024''te başlayan beş yıl 2028 sonuna kadar sürer; kesilebilir. III: 1/1/2024''te başlayan iki yıl 31/12/2025''te
+      dolmuştur. IV: Vergi ziyaı süresi uygulanır ve 2026''da dolmamıştır; kesilebilir. Püf noktaları: Özel usulsüzlükte (353)
+      süre genel usulsüzlüğün iki yılı değil beş yıldır. Vergi ziyaı ile birleşen usulsüzlükte de iki yıllık süre değil, vergi
+      ziyaı cezasının süresi esas alınır.'
+    celdiriciler:
+      B: I'deki ceza için beş yıllık süre 31/12/2025'te dolmuştur; IV ise kesilebilir.
+      C: III'teki genel usulsüzlük için iki yıllık süre 2025 sonunda dolmuştur; özel usulsüzlük (II) ise kesilebilir.
+      D: III'teki genel usulsüzlük cezası iki yıllık süre dolduğundan kesilemez.
+      E: Aralık 2020 dönemi KDV için vergi ziyaı cezasında zamanaşımı 31/12/2025'te dolmuştur.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 374/1
+    alinti: '1. (Değişik: 23/6/1982-2686/42 md.) vergi ziyaı cezasında cezanın bağlı olduğu vergi alacağının doğduğu takvim
+      yılını takip eden yılın birinci gününden; 353 ve mükerrer 355 inci maddeler uyarınca kesilecek usulsüzlük cezalarında,
+      usulsüzlüğün yapıldığı yılı takip eden yılın birinci gününden başlayarak beş yıl (114 üncü maddenin ikinci fıkrası hükmü
+      ceza zamanaşımı için de geçerlidir.);'
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 374/2
+    alinti: '2. Usulsüzlükte, usulsüzlüğün yapıldığı yılı takip eden yılın birinci gününden başlıyarak iki yıl; (Değişik:
+      22/7/1998-4369/81 md.) Ancak 336 ncı madde hükmüne göre vergi ziyaı cezası ile usulsüzlüğün birleşmesi halinde kesilecek
+      ceza, vergi ziyaı cezası için belli edilen zamanaşımı süresi içinde kesilir.'
+  gecerlilik:
+    baslangic: '1999-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-2.yaml, satır 24
