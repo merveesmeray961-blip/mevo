@@ -29,7 +29,7 @@ class Sonuc:
 
 def sayiya_cevir(metin: str) -> float | None:
     """'1.250.000 ₺' → 1250000 · '%12,50' → 12.5 · '0,875' → 0.875. Şıkta tek sayı yoksa None."""
-    bulunan = SAYI.findall(metin.replace(" ", " "))
+    bulunan = SAYI.findall(metin.replace(" ", " ").replace("−", "-"))  # tipografik eksi (U+2212)
     if len(bulunan) != 1:
         return None
     ham = bulunan[0]

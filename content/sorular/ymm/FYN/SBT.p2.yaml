@@ -378,9 +378,9 @@
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: "p = [(300000,120000),(200000,70000),(400000,132000),(200000,64000)]\nbest = 0\nfor m in range(16):\n    y = sum(p[i][0]\
-      \ for i in range(4) if m>>i & 1)\n    n = sum(p[i][1] for i in range(4) if m>>i & 1)\n    if y <= 600000 and n > best:\n\
-      \        best = n\nsonuc = best"
+    python: "p = [(300000,120000),(200000,70000),(400000,132000),(200000,64000)]\nbest = 0\nfor m in range(16):\n    y = 0\n\
+      \    n = 0\n    for i in range(4):\n        if m >> i & 1:\n            y += p[i][0]\n            n += p[i][1]\n   \
+      \ if y <= 600000 and n > best:\n        best = n\nsonuc = best"
   durum: kontrolde
   surum: 1
   uretim:

@@ -102,3 +102,8 @@ def test_disa_aktar_puf_etiketi_yazilislari():
     b = aciklama_ayir({"dogru_neden": "Zor soru; üç teknik birlikte kullanılır: A, B (md. 1. fıkra) ve C. Genel kural md. 116'dır."})
     assert b["puf_noktalari"] == "A, B (md. 1. fıkra) ve C."
     assert b["dogru_neden"] == "Genel kural md. 116'dır."
+
+
+def test_tipografik_eksi_sayi_olarak_okunur():
+    from pipeline import g4_hesap
+    assert g4_hesap.sayiya_cevir("−78.000 TL") == -78000
