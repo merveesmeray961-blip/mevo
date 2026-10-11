@@ -1,0 +1,580 @@
+- id: YMM-YNM-FDM-0047
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Faaliyete dayalı ve stratejik maliyetleme
+  konu: FDM
+  kazanim: faaliyete dayalı maliyetleme
+  tip: hesaplama
+  zorluk: 2
+  kok: Faaliyete dayalı maliyetleme (FDM) uygulayan bir işletmede kurulum faaliyetinin yıllık maliyeti 180.000 TL, yıllık
+    kurulum sayısı 120'dir; makine çalıştırma faaliyetinin yıllık maliyeti 270.000 TL, toplam makine saati 9.000'dir. M mamulünden
+    yılda 6.000 birim üretilmektedir; her birim 0,5 makine saati kullanmakta ve birim başına direkt ilk madde ve direkt işçilik
+    maliyeti 40 TL'dir. M şimdiye kadar her partide 200 birim olacak şekilde üretilmiştir; işletme parti büyüklüğünü 300 birime
+    çıkarmaya karar vermiştir. Kurulum başına maliyetin, makine saati başına maliyetin ve diğer verilerin değişmeyeceği varsayıldığında,
+    yeni durumda M'nin FDM'ye göre birim maliyeti kaç TL olur?
+  secenekler:
+    A: 45,00 TL
+    B: 55,00 TL
+    C: 60,00 TL
+    D: 62,50 TL
+    E: 65,00 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Faaliyet oranları: kurulum 180.000 / 120 = 1.500 TL/kurulum; makine 270.000 / 9.000 = 30 TL/makine saati.
+      Kurulum maliyeti parti düzeyinde bir maliyettir; birime düşen tutar parti büyüklüğüne bağlıdır. Yeni durumda kurulum
+      sayısı 6.000 / 300 = 20, kurulum maliyeti 20 × 1.500 = 30.000 TL, birim başına 5 TL''dir. Makine maliyeti birim düzeyindedir:
+      0,5 × 30 = 15 TL. Birim maliyet = 40 + 15 + 5 = 60 TL.'
+    celdiriciler:
+      A: 'Birim düzeyindeki makine çalıştırma maliyeti (15 TL) unutulmuş, yalnız direkt maliyet ve kurulum payı alınmıştır:
+        40 + 5.'
+      B: 'Parti düzeyindeki kurulum maliyeti birime yüklenmemiştir: 40 + 15.'
+      D: 'Kurulum sayısı eski parti büyüklüğüne göre (6.000 / 200 = 30 kurulum) hesaplanmıştır: 40 + 15 + 7,50.'
+      E: 'FDM yerine makine saatine dayalı tek oran kullanılmıştır: 450.000 / 9.000 = 50 TL; 40 + 0,5 × 50 = 65 TL.'
+    hesap_adimlari:
+    - Kurulum oranı = 180.000 / 120 = 1.500 TL
+    - Makine oranı = 270.000 / 9.000 = 30 TL
+    - Yeni kurulum sayısı = 6.000 / 300 = 20; birim payı = 20 × 1.500 / 6.000 = 5 TL
+    - Makine payı = 0,5 × 30 = 15 TL
+    - Birim maliyet = 40 + 15 + 5 = 60 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Faaliyete dayalı ve stratejik maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kurulum_orani = 180000 / 120
+
+      makine_orani = 270000 / 9000
+
+      kurulum_sayisi = 6000 / 300
+
+      sonuc = 40 + 0.5 * makine_orani + kurulum_sayisi * kurulum_orani / 6000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 1
+- id: YMM-YNM-FDM-0048
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Faaliyete dayalı ve stratejik maliyetleme
+  konu: FDM
+  kazanim: yaşam boyu maliyetleme
+  tip: kavrama
+  zorluk: 2
+  kok: Bir elektronik cihaz üreticisi, tahmini pazar ömrü 4 yıl olan yeni bir ürün için yaşam boyu maliyetleme uygulamaktadır.
+    Yapılan analizde, ürünün yaşam boyu maliyetlerinin yaklaşık %80'inin tasarım aşamasında verilen kararlarla belirleneceği
+    (taahhüt edileceği), buna karşın tasarım aşamasında fiilen katlanılacak maliyetin toplamın yaklaşık %10'u olacağı öngörülmüştür.
+    Bu ürüne ilişkin aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Ürünün kârlılığı, araştırma-geliştirme ve tasarımdan satış sonrası hizmet ve piyasadan çekilmeye kadar tüm aşamaların
+      toplamı üzerinden değerlendirilir.
+    B: Araştırma ve tasarım giderleri çoğunlukla katlanıldığı dönemde gider yazıldığından, ürünün yıllık kârlılığı yaşam boyu
+      kârlılığından farklı bir tablo gösterebilir.
+    C: Taahhüt edilen maliyet ile katlanılan maliyet arasındaki büyük fark, tasarım aşamasının maliyet yönetimi açısından
+      en kritik aşama olduğunu gösterir.
+    D: Pazar ömrü kısa olduğundan tasarım ve pazara giriş maliyetlerinin de satışlarla karşılanması gerekir; fiyat bu maliyetler
+      dikkate alınarak belirlenir.
+    E: Maliyetlerin büyük kısmı üretim aşamasında fiilen katlanılacağından, maliyet düşürme çabalarının en etkili olacağı
+      aşama üretim aşamasıdır.
+  dogru: E
+  aciklama:
+    dogru_neden: Yaşam boyu maliyetlemede maliyetlerin büyük kısmının fiilen üretim ve sonrasında katlanılması, bu maliyetlerin
+      o aşamada belirlendiği anlamına gelmez. Soruda maliyetlerin %80'i tasarım aşamasında taahhüt edilmektedir; üretim aşamasına
+      gelindiğinde malzeme, süreç ve parça sayısı gibi maliyeti belirleyen kararlar büyük ölçüde verilmiş olur. Bu nedenle
+      maliyet düşürme çabalarının en etkili olduğu aşama tasarım aşamasıdır; E ifadesi yanlıştır.
+    celdiriciler:
+      A: 'Doğrudur: yaşam boyu maliyetleme, ürünün ilk araştırma aşamasından piyasadan çekilmesine kadar tüm maliyetlerini
+        ürünle ilişkilendirir ve kârlılığı bu toplam üzerinden ölçer.'
+      B: 'Doğrudur: finansal raporlama dönemseldir; ilk yıllarda yoğunlaşan araştırma ve tasarım giderleri ürünü ilk yıllarda
+        zararlı, sonraki yıllarda olduğundan kârlı gösterebilir.'
+      C: 'Doğrudur: taahhüt edilen (kilitlenen) maliyet ile katlanılan maliyet arasındaki fark, maliyet yönetimi fırsatlarının
+        tasarım aşamasında yoğunlaştığını gösterir.'
+      D: 'Doğrudur: kısa ömürlü ürünlerde üretim öncesi ve sonrası maliyetlerin de satış hasılatıyla karşılanması gerektiğinden
+        fiyatlama yaşam boyu maliyetlere göre yapılır.'
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Genel bilgi — Faaliyete dayalı ve stratejik maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 2
+- id: YMM-YNM-FDM-0049
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Faaliyete dayalı ve stratejik maliyetleme
+  konu: FDM
+  kazanim: yaşam boyu maliyetleme
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir işletme, 3 yıllık pazar ömrü boyunca toplam 10.000 birim satmayı planladığı yeni bir ürün geliştirmektedir. Rakip
+    ürünlerin fiyatları dikkate alınarak birim satış fiyatı 200 TL olarak belirlenmiştir. İşletme, ürünün yaşam boyu satış
+    hasılatının %25''i oranında kâr elde etmeyi hedeflemektedir. Ürünün yaşam boyu maliyet tahminleri şöyledir: araştırma-geliştirme
+    ve tasarım 200.000 TL; satış sonrası müşteri hizmetleri birim başına 6 TL; ürünün piyasadan çekilmesi 90.000 TL. Bu maliyetler
+    dışında yalnız üretim maliyeti doğacaktır. Hedef kâra ulaşılabilmesi için izin verilebilecek en yüksek birim üretim maliyeti
+    kaç TL''dir?'
+  secenekler:
+    A: 115 TL
+    B: 124 TL
+    C: 125 TL
+    D: 130 TL
+    E: 150 TL
+  dogru: A
+  aciklama:
+    dogru_neden: 'Yaşam boyu hasılat 10.000 × 200 = 2.000.000 TL; hedef kâr %25 × 2.000.000 = 500.000 TL; izin verilen yaşam
+      boyu toplam maliyet 1.500.000 TL. Üretim dışı yaşam boyu maliyetler: 200.000 + 10.000 × 6 + 90.000 = 350.000 TL. Üretime
+      kalan tutar 1.150.000 TL; birim başına 1.150.000 / 10.000 = 115 TL. Püf noktaları: Hedef maliyet yalnız üretim maliyeti
+      değildir; üretimden önce (Ar-Ge, tasarım) ve sonra (müşteri hizmetleri, piyasadan çekilme) katlanılacak maliyetler de
+      yaşam boyu hasılattan karşılanmalıdır. Kâr oranının satış hasılatı üzerinden verildiğine dikkat edin; maliyet üzerine
+      kâr eklemeyle karıştırmayın.'
+    celdiriciler:
+      B: 'Piyasadan çekilme maliyeti (90.000 TL) unutulmuştur: (1.500.000 − 200.000 − 60.000) / 10.000 = 124 TL.'
+      C: 'Kâr oranı maliyet üzerinden uygulanmıştır: 2.000.000 / 1,25 = 1.600.000; (1.600.000 − 350.000) / 10.000 = 125 TL.'
+      D: 'Yalnız üretim öncesi Ar-Ge ve tasarım maliyeti düşülmüş, üretim sonrası maliyetler göz ardı edilmiştir: (1.500.000
+        − 200.000) / 10.000 = 130 TL.'
+      E: 'Üretim dışı yaşam boyu maliyetler hiç dikkate alınmamıştır: 200 × (1 − 0,25) = 150 TL.'
+    hesap_adimlari:
+    - Hasılat = 10.000 × 200 = 2.000.000 TL
+    - Hedef kâr = 2.000.000 × 0,25 = 500.000 TL
+    - İzin verilen toplam maliyet = 1.500.000 TL
+    - Üretim dışı maliyetler = 200.000 + 60.000 + 90.000 = 350.000 TL
+    - Birim üretim maliyeti = 1.150.000 / 10.000 = 115 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Faaliyete dayalı ve stratejik maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'hasilat = 10000 * 200
+
+      izin = hasilat - hasilat * 0.25
+
+      uretim_disi = 200000 + 10000 * 6 + 90000
+
+      sonuc = (izin - uretim_disi) / 10000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 3
+- id: YMM-YNM-FDM-0050
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Faaliyete dayalı ve stratejik maliyetleme
+  konu: FDM
+  kazanim: kalite maliyetleri
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletme yılda 20.000 birim mamul üretip satmaktadır. Mevcut durumda üretilen birimlerin %4'ü işletme içinde kusurlu
+    bulunarak birim başına 30 TL maliyetle yeniden işlenmekte, %1,5'i ise kusurlu olarak müşteriye ulaşmaktadır. Müşteriye
+    ulaşan her kusurlu birim için 120 TL garanti onarım maliyetine katlanılmakta; ayrıca bu birimler nedeniyle kaybedilen
+    gelecek satışlardan birim başına 80 TL katkı payı kaybı oluşmaktadır. İşletme, yıllık 25.000 TL önleme (tedarikçi geliştirme
+    ve eğitim) ve 10.000 TL ek muayene maliyeti gerektiren bir kalite programını değerlendirmektedir. Program uygulanırsa
+    işletme içinde bulunan kusur oranının %1'e, müşteriye ulaşan kusur oranının %0,5'e düşeceği tahmin edilmektedir. Satış
+    miktarı ve diğer maliyetler değişmeyecektir. Program, işletmenin yıllık faaliyet kârını kaç TL artırır?
+  secenekler:
+    A: 5.000 TL
+    B: 7.000 TL
+    C: 23.000 TL
+    D: 33.000 TL
+    E: 58.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'İçsel başarısızlık: kusurlu birim 20.000 × %4 = 800''den 20.000 × %1 = 200''e iner; 600 × 30 = 18.000 TL
+      tasarruf. Dışsal başarısızlık: 20.000 × %1,5 = 300''den 20.000 × %0,5 = 100''e iner; birim başına garanti onarımı ve
+      katkı payı kaybı 120 + 80 = 200 TL; 200 × 200 = 40.000 TL tasarruf. Toplam tasarruf 58.000 TL; programın önleme ve değerleme
+      maliyeti 25.000 + 10.000 = 35.000 TL. Net kâr artışı 58.000 − 35.000 = 23.000 TL. Püf noktaları: Kaybedilen satışların
+      katkı payı, kayıtlara girmese de dışsal başarısızlık maliyetidir ve karar analizine katılır. Ek muayene bir değerleme
+      (uygunluk) maliyetidir; programın maliyetine önleme harcamasıyla birlikte girer.'
+    celdiriciler:
+      A: 'İşletme içinde bulunan kusurlardaki azalmanın yeniden işleme tasarrufu (18.000 TL) unutulmuştur: 40.000 − 35.000.'
+      B: 'Kaybedilen satışların katkı payı (fırsat maliyeti) analize katılmamıştır: 18.000 + 200 × 120 − 35.000.'
+      D: 'Ek muayene maliyeti programın maliyetine eklenmemiş, yalnız önleme harcaması düşülmüştür: 58.000 − 25.000.'
+      E: Programın önleme ve değerleme maliyetleri düşülmeden yalnız başarısızlık maliyeti tasarrufu alınmıştır.
+    hesap_adimlari:
+    - 'İçsel kusur: 800 → 200; tasarruf 600 × 30 = 18.000 TL'
+    - 'Dışsal kusur: 300 → 100; tasarruf 200 × (120 + 80) = 40.000 TL'
+    - Program maliyeti = 25.000 + 10.000 = 35.000 TL
+    - Net etki = 58.000 − 35.000 = 23.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Faaliyete dayalı ve stratejik maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'icsel = (20000 * 4 // 100 - 20000 * 1 // 100) * 30
+
+      dissal = (20000 * 15 // 1000 - 20000 * 5 // 1000) * (120 + 80)
+
+      sonuc = icsel + dissal - (25000 + 10000)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 4
+- id: YMM-YNM-FDM-0051
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Faaliyete dayalı ve stratejik maliyetleme
+  konu: FDM
+  kazanim: hedef maliyetleme
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletme yeni ürününü, benzer rakip ürünün 500 TL olan satış fiyatının %10 altında bir fiyatla pazara sunmayı planlamaktadır.
+    Hedef kâr, işletmenin belirleyeceği satış fiyatının %20'sidir. Ürünün birim maliyetine üretim maliyeti dışında, işletmenin
+    satış fiyatının %5'i oranında satış komisyonu ve birim başına 37,50 TL dağıtım gideri girecektir. Mühendislik tahminine
+    göre mevcut tasarımla birim üretim maliyeti 330 TL'dir. Hedef maliyete ulaşılması için birim üretim maliyetinin kaç TL
+    azaltılması gerekir?
+  secenekler:
+    A: 15,00 TL
+    B: 30,00 TL
+    C: 32,50 TL
+    D: 40,00 TL
+    E: 42,50 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Hedef fiyat = 500 × 0,90 = 450 TL. Hedef kâr = 450 × 0,20 = 90 TL; hedef toplam birim maliyet = 450 − 90
+      = 360 TL. Üretim dışı birim maliyetler: komisyon 450 × 0,05 = 22,50 TL + dağıtım 37,50 TL = 60 TL. İzin verilen birim
+      üretim maliyeti = 360 − 60 = 300 TL. Gerekli azaltma = 330 − 300 = 30 TL. Püf noktaları: Hedef maliyetlemede hesap pazar
+      fiyatından başlar, ancak kâr ve komisyon oranları işletmenin kendi hedef fiyatına (450 TL) uygulanır, rakibin fiyatına
+      değil. Hedef maliyet tam (toplam) maliyettir; komisyon ve dağıtım düşülmeden üretim maliyetiyle kıyaslanmaz.'
+    celdiriciler:
+      A: 'Hedef kâr satış fiyatı yerine maliyet üzerinden %20 alınmıştır: 450 / 1,20 = 375; 375 − 60 = 315; 330 − 315 = 15
+        TL.'
+      C: 'Komisyon rakip fiyatı (500 TL) üzerinden hesaplanmıştır: 360 − 25 − 37,50 = 297,50; 330 − 297,50 = 32,50 TL.'
+      D: 'Hedef kâr rakip fiyatı üzerinden hesaplanmıştır: 450 − 100 − 22,50 − 37,50 = 290; 330 − 290 = 40 TL.'
+      E: 'Kâr ve komisyon oranlarının ikisi de rakip fiyatına uygulanmıştır: 450 − 100 − 25 − 37,50 = 287,50; 330 − 287,50
+        = 42,50 TL.'
+    hesap_adimlari:
+    - Hedef fiyat = 500 × 0,90 = 450 TL
+    - Hedef kâr = 450 × 0,20 = 90 TL
+    - Hedef toplam maliyet = 360 TL
+    - Üretim dışı maliyet = 22,50 + 37,50 = 60 TL
+    - İzin verilen üretim maliyeti = 300 TL
+    - Gerekli azaltma = 330 − 300 = 30 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Faaliyete dayalı ve stratejik maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fiyat = 500 * 0.9
+
+      hedef_maliyet = fiyat - fiyat * 0.2
+
+      izin = hedef_maliyet - fiyat * 0.05 - 37.5
+
+      sonuc = round(330 - izin, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 5
+- id: YMM-YNM-FDM-0052
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Faaliyete dayalı ve stratejik maliyetleme
+  konu: FDM
+  kazanim: faaliyete dayalı maliyetleme
+  tip: uygulama
+  zorluk: 3
+  kok: 'Bir işletme müşteri destek faaliyetinin maliyetini FDM ile ürünlere yüklemekte ve faaliyet maliyet oranını faaliyetin
+    pratik kapasitesi üzerinden belirlemektedir. Faaliyetin dönem maliyeti 240.000 TL, pratik kapasitesi 4.000 çağrıdır. Dönemde
+    fiilen 3.200 çağrı karşılanmış; bunların 1.200''ü A ürününe, 2.000''i B ürününe ilişkindir.
+
+
+    I. A ürününe 72.000 TL müşteri destek maliyeti yüklenir.
+
+    II. B ürününe 168.000 TL müşteri destek maliyeti yüklenir.
+
+    III. Oran fiilî çağrı sayısı üzerinden belirlenseydi A ürününe 18.000 TL daha fazla maliyet yüklenirdi.
+
+
+    Yukarıdaki ifadelerden hangileri doğrudur?'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: I ve III
+    E: II ve III
+  dogru: D
+  aciklama:
+    dogru_neden: 'Pratik kapasiteye dayalı oran = 240.000 / 4.000 = 60 TL/çağrı. A''ya 1.200 × 60 = 72.000 TL (I doğru), B''ye
+      2.000 × 60 = 120.000 TL yüklenir; kalan 800 × 60 = 48.000 TL kullanılmayan kapasite maliyetidir ve ürünlere yüklenmeyip
+      dönem gideri olarak ayrıca raporlanır (II yanlış). Fiilî kullanıma dayalı oran 240.000 / 3.200 = 75 TL olurdu; A''ya
+      1.200 × 75 = 90.000 TL, yani 18.000 TL fazla yüklenirdi (III doğru). Püf noktaları: Pratik kapasite esasında kullanılmayan
+      kapasitenin maliyeti ürünlere dağıtılmaz; B''nin payını 240.000 − 72.000 diye kalan tutardan bulmak bu nedenle hatalıdır.
+      Fiilî kullanım esası, boş kapasitenin maliyetini ürünlere yükleyerek birim maliyetleri şişirir.'
+    celdiriciler:
+      A: 'III. ifade de doğrudur: fiilî kullanıma göre oran 75 TL olur ve A''ya (75 − 60) × 1.200 = 18.000 TL fazla maliyet
+        yüklenir.'
+      B: 'II. ifade yanlıştır: B''ye 120.000 TL yüklenir; 48.000 TL kullanılmayan kapasite maliyeti ürünlere dağıtılmaz. I.
+        ifade ise doğrudur.'
+      C: II. ifade kalan tutarın tamamını B'ye yüklemektedir; kullanılmayan kapasite maliyeti ürün maliyetine girmez. Doğru
+        olan III. ifade dışarıda kalmıştır.
+      E: II. ifade yanlış olduğu gibi doğru olan I. ifade de dışarıda bırakılmıştır.
+    hesap_adimlari:
+    - Oran = 240.000 / 4.000 = 60 TL
+    - A = 1.200 × 60 = 72.000 TL; B = 2.000 × 60 = 120.000 TL
+    - Kullanılmayan kapasite = 800 × 60 = 48.000 TL
+    - Fiilî esasta oran 75 TL; A = 90.000 TL; fark 18.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Faaliyete dayalı ve stratejik maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 6
+- id: YMM-YNM-FDM-0053
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Faaliyete dayalı ve stratejik maliyetleme
+  konu: FDM
+  kazanim: faaliyete dayalı maliyetleme
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir toptancı işletme müşteri kârlılığını FDM ile ölçmektedir. Faaliyet maliyet havuzları ve dönemdeki toplam etken
+    hacimleri şöyledir: sipariş işleme 360.000 TL / 1.200 sipariş; normal teslimat 400.000 TL / 2.000 teslimat; acil teslimat
+    (normal teslimata ek olarak yapılan ayrı sevkiyat) 50.000 TL / 100 acil teslimat; satış ziyareti 160.000 TL / 400 ziyaret;
+    iade işleme 60.000 TL / 100 iade. K müşterisine ilişkin dönem verileri: liste fiyatıyla satışlar 220.000 TL, müşteriye
+    tanınan fiyat indirimi 20.000 TL, satılan malın maliyeti 140.000 TL; 40 sipariş, 50 normal teslimat, 10 acil teslimat,
+    20 satış ziyareti ve 15 iade. İşletme ayrıca genel yönetim giderlerini net satışların %5''i oranında müşterilere dağıtmaktadır.
+    K müşterisinin, müşteriyle neden-sonuç ilişkisi kurulabilen maliyetler dikkate alınarak hesaplanan müşteri düzeyi faaliyet
+    kârı kaç TL''dir?'
+  secenekler:
+    A: 6.000 TL
+    B: 16.000 TL
+    C: 21.000 TL
+    D: 36.000 TL
+    E: 60.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Faaliyet oranları: sipariş 300 TL, normal teslimat 200 TL, acil teslimat 500 TL, ziyaret 400 TL, iade 600
+      TL. K''nin müşteri düzeyi maliyetleri: 40 × 300 + 50 × 200 + 10 × 500 + 20 × 400 + 15 × 600 = 12.000 + 10.000 + 5.000
+      + 8.000 + 9.000 = 44.000 TL. Net satış 220.000 − 20.000 = 200.000 TL; brüt kâr 200.000 − 140.000 = 60.000 TL; müşteri
+      düzeyi faaliyet kârı 60.000 − 44.000 = 16.000 TL. Genel yönetim giderleri işletme düzeyinde (tesisi sürdürme) maliyetlerdir;
+      müşteriyle neden-sonuç ilişkisi olmadığından müşteri düzeyi kâra yüklenmez. Püf noktaları: Fiyat indirimi müşteriye
+      özgü bir gelir azalışıdır ve net satışa ulaşmak için düşülür. Yüzdeyle dağıtılan genel yönetim payı bir faaliyet etkenine
+      dayanmaz; müşteri düzeyi kârı hesaplarken dışarıda bırakılır.'
+    celdiriciler:
+      A: Neden-sonuç ilişkisi olmayan genel yönetim payı (200.000 × %5 = 10.000 TL) da düşülmüştür.
+      C: Acil teslimatlar ayrı bir faaliyet olarak maliyetlendirilmemiş, 5.000 TL'lik acil teslimat maliyeti atlanmıştır.
+      D: 'Fiyat indirimi düşülmemiş, liste fiyatıyla satış hasılat sayılmıştır: 220.000 − 140.000 − 44.000.'
+      E: Yalnız brüt kâr alınmış, müşteri düzeyi faaliyet maliyetleri düşülmemiştir.
+    hesap_adimlari:
+    - 'Oranlar: 300; 200; 500; 400; 600 TL'
+    - Müşteri maliyetleri = 12.000 + 10.000 + 5.000 + 8.000 + 9.000 = 44.000 TL
+    - Net satış = 200.000 TL; brüt kâr = 60.000 TL
+    - Müşteri düzeyi kâr = 60.000 − 44.000 = 16.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Faaliyete dayalı ve stratejik maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'maliyet = 40 * 360000 / 1200 + 50 * 400000 / 2000 + 10 * 50000 / 100 + 20 * 160000 / 400 + 15 * 60000 / 100
+
+      sonuc = 220000 - 20000 - 140000 - maliyet'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 7

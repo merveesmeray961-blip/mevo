@@ -1,0 +1,576 @@
+- id: YMM-YNM-DEG-0043
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Değişken ve tam maliyetleme
+  konu: DEG
+  kazanim: stok değişiminin kâra etkisi
+  tip: uygulama
+  zorluk: 2
+  kok: 'Bir işletmede dönem başı mamul stoku yoktur. Dönem satışları 10.000 birim, yıllık sabit üretim genel gideri 240.000
+    TL''dir. Fiilî maliyetleme uygulanmakta, sabit üretim genel gideri fiilî üretim miktarına bölünerek birimlere yüklenmektedir.
+    Yönetim, satış miktarı değişmeden üretimi 10.000 birimden 12.000 birime çıkarmayı değerlendirmektedir. Birim satış fiyatı
+    ve birim değişken maliyetler değişmeyecek, stok tutma maliyeti dikkate alınmayacaktır.
+
+
+    I. Üretim artışı, tam maliyetlemeye göre faaliyet kârını 40.000 TL artırır.
+
+    II. Üretim artışı, değişken maliyetlemeye göre faaliyet kârını değiştirmez.
+
+    III. 12.000 birim üretilirse dönem sonu stokunun tam maliyetle değeri, değişken maliyetle değerinden 48.000 TL fazla olur.
+
+
+    Yukarıdaki ifadelerden hangileri doğrudur?'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: Yalnız III
+    D: I ve II
+    E: I ve III
+  dogru: D
+  aciklama:
+    dogru_neden: 10.000 birim üretimde birim sabit GÜG 24 TL'dir ve stok oluşmadığından 240.000 TL'nin tamamı gider olur.
+      12.000 birim üretimde birim sabit GÜG 240.000 / 12.000 = 20 TL'ye iner; 2.000 birimlik dönem sonu stokunda 2.000 × 20
+      = 40.000 TL sabit gider ertelenir. Satılan mamul maliyetine giren sabit gider 200.000 TL'ye düşer; tam maliyetleme kârı
+      40.000 TL artar (I doğru). Değişken maliyetlemede sabit GÜG'ün tamamı dönem gideridir; satışlar değişmediğinden kâr
+      değişmez (II doğru). Stoklar arasındaki fark 40.000 TL'dir (III yanlış).
+    celdiriciler:
+      A: 'II. ifade de doğrudur: değişken maliyetlemede kâr satış miktarına bağlıdır; üretim artışı kârı etkilemez.'
+      B: 'I. ifade de doğrudur: stokta kalan 2.000 birimle 40.000 TL sabit gider sonraki döneme ertelenir.'
+      C: 'III. ifade yanlıştır: birim sabit GÜG 12.000 birimlik üretimde 20 TL olur; fark 2.000 × 20 = 40.000 TL''dir. 48.000
+        TL, eski 24 TL''lik oranla bulunur.'
+      E: III. ifade 10.000 birimlik üretimin 24 TL'lik oranını kullanmaktadır ve yanlıştır; doğru olan II. ifade dışarıda
+        bırakılmıştır.
+    hesap_adimlari:
+    - Yeni birim sabit GÜG = 240.000 / 12.000 = 20 TL
+    - Ertelenen sabit gider = 2.000 × 20 = 40.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Değişken ve tam maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 15
+- id: YMM-YNM-DEG-0044
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Değişken ve tam maliyetleme
+  konu: DEG
+  kazanim: normal kapasite
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletmede birim satış fiyatı 60 TL, birim değişken üretim maliyeti 25 TL'dir. Yıllık sabit üretim genel gideri
+    300.000 TL olup (bütçe ve fiilî tutar aynıdır) 15.000 birimlik normal kapasiteye göre birimlere yüklenmektedir. Dönemde
+    12.000 birim üretilmiş, 11.000 birim satılmıştır; dönem başı stok yoktur. Hacim (kapasite) farkı dönem sonunda satılan
+    mamul maliyetine aktarılmaktadır. Tam maliyetlemeye göre brüt satış kârı kaç TL'dir?
+  secenekler:
+    A: 85.000 TL
+    B: 105.000 TL
+    C: 110.000 TL
+    D: 165.000 TL
+    E: 225.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: Birim sabit GÜG oranı 300.000 / 15.000 = 20 TL; birim tam maliyet 25 + 20 = 45 TL. Üretime yüklenen sabit
+      GÜG 12.000 × 20 = 240.000 TL olduğundan 60.000 TL eksik yükleme (olumsuz hacim farkı) vardır ve satılan mamul maliyetine
+      eklenir. Satılan mamul maliyeti 11.000 × 45 + 60.000 = 555.000 TL; satışlar 11.000 × 60 = 660.000 TL; brüt satış kârı
+      105.000 TL.
+    celdiriciler:
+      A: 'Sabit üretim genel giderinin tamamı dönem gideri sayılmıştır (değişken maliyetleme mantığı): 11.000 × 35 − 300.000.'
+      C: 'Oran fiilî üretime göre hesaplanmıştır (300.000 / 12.000 = 25 TL); normal kapasite esası uygulanmamıştır: 11.000
+        × (60 − 50).'
+      D: 'Olumsuz hacim farkı satılan mamul maliyetine eklenmemiştir: 11.000 × (60 − 45).'
+      E: 'Olumsuz hacim farkı satılan mamul maliyetinden düşülmüştür: 165.000 + 60.000.'
+    hesap_adimlari:
+    - Oran = 300.000 / 15.000 = 20 TL
+    - Hacim farkı = (15.000 − 12.000) × 20 = 60.000 TL olumsuz
+    - SMM = 11.000 × 45 + 60.000 = 555.000 TL
+    - Brüt kâr = 660.000 − 555.000 = 105.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Değişken ve tam maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'oran = 300000 / 15000
+
+      hacim = (15000 - 12000) * oran
+
+      smm = 11000 * (25 + oran) + hacim
+
+      sonuc = 11000 * 60 - smm'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 16
+- id: YMM-YNM-DEG-0045
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Değişken ve tam maliyetleme
+  konu: DEG
+  kazanim: değişken ve tam maliyetle kâr farkı
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin dönem başında 1.000 birim mamul stoku vardır; bu stokun birim maliyetine önceki dönemde 8 TL sabit üretim
+    genel gideri yüklenmiştir. Cari dönemde 10.000 birim üretilmiş, 9.500 birim satılmıştır. Cari dönemin sabit üretim genel
+    gideri 120.000 TL'dir ve tam maliyetlemede fiilî üretim miktarına bölünerek birimlere yüklenmektedir. Stok çıkışlarında
+    FIFO yöntemi uygulanmaktadır. Tam maliyetlemeye göre hesaplanan faaliyet kârı, değişken maliyetlemeye göre hesaplanan
+    faaliyet kârından kaç TL fazladır?
+  secenekler:
+    A: 4.000 TL
+    B: 6.000 TL
+    C: 10.000 TL
+    D: 12.000 TL
+    E: 18.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'İki yöntem arasındaki kâr farkı = dönem sonu stoktaki sabit GÜG − dönem başı stoktaki sabit GÜG. Cari oran
+      120.000 / 10.000 = 12 TL. Dönem sonu stok 1.000 + 10.000 − 9.500 = 1.500 birimdir; FIFO''da önce dönem başı stok satıldığından
+      bu birimlerin tamamı cari üretimdendir: 1.500 × 12 = 18.000 TL. Dönem başı stoktaki sabit GÜG 1.000 × 8 = 8.000 TL''dir
+      ve bu dönemde gidere dönüşür. Fark 18.000 − 8.000 = 10.000 TL; tam maliyetleme kârı daha yüksektir. Püf noktaları: Birim
+      sabit GÜG dönemden döneme değiştiğinde ''stok artışı × birim sabit gider'' kısa yolu çalışmaz; dönem sonu ve dönem başı
+      stoklardaki sabit gideri ayrı ayrı bulun. FIFO, dönem sonu stokun hangi dönemin oranını taşıdığını belirler.'
+    celdiriciler:
+      A: Stok artışı (500 birim) önceki dönemin 8 TL'lik oranıyla çarpılmıştır.
+      B: Stok artışı (500 birim) cari oranla çarpılmış; dönem başı stokun farklı oran taşıdığı göz ardı edilmiştir.
+      D: Dönem sonu stok (1.500 birim) önceki dönemin 8 TL'lik oranıyla değerlenmiş, dönem başı stoktaki sabit gider düşülmemiştir.
+      E: Yalnız dönem sonu stoktaki sabit gider alınmış, dönem başı stoktan gidere dönüşen 8.000 TL düşülmemiştir.
+    hesap_adimlari:
+    - Cari oran = 120.000 / 10.000 = 12 TL
+    - Dönem sonu stok = 1.500 birim; sabit GÜG = 18.000 TL
+    - Dönem başı stoktaki sabit GÜG = 8.000 TL
+    - Fark = 18.000 − 8.000 = 10.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Değişken ve tam maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'oran = 120000 / 10000
+
+      son = (1000 + 10000 - 9500) * oran
+
+      bas = 1000 * 8
+
+      sonuc = son - bas'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 17
+- id: YMM-YNM-DEG-0046
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Değişken ve tam maliyetleme
+  konu: DEG
+  kazanim: normal kapasite
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmede sabit üretim genel giderleri 375.000 TL'lik bütçe ve 25.000 birimlik normal kapasiteye göre birimlere
+    yüklenmekte; hacim (kapasite) farkı dönem sonunda gider olarak kapatılmaktadır. Fiilî sabit üretim genel gideri bütçeye
+    eşittir. Dönem başı mamul stoku 2.000 birimdir ve aynı birim sabit GÜG oranıyla değerlenmiştir. Dönemde 20.000 birim satılmış;
+    tam maliyetlemeye göre faaliyet kârı 260.000 TL, değişken maliyetlemeye göre faaliyet kârı 200.000 TL olarak hesaplanmıştır.
+    Bu döneme ilişkin hacim farkı kaç TL olumsuzdur?
+  secenekler:
+    A: 15.000 TL
+    B: 45.000 TL
+    C: 60.000 TL
+    D: 75.000 TL
+    E: 135.000 TL
+  dogru: A
+  aciklama:
+    dogru_neden: 'Birim sabit GÜG oranı 375.000 / 25.000 = 15 TL. Kâr farkı = 15 × (dönem sonu stok − dönem başı stok) olduğundan
+      stok artışı 60.000 / 15 = 4.000 birimdir; tam maliyetleme kârı yüksek olduğu için stok artmıştır. Üretim = satış + stok
+      artışı = 20.000 + 4.000 = 24.000 birim. Hacim farkı = (25.000 − 24.000) × 15 = 15.000 TL olumsuz. Püf noktaları: Önce
+      kâr farkından geri giderek stok değişimini, sonra üretimi bulun. Dönem başı stok miktarı stok değişimini bulmada gerekmez;
+      aynı oranla değerlendiği için yalnız farkın bu oranla açıklanabildiğini gösterir. Hacim farkı satış miktarıyla değil
+      üretim miktarıyla hesaplanır.'
+    celdiriciler:
+      B: 'Üretim, satışa stok artışı eklenip dönem başı stok düşülerek 22.000 birim bulunmuştur: (25.000 − 22.000) × 15.'
+      C: İki yöntem arasındaki kâr farkı hacim farkı sanılmıştır.
+      D: 'Hacim farkı üretim yerine satış miktarıyla hesaplanmıştır: (25.000 − 20.000) × 15.'
+      E: 'Kâr farkının yönü ters yorumlanmış, stokların 4.000 birim azaldığı varsayılarak üretim 16.000 birim bulunmuştur:
+        (25.000 − 16.000) × 15.'
+    hesap_adimlari:
+    - Oran = 375.000 / 25.000 = 15 TL
+    - Stok artışı = (260.000 − 200.000) / 15 = 4.000 birim
+    - Üretim = 20.000 + 4.000 = 24.000 birim
+    - Hacim farkı = (25.000 − 24.000) × 15 = 15.000 TL olumsuz
+  kaynaklar:
+  - mevzuat: Genel bilgi — Değişken ve tam maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'oran = 375000 / 25000
+
+      artis = (260000 - 200000) / oran
+
+      uretim = 20000 + artis
+
+      sonuc = (25000 - uretim) * oran'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 18
+- id: YMM-YNM-DEG-0047
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Değişken ve tam maliyetleme
+  konu: DEG
+  kazanim: stok değişiminin kâra etkisi
+  tip: uygulama
+  zorluk: 3
+  kok: 'Yeni kurulan bir işletmede fiilî maliyetleme uygulanmakta, sabit üretim genel gideri her dönem o dönemin fiilî üretim
+    miktarına bölünerek birimlere yüklenmekte ve stok çıkışlarında FIFO yöntemi kullanılmaktadır. Sabit üretim genel gideri
+    her iki dönemde de 200.000 TL''dir. 1. dönemde 10.000 birim üretilmiş ve 8.000 birim satılmış; 2. dönemde 8.000 birim
+    üretilmiş ve 10.000 birim satılmıştır. Birim satış fiyatı ve birim değişken maliyetler iki dönemde aynıdır.
+
+
+    I. 1. dönemde tam maliyetlemeye göre kâr, değişken maliyetlemeye göre kârdan 40.000 TL fazladır.
+
+    II. 2. dönemde tam maliyetlemeye göre kâr, değişken maliyetlemeye göre kârdan 50.000 TL azdır.
+
+    III. İki dönemin toplam kârı her iki yöntemde aynıdır.
+
+
+    Yukarıdaki ifadelerden hangileri doğrudur?'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız III
+    C: I ve II
+    D: I ve III
+    E: II ve III
+  dogru: D
+  aciklama:
+    dogru_neden: '1. dönem oranı 200.000 / 10.000 = 20 TL; dönem sonu stok 2.000 birim × 20 = 40.000 TL sabit gider ertelenir;
+      tam maliyetleme kârı 40.000 TL fazladır (I doğru). 2. dönemde oran 200.000 / 8.000 = 25 TL olsa da dönem sonunda stok
+      kalmaz; FIFO ile önce satılan 2.000 birim, 20 TL''lik oranı taşıyan dönem başı stoktur. Gidere dönüşen ertelenmiş tutar
+      40.000 TL''dir; tam maliyetleme kârı 40.000 TL azdır (II yanlış). Yeni kurulan işletmede ikinci dönem sonunda stok sıfır
+      olduğundan iki dönemde gidere giden toplam sabit GÜG her iki yöntemde 400.000 TL''dir; toplam kârlar eşittir (III doğru).
+      Püf noktaları: Stok azalışında farkı bulmak için dönem başı stokun taşıdığı oranı kullanın, cari dönemin oranını değil.
+      Başta ve sonda stok yoksa çok dönemli toplam kâr yöntemden etkilenmez.'
+    celdiriciler:
+      A: 'III. ifade de doğrudur: başlangıçta ve 2. dönem sonunda stok olmadığından toplam kârlar eşittir.'
+      B: 'I. ifade de doğrudur: 1. dönemde 2.000 × 20 = 40.000 TL sabit gider stokta kalır.'
+      C: 'II. ifade yanlıştır: 2.000 birim stok 2. dönemin 25 TL''lik oranıyla değil, 1. dönemin 20 TL''lik oranıyla gidere
+        dönüşür; fark 40.000 TL''dir.'
+      E: II. ifade 2. dönemin oranını kullandığı için yanlıştır; doğru olan I. ifade dışarıda bırakılmıştır.
+    hesap_adimlari:
+    - 1. dönem oranı = 20 TL; fark = 2.000 × 20 = +40.000 TL
+    - '2. dönem: dönem başı stok 40.000 TL gidere dönüşür; fark = −40.000 TL'
+    - Toplam fark = 0
+  kaynaklar:
+  - mevzuat: Genel bilgi — Değişken ve tam maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 19
+- id: YMM-YNM-DEG-0048
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Değişken ve tam maliyetleme
+  konu: DEG
+  kazanim: normal kapasite
+  tip: kavrama
+  zorluk: 3
+  kok: Bir işletme, tam maliyetlemede sabit üretim genel giderlerinin birimlere yüklenmesinde kullanacağı payda (kapasite)
+    düzeyini seçmektedir. Hacim farkının tamamı dönem sonunda satılan mamul maliyetine aktarılmaktadır. Payda düzeyi seçimine
+    ilişkin aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Hacim farkı satılan mamul maliyetine aktarıldığından, seçilen payda düzeyi stokların arttığı bir dönemde de tam maliyetleme
+      kârını etkilemez.
+    B: Pratik kapasitenin payda olarak seçilmesi, normal kapasiteye göre daha düşük bir birim sabit GÜG oranı ve genellikle
+      olumsuz hacim farkı doğurur.
+    C: Talebin düştüğü dönemlerde beklenen fiilî kullanımın payda seçilmesi birim maliyeti yükseltir; maliyete dayalı fiyatlamada
+      bu, talebi daha da düşürebilir.
+    D: Teorik kapasite kaçınılmaz duruşları ve bakım sürelerini dikkate almadığından, bu payda ile çalışan işletmede olumsuz
+      hacim farkı neredeyse kaçınılmazdır.
+    E: Fiilî sabit gider bütçeye eşitse, payda düzeyi ne olursa olsun üretime yüklenen sabit GÜG ile hacim farkının toplamı
+      bütçelenen sabit GÜG'e eşittir.
+  dogru: A
+  aciklama:
+    dogru_neden: 'Hacim farkının satılan mamul maliyetine aktarılması, dönem içinde yüklenen ve stokta kalan sabit gideri
+      düzeltmez. Stoklar arttığında dönem sonu stokta kalan sabit GÜG = stok artışı × birim oran olduğundan, daha düşük payda
+      (daha yüksek oran) stokta daha fazla sabit gider bırakır ve tam maliyetleme kârını yükseltir. Payda seçimi ancak stok
+      değişmiyorsa kârı etkilemez; A ifadesi yanlıştır. Püf noktaları: Hacim farkı yalnız yüklenmeyen ya da fazla yüklenen
+      tutarı düzeltir; stokta kalan sabit gider payda düzeyine göre değişir. Payda seçimi, stok değiştiği sürece raporlanan
+      kârı etkiler.'
+    celdiriciler:
+      B: 'Doğrudur: pratik kapasite normal kapasiteden yüksek olduğundan oran düşer; fiilî kullanım çoğunlukla pratik kapasitenin
+        altında kaldığından olumsuz hacim farkı doğar.'
+      C: 'Doğrudur: talep düştükçe payda küçülür, birim maliyet ve maliyete dayalı fiyat yükselir; bu da talebi daha da düşürebilir
+        (aşağı yönlü talep sarmalı).'
+      D: 'Doğrudur: teorik kapasite hiçbir duruşa izin vermeyen ulaşılamaz bir düzeydir; fiilî üretim bunun altında kalacağından
+        olumsuz hacim farkı kaçınılmazdır.'
+      E: 'Doğrudur: hacim farkı, bütçelenen sabit GÜG ile üretime yüklenen tutar arasındaki farktır; ikisinin toplamı payda
+        düzeyinden bağımsız olarak bütçeye eşittir.'
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Genel bilgi — Değişken ve tam maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 20
+- id: YMM-YNM-DEG-0049
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Değişken ve tam maliyetleme
+  konu: DEG
+  kazanim: değişken ve tam maliyetle kâr farkı
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir işletmenin dönem verileri şöyledir: birim satış fiyatı 80 TL; birim değişken üretim maliyeti 30 TL; birim değişken
+    satış gideri 5 TL; sabit üretim genel gideri 360.000 TL (bütçe ve fiilî tutar aynıdır); sabit pazarlama ve yönetim giderleri
+    100.000 TL. Sabit üretim genel gideri 18.000 birimlik normal kapasiteye göre birimlere yüklenmekte, hacim farkı dönem
+    sonunda satılan mamul maliyetine aktarılmaktadır. Dönem başı stok yoktur; dönemde 20.000 birim üretilmiş ve 19.000 birim
+    satılmıştır. Tam maliyetlemeye göre faaliyet kârı kaç TL''dir?'
+  secenekler:
+    A: 335.000 TL
+    B: 375.000 TL
+    C: 395.000 TL
+    D: 413.000 TL
+    E: 415.000 TL
+  dogru: E
+  aciklama:
+    dogru_neden: 'Oran 360.000 / 18.000 = 20 TL; birim tam maliyet 50 TL. Üretim normal kapasiteyi aştığından (20.000 − 18.000)
+      × 20 = 40.000 TL fazla yükleme (olumlu hacim farkı) vardır ve satılan mamul maliyetinden düşülür. Satışlar 19.000 ×
+      80 = 1.520.000 TL; SMM = 19.000 × 50 − 40.000 = 910.000 TL; brüt kâr 610.000 TL; değişken satış gideri 19.000 × 5 =
+      95.000 TL ve sabit pazarlama-yönetim gideri 100.000 TL düşülünce faaliyet kârı 415.000 TL. Kontrol: değişken maliyetleme
+      kârı 19.000 × 45 − 460.000 = 395.000 TL; fark 1.000 birim stok × 20 = 20.000 TL. Püf noktaları: Normal kapasitenin üstünde
+      üretim olumlu hacim farkı doğurur; bu tutar SMM''ye eklenmez, SMM''den düşülür. Değişken satış gideri birim maliyete
+      girmez; dönem gideri olarak satış miktarıyla düşülür.'
+    celdiriciler:
+      A: 'Olumlu hacim farkı satılan mamul maliyetine eklenmiştir: 1.520.000 − 990.000 − 195.000.'
+      B: 'Hacim farkı dikkate alınmamıştır: 1.520.000 − 950.000 − 195.000.'
+      C: Değişken maliyetleme kârıdır; sabit üretim genel giderinin tamamı dönem gideri yazılmıştır.
+      D: 'Oran normal kapasite yerine fiilî üretime göre hesaplanmıştır (360.000 / 20.000 = 18 TL): 1.520.000 − 19.000 × 48
+        − 195.000.'
+    hesap_adimlari:
+    - Oran = 360.000 / 18.000 = 20 TL
+    - Olumlu hacim farkı = 2.000 × 20 = 40.000 TL
+    - SMM = 19.000 × 50 − 40.000 = 910.000 TL
+    - Brüt kâr = 1.520.000 − 910.000 = 610.000 TL
+    - Faaliyet kârı = 610.000 − 95.000 − 100.000 = 415.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Değişken ve tam maliyetleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'oran = 360000 / 18000
+
+      hacim = (20000 - 18000) * oran
+
+      smm = 19000 * (30 + oran) - hacim
+
+      sonuc = 19000 * 80 - smm - 19000 * 5 - 100000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-2.yaml, satır 21
