@@ -1,0 +1,573 @@
+- id: YMM-FYN-RGT-0043
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Risk getiri ve portföy
+  konu: RGT
+  kazanim: sistematik ve sistematik olmayan risk
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Bir yatırımcının 1.000.000 TL''lik portföyü üç paydan oluşmaktadır: X payına 200.000 TL (beta 1,5), Y payına 300.000
+    TL (beta 0,8), Z payına 500.000 TL (beta 1,2) yatırılmıştır. Risksiz faiz oranı %10, piyasa portföyünün beklenen getirisi
+    %20''dir. Sermaye varlıklarını fiyatlama modeline (CAPM) göre portföyün gerekli getiri oranı yüzde kaçtır?'
+  secenekler:
+    A: '%11,40'
+    B: '%21,40'
+    C: '%21,67'
+    D: '%22,80'
+    E: '%32,80'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Portföy betası, payların piyasa değeri ağırlıklarıyla ağırlıklı ortalamasıdır: 0,2 × 1,5 + 0,3 × 0,8 + 0,5
+      × 1,2 = 0,30 + 0,24 + 0,60 = 1,14. CAPM''e göre gerekli getiri = 10 + 1,14 × (20 − 10) = 10 + 11,4 = %21,40.'
+    celdiriciler:
+      A: Yalnız risk primi (1,14 × 10) bulunmuş, risksiz faiz oranı eklenmemiştir.
+      C: 'Beta, yatırım tutarlarıyla ağırlıklandırılmadan basit ortalama (3,5 / 3 ≈ 1,167) olarak alınmıştır: 10 + 1,167 ×
+        10.'
+      D: 'Beta, risk primi yerine piyasa getirisinin tamamıyla çarpılmıştır: 1,14 × 20.'
+      E: 'Risksiz faiz oranına, beta ile piyasa getirisinin (risk primi değil) çarpımı eklenmiştir: 10 + 1,14 × 20.'
+    hesap_adimlari:
+    - 'Ağırlıklar: 0,2 / 0,3 / 0,5'
+    - 'Portföy betası: 0,30 + 0,24 + 0,60 = 1,14'
+    - 'Risk primi: 20 − 10 = 10 puan'
+    - 'Gerekli getiri: 10 + 1,14 × 10 = %21,40'
+  kaynaklar:
+  - mevzuat: Genel bilgi — sistematik risk, beta ve CAPM
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "tutar = [200000, 300000, 500000]\nbeta = [1.5, 0.8, 1.2]\ntoplam = 0\nfor t in tutar:\n    toplam += t\nbp =\
+      \ 0\nfor i in range(3):\n    bp += tutar[i] / toplam * beta[i]\nsonuc = round(10 + bp * (20 - 10), 2)"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 8
+- id: YMM-FYN-RGT-0044
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Risk getiri ve portföy
+  konu: RGT
+  kazanim: portföy çeşitlendirmesi
+  tip: uygulama
+  zorluk: 3
+  kok: 'Bir yatırımcı eşit ağırlıklı portföyler oluşturmaktadır. Portföye alınabilecek payların her birinin getiri varyansı
+    0,09 (standart sapma %30), her pay çifti arasındaki kovaryans 0,03''tür. n paydan oluşan eşit ağırlıklı portföyün varyansı
+    σp² = σ²/n + (1 − 1/n) × Kov formülüyle hesaplanmaktadır.
+
+
+    I. Altı paydan oluşan eşit ağırlıklı portföyün standart sapması %20''dir.
+
+    II. Pay sayısı ne kadar artırılırsa artırılsın portföy varyansı 0,03''ün altına inmez.
+
+    III. Portföy varyansındaki 0,03''lük kısım, pay sayısı artırılarak giderilebilen (sistematik olmayan) riski gösterir.
+
+    IV. Pay sayısı 6''dan 12''ye çıkarıldığında portföy varyansı yarıya iner.
+
+
+    Yukarıdaki ifadelerden hangileri doğrudur?'
+  secenekler:
+    A: Yalnız I
+    B: I ve II
+    C: I ve III
+    D: II ve IV
+    E: I, II ve IV
+  dogru: B
+  aciklama:
+    dogru_neden: 'n = 6 için σp² = 0,09/6 + (5/6) × 0,03 = 0,015 + 0,025 = 0,04; σp = %20 (I doğru). n sonsuza giderken σ²/n
+      sıfıra, (1 − 1/n) ise 1''e yaklaşır; varyans ortalama kovaryans olan 0,03''e iner ama altına düşmez (II doğru). Bu 0,03''lük
+      kısım çeşitlendirmeyle giderilemeyen sistematik (piyasa) riskidir (III yanlış). n = 12 için σp² = 0,0075 + (11/12) ×
+      0,03 = 0,0075 + 0,0275 = 0,035''tir; 0,04''ün yarısı değildir (IV yanlış). Püf noktaları: Çeşitlendirme yalnız paylara
+      özgü varyans terimini (σ²/n) küçültür; kovaryans terimi pay sayısıyla birlikte azalmaz, tersine ağırlığı 1''e yaklaşır.
+      Bu nedenle pay sayısını iki katına çıkarmak varyansı yarıya indirmez.'
+    celdiriciler:
+      A: 'II de doğrudur: çok sayıda payda portföy varyansı ortalama kovaryansa (0,03) yakınsar ve bunun altına inemez.'
+      C: III yanlıştır; 0,03'lük alt sınır çeşitlendirmeyle giderilemeyen sistematik riski gösterir.
+      D: 'I doğrudur (σp = %20), IV yanlıştır: n = 12''de varyans 0,035''tir; yalnız σ²/n terimi yarıya iner.'
+      E: IV yanlıştır; kovaryans terimi (1 − 1/n) × 0,03 pay sayısı arttıkça büyüdüğünden varyans yarıya inmez (0,04 → 0,035).
+  kaynaklar:
+  - mevzuat: Genel bilgi — portföy çeşitlendirmesi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 9
+- id: YMM-FYN-RGT-0045
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Risk getiri ve portföy
+  konu: RGT
+  kazanim: portföy çeşitlendirmesi
+  tip: hesaplama
+  zorluk: 3
+  kok: A payının beklenen getirisi %10, standart sapması %20; B payının beklenen getirisi %18, standart sapması %40'tır. İki
+    pay arasındaki korelasyon katsayısı 0,25'tir. Yalnız bu iki paydan, açığa satış yapılmadan oluşturulabilecek en düşük
+    varyanslı (minimum varyans) portföyün beklenen getirisi yüzde kaçtır?
+  secenekler:
+    A: '%11'
+    B: '%11,6'
+    C: '%12,67'
+    D: '%14'
+    E: '%17'
+  dogru: A
+  aciklama:
+    dogru_neden: 'Kovaryans = 0,25 × 20 × 40 = 200 (%² cinsinden). Minimum varyans portföyünde A''nın ağırlığı wA = (σB² −
+      Kov) / (σA² + σB² − 2Kov) = (1.600 − 200) / (400 + 1.600 − 400) = 1.400 / 1.600 = 0,875; B''nin ağırlığı 0,125''tir.
+      Beklenen getiri = 0,875 × 10 + 0,125 × 18 = 8,75 + 2,25 = %11. Püf noktaları: Ağırlık formülünde kovaryans hem payda
+      hem paydada yer alır; korelasyonu sıfır sayarsanız (wA = 0,8) sonuç değişir. Minimum varyans portföyü, düşük riskli
+      paya ağırlık verse de riskli payı tamamen dışlamaz; korelasyon 1''den küçük olduğu için küçük bir B payı riski daha
+      da düşürür.'
+    celdiriciler:
+      B: 'Korelasyon sıfır varsayılarak ağırlık bulunmuştur: wA = 1.600 / 2.000 = 0,8 → 0,8 × 10 + 0,2 × 18 = %11,6.'
+      C: 'Ağırlıklar standart sapmayla ters orantılı alınmıştır (wA = 2/3, wB = 1/3): 6,67 + 6 = %12,67.'
+      D: 'Eşit ağırlıklı portföyün beklenen getirisidir: (10 + 18) / 2.'
+      E: 'Ağırlıklar ters çevrilmiştir (wA = 0,125, wB = 0,875): 1,25 + 15,75 = %17.'
+    hesap_adimlari:
+    - Kov = 0,25 × 20 × 40 = 200
+    - wA = (1.600 − 200) / (400 + 1.600 − 400) = 0,875
+    - wB = 0,125
+    - E(Rp) = 0,875 × 10 + 0,125 × 18 = %11
+  kaynaklar:
+  - mevzuat: Genel bilgi — portföy çeşitlendirmesi (minimum varyans portföyü)
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'sa = 20.0
+
+      sb = 40.0
+
+      kov = 0.25 * sa * sb
+
+      wa = (sb ** 2 - kov) / (sa ** 2 + sb ** 2 - 2 * kov)
+
+      sonuc = round(wa * 10 + (1 - wa) * 18, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 10
+- id: YMM-FYN-RGT-0046
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Risk getiri ve portföy
+  konu: RGT
+  kazanim: beklenen getiri ve varyans
+  tip: uygulama
+  zorluk: 3
+  kok: 'X ve Y paylarının ekonominin üç olası durumundaki getirileri aşağıdadır:
+
+
+    | Durum | Olasılık | X getirisi | Y getirisi |
+
+    |---|---|---|---|
+
+    | Genişleme | 0,3 | %40 | %20 |
+
+    | Normal | 0,5 | %20 | %20 |
+
+    | Daralma | 0,2 | %15 | %5 |
+
+
+    I. Y''nin beklenen getirisi %17, standart sapması %6''dır.
+
+    II. X ile Y arasındaki korelasyon katsayısı 0,5''tir.
+
+    III. Yarı yarıya X ve Y''den oluşan portföyün standart sapması %8''dir.
+
+    IV. Yarı yarıya X ve Y''den oluşan portföyün değişim katsayısı (standart sapma / beklenen getiri), X''in değişim katsayısından
+    düşüktür.
+
+
+    Yukarıdaki ifadelerden hangileri doğrudur?'
+  secenekler:
+    A: I ve II
+    B: I ve III
+    C: II ve IV
+    D: I, II ve III
+    E: I, II ve IV
+  dogru: E
+  aciklama:
+    dogru_neden: 'E(X) = 0,3 × 40 + 0,5 × 20 + 0,2 × 15 = %25; sapmalar 15, −5, −10; Var(X) = 0,3 × 225 + 0,5 × 25 + 0,2 ×
+      100 = 100, σX = %10. E(Y) = 6 + 10 + 1 = %17; sapmalar 3, 3, −12; Var(Y) = 2,7 + 4,5 + 28,8 = 36, σY = %6 (I doğru).
+      Kov = 0,3 × 15 × 3 + 0,5 × (−5) × 3 + 0,2 × (−10) × (−12) = 13,5 − 7,5 + 24 = 30; ρ = 30 / (10 × 6) = 0,5 (II doğru).
+      Portföy varyansı = 0,25 × 100 + 0,25 × 36 + 2 × 0,25 × 30 = 25 + 9 + 15 = 49; σp = %7 (III yanlış). E(Rp) = (25 + 17)
+      / 2 = %21; DK(p) = 7/21 ≈ 0,33 < DK(X) = 10/25 = 0,40 (IV doğru). Püf noktaları: Korelasyon 1''den küçük olduğunda portföyün
+      standart sapması, payların standart sapmalarının ağırlıklı ortalamasından (%8) düşüktür; III bu ağırlıklı ortalamayı
+      portföy riski sanan adayı yakalar. Kovaryansta her durumdaki sapmaların işaretine dikkat edin.'
+    celdiriciler:
+      A: 'IV de doğrudur: portföyün değişim katsayısı yaklaşık 0,33, X''inki 0,40''tır.'
+      B: III yanlıştır; %8, standart sapmaların basit ağırlıklı ortalamasıdır ve yalnız korelasyon 1 olsaydı geçerli olurdu.
+        II'nin doğru olduğu da atlanmıştır.
+      C: 'I de doğrudur: Y''nin beklenen getirisi %17, varyansı 36, standart sapması %6''dır.'
+      D: III yanlıştır; korelasyon 0,5 olduğundan portföy standart sapması %7'dir. IV ise doğrudur.
+  kaynaklar:
+  - mevzuat: Genel bilgi — beklenen getiri, varyans, kovaryans ve korelasyon
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 11
+- id: YMM-FYN-RGT-0047
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Risk getiri ve portföy
+  konu: RGT
+  kazanim: sistematik ve sistematik olmayan risk
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir payın getirisinin standart sapması %30, piyasa portföyünün standart sapması %20'dir. Payın getirisi ile piyasa
+    getirisi arasındaki korelasyon katsayısı 0,8'dir. Tek endeks modeline göre payın toplam varyansı, sistematik varyans (β²
+    × σm²) ile sistematik olmayan varyansın toplamıdır. Payın toplam varyansının yüzde kaçı çeşitlendirmeyle giderilebilecek
+    riskten oluşmaktadır?
+  secenekler:
+    A: '%6'
+    B: '%20'
+    C: '%36'
+    D: '%64'
+    E: '%80'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Beta = ρ × σi / σm = 0,8 × 30 / 20 = 1,2. Sistematik varyans = 1,2² × 20² = 1,44 × 400 = 576; toplam varyans
+      = 30² = 900. Sistematik olmayan (çeşitlendirilebilir) varyans = 900 − 576 = 324; oranı 324 / 900 = %36. Aynı sonuç 1
+      − ρ² = 1 − 0,64 ile de bulunur. Püf noktaları: Risk ayrıştırması standart sapmalarla değil varyanslarla yapılır; standart
+      sapmaları çıkararak (30 − 24) ya da oranlayarak (24/30) bulunan sonuçlar yanlıştır. Çeşitlendirilebilir pay, piyasa
+      tarafından açıklanamayan kısımdır (1 − R²).'
+    celdiriciler:
+      A: 'Standart sapmalar doğrudan çıkarılmıştır: 30 − β × σm = 30 − 24 = 6 puan.'
+      B: Sistematik standart sapmanın toplam standart sapmaya oranı (24/30 = 0,8) birden çıkarılmıştır; ayrıştırma varyansla
+        yapılmalıdır.
+      D: Sistematik (çeşitlendirilemeyen) riskin toplam varyans içindeki payıdır (ρ² = 0,64); soru giderilebilen kısmı sormaktadır.
+      E: Korelasyon katsayısı (0,8) varyans payı gibi yorumlanmıştır.
+    hesap_adimlari:
+    - β = 0,8 × 30 / 20 = 1,2
+    - Sistematik varyans = 1,44 × 400 = 576
+    - Toplam varyans = 900
+    - Sistematik olmayan varyans = 324 → 324 / 900 = %36
+  kaynaklar:
+  - mevzuat: Genel bilgi — sistematik ve sistematik olmayan risk
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'rho = 0.8
+
+      si = 30.0
+
+      sm = 20.0
+
+      beta = rho * si / sm
+
+      sis = beta ** 2 * sm ** 2
+
+      top = si ** 2
+
+      sonuc = round((top - sis) / top * 100, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 12
+- id: YMM-FYN-RGT-0048
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Risk getiri ve portföy
+  konu: RGT
+  kazanim: sistematik ve sistematik olmayan risk
+  tip: kavrama
+  zorluk: 3
+  kok: 'Risksiz faiz oranı %8, piyasa portföyünün beklenen getirisi %16''dır. Analistin dört pay için tahminleri şöyledir:
+
+
+    | Pay | Beta | Standart sapma | Analistin beklediği getiri |
+
+    |---|---|---|---|
+
+    | K | 1,5 | %30 | %22 |
+
+    | L | 0,5 | %25 | %11 |
+
+    | M | 1,0 | %20 | %16 |
+
+    | N | 0,8 | %45 | %14,4 |
+
+
+    Menkul kıymet piyasa doğrusu (SML) ve CAPM çerçevesinde aşağıdaki ifadelerden hangisi **yanlıştır**?'
+  secenekler:
+    A: N'nin toplam riski en yüksek olduğundan, dengede beklenen getirisi dört pay içinde en yüksek olmalıdır.
+    B: K, SML'nin üzerinde yer alır; gerekli getirisi %20 olduğundan 2 puan pozitif alfa ile düşük fiyatlanmıştır.
+    C: L'nin gerekli getirisi %12'dir; beklenen getirisi bunun altında kaldığından aşırı fiyatlanmıştır.
+    D: K ve L'den eşit ağırlıklı portföyün betası 1'dir ve beklenen getirisi M'ninkinden 0,5 puan fazladır.
+    E: Risksiz faiz değişmeden piyasa risk primi 10 puana çıkarsa K'nın gerekli getirisi %23 olur.
+  dogru: A
+  aciklama:
+    dogru_neden: 'CAPM''e göre piyasa yalnız çeşitlendirilemeyen (sistematik) riski ödüllendirir; gerekli getiri betaya bağlıdır,
+      toplam standart sapmaya değil. N''nin gerekli getirisi 8 + 0,8 × 8 = %14,4''tür ve K (%20) ile M''nin (%16) altındadır;
+      standart sapmasının yüksek olması, çeşitlendirmeyle giderilebilecek riskin fazla olduğunu gösterir. Bu nedenle A yanlıştır.
+      Püf noktaları: Tabloda standart sapma sütunu, toplam risk ile sistematik riski karıştıran adayı yakalamak için verilmiştir.
+      Her pay için önce gerekli getiriyi (8 + β × 8) bulup analist tahminiyle karşılaştırın: fark alfadır.'
+    celdiriciler:
+      B: 'Doğrudur: K''nın gerekli getirisi 8 + 1,5 × 8 = %20; beklenen %22 olduğundan alfa +2 puandır ve pay SML''nin üzerindedir.'
+      C: 'Doğrudur: L''nin gerekli getirisi 8 + 0,5 × 8 = %12; beklenen %11 olduğundan alfa −1 puandır, pay SML''nin altındadır.'
+      D: 'Doğrudur: portföy betası (1,5 + 0,5) / 2 = 1; beklenen getiri (22 + 11) / 2 = %16,5, M''ninki %16''dır.'
+      E: 'Doğrudur: gerekli getiri 8 + 1,5 × 10 = %23 olur.'
+  kaynaklar:
+  - mevzuat: Genel bilgi — sistematik risk, CAPM ve menkul kıymet piyasa doğrusu
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 13
+- id: YMM-FYN-RGT-0049
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Risk getiri ve portföy
+  konu: RGT
+  kazanim: beklenen getiri ve varyans
+  tip: hesaplama
+  zorluk: 2
+  kok: Piyasa portföyünün beklenen getirisi %20, standart sapması %25'tir. Bir yatırımcı risksiz faiz oranı olan %10'dan borçlanıp
+    borç ve öz kaynağını piyasa portföyüne yatırarak portföyünün beklenen getirisini %25'e çıkarmak istemektedir. Risksiz
+    varlığın getirisinin standart sapması sıfırdır. Bu portföyün standart sapması yüzde kaç olur?
+  secenekler:
+    A: '%25'
+    B: '%31,25'
+    C: '%32,5'
+    D: '%37,5'
+    E: '%62,5'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Piyasa portföyüne yatırılan oran w olsun: 25 = w × 20 + (1 − w) × 10 → 25 = 10 + 10w → w = 1,5. Yatırımcı
+      öz kaynağının yarısı kadar borçlanır. Risksiz varlığın varyansı ve piyasayla kovaryansı sıfır olduğundan σp = w × σm
+      = 1,5 × 25 = %37,5.'
+    celdiriciler:
+      A: Piyasa portföyünün kendi standart sapmasıdır; kaldıraç kullanımının riski artırdığı dikkate alınmamıştır.
+      B: 'Ağırlık, borçlanma maliyeti göz ardı edilerek 25 / 20 = 1,25 bulunmuştur: 1,25 × 25.'
+      C: 'Beklenen getiri formülü riske uygulanmış, risksiz faiz standart sapmadan düşülmüştür: 1,5 × 25 − 0,5 × 10.'
+      E: Ağırlık 25 / (20 − 10) = 2,5 olarak hesaplanmıştır; risksiz faiz eşitliğin sol tarafından düşülmemiştir.
+    hesap_adimlari:
+    - 25 = 10 + w × (20 − 10) → w = 1,5
+    - σp = 1,5 × 25 = %37,5
+  kaynaklar:
+  - mevzuat: Genel bilgi — risksiz varlıkla portföy (sermaye piyasası doğrusu)
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'rf = 10.0
+
+      rm = 20.0
+
+      sm = 25.0
+
+      hedef = 25.0
+
+      w = (hedef - rf) / (rm - rf)
+
+      sonuc = round(w * sm, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 14

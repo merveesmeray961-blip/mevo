@@ -1,0 +1,593 @@
+- id: YMM-FYN-ISY-0050
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: İşletme sermayesi yönetimi
+  konu: ISY
+  kazanim: kısa vadeli finansman
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletme bankadan bir yıl vadeli, 1.000.000 TL nominal tutarlı kredi kullanacaktır. Yıllık faiz oranı %15'tir ve
+    faiz kredi kullandırılırken peşin olarak kesilmektedir (iskontolu kredi). Banka ayrıca kredi süresince nominal tutarın
+    %10'unun faizsiz bir hesapta bloke tutulmasını (telafi edici bakiye) şart koşmaktadır. İşletmenin bu bankada başka mevduatı
+    yoktur. Kredinin yıllık efektif maliyeti yüzde kaçtır?
+  secenekler:
+    A: '%15'
+    B: '%16,67'
+    C: '%17,65'
+    D: '%20'
+    E: '%25'
+  dogru: D
+  aciklama:
+    dogru_neden: 'İşletmenin fiilen kullanabildiği tutar, nominal tutardan peşin faiz (150.000 TL) ve bloke bakiye (100.000
+      TL) düşülerek bulunur: 1.000.000 − 150.000 − 100.000 = 750.000 TL. Bu tutar için katlanılan faiz 150.000 TL olduğundan
+      efektif maliyet 150.000 / 750.000 = %20''dir.'
+    celdiriciler:
+      A: Nominal faiz oranıdır; peşin faiz kesintisi ve bloke bakiyenin kullanılabilir fonu azaltması dikkate alınmamıştır.
+      B: 'Yalnız bloke bakiye dikkate alınmış, peşin faiz kesintisi unutulmuştur: 150.000 / 900.000.'
+      C: 'Yalnız peşin faiz kesintisi dikkate alınmış, bloke bakiye unutulmuştur: 150.000 / 850.000.'
+      E: 'Bloke bakiye faiz gibi bir maliyet kalemi sayılmış ve nominal tutara bölünmüştür: (150.000 + 100.000) / 1.000.000.'
+    hesap_adimlari:
+    - 'Peşin faiz: 1.000.000 × %15 = 150.000 TL'
+    - 'Bloke bakiye: 1.000.000 × %10 = 100.000 TL'
+    - 'Kullanılabilir fon: 1.000.000 − 150.000 − 100.000 = 750.000 TL'
+    - 'Efektif maliyet: 150.000 / 750.000 = %20'
+  kaynaklar:
+  - mevzuat: Genel bilgi — kısa vadeli finansman (iskontolu kredi, telafi edici bakiye)
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'nominal = 1000000
+
+      faiz = nominal * 0.15
+
+      bloke = nominal * 0.10
+
+      kullanilabilir = nominal - faiz - bloke
+
+      sonuc = round(faiz / kullanilabilir * 100, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 1
+- id: YMM-FYN-ISY-0051
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: İşletme sermayesi yönetimi
+  konu: ISY
+  kazanim: kısa vadeli finansman
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir tedarikçi "4/10, net 40" koşuluyla satış yapmaktadır: fatura 10 gün içinde ödenirse %4 iskonto uygulanmakta, aksi
+    hâlde tutarın tamamı 40. günde ödenmektedir. Alıcı işletme iskontodan yararlanmadığında faturayı fiilen 70. günde ödemekte,
+    tedarikçi bu gecikme için faiz, ceza veya başka bir ek bedel uygulamamaktadır. Yıl 360 gün kabul edilmekte ve maliyet
+    basit faiz esasıyla (bileşik etki dikkate alınmadan) hesaplanmaktadır. Bu alıcı için iskontodan yararlanmamanın yıllık
+    maliyeti yüzde kaçtır?'
+  secenekler:
+    A: '%21,43'
+    B: '%24'
+    C: '%25'
+    D: '%48'
+    E: '%50'
+  dogru: C
+  aciklama:
+    dogru_neden: 'İskontodan vazgeçen alıcı, faturanın %96''sını 10. günde ödemek yerine tamamını 70. günde öder; yani 96
+      TL''lik bir kredi için 60 gün süreyle 4 TL bedel öder. Yıllık maliyet = 4/96 × 360/(70 − 10) = (1/24) × 6 = %25. Püf
+      noktaları: Kredi süresi ödemenin fiilen yapıldığı gün ile iskonto süresinin son günü arasındaki farktır (70 − 10 = 60
+      gün); sözleşmedeki 40. gün değil. Ayrıca bedel faturanın tamamına değil, iskontolu tutara (%96) oranlanır.'
+    celdiriciler:
+      A: 'Gün farkı yerine ödemenin yapıldığı gün (70) kullanılmıştır: 4/96 × 360/70; oysa ilk 10 gün iskontolu ödemede de
+        kredi niteliğindedir.'
+      B: 'İskonto oranı iskontolu tutara değil fatura tutarına oranlanmıştır: %4 × 360/60.'
+      D: 'Hem vade olarak sözleşmedeki 40. gün alınmış hem de iskonto fatura tutarına oranlanmıştır: %4 × 360/30.'
+      E: 'Sözleşmedeki net vade (40. gün) esas alınmıştır: 4/96 × 360/30. Alıcı ödemeyi 70. güne erteleyebildiği için kredi
+        süresi 60 gündür.'
+    hesap_adimlari:
+    - 'Dönemsel maliyet: 4 / 96 = 1/24'
+    - 'Kredi süresi: 70 − 10 = 60 gün'
+    - 'Yıldaki dönem sayısı: 360 / 60 = 6'
+    - 'Yıllık maliyet: (1/24) × 6 = %25'
+  kaynaklar:
+  - mevzuat: Genel bilgi — kısa vadeli finansman (ticari kredi, nakit iskontosu)
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'iskonto = 4.0
+
+      sure = 70 - 10
+
+      sonuc = round(iskonto / (100 - iskonto) * 360 / sure * 100, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 2
+- id: YMM-FYN-ISY-0052
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: İşletme sermayesi yönetimi
+  konu: ISY
+  kazanim: nakit ve stok yönetimi (EOQ)
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin yıllık hammadde ihtiyacı 3.600 birim, birim alış fiyatı 20 TL, sipariş başına maliyeti 50 TL'dir. Yıllık
+    stok bulundurma maliyeti birim alış fiyatının %20'sidir. İşletme şu an ekonomik sipariş miktarıyla (EOQ) sipariş vermektedir.
+    Tedarikçi, sipariş başına en az 900 birim alınması hâlinde birim fiyatta %1 indirim önermektedir. Talep yıl boyunca düzenlidir,
+    güvenlik stoku tutulmamaktadır ve ortalama stok sipariş miktarının yarısıdır. Teklif kabul edilip her seferinde 900 birim
+    sipariş verilirse, alış bedeli dâhil toplam yıllık stok maliyetindeki değişim kaç TL olur? (− azalış, + artış)
+  secenekler:
+    A: −1.120 TL
+    B: −720 TL
+    C: +62 TL
+    D: +80 TL
+    E: +1.244 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Mevcut durumda birim bulundurma maliyeti 20 × %20 = 4 TL, EOQ = √(2 × 3.600 × 50 / 4) = √90.000 = 300 birimdir.
+      Toplam maliyet: alış 72.000 + sipariş (12 × 50) 600 + bulundurma (150 × 4) 600 = 73.200 TL. Teklifte birim fiyat 19,80
+      TL, bulundurma maliyeti 19,80 × %20 = 3,96 TL olur. Toplam: alış 71.280 + sipariş (4 × 50) 200 + bulundurma (450 × 3,96)
+      1.782 = 73.262 TL. Toplam maliyet 62 TL artar; teklif kabul edilmemelidir. Püf noktaları: Bulundurma maliyeti fiyatın
+      yüzdesi olarak verildiğinden indirimle birlikte birim bulundurma maliyeti de düşer (4 TL değil 3,96 TL). Bulundurma
+      maliyeti sipariş miktarı üzerinden değil, ortalama stok (Q/2) üzerinden hesaplanır.'
+    celdiriciler:
+      A: Alış bedelindeki 720 TL ve sipariş maliyetindeki 400 TL azalış alınmış; ortalama stoğun 150 birimden 450 birime çıkmasıyla
+        artan bulundurma maliyeti ihmal edilmiştir.
+      B: Yalnız alış bedelindeki indirim (3.600 × 0,20) dikkate alınmış; sipariş ve bulundurma maliyetlerindeki değişim unutulmuştur.
+      D: İndirimden sonra da birim bulundurma maliyeti 4 TL alınmıştır (450 × 4 = 1.800 TL); fiyatın %20'si olan bulundurma
+        maliyeti 3,96 TL'ye düşer.
+      E: Bulundurma maliyeti her iki politikada ortalama stok yerine sipariş miktarının tamamı üzerinden hesaplanmıştır (300
+        × 4 ve 900 × 3,96).
+    hesap_adimlari:
+    - EOQ = √(2 × 3.600 × 50 / 4) = 300 birim
+    - 'Mevcut toplam: 72.000 + 600 + 600 = 73.200 TL'
+    - Yeni fiyat 19,80 TL; bulundurma 3,96 TL/birim
+    - 'Yeni toplam: 71.280 + 200 + 450 × 3,96 (1.782) = 73.262 TL'
+    - 'Değişim: 73.262 − 73.200 = +62 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — stok yönetimi (EOQ, miktar indirimi)
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'D = 3600
+
+      S = 50
+
+      f = 20.0
+
+      H = f * 0.20
+
+      q = (2 * D * S / H) ** 0.5
+
+      mevcut = D * f + D / q * S + q / 2 * H
+
+      f2 = f * 0.99
+
+      H2 = f2 * 0.20
+
+      q2 = 900
+
+      yeni = D * f2 + D / q2 * S + q2 / 2 * H2
+
+      sonuc = round(yeni - mevcut, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 3
+- id: YMM-FYN-ISY-0053
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: İşletme sermayesi yönetimi
+  konu: ISY
+  kazanim: alacak yönetimi ve kredi politikası
+  tip: hesaplama
+  zorluk: 3
+  kok: Yıllık kredili satışları 7.200.000 TL olan bir işletmenin müşterilerinin tamamı faturayı 60. günde ödemekte, şüpheli
+    alacaklar satışların %1'i kadar gerçekleşmektedir. İşletme "2/10, net 60" koşuluna geçmeyi değerlendirmektedir. Bu durumda
+    müşterilerin (satış tutarı itibarıyla) yarısının %2 iskontodan yararlanarak 10. günde, diğer yarısının yine 60. günde
+    ödeme yapacağı ve şüpheli alacak oranının %0,5'e düşeceği tahmin edilmektedir. Satış tutarı değişmeyecektir. Alacaklara
+    bağlanan fonun yıllık fırsat maliyeti, alacakların satış tutarı üzerinden %20'dir; yıl 360 gün kabul edilmektedir. Yeni
+    koşula geçişin işletmeye yıllık net etkisi kaç TL'dir?
+  secenekler:
+    A: 28.000 TL
+    B: 64.000 TL
+    C: 100.000 TL
+    D: 136.000 TL
+    E: 164.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Ortalama tahsil süresi 0,5 × 10 + 0,5 × 60 = 35 güne iner. Ortalama alacak 7.200.000 / 360 × 60 = 1.200.000
+      TL''den 7.200.000 / 360 × 35 = 700.000 TL''ye düşer; serbest kalan 500.000 TL''nin fırsat maliyeti tasarrufu 500.000
+      × %20 = 100.000 TL''dir. Şüpheli alacak tasarrufu 7.200.000 × (%1 − %0,5) = 36.000 TL''dir. İskonto maliyeti 7.200.000
+      × %50 × %2 = 72.000 TL''dir. Net etki: 100.000 + 36.000 − 72.000 = +64.000 TL. Püf noktaları: İskonto yalnız iskontodan
+      yararlanan satışlar üzerinden hesaplanır; yeni ortalama tahsil süresi iki grubun ağırlıklı ortalamasıdır (10 gün değil
+      35 gün). Üç kalemin (alacak fonu, şüpheli alacak, iskonto) birlikte değerlendirilmesi gerekir.'
+    celdiriciler:
+      A: 'Şüpheli alacaklardaki 36.000 TL''lik azalış hesaba katılmamıştır: 100.000 − 72.000.'
+      C: Yalnız alacak fonundaki tasarruf alınmış; şüpheli alacak tasarrufu ve iskonto maliyeti birlikte unutulmuştur.
+      D: 'İskonto maliyeti (72.000 TL) düşülmemiştir: 100.000 + 36.000.'
+      E: 'Tüm müşterilerin 10. günde ödeyeceği varsayılarak alacak 200.000 TL''ye indirilmiş (1.000.000 × %20 = 200.000 TL
+        tasarruf), iskonto ise yarı satış üzerinden alınmıştır: 200.000 + 36.000 − 72.000.'
+    hesap_adimlari:
+    - 'Yeni ortalama tahsil süresi: 0,5 × 10 + 0,5 × 60 = 35 gün'
+    - 'Alacak azalışı: 20.000 × (60 − 35) = 500.000 TL → fırsat maliyeti tasarrufu 100.000 TL'
+    - 'Şüpheli alacak tasarrufu: 7.200.000 × %0,5 = 36.000 TL'
+    - 'İskonto maliyeti: 3.600.000 × %2 = 72.000 TL'
+    - 'Net etki: 100.000 + 36.000 − 72.000 = 64.000 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — alacak yönetimi (nakit iskontosu politikası)
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'satis = 7200000
+
+      gunluk = satis / 360
+
+      ats = 0.5 * 10 + 0.5 * 60
+
+      alacak_tasarruf = (60 - ats) * gunluk * 0.20
+
+      supheli = satis * (0.01 - 0.005)
+
+      iskonto = satis * 0.5 * 0.02
+
+      sonuc = round(alacak_tasarruf + supheli - iskonto, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 4
+- id: YMM-FYN-ISY-0054
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: İşletme sermayesi yönetimi
+  konu: ISY
+  kazanim: kısa vadeli finansman
+  tip: uygulama
+  zorluk: 2
+  kok: Bir işletmenin duran varlıkları 900.000 TL, yıl boyunca sürekli olarak elde tutması gereken dönen varlıkları 300.000
+    TL'dir. Mevsimsel dönen varlık ihtiyacı yıl içinde 0 ile 400.000 TL arasında değişmektedir. İşletmenin uzun vadeli kaynakları
+    (özkaynak ve uzun vadeli borç) yıl boyunca 1.100.000 TL'dir; kalan ihtiyaç kısa vadeli banka kredisiyle karşılanmaktadır.
+    Bu işletmenin varlık finansmanı politikasıyla ilgili aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Atak politika izlenir; mevsimsel ihtiyacın sıfır olduğu dönemde bile 100.000 TL kısa vadeli kredi kullanılır.
+    B: Vade uyumu politikası izlenir; uzun vadeli kaynaklar duran varlıkların tamamını karşıladığı için kısa vadeli kredi
+      yalnız mevsimsel ihtiyaçta kullanılır.
+    C: Muhafazakâr politika izlenir; mevsimsel ihtiyacın sıfır olduğu dönemde 200.000 TL fon fazlası kısa vadeli menkul kıymetlere
+      yatırılır.
+    D: Atak politika izlenir; kısa vadeli kredi ihtiyacı en yoğun dönemde 400.000 TL'ye ulaşır, dip dönemde ise sıfıra iner.
+    E: Atak politika izlenir; muhafazakâr politikaya göre beklenen kârlılığı ve likiditesi yüksek, yenileme riski düşüktür.
+  dogru: A
+  aciklama:
+    dogru_neden: Vade uyumu (dengeleme) politikasında duran varlıklar ile sürekli dönen varlıkların toplamı (900.000 + 300.000
+      = 1.200.000 TL) uzun vadeli kaynakla karşılanır. İşletmenin uzun vadeli kaynağı 1.100.000 TL olduğundan sürekli varlıkların
+      100.000 TL'si kısa vadeli krediyle finanse edilmektedir; bu atak (agresif) politikadır. Mevsimsel ihtiyaç sıfır olduğunda
+      dahi 100.000 TL, en yoğun dönemde 100.000 + 400.000 = 500.000 TL kısa vadeli kredi kullanılır.
+    celdiriciler:
+      B: Vade uyumu için uzun vadeli kaynakların duran varlıkları değil, duran varlıklar ile sürekli dönen varlıkların toplamını
+        (1.200.000 TL) karşılaması gerekir.
+      C: Fon fazlası ancak uzun vadeli kaynaklar sürekli ihtiyacı aşarsa doğar; burada uzun vadeli kaynak 100.000 TL eksiktir.
+      D: Sürekli varlıkların finanse edilmeyen 100.000 TL'lik kısmı unutulmuştur; en yoğun dönemde kredi 500.000 TL'dir ve
+        dip dönemde de 100.000 TL kredi kalır.
+      E: Atak politikada beklenen kârlılık yüksektir; ancak likidite düşer ve kısa vadeli borcun yenilenmesi (faiz ve yenileme)
+        riski artar.
+  kaynaklar:
+  - mevzuat: Genel bilgi — işletme sermayesi finansman politikaları
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 5
+- id: YMM-FYN-ISY-0055
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: İşletme sermayesi yönetimi
+  konu: ISY
+  kazanim: nakit dönüşüm süresi
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin yıllık satışları 7.200.000 TL, satışların maliyeti 5.400.000 TL'dir. Stokta kalma süresi ve ticari borç
+    ödeme süresi satışların maliyeti, alacak tahsil süresi ise satışlar üzerinden hesaplanmaktadır; yıl 360 gün kabul edilmektedir.
+    İşletme yeni bir uygulamayla stokta kalma süresini 60 günden 40 güne, alacak tahsil süresini 45 günden 40 güne indirecek;
+    tedarikçilerle anlaşarak ticari borç ödeme süresini 30 günden 45 güne çıkaracaktır. Satışlar ve satışların maliyeti değişmeyecektir.
+    Bu değişikliklerle işletme sermayesinden serbest kalacak fon kaç TL'dir?
+  secenekler:
+    A: 175.000 TL
+    B: 400.000 TL
+    C: 600.000 TL
+    D: 625.000 TL
+    E: 800.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Günlük satış 7.200.000 / 360 = 20.000 TL, günlük satışların maliyeti 5.400.000 / 360 = 15.000 TL''dir. Stok
+      azalışı 20 gün × 15.000 = 300.000 TL; alacak azalışı 5 gün × 20.000 = 100.000 TL; ticari borç artışı 15 gün × 15.000
+      = 225.000 TL''dir. Borç artışı da fon sağladığından serbest kalan fon 300.000 + 100.000 + 225.000 = 625.000 TL''dir
+      (nakit dönüşüm süresi 75 günden 35 güne iner). Püf noktaları: Gün farkları her kalemin kendi tabanıyla (stok ve borç
+      için SMM, alacak için satışlar) çarpılmalıdır; nakit dönüşüm süresindeki 40 günlük azalışı tek bir tabanla çarpmak yanlış
+      sonuç verir. Borç süresinin uzaması fon ihtiyacını azaltır, artırmaz.'
+    celdiriciler:
+      A: 'Ticari borç süresinin uzaması fon ihtiyacını artırıyormuş gibi ters işaretle alınmıştır: 300.000 + 100.000 − 225.000.'
+      B: Ticari borç ödeme süresindeki uzamanın sağladığı 225.000 TL'lik fon hesaba katılmamıştır.
+      C: 'Nakit dönüşüm süresindeki 40 günlük azalışın tamamı günlük satışların maliyetiyle çarpılmıştır: 40 × 15.000.'
+      E: 'Nakit dönüşüm süresindeki 40 günlük azalışın tamamı günlük satışlarla çarpılmıştır: 40 × 20.000.'
+    hesap_adimlari:
+    - Günlük satış 20.000 TL; günlük SMM 15.000 TL
+    - 'Stok: (60 − 40) × 15.000 = 300.000 TL'
+    - 'Alacak: (45 − 40) × 20.000 = 100.000 TL'
+    - 'Ticari borç: (45 − 30) × 15.000 = 225.000 TL'
+    - 'Serbest kalan fon: 625.000 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — nakit dönüşüm süresi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'gs = 7200000 / 360
+
+      gm = 5400000 / 360
+
+      stok = (60 - 40) * gm
+
+      alacak = (45 - 40) * gs
+
+      borc = (45 - 30) * gm
+
+      sonuc = stok + alacak + borc'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 6
+- id: YMM-FYN-ISY-0056
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: İşletme sermayesi yönetimi
+  konu: ISY
+  kazanim: nakit ve stok yönetimi (EOQ)
+  tip: uygulama
+  zorluk: 3
+  kok: 'Bir işletme nakit yönetiminde Miller-Orr modelini kullanmaktadır. Yönetimin belirlediği alt nakit sınırı 20.000 TL''dir.
+    Menkul kıymet alım ya da satımının işlem başına sabit maliyeti 100 TL, günlük net nakit akışlarının varyansı 4.000.000
+    TL² (standart sapma 2.000 TL), günlük faiz oranı %0,03''tür. Model: dönüş noktası Z = L + [3Fσ² / (4i)]^(1/3), üst sınır
+    H = 3Z − 2L.
+
+
+    I. Dönüş (hedef) nakit düzeyi 30.000 TL''dir.
+
+    II. Nakit bakiyesi üst sınıra ulaştığında 20.000 TL''lik menkul kıymet satın alınır.
+
+    III. Nakit bakiyesi alt sınıra düştüğünde 30.000 TL''lik menkul kıymet satılır.
+
+    IV. Diğer koşullar sabitken günlük nakit akışlarının varyansı artarsa alt ve üst sınır arasındaki fark genişler.
+
+
+    Yukarıdaki ifadelerden hangileri doğrudur?'
+  secenekler:
+    A: I ve II
+    B: I ve III
+    C: II ve IV
+    D: I, III ve IV
+    E: I, II ve IV
+  dogru: E
+  aciklama:
+    dogru_neden: '3Fσ² / (4i) = 3 × 100 × 4.000.000 / (4 × 0,0003) = 1.200.000.000 / 0,0012 = 10¹²; küp kökü 10.000 TL''dir.
+      Z = 20.000 + 10.000 = 30.000 TL (I doğru). H = 3 × 30.000 − 2 × 20.000 = 50.000 TL; bakiye 50.000 TL''ye ulaşınca dönüş
+      noktasına inmek için 50.000 − 30.000 = 20.000 TL''lik menkul kıymet alınır (II doğru). Alt sınırda bakiye dönüş noktasına
+      çıkarılır; satılacak menkul kıymet 30.000 − 20.000 = 10.000 TL''dir (III yanlış). Aralık 3 × [3Fσ²/(4i)]^(1/3) olduğundan
+      varyans arttıkça genişler (IV doğru). Püf noktaları: Sınırlara ulaşıldığında bakiye sıfıra ya da sınırın kendisine değil,
+      her iki durumda da dönüş noktasına (Z) getirilir; alım ve satım tutarları bu nedenle farklıdır (H − Z = 20.000, Z −
+      L = 10.000).'
+    celdiriciler:
+      A: 'IV de doğrudur: nakit akışlarındaki oynaklık arttıkça model daha geniş bir kontrol aralığı öngörür.'
+      B: III yanlıştır; alt sınırda bakiye dönüş noktasına çıkarılır, satış tutarı 10.000 TL'dir. II'nin doğru olduğu da gözden
+        kaçmıştır.
+      C: I de doğrudur; dönüş noktası alt sınıra 10.000 TL eklenerek 30.000 TL bulunur.
+      D: III yanlıştır, II doğrudur; üst sınırdaki alım (20.000 TL) ile alt sınırdaki satım (10.000 TL) tutarları karıştırılmıştır.
+  kaynaklar:
+  - mevzuat: Genel bilgi — nakit yönetimi (Miller-Orr modeli)
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 7

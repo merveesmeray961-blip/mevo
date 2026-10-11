@@ -1,0 +1,569 @@
+- id: YMM-FYN-FPA-0059
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal planlama analiz ve kâr dağıtımı
+  konu: FPA
+  kazanim: kaldıraç dereceleri (faaliyet; finansal; birleşik)
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir işletmenin yıllık verileri şöyledir: satışlar 1.200.000 TL, değişken giderler 600.000 TL, sabit faaliyet giderleri
+    400.000 TL, faiz gideri 40.000 TL, imtiyazlı paylara ödenen yıllık kâr payı 32.000 TL. Kurumlar vergisi oranı %20''dir;
+    imtiyazlı kâr payı vergi sonrası kârdan ödenmektedir. Diğer koşullar sabitken satışlar %10 artarsa adi pay başına kazanç
+    yüzde kaç artar?'
+  secenekler:
+    A: '%30'
+    B: '%37,5'
+    C: '%46,875'
+    D: '%50'
+    E: '%100'
+  dogru: D
+  aciklama:
+    dogru_neden: 'FVÖK = 1.200.000 − 600.000 − 400.000 = 200.000 TL. Faaliyet kaldıraç derecesi = katkı payı / FVÖK = 600.000
+      / 200.000 = 3. İmtiyazlı kâr payının vergi öncesi karşılığı 32.000 / (1 − 0,20) = 40.000 TL''dir. Finansal kaldıraç
+      derecesi = 200.000 / (200.000 − 40.000 − 40.000) = 5/3. Birleşik kaldıraç = 3 × 5/3 = 5; pay başına kazanç %10 × 5 =
+      %50 artar. (Kontrol: adi paylara kalan kâr 96.000 TL''den 144.000 TL''ye çıkar.) Püf noktaları: İmtiyazlı kâr payı vergiden
+      sonra ödendiğinden finansal kaldıraç paydasında (1 − t) ile bölünerek vergi öncesine çevrilir. Faaliyet kaldıracı satış/FVÖK
+      ile değil katkı payı/FVÖK ile hesaplanır.'
+    celdiriciler:
+      A: Yalnız faaliyet kaldıracı (3) uygulanmış; finansal kaldıracın pay başına kazanca etkisi unutulmuştur.
+      B: 'İmtiyazlı kâr payı ihmal edilmiştir: FKD = 200.000 / 160.000 = 1,25; BKD = 3,75.'
+      C: 'İmtiyazlı kâr payı vergi öncesine çevrilmeden düşülmüştür: FKD = 200.000 / 128.000 = 1,5625; BKD = 4,6875.'
+      E: 'Faaliyet kaldıracı satışlar / FVÖK (1.200.000 / 200.000 = 6) olarak hesaplanmıştır: 6 × 5/3 = 10.'
+    hesap_adimlari:
+    - FVÖK = 200.000 TL; FKD = 600.000 / 200.000 = 3
+    - 'İmtiyazlı kâr payı vergi öncesi: 32.000 / 0,8 = 40.000 TL'
+    - FinKD = 200.000 / (200.000 − 40.000 − 40.000) = 5/3
+    - BKD = 5 → PBK değişimi = 5 × %10 = %50
+  kaynaklar:
+  - mevzuat: Genel bilgi — faaliyet, finansal ve birleşik kaldıraç
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 's = 1200000.0
+
+      fvok = s - 600000 - 400000
+
+      fkd = (s - 600000) / fvok
+
+      imt = 32000 / (1 - 0.20)
+
+      finkd = fvok / (fvok - 40000 - imt)
+
+      sonuc = round(fkd * finkd * 10, 3)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 15
+- id: YMM-FYN-FPA-0060
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal planlama analiz ve kâr dağıtımı
+  konu: FPA
+  kazanim: oran analizi ve DuPont
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin net kâr marjı %5, aktif devir hızı 2, özkaynak çarpanı (toplam aktif / özkaynak) 2'dir; kârın %40'ını
+    kâr payı olarak dağıtmaktadır. Özkaynak kârlılığı dönem başı özkaynak üzerinden hesaplanmakta ve sürdürülebilir büyüme
+    oranı = özkaynak kârlılığı × kârın alıkonulan oranı formülüyle bulunmaktadır. İşletme yeni pay ihraç etmeden, net kâr
+    marjını, aktif devir hızını ve kâr dağıtım oranını değiştirmeden sürdürülebilir büyüme oranını %18'e çıkarmak istemektedir.
+    Bunun için borç/özkaynak oranı kaç olmalıdır?
+  secenekler:
+    A: 0,8
+    B: 1,0
+    C: 2,0
+    D: 3,0
+    E: 3,5
+  dogru: C
+  aciklama:
+    dogru_neden: 'Alıkonulan oran 1 − 0,40 = 0,60''tır. %18 büyüme için gerekli özkaynak kârlılığı 18 / 0,60 = %30''dur. DuPont''a
+      göre ÖK kârlılığı = net kâr marjı × aktif devir hızı × özkaynak çarpanı → 30 = 5 × 2 × ÖÇ → ÖÇ = 3. Özkaynak çarpanı
+      = 1 + borç/özkaynak olduğundan borç/özkaynak = 3 − 1 = 2,0. (Mevcut durumda ÖK kârlılığı %20, büyüme %12, borç/özkaynak
+      1,0''dır.) Püf noktaları: Önce büyüme hedefinden gerekli ÖK kârlılığına (alıkonulan oranla bölerek), sonra DuPont ile
+      özkaynak çarpanına geri gidin. Özkaynak çarpanı borç/özkaynak oranı değildir; aradaki fark 1''dir.'
+    celdiriciler:
+      A: 'Alıkonulan oran dikkate alınmadan hedef büyüme oranı ÖK kârlılığı sayılmıştır: 18 / 10 = 1,8 → borç/özkaynak 0,8.'
+      B: Mevcut sermaye yapısıdır (özkaynak çarpanı 2 → borç/özkaynak 1); bu yapıyla sürdürülebilir büyüme %12'de kalır.
+      D: Gerekli özkaynak çarpanı (3) doğrudan borç/özkaynak oranı sanılmıştır.
+      E: 'Alıkonulan oran yerine dağıtım oranı (0,40) kullanılmıştır: ÖK kârlılığı 18 / 0,40 = %45 → ÖÇ = 4,5 → borç/özkaynak
+        3,5.'
+    hesap_adimlari:
+    - 'Alıkonulan oran: 0,60'
+    - 'Gerekli ÖK kârlılığı: 18 / 0,60 = %30'
+    - ÖÇ = 30 / (5 × 2) = 3
+    - Borç/özkaynak = 3 − 1 = 2,0
+  kaynaklar:
+  - mevzuat: Genel bilgi — DuPont analizi ve sürdürülebilir büyüme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'marj = 5.0
+
+      devir = 2.0
+
+      b = 1 - 0.40
+
+      roe = 18.0 / b
+
+      ec = roe / (marj * devir)
+
+      sonuc = round(ec - 1, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 16
+- id: YMM-FYN-FPA-0061
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal planlama analiz ve kâr dağıtımı
+  konu: FPA
+  kazanim: nakit bütçesi
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin satış tahminleri ocak 400.000 TL, şubat 500.000 TL, mart 600.000 TL, nisan 700.000 TL'dir. Satışların
+    %30'u satış ayında, %60'ı izleyen ayda, %10'u satıştan iki ay sonra tahsil edilmekte; tahsil edilemeyen alacak oluşmamaktadır.
+    Her ay, izleyen ayın satışlarının %60'ı tutarında mal alınmakta ve alımlar alım ayını izleyen ayda ödenmektedir. Mart
+    ayında ayrıca 80.000 TL ücret ve 10.000 TL faiz ödenecek, 20.000 TL amortisman ayrılacaktır. 1 Mart itibarıyla nakit mevcudu
+    50.000 TL'dir; işletmenin bulundurmak istediği asgari nakit tutarı 40.000 TL'dir. Başka nakit giriş veya çıkışı yoktur.
+    Mart sonu nakit mevcudu kaç TL olur?
+  secenekler:
+    A: 60.000 TL
+    B: 80.000 TL
+    C: 100.000 TL
+    D: 120.000 TL
+    E: 130.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Mart tahsilatı: martın %30''u (180.000) + şubatın %60''ı (300.000) + ocağın %10''u (40.000) = 520.000 TL.
+      Mart ödemesi şubatta yapılan alımdır; şubat alımı mart satışlarının %60''ıdır: 360.000 TL. Diğer nakit çıkışları ücret
+      80.000 ve faiz 10.000 TL''dir; amortisman nakit çıkışı değildir. Mart sonu nakit: 50.000 + 520.000 − 360.000 − 80.000
+      − 10.000 = 120.000 TL. Püf noktaları: Alım tutarı izleyen ayın satışına, ödemesi ise alımı izleyen aya bağlıdır; bu
+      iki gecikme birlikte, mart ödemesinin mart satışlarına dayandığı sonucunu verir. Asgari nakit tutarı yalnız finansman
+      ihtiyacı ya da fazlası sorulduğunda kullanılır.'
+    celdiriciler:
+      A: 'Mart ödemesi olarak mart alımı (nisan satışlarının %60''ı = 420.000 TL) alınmıştır: 50.000 + 520.000 − 420.000 −
+        90.000.'
+      B: 'Dönem sonu nakit mevcudu yerine asgari nakit üzerindeki fazla bulunmuştur: 120.000 − 40.000.'
+      C: Nakit çıkışı olmayan amortisman (20.000 TL) ödemelere eklenmiştir.
+      E: 'Tahsilat yüzdeleri kaydırılmış, şubat satışının %70''i mart ayında tahsil edilmiş sayılmıştır: 180.000 + 350.000
+        = 530.000 TL.'
+    hesap_adimlari:
+    - 'Tahsilat: 0,3 × 600.000 + 0,6 × 500.000 + 0,1 × 400.000 = 520.000 TL'
+    - 'Ödeme (şubat alımı): 0,6 × 600.000 = 360.000 TL'
+    - 'Diğer ödemeler: 80.000 + 10.000 = 90.000 TL'
+    - 'Mart sonu nakit: 50.000 + 520.000 − 360.000 − 90.000 = 120.000 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — nakit bütçesi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ocak = 400000
+
+      subat = 500000
+
+      mart = 600000
+
+      tahsilat = 0.3 * mart + 0.6 * subat + 0.1 * ocak
+
+      odeme = 0.6 * mart
+
+      sonuc = 50000 + tahsilat - odeme - 80000 - 10000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 17
+- id: YMM-FYN-FPA-0062
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal planlama analiz ve kâr dağıtımı
+  konu: FPA
+  kazanim: kâr payı politikası
+  tip: hesaplama
+  zorluk: 2
+  kok: Artık (kalıntı) kâr payı politikası izleyen bir şirketin dönem net kârı 2.000.000 TL, gelecek yıl için onaylanan yatırım
+    bütçesi 2.500.000 TL'dir. Şirketin hedef sermaye yapısı %40 borç ve %60 özkaynaktır; yeni pay ihracı düşünülmemektedir.
+    Şirketin bu dönem dağıtacağı kâr payı tutarı kaç TL'dir?
+  secenekler:
+    A: 0 TL
+    B: 500.000 TL
+    C: 800.000 TL
+    D: 1.000.000 TL
+    E: 1.200.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: Artık politikada önce yatırım bütçesinin özkaynakla finanse edilecek kısmı alıkonulur, kalan kâr dağıtılır.
+      Özkaynak ihtiyacı = 2.500.000 × %60 = 1.500.000 TL; dağıtılacak kâr payı = 2.000.000 − 1.500.000 = 500.000 TL (dağıtım
+      oranı %25).
+    celdiriciler:
+      A: Yatırım bütçesinin tamamı özkaynakla finanse edilecekmiş gibi düşünülmüş; bütçe kârı aştığı için dağıtım yapılmayacağı
+        sonucuna varılmıştır. Hedef yapı gereği bütçenin %40'ı borçla karşılanır.
+      C: Kârın hedef borç oranı kadarı (%40) dağıtılmıştır; dağıtım oranı sermaye yapısı oranlarından türetilmez.
+      D: 'Özkaynak ihtiyacı borç oranıyla hesaplanmıştır: 2.500.000 × %40 = 1.000.000 TL alıkonulmuş, 1.000.000 TL dağıtılmıştır.'
+      E: Kârın hedef özkaynak oranı kadarı (%60) dağıtılmıştır; yatırım bütçesi hesaba katılmamıştır.
+    hesap_adimlari:
+    - 'Özkaynak ihtiyacı: 2.500.000 × 0,60 = 1.500.000 TL'
+    - 'Kâr payı: 2.000.000 − 1.500.000 = 500.000 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — kâr payı politikası (artık politika)
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kar = 2000000
+
+      butce = 2500000
+
+      ozk = butce * 0.60
+
+      sonuc = max(0, kar - ozk)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 18
+- id: YMM-FYN-FPA-0063
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal planlama analiz ve kâr dağıtımı
+  konu: FPA
+  kazanim: birleşme ve satın alma değerlemesi
+  tip: hesaplama
+  zorluk: 3
+  kok: A A.Ş.'nin yıllık net kârı 12 milyon TL, pay sayısı 4 milyon, pay fiyatı 36 TL'dir. B A.Ş.'nin net kârı 4 milyon TL,
+    pay sayısı 2 milyon, pay fiyatı 18 TL'dir. A, B'yi kendi payları karşılığında (pay değişimiyle, A payı 36 TL'den değerlenerek)
+    devralacaktır. Birleşmenin yıllık net kâra 2 milyon TL sinerji katması beklenmekte, başka bir değişiklik olmayacağı varsayılmaktadır.
+    A'nın birleşme sonrası pay başına kazancının birleşme öncesindeki düzeyin altına düşmemesi için B'nin her payına en fazla
+    kaç TL değer biçilebilir?
+  secenekler:
+    A: 18 TL
+    B: 24 TL
+    C: 27 TL
+    D: 30 TL
+    E: 36 TL
+  dogru: E
+  aciklama:
+    dogru_neden: 'A''nın birleşme öncesi PBK''sı 12 / 4 = 3 TL''dir. Birleşme sonrası net kâr 12 + 4 + 2 = 18 milyon TL olur.
+      PBK''nın 3 TL''de kalması için toplam pay sayısı en fazla 18 / 3 = 6 milyon olabilir; yani B ortaklarına en fazla 2
+      milyon yeni pay verilebilir. Bu, B''nin her payı için 1 A payı (değişim oranı 1), yani 1 × 36 = 36 TL değer demektir.
+      Püf noktaları: Soru ölçüt olarak PBK sulanmasını kullanmaktadır; sinerji dahil birleşik kâr üzerinden azami pay sayısı
+      bulunur, sonra değişim oranı A''nın pay fiyatıyla TL''ye çevrilir. PBK''yı sulandırmayan bir fiyat, değer açısından
+      A ortakları için mutlaka kazançlı değildir (değer ölçütüyle sınır 30 TL''dir).'
+    celdiriciler:
+      A: B'nin piyasa fiyatıdır; devralma priminin PBK üzerindeki etkisi hiç hesaplanmamıştır.
+      B: 'Sinerji ihmal edilmiştir: (12 + 4) / 3 = 5,33 milyon pay → 1,33 milyon yeni pay → değişim oranı 2/3 → 24 TL.'
+      C: 'Sinerji B''nin fiyat/kazanç oranıyla (9) değerlenmiş ve piyasa fiyatına eklenmiştir: 18 + 1 × 9 = 27 TL.'
+      D: 'PBK ölçütü yerine değer ölçütü uygulanmıştır: B''nin piyasa değeri (36 milyon) + sinerjinin A''nın F/K''sıyla değeri
+        (2 × 12 = 24 milyon) = 60 milyon / 2 milyon pay = 30 TL.'
+    hesap_adimlari:
+    - 'A''nın PBK''sı: 12 / 4 = 3 TL'
+    - 'Birleşik net kâr: 12 + 4 + 2 = 18 milyon TL'
+    - 'Azami toplam pay: 18 / 3 = 6 milyon → yeni pay 2 milyon'
+    - 'Değişim oranı: 2 / 2 = 1 → 1 × 36 = 36 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — birleşme ve satın alma (pay değişimi ve PBK etkisi)
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'pbk = 12.0 / 4.0
+
+      kar = 12.0 + 4.0 + 2.0
+
+      yeni_pay = kar / pbk - 4.0
+
+      oran = yeni_pay / 2.0
+
+      sonuc = round(oran * 36, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 19
+- id: YMM-FYN-FPA-0064
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal planlama analiz ve kâr dağıtımı
+  konu: FPA
+  kazanim: oran analizi ve DuPont
+  tip: uygulama
+  zorluk: 3
+  kok: Bir işletmenin dönen varlıkları yalnız hazır değerler (60.000 TL), ticari alacaklar (100.000 TL) ve stoklardan (240.000
+    TL) oluşmaktadır; kısa vadeli yabancı kaynakları 200.000 TL'dir. Asit-test oranı (dönen varlıklar − stoklar) / kısa vadeli
+    yabancı kaynaklar olarak hesaplanmaktadır. Aşağıdaki işlemlerden hangisi tek başına gerçekleştiğinde cari oranı düşürürken
+    asit-test oranını yükseltir?
+  secenekler:
+    A: 100.000 TL kısa vadeli banka kredisi alınıp kasada tutulması
+    B: 40.000 TL tutarındaki ticari borcun kasadaki nakitten ödenmesi
+    C: 60.000 TL tutarında ticari malın veresiye (kredili) satın alınması
+    D: Maliyeti 50.000 TL olan stokun 50.000 TL'ye peşin satılması
+    E: 80.000 TL uzun vadeli banka kredisi alınıp kasada tutulması
+  dogru: A
+  aciklama:
+    dogru_neden: 'Başlangıçta cari oran 400.000 / 200.000 = 2, asit-test oranı 160.000 / 200.000 = 0,8''dir. Kısa vadeli kredi
+      nakit olarak tutulursa cari oran 500.000 / 300.000 ≈ 1,67''ye düşer; asit-test oranı 260.000 / 300.000 ≈ 0,87''ye yükselir.
+      Payı ve paydası aynı tutarda artan bir oran, 1''den büyükse düşer, 1''den küçükse yükselir. Püf noktaları: Aynı işlem
+      iki oranı ters yönde etkileyebilir; belirleyici olan oranın başlangıçta 1''in üstünde mi altında mı olduğudur. Cari
+      oran 2, asit-test oranı 0,8 olduğundan yalnız pay ve paydayı birlikte artıran işlem aranan sonucu verir.'
+    celdiriciler:
+      B: 'Pay ve payda aynı tutarda azalır: cari oran 360.000 / 160.000 = 2,25''e yükselir, asit-test oranı 120.000 / 160.000
+        = 0,75''e düşer; etkiler istenenin tersidir.'
+      C: 'Stok ve borç birlikte artar: cari oran 460.000 / 260.000 ≈ 1,77''ye düşer, ancak stok asit-test payına girmediğinden
+        bu oran da 160.000 / 260.000 ≈ 0,62''ye düşer.'
+      D: Dönen varlık toplamı değişmediğinden cari oran 2'de kalır; asit-test oranı 210.000 / 200.000 = 1,05'e yükselir. Cari
+        oran düşmemektedir.
+      E: Uzun vadeli kredi kısa vadeli yabancı kaynakları artırmaz; her iki oran da yükselir (2,4 ve 1,2).
+  kaynaklar:
+  - mevzuat: Genel bilgi — likidite oranları
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 20
+- id: YMM-FYN-FPA-0065
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal planlama analiz ve kâr dağıtımı
+  konu: FPA
+  kazanim: kaldıraç dereceleri (faaliyet; finansal; birleşik)
+  tip: hesaplama
+  zorluk: 2
+  kok: Tek ürün üreten bir işletmenin ürününün birim satış fiyatı 125 TL, birim değişken maliyeti 75 TL'dir. İşletmenin başabaş
+    satış miktarı 8.000 birim olup bu yıl 10.000 birim satış yapmıştır. Fiyat, birim değişken maliyet ve sabit giderler değişmeden
+    gelecek yıl satış miktarı %6 artarsa faiz ve vergi öncesi kâr (FVÖK) kaç TL olur?
+  secenekler:
+    A: 101.200 TL
+    B: 106.000 TL
+    C: 107.500 TL
+    D: 124.000 TL
+    E: 130.000 TL
+  dogru: E
+  aciklama:
+    dogru_neden: 'Birim katkı payı 125 − 75 = 50 TL; sabit giderler 8.000 × 50 = 400.000 TL. Bu yılki FVÖK = (10.000 − 8.000)
+      × 50 = 100.000 TL. Faaliyet kaldıraç derecesi = Q / (Q − Qbaşabaş) = 10.000 / 2.000 = 5; FVÖK %6 × 5 = %30 artarak 130.000
+      TL olur. (Doğrudan: 10.600 birimde FVÖK = 2.600 × 50 = 130.000 TL.)'
+    celdiriciler:
+      A: 'Kaldıraç derecesi ters kurulmuştur: (Q − Qbaşabaş) / Q = 0,2 → FVÖK %1,2 artar.'
+      B: FVÖK'ün satışlarla aynı oranda (%6) arttığı varsayılmış, faaliyet kaldıracı göz ardı edilmiştir.
+      C: Kaldıraç derecesi Q / Qbaşabaş = 10.000 / 8.000 = 1,25 alınmıştır → %7,5 artış.
+      D: Kaldıraç derecesi Qbaşabaş / (Q − Qbaşabaş) = 8.000 / 2.000 = 4 alınmıştır → %24 artış.
+    hesap_adimlari:
+    - Birim katkı payı 50 TL; sabit gider 400.000 TL
+    - 'Mevcut FVÖK: 2.000 × 50 = 100.000 TL'
+    - FKD = 10.000 / 2.000 = 5 → FVÖK artışı %30
+    - 'Yeni FVÖK: 130.000 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — faaliyet kaldıracı ve başabaş
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kp = 125 - 75
+
+      sabit = 8000 * kp
+
+      q = 10000 * 1.06
+
+      sonuc = round(q * kp - sabit, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-2.yaml, satır 21
