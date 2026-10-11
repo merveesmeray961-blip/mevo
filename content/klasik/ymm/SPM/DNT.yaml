@@ -119,7 +119,7 @@
       \ '2026-03-31': (3, ay_farki(2026, 3, 31, *gk)), '2026-06-30': (6, ay_farki(2026, 6, 30, *gk))}\nuygun = [t for t, (kapsam,\
       \ fark) in aday.items() if not pencere_icinde and t != '2025-12-31' and kapsam >= 6 and fark <= 6]\nsonuc = {'pencere_icinde':\
       \ pencere_icinde, 'uygun_tablo': uygun, 'komite_toplanti_eksigi': 4 - 3}"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -130,8 +130,14 @@
         sonuc: gecti
         tarih: '2026-10-11'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-11'
     kim: uretici
     ne: harici teslim t_SPM-2.yaml, klasik 2
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
