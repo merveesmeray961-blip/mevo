@@ -188,7 +188,7 @@
       oran = satis_kazanc / 5000000\nsatis_ist = round(4000000 * oran * 0.75)\nmatrah = kar + kkeg - (b + c + sube + satis_ist)\n\
       kv = matrah * 25 // 100\nfazla = 3000000 - satis_ist\nsonuc = {'satis_istisna': satis_ist, 'fon': satis_ist, \n    \
       \     'matrah': matrah, 'kv': kv, 'fazla_istisna': fazla, 'ziya_vergi': fazla * 25 // 100}"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -199,8 +199,14 @@
         sonuc: gecti
         tarih: '2026-10-11'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-11'
     kim: uretici
     ne: harici teslim t_GUV-2_k1.yaml, klasik 1
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
