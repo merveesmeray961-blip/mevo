@@ -1,0 +1,684 @@
+- id: YMM-HSV-DMG-0024
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: nispi ve maktu vergi
+  tip: hesaplama
+  zorluk: 1
+  kok: (A) Ltd. Şti. ile (B) A.Ş. arasında 2025 yılında imzalanan 4.000.000 TL bedelli hizmet sözleşmesi için 37.920 TL damga
+    vergisi ödenmiştir. Mart 2026’da (B) A.Ş., sözleşmenin diğer hükümlerinde hiçbir değişiklik yapılmaksızın sözleşmeden
+    doğan hak ve yükümlülüklerini 1.500.000 TL karşılığında (C) A.Ş.’ye devretmiş ve bu amaçla bir devir sözleşmesi düzenlenmiştir.
+    Mukavelenameler için uygulanan oran binde 9,48’dir. Damga Vergisi Kanunu’na göre devir sözleşmesi için ödenecek damga
+    vergisi kaç TL’dir?
+  secenekler:
+    A: '0'
+    B: '9.480'
+    C: '14.220'
+    D: '18.960'
+    E: '37.920'
+  dogru: B
+  aciklama:
+    dogru_neden: DVK md. 14/2’ye göre belli parayı ihtiva eden mukavelenamelerin devri hâlinde aslından alınan verginin dörtte
+      biri alınır. Asıl sözleşme için 37.920 TL ödendiğinden devir sözleşmesinin vergisi 37.920 / 4 = 9.480 TL’dir. Devir
+      bedeli (1.500.000 TL) bu hesapta matrah olarak kullanılmaz.
+    celdiriciler:
+      A: Devre ilişkin kâğıtlar md. 2 uyarınca vergiye tabidir; (2) sayılı tablodaki pay devri istisnası şirket paylarına
+        ilişkindir, sözleşme devrine değil.
+      C: Devir bedelinin binde 9,48’i (1.500.000 × 0,00948) alınmıştır; kanun devirde asıl vergiyi esas alır.
+      D: Asıl verginin yarısı alınmıştır; “yarı nispet” yabancı memleketler arasında düzenlenip Türkiye’de tedavüle çıkarılan
+        kâğıtlara ilişkindir.
+      E: Asıl verginin tamamı alınmıştır; aynı miktarda vergi sözleşme süresinin uzatılması hâlinde söz konusudur, devirde
+        değil.
+    hesap_adimlari:
+    - 'Asıl sözleşmenin vergisi: 37.920 TL'
+    - 'Devirde alınacak vergi: 37.920 × 1/4 = 9.480 TL'
+  kaynaklar:
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 14/2
+    alinti: Bunların devri halinde aslından alınan verginin dörtte biri alınır.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 2
+    alinti: Vergiye tabi kağıtlar mahiyetinde bulunan veya onların yerini alan mektup ve şerhlerle, bu kağıtların hükümlerinin
+      yenilenmesine, uzatılmasına, değiştirilmesine devrine veya bozulmasına ilişkin mektup ve şerhler de Damga Vergisine
+      tabidir.
+  gecerlilik:
+    baslangic: '1964-11-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'asil = 37920
+
+      sonuc = asil / 4'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi HSV-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_HSV-2.yaml, satır 1
+- id: YMM-HSV-DMG-0025
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: istisnalar
+  tip: uygulama
+  zorluk: 1
+  kok: Ücretli olarak çalışan Bay (A), arkadaşı Bay (B)’ye 15 Ocak 2026’da 500.000 TL borç vermiş ve taraflar bu ödünç ilişkisini
+    gösteren bir sözleşme imzalamıştır. Taraflardan hiçbirinin ticari, zirai veya mesleki faaliyeti yoktur ve işlem böyle
+    bir faaliyetle ilgili değildir. Bay (A), 10 Haziran 2026’da bu sözleşmeyi bir işlemde kullanmak üzere notere ibraz etmiştir.
+    Damga Vergisi Kanunu’na göre sözleşmenin damga vergisi karşısındaki durumu aşağıdakilerden hangisidir?
+  secenekler:
+    A: İbraz tarihi olan 10 Haziran 2026 itibarıyla vergiye tabidir; vergiyi ibraz eden Bay (A) öder.
+    B: İmzalandığı 15 Ocak 2026 itibarıyla vergiye tabidir ve vergiyi imza eden iki taraf birlikte öder.
+    C: Ticari olmayan bir akde ilişkin olduğundan notere ibraz edilse de damga vergisinden istisnadır.
+    D: Notere ibraz edildiği tarih itibarıyla vergiye tabi tutulur; vergiyi borçlu sıfatıyla Bay (B) öder.
+    E: İmzalandığı tarih itibarıyla vergiye tabidir; notere ibraz sırasında vergi gecikme faiziyle birlikte aranır.
+  dogru: A
+  aciklama:
+    dogru_neden: (2) sayılı tablo IV/34’e göre ticari, zirai veya mesleki faaliyetlere ilişkin olmamak şartıyla gerçek kişiler
+      arasında düzenlenen akitlerle ilgili kâğıtlar istisnadır; ancak bu kâğıtlar resmî dairelere veya noterlere ibraz edildiklerinde
+      bu tarih itibarıyla vergiye tabi tutulur ve vergi ibraz edenlerce ödenir. Sözleşmeyi notere ibraz eden Bay (A) olduğundan
+      vergi 10 Haziran 2026 itibarıyla doğar ve Bay (A) tarafından ödenir.
+    celdiriciler:
+      B: Düzenlendiği tarihte kâğıt istisna kapsamındadır; vergiyi doğuran an ibraz tarihidir ve mükellef imza edenler değil
+        ibraz edendir.
+      C: İstisna mutlak değildir; resmî daireye veya notere ibraz hâlinde vergiye tabi tutulur.
+      D: Vergi ibraz tarihinde doğar ancak kanun vergiyi borçluya değil ibraz edene yükler.
+      E: Düzenleme tarihinde vergi doğmadığından gecikmeden söz edilemez; vergi ibraz tarihi itibarıyla doğar.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: (2) sayılı tablo IV/34
+    alinti: Ticarî, ziraî veya meslekî faaliyetlere ilişkin olmamak şartıyla gerçek kişiler arasında düzenlenen akitlerle
+      ilgili kâğıtlar (Söz konusu kâğıtlar, resmi dairelere veya noterlere ibraz edildikleri takdirde bu tarih itibarıyla
+      vergiye tâbi tutulur ve ibraz edenlerce ödenir.).
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi HSV-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_HSV-2.yaml, satır 2
+- id: YMM-HSV-DMG-0026
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: nispi ve maktu vergi
+  tip: hesaplama
+  zorluk: 2
+  kok: (K) A.Ş., 1 Mart 2026’da (M) A.Ş.’ye ait bir büro için 3 yıl süreli kira sözleşmesi imzalamıştır. Aylık kira bedeli
+    40.000 TL’dir (KDV bu soruda dikkate alınmayacaktır). Sözleşme iki nüsha olarak düzenlenmiş, her iki nüsha da taraflarca
+    imzalanmıştır. 2026 yılında kira mukavelenameleri için binde 1,89, diğer mukavelenameler için binde 9,48 oranı uygulanmaktadır.
+    Bu sözleşme için ödenecek damga vergisi kaç TL’dir?
+  secenekler:
+    A: 907,20
+    B: 1.814,40
+    C: 2.721,60
+    D: 5.443,20
+    E: 13.651,20
+  dogru: C
+  aciklama:
+    dogru_neden: 'Kira mukavelenamelerinde nispi vergi, (1) sayılı tablo I/A-2 uyarınca mukavele süresine göre kira bedeli
+      üzerinden alınır: 40.000 × 36 ay = 1.440.000 TL; 1.440.000 × binde 1,89 = 2.721,60 TL. DVK md. 5’e göre nispi vergiye
+      tabi kâğıtların yalnız bir nüshası vergiye tabi olduğundan ikinci nüsha için ayrıca vergi alınmaz.'
+    celdiriciler:
+      A: Yalnız bir yıllık kira bedeli (480.000 TL) esas alınmıştır; matrah sözleşme süresinin tamamına ait kira bedelidir.
+      B: Bir yıllık kira bedeli iki nüsha için ayrı ayrı vergilendirilmiştir; hem süre hem nüsha kuralı yanlış uygulanmıştır.
+      D: Matrah doğru, fakat her nüsha ayrı vergilendirilmiştir; nispi vergide yalnız bir nüsha vergiye tabidir.
+      E: Kira sözleşmesine genel mukavelename oranı (binde 9,48) uygulanmıştır.
+    hesap_adimlari:
+    - 'Matrah: 40.000 × 36 = 1.440.000 TL'
+    - 'Vergi: 1.440.000 × 0,00189 = 2.721,60 TL'
+    - Nispi vergide tek nüsha vergilendirilir.
+  kaynaklar:
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 5
+    alinti: Bir nüshadan fazla olarak düzenlenen kâğıtlardan, maktu vergiye tabi olanların her bir nüshası ayrı ayrı aynı
+      miktarda; nispi vergiye tabi olanların ise sadece bir nüshası damga vergisine tabidir.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: (1) sayılı tablo I/A-2
+  gecerlilik:
+    baslangic: '2016-08-09'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'matrah = 40000 * 36
+
+      sonuc = round(matrah * 1.89 / 1000, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi HSV-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_HSV-2.yaml, satır 3
+- id: YMM-HSV-DMG-0027
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: istisnalar
+  tip: kavrama
+  zorluk: 2
+  kok: 'Aşağıdaki kâğıtlardan hangileri Damga Vergisi Kanunu’na ekli (2) sayılı tabloda damga vergisinden istisna edilen kâğıtlar
+    arasında yer alır?
+
+    I. Bir bankanın müşterisiyle imzaladığı kredi kartı üyelik sözleşmesi
+
+    II. Gerçek usulde ticari kazanç mükellefi bir tacirin işyeri olarak kiraladığı dükkâna ilişkin kira sözleşmesi
+
+    III. Bir faktoring şirketinin müşterisiyle yaptığı faktoring sözleşmesi
+
+    IV. Noterde resmî şekilde düzenlenen gayrimenkul satış vaadi sözleşmesi'
+  secenekler:
+    A: I ve III
+    B: II ve IV
+    C: I, II ve III
+    D: I, III ve IV
+    E: I, II, III ve IV
+  dogru: A
+  aciklama:
+    dogru_neden: Kredi kartı üyelik sözleşmeleri (2) sayılı tablo IV/26, faktoring şirketlerinin müşterileriyle yaptıkları
+      faktoring sözleşmeleri IV/20 uyarınca istisnadır. İşyeri kira sözleşmelerinde istisna (IV/32) yalnız gelir vergisinden
+      muaf esnaf, muaf serbest meslek erbabı ve basit usul mükellefleri için öngörülmüştür. Resmî şekilde düzenlenen gayrimenkul
+      satış vaadi sözleşmeleri ise (2) sayılı tabloda değil, (1) sayılı tablonun I/A-8 bendinde vergiye tabi kâğıt olarak
+      yer alır; bunlara uygulanan oranın sıfır olarak belirlenmesi onları istisna kâğıt hâline getirmez.
+    celdiriciler:
+      B: II gerçek usul mükellefi tacire ait olduğundan istisna dışıdır; IV ise (2) sayılı tabloda değil (1) sayılı tabloda
+        yer alır.
+      C: II’deki kira sözleşmesi, kiracı basit usul veya muaf mükellef olmadığından istisnadan yararlanamaz.
+      D: Satış vaadi sözleşmesine uygulanan oranın sıfır olması, kâğıdın (2) sayılı tabloda istisna olarak sayıldığı anlamına
+        gelmez; tablo IV/21’deki istisna yalnız GYO ve gayrimenkul yatırım fonlarının portföylerine ilişkindir.
+      E: II ve IV istisna değildir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: (2) sayılı tablo IV/26
+    alinti: Kredi kartı üyelik sözleşmeleri.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: (2) sayılı tablo IV/20
+    alinti: Faktoring şirketlerinin müşterileriyle yaptıkları faktoring sözleşmeleri ile bu sözleşmelere ilişkin olarak düzenlenen
+      diğer kâğıtlar.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: (2) sayılı tablo IV/32
+    alinti: Gelir vergisinden muaf esnaf, muaf serbest meslek erbabı ile basit usulde vergilendirilen mükellefler tarafından
+      işyeri olarak kullanılmak üzere kiralanan ve iktisadî işletmelere dahil olmayan taşınmazlara ilişkin kira mukavelenameleri
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: (1) sayılı tablo I/A-8
+  gecerlilik:
+    baslangic: '2016-08-09'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi HSV-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_HSV-2.yaml, satır 4
+- id: YMM-HSV-DMG-0028
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: harç türleri
+  tip: bilgi
+  zorluk: 2
+  kok: 492 sayılı Harçlar Kanunu’na göre tapu ve kadastro harçlarıyla ilgili aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Tarifede mükellefi belirtilmeyen ipotek tesisinde, taraflar aksini kararlaştırmamışsa harcı ipoteği tesis eden öder.
+    B: Çıplak mülkiyet ve intifa haklarına ait harçların hesabında kayıtlı değerin üçte biri çıplak mülkiyete, üçte ikisi
+      intifa hakkına ayrılır.
+    C: Kat irtifaklı gayrimenkullerin devir ve iktisabında harç, devir ve iktisap bedelinin tamamı üzerinden hesaplanır.
+    D: 6361 sayılı Kanun kapsamındaki finansal kiralamada, sözleşme süresi sonunda taşınmazın kiracıya devri harçtan müstesnadır.
+    E: Aynı zamanda yapılan birden fazla tapu işleminde yalnız en yüksek harcı gerektiren işlem üzerinden harç alınır.
+  dogru: E
+  aciklama:
+    dogru_neden: Harçlar Kanunu md. 64/2’ye göre muhtelif işlemler aynı zamanda yapılırsa her işlem ayrı ayrı harca tabidir
+      (ifrazen yapılan taksimler hariç). “En yüksek vergiyi gerektiren işlem” kuralı, bir kâğıtta birbirine bağlı akitler
+      bulunması hâlinde damga vergisinde (DVK md. 6/2) uygulanır; tapu harcında böyle bir kural yoktur.
+    celdiriciler:
+      A: 'Doğrudur: md. 58/b’ye göre tarifede belirtilmeyen işlemlerde, aksi kararlaştırılmamışsa ipotek tesisinde harcı ipoteği
+        tesis edenler öder.'
+      B: 'Doğrudur: md. 64/3 bu paylaştırmayı aynen öngörür.'
+      C: 'Doğrudur: md. 63/3 kat irtifaklı devirlerde bedelin tamamını esas alır.'
+      D: 'Doğrudur: md. 59/p bu devri harçtan müstesna tutar.'
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: md. 64/2
+    alinti: Muhtelif işlemler aynı zamanda yapılırsa her işlem ayrı ayrı harca tabidir.
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: md. 64/3
+    alinti: Çıplak mülkiyet ve intifa haklarına ait harcların hesabında, kayıtlı değerin üçte biri çıplak mülkiyete, üçte
+      ikisi de intifa hakkına ayrılır.
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: md. 63/3
+    alinti: Kat irtifaklı gayrimenkul devir ve iktisaplarında harç, devir ve iktisap bedelinin tamamı üzerinden hesaplanır.
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: md. 59/p
+    alinti: 21/11/2012 tarihli ve 6361 sayılı Finansal Kiralama, Faktoring ve Finansman Şirketleri Kanunu kapsamında yapılan
+      finansal kiralama işlemlerinde, kiralanan taşınmazın finansal kiralama sözleşmesinin süresi sonunda kiracıya devri.
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: md. 58/b
+    alinti: b) İpotek tesisinde ipoteği tesis edenler,
+  gecerlilik:
+    baslangic: '1964-11-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi HSV-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_HSV-2.yaml, satır 5
+- id: YMM-HSV-DMG-0029
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: harç türleri
+  tip: hesaplama
+  zorluk: 3
+  kok: Bay (S), 10 Şubat 2026’da bir işyerini tapuda Bay (T)’ye satmış ve satış bedelini 3.000.000 TL olarak beyan etmiştir.
+    Taşınmazın emlak vergisi değeri 3.200.000 TL’dir; tapu harcı kanuna uygun olarak hesaplanıp ödenmiştir. Eylül 2026’da
+    yapılan vergi incelemesinde gerçek satış bedelinin 5.000.000 TL olduğu tespit edilmiştir. Bu devir için (4) sayılı tarifede
+    uygulanan oran binde 20’dir ve işlem harçtan müstesna değildir. Harçlar Kanunu’na göre bu tespit üzerine ikmalen tarh
+    edilecek tapu harcı ile kesilecek vergi ziyaı cezasının toplamı kaç TL’dir? (Gecikme faizi dikkate alınmayacaktır.)
+  secenekler:
+    A: '36.000'
+    B: '72.000'
+    C: '90.000'
+    D: '144.000'
+    E: '160.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Tapu harcı emlak vergisi değerinden az olmamak üzere beyan edilen bedel üzerinden alınır; beyan edilen 3.000.000
+      TL emlak vergisi değerinin altında kaldığından harç 3.200.000 TL üzerinden ödenmiştir. Gerçek bedel 5.000.000 TL olduğundan
+      fark 1.800.000 TL’dir. Harç devir eden ve devir alan için ayrı ayrı alındığından ikmal edilecek harç 1.800.000 × binde
+      20 × 2 = 72.000 TL’dir. Md. 63’e göre bu harç için vergi ziyaı cezası bir kat uygulanır: 72.000 TL. Toplam 144.000 TL.
+      Püf noktaları: Fark, ödemeye esas alınan 3.200.000 TL’den hesaplanır, beyan edilen 3.000.000 TL’den değil. 7566 sayılı
+      Kanunla 19.12.2025’ten itibaren ceza %25’ten bir kata çıkarılmıştır.'
+    celdiriciler:
+      A: Yalnız bir tarafın ikmal harcı hesaplanmış, ceza unutulmuştur; harç iki taraf için ayrı ayrı alınır ve cezaya tabidir.
+      B: İkmal harcı doğru hesaplanmış, ancak vergi ziyaı cezası eklenmemiştir.
+      C: Ceza, md. 63’ün değişiklikten önceki hâline göre %25 oranında (18.000 TL) hesaplanmıştır.
+      E: Fark, beyan edilen 3.000.000 TL’den hesaplanmıştır; harç zaten 3.200.000 TL üzerinden ödendiğinden aradaki 200.000
+        TL için ikmal yapılmaz.
+    hesap_adimlari:
+    - 'Ödemeye esas matrah: max(3.000.000; 3.200.000) = 3.200.000 TL'
+    - 'Fark: 5.000.000 − 3.200.000 = 1.800.000 TL'
+    - 'İkmal harcı: 1.800.000 × 0,02 × 2 taraf = 72.000 TL'
+    - 'Vergi ziyaı cezası (bir kat): 72.000 TL'
+    - 'Toplam: 144.000 TL'
+  kaynaklar:
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: md. 63/4
+    alinti: Tapuda yapılan işlemden sonra, emlak vergisi değerinden daha düşük bir bedel üzerinden harç ödendiğinin veya beyan
+      edilen devir ve iktisap bedelinin gerçek durumu yansıtmadığının tespit edilmesi halinde, aradaki farka isabet eden harç
+      ikmalen veya re’sen tarh edilir. Bu suretle tarh edilecek tapu ve kadastro harcı için, 213 sayılı Vergi Usul Kanununda
+      yer alan vergi ziyaı cezası bir kat uygulanır.
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: (4) sayılı tarife I/20-a
+    alinti: Gayrimenkullerin ivaz karşılığında veya ölünceye kadar bakma akdine dayanarak yahut trampa hükümlerine göre devir
+      ve iktisabında gayrimenkulün emlak vergisi değerinden az olmamak üzere beyan edilen devir ve iktisap bedeli üzerinden
+  gecerlilik:
+    baslangic: '2025-12-19'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'odenen_matrah = max(3000000, 3200000)
+
+      fark = 5000000 - odenen_matrah
+
+      harc = fark * 20 / 1000 * 2
+
+      ceza = harc * 1
+
+      sonuc = harc + ceza'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi HSV-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_HSV-2.yaml, satır 6
+- id: YMM-HSV-DMG-0030
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: damga vergisinin konusu ve kağıt kavramı
+  tip: hesaplama
+  zorluk: 3
+  kok: (Y) Belediyesi temizlik hizmeti alımı için ihaleye çıkmış; ihale 8.000.000 TL teklif veren (Z) Ltd. Şti. üzerinde kalmıştır.
+    Belediye encümeni ihale kararını almış, ardından belediye ile (Z) Ltd. Şti. arasında 8.000.000 TL bedelli sözleşme üç
+    nüsha olarak imzalanmıştır. 2026 yılında resmî dairelerin her türlü ihale kararları için binde 5,69; resmî dairelerin
+    mal ve hizmet alımlarına ilişkin ihalelerde ihaleyi yapan idare ile düzenlenen sözleşmeler için binde 9,48 oranı uygulanmaktadır.
+    KDV bu soruda dikkate alınmayacaktır. Damga Vergisi Kanunu’na göre bu işlemler nedeniyle (Z) Ltd. Şti.’nin ödemesi gereken
+    damga vergisi toplamı kaç TL’dir?
+  secenekler:
+    A: '60.680'
+    B: '75.840'
+    C: '121.360'
+    D: '151.680'
+    E: '273.040'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Belediye DVK md. 8’e göre resmî dairedir ve md. 3/2 uyarınca resmî dairelerle kişiler arasındaki işlemlere
+      ait kâğıtların damga vergisini kişiler öder. Bu nedenle hem ihale kararının hem de sözleşmenin vergisi (Z) Ltd. Şti.’ye
+      aittir. İhale kararı: 8.000.000 × binde 5,69 = 45.520 TL; sözleşme: 8.000.000 × binde 9,48 = 75.840 TL. Sözleşme nispi
+      vergiye tabi olduğundan md. 5 gereği yalnız bir nüshası vergilendirilir. Toplam 121.360 TL. Püf noktaları: Belediye
+      vergiden muaf olduğu için vergi ikiye bölünmez; tamamı kişiye aittir. İhale kararını yalnız idare imzalasa da vergisi
+      yükleniciye düşer; nispi vergide nüsha sayısı vergiyi artırmaz.'
+    celdiriciler:
+      A: Vergi taraflar arasında yarı yarıya paylaştırılmıştır (121.360 / 2); resmî daire ile kişi arasındaki işlemde verginin
+        tamamını kişi öder.
+      B: Yalnız sözleşme vergisi hesaplanmış, ihale kararının vergisinin idareye ait olduğu varsayılmıştır.
+      D: İhale kararına da sözleşme oranı (binde 9,48) uygulanmıştır; ihale kararları binde 5,69 oranına tabidir.
+      E: Sözleşmenin her nüshası ayrı vergilendirilmiştir (3 × 75.840 + 45.520); nispi vergide yalnız bir nüsha vergiye tabidir.
+    hesap_adimlari:
+    - 'İhale kararı: 8.000.000 × 0,00569 = 45.520 TL'
+    - 'Sözleşme (tek nüsha): 8.000.000 × 0,00948 = 75.840 TL'
+    - 'Toplam (tamamı yükleniciye ait): 121.360 TL'
+  kaynaklar:
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 3/2
+    alinti: Resmi dairelerle kişiler arasındaki işlemlere ait kağıtların Damga Vergisini kişiler öder.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 8/1
+    alinti: Bu kanunda yazılı resmi daireden maksat, genel ve özel bütçeli idarelerle, il özel idareleri, yatırım izleme ve
+      koordinasyon başkanlıkları, belediyeler ve köylerdir.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: (1) sayılı tablo I/A-9 ve II/2
+  gecerlilik:
+    baslangic: '2016-08-09'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'karar = 8000000 * 5.69 / 1000
+
+      sozlesme = 8000000 * 9.48 / 1000
+
+      sonuc = round(karar + sozlesme, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi HSV-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_HSV-2.yaml, satır 7
+- id: YMM-HSV-DMG-0031
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: damga vergisinin konusu ve kağıt kavramı
+  tip: hesaplama
+  zorluk: 3
+  kok: '(P) A.Ş. ile (R) A.Ş. arasında 1 Nisan 2026’da tek nüsha olarak imzalanan bir kâğıtta şu hükümler yer almaktadır:
+
+    - (R) A.Ş.’nin (P) A.Ş. için 2.000.000 TL bedelle bir makine imal edip teslim etmesi,
+
+    - Teslimin gecikmesi hâlinde (R) A.Ş.’nin 200.000 TL cezai şart ödemesi,
+
+    - (R) A.Ş.’nin bu sözleşmeden doğan borçları için, sözleşmenin tarafı olmayan Bay (K) ile Bay (L)’nin her birinin 2.000.000
+    TL’ye kadar adi kefil olması.
+
+    Mukavelenameler ile kefalet senetleri için uygulanan oran binde 9,48’dir. Damga Vergisi Kanunu’na göre bu kâğıt için ödenecek
+    damga vergisi toplamı kaç TL’dir?'
+  secenekler:
+    A: '18.960'
+    B: '37.920'
+    C: '39.816'
+    D: '56.880'
+    E: '58.776'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Asıl sözleşme: 2.000.000 × binde 9,48 = 18.960 TL. Cezai şart, sözleşmenin müeyyidesi niteliğinde olup başlı
+      başına bir sözleşmeye konu olmadığından vergilendirilmez (md. 6/4). Kefalet, asıl işlemin taraflarından başka kişilerin
+      eklediği akit olduğundan ayrıca vergiye tabidir (md. 6/3); ancak bir kâğıtta birden fazla adi kefalet bulunduğunda yalnız
+      birinden vergi alınır: 2.000.000 × binde 9,48 = 18.960 TL. Toplam 37.920 TL. Püf noktaları: Üç ayrı kural sırayla uygulanır:
+      üçüncü kişinin eklediği akit ayrıca vergilenir, birden fazla adi kefaletten yalnız biri vergilenir, cezai şart hiç vergilenmez.'
+    celdiriciler:
+      A: Bağlı akitlerde en yüksek vergiyi gerektiren akit kuralı uygulanmış ve kefalet vergilendirilmemiştir; kefalet, asıl
+        işlemin tarafı olmayan kişilerce eklendiğinden ayrıca vergiye tabidir.
+      C: Cezai şart da vergilendirilmiştir (200.000 × binde 9,48 = 1.896 TL); sözleşmenin müeyyidesi niteliğindeki cezai şarttan
+        vergi alınmaz.
+      D: İki adi kefaletin her biri ayrı vergilendirilmiştir; aynı kâğıttaki birden fazla adi kefaletten yalnız biri vergiye
+        tabidir.
+      E: Hem iki kefalet ayrı ayrı hem de cezai şart vergilendirilmiştir.
+    hesap_adimlari:
+    - 'Asıl sözleşme: 2.000.000 × 0,00948 = 18.960 TL'
+    - 'Cezai şart: vergilendirilmez'
+    - 'Adi kefalet (yalnız biri): 2.000.000 × 0,00948 = 18.960 TL'
+    - 'Toplam: 37.920 TL'
+  kaynaklar:
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 6/3
+    alinti: Ancak bu akit ve işlemlere asıl işlemin akitlerinden başka bir şahsın eklenen akit ve işlemi de ayrıca vergiye
+      tabidir.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 6/3
+    alinti: Şu kadar ki; bir kâğıt üzerinde birden fazla adi kefalet ve garanti taahhüdü bulunması hâlinde, ayrı ayrı olmak
+      üzere bunlardan yalnızca birinden damga vergisi alınır.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 6/4
+    alinti: Pey akçesi, cayma tazminatı, ücret tevkifi, cezai şart gibi bir sözleşmenin müeyyidesi mahiyetinde olan taahhütlerden,
+      başlı başına bir sözleşmeye konu olmadıkça damga vergisi alınmaz.
+  gecerlilik:
+    baslangic: '2016-08-09'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'oran = 9.48 / 1000
+
+      asil = 2000000 * oran
+
+      kefalet = 2000000 * oran  # birden fazla adi kefaletten yalniz biri
+
+      cezai_sart = 0
+
+      sonuc = round(asil + kefalet + cezai_sart, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi HSV-2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_HSV-2.yaml, satır 8
