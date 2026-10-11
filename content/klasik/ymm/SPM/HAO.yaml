@@ -164,7 +164,7 @@
       sonuc = {''artirim_orani'': artirim / sermaye, ''onemli_nitelikte'': artirim * 100 >= sermaye * 50, ''azami_artirim'':
       sermaye, ''azami_denklestirme'': 180000000 // 10, ''tablo_gk_arasi_ay'': 3.5, ''esas_tablo'': ''30.06.2026'', ''ayrilma_bedeli'':
       4000 * 15}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -175,8 +175,14 @@
         sonuc: gecti
         tarih: '2026-10-11'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: güven 4, seviye 3
   gecmis:
   - tarih: '2026-10-11'
     kim: uretici
     ne: harici teslim t_SPM-1.yaml, klasik 3
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü

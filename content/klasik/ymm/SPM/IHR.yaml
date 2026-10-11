@@ -110,7 +110,7 @@
       sonuc = {''en_erken_baslangic'': ''2026-11-%02d'' % (yayim_gun + 3), ''asgari_bireysel'': toplam * 10 // 100, ''asgari_kurumsal'':
       toplam * 10 // 100, ''yurt_disi_karsilanamayan'': toplam * 30 // 100 - 7000000, ''bireysel_talep_fazlasi'': 26000000
       - toplam * 50 // 100, ''kurumsal_talep_fazlasi'': 10000000 - toplam * 20 // 100}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -121,8 +121,14 @@
         sonuc: gecti
         tarih: '2026-10-11'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-11'
     kim: uretici
     ne: harici teslim t_SPM-1.yaml, klasik 2
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
