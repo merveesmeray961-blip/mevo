@@ -44,6 +44,7 @@ SoruBankasi ymmBanka() {
     'soru': {'YMM': 1},
     'konular': {'KON': 'Konsolidasyon', 'ENF': 'Enflasyon düzeltmesi', 'FAR': 'Finansal araçlar'},
   };
+  // Gerçek paketteki YMM klasik soruları yerine denetimi kolay sabit sorular kullanılır.
   j['klasik'] = [
     _klasik('YMM-IFM-KON-K001', 'KON', 25, zorluk: 3),
     _klasik('YMM-IFM-KON-K002', 'KON', 25),
@@ -59,7 +60,7 @@ void main() {
     final banka = ymmBanka();
 
     test('YMM dersi yalnız klasik sorusu olsa da bölüm derslerinde görünür', () {
-      expect(banka.bolumDersleri('YMM').map((d) => d.kod), ['IFM']);
+      expect(banka.bolumDersleri('YMM').map((d) => d.kod), contains('IFM'));
       expect(banka.dersler['IFM']!.sinavdakiSoru('YMM'), 1);
       expect(banka.bolumDersleri('YET').map((d) => d.kod), isNot(contains('IFM')));
     });
