@@ -38,10 +38,9 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
    Ölçüm: yazar ajanı ~300–350 bin token / 24 soru + 3 klasik; hakem ~150–200 bin token.
    **Durum (2026-10-11 akşam):** YMM bankası 657 test + 43 klasik soru `kontrolde` (iç hattan 366 test yeni).
    Tamam: GUV, IFM, VTK, HSV, REV, DRM, SPM (iki yarı), DTK-1, FYN-1. DTK-2 yarım teslim taslak olarak alındı (hakem bekliyor).
-   YMM YAYINDA (`yayinda: true`, sürüm 1.0.6+7): paket 4014 soru (652 YMM) + 43 klasik; 315 Flutter + 72 Python testi geçiyor.
+   YMM YAYINDA (`yayinda: true`, sürüm 1.0.6+7): paket 4021 soru (657 YMM) + 43 klasik; 315 Flutter + 72 Python testi geçiyor.
    APK alınmadı: bu konteynerde Android SDK yok.
-   Paketten otomatik elenen 5 YMM sorusu (kontrol gerekir): DTK-IHI-0013 (doğrulama kodu hatası), REV-GLR-0012,
-   SPM-IHR-0031, SPM-SUC-0021 (bir çeldirici hesaplanan değere eşit → anahtar/kod tutarsız), VTK-TFR-0011 (doğru şık sayı okunamadı).
+   Paket artık hiçbir soruyu elemiyor (4021 soru + 43 klasik): 5 YMM + 2 SMMM sorusu denetleyici düzeltmesiyle geri alındı.
    KALAN üretim (kullanıcı başka oturumda ajanlarla yaptıracak, bu hat kontrol eder): DTK-2 (10 taslak hakem bekliyor + eksik
    konu), FYN-2, YNM-1, YNM-2. Kontrol adımları: `uretici_paketi al … --sinav ymm`, `klasik al`, hakem_girdi.py → hakem,
    ymm_terfi.py / `klasik terfi`, sonra `disa_aktar --uygulama` ELENDİ listesini temizle.

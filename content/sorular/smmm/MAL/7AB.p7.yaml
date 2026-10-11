@@ -16,11 +16,11 @@
     TL'dir?
   secenekler:
     A: 480.000 TL
-    B: 510.000 TL
+    B: 490.000 TL
     C: 500.000 TL
-    D: 490.000 TL
+    D: 510.000 TL
     E: 520.000 TL
-  dogru: D
+  dogru: B
   aciklama:
     dogru_neden: 'Fiili maliyet yönteminde 710 giderleri 711 aracılığıyla, 720 giderleri 721 aracılığıyla ve 730 giderleri
       731 aracılığıyla maliyete yansıtılır. Ancak olağan durumda üretim yapılmayan işçilik 721''in alacağı karşılığında 680''e
@@ -29,8 +29,8 @@
     celdiriciler:
       A: 480.000 TL, 720 hesabının tamamının 151'e aktarılması yerine 10.000 TL'nin fazladan düşülmesiyle bulunur.
       C: 500.000 TL, 720 hesabındaki 10.000 TL'lik çalışılmayan işçiliğin 680'e aktarılmamasıyla elde edilir.
+      D: 510.000 TL, 720 hesabının tamamının maliyete alınmasına ek olarak 10.000 TL'nin tekrar 151'e eklenmesiyle oluşur.
       E: 520.000 TL, üretim maliyetine 760 veya 770 gibi üretim dışı bir gider eklenmiş kabul edilerek bulunur.
-      B: 510.000 TL, 720 hesabının tamamının maliyete alınmasına ek olarak 10.000 TL'nin tekrar 151'e eklenmesiyle oluşur.
     hesap_adimlari:
     - '710 → 711 → 151: 240.000 TL'
     - '720 → 721: 160.000 TL − 10.000 TL = 150.000 TL; 10.000 TL 680''e aktarılır'
@@ -107,6 +107,9 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-11'
+    kim: denetleyici
+    ne: sayısal şıklar sıralandı; doğru şık B
 - id: SMMM-MAL-7AB-0005
   sinav: smmm
   bolum:
@@ -163,6 +166,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 560000 - 530000
+    secenek_sayisi_bekleniyor: false
   durum: kontrolde
   surum: 1
   uretim:
@@ -200,6 +204,9 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-11'
+    kim: denetleyici
+    ne: 'dogrulama.secenek_sayisi_bekleniyor: false (şıklar metin; 30.000 doğru şıkta)'
 - id: SMMM-MAL-7AB-0006
   sinav: smmm
   bolum:
@@ -2013,7 +2020,8 @@
   - tarih: '2026-10-09'
     kim: hakem
     ne: 'durum: kontrolde → geri_cekildi (tam banka hakem denetimi).'
-    neden: 'Kök "fiili ile yüklenen arasındaki olumlu/olumsuz farklar" diyor; MSUGT 733 ve 734 hesaplarının tanımı da birebir aynı kalıpta (fiili-yüklenen fark), "bütçe" ifadesi yok; D ve E de savunulabilir (THP 732-734).'
+    neden: Kök "fiili ile yüklenen arasındaki olumlu/olumsuz farklar" diyor; MSUGT 733 ve 734 hesaplarının tanımı da birebir
+      aynı kalıpta (fiili-yüklenen fark), "bütçe" ifadesi yok; D ve E de savunulabilir (THP 732-734).
 - id: SMMM-MAL-7AB-0025
   sinav: smmm
   bolum:
