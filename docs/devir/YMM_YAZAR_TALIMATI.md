@@ -9,10 +9,8 @@ Az ama kusursuz soru, çok ama şüpheli sorudan değerlidir.
 
 - `/home/user/mevo/docs/uretici/MANIFESTO.md` (kurallar; "GOREV.md" yerine bu talimatı esas al)
 - `/home/user/mevo/pipeline/istemler/uretim.md` (yazım ve zorluk teknikleri)
-- `/home/user/mevo/content/mufredat/ymm.yaml` (ders, konu, kazanımlar, kaynak dosya önekleri)
-- Bankada bu konularda ZATEN olan, kabul edilmiş sorular: `/home/user/mevo/content/sorular/ymm/<DERS>/<KONU>.*.yaml`
-  içinde `durum: kontrolde` olanlar. Aynı bilgiyi, kurguyu, sayısal senaryoyu tekrar etme. `geri_cekildi` olanlar
-  neden elendiklerini `uretim.kapilar.G5.not` alanında gösterir — o hatalara düşme.
+- Görevde verilen **ders özeti dosyası** (konu, kazanımlar, kaynak önekleri, bankada zaten olan soru kökleri ve elenen
+  soruların hataları). Müfredatı ve banka YAML dosyalarını AYRICA OKUMA — özet yeterli (token tasarrufu).
 - Resmî metinler: `/home/user/mevo/content/kaynaklar/mevzuat/*.txt` (Grep ile madde bul). Tek bilgi kaynağın bunlar
   ve genel kabul görmüş ders bilgisi (finansal yönetim, yönetim muhasebesi gibi metni olmayan derslerde).
 
@@ -115,4 +113,4 @@ Bitirmeden önce dosyanın `python3 -c "import yaml; yaml.safe_load(open('<dosya
 ## Kurallar
 
 Yalnız kendi teslim dosyanı yaz. Repoda hiçbir dosyayı değiştirme, git çalıştırma, oturum/uzak oturum oluşturma.
-Ara bildirim verme; bitince yalnızca "tamam <MC sayısı> + <klasik sayısı>" yaz.
+Ara bildirim verme, düşünceni kısa tut, aynı dosyayı iki kez okuma; bitince yalnızca "tamam <MC sayısı> + <klasik sayısı>" yaz.

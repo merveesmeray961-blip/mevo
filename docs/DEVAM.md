@@ -33,7 +33,12 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
 1. **YMM soruları (kullanıcı onayladı: kendi hattımızda + klasik soru türü):** Yazar talimatı `docs/devir/YMM_YAZAR_TALIMATI.md`
    (scratchpad'e kopyalanıp `<SCRATCHPAD>` doldurulur). Ders yarıları görev kodu: IFM-1 {KON,ENF,FAR,KUR}, IFM-2 {KIR,VRG,BDB},
    FYN-1/2, YNM-1/2 (konu başına 2 orta + 5 zor), DRM-1 {BDS,RAP,YMM}, DRM-2 {MHK,KGK}, REV, VTK, GUV, HSV, SPM, DTK.
-   20 ajan aynı anda kullanım sınırını tüketti → en çok 6 ajan; ajanlar her konudan sonra dosyayı yazar.
+   **Token tasarrufu (kullanıcı isteği, 2026-10-11):** aynı anda en çok 2 ajan; yazara `docs/devir/araclar/ymm_baglam.py`
+   ile üretilen ders özeti verilir (banka YAML'larını okumaz); hakem ajanları ucuz modelde (sonnet) çalışır.
+   Ölçüm: yazar ajanı ~300–350 bin token / 24 soru + 3 klasik; hakem ~150–200 bin token.
+   İlk yarılar tamam: DRM, IFM, HSV, VTK, REV hakemden geçti (test 147/152 kabul, klasik 14/16); GUV hakemde.
+   İkinci yarılar (GUV-2, IFM-2, VTK-2, HSV-2, REV-2) yazılıyor; kalan: DRM-2, SPM-1/2, DTK-1/2, FYN-1/2, YNM-1/2.
+   Hakem girdisi: `<SCRATCHPAD>/hakem_girdi.py DERS klasör` (kor/anahtar/klasik dosyaları), terfi: ymm_terfi.py karar dosyasıyla.
    Teslim alma: `python -m pipeline.uretici_paketi al t_X.yaml <parti> --sinav ymm` + `python -m pipeline.klasik al t_X.yaml`,
    sonra bağımsız hakem (MC: `docs/devir/YMM_HAKEM_TALIMATI.md`; klasik için de hakem) ve `ymm_terfi.py`.
    Eski not: soruları ders ders, zorluk dağılımı önceden
