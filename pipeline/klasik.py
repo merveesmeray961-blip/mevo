@@ -6,6 +6,7 @@ kendini puanladığı denemeler içindir. Kayıtlar `content/klasik/<sinav>/<DER
 
     python -m pipeline.klasik al teslim.yaml [--sinav ymm]   # teslimdeki `klasik:` listesini taslak olarak alır
     python -m pipeline.klasik denetle [--sinav ymm]          # yapı, puan toplamı, alıntı ve doğrulama kodu
+    python -m pipeline.klasik terfi karar1.json ... [--sinav ymm]   # hakem kararı: kabul → kontrolde, ret → geri_cekildi
 """
 
 from __future__ import annotations
@@ -127,6 +128,33 @@ def al(teslim: Path, sinav: str = "ymm") -> list[str]:
     return rapor
 
 
+HAKEM_GUVENI = 4
+
+
+def terfi(kararlar: dict, sinav: str = "ymm") -> dict[str, int]:
+    """Hakem kararlarını taslak klasik sorulara işler (docs/devir/YMM_KLASIK_HAKEM_TALIMATI.md çıktısı)."""
+    bugun, n = dt.date.today().isoformat(), {"kabul": 0, "ret": 0}
+    for yol in sorted(dizin(sinav).rglob("*.yaml")):
+        liste, degisti = yaml.safe_load(yol.read_text(encoding="utf-8")) or [], False
+        for k in liste:
+            h = kararlar.get(k["id"])
+            if k.get("durum") != "taslak" or not h:
+                continue
+            kabul = bool(h.get("uygun")) and int(h.get("guven") or 0) >= HAKEM_GUVENI
+            neden = "kitap düzeyi hakem kabulü" if kabul else (h.get("neden") or "hakem uygun bulmadı")
+            k.setdefault("uretim", {}).setdefault("kapilar", {})["G5"] = {
+                "sonuc": "gecti" if kabul else "kaldi", "tarih": bugun,
+                "not": f"güven {h.get('guven')}, seviye {h.get('seviye')}" if kabul else neden}
+            yeni = "kontrolde" if kabul else "geri_cekildi"
+            k.setdefault("gecmis", []).append({"tarih": bugun, "kim": "hakem", "ne": f"durum: taslak → {yeni}", "neden": neden})
+            k["durum"] = yeni
+            n["kabul" if kabul else "ret"] += 1
+            degisti = True
+        if degisti:
+            yol.write_text(yaml.safe_dump(liste, allow_unicode=True, sort_keys=False, width=120), encoding="utf-8")
+    return n
+
+
 def paket_icin(sinav: str = "ymm") -> tuple[list[dict], list[dict]]:
     """Uygulama paketine girecek klasik sorular (hakemden geçmiş) ve yapı denetiminden kalanlar."""
     konular = _konular(sinav)
@@ -146,6 +174,13 @@ def main(argv: list[str]) -> int:
     sinav = argv[argv.index("--sinav") + 1] if "--sinav" in argv else "ymm"
     if len(argv) >= 3 and argv[1] == "al":
         print("\n".join(al(Path(argv[2]), sinav)))
+        return 0
+    if len(argv) >= 3 and argv[1] == "terfi":
+        kararlar: dict = {}
+        for yol in argv[2:]:
+            if not yol.startswith("--") and yol != sinav:
+                kararlar.update(json.loads(Path(yol).read_text(encoding="utf-8")))
+        print(terfi(kararlar, sinav))
         return 0
     if len(argv) >= 2 and argv[1] == "denetle":
         konular, kotu = _konular(sinav), 0
