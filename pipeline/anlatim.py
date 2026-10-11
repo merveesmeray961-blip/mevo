@@ -129,6 +129,7 @@ def paket_olustur(ders: str, cikti: Path) -> Path:
     satirlar += ["", f"Ön bilgide `ders: {ders}` ve ilgili `konu:` kodunu kullan; `durum: taslak` yaz.", ""]
     (klasor / "GOREV.md").write_text("\n".join(satirlar), encoding="utf-8")
     shutil.copy(KOK / "docs/uretici/ANLATIM_KURALLARI.md", klasor / "ANLATIM_KURALLARI.md")
+    shutil.copy(KOK / "docs/uretici/ANLATIM_PROMPT.md", klasor / "PROMPT.md")
     shutil.copy(KLASOR / "FIN" / "ALC.md", klasor / "ORNEK_ANLATIM.md")
     for kaynak in uretici_paketi._kaynak_dosyalari(ders):
         shutil.copy(kaynak, klasor / "kaynaklar" / kaynak.name)
