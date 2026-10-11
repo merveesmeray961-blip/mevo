@@ -6,6 +6,7 @@ import '../uygulama.dart';
 import '../veri/modeller.dart';
 import 'calisma.dart';
 import 'dersler.dart';
+import 'klasik.dart';
 
 /// Bir konunun sayfası: önce konu anlatımı, ardından o konudan soru çözme.
 class KonuEkrani extends StatelessWidget {
@@ -29,6 +30,7 @@ class KonuEkrani extends StatelessWidget {
         final sorular = durum.banka.dersSorulari(bolum, ders.kod, konu: konu);
         final ist = il.istatistik(sorular);
         final okundu = anlatim != null && il.okundu(anlatim.anahtar);
+        final klasikler = bolum == 'YMM' ? durum.banka.klasikSorulari(ders.kod, konu: konu) : const <KlasikSoru>[];
         return Scaffold(
           appBar: AppBar(title: Text(ad)),
           body: Govde(
@@ -77,6 +79,24 @@ class KonuEkrani extends StatelessWidget {
                           onPressed: () => calismayaBasla(context, baslik: ad, sorular: il.calismaSirasi(sorular, 50)),
                         ),
                 ),
+                if (klasikler.isNotEmpty) ...[
+                  const SizedBox(height: 12),
+                  _Adim(
+                    numara: 3,
+                    baslik: 'Klasik soru yaz',
+                    aciklama: 'Sınavdaki gibi açık uçlu soru: cevabını yaz, örnek çözüm ve puanlamayla karşılaştır.',
+                    tamam: false,
+                    dugme: OutlinedButton.icon(
+                      icon: const Icon(Icons.edit_note_rounded),
+                      label: Text('Klasik sorular (${klasikler.length})'),
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => KlasikCalismaEkrani(baslik: ad, sorular: klasikler),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ],
             ),
           ),

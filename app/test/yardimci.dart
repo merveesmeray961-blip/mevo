@@ -10,8 +10,10 @@ import 'package:mevo/veri/modeller.dart';
 import 'package:mevo/veri/notlar.dart';
 
 /// Testler gerçek soru paketini kullanır; böylece paket biçimi değişirse testler de kırılır.
-SoruBankasi gercekBanka() =>
-    SoruBankasi.fromJson(jsonDecode(File('assets/sorular/smmm.json').readAsStringSync()) as Map<String, dynamic>);
+SoruBankasi gercekBanka() => SoruBankasi.fromJson(gercekBankaJson());
+
+Map<String, dynamic> gercekBankaJson() =>
+    jsonDecode(File('assets/sorular/smmm.json').readAsStringSync()) as Map<String, dynamic>;
 
 class Saat {
   DateTime simdi;

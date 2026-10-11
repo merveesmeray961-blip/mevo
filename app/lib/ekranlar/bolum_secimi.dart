@@ -15,6 +15,7 @@ class BolumSecimi extends StatelessWidget {
     final t = Theme.of(context).textTheme;
     final yet = durum.banka.formatlar['YET']!;
     final sgs = durum.banka.formatlar['SGS']!;
+    final ymm = durum.banka.formatlar['YMM'];
 
     Future<void> sec(String b) async {
       await durum.ayarlar.bolumSec(b);
@@ -38,7 +39,9 @@ class BolumSecimi extends StatelessWidget {
                 Text('Hoş geldin', style: t.headlineMedium?.copyWith(fontWeight: FontWeight.w700)),
                 const SizedBox(height: 8),
                 Text(
-                  'Hangi SMMM sınavına hazırlanıyorsun? Daha sonra ayarlardan değiştirebilirsin.',
+                  ymm == null
+                      ? 'Hangi SMMM sınavına hazırlanıyorsun? Daha sonra ayarlardan değiştirebilirsin.'
+                      : 'Hangi sınava hazırlanıyorsun? Daha sonra ayarlardan değiştirebilirsin.',
                   style: t.bodyLarge,
                 ),
                 const SizedBox(height: 24),
@@ -61,6 +64,18 @@ class BolumSecimi extends StatelessWidget {
                 secili: durum.ayarlar.bolum == 'YET',
                 onTap: () => sec('YET'),
               ),
+              if (ymm != null) ...[
+                const SizedBox(height: 12),
+                _BolumKarti(
+                  baslik: 'Yeminli Mali Müşavirlik',
+                  kisa: 'YMM',
+                  aciklama:
+                      '10 ders, her biri ayrı klasik (yazılı) sınav · ders ≥${ymm.dersMin}, ortalama ≥${ymm.ortalamaMin} · '
+                      'test soruları ve klasik denemeler',
+                  secili: durum.ayarlar.bolum == 'YMM',
+                  onTap: () => sec('YMM'),
+                ),
+              ],
               const SizedBox(height: 32),
               Text(durum.banka.uyari, style: t.bodySmall, textAlign: TextAlign.center),
             ],

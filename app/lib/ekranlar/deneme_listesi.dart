@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../mantik/deneme.dart';
+import '../mantik/klasik.dart';
 import '../uygulama.dart';
 import 'deneme.dart';
+import 'klasik.dart';
 import 'odeme.dart';
 import '../bilesenler/duzen.dart';
 
@@ -25,7 +27,28 @@ class DenemeListesi extends StatelessWidget {
         ];
 
         final kartlar = <Widget>[];
-        if (bolum == 'YET') {
+        if (bolum == 'YMM') {
+          kartlar.add(_Baslik('Klasik ders denemeleri'));
+          for (final d in banka.bolumDersleri('YMM')) {
+            final plan = klasikDenemePlanla(banka, d.kod);
+            if (plan.sorular.isEmpty) continue;
+            kartlar.add(
+              Card(
+                margin: const EdgeInsets.only(bottom: 8),
+                child: ListTile(
+                  title: Text(d.ad),
+                  subtitle: Text(
+                    '${plan.sorular.length} klasik soru · ${plan.hamPuan} puan · ${plan.sureSn ~/ 60} dakika'
+                    '${plan.eksik ? '\nSoru bankası büyüdükçe 100 puana tamamlanacak.' : ''}',
+                  ),
+                  isThreeLine: plan.eksik,
+                  trailing: const Icon(Icons.play_circle_outline),
+                  onTap: () => klasikDenemeyeBasla(context, klasikDenemePlanla(banka, d.kod)),
+                ),
+              ),
+            );
+          }
+        } else if (bolum == 'YET') {
           kartlar.add(_Baslik('Oturum denemeleri'));
           for (var o = 1; o <= f.oturumlar.length; o++) {
             final plan = denemePlanla(banka, DenemeTuru.yetOturum, oturum: o);
@@ -67,7 +90,11 @@ class DenemeListesi extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
               children: [
                 Text(
-                  bolum == 'YET'
+                  bolum == 'YMM'
+                      ? 'YMM sınavı klasik yazılıdır: her ders 100 üzerinden değerlendirilir; her dersten en az '
+                            '${f.dersMin}, ortalama en az ${f.ortalamaMin} gerekir. Denemede cevabını yazar, sonra örnek '
+                            'çözüme göre kendini puanlarsın.'
+                      : bolum == 'YET'
                       ? 'Gerçek sınav kuralları: ders başına ${f.dersBasinaSoru} soru ve ${f.dersBasinaSureDk} dakika, '
                             '4 yanlış 1 doğruyu götürür, hesap makinesi yok.'
                       : 'Gerçek sınav kuralları: ${f.toplamSoru} soru, ${f.toplamSureDk} dakika, yanlış doğruyu götürmez, '
@@ -86,7 +113,7 @@ class DenemeListesi extends StatelessWidget {
                             children: [
                               TextSpan(text: '${tarihYaz(d.tarih)} · ${sureYaz(d.kullanilanSn)}\n'),
                               TextSpan(
-                                text: bolum == 'YET'
+                                text: bolum != 'SGS'
                                     ? 'Puan ${sayiYaz(d.puan, basamak: 2)}'
                                     : 'Doğru %${d.puan.round()}',
                                 style: t.titleSmall?.copyWith(fontWeight: FontWeight.w700),
@@ -101,6 +128,17 @@ class DenemeListesi extends StatelessWidget {
                         ),
                         isThreeLine: true,
                         onTap: () {
+                          if (d.bolum == 'YMM') {
+                            final k = klasikKayittan(banka, d);
+                            if (k != null) {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => KlasikPuanlamaEkrani(plan: k.$1, verilen: k.$2),
+                                ),
+                              );
+                            }
+                            return;
+                          }
                           final sonuc = DenemeSonucu.kayittan(banka, d);
                           if (sonuc == null) {
                             ScaffoldMessenger.of(context).showSnackBar(

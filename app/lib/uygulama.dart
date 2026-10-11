@@ -107,7 +107,7 @@ Color yanlisRenk(BuildContext c) =>
     Theme.of(c).brightness == Brightness.dark ? const Color(0xFFFF8A80) : const Color(0xFFC62828);
 
 const zorlukAdi = {1: 'Kolay', 2: 'Orta', 3: 'Zor'};
-const bolumAdi = {'SGS': 'Staja Giriş Sınavı', 'YET': 'Yeterlilik Sınavı'};
+const bolumAdi = {'SGS': 'Staja Giriş Sınavı', 'YET': 'Yeterlilik Sınavı', 'YMM': 'Yeminli Mali Müşavirlik Sınavı'};
 
 const _aylar = [
   'Ocak',

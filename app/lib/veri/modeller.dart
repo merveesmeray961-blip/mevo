@@ -146,6 +146,9 @@ class Ders {
   final String sgsAd;
   final int yetSoru;
   final int sgsSoru;
+
+  /// YMM sınavında bu dersten ayrı bir klasik sınav yapılıyorsa 1 (SMMM derslerinde 0).
+  final int ymmSoru;
   final Map<String, String> konular;
 
   const Ders({
@@ -154,6 +157,7 @@ class Ders {
     required this.sgsAd,
     required this.yetSoru,
     required this.sgsSoru,
+    this.ymmSoru = 0,
     required this.konular,
   });
 
@@ -165,12 +169,17 @@ class Ders {
       sgsAd: (j['sgs_ad'] ?? j['ad']) as String,
       yetSoru: (soru['yet'] ?? 0) as int,
       sgsSoru: (soru['sgs'] ?? 0) as int,
+      ymmSoru: (soru['YMM'] ?? 0) as int,
       konular: Map<String, String>.from(j['konular'] as Map),
     );
   }
 
   /// Bu dersin verilen bölümün sınavında kaç sorusu olduğu (0 ise o bölümde yok).
-  int sinavdakiSoru(String bolum) => bolum == 'YET' ? yetSoru : sgsSoru;
+  int sinavdakiSoru(String bolum) => switch (bolum) {
+    'YET' => yetSoru,
+    'YMM' => ymmSoru,
+    _ => sgsSoru,
+  };
 
   String gorunenAd(String bolum) => bolum == 'SGS' ? sgsAd : ad;
 }
@@ -207,7 +216,62 @@ class KonuAnlatimi {
   );
 }
 
-/// Bölüm (SGS / YET) sınav kuralları.
+/// Puanlama ölçütünün bir satırı: adayın cevabı bu ölçütü karşılıyorsa [puan] kadar puan alır.
+class PuanOlcutu {
+  final String olcut;
+  final double puan;
+
+  const PuanOlcutu({required this.olcut, required this.puan});
+
+  factory PuanOlcutu.fromJson(Map<String, dynamic> j) =>
+      PuanOlcutu(olcut: j['olcut'] as String, puan: (j['puan'] as num).toDouble());
+}
+
+/// Klasik (açık uçlu) soru: olay ve istekler, örnek çözüm, puanlama ölçütü. Metinler sade Markdown'dur.
+/// Aday cevabını yazar, sonra örnek çözümle karşılaştırıp ölçütlere göre kendini puanlar.
+class KlasikSoru {
+  final String id;
+  final String ders;
+  final String konu;
+  final List<String> kazanimlar;
+  final int zorluk;
+  final int puan;
+  final int sureDk;
+  final String soru;
+  final String cozum;
+  final List<PuanOlcutu> puanlama;
+  final List<Kaynak> kaynaklar;
+
+  const KlasikSoru({
+    required this.id,
+    required this.ders,
+    required this.konu,
+    required this.kazanimlar,
+    required this.zorluk,
+    required this.puan,
+    required this.sureDk,
+    required this.soru,
+    required this.cozum,
+    required this.puanlama,
+    required this.kaynaklar,
+  });
+
+  factory KlasikSoru.fromJson(Map<String, dynamic> j) => KlasikSoru(
+    id: j['id'] as String,
+    ders: j['ders'] as String,
+    konu: j['konu'] as String,
+    kazanimlar: List<String>.from((j['kazanimlar'] ?? const []) as List),
+    zorluk: j['zorluk'] as int,
+    puan: j['puan'] as int,
+    sureDk: j['sure_dk'] as int,
+    soru: j['soru'] as String,
+    cozum: j['cozum'] as String,
+    puanlama: [for (final p in j['puanlama'] as List) PuanOlcutu.fromJson(p as Map<String, dynamic>)],
+    kaynaklar: [for (final k in (j['kaynaklar'] ?? const []) as List) Kaynak.fromJson(k as Map<String, dynamic>)],
+  );
+}
+
+/// Bölüm (SGS / YET / YMM) sınav kuralları.
 class SinavFormati {
   final String kod;
   final String ad;
@@ -288,7 +352,11 @@ class SoruBankasi {
 
   /// Konu anlatımları, "DERS/KONU" anahtarıyla; anlatımı henüz yazılmamış konular burada yoktur.
   final Map<String, KonuAnlatimi> anlatimlar;
+
+  /// Klasik sorular (YMM); eski paketlerde ve YMM yayında değilken boştur.
+  final List<KlasikSoru> klasikler;
   final Map<String, Soru> _idIle;
+  final Map<String, KlasikSoru> _klasikIdIle;
 
   SoruBankasi({
     required this.olusturma,
@@ -300,7 +368,9 @@ class SoruBankasi {
     this.mevzuat = const [],
     this.mevzuatTarihi,
     this.anlatimlar = const {},
-  }) : _idIle = {for (final s in sorular) s.id: s};
+    this.klasikler = const [],
+  }) : _idIle = {for (final s in sorular) s.id: s},
+       _klasikIdIle = {for (final k in klasikler) k.id: k};
 
   factory SoruBankasi.fromJson(Map<String, dynamic> j) {
     final takvim = <String, List<DateTime>>{};
@@ -333,10 +403,19 @@ class SoruBankasi {
         for (final a in (j['anlatimlar'] ?? const []) as List)
           if (KonuAnlatimi.fromJson(a as Map<String, dynamic>) case final k) k.anahtar: k,
       },
+      klasikler: [for (final k in (j['klasik'] ?? const []) as List) KlasikSoru.fromJson(k as Map<String, dynamic>)],
     );
   }
 
   Soru? soru(String id) => _idIle[id];
+
+  KlasikSoru? klasik(String id) => _klasikIdIle[id];
+
+  /// Bir dersin (isteğe bağlı olarak bir konunun) klasik soruları, paket sırasıyla.
+  List<KlasikSoru> klasikSorulari(String ders, {String? konu}) => [
+    for (final k in klasikler)
+      if (k.ders == ders && (konu == null || k.konu == konu)) k,
+  ];
 
   KonuAnlatimi? anlatim(String ders, String konu) => anlatimlar['$ders/$konu'];
 
@@ -387,6 +466,8 @@ class SoruBankasi {
     final dolu = {
       for (final s in sorular)
         if (_bolumde(s, bolum)) sinavDersi(s, bolum),
+      if (bolum == 'YMM')
+        for (final k in klasikler) k.ders,
     };
     return [
       for (final d in dersler.values)

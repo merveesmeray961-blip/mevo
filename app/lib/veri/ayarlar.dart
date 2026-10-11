@@ -38,7 +38,7 @@ class Ayarlar extends ChangeNotifier {
     if (!yaziSecenekleri.containsValue(_yazi)) _yazi = yaziVarsayilan;
   }
 
-  /// Kullanıcının hazırlandığı bölüm: 'SGS' veya 'YET'. İlk açılışta null (bölüm seçimi gösterilir).
+  /// Kullanıcının hazırlandığı bölüm: 'SGS', 'YET' veya 'YMM'. İlk açılışta null (bölüm seçimi gösterilir).
   String? get bolum => _bolum;
   ThemeMode get tema => _tema;
   int get oturumBoyu => _oturumBoyu;

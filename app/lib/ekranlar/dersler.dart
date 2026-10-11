@@ -4,6 +4,7 @@ import '../uygulama.dart';
 import '../veri/ilerleme.dart';
 import '../veri/modeller.dart';
 import 'calisma.dart';
+import 'klasik.dart';
 import 'konu.dart';
 import '../bilesenler/duzen.dart';
 
@@ -75,7 +76,10 @@ class _DersKarti extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Text(
-                'Sınavda ${ders.sinavdakiSoru(bolum)} soru · Bankada ${ist.toplam} soru',
+                bolum == 'YMM'
+                    ? 'Klasik sınav · Bankada ${ist.toplam} test, '
+                          '${Kapsam.of(context).banka.klasikSorulari(ders.kod).length} klasik soru'
+                    : 'Sınavda ${ders.sinavdakiSoru(bolum)} soru · Bankada ${ist.toplam} soru',
                 style: t.bodySmall?.copyWith(color: r.onSurfaceVariant),
               ),
               const SizedBox(height: 10),
@@ -138,9 +142,13 @@ class DersDetay extends StatelessWidget {
         final yanlislar = il.yanlislar(havuz);
         // Sorusu ya da anlatımı olan konular; SGS hukuk gibi eşlenen derslerde konu, bankanın sorgusuyla bulunur.
         final konuSorulari = {for (final k in ders.konular.keys) k: durum.banka.dersSorulari(bolum, ders.kod, konu: k)};
+        final klasikler = bolum == 'YMM' ? durum.banka.klasikSorulari(ders.kod) : const <KlasikSoru>[];
         final konular = [
           for (final e in ders.konular.entries)
-            if (konuSorulari[e.key]!.isNotEmpty || durum.banka.anlatim(ders.kod, e.key) != null) e,
+            if (konuSorulari[e.key]!.isNotEmpty ||
+                durum.banka.anlatim(ders.kod, e.key) != null ||
+                klasikler.any((k) => k.konu == e.key))
+              e,
         ];
         final t = Theme.of(context).textTheme;
         return Scaffold(
@@ -149,14 +157,28 @@ class DersDetay extends StatelessWidget {
             child: ListView(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
               children: [
+                if (klasikler.isNotEmpty) ...[
+                  FilledButton.tonalIcon(
+                    icon: const Icon(Icons.edit_note_rounded),
+                    label: Text('Klasik sorular (${klasikler.length})'),
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => KlasikCalismaEkrani(baslik: ders.gorunenAd(bolum), sorular: klasikler),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                ],
                 FilledButton.icon(
                   icon: const Icon(Icons.shuffle),
                   label: Text('Karışık çalış · ${durum.ayarlar.oturumBoyu} soru'),
-                  onPressed: () => calismayaBasla(
-                    context,
-                    baslik: ders.gorunenAd(bolum),
-                    sorular: il.calismaSirasi(havuz, durum.ayarlar.oturumBoyu),
-                  ),
+                  onPressed: havuz.isEmpty
+                      ? null
+                      : () => calismayaBasla(
+                          context,
+                          baslik: ders.gorunenAd(bolum),
+                          sorular: il.calismaSirasi(havuz, durum.ayarlar.oturumBoyu),
+                        ),
                 ),
                 const SizedBox(height: 8),
                 Row(

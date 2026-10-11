@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mevo/schema/klasik.schema.json",
+  "title": "Klasik soru",
+  "description": "Açık uçlu (yazılı sınav) soru: senaryo + alt istekler, örnek çözüm ve puanlama ölçütü. YMM sınavı klasik yazılıdır.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "sinav", "ders", "konu", "kazanimlar", "zorluk", "puan", "sure_dk", "soru", "cozum", "puanlama",
+               "kaynaklar", "gecerlilik", "durum", "surum", "uretim"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[A-Z]+-[A-Z]{3}-[A-Z0-9]+-K[0-9]{3}$", "description": "Örn. YMM-IFM-KON-K001"},
+    "sinav": {"enum": ["smmm", "ymm"]},
+    "ders": {"type": "string", "minLength": 1},
+    "konu": {"type": "string", "minLength": 1},
+    "kazanimlar": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "zorluk": {"enum": [1, 2, 3]},
+    "puan": {"type": "integer", "minimum": 5, "maximum": 50},
+    "sure_dk": {"type": "integer", "minimum": 5, "maximum": 90},
+    "soru": {"type": "string", "minLength": 80, "description": "Markdown: olay/veriler ve (a), (b), (c) istekleri"},
+    "cozum": {"type": "string", "minLength": 150, "description": "Markdown: örnek cevap; yevmiye kayıtları ve hesap tabloları dahil"},
+    "puanlama": {
+      "type": "array", "minItems": 2,
+      "description": "Ölçüt listesi; puanların toplamı `puan` alanına eşit olmalı",
+      "items": {"type": "object", "additionalProperties": false, "required": ["olcut", "puan"],
+                "properties": {"olcut": {"type": "string", "minLength": 5}, "puan": {"type": "number", "exclusiveMinimum": 0}}}
+    },
+    "kaynaklar": {
+      "type": "array", "minItems": 1,
+      "items": {"type": "object", "additionalProperties": false, "required": ["mevzuat", "madde"],
+                "properties": {"mevzuat": {"type": "string"}, "madde": {"type": "string"}, "alinti": {"type": "string", "maxLength": 600}}}
+    },
+    "dogrulama": {
+      "type": "object", "additionalProperties": false, "required": ["python"],
+      "description": "Hesaplı sorularda çözümdeki ana sonuçları bağımsız hesaplayan kod; 'sonuc' sözlüğünü atar",
+      "properties": {"python": {"type": "string", "minLength": 5}}
+    },
+    "gecerlilik": {
+      "type": "object", "additionalProperties": false, "required": ["baslangic"],
+      "properties": {"baslangic": {"type": "string", "format": "date"}, "bitis": {"type": ["string", "null"], "format": "date"},
+                     "yila_bagli_tutar": {"type": "boolean", "default": false}, "yil": {"type": "integer"}}
+    },
+    "durum": {"enum": ["taslak", "kontrolde", "onayli", "yayinda", "geri_cekildi"]},
+    "surum": {"type": "integer", "minimum": 1},
+    "gecmis": {"type": "array", "items": {"type": "object", "required": ["tarih", "kim", "ne"]}},
+    "uretim": {"type": "object", "required": ["kaynak_turu"]}
+  }
+}

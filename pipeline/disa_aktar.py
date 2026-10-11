@@ -18,7 +18,7 @@ from pathlib import Path
 
 import yaml
 
-from pipeline import anlatim, g2_yapi, g4_hesap, mevzuat_paketi, paket_sifre
+from pipeline import anlatim, g2_yapi, g4_hesap, klasik, mevzuat_paketi, paket_sifre
 
 KOK = g2_yapi.KOK
 AKTARILAN_DURUMLAR = {"kontrolde", "onayli", "yayinda"}
@@ -85,6 +85,18 @@ def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool =
         for d in mufredat["dersler"]
     }
 
+    # YMM bölümü: `content/sinavlar/ymm.yaml` içinde `yayinda: true` olduğunda pakete girer (test + klasik sorular).
+    ymm_sinav = yaml.safe_load((KOK / "content/sinavlar/ymm.yaml").read_text(encoding="utf-8"))
+    ymm = bool(ymm_sinav.get("yayinda"))
+    if ymm:
+        ymm_mufredat = yaml.safe_load((KOK / "content/mufredat/ymm.yaml").read_text(encoding="utf-8"))
+        dersler.update({
+            d["kod"]: {"ad": d["ad"], "sgs_ad": d["ad"], "soru": d["soru"], "notlar": d.get("notlar", []),
+                       "konular": {k["kod"]: k["ad"] for k in d["konular"]}}
+            for d in ymm_mufredat["dersler"]
+        })
+        kayitlar = kayitlar + g2_yapi.dosyalari_yukle(KOK / "content/sorular/ymm")
+
     sorular, elenen = [], []
     for _, soru in kayitlar:
         if soru.get("durum") not in durumlar and not yeniden_denetim_bekleyen(soru):
@@ -113,7 +125,7 @@ def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool =
     paket = {
         "olusturma": str(date.today()),
         "uyari": sinav["resmi_baglanti_yok_ibaresi"],
-        "formatlar": {b["kod"]: b for b in sinav["bolumler"]},
+        "formatlar": {b["kod"]: b for b in sinav["bolumler"] + (ymm_sinav["bolumler"] if ymm else [])},
         "takvim": {yil.removeprefix("takvim_"): t for yil, t in sinav.items() if yil.startswith("takvim_") and t},
         "dersler": dersler,
         "sorular": sorular,
@@ -124,13 +136,17 @@ def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool =
         # Konu anlatımları: denetimden geçen ve yayına aday olanlar.
         paket["anlatimlar"], anlatim_elenen = anlatim.paket_icin()
         elenen += [{"id": e["dosya"], "hatalar": e["hatalar"]} for e in anlatim_elenen]
+    if ymm:
+        paket["klasik"], klasik_elenen = klasik.paket_icin("ymm")
+        elenen += klasik_elenen
     hedef.parent.mkdir(parents=True, exist_ok=True)
     metin = json.dumps(paket, ensure_ascii=False, separators=(",", ":"))
     hedef.write_text(metin, encoding="utf-8")
     if puf_ayir:
         # Uygulamaya yalnız sıkıştırılmış ve karartılmış paket gömülür; JSON testler ve inceleme içindir.
         hedef.with_suffix(".paket").write_bytes(paket_sifre.sifrele(metin.encode("utf-8")))
-    return {"aktarilan": len(sorular), "elenen": elenen, "mevzuat": paket.get("mevzuat", [])}
+    return {"aktarilan": len(sorular), "klasik": len(paket.get("klasik", [])), "elenen": elenen,
+            "mevzuat": paket.get("mevzuat", [])}
 
 
 def main(argv: list[str]) -> int:
@@ -138,7 +154,8 @@ def main(argv: list[str]) -> int:
     yollar = [a for a in argv[1:] if not a.startswith("--")]
     hedef = Path(yollar[0]) if yollar else KOK / "web/onizleme/sorular.json"
     sonuc = aktar(hedef, puf_ayir=puf_ayir)
-    print(f"{sonuc['aktarilan']} soru aktarıldı → {hedef}" + (f" (+ {hedef.with_suffix('.paket').name})" if puf_ayir else ""))
+    print(f"{sonuc['aktarilan']} soru" + (f" + {sonuc['klasik']} klasik soru" if sonuc["klasik"] else "")
+          + f" aktarıldı → {hedef}" + (f" (+ {hedef.with_suffix('.paket').name})" if puf_ayir else ""))
     if sonuc["mevzuat"]:
         o = mevzuat_paketi.ozet(sonuc["mevzuat"])
         print(f"  Mevzuat: {o['kaynak']} kaynak, {o['madde']} madde ({o['tam_metinli']} tam metin, {o['yalniz_alinti']} yalnız alıntı)")
