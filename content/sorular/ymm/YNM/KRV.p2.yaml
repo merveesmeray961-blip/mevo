@@ -1,0 +1,610 @@
+- id: YMM-YNM-KRV-0059
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Karar verme ve ilgili maliyetler
+  konu: KRV
+  kazanim: fark analizi
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletme, kalan ömrü 3 yıl olan eski makinesini yenisiyle değiştirmeyi düşünmektedir. Eski makinenin defter değeri
+    120.000 TL'dir; bugün satılırsa peşin 30.000 TL elde edilecek, kullanılmaya devam edilirse 3 yıl sonunda hurda değeri
+    olmayacaktır. Eski makinenin yıllık işletme gideri 50.000 TL'dir. Yeni makinenin bedeli 150.000 TL, ekonomik ömrü 3 yıl,
+    hurda değeri sıfır ve yıllık işletme gideri 15.000 TL'dir. Satış hasılatı ve diğer giderler iki seçenekte aynıdır; paranın
+    zaman değeri ve vergi dikkate alınmayacaktır. Makinenin yenilenmesi, 3 yıllık toplam faaliyet kârını nasıl etkiler?
+  secenekler:
+    A: 5.000 TL azalır
+    B: 15.000 TL azalır
+    C: 45.000 TL azalır
+    D: 105.000 TL artar
+    E: 135.000 TL azalır
+  dogru: B
+  aciklama:
+    dogru_neden: 'Eski makinenin defter değeri geçmişte katlanılmış (batık) bir maliyettir; her iki seçenekte de gidere dönüşeceğinden
+      karara etkisi yoktur. İlgili kalemler: yeni makine bedeli 150.000 TL (çıkış), eski makinenin satış bedeli 30.000 TL
+      (giriş) ve 3 yıllık işletme gideri tasarrufu (50.000 − 15.000) × 3 = 105.000 TL. Net etki = 105.000 + 30.000 − 150.000
+      = −15.000 TL; yenileme kârı 15.000 TL azaltır. Tam maliyetle kontrol: devam seçeneğinde 120.000 amortisman + 150.000
+      işletme gideri = 270.000 TL; yenilemede 90.000 satış zararı + 150.000 amortisman + 45.000 işletme gideri = 285.000 TL.'
+    celdiriciler:
+      A: Üç yıllık toplam yerine tek yıla düşen etki (15.000 / 3) verilmiştir.
+      C: 'Eski makinenin satışından elde edilecek 30.000 TL dikkate alınmamıştır: 105.000 − 150.000.'
+      D: Yalnız işletme gideri tasarrufu hesaplanmış, yeni makine bedeli ve eski makinenin satış bedeli göz ardı edilmiştir.
+      E: 'Batık maliyet olan 120.000 TL defter değeri yenileme seçeneğine ek gider olarak yazılmıştır: −15.000 − 120.000.'
+    hesap_adimlari:
+    - İşletme gideri tasarrufu = (50.000 − 15.000) × 3 = 105.000 TL
+    - Eski makine satış bedeli = +30.000 TL
+    - Yeni makine bedeli = −150.000 TL
+    - Net etki = −15.000 TL (defter değeri ilgisiz)
+  kaynaklar:
+  - mevzuat: Genel bilgi — Karar verme ve ilgili maliyetler
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'tasarruf = (50000 - 15000) * 3
+
+      etki = tasarruf + 30000 - 150000
+
+      sonuc = abs(etki)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 8
+- id: YMM-YNM-KRV-0060
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Karar verme ve ilgili maliyetler
+  konu: KRV
+  kazanim: fark analizi
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Bir ortak üretim sürecinde dönemde 300.000 TL ortak maliyetle K ve M ürünleri elde edilmektedir. Fiziki miktar esasına
+    göre K''ye 150.000 TL ortak maliyet dağıtılmıştır (K: 5.000 kg, kg başına 30 TL). K, ayrılma noktasında kg''ı 40 TL''den
+    satılabilmektedir. K ileri işlenirse işleme giren her kg için 15 TL değişken işleme maliyeti ve toplam 20.000 TL kaçınılabilir
+    sabit gider oluşacak; işlem sırasında girdinin %10''u fire olarak kaybolacak (firenin satış değeri yoktur); işlenmiş ürünün
+    kg''ı 70 TL''den satılacaktır. Her iki durumda da tüm miktar satılabilmektedir. K''nin ileri işlenmesi, ayrılma noktasında
+    satılmasına göre işletme kârını nasıl etkiler?'
+  secenekler:
+    A: 5.000 TL artar
+    B: 20.000 TL artar
+    C: 40.000 TL artar
+    D: 55.000 TL artar
+    E: 130.000 TL azalır
+  dogru: B
+  aciklama:
+    dogru_neden: Ortak maliyet, K hangi noktada satılırsa satılsın katlanılmış olduğundan ilgisizdir. İleri işlemede satılabilir
+      miktar 5.000 × 0,90 = 4.500 kg'dır. Ek hasılat = 4.500 × 70 − 5.000 × 40 = 315.000 − 200.000 = 115.000 TL; ek maliyet
+      = 5.000 × 15 + 20.000 = 95.000 TL. Fark = +20.000 TL; ileri işleme kârı 20.000 TL artırır.
+    celdiriciler:
+      A: Fire olan 500 kg'a düşen ortak maliyet (500 × 30 = 15.000 TL) ayrıca kayıp sayılmıştır; ortak maliyet bu kararda
+        ilgisizdir.
+      C: 20.000 TL kaçınılabilir sabit gider ek maliyete katılmamıştır.
+      D: Fire dikkate alınmamış, 5.000 kg'ın tamamı 70 TL'den satılacakmış gibi hesaplanmıştır.
+      E: 'K''ye dağıtılan 150.000 TL ortak maliyet ileri işlemenin maliyetine eklenmiştir: 20.000 − 150.000.'
+    hesap_adimlari:
+    - Satılabilir miktar = 5.000 × 0,90 = 4.500 kg
+    - Ek hasılat = 315.000 − 200.000 = 115.000 TL
+    - Ek maliyet = 75.000 + 20.000 = 95.000 TL
+    - Kâra etki = +20.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Karar verme ve ilgili maliyetler
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ek_has = 5000 * 0.9 * 70 - 5000 * 40
+
+      ek_mal = 5000 * 15 + 20000
+
+      sonuc = round(ek_has - ek_mal, 4)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 9
+- id: YMM-YNM-KRV-0061
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Karar verme ve ilgili maliyetler
+  konu: KRV
+  kazanim: özel sipariş
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir işletmenin yıllık üretim kapasitesi 10.000 birimdir ve normal müşterilere birimi 90 TL''den 9.000 birim satacaktır.
+    10.000 birimlik kapasiteye göre birim maliyetler: direkt ilk madde ve malzeme 25 TL, direkt işçilik 15 TL (değişken),
+    değişken genel üretim gideri 10 TL, sabit genel üretim gideri 12 TL, değişken satış komisyonu 6 TL, sabit pazarlama gideri
+    4 TL. Bir müşteri tek seferlik 2.000 birimlik sipariş vermiştir; sipariş kısmen kabul edilemez. Siparişte komisyon ödenmeyecek,
+    birim başına 3 TL özel ambalaj maliyeti ve toplam 8.000 TL tek seferlik kalıp maliyeti oluşacaktır. Kapasite artırılamaz;
+    sipariş kabul edilirse eksik kalan kapasite kadar normal satıştan vazgeçilecek ve bu satış başka döneme kaydırılamayacaktır.
+    Sabit giderler değişmeyecektir. İşletmenin kârını azaltmadan siparişi kabul edebileceği en düşük birim fiyat kaç TL''dir?'
+  secenekler:
+    A: 53 TL
+    B: 57 TL
+    C: 74 TL
+    D: 77 TL
+    E: 86 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Sipariş için ilgili birim değişken maliyet = 25 + 15 + 10 + 3 = 53 TL (komisyon ödenmez; sabit giderler
+      değişmez). Boş kapasite 1.000 birim olduğundan 1.000 birim normal satıştan vazgeçilir; kaybedilen katkı payı 1.000 ×
+      (90 − 25 − 15 − 10 − 6) = 34.000 TL''dir. Toplam ilgili maliyet = 2.000 × 53 + 8.000 + 34.000 = 148.000 TL; en düşük
+      fiyat 148.000 / 2.000 = 74 TL. Püf noktaları: Kapasite yetersizse vazgeçilen satışın hasılatı değil katkı payı fırsat
+      maliyetidir; o katkı payını bulurken normal satışta ödenen komisyonu düşmeyi unutmayın. Birim sabit GÜG, kapasiteye
+      göre hesaplanmış bir dağıtım olup karara girmez.'
+    celdiriciler:
+      A: Yalnız siparişin birim değişken maliyeti alınmış; kalıp maliyeti ve vazgeçilen satışların katkı payı göz ardı edilmiştir.
+      B: Kalıp maliyeti eklenmiş ama kapasite yetersizliği gözden kaçırılmış, vazgeçilen 1.000 birimin katkı payı hesaba katılmamıştır.
+      D: 'Vazgeçilen satışların katkı payı komisyon düşülmeden (90 − 50 = 40 TL) hesaplanmıştır: (106.000 + 8.000 + 40.000)
+        / 2.000.'
+      E: 'Değişmeyecek olan birim sabit GÜG (12 TL) siparişin maliyetine eklenmiştir: (2.000 × 65 + 8.000 + 34.000) / 2.000.'
+    hesap_adimlari:
+    - Siparişin birim değişken maliyeti = 25 + 15 + 10 + 3 = 53 TL
+    - Vazgeçilen normal satış = 9.000 + 2.000 − 10.000 = 1.000 birim
+    - Normal satış birim katkı payı = 90 − 56 = 34 TL → 34.000 TL
+    - En düşük fiyat = (106.000 + 8.000 + 34.000) / 2.000 = 74 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Karar verme ve ilgili maliyetler
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'siparis = 2000
+
+      dm = 25 + 15 + 10 + 3
+
+      vazgecilen = 9000 + siparis - 10000
+
+      kayip_kp = vazgecilen * (90 - 25 - 15 - 10 - 6)
+
+      sonuc = (siparis * dm + 8000 + kayip_kp) / siparis'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 10
+- id: YMM-YNM-KRV-0062
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Karar verme ve ilgili maliyetler
+  konu: KRV
+  kazanim: kıt kaynak kullanımı
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir işletmenin yıllık makine saati kapasitesi 6.000 saattir ve bu kapasite kısa dönemde artırılamaz. Ürünlere ilişkin
+    veriler şöyledir:
+
+
+    | Ürün | Birim katkı payı | Birim makine saati | Yıllık en yüksek talep |
+
+    |---|---|---|---|
+
+    | X | 60 TL | 2 saat | 1.500 birim |
+
+    | Y | 80 TL | 4 saat | 1.000 birim |
+
+    | Z | 40 TL | 1 saat | 2.000 birim |
+
+
+    İşletme, imzaladığı bir sözleşme gereği yıl içinde en az 400 birim Y teslim etmek zorundadır. Yıllık sabit giderler 150.000
+    TL''dir ve üretim bileşiminden etkilenmez. Ürünler kesirli üretilmemekte; başka kısıt bulunmamaktadır. İşletmenin elde
+    edebileceği en yüksek toplam katkı payı kaç TL''dir?'
+  secenekler:
+    A: 140.000 TL
+    B: 178.000 TL
+    C: 184.000 TL
+    D: 190.000 TL
+    E: 208.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Önce sözleşmeden doğan zorunlu üretim ayrılır: 400 Y × 4 saat = 1.600 saat, katkı payı 32.000 TL. Kalan
+      4.400 saat, makine saati başına katkı payına göre dağıtılır: Z 40 TL/saat, X 30 TL/saat, Y 20 TL/saat. Z''nin talebi
+      2.000 birim (2.000 saat, 80.000 TL), kalan 2.400 saat X''e verilir: 1.200 birim, 72.000 TL. Toplam = 32.000 + 80.000
+      + 72.000 = 184.000 TL. Püf noktaları: Sıralama birim katkı payına göre değil kıt kaynak birimi başına katkı payına göre
+      yapılır; ancak sözleşme gibi zorunlu miktarlar sıralamadan önce kapasiteden düşülür. Talep sınırı, en kârlı ürüne ayrılacak
+      saati de sınırlar.'
+    celdiriciler:
+      A: 'Birim katkı payına göre sıralanmıştır (Y 80, X 60, Z 40): 1.000 Y (4.000 saat) ve 1.000 X (2.000 saat) = 140.000
+        TL.'
+      B: 'Sözleşme karşılandıktan sonra birim katkı payı yüksek olan X, Z''den önce üretilmiştir: 32.000 + 90.000 + 56.000.'
+      D: 'Sözleşme yükümlülüğü göz ardı edilmiştir: 2.000 Z, 1.500 X ve kalan 1.000 saatle 250 Y üretilir; bu bileşim 400
+        birimlik zorunlu Y teslimini karşılamaz.'
+      E: Z'nin talep sınırı dikkate alınmamış, sözleşmeden kalan 4.400 saatin tamamı Z'ye verilmiştir.
+    hesap_adimlari:
+    - 'Sözleşme: 400 Y → 1.600 saat, 32.000 TL'
+    - 'Saat başına katkı payı: Z 40, X 30, Y 20 TL'
+    - 'Z: 2.000 birim → 2.000 saat, 80.000 TL'
+    - 'X: kalan 2.400 saat → 1.200 birim, 72.000 TL'
+    - Toplam katkı payı = 184.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Karar verme ve ilgili maliyetler
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'saat = 6000
+
+      y = 400
+
+      saat = saat - y * 4
+
+      kp = y * 80
+
+      z = min(2000, saat // 1)
+
+      saat = saat - z * 1
+
+      kp = kp + z * 40
+
+      x = min(1500, saat // 2)
+
+      saat = saat - x * 2
+
+      kp = kp + x * 60
+
+      ek_y = min(1000 - y, saat // 4)
+
+      kp = kp + ek_y * 80
+
+      sonuc = kp'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 11
+- id: YMM-YNM-KRV-0063
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Karar verme ve ilgili maliyetler
+  konu: KRV
+  kazanim: ürün hattını kapatma
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir işletmenin A ürün hattına ilişkin yıllık veriler şöyledir: satışlar 400.000 TL, değişken giderler 240.000 TL,
+    doğrudan sabit giderler 70.000 TL, ortak sabit giderlerden dağıtılan pay 100.000 TL; hattın faaliyet zararı 10.000 TL''dir.
+    Doğrudan sabit giderlerin 30.000 TL''si, satış ya da başka kullanım değeri olmayan özel ekipmanın amortismanıdır; kalan
+    40.000 TL hat kapatılırsa ortadan kalkar. B hattının yıllık satışları 600.000 TL, değişken giderleri 360.000 TL''dir.
+    A hattı kapatılırsa iki ürünü birlikte alan müşteriler nedeniyle B''nin satış miktarı %10 azalacak (B''nin birim fiyatı
+    ve birim değişken maliyeti değişmeyecek), A''nın boşalan alanı yıllık 20.000 TL''ye kiraya verilebilecektir. Ortak sabit
+    giderler değişmeyecektir. A hattının kapatılması işletmenin yıllık faaliyet kârını nasıl etkiler?'
+  secenekler:
+    A: 6.000 TL artar
+    B: 94.000 TL azalır
+    C: 100.000 TL azalır
+    D: 124.000 TL azalır
+    E: 144.000 TL azalır
+  dogru: D
+  aciklama:
+    dogru_neden: 'Kapatmanın etkileri: A''nın katkı payı kaybı 400.000 − 240.000 = 160.000 TL; kaçınılabilir sabit gider tasarrufu
+      40.000 TL; kira geliri 20.000 TL; B''nin katkı payı kaybı (600.000 − 360.000) × %10 = 24.000 TL. Net etki = −160.000
+      + 40.000 + 20.000 − 24.000 = −124.000 TL. Dağıtılmış ortak giderler ve ekipman amortismanı kapatmayla ortadan kalkmadığı
+      için ilgisizdir. Püf noktaları: Hattın muhasebe zararı karar ölçütü değildir; kaybedilen katkı payı ile kaçınılabilir
+      giderler karşılaştırılır. Tamamlayıcı ürüne etkiyi satış tutarıyla değil katkı payıyla ölçün ve boşalan kapasitenin
+      alternatif gelirini ekleyin.'
+    celdiriciler:
+      A: 'Dağıtılmış ortak giderler ve amortisman da kaçınılabilir sayılmıştır: −160.000 + 70.000 + 100.000 + 20.000 − 24.000.'
+      B: 'Doğrudan sabit giderlerin tamamı kaçınılabilir sayılmış, kaçınılamayan amortisman da tasarruf yazılmıştır: −160.000
+        + 70.000 + 20.000 − 24.000.'
+      C: B hattının katkı payındaki 24.000 TL'lik azalma göz ardı edilmiştir.
+      E: Boşalan alanın 20.000 TL'lik kira geliri hesaba katılmamıştır.
+    hesap_adimlari:
+    - A katkı payı kaybı = −160.000 TL
+    - Kaçınılabilir sabit gider = +40.000 TL
+    - Kira geliri = +20.000 TL
+    - B katkı payı kaybı = 240.000 × 0,10 = −24.000 TL
+    - Net etki = −124.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Karar verme ve ilgili maliyetler
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'etki = -(400000 - 240000) + 40000 + 20000 - (600000 - 360000) * 0.10
+
+      sonuc = round(abs(etki), 4)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 12
+- id: YMM-YNM-KRV-0064
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Karar verme ve ilgili maliyetler
+  konu: KRV
+  kazanim: üret veya satın al
+  tip: uygulama
+  zorluk: 3
+  kok: 'Bir işletme yılda 10.000 birim P parçası üretmektedir. Birim üretim maliyeti: direkt ilk madde ve malzeme 18 TL, direkt
+    işçilik 12 TL (değişken), değişken genel üretim gideri 6 TL, sabit genel üretim gideri 14 TL''dir. Toplam 140.000 TL sabit
+    GÜG''ün 40.000 TL''si yalnız bu parça için çalışan ve parça dışarıdan alınırsa işine son verilecek ustabaşının ücreti,
+    kalanı fabrika ortak giderlerinden dağıtılan paydır. Parça dışarıdan alınırsa boşalan kapasitede R ürünü üretilecek ve
+    R yıllık 50.000 TL katkı payı sağlayacaktır. Bu bilgilere göre:
+
+
+    I. Dışarıdan alım fiyatı birim başına 42 TL olursa parçanın satın alınması yıllık kârı 30.000 TL artırır.
+
+    II. R ürünü fırsatı bulunmasaydı, kârı azaltmadan ödenebilecek en yüksek birim alım fiyatı 40 TL olurdu.
+
+    III. Parça dışarıdan alınırsa birim başına 14 TL sabit genel üretim giderinden tasarruf edilir.
+
+
+    ifadelerinden hangileri doğrudur?'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: II ve III
+    E: I, II ve III
+  dogru: C
+  aciklama:
+    dogru_neden: 'Üretmenin ilgili birim maliyeti: değişken maliyet 18 + 12 + 6 = 36 TL, kaçınılabilir ustabaşı ücreti 40.000
+      / 10.000 = 4 TL ve R''den vazgeçilen katkı payı 50.000 / 10.000 = 5 TL; toplam 45 TL. Alım fiyatı 42 TL ise birim başına
+      3 TL, yılda 30.000 TL kâr artışı olur (I doğru). R fırsatı yoksa ilgili maliyet 36 + 4 = 40 TL''dir (II doğru). Birim
+      14 TL''lik sabit GÜG''ün yalnız 4 TL''si kaçınılabilir; 10 TL''lik ortak gider payı satın alınsa da sürer (III yanlış).
+      Püf noktaları: Üret veya satın al kararında dağıtılmış ortak sabit giderler ilgisizdir; kaçınılabilir sabit gider ve
+      boşalan kapasitenin fırsat maliyeti ise üretmenin maliyetine eklenir.'
+    celdiriciler:
+      A: 'II de doğrudur: R fırsatı yoksa ilgili maliyet 36 + 4 = 40 TL''dir.'
+      B: 'I de doğrudur: ilgili üretim maliyeti 45 TL olduğundan 42 TL''lik alım birim başına 3 TL kazandırır.'
+      D: 'III yanlıştır, I doğrudur: 14 TL''nin yalnız 4 TL''si kaçınılabilir.'
+      E: 'III yanlıştır: dağıtılmış ortak sabit gider payı (10 TL) satın alma hâlinde de katlanılmaya devam eder.'
+  kaynaklar:
+  - mevzuat: Genel bilgi — Karar verme ve ilgili maliyetler
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 13
+- id: YMM-YNM-KRV-0065
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Karar verme ve ilgili maliyetler
+  konu: KRV
+  kazanim: özel sipariş
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir işletme, tek seferlik bir özel siparişi değerlendirmektedir. Sipariş için 500 kg M1 ve 200 kg M2 malzemesi gerekmektedir.
+
+
+    - M1: Stokta 300 kg vardır; kayıtlı (alış) maliyeti kg başına 10 TL, güncel alış fiyatı 14 TL, hurda satış değeri 6 TL''dir.
+    M1 işletmenin olağan üretiminde sürekli kullanılmakta olup stoktan kullanılan miktarın yerine güncel fiyattan yenisi alınacaktır.
+    Eksik miktar güncel fiyattan satın alınacaktır.
+
+    - M2: Stokta 250 kg vardır; kayıtlı maliyeti kg başına 20 TL, güncel alış fiyatı 25 TL''dir. M2 artık başka hiçbir işte
+    kullanılmamaktadır ve kg''ı 8 TL''den satılabilmektedir.
+
+
+    Siparişin malzeme bakımından ilgili maliyeti kaç TL''dir?'
+  secenekler:
+    A: 8.600 TL
+    B: 9.800 TL
+    C: 10.800 TL
+    D: 11.000 TL
+    E: 12.000 TL
+  dogru: A
+  aciklama:
+    dogru_neden: 'M1 sürekli kullanılan ve yerine konulacak bir malzeme olduğundan stoktan kullanılan kısmı da dâhil 500 kg''ın
+      tamamı güncel alış (yenileme) fiyatıyla değerlenir: 500 × 14 = 7.000 TL. M2''nin başka kullanımı yoktur; siparişte kullanılırsa
+      vazgeçilen tek fayda satış değeridir: 200 × 8 = 1.600 TL. İlgili maliyet = 7.000 + 1.600 = 8.600 TL. Kayıtlı maliyetler
+      batık maliyettir. Püf noktaları: Stoktaki malzemenin ilgili maliyeti, malzemenin başka kullanımı olup olmadığına göre
+      belirlenir: düzenli kullanılıyorsa yenileme fiyatı, kullanılmıyorsa elden çıkarma (satış) değeri. Hurda değeri yalnız
+      malzeme başka işte kullanılmayacaksa anlamlıdır.'
+    celdiriciler:
+      B: 'Stoktaki malzemeler kayıtlı maliyetle alınmıştır: 300 × 10 + 200 × 14 + 200 × 20.'
+      C: M1 stoku kayıtlı maliyetle (300 × 10 + 200 × 14), M2 ise yenileme fiyatıyla (200 × 25) değerlenmiştir; M2 yeniden
+        alınmayacağı için yenileme fiyatı ilgisizdir.
+      D: M1 doğru değerlenmiş, M2 ise batık maliyet olan kayıtlı değeriyle (200 × 20) alınmıştır.
+      E: Her iki malzeme de güncel alış fiyatıyla değerlenmiştir; M2'nin başka kullanımı olmadığı göz ardı edilmiştir.
+    hesap_adimlari:
+    - 'M1: 500 × 14 = 7.000 TL (yenileme fiyatı)'
+    - 'M2: 200 × 8 = 1.600 TL (satış değeri)'
+    - Toplam ilgili maliyet = 8.600 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Karar verme ve ilgili maliyetler
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'm1 = 500 * 14
+
+      m2 = 200 * 8
+
+      sonuc = m1 + m2'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 14

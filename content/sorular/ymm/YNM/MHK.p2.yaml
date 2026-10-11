@@ -1,0 +1,560 @@
+- id: YMM-YNM-MHK-0062
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Maliyet hacim kâr analizi
+  konu: MHK
+  kazanim: güvenlik marjı
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletmenin dönem satış hasılatı 800.000 TL, katkı payı oranı %40 ve güvenlik marjı oranı %25'tir. Güvenlik marjı
+    oranı, fiilî satış hasılatı ile başabaş satış hasılatı arasındaki farkın fiilî satış hasılatına oranıdır. Satış fiyatı,
+    birim değişken maliyet ve sabit giderler dönem içinde değişmemiştir. Buna göre işletmenin dönem faaliyet kârı kaç TL'dir?
+  secenekler:
+    A: 60.000 TL
+    B: 80.000 TL
+    C: 120.000 TL
+    D: 200.000 TL
+    E: 240.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Başabaş noktasında katkı payı sabit giderlere eşittir; bu nedenle başabaş üzerindeki her satış lirasının
+      katkı payı doğrudan kâra dönüşür. Güvenlik marjı 800.000 × %25 = 200.000 TL''dir; kâr = 200.000 × %40 = 80.000 TL. Kısaca
+      kâr marjı = güvenlik marjı oranı × katkı payı oranı = %25 × %40 = %10; 800.000 × %10 = 80.000 TL. Kontrol: başabaş hasılatı
+      600.000 TL, sabit gider 600.000 × %40 = 240.000 TL, toplam katkı payı 320.000 TL, kâr 80.000 TL.'
+    celdiriciler:
+      A: Güvenlik marjı oranı ve katkı payı oranı başabaş hasılatına (600.000 TL) uygulanmıştır; kâr fiilî satışlar üzerinden
+        bulunur.
+      C: Güvenlik marjı tutarı katkı payı oranı yerine değişken maliyet oranıyla (%60) çarpılmıştır.
+      D: Güvenlik marjı tutarının (200.000 TL) tamamı kâr sanılmıştır; bu tutarın yalnız katkı payı kadarı kâra kalır.
+      E: Bulunan tutar sabit giderlerdir (başabaş hasılatı × katkı payı oranı); kâr değildir.
+    hesap_adimlari:
+    - Güvenlik marjı = 800.000 × 0,25 = 200.000 TL
+    - Kâr = 200.000 × 0,40 = 80.000 TL
+    - 'Kontrol: başabaş 600.000 TL; sabit gider 240.000 TL; katkı payı 320.000 TL; kâr 80.000 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — Maliyet hacim kâr analizi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'satis = 800000
+
+      kpo = 0.40
+
+      gmo = 0.25
+
+      basabas = satis * (1 - gmo)
+
+      sabit = basabas * kpo
+
+      sonuc = satis * kpo - sabit'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 1
+- id: YMM-YNM-MHK-0063
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Maliyet hacim kâr analizi
+  konu: MHK
+  kazanim: hedef kâr
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir ürünün birim satış fiyatı 150 TL'dir. İşletmenin başabaş noktası 4.000 birim olup 5.000 birim satıldığında vergi
+    öncesi faaliyet kârı 60.000 TL'dir. Satış fiyatı, birim değişken maliyet ve sabit giderler değişmeyecektir. İşletmenin
+    150.000 TL vergi öncesi faaliyet kârı elde edebilmesi için ulaşması gereken satış hasılatı kaç TL'dir?
+  secenekler:
+    A: 375.000 TL
+    B: 600.000 TL
+    C: 650.000 TL
+    D: 975.000 TL
+    E: 1.125.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Başabaş noktasını aşan 1.000 birim 60.000 TL kâr sağladığına göre birim katkı payı 60 TL''dir. Sabit giderler
+      4.000 × 60 = 240.000 TL''dir. Hedef kâr için gereken miktar (240.000 + 150.000) / 60 = 6.500 birim, gereken hasılat
+      6.500 × 150 = 975.000 TL''dir. Aynı sonuç katkı payı oranıyla da bulunur: 390.000 / 0,40 = 975.000 TL.'
+    celdiriciler:
+      A: Yalnız hedef kâr birim katkı payına bölünmüştür (2.500 birim); önce sabit giderlerin karşılanması gerektiği unutulmuştur.
+      B: Bulunan tutar başabaş satış hasılatıdır (4.000 × 150); hedef kâr eklenmemiştir.
+      C: Sabit gider ve hedef kâr toplamı katkı payı oranı yerine değişken maliyet oranına (%60) bölünmüştür.
+      E: Hedef kârı sağlayacak 2.500 birim, başabaş noktası yerine 5.000 birimlik mevcut satışa eklenmiştir; mevcut 60.000
+        TL kâr iki kez sayılmıştır.
+    hesap_adimlari:
+    - Birim katkı payı = 60.000 / (5.000 − 4.000) = 60 TL
+    - Sabit gider = 4.000 × 60 = 240.000 TL
+    - Gerekli miktar = (240.000 + 150.000) / 60 = 6.500 birim
+    - Gerekli hasılat = 6.500 × 150 = 975.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Maliyet hacim kâr analizi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fiyat = 150
+
+      kp = 60000 / (5000 - 4000)
+
+      sabit = 4000 * kp
+
+      miktar = (sabit + 150000) / kp
+
+      sonuc = miktar * fiyat'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 2
+- id: YMM-YNM-MHK-0064
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Maliyet hacim kâr analizi
+  konu: MHK
+  kazanim: çok ürünlü başabaş
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletme X ve Y ürünlerini satmaktadır. X'in birim satış fiyatı 50 TL, birim değişken maliyeti 35 TL; Y'nin birim
+    satış fiyatı 80 TL, birim değişken maliyeti 40 TL'dir. Satış karması **satış hasılatı esasına göre** sabit olup toplam
+    hasılatın %60'ı X'ten, %40'ı Y'den elde edilmektedir. İki ürünün ortak yıllık sabit giderleri 190.000 TL'dir. Fiyatlar,
+    birim değişken maliyetler ve sabit giderler değişmeyecektir. Buna göre başabaş noktasında X ürününden kaç birim satılmalıdır?
+  secenekler:
+    A: 4.560 birim
+    B: 5.700 birim
+    C: 6.000 birim
+    D: 7.600 birim
+    E: 10.000 birim
+  dogru: C
+  aciklama:
+    dogru_neden: 'Katkı payı oranları: X için 15 / 50 = %30, Y için 40 / 80 = %50. Karma hasılat esasına göre verildiğinden
+      ağırlıklı katkı payı oranı = 0,60 × %30 + 0,40 × %50 = %38''dir. Başabaş hasılatı = 190.000 / 0,38 = 500.000 TL; bunun
+      %60''ı olan 300.000 TL X''e düşer; X miktarı = 300.000 / 50 = 6.000 birim (Y: 200.000 / 80 = 2.500 birim). Kontrol:
+      6.000 × 15 + 2.500 × 40 = 90.000 + 100.000 = 190.000 TL. Püf noktaları: Karmanın hasılat mı yoksa miktar esasına göre
+      mi verildiğine bakın; hasılat karmasında katkı payı oranları ağırlıklandırılır, birim katkı payları değil. Ayrıca soru
+      toplam miktarı değil X''in miktarını istiyor.'
+    celdiriciler:
+      A: '%60–%40 oranı miktar karması sanılmış; ağırlıklı birim katkı payı 0,6 × 15 + 0,4 × 40 = 25 TL ile toplam 7.600 birim
+        bulunup %60''ı X''e verilmiştir.'
+      B: Katkı payı oranlarının basit ortalaması (%40) kullanılmış; başabaş hasılatı 475.000 TL ve X hasılatı 285.000 TL bulunmuştur.
+      D: Karma yanlışlıkla miktar esasına göre yorumlanmış ve bulunan toplam miktar (190.000 / 25) X'in miktarı sanılmıştır.
+      E: Toplam başabaş hasılatının (500.000 TL) tamamı X'in birim fiyatına bölünmüş; Y'nin payı düşülmemiştir.
+    hesap_adimlari:
+    - 'Katkı payı oranları: X %30, Y %50'
+    - Ağırlıklı oran = 0,6 × 0,30 + 0,4 × 0,50 = 0,38
+    - Başabaş hasılatı = 190.000 / 0,38 = 500.000 TL
+    - X hasılatı = 500.000 × 0,60 = 300.000 TL
+    - X miktarı = 300.000 / 50 = 6.000 birim
+  kaynaklar:
+  - mevzuat: Genel bilgi — Maliyet hacim kâr analizi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kpo_x = (50 - 35) / 50
+
+      kpo_y = (80 - 40) / 80
+
+      agirlikli = 0.6 * kpo_x + 0.4 * kpo_y
+
+      basabas = 190000 / agirlikli
+
+      sonuc = round(basabas * 0.6 / 50, 4)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 3
+- id: YMM-YNM-MHK-0065
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Maliyet hacim kâr analizi
+  konu: MHK
+  kazanim: hedef kâr
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir ürünün birim satış fiyatı 150 TL, birim değişken üretim maliyeti 75 TL'dir. Ayrıca her satıştan satış fiyatının
+    %10'u kadar satış komisyonu ödenmektedir. Yıllık sabit giderler 180.000 TL, kurumlar vergisi oranı %20'dir. Yönetim, **vergi
+    sonrası** kârın satış hasılatının %16'sı olmasını hedeflemektedir. Üretilen her birim aynı dönemde satılmakta; fiyat ve
+    maliyet yapısı değişmemektedir. Bu hedefe ulaşmak için kaç birim satılmalıdır?
+  secenekler:
+    A: 3.000 birim
+    B: 4.000 birim
+    C: 5.000 birim
+    D: 6.000 birim
+    E: 7.500 birim
+  dogru: D
+  aciklama:
+    dogru_neden: 'Birim katkı payı = 150 − 75 − (150 × %10) = 60 TL. Vergi sonrası %16''lık kâr, vergi öncesi 0,16 / 0,80
+      = %20''ye karşılık gelir; birim başına 150 × %20 = 30 TL vergi öncesi kâr ayrılmalıdır. Sabit giderleri karşılayacak
+      net tutar 60 − 30 = 30 TL olduğundan miktar = 180.000 / 30 = 6.000 birimdir. Kontrol: hasılat 900.000; komisyon 90.000;
+      değişken maliyet 450.000; sabit gider 180.000; vergi öncesi kâr 180.000; vergi 36.000; vergi sonrası kâr 144.000 TL
+      = 900.000 × %16. Püf noktaları: Hedef satışların yüzdesi olarak verildiğinde birim başına düşen hedef kâr, katkı payından
+      düşülür. Vergi sonrası oran (1 − vergi oranı) ile bölünerek vergi öncesine çevrilir; komisyon değişken bir giderdir
+      ve katkı payını azaltır.'
+    celdiriciler:
+      A: Hedef kâr hiç dikkate alınmamıştır; 180.000 / 60 başabaş miktarıdır.
+      B: Satış komisyonu değişken gider olarak düşülmemiştir; birim katkı payı 75 TL alınarak 180.000 / (75 − 30) hesaplanmıştır.
+      C: Vergi sonrası %16'lık hedef vergi öncesine çevrilmemiştir; 180.000 / (60 − 24) hesaplanmıştır.
+      E: Katkı payı vergi sonrasına çevrilmiş (60 × 0,80 = 48 TL) ama sabit giderler vergi etkisiyle düzeltilmemiştir; 180.000
+        / (48 − 24) hesaplanmıştır.
+    hesap_adimlari:
+    - Komisyon = 150 × 0,10 = 15 TL; birim katkı payı = 150 − 75 − 15 = 60 TL
+    - Vergi öncesi hedef oran = 0,16 / 0,80 = %20 → birim başına 30 TL
+    - Miktar = 180.000 / (60 − 30) = 6.000 birim
+    - 'Kontrol: vergi sonrası kâr 144.000 TL = 900.000 × %16'
+  kaynaklar:
+  - mevzuat: Genel bilgi — Maliyet hacim kâr analizi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fiyat = 150
+
+      kp = fiyat - 75 - fiyat * 0.10
+
+      hedef_vo = fiyat * 0.16 / (1 - 0.20)
+
+      sonuc = round(180000 / (kp - hedef_vo), 4)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 4
+- id: YMM-YNM-MHK-0066
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Maliyet hacim kâr analizi
+  konu: MHK
+  kazanim: katkı payı
+  tip: uygulama
+  zorluk: 3
+  kok: 'Tek ürünlü bir işletmenin dönem verileri şöyledir: satış hasılatı 1.000.000 TL (20.000 birim × 50 TL), değişken giderler
+    600.000 TL, sabit giderler 300.000 TL. Aksi belirtilmedikçe birim fiyat, birim değişken maliyet ve sabit giderler değişmemektedir;
+    vergi dikkate alınmayacaktır. Buna göre aşağıdaki ifadelerden hangisi **yanlıştır**?'
+  secenekler:
+    A: Satış miktarı değişmeden birim fiyat %10 artırılırsa faaliyet kârı %40 artar.
+    B: Faaliyet kaldıracı derecesi (katkı payı / faaliyet kârı) 4'tür.
+    C: Fiyat değişmeden satış miktarı %10 artarsa faaliyet kârı %40 artar.
+    D: Güvenlik marjı oranı, yani fiilî satışın başabaşı aşan kısmının oranı, %25'tir.
+    E: Sabit giderler 40.000 TL artarsa başabaş satış hasılatı 850.000 TL olur.
+  dogru: A
+  aciklama:
+    dogru_neden: 'Fiyat artışında hasılat 100.000 TL artar, değişken giderler miktara bağlı olduğundan değişmez; artışın tamamı
+      kâra yansır ve kâr 100.000''den 200.000 TL''ye çıkar (%100 artış). Faaliyet kaldıracı derecesi (4) yalnız satış miktarındaki
+      değişimin kâra etkisini ölçer; fiyat değişimine uygulanamaz. Bu nedenle A yanlıştır. Püf noktaları: Kaldıraç çarpanı,
+      maliyet yapısı sabitken hacim değişimini kâra taşır. Fiyat artışı katkı payı oranını da değiştirir; böyle bir durumda
+      kâr yeniden hesaplanmalıdır. Kaldıraç derecesi ile güvenlik marjı oranının birbirinin tersi olduğunu (4 = 1 / 0,25)
+      kontrol aracı olarak kullanın.'
+    celdiriciler:
+      B: 'Doğrudur: katkı payı 400.000 TL, faaliyet kârı 100.000 TL; 400.000 / 100.000 = 4.'
+      C: 'Doğrudur: katkı payı %10 artarak 440.000 TL, kâr 140.000 TL olur; artış %40''tır (kaldıraç 4 × %10).'
+      D: 'Doğrudur: başabaş hasılatı 300.000 / 0,40 = 750.000 TL; (1.000.000 − 750.000) / 1.000.000 = %25.'
+      E: 'Doğrudur: 340.000 / 0,40 = 850.000 TL.'
+  kaynaklar:
+  - mevzuat: Genel bilgi — Maliyet hacim kâr analizi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 5
+- id: YMM-YNM-MHK-0067
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Maliyet hacim kâr analizi
+  konu: MHK
+  kazanim: çok ürünlü başabaş
+  tip: uygulama
+  zorluk: 3
+  kok: 'Bir işletme A ve B ürünlerini satmaktadır. A''nın katkı payı oranı %25, B''nin katkı payı oranı %50''dir. Ortak yıllık
+    sabit giderler 360.000 TL''dir. Mevcut satış karması hasılat esasına göre %50 A, %50 B''dir. Yönetim, karmanın hasılat
+    esasına göre %80 A, %20 B''ye kayacağını öngörmektedir; ürünlerin katkı payı oranları ve sabit giderler değişmeyecektir.
+
+
+    I. Mevcut karmada başabaş satış hasılatı 960.000 TL''dir.
+
+    II. Karma değişirse, toplam satış hasılatı aynı kalsa bile faaliyet kârı azalır.
+
+    III. Yeni karmada başabaşa ulaşmak için B ürününden elde edilmesi gereken hasılat, mevcut karmadakine göre artar.
+
+    IV. Yeni karmada başabaş satış hasılatı, mevcut karmadakine göre %20 artar.
+
+
+    Yukarıdaki ifadelerden hangileri doğrudur?'
+  secenekler:
+    A: I ve II
+    B: I ve III
+    C: II ve IV
+    D: I, II ve III
+    E: I, III ve IV
+  dogru: A
+  aciklama:
+    dogru_neden: 'Mevcut ağırlıklı katkı payı oranı 0,5 × %25 + 0,5 × %50 = %37,5; başabaş hasılatı 360.000 / 0,375 = 960.000
+      TL (I doğru). Yeni karmada oran 0,8 × %25 + 0,2 × %50 = %30''a düşer; aynı hasılatta toplam katkı payı ve dolayısıyla
+      kâr azalır (II doğru). Yeni başabaş hasılatı 360.000 / 0,30 = 1.200.000 TL; B''ye düşen hasılat 1.200.000 × %20 = 240.000
+      TL olup mevcut karmadaki 960.000 × %50 = 480.000 TL''den azdır (III yanlış). Başabaş hasılatındaki artış 240.000 / 960.000
+      = %25''tir (IV yanlış). Püf noktaları: Karma düşük katkı paylı ürüne kayınca toplam başabaş hasılatı yükselir, ancak
+      yüksek katkı paylı ürünün başabaştaki payı küçülür. Yüzde artışı yeni değere değil eski değere göre hesaplayın: 240.000
+      / 1.200.000 = %20 hatalı bir bölmedir.'
+    celdiriciler:
+      B: 'III yanlıştır: B''nin başabaştaki hasılatı 480.000 TL''den 240.000 TL''ye düşer.'
+      C: 'IV yanlıştır: artış %25''tir; %20, artışın yeni başabaş hasılatına bölünmesiyle bulunur. Ayrıca doğru olan I dışarıda
+        bırakılmıştır.'
+      D: III yanlıştır; toplam başabaş hasılatı artsa da B'nin payı azalır.
+      E: III ve IV yanlıştır; doğru olan II dışarıda bırakılmıştır.
+  kaynaklar:
+  - mevzuat: Genel bilgi — Maliyet hacim kâr analizi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 6
+- id: YMM-YNM-MHK-0068
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Maliyet hacim kâr analizi
+  konu: MHK
+  kazanim: başabaş noktası
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin mevcut üretim yapısında birim satış fiyatı 100 TL, birim değişken maliyet 60 TL, yıllık sabit giderler
+    200.000 TL'dir. Değerlendirilen otomasyon projesinde birim değişken maliyet 40 TL'ye düşecek, yıllık sabit giderler 392.000
+    TL'ye çıkacak; ürün kalitesindeki artış nedeniyle birim satış fiyatı 104 TL'ye yükseltilebilecektir. Kurumlar vergisi
+    oranı %20, gelecek yıl beklenen satış miktarı 9.000 birimdir. Satış miktarı iki yapıda da aynı olacaktır. Yıllık satış
+    miktarı hangi düzeyi aştığında otomasyonlu yapı mevcut yapıdan daha yüksek faaliyet kârı sağlar?
+  secenekler:
+    A: 5.000 birim
+    B: 6.125 birim
+    C: 8.000 birim
+    D: 9.600 birim
+    E: 12.000 birim
+  dogru: C
+  aciklama:
+    dogru_neden: 'Mevcut yapıda birim katkı payı 100 − 60 = 40 TL, otomasyonda 104 − 40 = 64 TL''dir. Kayıtsızlık noktasında
+      iki yapının kârı eşittir: 40Q − 200.000 = 64Q − 392.000 → 24Q = 192.000 → Q = 8.000 birim. Bu miktarın üzerinde birim
+      başına 24 TL fazla katkı payı, 192.000 TL''lik ek sabit gideri aşar. Vergi oranı iki yapının kârını aynı oranda etkilediğinden
+      kayıtsızlık noktasını değiştirmez; beklenen satış miktarı da eşiğin hesabında kullanılmaz. Püf noktaları: Kayıtsızlık
+      noktası, ek sabit giderin birim katkı payı farkına bölünmesiyle bulunur; fiyat değişikliği de katkı payı farkına girer.
+      İki yapının ayrı ayrı başabaş noktaları bu soruyu cevaplamaz.'
+    celdiriciler:
+      A: Mevcut yapının başabaş noktasıdır (200.000 / 40); iki yapının karşılaştırılmasıyla ilgisi yoktur.
+      B: Otomasyonlu yapının başabaş noktasıdır (392.000 / 64); kârların eşitlendiği hacim değildir.
+      D: Fiyat artışı dikkate alınmamış; ek sabit gider yalnız değişken maliyet tasarrufuna (20 TL) bölünmüştür.
+      E: Fiyat artışı katkı payı farkını büyütmesi gerekirken farktan düşülmüş; 192.000 / (20 − 4) hesaplanmıştır.
+    hesap_adimlari:
+    - Mevcut birim katkı payı = 40 TL; otomasyonda = 64 TL
+    - Ek sabit gider = 392.000 − 200.000 = 192.000 TL
+    - Katkı payı farkı = 64 − 40 = 24 TL
+    - Kayıtsızlık noktası = 192.000 / 24 = 8.000 birim
+  kaynaklar:
+  - mevzuat: Genel bilgi — Maliyet hacim kâr analizi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kp_eski = 100 - 60
+
+      kp_yeni = 104 - 40
+
+      sonuc = (392000 - 200000) / (kp_yeni - kp_eski)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 7

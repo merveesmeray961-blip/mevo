@@ -1,0 +1,543 @@
+- id: YMM-YNM-BTC-0062
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Bütçeleme ve standart maliyet
+  konu: BTC
+  kazanim: ana bütçe
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Bir işletmenin gelecek döneme ilişkin bütçe verileri şöyledir: satış bütçesi 5.800 birim; mamul stoku dönem başında
+    600 birim, dönem sonunda hedeflenen 800 birim. Her birim mamul için 3 kg hammadde kullanılmaktadır. Hammadde stoku dönem
+    başında 2.000 kg olup dönem sonunda 2.500 kg olması hedeflenmektedir. Hammaddenin alış fiyatı kg başına 4 TL''dir. Buna
+    göre hammadde alım bütçesi kaç TL''dir?'
+  secenekler:
+    A: 69.200 TL
+    B: 70.000 TL
+    C: 71.600 TL
+    D: 72.000 TL
+    E: 74.000 TL
+  dogru: E
+  aciklama:
+    dogru_neden: Üretim bütçesi = satış + dönem sonu mamul stoku − dönem başı mamul stoku = 5.800 + 800 − 600 = 6.000 birim.
+      Üretim için hammadde ihtiyacı = 6.000 × 3 = 18.000 kg. Alınacak hammadde = ihtiyaç + dönem sonu hammadde stoku − dönem
+      başı hammadde stoku = 18.000 + 2.500 − 2.000 = 18.500 kg; tutar 18.500 × 4 = 74.000 TL.
+    celdiriciler:
+      A: 'Mamul stoku değişimi ters yönde uygulanmıştır (5.800 − 200 = 5.600 birim): (16.800 + 500) × 4.'
+      B: 'Hammadde stoku artışı ihtiyaca eklenmesi gerekirken düşülmüştür: (18.000 − 500) × 4.'
+      C: 'Mamul stoku değişimi göz ardı edilmiş, satış miktarı üretim sayılmıştır: (17.400 + 500) × 4.'
+      D: 'Hammadde stoku değişimi göz ardı edilmiş, üretim ihtiyacı alım miktarı sayılmıştır: 18.000 × 4.'
+    hesap_adimlari:
+    - Üretim = 5.800 + 800 − 600 = 6.000 birim
+    - Hammadde ihtiyacı = 6.000 × 3 = 18.000 kg
+    - Alım = 18.000 + 2.500 − 2.000 = 18.500 kg
+    - Alım bütçesi = 18.500 × 4 = 74.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Bütçeleme ve standart maliyet
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'uretim = 5800 + 800 - 600
+
+      ihtiyac = uretim * 3
+
+      alim = ihtiyac + 2500 - 2000
+
+      sonuc = alim * 4'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 15
+- id: YMM-YNM-BTC-0063
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Bütçeleme ve standart maliyet
+  konu: BTC
+  kazanim: ana bütçe
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletmenin bütçelenen satışları ocak 200.000 TL, şubat 300.000 TL, mart 250.000 TL'dir. Satışların %40'ı peşin,
+    %60'ı vadelidir. Vadeli satışların %70'i satışı izleyen ay, %30'u satıştan sonraki ikinci ay tahsil edilmektedir; şüpheli
+    alacak beklenmemektedir. Nakit bütçesinde mart ayı tahsilatı kaç TL olarak yer alır?
+  secenekler:
+    A: 162.000 TL
+    B: 226.000 TL
+    C: 238.000 TL
+    D: 259.000 TL
+    E: 262.000 TL
+  dogru: E
+  aciklama:
+    dogru_neden: 'Mart tahsilatı üç kaynaktan oluşur: mart peşin satışları 250.000 × %40 = 100.000 TL; şubat vadeli satışlarının
+      %70''i 300.000 × %60 × %70 = 126.000 TL; ocak vadeli satışlarının %30''u 200.000 × %60 × %30 = 36.000 TL. Toplam 262.000
+      TL.'
+    celdiriciler:
+      A: 'Mart ayının peşin satışları tahsilata eklenmemiştir: 126.000 + 36.000.'
+      B: 'Ocak vadeli satışlarından mart ayında tahsil edilecek %30''luk kısım unutulmuştur: 100.000 + 126.000.'
+      C: 'Tahsilat oranları yer değiştirmiş; şubat satışlarına %30, ocak satışlarına %70 uygulanmıştır: 100.000 + 54.000 +
+        84.000.'
+      D: 'Gecikme ayları kaydırılmış; mart vadeli satışlarına %70, şubat vadeli satışlarına %30 uygulanmıştır: 100.000 + 105.000
+        + 54.000.'
+    hesap_adimlari:
+    - Mart peşin = 250.000 × 0,40 = 100.000 TL
+    - Şubat vadelinin %70'i = 300.000 × 0,60 × 0,70 = 126.000 TL
+    - Ocak vadelinin %30'u = 200.000 × 0,60 × 0,30 = 36.000 TL
+    - Toplam = 262.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — Bütçeleme ve standart maliyet
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'pesin = 250000 * 0.4
+
+      subat = 300000 * 0.6 * 0.7
+
+      ocak = 200000 * 0.6 * 0.3
+
+      sonuc = round(pesin + subat + ocak, 4)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 16
+- id: YMM-YNM-BTC-0064
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Bütçeleme ve standart maliyet
+  konu: BTC
+  kazanim: malzeme ve işçilik sapmaları
+  tip: uygulama
+  zorluk: 3
+  kok: 'Bir işletmede bir birim mamul için standart olarak 4 kg malzeme, kg başına 10 TL öngörülmüştür. Dönemde 5.000 kg malzeme
+    toplam 48.000 TL''ye satın alınmış; 1.000 birim mamul üretimi için bunun 4.300 kg''ı kullanılmıştır. Dönem başında malzeme
+    stoku yoktur. İşletme malzeme fiyat sapmasını **satın alma anında** ayırmakta, malzeme stokunu standart fiyatla izlemektedir.
+
+
+    I. Malzeme fiyat sapması 2.000 TL olumludur.
+
+    II. Malzeme miktar sapması 2.880 TL olumsuzdur.
+
+    III. Dönem sonundaki 700 kg malzeme stoku 7.000 TL ile izlenir.
+
+
+    Yukarıdaki ifadelerden hangileri doğrudur?'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız III
+    C: I ve II
+    D: I ve III
+    E: I, II ve III
+  dogru: D
+  aciklama:
+    dogru_neden: 'Fiilî fiyat 48.000 / 5.000 = 9,60 TL''dir. Fiyat sapması satın alma anında ayrıldığından satın alınan miktarın
+      tamamına uygulanır: (9,60 − 10) × 5.000 = 2.000 TL olumlu (I doğru). Miktar sapması standart fiyatla ölçülür: (4.300
+      − 4.000) × 10 = 3.000 TL olumsuz (II yanlış). Stok standart fiyatla izlendiğinden kalan 700 kg, 700 × 10 = 7.000 TL
+      ile görünür (III doğru). Püf noktaları: Fiyat sapmasının ayrıldığı an, hangi miktara uygulanacağını belirler: alımda
+      ayrılırsa satın alınan, kullanımda ayrılırsa kullanılan miktar esas alınır. Miktar sapmasında fiilî fiyat değil standart
+      fiyat kullanılır.'
+    celdiriciler:
+      A: 'III de doğrudur: fiyat sapması alımda ayrıldığı için stoklar standart fiyatla (10 TL) izlenir.'
+      B: 'I de doğrudur: fiyat sapması satın alınan 5.000 kg üzerinden 2.000 TL olumludur.'
+      C: 'II yanlıştır: 2.880 TL, fazla kullanılan 300 kg''ın fiilî fiyatla (9,60 TL) çarpılmasıyla bulunur; miktar sapması
+        standart fiyatla 3.000 TL''dir. Ayrıca III doğrudur.'
+      E: II yanlıştır; miktar sapması 3.000 TL olumsuzdur.
+  kaynaklar:
+  - mevzuat: Genel bilgi — Bütçeleme ve standart maliyet
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 17
+- id: YMM-YNM-BTC-0065
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Bütçeleme ve standart maliyet
+  konu: BTC
+  kazanim: malzeme ve işçilik sapmaları
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmede bir birim mamul için standart olarak 2 direkt işçilik saati, saat başına 40 TL öngörülmüştür. Dönem için
+    bütçelenen üretim 1.000 birim, fiilî üretim 900 birimdir. Dönemde fiilî direkt işçilik maliyeti 77.900 TL olup işçilik
+    ücret (fiyat) sapması 1.900 TL olumsuz olarak hesaplanmıştır. Buna göre işçilik verimlilik (zaman) sapması kaç TL'dir?
+  secenekler:
+    A: 2.100 TL olumlu
+    B: 4.000 TL olumsuz
+    C: 4.100 TL olumsuz
+    D: 5.900 TL olumsuz
+    E: 7.800 TL olumsuz
+  dogru: B
+  aciklama:
+    dogru_neden: 'Ücret sapması = fiilî maliyet − fiilî saat × standart ücret → 77.900 − 40 × FS = 1.900 → 40 × FS = 76.000
+      → fiilî saat 1.900''dür (fiilî ücret 41 TL). Fiilî üretim için standart saat = 900 × 2 = 1.800 saat. Verimlilik sapması
+      = (1.900 − 1.800) × 40 = 4.000 TL olumsuz. Kontrol: toplam sapma 77.900 − 72.000 = 5.900 TL olumsuz = 1.900 + 4.000.
+      Püf noktaları: Olumsuz ücret sapması fiilî maliyetten çıkarılarak fiilî saat standart ücretle bulunur. Standart saat
+      bütçelenen değil fiilî üretim miktarına göre hesaplanır; verimlilik sapmasında standart ücret kullanılır.'
+    celdiriciler:
+      A: 'Standart maliyet bütçelenen üretime (1.000 × 2 × 40 = 80.000 TL) göre alınmış ve fiilî maliyetle karşılaştırılmıştır:
+        77.900 − 80.000.'
+      C: 'Verimlilik sapmasında standart ücret yerine fiilî ücret (41 TL) kullanılmıştır: 100 × 41.'
+      D: Toplam işçilik sapması (77.900 − 72.000) verimlilik sapması sanılmıştır.
+      E: 'Olumsuz ücret sapması fiilî maliyete eklenmiş; fiilî saat (77.900 + 1.900) / 40 = 1.995 bulunmuştur: 195 × 40.'
+    hesap_adimlari:
+    - Fiilî saat × standart ücret = 77.900 − 1.900 = 76.000 TL
+    - Fiilî saat = 76.000 / 40 = 1.900
+    - Standart saat = 900 × 2 = 1.800
+    - Verimlilik sapması = (1.900 − 1.800) × 40 = 4.000 TL olumsuz
+  kaynaklar:
+  - mevzuat: Genel bilgi — Bütçeleme ve standart maliyet
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fs = (77900 - 1900) / 40
+
+      ss = 900 * 2
+
+      sonuc = (fs - ss) * 40'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 18
+- id: YMM-YNM-BTC-0066
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Bütçeleme ve standart maliyet
+  konu: BTC
+  kazanim: genel üretim gideri sapmaları
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletme genel üretim giderlerini (GÜG) makine saatine göre yüklemektedir. Yıllık sabit GÜG bütçesi 180.000 TL,
+    normal kapasite 3.000 birim mamuldür; bir birim için standart süre 2 makine saatidir. Değişken GÜG standart oranı makine
+    saati başına 10 TL'dir. Dönemde 2.700 birim üretilmiş, 5.600 makine saati çalışılmış; fiilî değişken GÜG 57.000 TL, fiilî
+    sabit GÜG 183.000 TL olmuştur. Sabit GÜG sapması, bütçe (harcama) sapması ve hacim sapması olarak ikiye ayrılmaktadır.
+    Buna göre sabit GÜG hacim sapması kaç TL'dir?
+  secenekler:
+    A: 3.000 TL olumsuz
+    B: 6.000 TL olumsuz
+    C: 12.000 TL olumsuz
+    D: 15.000 TL olumsuz
+    E: 18.000 TL olumsuz
+  dogru: E
+  aciklama:
+    dogru_neden: 'Normal kapasite 3.000 × 2 = 6.000 makine saatidir; sabit GÜG yükleme oranı 180.000 / 6.000 = 30 TL/saat.
+      Fiilî üretim için standart saat 2.700 × 2 = 5.400 saattir; yüklenen sabit GÜG 5.400 × 30 = 162.000 TL. Hacim sapması
+      = bütçelenen − yüklenen = 180.000 − 162.000 = 18.000 TL olumsuz (kapasitenin altında üretim). Bütçe sapması 183.000
+      − 180.000 = 3.000 TL olumsuzdur; iki sapmanın toplamı toplam sabit GÜG sapmasına eşittir: 183.000 − 162.000 = 21.000
+      TL olumsuz. Püf noktaları: Hacim sapmasında fiilî saat değil fiilî üretim için izin verilen standart saat kullanılır.
+      Değişken GÜG verileri ve fiilî sabit GÜG hacim sapmasını etkilemez.'
+    celdiriciler:
+      A: 'Sabit GÜG bütçe (harcama) sapmasıdır: 183.000 − 180.000.'
+      B: 'Fiilî saat ile standart saat arasındaki fark sabit GÜG oranıyla çarpılmıştır: (5.600 − 5.400) × 30; bu tutar hacim
+        sapmasının yalnız bir kısmıdır.'
+      C: 'Standart saat yerine fiilî saat kullanılmıştır: 180.000 − 5.600 × 30.'
+      D: 'Bütçelenen yerine fiilî sabit GÜG, standart saat yerine fiilî saate göre yüklenen tutarla karşılaştırılmıştır: 183.000
+        − 5.600 × 30 = 15.000 TL. Hacim sapması bütçelenen sabit GÜG ile standart saate göre yüklenen tutar arasındaki farktır.'
+    hesap_adimlari:
+    - Normal kapasite = 3.000 × 2 = 6.000 saat
+    - Sabit GÜG oranı = 180.000 / 6.000 = 30 TL/saat
+    - Standart saat = 2.700 × 2 = 5.400
+    - Yüklenen sabit GÜG = 5.400 × 30 = 162.000 TL
+    - Hacim sapması = 180.000 − 162.000 = 18.000 TL olumsuz
+  kaynaklar:
+  - mevzuat: Genel bilgi — Bütçeleme ve standart maliyet
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'oran = 180000 / (3000 * 2)
+
+      ss = 2700 * 2
+
+      sonuc = 180000 - ss * oran'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 19
+- id: YMM-YNM-BTC-0067
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Bütçeleme ve standart maliyet
+  konu: BTC
+  kazanim: esnek bütçe
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletmenin statik bütçesi 10.000 birim satış, birim satış fiyatı 50 TL, birim değişken gider 30 TL ve sabit giderler
+    120.000 TL üzerine kurulmuştur. Dönemde 11.000 birim satılmış; satış hasılatı 528.000 TL, değişken giderler 341.000 TL,
+    sabit giderler 125.000 TL olmuştur. Esnek bütçe sapması, fiilî sonuçlar ile fiilî satış miktarına göre hazırlanan esnek
+    bütçe arasındaki farktır. Buna göre faaliyet kârına ilişkin esnek bütçe sapması kaç TL'dir?
+  secenekler:
+    A: 18.000 TL olumsuz
+    B: 20.000 TL olumlu
+    C: 26.000 TL olumsuz
+    D: 33.000 TL olumsuz
+    E: 38.000 TL olumsuz
+  dogru: E
+  aciklama:
+    dogru_neden: 'Fiilî kâr = 528.000 − 341.000 − 125.000 = 62.000 TL. 11.000 birimlik esnek bütçe: hasılat 550.000, değişken
+      gider 330.000, sabit gider 120.000 (faaliyet hacmiyle değişmez), kâr 100.000 TL. Esnek bütçe sapması = 62.000 − 100.000
+      = 38.000 TL olumsuz. Bunun 22.000 TL''si fiyat düşüşünden, 11.000 TL''si değişken gider aşımından, 5.000 TL''si sabit
+      gider aşımından kaynaklanır. Püf noktaları: Esnek bütçede yalnız değişken kalemler fiilî hacme uyarlanır; sabit giderler
+      bütçelenen tutarda kalır. Statik bütçe ile esnek bütçe arasındaki fark (20.000 TL olumlu) satış hacmi sapmasıdır, esnek
+      bütçe sapması değildir.'
+    celdiriciler:
+      A: Fiilî kâr statik bütçe kârıyla (80.000 TL) karşılaştırılmıştır; bu, toplam (statik bütçe) sapmadır.
+      B: Esnek bütçe kârı ile statik bütçe kârı arasındaki fark, yani satış hacmi sapması bulunmuştur.
+      C: Sabit giderler de hacimle orantılı artırılarak (132.000 TL) esnek bütçe kârı 88.000 TL bulunmuştur.
+      D: Sabit giderlerdeki 5.000 TL'lik aşım dikkate alınmamış, yalnız hasılat ve değişken gider farkları toplanmıştır.
+    hesap_adimlari:
+    - Fiilî kâr = 528.000 − 341.000 − 125.000 = 62.000 TL
+    - Esnek bütçe kârı = 11.000 × (50 − 30) − 120.000 = 100.000 TL
+    - Esnek bütçe sapması = 62.000 − 100.000 = 38.000 TL olumsuz
+  kaynaklar:
+  - mevzuat: Genel bilgi — Bütçeleme ve standart maliyet
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fiili = 528000 - 341000 - 125000
+
+      esnek = 11000 * (50 - 30) - 120000
+
+      sonuc = esnek - fiili'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 20
+- id: YMM-YNM-BTC-0068
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Bütçeleme ve standart maliyet
+  konu: BTC
+  kazanim: genel üretim gideri sapmaları
+  tip: uygulama
+  zorluk: 3
+  kok: Bir işletmede bir birim mamul için standart olarak 3 direkt işçilik saati, saat başına 50 TL öngörülmüştür; değişken
+    genel üretim gideri (GÜG) direkt işçilik saatine göre saat başına 20 TL standart oranla yüklenmektedir. Dönemde 500 birim
+    üretilmiş, 1.600 direkt işçilik saati çalışılmıştır. Fiilî direkt işçilik maliyeti 78.400 TL, fiilî değişken GÜG 33.600
+    TL'dir. Buna göre aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Değişken GÜG harcama sapması 1.600 TL olumludur.
+    B: İşçilik ücret sapması 1.600 TL olumludur.
+    C: İşçilik verimlilik sapması 5.000 TL olumsuzdur.
+    D: Değişken GÜG verimlilik sapması 2.000 TL olumsuzdur.
+    E: İşçilik ve değişken GÜG sapmalarının toplamı 7.000 TL olumsuzdur.
+  dogru: A
+  aciklama:
+    dogru_neden: 'Fiilî saat başına değişken GÜG 33.600 / 1.600 = 21 TL olup standart oranın (20 TL) üzerindedir. Harcama
+      sapması = 33.600 − 1.600 × 20 = 1.600 TL **olumsuzdur**; A yanlıştır. Püf noktaları: İşçilikte fiilî ücret (49 TL) standardın
+      altında olduğu için ücret sapması olumludur; değişken GÜG''de ise saat başına fiilî gider standardın üzerindedir. Tutarların
+      aynı (1.600 TL) çıkması yönlerinin de aynı olduğu anlamına gelmez. Değişken GÜG işçilik saatine göre yüklendiğinden
+      fazla çalışılan 100 saat hem işçilik hem GÜG verimlilik sapmasını olumsuz etkiler.'
+    celdiriciler:
+      B: 'Doğrudur: fiilî ücret 78.400 / 1.600 = 49 TL; (49 − 50) × 1.600 = 1.600 TL olumlu.'
+      C: 'Doğrudur: standart saat 500 × 3 = 1.500; (1.600 − 1.500) × 50 = 5.000 TL olumsuz.'
+      D: 'Doğrudur: (1.600 − 1.500) × 20 = 2.000 TL olumsuz.'
+      E: 'Doğrudur: işçilik 78.400 − 75.000 = 3.400 TL, değişken GÜG 33.600 − 30.000 = 3.600 TL; toplam 7.000 TL olumsuz.'
+  kaynaklar:
+  - mevzuat: Genel bilgi — Bütçeleme ve standart maliyet
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi YNM-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_YNM-1.yaml, satır 21
