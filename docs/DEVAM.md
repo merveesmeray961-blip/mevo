@@ -36,7 +36,7 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
    **Token tasarrufu (kullanıcı isteği, 2026-10-11):** aynı anda en çok 2 ajan; yazara `docs/devir/araclar/ymm_baglam.py`
    ile üretilen ders özeti verilir (banka YAML'larını okumaz); hakem ajanları ucuz modelde (sonnet) çalışır.
    Ölçüm: yazar ajanı ~300–350 bin token / 24 soru + 3 klasik; hakem ~150–200 bin token.
-   İlk yarılar tamam: DRM, IFM, HSV, VTK, REV hakemden geçti (test 147/152 kabul, klasik 14/16); GUV hakemde.
+   İlk yarılar tamam: DRM, IFM, HSV, VTK, REV hakemden geçti (test 126/128 kabul, klasik 14/16); GUV hakemde.
    İkinci yarılar (GUV-2, IFM-2, VTK-2, HSV-2, REV-2) yazılıyor; kalan: DRM-2, SPM-1/2, DTK-1/2, FYN-1/2, YNM-1/2.
    Hakem girdisi: `<SCRATCHPAD>/hakem_girdi.py DERS klasör` (kor/anahtar/klasik dosyaları), terfi: ymm_terfi.py karar dosyasıyla.
    Teslim alma: `python -m pipeline.uretici_paketi al t_X.yaml <parti> --sinav ymm` + `python -m pipeline.klasik al t_X.yaml`,
