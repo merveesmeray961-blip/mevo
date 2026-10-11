@@ -7,7 +7,7 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
 - Türkiye SMMM sınavına (Yeterlilik + SGS) hazırlık için çevrimdışı Android uygulaması (`app.mevo.smmm`), sahibi Merve.
   Ek hedef: YMM sınavı. Biz **denetleyiciyiz**: dış üreticilerden (ChatGPT, Grok, Gemini…) gelen soru/anlatımı eler,
   hakemden geçirir, uygulamaya alırız.
-- Dal: yalnız `claude/merhaba-asistanim-afg6o4`; push öncesi `git pull --rebase`. PR açma (istenmedikçe).
+- Dal: oturumun verdiği dal (son: `claude/devam-md-continue-itrwgl`); push öncesi `git pull --rebase`. PR açma (istenmedikçe).
   Commit sonu: `Co-Authored-By` + `Claude-Session` satırları (sistem hatırlatmasındaki). Repo içeriğine model adı yazma.
 - Commit EDİLMEZ: `.gizli/`, `key.properties`, `*.jks`, build çıktıları, TESMER/ÖSYM kitapçıkları, resmî PDF'ler
   (mevzuat `.txt` metinleri commit edilir).
@@ -23,13 +23,20 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
 |---|---|
 | SMMM soru bankası | 3364 kontrolde (uygulamada 3362), 411 geri çekildi, 72 taslak |
 | Konu anlatımı | **69/69 konu** tamam (`content/anlatim/smmm/<DERS>/<KONU>.md`), baş editör revizyonu yapıldı; kayıt `docs/denetim/2026-10-11_anlatim_revizyon.json` (266 düzeltme) |
+| YMM altyapısı | Uygulamada YMM bölümü, klasik soru çalışma/deneme/öz puanlama hazır; `content/sinavlar/ymm.yaml` içinde `yayinda: true` yapılınca pakete girer (şu an kapalı). Klasik soru: şema `content/schema/klasik.schema.json`, kayıtlar `content/klasik/ymm/`, hat `python -m pipeline.klasik al|denetle` |
 | YMM soruları | 1433 geldi; kitap düzeyi hakem sonrası **291 kontrolde**, 1142 geri çekildi (`docs/denetim/2026-10-11_ymm_hakem.json`). Kabul edilenlerde zor seviye yok → YMM bölümü uygulamaya **eklenmedi** |
 | Uygulama | Sürüm 1.0.5+6, 310 Flutter + 67 Python testi geçiyor, APK/AAB derleniyor |
 | Mağaza görselleri | `docs/magaza/gorseller/` hazır |
 
 ## Bekleyen işler (öncelik sırası)
 
-1. **YMM soruları:** Kullanıcıya öneri sunuldu, onay bekleniyor: soruları ders ders, zorluk dağılımı önceden
+1. **YMM soruları (kullanıcı onayladı: kendi hattımızda + klasik soru türü):** Yazar talimatı `docs/devir/YMM_YAZAR_TALIMATI.md`
+   (scratchpad'e kopyalanıp `<SCRATCHPAD>` doldurulur). Ders yarıları görev kodu: IFM-1 {KON,ENF,FAR,KUR}, IFM-2 {KIR,VRG,BDB},
+   FYN-1/2, YNM-1/2 (konu başına 2 orta + 5 zor), DRM-1 {BDS,RAP,YMM}, DRM-2 {MHK,KGK}, REV, VTK, GUV, HSV, SPM, DTK.
+   20 ajan aynı anda kullanım sınırını tüketti → en çok 6 ajan; ajanlar her konudan sonra dosyayı yazar.
+   Teslim alma: `python -m pipeline.uretici_paketi al t_X.yaml <parti> --sinav ymm` + `python -m pipeline.klasik al t_X.yaml`,
+   sonra bağımsız hakem (MC: `docs/devir/YMM_HAKEM_TALIMATI.md`; klasik için de hakem) ve `ymm_terfi.py`.
+   Eski not: soruları ders ders, zorluk dağılımı önceden
    belirlenmiş şekilde (kolay/orta/zor), dış üretici yerine kendi hattımızda yazdırmak. Ölçüt düşürülmez (soru bankası kitabı
    kalitesi). Hakem talimatı: `docs/devir/YMM_HAKEM_TALIMATI.md`; kararları uygulayan betik: `docs/devir/araclar/ymm_terfi.py`.
    Sonra uygulamaya YMM bölümü: bölüm seçimi, dersler, deneme biçimi (YMM sınavı klasik yazılıdır; "klasik soru türü"
