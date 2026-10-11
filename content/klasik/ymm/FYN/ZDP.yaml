@@ -166,7 +166,7 @@
 
       sonuc = {''tahvil_fiyati'': round(p0,2), ''fiyat_1yil'': round(p1,2), ''hpr'': round(hpr,4), ''uc_deger_p2'': round(p2,2),
       ''pay_degeri'': round(pay,2), ''taksit_donem_sonu'': round(762500/fvifa,2), ''taksit_donem_basi'': round(762500/(fvifa*1.25),2)}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -177,8 +177,14 @@
         sonuc: gecti
         tarih: '2026-10-11'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-11'
     kim: uretici
     ne: harici teslim t_FYN-1.yaml, klasik 1
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
