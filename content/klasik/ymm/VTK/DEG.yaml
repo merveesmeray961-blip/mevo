@@ -128,7 +128,7 @@
       sonuc = {\"bina_fon\": round(bina_fon), \"makine_fon\": round(mak_fon), \"toplam_fon\": round(bina_fon + mak_fon),\n\
       \         \"bina_amort_2027\": round(bina_amort_2027), \"makine_amort_2027\": round(mak_amort_2027),\n         \"satis_kari\"\
       : round(satis_kari)}"
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -139,8 +139,28 @@
         sonuc: gecti
         tarih: '2026-10-11'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: '(c)-(d) mevzuata aykırı varsayım: gün esası (VUK 320/3) seçilmemiş normal amortismanda, yıl içinde (Aralık 2027)
+          satılan makineye satış yılında amortisman ayrılmaz; amortisman yıl sonu değerleme işlemidir ve kıymet 31.12.2027''de
+          aktifte değildir. Kökteki ''2027 amortismanı ayrıldıktan sonra'' ifadesi ve (c)''deki makine için 240.000 TL 2027
+          amortismanı bu nedenle hatalı. Doğrusu: makine için 2027 amortismanı yok; satışta 257 B 960.000, 522 B 240.000,
+          102 B 1.800.000 / 253 A 2.400.000, 679 A 600.000 → satış kârı 600.000 TL (840.000 değil). Düzeltme: ya kökte gün
+          esası seçildiği belirtilip 2027 amortismanı gün esasıyla hesaplanmalı ya da (c) yalnız bina için sorulup (d) 600.000
+          TL''ye göre yeniden yazılmalı (puanlama da buna göre). Diğer kısımlar (kapsam, 298/Ç-8/9/13, fon 960.000+240.000=1.200.000,
+          kayıtlar, bina 2027 amortismanı 144.000) doğru.'
   gecmis:
   - tarih: '2026-10-11'
     kim: uretici
     ne: harici teslim t_VTK-1.yaml, klasik 1
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: '(c)-(d) mevzuata aykırı varsayım: gün esası (VUK 320/3) seçilmemiş normal amortismanda, yıl içinde (Aralık 2027)
+      satılan makineye satış yılında amortisman ayrılmaz; amortisman yıl sonu değerleme işlemidir ve kıymet 31.12.2027''de
+      aktifte değildir. Kökteki ''2027 amortismanı ayrıldıktan sonra'' ifadesi ve (c)''deki makine için 240.000 TL 2027 amortismanı
+      bu nedenle hatalı. Doğrusu: makine için 2027 amortismanı yok; satışta 257 B 960.000, 522 B 240.000, 102 B 1.800.000
+      / 253 A 2.400.000, 679 A 600.000 → satış kârı 600.000 TL (840.000 değil). Düzeltme: ya kökte gün esası seçildiği belirtilip
+      2027 amortismanı gün esasıyla hesaplanmalı ya da (c) yalnız bina için sorulup (d) 600.000 TL''ye göre yeniden yazılmalı
+      (puanlama da buna göre). Diğer kısımlar (kapsam, 298/Ç-8/9/13, fon 960.000+240.000=1.200.000, kayıtlar, bina 2027 amortismanı
+      144.000) doğru.'
