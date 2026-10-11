@@ -178,7 +178,7 @@
       \   return round(v, 2)\nes_matrah = net / 4 - istisna\ncocuk_matrah = net * 3 / 8 - istisna\nsonuc = {'net_tereke':\
       \ net, 'es_matrah': es_matrah, 'es_vergi': vergi(es_matrah), 'cocuk_matrah': cocuk_matrah, 'cocuk_vergi': vergi(cocuk_matrah),\
       \ 'toplam': round(vergi(es_matrah) + 2 * vergi(cocuk_matrah), 2)}"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -189,8 +189,14 @@
         sonuc: gecti
         tarih: '2026-10-11'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: güven 4, seviye 2
   gecmis:
   - tarih: '2026-10-11'
     kim: uretici
     ne: harici teslim t_HSV-2.yaml, klasik 2
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
