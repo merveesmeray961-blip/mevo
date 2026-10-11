@@ -139,6 +139,10 @@ def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool =
     if ymm:
         paket["klasik"], klasik_elenen = klasik.paket_icin("ymm")
         elenen += klasik_elenen
+        if puf_ayir:  # YMM konu anlatımları (dış üreticiden gelip denetimden geçenler)
+            ymm_anlatim, ymm_anlatim_elenen = anlatim.paket_icin(anlatim.klasor("ymm"), "ymm")
+            paket["anlatimlar"] += ymm_anlatim
+            elenen += [{"id": e["dosya"], "hatalar": e["hatalar"]} for e in ymm_anlatim_elenen]
     hedef.parent.mkdir(parents=True, exist_ok=True)
     metin = json.dumps(paket, ensure_ascii=False, separators=(",", ":"))
     hedef.write_text(metin, encoding="utf-8")

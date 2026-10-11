@@ -28,6 +28,18 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
 | Uygulama | Sürüm 1.0.5+6, 310 Flutter + 67 Python testi geçiyor, APK/AAB derleniyor |
 | Mağaza görselleri | `docs/magaza/gorseller/` hazır |
 
+## Dış üretici hattı (YMM, 2026-10-11 kullanıcı kararı: üretim ChatGPT/Gemini/Grok'a, biz ön eleme + hakem)
+
+1. Paketler: `python -m pipeline.ymm_gorev paket` (plan `content/gorevler/ymm_<tarih>.json`: 103 görev, 2965 test +
+   349 klasik, eleme payı ×1.3; hedef ders başına 300 test + 30 klasik). Anlatım: `python -m pipeline.anlatim paket
+   IFM,...,SPM --sinav ymm`. Zip'ler `uretici_paketleri/` (depoya girmez). Kurallar: `docs/uretici/YMM_MANIFESTO.md`
+   (K01–K34), `docs/uretici/YMM_ANLATIM_KURALLARI.md` (A00–A08); kullanıcıya verilecek istem: `YMM_PROMPT.md`,
+   `YMM_ANLATIM_PROMPT.md`.
+2. Teslim gelince (token harcamaz): `python -m pipeline.on_eleme teslim.yaml` → `teslim.rapor.md` (ret kodlarıyla);
+   `--al 3` geçenleri taslak alır. Anlatım: `python -m pipeline.anlatim on_eleme teslim.zip --sinav ymm [--al]`.
+3. Hakem (token harcar, en çok 2 ajan): `hakem_girdi.py` → `YMM_HAKEM_TALIMATI.md` / `YMM_KLASIK_HAKEM_TALIMATI.md`
+   → `ymm_terfi.py` / `klasik terfi` → `disa_aktar --uygulama` (ELENDİ listesi boş olmalı) → `sik_dengele`.
+
 ## Bekleyen işler (öncelik sırası)
 
 1. **YMM soruları (kullanıcı onayladı: kendi hattımızda + klasik soru türü):** Yazar talimatı `docs/devir/YMM_YAZAR_TALIMATI.md`
