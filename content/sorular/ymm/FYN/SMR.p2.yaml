@@ -1,0 +1,546 @@
+- id: YMM-FYN-SMR-0056
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye maliyeti ve sermaye yapısı
+  konu: SMR
+  kazanim: ağırlıklı ortalama sermaye maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: Z A.Ş.'nin 10.000 adet payı borsada 60 TL'den işlem görmektedir; pay başına defter değeri 20 TL'dir. Şirketin tek borcu
+    400.000 TL tutarındaki banka kredisidir ve kredinin piyasa değeri defter değerine eşittir. Özkaynak maliyeti %20, kredinin
+    vergi öncesi maliyeti %15, kurumlar vergisi oranı %20'dir. Piyasa değeri ağırlıklarıyla hesaplanan ağırlıklı ortalama
+    sermaye maliyeti (AOSM) yüzde kaçtır?
+  secenekler:
+    A: '%14,67'
+    B: '%15,20'
+    C: '%16,00'
+    D: '%16,80'
+    E: '%18,00'
+  dogru: D
+  aciklama:
+    dogru_neden: Özkaynağın piyasa değeri 10.000 × 60 = 600.000 TL, borç 400.000 TL; toplam 1.000.000 TL. Ağırlıklar %60 özkaynak,
+      %40 borç. Vergi sonrası borç maliyeti 15 × (1 − 0,20) = %12. AOSM = 0,60 × 20 + 0,40 × 12 = 12 + 4,8 = %16,80.
+    celdiriciler:
+      A: 'Defter değeri ağırlıkları kullanılmıştır (özkaynak 200.000, borç 400.000): 1/3 × 20 + 2/3 × 12 = %14,67.'
+      B: 'Ağırlıklar ters eşleştirilmiştir: 0,40 × 20 + 0,60 × 12 = %15,20.'
+      C: 'Ağırlıklandırma yapılmadan basit ortalama alınmıştır: (20 + 12) / 2 = %16.'
+      E: 'Borcun vergi kalkanı ihmal edilmiştir: 0,60 × 20 + 0,40 × 15 = %18.'
+    hesap_adimlari:
+    - 'Özkaynak PD: 600.000; borç: 400.000'
+    - kd(1 − t) = %12
+    - AOSM = 12 + 4,8 = %16,80
+  kaynaklar:
+  - mevzuat: Genel bilgi — ağırlıklı ortalama sermaye maliyeti
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'e = 10000*60
+
+      d = 400000
+
+      sonuc = round((e*20 + d*15*0.8)/(e+d), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 15
+- id: YMM-FYN-SMR-0057
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye maliyeti ve sermaye yapısı
+  konu: SMR
+  kazanim: optimal sermaye yapısı
+  tip: kavrama
+  zorluk: 2
+  kok: Sermaye yapısı teorileriyle ilgili aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Vergisiz Modigliani-Miller yaklaşımına göre, faaliyet riski ve nakit akışları aynı olan borçlu ve borçsuz firmaların
+      değerleri eşittir.
+    B: Vergisiz Modigliani-Miller yaklaşımına göre borç oranı arttıkça özkaynak maliyeti yükselir, AOSM ise değişmez.
+    C: Kurumlar vergisinin dikkate alındığı Modigliani-Miller yaklaşımında borçlu firmanın değeri, borçsuz firmanın değerine
+      faiz vergi kalkanının bugünkü değeri eklenerek bulunur.
+    D: Dengeleme (trade-off) teorisine göre optimal borç düzeyi, ek borcun vergi kalkanı faydasının beklenen finansal sıkıntı
+      maliyetlerindeki artışa eşitlendiği noktadır.
+    E: Finansman hiyerarşisi (pecking order) teorisine göre işletmeler dış kaynağa gerektiğinde önce yeni pay ihracına, ardından
+      borçlanmaya başvurur.
+  dogru: E
+  aciklama:
+    dogru_neden: Finansman hiyerarşisi teorisine göre bilgi asimetrisi nedeniyle işletmeler önce iç kaynakları (dağıtılmamış
+      kârlar), dış kaynak gerekirse önce borcu, en son yeni pay ihracını kullanır. Yeni pay ihracı, yöneticilerin payın aşırı
+      değerli olduğunu düşündüğü sinyalini verdiğinden en son tercihtir. E'deki sıralama terstir.
+    celdiriciler:
+      A: 'Doğrudur: vergisiz MM''nin I. önermesine göre firma değeri sermaye yapısından bağımsızdır.'
+      B: 'Doğrudur: vergisiz MM''nin II. önermesine göre özkaynak maliyeti borç/özkaynak oranıyla doğrusal artar; ucuz borcun
+        faydası bu artışla tam olarak dengelendiğinden AOSM sabit kalır.'
+      C: 'Doğrudur: vergili MM''de VL = VU + vergi kalkanının bugünkü değeri (süresiz borçta t × B).'
+      D: 'Doğrudur: dengeleme teorisinde optimal nokta, marjinal vergi kalkanı faydası ile marjinal beklenen finansal sıkıntı
+        maliyetinin eşitlendiği borç düzeyidir.'
+  kaynaklar:
+  - mevzuat: Genel bilgi — optimal sermaye yapısı
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 16
+- id: YMM-FYN-SMR-0058
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye maliyeti ve sermaye yapısı
+  konu: SMR
+  kazanim: CAPM ve beta
+  tip: hesaplama
+  zorluk: 3
+  kok: Halka açık olmayan K A.Ş., sermaye maliyetini belirlemek için aynı sektörde faaliyet gösteren halka açık L A.Ş.'nin
+    verilerini kullanacaktır. L A.Ş.'nin kaldıraçlı betası 1,4, piyasa değerleriyle borç/özkaynak oranı 0,5'tir. K A.Ş.'nin
+    hedef sermaye yapısı %50 borç, %50 özkaynaktır ve borcunun vergi öncesi maliyeti %15'tir. Risksiz getiri %10, piyasa portföyünün
+    beklenen getirisi %16, her iki şirket için kurumlar vergisi oranı %20'dir. Betanın βL = βU × [1 + (1 − t) × B/Ö] eşitliğiyle
+    düzeltildiği ve özkaynak maliyetinin CAPM ile bulunduğu varsayımıyla K A.Ş.'nin AOSM'si yüzde kaçtır?
+  secenekler:
+    A: '%14,00'
+    B: '%15,20'
+    C: '%16,40'
+    D: '%17,00'
+    E: '%17,90'
+  dogru: C
+  aciklama:
+    dogru_neden: 'L''nin kaldıraçsız betası: βU = 1,4 / [1 + 0,8 × 0,5] = 1,4 / 1,4 = 1,0. K''nın B/Ö oranı 0,50 / 0,50 =
+      1; βL = 1,0 × (1 + 0,8 × 1) = 1,8. Özkaynak maliyeti = 10 + 1,8 × (16 − 10) = %20,8. Vergi sonrası borç maliyeti = 15
+      × 0,8 = %12. AOSM = 0,5 × 20,8 + 0,5 × 12 = 10,4 + 6 = %16,40. Püf noktaları: Benzer firmanın betası önce kendi borç/özkaynak
+      oranıyla kaldıraçtan arındırılır, sonra hedef firmanın borç/özkaynak oranıyla (borç/toplam değer oranıyla değil) yeniden
+      kaldıraçlandırılır; %50 borç ağırlığı B/Ö = 1 demektir.'
+    celdiriciler:
+      A: 'Kaldıraçsız beta (1,0) doğrudan kullanılmıştır: ke = %16; AOSM = 8 + 6 = %14.'
+      B: 'L''nin kaldıraçlı betası (1,4) olduğu gibi kullanılmış ya da yeniden kaldıraçlandırmada B/Ö yerine borç ağırlığı
+        (0,5) alınmıştır: ke = %18,4; AOSM = 9,2 + 6 = %15,20.'
+      D: 'Yeniden kaldıraçlandırmada (1 − t) çarpanı unutulmuştur: βL = 2,0; ke = %22; AOSM = 11 + 6 = %17.'
+      E: 'Borç maliyetinde vergi kalkanı ihmal edilmiştir: 10,4 + 0,5 × 15 = %17,90.'
+    hesap_adimlari:
+    - βU = 1,4 / 1,4 = 1,0
+    - K için B/Ö = 1 → βL = 1,8
+    - ke = 10 + 1,8 × 6 = %20,8
+    - kd(1 − t) = %12
+    - AOSM = 10,4 + 6 = %16,40
+  kaynaklar:
+  - mevzuat: Genel bilgi — CAPM ve beta
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'bu = 1.4/(1 + 0.8*0.5)
+
+      bl = bu*(1 + 0.8*1)
+
+      ke = 10 + bl*(16-10)
+
+      sonuc = round(0.5*ke + 0.5*15*0.8, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 17
+- id: YMM-FYN-SMR-0059
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye maliyeti ve sermaye yapısı
+  konu: SMR
+  kazanim: finansal kaldıraç
+  tip: hesaplama
+  zorluk: 3
+  kok: M A.Ş.'nin birleşik kaldıraç derecesi 6, faaliyet kaldıraç derecesi 2'dir. Şirketin faiz ve vergi öncesi kârı (FVÖK)
+    300.000 TL'dir. Şirket ayrıca imtiyazlı pay sahiplerine yılda 24.000 TL kâr payı ödemektedir; imtiyazlı kâr payı vergi
+    sonrası kârdan ödenir ve vergi matrahından indirilemez. Kurumlar vergisi oranı %20'dir. Buna göre şirketin yıllık faiz
+    gideri kaç TL'dir?
+  secenekler:
+    A: 170.000 TL
+    B: 176.000 TL
+    C: 195.000 TL
+    D: 200.000 TL
+    E: 220.000 TL
+  dogru: A
+  aciklama:
+    dogru_neden: 'Birleşik kaldıraç = faaliyet kaldıracı × finansal kaldıraç olduğundan FKD = 6 / 2 = 3. İmtiyazlı kâr payı
+      vergi sonrası ödendiğinden vergi öncesi karşılığı 24.000 / (1 − 0,20) = 30.000 TL''dir. FKD = FVÖK / [FVÖK − Faiz −
+      30.000] → 3 = 300.000 / (300.000 − Faiz − 30.000) → 300.000 − Faiz − 30.000 = 100.000 → Faiz = 170.000 TL. Püf noktaları:
+      Kaldıraç dereceleri toplanmaz ya da çıkarılmaz, çarpılır; imtiyazlı kâr payı FKD formülüne vergi öncesi tutara çevrilerek
+      girer.'
+    celdiriciler:
+      B: 'İmtiyazlı kâr payı vergi öncesine çevrilmeden (24.000) düşülmüştür: 300.000 − 100.000 − 24.000.'
+      C: 'FKD, BKD − FKD = 6 − 2 = 4 alınmıştır: 300.000 / 4 = 75.000; Faiz = 300.000 − 75.000 − 30.000.'
+      D: 'İmtiyazlı kâr payı hiç dikkate alınmamıştır: 300.000 − 100.000.'
+      E: 'FKD, birleşik kaldıraç derecesine (6) eşit alınmıştır: 300.000 / 6 = 50.000; Faiz = 300.000 − 50.000 − 30.000.'
+    hesap_adimlari:
+    - FKD = 6 / 2 = 3
+    - 'Vergi öncesi imtiyazlı kâr payı: 24.000 / 0,8 = 30.000'
+    - FVÖK − Faiz − 30.000 = 300.000 / 3 = 100.000
+    - Faiz = 170.000 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal kaldıraç
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fkd = 6/2
+
+      sonuc = round(300000 - 300000/fkd - 24000/(1-0.2), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 18
+- id: YMM-FYN-SMR-0060
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye maliyeti ve sermaye yapısı
+  konu: SMR
+  kazanim: optimal sermaye yapısı
+  tip: uygulama
+  zorluk: 3
+  kok: 'Tamamı özkaynakla finanse edilen ve 100.000 adet payı bulunan N A.Ş., 1.000.000 TL''lik yeni yatırımı için iki finansman
+    seçeneğini değerlendirmektedir: (1) pay başına 20 TL''den 50.000 adet yeni pay ihracı, (2) yıllık %15 faizli 1.000.000
+    TL kredi. Kurumlar vergisi oranı %20''dir; ihraç maliyeti ve imtiyazlı pay yoktur. Buna göre aşağıdaki ifadelerden hangileri
+    doğrudur?
+
+
+    I. İki seçenekte hisse başına kârı (HBK) eşitleyen FVÖK 450.000 TL''dir.
+
+    II. Bu FVÖK düzeyinde her iki seçenekte HBK 2,40 TL''dir.
+
+    III. Beklenen FVÖK 600.000 TL ise kredi seçeneği daha yüksek HBK sağlar.
+
+    IV. Kurumlar vergisi oranı %25 olsaydı, HBK''yı eşitleyen FVÖK düzeyi daha düşük olurdu.'
+  secenekler:
+    A: I ve II
+    B: II ve IV
+    C: I, III ve IV
+    D: I ve III
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: 'Kayıtsızlık noktası: FVÖK × 0,8 / 150.000 = (FVÖK − 150.000) × 0,8 / 100.000 → 100.000 × FVÖK = 150.000
+      × FVÖK − 22.500.000.000 → FVÖK = 450.000 TL (I doğru). HBK = 450.000 × 0,8 / 150.000 = 2,40 TL; kredi seçeneğinde (450.000
+      − 150.000) × 0,8 / 100.000 = 2,40 TL (II doğru). FVÖK 600.000 TL''de: pay ihracı 480.000 / 150.000 = 3,20 TL; kredi
+      450.000 × 0,8 / 100.000 = 3,60 TL (III doğru). Vergi çarpanı (1 − t) eşitliğin iki yanında da bulunduğundan sadeleşir;
+      imtiyazlı pay olmadığında vergi oranı kayıtsızlık FVÖK''ünü değiştirmez (IV yanlış). Püf noktaları: FVÖK kayıtsızlık
+      noktasının üzerindeyse borçla finansman HBK''yı artırır; vergi oranı yalnız imtiyazlı kâr payı varsa kayıtsızlık noktasını
+      etkiler.'
+    celdiriciler:
+      A: 'III de doğrudur: 600.000 TL FVÖK kayıtsızlık noktasının üzerinde olduğundan kredi seçeneği 3,60 TL ile daha yüksek
+        HBK sağlar.'
+      B: IV yanlıştır; I de doğrudur.
+      C: 'IV yanlıştır: (1 − t) çarpanı iki tarafta sadeleşir, kayıtsızlık FVÖK''ü vergi oranından bağımsızdır; ayrıca II
+        de doğrudur.'
+      D: 'II de doğrudur: kayıtsızlık FVÖK''ünde her iki seçenekte HBK 2,40 TL''dir.'
+    hesap_adimlari:
+    - FVÖK/150.000 = (FVÖK − 150.000)/100.000 → FVÖK = 450.000
+    - HBK = 360.000 / 150.000 = 2,40
+    - 'FVÖK 600.000: pay 3,20; kredi 3,60'
+  kaynaklar:
+  - mevzuat: Genel bilgi — optimal sermaye yapısı
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 19
+- id: YMM-FYN-SMR-0061
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye maliyeti ve sermaye yapısı
+  konu: SMR
+  kazanim: ağırlıklı ortalama sermaye maliyeti
+  tip: hesaplama
+  zorluk: 3
+  kok: R A.Ş.'nin hedef sermaye yapısı %50 borç, %50 özkaynaktır. Şirketin bu yıl yatırıma ayırabileceği dağıtılmamış kârı
+    300.000 TL'dir; özkaynak ihtiyacı bu tutarı aşarsa yeni pay ihraç edilecektir. Pay fiyatı 40 TL, gelecek yıl beklenen
+    kâr payı (D1) 4 TL, kâr paylarının sabit büyüme oranı %10'dur. Yeni pay ihracında ihraç maliyeti pay fiyatının %20'sidir.
+    Borcun vergi öncesi maliyeti %15'tir ve tutardan bağımsızdır; kurumlar vergisi oranı %20'dir. Şirket hedef sermaye yapısına
+    uygun olarak toplam 800.000 TL'lik yatırım yaparsa, bu bütçenin son lirasının (marjinal) sermaye maliyeti yüzde kaçtır?
+  secenekler:
+    A: '%16,00'
+    B: '%17,25'
+    C: '%18,75'
+    D: '%20,00'
+    E: '%22,50'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Dağıtılmamış kâr maliyeti = 4 / 40 + %10 = %20. Yeni pay maliyeti = 4 / [40 × (1 − 0,20)] + %10 = 4 / 32
+      + %10 = %22,5. Kırılma noktası = 300.000 / 0,50 = 600.000 TL; 800.000 TL''lik bütçe bu noktayı aştığından son liranın
+      özkaynak kısmı yeni pay ihracıyla karşılanır. Marjinal AOSM = 0,5 × 15 × 0,8 + 0,5 × 22,5 = 6 + 11,25 = %17,25. Püf
+      noktaları: Kırılma noktası, dağıtılmamış kârın özkaynak ağırlığına bölünmesiyle bulunur (300.000 TL değil 600.000 TL).
+      Bütçe kırılma noktasını aştığında marjinal maliyet yeni pay maliyetiyle hesaplanır; iki dilimin ortalaması alınmaz.'
+    celdiriciler:
+      A: 'Kırılma noktası dikkate alınmamış, özkaynağın tamamı dağıtılmamış kâr maliyetiyle (%20) hesaplanmıştır: 6 + 10 =
+        %16. Bu oran yalnız ilk 600.000 TL için geçerlidir.'
+      C: 'Borcun vergi kalkanı ihmal edilmiştir: 0,5 × 15 + 0,5 × 22,5 = %18,75.'
+      D: Dağıtılmamış kârın maliyetidir; borç bileşeni ve yeni pay ihracı dikkate alınmamıştır.
+      E: Yeni pay ihracının maliyetidir; sermaye maliyeti borç bileşeniyle birlikte ağırlıklandırılmamıştır.
+    hesap_adimlari:
+    - ke (dağıtılmamış kâr) = %20
+    - ke (yeni pay) = 4/32 + 10 = %22,5
+    - Kırılma noktası = 300.000 / 0,5 = 600.000 < 800.000
+    - Marjinal AOSM = 6 + 11,25 = %17,25
+  kaynaklar:
+  - mevzuat: Genel bilgi — ağırlıklı ortalama sermaye maliyeti
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kirilma = 300000/0.5
+
+      ke = 4/(40*(1-0.2))*100 + 10 if 800000 > kirilma else 4/40*100 + 10
+
+      sonuc = round(0.5*15*0.8 + 0.5*ke, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 20
+- id: YMM-FYN-SMR-0062
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye maliyeti ve sermaye yapısı
+  konu: SMR
+  kazanim: optimal sermaye yapısı
+  tip: hesaplama
+  zorluk: 3
+  kok: 'S A.Ş. için farklı sermaye yapılarında tahmin edilen sermaye maliyetleri şöyledir (ağırlıklar piyasa değerine göredir):
+    borç oranı %0 iken özkaynak maliyeti %16; borç oranı %20 iken borcun vergi öncesi maliyeti %10, özkaynak maliyeti %17;
+    borç oranı %40 iken borcun vergi öncesi maliyeti %12,5, özkaynak maliyeti %18,5; borç oranı %60 iken borcun vergi öncesi
+    maliyeti %17,5, özkaynak maliyeti %24''tür. Kurumlar vergisi oranı %20''dir ve faaliyet nakit akışlarının sermaye yapısından
+    etkilenmediği varsayılmaktadır. Firma değerini en yüksek kılan sermaye yapısında AOSM yüzde kaçtır?'
+  secenekler:
+    A: '%15,10'
+    B: '%15,20'
+    C: '%15,60'
+    D: '%16,00'
+    E: '%18,00'
+  dogru: A
+  aciklama:
+    dogru_neden: 'Faaliyet nakit akışları sabitken firma değeri, AOSM''nin en düşük olduğu yapıda en yüksektir. AOSM: %0 borç
+      → %16; %20 borç → 0,2 × 10 × 0,8 + 0,8 × 17 = 1,6 + 13,6 = %15,2; %40 borç → 0,4 × 12,5 × 0,8 + 0,6 × 18,5 = 4 + 11,1
+      = %15,1; %60 borç → 0,6 × 17,5 × 0,8 + 0,4 × 24 = 8,4 + 9,6 = %18. En düşük AOSM %15,10 (%40 borç). Püf noktaları: Borç
+      maliyeti mutlaka vergi sonrasına çevrilmelidir; vergi öncesi oranlarla hesap yapılırsa en düşük AOSM yanlışlıkla %20
+      borç oranında (%15,6) görünür. Fark küçük olduğundan her yapı ayrı ayrı hesaplanmalıdır.'
+    celdiriciler:
+      B: '%20 borç oranındaki AOSM''dir; %40 borç oranındaki %15,1''den yüksektir.'
+      C: 'Borç maliyeti vergi öncesi kullanılmıştır: bu durumda %20 borçta 2 + 13,6 = %15,6 en düşük çıkar.'
+      D: Borçsuz yapının AOSM'sidir; özkaynak maliyeti en düşük yapı, AOSM'si en düşük yapı değildir.
+      E: Vergi kalkanının en büyük olduğu %60 borç oranı seçilmiştir; finansal risk nedeniyle artan borç ve özkaynak maliyetleri
+        AOSM'yi %18'e çıkarır.
+    hesap_adimlari:
+    - '%0: 16'
+    - '%20: 1,6 + 13,6 = 15,2'
+    - '%40: 4 + 11,1 = 15,1'
+    - '%60: 8,4 + 9,6 = 18'
+    - 'En düşük: %15,10'
+  kaynaklar:
+  - mevzuat: Genel bilgi — optimal sermaye yapısı
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'yapilar = [(0,0,16),(0.2,10,17),(0.4,12.5,18.5),(0.6,17.5,24)]
+
+      sonuc = round(min(w*kd*0.8 + (1-w)*ke for w, kd, ke in yapilar), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 21

@@ -1,0 +1,541 @@
+- id: YMM-FYN-SBT-0066
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye bütçelemesi
+  konu: SBT
+  kazanim: geri ödeme süresi
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir projenin ilk yatırım tutarı 100.000 TL'dir. Projeden yıl sonlarında 1. yıl 50.000 TL, 2. yıl 62.500 TL, 3. yıl
+    78.125 TL net nakit girişi beklenmektedir. Sermaye maliyeti %25'tir [(1,25)^−1 = 0,80; (1,25)^−2 = 0,64; (1,25)^−3 = 0,512].
+    Kesirli yıl hesabında nakit girişlerinin yıl içine düzenli dağıldığı varsayılmaktadır. Projenin **iskontolu** geri ödeme
+    süresi kaç yıldır?
+  secenekler:
+    A: 1,80 yıl
+    B: 2,16 yıl
+    C: 2,26 yıl
+    D: 2,50 yıl
+    E: 3,00 yıl
+  dogru: D
+  aciklama:
+    dogru_neden: 'Nakit girişlerinin bugünkü değerleri: 50.000 × 0,80 = 40.000; 62.500 × 0,64 = 40.000; 78.125 × 0,512 = 40.000
+      TL. Kümülatif: 1. yıl 40.000, 2. yıl 80.000 TL. Kalan 20.000 TL, 3. yılın iskontolu girişinin (40.000 TL) yarısıdır:
+      2 + 20.000 / 40.000 = 2,50 yıl.'
+    celdiriciler:
+      A: 'İskontosuz (basit) geri ödeme süresidir: 50.000 + 50.000 / 62.500 = 1,80 yıl.'
+      B: 'Her nakit girişi yalnız bir dönem iskontolanmıştır (40.000; 50.000; 62.500): 2 + 10.000 / 62.500 = 2,16 yıl.'
+      C: 'Kalan tutar 3. yılın iskontosuz girişine bölünmüştür: 2 + 20.000 / 78.125 ≈ 2,26 yıl.'
+      E: Kesirli yıl hesaplanmadan yatırımın tamamen karşılandığı yıl sonu alınmıştır.
+    hesap_adimlari:
+    - 'İskontolu girişler: 40.000; 40.000; 40.000'
+    - '2 yıl sonunda kümülatif: 80.000; kalan 20.000'
+    - 20.000 / 40.000 = 0,5 → 2,50 yıl
+  kaynaklar:
+  - mevzuat: Genel bilgi — geri ödeme süresi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'pv = [50000/1.25, 62500/1.25**2, 78125/1.25**3]
+
+      kalan = 100000 - pv[0] - pv[1]
+
+      sonuc = round(2 + kalan/pv[2], 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 8
+- id: YMM-FYN-SBT-0067
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye bütçelemesi
+  konu: SBT
+  kazanim: karlılık endeksi
+  tip: uygulama
+  zorluk: 2
+  kok: 'Sermaye kısıtı bulunmayan bir işletme, birbirini dışlayan (yalnız biri seçilebilecek) iki proje arasında seçim yapacaktır.
+    Sermaye maliyetiyle hesaplanan veriler şöyledir: X projesinin ilk yatırımı 100.000 TL, nakit girişlerinin bugünkü değeri
+    150.000 TL; Y projesinin ilk yatırımı 400.000 TL, nakit girişlerinin bugünkü değeri 520.000 TL''dir. Bu durumda aşağıdakilerden
+    hangisi doğrudur?'
+  secenekler:
+    A: X seçilmelidir; çünkü karlılık endeksi (1,50) Y'ninkinden (1,30) yüksektir.
+    B: İki projenin de karlılık endeksi 1'den büyük olduğundan ikisi birlikte kabul edilmelidir.
+    C: X'ten Y'ye geçişin artımsal karlılık endeksi 1'in altında kaldığından X seçilmelidir.
+    D: Projelerin ölçekleri farklı olduğundan seçim NBD yerine iç verim oranına göre yapılmalıdır.
+    E: Y seçilmelidir; çünkü NBD'si (120.000 TL) X'inkinden (50.000 TL) yüksektir.
+  dogru: E
+  aciklama:
+    dogru_neden: 'NBD: X = 150.000 − 100.000 = 50.000 TL; Y = 520.000 − 400.000 = 120.000 TL. Sermaye kısıtı yokken birbirini
+      dışlayan projelerde amaç firma değerini en çok artırmaktır; bu da NBD''si yüksek olan Y''dir. Karlılık endeksi oransal
+      bir ölçü olduğundan ölçek farkını yansıtmaz.'
+    celdiriciler:
+      A: KE sıralaması (X 1,50 > Y 1,30) ölçek farkı nedeniyle NBD sıralamasıyla çelişir; sermaye kısıtı yokken NBD esas alınır.
+      B: Projeler birbirini dışladığından ikisi birlikte kabul edilemez.
+      C: Artımsal yatırım 300.000 TL, artımsal bugünkü değer 370.000 TL'dir; artımsal KE ≈ 1,23 > 1 ve artımsal NBD 70.000
+        TL olduğundan Y'ye geçiş değer yaratır.
+      D: İç verim oranı da oransal bir ölçüdür ve ölçek sorunundan etkilenir; birbirini dışlayan projelerde doğru ölçüt NBD'dir.
+    hesap_adimlari:
+    - NBD X = 50.000; KE X = 1,50
+    - NBD Y = 120.000; KE Y = 1,30
+    - 'Artımsal: 370.000 / 300.000 ≈ 1,23'
+  kaynaklar:
+  - mevzuat: Genel bilgi — karlılık endeksi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 9
+- id: YMM-FYN-SBT-0068
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye bütçelemesi
+  konu: SBT
+  kazanim: iç verim oranı
+  tip: uygulama
+  zorluk: 3
+  kok: 'Bir projenin nakit akışları şöyledir: bugün −100.000 TL, 1. yıl sonu +230.000 TL, 2. yıl sonu −132.000 TL (proje sonunda
+    yapılacak zorunlu saha düzenleme harcaması). Bu projeyle ilgili aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. Projenin iki iç verim oranı vardır: %10 ve %20.
+
+    II. Sermaye maliyeti %5 ise, her iki iç verim oranı da sermaye maliyetinden yüksek olduğundan proje kabul edilmelidir.
+
+    III. Sermaye maliyeti %15 ise projenin net bugünkü değeri pozitiftir.
+
+    IV. Bu projede kabul/ret kararı iç verim oranına göre değil net bugünkü değere göre verilmelidir.'
+  secenekler:
+    A: I, III ve IV
+    B: Yalnız I
+    C: I ve II
+    D: II ve IV
+    E: I, II, III ve IV
+  dogru: A
+  aciklama:
+    dogru_neden: 'NBD = 0 koşulu x = 1 + r için −100.000x² + 230.000x − 132.000 = 0, yani 100x² − 230x + 132 = 0 verir; kökler
+      x = (230 ± 10) / 200 → 1,10 ve 1,20 (I doğru). NBD fonksiyonu yalnız iki kök arasında pozitiftir. %15''te: 230.000 /
+      1,15 = 200.000; 132.000 / 1,3225 ≈ 99.811; NBD ≈ +189 TL (III doğru). %5''te: 219.048 − 119.728 − 100.000 ≈ −680 TL;
+      NBD negatif olduğundan proje reddedilir (II yanlış). Nakit akışlarının işareti iki kez değiştiğinden İVO kuralı güvenilir
+      değildir; karar NBD''ye göre verilir (IV doğru). Püf noktaları: Olağan dışı nakit akışında (−, +, −) ''İVO > sermaye
+      maliyeti ise kabul'' kuralı çöker; düşük sermaye maliyetinde gelecekteki büyük çıkışın bugünkü değeri ağırlaşır ve NBD
+      negatife döner.'
+    celdiriciler:
+      B: III ve IV de doğrudur.
+      C: 'II yanlıştır: %5 sermaye maliyetinde NBD yaklaşık −680 TL''dir.'
+      D: II yanlıştır; I doğrudur.
+      E: II yanlıştır; iki İVO'nun da sermaye maliyetinden yüksek olması kabul için yeterli değildir.
+    hesap_adimlari:
+    - 100x² − 230x + 132 = 0 → x = 1,10 ve 1,20
+    - '%15: −100.000 + 200.000 − 99.811 ≈ +189'
+    - '%5: −100.000 + 219.048 − 119.728 ≈ −680'
+  kaynaklar:
+  - mevzuat: Genel bilgi — iç verim oranı
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 10
+- id: YMM-FYN-SBT-0069
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye bütçelemesi
+  konu: SBT
+  kazanim: yatırım projelerinde nakit akışı tahmini
+  tip: hesaplama
+  zorluk: 3
+  kok: Üç yıl sürecek bir proje için 400.000 TL'ye alınan makine, vergi açısından dört yılda normal (eşit tutarlı) amortismana
+    tabidir ve hurda değeri sıfır kabul edilmektedir. Proje 3. yılın sonunda sona erecek ve makine bu tarihte 160.000 TL'ye
+    satılacaktır. Proje başında yatırılan 50.000 TL net işletme sermayesi proje sonunda tamamen geri kazanılacaktır. 3. yılda
+    nakit satış tahsilatı 600.000 TL, nakit faaliyet giderleri 350.000 TL'dir. Kurumlar vergisi oranı %20'dir ve işletmenin
+    diğer faaliyetleri kârlıdır. Projenin 3. yıl sonundaki toplam net nakit akışı kaç TL'dir?
+  secenekler:
+    A: 368.000 TL
+    B: 398.000 TL
+    C: 418.000 TL
+    D: 430.000 TL
+    E: 442.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Yıllık amortisman 400.000 / 4 = 100.000 TL. Faaliyet nakit akışı = (600.000 − 350.000 − 100.000) × 0,80
+      + 100.000 = 220.000 TL. 3. yıl sonunda defter değeri 400.000 − 300.000 = 100.000 TL; satış kazancı 60.000 TL, vergisi
+      12.000 TL; vergi sonrası satış hasılatı 148.000 TL. İşletme sermayesi geri kazanımı 50.000 TL. Toplam = 220.000 + 148.000
+      + 50.000 = 418.000 TL. Püf noktaları: Amortisman proje ömrüne (3 yıl) göre değil vergi ömrüne (4 yıl) göre hesaplanır;
+      vergi yalnız satış bedelinin defter değerini aşan kısmına (60.000 TL) uygulanır. Son yıl akışı faaliyet akışı, vergi
+      sonrası hurda ve işletme sermayesi geri dönüşünden oluşur.'
+    celdiriciler:
+      A: 'Net işletme sermayesinin geri kazanımı unutulmuştur: 220.000 + 148.000.'
+      B: 'Satış bedelinin tamamı vergilendirilmiştir (160.000 × 0,80 = 128.000): 220.000 + 128.000 + 50.000.'
+      D: 'Satış kazancının vergisi ihmal edilmiştir: 220.000 + 160.000 + 50.000.'
+      E: 'Satış kazancı vergisi ters yönde (vergi tasarrufu gibi) eklenmiştir: 220.000 + 172.000 + 50.000.'
+    hesap_adimlari:
+    - 'Amortisman: 100.000 TL/yıl'
+    - 'Faaliyet nakit akışı: 150.000 × 0,80 + 100.000 = 220.000'
+    - Defter değeri 100.000; kazanç 60.000; vergi 12.000; net hurda 148.000
+    - 'İşletme sermayesi geri dönüşü: 50.000'
+    - 'Toplam: 418.000 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — yatırım projelerinde nakit akışı tahmini
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'amort = 400000/4
+
+      fna = (600000-350000-amort)*0.8 + amort
+
+      dd = 400000 - 3*amort
+
+      hurda = 160000 - (160000-dd)*0.2
+
+      sonuc = fna + hurda + 50000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 11
+- id: YMM-FYN-SBT-0070
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye bütçelemesi
+  konu: SBT
+  kazanim: karlılık endeksi
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir işletmenin bu yılki yatırım bütçesi 600.000 TL ile sınırlıdır. Birbirinden bağımsız ve **bölünemez** dört proje
+    vardır: P1 (ilk yatırım 300.000 TL, NBD 120.000 TL), P2 (ilk yatırım 200.000 TL, NBD 70.000 TL), P3 (ilk yatırım 400.000
+    TL, NBD 132.000 TL), P4 (ilk yatırım 200.000 TL, NBD 64.000 TL). Bütçeden kullanılmayan tutarın NBD''si sıfırdır ve kısıt
+    yalnız bu yıl için geçerlidir. Toplam NBD''yi en yüksek kılan proje seti seçildiğinde toplam NBD kaç TL olur?'
+  secenekler:
+    A: 190.000 TL
+    B: 196.000 TL
+    C: 202.000 TL
+    D: 223.000 TL
+    E: 252.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Bütçeye sığan kombinasyonlar: P1+P2 (500.000) → 190.000; P1+P4 (500.000) → 184.000; P2+P3 (600.000) → 202.000;
+      P3+P4 (600.000) → 196.000; P2+P4 (400.000) → 134.000. En yüksek toplam NBD P2+P3 ile 202.000 TL''dir. Püf noktaları:
+      Karlılık endeksi sıralaması (P1 1,40; P2 1,35; P3 1,33; P4 1,32) bölünebilir projelerde en iyi sonucu verir; projeler
+      bölünemezse bütçenin bir kısmı boşta kalabileceğinden bütçeye sığan kombinasyonlar tek tek karşılaştırılmalıdır.'
+    celdiriciler:
+      A: KE sıralamasıyla P1 ve P2 seçilmiş, 100.000 TL boşta kalmıştır; P2+P3 kombinasyonu daha yüksek NBD sağlar.
+      B: P3+P4 kombinasyonudur; P2'nin NBD'si P4'ünkünden yüksek olduğundan P2+P3 daha iyidir.
+      D: 'Projeler bölünebilirmiş gibi P1, P2 ve P3''ün dörtte biri alınmıştır: 120.000 + 70.000 + 132.000 / 4 = 223.000 TL;
+        projeler bölünemez.'
+      E: En yüksek NBD'li iki proje (P1+P3) seçilmiştir; toplam yatırım 700.000 TL ile bütçeyi aşar.
+    hesap_adimlari:
+    - 'KE: P1 1,40; P2 1,35; P3 1,33; P4 1,32'
+    - 'Bütçeye sığan kombinasyonların NBD''leri: 190.000; 184.000; 202.000; 196.000; 134.000'
+    - 'En yüksek: P2 + P3 = 202.000 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — karlılık endeksi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "p = [(300000,120000),(200000,70000),(400000,132000),(200000,64000)]\nbest = 0\nfor m in range(16):\n    y = sum(p[i][0]\
+      \ for i in range(4) if m>>i & 1)\n    n = sum(p[i][1] for i in range(4) if m>>i & 1)\n    if y <= 600000 and n > best:\n\
+      \        best = n\nsonuc = best"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 12
+- id: YMM-FYN-SBT-0071
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye bütçelemesi
+  konu: SBT
+  kazanim: net bugünkü değer
+  tip: uygulama
+  zorluk: 3
+  kok: 'Birbirini dışlayan iki makine seçeneği, ömürleri sonunda aynı koşullarla süresiz olarak yenilenebilecektir. Sermaye
+    maliyeti %25''tir [(1,25)^−1 = 0,80; (1,25)^−2 = 0,64; (1,25)^−3 = 0,512; (1,25)^−4 = 0,4096]. X makinesi: ilk yatırım
+    144.000 TL, ömür 2 yıl, yıl sonlarında yıllık net nakit girişi 130.000 TL. Y makinesi: ilk yatırım 195.200 TL, ömür 3
+    yıl, yıl sonlarında yıllık net nakit girişi 127.000 TL. Buna göre aşağıdakilerden hangisi doğrudur?'
+  secenekler:
+    A: Y seçilmelidir; çünkü NBD'si (52.704 TL) X'inkinden (43.200 TL) yüksektir.
+    B: X seçilmelidir; çünkü eşdeğer yıllık NBD'si (30.000 TL) Y'ninkinden yüksektir.
+    C: Y seçilmelidir; çünkü ilk yatırımı daha büyük olmasına karşın karlılık endeksi daha yüksektir.
+    D: İki makinenin de NBD'si pozitif olduğundan her ikisi birlikte kabul edilmelidir.
+    E: Y seçilmelidir; çünkü 6 yıllık ortak süre esasıyla zincirleme NBD'si X'inkinden yüksektir.
+  dogru: B
+  aciklama:
+    dogru_neden: 'NBD X = 130.000 × 1,44 − 144.000 = 43.200 TL; NBD Y = 127.000 × 1,952 − 195.200 = 52.704 TL. Ömürler farklı
+      ve projeler yenilenebilir olduğundan NBD''ler doğrudan karşılaştırılamaz. Eşdeğer yıllık NBD: X = 43.200 / 1,44 = 30.000
+      TL; Y = 52.704 / 1,952 = 27.000 TL. X seçilir. Püf noktaları: Yenilenebilir projelerde eşdeğer yıllık tutar, NBD''nin
+      ömre bölünmesiyle değil anüite faktörüne bölünmesiyle bulunur. Aynı sonuç ortak süre yöntemiyle de doğrulanır: 6 yılda
+      X = 43.200 × (1 + 0,64 + 0,4096) ≈ 88.543 TL, Y = 52.704 × (1 + 0,512) ≈ 79.688 TL.'
+    celdiriciler:
+      A: Ömürler farklı olduğundan tek dönemlik NBD karşılaştırması yanıltıcıdır; Y'nin yüksek NBD'si daha uzun ömründen kaynaklanır.
+      C: 'KE: X = 187.200 / 144.000 = 1,30; Y = 247.904 / 195.200 ≈ 1,27. Y''nin KE''si daha düşüktür.'
+      D: Seçenekler birbirini dışladığından yalnız biri seçilebilir.
+      E: 6 yıllık ortak sürede zincirleme NBD X için yaklaşık 88.543 TL, Y için yaklaşık 79.688 TL'dir; X daha yüksektir.
+    hesap_adimlari:
+    - NBD X = 187.200 − 144.000 = 43.200
+    - NBD Y = 247.904 − 195.200 = 52.704
+    - EYNBD X = 43.200 / 1,44 = 30.000
+    - EYNBD Y = 52.704 / 1,952 = 27.000
+  kaynaklar:
+  - mevzuat: Genel bilgi — net bugünkü değer
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 13
+- id: YMM-FYN-SBT-0072
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Sermaye bütçelemesi
+  konu: SBT
+  kazanim: yatırım projelerinde nakit akışı tahmini
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletme, iki yıl sürecek bir proje için 150.000 TL'lik makine alacaktır; makine iki yılda normal amortismanla itfa
+    edilecek, hurda değeri sıfırdır. Proje her yıl 250.000 TL nakit satış tahsilatı ve 100.000 TL nakit faaliyet gideri doğuracaktır.
+    Geçen yıl bu proje için 15.000 TL pazar araştırması ödemesi yapılmıştır. Proje, şu anda kiraya verilen ve her yıl sonunda
+    vergi sonrası 10.000 TL kira geliri sağlayan bir depoda yürütülecek; proje süresince depo kiraya verilemeyecektir. Kurumlar
+    vergisi oranı %20, sermaye maliyeti %25'tir [(1,25)^−1 = 0,80; (1,25)^−2 = 0,64]. İşletmenin diğer faaliyetleri kârlıdır.
+    Projenin net bugünkü değeri kaç TL'dir?
+  secenekler:
+    A: −78.000 TL
+    B: 8.400 TL
+    C: 15.000 TL
+    D: 30.000 TL
+    E: 44.400 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Amortisman 75.000 TL/yıl. Faaliyet nakit akışı = (250.000 − 100.000) × 0,80 + 75.000 × 0,20 = 120.000 +
+      15.000 = 135.000 TL. Vazgeçilen vergi sonrası kira geliri (fırsat maliyeti) düşülür: 135.000 − 10.000 = 125.000 TL.
+      Bugünkü değer = 125.000 × (0,80 + 0,64) = 180.000 TL; NBD = 180.000 − 150.000 = 30.000 TL. Geçen yıl ödenen pazar araştırması
+      batık maliyettir, karara katılmaz. Püf noktaları: Artımsal nakit akışına fırsat maliyeti girer, batık maliyet girmez;
+      amortisman nakit çıkışı değildir, yalnız vergi kalkanı (75.000 × %20) kadar etkisi vardır.'
+    celdiriciler:
+      A: 'Amortisman gider olarak düşülüp nakit akışına geri eklenmemiştir: (150.000 − 75.000) × 0,80 − 10.000 = 50.000; 50.000
+        × 1,44 − 150.000 = −78.000 TL.'
+      B: 'Amortismanın vergi kalkanı unutulmuştur: (120.000 − 10.000) × 1,44 − 150.000 = 8.400 TL.'
+      C: Batık maliyet olan 15.000 TL pazar araştırması ödemesi NBD'den düşülmüştür.
+      E: 'Deponun vazgeçilen kira geliri (fırsat maliyeti) ihmal edilmiştir: 135.000 × 1,44 − 150.000 = 44.400 TL.'
+    hesap_adimlari:
+    - 'Faaliyet nakit akışı: 120.000 + 15.000 = 135.000'
+    - 'Fırsat maliyeti sonrası: 125.000'
+    - 'BD: 125.000 × 1,44 = 180.000'
+    - 'NBD: 180.000 − 150.000 = 30.000 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — yatırım projelerinde nakit akışı tahmini
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'amort = 150000/2
+
+      na = (250000-100000)*0.8 + amort*0.2 - 10000
+
+      sonuc = round(na/1.25 + na/1.25**2 - 150000, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 14

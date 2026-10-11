@@ -1,0 +1,531 @@
+- id: YMM-FYN-ZDP-0052
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve değerleme
+  konu: ZDP
+  kazanim: anüite
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir işletme, kiraladığı depo için üç yıl boyunca her yılın **başında** 10.000 TL kira ödeyecektir; ilk ödeme bugün
+    yapılacaktır. Yıllık iskonto oranı %25'tir [(1,25)^−1 = 0,80; (1,25)^−2 = 0,64; (1,25)^−3 = 0,512]. Kira ödemelerinin
+    bugünkü değeri kaç TL'dir?
+  secenekler:
+    A: 15.616 TL
+    B: 19.520 TL
+    C: 24.400 TL
+    D: 29.520 TL
+    E: 38.125 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Ödemeler dönem başında yapıldığından bu bir peşin (dönem başı) anüitedir. Bugünkü ödeme iskontolanmaz; ikinci
+      ödeme bir, üçüncü ödeme iki dönem iskontolanır: 10.000 × (1 + 0,80 + 0,64) = 24.400 TL. Aynı sonuç, adi anüite değerinin
+      (1 + i) ile çarpılmasıyla da bulunur: 19.520 × 1,25 = 24.400 TL.'
+    celdiriciler:
+      A: Adi anüite değeri (19.520 TL) bir dönem daha iskontolanmıştır (19.520 × 0,80); peşin anüite ertelenmiş anüiteyle
+        karıştırılmıştır.
+      B: 'Ödemeler yıl sonunda yapılıyormuş gibi adi anüite hesaplanmıştır: 10.000 × (0,80 + 0,64 + 0,512).'
+      D: 'Bugünkü ödeme ile üç adet yıl sonu ödemesi birlikte alınmış, yani dört ödeme sayılmıştır: 10.000 + 19.520.'
+      E: 'Bugünkü değer yerine adi anüitenin üçüncü yıl sonundaki gelecek değeri bulunmuştur: 10.000 × (1,5625 + 1,25 + 1).'
+    hesap_adimlari:
+    - '1. ödeme (bugün): 10.000 TL'
+    - '2. ödeme: 10.000 × 0,80 = 8.000 TL'
+    - '3. ödeme: 10.000 × 0,64 = 6.400 TL'
+    - 'Toplam bugünkü değer: 24.400 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — anüite
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = round(10000*(1 + 1/1.25 + 1/1.25**2), 2)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 1
+- id: YMM-FYN-ZDP-0053
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve değerleme
+  konu: ZDP
+  kazanim: bugünkü ve gelecek değer
+  tip: uygulama
+  zorluk: 2
+  kok: Bir bankada yıllık nominal faiz oranı %20 olan bir mevduat hesabıyla ilgili aşağıdaki ifadelerden hangisi **yanlıştır**?
+    (Faiz, belirtilen dönemlerin sonunda anaparaya eklenmekte; vergi ve kesinti bulunmamaktadır.)
+  secenekler:
+    A: Faiz altı ayda bir eklenirse bugün yatırılan 10.000 TL iki yıl sonunda 14.400 TL olur.
+    B: Faiz altı ayda bir eklenirse efektif yıllık faiz oranı %21 olur.
+    C: Faiz üç ayda bir eklenirse efektif yıllık faiz oranı yaklaşık %21,55 olur.
+    D: Faiz yılda bir eklenirse iki yıl sonra alınacak 14.400 TL'nin bugünkü değeri 10.000 TL olur.
+    E: Faiz ekleme sıklığı arttıkça efektif oran yükselir; ancak her ek sıklığın sağladığı artış giderek küçülür.
+  dogru: A
+  aciklama:
+    dogru_neden: 'Altı ayda bir faiz eklendiğinde dönem faizi %10, iki yılda dönem sayısı 4''tür: 10.000 × (1,10)^4 = 10.000
+      × 1,4641 = 14.641 TL. 14.400 TL, faizin yılda bir eklendiği durumdaki tutardır [10.000 × (1,20)^2]. Bu nedenle A yanlıştır.'
+    celdiriciler:
+      B: 'Doğrudur: (1,10)^2 − 1 = 1,21 − 1 = %21.'
+      C: 'Doğrudur: (1,05)^4 = 1,1025^2 = 1,2155; efektif oran yaklaşık %21,55''tir.'
+      D: 'Doğrudur: yılda bir eklemede 14.400 / (1,20)^2 = 14.400 / 1,44 = 10.000 TL.'
+      E: 'Doğrudur: yıllık %20, altı aylık %21, üç aylık %21,55 örneğinde görüldüğü gibi efektif oran artar, ancak artış azalan
+        hızla sürer (üst sınır sürekli bileşik faizdir).'
+    hesap_adimlari:
+    - 'Altı aylık dönem faizi: %20 / 2 = %10'
+    - 'Dönem sayısı: 2 yıl × 2 = 4'
+    - 'Gelecek değer: 10.000 × 1,1^4 = 14.641 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — bugünkü ve gelecek değer
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 2
+- id: YMM-FYN-ZDP-0054
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve değerleme
+  konu: ZDP
+  kazanim: hisse senedi değerlemesi (Gordon modeli)
+  tip: hesaplama
+  zorluk: 3
+  kok: X A.Ş. az önce pay başına 4 TL kâr payı dağıtmıştır (D0). Kâr payının önümüzdeki iki yıl her yıl %25 artması, üçüncü
+    yıldan itibaren ise süresiz olarak her yıl %5 sabit oranda büyümesi beklenmektedir. Kâr payları yıl sonlarında ödenmekte
+    olup payın gerekli getiri oranı %25'tir [(1,25)^−1 = 0,80; (1,25)^−2 = 0,64; (1,25)^−3 = 0,512]. Bu verilere göre payın
+    bugünkü değeri kaç TL'dir?
+  secenekler:
+    A: 21,00 TL
+    B: 24,80 TL
+    C: 28,00 TL
+    D: 29,00 TL
+    E: 40,81 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'D1 = 4 × 1,25 = 5 TL; D2 = 5 × 1,25 = 6,25 TL; D3 = 6,25 × 1,05 = 6,5625 TL. Sabit büyüme dönemi Gordon
+      modeliyle 2. yıl sonuna değerlenir: P2 = D3 / (k − g) = 6,5625 / (0,25 − 0,05) = 32,8125 TL. Bugünkü değer: 5 × 0,80
+      + 6,25 × 0,64 + 32,8125 × 0,64 = 4 + 4 + 21 = 29 TL. Püf noktaları: Gordon modeli, formüldeki kâr payından bir dönem
+      önceki tarihin değerini verir; D3 kullanıldığı için bulunan değer 2. yıl sonuna aittir ve iki dönem iskontolanır. Hızlı
+      büyüme oranı gerekli getiriye eşit olduğundan ilk iki kâr payının her birinin bugünkü değeri D0''a (4 TL) eşittir.'
+    celdiriciler:
+      A: 'Hızlı büyüme dönemi göz ardı edilip tek aşamalı Gordon modeli uygulanmıştır: 4 × 1,05 / 0,20 = 21 TL.'
+      B: 'Uç değer (32,8125 TL) üç dönem iskontolanmıştır: 32,8125 × 0,512 = 16,80; 4 + 4 + 16,80 = 24,80 TL.'
+      C: 'Uç değer hesaplanırken D3 yerine D2 kullanılmıştır: 6,25 / 0,20 = 31,25; 31,25 × 0,64 = 20; 4 + 4 + 20 = 28 TL.'
+      E: 'Uç değer iskontolanmadan eklenmiştir: 4 + 4 + 32,8125 = 40,81 TL.'
+    hesap_adimlari:
+    - D1 = 5; D2 = 6,25; D3 = 6,5625
+    - P2 = 6,5625 / 0,20 = 32,8125
+    - BD(D1) = 4; BD(D2) = 4; BD(P2) = 21
+    - P0 = 29 TL
+  kaynaklar:
+  - mevzuat: Genel bilgi — hisse senedi değerlemesi (Gordon modeli)
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'd1=4*1.25
+
+      d2=d1*1.25
+
+      d3=d2*1.05
+
+      p2=d3/(0.25-0.05)
+
+      sonuc = round(d1/1.25 + (d2+p2)/1.25**2, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 3
+- id: YMM-FYN-ZDP-0055
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve değerleme
+  konu: ZDP
+  kazanim: tahvil değerlemesi
+  tip: hesaplama
+  zorluk: 3
+  kok: Nominal değeri 1.000 TL, yıllık kupon oranı %30 olan ve vadesine iki yıl kalan bir tahvilin kuponları yıl sonlarında
+    ödenmektedir. Bugün piyasa getirisi %25'tir. Bir yatırımcı tahvili bugün piyasa fiyatından almış; bir yıl sonra kuponu
+    tahsil ettikten hemen sonra, o tarihte piyasa getirisi %30'a yükselmiş olduğundan bu getiriye göre oluşan fiyattan satmıştır
+    [(1,25)^−1 = 0,80; (1,25)^−2 = 0,64]. İşlem maliyeti ve vergi yoktur. Yatırımcının bir yıllık elde tutmadan sağladığı
+    toplam getiri (kupon geliri ile alış-satış fiyatı farkının toplamı) kaç TL'dir?
+  secenekler:
+    A: −72 TL
+    B: 228 TL
+    C: 268 TL
+    D: 300 TL
+    E: 340 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Alış fiyatı: 300 × 0,80 + 1.300 × 0,64 = 240 + 832 = 1.072 TL. Bir yıl sonra vadeye bir yıl kalmıştır ve
+      getiri %30''dur: satış fiyatı = 1.300 / 1,30 = 1.000 TL. Toplam getiri = 300 (kupon) + 1.000 − 1.072 = 228 TL. Püf noktaları:
+      Satış tarihindeki fiyat yeni piyasa getirisiyle bulunur; kupon oranı piyasa getirisine eşitlendiği için tahvil nominal
+      değerden işlem görür. Faizin yükselmesi 72 TL sermaye kaybı doğurur ve kupon gelirinin bir kısmını siler.'
+    celdiriciler:
+      A: 'Kupon geliri unutulup yalnız fiyat farkı alınmıştır: 1.000 − 1.072 = −72 TL.'
+      C: 'Satış fiyatı, piyasa getirisi %25''te kalmış gibi hesaplanmıştır: 1.300 × 0,80 = 1.040; 300 + 1.040 − 1.072 = 268
+        TL.'
+      D: Yalnız kupon geliri dikkate alınmış, fiyat değişimi ihmal edilmiştir.
+      E: 'Alış fiyatı nominal değer (1.000 TL), satış fiyatı ise %25 getiriyle (1.040 TL) alınmıştır: 300 + 1.040 − 1.000
+        = 340 TL.'
+    hesap_adimlari:
+    - 'Alış fiyatı: 300 × 0,80 + 1.300 × 0,64 = 1.072 TL'
+    - 'Satış fiyatı: 1.300 / 1,30 = 1.000 TL'
+    - 'Toplam getiri: 300 + (1.000 − 1.072) = 228 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — tahvil değerlemesi
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'alis = 300/1.25 + 1300/1.25**2
+
+      satis = 1300/1.30
+
+      sonuc = round(300 + satis - alis, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 4
+- id: YMM-FYN-ZDP-0056
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve değerleme
+  konu: ZDP
+  kazanim: hisse senedi değerlemesi (Gordon modeli)
+  tip: uygulama
+  zorluk: 3
+  kok: 'Y A.Ş.''nin payı 48 TL''den işlem görmektedir. Şirket az önce pay başına 2 TL kâr payı ödemiştir (D0). Payın gerekli
+    getiri oranı %25''tir ve piyasa fiyatının, kâr paylarının süresiz olarak sabit oranda büyüdüğünü varsayan Gordon modeliyle
+    bulunan değere eşit olduğu kabul edilmektedir. Buna göre aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. Fiyata yansıyan sabit büyüme oranı %20''dir.
+
+    II. Beklenen kâr payı verimi (D1 / P0) %5''tir.
+
+    III. Varsayımlar değişmezse payın bir yıl sonraki beklenen fiyatı 57,60 TL''dir.
+
+    IV. Son ödenen kâr payının fiyata oranı (D0 / P0) ile büyüme oranının toplamı gerekli getiri oranına eşittir.'
+  secenekler:
+    A: Yalnız I
+    B: I ve IV
+    C: II ve III
+    D: I, III ve IV
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: 'P0 = D0 × (1 + g) / (k − g) → 48 × (0,25 − g) = 2 × (1 + g) → 12 − 48g = 2 + 2g → g = 10 / 50 = %20 (I doğru).
+      D1 = 2 × 1,20 = 2,40 TL; D1 / P0 = 2,40 / 48 = %5 (II doğru). Sabit büyümede fiyat da g oranında artar: P1 = 48 × 1,20
+      = 57,60 TL ya da P1 = D2 / (k − g) = 2,88 / 0,05 = 57,60 TL (III doğru). Gerekli getiri D1 / P0 + g = %5 + %20 = %25''tir;
+      D0 / P0 + g = %4,17 + %20 = %24,17 olup %25''e eşit değildir (IV yanlış). Püf noktaları: Büyüme oranını çözerken pay
+      kısmında D0 değil D1 = D0(1 + g) yer alır; bilinmeyen g hem payda hem paydada bulunduğundan denklem doğrusal olarak
+      çözülür. Getiri ayrıştırmasında kâr payı verimi daima beklenen kâr payıyla (D1) hesaplanır.'
+    celdiriciler:
+      A: II ve III de doğrudur; kâr payı verimi %5 ve bir yıl sonraki fiyat 57,60 TL'dir.
+      B: 'IV yanlıştır: kâr payı verimi D0 ile değil D1 ile hesaplanır (D0 / P0 + g = %24,17).'
+      C: I de doğrudur; ima edilen büyüme oranı %20'dir.
+      D: IV yanlış, II doğrudur.
+    hesap_adimlari:
+    - 48(0,25 − g) = 2(1 + g) → g = %20
+    - D1 = 2,40; D1/P0 = %5
+    - P1 = 48 × 1,20 = 57,60
+    - D0/P0 + g = %24,17 ≠ %25
+  kaynaklar:
+  - mevzuat: Genel bilgi — hisse senedi değerlemesi (Gordon modeli)
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 5
+- id: YMM-FYN-ZDP-0057
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve değerleme
+  konu: ZDP
+  kazanim: anüite
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir işletme 97.600 TL tutarındaki banka kredisini yıllık %25 bileşik faizle, yıl sonlarında ödenecek üç eşit taksitle
+    geri ödeyecektir. Her taksitte önce dönem başındaki kalan anaparanın faizi kapatılmakta, kalan kısım anaparadan düşülmektedir
+    [(1,25)^−1 = 0,80; (1,25)^−2 = 0,64; (1,25)^−3 = 0,512]. İkinci taksidin içindeki anapara ödemesi kaç TL'dir?
+  secenekler:
+    A: 10.000 TL
+    B: 18.000 TL
+    C: 24.400 TL
+    D: 25.600 TL
+    E: 32.000 TL
+  dogru: E
+  aciklama:
+    dogru_neden: 'Anüite faktörü: 0,80 + 0,64 + 0,512 = 1,952. Taksit = 97.600 / 1,952 = 50.000 TL. 1. yıl: faiz 97.600 ×
+      0,25 = 24.400; anapara 50.000 − 24.400 = 25.600; kalan 72.000 TL. 2. yıl: faiz 72.000 × 0,25 = 18.000; anapara 50.000
+      − 18.000 = 32.000 TL. Püf noktaları: Önce taksit tutarı anüite faktörüyle bulunur, sonra ödeme planı satır satır kurulur;
+      her taksitte faiz payı azalır, anapara payı artar. Kontrol: 3. yıl kalan 40.000 TL''nin faizi 10.000 TL olup taksit
+      50.000 TL''ye tamamlanır.'
+    celdiriciler:
+      A: Üçüncü taksidin faiz payıdır (40.000 × 0,25).
+      B: İkinci taksidin faiz payıdır; soru anapara payını istemektedir.
+      C: Birinci taksidin faiz payıdır (97.600 × 0,25).
+      D: Birinci taksidin anapara payıdır; ikinci yıla geçilmemiştir.
+    hesap_adimlari:
+    - 'Taksit: 97.600 / 1,952 = 50.000 TL'
+    - '1. yıl: faiz 24.400, anapara 25.600, kalan 72.000'
+    - '2. yıl: faiz 18.000, anapara 32.000, kalan 40.000'
+    - '3. yıl: faiz 10.000, anapara 40.000, kalan 0'
+  kaynaklar:
+  - mevzuat: Genel bilgi — anüite
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kredi = 97600
+
+      taksit = kredi/(1/1.25 + 1/1.25**2 + 1/1.25**3)
+
+      kalan = kredi - (taksit - kredi*0.25)
+
+      sonuc = round(taksit - kalan*0.25, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 6
+- id: YMM-FYN-ZDP-0058
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve değerleme
+  konu: ZDP
+  kazanim: bugünkü ve gelecek değer
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir vakıf, **3. yılın sonundan başlayarak** her yıl sonunda süresiz olarak 14.400 TL burs ödemek istemektedir. Bugün
+    yatırılacak fon yıllık %20 bileşik getiri sağlayacak ve bu oran sabit kalacaktır [(1,20)^2 = 1,44; (1,20)^3 = 1,728].
+    Burs programının finansmanı için bugün yatırılması gereken en düşük tutar kaç TL'dir?
+  secenekler:
+    A: 41.666,67 TL
+    B: 50.000 TL
+    C: 60.000 TL
+    D: 72.000 TL
+    E: 86.400 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Süresiz anüite formülü (C / r) ilk ödemeden bir dönem önceki tarihin değerini verir. İlk ödeme 3. yıl sonunda
+      olduğundan 14.400 / 0,20 = 72.000 TL, 2. yıl sonundaki değerdir. Bugünkü değer: 72.000 / 1,44 = 50.000 TL. Püf noktaları:
+      Ertelenmiş süresiz anüitede iskonto dönemi, ilk ödemenin yapıldığı yıl değil bir önceki yıldır; 3 yerine 2 dönem iskontolanır.'
+    celdiriciler:
+      A: 'Değer üç dönem iskontolanmıştır: 72.000 / 1,728 = 41.666,67 TL; formülün bir dönem önceki değeri verdiği unutulmuştur.'
+      C: 'Değer yalnız bir dönem iskontolanmıştır: 72.000 / 1,20 = 60.000 TL.'
+      D: Süresiz anüite değeri hiç iskontolanmamıştır.
+      E: 3. yıl sonunda yapılacak ilk ödeme 72.000 TL'ye eklenmiş ve toplam (86.400 TL) iskontolanmamıştır.
+    hesap_adimlari:
+    - '2. yıl sonu değeri: 14.400 / 0,20 = 72.000 TL'
+    - 'Bugünkü değer: 72.000 / 1,44 = 50.000 TL'
+  kaynaklar:
+  - mevzuat: Genel bilgi — bugünkü ve gelecek değer
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = round((14400/0.20)/1.2**2, 2)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi FYN-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_FYN-1.yaml, satır 7
