@@ -9,8 +9,8 @@
   tip: hesaplama
   zorluk: 1
   kok: Bir işletmenin vergiye tabi işlemleri üzerinden hesaplanan KDV 18.000 TL’dir. Faaliyetine ilişkin alış faturalarında
-    gösterilen ve indirimi mümkün olan KDV 11.500 TL’dir. Bu dönemde hesaplanan KDV’den indirilecek KDV düşüldüğünde
-    ödenecek KDV kaç TL olur?
+    gösterilen ve indirimi mümkün olan KDV 11.500 TL’dir. Bu dönemde hesaplanan KDV’den indirilecek KDV düşüldüğünde ödenecek
+    KDV kaç TL olur?
   secenekler:
     A: 5.500 TL
     B: 6.000 TL
@@ -32,15 +32,15 @@
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 29/1
-    alinti: 'Mükellefler, yaptıkları vergiye tabi işlemler üzerinden hesaplanan katma değer vergisinden, bu Kanunda
-      aksine hüküm olmadıkça, faaliyetlerine ilişkin olarak aşağıdaki vergileri indirebilirler:'
+    alinti: 'Mükellefler, yaptıkları vergiye tabi işlemler üzerinden hesaplanan katma değer vergisinden, bu Kanunda aksine
+      hüküm olmadıkça, faaliyetlerine ilişkin olarak aşağıdaki vergileri indirebilirler:'
   gecerlilik:
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 18000 - 11500
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -59,7 +59,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 18.000-11.500 basit çıkarma; mevzuat bilgisi ölçmüyor
       G6:
         sonuc: bekliyor
       GZ:
@@ -68,6 +70,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır ChatGPT_YMM-HSV-2026-10-10-G05 #1'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 18.000-11.500 basit çıkarma; mevzuat bilgisi ölçmüyor
 - id: YMM-HSV-KIS-0002
   sinav: ymm
   bolum:
@@ -78,10 +84,10 @@
   kazanim: iade usulü ve teminat
   tip: kavrama
   zorluk: 3
-  kok: KDV iadesinde indirim ve iade ilişkisine dair öncülleri değerlendiriniz. I. İstisna kapsamındaki işlemlerle
-    ilgili yüklenilen KDV, şartları varsa indirilebilir. II. Vergiye tabi işlemi bulunmayan veya hesaplanan vergisi
-    indirilecek vergiden az olan mükellefte indirilemeyen KDV, kanunda öngörülen koşullarla iade edilebilir. III.
-    İade hakkı doğuran her işlemde teminat hiçbir koşul aranmaksızın zorunludur. Hangileri doğrudur?
+  kok: KDV iadesinde indirim ve iade ilişkisine dair öncülleri değerlendiriniz. I. İstisna kapsamındaki işlemlerle ilgili
+    yüklenilen KDV, şartları varsa indirilebilir. II. Vergiye tabi işlemi bulunmayan veya hesaplanan vergisi indirilecek vergiden
+    az olan mükellefte indirilemeyen KDV, kanunda öngörülen koşullarla iade edilebilir. III. İade hakkı doğuran her işlemde
+    teminat hiçbir koşul aranmaksızın zorunludur. Hangileri doğrudur?
   secenekler:
     A: Yalnız I
     B: I ve II
@@ -90,8 +96,8 @@
     E: I, II ve III
   dogru: B
   aciklama:
-    dogru_neden: 'KDVK md. 32 indirimi ve belirli koşullarda iade mekanizmasını düzenler; teminat her işlemde koşulsuz
-      zorunlu değildir. Püf noktaları: hükmün kapsamı ile uygulama şartını birlikte değerlendirin.'
+    dogru_neden: 'KDVK md. 32 indirimi ve belirli koşullarda iade mekanizmasını düzenler; teminat her işlemde koşulsuz zorunlu
+      değildir. Püf noktaları: hükmün kapsamı ile uygulama şartını birlikte değerlendirin.'
     celdiriciler:
       A: II’deki iade imkanını dışarıda bırakır
       C: III’ü doğru kabul eder
@@ -101,14 +107,14 @@
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 32
-    alinti: Bu Kanunun 11, 13, 14 ve 15 inci maddeleri ile 17 nci maddenin (4) numaralı fıkrasının (s) bendi uyarınca
-      vergiden istisna edilmiş bulunan işlemlerle ilgili fatura ve benzeri vesikalarda gösterilen Katma Değer Vergisi,
-      mükellefin vergiye tabi işlemleri üzerinden hesaplanacak Katma Değer Vergisinden indirilir.
+    alinti: Bu Kanunun 11, 13, 14 ve 15 inci maddeleri ile 17 nci maddenin (4) numaralı fıkrasının (s) bendi uyarınca vergiden
+      istisna edilmiş bulunan işlemlerle ilgili fatura ve benzeri vesikalarda gösterilen Katma Değer Vergisi, mükellefin vergiye
+      tabi işlemleri üzerinden hesaplanacak Katma Değer Vergisinden indirilir.
   gecerlilik:
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -128,7 +134,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -137,6 +145,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır ChatGPT_YMM-HSV-2026-10-10-G05 #4'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-HSV-KIS-0003
   sinav: ymm
   bolum:
@@ -147,9 +159,8 @@
   kazanim: tevkifat
   tip: uygulama
   zorluk: 2
-  kok: Türkiye’de yerleşik bir alıcı, KDVK kapsamında vergi alacağının güvenceye alınması için sorumlu tutulabileceği
-    bir işlemde yurt dışında yerleşik satıcıdan hizmet almıştır. Bu durumda alıcı bakımından hangi değerlendirme
-    doğrudur?
+  kok: Türkiye’de yerleşik bir alıcı, KDVK kapsamında vergi alacağının güvenceye alınması için sorumlu tutulabileceği bir
+    işlemde yurt dışında yerleşik satıcıdan hizmet almıştır. Bu durumda alıcı bakımından hangi değerlendirme doğrudur?
   secenekler:
     A: Yurt dışı satıcı bulunduğu için hiçbir KDV sorumluluğu doğamaz.
     B: Kanunda öngörülen şartlarda alıcı verginin ödenmesinden sorumlu tutulabilir.
@@ -158,8 +169,8 @@
     E: Alıcı vergi sorumluluğunu sözleşmeyle tamamen ortadan kaldırabilir.
   dogru: B
   aciklama:
-    dogru_neden: KDVK md. 9, belirtilen koşullarda vergi alacağını güvenceye almak amacıyla işlemin taraflarının
-      sorumlu tutulmasına imkan verir.
+    dogru_neden: KDVK md. 9, belirtilen koşullarda vergi alacağını güvenceye almak amacıyla işlemin taraflarının sorumlu tutulmasına
+      imkan verir.
     celdiriciler:
       A: Kanundaki sorumluluk imkanını yok sayar
       C: Şube şartını metinde aranan genel koşul gibi sunar
@@ -169,14 +180,14 @@
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 9/1
-    alinti: Mükellefin Türkiye içinde ikametgahının, işyerinin, kanuni merkezi ve iş merkezinin bulunmaması hallerinde
-      ve gerekli görülen diğer hallerde Maliye Bakanlığı, vergi alacağının emniyet altına alınması amacıyla, vergiye
-      tabi işlemlere taraf olanları verginin ödenmesinden sorumlu tutabilir.
+    alinti: Mükellefin Türkiye içinde ikametgahının, işyerinin, kanuni merkezi ve iş merkezinin bulunmaması hallerinde ve
+      gerekli görülen diğer hallerde Maliye Bakanlığı, vergi alacağının emniyet altına alınması amacıyla, vergiye tabi işlemlere
+      taraf olanları verginin ödenmesinden sorumlu tutabilir.
   gecerlilik:
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -196,7 +207,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: A/C/D/E bariz yanlış; kök cevabı veriyor ('sorumlu tutulabileceği')
       G6:
         sonuc: bekliyor
       GZ:
@@ -205,6 +218,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır ChatGPT_YMM-HSV-2026-10-10-G05 #9'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: A/C/D/E bariz yanlış; kök cevabı veriyor ('sorumlu tutulabileceği')
 - id: YMM-HSV-KIS-0004
   sinav: ymm
   bolum:
@@ -215,9 +232,9 @@
   kazanim: indirim (md.29-30)
   tip: hesaplama
   zorluk: 1
-  kok: Bir mükellefin döneminde hesaplanan KDV 18.000 TL, indirim şartlarını taşıyan alış belgelerinde gösterilen
-    KDV 6.500 TL’dir. İndirilecek başka vergi ve indirim yasağına giren alış bulunmadığına göre hesaplanan KDV’den
-    indirim sonrası tutar kaç TL’dir?
+  kok: Bir mükellefin döneminde hesaplanan KDV 18.000 TL, indirim şartlarını taşıyan alış belgelerinde gösterilen KDV 6.500
+    TL’dir. İndirilecek başka vergi ve indirim yasağına giren alış bulunmadığına göre hesaplanan KDV’den indirim sonrası tutar
+    kaç TL’dir?
   secenekler:
     A: '6.500'
     B: '11.500'
@@ -239,8 +256,8 @@
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 29/1-a
-    alinti: Kendilerine yapılan teslim ve hizmetler dolayısıyla hesaplanarak düzenlenen fatura ve benzeri vesikalarda
-      gösterilen katma değer vergisi,
+    alinti: Kendilerine yapılan teslim ve hizmetler dolayısıyla hesaplanarak düzenlenen fatura ve benzeri vesikalarda gösterilen
+      katma değer vergisi,
   gecerlilik:
     baslangic: '2002-08-07'
     bitis: null
@@ -301,27 +318,27 @@
   aciklama:
     dogru_neden: İhracat teslimi için hem yurt dışı alıcı hem de malın gümrük bölgesinden çıkması koşulları aranır.
     celdiriciler:
-      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Yalnız I. İhracat teslimi için hem yurt dışı alıcı hem de
-        malın gümrük bölgesinden çıkması koşulları aranır.'
-      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Yalnız II ve III. İhracat teslimi için hem yurt dışı alıcı
-        hem de malın gümrük bölgesinden çıkması koşulları aranır.'
-      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: I, II ve III. İhracat teslimi için hem yurt dışı alıcı hem
-        de malın gümrük bölgesinden çıkması koşulları aranır.'
-      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Yalnız III. İhracat teslimi için hem yurt dışı alıcı hem de
-        malın gümrük bölgesinden çıkması koşulları aranır.'
+      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Yalnız I. İhracat teslimi için hem yurt dışı alıcı hem de malın gümrük
+        bölgesinden çıkması koşulları aranır.'
+      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Yalnız II ve III. İhracat teslimi için hem yurt dışı alıcı hem de malın
+        gümrük bölgesinden çıkması koşulları aranır.'
+      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: I, II ve III. İhracat teslimi için hem yurt dışı alıcı hem de malın
+        gümrük bölgesinden çıkması koşulları aranır.'
+      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Yalnız III. İhracat teslimi için hem yurt dışı alıcı hem de malın gümrük
+        bölgesinden çıkması koşulları aranır.'
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 11-12
-    alinti: "Madde 12 – 1. (Değişik: 18/2/2009 - 5838/11 md.) Bir teslimin ihracat teslimi\nsayılabilmesi için aşağıdaki\
-      \ şartlar yerine getirilmiş olmalıdır:\n       a) Teslim yurt dışındaki bir müşteriye veya bir serbest bölgedeki\
-      \ alıcıya veya\n27/10/1999 tarihli ve 4458 sayılı Gümrük Kanununun 95 inci maddesinin (1) numaralı fıkrasına\n\
-      göre faaliyette bulunan gümrüksüz satış mağazalarında satılmak üzere bu mağazalara veya\nbunların depolarına\
-      \ ya da yetkili gümrük antreposu işleticisine yapılmalı veya mallar yetkili\ngümrük antrepos"
+    alinti: "Madde 12 – 1. (Değişik: 18/2/2009 - 5838/11 md.) Bir teslimin ihracat teslimi\nsayılabilmesi için aşağıdaki şartlar\
+      \ yerine getirilmiş olmalıdır:\n       a) Teslim yurt dışındaki bir müşteriye veya bir serbest bölgedeki alıcıya veya\n\
+      27/10/1999 tarihli ve 4458 sayılı Gümrük Kanununun 95 inci maddesinin (1) numaralı fıkrasına\ngöre faaliyette bulunan\
+      \ gümrüksüz satış mağazalarında satılmak üzere bu mağazalara veya\nbunların depolarına ya da yetkili gümrük antreposu\
+      \ işleticisine yapılmalı veya mallar yetkili\ngümrük antrepos"
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -341,7 +358,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: III bariz yanlış; temel düzey
       G6:
         sonuc: bekliyor
       GZ:
@@ -350,6 +369,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır risto_YMM-HSV-2026-10-10-G01 #2'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: III bariz yanlış; temel düzey
 - id: YMM-HSV-KIS-0006
   sinav: ymm
   bolum:
@@ -360,8 +383,8 @@
   kazanim: diğer istisnalar (KDVK md.13-17)
   tip: uygulama
   zorluk: 3
-  kok: Bir işletme, kanunun 13’üncü maddesinde açıkça kapsanan bir taşıma aracını, bu amaçla işletme faaliyeti yürüten
-    mükellefe teslim etmiştir. Hangi değerlendirme en isabetlidir?
+  kok: Bir işletme, kanunun 13’üncü maddesinde açıkça kapsanan bir taşıma aracını, bu amaçla işletme faaliyeti yürüten mükellefe
+    teslim etmiştir. Hangi değerlendirme en isabetlidir?
   secenekler:
     A: Bütün araç teslimleri otomatik olarak istisnadır.
     B: İstisna yalnız araçların şahsi kullanımında geçerlidir.
@@ -372,27 +395,27 @@
   aciklama:
     dogru_neden: İstisna, kanunda belirtilen araçlar ve faaliyet amacı ile sınırlıdır; her araç teslimine yayılmaz.
     celdiriciler:
-      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Bütün araç teslimleri otomatik olarak istisnadır.. İstisna,
-        kanunda belirtilen araçlar ve faaliyet amacı ile sınırlıdır; her araç teslimine yayılmaz.'
-      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İstisna yalnız araçların şahsi kullanımında geçerlidir.. İstisna,
-        kanunda belirtilen araçlar ve faaliyet amacı ile sınırlıdır; her araç teslimine yayılmaz.'
-      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İstisna için işlemin yurt dışına yapılması şarttır.. İstisna,
-        kanunda belirtilen araçlar ve faaliyet amacı ile sınırlıdır; her araç teslimine yayılmaz.'
-      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Md. 13 yalnız hizmet ithalatını düzenler.. İstisna, kanunda
+      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Bütün araç teslimleri otomatik olarak istisnadır.. İstisna, kanunda
         belirtilen araçlar ve faaliyet amacı ile sınırlıdır; her araç teslimine yayılmaz.'
+      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İstisna yalnız araçların şahsi kullanımında geçerlidir.. İstisna, kanunda
+        belirtilen araçlar ve faaliyet amacı ile sınırlıdır; her araç teslimine yayılmaz.'
+      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İstisna için işlemin yurt dışına yapılması şarttır.. İstisna, kanunda
+        belirtilen araçlar ve faaliyet amacı ile sınırlıdır; her araç teslimine yayılmaz.'
+      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Md. 13 yalnız hizmet ithalatını düzenler.. İstisna, kanunda belirtilen
+        araçlar ve faaliyet amacı ile sınırlıdır; her araç teslimine yayılmaz.'
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 13-17
     alinti: "Madde 13 – (Değişik : 26/3/1985 - 3174/1 md.)\n        Aşağıdaki teslim ve hizmetler vergiden müstesnadır.\n\
-      \        a) (Değişik : 25/5/1995 - 4108/33 md.) Faaliyetleri kısmen veya tamamen deniz, hava\nve demiryolu\
-      \ taşıma araçlarının, yüzer tesis ve araçların kiralanması veya çeşitli şekillerde\nişletilmesi olan mükelleflere\
-      \ bu amaçla yapılan deniz, hava ve demiryolu taşıma araçlarının,\nyüzer tesis ve araçlarının teslimleri, bu\
-      \ araçların imal ve inşaası ile ilgili olarak yapılan teslim\nve hizmetler ile bunların tadili,"
+      \        a) (Değişik : 25/5/1995 - 4108/33 md.) Faaliyetleri kısmen veya tamamen deniz, hava\nve demiryolu taşıma araçlarının,\
+      \ yüzer tesis ve araçların kiralanması veya çeşitli şekillerde\nişletilmesi olan mükelleflere bu amaçla yapılan deniz,\
+      \ hava ve demiryolu taşıma araçlarının,\nyüzer tesis ve araçlarının teslimleri, bu araçların imal ve inşaası ile ilgili\
+      \ olarak yapılan teslim\nve hizmetler ile bunların tadili,"
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -412,7 +435,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: A,B,D,E bariz yanlış; somut md.13 şartı yok
       G6:
         sonuc: bekliyor
       GZ:
@@ -421,6 +446,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır risto_YMM-HSV-2026-10-10-G01 #7'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: A,B,D,E bariz yanlış; somut md.13 şartı yok
 - id: YMM-HSV-KIS-0007
   sinav: ymm
   bolum:
@@ -431,8 +460,8 @@
   kazanim: indirim (md.29-30)
   tip: uygulama
   zorluk: 1
-  kok: Bir işletme, vergiye tabi faaliyetiyle ilgili mal alımında faturada gösterilen KDV’yi indirmek istemektedir.
-    Alış belgesi usulüne uygun ve işlem gerçek ise temel yaklaşım hangisidir?
+  kok: Bir işletme, vergiye tabi faaliyetiyle ilgili mal alımında faturada gösterilen KDV’yi indirmek istemektedir. Alış belgesi
+    usulüne uygun ve işlem gerçek ise temel yaklaşım hangisidir?
   secenekler:
     A: Md. 29 ve 30’daki şart ve sınırlamalar çerçevesinde indirim mümkündür.
     B: Alış KDV’si hiçbir durumda indirilemez.
@@ -444,29 +473,27 @@
     dogru_neden: Md. 29 faaliyetle ilgili alış belgelerinde gösterilen KDV için indirim hakkı tanır; md. 30 sınırlamaları
       ayrıca gözetilir.
     celdiriciler:
-      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Alış KDV’si hiçbir durumda indirilemez.. Md. 29 faaliyetle
+      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Alış KDV’si hiçbir durumda indirilemez.. Md. 29 faaliyetle ilgili alış
+        belgelerinde gösterilen KDV için indirim hakkı tanır; md. 30 sınırlamaları ayrıca gözetilir.'
+      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İndirim yalnız sabit kıymetlerde mümkündür.. Md. 29 faaliyetle ilgili
+        alış belgelerinde gösterilen KDV için indirim hakkı tanır; md. 30 sınırlamaları ayrıca gözetilir.'
+      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İndirim için malın ihracat edilmiş olması gerekir.. Md. 29 faaliyetle
         ilgili alış belgelerinde gösterilen KDV için indirim hakkı tanır; md. 30 sınırlamaları ayrıca gözetilir.'
-      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İndirim yalnız sabit kıymetlerde mümkündür.. Md. 29 faaliyetle
-        ilgili alış belgelerinde gösterilen KDV için indirim hakkı tanır; md. 30 sınırlamaları ayrıca gözetilir.'
-      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İndirim için malın ihracat edilmiş olması gerekir.. Md. 29
-        faaliyetle ilgili alış belgelerinde gösterilen KDV için indirim hakkı tanır; md. 30 sınırlamaları ayrıca
-        gözetilir.'
-      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İndirim hakkı yalnız sorumlu sıfatıyla vergi ödeyenlere aittir..
-        Md. 29 faaliyetle ilgili alış belgelerinde gösterilen KDV için indirim hakkı tanır; md. 30 sınırlamaları
-        ayrıca gözetilir.'
+      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İndirim hakkı yalnız sorumlu sıfatıyla vergi ödeyenlere aittir.. Md.
+        29 faaliyetle ilgili alış belgelerinde gösterilen KDV için indirim hakkı tanır; md. 30 sınırlamaları ayrıca gözetilir.'
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 29-30
-    alinti: "Madde 29 – 1. Mükellefler, yaptıkları vergiye tabi işlemler üzerinden hesaplanan\nkatma değer vergisinden,\
-      \ bu Kanunda aksine hüküm olmadıkça, faaliyetlerine ilişkin olarak\naşağıdaki vergileri indirebilirler:\n\
-      \       a) Kendilerine yapılan teslim ve hizmetler dolayısıyla hesaplanarak düzenlenen fatura\nve benzeri\
-      \ vesikalarda gösterilen katma değer vergisi,\n\n71\n   29/3/2018 tarihli ve 7104 sayılı Kanunun 29 uncu maddesiyle\
-      \ bu fıkra hükmünün 6/4/2018 tarihinden sonra\nyapılan teslimlere uygulanmak üzere 6/4/2018 tarihinde"
+    alinti: "Madde 29 – 1. Mükellefler, yaptıkları vergiye tabi işlemler üzerinden hesaplanan\nkatma değer vergisinden, bu\
+      \ Kanunda aksine hüküm olmadıkça, faaliyetlerine ilişkin olarak\naşağıdaki vergileri indirebilirler:\n       a) Kendilerine\
+      \ yapılan teslim ve hizmetler dolayısıyla hesaplanarak düzenlenen fatura\nve benzeri vesikalarda gösterilen katma değer\
+      \ vergisi,\n\n71\n   29/3/2018 tarihli ve 7104 sayılı Kanunun 29 uncu maddesiyle bu fıkra hükmünün 6/4/2018 tarihinden\
+      \ sonra\nyapılan teslimlere uygulanmak üzere 6/4/2018 tarihinde"
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -486,7 +513,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: B-E saçma; kökte cevap
       G6:
         sonuc: bekliyor
       GZ:
@@ -495,6 +524,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır risto_YMM-HSV-2026-10-10-G01 #13'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: B-E saçma; kökte cevap
 - id: YMM-HSV-KIS-0008
   sinav: ymm
   bolum:
@@ -516,27 +549,27 @@
   aciklama:
     dogru_neden: İade ve teminat uygulaması kanun ve tebliğdeki işlem türüne özgü usul ve şartlara bağlıdır.
     celdiriciler:
-      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Her iade talebi belgesiz ve koşulsuz ödenir.. İade ve teminat
-        uygulaması kanun ve tebliğdeki işlem türüne özgü usul ve şartlara bağlıdır.'
-      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Teminat hiçbir durumda kullanılamaz.. İade ve teminat uygulaması
+      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Her iade talebi belgesiz ve koşulsuz ödenir.. İade ve teminat uygulaması
         kanun ve tebliğdeki işlem türüne özgü usul ve şartlara bağlıdır.'
-      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İade yalnız nakden yapılabilir.. İade ve teminat uygulaması
-        kanun ve tebliğdeki işlem türüne özgü usul ve şartlara bağlıdır.'
-      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İade hakkı yalnız ithalatçıya tanınır.. İade ve teminat uygulaması
-        kanun ve tebliğdeki işlem türüne özgü usul ve şartlara bağlıdır.'
+      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Teminat hiçbir durumda kullanılamaz.. İade ve teminat uygulaması kanun
+        ve tebliğdeki işlem türüne özgü usul ve şartlara bağlıdır.'
+      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İade yalnız nakden yapılabilir.. İade ve teminat uygulaması kanun ve
+        tebliğdeki işlem türüne özgü usul ve şartlara bağlıdır.'
+      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İade hakkı yalnız ithalatçıya tanınır.. İade ve teminat uygulaması kanun
+        ve tebliğdeki işlem türüne özgü usul ve şartlara bağlıdır.'
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu ve KDV Genel Uygulama Tebliği
     madde: md. 9/1
-    alinti: "Madde 9 – (Değişik : 24/6/1994 - 4008/30 md.)\n         1. Mükellefin Türkiye içinde ikametgahının,\
-      \ işyerinin, kanuni merkezi ve iş\nmerkezinin bulunmaması hallerinde ve gerekli görülen diğer hallerde Maliye\
-      \ Bakanlığı, vergi\nalacağının emniyet altına alınması amacıyla, vergiye tabi işlemlere taraf olanları verginin\n\
-      ödenmesinden sorumlu tutabilir. (Ek cümleler: 28/11/2017-7061/41 md.) Şu kadar ki\nTürkiye’de ikametgâhı,\
-      \ işyeri, kanuni merkezi ve iş merkezi bulunmayanlar tarafından katma\ndeğer vergisi mükellefi olmayan"
+    alinti: "Madde 9 – (Değişik : 24/6/1994 - 4008/30 md.)\n         1. Mükellefin Türkiye içinde ikametgahının, işyerinin,\
+      \ kanuni merkezi ve iş\nmerkezinin bulunmaması hallerinde ve gerekli görülen diğer hallerde Maliye Bakanlığı, vergi\n\
+      alacağının emniyet altına alınması amacıyla, vergiye tabi işlemlere taraf olanları verginin\nödenmesinden sorumlu tutabilir.\
+      \ (Ek cümleler: 28/11/2017-7061/41 md.) Şu kadar ki\nTürkiye’de ikametgâhı, işyeri, kanuni merkezi ve iş merkezi bulunmayanlar\
+      \ tarafından katma\ndeğer vergisi mükellefi olmayan"
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -556,7 +589,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: B-E saçma dolgu
       G6:
         sonuc: bekliyor
       GZ:
@@ -565,6 +600,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır risto_YMM-HSV-2026-10-10-G01 #18'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: B-E saçma dolgu
 - id: YMM-HSV-KIS-0009
   sinav: ymm
   bolum:
@@ -586,27 +625,27 @@
   aciklama:
     dogru_neden: Tevkifat tarafların serbest tercihine değil, kanun ve ikincil düzenlemedeki kapsama bağlıdır.
     celdiriciler:
-      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Kanuni dayanak md. 9/1’dir.. Tevkifat tarafların serbest tercihine
-        değil, kanun ve ikincil düzenlemedeki kapsama bağlıdır.'
-      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Tebliğ uygulama usul ve esaslarını ayrıntılandırır.. Tevkifat
+      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Kanuni dayanak md. 9/1’dir.. Tevkifat tarafların serbest tercihine değil,
+        kanun ve ikincil düzenlemedeki kapsama bağlıdır.'
+      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Tebliğ uygulama usul ve esaslarını ayrıntılandırır.. Tevkifat tarafların
+        serbest tercihine değil, kanun ve ikincil düzenlemedeki kapsama bağlıdır.'
+      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Tevkifat, her mal satışında tarafların tercihine göre uygulanır.. Tevkifat
         tarafların serbest tercihine değil, kanun ve ikincil düzenlemedeki kapsama bağlıdır.'
-      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Tevkifat, her mal satışında tarafların tercihine göre uygulanır..
-        Tevkifat tarafların serbest tercihine değil, kanun ve ikincil düzenlemedeki kapsama bağlıdır.'
-      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Sorumluluk kanuni koşulların gerçekleşmesine bağlıdır.. Tevkifat
-        tarafların serbest tercihine değil, kanun ve ikincil düzenlemedeki kapsama bağlıdır.'
+      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Sorumluluk kanuni koşulların gerçekleşmesine bağlıdır.. Tevkifat tarafların
+        serbest tercihine değil, kanun ve ikincil düzenlemedeki kapsama bağlıdır.'
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu ve KDV Genel Uygulama Tebliği
     madde: md. 9/1
-    alinti: "Madde 9 – (Değişik : 24/6/1994 - 4008/30 md.)\n         1. Mükellefin Türkiye içinde ikametgahının,\
-      \ işyerinin, kanuni merkezi ve iş\nmerkezinin bulunmaması hallerinde ve gerekli görülen diğer hallerde Maliye\
-      \ Bakanlığı, vergi\nalacağının emniyet altına alınması amacıyla, vergiye tabi işlemlere taraf olanları verginin\n\
-      ödenmesinden sorumlu tutabilir. (Ek cümleler: 28/11/2017-7061/41 md.) Şu kadar ki\nTürkiye’de ikametgâhı,\
-      \ işyeri, kanuni merkezi ve iş merkezi bulunmayanlar tarafından katma\ndeğer vergisi mükellefi olmayan"
+    alinti: "Madde 9 – (Değişik : 24/6/1994 - 4008/30 md.)\n         1. Mükellefin Türkiye içinde ikametgahının, işyerinin,\
+      \ kanuni merkezi ve iş\nmerkezinin bulunmaması hallerinde ve gerekli görülen diğer hallerde Maliye Bakanlığı, vergi\n\
+      alacağının emniyet altına alınması amacıyla, vergiye tabi işlemlere taraf olanları verginin\nödenmesinden sorumlu tutabilir.\
+      \ (Ek cümleler: 28/11/2017-7061/41 md.) Şu kadar ki\nTürkiye’de ikametgâhı, işyeri, kanuni merkezi ve iş merkezi bulunmayanlar\
+      \ tarafından katma\ndeğer vergisi mükellefi olmayan"
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -626,7 +665,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'anahtar E yanlış: E doğru ifade; yanlış olan C (tarafların tercihine göre)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -635,6 +676,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır risto_YMM-HSV-2026-10-10-G01 #21'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'anahtar E yanlış: E doğru ifade; yanlış olan C (tarafların tercihine göre)'
 - id: YMM-HSV-KIS-0010
   sinav: ymm
   bolum:
@@ -656,27 +701,27 @@
   aciklama:
     dogru_neden: Malın Türkiye içinde kalması ihracat teslimi için yeterli değildir.
     celdiriciler:
-      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Malın Türkiye Gümrük Bölgesinden çıkması. Malın Türkiye içinde
-        kalması ihracat teslimi için yeterli değildir.'
-      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Alıcının kanundaki yurt dışı müşteri tanımına uyması. Malın
-        Türkiye içinde kalması ihracat teslimi için yeterli değildir.'
-      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Malın Türkiye içinde kalmasının her durumda yeterli olması.
-        Malın Türkiye içinde kalması ihracat teslimi için yeterli değildir.'
-      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İşlemin kanundaki ihracat şartlarını taşıması. Malın Türkiye
+      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Malın Türkiye Gümrük Bölgesinden çıkması. Malın Türkiye içinde kalması
+        ihracat teslimi için yeterli değildir.'
+      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Alıcının kanundaki yurt dışı müşteri tanımına uyması. Malın Türkiye
         içinde kalması ihracat teslimi için yeterli değildir.'
+      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Malın Türkiye içinde kalmasının her durumda yeterli olması. Malın Türkiye
+        içinde kalması ihracat teslimi için yeterli değildir.'
+      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İşlemin kanundaki ihracat şartlarını taşıması. Malın Türkiye içinde
+        kalması ihracat teslimi için yeterli değildir.'
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 11-12
-    alinti: "Madde 12 – 1. (Değişik: 18/2/2009 - 5838/11 md.) Bir teslimin ihracat teslimi\nsayılabilmesi için aşağıdaki\
-      \ şartlar yerine getirilmiş olmalıdır:\n       a) Teslim yurt dışındaki bir müşteriye veya bir serbest bölgedeki\
-      \ alıcıya veya\n27/10/1999 tarihli ve 4458 sayılı Gümrük Kanununun 95 inci maddesinin (1) numaralı fıkrasına\n\
-      göre faaliyette bulunan gümrüksüz satış mağazalarında satılmak üzere bu mağazalara veya\nbunların depolarına\
-      \ ya da yetkili gümrük antreposu işleticisine yapılmalı veya mallar yetkili\ngümrük antrepos"
+    alinti: "Madde 12 – 1. (Değişik: 18/2/2009 - 5838/11 md.) Bir teslimin ihracat teslimi\nsayılabilmesi için aşağıdaki şartlar\
+      \ yerine getirilmiş olmalıdır:\n       a) Teslim yurt dışındaki bir müşteriye veya bir serbest bölgedeki alıcıya veya\n\
+      27/10/1999 tarihli ve 4458 sayılı Gümrük Kanununun 95 inci maddesinin (1) numaralı fıkrasına\ngöre faaliyette bulunan\
+      \ gümrüksüz satış mağazalarında satılmak üzere bu mağazalara veya\nbunların depolarına ya da yetkili gümrük antreposu\
+      \ işleticisine yapılmalı veya mallar yetkili\ngümrük antrepos"
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -696,7 +741,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'anahtar E yanlış: E doğru koşul; yanlış ifade C'
       G6:
         sonuc: bekliyor
       GZ:
@@ -705,6 +752,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır risto_YMM-HSV-2026-10-10-G01 #26'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'anahtar E yanlış: E doğru koşul; yanlış ifade C'
 - id: YMM-HSV-KIS-0011
   sinav: ymm
   bolum:
@@ -726,27 +777,27 @@
   aciklama:
     dogru_neden: İstisnalar konu ve şartlarla sınırlıdır; işlem somut hükümle karşılaştırılmalıdır.
     celdiriciler:
-      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Bir işlem herhangi bir kamu kurumuyla ilişkiliyse tüm şartlardan
-        bağımsız istisnadır.. İstisnalar konu ve şartlarla sınırlıdır; işlem somut hükümle karşılaştırılmalıdır.'
-      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İstisna hükümleri sadece ithalata uygulanır.. İstisnalar konu
-        ve şartlarla sınırlıdır; işlem somut hükümle karşılaştırılmalıdır.'
-      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İstisna olan malın bütün girdileri de otomatik istisnadır..
-        İstisnalar konu ve şartlarla sınırlıdır; işlem somut hükümle karşılaştırılmalıdır.'
-      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İstisna için kanunda hüküm bulunması gerekmez.. İstisnalar
+      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Bir işlem herhangi bir kamu kurumuyla ilişkiliyse tüm şartlardan bağımsız
+        istisnadır.. İstisnalar konu ve şartlarla sınırlıdır; işlem somut hükümle karşılaştırılmalıdır.'
+      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İstisna hükümleri sadece ithalata uygulanır.. İstisnalar konu ve şartlarla
+        sınırlıdır; işlem somut hükümle karşılaştırılmalıdır.'
+      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İstisna olan malın bütün girdileri de otomatik istisnadır.. İstisnalar
         konu ve şartlarla sınırlıdır; işlem somut hükümle karşılaştırılmalıdır.'
+      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İstisna için kanunda hüküm bulunması gerekmez.. İstisnalar konu ve şartlarla
+        sınırlıdır; işlem somut hükümle karşılaştırılmalıdır.'
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 13-17
     alinti: "Madde 13 – (Değişik : 26/3/1985 - 3174/1 md.)\n        Aşağıdaki teslim ve hizmetler vergiden müstesnadır.\n\
-      \        a) (Değişik : 25/5/1995 - 4108/33 md.) Faaliyetleri kısmen veya tamamen deniz, hava\nve demiryolu\
-      \ taşıma araçlarının, yüzer tesis ve araçların kiralanması veya çeşitli şekillerde\nişletilmesi olan mükelleflere\
-      \ bu amaçla yapılan deniz, hava ve demiryolu taşıma araçlarının,\nyüzer tesis ve araçlarının teslimleri, bu\
-      \ araçların imal ve inşaası ile ilgili olarak yapılan teslim\nve hizmetler ile bunların tadili,"
+      \        a) (Değişik : 25/5/1995 - 4108/33 md.) Faaliyetleri kısmen veya tamamen deniz, hava\nve demiryolu taşıma araçlarının,\
+      \ yüzer tesis ve araçların kiralanması veya çeşitli şekillerde\nişletilmesi olan mükelleflere bu amaçla yapılan deniz,\
+      \ hava ve demiryolu taşıma araçlarının,\nyüzer tesis ve araçlarının teslimleri, bu araçların imal ve inşaası ile ilgili\
+      \ olarak yapılan teslim\nve hizmetler ile bunların tadili,"
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -766,7 +817,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: A-D bariz yanlış; düşük düzey
       G6:
         sonuc: bekliyor
       GZ:
@@ -775,6 +828,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır risto_YMM-HSV-2026-10-10-G01 #31'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: A-D bariz yanlış; düşük düzey
 - id: YMM-HSV-KIS-0012
   sinav: ymm
   bolum:
@@ -796,27 +853,27 @@
   aciklama:
     dogru_neden: Md. 30 indirim konusu yapılamayacak KDV hallerini düzenler.
     celdiriciler:
-      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Her alış KDV’si istisnasız indirilebilir.. Md. 30 indirim
+      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Her alış KDV’si istisnasız indirilebilir.. Md. 30 indirim konusu yapılamayacak
+        KDV hallerini düzenler.'
+      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İndirim yalnız satış KDV’sine uygulanır.. Md. 30 indirim konusu yapılamayacak
+        KDV hallerini düzenler.'
+      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İndirim yasağı yalnız yabancı para işlemlerine ilişkindir.. Md. 30 indirim
         konusu yapılamayacak KDV hallerini düzenler.'
-      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İndirim yalnız satış KDV’sine uygulanır.. Md. 30 indirim konusu
-        yapılamayacak KDV hallerini düzenler.'
-      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İndirim yasağı yalnız yabancı para işlemlerine ilişkindir..
-        Md. 30 indirim konusu yapılamayacak KDV hallerini düzenler.'
-      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Md. 30 sadece vergi oranlarını belirler.. Md. 30 indirim konusu
-        yapılamayacak KDV hallerini düzenler.'
+      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Md. 30 sadece vergi oranlarını belirler.. Md. 30 indirim konusu yapılamayacak
+        KDV hallerini düzenler.'
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 29-30
-    alinti: "Madde 29 – 1. Mükellefler, yaptıkları vergiye tabi işlemler üzerinden hesaplanan\nkatma değer vergisinden,\
-      \ bu Kanunda aksine hüküm olmadıkça, faaliyetlerine ilişkin olarak\naşağıdaki vergileri indirebilirler:\n\
-      \       a) Kendilerine yapılan teslim ve hizmetler dolayısıyla hesaplanarak düzenlenen fatura\nve benzeri\
-      \ vesikalarda gösterilen katma değer vergisi,\n\n71\n   29/3/2018 tarihli ve 7104 sayılı Kanunun 29 uncu maddesiyle\
-      \ bu fıkra hükmünün 6/4/2018 tarihinden sonra\nyapılan teslimlere uygulanmak üzere 6/4/2018 tarihinde"
+    alinti: "Madde 29 – 1. Mükellefler, yaptıkları vergiye tabi işlemler üzerinden hesaplanan\nkatma değer vergisinden, bu\
+      \ Kanunda aksine hüküm olmadıkça, faaliyetlerine ilişkin olarak\naşağıdaki vergileri indirebilirler:\n       a) Kendilerine\
+      \ yapılan teslim ve hizmetler dolayısıyla hesaplanarak düzenlenen fatura\nve benzeri vesikalarda gösterilen katma değer\
+      \ vergisi,\n\n71\n   29/3/2018 tarihli ve 7104 sayılı Kanunun 29 uncu maddesiyle bu fıkra hükmünün 6/4/2018 tarihinden\
+      \ sonra\nyapılan teslimlere uygulanmak üzere 6/4/2018 tarihinde"
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -836,7 +893,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: A-D saçma; düşük düzey
       G6:
         sonuc: bekliyor
       GZ:
@@ -845,6 +904,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır risto_YMM-HSV-2026-10-10-G01 #36'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: A-D saçma; düşük düzey
 - id: YMM-HSV-KIS-0013
   sinav: ymm
   bolum:
@@ -866,27 +929,27 @@
   aciklama:
     dogru_neden: Tevkifat, vergi sorumluluğu yoluyla vergi alacağının güvence altına alınmasına hizmet eder.
     celdiriciler:
-      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Her işlemde satıcının vergiden tamamen kurtulmasıdır.. Tevkifat,
-        vergi sorumluluğu yoluyla vergi alacağının güvence altına alınmasına hizmet eder.'
-      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Tarafların sözleşmeyle KDV oranını değiştirmesidir.. Tevkifat,
-        vergi sorumluluğu yoluyla vergi alacağının güvence altına alınmasına hizmet eder.'
-      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: KDV’nin damga vergisine dönüşmesidir.. Tevkifat, vergi sorumluluğu
-        yoluyla vergi alacağının güvence altına alınmasına hizmet eder.'
-      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İşlemin KDV dışında kalmasıdır.. Tevkifat, vergi sorumluluğu
-        yoluyla vergi alacağının güvence altına alınmasına hizmet eder.'
+      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Her işlemde satıcının vergiden tamamen kurtulmasıdır.. Tevkifat, vergi
+        sorumluluğu yoluyla vergi alacağının güvence altına alınmasına hizmet eder.'
+      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Tarafların sözleşmeyle KDV oranını değiştirmesidir.. Tevkifat, vergi
+        sorumluluğu yoluyla vergi alacağının güvence altına alınmasına hizmet eder.'
+      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: KDV’nin damga vergisine dönüşmesidir.. Tevkifat, vergi sorumluluğu yoluyla
+        vergi alacağının güvence altına alınmasına hizmet eder.'
+      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: İşlemin KDV dışında kalmasıdır.. Tevkifat, vergi sorumluluğu yoluyla
+        vergi alacağının güvence altına alınmasına hizmet eder.'
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu ve KDV Genel Uygulama Tebliği
     madde: md. 9/1
-    alinti: "Madde 9 – (Değişik : 24/6/1994 - 4008/30 md.)\n         1. Mükellefin Türkiye içinde ikametgahının,\
-      \ işyerinin, kanuni merkezi ve iş\nmerkezinin bulunmaması hallerinde ve gerekli görülen diğer hallerde Maliye\
-      \ Bakanlığı, vergi\nalacağının emniyet altına alınması amacıyla, vergiye tabi işlemlere taraf olanları verginin\n\
-      ödenmesinden sorumlu tutabilir. (Ek cümleler: 28/11/2017-7061/41 md.) Şu kadar ki\nTürkiye’de ikametgâhı,\
-      \ işyeri, kanuni merkezi ve iş merkezi bulunmayanlar tarafından katma\ndeğer vergisi mükellefi olmayan"
+    alinti: "Madde 9 – (Değişik : 24/6/1994 - 4008/30 md.)\n         1. Mükellefin Türkiye içinde ikametgahının, işyerinin,\
+      \ kanuni merkezi ve iş\nmerkezinin bulunmaması hallerinde ve gerekli görülen diğer hallerde Maliye Bakanlığı, vergi\n\
+      alacağının emniyet altına alınması amacıyla, vergiye tabi işlemlere taraf olanları verginin\nödenmesinden sorumlu tutabilir.\
+      \ (Ek cümleler: 28/11/2017-7061/41 md.) Şu kadar ki\nTürkiye’de ikametgâhı, işyeri, kanuni merkezi ve iş merkezi bulunmayanlar\
+      \ tarafından katma\ndeğer vergisi mükellefi olmayan"
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -906,7 +969,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: tevkifat sorusu iade etiketi altında; A/B/C/E saçma
       G6:
         sonuc: bekliyor
       GZ:
@@ -915,6 +980,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır risto_YMM-HSV-2026-10-10-G01 #39'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: tevkifat sorusu iade etiketi altında; A/B/C/E saçma
 - id: YMM-HSV-KIS-0014
   sinav: ymm
   bolum:
@@ -925,8 +994,7 @@
   kazanim: tevkifat
   tip: kavrama
   zorluk: 2
-  kok: Ölüm Türkiye’de gerçekleşmiş ve veraset yoluyla mal edinen mükellefler Türkiye’de bulunuyorsa beyanname süresi
-    nedir?
+  kok: Ölüm Türkiye’de gerçekleşmiş ve veraset yoluyla mal edinen mükellefler Türkiye’de bulunuyorsa beyanname süresi nedir?
   secenekler:
     A: Ölüm tarihini izleyen bir ay
     B: Ölüm tarihini izleyen iki yıl
@@ -937,27 +1005,26 @@
   aciklama:
     dogru_neden: VİVK md. 9/1-a, bu durumda dört aylık süre öngörür.
     celdiriciler:
-      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Ölüm tarihini izleyen bir ay. VİVK md. 9/1-a, bu durumda dört
-        aylık süre öngörür.'
-      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Ölüm tarihini izleyen iki yıl. VİVK md. 9/1-a, bu durumda
-        dört aylık süre öngörür.'
-      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Ölüm tarihini izleyen on gün. VİVK md. 9/1-a, bu durumda dört
-        aylık süre öngörür.'
-      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Her durumda altı ay. VİVK md. 9/1-a, bu durumda dört aylık
+      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Ölüm tarihini izleyen bir ay. VİVK md. 9/1-a, bu durumda dört aylık
         süre öngörür.'
+      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Ölüm tarihini izleyen iki yıl. VİVK md. 9/1-a, bu durumda dört aylık
+        süre öngörür.'
+      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Ölüm tarihini izleyen on gün. VİVK md. 9/1-a, bu durumda dört aylık
+        süre öngörür.'
+      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Her durumda altı ay. VİVK md. 9/1-a, bu durumda dört aylık süre öngörür.'
   kaynaklar:
   - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
     madde: md. 9
-    alinti: "Madde 9 – Beyannameler aşağıda yazılı müddetlerde verilir:\n        1. Veraset tarikiyle vukubulan\
-      \ intikallerde:\n        a) Ölüm Türkiye'de vukubulmuş ise mükelleflerin Türkiye'de bulunmaları halinde\n\
-      ölüm tarihini takibeden dört ay içinde, mükelleflerin yabancı bir memlekette bulunmaları\nhalinde ölüm tarihini\
-      \ takibeden altı ay içinde;\n        b) Ölüm yabancı bir memlekette vukubulmuş ise mükelleflerin Türkiye'de\
-      \ bulunmaları\nhalinde ölüm tarihini takibeden altı ay içinde, mükellefler müteveffanın bulunduğu\nmemlekette"
+    alinti: "Madde 9 – Beyannameler aşağıda yazılı müddetlerde verilir:\n        1. Veraset tarikiyle vukubulan intikallerde:\n\
+      \        a) Ölüm Türkiye'de vukubulmuş ise mükelleflerin Türkiye'de bulunmaları halinde\nölüm tarihini takibeden dört\
+      \ ay içinde, mükelleflerin yabancı bir memlekette bulunmaları\nhalinde ölüm tarihini takibeden altı ay içinde;\n   \
+      \     b) Ölüm yabancı bir memlekette vukubulmuş ise mükelleflerin Türkiye'de bulunmaları\nhalinde ölüm tarihini takibeden\
+      \ altı ay içinde, mükellefler müteveffanın bulunduğu\nmemlekette"
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -977,7 +1044,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'konu etiketi yanlış: VİVK md.10 beyan süresi KDV tevkifat altında; soru kendisi kabul edilebilir'
       G6:
         sonuc: bekliyor
       GZ:
@@ -986,6 +1055,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır risto_YMM-HSV-2026-10-10-G01 #44'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'konu etiketi yanlış: VİVK md.10 beyan süresi KDV tevkifat altında; soru kendisi kabul edilebilir'
 - id: YMM-HSV-KIS-0015
   sinav: ymm
   bolum:
@@ -996,8 +1069,8 @@
   kazanim: ihracat ve hizmet ihracı istisnası
   tip: kavrama
   zorluk: 3
-  kok: KDVK md. 13-17 istisnaları konusunda I. İşlemin kanunda sayılan türlerden olması gerekir. II. İlgili özel
-    şartlar aranabilir. III. Her istisna için tüm koşulların aynı olduğu kabul edilir. Hangileri doğrudur?
+  kok: KDVK md. 13-17 istisnaları konusunda I. İşlemin kanunda sayılan türlerden olması gerekir. II. İlgili özel şartlar aranabilir.
+    III. Her istisna için tüm koşulların aynı olduğu kabul edilir. Hangileri doğrudur?
   secenekler:
     A: Yalnız I
     B: I ve II
@@ -1006,30 +1079,29 @@
     E: II ve III
   dogru: B
   aciklama:
-    dogru_neden: İstisnaların konu ve şartları maddeden maddeye değişebilir; ortak ve tek tip şart varsayımı doğru
-      değildir.
+    dogru_neden: İstisnaların konu ve şartları maddeden maddeye değişebilir; ortak ve tek tip şart varsayımı doğru değildir.
     celdiriciler:
       A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Yalnız I. İstisnaların konu ve şartları maddeden maddeye değişebilir;
         ortak ve tek tip şart varsayımı doğru değildir.'
-      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Yalnız II. İstisnaların konu ve şartları maddeden maddeye
-        değişebilir; ortak ve tek tip şart varsayımı doğru değildir.'
-      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: I, II ve III. İstisnaların konu ve şartları maddeden maddeye
-        değişebilir; ortak ve tek tip şart varsayımı doğru değildir.'
-      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: II ve III. İstisnaların konu ve şartları maddeden maddeye
-        değişebilir; ortak ve tek tip şart varsayımı doğru değildir.'
+      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Yalnız II. İstisnaların konu ve şartları maddeden maddeye değişebilir;
+        ortak ve tek tip şart varsayımı doğru değildir.'
+      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: I, II ve III. İstisnaların konu ve şartları maddeden maddeye değişebilir;
+        ortak ve tek tip şart varsayımı doğru değildir.'
+      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: II ve III. İstisnaların konu ve şartları maddeden maddeye değişebilir;
+        ortak ve tek tip şart varsayımı doğru değildir.'
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 13-17
     alinti: "Madde 13 – (Değişik : 26/3/1985 - 3174/1 md.)\n        Aşağıdaki teslim ve hizmetler vergiden müstesnadır.\n\
-      \        a) (Değişik : 25/5/1995 - 4108/33 md.) Faaliyetleri kısmen veya tamamen deniz, hava\nve demiryolu\
-      \ taşıma araçlarının, yüzer tesis ve araçların kiralanması veya çeşitli şekillerde\nişletilmesi olan mükelleflere\
-      \ bu amaçla yapılan deniz, hava ve demiryolu taşıma araçlarının,\nyüzer tesis ve araçlarının teslimleri, bu\
-      \ araçların imal ve inşaası ile ilgili olarak yapılan teslim\nve hizmetler ile bunların tadili,"
+      \        a) (Değişik : 25/5/1995 - 4108/33 md.) Faaliyetleri kısmen veya tamamen deniz, hava\nve demiryolu taşıma araçlarının,\
+      \ yüzer tesis ve araçların kiralanması veya çeşitli şekillerde\nişletilmesi olan mükelleflere bu amaçla yapılan deniz,\
+      \ hava ve demiryolu taşıma araçlarının,\nyüzer tesis ve araçlarının teslimleri, bu araçların imal ve inşaası ile ilgili\
+      \ olarak yapılan teslim\nve hizmetler ile bunların tadili,"
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1049,7 +1121,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: III bariz yanlış; etiket (ihracat) ile içerik (md.13-17) uyumsuz
       G6:
         sonuc: bekliyor
       GZ:
@@ -1058,6 +1132,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır risto_YMM-HSV-2026-10-10-G01 #50'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: III bariz yanlış; etiket (ihracat) ile içerik (md.13-17) uyumsuz
 - id: YMM-HSV-KIS-0016
   sinav: ymm
   bolum:
@@ -1079,14 +1157,14 @@
   aciklama:
     dogru_neden: Tarife seçimi ve tarifedeki ölçütler MTV tutarını belirler.
     celdiriciler:
-      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Her taşıtın vergisi yalnız satış fiyatına göre hesaplanır..
-        Tarife seçimi ve tarifedeki ölçütler MTV tutarını belirler.'
-      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Motorlu taşıtlar vergisi sadece ilk iktisapta bir kez alınır..
-        Tarife seçimi ve tarifedeki ölçütler MTV tutarını belirler.'
-      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Tarife yalnız motosikletleri kapsar.. Tarife seçimi ve tarifedeki
-        ölçütler MTV tutarını belirler.'
-      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Vergi tutarı her yıl mükellef tarafından seçilir.. Tarife
+      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Her taşıtın vergisi yalnız satış fiyatına göre hesaplanır.. Tarife seçimi
+        ve tarifedeki ölçütler MTV tutarını belirler.'
+      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Motorlu taşıtlar vergisi sadece ilk iktisapta bir kez alınır.. Tarife
         seçimi ve tarifedeki ölçütler MTV tutarını belirler.'
+      C: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Tarife yalnız motosikletleri kapsar.. Tarife seçimi ve tarifedeki ölçütler
+        MTV tutarını belirler.'
+      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Vergi tutarı her yıl mükellef tarafından seçilir.. Tarife seçimi ve
+        tarifedeki ölçütler MTV tutarını belirler.'
   kaynaklar:
   - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
     madde: md. 5-6
@@ -1095,7 +1173,7 @@
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1115,7 +1193,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: MTV sorusu KDV istisnaları altında; A,B,C,E saçma
       G6:
         sonuc: bekliyor
       GZ:
@@ -1124,6 +1204,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_HSV.yaml, satır risto_YMM-HSV-2026-10-10-G01 #54'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: MTV sorusu KDV istisnaları altında; A,B,C,E saçma
 - id: YMM-HSV-KIS-0017
   sinav: ymm
   bolum:
@@ -1145,29 +1229,28 @@
   aciklama:
     dogru_neden: Md. 41/1, vergi kesintisi yapmakla sorumlu tutulanlar için 21’inci günü belirler.
     celdiriciler:
-      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Sorumlu beyanı her zaman 24’üncü gündür.. Md. 41/1, vergi
-        kesintisi yapmakla sorumlu tutulanlar için 21’inci günü belirler.'
-      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Sorumlu beyanı yıllık yapılır.. Md. 41/1, vergi kesintisi
+      A: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Sorumlu beyanı her zaman 24’üncü gündür.. Md. 41/1, vergi kesintisi
         yapmakla sorumlu tutulanlar için 21’inci günü belirler.'
-      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Sorumlu beyanı yalnız ödeme anında sözlü yapılır.. Md. 41/1,
-        vergi kesintisi yapmakla sorumlu tutulanlar için 21’inci günü belirler.'
-      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Sorumlu beyanı sadece ithalatçılar içindir.. Md. 41/1, vergi
-        kesintisi yapmakla sorumlu tutulanlar için 21’inci günü belirler.'
+      B: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Sorumlu beyanı yıllık yapılır.. Md. 41/1, vergi kesintisi yapmakla sorumlu
+        tutulanlar için 21’inci günü belirler.'
+      D: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Sorumlu beyanı yalnız ödeme anında sözlü yapılır.. Md. 41/1, vergi kesintisi
+        yapmakla sorumlu tutulanlar için 21’inci günü belirler.'
+      E: 'Bu seçenek, kökteki hukuki ölçütle uyuşmaz: Sorumlu beyanı sadece ithalatçılar içindir.. Md. 41/1, vergi kesintisi
+        yapmakla sorumlu tutulanlar için 21’inci günü belirler.'
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 41 ve 46
-    alinti: "Madde 41 – 1. Mükellefler (…)99 Katma Değer Vergisi beyannamelerini,\nvergilendirme dönemini takibeden\
-      \ ayın yirmidördüncü günü akşamına kadar, vergi kesintisi\nyapmakla sorumlu tutulanlar Katma Değer Vergisi\
-      \ beyannamelerini, vergilendirme dönemini\ntakibeden ayın yirmibirinci günü akşamına kadar ilgili vergi dairesine\
-      \ vermekle\nyükümlüdürler.100\n       2. Katma Değer Vergisi beyanının gümrük giriş beyannamesi veya özel\
-      \ beyanname ile\nyapılması gerektiği hallerde bu beyannameler vergi mükellefiyetinin başladığı anda ilgi"
+    alinti: "Madde 41 – 1. Mükellefler (…)99 Katma Değer Vergisi beyannamelerini,\nvergilendirme dönemini takibeden ayın yirmidördüncü\
+      \ günü akşamına kadar, vergi kesintisi\nyapmakla sorumlu tutulanlar Katma Değer Vergisi beyannamelerini, vergilendirme\
+      \ dönemini\ntakibeden ayın yirmibirinci günü akşamına kadar ilgili vergi dairesine vermekle\nyükümlüdürler.100\n   \
+      \    2. Katma Değer Vergisi beyanının gümrük giriş beyannamesi veya özel beyanname ile\nyapılması gerektiği hallerde\
+      \ bu beyannameler vergi mükellefiyetinin başladığı anda ilgi"
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: 'sonuc = 0  # Hesaplama şablonu; sayısal oran/tarife kaynak metinde açıkça verilmediğinden bu satır
-      ayrıca doğrulanmalıdır.'
+    python: 'sonuc = 0  # Hesaplama şablonu; sayısal oran/tarife kaynak metinde açıkça verilmediğinden bu satır ayrıca doğrulanmalıdır.'
   durum: geri_cekildi
   surum: 1
   uretim:

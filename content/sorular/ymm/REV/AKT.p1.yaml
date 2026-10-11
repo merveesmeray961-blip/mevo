@@ -8,9 +8,8 @@
   kazanim: hazır değerler ve kasa sayımı
   tip: kavrama
   zorluk: 2
-  kok: Kasa hesabının revizyonunda aşağıdaki önermelerden hangileri doğrudur? I. Fiilî sayım sonucu kayıtlı bakiyeyle
-    karşılaştırılır. II. Sayım farkı varsa nedeni araştırılmalıdır. III. Kayıtlı bakiye tek başına fiilî mevcudu
-    kanıtlar.
+  kok: Kasa hesabının revizyonunda aşağıdaki önermelerden hangileri doğrudur? I. Fiilî sayım sonucu kayıtlı bakiyeyle karşılaştırılır.
+    II. Sayım farkı varsa nedeni araştırılmalıdır. III. Kayıtlı bakiye tek başına fiilî mevcudu kanıtlar.
   secenekler:
     A: Yalnız I
     B: Yalnız II
@@ -19,8 +18,8 @@
     E: I, II ve III
   dogru: C
   aciklama:
-    dogru_neden: Fiilî envanter, mevcutların fiilen belirlenmesine yöneliktir; kayıtlı tutar fiilî mevcudun yerine
-      geçmez. VUK md. 186 envanterin amacını açıklar.
+    dogru_neden: Fiilî envanter, mevcutların fiilen belirlenmesine yöneliktir; kayıtlı tutar fiilî mevcudun yerine geçmez.
+      VUK md. 186 envanterin amacını açıklar.
     celdiriciler:
       A: II de doğru olduğundan eksiktir.
       B: I de doğru olduğundan eksiktir.
@@ -35,7 +34,7 @@
     baslangic: '1961-01-04'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -55,7 +54,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
       G6:
         sonuc: bekliyor
       GZ:
@@ -64,6 +65,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G01 #2'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
 - id: YMM-REV-AKT-0002
   sinav: ymm
   bolum:
@@ -74,8 +79,8 @@
   kazanim: alacakların teyidi ve karşılıklar
   tip: uygulama
   zorluk: 3
-  kok: Bir işletmenin ticari faaliyetiyle ilgili 200.000 TL alacağı dava safhasındadır; bunun 50.000 TL’lik kısmı
-    teminatla güvence altındadır. VUK md. 323’e göre karşılık ayrılabilecek tutarın üst sınırı kaç TL’dir?
+  kok: Bir işletmenin ticari faaliyetiyle ilgili 200.000 TL alacağı dava safhasındadır; bunun 50.000 TL’lik kısmı teminatla
+    güvence altındadır. VUK md. 323’e göre karşılık ayrılabilecek tutarın üst sınırı kaç TL’dir?
   secenekler:
     A: '50.000'
     B: '100.000'
@@ -84,8 +89,8 @@
     E: '250.000'
   dogru: C
   aciklama:
-    dogru_neden: VUK md. 323 dava safhasındaki ticari alacaklar için karşılık ayrılmasına izin verir; teminatlı
-      alacaklarda karşılık teminattan geri kalan miktarla sınırlıdır. 200.000 − 50.000 = 150.000 TL.
+    dogru_neden: VUK md. 323 dava safhasındaki ticari alacaklar için karşılık ayrılmasına izin verir; teminatlı alacaklarda
+      karşılık teminattan geri kalan miktarla sınırlıdır. 200.000 − 50.000 = 150.000 TL.
     celdiriciler:
       A: Teminat tutarı karşılık tutarı değildir.
       B: Alacağın yalnız yarısı teminat dışı değildir; verilen verilerle bakiye 150.000 TL’dir.
@@ -99,15 +104,15 @@
   - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: md. 323
     alinti: Yukarıda yazılı şüpheli alacaklar için değerleme gününün tasarruf değerine göre pasifte karşılık ayrılabilir.
-      Bu karşılığın hangi alacaklara ait olduğu karşılık hesabında gösterilir. Teminatlı alacaklarda bu karşılık
-      teminattan geri kalan miktara inhisar eder.
+      Bu karşılığın hangi alacaklara ait olduğu karşılık hesabında gösterilir. Teminatlı alacaklarda bu karşılık teminattan
+      geri kalan miktara inhisar eder.
   gecerlilik:
     baslangic: '1961-01-04'
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 200000 - 50000
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -126,7 +131,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -135,6 +142,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G01 #7'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-REV-AKT-0003
   sinav: ymm
   bolum:
@@ -170,7 +181,7 @@
     baslangic: '1961-01-04'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -190,7 +201,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
       G6:
         sonuc: bekliyor
       GZ:
@@ -199,6 +212,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G01 #13'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
 - id: YMM-REV-AKT-0004
   sinav: ymm
   bolum:
@@ -209,8 +226,8 @@
   kazanim: alacakların teyidi ve karşılıklar
   tip: eşleştirme veya sıralama
   zorluk: 3
-  kok: Bir alacak teyit talebine yanıt gelmemiştir. Denetçi, alacağın tahsil edilebilirliğini ve değerlemesini sınamak
-    için hangi kanıt yaklaşımını seçmelidir?
+  kok: Bir alacak teyit talebine yanıt gelmemiştir. Denetçi, alacağın tahsil edilebilirliğini ve değerlemesini sınamak için
+    hangi kanıt yaklaşımını seçmelidir?
   secenekler:
     A: Yalnız yönetim açıklamasını yeterli saymak
     B: Sonraki tahsilatları ve ilgili belgeleri inceleyerek alternatif kanıt toplamak
@@ -222,19 +239,19 @@
     dogru_neden: Teyit yanıtının bulunmaması tek başına bakiye hakkında sonuç vermez; sonraki tahsilatlar ve destekleyici
       belgeler gibi alternatif kanıtlar değerlendirilir.
     celdiriciler:
-      A: Doğru seçenek B olduğundan bu seçenek doğru değildir; Teyit yanıtının bulunmaması tek başına bakiye hakkında
-        sonuç vermez; sonraki tahsilatlar ve destekle
-      C: Doğru seçenek B olduğundan bu seçenek doğru değildir; Teyit yanıtının bulunmaması tek başına bakiye hakkında
-        sonuç vermez; sonraki tahsilatlar ve destekle
-      D: Doğru seçenek B olduğundan bu seçenek doğru değildir; Teyit yanıtının bulunmaması tek başına bakiye hakkında
-        sonuç vermez; sonraki tahsilatlar ve destekle
-      E: Doğru seçenek B olduğundan bu seçenek doğru değildir; Teyit yanıtının bulunmaması tek başına bakiye hakkında
-        sonuç vermez; sonraki tahsilatlar ve destekle
+      A: Doğru seçenek B olduğundan bu seçenek doğru değildir; Teyit yanıtının bulunmaması tek başına bakiye hakkında sonuç
+        vermez; sonraki tahsilatlar ve destekle
+      C: Doğru seçenek B olduğundan bu seçenek doğru değildir; Teyit yanıtının bulunmaması tek başına bakiye hakkında sonuç
+        vermez; sonraki tahsilatlar ve destekle
+      D: Doğru seçenek B olduğundan bu seçenek doğru değildir; Teyit yanıtının bulunmaması tek başına bakiye hakkında sonuç
+        vermez; sonraki tahsilatlar ve destekle
+      E: Doğru seçenek B olduğundan bu seçenek doğru değildir; Teyit yanıtının bulunmaması tek başına bakiye hakkında sonuç
+        vermez; sonraki tahsilatlar ve destekle
   kaynaklar:
   - mevzuat: BDS 500 Bağımsız Denetim Kanıtları
     madde: A6
-    alinti: Denetim kanıtı elde edilmesine yönelik denetim prosedürleri; sorgulamanın yanı sıra tetkik, gözlem,
-      teyit, yeniden hesaplama, yeniden uygulama ve analitik prosedürleri (çoğu zaman bunların birleşimini) içerir.
+    alinti: Denetim kanıtı elde edilmesine yönelik denetim prosedürleri; sorgulamanın yanı sıra tetkik, gözlem, teyit, yeniden
+      hesaplama, yeniden uygulama ve analitik prosedürleri (çoğu zaman bunların birleşimini) içerir.
   gecerlilik:
     baslangic: '2013-01-01'
     bitis: null
@@ -271,8 +288,7 @@
   - tarih: '2026-10-11'
     kim: otomatik
     ne: 'durum: taslak → geri_cekildi (otomatik kapı hatası)'
-    neden: 'HATA   G2: şema: tip: ''eşleştirme veya sıralama'' is not one of [''bilgi'', ''kavrama'', ''uygulama'',
-      ''hesaplama'']'
+    neden: 'HATA   G2: şema: tip: ''eşleştirme veya sıralama'' is not one of [''bilgi'', ''kavrama'', ''uygulama'', ''hesaplama'']'
 - id: YMM-REV-AKT-0005
   sinav: ymm
   bolum:
@@ -283,8 +299,8 @@
   kazanim: stok sayımı ve değerlemesi
   tip: kavram ayrımı / karşılaştırma
   zorluk: 2
-  kok: Stoklar finansal tablolar açısından önemliyse denetçinin stokların mevcudiyetine ve durumuna ilişkin yaklaşımını
-    en doğru açıklayan seçenek hangisidir?
+  kok: Stoklar finansal tablolar açısından önemliyse denetçinin stokların mevcudiyetine ve durumuna ilişkin yaklaşımını en
+    doğru açıklayan seçenek hangisidir?
   secenekler:
     A: Yalnız satın alma faturalarını kontrol etmek yeterlidir
     B: Yalnız yönetim beyanı alınır
@@ -293,22 +309,22 @@
     E: Sadece sonraki dönem satışları incelenir
   dogru: C
   aciklama:
-    dogru_neden: BDS 501 stoklar önemli olduğunda sayım sürecine katılım ve stokların tetkiki yoluyla kanıt elde
-      edilmesini öngörür.
+    dogru_neden: BDS 501 stoklar önemli olduğunda sayım sürecine katılım ve stokların tetkiki yoluyla kanıt elde edilmesini
+      öngörür.
     celdiriciler:
-      A: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 501 stoklar önemli olduğunda sayım sürecine katılım
-        ve stokların tetkiki yoluyla kanıt elde edil
-      B: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 501 stoklar önemli olduğunda sayım sürecine katılım
-        ve stokların tetkiki yoluyla kanıt elde edil
-      D: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 501 stoklar önemli olduğunda sayım sürecine katılım
-        ve stokların tetkiki yoluyla kanıt elde edil
-      E: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 501 stoklar önemli olduğunda sayım sürecine katılım
-        ve stokların tetkiki yoluyla kanıt elde edil
+      A: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 501 stoklar önemli olduğunda sayım sürecine katılım ve
+        stokların tetkiki yoluyla kanıt elde edil
+      B: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 501 stoklar önemli olduğunda sayım sürecine katılım ve
+        stokların tetkiki yoluyla kanıt elde edil
+      D: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 501 stoklar önemli olduğunda sayım sürecine katılım ve
+        stokların tetkiki yoluyla kanıt elde edil
+      E: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 501 stoklar önemli olduğunda sayım sürecine katılım ve
+        stokların tetkiki yoluyla kanıt elde edil
   kaynaklar:
   - mevzuat: BDS 501 Bağımsız Denetimde Belirli Hususlar
     madde: md. 4
-    alinti: 'Stokların finansal tablolar açısından önemli olması durumunda denetçi, aşağıdakileri gerçekleştirmek
-      suretiyle stokların mevcudiyeti ve durumuna ilişkin yeterli ve uygun denetim kanıtı elde eder:'
+    alinti: 'Stokların finansal tablolar açısından önemli olması durumunda denetçi, aşağıdakileri gerçekleştirmek suretiyle
+      stokların mevcudiyeti ve durumuna ilişkin yeterli ve uygun denetim kanıtı elde eder:'
   gecerlilik:
     baslangic: '2013-01-01'
     bitis: null
@@ -345,8 +361,7 @@
   - tarih: '2026-10-11'
     kim: otomatik
     ne: 'durum: taslak → geri_cekildi (otomatik kapı hatası)'
-    neden: 'HATA   G2: şema: tip: ''kavram ayrımı / karşılaştırma'' is not one of [''bilgi'', ''kavrama'', ''uygulama'',
-      ''hesaplama'']'
+    neden: 'HATA   G2: şema: tip: ''kavram ayrımı / karşılaştırma'' is not one of [''bilgi'', ''kavrama'', ''uygulama'', ''hesaplama'']'
 - id: YMM-REV-AKT-0006
   sinav: ymm
   bolum:
@@ -366,22 +381,21 @@
     E: Fiziki inceleme denetim prosedürlerinden biri olabilir
   dogru: C
   aciklama:
-    dogru_neden: BDS 500’e göre bazı belgelerin tetkiki mevcudiyet kanıtı sağlasa da mülkiyet veya değer hakkında
-      kanıt sağlamayabilir.
+    dogru_neden: BDS 500’e göre bazı belgelerin tetkiki mevcudiyet kanıtı sağlasa da mülkiyet veya değer hakkında kanıt sağlamayabilir.
     celdiriciler:
-      A: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500’e göre bazı belgelerin tetkiki mevcudiyet
-        kanıtı sağlasa da mülkiyet veya değer hakkında kan
-      B: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500’e göre bazı belgelerin tetkiki mevcudiyet
-        kanıtı sağlasa da mülkiyet veya değer hakkında kan
-      D: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500’e göre bazı belgelerin tetkiki mevcudiyet
-        kanıtı sağlasa da mülkiyet veya değer hakkında kan
-      E: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500’e göre bazı belgelerin tetkiki mevcudiyet
-        kanıtı sağlasa da mülkiyet veya değer hakkında kan
+      A: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500’e göre bazı belgelerin tetkiki mevcudiyet kanıtı sağlasa
+        da mülkiyet veya değer hakkında kan
+      B: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500’e göre bazı belgelerin tetkiki mevcudiyet kanıtı sağlasa
+        da mülkiyet veya değer hakkında kan
+      D: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500’e göre bazı belgelerin tetkiki mevcudiyet kanıtı sağlasa
+        da mülkiyet veya değer hakkında kan
+      E: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500’e göre bazı belgelerin tetkiki mevcudiyet kanıtı sağlasa
+        da mülkiyet veya değer hakkında kan
   kaynaklar:
   - mevzuat: BDS 500 Bağımsız Denetim Kanıtları
     madde: A18-A19
-    alinti: Denetim kanıtı elde edilmesine yönelik denetim prosedürleri; sorgulamanın yanı sıra tetkik, gözlem,
-      teyit, yeniden hesaplama, yeniden uygulama ve analitik prosedürleri (çoğu zaman bunların birleşimini) içerir.
+    alinti: Denetim kanıtı elde edilmesine yönelik denetim prosedürleri; sorgulamanın yanı sıra tetkik, gözlem, teyit, yeniden
+      hesaplama, yeniden uygulama ve analitik prosedürleri (çoğu zaman bunların birleşimini) içerir.
   gecerlilik:
     baslangic: '2013-01-01'
     bitis: null
@@ -418,8 +432,7 @@
   - tarih: '2026-10-11'
     kim: otomatik
     ne: 'durum: taslak → geri_cekildi (otomatik kapı hatası)'
-    neden: 'HATA   G2: şema: tip: ''olumsuz kök (**yanlıştır**)'' is not one of [''bilgi'', ''kavrama'', ''uygulama'',
-      ''hesaplama'']'
+    neden: 'HATA   G2: şema: tip: ''olumsuz kök (**yanlıştır**)'' is not one of [''bilgi'', ''kavrama'', ''uygulama'', ''hesaplama'']'
 - id: YMM-REV-AKT-0007
   sinav: ymm
   bolum:
@@ -442,14 +455,14 @@
   aciklama:
     dogru_neden: MSUGT açıklaması karşılık tutarının 129 hesabına alacak, 654 hesabına borç kaydedileceğini belirtir.
     celdiriciler:
-      B: Doğru seçenek A olduğundan bu seçenek doğru değildir; MSUGT açıklaması karşılık tutarının 129 hesabına
-        alacak, 654 hesabına borç kaydedileceğini belirtir.
-      C: Doğru seçenek A olduğundan bu seçenek doğru değildir; MSUGT açıklaması karşılık tutarının 129 hesabına
-        alacak, 654 hesabına borç kaydedileceğini belirtir.
-      D: Doğru seçenek A olduğundan bu seçenek doğru değildir; MSUGT açıklaması karşılık tutarının 129 hesabına
-        alacak, 654 hesabına borç kaydedileceğini belirtir.
-      E: Doğru seçenek A olduğundan bu seçenek doğru değildir; MSUGT açıklaması karşılık tutarının 129 hesabına
-        alacak, 654 hesabına borç kaydedileceğini belirtir.
+      B: Doğru seçenek A olduğundan bu seçenek doğru değildir; MSUGT açıklaması karşılık tutarının 129 hesabına alacak, 654
+        hesabına borç kaydedileceğini belirtir.
+      C: Doğru seçenek A olduğundan bu seçenek doğru değildir; MSUGT açıklaması karşılık tutarının 129 hesabına alacak, 654
+        hesabına borç kaydedileceğini belirtir.
+      D: Doğru seçenek A olduğundan bu seçenek doğru değildir; MSUGT açıklaması karşılık tutarının 129 hesabına alacak, 654
+        hesabına borç kaydedileceğini belirtir.
+      E: Doğru seçenek A olduğundan bu seçenek doğru değildir; MSUGT açıklaması karşılık tutarının 129 hesabına alacak, 654
+        hesabına borç kaydedileceğini belirtir.
   kaynaklar:
   - mevzuat: 1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği — Tekdüzen Hesap Planı
     madde: 129 Şüpheli Ticari Alacaklar Karşılığı
@@ -490,8 +503,7 @@
   - tarih: '2026-10-11'
     kim: otomatik
     ne: 'durum: taslak → geri_cekildi (otomatik kapı hatası)'
-    neden: 'HATA   G2: şema: tip: ''eşleştirme veya sıralama'' is not one of [''bilgi'', ''kavrama'', ''uygulama'',
-      ''hesaplama'']'
+    neden: 'HATA   G2: şema: tip: ''eşleştirme veya sıralama'' is not one of [''bilgi'', ''kavrama'', ''uygulama'', ''hesaplama'']'
 - id: YMM-REV-AKT-0008
   sinav: ymm
   bolum:
@@ -511,22 +523,22 @@
     E: Gözlem ve tetkik farklı denetim prosedürleridir
   dogru: C
   aciklama:
-    dogru_neden: BDS 500, bazı belgelerin varlığın mevcut olduğuna dair kanıt sunabileceğini ancak mülkiyet veya
-      değer hakkında kanıt sağlamayabileceğini açıklar.
+    dogru_neden: BDS 500, bazı belgelerin varlığın mevcut olduğuna dair kanıt sunabileceğini ancak mülkiyet veya değer hakkında
+      kanıt sağlamayabileceğini açıklar.
     celdiriciler:
-      A: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500, bazı belgelerin varlığın mevcut olduğuna
-        dair kanıt sunabileceğini ancak mülkiyet veya değe
-      B: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500, bazı belgelerin varlığın mevcut olduğuna
-        dair kanıt sunabileceğini ancak mülkiyet veya değe
-      D: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500, bazı belgelerin varlığın mevcut olduğuna
-        dair kanıt sunabileceğini ancak mülkiyet veya değe
-      E: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500, bazı belgelerin varlığın mevcut olduğuna
-        dair kanıt sunabileceğini ancak mülkiyet veya değe
+      A: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500, bazı belgelerin varlığın mevcut olduğuna dair kanıt
+        sunabileceğini ancak mülkiyet veya değe
+      B: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500, bazı belgelerin varlığın mevcut olduğuna dair kanıt
+        sunabileceğini ancak mülkiyet veya değe
+      D: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500, bazı belgelerin varlığın mevcut olduğuna dair kanıt
+        sunabileceğini ancak mülkiyet veya değe
+      E: Doğru seçenek C olduğundan bu seçenek doğru değildir; BDS 500, bazı belgelerin varlığın mevcut olduğuna dair kanıt
+        sunabileceğini ancak mülkiyet veya değe
   kaynaklar:
   - mevzuat: BDS 500 Bağımsız Denetim Kanıtları
     madde: A18-A19
-    alinti: Denetim kanıtı elde edilmesine yönelik denetim prosedürleri; sorgulamanın yanı sıra tetkik, gözlem,
-      teyit, yeniden hesaplama, yeniden uygulama ve analitik prosedürleri (çoğu zaman bunların birleşimini) içerir.
+    alinti: Denetim kanıtı elde edilmesine yönelik denetim prosedürleri; sorgulamanın yanı sıra tetkik, gözlem, teyit, yeniden
+      hesaplama, yeniden uygulama ve analitik prosedürleri (çoğu zaman bunların birleşimini) içerir.
   gecerlilik:
     baslangic: '2013-01-01'
     bitis: null
@@ -563,8 +575,7 @@
   - tarih: '2026-10-11'
     kim: otomatik
     ne: 'durum: taslak → geri_cekildi (otomatik kapı hatası)'
-    neden: 'HATA   G2: şema: tip: ''olumsuz kök (**yanlıştır**)'' is not one of [''bilgi'', ''kavrama'', ''uygulama'',
-      ''hesaplama'']'
+    neden: 'HATA   G2: şema: tip: ''olumsuz kök (**yanlıştır**)'' is not one of [''bilgi'', ''kavrama'', ''uygulama'', ''hesaplama'']'
 - id: YMM-REV-AKT-0009
   sinav: ymm
   bolum:
@@ -575,8 +586,8 @@
   kazanim: stok sayımı ve değerlemesi
   tip: olay/senaryo
   zorluk: 1
-  kok: Dönem sonu stoklarının önemli olduğu bir işletmede denetçi, stokların gerçekten mevcut olup olmadığını ve
-    durumunu doğrulamak istemektedir. Hangi yaklaşım doğrudan standarda uygundur?
+  kok: Dönem sonu stoklarının önemli olduğu bir işletmede denetçi, stokların gerçekten mevcut olup olmadığını ve durumunu
+    doğrulamak istemektedir. Hangi yaklaşım doğrudan standarda uygundur?
   secenekler:
     A: Yalnız yönetimden sözlü beyan almak
     B: Mümkün olduğunda fiziki stok sayımına katılmak ve stokları tetkik etmek
@@ -585,22 +596,22 @@
     E: Stokları finansal tablolardan çıkarmak
   dogru: B
   aciklama:
-    dogru_neden: BDS 501, önemli stoklar için mevcudiyet ve duruma ilişkin kanıt elde edilmesini; mümkün olduğunda
-      fiziki sayım katılımı ve tetkiki öngörür.
+    dogru_neden: BDS 501, önemli stoklar için mevcudiyet ve duruma ilişkin kanıt elde edilmesini; mümkün olduğunda fiziki
+      sayım katılımı ve tetkiki öngörür.
     celdiriciler:
-      A: Doğru seçenek B olduğundan bu seçenek doğru değildir; BDS 501, önemli stoklar için mevcudiyet ve duruma
-        ilişkin kanıt elde edilmesini; mümkün olduğunda fi
-      C: Doğru seçenek B olduğundan bu seçenek doğru değildir; BDS 501, önemli stoklar için mevcudiyet ve duruma
-        ilişkin kanıt elde edilmesini; mümkün olduğunda fi
-      D: Doğru seçenek B olduğundan bu seçenek doğru değildir; BDS 501, önemli stoklar için mevcudiyet ve duruma
-        ilişkin kanıt elde edilmesini; mümkün olduğunda fi
-      E: Doğru seçenek B olduğundan bu seçenek doğru değildir; BDS 501, önemli stoklar için mevcudiyet ve duruma
-        ilişkin kanıt elde edilmesini; mümkün olduğunda fi
+      A: Doğru seçenek B olduğundan bu seçenek doğru değildir; BDS 501, önemli stoklar için mevcudiyet ve duruma ilişkin kanıt
+        elde edilmesini; mümkün olduğunda fi
+      C: Doğru seçenek B olduğundan bu seçenek doğru değildir; BDS 501, önemli stoklar için mevcudiyet ve duruma ilişkin kanıt
+        elde edilmesini; mümkün olduğunda fi
+      D: Doğru seçenek B olduğundan bu seçenek doğru değildir; BDS 501, önemli stoklar için mevcudiyet ve duruma ilişkin kanıt
+        elde edilmesini; mümkün olduğunda fi
+      E: Doğru seçenek B olduğundan bu seçenek doğru değildir; BDS 501, önemli stoklar için mevcudiyet ve duruma ilişkin kanıt
+        elde edilmesini; mümkün olduğunda fi
   kaynaklar:
   - mevzuat: BDS 501 Bağımsız Denetimde Belirli Hususlar
     madde: md. 4
-    alinti: 'Stokların finansal tablolar açısından önemli olması durumunda denetçi, aşağıdakileri gerçekleştirmek
-      suretiyle stokların mevcudiyeti ve durumuna ilişkin yeterli ve uygun denetim kanıtı elde eder:'
+    alinti: 'Stokların finansal tablolar açısından önemli olması durumunda denetçi, aşağıdakileri gerçekleştirmek suretiyle
+      stokların mevcudiyeti ve durumuna ilişkin yeterli ve uygun denetim kanıtı elde eder:'
   gecerlilik:
     baslangic: '2013-01-01'
     bitis: null
@@ -648,8 +659,8 @@
   kazanim: hazır değerler ve kasa sayımı
   tip: hesaplama / sayısal
   zorluk: 3
-  kok: Bir denetçi 240 kasa hareketinden 30’unu örneklem olarak seçmiştir. Seçilen kalemlere prosedür uygulanamaması
-    hâlinde uygun alternatif prosedür de uygulanamıyorsa, test edilemeyen 2 kalemin değerlendirmeye etkisi ne olmalıdır?
+  kok: Bir denetçi 240 kasa hareketinden 30’unu örneklem olarak seçmiştir. Seçilen kalemlere prosedür uygulanamaması hâlinde
+    uygun alternatif prosedür de uygulanamıyorsa, test edilemeyen 2 kalemin değerlendirmeye etkisi ne olmalıdır?
   secenekler:
     A: İki kalem otomatik olarak doğru kabul edilir
     B: Kontrol testinde sapma, detay testinde yanlışlık olarak kabul edilir
@@ -658,9 +669,9 @@
     E: Örneklem büyüklüğü 2 azaltılır
   dogru: B
   aciklama:
-    dogru_neden: 'BDS 530 md. 11, tasarlanmış prosedür veya uygun alternatif prosedür uygulanamayan kalemin kontrol
-      testinde sapma, detay testinde yanlışlık kabul edileceğini belirtir. Püf noktaları: Uygulanamayan kalemleri
-      yok saymak, örneklem sonucunu yanlılaştırabilir.'
+    dogru_neden: 'BDS 530 md. 11, tasarlanmış prosedür veya uygun alternatif prosedür uygulanamayan kalemin kontrol testinde
+      sapma, detay testinde yanlışlık kabul edileceğini belirtir. Püf noktaları: Uygulanamayan kalemleri yok saymak, örneklem
+      sonucunu yanlılaştırabilir.'
     celdiriciler:
       A: Doğru seçenek B olduğundan bu seçenek doğru değildir; BDS 530 md. 11, tasarlanmış prosedür veya uygun alternatif
         prosedür uygulanamayan kalemin kontrol te
@@ -673,9 +684,9 @@
   kaynaklar:
   - mevzuat: BDS 530 Denetim Örneklemesi
     madde: md. 10-11
-    alinti: 'Denetim örneklemesi (örnekleme): Denetçinin, anakitlenin tamamı hakkında sonuçlara varması için makul
-      bir dayanak oluşturmak üzere, tüm örnekleme birimlerine seçilme şansı sağlayacak şekilde, denetimle ilgili
-      anakitle içindeki kalemlerin %100’ünden daha azına denetim prosedürlerinin uygulanmasıdır.'
+    alinti: 'Denetim örneklemesi (örnekleme): Denetçinin, anakitlenin tamamı hakkında sonuçlara varması için makul bir dayanak
+      oluşturmak üzere, tüm örnekleme birimlerine seçilme şansı sağlayacak şekilde, denetimle ilgili anakitle içindeki kalemlerin
+      %100’ünden daha azına denetim prosedürlerinin uygulanmasıdır.'
   gecerlilik:
     baslangic: '2013-01-01'
     bitis: null
@@ -723,8 +734,7 @@
   kazanim: duran varlık ve amortisman incelemesi
   tip: kavrama
   zorluk: 2
-  kok: Bir işletme, üretimde kullandığı ve üç yıl önce aktife aldığı makinenin amortisman süresini hangi tarihten
-    başlatmalıdır?
+  kok: Bir işletme, üretimde kullandığı ve üç yıl önce aktife aldığı makinenin amortisman süresini hangi tarihten başlatmalıdır?
   secenekler:
     A: Makinenin sipariş edildiği tarihten
     B: Fatura ödeme tarihinden
@@ -743,14 +753,13 @@
   kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: md. 320
-    alinti: 'Madde 320 – Amortisman süresi, kıymetlerin aktife girdiği yıldan başlar. Bu sürenin yıl olarak hesaplanması
-      için (1) rakamı mükellefçe uygulanan nispete bölünür. (Ek: 24/6/1994-4008/12 md.; Değişik: 25/5/1995-4108/6
-      md.)'
+    alinti: 'Madde 320 – Amortisman süresi, kıymetlerin aktife girdiği yıldan başlar. Bu sürenin yıl olarak hesaplanması için
+      (1) rakamı mükellefçe uygulanan nispete bölünür. (Ek: 24/6/1994-4008/12 md.; Değişik: 25/5/1995-4108/6 md.)'
   gecerlilik:
     baslangic: '1961-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -770,7 +779,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Kök tuhaf (üç yıl önce aktife alınmış), çeldiriciler bariz
       G6:
         sonuc: bekliyor
       GZ:
@@ -779,6 +790,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G04 #1'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Kök tuhaf (üç yıl önce aktife alınmış), çeldiriciler bariz
 - id: YMM-REV-AKT-0012
   sinav: ymm
   bolum:
@@ -789,8 +804,8 @@
   kazanim: hazır değerler ve kasa sayımı
   tip: kavrama
   zorluk: 2
-  kok: Kasa bakiyesi ile fiilen mevcut nakdin mutabakatında, bilanço günündeki mevcutların sayılması ve kesin biçimde
-    belirlenmesi hangi işlemle doğrudan ilişkilidir?
+  kok: Kasa bakiyesi ile fiilen mevcut nakdin mutabakatında, bilanço günündeki mevcutların sayılması ve kesin biçimde belirlenmesi
+    hangi işlemle doğrudan ilişkilidir?
   secenekler:
     A: Envanter çıkarma
     B: Tahakkuk kaydı
@@ -799,8 +814,7 @@
     E: Kar dağıtımı
   dogru: A
   aciklama:
-    dogru_neden: VUK md. 186 envanteri bilanço günündeki mevcutların, alacakların ve borçların belirlenmesi olarak
-      düzenler.
+    dogru_neden: VUK md. 186 envanteri bilanço günündeki mevcutların, alacakların ve borçların belirlenmesi olarak düzenler.
     celdiriciler:
       B: Bu seçenek, ilgili hükmün kapsamını veya koşulunu karşılamaz.
       C: Bu seçenek, ilgili hükmün kapsamını veya koşulunu karşılamaz.
@@ -810,15 +824,15 @@
   kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: md. 186
-    alinti: Madde 186 – Envanter çıkarmak, bilanço günündeki mevcutları, alacakları ve borçları saymak, ölçmek,
-      tartmak ve değerlemek suretiyle kesin bir şekilde ve müfredatlı olarak tesbit etmektir. Şu kadar ki, ticari
-      teamüle göre tartılması, sayılması ve ölçülmesi mutat olmıyan malların değerleri tahminen tesbit olunur. Mevcutlar,
-      alacaklar ve borçlar işletmeye dahil iktisadi kıymetleri ifade eder.
+    alinti: Madde 186 – Envanter çıkarmak, bilanço günündeki mevcutları, alacakları ve borçları saymak, ölçmek, tartmak ve
+      değerlemek suretiyle kesin bir şekilde ve müfredatlı olarak tesbit etmektir. Şu kadar ki, ticari teamüle göre tartılması,
+      sayılması ve ölçülmesi mutat olmıyan malların değerleri tahminen tesbit olunur. Mevcutlar, alacaklar ve borçlar işletmeye
+      dahil iktisadi kıymetleri ifade eder.
   gecerlilik:
     baslangic: '1961-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -838,7 +852,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
       G6:
         sonuc: bekliyor
       GZ:
@@ -847,6 +863,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G04 #6'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
 - id: YMM-REV-AKT-0013
   sinav: ymm
   bolum:
@@ -876,15 +896,15 @@
   kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: md. 186
-    alinti: Madde 186 – Envanter çıkarmak, bilanço günündeki mevcutları, alacakları ve borçları saymak, ölçmek,
-      tartmak ve değerlemek suretiyle kesin bir şekilde ve müfredatlı olarak tesbit etmektir. Şu kadar ki, ticari
-      teamüle göre tartılması, sayılması ve ölçülmesi mutat olmıyan malların değerleri tahminen tesbit olunur. Mevcutlar,
-      alacaklar ve borçlar işletmeye dahil iktisadi kıymetleri ifade eder.
+    alinti: Madde 186 – Envanter çıkarmak, bilanço günündeki mevcutları, alacakları ve borçları saymak, ölçmek, tartmak ve
+      değerlemek suretiyle kesin bir şekilde ve müfredatlı olarak tesbit etmektir. Şu kadar ki, ticari teamüle göre tartılması,
+      sayılması ve ölçülmesi mutat olmıyan malların değerleri tahminen tesbit olunur. Mevcutlar, alacaklar ve borçlar işletmeye
+      dahil iktisadi kıymetleri ifade eder.
   gecerlilik:
     baslangic: '1961-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -904,7 +924,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: AKT-0003 ile mükerrer; Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
       G6:
         sonuc: bekliyor
       GZ:
@@ -913,6 +935,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G04 #14'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: AKT-0003 ile mükerrer; Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
 - id: YMM-REV-AKT-0014
   sinav: ymm
   bolum:
@@ -923,9 +949,8 @@
   kazanim: hazır değerler ve kasa sayımı
   tip: hesaplama
   zorluk: 3
-  kok: Kasa hesabı defter bakiyesi 47.600 TL’dir. Sayımda 43.850 TL nakit bulunmuş; kasada işletmeye ait olmayan
-    1.250 TL emanet para da tespit edilmiştir. İşletmeye ait fiilî kasa tutarı ve defter bakiyesine göre fark sırasıyla
-    kaç TL’dir?
+  kok: Kasa hesabı defter bakiyesi 47.600 TL’dir. Sayımda 43.850 TL nakit bulunmuş; kasada işletmeye ait olmayan 1.250 TL
+    emanet para da tespit edilmiştir. İşletmeye ait fiilî kasa tutarı ve defter bakiyesine göre fark sırasıyla kaç TL’dir?
   secenekler:
     A: 43.850 TL ve 3.750 TL noksan
     B: 45.100 TL ve 2.500 TL noksan
@@ -934,8 +959,7 @@
     E: 47.600 TL ve fark yok
   dogru: A
   aciklama:
-    dogru_neden: İşletmeye ait nakit 43.850 TL’dir; emanet para işletmenin varlığı sayılmaz. 47.600 − 43.850 = 3.750
-      TL noksan.
+    dogru_neden: İşletmeye ait nakit 43.850 TL’dir; emanet para işletmenin varlığı sayılmaz. 47.600 − 43.850 = 3.750 TL noksan.
     celdiriciler:
       B: Bu seçenek, ilgili hükmün kapsamını veya koşulunu karşılamaz.
       C: Bu seçenek, ilgili hükmün kapsamını veya koşulunu karşılamaz.
@@ -945,8 +969,8 @@
   kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: md. 186
-    alinti: Madde 186 – Envanter çıkarmak, bilanço günündeki mevcutları, alacakları ve borçları saymak, ölçmek,
-      tartmak ve değerlemek suretiyle kesin bir şekilde ve müfredatlı olarak tesbit etmektir.
+    alinti: Madde 186 – Envanter çıkarmak, bilanço günündeki mevcutları, alacakları ve borçları saymak, ölçmek, tartmak ve
+      değerlemek suretiyle kesin bir şekilde ve müfredatlı olarak tesbit etmektir.
   gecerlilik:
     baslangic: '1961-01-01'
     bitis: null
@@ -984,8 +1008,7 @@
   - tarih: '2026-10-11'
     kim: otomatik
     ne: 'durum: taslak → geri_cekildi (otomatik kapı hatası)'
-    neden: 'HATA   G2: hesaplama sorusunda ''hesap_adimlari'' yok; HATA   G4: doğru şıkta tek bir sayısal değer
-      okunamadı'
+    neden: 'HATA   G2: hesaplama sorusunda ''hesap_adimlari'' yok; HATA   G4: doğru şıkta tek bir sayısal değer okunamadı'
 - id: YMM-REV-AKT-0015
   sinav: ymm
   bolum:
@@ -1018,16 +1041,15 @@
   kaynaklar:
   - mevzuat: Bağımsız Denetim Standardı 500
     madde: par. 7
-    alinti: Denetçi, denetim prosedürlerini tasarlar ve uygularken, dış bilgi kaynağından elde edilen bilgiler dâhil
-      olmak üzere, denetim kanıtı olarak kullanılacak bilgilerin ihtiyaca uygunluğunu ve güvenilirliğini mütalaa
-      eder.
+    alinti: Denetçi, denetim prosedürlerini tasarlar ve uygularken, dış bilgi kaynağından elde edilen bilgiler dâhil olmak
+      üzere, denetim kanıtı olarak kullanılacak bilgilerin ihtiyaca uygunluğunu ve güvenilirliğini mütalaa eder.
   gecerlilik:
     baslangic: '2017-01-01'
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 800000 - 620000 - 100000
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1046,7 +1068,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Kök muğlak: ''teyit edilmeyen/açıklanamayan'' 80.000 mi 180.000 mi belirsiz'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1055,6 +1079,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G05 #4'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Kök muğlak: ''teyit edilmeyen/açıklanamayan'' 80.000 mi 180.000 mi belirsiz'
 - id: YMM-REV-AKT-0016
   sinav: ymm
   bolum:
@@ -1065,8 +1093,8 @@
   kazanim: stok sayımı ve değerlemesi
   tip: hesaplama
   zorluk: 2
-  kok: Fiilî sayımda 1.000 birim stok bulunmuştur. Birim maliyet 48 TL, net gerçekleşebilir değer 45 TL’dir. Değer
-    düşüklüğü karşılığı öncesi stok değeri ve birim başına değer düşüklüğü sırasıyla kaçtır?
+  kok: Fiilî sayımda 1.000 birim stok bulunmuştur. Birim maliyet 48 TL, net gerçekleşebilir değer 45 TL’dir. Değer düşüklüğü
+    karşılığı öncesi stok değeri ve birim başına değer düşüklüğü sırasıyla kaçtır?
   secenekler:
     A: 45.000 TL ve 3 TL
     B: 48.000 TL ve 3 TL
@@ -1088,9 +1116,8 @@
   kaynaklar:
   - mevzuat: Bağımsız Denetim Standardı 500
     madde: par. 7
-    alinti: Denetçi, denetim prosedürlerini tasarlar ve uygularken, dış bilgi kaynağından elde edilen bilgiler dâhil
-      olmak üzere, denetim kanıtı olarak kullanılacak bilgilerin ihtiyaca uygunluğunu ve güvenilirliğini mütalaa
-      eder.
+    alinti: Denetçi, denetim prosedürlerini tasarlar ve uygularken, dış bilgi kaynağından elde edilen bilgiler dâhil olmak
+      üzere, denetim kanıtı olarak kullanılacak bilgilerin ihtiyaca uygunluğunu ve güvenilirliğini mütalaa eder.
   gecerlilik:
     baslangic: '2017-01-01'
     bitis: null
@@ -1157,14 +1184,13 @@
   kaynaklar:
   - mevzuat: Bağımsız Denetim Standardı 500
     madde: par. 7
-    alinti: Denetçi, denetim prosedürlerini tasarlar ve uygularken, dış bilgi kaynağından elde edilen bilgiler dâhil
-      olmak üzere, denetim kanıtı olarak kullanılacak bilgilerin ihtiyaca uygunluğunu ve güvenilirliğini mütalaa
-      eder.
+    alinti: Denetçi, denetim prosedürlerini tasarlar ve uygularken, dış bilgi kaynağından elde edilen bilgiler dâhil olmak
+      üzere, denetim kanıtı olarak kullanılacak bilgilerin ihtiyaca uygunluğunu ve güvenilirliğini mütalaa eder.
   gecerlilik:
     baslangic: '2017-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1184,7 +1210,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Anahtar yanlış: A doğru ifade; yanlış olan D'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1193,6 +1221,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G05 #14'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Anahtar yanlış: A doğru ifade; yanlış olan D'
 - id: YMM-REV-AKT-0018
   sinav: ymm
   bolum:
@@ -1222,14 +1254,13 @@
   kaynaklar:
   - mevzuat: Bağımsız Denetim Standardı 500
     madde: par. 7
-    alinti: Denetçi, denetim prosedürlerini tasarlar ve uygularken, dış bilgi kaynağından elde edilen bilgiler dâhil
-      olmak üzere, denetim kanıtı olarak kullanılacak bilgilerin ihtiyaca uygunluğunu ve güvenilirliğini mütalaa
-      eder.
+    alinti: Denetçi, denetim prosedürlerini tasarlar ve uygularken, dış bilgi kaynağından elde edilen bilgiler dâhil olmak
+      üzere, denetim kanıtı olarak kullanılacak bilgilerin ihtiyaca uygunluğunu ve güvenilirliğini mütalaa eder.
   gecerlilik:
     baslangic: '2017-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1249,7 +1280,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
       G6:
         sonuc: bekliyor
       GZ:
@@ -1258,6 +1291,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G05 #20'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
 - id: YMM-REV-AKT-0019
   sinav: ymm
   bolum:
@@ -1268,9 +1305,8 @@
   kazanim: alacakların teyidi ve karşılıklar
   tip: uygulama
   zorluk: 1
-  kok: Aktif hesapların revizyonu kapsamında revizyon yapan uzman, alacakların teyidi ve karşılıklar bakımından
-    aşağıdaki yaklaşımları değerlendiriyor. Kaynak metindeki kanıtın uygunluğu ve güvenilirliği ilkesiyle en uyumlu
-    seçenek hangisidir?
+  kok: Aktif hesapların revizyonu kapsamında revizyon yapan uzman, alacakların teyidi ve karşılıklar bakımından aşağıdaki
+    yaklaşımları değerlendiriyor. Kaynak metindeki kanıtın uygunluğu ve güvenilirliği ilkesiyle en uyumlu seçenek hangisidir?
   secenekler:
     A: İşlemle ilgisi olmayan belgeleri yeterli kanıt saymak
     B: İşlem iddiasını destekleyen, kaynağı ve niteliği değerlendirilmiş kanıtları karşılaştırmak
@@ -1288,14 +1324,13 @@
   kaynaklar:
   - mevzuat: Bağımsız Denetim Standardı 500
     madde: par. 7
-    alinti: Denetçi, denetim prosedürlerini tasarlar ve uygularken, dış bilgi kaynağından elde edilen bilgiler dâhil
-      olmak üzere, denetim kanıtı olarak kullanılacak bilgilerin ihtiyaca uygunluğunu ve güvenilirliğini mütalaa
-      eder.
+    alinti: Denetçi, denetim prosedürlerini tasarlar ve uygularken, dış bilgi kaynağından elde edilen bilgiler dâhil olmak
+      üzere, denetim kanıtı olarak kullanılacak bilgilerin ihtiyaca uygunluğunu ve güvenilirliğini mütalaa eder.
   gecerlilik:
     baslangic: '2017-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1315,7 +1350,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Anahtar yanlış: A kanıt ilkesine aykırı; doğru cevap B'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1324,6 +1361,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G05 #23'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Anahtar yanlış: A kanıt ilkesine aykırı; doğru cevap B'
 - id: YMM-REV-AKT-0020
   sinav: ymm
   bolum:
@@ -1334,8 +1375,8 @@
   kazanim: alacakların teyidi ve karşılıklar
   tip: kavrama
   zorluk: 2
-  kok: Bir alacak için karşılık ayrılmış, sonraki dönemde ise alacağın tahsil edildiği anlaşılmıştır. Tekdüzen Hesap
-    Planı yaklaşımı açısından revizyonda hangi husus araştırılmalıdır?
+  kok: Bir alacak için karşılık ayrılmış, sonraki dönemde ise alacağın tahsil edildiği anlaşılmıştır. Tekdüzen Hesap Planı
+    yaklaşımı açısından revizyonda hangi husus araştırılmalıdır?
   secenekler:
     A: Karşılığın konusu kalıp kalmadığı ve uygun hesabın kullanılıp kullanılmadığı.
     B: Tahsilatın her durumda sermaye hesabına kaydedilmesi.
@@ -1344,8 +1385,8 @@
     E: Alacağın tahsil edildiği yılın stok maliyetine eklenmesi.
   dogru: A
   aciklama:
-    dogru_neden: Tahsilat ve karşılığın konusu kalması, karşılık hesabının ve ilgili gelir hesabının işleyişi yönünden
-      kontrol edilmelidir.
+    dogru_neden: Tahsilat ve karşılığın konusu kalması, karşılık hesabının ve ilgili gelir hesabının işleyişi yönünden kontrol
+      edilmelidir.
     celdiriciler:
       B: Tahsilatın olağan karşılığı sermaye kaydı değildir.
       C: Alacak ve karşılıklar ayrı incelenir.
@@ -1355,15 +1396,14 @@
   - mevzuat: 1 Sıra No’lu Muhasebe Sistemi Uygulama Genel Tebliği
     madde: Tekdüzen Hesap Planı — şüpheli alacaklar
     alinti: 'ır. İşleyişi : Alacağın doğması halinde hesaba borç, tahsili halinde ise alacak kaydedilir. 132. İŞTİRAKLERDEN
-      ALACAKLAR İşletmenin esas faaliyet konusu dışındaki işlemleri dolayısı ile (ödünç verme ve benzer nedenlerle
-      ortaya çıkan) iştiraklerinden olan alacaklarını kapsar. İşleyişi : Bu hesaba; alacağın doğması halinde borç,
-      tahsili halinde ise alacak kaydedilir. 133. BAĞLI ORTAKLIKLARDAN ALACAKLAR İşletmenin esas faaliyet konusu
-      dışınd'
+      ALACAKLAR İşletmenin esas faaliyet konusu dışındaki işlemleri dolayısı ile (ödünç verme ve benzer nedenlerle ortaya
+      çıkan) iştiraklerinden olan alacaklarını kapsar. İşleyişi : Bu hesaba; alacağın doğması halinde borç, tahsili halinde
+      ise alacak kaydedilir. 133. BAĞLI ORTAKLIKLARDAN ALACAKLAR İşletmenin esas faaliyet konusu dışınd'
   gecerlilik:
     baslangic: '1992-12-26'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1383,7 +1423,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
       G6:
         sonuc: bekliyor
       GZ:
@@ -1392,6 +1434,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G06 #17'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
 - id: YMM-REV-AKT-0021
   sinav: ymm
   bolum:
@@ -1402,8 +1448,8 @@
   kazanim: hazır değerler ve kasa sayımı
   tip: uygulama
   zorluk: 2
-  kok: Kasa sayımında fiilî nakit, aynı tarihli kasa defteri bakiyesinden düşük çıkmıştır. Revizyon ekibinin ilk
-    uygun adımı hangisidir?
+  kok: Kasa sayımında fiilî nakit, aynı tarihli kasa defteri bakiyesinden düşük çıkmıştır. Revizyon ekibinin ilk uygun adımı
+    hangisidir?
   secenekler:
     A: Farkı araştırmadan gelir yazmak.
     B: Sayım tutanağını ve kasa kayıtlarını karşılaştırıp farkın nedenini belgelemek.
@@ -1422,14 +1468,14 @@
   - mevzuat: BDS 500 Bağımsız Denetim Standardı
     madde: Denetim kanıtı — yeterlilik ve uygunluk
     alinti: tı Olarak Kullanılacak Bilgiler ..............................................................................
-      7-9 Denetim Kanıtı Elde Etmek İçin Test Edilecek Kalemlerin Seçilmesi .........................................10
-      Denetim Kanıtlarındaki Tutarsızlık veya Denetim Kanıtlarının Güvenilirliğine İlişkin Şüpheler .....................................................................................................11
+      7-9 Denetim Kanıtı Elde Etmek İçin Test Edilecek Kalemlerin Seçilmesi .........................................10 Denetim
+      Kanıtlarındaki Tutarsızlık veya Denetim Kanıtlarının Güvenilirliğine İlişkin Şüpheler .....................................................................................................11
       Açıklayıcı Hükümler ve Uygu
   gecerlilik:
     baslangic: '1992-12-26'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1449,7 +1495,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
       G6:
         sonuc: bekliyor
       GZ:
@@ -1458,6 +1506,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G06 #31'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
 - id: YMM-REV-AKT-0022
   sinav: ymm
   bolum:
@@ -1468,9 +1520,9 @@
   kazanim: alacakların teyidi ve karşılıklar
   tip: uygulama
   zorluk: 3
-  kok: Yıl sonu itibarıyla 900.000 TL alacağın 300.000 TL’lik kısmı müşteri tarafından ihtilaflı olduğu belirtilerek
-    teyit edilmemiş, kalan tutar teyit edilmiştir. İşletme ayrıca ihtilaflı tutarın tamamını tahsil edeceğini savunmaktadır.
-    En uygun revizyon yaklaşımı hangisidir?
+  kok: Yıl sonu itibarıyla 900.000 TL alacağın 300.000 TL’lik kısmı müşteri tarafından ihtilaflı olduğu belirtilerek teyit
+    edilmemiş, kalan tutar teyit edilmiştir. İşletme ayrıca ihtilaflı tutarın tamamını tahsil edeceğini savunmaktadır. En
+    uygun revizyon yaklaşımı hangisidir?
   secenekler:
     A: Teyit edilmeyen tutarı otomatik olarak tahsil edilmiş kabul etmek.
     B: İhtilafın niteliğini, sonraki tahsilatları ve karşılık değerlendirmesini birlikte incelemek.
@@ -1479,8 +1531,7 @@
     E: Yönetim beyanını tek başına yeterli kanıt saymak.
   dogru: B
   aciklama:
-    dogru_neden: Teyit farkı ve tahsilat riski ek kanıtlarla değerlendirilmelidir; yönetim beyanı tek başına yeterli
-      olmayabilir.
+    dogru_neden: Teyit farkı ve tahsilat riski ek kanıtlarla değerlendirilmelidir; yönetim beyanı tek başına yeterli olmayabilir.
     celdiriciler:
       A: Yanıt gelmemesi tahsilat anlamına gelmez.
       C: Teyitli kısım için böyle bir sonuç çıkmaz.
@@ -1489,15 +1540,15 @@
   kaynaklar:
   - mevzuat: BDS 505 Bağımsız Denetim Standardı
     madde: Olumlu teyit talebi ve yanıt verilmemesi
-    alinti: 'i: Teyit eden tarafın doğrudan denetçiye yanıt verdiği, talepte yer alan bilgilerle mutabık olup olmadığını
-      gösteren veya kendisinden talep edilen bilgileri sunduğu taleptir. Olumsuz teyit talebi: Teyit eden tarafın
-      sadece, talepte yer alan bilgilerle mutabık olmaması durumunda doğrudan denetçiye yanıt verdiği taleptir.
-      7 BDS 330, 18-19 uncu paragraflar 8 BDS 330, 7(b) paragrafı'
+    alinti: 'i: Teyit eden tarafın doğrudan denetçiye yanıt verdiği, talepte yer alan bilgilerle mutabık olup olmadığını gösteren
+      veya kendisinden talep edilen bilgileri sunduğu taleptir. Olumsuz teyit talebi: Teyit eden tarafın sadece, talepte yer
+      alan bilgilerle mutabık olmaması durumunda doğrudan denetçiye yanıt verdiği taleptir. 7 BDS 330, 18-19 uncu paragraflar
+      8 BDS 330, 7(b) paragrafı'
   gecerlilik:
     baslangic: '1992-12-26'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1517,7 +1568,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil
       G6:
         sonuc: bekliyor
       GZ:
@@ -1526,3 +1579,7 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_REV.yaml, satır ChatGPT_YMM-REV-2026-10-10-G06 #37'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Seviye YMM düzeyinin altında; çeldiriciler bariz/saçma, kitap standardı değil

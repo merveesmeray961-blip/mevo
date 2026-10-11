@@ -8,8 +8,8 @@
   kazanim: asgari kurumlar vergisi
   tip: hesaplama
   zorluk: 2
-  kok: İndirim ve istisnalar öncesi kurum kazancı 1.000.000 TL’dir. 32/C kapsamındaki asgari kurumlar vergisi alt
-    sınırı kaç TL’dir?
+  kok: İndirim ve istisnalar öncesi kurum kazancı 1.000.000 TL’dir. 32/C kapsamındaki asgari kurumlar vergisi alt sınırı kaç
+    TL’dir?
   secenekler:
     A: '50.000'
     B: '80.000'
@@ -29,15 +29,15 @@
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: md. 32/C
-    alinti: 32 nci ve 32/A maddeleri hükümleri dikkate alınarak hesaplanan kurumlar vergisi, indirim ve istisnalar
-      düşülmeden önceki kurum kazancının %10’undan az olamaz.
+    alinti: 32 nci ve 32/A maddeleri hükümleri dikkate alınarak hesaplanan kurumlar vergisi, indirim ve istisnalar düşülmeden
+      önceki kurum kazancının %10’undan az olamaz.
   gecerlilik:
     baslangic: '2024-07-28'
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 1000000 * 0.10
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -56,7 +56,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Tek adımlı %10 çarpımı; YMM düzeyinin çok altında, MTR-0004 ile mükerrer
       G6:
         sonuc: bekliyor
       GZ:
@@ -65,3 +67,7 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_VTK.yaml, satır ChatGPT_YMM-VTK-2026-10-10-G01 #5'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Tek adımlı %10 çarpımı; YMM düzeyinin çok altında, MTR-0004 ile mükerrer

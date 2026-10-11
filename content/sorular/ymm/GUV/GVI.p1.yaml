@@ -23,8 +23,7 @@
     E: I, II ve III
   dogru: C
   aciklama:
-    dogru_neden: I ve II ayrımı doğrudur; istisna belirli gelir unsuruna ilişkin olabilir, bütün gelirleri kendiliğinden
-      kapsamaz.
+    dogru_neden: I ve II ayrımı doğrudur; istisna belirli gelir unsuruna ilişkin olabilir, bütün gelirleri kendiliğinden kapsamaz.
     celdiriciler:
       A: II de doğrudur.
       B: I de doğrudur.
@@ -33,14 +32,13 @@
   kaynaklar:
   - mevzuat: 193 sayılı Gelir Vergisi Kanunu
     madde: md. 6
-    alinti: "Türkiyede yerleşmiş olmayan gerçek kişiler sadece Türkiye'de elde ettikleri kazanç ve\niratlar üzerinden\
-      \ vergilendirilirler.\n\n        Kazanç veya iradın Türkiye'de elde edilmesi:\n        Madde 7 – (Değişik:\
-      \ 27/3/1969-1137/1 md.) Da"
+    alinti: "Türkiyede yerleşmiş olmayan gerçek kişiler sadece Türkiye'de elde ettikleri kazanç ve\niratlar üzerinden vergilendirilirler.\n\
+      \n        Kazanç veya iradın Türkiye'de elde edilmesi:\n        Madde 7 – (Değişik: 27/3/1969-1137/1 md.) Da"
   gecerlilik:
     baslangic: '1961-01-06'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -60,7 +58,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: III bariz yanlış ('her istisna tüm gelirleri'); kavramsal düzey çok basit
       G6:
         sonuc: bekliyor
       GZ:
@@ -69,6 +69,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_GUV.yaml, satır ChatGPT_YMM-GUV-2026-10-10-G01 #2'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: III bariz yanlış ('her istisna tüm gelirleri'); kavramsal düzey çok basit
 - id: YMM-GUV-GVI-0002
   sinav: ymm
   bolum:
@@ -79,8 +83,8 @@
   kazanim: tevkifat (GVK md.94)
   tip: hesaplama
   zorluk: 2
-  kok: Bir ödeme için GVK md.94 kapsamında tevkifat oranı %10 olarak verilmiştir. Brüt ödeme 80.000 TL ise kesilecek
-    vergi kaç TL’dir? Aşağıdaki seçeneklerden hangisi doğrudur?
+  kok: Bir ödeme için GVK md.94 kapsamında tevkifat oranı %10 olarak verilmiştir. Brüt ödeme 80.000 TL ise kesilecek vergi
+    kaç TL’dir? Aşağıdaki seçeneklerden hangisi doğrudur?
   secenekler:
     A: 4.000 TL
     B: 6.000 TL
@@ -101,19 +105,18 @@
   kaynaklar:
   - mevzuat: 193 sayılı Gelir Vergisi Kanunu
     madde: md. 94
-    alinti: 'Madde 94 – (Değişik: 26/12/1993-3946/22 md.) Kamu idare ve müesseseleri, iktisadi kamu müesseseleri,
-      sair kurumlar, ticaret şirketleri, iş ortaklıkları, dernekler, vakıflar, dernek ve vakıfların iktisadi işletmeleri,
-      kooperatifler, yatırım fonu yönetenler, gerçek gelirlerini beyan etmeye mecbur olan ticaret ve serbest meslek
-      erbabı, zirai kazançlarını bilanço veya zırai işletme hesabı esasına göre tespit eden çiftçiler aşağıdaki
-      bentlerde sayılan ödemeleri (avans olarak ödenenler dahil) nakden veya hesaben yaptıkları sırada, istihkak
-      sahiplerinin gelir vergilerine mahsuben tevkifat ya'
+    alinti: 'Madde 94 – (Değişik: 26/12/1993-3946/22 md.) Kamu idare ve müesseseleri, iktisadi kamu müesseseleri, sair kurumlar,
+      ticaret şirketleri, iş ortaklıkları, dernekler, vakıflar, dernek ve vakıfların iktisadi işletmeleri, kooperatifler,
+      yatırım fonu yönetenler, gerçek gelirlerini beyan etmeye mecbur olan ticaret ve serbest meslek erbabı, zirai kazançlarını
+      bilanço veya zırai işletme hesabı esasına göre tespit eden çiftçiler aşağıdaki bentlerde sayılan ödemeleri (avans olarak
+      ödenenler dahil) nakden veya hesaben yaptıkları sırada, istihkak sahiplerinin gelir vergilerine mahsuben tevkifat ya'
   gecerlilik:
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 80000 * 0.10
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -132,7 +135,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 80.000x%10 basit çarpma; mevzuat bilgisi ölçmüyor
       G6:
         sonuc: bekliyor
       GZ:
@@ -141,6 +146,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_GUV.yaml, satır ChatGPT_YMM-GUV-2026-10-10-G03 #2'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 80.000x%10 basit çarpma; mevzuat bilgisi ölçmüyor
 - id: YMM-GUV-GVI-0003
   sinav: ymm
   bolum:
@@ -169,12 +178,11 @@
   kaynaklar:
   - mevzuat: 193 sayılı Gelir Vergisi Kanunu
     madde: md. 9
-    alinti: 'Madde 9 – (Değişik: 24/12/1980-2361/4 md.) (Değişik birinci cümle: 22/7/1998-4369/26 md.) Ticaret ve
-      sanat erbabından aşağıda yazılı şekil ve suretle çalışanlar gelir vergisinden muaftır. 1. Motorlu nakil vasıtaları
-      kullanmamak şartı ile gezici olarak veya bir işyeri açmaksızın perakende ticaret ile iştigal edenler (Giyim
-      eşyalarıyla zati ve süs eşyaları, değeri yüksek olan ev eşyaları ile pazar takibi suretiyle gıda, bakkaliye
-      ve temizlik maddelerini ve sabit iş yerlerinin önünde sergi açmak suretiyle o iş yerlerinde satışı yapılan
-      aynı neviden malları satanlar hariç)5'
+    alinti: 'Madde 9 – (Değişik: 24/12/1980-2361/4 md.) (Değişik birinci cümle: 22/7/1998-4369/26 md.) Ticaret ve sanat erbabından
+      aşağıda yazılı şekil ve suretle çalışanlar gelir vergisinden muaftır. 1. Motorlu nakil vasıtaları kullanmamak şartı
+      ile gezici olarak veya bir işyeri açmaksızın perakende ticaret ile iştigal edenler (Giyim eşyalarıyla zati ve süs eşyaları,
+      değeri yüksek olan ev eşyaları ile pazar takibi suretiyle gıda, bakkaliye ve temizlik maddelerini ve sabit iş yerlerinin
+      önünde sergi açmak suretiyle o iş yerlerinde satışı yapılan aynı neviden malları satanlar hariç)5'
   gecerlilik:
     baslangic: '2026-01-01'
     bitis: null
@@ -211,8 +219,8 @@
   - tarih: '2026-10-11'
     kim: otomatik
     ne: 'durum: taslak → geri_cekildi (otomatik kapı hatası)'
-    neden: 'HATA   G7: YMM-GUV-GVM-0003 ile benzerlik %91; HATA   G7: YMM-GUV-KVI-0003 ile benzerlik %91; HATA   G7:
-      YMM-GUV-KVM-0009 ile benzerlik %91'
+    neden: 'HATA   G7: YMM-GUV-GVM-0003 ile benzerlik %91; HATA   G7: YMM-GUV-KVI-0003 ile benzerlik %91; HATA   G7: YMM-GUV-KVM-0009
+      ile benzerlik %91'
 - id: YMM-GUV-GVI-0004
   sinav: ymm
   bolum:
@@ -223,8 +231,8 @@
   kazanim: vergi tarifesi
   tip: hesaplama
   zorluk: 1
-  kok: Vergiye tabi gelir, soruda verilen ilgili tarife diliminde %15 oranına tabi 40.000 TL’lik matrah kısmından
-    oluşmaktadır. Bu kısım için hesaplanan vergi kaç TL’dir? Aşağıdaki seçeneklerden hangisi doğrudur?
+  kok: Vergiye tabi gelir, soruda verilen ilgili tarife diliminde %15 oranına tabi 40.000 TL’lik matrah kısmından oluşmaktadır.
+    Bu kısım için hesaplanan vergi kaç TL’dir? Aşağıdaki seçeneklerden hangisi doğrudur?
   secenekler:
     A: 4.000 TL
     B: 5.000 TL
@@ -245,16 +253,16 @@
   kaynaklar:
   - mevzuat: 193 sayılı Gelir Vergisi Kanunu
     madde: md. 103
-    alinti: Madde 103 – (Değişik:5/12/2019-7194/17 md.) Gelir vergisine tabi gelirler; 18.000 TL’ye (190.000 TL)
-      kadar % 15 40.000 TL’nin (400.000 TL) 18.000 TL’si (190.000 TL) için 2.700 TL, (28.500 % TL) fazlası 20 98.000
-      TL’nin (1.000.000 TL) 40.000 TL’si (400.000 TL) için 7.100 TL (70.500) TL) (ücret gelirlerinde
+    alinti: Madde 103 – (Değişik:5/12/2019-7194/17 md.) Gelir vergisine tabi gelirler; 18.000 TL’ye (190.000 TL) kadar % 15
+      40.000 TL’nin (400.000 TL) 18.000 TL’si (190.000 TL) için 2.700 TL, (28.500 % TL) fazlası 20 98.000 TL’nin (1.000.000
+      TL) 40.000 TL’si (400.000 TL) için 7.100 TL (70.500) TL) (ücret gelirlerinde
   gecerlilik:
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 40000 * 0.15
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -273,7 +281,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 40.000x%15 basit çarpma; kök 'soruda verilen tarife' der ama tarife verilmemiş
       G6:
         sonuc: bekliyor
       GZ:
@@ -282,6 +292,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_GUV.yaml, satır ChatGPT_YMM-GUV-2026-10-10-G03 #19'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 40.000x%15 basit çarpma; kök 'soruda verilen tarife' der ama tarife verilmemiş
 - id: YMM-GUV-GVI-0005
   sinav: ymm
   bolum:
@@ -313,12 +327,11 @@
   kaynaklar:
   - mevzuat: 193 sayılı Gelir Vergisi Kanunu
     madde: md. 92
-    alinti: 'Madde 92 – (Değişik: 19/2/1963-202/46 md.) (Değişik birinci fıkra: 9/4/2003-4842/11 md.) Bir takvim
-      yılına ait beyanname izleyen yılın Mart ayının başından yirmibeşinci günü akşamına kadar (…)107 tam mükellefiyette
-      vergiyi tarha yetkili vergi dairesine, dar mükellefiyette Türkiye''de vergi muhatabı mevcutsa onun Türkiye''de
-      oturduğu yerin, Türkiye''de vergi muhatabı yoksa işyerinin, işyeri birden fazla ise bu işyerlerinden herhangi
-      birisinin bulunduğu yer vergi dairesine verilir veya taahhütlü olarak posta ile gönderilir.108 Takvim yılı
-      içinde memleketi terk edenlerin beyannamele'
+    alinti: 'Madde 92 – (Değişik: 19/2/1963-202/46 md.) (Değişik birinci fıkra: 9/4/2003-4842/11 md.) Bir takvim yılına ait
+      beyanname izleyen yılın Mart ayının başından yirmibeşinci günü akşamına kadar (…)107 tam mükellefiyette vergiyi tarha
+      yetkili vergi dairesine, dar mükellefiyette Türkiye''de vergi muhatabı mevcutsa onun Türkiye''de oturduğu yerin, Türkiye''de
+      vergi muhatabı yoksa işyerinin, işyeri birden fazla ise bu işyerlerinden herhangi birisinin bulunduğu yer vergi dairesine
+      verilir veya taahhütlü olarak posta ile gönderilir.108 Takvim yılı içinde memleketi terk edenlerin beyannamele'
   gecerlilik:
     baslangic: '2026-01-01'
     bitis: null

@@ -8,8 +8,8 @@
   kazanim: geri ödeme süresi
   tip: hesaplama
   zorluk: 2
-  kok: Bir proje başlangıçta 120.000 TL yatırım gerektiriyor. İlk yıl 40.000 TL, ikinci yıl 50.000 TL, üçüncü yıl
-    60.000 TL net nakit girişi sağlıyor. Geri ödeme süresi kaç yıldır?
+  kok: Bir proje başlangıçta 120.000 TL yatırım gerektiriyor. İlk yıl 40.000 TL, ikinci yıl 50.000 TL, üçüncü yıl 60.000 TL
+    net nakit girişi sağlıyor. Geri ödeme süresi kaç yıldır?
   secenekler:
     A: 2,0 yıl
     B: 2,5 yıl
@@ -18,8 +18,8 @@
     E: 3,5 yıl
   dogru: B
   aciklama:
-    dogru_neden: İlk iki yılda 90.000 TL geri alınır; kalan 30.000 TL, üçüncü yılın 60.000 TL girişinin yarısıdır.
-      Geri ödeme süresi 2,5 yıldır.
+    dogru_neden: İlk iki yılda 90.000 TL geri alınır; kalan 30.000 TL, üçüncü yılın 60.000 TL girişinin yarısıdır. Geri ödeme
+      süresi 2,5 yıldır.
     celdiriciler:
       A: Bu seçenek doğru değildir; geri ödeme süresi bakımından soruda verilen koşul ve temel ilişkiyle uyuşmaz.
       C: Bu seçenek doğru değildir; geri ödeme süresi bakımından soruda verilen koşul ve temel ilişkiyle uyuşmaz.
@@ -38,7 +38,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 2 + (120000 - 40000 - 50000) / 60000
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -57,7 +57,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 1)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -66,6 +68,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır ChatGPT_YMM-FYN-2026-10-10-G02 #3'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0002
   sinav: ymm
   bolum:
@@ -76,19 +82,18 @@
   kazanim: karlılık endeksi
   tip: kavrama
   zorluk: 3
-  kok: Birbirinden bağımsız ve sermaye kısıtı altındaki projeleri sıralamak için kârlılık endeksi kullanılıyor.
-    NBD ve KE ilişkisini doğru açıklayan seçenek hangisidir?
+  kok: Birbirinden bağımsız ve sermaye kısıtı altındaki projeleri sıralamak için kârlılık endeksi kullanılıyor. NBD ve KE
+    ilişkisini doğru açıklayan seçenek hangisidir?
   secenekler:
     A: KE, yatırım tutarının gelecekteki nominal nakit girişlerine oranıdır.
-    B: KE, gelecekteki nakit girişlerinin bugünkü değerinin ilk yatırım tutarına oranıdır; NBD pozitifse KE 1'den
-      büyüktür.
+    B: KE, gelecekteki nakit girişlerinin bugünkü değerinin ilk yatırım tutarına oranıdır; NBD pozitifse KE 1'den büyüktür.
     C: KE pozitifse NBD mutlaka negatiftir.
     D: KE, iskonto oranından bağımsızdır.
     E: NBD ve KE her yatırım büyüklüğünde aynı mutlak sıralamayı verir.
   dogru: B
   aciklama:
-    dogru_neden: KE = nakit girişlerinin bugünkü değeri / ilk yatırım; NBD pozitif olduğunda payda çıkarıldıktan
-      sonra değer pozitiftir. Büyük projelerle sıralama her zaman aynı olmayabilir.
+    dogru_neden: KE = nakit girişlerinin bugünkü değeri / ilk yatırım; NBD pozitif olduğunda payda çıkarıldıktan sonra değer
+      pozitiftir. Büyük projelerle sıralama her zaman aynı olmayabilir.
     celdiriciler:
       A: Bu seçenek doğru değildir; karlılık endeksi bakımından soruda verilen koşul ve temel ilişkiyle uyuşmaz.
       C: Bu seçenek doğru değildir; karlılık endeksi bakımından soruda verilen koşul ve temel ilişkiyle uyuşmaz.
@@ -102,7 +107,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -122,7 +127,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Tanım sorusu; C ve D bariz saçma
       G6:
         sonuc: bekliyor
       GZ:
@@ -131,6 +138,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır ChatGPT_YMM-FYN-2026-10-10-G02 #8'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Tanım sorusu; C ve D bariz saçma
 - id: YMM-FYN-SBT-0003
   sinav: ymm
   bolum:
@@ -150,17 +161,16 @@
     E: Vergi etkileri nakit akışlarını değiştirebilir.
   dogru: D
   aciklama:
-    dogru_neden: Finansman maliyeti genellikle iskonto oranında yansıtılır; nakit akışına ayrıca eklenmesi çift
-      sayım doğurabilir.
+    dogru_neden: Finansman maliyeti genellikle iskonto oranında yansıtılır; nakit akışına ayrıca eklenmesi çift sayım doğurabilir.
     celdiriciler:
-      A: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve
-        temel ilişkiyle uyuşmaz.
-      B: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve
-        temel ilişkiyle uyuşmaz.
-      C: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve
-        temel ilişkiyle uyuşmaz.
-      E: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve
-        temel ilişkiyle uyuşmaz.
+      A: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve temel ilişkiyle
+        uyuşmaz.
+      B: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve temel ilişkiyle
+        uyuşmaz.
+      C: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve temel ilişkiyle
+        uyuşmaz.
+      E: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve temel ilişkiyle
+        uyuşmaz.
   kaynaklar:
   - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — yatırım projelerinde nakit akışı tahmini
     madde: '-'
@@ -169,7 +179,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -189,7 +199,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -198,6 +210,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır ChatGPT_YMM-FYN-2026-10-10-G02 #13'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0004
   sinav: ymm
   bolum:
@@ -231,7 +247,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -251,7 +267,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Temel/tanımsal, SMMM altı düzey; çeldiriciler bariz (her durumda/mutlaka/yalnız kalıbı)
       G6:
         sonuc: bekliyor
       GZ:
@@ -260,6 +278,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır ChatGPT_YMM-FYN-2026-10-10-G02 #18'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Temel/tanımsal, SMMM altı düzey; çeldiriciler bariz (her durumda/mutlaka/yalnız kalıbı)
 - id: YMM-FYN-SBT-0005
   sinav: ymm
   bolum:
@@ -270,9 +292,9 @@
   kazanim: iç verim oranı
   tip: kavrama
   zorluk: 2
-  kok: İç verim oranı (İVO) hakkında I. NBD'yi sıfıra eşitleyen iskonto oranıdır. II. Bağımsız ve olağan nakit akışlı
-    projede İVO sermaye maliyetini aşıyorsa proje kabul edilebilir. III. Olağandışı nakit akışlarında birden fazla
-    İVO oluşması mümkündür. Hangileri doğrudur?
+  kok: İç verim oranı (İVO) hakkında I. NBD'yi sıfıra eşitleyen iskonto oranıdır. II. Bağımsız ve olağan nakit akışlı projede
+    İVO sermaye maliyetini aşıyorsa proje kabul edilebilir. III. Olağandışı nakit akışlarında birden fazla İVO oluşması mümkündür.
+    Hangileri doğrudur?
   secenekler:
     A: Yalnız I
     B: I ve II
@@ -295,7 +317,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -315,7 +337,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -324,6 +348,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır ChatGPT_YMM-FYN-2026-10-10-G02 #23'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0006
   sinav: ymm
   bolum:
@@ -334,8 +362,8 @@
   kazanim: geri ödeme süresi
   tip: uygulama
   zorluk: 1
-  kok: Bir proje 90.000 TL yatırım gerektiriyor ve her yıl eşit 30.000 TL net nakit girişi sağlıyor. Geri ödeme
-    süresi kaç yıldır?
+  kok: Bir proje 90.000 TL yatırım gerektiriyor ve her yıl eşit 30.000 TL net nakit girişi sağlıyor. Geri ödeme süresi kaç
+    yıldır?
   secenekler:
     A: '2'
     B: 2,5
@@ -360,7 +388,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 90000 / 30000
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -379,7 +407,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Eşit akışta tek bölme (90/30); YMM düzeyi değil; SBT-0015/0056 ile tekrar
       G6:
         sonuc: bekliyor
       GZ:
@@ -388,6 +418,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır ChatGPT_YMM-FYN-2026-10-10-G02 #28'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Eşit akışta tek bölme (90/30); YMM düzeyi değil; SBT-0015/0056 ile tekrar
 - id: YMM-FYN-SBT-0007
   sinav: ymm
   bolum:
@@ -398,8 +432,8 @@
   kazanim: karlılık endeksi
   tip: kavrama
   zorluk: 3
-  kok: Sermaye kısıtı altında üç bağımsız projenin kârlılık endeksleri A=1,40; B=1,25; C=0,90'dır. Yalnızca KE'ye
-    göre kabul edilebilirlik ve sıralama hangisidir?
+  kok: Sermaye kısıtı altında üç bağımsız projenin kârlılık endeksleri A=1,40; B=1,25; C=0,90'dır. Yalnızca KE'ye göre kabul
+    edilebilirlik ve sıralama hangisidir?
   secenekler:
     A: C, B, A; tümü kabul edilir
     B: A, B; C reddedilir
@@ -422,7 +456,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -442,7 +476,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: KE>1 kuralının doğrudan uygulaması; bariz
       G6:
         sonuc: bekliyor
       GZ:
@@ -451,6 +487,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır ChatGPT_YMM-FYN-2026-10-10-G02 #33'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: KE>1 kuralının doğrudan uygulaması; bariz
 - id: YMM-FYN-SBT-0008
   sinav: ymm
   bolum:
@@ -470,17 +510,17 @@
     E: Vergi tasarrufu — nakit akışına etkisiz kalem
   dogru: B
   aciklama:
-    dogru_neden: Mevcut varlığın alternatif kullanımından vazgeçilmesi fırsat maliyetidir ve proje değerlendirmesine
-      dahil edilir.
+    dogru_neden: Mevcut varlığın alternatif kullanımından vazgeçilmesi fırsat maliyetidir ve proje değerlendirmesine dahil
+      edilir.
     celdiriciler:
-      A: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve
-        temel ilişkiyle uyuşmaz.
-      C: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve
-        temel ilişkiyle uyuşmaz.
-      D: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve
-        temel ilişkiyle uyuşmaz.
-      E: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve
-        temel ilişkiyle uyuşmaz.
+      A: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve temel ilişkiyle
+        uyuşmaz.
+      C: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve temel ilişkiyle
+        uyuşmaz.
+      D: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve temel ilişkiyle
+        uyuşmaz.
+      E: Bu seçenek doğru değildir; yatırım projelerinde nakit akışı tahmini bakımından soruda verilen koşul ve temel ilişkiyle
+        uyuşmaz.
   kaynaklar:
   - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — yatırım projelerinde nakit akışı tahmini
     madde: '-'
@@ -489,7 +529,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -509,7 +549,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0040 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -518,6 +560,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır ChatGPT_YMM-FYN-2026-10-10-G02 #39'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0040 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0009
   sinav: ymm
   bolum:
@@ -528,8 +574,8 @@
   kazanim: net bugünkü değer
   tip: hesaplama
   zorluk: 2
-  kok: Bir proje bugün 100.000 TL yatırım gerektiriyor. Bir yıl sonra 66.000 TL, iki yıl sonra 60.500 TL nakit girişi
-    bekleniyor. İskonto oranı yıllık %10 ise NBD kaç TL'dir?
+  kok: Bir proje bugün 100.000 TL yatırım gerektiriyor. Bir yıl sonra 66.000 TL, iki yıl sonra 60.500 TL nakit girişi bekleniyor.
+    İskonto oranı yıllık %10 ise NBD kaç TL'dir?
   secenekler:
     A: '0'
     B: '5.000'
@@ -558,7 +604,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 66000 / 1.10 + 60500 / (1.10**2) - 100000
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -577,7 +623,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 1)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -586,6 +634,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır ChatGPT_YMM-FYN-2026-10-10-G02 #43'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0010
   sinav: ymm
   bolum:
@@ -605,8 +657,8 @@
     E: İVO her nakit akışı yapısında tek ve kesin bir oran verir.
   dogru: E
   aciklama:
-    dogru_neden: Nakit akışının birden çok işaret değiştirdiği durumlarda birden fazla İVO oluşabilir; tek oran
-      garantisi yoktur.
+    dogru_neden: Nakit akışının birden çok işaret değiştirdiği durumlarda birden fazla İVO oluşabilir; tek oran garantisi
+      yoktur.
     celdiriciler:
       A: Bu seçenek doğru değildir; iç verim oranı bakımından soruda verilen koşul ve temel ilişkiyle uyuşmaz.
       B: Bu seçenek doğru değildir; iç verim oranı bakımından soruda verilen koşul ve temel ilişkiyle uyuşmaz.
@@ -620,7 +672,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -640,7 +692,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0005 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -649,6 +703,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır ChatGPT_YMM-FYN-2026-10-10-G02 #47'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0005 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0011
   sinav: ymm
   bolum:
@@ -668,8 +726,8 @@
     E: Likidite odaklı ön elemede kullanılabilir.
   dogru: D
   aciklama:
-    dogru_neden: Geri ödeme süresi tek başına tüm proje kârlılığını ölçmez ve geri ödeme sonrası nakit akışlarını
-      dışarıda bırakabilir.
+    dogru_neden: Geri ödeme süresi tek başına tüm proje kârlılığını ölçmez ve geri ödeme sonrası nakit akışlarını dışarıda
+      bırakabilir.
     celdiriciler:
       A: Bu seçenek doğru değildir; geri ödeme süresi bakımından soruda verilen koşul ve temel ilişkiyle uyuşmaz.
       B: Bu seçenek doğru değildir; geri ödeme süresi bakımından soruda verilen koşul ve temel ilişkiyle uyuşmaz.
@@ -683,7 +741,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -703,7 +761,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Temel/tanımsal, SMMM altı düzey; çeldiriciler bariz (her durumda/mutlaka/yalnız kalıbı)
       G6:
         sonuc: bekliyor
       GZ:
@@ -712,6 +772,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır ChatGPT_YMM-FYN-2026-10-10-G02 #53'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Temel/tanımsal, SMMM altı düzey; çeldiriciler bariz (her durumda/mutlaka/yalnız kalıbı)
 - id: YMM-FYN-SBT-0012
   sinav: ymm
   bolum:
@@ -745,7 +809,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -765,7 +829,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Temel/tanımsal, SMMM altı düzey; çeldiriciler bariz (her durumda/mutlaka/yalnız kalıbı)
       G6:
         sonuc: bekliyor
       GZ:
@@ -774,6 +840,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır ChatGPT_YMM-FYN-2026-10-10-G02 #59'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Temel/tanımsal, SMMM altı düzey; çeldiriciler bariz (her durumda/mutlaka/yalnız kalıbı)
 - id: YMM-FYN-SBT-0013
   sinav: ymm
   bolum:
@@ -784,9 +854,8 @@
   kazanim: net bugünkü değer
   tip: kavrama
   zorluk: 2
-  kok: Bir proje için iskonto oranı %10, ilk yatırım 1.000 TL ve nakit girişleri 660 TL birinci yıl, 605 TL ikinci
-    yıldır. I. İskonto edilmiş girişler toplamı 1.000 TL'yi aşar. II. NBD pozitiftir. III. Proje kabul edilebilir.
-    Hangileri doğrudur?
+  kok: Bir proje için iskonto oranı %10, ilk yatırım 1.000 TL ve nakit girişleri 660 TL birinci yıl, 605 TL ikinci yıldır.
+    I. İskonto edilmiş girişler toplamı 1.000 TL'yi aşar. II. NBD pozitiftir. III. Proje kabul edilebilir. Hangileri doğrudur?
   secenekler:
     A: Yalnız I
     B: Yalnız II
@@ -795,17 +864,16 @@
     E: I, II ve III
   dogru: E
   aciklama:
-    dogru_neden: 660/1,1=600 ve 605/1,21=500; bugünkü giriş toplamı 1.100 TL, NBD 100 TL pozitiftir. Üç ifade de
-      doğrudur.
+    dogru_neden: 660/1,1=600 ve 605/1,21=500; bugünkü giriş toplamı 1.100 TL, NBD 100 TL pozitiftir. Üç ifade de doğrudur.
     celdiriciler:
-      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600 ve 605/1,21=500;
-        bugünkü giriş toplamı 1.100 TL, NBD 100 TL pozitiftir. Üç ifade de doğrudur.'
-      B: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600 ve 605/1,21=500;
-        bugünkü giriş toplamı 1.100 TL, NBD 100 TL pozitiftir. Üç ifade de doğrudur.'
-      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600 ve 605/1,21=500;
-        bugünkü giriş toplamı 1.100 TL, NBD 100 TL pozitiftir. Üç ifade de doğrudur.'
-      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600 ve 605/1,21=500;
-        bugünkü giriş toplamı 1.100 TL, NBD 100 TL pozitiftir. Üç ifade de doğrudur.'
+      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600 ve 605/1,21=500; bugünkü
+        giriş toplamı 1.100 TL, NBD 100 TL pozitiftir. Üç ifade de doğrudur.'
+      B: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600 ve 605/1,21=500; bugünkü
+        giriş toplamı 1.100 TL, NBD 100 TL pozitiftir. Üç ifade de doğrudur.'
+      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600 ve 605/1,21=500; bugünkü
+        giriş toplamı 1.100 TL, NBD 100 TL pozitiftir. Üç ifade de doğrudur.'
+      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600 ve 605/1,21=500; bugünkü
+        giriş toplamı 1.100 TL, NBD 100 TL pozitiftir. Üç ifade de doğrudur.'
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -814,7 +882,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -834,7 +902,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0009/0018 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -843,6 +913,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G01 #2'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0009/0018 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0014
   sinav: ymm
   bolum:
@@ -853,9 +927,8 @@
   kazanim: iç verim oranı
   tip: uygulama
   zorluk: 3
-  kok: Bir proje bugün 1.000 TL yatırım gerektiriyor ve iki yıl sonunda sırasıyla 600 TL ve 600 TL nakit girişi
-    sağlıyor. İşletmenin gerekli getirisi %10'dur. %10 oranında NBD pozitif, %20 oranında NBD negatiftir. Karar
-    ve İVO yorumu hangisidir?
+  kok: Bir proje bugün 1.000 TL yatırım gerektiriyor ve iki yıl sonunda sırasıyla 600 TL ve 600 TL nakit girişi sağlıyor.
+    İşletmenin gerekli getirisi %10'dur. %10 oranında NBD pozitif, %20 oranında NBD negatiftir. Karar ve İVO yorumu hangisidir?
   secenekler:
     A: İVO %10'dan düşük, proje reddedilir.
     B: İVO %10 ile %20 arasındadır; NBD %10'da pozitif olduğundan proje kabul edilir.
@@ -864,17 +937,17 @@
     E: İVO hesaplanamaz çünkü nakit akışları eşittir.
   dogru: B
   aciklama:
-    dogru_neden: NBD'nin %10'da pozitif, %20'de negatif olması İVO'nun bu oranlar arasında olduğunu gösterir; İVO
-      gerekli getiriyi aşar.
+    dogru_neden: NBD'nin %10'da pozitif, %20'de negatif olması İVO'nun bu oranlar arasında olduğunu gösterir; İVO gerekli
+      getiriyi aşar.
     celdiriciler:
-      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD''nin %10''da pozitif,
-        %20''de negatif olması İVO''nun bu oranlar arasında olduğunu gösterir; İVO gerekli getiriyi aşar.'
-      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD''nin %10''da pozitif,
-        %20''de negatif olması İVO''nun bu oranlar arasında olduğunu gösterir; İVO gerekli getiriyi aşar.'
-      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD''nin %10''da pozitif,
-        %20''de negatif olması İVO''nun bu oranlar arasında olduğunu gösterir; İVO gerekli getiriyi aşar.'
-      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD''nin %10''da pozitif,
-        %20''de negatif olması İVO''nun bu oranlar arasında olduğunu gösterir; İVO gerekli getiriyi aşar.'
+      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD''nin %10''da pozitif, %20''de
+        negatif olması İVO''nun bu oranlar arasında olduğunu gösterir; İVO gerekli getiriyi aşar.'
+      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD''nin %10''da pozitif, %20''de
+        negatif olması İVO''nun bu oranlar arasında olduğunu gösterir; İVO gerekli getiriyi aşar.'
+      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD''nin %10''da pozitif, %20''de
+        negatif olması İVO''nun bu oranlar arasında olduğunu gösterir; İVO gerekli getiriyi aşar.'
+      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD''nin %10''da pozitif, %20''de
+        negatif olması İVO''nun bu oranlar arasında olduğunu gösterir; İVO gerekli getiriyi aşar.'
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -883,7 +956,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -903,7 +976,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: NBD işaretleri kökte verilerek cevap verilmiş; E dolgu
       G6:
         sonuc: bekliyor
       GZ:
@@ -912,6 +987,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G01 #7'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: NBD işaretleri kökte verilerek cevap verilmiş; E dolgu
 - id: YMM-FYN-SBT-0015
   sinav: ymm
   bolum:
@@ -922,8 +1001,8 @@
   kazanim: geri ödeme süresi
   tip: uygulama
   zorluk: 1
-  kok: Bir yatırımın başlangıç maliyeti 90.000 TL, yıllık eşit net nakit girişi 30.000 TL'dir. Basit geri ödeme
-    süresi kaç yıldır?
+  kok: Bir yatırımın başlangıç maliyeti 90.000 TL, yıllık eşit net nakit girişi 30.000 TL'dir. Basit geri ödeme süresi kaç
+    yıldır?
   secenekler:
     A: '2'
     B: '2.5'
@@ -948,7 +1027,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 90000/30000
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -967,7 +1046,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0006 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -976,6 +1057,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G01 #13'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0006 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0016
   sinav: ymm
   bolum:
@@ -986,8 +1071,8 @@
   kazanim: karlılık endeksi
   tip: kavrama
   zorluk: 2
-  kok: 'İki bağımsız projenin ilk yatırım ve gelecekteki nakit girişlerinin bugünkü değeri şöyledir: X: yatırım
-    100, girişlerin BD''si 130; Y: yatırım 200, girişlerin BD''si 240. Karlılık endeksi sıralaması hangisidir?'
+  kok: 'İki bağımsız projenin ilk yatırım ve gelecekteki nakit girişlerinin bugünkü değeri şöyledir: X: yatırım 100, girişlerin
+    BD''si 130; Y: yatırım 200, girişlerin BD''si 240. Karlılık endeksi sıralaması hangisidir?'
   secenekler:
     A: X=1,30; Y=1,20; X daha yüksek
     B: X=0,30; Y=0,20; X daha yüksek
@@ -998,14 +1083,14 @@
   aciklama:
     dogru_neden: Karlılık endeksi=gelecek girişlerin BD'si/ilk yatırım. X=1,30; Y=1,20.
     celdiriciler:
-      B: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Karlılık endeksi=gelecek
-        girişlerin BD''si/ilk yatırım. X=1,30; Y=1,20.'
-      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Karlılık endeksi=gelecek
-        girişlerin BD''si/ilk yatırım. X=1,30; Y=1,20.'
-      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Karlılık endeksi=gelecek
-        girişlerin BD''si/ilk yatırım. X=1,30; Y=1,20.'
-      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Karlılık endeksi=gelecek
-        girişlerin BD''si/ilk yatırım. X=1,30; Y=1,20.'
+      B: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Karlılık endeksi=gelecek girişlerin
+        BD''si/ilk yatırım. X=1,30; Y=1,20.'
+      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Karlılık endeksi=gelecek girişlerin
+        BD''si/ilk yatırım. X=1,30; Y=1,20.'
+      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Karlılık endeksi=gelecek girişlerin
+        BD''si/ilk yatırım. X=1,30; Y=1,20.'
+      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Karlılık endeksi=gelecek girişlerin
+        BD''si/ilk yatırım. X=1,30; Y=1,20.'
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -1016,7 +1101,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 130/100
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1035,7 +1120,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Tek adımlık bölme; YMM düzeyi değil
       G6:
         sonuc: bekliyor
       GZ:
@@ -1044,6 +1131,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G01 #18'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Tek adımlık bölme; YMM düzeyi değil
 - id: YMM-FYN-SBT-0017
   sinav: ymm
   bolum:
@@ -1054,8 +1145,8 @@
   kazanim: yatırım projelerinde nakit akışı tahmini
   tip: hesaplama
   zorluk: 3
-  kok: Bir projenin yıllık faaliyet kârı 50.000 TL, amortismanı 10.000 TL ve vergi oranı %20'dir. Faaliyet kârının
-    vergiye tabi olduğu ve ek yatırım/işletme sermayesi olmadığı varsayımıyla yıllık faaliyet nakit akışı kaç TL'dir?
+  kok: Bir projenin yıllık faaliyet kârı 50.000 TL, amortismanı 10.000 TL ve vergi oranı %20'dir. Faaliyet kârının vergiye
+    tabi olduğu ve ek yatırım/işletme sermayesi olmadığı varsayımıyla yıllık faaliyet nakit akışı kaç TL'dir?
   secenekler:
     A: '40000'
     B: '42000'
@@ -1064,20 +1155,19 @@
     E: '60000'
   dogru: C
   aciklama:
-    dogru_neden: Vergi=50.000×%20=10.000; vergi sonrası faaliyet kârı=40.000; amortisman 10.000 geri eklenir, nakit
-      akışı 50.000 TL.
+    dogru_neden: Vergi=50.000×%20=10.000; vergi sonrası faaliyet kârı=40.000; amortisman 10.000 geri eklenir, nakit akışı
+      50.000 TL.
     celdiriciler:
-      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Vergi=50.000×%20=10.000;
-        vergi sonrası faaliyet kârı=40.000; amortisman 10.000 geri eklenir, nakit akışı 50.000 TL.'
-      B: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Vergi=50.000×%20=10.000;
-        vergi sonrası faaliyet kârı=40.000; amortisman 10.000 geri eklenir, nakit akışı 50.000 TL.'
-      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Vergi=50.000×%20=10.000;
-        vergi sonrası faaliyet kârı=40.000; amortisman 10.000 geri eklenir, nakit akışı 50.000 TL.'
-      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Vergi=50.000×%20=10.000;
-        vergi sonrası faaliyet kârı=40.000; amortisman 10.000 geri eklenir, nakit akışı 50.000 TL.'
+      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Vergi=50.000×%20=10.000; vergi
+        sonrası faaliyet kârı=40.000; amortisman 10.000 geri eklenir, nakit akışı 50.000 TL.'
+      B: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Vergi=50.000×%20=10.000; vergi
+        sonrası faaliyet kârı=40.000; amortisman 10.000 geri eklenir, nakit akışı 50.000 TL.'
+      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Vergi=50.000×%20=10.000; vergi
+        sonrası faaliyet kârı=40.000; amortisman 10.000 geri eklenir, nakit akışı 50.000 TL.'
+      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Vergi=50.000×%20=10.000; vergi
+        sonrası faaliyet kârı=40.000; amortisman 10.000 geri eklenir, nakit akışı 50.000 TL.'
     hesap_adimlari:
-    - Vergi=50.000×%20=10.000; vergi sonrası faaliyet kârı=40.000; amortisman 10.000 geri eklenir, nakit akışı 50.000
-      TL.
+    - Vergi=50.000×%20=10.000; vergi sonrası faaliyet kârı=40.000; amortisman 10.000 geri eklenir, nakit akışı 50.000 TL.
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -1088,7 +1178,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 50000*(1-0.20) + 10000
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1107,7 +1197,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 4, seviye 1)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1116,6 +1208,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G01 #23'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0018
   sinav: ymm
   bolum:
@@ -1126,8 +1222,8 @@
   kazanim: net bugünkü değer
   tip: hesaplama
   zorluk: 2
-  kok: Bir projenin ilk yatırımı 1.000 TL'dir. Bir yıl sonra 660 TL, iki yıl sonra 605 TL giriş sağlayacaktır. İskonto
-    oranı %10 ise NBD kaç TL'dir?
+  kok: Bir projenin ilk yatırımı 1.000 TL'dir. Bir yıl sonra 660 TL, iki yıl sonra 605 TL giriş sağlayacaktır. İskonto oranı
+    %10 ise NBD kaç TL'dir?
   secenekler:
     A: '0'
     B: '50'
@@ -1138,14 +1234,14 @@
   aciklama:
     dogru_neden: 660/1,1=600; 605/1,21=500; girişlerin BD'si 1.100, NBD=100 TL.
     celdiriciler:
-      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600; 605/1,21=500;
-        girişlerin BD''si 1.100, NBD=100 TL.'
-      B: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600; 605/1,21=500;
-        girişlerin BD''si 1.100, NBD=100 TL.'
-      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600; 605/1,21=500;
-        girişlerin BD''si 1.100, NBD=100 TL.'
-      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600; 605/1,21=500;
-        girişlerin BD''si 1.100, NBD=100 TL.'
+      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600; 605/1,21=500; girişlerin
+        BD''si 1.100, NBD=100 TL.'
+      B: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600; 605/1,21=500; girişlerin
+        BD''si 1.100, NBD=100 TL.'
+      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600; 605/1,21=500; girişlerin
+        BD''si 1.100, NBD=100 TL.'
+      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: 660/1,1=600; 605/1,21=500; girişlerin
+        BD''si 1.100, NBD=100 TL.'
     hesap_adimlari:
     - 660/1,1=600; 605/1,21=500; girişlerin BD'si 1.100, NBD=100 TL.
   kaynaklar:
@@ -1158,7 +1254,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 660/1.10 + 605/(1.10**2) - 1000
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1177,7 +1273,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0009 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1186,6 +1284,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G01 #28'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0009 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0019
   sinav: ymm
   bolum:
@@ -1196,8 +1298,8 @@
   kazanim: iç verim oranı
   tip: kavrama
   zorluk: 3
-  kok: Birbirini dışlayan iki projede NBD profilleri kesişmektedir. İVO ile NBD yöntemleri farklı sıralama verirse
-    hangi yaklaşım genel olarak işletme değerini artırma hedefiyle daha tutarlıdır?
+  kok: Birbirini dışlayan iki projede NBD profilleri kesişmektedir. İVO ile NBD yöntemleri farklı sıralama verirse hangi yaklaşım
+    genel olarak işletme değerini artırma hedefiyle daha tutarlıdır?
   secenekler:
     A: Her koşulda en yüksek İVO'yu seçmek
     B: NBD yöntemini, uygun iskonto oranıyla uygulamak
@@ -1206,17 +1308,16 @@
     E: Başlangıç yatırımı en yüksek projeyi seçmek
   dogru: B
   aciklama:
-    dogru_neden: NBD, projenin işletme değerine parasal katkısını ölçer; ölçek ve zamanlama farklarında İVO sıralaması
-      çelişebilir.
+    dogru_neden: NBD, projenin işletme değerine parasal katkısını ölçer; ölçek ve zamanlama farklarında İVO sıralaması çelişebilir.
     celdiriciler:
-      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD, projenin işletme
-        değerine parasal katkısını ölçer; ölçek ve zamanlama farklarında İVO sıralaması çelişebilir.'
-      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD, projenin işletme
-        değerine parasal katkısını ölçer; ölçek ve zamanlama farklarında İVO sıralaması çelişebilir.'
-      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD, projenin işletme
-        değerine parasal katkısını ölçer; ölçek ve zamanlama farklarında İVO sıralaması çelişebilir.'
-      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD, projenin işletme
-        değerine parasal katkısını ölçer; ölçek ve zamanlama farklarında İVO sıralaması çelişebilir.'
+      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD, projenin işletme değerine
+        parasal katkısını ölçer; ölçek ve zamanlama farklarında İVO sıralaması çelişebilir.'
+      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD, projenin işletme değerine
+        parasal katkısını ölçer; ölçek ve zamanlama farklarında İVO sıralaması çelişebilir.'
+      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD, projenin işletme değerine
+        parasal katkısını ölçer; ölçek ve zamanlama farklarında İVO sıralaması çelişebilir.'
+      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: NBD, projenin işletme değerine
+        parasal katkısını ölçer; ölçek ve zamanlama farklarında İVO sıralaması çelişebilir.'
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -1225,7 +1326,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1245,7 +1346,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Temel/tanımsal, SMMM altı düzey; çeldiriciler bariz (her durumda/mutlaka/yalnız kalıbı); C, D, E dolgu
       G6:
         sonuc: bekliyor
       GZ:
@@ -1254,6 +1357,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G01 #33'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Temel/tanımsal, SMMM altı düzey; çeldiriciler bariz (her durumda/mutlaka/yalnız kalıbı); C, D, E dolgu
 - id: YMM-FYN-SBT-0020
   sinav: ymm
   bolum:
@@ -1273,17 +1380,17 @@
     E: Kısa geri ödeme süresi likidite açısından tercih sebebi olabilir.
   dogru: D
   aciklama:
-    dogru_neden: Geri ödeme yöntemi toplam değer katkısını tek başına ölçmez; sonraki nakit akışlarını ve çoğunlukla
-      zaman değerini göz ardı eder.
+    dogru_neden: Geri ödeme yöntemi toplam değer katkısını tek başına ölçmez; sonraki nakit akışlarını ve çoğunlukla zaman
+      değerini göz ardı eder.
     celdiriciler:
-      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Geri ödeme yöntemi toplam
-        değer katkısını tek başına ölçmez; sonraki nakit akışlarını ve çoğunlukla zaman değerini göz ardı eder.'
-      B: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Geri ödeme yöntemi toplam
-        değer katkısını tek başına ölçmez; sonraki nakit akışlarını ve çoğunlukla zaman değerini göz ardı eder.'
-      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Geri ödeme yöntemi toplam
-        değer katkısını tek başına ölçmez; sonraki nakit akışlarını ve çoğunlukla zaman değerini göz ardı eder.'
-      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Geri ödeme yöntemi toplam
-        değer katkısını tek başına ölçmez; sonraki nakit akışlarını ve çoğunlukla zaman değerini göz ardı eder.'
+      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Geri ödeme yöntemi toplam değer
+        katkısını tek başına ölçmez; sonraki nakit akışlarını ve çoğunlukla zaman değerini göz ardı eder.'
+      B: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Geri ödeme yöntemi toplam değer
+        katkısını tek başına ölçmez; sonraki nakit akışlarını ve çoğunlukla zaman değerini göz ardı eder.'
+      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Geri ödeme yöntemi toplam değer
+        katkısını tek başına ölçmez; sonraki nakit akışlarını ve çoğunlukla zaman değerini göz ardı eder.'
+      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Geri ödeme yöntemi toplam değer
+        katkısını tek başına ölçmez; sonraki nakit akışlarını ve çoğunlukla zaman değerini göz ardı eder.'
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -1335,9 +1442,8 @@
   kazanim: karlılık endeksi
   tip: kavrama
   zorluk: 2
-  kok: I. Karlılık endeksi, nakit girişlerinin bugünkü değerinin ilk yatırıma oranıdır. II. Endeks 1'den büyükse
-    NBD pozitiftir. III. Sermaye kısıtı altında projelerin göreli verimliliğini karşılaştırmada kullanılabilir.
-    Hangileri doğrudur?
+  kok: I. Karlılık endeksi, nakit girişlerinin bugünkü değerinin ilk yatırıma oranıdır. II. Endeks 1'den büyükse NBD pozitiftir.
+    III. Sermaye kısıtı altında projelerin göreli verimliliğini karşılaştırmada kullanılabilir. Hangileri doğrudur?
   secenekler:
     A: Yalnız I
     B: I ve II
@@ -1348,14 +1454,14 @@
   aciklama:
     dogru_neden: PI=PV giriş/ilk yatırım; PI>1 NBD>0 anlamına gelir ve kısıtlı sermayede sıralamaya yardımcı olur.
     celdiriciler:
-      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: PI=PV giriş/ilk yatırım;
-        PI>1 NBD>0 anlamına gelir ve kısıtlı sermayede sıralamaya yardımcı olur.'
-      B: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: PI=PV giriş/ilk yatırım;
-        PI>1 NBD>0 anlamına gelir ve kısıtlı sermayede sıralamaya yardımcı olur.'
-      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: PI=PV giriş/ilk yatırım;
-        PI>1 NBD>0 anlamına gelir ve kısıtlı sermayede sıralamaya yardımcı olur.'
-      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: PI=PV giriş/ilk yatırım;
-        PI>1 NBD>0 anlamına gelir ve kısıtlı sermayede sıralamaya yardımcı olur.'
+      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: PI=PV giriş/ilk yatırım; PI>1
+        NBD>0 anlamına gelir ve kısıtlı sermayede sıralamaya yardımcı olur.'
+      B: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: PI=PV giriş/ilk yatırım; PI>1
+        NBD>0 anlamına gelir ve kısıtlı sermayede sıralamaya yardımcı olur.'
+      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: PI=PV giriş/ilk yatırım; PI>1
+        NBD>0 anlamına gelir ve kısıtlı sermayede sıralamaya yardımcı olur.'
+      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: PI=PV giriş/ilk yatırım; PI>1
+        NBD>0 anlamına gelir ve kısıtlı sermayede sıralamaya yardımcı olur.'
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -1364,7 +1470,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1384,7 +1490,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Üç önerme de bariz tanım; ölçücülüğü yok
       G6:
         sonuc: bekliyor
       GZ:
@@ -1393,6 +1501,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G01 #43'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Üç önerme de bariz tanım; ölçücülüğü yok
 - id: YMM-FYN-SBT-0022
   sinav: ymm
   bolum:
@@ -1403,8 +1515,8 @@
   kazanim: yatırım projelerinde nakit akışı tahmini
   tip: kavrama
   zorluk: 2
-  kok: Proje nakit akışı tahmininde kalemleri doğru sınıflayan seçenek hangisidir? I. Batık maliyet II. İlave işletme
-    sermayesi yatırımı III. Mevcut varlığın alternatif kullanımından vazgeçilen gelir
+  kok: Proje nakit akışı tahmininde kalemleri doğru sınıflayan seçenek hangisidir? I. Batık maliyet II. İlave işletme sermayesi
+    yatırımı III. Mevcut varlığın alternatif kullanımından vazgeçilen gelir
   secenekler:
     A: I dahil; II hariç; III hariç
     B: I hariç; II dahil; III dahil
@@ -1413,17 +1525,17 @@
     E: I dahil; II dahil; III hariç
   dogru: B
   aciklama:
-    dogru_neden: Batık maliyet geleceğe dönük ve artımsal olmadığı için dışlanır; işletme sermayesi ve fırsat maliyeti
-      dikkate alınır.
+    dogru_neden: Batık maliyet geleceğe dönük ve artımsal olmadığı için dışlanır; işletme sermayesi ve fırsat maliyeti dikkate
+      alınır.
     celdiriciler:
-      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Batık maliyet geleceğe
-        dönük ve artımsal olmadığı için dışlanır; işletme sermayesi ve fırsat maliyeti dikkate alınır.'
-      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Batık maliyet geleceğe
-        dönük ve artımsal olmadığı için dışlanır; işletme sermayesi ve fırsat maliyeti dikkate alınır.'
-      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Batık maliyet geleceğe
-        dönük ve artımsal olmadığı için dışlanır; işletme sermayesi ve fırsat maliyeti dikkate alınır.'
-      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Batık maliyet geleceğe
-        dönük ve artımsal olmadığı için dışlanır; işletme sermayesi ve fırsat maliyeti dikkate alınır.'
+      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Batık maliyet geleceğe dönük ve
+        artımsal olmadığı için dışlanır; işletme sermayesi ve fırsat maliyeti dikkate alınır.'
+      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Batık maliyet geleceğe dönük ve
+        artımsal olmadığı için dışlanır; işletme sermayesi ve fırsat maliyeti dikkate alınır.'
+      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Batık maliyet geleceğe dönük ve
+        artımsal olmadığı için dışlanır; işletme sermayesi ve fırsat maliyeti dikkate alınır.'
+      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: Batık maliyet geleceğe dönük ve
+        artımsal olmadığı için dışlanır; işletme sermayesi ve fırsat maliyeti dikkate alınır.'
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -1432,7 +1544,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1452,7 +1564,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0040 ile aynı kalıp/veri; ayrıca temel düzey; C şıkkı bozuk ifade'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1461,6 +1575,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G01 #47'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0040 ile aynı kalıp/veri; ayrıca temel düzey; C şıkkı bozuk ifade'
 - id: YMM-FYN-SBT-0023
   sinav: ymm
   bolum:
@@ -1471,8 +1589,8 @@
   kazanim: net bugünkü değer
   tip: uygulama
   zorluk: 3
-  kok: Bir proje 2.000 TL ilk yatırım gerektiriyor; birinci yıl 1.100 TL, ikinci yıl 1.210 TL nakit girişi sağlıyor.
-    İskonto oranı %10'dur. NBD ve karar hangisidir?
+  kok: Bir proje 2.000 TL ilk yatırım gerektiriyor; birinci yıl 1.100 TL, ikinci yıl 1.210 TL nakit girişi sağlıyor. İskonto
+    oranı %10'dur. NBD ve karar hangisidir?
   secenekler:
     A: NBD −200 TL; reddedilir
     B: NBD 0 TL; kayıtsız kalınır
@@ -1501,7 +1619,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 1100/1.10 + 1210/(1.10**2) - 2000
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1520,7 +1638,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 1)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1529,6 +1649,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G01 #53'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0024
   sinav: ymm
   bolum:
@@ -1539,8 +1663,8 @@
   kazanim: iç verim oranı
   tip: uygulama
   zorluk: 1
-  kok: Bir yatırımın iç verim oranı %14, işletmenin bu risk sınıfı için gerekli getirisi %11'dir. Geleneksel ve
-    tek İVO'lu proje varsayımında hangi karar uygundur?
+  kok: Bir yatırımın iç verim oranı %14, işletmenin bu risk sınıfı için gerekli getirisi %11'dir. Geleneksel ve tek İVO'lu
+    proje varsayımında hangi karar uygundur?
   secenekler:
     A: Proje reddedilir; İVO gerekli getiriden düşüktür.
     B: Proje kabul edilir; İVO gerekli getiriyi aşar.
@@ -1551,14 +1675,14 @@
   aciklama:
     dogru_neden: İVO %14, gerekli getiri %11 olduğundan proje geleneksel ölçüte göre kabul edilir.
     celdiriciler:
-      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: İVO %14, gerekli getiri
-        %11 olduğundan proje geleneksel ölçüte göre kabul edilir.'
-      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: İVO %14, gerekli getiri
-        %11 olduğundan proje geleneksel ölçüte göre kabul edilir.'
-      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: İVO %14, gerekli getiri
-        %11 olduğundan proje geleneksel ölçüte göre kabul edilir.'
-      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: İVO %14, gerekli getiri
-        %11 olduğundan proje geleneksel ölçüte göre kabul edilir.'
+      A: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: İVO %14, gerekli getiri %11 olduğundan
+        proje geleneksel ölçüte göre kabul edilir.'
+      C: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: İVO %14, gerekli getiri %11 olduğundan
+        proje geleneksel ölçüte göre kabul edilir.'
+      D: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: İVO %14, gerekli getiri %11 olduğundan
+        proje geleneksel ölçüte göre kabul edilir.'
+      E: 'Bu seçenek, kökte verilen oran/süre/ilişkiyi yanlış uygular; doğru değerlendirme: İVO %14, gerekli getiri %11 olduğundan
+        proje geleneksel ölçüte göre kabul edilir.'
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -1567,7 +1691,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1587,7 +1711,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Temel/tanımsal, SMMM altı düzey; çeldiriciler bariz (her durumda/mutlaka/yalnız kalıbı); C, D, E dolgu
       G6:
         sonuc: bekliyor
       GZ:
@@ -1596,6 +1722,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G01 #59'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Temel/tanımsal, SMMM altı düzey; çeldiriciler bariz (her durumda/mutlaka/yalnız kalıbı); C, D, E dolgu
 - id: YMM-FYN-SBT-0025
   sinav: ymm
   bolum:
@@ -1606,10 +1736,10 @@
   kazanim: yatırım projelerinde nakit akışı tahmini
   tip: uygulama
   zorluk: 3
-  kok: Bir şirket yeni makine alacaktır. Makinenin bedeli 900.000 TL, kurulum 60.000 TL, eski makinenin satışı nedeniyle
-    vergi sonrası tahsilat 100.000 TL'dir. Proje başında işletme sermayesi için 80.000 TL bağlanacak ve proje sonunda
-    tamamı geri alınacaktır. Yeni makine yıllık 250.000 TL nakit işletme tasarrufu sağlayacaktır. Başlangıç nakit
-    çıkışı ve proje sonu işletme sermayesi etkisi nasıl ele alınmalıdır?
+  kok: Bir şirket yeni makine alacaktır. Makinenin bedeli 900.000 TL, kurulum 60.000 TL, eski makinenin satışı nedeniyle vergi
+    sonrası tahsilat 100.000 TL'dir. Proje başında işletme sermayesi için 80.000 TL bağlanacak ve proje sonunda tamamı geri
+    alınacaktır. Yeni makine yıllık 250.000 TL nakit işletme tasarrufu sağlayacaktır. Başlangıç nakit çıkışı ve proje sonu
+    işletme sermayesi etkisi nasıl ele alınmalıdır?
   secenekler:
     A: Başlangıç çıkışı 900.000 TL; işletme sermayesi gider yazılır ve geri alınmaz.
     B: Başlangıç net çıkışı 940.000 TL; proje sonunda 80.000 TL giriş dikkate alınır.
@@ -1618,10 +1748,9 @@
     E: Başlangıç net çıkışı 1.140.000 TL; kurulum maliyeti aktifleştirilmez.
   dogru: B
   aciklama:
-    dogru_neden: 'Başlangıç çıkışı 900.000+60.000+80.000−100.000=940.000 TL''dir. İşletme sermayesi başlangıçta
-      nakit bağlar, proje sonunda geri kazanım girişi olur. Tasarrufların vergi etkisi belirtilmediğinden burada
-      verilen nakit tasarrufu esas alınır. Püf noktaları: Batık maliyet değil, artımsal nakit akışları ve geri kazanılan
-      işletme sermayesi önemlidir.'
+    dogru_neden: 'Başlangıç çıkışı 900.000+60.000+80.000−100.000=940.000 TL''dir. İşletme sermayesi başlangıçta nakit bağlar,
+      proje sonunda geri kazanım girişi olur. Tasarrufların vergi etkisi belirtilmediğinden burada verilen nakit tasarrufu
+      esas alınır. Püf noktaları: Batık maliyet değil, artımsal nakit akışları ve geri kazanılan işletme sermayesi önemlidir.'
     celdiriciler:
       A: Bu seçenek, kökteki koşullar ve ilgili finansal kavramın tanımıyla uyuşmadığından doğru değildir.
       C: Bu seçenek, kökteki koşullar ve ilgili finansal kavramın tanımıyla uyuşmadığından doğru değildir.
@@ -1635,7 +1764,7 @@
     baslangic: '2026-10-11'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1655,7 +1784,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1664,6 +1795,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G03 #3'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0026
   sinav: ymm
   bolum:
@@ -1674,9 +1809,8 @@
   kazanim: net bugünkü değer
   tip: hesaplama
   zorluk: 2
-  kok: Bir proje bugün 100.000 TL yatırım gerektiriyor. Bir yıl sonra 60.000 TL, iki yıl sonra 60.000 TL net nakit
-    girişi sağlayacak. İskonto oranı %10 ve (1,10)^2=1,21 olarak alınsın. Projenin NBD'si yaklaşık kaç TL'dir ve
-    karar ne olmalıdır?
+  kok: Bir proje bugün 100.000 TL yatırım gerektiriyor. Bir yıl sonra 60.000 TL, iki yıl sonra 60.000 TL net nakit girişi
+    sağlayacak. İskonto oranı %10 ve (1,10)^2=1,21 olarak alınsın. Projenin NBD'si yaklaşık kaç TL'dir ve karar ne olmalıdır?
   secenekler:
     A: −5.000 TL; reddedilir
     B: 0 TL; karar verilemez
@@ -1685,17 +1819,17 @@
     E: 20.000 TL; kabul edilir
   dogru: C
   aciklama:
-    dogru_neden: NBD=−100.000+60.000/1,10+60.000/1,21=−100.000+54.545,45+49.586,78≈4.132 TL. NBD pozitif olduğu
-      için proje kabul edilir.
+    dogru_neden: NBD=−100.000+60.000/1,10+60.000/1,21=−100.000+54.545,45+49.586,78≈4.132 TL. NBD pozitif olduğu için proje
+      kabul edilir.
     celdiriciler:
-      A: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.132
-        TL; kabul edilir değeridir.
-      B: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.132
-        TL; kabul edilir değeridir.
-      D: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.132
-        TL; kabul edilir değeridir.
-      E: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.132
-        TL; kabul edilir değeridir.
+      A: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.132 TL; kabul
+        edilir değeridir.
+      B: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.132 TL; kabul
+        edilir değeridir.
+      D: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.132 TL; kabul
+        edilir değeridir.
+      E: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.132 TL; kabul
+        edilir değeridir.
     hesap_adimlari:
     - NBD = −100.000 + 60.000/1,10 + 60.000/1,21.
     - ≈ −100.000 + 54.545,45 + 49.586,78 = 4.132,23 TL.
@@ -1740,8 +1874,8 @@
   - tarih: '2026-10-11'
     kim: otomatik
     ne: 'durum: taslak → geri_cekildi (otomatik kapı hatası)'
-    neden: 'HATA   G4: hesaplanan 4132.23 ≠ doğru şık 4132; HATA   G4: sayısal şıklar sıralı değil (gerçek sınavda
-      her zaman sıralı)'
+    neden: 'HATA   G4: hesaplanan 4132.23 ≠ doğru şık 4132; HATA   G4: sayısal şıklar sıralı değil (gerçek sınavda her zaman
+      sıralı)'
 - id: YMM-FYN-SBT-0027
   sinav: ymm
   bolum:
@@ -1752,9 +1886,8 @@
   kazanim: iç verim oranı
   tip: kavrama
   zorluk: 3
-  kok: Aynı başlangıç yatırımı ve aynı dönemli nakit akışları olan üç bağımsız projede NBD profilleri inceleniyor.
-    İskonto oranı arttıkça NBD'si daha hızlı düşen proje ile iç verim oranı arasındaki ilişkiyi değerlendirirken
-    hangi yaklaşım doğrudur?
+  kok: Aynı başlangıç yatırımı ve aynı dönemli nakit akışları olan üç bağımsız projede NBD profilleri inceleniyor. İskonto
+    oranı arttıkça NBD'si daha hızlı düşen proje ile iç verim oranı arasındaki ilişkiyi değerlendirirken hangi yaklaşım doğrudur?
   secenekler:
     A: NBD'si her iskonto oranında yüksek olan projenin İVO'su mutlaka en yüksektir.
     B: İVO, NBD'yi sıfıra eşitleyen iskonto oranıdır; NBD profilinin sıfır eksenini kestiği oranla bulunur.
@@ -1763,9 +1896,8 @@
     E: İVO negatif NBD veren her projede sonsuzdur.
   dogru: B
   aciklama:
-    dogru_neden: 'İç verim oranı NBD''yi sıfıra eşitleyen orandır. NBD profili ile İVO ilişkilidir ancak farklı
-      iskonto oranlarındaki NBD sıralaması tek başına İVO sıralamasını garanti etmez. Püf noktaları: NBD mutlak
-      değer, İVO ise yüzde getiri ölçüsüdür.'
+    dogru_neden: 'İç verim oranı NBD''yi sıfıra eşitleyen orandır. NBD profili ile İVO ilişkilidir ancak farklı iskonto oranlarındaki
+      NBD sıralaması tek başına İVO sıralamasını garanti etmez. Püf noktaları: NBD mutlak değer, İVO ise yüzde getiri ölçüsüdür.'
     celdiriciler:
       A: Bu seçenek, kökteki koşullar ve ilgili finansal kavramın tanımıyla uyuşmadığından doğru değildir.
       C: Bu seçenek, kökteki koşullar ve ilgili finansal kavramın tanımıyla uyuşmadığından doğru değildir.
@@ -1779,7 +1911,7 @@
     baslangic: '2026-10-11'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1799,7 +1931,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Kök ile cevap uyumsuz (NBD profili senaryosu, cevap salt tanım); C, D, E saçma
       G6:
         sonuc: bekliyor
       GZ:
@@ -1808,6 +1942,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G03 #13'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Kök ile cevap uyumsuz (NBD profili senaryosu, cevap salt tanım); C, D, E saçma
 - id: YMM-FYN-SBT-0028
   sinav: ymm
   bolum:
@@ -1818,8 +1956,8 @@
   kazanim: geri ödeme süresi
   tip: hesaplama
   zorluk: 1
-  kok: Bir yatırımın başlangıç maliyeti 120.000 TL'dir. Yatırımın her yıl sonunda eşit 30.000 TL net nakit girişi
-    sağladığı varsayılırsa basit geri ödeme süresi kaç yıldır?
+  kok: Bir yatırımın başlangıç maliyeti 120.000 TL'dir. Yatırımın her yıl sonunda eşit 30.000 TL net nakit girişi sağladığı
+    varsayılırsa basit geri ödeme süresi kaç yıldır?
   secenekler:
     A: '2'
     B: '3'
@@ -1847,7 +1985,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 120000 / 30000
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1866,7 +2004,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0006 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1875,6 +2015,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G03 #18'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0006 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0029
   sinav: ymm
   bolum:
@@ -1885,19 +2029,19 @@
   kazanim: karlılık endeksi
   tip: uygulama
   zorluk: 2
-  kok: İki bağımsız projenin başlangıç yatırımları farklıdır. Karlılık endeksi ile net bugünkü değer arasındaki
-    temel ayrımı doğru veren seçenek hangisidir?
+  kok: İki bağımsız projenin başlangıç yatırımları farklıdır. Karlılık endeksi ile net bugünkü değer arasındaki temel ayrımı
+    doğru veren seçenek hangisidir?
   secenekler:
-    A: Karlılık endeksi, gelecekteki nakit girişlerinin bugünkü değerinin ilk yatırım tutarına oranıdır; NBD ise
-      bu bugünkü değerden ilk yatırımın çıkarılmasıdır.
+    A: Karlılık endeksi, gelecekteki nakit girişlerinin bugünkü değerinin ilk yatırım tutarına oranıdır; NBD ise bu bugünkü
+      değerden ilk yatırımın çıkarılmasıdır.
     B: Karlılık endeksi yalnız muhasebe kârını kullanır; NBD yalnız satış gelirini kullanır.
     C: NBD bir yüzde, karlılık endeksi TL tutarıdır.
     D: Karlılık endeksi sıfırdan küçükse proje daima kabul edilir.
     E: NBD ile karlılık endeksi her durumda projeleri aynı sıraya koyar.
   dogru: A
   aciklama:
-    dogru_neden: Karlılık endeksi göreli bir oran, NBD ise parasal net değer ölçüsüdür. Sermaye kısıtı ve farklı
-      proje büyüklüklerinde sıralamaları ayrışabilir.
+    dogru_neden: Karlılık endeksi göreli bir oran, NBD ise parasal net değer ölçüsüdür. Sermaye kısıtı ve farklı proje büyüklüklerinde
+      sıralamaları ayrışabilir.
     celdiriciler:
       B: Bu seçenek, kökteki koşullar ve ilgili finansal kavramın tanımıyla uyuşmadığından doğru değildir.
       C: Bu seçenek, kökteki koşullar ve ilgili finansal kavramın tanımıyla uyuşmadığından doğru değildir.
@@ -1911,7 +2055,7 @@
     baslangic: '2026-10-11'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1931,7 +2075,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Tanım sorusu; B, C, D bariz saçma
       G6:
         sonuc: bekliyor
       GZ:
@@ -1940,6 +2086,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G03 #23'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Tanım sorusu; B, C, D bariz saçma
 - id: YMM-FYN-SBT-0030
   sinav: ymm
   bolum:
@@ -1950,9 +2100,9 @@
   kazanim: yatırım projelerinde nakit akışı tahmini
   tip: kavrama
   zorluk: 2
-  kok: Bir proje değerlendirmesinde I. Projeye özgü artımsal nakit akışları dikkate alınır. II. Geçmişte ödenmiş
-    ve geri alınamayacak fizibilite bedeli, karar değişmese de proje nakit akışına eklenir. III. İşletme sermayesindeki
-    artış başlangıçta nakit çıkışı yaratabilir. Hangileri doğrudur?
+  kok: Bir proje değerlendirmesinde I. Projeye özgü artımsal nakit akışları dikkate alınır. II. Geçmişte ödenmiş ve geri alınamayacak
+    fizibilite bedeli, karar değişmese de proje nakit akışına eklenir. III. İşletme sermayesindeki artış başlangıçta nakit
+    çıkışı yaratabilir. Hangileri doğrudur?
   secenekler:
     A: Yalnız I
     B: Yalnız II
@@ -1961,8 +2111,8 @@
     E: I, II ve III
   dogru: C
   aciklama:
-    dogru_neden: I ve III doğrudur. Batık maliyet kararın sonucu değişmediğinden artımsal nakit akışı değildir;
-      işletme sermayesi yatırımı ise nakit bağlar.
+    dogru_neden: I ve III doğrudur. Batık maliyet kararın sonucu değişmediğinden artımsal nakit akışı değildir; işletme sermayesi
+      yatırımı ise nakit bağlar.
     celdiriciler:
       A: Bu seçenek, kökteki koşullar ve ilgili finansal kavramın tanımıyla uyuşmadığından doğru değildir.
       B: Bu seçenek, kökteki koşullar ve ilgili finansal kavramın tanımıyla uyuşmadığından doğru değildir.
@@ -1976,7 +2126,7 @@
     baslangic: '2026-10-11'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1996,7 +2146,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0040 ile aynı kalıp/veri; ayrıca temel düzey; II ifadesi bozuk'
       G6:
         sonuc: bekliyor
       GZ:
@@ -2005,6 +2157,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G03 #27'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0040 ile aynı kalıp/veri; ayrıca temel düzey; II ifadesi bozuk'
 - id: YMM-FYN-SBT-0031
   sinav: ymm
   bolum:
@@ -2024,9 +2180,9 @@
     E: NBD pozitif olan her proje, sermaye kısıtı olsa da diğer bütün projelerden mutlaka daha iyi sıralanır.
   dogru: E
   aciklama:
-    dogru_neden: 'Pozitif NBD değer yaratımını gösterir ancak sermaye kısıtı ve proje ölçeği gibi koşullarda portföy
-      seçimi yalnızca NBD sıralamasıyla çözülemeyebilir. Püf noktaları: Tek proje kabul ölçütü ile kısıtlı bütçede
-      proje seçimi aynı karar problemi değildir.'
+    dogru_neden: 'Pozitif NBD değer yaratımını gösterir ancak sermaye kısıtı ve proje ölçeği gibi koşullarda portföy seçimi
+      yalnızca NBD sıralamasıyla çözülemeyebilir. Püf noktaları: Tek proje kabul ölçütü ile kısıtlı bütçede proje seçimi aynı
+      karar problemi değildir.'
     celdiriciler:
       A: Bu seçenek, kökteki koşullar ve ilgili finansal kavramın tanımıyla uyuşmadığından doğru değildir.
       B: Bu seçenek, kökteki koşullar ve ilgili finansal kavramın tanımıyla uyuşmadığından doğru değildir.
@@ -2040,7 +2196,7 @@
     baslangic: '2026-10-11'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2060,7 +2216,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Temel/tanımsal, SMMM altı düzey; çeldiriciler bariz (her durumda/mutlaka/yalnız kalıbı)
       G6:
         sonuc: bekliyor
       GZ:
@@ -2069,6 +2227,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G03 #33'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Temel/tanımsal, SMMM altı düzey; çeldiriciler bariz (her durumda/mutlaka/yalnız kalıbı)
 - id: YMM-FYN-SBT-0032
   sinav: ymm
   bolum:
@@ -2088,8 +2250,7 @@
     E: İVO, projenin NBD'sinin her iskonto oranında pozitif olduğunu garanti eder.
   dogru: E
   aciklama:
-    dogru_neden: İVO yalnızca NBD'yi sıfıra eşitleyen oranı gösterir; bu oran üzerindeki iskonto oranlarında NBD
-      pozitif kalmaz.
+    dogru_neden: İVO yalnızca NBD'yi sıfıra eşitleyen oranı gösterir; bu oran üzerindeki iskonto oranlarında NBD pozitif kalmaz.
     celdiriciler:
       A: Bu seçenek, kökteki koşullar ve ilgili finansal kavramın tanımıyla uyuşmadığından doğru değildir.
       B: Bu seçenek, kökteki koşullar ve ilgili finansal kavramın tanımıyla uyuşmadığından doğru değildir.
@@ -2103,7 +2264,7 @@
     baslangic: '2026-10-11'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2123,7 +2284,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0010 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -2132,6 +2295,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G03 #39'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0010 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0033
   sinav: ymm
   bolum:
@@ -2142,9 +2309,9 @@
   kazanim: geri ödeme süresi
   tip: hesaplama
   zorluk: 2
-  kok: Bir proje için ilk yatırım 150.000 TL'dir. Yıl sonu nakit girişleri ilk yıl 40.000 TL, ikinci yıl 50.000
-    TL, üçüncü yıl 60.000 TL ve dördüncü yıl 40.000 TL'dir. Basit geri ödeme süresi, yıl içi nakit girişlerinin
-    eşit dağıldığı varsayımıyla kaç yıldır?
+  kok: Bir proje için ilk yatırım 150.000 TL'dir. Yıl sonu nakit girişleri ilk yıl 40.000 TL, ikinci yıl 50.000 TL, üçüncü
+    yıl 60.000 TL ve dördüncü yıl 40.000 TL'dir. Basit geri ödeme süresi, yıl içi nakit girişlerinin eşit dağıldığı varsayımıyla
+    kaç yıldır?
   secenekler:
     A: 2 yıl
     B: 3 yıl
@@ -2153,17 +2320,13 @@
     E: 4 yıl
   dogru: B
   aciklama:
-    dogru_neden: İlk üç yıldaki nakit girişleri toplamı 40.000+50.000+60.000=150.000 TL olduğundan yatırım üçüncü
-      yıl sonunda geri kazanılır.
+    dogru_neden: İlk üç yıldaki nakit girişleri toplamı 40.000+50.000+60.000=150.000 TL olduğundan yatırım üçüncü yıl sonunda
+      geri kazanılır.
     celdiriciler:
-      A: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 3 yıl
-        değeridir.
-      C: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 3 yıl
-        değeridir.
-      D: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 3 yıl
-        değeridir.
-      E: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 3 yıl
-        değeridir.
+      A: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 3 yıl değeridir.
+      C: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 3 yıl değeridir.
+      D: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 3 yıl değeridir.
+      E: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 3 yıl değeridir.
     hesap_adimlari:
     - İlk üç yıldaki birikimli giriş = 40.000+50.000+60.000 = 150.000 TL.
     - Başlangıç yatırımı üçüncü yıl sonunda karşılanır; geri ödeme süresi 3 yıldır.
@@ -2177,7 +2340,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 3
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2196,7 +2359,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 1)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -2205,6 +2370,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G03 #43'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0034
   sinav: ymm
   bolum:
@@ -2215,8 +2384,8 @@
   kazanim: karlılık endeksi
   tip: hesaplama
   zorluk: 3
-  kok: Bir projenin ilk yatırım tutarı 200.000 TL, gelecekteki nakit girişlerinin bugünkü değer toplamı 260.000
-    TL'dir. Karlılık endeksi ve NBD hangi seçenekte birlikte doğru verilmiştir?
+  kok: Bir projenin ilk yatırım tutarı 200.000 TL, gelecekteki nakit girişlerinin bugünkü değer toplamı 260.000 TL'dir. Karlılık
+    endeksi ve NBD hangi seçenekte birlikte doğru verilmiştir?
   secenekler:
     A: KE=0,77; NBD=−60.000 TL
     B: KE=1,00; NBD=0 TL
@@ -2227,14 +2396,14 @@
   aciklama:
     dogru_neden: Karlılık endeksi=260.000/200.000=1,30; NBD=260.000−200.000=60.000 TL.
     celdiriciler:
-      A: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç KE=1,30;
-        NBD=60.000 TL değeridir.
-      B: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç KE=1,30;
-        NBD=60.000 TL değeridir.
-      C: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç KE=1,30;
-        NBD=60.000 TL değeridir.
-      E: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç KE=1,30;
-        NBD=60.000 TL değeridir.
+      A: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç KE=1,30; NBD=60.000
+        TL değeridir.
+      B: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç KE=1,30; NBD=60.000
+        TL değeridir.
+      C: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç KE=1,30; NBD=60.000
+        TL değeridir.
+      E: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç KE=1,30; NBD=60.000
+        TL değeridir.
     hesap_adimlari:
     - Karlılık endeksi = 260.000/200.000 = 1,30.
     - NBD = 260.000−200.000 = 60.000 TL.
@@ -2290,9 +2459,9 @@
   kazanim: yatırım projelerinde nakit akışı tahmini
   tip: hesaplama
   zorluk: 2
-  kok: Bir projenin bir yıllık satış geliri 500.000 TL, nakit faaliyet giderleri 300.000 TL, amortisman 50.000 TL
-    ve vergi oranı %20'dir. Amortismanın vergiden indirilebilir olduğu ve diğer kalem bulunmadığı varsayımıyla vergi
-    sonrası faaliyet nakit akışı (FVÖK×(1−T)+amortisman) kaç TL'dir?
+  kok: Bir projenin bir yıllık satış geliri 500.000 TL, nakit faaliyet giderleri 300.000 TL, amortisman 50.000 TL ve vergi
+    oranı %20'dir. Amortismanın vergiden indirilebilir olduğu ve diğer kalem bulunmadığı varsayımıyla vergi sonrası faaliyet
+    nakit akışı (FVÖK×(1−T)+amortisman) kaç TL'dir?
   secenekler:
     A: '120.000'
     B: '150.000'
@@ -2301,17 +2470,13 @@
     E: '200.000'
   dogru: D
   aciklama:
-    dogru_neden: FVÖK=500.000−300.000−50.000=150.000. Vergi sonrası faaliyet kârı=150.000×0,8=120.000; amortisman
-      eklenince nakit akışı=170.000 TL.
+    dogru_neden: FVÖK=500.000−300.000−50.000=150.000. Vergi sonrası faaliyet kârı=150.000×0,8=120.000; amortisman eklenince
+      nakit akışı=170.000 TL.
     celdiriciler:
-      A: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 170.000
-        değeridir.
-      B: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 170.000
-        değeridir.
-      C: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 170.000
-        değeridir.
-      E: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 170.000
-        değeridir.
+      A: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 170.000 değeridir.
+      B: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 170.000 değeridir.
+      C: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 170.000 değeridir.
+      E: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 170.000 değeridir.
     hesap_adimlari:
     - FVÖK = 500.000−300.000−50.000 = 150.000 TL.
     - Vergi sonrası FVÖK = 150.000×0,80 = 120.000 TL; amortisman eklenince 170.000 TL.
@@ -2325,7 +2490,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = (500000-300000-50000)*(1-0.20)+50000
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2344,7 +2509,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -2353,6 +2520,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G03 #53'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0036
   sinav: ymm
   bolum:
@@ -2363,8 +2534,8 @@
   kazanim: net bugünkü değer
   tip: hesaplama
   zorluk: 3
-  kok: Bir proje bugün 100.000 TL yatırım gerektiriyor ve birinci yıl sonunda 55.000 TL, ikinci yıl sonunda 66.000
-    TL nakit girişi sağlıyor. İskonto oranı %10'dur. (1,10)^2=1,21 kabul edilirse projenin NBD'si kaç TL'dir?
+  kok: Bir proje bugün 100.000 TL yatırım gerektiriyor ve birinci yıl sonunda 55.000 TL, ikinci yıl sonunda 66.000 TL nakit
+    girişi sağlıyor. İskonto oranı %10'dur. (1,10)^2=1,21 kabul edilirse projenin NBD'si kaç TL'dir?
   secenekler:
     A: −5.000 TL
     B: 0 TL
@@ -2373,17 +2544,13 @@
     E: 15.000 TL
   dogru: C
   aciklama:
-    dogru_neden: NBD=−100.000+55.000/1,10+66.000/1,21=−100.000+50.000+54.545,45≈4.545 TL. NBD pozitif olduğundan
-      proje kabul edilir.
+    dogru_neden: NBD=−100.000+55.000/1,10+66.000/1,21=−100.000+50.000+54.545,45≈4.545 TL. NBD pozitif olduğundan proje kabul
+      edilir.
     celdiriciler:
-      A: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.545
-        TL değeridir.
-      B: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.545
-        TL değeridir.
-      D: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.545
-        TL değeridir.
-      E: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.545
-        TL değeridir.
+      A: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.545 TL değeridir.
+      B: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.545 TL değeridir.
+      D: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.545 TL değeridir.
+      E: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 4.545 TL değeridir.
     hesap_adimlari:
     - NBD = −100.000 + 55.000/1,10 + 66.000/1,21.
     - = −100.000+50.000+54.545,45 ≈ 4.545 TL.
@@ -2428,8 +2595,8 @@
   - tarih: '2026-10-11'
     kim: otomatik
     ne: 'durum: taslak → geri_cekildi (otomatik kapı hatası)'
-    neden: 'HATA   G4: hesaplanan 4545.45 ≠ doğru şık 4545; HATA   G4: sayısal şıklar sıralı değil (gerçek sınavda
-      her zaman sıralı)'
+    neden: 'HATA   G4: hesaplanan 4545.45 ≠ doğru şık 4545; HATA   G4: sayısal şıklar sıralı değil (gerçek sınavda her zaman
+      sıralı)'
 - id: YMM-FYN-SBT-0037
   sinav: ymm
   bolum:
@@ -2440,8 +2607,7 @@
   kazanim: iç verim oranı
   tip: kavrama
   zorluk: 2
-  kok: İç verim oranı (İVO) ile net bugünkü değer (NBD) yöntemlerini karşılaştıran aşağıdaki ifadelerden hangisi
-    doğrudur?
+  kok: İç verim oranı (İVO) ile net bugünkü değer (NBD) yöntemlerini karşılaştıran aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
     A: İVO, nakit akışlarını sermaye maliyetiyle iskonto eder.
     B: NBD, projeyi sıfır NBD yapan iskonto oranıdır.
@@ -2450,17 +2616,16 @@
     E: İVO yalnızca geri ödeme süresini ölçer.
   dogru: C
   aciklama:
-    dogru_neden: İVO, projenin NBD'sini sıfırlayan iskonto oranıdır. NBD ise önceden belirlenen sermaye maliyetiyle
-      hesaplanır.
+    dogru_neden: İVO, projenin NBD'sini sıfırlayan iskonto oranıdır. NBD ise önceden belirlenen sermaye maliyetiyle hesaplanır.
     celdiriciler:
-      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İVO, projenin NBD'sini
-        sıfırlayan iskonto oranıdır. NBD ise önceden belirlenen sermaye maliyetiyle hesaplanır.
-      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İVO, projenin NBD'sini
-        sıfırlayan iskonto oranıdır. NBD ise önceden belirlenen sermaye maliyetiyle hesaplanır.
-      D: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İVO, projenin NBD'sini
-        sıfırlayan iskonto oranıdır. NBD ise önceden belirlenen sermaye maliyetiyle hesaplanır.
-      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İVO, projenin NBD'sini
-        sıfırlayan iskonto oranıdır. NBD ise önceden belirlenen sermaye maliyetiyle hesaplanır.
+      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İVO, projenin NBD'sini sıfırlayan
+        iskonto oranıdır. NBD ise önceden belirlenen sermaye maliyetiyle hesaplanır.
+      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İVO, projenin NBD'sini sıfırlayan
+        iskonto oranıdır. NBD ise önceden belirlenen sermaye maliyetiyle hesaplanır.
+      D: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İVO, projenin NBD'sini sıfırlayan
+        iskonto oranıdır. NBD ise önceden belirlenen sermaye maliyetiyle hesaplanır.
+      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İVO, projenin NBD'sini sıfırlayan
+        iskonto oranıdır. NBD ise önceden belirlenen sermaye maliyetiyle hesaplanır.
   kaynaklar:
   - mevzuat: 'Genel bilgi — Finansal Yönetim: iç verim oranı'
     madde: '-'
@@ -2469,7 +2634,7 @@
     baslangic: '2000-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2489,7 +2654,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Salt tanım; B, D, E saçma
       G6:
         sonuc: bekliyor
       GZ:
@@ -2498,6 +2665,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G04 #3'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Salt tanım; B, D, E saçma
 - id: YMM-FYN-SBT-0038
   sinav: ymm
   bolum:
@@ -2517,21 +2688,17 @@
     E: Kısa süreli geri ödeme, likidite açısından avantaj sağlayabilir.
   dogru: D
   aciklama:
-    dogru_neden: Geri ödeme süresi, geri ödeme sonrasındaki akışları ve çoğu uygulamada zaman değerini dışarıda
-      bıraktığından tüm kârlılığı tek başına ölçmez.
+    dogru_neden: Geri ödeme süresi, geri ödeme sonrasındaki akışları ve çoğu uygulamada zaman değerini dışarıda bıraktığından
+      tüm kârlılığı tek başına ölçmez.
     celdiriciler:
-      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Geri ödeme süresi,
-        geri ödeme sonrasındaki akışları ve çoğu uygulamada zaman değerini dışarıda bıraktığından tüm kârlılığı
-        tek başına ölçmez.
-      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Geri ödeme süresi,
-        geri ödeme sonrasındaki akışları ve çoğu uygulamada zaman değerini dışarıda bıraktığından tüm kârlılığı
-        tek başına ölçmez.
-      C: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Geri ödeme süresi,
-        geri ödeme sonrasındaki akışları ve çoğu uygulamada zaman değerini dışarıda bıraktığından tüm kârlılığı
-        tek başına ölçmez.
-      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Geri ödeme süresi,
-        geri ödeme sonrasındaki akışları ve çoğu uygulamada zaman değerini dışarıda bıraktığından tüm kârlılığı
-        tek başına ölçmez.
+      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Geri ödeme süresi, geri ödeme
+        sonrasındaki akışları ve çoğu uygulamada zaman değerini dışarıda bıraktığından tüm kârlılığı tek başına ölçmez.
+      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Geri ödeme süresi, geri ödeme
+        sonrasındaki akışları ve çoğu uygulamada zaman değerini dışarıda bıraktığından tüm kârlılığı tek başına ölçmez.
+      C: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Geri ödeme süresi, geri ödeme
+        sonrasındaki akışları ve çoğu uygulamada zaman değerini dışarıda bıraktığından tüm kârlılığı tek başına ölçmez.
+      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Geri ödeme süresi, geri ödeme
+        sonrasındaki akışları ve çoğu uygulamada zaman değerini dışarıda bıraktığından tüm kârlılığı tek başına ölçmez.
   kaynaklar:
   - mevzuat: 'Genel bilgi — Finansal Yönetim: geri ödeme süresi'
     madde: '-'
@@ -2540,7 +2707,7 @@
     baslangic: '2000-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2560,7 +2727,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0011 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -2569,6 +2738,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G04 #8'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0011 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0039
   sinav: ymm
   bolum:
@@ -2579,10 +2752,9 @@
   kazanim: karlılık endeksi
   tip: kavrama
   zorluk: 3
-  kok: Bir projenin başlangıç yatırımı 500.000 TL, gelecekteki nakit girişlerinin bugünkü değeri 620.000 TL'dir.
-    Karlılık endeksine ilişkin hangileri doğrudur? I. Endeks, nakit girişlerinin bugünkü değerinin ilk yatırıma
-    oranıdır. II. Endeks 1,24'tür. III. Sermaye kısıtı altında endeksi yüksek projeler kaynak tahsisinde yararlı
-    bir ölçü sunabilir.
+  kok: Bir projenin başlangıç yatırımı 500.000 TL, gelecekteki nakit girişlerinin bugünkü değeri 620.000 TL'dir. Karlılık
+    endeksine ilişkin hangileri doğrudur? I. Endeks, nakit girişlerinin bugünkü değerinin ilk yatırıma oranıdır. II. Endeks
+    1,24'tür. III. Sermaye kısıtı altında endeksi yüksek projeler kaynak tahsisinde yararlı bir ölçü sunabilir.
   secenekler:
     A: Yalnız I
     B: I ve II
@@ -2591,8 +2763,8 @@
     E: I, II ve III
   dogru: E
   aciklama:
-    dogru_neden: KE=620.000/500.000=1,24. Endeks birim yatırım başına bugünkü değer yaratımını gösterir; sermaye
-      kısıtında yararlı olabilir.
+    dogru_neden: KE=620.000/500.000=1,24. Endeks birim yatırım başına bugünkü değer yaratımını gösterir; sermaye kısıtında
+      yararlı olabilir.
     celdiriciler:
       A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum KE=620.000/500.000=1,24.
         Endeks birim yatırım başına bugünkü değer yaratımını gösterir; sermaye kısıtında yararlı olabilir.
@@ -2610,7 +2782,7 @@
     baslangic: '2000-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2630,7 +2802,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Tek bölme + tanım; temel düzey
       G6:
         sonuc: bekliyor
       GZ:
@@ -2639,6 +2813,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G04 #13'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Tek bölme + tanım; temel düzey
 - id: YMM-FYN-SBT-0040
   sinav: ymm
   bolum:
@@ -2649,9 +2827,9 @@
   kazanim: yatırım projelerinde nakit akışı tahmini
   tip: kavrama
   zorluk: 2
-  kok: Yeni bir makine yatırımının artımsal nakit akışları tahmin edilirken hangileri dikkate alınmalıdır? I. Proje
-    nedeniyle oluşan ek işletme sermayesi ihtiyacı. II. Daha önce yapılmış ve geri alınamayacak fizibilite gideri.
-    III. Projenin sonunda işletme sermayesinin serbest bırakılması.
+  kok: Yeni bir makine yatırımının artımsal nakit akışları tahmin edilirken hangileri dikkate alınmalıdır? I. Proje nedeniyle
+    oluşan ek işletme sermayesi ihtiyacı. II. Daha önce yapılmış ve geri alınamayacak fizibilite gideri. III. Projenin sonunda
+    işletme sermayesinin serbest bırakılması.
   secenekler:
     A: Yalnız I
     B: I ve II
@@ -2660,21 +2838,17 @@
     E: I, II ve III
   dogru: C
   aciklama:
-    dogru_neden: Artımsal nakit akışına ek işletme sermayesi yatırımı ve dönem sonundaki geri dönüşü girer; batık
-      maliyet karar açısından ilgili değildir.
+    dogru_neden: Artımsal nakit akışına ek işletme sermayesi yatırımı ve dönem sonundaki geri dönüşü girer; batık maliyet
+      karar açısından ilgili değildir.
     celdiriciler:
-      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Artımsal nakit
-        akışına ek işletme sermayesi yatırımı ve dönem sonundaki geri dönüşü girer; batık maliyet karar açısından
-        ilgili değildir.
-      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Artımsal nakit
-        akışına ek işletme sermayesi yatırımı ve dönem sonundaki geri dönüşü girer; batık maliyet karar açısından
-        ilgili değildir.
-      D: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Artımsal nakit
-        akışına ek işletme sermayesi yatırımı ve dönem sonundaki geri dönüşü girer; batık maliyet karar açısından
-        ilgili değildir.
-      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Artımsal nakit
-        akışına ek işletme sermayesi yatırımı ve dönem sonundaki geri dönüşü girer; batık maliyet karar açısından
-        ilgili değildir.
+      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Artımsal nakit akışına ek
+        işletme sermayesi yatırımı ve dönem sonundaki geri dönüşü girer; batık maliyet karar açısından ilgili değildir.
+      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Artımsal nakit akışına ek
+        işletme sermayesi yatırımı ve dönem sonundaki geri dönüşü girer; batık maliyet karar açısından ilgili değildir.
+      D: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Artımsal nakit akışına ek
+        işletme sermayesi yatırımı ve dönem sonundaki geri dönüşü girer; batık maliyet karar açısından ilgili değildir.
+      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Artımsal nakit akışına ek
+        işletme sermayesi yatırımı ve dönem sonundaki geri dönüşü girer; batık maliyet karar açısından ilgili değildir.
   kaynaklar:
   - mevzuat: 'Genel bilgi — Finansal Yönetim: yatırım projelerinde nakit akışı tahmini'
     madde: '-'
@@ -2683,7 +2857,7 @@
     baslangic: '2000-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2703,7 +2877,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 1)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -2712,6 +2888,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G04 #19'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0041
   sinav: ymm
   bolum:
@@ -2722,8 +2902,8 @@
   kazanim: net bugünkü değer
   tip: hesaplama
   zorluk: 2
-  kok: Bir proje bugün 90.000 TL yatırım gerektiriyor. Bir yıl sonraki net nakit girişi 55.000 TL, ikinci yıl girişi
-    60.500 TL'dir. Sermaye maliyeti %10 ise NBD kaç TL'dir?
+  kok: Bir proje bugün 90.000 TL yatırım gerektiriyor. Bir yıl sonraki net nakit girişi 55.000 TL, ikinci yıl girişi 60.500
+    TL'dir. Sermaye maliyeti %10 ise NBD kaç TL'dir?
   secenekler:
     A: −5.000
     B: '0'
@@ -2796,8 +2976,8 @@
   kazanim: iç verim oranı
   tip: hesaplama
   zorluk: 3
-  kok: Bir proje bugün 100.000 TL gerektiriyor ve iki yıl sonunda tek seferde 144.000 TL net nakit girişi sağlıyor.
-    Projenin iç verim oranı kaçtır?
+  kok: Bir proje bugün 100.000 TL gerektiriyor ve iki yıl sonunda tek seferde 144.000 TL net nakit girişi sağlıyor. Projenin
+    iç verim oranı kaçtır?
   secenekler:
     A: 10%
     B: 12%
@@ -2808,14 +2988,14 @@
   aciklama:
     dogru_neden: 100.000=144.000/(1+r)²; (1+r)²=1,44; 1+r=1,2, dolayısıyla r=%20.
     celdiriciler:
-      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum 100.000=144.000/(1+r)²;
-        (1+r)²=1,44; 1+r=1,2, dolayısıyla r=%20.
-      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum 100.000=144.000/(1+r)²;
-        (1+r)²=1,44; 1+r=1,2, dolayısıyla r=%20.
-      C: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum 100.000=144.000/(1+r)²;
-        (1+r)²=1,44; 1+r=1,2, dolayısıyla r=%20.
-      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum 100.000=144.000/(1+r)²;
-        (1+r)²=1,44; 1+r=1,2, dolayısıyla r=%20.
+      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum 100.000=144.000/(1+r)²; (1+r)²=1,44;
+        1+r=1,2, dolayısıyla r=%20.
+      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum 100.000=144.000/(1+r)²; (1+r)²=1,44;
+        1+r=1,2, dolayısıyla r=%20.
+      C: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum 100.000=144.000/(1+r)²; (1+r)²=1,44;
+        1+r=1,2, dolayısıyla r=%20.
+      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum 100.000=144.000/(1+r)²; (1+r)²=1,44;
+        1+r=1,2, dolayısıyla r=%20.
     hesap_adimlari:
     - 100.000=144.000/(1+r)²; (1+r)²=1,44; 1+r=1,2, dolayısıyla r=%20.
   kaynaklar:
@@ -2828,7 +3008,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = ((144000 / 100000) ** 0.5 - 1) * 100
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2847,7 +3027,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 1)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -2856,6 +3038,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G04 #27'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0043
   sinav: ymm
   bolum:
@@ -2866,8 +3052,8 @@
   kazanim: geri ödeme süresi
   tip: hesaplama
   zorluk: 1
-  kok: Başlangıç yatırımı 120.000 TL olan projenin yıllık net nakit girişleri ilk yıl 40.000 TL, ikinci yıl 50.000
-    TL, üçüncü yıl 60.000 TL'dir. Yıl içi girişlerin eşit dağıldığı varsayılırsa geri ödeme süresi kaç yıldır?
+  kok: Başlangıç yatırımı 120.000 TL olan projenin yıllık net nakit girişleri ilk yıl 40.000 TL, ikinci yıl 50.000 TL, üçüncü
+    yıl 60.000 TL'dir. Yıl içi girişlerin eşit dağıldığı varsayılırsa geri ödeme süresi kaç yıldır?
   secenekler:
     A: 2,0
     B: 2,5
@@ -2878,14 +3064,14 @@
   aciklama:
     dogru_neden: İlk iki yılda 90.000 TL geri alınır; kalan 30.000/60.000=0,5 yıl. Toplam 2,5 yıl.
     celdiriciler:
-      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İlk iki yılda 90.000
-        TL geri alınır; kalan 30.000/60.000=0,5 yıl. Toplam 2,5 yıl.
-      C: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İlk iki yılda 90.000
-        TL geri alınır; kalan 30.000/60.000=0,5 yıl. Toplam 2,5 yıl.
-      D: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İlk iki yılda 90.000
-        TL geri alınır; kalan 30.000/60.000=0,5 yıl. Toplam 2,5 yıl.
-      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İlk iki yılda 90.000
-        TL geri alınır; kalan 30.000/60.000=0,5 yıl. Toplam 2,5 yıl.
+      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İlk iki yılda 90.000 TL geri
+        alınır; kalan 30.000/60.000=0,5 yıl. Toplam 2,5 yıl.
+      C: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İlk iki yılda 90.000 TL geri
+        alınır; kalan 30.000/60.000=0,5 yıl. Toplam 2,5 yıl.
+      D: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İlk iki yılda 90.000 TL geri
+        alınır; kalan 30.000/60.000=0,5 yıl. Toplam 2,5 yıl.
+      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum İlk iki yılda 90.000 TL geri
+        alınır; kalan 30.000/60.000=0,5 yıl. Toplam 2,5 yıl.
     hesap_adimlari:
     - İlk iki yılda 90.000 TL geri alınır; kalan 30.000/60.000=0,5 yıl. Toplam 2,5 yıl.
   kaynaklar:
@@ -2898,7 +3084,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 2 + (120000 - 40000 - 50000) / 60000
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2917,7 +3103,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0001 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -2926,6 +3114,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G04 #33'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0001 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0044
   sinav: ymm
   bolum:
@@ -2936,8 +3128,8 @@
   kazanim: karlılık endeksi
   tip: hesaplama
   zorluk: 2
-  kok: İlk yatırım 200.000 TL, gelecekteki net nakit girişlerinin bugünkü değeri 240.000 TL olan projenin kârlılık
-    endeksi kaçtır?
+  kok: İlk yatırım 200.000 TL, gelecekteki net nakit girişlerinin bugünkü değeri 240.000 TL olan projenin kârlılık endeksi
+    kaçtır?
   secenekler:
     A: 0,83
     B: 1,00
@@ -2964,7 +3156,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 240000 / 200000
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2983,7 +3175,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Tek bölme (240/200); YMM düzeyi değil
       G6:
         sonuc: bekliyor
       GZ:
@@ -2992,6 +3186,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G04 #39'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Tek bölme (240/200); YMM düzeyi değil
 - id: YMM-FYN-SBT-0045
   sinav: ymm
   bolum:
@@ -3007,22 +3205,22 @@
     A: Fırsat maliyeti, projeyle vazgeçilen alternatifin değerini yansıtabilir.
     B: Batık maliyetler, gelecekteki kararın artımsal nakit akışına alınmaz.
     C: Projenin ek işletme sermayesi ihtiyacı başlangıç nakit çıkışı yaratabilir.
-    D: Finansman giderleri, indirgenmiş nakit akışı analizinde işletme nakit akışına her durumda ayrıca eklenmeli
-      ve iskonto oranından bağımsız değerlendirilmelidir.
+    D: Finansman giderleri, indirgenmiş nakit akışı analizinde işletme nakit akışına her durumda ayrıca eklenmeli ve iskonto
+      oranından bağımsız değerlendirilmelidir.
     E: Proje sonunda işletme sermayesinin çözülmesi nakit girişi yaratabilir.
   dogru: D
   aciklama:
-    dogru_neden: 'Finansman maliyeti genellikle iskonto oranında yansıtılır; nakit akışına ayrıca eklenmesi çifte
-      sayım riski doğurur. Püf noktaları: Artımsal akışlar ile finansman kararını tutarlı ele alın.'
+    dogru_neden: 'Finansman maliyeti genellikle iskonto oranında yansıtılır; nakit akışına ayrıca eklenmesi çifte sayım riski
+      doğurur. Püf noktaları: Artımsal akışlar ile finansman kararını tutarlı ele alın.'
     celdiriciler:
-      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Finansman maliyeti
-        genellikle iskonto oranında yansıtılır; nakit akışına ayrıca eklenmesi çifte sayım riski doğurur.
-      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Finansman maliyeti
-        genellikle iskonto oranında yansıtılır; nakit akışına ayrıca eklenmesi çifte sayım riski doğurur.
-      C: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Finansman maliyeti
-        genellikle iskonto oranında yansıtılır; nakit akışına ayrıca eklenmesi çifte sayım riski doğurur.
-      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Finansman maliyeti
-        genellikle iskonto oranında yansıtılır; nakit akışına ayrıca eklenmesi çifte sayım riski doğurur.
+      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Finansman maliyeti genellikle
+        iskonto oranında yansıtılır; nakit akışına ayrıca eklenmesi çifte sayım riski doğurur.
+      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Finansman maliyeti genellikle
+        iskonto oranında yansıtılır; nakit akışına ayrıca eklenmesi çifte sayım riski doğurur.
+      C: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Finansman maliyeti genellikle
+        iskonto oranında yansıtılır; nakit akışına ayrıca eklenmesi çifte sayım riski doğurur.
+      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Finansman maliyeti genellikle
+        iskonto oranında yansıtılır; nakit akışına ayrıca eklenmesi çifte sayım riski doğurur.
   kaynaklar:
   - mevzuat: 'Genel bilgi — Finansal Yönetim: yatırım projelerinde nakit akışı tahmini'
     madde: '-'
@@ -3031,7 +3229,7 @@
     baslangic: '2000-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3051,7 +3249,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0003 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -3060,6 +3260,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G04 #43'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0003 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0046
   sinav: ymm
   bolum:
@@ -3081,14 +3285,14 @@
   aciklama:
     dogru_neden: NBD, kullanılan iskonto oranına duyarlıdır; oran değişince bugünkü değerler ve karar da değişebilir.
     celdiriciler:
-      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum NBD, kullanılan
-        iskonto oranına duyarlıdır; oran değişince bugünkü değerler ve karar da değişebilir.
-      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum NBD, kullanılan
-        iskonto oranına duyarlıdır; oran değişince bugünkü değerler ve karar da değişebilir.
-      C: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum NBD, kullanılan
-        iskonto oranına duyarlıdır; oran değişince bugünkü değerler ve karar da değişebilir.
-      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum NBD, kullanılan
-        iskonto oranına duyarlıdır; oran değişince bugünkü değerler ve karar da değişebilir.
+      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum NBD, kullanılan iskonto oranına
+        duyarlıdır; oran değişince bugünkü değerler ve karar da değişebilir.
+      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum NBD, kullanılan iskonto oranına
+        duyarlıdır; oran değişince bugünkü değerler ve karar da değişebilir.
+      C: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum NBD, kullanılan iskonto oranına
+        duyarlıdır; oran değişince bugünkü değerler ve karar da değişebilir.
+      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum NBD, kullanılan iskonto oranına
+        duyarlıdır; oran değişince bugünkü değerler ve karar da değişebilir.
   kaynaklar:
   - mevzuat: 'Genel bilgi — Finansal Yönetim: net bugünkü değer'
     madde: '-'
@@ -3097,7 +3301,7 @@
     baslangic: '2000-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3117,7 +3321,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0004 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -3126,6 +3332,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G04 #48'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0004 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0047
   sinav: ymm
   bolum:
@@ -3136,9 +3346,9 @@
   kazanim: iç verim oranı
   tip: kavrama
   zorluk: 3
-  kok: Bir yatırımın ilk maliyeti 200.000 TL, bir yıl sonra 110.000 TL ve iki yıl sonra 121.000 TL nakit girişi
-    vardır. İVO'ya ilişkin hangileri doğrudur? I. %10 iskonto oranında NBD sıfırdır. II. İVO %10'dur. III. Sermaye
-    maliyeti %12 ise proje NBD'si negatiftir.
+  kok: Bir yatırımın ilk maliyeti 200.000 TL, bir yıl sonra 110.000 TL ve iki yıl sonra 121.000 TL nakit girişi vardır. İVO'ya
+    ilişkin hangileri doğrudur? I. %10 iskonto oranında NBD sıfırdır. II. İVO %10'dur. III. Sermaye maliyeti %12 ise proje
+    NBD'si negatiftir.
   secenekler:
     A: Yalnız I
     B: I ve II
@@ -3147,8 +3357,8 @@
     E: I, II ve III
   dogru: E
   aciklama:
-    dogru_neden: 110.000/1,1+121.000/1,21=100.000+100.000=200.000; NBD %10'da sıfır ve İVO %10'dur. %12'de bugünkü
-      değer toplamı 200.000 TL'nin altına iner.
+    dogru_neden: 110.000/1,1+121.000/1,21=100.000+100.000=200.000; NBD %10'da sıfır ve İVO %10'dur. %12'de bugünkü değer toplamı
+      200.000 TL'nin altına iner.
     celdiriciler:
       A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum 110.000/1,1+121.000/1,21=100.000+100.000=200.000;
         NBD %10'da sıfır ve İVO %10'dur. %12'de bugünkü değer toplamı 200.000 TL'nin altına iner.
@@ -3166,7 +3376,7 @@
     baslangic: '2000-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3186,7 +3396,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -3195,6 +3407,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G04 #53'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0048
   sinav: ymm
   bolum:
@@ -3205,8 +3421,7 @@
   kazanim: geri ödeme süresi
   tip: hesaplama
   zorluk: 1
-  kok: Bir proje için ilk yatırım 80.000 TL, yıllık eşit net nakit girişi 20.000 TL'dir. Basit geri ödeme süresi
-    kaç yıldır?
+  kok: Bir proje için ilk yatırım 80.000 TL, yıllık eşit net nakit girişi 20.000 TL'dir. Basit geri ödeme süresi kaç yıldır?
   secenekler:
     A: '2'
     B: '3'
@@ -3237,7 +3452,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 80000 / 20000
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3256,7 +3471,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0006 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -3265,6 +3482,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G04 #58'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0006 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0049
   sinav: ymm
   bolum:
@@ -3275,8 +3496,8 @@
   kazanim: karlılık endeksi
   tip: kavrama
   zorluk: 2
-  kok: P projesinin nakit girişlerinin bugünkü değeri 180.000 TL ve ilk yatırımı 120.000 TL; Q projesinde bu tutarlar
-    210.000 TL ve 150.000 TL'dir. Kârlılık endeksi yüksek olandan düşüğe sıralama hangisidir?
+  kok: P projesinin nakit girişlerinin bugünkü değeri 180.000 TL ve ilk yatırımı 120.000 TL; Q projesinde bu tutarlar 210.000
+    TL ve 150.000 TL'dir. Kârlılık endeksi yüksek olandan düşüğe sıralama hangisidir?
   secenekler:
     A: P–Q
     B: Q–P
@@ -3299,7 +3520,7 @@
     baslangic: '2026-10-11'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3319,7 +3540,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Tek adımlık oran karşılaştırması; E dolgu
       G6:
         sonuc: bekliyor
       GZ:
@@ -3328,6 +3551,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G05 #3'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Tek adımlık oran karşılaştırması; E dolgu
 - id: YMM-FYN-SBT-0050
   sinav: ymm
   bolum:
@@ -3338,8 +3565,8 @@
   kazanim: yatırım projelerinde nakit akışı tahmini
   tip: kavrama
   zorluk: 2
-  kok: Yatırım projelerinde nakit akışı tahmini açısından aşağıdaki değerlendirmelerden hangisi doğrudur? İşletme,
-    kararını ilgili finansal ölçütün temel amacına göre vermektedir.
+  kok: Yatırım projelerinde nakit akışı tahmini açısından aşağıdaki değerlendirmelerden hangisi doğrudur? İşletme, kararını
+    ilgili finansal ölçütün temel amacına göre vermektedir.
   secenekler:
     A: İlgili nakit akışları ve risk dikkate alınmalıdır.
     B: Geçmiş batık maliyetler her zaman eklenmelidir.
@@ -3348,17 +3575,13 @@
     E: Karar yalnız muhasebe kârına dayanmalıdır.
   dogru: A
   aciklama:
-    dogru_neden: Yatırım projelerinde nakit akışı tahmini değerlendirmesinde ilgili kararın gelecekteki nakit akışları,
-      zaman değeri ve riskle tutarlı biçimde analiz edilmesi gerekir.
+    dogru_neden: Yatırım projelerinde nakit akışı tahmini değerlendirmesinde ilgili kararın gelecekteki nakit akışları, zaman
+      değeri ve riskle tutarlı biçimde analiz edilmesi gerekir.
     celdiriciler:
-      B: Bu seçenek, yatırım projelerinde nakit akışı tahmini bakımından ilgili formülün veya kavramın koşulunu
-        doğru yansıtmamaktadır.
-      C: Bu seçenek, yatırım projelerinde nakit akışı tahmini bakımından ilgili formülün veya kavramın koşulunu
-        doğru yansıtmamaktadır.
-      D: Bu seçenek, yatırım projelerinde nakit akışı tahmini bakımından ilgili formülün veya kavramın koşulunu
-        doğru yansıtmamaktadır.
-      E: Bu seçenek, yatırım projelerinde nakit akışı tahmini bakımından ilgili formülün veya kavramın koşulunu
-        doğru yansıtmamaktadır.
+      B: Bu seçenek, yatırım projelerinde nakit akışı tahmini bakımından ilgili formülün veya kavramın koşulunu doğru yansıtmamaktadır.
+      C: Bu seçenek, yatırım projelerinde nakit akışı tahmini bakımından ilgili formülün veya kavramın koşulunu doğru yansıtmamaktadır.
+      D: Bu seçenek, yatırım projelerinde nakit akışı tahmini bakımından ilgili formülün veya kavramın koşulunu doğru yansıtmamaktadır.
+      E: Bu seçenek, yatırım projelerinde nakit akışı tahmini bakımından ilgili formülün veya kavramın koşulunu doğru yansıtmamaktadır.
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -3410,8 +3633,8 @@
   kazanim: net bugünkü değer
   tip: hesaplama
   zorluk: 3
-  kok: Bir proje bugün 100.000 TL yatırım gerektiriyor. İskonto edilmiş nakit girişlerinin toplamı 110.000 TL ise
-    projenin net bugünkü değeri kaç TL'dir?
+  kok: Bir proje bugün 100.000 TL yatırım gerektiriyor. İskonto edilmiş nakit girişlerinin toplamı 110.000 TL ise projenin
+    net bugünkü değeri kaç TL'dir?
   secenekler:
     A: −10.000
     B: '0'
@@ -3471,8 +3694,8 @@
   - tarih: '2026-10-11'
     kim: otomatik
     ne: 'durum: taslak → geri_cekildi (otomatik kapı hatası)'
-    neden: 'HATA   G4: çeldirici A de hesaplanan değere eşit (10000); HATA   G4: sayısal şıklar sıralı değil (gerçek
-      sınavda her zaman sıralı)'
+    neden: 'HATA   G4: çeldirici A de hesaplanan değere eşit (10000); HATA   G4: sayısal şıklar sıralı değil (gerçek sınavda
+      her zaman sıralı)'
 - id: YMM-FYN-SBT-0052
   sinav: ymm
   bolum:
@@ -3483,8 +3706,7 @@
   kazanim: iç verim oranı
   tip: hesaplama
   zorluk: 2
-  kok: Bir proje için bugün 200.000 TL yatırılmakta ve bir yıl sonra 220.000 TL alınmaktadır. Projenin iç verim
-    oranı kaçtır?
+  kok: Bir proje için bugün 200.000 TL yatırılmakta ve bir yıl sonra 220.000 TL alınmaktadır. Projenin iç verim oranı kaçtır?
   secenekler:
     A: 5%
     B: 8%
@@ -3511,7 +3733,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = (220000 / 200000 - 1) * 100
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3530,7 +3752,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Tek dönemlik basit getiri (220/200-1); YMM düzeyi değil
       G6:
         sonuc: bekliyor
       GZ:
@@ -3539,6 +3763,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G05 #19'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Tek dönemlik basit getiri (220/200-1); YMM düzeyi değil
 - id: YMM-FYN-SBT-0053
   sinav: ymm
   bolum:
@@ -3549,8 +3777,8 @@
   kazanim: geri ödeme süresi
   tip: kavrama
   zorluk: 1
-  kok: Başlangıç yatırımı 120.000 TL olan bir projenin her yıl 40.000 TL net nakit girişi vardır. Basit geri ödeme
-    süresi kaç yıldır?
+  kok: Başlangıç yatırımı 120.000 TL olan bir projenin her yıl 40.000 TL net nakit girişi vardır. Basit geri ödeme süresi
+    kaç yıldır?
   secenekler:
     A: '1'
     B: '2'
@@ -3577,7 +3805,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 120000 / 40000
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3596,7 +3824,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0006 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -3605,6 +3835,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G05 #23'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0006 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0054
   sinav: ymm
   bolum:
@@ -3626,14 +3860,10 @@
   aciklama:
     dogru_neden: NBD nakit akışlarının zaman değerini dikkate alır; iskonto oranı bu nedenle kullanılır.
     celdiriciler:
-      A: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek
-        değildir.
-      B: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek
-        değildir.
-      D: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek
-        değildir.
-      E: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek
-        değildir.
+      A: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek değildir.
+      B: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek değildir.
+      D: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek değildir.
+      E: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek değildir.
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -3642,7 +3872,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3662,7 +3892,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0004 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -3671,6 +3903,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G06 #3'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0004 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0055
   sinav: ymm
   bolum:
@@ -3681,8 +3917,8 @@
   kazanim: iç verim oranı
   tip: uygulama
   zorluk: 3
-  kok: Bir proje bugün 100.000 TL yatırım gerektiriyor ve sonraki iki yılın sonunda sırasıyla 60.000 TL ve 60.000
-    TL net nakit girişi sağlıyor. Şirketin gerekli getirisi %10. İç verim oranı (İVO) kararında hangi yaklaşım doğrudur?
+  kok: Bir proje bugün 100.000 TL yatırım gerektiriyor ve sonraki iki yılın sonunda sırasıyla 60.000 TL ve 60.000 TL net nakit
+    girişi sağlıyor. Şirketin gerekli getirisi %10. İç verim oranı (İVO) kararında hangi yaklaşım doğrudur?
   secenekler:
     A: İVO, nakit girişlerinin toplamını ilk yatırıma bölmektir; oran %10'dan düşükse kabul edilir
     B: İVO, NBD'yi sıfıra eşitleyen iskonto oranıdır; bulunan İVO %10'u aşıyorsa proje kabul edilir
@@ -3691,17 +3927,17 @@
     E: İVO pozitifse gerekli getiriyle karşılaştırma yapılmaz
   dogru: B
   aciklama:
-    dogru_neden: 'İVO, NBD''yi sıfırlayan orandır; kabul ölçütü İVO''nun gerekli getiriyi aşmasıdır. Püf noktaları:
-      İVO ile basit getiri oranını karıştırmayın; karar eşiği sermaye maliyetidir.'
+    dogru_neden: 'İVO, NBD''yi sıfırlayan orandır; kabul ölçütü İVO''nun gerekli getiriyi aşmasıdır. Püf noktaları: İVO ile
+      basit getiri oranını karıştırmayın; karar eşiği sermaye maliyetidir.'
     celdiriciler:
-      A: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
-      C: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
-      D: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
-      E: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
+      A: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
+      C: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
+      D: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
+      E: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -3710,7 +3946,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3730,7 +3966,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Hesap verisi kullanılmıyor, salt tanım; A, C, D, E saçma
       G6:
         sonuc: bekliyor
       GZ:
@@ -3739,6 +3977,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G06 #7'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Hesap verisi kullanılmıyor, salt tanım; A, C, D, E saçma
 - id: YMM-FYN-SBT-0056
   sinav: ymm
   bolum:
@@ -3749,8 +3991,8 @@
   kazanim: geri ödeme süresi
   tip: hesaplama
   zorluk: 1
-  kok: Bir yatırımın ilk maliyeti 90.000 TL, yıl sonlarında eşit 30.000 TL net nakit girişi vardır. İskonto dikkate
-    alınmadan basit geri ödeme süresi kaç yıldır?
+  kok: Bir yatırımın ilk maliyeti 90.000 TL, yıl sonlarında eşit 30.000 TL net nakit girişi vardır. İskonto dikkate alınmadan
+    basit geri ödeme süresi kaç yıldır?
   secenekler:
     A: '2'
     B: 2,5
@@ -3761,14 +4003,14 @@
   aciklama:
     dogru_neden: 90.000 / 30.000 = 3 yıl.
     celdiriciler:
-      A: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
-      B: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
-      D: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
-      E: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
+      A: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
+      B: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
+      D: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
+      E: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
     hesap_adimlari:
     - Geri ödeme süresi = ilk yatırım / yıllık nakit girişi.
     - 90.000 / 30.000 = 3 yıl.
@@ -3782,7 +4024,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 90000 / 30000
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3801,7 +4043,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0006 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -3810,6 +4054,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G06 #13'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0006 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0057
   sinav: ymm
   bolum:
@@ -3820,8 +4068,8 @@
   kazanim: karlılık endeksi
   tip: hesaplama
   zorluk: 2
-  kok: Bir projenin başlangıç yatırımı 200.000 TL, gelecekteki nakit girişlerinin bugünkü değeri 240.000 TL'dir.
-    Karlılık endeksi kaçtır ve proje nasıl yorumlanır?
+  kok: Bir projenin başlangıç yatırımı 200.000 TL, gelecekteki nakit girişlerinin bugünkü değeri 240.000 TL'dir. Karlılık
+    endeksi kaçtır ve proje nasıl yorumlanır?
   secenekler:
     A: 0,80; reddedilir
     B: 1,00; başa baştır
@@ -3832,14 +4080,14 @@
   aciklama:
     dogru_neden: Karlılık endeksi = 240.000 / 200.000 = 1,20; 1'in üzeri pozitif NBD'ye işaret eder.
     celdiriciler:
-      A: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
-      B: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
-      D: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
-      E: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
+      A: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
+      B: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
+      D: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
+      E: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
     hesap_adimlari:
     - Karlılık endeksi = nakit girişlerinin bugünkü değeri / ilk yatırım.
     - 240.000 / 200.000 = 1,20; 1'in üzerindedir.
@@ -3895,9 +4143,9 @@
   kazanim: yatırım projelerinde nakit akışı tahmini
   tip: hesaplama
   zorluk: 3
-  kok: Bir proje için ilk yatırım 120.000 TL'dir. Yıllık ek nakit satış tahsilatı 90.000 TL, nakit faaliyet gideri
-    40.000 TL, yıllık amortisman 20.000 TL'dir. Vergi oranı %20 ve tüm tutarlar yıl sonu varsayılırsa yıllık faaliyet
-    nakit akışı (vergi kalkanı dahil, ek işletme sermayesi yok) kaç TL'dir?
+  kok: Bir proje için ilk yatırım 120.000 TL'dir. Yıllık ek nakit satış tahsilatı 90.000 TL, nakit faaliyet gideri 40.000
+    TL, yıllık amortisman 20.000 TL'dir. Vergi oranı %20 ve tüm tutarlar yıl sonu varsayılırsa yıllık faaliyet nakit akışı
+    (vergi kalkanı dahil, ek işletme sermayesi yok) kaç TL'dir?
   secenekler:
     A: '30.000'
     B: '34.000'
@@ -3906,18 +4154,17 @@
     E: '50.000'
   dogru: D
   aciklama:
-    dogru_neden: 'Vergiye tabi faaliyet kârı = 90.000−40.000−20.000=30.000; vergi=6.000; net kâr=24.000; amortisman
-      eklenir: 44.000. Püf noktaları: Amortisman nakit çıkışı değildir; vergi matrahını azaltır ama nakit akışına
-      geri eklenir.'
+    dogru_neden: 'Vergiye tabi faaliyet kârı = 90.000−40.000−20.000=30.000; vergi=6.000; net kâr=24.000; amortisman eklenir:
+      44.000. Püf noktaları: Amortisman nakit çıkışı değildir; vergi matrahını azaltır ama nakit akışına geri eklenir.'
     celdiriciler:
-      A: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
-      B: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
-      C: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
-      E: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
+      A: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
+      B: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
+      C: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
+      E: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
     hesap_adimlari:
     - Vergi öncesi faaliyet kârı = 90.000 − 40.000 − 20.000 = 30.000 TL.
     - Vergi = 30.000 × %20 = 6.000 TL; net kâr = 24.000 TL.
@@ -3932,7 +4179,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = (90000 - 40000 - 20000) * (1 - 0.20) + 20000
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3951,7 +4198,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -3960,6 +4209,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G06 #23'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0059
   sinav: ymm
   bolum:
@@ -3970,8 +4223,8 @@
   kazanim: net bugünkü değer
   tip: hesaplama
   zorluk: 2
-  kok: Bir proje bugün 100.000 TL yatırım gerektiriyor. Bir yıl sonra 66.000 TL, iki yıl sonra 55.000 TL nakit girişi
-    sağlayacak. İskonto oranı yıllık %10 ise NBD kaç TL'dir?
+  kok: Bir proje bugün 100.000 TL yatırım gerektiriyor. Bir yıl sonra 66.000 TL, iki yıl sonra 55.000 TL nakit girişi sağlayacak.
+    İskonto oranı yıllık %10 ise NBD kaç TL'dir?
   secenekler:
     A: −5.000
     B: '0'
@@ -3980,17 +4233,17 @@
     E: '10.000'
   dogru: D
   aciklama:
-    dogru_neden: NBD = −100.000 + 66.000/1,1 + 55.000/1,21 = −100.000 + 60.000 + 45.454,55 = 5.454,55 TL; seçenekler
-      tam sayılı olduğundan 5.000'e en yakın değildir. Bu nedenle soru yuvarlamasız kurulmalı.
+    dogru_neden: NBD = −100.000 + 66.000/1,1 + 55.000/1,21 = −100.000 + 60.000 + 45.454,55 = 5.454,55 TL; seçenekler tam sayılı
+      olduğundan 5.000'e en yakın değildir. Bu nedenle soru yuvarlamasız kurulmalı.
     celdiriciler:
-      A: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
-      B: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
-      C: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
-      E: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru
-        işlem adımlarıyla elde edilmez.
+      A: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
+      B: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
+      C: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
+      E: Bu seçenek, kökte verilen tutarların/formülün uygulanmasında yapılan hesaplama hatasını yansıtır; doğru işlem adımlarıyla
+        elde edilmez.
     hesap_adimlari:
     - 'Birinci yılın bugünkü değeri: 66.000 / 1,10 = 60.000 TL.'
     - 'İkinci yılın bugünkü değeri: 55.000 / 1,21 ≈ 45.454,55 TL.'
@@ -4057,18 +4310,17 @@
     E: Sermaye maliyetini analiz dışı bırakmak
   dogru: C
   aciklama:
-    dogru_neden: 'Birbirini dışlayan projelerde İVO sıralaması ölçek ve zamanlama nedeniyle yanıltıcı olabilir;
-      NBD firma değerine katkıyı ölçer. Püf noktaları: İVO''nun yüksek olması, mutlak değer yaratımının da yüksek
-      olmasını garanti etmez.'
+    dogru_neden: 'Birbirini dışlayan projelerde İVO sıralaması ölçek ve zamanlama nedeniyle yanıltıcı olabilir; NBD firma
+      değerine katkıyı ölçer. Püf noktaları: İVO''nun yüksek olması, mutlak değer yaratımının da yüksek olmasını garanti etmez.'
     celdiriciler:
-      A: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
-      B: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
-      D: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
-      E: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
+      A: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
+      B: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
+      D: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
+      E: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -4077,7 +4329,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4097,7 +4349,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0019 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -4106,6 +4360,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G06 #33'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0019 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0061
   sinav: ymm
   bolum:
@@ -4125,17 +4383,13 @@
     E: Eşit yıllık nakit girişlerinde yatırım tutarı yıllık girişe bölünebilir
   dogru: C
   aciklama:
-    dogru_neden: Basit geri ödeme süresi nakit akışlarını iskonto etmez; zaman değerini hesaba katmak için iskonto
-      edilmiş geri ödeme yaklaşımı gerekir.
+    dogru_neden: Basit geri ödeme süresi nakit akışlarını iskonto etmez; zaman değerini hesaba katmak için iskonto edilmiş
+      geri ödeme yaklaşımı gerekir.
     celdiriciler:
-      A: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek
-        değildir.
-      B: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek
-        değildir.
-      D: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek
-        değildir.
-      E: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek
-        değildir.
+      A: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek değildir.
+      B: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek değildir.
+      D: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek değildir.
+      E: Bu ifade, ilgili finansal yönetim kavramının temel işleyişiyle çelişir; kökte aranan yanlış ifade bu seçenek değildir.
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -4144,7 +4398,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4164,7 +4418,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0011 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -4173,6 +4429,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G06 #38'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0011 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0062
   sinav: ymm
   bolum:
@@ -4183,9 +4443,9 @@
   kazanim: karlılık endeksi
   tip: kavrama
   zorluk: 2
-  kok: Karlılık endeksiyle ilgili I. Gelecekteki nakit girişlerinin bugünkü değeri ilk yatırıma bölünür. II. Endeksin
-    1'den büyük olması pozitif NBD'ye işaret eder. III. Endeks, sermaye kısıtı altında projeleri sıralamada yardımcı
-    olabilir. Hangileri doğrudur?
+  kok: Karlılık endeksiyle ilgili I. Gelecekteki nakit girişlerinin bugünkü değeri ilk yatırıma bölünür. II. Endeksin 1'den
+    büyük olması pozitif NBD'ye işaret eder. III. Endeks, sermaye kısıtı altında projeleri sıralamada yardımcı olabilir. Hangileri
+    doğrudur?
   secenekler:
     A: Yalnız I
     B: I ve II
@@ -4196,14 +4456,14 @@
   aciklama:
     dogru_neden: Üç ifade de karlılık endeksinin tanımı ve kullanımını doğru açıklar.
     celdiriciler:
-      A: Bu seçenek, öncüllerden en az birini yanlış değerlendirir; kavramların tanımları birlikte incelendiğinde
-        bu kombinasyon doğru değildir.
-      B: Bu seçenek, öncüllerden en az birini yanlış değerlendirir; kavramların tanımları birlikte incelendiğinde
-        bu kombinasyon doğru değildir.
-      D: Bu seçenek, öncüllerden en az birini yanlış değerlendirir; kavramların tanımları birlikte incelendiğinde
-        bu kombinasyon doğru değildir.
-      E: Bu seçenek, öncüllerden en az birini yanlış değerlendirir; kavramların tanımları birlikte incelendiğinde
-        bu kombinasyon doğru değildir.
+      A: Bu seçenek, öncüllerden en az birini yanlış değerlendirir; kavramların tanımları birlikte incelendiğinde bu kombinasyon
+        doğru değildir.
+      B: Bu seçenek, öncüllerden en az birini yanlış değerlendirir; kavramların tanımları birlikte incelendiğinde bu kombinasyon
+        doğru değildir.
+      D: Bu seçenek, öncüllerden en az birini yanlış değerlendirir; kavramların tanımları birlikte incelendiğinde bu kombinasyon
+        doğru değildir.
+      E: Bu seçenek, öncüllerden en az birini yanlış değerlendirir; kavramların tanımları birlikte incelendiğinde bu kombinasyon
+        doğru değildir.
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -4212,7 +4472,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4232,7 +4492,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0021 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -4241,6 +4503,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G06 #43'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0021 ile aynı kalıp/veri; ayrıca temel düzey'
 - id: YMM-FYN-SBT-0063
   sinav: ymm
   bolum:
@@ -4251,10 +4517,9 @@
   kazanim: yatırım projelerinde nakit akışı tahmini
   tip: hesaplama
   zorluk: 2
-  kok: Yeni bir makine projesi mevcut ürünlerin satışını 15.000 TL azaltacak; yıllık ek tahsilat 70.000 TL, nakit
-    işletme giderleri 30.000 TL ve vergi oranı %20 olacaktır. Satış kaybı vergi öncesi nakit akışını azaltan fırsat
-    maliyeti olarak kabul edilirse, amortisman ve işletme sermayesi etkisi yokken yıllık vergi sonrası faaliyet
-    nakit akışı kaç TL'dir?
+  kok: Yeni bir makine projesi mevcut ürünlerin satışını 15.000 TL azaltacak; yıllık ek tahsilat 70.000 TL, nakit işletme
+    giderleri 30.000 TL ve vergi oranı %20 olacaktır. Satış kaybı vergi öncesi nakit akışını azaltan fırsat maliyeti olarak
+    kabul edilirse, amortisman ve işletme sermayesi etkisi yokken yıllık vergi sonrası faaliyet nakit akışı kaç TL'dir?
   secenekler:
     A: '16.000'
     B: '20.000'
@@ -4263,8 +4528,8 @@
     E: '40.000'
   dogru: B
   aciklama:
-    dogru_neden: Vergi öncesi artış 70.000−30.000−15.000=25.000 TL; %20 vergi 5.000 TL'dir. Vergi sonrası faaliyet
-      nakit akışı 20.000 TL olur.
+    dogru_neden: Vergi öncesi artış 70.000−30.000−15.000=25.000 TL; %20 vergi 5.000 TL'dir. Vergi sonrası faaliyet nakit akışı
+      20.000 TL olur.
     celdiriciler:
       A: Satış kaybı veya vergi etkisi yanlış uygulandığında bu tutara ulaşılabilir; her iki kalem de dikkate alınmalıdır.
       C: Vergi öncesi tutar 25.000 TL'dir; vergi sonrası nakit akışı sorulduğundan bu tutar doğru değildir.
@@ -4284,7 +4549,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = (70000 - 30000 - 15000) * (1 - 0.20)
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4303,7 +4568,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -4312,6 +4579,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G06 #48'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-0064
   sinav: ymm
   bolum:
@@ -4322,9 +4593,9 @@
   kazanim: net bugünkü değer
   tip: uygulama
   zorluk: 3
-  kok: Bir şirket 250.000 TL yatırımla, üç yıl boyunca yıl sonlarında sırasıyla 110.000, 100.000 ve 90.000 TL nakit
-    girişi bekliyor. İskonto oranı %10'dur. Birinci yıl akışı 100.000 TL değil 110.000 TL olarak doğru tahmin edilmiştir;
-    NBD kararını verirken hangi işlem ve yorum doğrudur?
+  kok: Bir şirket 250.000 TL yatırımla, üç yıl boyunca yıl sonlarında sırasıyla 110.000, 100.000 ve 90.000 TL nakit girişi
+    bekliyor. İskonto oranı %10'dur. Birinci yıl akışı 100.000 TL değil 110.000 TL olarak doğru tahmin edilmiştir; NBD kararını
+    verirken hangi işlem ve yorum doğrudur?
   secenekler:
     A: Toplam 300.000 TL'yi iskonto etmeden yatırımdan çıkarmak
     B: Yalnız üçüncü yıl akışını iskonto etmek
@@ -4333,17 +4604,17 @@
     E: Nakit akışları farklı olduğu için NBD hesaplanamaz
   dogru: C
   aciklama:
-    dogru_neden: 'NBD, her dönem nakit akışının bugünkü değerleri toplamından ilk yatırımı çıkarır. Püf noktaları:
-      Dönemler farklı olduğundan toplam akışı tek bir tarihteymiş gibi iskonto etmeyin.'
+    dogru_neden: 'NBD, her dönem nakit akışının bugünkü değerleri toplamından ilk yatırımı çıkarır. Püf noktaları: Dönemler
+      farklı olduğundan toplam akışı tek bir tarihteymiş gibi iskonto etmeyin.'
     celdiriciler:
-      A: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
-      B: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
-      D: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
-      E: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
+      A: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
+      B: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
+      D: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
+      E: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -4352,7 +4623,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4372,7 +4643,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: Kök karışık (gereksiz düzeltme cümlesi), hesap istenmiyor; A, B, D, E saçma
       G6:
         sonuc: bekliyor
       GZ:
@@ -4381,6 +4654,10 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G06 #53'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Kök karışık (gereksiz düzeltme cümlesi), hesap istenmiyor; A, B, D, E saçma
 - id: YMM-FYN-SBT-0065
   sinav: ymm
   bolum:
@@ -4391,8 +4668,8 @@
   kazanim: iç verim oranı
   tip: uygulama
   zorluk: 1
-  kok: Bir projenin iç verim oranı %14, şirketin projeye uygun gerekli getirisi %11'dir. İVO yöntemine göre, normal
-    nakit akışlı bağımsız proje için karar nedir?
+  kok: Bir projenin iç verim oranı %14, şirketin projeye uygun gerekli getirisi %11'dir. İVO yöntemine göre, normal nakit
+    akışlı bağımsız proje için karar nedir?
   secenekler:
     A: Reddedilir; İVO gerekli getirinin altındadır
     B: NBD kesinlikle sıfırdır
@@ -4403,14 +4680,14 @@
   aciklama:
     dogru_neden: Normal nakit akışlı bağımsız projede İVO gerekli getiriyi aşıyorsa kabul edilir.
     celdiriciler:
-      A: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
-      B: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
-      C: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
-      E: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen
-        değişkenler birlikte değerlendirilmelidir.
+      A: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
+      B: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
+      C: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
+      E: Bu seçenek, senaryodaki finansal ilişkiyi eksik veya yanlış yorumlar; doğru karar için kökte belirtilen değişkenler
+        birlikte değerlendirilmelidir.
   kaynaklar:
   - mevzuat: Genel bilgi — Finansal Yönetim
     madde: '-'
@@ -4419,7 +4696,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4439,7 +4716,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-11'
+        not: 'Tekrar: SBT-0024 ile aynı kalıp/veri; ayrıca temel düzey'
       G6:
         sonuc: bekliyor
       GZ:
@@ -4448,3 +4727,7 @@
   - tarih: '2026-10-11'
     kim: uretici
     ne: 'harici teslim aday_FYN.yaml, satır risto_YMM-FYN-2026-10-10-G06 #59'
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Tekrar: SBT-0024 ile aynı kalıp/veri; ayrıca temel düzey'
