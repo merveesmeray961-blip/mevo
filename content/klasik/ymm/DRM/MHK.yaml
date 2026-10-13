@@ -534,7 +534,7 @@
     python: "uye = 64\nkurul = 3\nyedek = 1\nif uye > 50:\n    kurul = 5\n    yedek = 3\nkarar = kurul // 2 + 1\nsonuc = {\"\
       asil_uye\": kurul, \"yedek_uye\": yedek, \"toplanti_en_az\": 3, \"karar_oyu\": karar, \"birlik_ymm_uyesi\": 3, \"gonderme_gun\"\
       : 30}"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -545,11 +545,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpges2uhyk.yaml, klasik 2
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DRM-MHK-K004
   sinav: ymm
   ders: DRM
@@ -698,7 +704,7 @@
       eksik = asgari - 190000
 
       sonuc = {"indirim": indirim, "asgari_ucret": asgari, "eksik_tutar": eksik}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -709,11 +715,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 4, seviye 2
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpges2uhyk.yaml, klasik 3
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DRM-MHK-K005
   sinav: ymm
   ders: DRM
@@ -883,7 +895,7 @@
       gayrifaal_ucret = max(20000, gayrifaal_alt)
 
       sonuc = {"kist_ucret": kist, "kredi_ucret": kredi_ucret, "tarife_farki": tarife_farki, "gayrifaal_ucret": gayrifaal_ucret}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -894,11 +906,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 4, seviye 2
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpex7xzpuy.yaml, klasik 1
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DRM-MHK-K006
   sinav: ymm
   ders: DRM
@@ -1073,7 +1091,7 @@
       komisyon = maliye + yok + birlik
 
       sonuc = {"yk_asil": asil, "yk_yedek": yedek, "yk_toplam": yk_toplam, "komisyon_uye": komisyon}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1084,11 +1102,25 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: 'Olayda çelişki: (a)''da Ege''de oda kurulup kurulamayacağı soruluyor (oda henüz yok), ancak (c)''de Gül''ün
+          Ege Odasında 8 yıldır kayıtlı olduğu ve üst üste iki dönem başkanlık yapıp ardından bir seçim dönemi geçtiği belirtiliyor;
+          3 yıllık dönemlerle bu en az 9 yıl eder (8 yıllık kayıtla bağdaşmaz). Bölgede 262 YMM varken odanın 1.200 üyeye
+          ulaşması da tutarsız. (d) olayla ilgisiz ayrı bir konu (sınav komisyonu) iliştirilmiş. Örnek çözümün mevzuat sonuçları
+          (Ege/Doğu kurulur, Kuzey/Orta kurulamaz; 7+7; Selim ve Gül seçilemez; 4+1+2 komisyon) doğru; senaryo düzeltilmeli.'
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpex7xzpuy.yaml, klasik 2
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Olayda çelişki: (a)''da Ege''de oda kurulup kurulamayacağı soruluyor (oda henüz yok), ancak (c)''de Gül''ün Ege
+      Odasında 8 yıldır kayıtlı olduğu ve üst üste iki dönem başkanlık yapıp ardından bir seçim dönemi geçtiği belirtiliyor;
+      3 yıllık dönemlerle bu en az 9 yıl eder (8 yıllık kayıtla bağdaşmaz). Bölgede 262 YMM varken odanın 1.200 üyeye ulaşması
+      da tutarsız. (d) olayla ilgisiz ayrı bir konu (sınav komisyonu) iliştirilmiş. Örnek çözümün mevzuat sonuçları (Ege/Doğu
+      kurulur, Kuzey/Orta kurulamaz; 7+7; Selim ve Gül seçilemez; 4+1+2 komisyon) doğru; senaryo düzeltilmeli.'
 - id: YMM-DRM-MHK-K007
   sinav: ymm
   ders: DRM
