@@ -6,6 +6,10 @@ göre denetler. Ret sebepleri manifestodaki kural kodlarıyla ([K01] …) raporl
 
     python -m pipeline.on_eleme teslim.yaml                # yalnız rapor (teslim.rapor.md)
     python -m pipeline.on_eleme teslim.yaml --al 3         # geçenleri <KONU>.p3.yaml ve klasik/ olarak alır
+    python -m pipeline.on_eleme teslim_klasoru/ [--al 3]   # klasördeki bütün teslimler, tek özet rapor
+
+Teslim biçim kusurları otomatik düzeltilir: boş `gorev` dosya adından okunur; birden çok görevi tek dosyada veren
+teslim (`gorev_satiri: "G03-7"` ya da `"YMM-YNM-G03:7"`) görevlere bölünür. Planda olmayan (eski tur) görevler atlanır.
 """
 from __future__ import annotations
 
@@ -130,12 +134,49 @@ def _banka_parcalari() -> dict:
     return banka
 
 
-def ele(teslim: Path) -> tuple[dict, list[str]]:
+_GOREV_KODU = re.compile(r"YMM-[A-Z]{3}-G\d{2}")
+_SATIR = re.compile(r"(?:YMM-([A-Z]{3})-)?G(\d{2})\s*[-:/ ]\s*(K?\d+)$")
+
+
+def normalle(veri: dict, ad: str) -> list[dict]:
+    """Teslimi görev başına bir sözlüğe ayırır (boş görev kodu → dosya adı; birleşik teslim → bölünür)."""
+    gorev = str(veri.get("gorev") or "")
+    if not _GOREV_KODU.fullmatch(gorev):
+        m = _GOREV_KODU.search(ad)
+        tek = m.group(0) if m and len(_GOREV_KODU.findall(ad)) == 1 else None
+    else:
+        tek = gorev
+    ders = (re.search(r"YMM-([A-Z]{3})", gorev or ad) or [None, None])[1]
+    parcalar: dict[str, dict] = {}
+
+    def ekle(alan: str, kayit: dict) -> None:
+        kod, satir = tek, kayit.get("gorev_satiri")
+        m = _SATIR.match(str(satir)) if satir is not None else None
+        if m:
+            kod, satir = f"YMM-{m.group(1) or ders}-G{m.group(2)}", m.group(3)
+            satir = int(satir) if satir.isdigit() else satir
+        parca = parcalar.setdefault(kod or gorev, {"yazar": veri.get("yazar"), "gorev": kod or gorev,
+                                                    "sorular": [], "klasik": [], "atlanan": []})
+        parca[alan].append({**kayit, "gorev_satiri": satir})
+
+    for s in veri.get("sorular") or []:
+        ekle("sorular", s)
+    for k in veri.get("klasik") or []:
+        ekle("klasik", k)
+    if not parcalar:
+        parcalar[tek or gorev] = {"yazar": veri.get("yazar"), "gorev": tek or gorev, "sorular": [], "klasik": []}
+    ilk = next(iter(parcalar.values()))
+    ilk["atlanan"] = list(veri.get("atlanan") or [])
+    return list(parcalar.values())
+
+
+def ele(teslim: Path, veri: dict | None = None) -> tuple[dict, list[str]]:
     """(geçen sorulardan oluşan teslim, rapor satırları)."""
-    try:
-        veri = yaml.safe_load(teslim.read_text(encoding="utf-8")) or {}
-    except yaml.YAMLError as e:
-        return {}, [f"TESLİM OKUNAMADI (YAML hatası): {e}"]
+    if veri is None:
+        try:
+            veri = yaml.safe_load(teslim.read_text(encoding="utf-8")) or {}
+        except yaml.YAMLError as e:
+            return {}, [f"TESLİM OKUNAMADI (YAML hatası): {e}"]
     plan, gorev = ymm_gorev.son_plan(), str(veri.get("gorev", ""))
     rapor = [f"# Ön eleme: {teslim.name} — görev {gorev or '?'} — yazar {veri.get('yazar', '?')}", ""]
     if gorev not in plan["gorevler"]:
@@ -149,7 +190,7 @@ def ele(teslim: Path) -> tuple[dict, list[str]]:
             h.append(f"[K02] satır {s.get('gorev_satiri')} birden çok kez kullanılmış")
         anahtar = _norm(s.get("kok", ""))[:120]
         icerik[anahtar] += 1
-        if icerik[anahtar] > 1:
+        if anahtar and icerik[anahtar] > 1:
             h.append("[K23] teslim içinde aynı kök tekrar ediyor")
         if h:
             rapor.append(f"- RET satır {s.get('gorev_satiri')}: " + " | ".join(h))
@@ -172,23 +213,54 @@ def ele(teslim: Path) -> tuple[dict, list[str]]:
     return {**{a: veri.get(a) for a in ("yazar", "gorev")}, "sorular": gecen, "klasik": kl_gecen}, rapor
 
 
+def _al(sonuc: dict, parti: int) -> int:
+    with tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False, encoding="utf-8") as f:
+        yaml.safe_dump(sonuc, f, allow_unicode=True, sort_keys=False)
+    alinan = [x for x in uretici_paketi.al(Path(f.name), parti) if x.startswith("alındı")]
+    alinan += [x for x in klasik.al(Path(f.name), "ymm") if x.startswith("alındı")]
+    return len(alinan)
+
+
 def main(argv: list[str]) -> int:
     if len(argv) < 2:
         print(__doc__)
         return 1
     harita.sinav_sec("ymm")
-    teslim = Path(argv[1])
-    sonuc, rapor = ele(teslim)
-    rapor_yolu = teslim.with_suffix(".rapor.md")
-    rapor_yolu.write_text("\n".join(rapor) + "\n", encoding="utf-8")
-    print("\n".join(rapor[:3]) + f"\n(rapor: {rapor_yolu})")
-    if "--al" in argv and (sonuc.get("sorular") or sonuc.get("klasik")):
-        parti = int(argv[argv.index("--al") + 1])
-        with tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False, encoding="utf-8") as f:
-            yaml.safe_dump(sonuc, f, allow_unicode=True, sort_keys=False)
-        alinan = [x for x in uretici_paketi.al(Path(f.name), parti) if x.startswith("alındı")]
-        alinan += [x for x in klasik.al(Path(f.name), "ymm") if x.startswith("alındı")]
-        print(f"{len(alinan)} kayıt bankaya taslak olarak alındı (hakem bekliyor)")
+    hedef = Path(argv[1])
+    parti = int(argv[argv.index("--al") + 1]) if "--al" in argv else None
+    dosyalar = sorted(hedef.rglob("*.yaml")) if hedef.is_dir() else [hedef]
+    plan = ymm_gorev.son_plan()["gorevler"]
+    ozet, tum_rapor, alinan = Counter(), [], 0
+    for yol in dosyalar:
+        try:
+            veri = yaml.safe_load(yol.read_text(encoding="utf-8")) or {}
+        except yaml.YAMLError as e:
+            tum_rapor.append(f"## {yol.name}\nOKUNAMADI (YAML hatası): {str(e)[:200]}\n")
+            ozet["okunamayan dosya"] += 1
+            continue
+        for parca in normalle(veri, yol.name):
+            if parca["gorev"] not in plan:
+                ozet["planda olmayan (eski tur) görev"] += 1
+                tum_rapor.append(f"## {yol.name}\natlandı: görev {parca['gorev']!r} güncel planda yok\n")
+                continue
+            sonuc, rapor = ele(yol, parca)
+            ozet["test gönderilen"] += len(parca["sorular"])
+            ozet["test geçen"] += len(sonuc.get("sorular") or [])
+            ozet["klasik gönderilen"] += len(parca["klasik"])
+            ozet["klasik geçen"] += len(sonuc.get("klasik") or [])
+            ozet["atlanan satır"] += len(parca.get("atlanan") or [])
+            for r in rapor:
+                for kod in re.findall(r"\[(K\d\d)\]", r):
+                    ozet["ret " + kod] += 1
+            tum_rapor.append(f"## {yol.name} → {parca['gorev']}\n" + "\n".join(rapor[1:]) + "\n")
+            if parti is not None and (sonuc.get("sorular") or sonuc.get("klasik")):
+                alinan += _al(sonuc, parti)
+    bas = ["# Ön eleme özeti", ""] + [f"- {k}: {v}" for k, v in sorted(ozet.items())]
+    if parti is not None:
+        bas.append(f"- bankaya taslak olarak alınan: {alinan}")
+    rapor_yolu = (hedef / "ON_ELEME_RAPORU.md") if hedef.is_dir() else hedef.with_suffix(".rapor.md")
+    rapor_yolu.write_text("\n".join(bas + ["", *tum_rapor]) + "\n", encoding="utf-8")
+    print("\n".join(bas) + f"\n(rapor: {rapor_yolu})")
     return 0
 
 
