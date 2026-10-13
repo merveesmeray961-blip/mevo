@@ -745,7 +745,7 @@
       sonuc = {"gercek_kasa": gercek_kasa, "kasa_fazlasi": fark}
 
       '
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -756,11 +756,21 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: 'TDHP hatası: şüpheli alacak 128, karşılığı 129 olmalı (121 Alacak Senetleri, 122 Alacak Senetleri Reeskontu).
+          42.000 kayıtta dövizin bulunup bulunmadığı belirsiz (100/102, kur farkı). Dönem sonu nedeni bulunamayan kasa fazlası
+          671 değil 679 Diğer Olağandışı Gelir ve Kârlar''a alınır. Düzey SMMM altı.'
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmp00r5vp0o.yaml, klasik 1
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'TDHP hatası: şüpheli alacak 128, karşılığı 129 olmalı (121 Alacak Senetleri, 122 Alacak Senetleri Reeskontu).
+      42.000 kayıtta dövizin bulunup bulunmadığı belirsiz (100/102, kur farkı). Dönem sonu nedeni bulunamayan kasa fazlası
+      671 değil 679 Diğer Olağandışı Gelir ve Kârlar''a alınır. Düzey SMMM altı.'
 - id: YMM-REV-AKT-K007
   sinav: ymm
   ders: REV
@@ -838,7 +848,7 @@
     bitis: '2027-10-11'
   dogrulama:
     python: 'sonuc = {''stok_noksani'': (500 - 480) * 200}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -849,11 +859,21 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: 'Hesaplar yanlış: 128/129 olmalı (121/122 değil); protestolu senet 120''de değil 121''de izlenir. VUK 323''e
+          göre protesto yalnızca dava/icraya değmeyecek küçük alacaklarda yeterli; 120.000 TL için dava/icra şartı aranır,
+          çözüm koşulu yanlış uyguluyor. Düzey düşük.'
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmp00r5vp0o.yaml, klasik 2
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Hesaplar yanlış: 128/129 olmalı (121/122 değil); protestolu senet 120''de değil 121''de izlenir. VUK 323''e göre
+      protesto yalnızca dava/icraya değmeyecek küçük alacaklarda yeterli; 120.000 TL için dava/icra şartı aranır, çözüm koşulu
+      yanlış uyguluyor. Düzey düşük.'
 - id: YMM-REV-AKT-K008
   sinav: ymm
   ders: REV
@@ -959,7 +979,7 @@
       fazla_amortis}
 
       '
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -970,11 +990,23 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: VUK 278 yalnız afet/bozulma-çürüme vb. fiziki değer kaybında emsal bedeli öngörür; salt piyasa fiyatı düşüşü
+          için takdir/imha prosedürü yoktur, maliyetle değerlenir. Fazla amortisman düzeltmesinde 2022-2024 kısmı (36.000)
+          önceki dönem (671/düzeltme beyannamesi), 2025 kısmı (12.000) cari gider düzeltmesi (730/770 alacak) olmalı; tümünün
+          648'e alınması yanlış.
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmp00r5vp0o.yaml, klasik 3
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: VUK 278 yalnız afet/bozulma-çürüme vb. fiziki değer kaybında emsal bedeli öngörür; salt piyasa fiyatı düşüşü için
+      takdir/imha prosedürü yoktur, maliyetle değerlenir. Fazla amortisman düzeltmesinde 2022-2024 kısmı (36.000) önceki dönem
+      (671/düzeltme beyannamesi), 2025 kısmı (12.000) cari gider düzeltmesi (730/770 alacak) olmalı; tümünün 648'e alınması
+      yanlış.
 - id: YMM-REV-AKT-K009
   sinav: ymm
   ders: REV
@@ -1055,7 +1087,7 @@
     bitis: '2027-10-11'
   dogrulama:
     python: 'sonuc = {''dogru_amortis'': 400000 * 0.25, ''eksik'': 400000 * 0.25 - 80000, ''kasa_noksani'': 15000 - 12800}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1066,8 +1098,18 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: '''VUK''ta taşıtlar için kıst amortisman uygulanmaz'' yanlış: VUK 320''ye göre binek otomobillerinde aktife girdiği
+          yıl kıst amortisman zorunlu (01.01 alımında sonuç değişmez ama gerekçe hatalı). 2024''te ayrılmayan amortisman sonraki
+          yılda ayrılamaz; 2025 revizyonunda 20.000 TL gider kaydı vergi açısından yanlış. Düzey düşük.'
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmp00r5vp0o.yaml, klasik 4
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: '''VUK''ta taşıtlar için kıst amortisman uygulanmaz'' yanlış: VUK 320''ye göre binek otomobillerinde aktife girdiği
+      yıl kıst amortisman zorunlu (01.01 alımında sonuç değişmez ama gerekçe hatalı). 2024''te ayrılmayan amortisman sonraki
+      yılda ayrılamaz; 2025 revizyonunda 20.000 TL gider kaydı vergi açısından yanlış. Düzey düşük.'
