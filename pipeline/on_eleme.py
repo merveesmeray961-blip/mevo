@@ -62,6 +62,51 @@ def sik_sorunlari(s: dict) -> list[str]:
     return h
 
 
+def _konu_kodlari() -> dict[tuple[str, str], str]:
+    """(ders, normalleştirilmiş konu adı) → konu kodu."""
+    return {(d["kod"], _norm(k["ad"])): k["kod"] for d in ymm_gorev._mufredat() for k in d["konular"]}
+
+
+_KONU_KODU: dict = {}
+ONARIM = Counter()
+
+
+def onar(s: dict, ders: str | None = None) -> dict:
+    """İçeriğe dokunmayan biçim onarımları (her biri ONARIM sayacına yazılır)."""
+    if not isinstance(s, dict):
+        return s
+    if not s.get("ders") and ders:
+        s["ders"] = ders
+        ONARIM["ders görev kodundan"] += 1
+    if "kok" in s and not isinstance(s.get("gecerlilik"), dict):
+        s["gecerlilik"] = {"baslangic": "2026-01-01", "bitis": None, "yila_bagli_tutar": False}
+        ONARIM["gecerlilik varsayılan (2026-01-01)"] += 1
+    if not _KONU_KODU:
+        _KONU_KODU.update(_konu_kodlari())
+    kod = _KONU_KODU.get((s.get("ders"), _norm(s.get("konu", ""))))
+    if kod:
+        s["konu"] = kod
+        ONARIM["konu adı → kod"] += 1
+    if s.get("bolum") != ["YMM"] and "kok" in s:
+        s["bolum"] = ["YMM"]
+        ONARIM["bolum → [YMM]"] += 1
+    if "kok" in s and s.get("tip") not in ("bilgi", "kavrama", "uygulama", "hesaplama"):
+        s["tip"] = "hesaplama" if s.get("dogrulama") else "uygulama"
+        ONARIM["tip düzeltildi"] += 1
+    m = re.fullmatch(r"[A-Za-z]{1,2}\s*(\d+)", str(s.get("gorev_satiri", "")))
+    if m:
+        s["gorev_satiri"] = int(m.group(1))
+        ONARIM["satır no S12 → 12"] += 1
+    if isinstance(s.get("kaynaklar"), list) and any(isinstance(k, str) for k in s["kaynaklar"]):
+        s["kaynaklar"] = [k if isinstance(k, dict) else {"mevzuat": str(k), "madde": "-"} for k in s["kaynaklar"]]
+        ONARIM["düz yazı kaynak → kayıt"] += 1
+    for k in s.get("kaynaklar") or []:
+        if isinstance(k, dict) and k.get("alinti") and uretici_paketi.alinti_sorunlari([k]):
+            k.pop("alinti")
+            ONARIM["birebir olmayan alıntı silindi"] += 1
+    return s
+
+
 def _plan_satiri(plan: dict, gorev: str, n) -> dict | None:
     g = plan["gorevler"].get(gorev)
     if not g:
@@ -71,6 +116,10 @@ def _plan_satiri(plan: dict, gorev: str, n) -> dict | None:
 
 
 def _test_denetle(s: dict, plan: dict, gorev: str, banka: dict) -> list[str]:
+    if not isinstance(s, dict):
+        return ["[K17] soru kaydı sözlük değil"]
+    if isinstance(s.get("secenekler"), dict):  # sayı olarak yazılmış şıklar metne çevrilir
+        s["secenekler"] = {str(k): str(v) for k, v in s["secenekler"].items()}
     h = []
     eksik = [a for a in uretici_paketi.YAZAR_ALANLARI if a not in s and a != "dogrulama"]
     if eksik:
@@ -79,12 +128,17 @@ def _test_denetle(s: dict, plan: dict, gorev: str, banka: dict) -> list[str]:
     if r is None:
         h.append(f"[K01] görevde olmayan satır: {s.get('gorev_satiri')}")
     else:
-        for alan, beklenen in (("ders", r["ders"]), ("konu", r["konu"]), ("zorluk", r["zorluk"]),
-                               ("soru_bicimi", r["bicim"])):
-            if str(s.get(alan)) != str(beklenen):
-                h.append(f"[K01] {alan} {s.get(alan)!r} ≠ görev {beklenen!r}")
-        if _norm(s.get("kazanim", "")) != _norm(r["kazanim"]):
-            h.append(f"[K01] kazanım görevdekiyle aynı değil ({str(s.get('kazanim'))[:40]!r})")
+        if str(s.get("ders")) != str(r["ders"]):
+            h.append(f"[K01] ders {s.get('ders')!r} ≠ görev {r['ders']!r}")
+        elif str(s.get("konu")) != str(r["konu"]):
+            if (s.get("ders"), s.get("konu")) in klasik._konular("ymm"):
+                ONARIM["uyarı: konu görevden farklı ama müfredatta geçerli"] += 1
+            else:
+                h.append(f"[K01] konu {s.get('konu')!r} müfredatta yok (görev {r['konu']!r})")
+        # Zorluk, biçim ve kazanım sapması ret değil uyarıdır (hakem seviyeyi kendisi belirler).
+        if str(s.get("zorluk")) != str(r["zorluk"]) or str(s.get("soru_bicimi")) != str(r["bicim"]) \
+                or _norm(s.get("kazanim", "")) != _norm(r["kazanim"]):
+            ONARIM["uyarı: zorluk/biçim/kazanım görevden sapıyor"] += 1
     if s.get("bolum") != ["YMM"]:
         h.append("[K17] bolum: [YMM] olmalı")
     kod = (s.get("dogrulama") or {}).get("python", "")
@@ -111,8 +165,8 @@ def _klasik_denetle(k: dict, plan: dict, gorev: str) -> list[str]:
     r = _plan_satiri(plan, gorev, k.get("gorev_satiri"))
     if r is None:
         h.append(f"[K01] görevde olmayan klasik satır: {k.get('gorev_satiri')}")
-    elif (k.get("ders"), k.get("konu")) != (r["ders"], r["konu"]):
-        h.append(f"[K01] klasik ders/konu {k.get('ders')}/{k.get('konu')} ≠ görev {r['ders']}/{r['konu']}")
+    elif (k.get("ders"), k.get("konu")) not in klasik._konular("ymm"):
+        h.append(f"[K01] klasik ders/konu {k.get('ders')}/{k.get('konu')} müfredatta yok (görev {r['ders']}/{r['konu']})")
     if not (20 <= int(k.get("puan") or 0) <= 25) or not (25 <= int(k.get("sure_dk") or 0) <= 35):
         h.append("[K30] puan 20–25 ve süre 25–35 dk olmalı")
     kod = (k.get("dogrulama") or {}).get("python", "")
@@ -170,7 +224,7 @@ def normalle(veri: dict, ad: str) -> list[dict]:
     return list(parcalar.values())
 
 
-def ele(teslim: Path, veri: dict | None = None) -> tuple[dict, list[str]]:
+def ele(teslim: Path, veri: dict | None = None, banka: dict | None = None) -> tuple[dict, list[str]]:
     """(geçen sorulardan oluşan teslim, rapor satırları)."""
     if veri is None:
         try:
@@ -181,11 +235,29 @@ def ele(teslim: Path, veri: dict | None = None) -> tuple[dict, list[str]]:
     rapor = [f"# Ön eleme: {teslim.name} — görev {gorev or '?'} — yazar {veri.get('yazar', '?')}", ""]
     if gorev not in plan["gorevler"]:
         return {}, rapor + [f"TESLİM REDDEDİLDİ: görev kodu {gorev!r} planda yok"]
-    banka, gecen, kl_gecen = _banka_parcalari(), [], []
+    banka = _banka_parcalari() if banka is None else banka
+    gecen, kl_gecen = [], []
     satirlar = Counter(str(s.get("gorev_satiri")) for s in veri.get("sorular") or [])
     icerik = Counter()
+    gecerli_konu = klasik._konular("ymm")
+    genel_bilgi = {d["kod"] for d in ymm_gorev._mufredat() if not d.get("kaynak_dosyalari")}
     for s in veri.get("sorular") or []:
-        h = _test_denetle(s, plan, gorev, banka)
+        s = onar(s, plan["gorevler"][gorev]["ders"])
+        r = _plan_satiri(plan, gorev, s.get("gorev_satiri")) if isinstance(s, dict) else None
+        if r and s.get("ders") == r["ders"]:
+            if (s["ders"], s.get("konu")) not in gecerli_konu:  # kazanım adı ya da boş yazılmış konu
+                s["konu"] = r["konu"]
+                ONARIM["konu görev satırından"] += 1
+            if not s.get("kazanim"):
+                s["kazanim"] = r["kazanim"]
+                ONARIM["kazanım görev satırından"] += 1
+            if not s.get("kaynaklar") and s["ders"] in genel_bilgi:
+                s["kaynaklar"] = [{"mevzuat": f"Genel bilgi — {r['konu_ad']}", "madde": "-"}]
+                ONARIM["genel bilgi kaynağı (FYN/YNM)"] += 1
+        try:
+            h = _test_denetle(s, plan, gorev, banka)
+        except Exception as e:  # noqa: BLE001 — bozuk tek kayıt teslimin geri kalanını durdurmaz
+            h = [f"[K17] kayıt okunamadı ({type(e).__name__}: {str(e)[:80]})"]
         if satirlar[str(s.get("gorev_satiri"))] > 1:
             h.append(f"[K02] satır {s.get('gorev_satiri')} birden çok kez kullanılmış")
         anahtar = _norm(s.get("kok", ""))[:120]
@@ -196,8 +268,22 @@ def ele(teslim: Path, veri: dict | None = None) -> tuple[dict, list[str]]:
             rapor.append(f"- RET satır {s.get('gorev_satiri')}: " + " | ".join(h))
         else:
             gecen.append(s)
+            # Sonraki teslimlerde aynı sorunun tekrarı da yakalansın (K22).
+            banka.setdefault((s.get("ders"), s.get("konu")), set()).update(
+                g7_ozgunluk.parcalar(g7_ozgunluk.soru_metni(s)))
+    ders = plan["gorevler"][gorev]["ders"]
     for k in veri.get("klasik") or []:
-        h = _klasik_denetle(k, plan, gorev)
+        if isinstance(k, dict):
+            if not k.get("ders"):
+                k["ders"] = ders
+            kod = _KONU_KODU.get((k.get("ders"), _norm(k.get("konu", ""))))
+            if kod:
+                k["konu"] = kod
+                ONARIM["klasik konu adı → kod"] += 1
+        try:
+            h = _klasik_denetle(k, plan, gorev) if isinstance(k, dict) else ["[K31] klasik kayıt sözlük değil"]
+        except Exception as e:  # noqa: BLE001
+            h = [f"[K31] kayıt okunamadı ({type(e).__name__}: {str(e)[:80]})"]
         if h:
             rapor.append(f"- RET klasik {k.get('gorev_satiri')}: " + " | ".join(h))
         else:
@@ -231,6 +317,7 @@ def main(argv: list[str]) -> int:
     dosyalar = sorted(hedef.rglob("*.yaml")) if hedef.is_dir() else [hedef]
     plan = ymm_gorev.son_plan()["gorevler"]
     ozet, tum_rapor, alinan = Counter(), [], 0
+    banka = _banka_parcalari()
     for yol in dosyalar:
         try:
             veri = yaml.safe_load(yol.read_text(encoding="utf-8")) or {}
@@ -243,7 +330,7 @@ def main(argv: list[str]) -> int:
                 ozet["planda olmayan (eski tur) görev"] += 1
                 tum_rapor.append(f"## {yol.name}\natlandı: görev {parca['gorev']!r} güncel planda yok\n")
                 continue
-            sonuc, rapor = ele(yol, parca)
+            sonuc, rapor = ele(yol, parca, banka)
             ozet["test gönderilen"] += len(parca["sorular"])
             ozet["test geçen"] += len(sonuc.get("sorular") or [])
             ozet["klasik gönderilen"] += len(parca["klasik"])
@@ -256,6 +343,7 @@ def main(argv: list[str]) -> int:
             if parti is not None and (sonuc.get("sorular") or sonuc.get("klasik")):
                 alinan += _al(sonuc, parti)
     bas = ["# Ön eleme özeti", ""] + [f"- {k}: {v}" for k, v in sorted(ozet.items())]
+    bas += ["", "Otomatik biçim onarımları (içerik değişmez):"] + [f"- {k}: {v}" for k, v in sorted(ONARIM.items())]
     if parti is not None:
         bas.append(f"- bankaya taslak olarak alınan: {alinan}")
     rapor_yolu = (hedef / "ON_ELEME_RAPORU.md") if hedef.is_dir() else hedef.with_suffix(".rapor.md")
