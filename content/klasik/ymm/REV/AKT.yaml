@@ -307,7 +307,7 @@
     bitis: '2027-10-11'
   dogrulama:
     python: 'sonuc = {''kasa_noksani'': 35000 - 31500}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -318,11 +318,21 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: Karşılık hesabı 129 olmalı (122 Alacak Senetleri Reeskontu). Tabloda '120 Alıcılar 500.000' iki kez yazılmış,
+          bakiye/alacak ilişkisi belirsiz. Kasa noksanında 689 aktarımı ve KKEG etkisi eksik. XYZ için 323/2 (protesto/yazılı
+          istem, 25.000 TL limit) değerlendirmesi yok. SMMM düzeyi.
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpush6janc.yaml, klasik 1
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Karşılık hesabı 129 olmalı (122 Alacak Senetleri Reeskontu). Tabloda '120 Alıcılar 500.000' iki kez yazılmış, bakiye/alacak
+      ilişkisi belirsiz. Kasa noksanında 689 aktarımı ve KKEG etkisi eksik. XYZ için 323/2 (protesto/yazılı istem, 25.000
+      TL limit) değerlendirmesi yok. SMMM düzeyi.
 - id: YMM-REV-AKT-K003
   sinav: ymm
   ders: REV
@@ -406,7 +416,7 @@
     bitis: '2027-10-11'
   dogrulama:
     python: 'sonuc = {''stok_noksani_tl'': (400 - 380) * 300, ''teyit_farki'': 240000 - 210000}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -417,11 +427,21 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: Vergisel etkide VUK 278 dayanağı yanlış (278 afet/bozulma ile değeri düşen mallar; zayi/fire için belgelendirme).
+          KDV etkisi 'teslim sayılma riski' değil KDVK 30/c gereği zayi mal KDV'sinin indirilememesi/düzeltilmesi. Noksanın
+          689'a aktarımı eksik. (a) 10 puan tek ölçüt, kısmi puana elverişsiz. SMMM düzeyi.
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpush6janc.yaml, klasik 2
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Vergisel etkide VUK 278 dayanağı yanlış (278 afet/bozulma ile değeri düşen mallar; zayi/fire için belgelendirme).
+      KDV etkisi 'teslim sayılma riski' değil KDVK 30/c gereği zayi mal KDV'sinin indirilememesi/düzeltilmesi. Noksanın 689'a
+      aktarımı eksik. (a) 10 puan tek ölçüt, kısmi puana elverişsiz. SMMM düzeyi.
 - id: YMM-REV-AKT-K004
   sinav: ymm
   ders: REV
@@ -526,7 +546,7 @@
       sonuc = {"stok_noksani": stok_noksani, "deger_farki": deger_farki, "uc_yil_amortis": uc_yil_amortis}
 
       '
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -537,11 +557,21 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: 'Soru birikmiş amortismanda ''hatayı tespit edin'' diyor ama hata yok (150.000 doğru) – çelişki. Değer düşüklüğünde
+          dayanak yanlış: VUK 274''e göre satış bedeli maliyetin %10+ altına düşerse emsal bedel uygulanabilir; 280/300 düşüş
+          %6,67 olduğundan uygulanamaz; 278 takdir/imha bu durumla ilgisiz. Noksanın 689/KKEG ve KDV etkisi yok.'
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpush6janc.yaml, klasik 3
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Soru birikmiş amortismanda ''hatayı tespit edin'' diyor ama hata yok (150.000 doğru) – çelişki. Değer düşüklüğünde
+      dayanak yanlış: VUK 274''e göre satış bedeli maliyetin %10+ altına düşerse emsal bedel uygulanabilir; 280/300 düşüş
+      %6,67 olduğundan uygulanamaz; 278 takdir/imha bu durumla ilgisiz. Noksanın 689/KKEG ve KDV etkisi yok.'
 - id: YMM-REV-AKT-K005
   sinav: ymm
   ders: REV
@@ -616,7 +646,7 @@
     bitis: '2027-10-11'
   dogrulama:
     python: 'sonuc = {''kasa_noksani'': 28000 - 26500, ''dogru_amortis'': 200000 * 0.15}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -627,11 +657,21 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: 'Çözümdeki ''kıst amortisman uygulanmaz'' mutlak ifadesi eksik: VUK 320/3 (7338) ile dileyen mükellef gün esaslı
+          amortisman ayırabilir (ör. 2024 için 184/366 oranında ~15.082 TL); 30.000 TL ancak bu tercih yapılmamışsa doğru.
+          ''Hata varsa'' kurgusunda hata yok; kasa noksanı yalnız 197 kaydı. SMMM düzeyi, puan/süre yükle orantısız.'
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpush6janc.yaml, klasik 4
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Çözümdeki ''kıst amortisman uygulanmaz'' mutlak ifadesi eksik: VUK 320/3 (7338) ile dileyen mükellef gün esaslı
+      amortisman ayırabilir (ör. 2024 için 184/366 oranında ~15.082 TL); 30.000 TL ancak bu tercih yapılmamışsa doğru. ''Hata
+      varsa'' kurgusunda hata yok; kasa noksanı yalnız 197 kaydı. SMMM düzeyi, puan/süre yükle orantısız.'
 - id: YMM-REV-AKT-K006
   sinav: ymm
   ders: REV
