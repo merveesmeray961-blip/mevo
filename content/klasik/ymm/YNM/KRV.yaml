@@ -487,7 +487,7 @@
     bitis: null
   dogrulama:
     python: 'sonuc = {''uretim_ilgili_maliyet'': 80, ''satinalma_farki'': 25, ''ozel_siparis_etkisi'': 122500}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -498,11 +498,21 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: Özel sipariş miktarı soruda verilmemiş; çözüm (b)'de parça kullanım miktarı 3500'ü sipariş miktarı gibi kullanıyor
+          (3500×35=122.500) — veri eksik/çözüm dayanaksız. (a)'da karar (üret; toplam 25×3500=87.500 TL avantaj) açıkça belirtilmiyor;
+          iki bağımsız mini soru birleştirilmiş, yorum kısımları şablon; YMM düzeyinin altında.
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmp_mxu7xxh.yaml, klasik 2
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Özel sipariş miktarı soruda verilmemiş; çözüm (b)'de parça kullanım miktarı 3500'ü sipariş miktarı gibi kullanıyor
+      (3500×35=122.500) — veri eksik/çözüm dayanaksız. (a)'da karar (üret; toplam 25×3500=87.500 TL avantaj) açıkça belirtilmiyor;
+      iki bağımsız mini soru birleştirilmiş, yorum kısımları şablon; YMM düzeyinin altında.
 - id: YMM-YNM-KRV-K007
   sinav: ymm
   ders: YNM
@@ -547,7 +557,7 @@
     bitis: null
   dogrulama:
     python: 'sonuc = {''uretim_ilgili_maliyet'': 75, ''satinalma_farki'': 15, ''ozel_siparis_etkisi'': 70000}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -558,8 +568,18 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: Özel sipariş miktarı verilmemiş; çözüm 2000 birimlik parça kullanımını sipariş miktarı sayıyor (2000×35=70.000)
+          — dayanaksız. Kararın kendisi (üret; 15×2000=30.000 TL avantaj) açıkça yazılmamış; K006'nın sayı değiştirilmiş tekrarı,
+          YMM düzeyinin altında.
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmp_mxu7xxh.yaml, klasik 3
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Özel sipariş miktarı verilmemiş; çözüm 2000 birimlik parça kullanımını sipariş miktarı sayıyor (2000×35=70.000)
+      — dayanaksız. Kararın kendisi (üret; 15×2000=30.000 TL avantaj) açıkça yazılmamış; K006'nın sayı değiştirilmiş tekrarı,
+      YMM düzeyinin altında.

@@ -187,7 +187,7 @@
     bitis: null
   dogrulama:
     python: 'sonuc = {''katki_payi'': 80, ''basabas_birim'': 2250, ''guvenlik_marji_birim'': -750, ''faaliyet_kari'': -60000}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -198,11 +198,19 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: Hesaplar doğru (KP 80, BEP 2250, GM -750 birim / %-50, zarar 60.000 TL) ancak tek ürünlü temel başabaş uygulaması;
+          25 puan/30 dk için yük çok hafif, YMM düzeyinin altında; (c) yorumu 'pozitifse kâr, negatifse zarar' şablonu.
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpt4b8_vru.yaml, klasik 1
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Hesaplar doğru (KP 80, BEP 2250, GM -750 birim / %-50, zarar 60.000 TL) ancak tek ürünlü temel başabaş uygulaması;
+      25 puan/30 dk için yük çok hafif, YMM düzeyinin altında; (c) yorumu 'pozitifse kâr, negatifse zarar' şablonu.
 - id: YMM-YNM-MHK-K003
   sinav: ymm
   ders: YNM
@@ -244,7 +252,7 @@
     bitis: null
   dogrulama:
     python: 'sonuc = {''katki_payi'': 120, ''basabas_birim'': 1666, ''guvenlik_marji_birim'': -66, ''faaliyet_kari'': -8000}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -255,11 +263,19 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: Başabaş = 200.000/120 = 1.666,67 → 1.667 birim olmalı (çözüm 1.666 yazmış). Güvenlik marjı = 1.600-1.666,67 =
+          -66,67 birim (tam birimle -67), oran ≈ %-4,17 (çözüm -66 ve %-4,12). Ayrıca düzey ve yük YMM için yetersiz.
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpt4b8_vru.yaml, klasik 2
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Başabaş = 200.000/120 = 1.666,67 → 1.667 birim olmalı (çözüm 1.666 yazmış). Güvenlik marjı = 1.600-1.666,67 = -66,67
+      birim (tam birimle -67), oran ≈ %-4,17 (çözüm -66 ve %-4,12). Ayrıca düzey ve yük YMM için yetersiz.
 - id: YMM-YNM-MHK-K004
   sinav: ymm
   ders: YNM
