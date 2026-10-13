@@ -158,3 +158,741 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+- id: YMM-VTK-TFR-K002
+  sinav: ymm
+  ders: VTK
+  konu: TFR
+  kazanimlar:
+  - KVK md.13 emsallere uygunluk ve yöntemler
+  - örtülü kazanç dağıtımı
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: '**Senaryo:**
+
+    Alpha A.Ş., yurt dışındaki ana ortağı Beta Ltd.''e (iştiraki %80) 2025 yılında 1.000 adet ürün satmıştır. Aynı ürünlerin
+    bağımsız müşterilere satış fiyatı birim başına 200 USD iken Beta Ltd.''e 150 USD''ye satılmıştır. 2025 yılındaki kur:
+    1 USD = 30 TL.
+
+
+    **(a)** Kullanılan transfer fiyatlandırması yöntemini belirtiniz ve emsale aykırı satışın KVK md.13 açısından sonucunu
+    açıklayınız.
+
+
+    **(b)** Örtülü kazanç dağıtımı sayılan tutarı ve bu tutarın kurumlar vergisi matrahına etkisini hesaplayınız.
+
+
+    **(c)** Tarhiyatın kesinleşmesi halinde Beta Ltd.''in vergisel durumunun ne olacağını açıklayınız.
+
+    '
+  cozum: '**(a) Yöntem ve KVK md.13 Değerlendirmesi:**
+
+
+    Bağımsız müşterilere uygulanan piyasa fiyatı (200 USD) ile ilişkili kişiye uygulanan fiyat (150 USD) doğrudan karşılaştırıldığından
+    kullanılan yöntem **Karşılaştırılabilir Fiyat Yöntemi (KFY)**''dir.
+
+
+    Alpha A.Ş., KVK md.13/1 kapsamında ilişkili kişisi Beta Ltd.''e emsallere uygunluk ilkesine aykırı biçimde düşük fiyat
+    uygulamıştır. Bu nedenle aradaki fark transfer fiyatlandırması yoluyla örtülü olarak dağıtılmış kazanç sayılır.
+
+
+    **(b) Örtülü Kazanç Tutarı ve Matrah Etkisi:**
+
+
+    | Kalem | Hesaplama | Tutar |
+
+    |---|---|---|
+
+    | Emsal fiyat | 200 USD × 1.000 adet | 200.000 USD |
+
+    | Fiilen uygulanan fiyat | 150 USD × 1.000 adet | 150.000 USD |
+
+    | Fark (örtülü kazanç) | 50 USD × 1.000 adet | 50.000 USD |
+
+    | TL karşılığı (30 TL/USD) | 50.000 × 30 | **1.500.000 TL** |
+
+
+    Bu 1.500.000 TL Alpha A.Ş.''nin 2025 yılı kurumlar vergisi matrahına eklenir (KKEG olarak değil, hasılata ilave yoluyla).
+
+
+    **(c) Beta Ltd.''in Vergisel Durumu:**
+
+
+    KVK md.13/6 uyarınca tarhiyatın kesinleşmesi halinde Beta Ltd. nezdinde karşılıklı düzeltme yapılabilir. Beta Ltd. 1.500.000
+    TL tutarındaki fark için fazla ödediği vergiyi iade veya mahsup yoluyla geri alabilir. Bu işlem çifte vergilendirmeyi
+    önleme anlaşması kapsamında talep edilir.
+
+    '
+  puanlama:
+  - olcut: Karşılaştırılabilir Fiyat Yöntemi'nin doğru tespit edilmesi ve KVK md.13/1 atfı
+    puan: 5
+  - olcut: Örtülü kazanç dağıtımı kavramının açıklanması
+    puan: 5
+  - olcut: Fark tutarının (50.000 USD / 1.500.000 TL) doğru hesaplanması
+    puan: 7
+  - olcut: Matrah artırımının doğru açıklanması
+    puan: 4
+  - olcut: Beta Ltd.'deki karşılıklı düzeltme mekanizmasının açıklanması
+    puan: 4
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 13/1, 13/4, 13/6
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+  dogrulama:
+    python: 'emsal_fiyat_usd = 200
+
+      fiili_fiyat_usd = 150
+
+      adet = 1000
+
+      kur = 30
+
+      fark_usd = (emsal_fiyat_usd - fiili_fiyat_usd) * adet
+
+      fark_tl = fark_usd * kur
+
+      sonuc = {"fark_usd": fark_usd, "fark_tl": fark_tl}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G03
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmpa85o39va.yaml, klasik 1
+- id: YMM-VTK-TFR-K003
+  sinav: ymm
+  ders: VTK
+  konu: TFR
+  kazanimlar:
+  - örtülü kazanç dağıtımı
+  - KVK md.12 örtülü sermaye
+  zorluk: 2
+  puan: 20
+  sure_dk: 25
+  soru: '**Senaryo:**
+
+    Gamma A.Ş.''nin 2025 yılı başı itibarıyla öz sermayesi 500.000 TL''dir. Tek ortağı Delta Ltd. Şti., yıl içinde Gamma A.Ş.''ye
+    2.000.000 TL borç vermiştir ve bu borç için yıllık %20 faiz hesaplanmıştır.
+
+
+    **(a)** Örtülü sermaye tutarını hesaplayınız.
+
+
+    **(b)** Örtülü sermayeye isabet eden faizi ve bu tutarın KVK açısından nasıl değerlendirileceğini açıklayınız.
+
+    '
+  cozum: '**(a) Örtülü Sermaye Hesabı:**
+
+
+    | Kalem | Tutar |
+
+    |---|---|
+
+    | Öz sermaye | 500.000 TL |
+
+    | İzin verilen borç (3 kat) | 1.500.000 TL |
+
+    | Alınan toplam borç | 2.000.000 TL |
+
+    | Örtülü sermaye (aşan kısım) | **500.000 TL** |
+
+
+    **(b) Örtülü Sermayeye İsabet Eden Faiz:**
+
+
+    Toplam faiz = 2.000.000 × %20 = 400.000 TL
+
+
+    Örtülü sermaye oranı = 500.000 / 2.000.000 = %25
+
+
+    Örtülü sermayeye isabet eden faiz = 400.000 × %25 = **100.000 TL**
+
+
+    Bu 100.000 TL KVK md.12/7 uyarınca kanunen kabul edilmeyen gider (KKEG) sayılır ve hesap dönemi sonunda dağıtılmış kâr
+    payı olarak değerlendirilir.
+
+    '
+  puanlama:
+  - olcut: Örtülü sermaye tutarının (500.000 TL) doğru hesaplanması
+    puan: 7
+  - olcut: Toplam faiz (400.000 TL) ve örtülü sermaye oranının (%25) doğru bulunması
+    puan: 6
+  - olcut: Örtülü sermayeye isabet eden faizin (100.000 TL) doğru hesaplanması
+    puan: 4
+  - olcut: KKEG niteliğinin ve kâr payı sayılmasının açıklanması
+    puan: 3
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 12/1, 12/7
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+  dogrulama:
+    python: 'oz_sermaye = 500_000
+
+      borc = 2_000_000
+
+      faiz_orani = 0.20
+
+      sinir = oz_sermaye * 3
+
+      ortulu_sermaye = borc - sinir if borc > sinir else 0
+
+      toplam_faiz = borc * faiz_orani
+
+      ortulu_oran = ortulu_sermaye / borc
+
+      ortulu_faiz = toplam_faiz * ortulu_oran
+
+      sonuc = {"ortulu_sermaye": ortulu_sermaye, "ortulu_faiz": ortulu_faiz}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G03
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmpa85o39va.yaml, klasik 2
+- id: YMM-VTK-TFR-K004
+  sinav: ymm
+  ders: VTK
+  konu: TFR
+  kazanimlar:
+  - KVK md.12 örtülü sermaye
+  - düzeltme işlemleri
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: '**Senaryo:**
+
+    Epsilon A.Ş.''nin 2025 yılı başı öz sermayesi 800.000 TL''dir. Yurt dışındaki ana ortağından 3.500.000 TL borç almış ve
+    bu borç için yıllık %15 faiz ödenmiştir. Sonraki yıl vergi dairesi örtülü sermaye tespiti yapmış ve tarhiyat kesinleşmiştir.
+
+
+    **(a)** Örtülü sermaye tutarını ve örtülü sermayeye isabet eden faizi hesaplayınız.
+
+
+    **(b)** Örtülü sermayeye isabet eden faizin hesap dönemi sonundaki vergisel niteliğini açıklayınız.
+
+
+    **(c)** Tarhiyatın kesinleşmesi üzerine yurt dışı ana ortağın hangi yola başvurabileceğini açıklayınız.
+
+    '
+  cozum: '**(a) Örtülü Sermaye ve Faiz Hesabı:**
+
+
+    | Kalem | Tutar |
+
+    |---|---|
+
+    | Öz sermaye | 800.000 TL |
+
+    | İzin verilen borç (3 kat) | 2.400.000 TL |
+
+    | Alınan borç | 3.500.000 TL |
+
+    | Örtülü sermaye | **1.100.000 TL** |
+
+
+    Toplam faiz = 3.500.000 × %15 = 525.000 TL
+
+
+    Örtülü sermaye oranı = 1.100.000 / 3.500.000 ≈ %31,43
+
+
+    Örtülü sermayeye isabet eden faiz = 525.000 × (1.100.000 / 3.500.000) = **165.000 TL**
+
+
+    **(b) Vergisel Nitelik:**
+
+
+    KVK md.12/7 uyarınca örtülü sermayeye isabet eden 165.000 TL faiz, hesap dönemi sonunda (31 Aralık 2025 itibarıyla) dağıtılmış
+    kâr payı sayılır ve kanunen kabul edilmeyen gider olarak kurum kazancına eklenir. Stopaj yükümlülüğü de doğabilir.
+
+
+    **(c) Yurt Dışı Ana Ortağın Başvurusu:**
+
+
+    KVK md.13/6 ve Türkiye''nin taraf olduğu Çifte Vergilendirmeyi Önleme Anlaşmaları çerçevesinde ana ortak, tarhiyatın kesinleşmesinin
+    ardından karşılıklı uzlaşma prosedürü (Mutual Agreement Procedure — MAP) işleterek kendi ülkesinde fazla ödenen vergiyi
+    iade veya mahsup ettirme yoluna başvurabilir.
+
+    '
+  puanlama:
+  - olcut: Örtülü sermaye tutarının (1.100.000 TL) doğru hesaplanması
+    puan: 6
+  - olcut: Örtülü sermayeye isabet eden faizin (165.000 TL) doğru hesaplanması
+    puan: 7
+  - olcut: Dağıtılmış kâr payı niteliğinin ve KKEG hükmünün açıklanması
+    puan: 6
+  - olcut: MAP/ÇVÖA kapsamında başvuru yolunun açıklanması
+    puan: 6
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 12/1, 12/7, 13/6
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+  dogrulama:
+    python: 'oz_sermaye = 800_000
+
+      borc = 3_500_000
+
+      faiz_orani = 0.15
+
+      sinir = oz_sermaye * 3
+
+      ortulu_sermaye = borc - sinir if borc > sinir else 0
+
+      toplam_faiz = borc * faiz_orani
+
+      ortulu_faiz = toplam_faiz * ortulu_sermaye / borc
+
+      sonuc = {"ortulu_sermaye": ortulu_sermaye, "ortulu_faiz": round(ortulu_faiz, 2)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G03
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmpa85o39va.yaml, klasik 3
+- id: YMM-VTK-TFR-K005
+  sinav: ymm
+  ders: VTK
+  konu: TFR
+  kazanimlar:
+  - düzeltme işlemleri
+  - KVK md.13 emsallere uygunluk ve yöntemler
+  zorluk: 2
+  puan: 20
+  sure_dk: 25
+  soru: '**Senaryo:**
+
+    Zeta A.Ş., ilişkili kişisi Eta A.Ş.''ye 2024 yılında 600.000 TL tutarında danışmanlık hizmeti sunmuştur. Aynı hizmetin
+    bağımsız müşterilere bedeli 900.000 TL''dir. 2026 yılında yapılan vergi incelemesinde durum tespit edilerek tarhiyat yapılmış
+    ve kesinleşmiştir.
+
+
+    **(a)** Kullanılan transfer fiyatlandırması yöntemini ve örtülü kazanç tutarını belirtiniz.
+
+
+    **(b)** Tarhiyatın kesinleşmesi üzerine Eta A.Ş. ne yapabilir?
+
+    '
+  cozum: '**(a) Yöntem ve Örtülü Kazanç:**
+
+
+    Bağımsız müşteri fiyatı (900.000 TL) ile ilişkili kişi fiyatı (600.000 TL) doğrudan karşılaştırıldığından **Karşılaştırılabilir
+    Fiyat Yöntemi (KFY)** kullanılmıştır.
+
+
+    Örtülü kazanç = 900.000 − 600.000 = **300.000 TL**
+
+
+    Bu tutar Zeta A.Ş.''nin 2024 yılı kurumlar vergisi matrahına eklenir.
+
+
+    **(b) Eta A.Ş.''nin Başvurusu:**
+
+
+    KVK md.13/6 uyarınca tarhiyatın kesinleşmesiyle Eta A.Ş. fazla yüklendiği vergi nedeniyle düzeltme talebinde bulunabilir.
+    Danışmanlık bedelinin emsal fiyattan (900.000 TL) 300.000 TL düşük ödenmiş olması, Eta A.Ş. açısından bu tutarın zaten
+    gider kaydedilmediği anlamına gelebilir; ancak örtülü kazanç olarak nitelendirilen tutar dağıtılmış kâr payı sayıldığından
+    stopaj yükümlülüğü ve iade meselesi değerlendirilmelidir.
+
+    '
+  puanlama:
+  - olcut: KFY'nin doğru tespit edilmesi
+    puan: 5
+  - olcut: Örtülü kazanç tutarının (300.000 TL) doğru hesaplanması
+    puan: 7
+  - olcut: Matrah artırımı etkisinin açıklanması
+    puan: 4
+  - olcut: Eta A.Ş.'nin düzeltme hakkı ve iade/mahsup yolunun açıklanması
+    puan: 4
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 13/1, 13/6
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+  dogrulama:
+    python: 'emsal = 900_000
+
+      fiili = 600_000
+
+      ortulu_kazanc = emsal - fiili
+
+      sonuc = {"ortulu_kazanc": ortulu_kazanc}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G03
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmpa85o39va.yaml, klasik 4
+- id: YMM-VTK-TFR-K006
+  sinav: ymm
+  ders: VTK
+  konu: TFR
+  kazanimlar:
+  - KVK md.13 emsallere uygunluk ve yöntemler
+  - örtülü kazanç dağıtımı
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: '**Senaryo:**
+
+    Theta A.Ş., ilişkili kişisi Iota Ltd.''e (ortaklık payı %60) 2025 yılında çeşitli mühendislik hizmetleri sunmuştur. Aynı
+    hizmetlerin bağımsız müşterilere fiyatı 1.200.000 TL iken Iota Ltd.''e 800.000 TL uygulanmıştır.
+
+
+    **(a)** Kullanılan transfer fiyatlandırması yöntemini belirleyerek KVK md.13/1 kapsamındaki hukuki değerlendirmeyi yapınız.
+
+
+    **(b)** Örtülü kazanç tutarını ve bu tutarın Theta A.Ş.''nin kurumlar vergisi matrahına etkisini hesaplayınız.
+
+
+    **(c)** Tarhiyat kesinleşirse Iota Ltd.''in vergisel açıdan ne yapabileceğini açıklayınız.
+
+    '
+  cozum: '**(a) Yöntem ve Hukuki Değerlendirme:**
+
+
+    Bağımsız piyasa fiyatı (1.200.000 TL) ile ilişkili kişi fiyatı (800.000 TL) doğrudan karşılaştırıldığından kullanılan
+    yöntem **Karşılaştırılabilir Fiyat Yöntemi (KFY)**''dir.
+
+
+    Theta A.Ş., KVK md.13/1 kapsamında ilişkili kişisi Iota Ltd.''e emsallere uygunluk ilkesine aykırı biçimde düşük fiyat
+    uygulamıştır. Aradaki fark transfer fiyatlandırması yoluyla örtülü olarak dağıtılmış kazanç sayılır.
+
+
+    **(b) Örtülü Kazanç ve Matrah Etkisi:**
+
+
+    | Kalem | Tutar |
+
+    |---|---|
+
+    | Emsal fiyat | 1.200.000 TL |
+
+    | Fiilen uygulanan fiyat | 800.000 TL |
+
+    | Örtülü kazanç | **400.000 TL** |
+
+
+    Bu 400.000 TL, Theta A.Ş.''nin 2025 yılı kurumlar vergisi matrahına eklenerek vergilendirilir.
+
+
+    **(c) Iota Ltd.''in Başvurusu:**
+
+
+    KVK md.13/6 uyarınca tarhiyatın kesinleşmesi üzerine Iota Ltd. nezdinde düzeltme işlemi yapılabilir. Iota Ltd., 400.000
+    TL için fazla ödediği vergiyi (varsa) iade veya mahsup yoluyla geri alabilir.
+
+    '
+  puanlama:
+  - olcut: KFY'nin doğru tespiti ve KVK md.13/1 atfı
+    puan: 5
+  - olcut: Emsallere uygunluk ilkesinin açıklanması
+    puan: 5
+  - olcut: Örtülü kazanç tutarının (400.000 TL) doğru hesaplanması
+    puan: 7
+  - olcut: Matrah artırımı etkisinin doğru açıklanması
+    puan: 4
+  - olcut: Iota Ltd.'in düzeltme hakkının açıklanması
+    puan: 4
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 13/1, 13/6
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+  dogrulama:
+    python: 'emsal = 1_200_000
+
+      fiili = 800_000
+
+      ortulu_kazanc = emsal - fiili
+
+      sonuc = {"ortulu_kazanc": ortulu_kazanc}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G04
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmp1103mix1.yaml, klasik 1
+- id: YMM-VTK-TFR-K007
+  sinav: ymm
+  ders: VTK
+  konu: TFR
+  kazanimlar:
+  - örtülü kazanç dağıtımı
+  - KVK md.12 örtülü sermaye
+  zorluk: 2
+  puan: 20
+  sure_dk: 25
+  soru: '**Senaryo:**
+
+    Kappa A.Ş.''nin 2025 yılı başı öz sermayesi 600.000 TL''dir. Ortağı Lambda Ltd.''den 2.500.000 TL borç almış ve bu borç
+    için %18 yıllık faiz ödenmiştir.
+
+
+    **(a)** Örtülü sermaye tutarını hesaplayınız.
+
+
+    **(b)** Örtülü sermayeye isabet eden faiz tutarını ve KVK md.12/7 kapsamındaki vergisel sonucunu açıklayınız.
+
+    '
+  cozum: '**(a) Örtülü Sermaye Hesabı:**
+
+
+    | Kalem | Tutar |
+
+    |---|---|
+
+    | Öz sermaye | 600.000 TL |
+
+    | İzin verilen borç sınırı (3 kat) | 1.800.000 TL |
+
+    | Alınan borç | 2.500.000 TL |
+
+    | Örtülü sermaye | **700.000 TL** |
+
+
+    **(b) Örtülü Sermayeye İsabet Eden Faiz:**
+
+
+    Toplam faiz = 2.500.000 × %18 = 450.000 TL
+
+
+    Örtülü sermaye oranı = 700.000 / 2.500.000 = %28
+
+
+    Örtülü sermayeye isabet eden faiz = 450.000 × %28 = **126.000 TL**
+
+
+    KVK md.12/7 uyarınca bu 126.000 TL kanunen kabul edilmeyen gider sayılır ve hesap dönemi sonunda dağıtılmış kâr payı niteliği
+    kazanır.
+
+    '
+  puanlama:
+  - olcut: Örtülü sermayenin (700.000 TL) doğru hesaplanması
+    puan: 7
+  - olcut: Toplam faiz (450.000 TL) ve oranın (%28) doğru bulunması
+    puan: 5
+  - olcut: Örtülü sermayeye isabet eden faizin (126.000 TL) doğru hesaplanması
+    puan: 5
+  - olcut: KKEG niteliği ve dağıtılmış kâr payı sayılmasının açıklanması
+    puan: 3
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 12/1, 12/7
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+  dogrulama:
+    python: 'oz_sermaye = 600_000
+
+      borc = 2_500_000
+
+      faiz_orani = 0.18
+
+      sinir = oz_sermaye * 3
+
+      ortulu_sermaye = borc - sinir if borc > sinir else 0
+
+      toplam_faiz = borc * faiz_orani
+
+      ortulu_faiz = toplam_faiz * ortulu_sermaye / borc
+
+      sonuc = {"ortulu_sermaye": ortulu_sermaye, "ortulu_faiz": round(ortulu_faiz, 2)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G04
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmp1103mix1.yaml, klasik 2
+- id: YMM-VTK-TFR-K008
+  sinav: ymm
+  ders: VTK
+  konu: TFR
+  kazanimlar:
+  - KVK md.12 örtülü sermaye
+  - düzeltme işlemleri
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: '**Senaryo:**
+
+    Mu A.Ş.''nin 2025 başı öz sermayesi 1.000.000 TL''dir. Yurt dışı ana ortağından 5.000.000 TL borç almış, bu borç için
+    %12 yıllık faiz ödenmiştir. 2026 yılında yapılan incelemede örtülü sermaye tespiti yapılmış ve tarhiyat kesinleşmiştir.
+
+
+    **(a)** Örtülü sermaye ve örtülü sermayeye isabet eden faizi hesaplayınız.
+
+
+    **(b)** Hesap dönemi sonunda KVK md.12/7 uyarınca bu faizin vergisel niteliğini açıklayınız.
+
+
+    **(c)** Tarhiyatın kesinleşmesi üzerine yurt dışı ana ortağın başvurabileceği yolu açıklayınız.
+
+    '
+  cozum: '**(a) Hesaplama:**
+
+
+    | Kalem | Tutar |
+
+    |---|---|
+
+    | Öz sermaye | 1.000.000 TL |
+
+    | İzin verilen borç (3 kat) | 3.000.000 TL |
+
+    | Alınan borç | 5.000.000 TL |
+
+    | Örtülü sermaye | **2.000.000 TL** |
+
+
+    Toplam faiz = 5.000.000 × %12 = 600.000 TL
+
+
+    Örtülü oranı = 2.000.000 / 5.000.000 = %40
+
+
+    Örtülü faiz = 600.000 × %40 = **240.000 TL**
+
+
+    **(b) Vergisel Nitelik:**
+
+
+    KVK md.12/7''ye göre 240.000 TL, 31 Aralık 2025 itibarıyla dağıtılmış kâr payı sayılır ve kanunen kabul edilmeyen gider
+    olarak vergi matrahına eklenir. Yurt dışı ortağa ödenen bu tutar üzerinden stopaj yükümlülüğü de doğabilir.
+
+
+    **(c) Yurt Dışı Ortağın Başvurusu:**
+
+
+    Tarhiyatın kesinleşmesiyle birlikte yurt dışı ana ortak, ülkesiyle Türkiye arasındaki ÇVÖA kapsamında karşılıklı uzlaşma
+    prosedürü (MAP) başlatarak fazla vergi yükünün giderilmesini talep edebilir.
+
+    '
+  puanlama:
+  - olcut: Örtülü sermayenin (2.000.000 TL) doğru hesaplanması
+    puan: 6
+  - olcut: Örtülü faizin (240.000 TL) doğru bulunması
+    puan: 7
+  - olcut: Dağıtılmış kâr payı niteliği ve KKEG hükmünün açıklanması
+    puan: 6
+  - olcut: MAP ve ÇVÖA kapsamındaki başvuru yolunun açıklanması
+    puan: 6
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 12/1, 12/7, 13/6
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+  dogrulama:
+    python: 'oz_sermaye = 1_000_000
+
+      borc = 5_000_000
+
+      faiz_orani = 0.12
+
+      sinir = oz_sermaye * 3
+
+      ortulu_sermaye = borc - sinir if borc > sinir else 0
+
+      toplam_faiz = borc * faiz_orani
+
+      ortulu_faiz = toplam_faiz * ortulu_sermaye / borc
+
+      sonuc = {"ortulu_sermaye": ortulu_sermaye, "ortulu_faiz": round(ortulu_faiz, 2)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G04
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmp1103mix1.yaml, klasik 3

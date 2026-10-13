@@ -164,3 +164,930 @@
       2027 amortismanı gün esasıyla hesaplanmalı ya da (c) yalnız bina için sorulup (d) 600.000 TL''ye göre yeniden yazılmalı
       (puanlama da buna göre). Diğer kısımlar (kapsam, 298/Ç-8/9/13, fon 960.000+240.000=1.200.000, kayıtlar, bina 2027 amortismanı
       144.000) doğru.'
+- id: YMM-VTK-DEG-K002
+  sinav: ymm
+  ders: VTK
+  konu: DEG
+  kazanimlar:
+  - maliyet bedeli ve borsa rayici
+  - yeniden değerleme (VUK mükerrer 298/ç)
+  zorluk: 2
+  puan: 20
+  sure_dk: 25
+  soru: '**Olay:** Bilanço esasına göre defter tutan tam mükellef **Pınar Metal A.Ş.** (hesap dönemi takvim yılı), aktifinde
+    1.1.2025 tarihinde 5.000.000 TL''ye aldığı bir makineyi bulundurmaktadır. Makinenin Bakanlıkça ilan edilen normal amortisman
+    oranı %10''dur. Şirket bu makine için normal amortisman yöntemini uygulamaktadır.
+
+
+    2026 yılı yeniden değerleme oranı %40''tır. Şirket, makineyi VUK mükerrer md. 298/ç kapsamında yeniden değerlemeye tabi
+    tutmak istemektedir.
+
+
+    **İstenenler:**
+
+
+    (a) 31.12.2026 tarihi itibarıyla makinenin net defter değerini ve 2025 yılı birikmiş amortismanını hesaplayınız. (8 puan)
+
+
+    (b) Yeniden değerleme sonrasında oluşacak değerleme artış fonunu hesaplayınız ve bu fonun muhasebe kaydını gösteriniz.
+    (7 puan)
+
+
+    (c) Yeniden değerleme artış fonunun sermayeye eklenmesi ve ortaklara dağıtılması durumlarındaki vergisel sonuçları açıklayınız.
+    (5 puan)
+
+    '
+  cozum: "**(a) 31.12.2026 net defter değeri**\n\nMakine maliyeti: 5.000.000 TL\nNormal amortisman oranı: %10\n\n2025 yılı\
+    \ amortismanı = 5.000.000 × %10 = 500.000 TL\n2026 yılı amortismanı (yeniden değerleme öncesi) = 5.000.000 × %10 = 500.000\
+    \ TL\n31.12.2026 birikmiş amortisman (değerleme öncesi) = 500.000 + 500.000 = 1.000.000 TL\n31.12.2026 net defter değeri\
+    \ = 5.000.000 − 1.000.000 = 4.000.000 TL\n\n**(b) Yeniden değerleme artış fonu**\n\nDeğerleme artışı = Net defter değeri\
+    \ × oran = 4.000.000 × %40 = 1.600.000 TL\n\nBirikmiş amortisman artışı = Birikmiş amortisman × oran = 1.000.000 × %40\
+    \ = 400.000 TL\n\nMuhasebe kaydı:\n```\n253 Tesis, Makine ve Cihazlar       2.000.000 (5.000.000 × %40)\n    257 Birikmiş\
+    \ Amortismanlar           400.000\n    522 Maddi Duran Varlık Yeniden\n        Değerleme Artışları             1.600.000\n\
+    ```\n\n**(c) Vergisel sonuçlar**\n\n- Sermayeye ekleme: VUK mükerrer md. 298/ç uyarınca değerleme artış fonu sermayeye\
+    \ eklenirse kâr dağıtımı sayılmaz; kurumlar vergisi hesaplanmaz.\n- Ortaklara dağıtım: Fon ortaklara dağıtılırsa kâr dağıtımı\
+    \ sayılır; kurumlar vergisi ile stopaj yükümlülükleri doğar.\n"
+  puanlama:
+  - olcut: 2025 ve 2026 yılı amortisman tutarlarının doğru hesaplanması (500.000 + 500.000 = 1.000.000 TL)
+    puan: 4
+  - olcut: 31.12.2026 net defter değerinin doğru bulunması (4.000.000 TL)
+    puan: 4
+  - olcut: Değerleme artış fonunun doğru hesaplanması (1.600.000 TL)
+    puan: 4
+  - olcut: Muhasebe kaydının doğru (ATİK artış, birikmiş amortisman artış, fon) yapılması
+    puan: 3
+  - olcut: Sermayeye ekleme halinde vergilendirme olmayacağının doğru ifadesi
+    puan: 3
+  - olcut: Ortaklara dağıtımda kâr dağıtımı sayılacağının ve vergilendirme yapılacağının belirtilmesi
+    puan: 2
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: mükerrer md. 298/ç
+  gecerlilik:
+    baslangic: '2021-07-09'
+    bitis: null
+  dogrulama:
+    python: 'maliyet = 5000000
+
+      oran_amortisman = 0.10
+
+      birikmis = maliyet * oran_amortisman * 2
+
+      net = maliyet - birikmis
+
+      oran_deger = 0.40
+
+      artis = net * oran_deger
+
+      birikmis_artis = birikmis * oran_deger
+
+      sonuc = {"birikmis_amortisman": birikmis, "net_deger": net, "artis_fonu": artis, "birikmis_artis": birikmis_artis}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G01
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmp0p9w6y1x.yaml, klasik 1
+- id: YMM-VTK-DEG-K003
+  sinav: ymm
+  ders: VTK
+  konu: DEG
+  kazanimlar:
+  - yeniden değerleme (VUK mükerrer 298/ç)
+  - amortisman uygulaması
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: '**Olay:** Bilanço esasına göre defter tutan tam mükellef **Akdeniz Üretim A.Ş.**, aşağıda bilgileri verilen iki iktisadi
+    kıymeti aktifinde bulundurmaktadır:
+
+
+    | | ATİK-1 (Makine) | ATİK-2 (Taşıt) |
+
+    |---|---|---|
+
+    | Aktife giriş tarihi | 1.7.2024 | 1.1.2025 |
+
+    | Maliyet bedeli | 3.000.000 TL | 1.200.000 TL |
+
+    | Normal amortisman oranı (Bakanlık) | %20 | %25 |
+
+    | Amortisman yöntemi | Normal | Azalan bakiyeler |
+
+
+    Şirket, 31.12.2026 tarihinde her iki kıymeti de VUK mükerrer md. 298/ç kapsamında yeniden değerlemeye tabi tutacaktır.
+    2026 yılı yeniden değerleme oranı %45''tir.
+
+
+    **İstenenler:**
+
+
+    (a) Her iki ATİK için 31.12.2026 (yeniden değerleme öncesi) net defter değerini ve birikmiş amortismanı hesaplayınız.
+    (10 puan)
+
+
+    (b) Her iki ATİK için yeniden değerleme artış fonunu ve 2027 yılı amortisman giderini (yeniden değerleme sonrası) hesaplayınız.
+    (10 puan)
+
+
+    (c) ATİK-2''nin (taşıt) yeniden değerleme sonrasında 2027 yılında 2.500.000 TL''ye satıldığını varsayınız; satış kazancı
+    üzerindeki değerleme artış fonunun etkisini açıklayınız ve satış kazancını hesaplayınız. (5 puan)
+
+    '
+  cozum: '**(a) 31.12.2026 net defter değerleri (yeniden değerleme öncesi)**
+
+
+    **ATİK-1 (Makine, Normal %20):**
+
+    - Aktife giriş: 1.7.2024 → 2024 kıst: 3.000.000 × %20 × 6/12 = 300.000
+
+    - 2025 yılı: 3.000.000 × %20 = 600.000
+
+    - 2026 yılı: 3.000.000 × %20 = 600.000
+
+    - Birikmiş amortisman = 300.000 + 600.000 + 600.000 = 1.500.000 TL
+
+    - Net defter değeri = 3.000.000 − 1.500.000 = 1.500.000 TL
+
+
+    **ATİK-2 (Taşıt, Azalan Bakiyeler %25 × 2 = %50; ancak %50 sınırı aşılmaz):**
+
+    - Oran = %50 (normal oranın iki katı = %50; %50 sınırına eşit, uygulanır)
+
+    - 2025 yılı: 1.200.000 × %50 = 600.000; net = 600.000
+
+    - 2026 yılı: 600.000 × %50 = 300.000; net = 300.000
+
+    - Birikmiş amortisman = 600.000 + 300.000 = 900.000 TL
+
+    - Net defter değeri = 1.200.000 − 900.000 = 300.000 TL
+
+
+    **(b) Yeniden değerleme artış fonu ve 2027 yılı amortisman**
+
+
+    **ATİK-1:**
+
+    - Artış fonu = 1.500.000 × %45 = 675.000 TL
+
+    - Değerlenmiş net değer = 1.500.000 + 675.000 = 2.175.000 TL
+
+    - Kalan faydalı ömür: 5 yıl kaldı (10 yılda toplam; 1.5+2+2 = 4.5 yıl geçti ≈ 4 tam yıl + kıst, yaklaşık 6 yıl kalmış;
+    hesap için normal oran %20 devam eder). 2027 yılı amortisman = 2.175.000 + birikmiş_artış değerleme sonrası maliyet /
+    orijinal oran ile:
+
+    - Mevzuat gereği değerleme sonrası amortisman, yeni değerlenmiş maliyet üzerinden aynı oran ile hesaplanır:
+
+    - Değerlenmiş maliyet = 3.000.000 × (1 + %45) = 4.350.000 TL
+
+    - Değerlenmiş birikmis = 1.500.000 × (1+%45) = 2.175.000 TL
+
+    - Net = 4.350.000 − 2.175.000 = 2.175.000 TL
+
+    - 2027 amortisman = 4.350.000 × %20 = 870.000 TL
+
+
+    **ATİK-2:**
+
+    - Artış fonu = 300.000 × %45 = 135.000 TL
+
+    - Değerlenmiş net değer = 300.000 + 135.000 = 435.000 TL
+
+    - Değerlenmiş maliyet = 1.200.000 × (1+%45) = 1.740.000 TL
+
+    - 2027 amortisman: azalan bakiyeler oranı %50 devam eder; 435.000 × %50 = 217.500 TL
+
+
+    **(c) ATİK-2 satış kazancı**
+
+
+    Satış bedeli: 2.500.000 TL
+
+    Net defter değeri (değerleme sonrası): 435.000 TL
+
+    2027 amortismanı: 217.500 TL
+
+    Satış anı net değer: 435.000 − 217.500 = 217.500 TL
+
+
+    VUK mükerrer md. 298/ç: elden çıkarmada değerleme artış fonunun (135.000 TL) satılan kıymete ait kısmı, maliyet bedeline
+    eklenerek kazanç hesabına dahil edilir. Yani fiilen kazanç hesabında değerleme artış fonu maliyet artırıcı etkiyle zaten
+    yansımış olur.
+
+
+    Satış kazancı = 2.500.000 − 217.500 = 2.282.500 TL
+
+    '
+  puanlama:
+  - olcut: ATİK-1 birikmiş amortisman (1.500.000) ve net değer (1.500.000) doğru
+    puan: 4
+  - olcut: ATİK-2 azalan bakiyeler oranı (%50 sınırı) ve birikmiş amortisman (900.000), net değer (300.000) doğru
+    puan: 6
+  - olcut: ATİK-1 yeniden değerleme artış fonu (675.000) ve 2027 amortisman (870.000) doğru
+    puan: 5
+  - olcut: ATİK-2 yeniden değerleme artış fonu (135.000) ve 2027 amortisman (217.500) doğru
+    puan: 5
+  - olcut: ATİK-2 satış anı net değerin (217.500) ve kazancın (2.282.500) doğru hesaplanması
+    puan: 3
+  - olcut: Değerleme artış fonunun satış kazancı üzerindeki etkisinin VUK mükerrer md. 298/ç çerçevesinde doğru açıklanması
+    puan: 2
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: mükerrer md. 298/ç
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 315
+  gecerlilik:
+    baslangic: '2021-07-09'
+    bitis: null
+  dogrulama:
+    python: 'atik1_maliyet = 3000000
+
+      atik1_oran = 0.20
+
+      atik1_birikmis = atik1_maliyet * atik1_oran * 0.5 + atik1_maliyet * atik1_oran * 2
+
+      atik1_net = atik1_maliyet - atik1_birikmis
+
+      atik1_artis = atik1_net * 0.45
+
+      atik1_2027 = atik1_maliyet * (1 + 0.45) * atik1_oran
+
+      atik2_maliyet = 1200000
+
+      atik2_oran = 0.50
+
+      atik2_2025 = atik2_maliyet * atik2_oran
+
+      atik2_2026 = (atik2_maliyet - atik2_2025) * atik2_oran
+
+      atik2_net = atik2_maliyet - atik2_2025 - atik2_2026
+
+      atik2_artis = atik2_net * 0.45
+
+      atik2_net_d = atik2_net + atik2_artis
+
+      atik2_2027 = atik2_net_d * atik2_oran
+
+      satis_net = atik2_net_d - atik2_2027
+
+      kazanc = 2500000 - satis_net
+
+      sonuc = {"atik1_birikmis": atik1_birikmis, "atik1_net": atik1_net, "atik1_artis": atik1_artis, "atik1_2027": atik1_2027,
+      "atik2_net": atik2_net, "atik2_artis": atik2_artis, "atik2_2027": atik2_2027, "kazanc": kazanc}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G01
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmp0p9w6y1x.yaml, klasik 2
+- id: YMM-VTK-DEG-K004
+  sinav: ymm
+  ders: VTK
+  konu: DEG
+  kazanimlar:
+  - VUK md.258-298 değerleme ölçüleri
+  - maliyet bedeli ve borsa rayici
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: '**Olay:** Bilanço esasına göre defter tutan tam mükellef **Güneş Holding A.Ş.** (hesap dönemi takvim yılı), 31.12.2026
+    değerleme gününde aşağıdaki varlıklara sahiptir:
+
+
+    | Varlık | Tutar/Bilgi |
+
+    |---|---|
+
+    | (P) A.Ş. hisse senedi (borsa koteli) | Alış bedeli 600.000 TL; borsa rayici 750.000 TL |
+
+    | (Q) özel sektör tahvili (borsa koteli) | Alış bedeli 400.000 TL; borsa rayici 380.000 TL |
+
+    | (R) devlet iç borçlanma senedi (borsa koteli) | Alış bedeli 500.000 TL; borsa rayici 520.000 TL |
+
+    | Üretim tesisi | Maliyet 10.000.000 TL; aktife giriş 1.7.2024; normal amortisman oranı %5 |
+
+    | USD cinsinden senetsiz alacak | 200.000 USD; 31.12.2026 TCMB döviz alış kuru 38,50 TL/USD |
+
+
+    **İstenenler:**
+
+
+    (a) Her bir varlığın 31.12.2026 tarihi itibarıyla bilançoda gösterileceği değerleme ölçüsünü ve tutarını açıklayınız.
+    (15 puan)
+
+
+    (b) Üretim tesisinin 2024, 2025 ve 2026 yıllarına ait amortisman giderlerini kıst dönem esasıyla hesaplayınız. (7 puan)
+
+
+    (c) USD alacağın kur farkı gelir veya giderini hesaplayınız. (Alacak TL olarak 7.200.000 TL kayıtlı değerle kayıtlara
+    alınmıştır.) (3 puan)
+
+    '
+  cozum: '**(a) Varlık değerlemeleri**
+
+
+    **(P) A.Ş. Hisse Senedi:** VUK md. 279 — hisse senetleri borsa rayiciyle değerlenir. Bilanço değeri = 750.000 TL.
+
+
+    **(Q) Özel Sektör Tahvili:** VUK md. 279 — hisse senedi dışındaki menkul kıymetler borsa rayiciyle değerlenir. Bilanço
+    değeri = 380.000 TL.
+
+
+    **(R) Devlet İç Borçlanma Senedi:** VUK md. 279 — borsa koteli menkul kıymet borsa rayiciyle değerlenir. Bilanço değeri
+    = 520.000 TL.
+
+
+    **Üretim Tesisi:** VUK md. 269 — gayrimenkuller maliyet bedeliyle değerlenir. Bilanço değeri = 10.000.000 TL (eksi birikmiş
+    amortisman — bkz. b şıkkı).
+
+
+    **USD Senetsiz Alacak:** VUK md. 280/1 — yabancı para alacaklar borsa rayiciyle değerlenir. Bilanço değeri = 200.000 ×
+    38,50 = 7.700.000 TL.
+
+
+    **(b) Üretim tesisi amortisman**
+
+
+    Normal amortisman oranı = %5; yıllık amortisman = 10.000.000 × %5 = 500.000 TL.
+
+
+    - 2024 (kıst, Temmuz–Aralık = 6 ay): 500.000 × 6/12 = 250.000 TL
+
+    - 2025 (tam yıl): 500.000 TL
+
+    - 2026 (tam yıl): 500.000 TL
+
+
+    Toplam birikmiş amortisman = 250.000 + 500.000 + 500.000 = 1.250.000 TL
+
+    31.12.2026 net değer = 10.000.000 − 1.250.000 = 8.750.000 TL
+
+
+    **(c) USD alacak kur farkı**
+
+
+    Mevcut kayıtlı değer: 7.200.000 TL
+
+    Yeni değer: 7.700.000 TL
+
+    Kur farkı geliri = 7.700.000 − 7.200.000 = 500.000 TL (646 Kambiyo Kârları)
+
+    '
+  puanlama:
+  - olcut: Hisse senetlerinin borsa rayiciyle (750.000) değerleneceği
+    puan: 2
+  - olcut: Özel sektör tahvilinin borsa rayiciyle (380.000) değerleneceği
+    puan: 2
+  - olcut: Devlet iç borçlanma senedinin borsa rayiciyle (520.000) değerleneceği
+    puan: 2
+  - olcut: Üretim tesisinin maliyet bedeliyle değerleneceği ve kaynak olarak md. 269 gösterilmesi
+    puan: 2
+  - olcut: USD alacağın borsa rayiciyle (7.700.000 TL) değerleneceği ve hesabın doğruluğu
+    puan: 4
+  - olcut: Gerekçe ve ölçü açıklamaları için (kaynaklar ve md. referansları)
+    puan: 3
+  - olcut: 2024 kıst amortisman (250.000), 2025 (500.000), 2026 (500.000) ve birikmiş (1.250.000) hesaplarının doğruluğu
+    puan: 7
+  - olcut: USD alacak kur farkı gelirinin (500.000) doğru hesaplanması
+    puan: 3
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 279
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 280/1
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 269
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+  dogrulama:
+    python: 'hisse = 750000
+
+      tahvil = 380000
+
+      dbs = 520000
+
+      tesis = 10000000
+
+      oran = 0.05
+
+      amort_2024 = tesis * oran * 6 / 12
+
+      amort_2025 = tesis * oran
+
+      amort_2026 = tesis * oran
+
+      birikmis = amort_2024 + amort_2025 + amort_2026
+
+      tesis_net = tesis - birikmis
+
+      usd_yeni = 200000 * 38.5
+
+      kur_farki = usd_yeni - 7200000
+
+      sonuc = {"hisse": hisse, "tahvil": tahvil, "dbs": dbs, "amort_2024": amort_2024, "amort_2025": amort_2025, "amort_2026":
+      amort_2026, "birikmis": birikmis, "tesis_net": tesis_net, "usd_yeni": usd_yeni, "kur_farki": kur_farki}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmpratdwozb.yaml, klasik 1
+- id: YMM-VTK-DEG-K005
+  sinav: ymm
+  ders: VTK
+  konu: DEG
+  kazanimlar:
+  - maliyet bedeli ve borsa rayici
+  - yeniden değerleme (VUK mükerrer 298/ç)
+  zorluk: 2
+  puan: 20
+  sure_dk: 25
+  soru: '**Olay:** Tam mükellef **Türk Makine San. A.Ş.**, 1.1.2024 tarihinde 4.000.000 TL''ye bir üretim hattı satın almıştır.
+    Normal amortisman oranı %10; şirket normal yöntemi uygulamaktadır.
+
+
+    31.12.2025 yılında yeniden değerleme oranı %35 olarak ilan edilmiş ve şirket bu tarihe kadar yeniden değerleme yapmamıştır.
+    Şirket 31.12.2025 tarihinde ilk kez yeniden değerleme yapmıştır.
+
+
+    31.12.2026 yılında yeniden değerleme oranı %30 olarak ilan edilmiş; şirket 31.12.2026''da da yeniden değerleme yapmıştır.
+
+
+    **İstenenler:**
+
+
+    (a) 31.12.2025 yeniden değerleme öncesi net defter değerini ve yeniden değerleme artış fonunu hesaplayınız. (8 puan)
+
+
+    (b) 31.12.2026 yeniden değerleme öncesi net defter değerini ve 2026 yeniden değerleme artış fonunu hesaplayınız. (8 puan)
+
+
+    (c) Şirket bu fonu sermayeye eklerse herhangi bir kurumlar vergisi yükümlülüğü doğar mı? Açıklayınız. (4 puan)
+
+    '
+  cozum: '**(a) 31.12.2025 yeniden değerleme**
+
+
+    Üretim hattı maliyeti: 4.000.000 TL
+
+    2024 amortismanı = 4.000.000 × %10 = 400.000 TL
+
+    2025 amortismanı (değerleme öncesi) = 4.000.000 × %10 = 400.000 TL
+
+    Birikmiş amortisman = 800.000 TL
+
+    Net defter değeri = 4.000.000 − 800.000 = 3.200.000 TL
+
+
+    Yeniden değerleme artış fonu = 3.200.000 × %35 = 1.120.000 TL
+
+
+    **(b) 31.12.2026 yeniden değerleme**
+
+
+    2025 yeniden değerleme sonrası değerler:
+
+    - Değerlenmiş maliyet = 4.000.000 × (1 + %35) = 5.400.000 TL
+
+    - Değerlenmiş birikmiş = 800.000 × (1 + %35) = 1.080.000 TL
+
+    - Net değer (değerleme sonrası 31.12.2025) = 5.400.000 − 1.080.000 = 4.320.000 TL
+
+
+    2026 amortismanı (değerleme sonrası değer üzerinden) = 5.400.000 × %10 = 540.000 TL
+
+
+    31.12.2026 birikmiş amortisman (değerleme öncesi) = 1.080.000 + 540.000 = 1.620.000 TL
+
+    31.12.2026 net defter değeri (değerleme öncesi) = 5.400.000 − 1.620.000 = 3.780.000 TL
+
+
+    2026 yeniden değerleme artış fonu = 3.780.000 × %30 = 1.134.000 TL
+
+
+    **(c) Sermayeye ekleme vergisel sonucu**
+
+
+    VUK mükerrer md. 298/ç: yeniden değerleme artış fonu sermayeye eklenirse kâr dağıtımı sayılmaz; kurumlar vergisi hesaplanmaz.
+    Ancak fon başka bir hesaba nakledilirse vergilendirme yapılır.
+
+    '
+  puanlama:
+  - olcut: 31.12.2025 öncesi net defter değerinin (3.200.000 TL) doğru hesaplanması
+    puan: 4
+  - olcut: 2025 yeniden değerleme artış fonunun (1.120.000 TL) doğru bulunması
+    puan: 4
+  - olcut: 2026 amortismanının değerlenmiş maliyet üzerinden (540.000 TL) hesaplanması
+    puan: 4
+  - olcut: 31.12.2026 öncesi net defter değerinin (3.780.000 TL) doğru bulunması
+    puan: 2
+  - olcut: 2026 yeniden değerleme artış fonunun (1.134.000 TL) doğru hesaplanması
+    puan: 2
+  - olcut: Sermayeye eklemede kurumlar vergisi doğmayacağının ve yasal dayanağın belirtilmesi
+    puan: 4
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: mükerrer md. 298/ç
+  gecerlilik:
+    baslangic: '2021-07-09'
+    bitis: null
+  dogrulama:
+    python: 'maliyet = 4000000
+
+      oran = 0.10
+
+      birikmis_2025 = maliyet * oran * 2
+
+      net_2025 = maliyet - birikmis_2025
+
+      artis_2025 = net_2025 * 0.35
+
+      degerl_maliyet = maliyet * (1 + 0.35)
+
+      degerl_birikmis = birikmis_2025 * (1 + 0.35)
+
+      amort_2026 = degerl_maliyet * oran
+
+      birikmis_2026_once = degerl_birikmis + amort_2026
+
+      net_2026_once = degerl_maliyet - birikmis_2026_once
+
+      artis_2026 = net_2026_once * 0.30
+
+      sonuc = {"net_2025": net_2025, "artis_2025": artis_2025, "amort_2026": amort_2026, "net_2026_once": net_2026_once, "artis_2026":
+      artis_2026}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmpratdwozb.yaml, klasik 2
+- id: YMM-VTK-DEG-K006
+  sinav: ymm
+  ders: VTK
+  konu: DEG
+  kazanimlar:
+  - yeniden değerleme (VUK mükerrer 298/ç)
+  - amortisman uygulaması
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: '**Olay:** Bilanço esasına göre defter tutan tam mükellef **Karadeniz Enerji A.Ş.**, aşağıdaki iki iktisadi kıymeti
+    aktifinde bulundurmaktadır:
+
+
+    **ATİK-X (Jeneratör):**
+
+    - Aktife giriş: 1.10.2024
+
+    - Maliyet: 2.000.000 TL
+
+    - Normal amortisman oranı: %10
+
+    - Yöntem: Azalan bakiyeler
+
+
+    **ATİK-Y (Depo Binası):**
+
+    - Aktife giriş: 1.1.2025
+
+    - Maliyet: 6.000.000 TL
+
+    - Normal amortisman oranı: %2
+
+    - Yöntem: Normal
+
+
+    Şirket, 31.12.2026 tarihinde her iki kıymeti VUK mükerrer md. 298/ç kapsamında yeniden değerlemeye tabi tutmuştur. 2026
+    yılı yeniden değerleme oranı %50''dir.
+
+
+    **İstenenler:**
+
+
+    (a) Her iki ATİK için 31.12.2026 (yeniden değerleme öncesi) birikmiş amortismanı ve net defter değerini hesaplayınız.
+    (10 puan)
+
+
+    (b) Her iki ATİK için yeniden değerleme artış fonunu hesaplayınız ve toplam artış fonunu bulunuz. (8 puan)
+
+
+    (c) ATİK-X''in 2027 yılı amortisman giderini yeniden değerleme sonrası değer üzerinden hesaplayınız. (4 puan)
+
+
+    (d) Yeniden değerleme artış fonu üzerinden hesaplanacak vergiyi bulunuz ve ödeme süresini belirtiniz. (3 puan)
+
+    '
+  cozum: '**(a) 31.12.2026 birikmiş amortisman ve net değerler**
+
+
+    **ATİK-X (Jeneratör, Azalan bakiyeler, oran = %10×2 = %20; %50 sınırı aşılmıyor):**
+
+    - 2024 kıst (Ekim–Aralık, 3 ay): 2.000.000 × %20 × 3/12 = 100.000
+
+    - 2025 (net = 1.900.000): 1.900.000 × %20 = 380.000
+
+    - 2026 (net = 1.520.000): 1.520.000 × %20 = 304.000
+
+    - Birikmiş = 100.000 + 380.000 + 304.000 = 784.000 TL
+
+    - Net defter değeri = 2.000.000 − 784.000 = 1.216.000 TL
+
+
+    **ATİK-Y (Depo Binası, Normal, oran = %2):**
+
+    - 2025: 6.000.000 × %2 = 120.000
+
+    - 2026: 6.000.000 × %2 = 120.000
+
+    - Birikmiş = 240.000 TL
+
+    - Net defter değeri = 6.000.000 − 240.000 = 5.760.000 TL
+
+
+    **(b) Yeniden değerleme artış fonları**
+
+
+    ATİK-X artış fonu = 1.216.000 × %50 = 608.000 TL
+
+    ATİK-Y artış fonu = 5.760.000 × %50 = 2.880.000 TL
+
+    Toplam artış fonu = 608.000 + 2.880.000 = 3.488.000 TL
+
+
+    **(c) ATİK-X 2027 amortismanı**
+
+
+    Değerlenmiş net değer = 1.216.000 + 608.000 = 1.824.000 TL
+
+    2027 azalan bakiyeler amortismanı = 1.824.000 × %20 = 364.800 TL
+
+
+    **(d) Vergi hesabı ve ödeme süresi**
+
+
+    Değerleme artışı üzerinden hesaplanacak vergi = 3.488.000 × %2 = 69.760 TL
+
+    Bu vergi, yeniden değerlemenin yapıldığı tarihi izleyen ayın sonuna kadar beyan edilerek ödenir.
+
+    '
+  puanlama:
+  - olcut: ATİK-X kıst ve sonraki yıl amortisman hesapları ve birikmiş (784.000) ve net değer (1.216.000) doğruluğu
+    puan: 5
+  - olcut: ATİK-Y amortisman hesapları, birikmiş (240.000) ve net değer (5.760.000) doğruluğu
+    puan: 5
+  - olcut: ATİK-X artış fonu (608.000) hesabı
+    puan: 3
+  - olcut: ATİK-Y artış fonu (2.880.000) ve toplam fon (3.488.000) hesabı
+    puan: 5
+  - olcut: ATİK-X 2027 amortismanının (364.800) doğru hesaplanması
+    puan: 4
+  - olcut: Vergi tutarının (69.760) ve ödeme süresinin doğru belirtilmesi
+    puan: 3
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: mükerrer md. 298/ç
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 315
+  gecerlilik:
+    baslangic: '2021-07-09'
+    bitis: null
+  dogrulama:
+    python: 'x_maliyet = 2000000
+
+      x_oran = 0.20
+
+      x_2024 = x_maliyet * x_oran * 3 / 12
+
+      x_2025 = (x_maliyet - x_2024) * x_oran
+
+      x_2026 = (x_maliyet - x_2024 - x_2025) * x_oran
+
+      x_birikmis = x_2024 + x_2025 + x_2026
+
+      x_net = x_maliyet - x_birikmis
+
+      y_maliyet = 6000000
+
+      y_oran = 0.02
+
+      y_2025 = y_maliyet * y_oran
+
+      y_2026 = y_maliyet * y_oran
+
+      y_birikmis = y_2025 + y_2026
+
+      y_net = y_maliyet - y_birikmis
+
+      x_artis = x_net * 0.50
+
+      y_artis = y_net * 0.50
+
+      toplam_artis = x_artis + y_artis
+
+      x_net_yeni = x_net + x_artis
+
+      x_2027 = x_net_yeni * x_oran
+
+      vergi = toplam_artis * 0.02
+
+      sonuc = {"x_birikmis": round(x_birikmis), "x_net": round(x_net), "y_birikmis": y_birikmis, "y_net": y_net, "x_artis":
+      round(x_artis), "y_artis": y_artis, "toplam_artis": round(toplam_artis), "x_2027": round(x_2027), "vergi": round(vergi)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmpratdwozb.yaml, klasik 3
+- id: YMM-VTK-DEG-K007
+  sinav: ymm
+  ders: VTK
+  konu: DEG
+  kazanimlar:
+  - amortisman uygulaması
+  - VUK md.258-298 değerleme ölçüleri
+  zorluk: 2
+  puan: 20
+  sure_dk: 25
+  soru: '**Olay:** Bilanço esasına göre defter tutan tam mükellef **Marmara Gıda A.Ş.** (hesap dönemi takvim yılı), aşağıdaki
+    iktisadi kıymetleri 2026 yılında aktifine almıştır:
+
+
+    - **Soğutma Sistemi:** 1.3.2026''da 900.000 TL''ye alınmış; normal amortisman oranı %20; azalan bakiyeler yöntemi seçilmiştir.
+
+    - **Depo (Bina):** 1.10.2026''da 3.000.000 TL''ye alınmış; normal amortisman oranı %2; normal yöntem seçilmiştir.
+
+    - **Hisse Senedi (Borsa Koteli):** 200.000 TL alış bedeliyle alınmış; 31.12.2026 borsa rayici 230.000 TL.
+
+
+    **İstenenler:**
+
+
+    (a) Soğutma sistemi ve depo binasının 2026 yılı amortisman giderlerini kıst dönem uygulamasıyla hesaplayınız. (12 puan)
+
+
+    (b) Hisse senedinin 31.12.2026 bilanço değerini belirleyiniz ve kullanılan değerleme ölçüsünü açıklayınız. (4 puan)
+
+
+    (c) 31.12.2026 tarihinde şirketin toplam duran varlık net defter değerini (soğutma sistemi ve depo için) hesaplayınız.
+    (4 puan)
+
+    '
+  cozum: '**(a) 2026 yılı amortisman giderleri**
+
+
+    **Soğutma Sistemi (Azalan Bakiyeler, oran = %20×2 = %40):**
+
+    Tam yıl = 900.000 × %40 = 360.000 TL
+
+    Kıst: Mart aktife girdi; Mart–Aralık = 10 ay
+
+    2026 amortismanı = 360.000 × 10/12 = 300.000 TL
+
+
+    **Depo Binası (Normal, oran = %2):**
+
+    Tam yıl = 3.000.000 × %2 = 60.000 TL
+
+    Kıst: Ekim aktife girdi; Ekim–Aralık = 3 ay
+
+    2026 amortismanı = 60.000 × 3/12 = 15.000 TL
+
+
+    **(b) Hisse senedi değerlemesi**
+
+
+    VUK md. 279: hisse senetleri borsa rayiciyle değerlenir.
+
+    Bilanço değeri = 230.000 TL.
+
+
+    **(c) Duran varlıklar net değer**
+
+
+    Soğutma sistemi net = 900.000 − 300.000 = 600.000 TL
+
+    Depo binası net = 3.000.000 − 15.000 = 2.985.000 TL
+
+    Toplam net = 600.000 + 2.985.000 = 3.585.000 TL
+
+    '
+  puanlama:
+  - olcut: Soğutma sistemi oranı (%40) ve kıst (10 ay, 300.000) doğru
+    puan: 6
+  - olcut: Depo kıst (3 ay, 15.000) doğru
+    puan: 6
+  - olcut: Hisse senedi bilanço değerinin (230.000) ve borsa rayici ölçüsünün doğru ifade edilmesi
+    puan: 4
+  - olcut: Toplam net duran varlık değerinin (3.585.000) doğru hesaplanması
+    puan: 4
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 279
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 315
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+  dogrulama:
+    python: 'sogutma = 900000
+
+      sogutma_oran = 0.40
+
+      sogutma_amort = sogutma * sogutma_oran * 10 / 12
+
+      sogutma_net = sogutma - sogutma_amort
+
+      depo = 3000000
+
+      depo_oran = 0.02
+
+      depo_amort = depo * depo_oran * 3 / 12
+
+      depo_net = depo - depo_amort
+
+      hisse = 230000
+
+      toplam_net = sogutma_net + depo_net
+
+      sonuc = {"sogutma_amort": round(sogutma_amort), "sogutma_net": round(sogutma_net), "depo_amort": depo_amort, "depo_net":
+      depo_net, "hisse": hisse, "toplam_net": round(toplam_net)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-VTK-G02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmpratdwozb.yaml, klasik 4

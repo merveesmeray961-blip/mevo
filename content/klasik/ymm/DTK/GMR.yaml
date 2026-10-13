@@ -182,3 +182,433 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+- id: YMM-DTK-GMR-K002
+  sinav: ymm
+  ders: DTK
+  konu: GMR
+  kazanimlar:
+  - 4458 sayılı Kanun kapsam ve tanımlar
+  - gümrük vergisi ve gümrük kıymeti
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: '(A) A.Ş., yurt dışındaki ilişkisiz bir satıcıdan tekstil makinesi ithal etmektedir. Beyanname tescil tarihi 15.03.2026''dır.
+    Veriler:
+
+
+    | Kalem | Tutar |
+
+    |---|---|
+
+    | Mal bedeli (FOB) | 200.000 USD |
+
+    | Yükleme limanından Mersin''e navlun | 10.000 USD |
+
+    | Sigorta (Mersin''e kadar) | 3.000 USD |
+
+    | Alıcı adına ödenen satış komisyonu | 5.000 USD |
+
+    | Alıcının satın alma temsilcisine komisyon | 2.000 USD |
+
+    | Satış koşuluna bağlı royalti | 8.000 USD |
+
+    | Mersin''den fabrikaya nakliye | 4.000 USD |
+
+    | Tescil öncesi vergiye tabi tutulmamış giderler | 15.000 TL |
+
+
+    TCMB döviz satış kuru: tescil tarihinde 1 USD = 38 TL, ödeme tarihinde 1 USD = 39 TL. Gümrük vergisi %10, KDV %20.
+
+
+    **İstenenler:**
+
+
+    (a) 4458 sayılı Kanun''a göre gümrük kıymetini TL olarak hesaplayınız; her kalemin dahil edilip edilmediğini yasal dayanağıyla
+    açıklayınız. (10 puan)
+
+
+    (b) Ödenecek gümrük vergisini, ithalde KDV matrahını ve KDV''yi hesaplayınız. (9 puan)
+
+
+    (c) Gümrük kıymetinde hangi kur esas alınır? Yasal dayanağını belirtiniz. (6 puan)
+
+    '
+  cozum: '**(a) Gümrük kıymeti**
+
+
+    | Kalem | USD | Dahil mi? | Dayanak |
+
+    |---|---|---|---|
+
+    | Mal bedeli (FOB) | 200.000 | Evet | md. 24/1 |
+
+    | Navlun (giriş limanına kadar) | 10.000 | Evet | md. 27/1-(e) |
+
+    | Sigorta (giriş limanına kadar) | 3.000 | Evet | md. 27/1-(e) |
+
+    | Satış komisyonu | 5.000 | Evet | md. 27/1-(a)-(i) |
+
+    | Satın alma komisyonu | 2.000 | Hayır | md. 28/e |
+
+    | Royalti (satış koşuluna bağlı) | 8.000 | Evet | md. 27/1-(c) |
+
+    | Giriş sonrası nakliye | 4.000 | Hayır | md. 28/a |
+
+    | **Toplam** | **226.000** | | |
+
+
+    Kur: Tescil tarihi (15.03.2026) TCMB döviz satış kuru = 38 TL/USD (md. 30, md. 181).
+
+    Gümrük kıymeti = 226.000 × 38 = **8.588.000 TL**
+
+
+    **(b) Vergi hesabı**
+
+
+    - Gümrük vergisi = 8.588.000 × %10 = **858.800 TL**
+
+    - KDV matrahı (KDVK md. 21) = 8.588.000 + 858.800 + 15.000 = **9.461.800 TL**
+
+    - KDV = 9.461.800 × %20 = **1.892.360 TL**
+
+
+    **(c) Kur**
+
+
+    Gümrük borcu beyanname tescil tarihinde doğar (md. 181/1); bu nedenle tescil tarihindeki TCMB döviz satış kuru (38 TL/USD)
+    esas alınır (md. 30). Ödeme tarihindeki kur kullanılmaz.
+
+    '
+  puanlama:
+  - olcut: (a) Dahil edilen beş kalemin (FOB, navlun, sigorta, satış komisyonu, royalti) doğru belirlenmesi ve dayanakları
+    puan: 5
+  - olcut: (a) Dahil edilmeyen iki kalemin (satın alma komisyonu, giriş sonrası nakliye) ayrılması ve dayanakları
+    puan: 3
+  - olcut: (a) Tescil tarihi kuruyla 8.588.000 TL kıymet
+    puan: 2
+  - olcut: (b) Gümrük vergisinin 858.800 TL hesaplanması
+    puan: 3
+  - olcut: (b) KDV matrahının KDVK md. 21 ile 9.461.800 TL bulunması
+    puan: 4
+  - olcut: (b) KDV'nin 1.892.360 TL hesaplanması
+    puan: 2
+  - olcut: (c) Tescil tarihi kurunun esas alınması ve md. 181/1 – md. 30 dayanakları
+    puan: 6
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 24, 27, 28, 30, 181
+  - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
+    madde: md. 21
+  gecerlilik:
+    baslangic: '2026-10-11'
+    bitis: '2027-10-11'
+  dogrulama:
+    python: 'kiymet_usd = 200000 + 10000 + 3000 + 5000 + 8000
+
+      kur = 38
+
+      kiymet_tl = kiymet_usd * kur
+
+      gumruk_vergisi = kiymet_tl * 10 // 100
+
+      diger = 15000
+
+      kdv_matrahi = kiymet_tl + gumruk_vergisi + diger
+
+      kdv = kdv_matrahi * 20 // 100
+
+      sonuc = {"gumruk_kiymeti_tl": kiymet_tl, "gumruk_vergisi": gumruk_vergisi, "kdv_matrahi": kdv_matrahi, "kdv": kdv}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-DTK-G01
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmpq3sbltp5.yaml, klasik 1
+- id: YMM-DTK-GMR-K003
+  sinav: ymm
+  ders: DTK
+  konu: GMR
+  kazanimlar:
+  - gümrük vergisi ve gümrük kıymeti
+  - menşe
+  zorluk: 2
+  puan: 20
+  sure_dk: 25
+  soru: 'Tekstil Ltd., AB üyesi Almanya''dan kumaş ithal etmektedir. Firma A.TR belgesiyle getirdiği kumaşın gümrük vergisinden
+    muaf olduğunu düşünmektedir. Kumaşın bir kısmı ise Vietnam''da üretilmiş, Almanya''dan sevk edilmiştir.
+
+
+    **İstenenler:**
+
+
+    (a) A.TR belgesinin işlevini ve tercihli menşe belgesi olup olmadığını açıklayınız. (8 puan)
+
+
+    (b) Vietnam menşeli kumaşın Almanya''dan sevk edilmesiyle gümrük vergisinden muaf olup olmayacağını değerlendiriniz. (12
+    puan)
+
+    '
+  cozum: '**(a) A.TR belgesi**
+
+
+    A.TR hareketi belgesi Türkiye–AB Gümrük Birliği (1/95 sayılı Ortaklık Konseyi Kararı) kapsamında, AB''de serbest dolaşımdaki
+    eşyanın bu statüsünü gösteren belgedir. A.TR ile Türkiye''ye gümrüksüz giriş mümkündür.
+
+
+    Ancak A.TR tercihli menşe belgesi değildir; eşyanın AB veya Türkiye menşeli olduğunu değil, AB''deki serbest dolaşım statüsünü
+    belgeler.
+
+
+    **(b) Vietnam menşeli kumaşın değerlendirilmesi**
+
+
+    1. Menşe: Eşyanın Almanya''dan sevk edilmesi menşe kazandırmaz; menşe üretim yerine göre belirlenir (md. 20).
+
+    2. Tercihli tarife: Türkiye''nin Vietnam ile yürürlükte bir STA''sı bulunmamaktadır; tercihli tarife uygulanamaz.
+
+    3. Sonuç: Vietnam menşeli kumaş A.TR belgesi taşısa dahi normal gümrük vergisine tabidir; serbest dolaşım statüsü tek
+    başına gümrüksüz girişe yetmez.
+
+    '
+  puanlama:
+  - olcut: (a) A.TR'nin serbest dolaşım statüsü belgesi olduğunun ve tercihli menşe belgesi olmadığının açıklanması
+    puan: 5
+  - olcut: (a) Gümrük Birliği kapsamında A.TR ile gümrüksüz giriş imkânının belirtilmesi
+    puan: 3
+  - olcut: (b) Sevkiyatın menşe kazandırmadığının md. 20 ile gerekçelenmesi
+    puan: 5
+  - olcut: (b) Türkiye–Vietnam STA'sı bulunmadığından tercihli tarife uygulanamayacağının belirtilmesi
+    puan: 4
+  - olcut: (b) Normal gümrük vergisine tabi olduğunun sonuç olarak ifade edilmesi
+    puan: 3
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 18-22
+  - mevzuat: Türkiye–AB Gümrük Birliği Ortaklık Konseyi Kararı 1/95
+    madde: A.TR belgesi hükümleri
+  gecerlilik:
+    baslangic: '2026-10-11'
+    bitis: '2027-10-11'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-DTK-G01
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmpq3sbltp5.yaml, klasik 2
+- id: YMM-DTK-GMR-K004
+  sinav: ymm
+  ders: DTK
+  konu: GMR
+  kazanimlar:
+  - menşe
+  - gümrük beyanı ve yükümlülükler
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Bir ihracatçı, Türkiye menşeli elektronik ürünlerini EUR.1 dolaşım sertifikasıyla ihraç etmektedir. İthalatçı ülkedeki
+    gümrük idaresi menşe doğrulama prosedürü başlatmıştır.
+
+
+    **İstenenler:**
+
+
+    (a) EUR.1 dolaşım sertifikasının işlevini ve düzenlenmesi için gereken koşulları açıklayınız. (10 puan)
+
+
+    (b) Menşe doğrulama prosedürünün nasıl işlediğini ve ihracatçının hatalı menşe beyanında bulunmasının hukuki sonuçlarını
+    açıklayınız. (15 puan)
+
+    '
+  cozum: '**(a) EUR.1 belgesi**
+
+
+    EUR.1, Türkiye''nin taraf olduğu STA''lar kapsamındaki ticarette tercihli menşei belgeleyen resmi belgedir.
+
+
+    Düzenleme koşulları:
+
+    - Eşya ilgili STA''nın menşe protokolü kurallarını (tamamen elde etme veya yeterli işlem) karşılamalıdır.
+
+    - İhracatçı, gümrük idaresine menşe belgelerini sunarak sertifika talep eder.
+
+    - Gümrük idaresi inceleyerek onaylar (imzalar ve mühürler).
+
+    - İhracat beyannamesine eklenerek ibraz edilir.
+
+
+    **(b) Doğrulama prosedürü ve hukuki sonuçlar**
+
+
+    Prosedür:
+
+    1. İthalatçı ülke gümrük idaresi doğrulama talebi gönderir.
+
+    2. Türk gümrük idaresi ilgili STA''da belirlenen süre içinde (genellikle 6 ay) yanıt verir.
+
+    3. Yanıt gelmezse veya doğrulanamadıysa tercihli tarife reddedilir.
+
+
+    Hatalı beyanın sonuçları:
+
+    - İthalatçı ülkede: tarife farkı, gecikme faizi ve ceza uygulanır.
+
+    - Türkiye''de: md. 234 uyarınca idari para cezası; kasıt ispatlanırsa cezai sorumluluk da doğabilir.
+
+    - EUR.1 iptal edilebilir; onaylı ihracatçı statüsü askıya alınabilir.
+
+    '
+  puanlama:
+  - olcut: (a) EUR.1'in tercihli menşe belgesi olduğunun ve STA kapsamındaki işlevinin açıklanması
+    puan: 4
+  - olcut: (a) Düzenleme koşullarının (menşe protokolü uyumu, gümrük idaresi onayı) sayılması
+    puan: 6
+  - olcut: (b) Doğrulama prosedürünün adımlarının (talep, süre, ret) açıklanması
+    puan: 7
+  - olcut: (b) Her iki ülkedeki yaptırımların belirtilmesi
+    puan: 5
+  - olcut: (b) EUR.1 iptali ve onaylı ihracatçı riski
+    puan: 3
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 16-22, md. 234
+  - mevzuat: STA Menşe Protokolleri
+    madde: EUR.1 hükümleri
+  gecerlilik:
+    baslangic: '2026-10-11'
+    bitis: '2027-10-11'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-DTK-G01
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmpq3sbltp5.yaml, klasik 3
+- id: YMM-DTK-GMR-K005
+  sinav: ymm
+  ders: DTK
+  konu: GMR
+  kazanimlar:
+  - gümrük beyanı ve yükümlülükler
+  - gümrük borcu
+  zorluk: 2
+  puan: 20
+  sure_dk: 25
+  soru: 'Bir ithalatçı, eşya serbest bırakıldıktan sonra gümrük kıymetini 50.000 TL eksik beyan ettiğini fark etmiştir. Gümrük
+    vergisi oranı %8''dir.
+
+
+    **İstenenler:**
+
+
+    (a) Serbest bırakma sonrasında beyan düzeltilebilir mi? Koşullarını açıklayınız. (10 puan)
+
+
+    (b) Noksan vergiyi hesaplayınız; idare tespiti halinde uygulanacak faiz ve cezayı açıklayınız. (10 puan)
+
+    '
+  cozum: '**(a) Serbest bırakma sonrası düzeltme**
+
+
+    Md. 63 uyarınca beyan düzeltmesi; muayeneye başlanmadan ve serbest bırakılmadan önce mümkündür. Eşya serbest bırakıldıktan
+    sonra bu imkân ortadan kalkar.
+
+
+    Sonraki seçenekler:
+
+    - Gönüllü bildirim: Yükümlü eksikliği bildirerek noksan vergiyi ödeyebilir; idare tespitinden önce başvurulursa ceza avantajı
+    sağlanabilir.
+
+    - Sonradan kontrol: Md. 73 uyarınca idare serbest bırakma sonrasında re''sen inceleme yapabilir.
+
+
+    **(b) Vergi, faiz ve ceza**
+
+
+    - Noksan gümrük vergisi = 50.000 × %8 = **4.000 TL**
+
+    - Faiz: Borç tescil tarihinde doğmuştur (md. 181). Tescil tarihinden ödeme tarihine kadar 6183 sayılı Kanun md. 51 uyarınca
+    gecikme zammı oranında hesaplanır (md. 193/3).
+
+    - Ceza: Md. 234 uyarınca noksan verginin iki katı = **8.000 TL**
+
+    - Ödeme süresi: Tebliğden itibaren 15 gün; talep ve teminat ile 30 gün uzatılabilir.
+
+    '
+  puanlama:
+  - olcut: (a) Serbest bırakma sonrası md. 63 imkânının kullanılamayacağının açıklanması
+    puan: 4
+  - olcut: (a) Gönüllü bildirim ve sonradan kontrol yollarının açıklanması
+    puan: 6
+  - olcut: (b) 4.000 TL noksan verginin hesaplanması
+    puan: 3
+  - olcut: (b) Md. 193/3 ve 6183 md. 51 uyarınca faizin açıklanması
+    puan: 4
+  - olcut: (b) Cezanın 8.000 TL (iki kat) olarak hesaplanması ve md. 234 dayanağı
+    puan: 3
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 63, 73, 181, 193/3, 198, 234
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 51
+  gecerlilik:
+    baslangic: '2026-10-11'
+    bitis: '2027-10-11'
+  dogrulama:
+    python: 'noksan_kiymet = 50000
+
+      gumruk_vergisi_orani = 8
+
+      noksan_vergi = noksan_kiymet * gumruk_vergisi_orani // 100
+
+      ceza = noksan_vergi * 2
+
+      sonuc = {"noksan_gumruk_vergisi": noksan_vergi, "idari_para_cezasi": ceza}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude'
+    istem_surumu: uretici paketi YMM-DTK-G01
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-13'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-13'
+    kim: uretici
+    ne: harici teslim tmpq3sbltp5.yaml, klasik 4
