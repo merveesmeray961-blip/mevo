@@ -1057,7 +1057,7 @@
   gecerlilik:
     baslangic: '1990-01-02'
     bitis: null
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1068,11 +1068,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 4, seviye 2
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpabbufunn.yaml, klasik 2
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DRM-YMM-K007
   sinav: ymm
   ders: DRM
@@ -1207,7 +1213,7 @@
       kredi_ucret = nispi - indirim
 
       sonuc = {"kist_ucret": kist, "kredi_indirim": indirim, "kredi_ucret": kredi_ucret, "kdv_iade_ucret": 15000}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1218,11 +1224,24 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: 'Olayda çelişki: şirket 12.03.2026''da faaliyete başlamış, ancak Ocak ve Şubat 2026 KDV iade talepleri soruluyor.
+          Ayrıca verilen KDV iade tasdik ücreti 15.000 TL, 2026 tarifesindeki KDV/ÖTV iade tasdiki asgari ücreti 17.005 TL''nin
+          altında (tarifeye aykırı); ''tek dönem esas alınır'' kuralı üç dönemin iade tutarlarının birleştirilip tek dönem
+          gibi nispi tarifeye tabi tutulması anlamına gelir, tek ayın ücretini almak değil. (a) 90.000 TL ve (b) 140.000 TL
+          doğru.'
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpabbufunn.yaml, klasik 3
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Olayda çelişki: şirket 12.03.2026''da faaliyete başlamış, ancak Ocak ve Şubat 2026 KDV iade talepleri soruluyor.
+      Ayrıca verilen KDV iade tasdik ücreti 15.000 TL, 2026 tarifesindeki KDV/ÖTV iade tasdiki asgari ücreti 17.005 TL''nin
+      altında (tarifeye aykırı); ''tek dönem esas alınır'' kuralı üç dönemin iade tutarlarının birleştirilip tek dönem gibi
+      nispi tarifeye tabi tutulması anlamına gelir, tek ayın ücretini almak değil. (a) 90.000 TL ve (b) 140.000 TL doğru.'
 - id: YMM-DRM-YMM-K008
   sinav: ymm
   ders: DRM
@@ -1348,7 +1367,7 @@
       kararlastirilan = 40000
 
       sonuc = {"ucret_eksigi": asgari - kararlastirilan}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1359,8 +1378,22 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: '(a) eksik: Çalışma Usul ve Esasları Yön. md.51 yalnızca tasdike bağlılığın belirtilmesini değil, sözleşmede
+          asgari unsurları da (hesaplanan insan/saat, denetimin yapılacağı yerler, denetim kapsamına alınacak süre/dönem,
+          başlama-bitiş tarihleri, rapor teslim tarihi, görev alacak elemanlar) zorunlu tutar; olaydaki sözleşmede bunlar
+          da yok, örnek çözüm ve puanlama bunları kapsamıyor. (c)''de md.51/1''deki ''bilgi formu ile bir ay içinde odaya
+          bildirim'' süresi de belirtilmeli. (b) 12.000 TL ve (d) doğru.'
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpabbufunn.yaml, klasik 4
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: '(a) eksik: Çalışma Usul ve Esasları Yön. md.51 yalnızca tasdike bağlılığın belirtilmesini değil, sözleşmede asgari
+      unsurları da (hesaplanan insan/saat, denetimin yapılacağı yerler, denetim kapsamına alınacak süre/dönem, başlama-bitiş
+      tarihleri, rapor teslim tarihi, görev alacak elemanlar) zorunlu tutar; olaydaki sözleşmede bunlar da yok, örnek çözüm
+      ve puanlama bunları kapsamıyor. (c)''de md.51/1''deki ''bilgi formu ile bir ay içinde odaya bildirim'' süresi de belirtilmeli.
+      (b) 12.000 TL ve (d) doğru.'
