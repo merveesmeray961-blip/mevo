@@ -320,7 +320,7 @@
       sonuc = {"gumruk_kiymeti_tl": kiymet_tl, "gumruk_vergisi": gumruk_vergisi, "kdv_matrahi": kdv_matrahi, "kdv": kdv}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -331,11 +331,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 4, seviye 2
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpq3sbltp5.yaml, klasik 1
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-GMR-K003
   sinav: ymm
   ders: DTK
@@ -401,7 +407,7 @@
   gecerlilik:
     baslangic: '2026-10-11'
     bitis: '2027-10-11'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -412,11 +418,23 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: 'Çözüm Gümrük Birliği serbest dolaşım ilkesini yanlış uyguluyor: AB''de serbest dolaşımdaki üçüncü ülke menşeli
+          sanayi ürünü A.TR ile gümrük vergisinden muaf girer (ek gümrük vergisi/ticaret politikası önlemleri ayrıca değerlendirilir).
+          Kökte Vietnam kumaşının AB''de serbest dolaşıma girip girmediği belirtilmemiş; ''normal gümrük vergisi'' sonucu
+          hatalı. Menşe dayanağı md.20 değil md.19.'
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpq3sbltp5.yaml, klasik 2
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Çözüm Gümrük Birliği serbest dolaşım ilkesini yanlış uyguluyor: AB''de serbest dolaşımdaki üçüncü ülke menşeli
+      sanayi ürünü A.TR ile gümrük vergisinden muaf girer (ek gümrük vergisi/ticaret politikası önlemleri ayrıca değerlendirilir).
+      Kökte Vietnam kumaşının AB''de serbest dolaşıma girip girmediği belirtilmemiş; ''normal gümrük vergisi'' sonucu hatalı.
+      Menşe dayanağı md.20 değil md.19.'
 - id: YMM-DTK-GMR-K004
   sinav: ymm
   ders: DTK
@@ -498,7 +516,7 @@
   gecerlilik:
     baslangic: '2026-10-11'
     bitis: '2027-10-11'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -509,11 +527,19 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: md.234 ithalat beyanındaki kıymet/tarife farkı cezasıdır, hatalı EUR.1/menşe beyanına uygulanamaz. Doğrulama
+          yanıt süresi menşe protokollerinde genellikle 10 ay (6 ay değil). Kök veri içermiyor, puanlama ölçütleri muğlak.
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpq3sbltp5.yaml, klasik 3
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: md.234 ithalat beyanındaki kıymet/tarife farkı cezasıdır, hatalı EUR.1/menşe beyanına uygulanamaz. Doğrulama yanıt
+      süresi menşe protokollerinde genellikle 10 ay (6 ay değil). Kök veri içermiyor, puanlama ölçütleri muğlak.
 - id: YMM-DTK-GMR-K005
   sinav: ymm
   ders: DTK
@@ -596,7 +622,7 @@
       sonuc = {"noksan_gumruk_vergisi": noksan_vergi, "idari_para_cezasi": ceza}
 
       '
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -607,8 +633,18 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: 'Ceza hatalı: md.234/1-b noksan kıymet beyanında vergi farkının üç katı = 12.000 TL (iki kat 8.000 değil); idare
+          tespitinden önce bildirimde md.234/3 uyarınca %10 nispetinde = 1.200 TL. İthalde KDV farkı (ve KDV oranı) ihmal
+          edilmiş; ''muayeneye başlanmadan'' ifadesi md.63/a lafzına (''muayene edileceğinin bildirilmesi'') uymuyor.'
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpq3sbltp5.yaml, klasik 4
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Ceza hatalı: md.234/1-b noksan kıymet beyanında vergi farkının üç katı = 12.000 TL (iki kat 8.000 değil); idare
+      tespitinden önce bildirimde md.234/3 uyarınca %10 nispetinde = 1.200 TL. İthalde KDV farkı (ve KDV oranı) ihmal edilmiş;
+      ''muayeneye başlanmadan'' ifadesi md.63/a lafzına (''muayene edileceğinin bildirilmesi'') uymuyor.'
