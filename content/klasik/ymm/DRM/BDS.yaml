@@ -421,7 +421,7 @@
       onceki = 0\nfor i in [0, 1, 2, 3, 4]:\n    if degisiklik[i] == 1 or ciddi[i] == 1 or yil[i] < 2023:\n        cari_test\
       \ = cari_test + 1\n    else:\n        onceki = onceki + 1\nsonuc = {\"cari_donemde_test\": cari_test, \"onceki_kanita_dayanilabilir\"\
       : onceki}"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -432,11 +432,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 4, seviye 3
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmp9582m68r.yaml, klasik 1
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DRM-BDS-K003
   sinav: ymm
   ders: DRM
@@ -562,7 +568,7 @@
       asan = fark - 1500000
 
       sonuc = {"beklenen_hasilat": beklenen, "fark": fark, "kabul_edilebilir_farki_asan": asan}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -573,11 +579,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 4, seviye 2
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmp9582m68r.yaml, klasik 2
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DRM-BDS-K004
   sinav: ymm
   ders: DRM
@@ -732,7 +744,7 @@
       fark = kayit - beklenen
 
       sonuc = {"beklenen_stok": beklenen, "fark": fark}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -743,11 +755,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 4, seviye 2
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmp9582m68r.yaml, klasik 3
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DRM-BDS-K005
   sinav: ymm
   ders: DRM
@@ -895,7 +913,7 @@
       \ -900000, -1500000, 2300000, -1100000, 600000]:\n    nakit = nakit + f\n    if nakit < en_dusuk_avans:\n        en_dusuk_avans\
       \ = nakit\nsonuc = {\"en_dusuk_nakit_avanssiz\": en_dusuk, \"ilk_negatif_ay\": ilk_negatif, \"en_dusuk_nakit_avansli\"\
       : en_dusuk_avans}"
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -906,11 +924,25 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: Hesaplar doğru (avanssız en düşük -1.400.000 TL Mayıs, ilk negatif Mart; avanslı en düşük -600.000 TL Mart).
+          Ancak (c) puanlamasındaki 'tutarsız cevapların araştırılması (BDS 240 par.15)' ölçütü (2 puan) olayda hiçbir tutarsız
+          cevap bulunmadığından olaya dayanmıyor; aday bunu yazmak için gerekçe bulamaz. Bu 2 puan, kovenant ihlali karşısında
+          bankadan feragat/teyit alınması ya da işe ilişkin gerekçesiz yöntem değişikliğinin yönetimle sorgulanması ve üst
+          yönetimden sorumlulara iletilmesi gibi olaya özgü bir ölçüte bağlanmalı.
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmp9582m68r.yaml, klasik 4
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: Hesaplar doğru (avanssız en düşük -1.400.000 TL Mayıs, ilk negatif Mart; avanslı en düşük -600.000 TL Mart). Ancak
+      (c) puanlamasındaki 'tutarsız cevapların araştırılması (BDS 240 par.15)' ölçütü (2 puan) olayda hiçbir tutarsız cevap
+      bulunmadığından olaya dayanmıyor; aday bunu yazmak için gerekçe bulamaz. Bu 2 puan, kovenant ihlali karşısında bankadan
+      feragat/teyit alınması ya da işe ilişkin gerekçesiz yöntem değişikliğinin yönetimle sorgulanması ve üst yönetimden sorumlulara
+      iletilmesi gibi olaya özgü bir ölçüte bağlanmalı.
 - id: YMM-DRM-BDS-K006
   sinav: ymm
   ders: DRM
@@ -1060,7 +1092,7 @@
   gecerlilik:
     baslangic: '2023-12-31'
     bitis: null
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1071,11 +1103,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpsl9nzc40.yaml, klasik 1
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DRM-BDS-K007
   sinav: ymm
   ders: DRM
@@ -1213,7 +1251,7 @@
   gecerlilik:
     baslangic: '2023-12-31'
     bitis: null
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1224,11 +1262,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 4, seviye 2
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpsl9nzc40.yaml, klasik 2
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DRM-BDS-K008
   sinav: ymm
   ders: DRM
@@ -1410,7 +1454,7 @@
 
       sonuc = {"teyit_kapsam_orani": teyit_gonderilen / toplam_alacak * 100, "yanit_veren_orani": yanit_veren / toplam_alacak
       * 100, "yanitsiz_orani": yanitsiz / teyit_gonderilen * 100}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1421,11 +1465,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 4, seviye 3
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpsl9nzc40.yaml, klasik 3
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DRM-BDS-K009
   sinav: ymm
   ders: DRM
@@ -1584,7 +1634,7 @@
   gecerlilik:
     baslangic: '2023-12-31'
     bitis: null
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1595,11 +1645,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpsl9nzc40.yaml, klasik 4
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DRM-BDS-K010
   sinav: ymm
   ders: DRM
