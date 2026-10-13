@@ -123,19 +123,19 @@
   secenekler:
     A: Borçların toplamından varlıkların toplamı çıkarılarak
     B: Varlıkların toplamı ile borçların toplamı toplanarak
-    C: Varlıkların toplamından borçların toplamı düşülerek
+    C: Varlıkların piyasa değerleri dikkate alınmaksızın nominal değerler toplanarak
     D: Yalnızca çıkarılmış sermaye tutarı esas alınarak
-    E: Varlıkların piyasa değerleri dikkate alınmaksızın nominal değerler toplanarak
-  dogru: C
+    E: Varlıkların toplamından borçların toplamı düşülerek
+  dogru: E
   aciklama:
     dogru_neden: SPKn md. 50/1'e göre değişken sermayeli yatırım ortaklığının sermayesi her zaman net aktif değerine
       eşittir ve net aktif değer varlıkların toplamından borçların toplamının düşülmesiyle bulunur.
     celdiriciler:
       A: İşlem yönü ters çevrilmiştir; borçlar varlıklardan değil varlıklar borçlardan düşülür.
       B: Borçlar düşülür; toplama yapılmaz.
-      D: Net aktif değer yalnız çıkarılmış sermayeye eşitlenerek hesaplanmaz.
-      E: Kaynak hüküm hesaplamayı varlık toplamı ile borç toplamının farkı olarak tanımlar; nominal değerlerin toplanmasını
+      C: Kaynak hüküm hesaplamayı varlık toplamı ile borç toplamının farkı olarak tanımlar; nominal değerlerin toplanmasını
         öngörmez.
+      D: Net aktif değer yalnız çıkarılmış sermayeye eşitlenerek hesaplanmaz.
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 50/1
@@ -189,6 +189,9 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
 - id: SMMM-SPK-KYK-0006
   sinav: smmm
   bolum:
@@ -372,11 +375,11 @@
     A: Fon mal varlığı ayrı olmakla birlikte, portföy saklama hizmetini yürüten kuruluşun borçları için haczedilebilir.
     B: Fon mal varlığı şirket borçları için haczedilebilir; ancak hiçbir durumda teminat gösterilemez.
     C: Fon mal varlığı şirket mal varlığından ayrı değildir; yalnızca kamu alacakları için haczedilemez.
-    D: Fon mal varlığı şirket borcu için haczedilemez, ancak fon hesabına kredi alınması için içtüzükte hüküm bulunsa
-      bile teminat gösterilemez.
-    E: Fon mal varlığı, portföy yönetim şirketinin mal varlığından ayrıdır; şirket borcu için haczedilemez ve belirtilen
+    D: Fon mal varlığı, portföy yönetim şirketinin mal varlığından ayrıdır; şirket borcu için haczedilemez ve belirtilen
       şartlar altında fon hesabına kredi alma işlemi için teminat gösterilebilir.
-  dogru: E
+    E: Fon mal varlığı şirket borcu için haczedilemez, ancak fon hesabına kredi alınması için içtüzükte hüküm bulunsa
+      bile teminat gösterilemez.
+  dogru: D
   aciklama:
     dogru_neden: 'SPKn md. 53/1 fon mal varlığını portföy yönetim şirketi ve portföy saklama kuruluşunun mal varlığından
       ayırır. Md. 53/2, fon hesabına olması ve içtüzükte hüküm bulunması şartıyla kredi alma gibi sayılan işlemler
@@ -389,7 +392,7 @@
         'hiçbir durumda' ifadesi yanlıştır.
       C: md. 53/1 fon mal varlığının hem portföy yönetim şirketinden hem portföy saklama kuruluşundan ayrı olduğunu
         söyler; kamu alacağına özgü bir ayrım yapmaz.
-      D: İçtüzükte hüküm ve fon hesabına olma şartları mevcutsa kredi alma işlemi istisna kapsamındadır.
+      E: İçtüzükte hüküm ve fon hesabına olma şartları mevcutsa kredi alma işlemi istisna kapsamındadır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
@@ -453,6 +456,9 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
 - id: SMMM-SPK-KYK-0009
   sinav: smmm
   bolum:
@@ -645,23 +651,23 @@
   kok: 6362 sayılı Sermaye Piyasası Kanunu'na göre yatırım ortaklıkları hangi amaçla kurulan ve hangi hukuki türdeki
     ortaklıklardır?
   secenekler:
-    A: Paylarını ihraç etmek üzere, belirli portföyleri işletmek amacıyla kurulan sabit veya değişken sermayeli
-      anonim ortaklıklardır.
+    A: Müşteri emirlerini karşı taraf olarak gerçekleştirmek üzere kurulan adi ortaklıklardır.
     B: Yalnızca devlet tahvili portföyü işletmek amacıyla kurulan limited şirketlerdir.
     C: Yalnızca gayrimenkul işletmek üzere kurulan kooperatiflerdir.
     D: Sadece yatırım danışmanlığı sunmak üzere kurulan sermayesiz kuruluşlardır.
-    E: Müşteri emirlerini karşı taraf olarak gerçekleştirmek üzere kurulan adi ortaklıklardır.
-  dogru: A
+    E: Paylarını ihraç etmek üzere, belirli portföyleri işletmek amacıyla kurulan sabit veya değişken sermayeli
+      anonim ortaklıklardır.
+  dogru: E
   aciklama:
     dogru_neden: 6362 sayılı Kanun md. 48/1'e göre yatırım ortaklıkları; sermaye piyasası araçları, gayrimenkul,
       girişim sermayesi yatırımları ile Kurulca belirlenecek diğer varlık ve haklardan oluşan portföyleri işletmek
       amacıyla, paylarını ihraç etmek üzere kurulan sabit veya değişken sermayeli anonim ortaklıklardır.
     celdiriciler:
+      A: Karşı taraf olarak müşteri emirlerini yerine getirmek portföy aracılığı faaliyetinin tanımıdır; yatırım
+        ortaklığının hukuki tanımı değildir.
       B: Kanun yatırım ortaklıklarını yalnız devlet tahviliyle veya limited şirket olarak tanımlamaz.
       C: Yatırım ortaklıkları anonim ortaklıklardır ve faaliyet konusu yalnız gayrimenkulle sınırlı değildir.
       D: Yatırım ortaklıklarının sermaye yapısı ve amacı md. 48/1'de farklı düzenlenmiştir.
-      E: Karşı taraf olarak müşteri emirlerini yerine getirmek portföy aracılığı faaliyetinin tanımıdır; yatırım
-        ortaklığının hukuki tanımı değildir.
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 48/1
@@ -713,6 +719,9 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
 - id: SMMM-SPK-KYK-0012
   sinav: smmm
   bolum:
@@ -890,21 +899,21 @@
     Aşağıdakilerden hangisi portföy saklama hizmetinin kapsamındadır?
   secenekler:
     A: Yalnızca kuruluşun vergi beyannamesini hazırlamak
-    B: Yatırım fonlarında katılma paylarının ihraç ve itfa işlemlerinin mevzuata ve fon iç tüzüğüne uygunluğunu
-      gözetmek
+    B: Yalnızca reklam faaliyetlerini denetlemek
     C: Yalnızca yatırımcıların vergi borçlarını ödemek
     D: Yalnızca genel kurul toplantılarını yönetmek
-    E: Yalnızca reklam faaliyetlerini denetlemek
-  dogru: B
+    E: Yatırım fonlarında katılma paylarının ihraç ve itfa işlemlerinin mevzuata ve fon iç tüzüğüne uygunluğunu
+      gözetmek
+  dogru: E
   aciklama:
     dogru_neden: md. 56/1-a'ya göre portföy saklama hizmeti, yatırım fonları hesabına katılma paylarının ihraç ve
       itfa edilmesi işlemlerinin mevzuat ve fon iç tüzüğü hükümlerine uygunluğunun sağlanmasını içerir. Aynı madde
       saklama hizmetinin varlıkların ayrı hesapta saklanmasını ve başka uygunluk kontrollerini de kapsadığını düzenler.
     celdiriciler:
       A: Vergi beyannamesi hazırlama md. 56'da sayılan görev değildir.
+      B: Reklam denetimi saklama hizmetinin sayılan unsurlarından değildir.
       C: Yatırımcıların vergi borçlarının ödenmesi saklama hizmetinin kapsamında değildir.
       D: Genel kurul yönetimi md. 56/1'de sayılan saklama görevlerinden değildir.
-      E: Reklam denetimi saklama hizmetinin sayılan unsurlarından değildir.
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 56/1-a
@@ -954,6 +963,9 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
 - id: SMMM-SPK-KYK-0015
   sinav: smmm
   bolum:
@@ -966,18 +978,18 @@
   zorluk: 2
   kok: Değişken sermayeli yatırım ortaklığına ilişkin aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: Sermayesi her zaman esas sermaye tutarına eşit olan ortaklıktır.
-    B: Sermayesi her zaman net aktif değerine eşit olan yatırım ortaklığıdır.
+    A: Sermayesi her zaman net aktif değerine eşit olan yatırım ortaklığıdır.
+    B: Sermayesi her zaman esas sermaye tutarına eşit olan ortaklıktır.
     C: Yatırımcı payları sahibine idari haklar verir.
     D: Paylarının itibari değeri bulunur ve yalnızca kurucu paylarından oluşur.
     E: Pay sahibi talep etse dahi paylarını itfa etme yükümlülüğü bulunmaz.
-  dogru: B
+  dogru: A
   aciklama:
     dogru_neden: SPKn md. 50/1'e göre değişken sermayeli yatırım ortaklıkları, sermayesi her zaman net aktif değerine
       eşit olan yatırım ortaklıklarıdır. Net aktif değer varlıkların toplamından borçların toplamının düşülmesiyle
       bulunur.
     celdiriciler:
-      A: Md. 50/1 esas sermaye yerine net aktif değeri esas alır.
+      B: Md. 50/1 esas sermaye yerine net aktif değeri esas alır.
       C: Md. 50/2'ye göre yatırımcı payları sahibine idari haklar vermez.
       D: Md. 50/2'ye göre paylar yatırımcı payları ile nama yazılı kurucu paylarından oluşur ve yatırımcı paylarının
         itibari değeri bulunmaz.
@@ -1045,6 +1057,9 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
 - id: SMMM-SPK-KYK-0016
   sinav: smmm
   bolum:
@@ -1150,20 +1165,20 @@
   zorluk: 2
   kok: Bir yatırım fonunun portföyündeki varlıkların saklanmasına ilişkin aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: Fon portföyündeki varlıkların saklanması isteğe bağlıdır.
+    A: Fon portföyündeki varlıkların, Kurulun portföy saklama hizmetine ilişkin düzenlemeleri çerçevesinde saklanması
+      zorunludur.
     B: Fon portföyündeki varlıklar yalnızca kurucunun malvarlığı içinde izlenir.
     C: Fon portföyündeki varlıkların saklanması yalnızca genel kurul kararıyla mümkündür.
-    D: Fon portföyündeki varlıkların, Kurulun portföy saklama hizmetine ilişkin düzenlemeleri çerçevesinde saklanması
-      zorunludur.
+    D: Fon portföyündeki varlıkların saklanması isteğe bağlıdır.
     E: Fon portföyündeki varlıkların saklanması sadece fon tasfiye edilirken zorunludur.
-  dogru: D
+  dogru: A
   aciklama:
     dogru_neden: III-52.1 sayılı Tebliğ md. 5/3'e göre fon portföyündeki varlıkların, Kurulun portföy saklama hizmetine
       ilişkin düzenlemeleri çerçevesinde saklanması zorunludur.
     celdiriciler:
-      A: Md. 5/3 saklamayı zorunlu kılar.
       B: Md. 5/1 fon malvarlığının kurucunun ve portföy saklayıcısının malvarlığından ayrı olduğunu düzenler.
       C: Saklama için genel kurul kararı şartı md. 5/3'te öngörülmemiştir.
+      D: Md. 5/3 saklamayı zorunlu kılar.
       E: Saklama yükümlülüğü tasfiye dönemiyle sınırlı değildir.
   kaynaklar:
   - mevzuat: Yatırım Fonlarına İlişkin Esaslar Tebliği (III-52.1)
@@ -1215,6 +1230,9 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
 - id: SMMM-SPK-KYK-0018
   sinav: smmm
   bolum:
@@ -1229,12 +1247,12 @@
     gündeme gelmiştir. Tebliğ hükümleri birlikte değerlendirildiğinde aşağıdakilerden hangisi doğrudur?
   secenekler:
     A: Şemsiye fona bağlı fonların tüm varlık ve yükümlülükleri ortak kabul edildiğinden kullanım mümkündür.
-    B: Her bir fonun tüm varlık ve yükümlülükleri birbirinden ayrıdır; fon malvarlığı da kurucunun ve portföy saklayıcısının
+    B: Yalnızca kurucunun onayı alınırsa bir fonun malvarlığı diğer fonun borcu için kullanılabilir.
+    C: Her bir fonun tüm varlık ve yükümlülükleri birbirinden ayrıdır; fon malvarlığı da kurucunun ve portföy saklayıcısının
       malvarlığından ayrıdır.
-    C: Yalnızca kurucunun onayı alınırsa bir fonun malvarlığı diğer fonun borcu için kullanılabilir.
     D: Fon malvarlığının ayrılığı yalnızca borsada işlem gören fonlar için geçerlidir.
     E: Portföy saklayıcısının malvarlığı ile fon malvarlığı arasında ayrım yapılmaz.
-  dogru: B
+  dogru: C
   aciklama:
     dogru_neden: 'Yatırım Fonlarına İlişkin Esaslar Tebliği md. 3 ve 4 çerçevesinde şemsiye fona bağlı her bir fonun
       tüm varlık ve yükümlülükleri birbirinden ayrıdır; md. 5/1 de fon malvarlığının kurucunun ve portföy saklayıcısının
@@ -1243,7 +1261,7 @@
     celdiriciler:
       A: md. 4/1-a, bağlı fonların varlık ve yükümlülüklerinin birbirinden ayrı olduğunu söyler; ortak bir malvarlığı
         kabul edilmez.
-      C: Kurucu onayı, Tebliğdeki malvarlığı ayrılığı kuralını ortadan kaldırmaz.
+      B: Kurucu onayı, Tebliğdeki malvarlığı ayrılığı kuralını ortadan kaldırmaz.
       D: Ayrılık kuralı belirli bir işlem gören fon grubuyla sınırlanmamıştır.
       E: md. 5/1, fon malvarlığını kurucunun ve portföy saklayıcısının malvarlığından açıkça ayırır.
   kaynaklar:
@@ -1298,6 +1316,9 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → C (metinler yer değiştirdi).'
 - id: SMMM-SPK-KYK-0019
   sinav: smmm
   bolum:
@@ -1311,22 +1332,22 @@
   kok: Bir yatırım fonunun portföyündeki sermaye piyasası araçlarının saklanmasına ilişkin olarak aşağıdakilerden
     hangisi doğrudur?
   secenekler:
-    A: Fon portföyündeki varlıkların, Kurulun portföy saklama hizmetine ilişkin düzenlemeleri çerçevesinde saklanması
-      zorunludur.
+    A: Saklama yükümlülüğü yalnızca şemsiye fonun kurucusuna aittir ve düzenlemeler uygulanmaz.
     B: Portföydeki varlıkların yalnızca nakit kısmının saklanması zorunludur.
     C: Portföydeki varlıkların saklanması zorunlu değildir; kurucu dilerse saklama hizmeti alır.
     D: Varlıkların saklanması yalnızca fon tasfiyeye girerse zorunlu hâle gelir.
-    E: Saklama yükümlülüğü yalnızca şemsiye fonun kurucusuna aittir ve düzenlemeler uygulanmaz.
-  dogru: A
+    E: Fon portföyündeki varlıkların, Kurulun portföy saklama hizmetine ilişkin düzenlemeleri çerçevesinde saklanması
+      zorunludur.
+  dogru: E
   aciklama:
     dogru_neden: Yatırım Fonlarına İlişkin Esaslar Tebliği md. 5/3, fon portföyündeki varlıkların Kurulun portföy
       saklama hizmetine ilişkin düzenlemeleri çerçevesinde saklanmasını zorunlu tutar.
     celdiriciler:
+      A: Saklama, Kurulun portföy saklama hizmetine ilişkin düzenlemeleri çerçevesinde yürütülür; yalnızca kurucunun
+        tercihi değildir.
       B: Hüküm yalnızca nakdi değil, fon portföyündeki varlıkların tamamını ifade eder.
       C: Tebliğ açıkça saklamayı zorunlu tutar; isteğe bağlı bir hizmet değildir.
       D: Saklama yükümlülüğü tasfiye şartına bağlanmamıştır.
-      E: Saklama, Kurulun portföy saklama hizmetine ilişkin düzenlemeleri çerçevesinde yürütülür; yalnızca kurucunun
-        tercihi değildir.
   kaynaklar:
   - mevzuat: Yatırım Fonlarına İlişkin Esaslar Tebliği (III-52.1)
     madde: md. 5/3
@@ -1377,6 +1398,9 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
 - id: SMMM-SPK-KYK-0020
   sinav: smmm
   bolum:
@@ -1390,20 +1414,20 @@
   kok: Bir yatırım fonunun malvarlığının fon kurucusunun borçları nedeniyle haczedilmesi istenmektedir. Yatırım
     Fonlarına İlişkin Esaslar Tebliği'ne göre aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Fon malvarlığı kurucunun malvarlığıyla birlikte değerlendirilir ve kamu alacağı için haczedilebilir.
-    B: Fon malvarlığı yalnızca kurucunun onayıyla haczedilebilir.
-    C: Fon malvarlığı, kurucunun ve portföy saklayıcısının malvarlığından ayrıdır; kamu alacaklarının tahsili amacı
+    A: Fon malvarlığı, kurucunun ve portföy saklayıcısının malvarlığından ayrıdır; kamu alacaklarının tahsili amacı
       da dahil olmak üzere haczedilemez.
+    B: Fon malvarlığı yalnızca kurucunun onayıyla haczedilebilir.
+    C: Fon malvarlığı kurucunun malvarlığıyla birlikte değerlendirilir ve kamu alacağı için haczedilebilir.
     D: Fon malvarlığı sadece özel hukuk alacakları için haczedilebilir.
     E: Fon malvarlığı ayrıdır; ancak portföy saklayıcısının borçları için haczedilebilir.
-  dogru: C
+  dogru: A
   aciklama:
     dogru_neden: Yatırım Fonlarına İlişkin Esaslar Tebliği md. 5/1 fon malvarlığının kurucunun ve portföy saklayıcısının
       malvarlığından ayrı olduğunu; md. 5/4 ise fon malvarlığının, belirtilen sınırlı işlemler dışında teminat gösterilemeyeceğini
       ve kamu alacaklarının tahsili amacı da dahil olmak üzere haczedilemeyeceğini düzenler.
     celdiriciler:
-      A: Tebliğ fon malvarlığını kurucudan ayırır ve kamu alacağı için dahi haczedilemeyeceğini düzenler.
       B: Kurucunun onayı, Tebliğdeki haczedilmezlik kuralını kaldırmaz.
+      C: Tebliğ fon malvarlığını kurucudan ayırır ve kamu alacağı için dahi haczedilemeyeceğini düzenler.
       D: Haczedilemezlik kamu alacaklarını da kapsayacak biçimde düzenlenmiştir.
       E: Fon malvarlığı portföy saklayıcısının malvarlığından da ayrıdır ve saklayıcının borcu nedeniyle haczedilemez.
   kaynaklar:
@@ -1460,3 +1484,6 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → A (metinler yer değiştirdi).'

@@ -1,4 +1,4 @@
-# Yeni oturum için devir notu (2026-10-11)
+# Yeni oturum için devir notu (2026-10-13)
 
 Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden devam et."**
 
@@ -24,8 +24,8 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
 | SMMM soru bankası | 3364 kontrolde (uygulamada 3362), 411 geri çekildi, 72 taslak |
 | Konu anlatımı | **69/69 konu** tamam (`content/anlatim/smmm/<DERS>/<KONU>.md`), baş editör revizyonu yapıldı; kayıt `docs/denetim/2026-10-11_anlatim_revizyon.json` (266 düzeltme) |
 | YMM altyapısı | Uygulamada YMM bölümü, klasik soru çalışma/deneme/öz puanlama hazır; `content/sinavlar/ymm.yaml` içinde `yayinda: true` yapılınca pakete girer (şu an kapalı). Klasik soru: şema `content/schema/klasik.schema.json`, kayıtlar `content/klasik/ymm/`, hat `python -m pipeline.klasik al|denetle` |
-| YMM soruları | 1433 geldi; kitap düzeyi hakem sonrası **291 kontrolde**, 1142 geri çekildi (`docs/denetim/2026-10-11_ymm_hakem.json`). Kabul edilenlerde zor seviye yok → YMM bölümü uygulamaya **eklenmedi** |
-| Uygulama | Sürüm 1.0.5+6, 310 Flutter + 67 Python testi geçiyor, APK/AAB derleniyor |
+| YMM soruları | Dış teslimlerin hepsi hakemden geçti (57 parti, 2026-10-13): **1485 test kontrolde** (DRM 274, YNM 246, FYN 217, IFM 159, SPM 140, DTK 126, VTK 103, HSV 89, GUV 82, REV 49), 2444 geri çekildi, taslak 0. Pakette 80 klasik. Dış teslim klasiklerinin neredeyse hepsi elendi (yanlış madde/hesap kodu). Zayıf dersler: REV, GUV, HSV → yeni görev gerekir. FYN/YNM hakemleri hızlı: örnek elle denetlenmeli |
+| Uygulama | Sürüm 1.0.7+8, 315 Flutter + 77 Python testi geçiyor. Paket: 4849 soru + 80 klasik (YMM yayında) |
 | Mağaza görselleri | `docs/magaza/gorseller/` hazır |
 
 ## Dış üretici hattı (YMM, 2026-10-11 kullanıcı kararı: üretim ChatGPT/Gemini/Grok'a, biz ön eleme + hakem)

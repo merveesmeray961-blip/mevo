@@ -178,6 +178,8 @@ def kaynaklari_derle(sorular: list[dict], tam_metin_getir=tam_metin_getir) -> li
                         g["baslik"] = baslik
                 except (KeyError, FileNotFoundError):
                     pass  # metin dosyası yok / madde bulunamadı: yalnız alıntı gösterilir
+        if not g["alintilar"] and "tam_metin" not in g:
+            continue  # gösterilecek metin yok: atıf sorunun kaynaklarında kalır
         sonuc.append(g)
 
     sira = {"kanun": 0, "yonetmelik": 1, "teblig": 2, "standart": 3, "diger": 4}

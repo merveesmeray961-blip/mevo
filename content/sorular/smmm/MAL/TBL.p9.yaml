@@ -692,19 +692,19 @@
 
     '
   secenekler:
-    A: 1. yıl sonundaki stoklar 2. yılın başlangıç stoklarıdır.
+    A: İki dönemin üretim maliyetleri birbirinden bağımsızdır ve stok bağlantısı yoktur.
     B: Dönem başı yarı mamul stoku üretim maliyetine eklenir.
     C: Dönem sonu mamul stoku satılan mamul maliyetinden düşülür.
-    D: İki dönemin üretim maliyetleri birbirinden bağımsızdır ve stok bağlantısı yoktur.
+    D: 1. yıl sonundaki stoklar 2. yılın başlangıç stoklarıdır.
     E: Dönem başı mamul stoku satılan mamul maliyetine eklenir.
-  dogru: D
+  dogru: A
   aciklama:
     dogru_neden: 'Zincirleme dönemlerde stoklar bir dönemden diğerine aktarılır; üretim maliyetleri stok bağlantısıyla
       ilişkilidir. D ifadesi yanlıştır. Püf noktaları: Stok sürekliliği zincirleme tabloların temelidir.'
     celdiriciler:
-      A: Stok aktarımı doğrudur.
       B: Yarı mamul stok değişimi üretim maliyetini etkiler, doğrudur.
       C: Mamul stok değişimi satılan maliyeti etkiler, doğrudur.
+      D: Stok aktarımı doğrudur.
       E: Dönem başı mamul eklenmesi doğrudur.
   kaynaklar:
   - mevzuat: MSUGT Mali Tabloların Düzenlenmesi
@@ -755,6 +755,9 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
 - id: SMMM-MAL-TBL-0049
   sinav: smmm
   bolum:
@@ -771,23 +774,23 @@
 
     '
   secenekler:
-    A: Üretim maliyeti = DİMM + Dİ + GÜG; satılan mamul maliyeti = üretim maliyeti + dönem başı mamul − dönem sonu
+    A: Üretim maliyeti = DİMM + Dİ + GÜG; satılan mamul maliyeti = üretim maliyeti − dönem başı mamul + dönem sonu
       mamul
     B: Üretim maliyeti = DİMM + Dİ + GÜG + dönem başı yarı mamul − dönem sonu yarı mamul; satılan mamul maliyeti
       = üretim maliyeti
     C: Üretim maliyeti = DİMM + Dİ; satılan mamul maliyeti = üretim maliyeti + GÜG
-    D: Üretim maliyeti = DİMM + Dİ + GÜG; satılan mamul maliyeti = üretim maliyeti − dönem başı mamul + dönem sonu
+    D: Üretim maliyeti = DİMM + Dİ + GÜG; satılan mamul maliyeti = üretim maliyeti + dönem başı mamul − dönem sonu
       mamul
     E: Üretim maliyeti = satılan mamul maliyeti + dönem sonu mamul − dönem başı mamul
-  dogru: A
+  dogru: D
   aciklama:
     dogru_neden: 'Üretim maliyeti DİMM + Dİ + GÜG (+ yarı mamul değişimi) ile bulunur; satılan mamul maliyeti ise
       üretim maliyetine dönem başı mamul eklenip dönem sonu mamul düşülerek hesaplanır. Püf noktaları: Mamul stok
       değişimi satılan maliyeti etkiler.'
     celdiriciler:
+      A: Mamul stok işleminin yönünü ters çevirir.
       B: Yarı mamul değişimini üretim maliyetine dahil edip mamul stokunu yok sayar.
       C: GÜG’yi üretim maliyetinden dışlar.
-      D: Mamul stok işleminin yönünü ters çevirir.
       E: Formülü tersinden kurar.
   kaynaklar:
   - mevzuat: MSUGT Mali Tabloların Düzenlenmesi
@@ -837,6 +840,9 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
 - id: SMMM-MAL-TBL-0050
   sinav: smmm
   bolum:
@@ -1021,10 +1027,10 @@
     B: Direkt ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri üretim maliyetinin unsurlarındandır.
     C: Dönem başı mamul stoku ile dönem sonu mamul stoku arasındaki fark, satılan mamul maliyetine ulaşılırken üretim
       maliyetine eklenir.
-    D: Satılan mamul maliyeti, üretim maliyeti ile mamul stok farkının birlikte değerlendirilmesiyle belirlenir.
-    E: Üretimde kullanılmayan ilk madde ve malzemenin maliyeti, üretim maliyetinin direkt ilk madde ve malzeme bölümünde
+    D: Üretimde kullanılmayan ilk madde ve malzemenin maliyeti, üretim maliyetinin direkt ilk madde ve malzeme bölümünde
       izlenir.
-  dogru: E
+    E: Satılan mamul maliyeti, üretim maliyeti ile mamul stok farkının birlikte değerlendirilmesiyle belirlenir.
+  dogru: D
   aciklama:
     dogru_neden: Kaynak, üretimde kullanılmayan ve satılan ilk madde ve malzemenin maliyetinin maliyet tablosunun
       ticari faaliyete ilişkin bölümünde dikkate alınacağını belirtmektedir.
@@ -1032,7 +1038,7 @@
       A: Yarı mamul stok değişiminin dönem başı ve dönem sonu stoklarıyla ilişkisini tersine çevirir.
       B: Üretim maliyeti unsurlarından birini dışarıda bırakır.
       C: Mamul stok farkının satılan mamul maliyetine ulaşmada kullanılmasını reddeder.
-      D: Satılan mamul maliyetinin üretim maliyeti ve mamul stok farkıyla ilişkisini reddeder.
+      E: Satılan mamul maliyetinin üretim maliyeti ve mamul stok farkıyla ilişkisini reddeder.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği, Satışların Maliyeti Tablosu
@@ -1082,6 +1088,9 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
 - id: SMMM-MAL-TBL-0053
   sinav: smmm
   bolum:
@@ -1099,11 +1108,11 @@
     B: Genel üretim giderleri, direkt ilk madde ve malzeme ile direkt işçilik dışında kalan ilgili üretim giderlerini
       kapsar.
     C: Yarı mamul stoklarındaki değişim, dönem başı ve dönem sonu stokları arasındaki farkla ilgilidir.
-    D: Üretim maliyeti; direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım
-      tutarları dikkate alınarak belirlenir.
-    E: Üretimde kullanılmayan ilk madde ve malzemenin maliyeti, direkt ilk madde ve malzeme giderleri içinde yer
+    D: Üretimde kullanılmayan ilk madde ve malzemenin maliyeti, direkt ilk madde ve malzeme giderleri içinde yer
       alır.
-  dogru: E
+    E: Üretim maliyeti; direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım
+      tutarları dikkate alınarak belirlenir.
+  dogru: D
   aciklama:
     dogru_neden: Üretimde kullanılmayan ilk madde ve malzemenin maliyeti direkt ilk madde ve malzeme giderleri bölümünde
       değil, tablonun ticari faaliyete ilişkin bölümünde dikkate alınır.
@@ -1111,7 +1120,7 @@
       A: Direkt işçiliğin doğrudan yüklenebilir niteliğini değiştirir.
       B: Genel üretim giderlerinin kapsamını genişletir.
       C: Yarı mamul stok farkının kaynağını yanlış tanımlar.
-      D: Üretim maliyeti unsurlarından birini çıkarır.
+      E: Üretim maliyeti unsurlarından birini çıkarır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği, Satışların Maliyeti Tablosu
@@ -1162,6 +1171,9 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
 - id: SMMM-MAL-TBL-0054
   sinav: smmm
   bolum:
@@ -1578,19 +1590,19 @@
     maliyetine geçişte dikkate alındığı bilinmektedir. Aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
     A: Üretim maliyeti ile mamul stok farkı birlikte değerlendirilir.
-    B: Satılan mamul maliyetine ulaşılırken mamul stok farkı üretim maliyetine uygulanır.
+    B: Üretim maliyeti, satılan mamul maliyetine geçişte başlangıç ve bitiş mamul stoklarının etkisinden bağımsızdır.
     C: Üretim maliyeti direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanımını
       içerir.
-    D: Üretim maliyeti, satılan mamul maliyetine geçişte başlangıç ve bitiş mamul stoklarının etkisinden bağımsızdır.
+    D: Satılan mamul maliyetine ulaşılırken mamul stok farkı üretim maliyetine uygulanır.
     E: Satılan mamul maliyeti, üretim maliyetinden mamul stok farkı aracılığıyla türetilir.
-  dogru: D
+  dogru: B
   aciklama:
     dogru_neden: Kaynak, satılan mamul maliyetine ulaşırken mamul stok farkının üretim maliyetine eklenmesini öngörmektedir;
       dolayısıyla mamul stoklarının etkisinden bağımsız olduğu ifadesi yanlıştır.
     celdiriciler:
       A: Mamul stok farkı geçiş hesabında dikkate alınır.
-      B: Kaynakta stok farkının üretim maliyetine uygulanacağı belirtilir.
       C: Üretim maliyetinin unsurları kaynakta bu şekilde sayılmıştır.
+      D: Kaynakta stok farkının üretim maliyetine uygulanacağı belirtilir.
       E: Satılan mamul maliyeti üretim maliyetinden stok farkı uygulanarak bulunur.
   kaynaklar:
   - mevzuat: MSUGT — Mali Tabloların Düzenlenmesi ve Sunulması
@@ -1649,6 +1661,9 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık D → B (metinler yer değiştirdi).'
 - id: SMMM-MAL-TBL-0060
   sinav: smmm
   bolum:
@@ -1952,9 +1967,9 @@
     A: Direkt ilk madde ve malzeme üretim maliyetinin unsurlarındandır.
     B: Direkt işçilik üretim maliyetinin unsurlarındandır.
     C: Genel üretim giderleri üretim maliyetinin unsurlarındandır.
-    D: Yarı mamul kullanım tutarı üretim maliyetinin hesaplanmasında dikkate alınır.
-    E: Mamul stoklarında değişim tutarı üretim maliyetinin unsuru olarak doğrudan üretim maliyetine dahil edilir.
-  dogru: E
+    D: Mamul stoklarında değişim tutarı üretim maliyetinin unsuru olarak doğrudan üretim maliyetine dahil edilir.
+    E: Yarı mamul kullanım tutarı üretim maliyetinin hesaplanmasında dikkate alınır.
+  dogru: D
   aciklama:
     dogru_neden: Kaynakta direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul kullanım
       tutarlarının toplamının üretim maliyetini verdiği; mamul stok farkının ise üretim maliyetinden satılan mamul
@@ -1963,7 +1978,7 @@
       A: Direkt ilk madde ve malzeme üretim maliyetinin unsuru olarak sayılmıştır.
       B: Direkt işçilik üretim maliyetinin unsuru olarak sayılmıştır.
       C: Genel üretim giderleri üretim maliyetinin unsuru olarak sayılmıştır.
-      D: Yarı mamul kullanım tutarı üretim maliyetinin hesabında yer almaktadır.
+      E: Yarı mamul kullanım tutarı üretim maliyetinin hesabında yer almaktadır.
   kaynaklar:
   - mevzuat: MSUGT — Mali Tabloların Düzenlenmesi ve Sunulması
     madde: Satışların Maliyeti Tablosu, E — Mamül Stoklarında Değişim
@@ -2018,6 +2033,9 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
 - id: SMMM-MAL-TBL-0064
   sinav: smmm
   bolum:
@@ -3074,17 +3092,17 @@
   secenekler:
     A: Tablo, dönem içindeki stok hareketleriyle satılan mamul, ilk madde ve malzeme, ticari mal ve hizmet maliyetlerini
       göstermeye yöneliktir.
-    B: Satışların Maliyeti Tablosu, gelir tablosunun ekini oluşturur ve onu tamamlar.
-    C: Tablo yalnızca satılan mamul maliyetini kapsar; ticari mal ve hizmet maliyetlerini kapsamaz.
+    B: Tablo yalnızca satılan mamul maliyetini kapsar; ticari mal ve hizmet maliyetlerini kapsamaz.
+    C: Satışların Maliyeti Tablosu, gelir tablosunun ekini oluşturur ve onu tamamlar.
     D: Bir dönemin dönem sonu stoku, sonraki dönemin dönem başı stoku olarak dikkate alınır.
     E: Tablonun ana kalemleri ayrı bir tablo halinde düzenlenir.
-  dogru: C
+  dogru: B
   aciklama:
     dogru_neden: Kaynak, tablonun satılan mamul, ilk madde ve malzeme, ticari mal ve satılan hizmet maliyetlerini
       göstermeye yönelik olduğunu belirtir.
     celdiriciler:
       A: Kaynak metindeki kapsamla uyumludur.
-      B: Kaynak metin tablonun gelir tablosunu tamamladığını açıkça belirtir.
+      C: Kaynak metin tablonun gelir tablosunu tamamladığını açıkça belirtir.
       D: Ardışık dönem tablolarında stok devri bu şekilde ele alınır.
       E: Kaynak metin tablonun ayrı bir tablo halinde düzenlendiğini belirtir.
   kaynaklar:
@@ -3138,6 +3156,9 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → B (metinler yer değiştirdi).'
 - id: SMMM-MAL-TBL-0078
   sinav: smmm
   bolum:
