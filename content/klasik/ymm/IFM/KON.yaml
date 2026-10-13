@@ -339,7 +339,7 @@
       sonuc = {''net_varlik'': net_varlik, ''serefiye'': serefiye, ''kgop'': kgop}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -350,11 +350,17 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-13'
+        not: güven 4, seviye 2
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpb0k22up8.yaml, klasik 1
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-IFM-KON-K003
   sinav: ymm
   ders: IFM
@@ -457,7 +463,7 @@
       sonuc = {''kgop'': kgop, ''serefiye'': serefiye}
 
       '
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -468,11 +474,24 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: '(c) çözümü hatalı: bağlı ortaklık THP''de 242 değil 245 Bağlı Ortaklıklar hesabında izlenir; bağlı ortaklık
+          temettüsü 642 (Faiz Gelirleri) değil 641 Bağlı Ortaklıklardan Temettü Gelirleri hesabına yazılır. ''TFRS''deki özkaynak
+          yöntemi zorunluluğu'' ifadesi yanlış; TMS 27 bireysel tablolarda maliyet/TFRS 9/özkaynak seçimine izin verir. Kökte
+          %25 KV oranı işlevsiz dolgu; (c) isteği muğlak. (a)-(b) doğru (KGOP 1.300.000, şerefiye 800.000) ama 20 puan için
+          YMM düzeyinin altında.'
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpb0k22up8.yaml, klasik 2
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: '(c) çözümü hatalı: bağlı ortaklık THP''de 242 değil 245 Bağlı Ortaklıklar hesabında izlenir; bağlı ortaklık temettüsü
+      642 (Faiz Gelirleri) değil 641 Bağlı Ortaklıklardan Temettü Gelirleri hesabına yazılır. ''TFRS''deki özkaynak yöntemi
+      zorunluluğu'' ifadesi yanlış; TMS 27 bireysel tablolarda maliyet/TFRS 9/özkaynak seçimine izin verir. Kökte %25 KV oranı
+      işlevsiz dolgu; (c) isteği muğlak. (a)-(b) doğru (KGOP 1.300.000, şerefiye 800.000) ama 20 puan için YMM düzeyinin altında.'
 - id: YMM-IFM-KON-K004
   sinav: ymm
   ders: IFM
@@ -609,7 +628,7 @@
       sonuc = {''serefiye'': serefiye, ''stok_kar'': stok_kar, ''evy'': evy, ''kgop_kar'': kgop_kar}
 
       '
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -620,11 +639,21 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: 'Sayılar doğru: şerefiye 1.800.000; gerçekleşmemiş kâr 240.000, ETV 60.000, net 180.000; aşağı yönlü satış KGOP''u
+          etkilemez, KGOP kârı 125.000. Küçük eksik: 1.400.000 hasılat/SMM eliminasyon kaydı ve yevmiye kayıtları çözümde
+          ve puanlamada yok; ETV için TMS 12 dayanağı belirtilmemiş.'
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpb0k22up8.yaml, klasik 3
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'Sayılar doğru: şerefiye 1.800.000; gerçekleşmemiş kâr 240.000, ETV 60.000, net 180.000; aşağı yönlü satış KGOP''u
+      etkilemez, KGOP kârı 125.000. Küçük eksik: 1.400.000 hasılat/SMM eliminasyon kaydı ve yevmiye kayıtları çözümde ve puanlamada
+      yok; ETV için TMS 12 dayanağı belirtilmemiş.'
 - id: YMM-IFM-KON-K005
   sinav: ymm
   ders: IFM
@@ -729,7 +758,7 @@
       sonuc = {''serefiye'': serefiye, ''tepe_net'': tepe_kar - tepe_temttu}
 
       '
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -740,11 +769,27 @@
         sonuc: gecti
         tarih: '2026-10-13'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-13'
+        not: (b) isteği muğlak ('Ova AŞ'ye ilişkin yevmiye kaydı'); edinim kaydı (245 Bağlı Ortaklıklar 7.000.000 / 102 Bankalar
+          7.000.000) çözümde yok; bağlı ortaklık yatırımı 'iştirak yatırımı' diye anılmış; temettü 641 Bağlı Ortaklıklardan
+          Temettü Gelirleri hesabına yazılmalı. (c) kayıtlarında temettü tahsili 120 Alıcılar değil 102 Bankalar (veya 136)
+          olmalı; özkaynak yöntemi payı için 640 İştiraklerden Temettü Gelirleri kullanımı yanlış (temettü geliri değil, özkaynak
+          yöntemi kâr payı); ayrıca bağlı ortaklığı olan Dağ AŞ'nin bireysel yasal defterinde özkaynak yöntemi uygulanmaz,
+          ayrım yapılmamış. Şerefiye 700.000 ve net +150.000 doğru; düzey YMM altında.
   gecmis:
   - tarih: '2026-10-13'
     kim: uretici
     ne: harici teslim tmpf4dmcp5_.yaml, klasik 1
+  - tarih: '2026-10-13'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: (b) isteği muğlak ('Ova AŞ'ye ilişkin yevmiye kaydı'); edinim kaydı (245 Bağlı Ortaklıklar 7.000.000 / 102 Bankalar
+      7.000.000) çözümde yok; bağlı ortaklık yatırımı 'iştirak yatırımı' diye anılmış; temettü 641 Bağlı Ortaklıklardan Temettü
+      Gelirleri hesabına yazılmalı. (c) kayıtlarında temettü tahsili 120 Alıcılar değil 102 Bankalar (veya 136) olmalı; özkaynak
+      yöntemi payı için 640 İştiraklerden Temettü Gelirleri kullanımı yanlış (temettü geliri değil, özkaynak yöntemi kâr payı);
+      ayrıca bağlı ortaklığı olan Dağ AŞ'nin bireysel yasal defterinde özkaynak yöntemi uygulanmaz, ayrım yapılmamış. Şerefiye
+      700.000 ve net +150.000 doğru; düzey YMM altında.
 - id: YMM-IFM-KON-K006
   sinav: ymm
   ders: IFM
