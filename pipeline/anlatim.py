@@ -243,6 +243,13 @@ def paket_olustur(ders: str, cikti: Path, sinav: str = "smmm") -> Path:
         kaz = "; ".join(str(z) for z in k.get("kazanimlar", []))
         satirlar.append(f"| {i} | {k['kod']} | {k['ad']} | {kaz} | {', '.join(map(str, k.get('kaynaklar', [])))} |")
     satirlar += ["", f"Ön bilgide `ders: {ders}` ve ilgili `konu:` kodunu kullan; `durum: taslak` yaz.", ""]
+    kaynaklar = uretici_paketi._kaynak_dosyalari(ders)
+    if not kaynaklar:
+        from pipeline.ymm_gorev import GENEL_BILGI_NOTU
+
+        satirlar[1:1] = ["", "> **ÖNEMLİ:** " + GENEL_BILGI_NOTU]
+        (klasor / "kaynaklar" / "KAYNAK_YOK_OKU.md").write_text("# Bu klasör bilerek boştur\n\n" + GENEL_BILGI_NOTU + "\n",
+                                                              encoding="utf-8")
     (klasor / "GOREV.md").write_text("\n".join(satirlar), encoding="utf-8")
     if sinav == "ymm":
         shutil.copy(KOK / "docs/uretici/YMM_ANLATIM_KURALLARI.md", klasor / "ANLATIM_KURALLARI.md")
@@ -251,7 +258,7 @@ def paket_olustur(ders: str, cikti: Path, sinav: str = "smmm") -> Path:
         shutil.copy(KOK / "docs/uretici/ANLATIM_KURALLARI.md", klasor / "ANLATIM_KURALLARI.md")
         shutil.copy(KOK / "docs/uretici/ANLATIM_PROMPT.md", klasor / "PROMPT.md")
     shutil.copy(KLASOR / "FIN" / "ALC.md", klasor / "ORNEK_ANLATIM.md")
-    for kaynak in uretici_paketi._kaynak_dosyalari(ders):
+    for kaynak in kaynaklar:
         shutil.copy(kaynak, klasor / "kaynaklar" / kaynak.name)
     zip_yolu = shutil.make_archive(str(klasor), "zip", root_dir=klasor.parent, base_dir=klasor.name)
     return Path(zip_yolu)

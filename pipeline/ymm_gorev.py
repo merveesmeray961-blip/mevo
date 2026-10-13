@@ -7,6 +7,7 @@ denetler. Paketler (zip) `uretici_paketleri/` altına yazılır (depoya girmez).
 
     python -m pipeline.ymm_gorev plan [--pay 1.3] [--soru 30]     # yalnız planı yazar ve özetler
     python -m pipeline.ymm_gorev paket [--pay 1.3] [--soru 30]    # plan + ders başına zip
+    python -m pipeline.ymm_gorev paket --mevcut                    # planı değiştirmeden paketleri yeniden üret
 """
 from __future__ import annotations
 
@@ -117,8 +118,14 @@ def son_plan() -> dict:
     return json.loads(yollar[-1].read_text(encoding="utf-8"))
 
 
-def _gorev_md(kod: str, g: dict) -> str:
-    s = [f"# Görev {kod} — {g['ders_ad']}", "",
+GENEL_BILGI_NOTU = ('Bu dersin resmî mevzuat metni YOKTUR ve `kaynaklar/` klasörü bilerek boştur. Sorular/anlatım, genel kabul görmüş ders bilgisine (yerleşik finansal yönetim / yönetim muhasebesi literatüründeki standart tanım, formül ve yöntemlere) dayanır. Bu derste kaynak yokluğu ATLAMA SEBEBİ DEĞİLDİR: her satır yazılmalıdır ([K03] uygulanmaz). Kaynak alanına `mevzuat: "Genel bilgi — <konu adı>"`, `madde: "-"` yaz, `alinti` yazma. Tartışmalı/ekole bağlı konularda en yaygın kabul gören yöntemi kullan ve kökte hangi yöntemin kullanılacağını açıkça belirt.')
+
+
+def _gorev_md(kod: str, g: dict, kaynakli: bool = True) -> str:
+    s = [f"# Görev {kod} — {g['ders_ad']}", ""]
+    if not kaynakli:
+        s += ["> **ÖNEMLİ:** " + GENEL_BILGI_NOTU, ""]
+    s += [
          f"Aşağıdaki **{len(g['satirlar'])} test sorusunu** ve **{len(g['klasik'])} klasik soruyu** `YMM_MANIFESTO.md`",
          f"kurallarına birebir uyarak yaz. Teslim: `teslim_<adın>_{kod}.yaml`, `gorev: \"{kod}\"`.", "",
          "## Test soruları", "",
@@ -170,8 +177,12 @@ def paket_olustur(plan: dict, cikti: Path) -> list[Path]:
         if klasor.exists():
             shutil.rmtree(klasor)
         (klasor / "kaynaklar").mkdir(parents=True)
+        kaynaklar = uretici_paketi._kaynak_dosyalari(ders)
         for i, (kod, g) in enumerate(liste, 1):
-            (klasor / f"GOREV_{i:02d}.md").write_text(_gorev_md(kod, g), encoding="utf-8")
+            (klasor / f"GOREV_{i:02d}.md").write_text(_gorev_md(kod, g, bool(kaynaklar)), encoding="utf-8")
+        if not kaynaklar:
+            (klasor / "kaynaklar" / "KAYNAK_YOK_OKU.md").write_text("# Bu klasör bilerek boştur\n\n" + GENEL_BILGI_NOTU + "\n",
+                                                                  encoding="utf-8")
         shutil.copy(KOK / "docs/uretici/YMM_MANIFESTO.md", klasor / "YMM_MANIFESTO.md")
         shutil.copy(KOK / "docs/uretici/YMM_PROMPT.md", klasor / "PROMPT.md")
         shutil.copy(KOK / "content/schema/soru.schema.json", klasor / "SEMA_TEST.json")
@@ -179,7 +190,7 @@ def paket_olustur(plan: dict, cikti: Path) -> list[Path]:
         (klasor / "ORNEKLER.yaml").write_text(
             yaml.safe_dump(_ornekler(ders), allow_unicode=True, sort_keys=False, width=120), encoding="utf-8")
         (klasor / "BANKADA_OLAN.md").write_text(_bankada_olan(ders), encoding="utf-8")
-        for p in uretici_paketi._kaynak_dosyalari(ders):
+        for p in kaynaklar:
             shutil.copy(p, klasor / "kaynaklar" / p.name)
         zipler.append(Path(shutil.make_archive(str(klasor), "zip", klasor.parent, klasor.name)))
     return zipler
@@ -204,8 +215,12 @@ def main(argv: list[str]) -> int:
         return 1
     pay = float(argv[argv.index("--pay") + 1]) if "--pay" in argv else 1.3
     boy = int(argv[argv.index("--soru") + 1]) if "--soru" in argv else 30
-    plan = plan_kur(pay, boy)
-    print(f"plan → {plan_yaz(plan).relative_to(KOK)}")
+    if "--mevcut" in argv:  # dağıtılmış görevlerin satırları değişmesin: son plandan paket üret
+        plan = son_plan()
+        print(f"mevcut plan ({plan['tarih']}) kullanılıyor")
+    else:
+        plan = plan_kur(pay, boy)
+        print(f"plan → {plan_yaz(plan).relative_to(KOK)}")
     print(ozet(plan))
     if argv[1] == "paket":
         cikti = Path(argv[argv.index("--cikti") + 1]) if "--cikti" in argv else KOK / "uretici_paketleri"

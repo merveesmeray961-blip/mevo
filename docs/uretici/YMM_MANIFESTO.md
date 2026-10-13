@@ -16,8 +16,11 @@ değerlidir. Kurala uymayan tek bir soru bile teslimin geri kalanını etkilemez
 - `[K01]` GOREV tablosundaki **her satır = tam bir soru**. Satırdaki ders, konu kodu, kazanım, zorluk ve soru biçimi
   **birebir** aynı olmalı. Başka kazanım, başka zorluk, başka biçim = ret.
 - `[K02]` Her soruya `gorev_satiri` (tablodaki numara) yaz. Aynı satır numarasını iki kez kullanma.
-- `[K03]` Bir satırı kaynak metin yetersiz olduğu için yazamıyorsan **uydurma**; `atlanan` listesine satır numarası ve
-  nedenle yaz. Atlamak cezalandırılmaz; uydurmak teslimin tamamının güvenilirliğini düşürür.
+- `[K03]` **Mevzuat dersinde** (kaynaklar/ klasöründe metin olan derslerde) bir satırı kaynak metin yetersiz olduğu
+  için yazamıyorsan **uydurma**; `atlanan` listesine satır numarası ve nedenle yaz.
+  **İSTİSNA — FYN (Finansal Yönetim) ve YNM (Yönetim Muhasebesi):** Bu derslerin resmî metni yoktur, `kaynaklar/`
+  klasörü bilerek boştur. Bu derslerde kaynak yokluğu atlama sebebi DEĞİLDİR; her satır genel kabul görmüş ders
+  bilgisine dayanılarak yazılır. Bu derslerde satır atlayan teslim eksik sayılır.
 
 ## 2. Doğruluk (en önemli kısım)
 
