@@ -164,3 +164,33 @@ metinlerde `|` kullan.
 - [ ] Hesap sorusunda kod kurallara uygun ve sonuç doğru şıkla aynı. [K19][K20]
 - [ ] Klasik soruda puanlama toplamı = puan; kod değerleri çözümde aynı birimle geçiyor. [K32][K33]
 - [ ] Bankada olan soruları tekrar etmedim. [K22]
+
+## 11. Önceki teslimlerde hakemin en sık reddettiği hatalar (2026-10-13, 1344 ret)
+
+Önceki turda gelen soruların ancak üçte biri hakemden geçti. Aşağıdakiler ret sebeplerinin büyük kısmıdır; her birini
+yazarken aktif olarak önle.
+
+1. **Düzey altı / ezber (%41).** "X nedir?", "Y hangi kanunda düzenlenir?" türü tek bilgiyi soran sorular YMM düzeyi
+   değildir. Her soru en az iki bilgiyi birleştirmeli ya da somut bir olay üzerinde uygulama istemeli (tutar, tarih,
+   şirket türü, istisna koşulu). Zorluk 1 bile SMMM sınavından zor olmalıdır.
+2. **Bariz / dolgu çeldiriciler (%35).** Uydurma terim, alakasız kanun, "hiçbiri", açıkça saçma tutar YASAK. Her
+   çeldirici, gerçek bir adayın yapacağı **tipik bir hatanın** sonucu olmalı (yanlış oran, istisnayı unutma, kıst
+   hesaplamama, eski mevzuat değeri, yanlış hesap kodu). Doğru cevabı şıklar arasında dengeli dağıt; hep aynı harfi seçme.
+3. **Yanlış madde / atıf (%28).** Madde numarasını yalnız `kaynaklar/` metninde **gördüysen** yaz. Sık karıştırılanlar:
+   SPKn 106 (bilgi suistimali) / 107 (piyasa dolandırıcılığı) / 110 (güveni kötüye kullanma) / 111 (bilgi vermeme);
+   VUK 274 (emtia) / 278 (afet, bozulma) / 278-A (imha) / 323 (şüpheli alacak); VUK 283 (peşin ödenen giderler).
+   Emin değilsen madde numarası yazma, kanun adını yaz.
+4. **Kök eksik / belirsiz (%21).** Sonucu değiştiren her koşul kökte yazılı olmalı: mükellefiyet türü, dönem/yıl,
+   oranın hangi yıl için olduğu, değerleme yöntemi, KDV dahil/hariç. "Genellikle", "çoğu durumda" ile biten soru yoruma
+   açıktır, reddedilir.
+5. **Hesap hatası / anahtar yanlış (%14).** Her hesabı `dogrulama.python` ile doğrula ve sonucu doğru şıkla karşılaştır.
+   Anahtar harfi şık sıralandıktan SONRA belirlenir.
+6. **Hesap kodları (TDHP).** 120 Alıcılar, 121 Alacak Senetleri, 122 Alacak Senetleri Reeskontu (-), 128 Şüpheli Ticari
+   Alacaklar, 129 Şüpheli Ticari Alacaklar Karşılığı (-), 157 Diğer Stok Değer Düşüklüğü Karşılığı (-), 197 Sayım ve
+   Tesellüm Noksanları, 689 Diğer Olağandışı Gider ve Zararlar. Kodu yazarken bu listeyle karşılaştır.
+7. **Güncel olmayan değer (%5).** Oran, had, tutar ve süreleri yalnız `kaynaklar/` metnindeki 2026 güncel hâlinden al.
+   Mülga hükümden soru yazma.
+8. **Klasik sorular (neredeyse tamamı reddedildi).** Klasik soruda: (a) her alt soru tek ve kesin bir sonuca bağlanmalı,
+   "eşiğe bağlı / taşıyabilir" gibi çözümler ret sebebidir; (b) senaryoda verilen her tutar çözümde kullanılmalı,
+   kullanılmayan veri koyma; (c) "hatayı tespit edin" diyorsan senaryoda gerçekten hata olmalı; (d) puan dağılımı alt
+   soruların zorluğuyla orantılı olmalı; (e) dayanak olarak gösterdiğin her maddeyi kaynaktan doğrula.

@@ -81,3 +81,12 @@ YASAK: tek `#` başlık, bağlantı, resim, HTML, emoji, dipnot, kod bloğu. (Uy
 - [ ] Her rakam, süre, oran, madde numarası kaynakla doğrulandı; alıntılar birebir. [A07]
 - [ ] Hesap örneklerinin toplamları tutuyor.
 - [ ] Yalnız desteklenen biçimler kullanıldı; `durum: taslak`. [A08]
+
+## 8. Soru teslimlerinde görülen hatalar (anlatımda da YASAK)
+
+Soru turunda hakemin en sık bulduğu yanlışlar anlatımda da aynı şekilde ret sebebidir:
+- Kaynakta görmediğin madde numarası (ör. SPKn 106/107/110/111, VUK 274/278/278-A/323/283 sık karıştırıldı). Emin
+  değilsen madde numarası verme.
+- Yanlış TDHP hesap kodu (ör. şüpheli alacak 128, karşılığı 129; 122 reeskont hesabıdır).
+- Yılı belirtilmemiş oran/had/tutar. Her sayısal değerin hangi yıl için geçerli olduğunu yaz.
+- Sonucu "duruma göre değişir" diye bırakan örnek. Her sayısal örnek tek ve kesin sonuca bağlanmalı.
