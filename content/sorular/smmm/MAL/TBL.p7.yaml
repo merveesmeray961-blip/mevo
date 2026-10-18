@@ -265,28 +265,28 @@
   kazanim: üretim maliyeti
   tip: hesaplama
   zorluk: 1
-  kok: KDV dikkate alınmayacaktır. SZ İşletmesi'nde üretim maliyeti için dönem içinde 95.000 TL direkt ilk madde
-    ve malzeme, 65.000 TL direkt işçilik ve 40.000 TL genel üretim gideri gerçekleşmiştir. Yarı mamul kullanım tutarı
-    bulunmadığına göre üretim maliyeti kaç TL'dir?
+  kok: KDV dikkate alınmayacaktır. SZ İşletmesi'nde dönem içinde 95.000 TL direkt ilk madde ve malzeme, 65.000 TL
+    direkt işçilik ve 40.000 TL genel üretim gideri gerçekleşmiştir. Dönem başı yarı mamul stoku 30.000 TL, dönem
+    sonu yarı mamul stoku 20.000 TL'dir. Buna göre üretim maliyeti kaç TL'dir?
   secenekler:
-    A: 160.000 TL
-    B: 180.000 TL
-    C: 190.000 TL
-    D: 200.000 TL
-    E: 220.000 TL
+    A: 170.000 TL
+    B: 190.000 TL
+    C: 200.000 TL
+    D: 210.000 TL
+    E: 250.000 TL
   dogru: D
   aciklama:
-    dogru_neden: Kaynak metindeki üretim maliyeti tanımında direkt ilk madde ve malzeme, direkt işçilik, genel üretim
-      giderleri ve yarı mamul kullanım tutarı birlikte dikkate alınır. Yarı mamul kullanım tutarı verilmediğinden
-      95.000 + 65.000 + 40.000 = 200.000 TL'dir.
+    dogru_neden: Üretim maliyeti = DİMM + Dİ + GÜG + dönem başı yarı mamul − dönem sonu yarı mamul = 95.000 + 65.000
+      + 40.000 + 30.000 − 20.000 = 210.000 TL. Bu nedenle D doğrudur.
     celdiriciler:
-      A: 160.000 TL, yalnızca direkt ilk madde ve direkt işçiliğin toplanmasıyla bulunur.
-      B: 180.000 TL, genel üretim giderlerinin yalnızca 20.000 TL'sinin dikkate alınmasıyla bulunur.
-      C: 190.000 TL, üç maliyet unsurunun toplamından 10.000 TL eksik alınmasıyla bulunur.
-      E: 220.000 TL, verilen üç tutara kaynakta bulunmayan 20.000 TL eklenmesiyle bulunur.
+      A: Genel üretim giderleri unutulmuş ve yalnız stok değişimi eklenmiştir (95.000 + 65.000 + 10.000).
+      B: Yarı mamul stok değişimi ters yönde (−10.000) dikkate alınmıştır.
+      C: Yarı mamul stok değişimi hiç dikkate alınmamıştır.
+      E: Dönem sonu yarı mamul stoku düşülmek yerine eklenmiştir (200.000 + 30.000 + 20.000).
     hesap_adimlari:
-    - 95.000 + 65.000 = 160.000 TL
-    - 160.000 + 40.000 = 200.000 TL
+    - 'Dönem üretim giderleri: 95.000 + 65.000 + 40.000 = 200.000 TL'
+    - 'Yarı mamul stok değişimi: 30.000 − 20.000 = +10.000 TL'
+    - 'Üretim maliyeti: 200.000 + 10.000 = 210.000 TL'
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği — Ek 4
     madde: Satışların Maliyet Tablosu, E. Mamul Stoklarında Değişim
@@ -297,9 +297,9 @@
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: sonuc = 95000 + 65000 + 40000
+    python: sonuc = 95000 + 65000 + 40000 + 30000 - 20000
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -319,8 +319,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: tek adımlık toplama, yarı mamul stok değişimi eklenerek sınav düzeyine çıkarıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -335,6 +336,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: tek adımlık toplama, yarı mamul stok değişimi eklenerek sınav düzeyine çıkarıldı'
 - id: SMMM-MAL-TBL-0008
   sinav: smmm
   bolum:
@@ -346,29 +351,31 @@
   kazanim: satılan mamul maliyeti
   tip: hesaplama
   zorluk: 2
-  kok: R İşletmesi için dönem başı mamul stoku 180.000 TL, dönem sonu mamul stoku 140.000 TL ve dönem üretim maliyeti
-    620.000 TL'dir. Buna göre satılan mamul maliyeti kaç TL'dir? KDV dikkate alınmayacaktır.
+  kok: 'KDV dikkate alınmayacaktır. R İşletmesi''nin dönem verileri şöyledir: direkt ilk madde ve malzeme 300.000
+    TL, direkt işçilik 180.000 TL, genel üretim giderleri 120.000 TL; dönem başı yarı mamul 40.000 TL, dönem sonu
+    yarı mamul 20.000 TL; dönem başı mamul 180.000 TL, dönem sonu mamul 140.000 TL. Buna göre satılan mamul maliyeti
+    kaç TL''dir?'
   secenekler:
-    A: '500.000'
-    B: '540.000'
-    C: '580.000'
+    A: '580.000'
+    B: '620.000'
+    C: '640.000'
     D: '660.000'
     E: '800.000'
   dogru: D
   aciklama:
-    dogru_neden: Kaynakta mamul stok farkının üretim maliyetine eklenmesiyle satılan mamul maliyetine ulaşıldığı
-      belirtilmektedir. Stok farkı 40.000 TL olduğundan sonuç 660.000 TL'dir.
+    dogru_neden: Üretim maliyeti = 300.000 + 180.000 + 120.000 + 40.000 − 20.000 = 620.000 TL. Satılan mamul maliyeti
+      = 620.000 + 180.000 − 140.000 = 660.000 TL. Bu nedenle D doğrudur.
     celdiriciler:
-      A: '500.000: dönem sonu stokunun üretim maliyetinden çıkarılmasıyla yanlış yönde işlem yapılmıştır.'
-      B: '540.000: net stok azalması üretim maliyetinden çıkarılmıştır.'
-      C: '580.000: stok farkı ters yönde uygulanmıştır.'
-      E: '800.000: dönem başı ve dönem sonu stoklarının ikisi de üretim maliyetine eklenmiştir.'
+      A: Dönem başı ve dönem sonu mamul stokları yer değiştirilmiştir (620.000 + 140.000 − 180.000).
+      B: Satılan mamul maliyeti yerine üretim maliyeti verilmiştir.
+      C: Yarı mamul stok değişimi ihmal edilmiştir (600.000 + 40.000).
+      E: Dönem sonu mamul stoku düşülmemiştir (620.000 + 180.000).
     hesap_adimlari:
-    - Mamul stok farkı = 180.000 − 140.000 = 40.000 TL
-    - Satılan mamul maliyeti = 620.000 + 40.000 = 660.000 TL
+    - 'Dönem üretim giderleri: 300.000 + 180.000 + 120.000 = 600.000 TL'
+    - 'Üretim maliyeti: 600.000 + 40.000 − 20.000 = 620.000 TL'
+    - 'Satılan mamul maliyeti: 620.000 + 180.000 − 140.000 = 660.000 TL'
   kaynaklar:
-  - &id001
-    mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
     madde: e) Satışların Maliyeti Tablosu — E. Mamül Stoklarında Değişim
     alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamül kullanım tutarlarının
       toplamı üretim maliyetini verir. Dönem başı mamül stoku ile dönem sonu mamül stoku arasındaki farkı ifade
@@ -378,9 +385,11 @@
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: sonuc = 620000 + (180000 - 140000)
+    python: 'uretim = 300000 + 180000 + 120000 + 40000 - 20000
+
+      sonuc = uretim + 180000 - 140000'
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -400,8 +409,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: tek adımlık formül, üretim maliyeti ve yarı mamul adımları eklenerek çok adımlı
+          hâle getirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -416,6 +427,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: tek adımlık formül, üretim maliyeti ve yarı mamul adımları eklenerek çok adımlı hâle getirildi'
 - id: SMMM-MAL-TBL-0009
   sinav: smmm
   bolum:
@@ -588,38 +603,41 @@
   kazanim: üretim maliyeti
   tip: hesaplama
   zorluk: 2
-  kok: S İşletmesinde dönem içinde direkt ilk madde ve malzeme giderleri 240.000 TL, direkt işçilik giderleri 160.000
-    TL, genel üretim giderleri 100.000 TL ve yarı mamul kullanım tutarı 50.000 TL'dir. Buna göre üretim maliyeti
-    kaç TL'dir?
+  kok: KDV dikkate alınmayacaktır. S İşletmesinde dönem içinde direkt ilk madde ve malzeme giderleri 240.000 TL,
+    direkt işçilik giderleri 160.000 TL, genel üretim giderleri 100.000 TL'dir. Dönem başı yarı mamul stoku 70.000
+    TL, dönem sonu yarı mamul stoku 20.000 TL'dir. Buna göre üretim maliyeti kaç TL'dir?
   secenekler:
     A: '400.000'
     B: '450.000'
     C: '500.000'
     D: '550.000'
-    E: '600.000'
+    E: '590.000'
   dogru: D
   aciklama:
-    dogru_neden: Kaynak, bu dört kalemin toplamının üretim maliyetini verdiğini belirtmektedir. 240.000 + 160.000
-      + 100.000 + 50.000 = 550.000 TL.
+    dogru_neden: Üretim maliyeti = 240.000 + 160.000 + 100.000 + (70.000 − 20.000) = 550.000 TL. Bu nedenle D doğrudur.
     celdiriciler:
-      A: '400.000: genel üretim giderleri ve yarı mamul kullanım tutarı dışarıda bırakılmıştır.'
-      B: '450.000: genel üretim giderleri dışarıda bırakılmıştır.'
-      C: '500.000: yarı mamul kullanım tutarı dışarıda bırakılmıştır.'
-      E: '600.000: verilen dört kalemin toplamına 50.000 TL daha eklenmiştir.'
+      A: Genel üretim giderleri ve yarı mamul değişimi dikkate alınmamıştır.
+      B: Yarı mamul stok değişimi ters yönde düşülmüştür (500.000 − 50.000).
+      C: Yarı mamul kullanım tutarı hesaba katılmamıştır.
+      E: Dönem sonu yarı mamul stoku düşülmek yerine eklenmiştir (500.000 + 70.000 + 20.000).
     hesap_adimlari:
-    - 240.000 + 160.000 = 400.000 TL
-    - 400.000 + 100.000 = 500.000 TL
-    - 500.000 + 50.000 = 550.000 TL
+    - 'Dönem üretim giderleri: 240.000 + 160.000 + 100.000 = 500.000 TL'
+    - 'Yarı mamul kullanım tutarı: 70.000 − 20.000 = 50.000 TL'
+    - 'Üretim maliyeti: 500.000 + 50.000 = 550.000 TL'
   kaynaklar:
-  - *id001
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — E. Mamül Stoklarında Değişim
+    alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamül kullanım tutarlarının
+      toplamı üretim maliyetini verir. Dönem başı mamül stoku ile dönem sonu mamül stoku arasındaki farkı ifade
+      eden mamül stok farkının üretim maliyetine eklenmesiyle satılan mamülün maliyetine ulaşılır.(1)
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: sonuc = 240000 + 160000 + 100000 + 50000
+    python: sonuc = 240000 + 160000 + 100000 + 70000 - 20000
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -639,8 +657,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: hazır verilen yarı mamul kullanım tutarı yerine stoklardan hesaplanması istendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -655,6 +674,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: hazır verilen yarı mamul kullanım tutarı yerine stoklardan hesaplanması istendi'
 - id: SMMM-MAL-TBL-0012
   sinav: smmm
   bolum:
@@ -755,26 +778,27 @@
   tip: hesaplama
   zorluk: 2
   kok: Bir işletmenin dönem satışların maliyeti toplamı 500.000 TL'dir. Bunun 310.000 TL'si satılan mamul maliyeti,
-    70.000 TL'si satılan hizmet maliyetidir. Buna göre satılan ticari mal maliyeti kaç TL'dir?
+    70.000 TL'si satılan hizmet maliyeti, kalanı satılan ticari mal maliyetidir. Dönem başı ticari mal stoku 40.000
+    TL, dönem sonu ticari mal stoku 30.000 TL olduğuna göre dönem içi net ticari mal alışları kaç TL'dir?
   secenekler:
-    A: '100.000'
-    B: '110.000'
-    C: '120.000'
+    A: '50.000'
+    B: '90.000'
+    C: '110.000'
     D: '130.000'
-    E: '140.000'
+    E: '190.000'
   dogru: C
   aciklama:
-    dogru_neden: Kaynağa göre satışların maliyeti; satılan mamul maliyeti, satılan ticari mal maliyeti ve satılan
-      hizmet maliyetinin toplamıdır. Bu nedenle satılan ticari mal maliyeti = 500.000 − 310.000 − 70.000 = 120.000
-      TL'dir. Doğru seçenek C'dir.
+    dogru_neden: Satılan ticari mal maliyeti = 500.000 − 310.000 − 70.000 = 120.000 TL. STMM = DB stok + alışlar
+      − DS stok olduğundan alışlar = 120.000 − 40.000 + 30.000 = 110.000 TL. Bu nedenle C doğrudur.
     celdiriciler:
-      A: Satılan hizmet maliyeti yanlışlıkla 90.000 TL alınarak hesaplanmıştır.
-      B: Satılan mamul maliyetinden 20.000 TL fazla çıkarılmıştır.
-      D: Satılan hizmet maliyeti toplamdan hiç düşülmemiştir.
-      E: Mamul ve hizmet maliyetlerinin toplamı yanlışlıkla 260.000 TL alınmıştır.
+      A: Dönem sonu stoku eklenmesi gerekirken düşülmüştür (120.000 − 40.000 − 30.000).
+      B: Dönem başı stok hesaba katılmadan dönem sonu stoku düşülmüştür (120.000 − 30.000).
+      D: Stoklar ters yönde dikkate alınmıştır (120.000 + 40.000 − 30.000).
+      E: Her iki stok da satılan ticari mal maliyetine eklenmiştir.
     hesap_adimlari:
-    - Satışların maliyeti = satılan mamul maliyeti + satılan ticari mal maliyeti + satılan hizmet maliyeti
-    - Satılan ticari mal maliyeti = 500.000 − 310.000 − 70.000 = 120.000 TL
+    - 'Satılan ticari mal maliyeti: 500.000 − 310.000 − 70.000 = 120.000 TL'
+    - Alışlar = STMM − dönem başı stok + dönem sonu stok
+    - 'Alışlar: 120.000 − 40.000 + 30.000 = 110.000 TL'
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi
     madde: Satışların Maliyeti Tablosu
@@ -785,9 +809,11 @@
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: sonuc = 500000 - 310000 - 70000
+    python: 'stmm = 500000 - 310000 - 70000
+
+      sonuc = stmm - 40000 + 30000'
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -807,8 +833,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: tek adımlık çıkarma, alışların geriye doğru bulunduğu iki adımlı soruya çevrildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -823,6 +850,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: tek adımlık çıkarma, alışların geriye doğru bulunduğu iki adımlı soruya çevrildi'
 - id: SMMM-MAL-TBL-0014
   sinav: smmm
   bolum:
@@ -834,29 +865,28 @@
   kazanim: ilk madde gideri
   tip: hesaplama
   zorluk: 3
-  kok: Bir işletmenin üretim maliyeti 420.000 TL'dir. Bu tutarın içinde 150.000 TL direkt işçilik, 90.000 TL genel
-    üretim gideri ve 30.000 TL yarı mamul kullanım tutarı bulunmaktadır. Buna göre direkt ilk madde ve malzeme giderleri
-    kaç TL'dir?
+  kok: KDV dikkate alınmayacaktır. Bir işletmenin üretim maliyeti 420.000 TL'dir. Dönem içinde 150.000 TL direkt
+    işçilik ve 90.000 TL genel üretim gideri gerçekleşmiş; dönem başı yarı mamul stoku 50.000 TL, dönem sonu yarı
+    mamul stoku 20.000 TL'dir. Buna göre direkt ilk madde ve malzeme giderleri kaç TL'dir?
   secenekler:
     A: '120.000'
-    B: '130.000'
-    C: '140.000'
-    D: '150.000'
-    E: '180.000'
-  dogru: D
+    B: '150.000'
+    C: '180.000'
+    D: '210.000'
+    E: '270.000'
+  dogru: B
   aciklama:
-    dogru_neden: Kaynağa göre direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamul
-      kullanım tutarlarının toplamı üretim maliyetini verir. Bu nedenle direkt ilk madde ve malzeme giderleri =
-      420.000 − 150.000 − 90.000 − 30.000 = 150.000 TL'dir. Doğru seçenek D'dir.
+    dogru_neden: Üretim maliyeti = DİMM + Dİ + GÜG + (DB yarı mamul − DS yarı mamul). 420.000 = DİMM + 150.000 +
+      90.000 + 30.000 olduğundan DİMM = 150.000 TL. Bu nedenle B doğrudur.
     celdiriciler:
-      A: Yarı mamul kullanım tutarı iki kez dikkate alınarak fazla düşülmüştür.
-      B: Genel üretim giderleri eksik düşülmüştür.
-      C: Direkt işçilik tutarı yanlışlıkla 160.000 TL kabul edilmiştir.
-      E: Üretim maliyetinden yalnız direkt işçilik ve genel üretim giderleri düşülmüştür.
+      A: Yarı mamul kullanım tutarı iki kez düşülmüştür (420.000 − 150.000 − 90.000 − 60.000).
+      C: Yarı mamul stok değişimi dikkate alınmamıştır.
+      E: Yalnız direkt işçilik düşülmüş, genel üretim gideri ve yarı mamul ihmal edilmiştir.
+      D: Yarı mamul değişimi ters yönde eklenmiştir (420.000 − 150.000 − 90.000 + 30.000).
     hesap_adimlari:
-    - Direkt ilk madde ve malzeme giderleri = üretim maliyeti − direkt işçilik − genel üretim giderleri − yarı mamul
-      kullanım tutarı
-    - 420.000 − 150.000 − 90.000 − 30.000 = 150.000 TL
+    - 'Yarı mamul kullanım tutarı: 50.000 − 20.000 = 30.000 TL'
+    - DİMM = 420.000 − 150.000 − 90.000 − 30.000
+    - DİMM = 150.000 TL
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi
     madde: Satışların Maliyeti Tablosu — A. Direkt İlk Madde ve Malzeme Giderleri / E. Mamül Stoklarında Değişim
@@ -868,9 +898,9 @@
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: sonuc = 420000 - 150000 - 90000 - 30000
+    python: sonuc = 420000 - 150000 - 90000 - (50000 - 20000)
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -890,8 +920,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: yarı mamul stoklarından geriye hesap eklendi; sıralı şıklar için doğru harf D→B'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -906,6 +937,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: yarı mamul stoklarından geriye hesap eklendi; sıralı şıklar için doğru harf D→B'
 - id: SMMM-MAL-TBL-0015
   sinav: smmm
   bolum:
@@ -917,34 +952,28 @@
   kazanim: üretim maliyeti
   tip: hesaplama
   zorluk: 1
-  kok: KP İşletmesi'nin dönem içinde kullandığı direkt ilkmadde 200.000 TL, direkt işçilik giderleri 150.000 TL
-    ve genel üretim giderleri 100.000 TL'dir. Dönem başı yarı mamul stoku 30.000 TL, dönem sonu yarı mamul stoku
-    50.000 TL'dir. Üretim maliyeti tablosunda "dönem üretim maliyeti", dönem içinde üretime giren direkt ilkmadde
-    ve malzeme, direkt işçilik ve genel üretim giderlerinin toplamıdır. KDV dikkate alınmayacaktır. Dönem üretim
-    maliyeti kaç TL'dir?
+  kok: KP İşletmesi'nin dönem içinde kullandığı direkt ilk madde ve malzeme 200.000 TL, direkt işçilik giderleri
+    150.000 TL ve genel üretim giderleri 100.000 TL'dir. Dönem başı yarı mamul stoku 30.000 TL, dönem sonu yarı
+    mamul stoku 50.000 TL'dir. KDV dikkate alınmayacaktır. Buna göre üretim maliyeti kaç TL'dir?
   secenekler:
     A: '300.000'
     B: '350.000'
     C: '430.000'
     D: '450.000'
     E: '470.000'
-  dogru: D
+  dogru: C
   aciklama:
-    dogru_neden: Yarı mamuller-üretim hesabı, maliyet dönemi sonunda direkt ilkmadde ve malzeme, direkt işçilik
-      ve genel üretim giderleri tutarları kadar borçlandırılır (THP 151). Dönem üretim maliyeti = 200.000 + 150.000
-      + 100.000 = 450.000 TL. Yarı mamul stoklarındaki değişim ancak üretilen (tamamlanan) mamul maliyetinin bulunmasında
-      kullanılır; dönem üretim maliyetini değiştirmez.
+    dogru_neden: Üretim maliyeti = 200.000 + 150.000 + 100.000 + 30.000 − 50.000 = 430.000 TL. Dönem sonu yarı mamul
+      stoku dönem başından büyük olduğundan stok değişimi üretim maliyetini azaltır. Bu nedenle C doğrudur.
     celdiriciler:
-      A: '300.000: Yalnızca direkt işçilik ile genel üretim giderleri (dönüştürme maliyeti) toplanmış, direkt ilkmadde
-        unutulmuştur.'
-      B: '350.000: Genel üretim giderleri unutulmuş; yalnızca direkt ilkmadde ve direkt işçilik (asal maliyet) toplanmıştır.'
-      C: '430.000: Yarı mamul stok değişimi (başı 30.000 − sonu 50.000) üretim maliyetine yansıtılmıştır; bu işlem
-        üretilen mamul maliyetini verir, dönem üretim maliyetini değil.'
-      E: '470.000: Yarı mamul stok değişimi ters yönde işlenmiştir; üstelik stok değişimi dönem üretim maliyetine
-        hiç etki etmez.'
+      A: Direkt işçilik giderleri dikkate alınmamıştır (200.000 + 100.000).
+      B: Genel üretim giderleri dikkate alınmamıştır (200.000 + 150.000).
+      E: Yarı mamul stok değişimi ters yönde eklenmiştir (450.000 + 20.000).
+      D: Yarı mamul stok değişimi ihmal edilerek dönem üretim gideri toplamı verilmiştir.
     hesap_adimlari:
-    - Dönem üretim maliyeti = DİM + DİŞ + GÜG = 200.000 + 150.000 + 100.000 = 450.000 TL
-    - Yarı mamul stokları bu tutarı etkilemez (yalnızca üretilen mamul maliyetinde kullanılır)
+    - 'Dönem üretim giderleri: 200.000 + 150.000 + 100.000 = 450.000 TL'
+    - 'Yarı mamul değişimi: 30.000 − 50.000 = −20.000 TL'
+    - 'Üretim maliyeti: 450.000 − 20.000 = 430.000 TL'
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
     madde: 151. Yarı Mamuller-Üretim
@@ -956,11 +985,9 @@
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: 'sonuc = 200000 + 150000 + 100000
-
-      '
+    python: sonuc = 200000 + 150000 + 100000 + 30000 - 50000
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -980,8 +1007,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kökteki formül ipucu kaldırıldı, yarı mamul değişimi dahil üretim maliyeti soruldu;
+          doğru harf D→C'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -996,6 +1025,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kökteki formül ipucu kaldırıldı, yarı mamul değişimi dahil üretim maliyeti soruldu; doğru harf D→C'
 - id: SMMM-MAL-TBL-0016
   sinav: smmm
   bolum:
@@ -2503,21 +2536,21 @@
   kok: Satışların maliyet tablosuna göre üretim maliyetini oluşturan unsurlar aşağıdakilerden hangisinde doğru olarak
     sıralanmıştır?
   secenekler:
-    A: Direkt ilk madde ve malzeme + Direkt işçilik + Genel yönetim giderleri
-    B: Direkt ilk madde ve malzeme + Pazarlama satış dağıtım giderleri + Genel üretim giderleri
+    A: Direkt ilk madde ve malzeme + Direkt işçilik + Genel üretim giderleri
+    B: Direkt ilk madde ve malzeme + Direkt işçilik + Genel üretim giderleri + Mamul stoklarındaki değişim
     C: Direkt ilk madde ve malzeme + Direkt işçilik + Genel üretim giderleri + Yarı mamul kullanım tutarları
-    D: Direkt işçilik + Genel üretim giderleri + Finansman giderleri
-    E: Direkt ilk madde ve malzeme + Direkt işçilik + Araştırma geliştirme giderleri
+    D: Direkt ilk madde ve malzeme + Direkt işçilik + Genel üretim giderleri + Hizmet üretim maliyeti
+    E: Direkt ilk madde ve malzeme + Direkt işçilik + Yarı mamul kullanım tutarları
   dogru: C
   aciklama:
     dogru_neden: 'MSUGT düzeltmesine göre direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve
       yarı mamul kullanım tutarlarının toplamı üretim maliyetini verir. Püf noktaları: Yalnız üretimle ilgili unsurlar
       alınır; faaliyet ve finansman giderleri üretim maliyetine girmez.'
     celdiriciler:
-      A: Genel yönetim giderleri üretim maliyeti unsuru değildir.
-      B: Pazarlama satış dağıtım giderleri üretim maliyeti unsuru değildir.
-      D: Finansman giderleri üretim maliyeti unsuru değildir.
-      E: Araştırma geliştirme giderleri üretim maliyeti unsuru değildir.
+      A: Bu toplam dönem üretim giderleridir; üretim maliyetine ulaşmak için yarı mamul kullanım tutarı da eklenir.
+      B: Mamul stoklarındaki değişim üretim maliyetinden satılan mamul maliyetine geçişte kullanılır.
+      D: Hizmet üretim maliyeti satılan hizmet maliyetinin konusudur; mamul üretim maliyetine girmez.
+      E: Genel üretim giderleri üretim maliyetinin unsurudur ve dışarıda bırakılamaz.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 2 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği
@@ -2531,7 +2564,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2552,8 +2585,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: genel yönetim, pazarlama, finansman gibi bariz çeldiriciler, tablo adımlarının
+          karıştırılmasına dayalı çeldiricilerle değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2574,6 +2609,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: genel yönetim, pazarlama, finansman gibi bariz çeldiriciler, tablo adımlarının karıştırılmasına
+      dayalı çeldiricilerle değiştirildi'
 - id: SMMM-MAL-TBL-0030
   sinav: smmm
   bolum:
@@ -2835,7 +2875,7 @@
     B: Direkt ilk madde ve malzeme giderleri + Direkt işçilik giderleri + Genel üretim giderleri
     C: Direkt ilk madde ve malzeme giderleri + Direkt işçilik giderleri + Genel üretim giderleri + Mamul stoklarında
       değişim
-    D: Satılan mamul maliyeti + Dönem sonu mamul stoku − Dönem başı mamul stoku
+    D: Satılan mamul maliyeti + Dönem başı mamul stoku − Dönem sonu mamul stoku
     E: Direkt ilk madde ve malzeme giderleri + Direkt işçilik giderleri + Genel üretim giderleri − Yarı mamul stoklarında
       değişim
   dogru: A
@@ -2844,11 +2884,11 @@
       genel üretim giderleri ve yarı mamul kullanım tutarlarının (yarı mamul stoklarında değişim) toplamı üretim
       maliyetini verir.
     celdiriciler:
-      B: Yarı mamul stoklarında değişim kalemi unutulmuştur; bu kalem üretim maliyetinin parçasıdır.
-      C: Mamul stoklarında değişim satılan mamul maliyetine ulaşmak için kullanılır; üretim maliyetinin unsuru değildir.
-      D: Bu ifade satılan mamul maliyetinden geriye doğru üretim maliyetine ulaşma formülüdür; doğrudan üretim maliyeti
-        tanımı değildir.
-      E: Yarı mamul stoklarında değişim çıkarılmak yerine eklenir (veya işaretine göre işlenir); tanıma aykırıdır.
+      B: Bu toplam dönem üretim giderleridir; yarı mamul stoklarındaki değişim eklenmeden üretim maliyetine ulaşılmaz.
+      C: Mamul stoklarındaki değişim satılan mamul maliyetinin hesaplanmasında kullanılır.
+      D: Satılan mamul maliyetinden üretim maliyetine geçerken dönem sonu mamul eklenir, dönem başı mamul düşülür;
+        işaretler ters verilmiştir.
+      E: Yarı mamul stoklarındaki değişim üretim maliyetine eklenir; ters işaretle düşülmez.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi
     madde: e- SATIŞLARIN MALİYET TABLOSU — E. Mamül Stoklarında Değişim
@@ -2866,7 +2906,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2887,8 +2927,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: D şıkkı (SMM + DS mamul − DB mamul) cebirsel olarak üretim maliyetine eşit olduğundan
+          ikinci doğruydu; işaretler ters çevrilerek yanlış yapıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2903,6 +2945,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: D şıkkı (SMM + DS mamul − DB mamul) cebirsel olarak üretim maliyetine eşit olduğundan ikinci doğruydu;
+      işaretler ters çevrilerek yanlış yapıldı'
 - id: SMMM-MAL-TBL-0034
   sinav: smmm
   bolum:
@@ -3004,27 +3051,28 @@
   kazanim: satılan ticari mal maliyeti
   tip: uygulama
   zorluk: 2
-  kok: 'Ticaret işletmesi olan KL Ltd. Şti.’nin dönem verileri şöyledir: Dönem başı ticari mal stoku 120.000 TL,
-    Dönem içi net alımlar 480.000 TL, Dönem sonu ticari mal stoku 95.000 TL. Buna göre satılan ticari mallar maliyeti
-    kaç TL’dir? KDV dikkate alınmayacaktır.'
+  kok: 'Ticaret işletmesi olan KL Ltd. Şti.''nin dönem verileri şöyledir: dönem başı ticari mal stoku 120.000 TL,
+    dönem içi brüt alışlar 500.000 TL, alıştan iadeler 15.000 TL, alış iskontoları 5.000 TL, dönem sonu ticari mal
+    stoku 95.000 TL. Buna göre satılan ticari mallar maliyeti kaç TL''dir? KDV dikkate alınmayacaktır.'
   secenekler:
     A: 455.000 TL
     B: 505.000 TL
-    C: 515.000 TL
-    D: 575.000 TL
-    E: 695.000 TL
+    C: 525.000 TL
+    D: 600.000 TL
+    E: 715.000 TL
   dogru: B
   aciklama:
-    dogru_neden: Satılan ticari mal maliyeti = Dönem başı ticari mal stoku + Net alımlar − Dönem sonu ticari mal
-      stoku = 120.000 + 480.000 − 95.000 = 505.000 TL. Bu tutar satışların maliyeti tablosunda ve gelir tablosunda
-      621 Satılan Ticari Mallar Maliyeti hesabına karşılık gelir.
+    dogru_neden: Net alışlar = 500.000 − 15.000 − 5.000 = 480.000 TL. STMM = 120.000 + 480.000 − 95.000 = 505.000
+      TL. Bu nedenle B doğrudur.
     celdiriciler:
-      A: '455.000 TL: Net alımlar yerine başka bir tutar (örneğin alımlardan bir indirim) kullanılarak hesaplanmıştır.'
-      C: '515.000 TL: Dönem sonu stok yanlışlıkla eklenmiş veya farklı stok tutarı kullanılmıştır.'
-      D: '575.000 TL: Dönem sonu stok düşülmeden (120.000 + 480.000 − 25.000 gibi) hesaplanmıştır.'
-      E: '695.000 TL: Tüm stok ve alım tutarları toplanmıştır.'
+      A: Dönem başı ve dönem sonu stokları yer değiştirilmiştir (95.000 + 480.000 − 120.000).
+      C: Alıştan iadeler ve iskontolar düşülmemiştir (120.000 + 500.000 − 95.000).
+      D: Dönem sonu stoku düşülmemiş, satışa hazır mal tutarı verilmiştir.
+      E: Brüt alışlara her iki stok da eklenmiştir (120.000 + 500.000 + 95.000).
     hesap_adimlari:
-    - Satılan ticari mal maliyeti = 120.000 + 480.000 − 95.000 = 505.000 TL
+    - 'Net alışlar: 500.000 − 15.000 − 5.000 = 480.000 TL'
+    - 'Satışa hazır mal: 120.000 + 480.000 = 600.000 TL'
+    - 'STMM: 600.000 − 95.000 = 505.000 TL'
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi
     madde: e- SATIŞLARIN MALİYET TABLOSU
@@ -3040,9 +3088,11 @@
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: sonuc = 120000 + 480000 - 95000
+    python: 'net = 500000 - 15000 - 5000
+
+      sonuc = 120000 + net - 95000'
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3062,8 +3112,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: hazır net alış yerine iade ve iskontodan net alış hesabı eklendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3078,6 +3129,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: hazır net alış yerine iade ve iskontodan net alış hesabı eklendi'
 - id: SMMM-MAL-TBL-0036
   sinav: smmm
   bolum:

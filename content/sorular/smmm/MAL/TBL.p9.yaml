@@ -262,22 +262,23 @@
   tip: kavrama
   zorluk: 1
   kok: Üretim maliyeti tablosu hazırlanırken aşağıdaki önermeler verilmiştir. I. Direkt ilk madde ve malzeme giderleri
-    üretim maliyetinde yer alır. II. Direkt işçilik giderleri üretim maliyetinde yer alır. III. Genel üretim giderleri
+    üretim maliyetinde yer alır. II. Direkt işçilik giderleri üretim maliyetinde yer alır. III. Genel yönetim giderleri
     üretim maliyetinde yer alır. Hangileri doğrudur?
   secenekler:
     A: Yalnız I
     B: I ve II
-    C: I, II ve III
+    C: I, II, III
     D: Yalnız III
     E: II ve III
-  dogru: C
+  dogru: B
   aciklama:
-    dogru_neden: Satışların maliyeti tablosu açıklamasına göre üç gider unsuru da üretim maliyetini oluşturan unsurlardandır.
+    dogru_neden: Direkt ilk madde ve malzeme ile direkt işçilik üretim maliyetinin unsurlarıdır. Genel yönetim giderleri
+      ise dönem gideridir (632) ve üretim maliyetine girmez. Bu nedenle B doğrudur.
     celdiriciler:
-      A: II ve III de doğrudur.
-      B: III de doğrudur.
-      D: I ve II de doğrudur.
-      E: I de doğrudur.
+      A: Direkt işçilik giderleri de üretim maliyetinde yer alır.
+      D: III. önerme yanlıştır; genel yönetim giderleri üretim maliyetine girmez.
+      E: III. önerme yanlış, I. önerme doğrudur.
+      C: Genel yönetim giderleri dönem gideridir; üretim maliyetine yüklenmez.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
@@ -289,7 +290,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -310,8 +311,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: hepsi doğru olan kolay öncüller yerine genel yönetim gideri tuzağı eklendi;
+          doğru şık C→B'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -326,6 +329,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: hepsi doğru olan kolay öncüller yerine genel yönetim gideri tuzağı eklendi; doğru şık C→B'
 - id: SMMM-MAL-TBL-0044
   sinav: smmm
   bolum:
@@ -337,27 +344,28 @@
   kazanim: satılan mamul maliyeti
   tip: uygulama
   zorluk: 3
-  kok: Pera Üretim AŞ’de dönem üretim maliyeti 420.000 TL, dönem başı mamul stoku 65.000 TL ve dönem sonu mamul
-    stoku 50.000 TL’dir. Mamullerin iç tüketimde kullanımı yoktur. Satılan mamul maliyeti kaç TL’dir?
+  kok: Pera Üretim AŞ'de dönem üretim maliyeti 420.000 TL, dönem başı mamul stoku 65.000 TL ve dönem sonu mamul
+    stoku 50.000 TL'dir. Dönem içinde maliyeti 10.000 TL olan mamuller işletmenin kendi faaliyetlerinde kullanılmıştır
+    (iç tüketim). KDV dikkate alınmayacaktır. Satılan mamul maliyeti kaç TL'dir?
   secenekler:
     A: 405.000 TL
     B: 420.000 TL
-    C: 435.000 TL
-    D: 470.000 TL
-    E: 485.000 TL
+    C: 425.000 TL
+    D: 435.000 TL
+    E: 445.000 TL
   dogru: C
   aciklama:
-    dogru_neden: 'Üretim maliyetine dönem başı mamul stoku eklenir, dönem sonu mamul stoku çıkarılır: 420.000 +
-      65.000 − 50.000 = 435.000 TL. Püf noktaları: stok değişimini dönem sonu eksi dönem başı olarak değil, maliyete
-      etkisiyle (başlangıç eklenip bitiş çıkarılarak) uygula.'
+    dogru_neden: Satılan mamul maliyeti = üretim maliyeti + dönem başı mamul − dönem sonu mamul − iç tüketime ayrılan
+      mamul = 420.000 + 65.000 − 50.000 − 10.000 = 425.000 TL. Bu nedenle C doğrudur.
     celdiriciler:
-      A: Stok farkının yönü ters uygulanmıştır.
-      B: Mamul stok değişimi dikkate alınmamıştır.
-      D: Dönem sonu stoku eklenmiştir.
-      E: Dönem başı ve dönem sonu stokları yanlış yönde işlenmiştir.
+      A: Dönem başı ve dönem sonu mamul stokları yer değiştirilmiştir (420.000 + 50.000 − 65.000).
+      B: Satılan mamul maliyeti yerine üretim maliyeti verilmiştir.
+      D: İç tüketime ayrılan mamul maliyeti düşülmemiştir.
+      E: İç tüketim tutarı düşülmek yerine eklenmiştir.
     hesap_adimlari:
-    - 420.000 + 65.000 = 485.000 TL
-    - 485.000 − 50.000 = 435.000 TL
+    - 'Satışa hazır mamul: 420.000 + 65.000 = 485.000 TL'
+    - 'Dönem sonu stok ve iç tüketim düşülür: 485.000 − 50.000 − 10.000'
+    - 'Satılan mamul maliyeti: 425.000 TL'
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
     madde: Ek-4, E kalemi
@@ -368,9 +376,9 @@
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: sonuc = 420000 + 65000 - 50000
+    python: sonuc = 420000 + 65000 - 50000 - 10000
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -390,8 +398,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: tek adımlık formüle iç tüketim adımı eklendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -406,6 +415,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: tek adımlık formüle iç tüketim adımı eklendi'
 - id: SMMM-MAL-TBL-0045
   sinav: smmm
   bolum:
@@ -451,7 +464,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 35000 + 145000 - 28000
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -472,8 +485,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: TBL-0035 ile aynı tek adımlık STMM formülü; 0035 sınav düzeyine çıkarıldı
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -488,6 +502,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: TBL-0035 ile aynı tek adımlık STMM formülü; 0035 sınav düzeyine çıkarıldı
 - id: SMMM-MAL-TBL-0046
   sinav: smmm
   bolum:
@@ -774,24 +792,24 @@
 
     '
   secenekler:
-    A: Üretim maliyeti = DİMM + Dİ + GÜG; satılan mamul maliyeti = üretim maliyeti − dönem başı mamul + dönem sonu
-      mamul
-    B: Üretim maliyeti = DİMM + Dİ + GÜG + dönem başı yarı mamul − dönem sonu yarı mamul; satılan mamul maliyeti
-      = üretim maliyeti
-    C: Üretim maliyeti = DİMM + Dİ; satılan mamul maliyeti = üretim maliyeti + GÜG
-    D: Üretim maliyeti = DİMM + Dİ + GÜG; satılan mamul maliyeti = üretim maliyeti + dönem başı mamul − dönem sonu
-      mamul
-    E: Üretim maliyeti = satılan mamul maliyeti + dönem sonu mamul − dönem başı mamul
+    A: Üretim maliyeti = DİMM + Dİ + GÜG ± yarı mamul değişimi; satılan mamul maliyeti = üretim maliyeti − dönem
+      başı mamul + dönem sonu mamul
+    B: Üretim maliyeti = DİMM + Dİ + GÜG ± yarı mamul değişimi; satılan mamul maliyeti = üretim maliyeti
+    C: Üretim maliyeti = DİMM + Dİ ± yarı mamul değişimi; satılan mamul maliyeti = üretim maliyeti + GÜG
+    D: Üretim maliyeti = DİMM + Dİ + GÜG ± yarı mamul değişimi; satılan mamul maliyeti = üretim maliyeti + dönem
+      başı mamul − dönem sonu mamul
+    E: Üretim maliyeti = satılan mamul maliyeti + dönem başı mamul − dönem sonu mamul; GÜG dönem gideridir
   dogru: D
   aciklama:
-    dogru_neden: 'Üretim maliyeti DİMM + Dİ + GÜG (+ yarı mamul değişimi) ile bulunur; satılan mamul maliyeti ise
-      üretim maliyetine dönem başı mamul eklenip dönem sonu mamul düşülerek hesaplanır. Püf noktaları: Mamul stok
-      değişimi satılan maliyeti etkiler.'
+    dogru_neden: Üretim maliyeti, dönem üretim giderlerine (DİMM + Dİ + GÜG) yarı mamul stok değişiminin eklenmesiyle
+      bulunur; satılan mamul maliyeti ise üretim maliyetine dönem başı mamul eklenip dönem sonu mamul düşülerek
+      hesaplanır. Bu nedenle D doğrudur.
     celdiriciler:
-      A: Mamul stok işleminin yönünü ters çevirir.
-      B: Yarı mamul değişimini üretim maliyetine dahil edip mamul stokunu yok sayar.
-      C: GÜG’yi üretim maliyetinden dışlar.
-      E: Formülü tersinden kurar.
+      A: Mamul stoklarının işaretleri ters verilmiştir; dönem başı mamul eklenir, dönem sonu mamul düşülür.
+      B: Mamul stoklarındaki değişim dikkate alınmadan üretim maliyeti satılan mamul maliyetine eşitlenmiştir.
+      C: Genel üretim giderleri üretim maliyetinin unsurudur; üretim maliyetinden sonra eklenmez.
+      E: Satılan mamul maliyetinden üretim maliyetine geçerken işaretler ters verilmiş; ayrıca GÜG dönem gideri
+        değildir.
   kaynaklar:
   - mevzuat: MSUGT Mali Tabloların Düzenlenmesi
     madde: Satışların Maliyeti Tablosu
@@ -803,7 +821,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -824,8 +842,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: E şıkkı (ÜM = SMM + DS − DB) cebirsel olarak doğru olduğundan ikinci doğruydu;
+          işaretler ters çevrildi. Doğru şıkka yarı mamul değişimi eklendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -843,6 +863,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: E şıkkı (ÜM = SMM + DS − DB) cebirsel olarak doğru olduğundan ikinci doğruydu; işaretler ters çevrildi.
+      Doğru şıkka yarı mamul değişimi eklendi'
 - id: SMMM-MAL-TBL-0050
   sinav: smmm
   bolum:
@@ -1510,24 +1535,22 @@
   kazanim: üretim maliyeti
   tip: kavrama
   zorluk: 1
-  kok: Satışların Maliyeti bölümündeki toplamın kapsamı ile üretim maliyeti kavramını birbirinden ayırmak isteyen
-    bir aday için aşağıdaki ifadelerden hangisi doğrudur?
+  kok: Satışların maliyeti kalemine ilişkin aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: Satışların Maliyeti yalnız üretim maliyetinden oluşur.
-    B: Satışların Maliyeti; satılan mamul maliyeti, satılan ticari mal maliyeti ve satılan hizmet maliyetinin toplamını
-      ifade eder.
-    C: Satışların Maliyeti yalnız satılan ticari mal maliyetinden oluşur.
-    D: Üretim maliyeti, satışların maliyetinin bütün kalemlerini doğrudan kapsar.
-    E: Satılan hizmet maliyeti satışların maliyetinde yer almaz.
+    A: Satılan mamul ve ticari mal maliyetinden oluşur; hizmet maliyeti ayrıca gösterilir.
+    B: Satılan mamul, satılan ticari mal ve satılan hizmet maliyetlerinin toplamıdır.
+    C: Dönemin üretim maliyetine eşittir; stok değişimleri ayrıca gösterilir.
+    D: Dönem içinde yapılan net alışlar ile üretim giderlerinin toplamıdır.
+    E: Üretim maliyeti ile faaliyet giderlerinin toplamından oluşur.
   dogru: B
   aciklama:
     dogru_neden: Kaynak, satışların maliyeti bölümündeki toplamın satılan mamul maliyeti, satılan ticari mal maliyeti
       ve satılan hizmet maliyetinden oluştuğunu açıkça belirtmektedir.
     celdiriciler:
-      A: Kaynakta satışların maliyeti üç farklı satış maliyetinin toplamı olarak tanımlanmıştır.
-      C: Satılan ticari mal maliyeti toplamın yalnız bir unsurudur.
-      D: Üretim maliyeti ile satışların maliyeti aynı kapsamda değildir.
-      E: Satılan hizmet maliyeti satışların maliyeti toplamında açıkça sayılmıştır.
+      A: Satılan hizmet maliyeti (622) de satışların maliyeti içinde yer alır.
+      C: Satışların maliyeti üretim maliyetinden mamul stok değişimi dikkate alınarak bulunur; ona eşit değildir.
+      D: Alışlar ve üretim giderleri stok değişimleri dikkate alınmadan satışların maliyeti olmaz.
+      E: Faaliyet giderleri (630–632) satışların maliyetinde değil faaliyet giderleri bölümünde yer alır.
   kaynaklar:
   - mevzuat: MSUGT — Mali Tabloların Düzenlenmesi ve Sunulması
     madde: Satışların Maliyeti Tablosu, E — Mamül Stoklarında Değişim
@@ -1538,7 +1561,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1559,8 +1582,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: bariz çeldiriciler kavram karışıklığına dayalı şıklarla değiştirildi, doğru
+          şık kısaltıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1575,6 +1600,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: bariz çeldiriciler kavram karışıklığına dayalı şıklarla değiştirildi, doğru şık kısaltıldı'
 - id: SMMM-MAL-TBL-0059
   sinav: smmm
   bolum:
@@ -2502,7 +2531,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 175000 + 110000 + 65000
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2523,8 +2552,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: Üç kalemin toplamı için öncüllü biçim; sınav düzeyinin çok altında ve resmî biçime aykırı
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2539,6 +2569,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: Üç kalemin toplamı için öncüllü biçim; sınav düzeyinin çok altında ve resmî biçime aykırı
 - id: SMMM-MAL-TBL-0070
   sinav: smmm
   bolum:
@@ -2589,7 +2623,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 480000 + 120000 - 95000
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2610,8 +2644,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: Tek adımlık formül için öncüllü biçim; TBL-0044 ve 0079 aynı bilgiyi sınav düzeyinde ölçüyor
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2626,6 +2661,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: Tek adımlık formül için öncüllü biçim; TBL-0044 ve 0079 aynı bilgiyi sınav düzeyinde ölçüyor
 - id: SMMM-MAL-TBL-0071
   sinav: smmm
   bolum:
@@ -2663,7 +2702,7 @@
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2685,8 +2724,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: TBL-0058 ile aynı tanım; çeldiriciler bariz
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2701,6 +2741,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: TBL-0058 ile aynı tanım; çeldiriciler bariz
 - id: SMMM-MAL-TBL-0072
   sinav: smmm
   bolum:
@@ -2790,18 +2834,18 @@
     ikinci dönemin hangi kalemiyle tutarlı olmalıdır?
   secenekler:
     A: İkinci dönemin dönem başı mamul stoku
-    B: İkinci dönemin direkt işçilik gideri
-    C: İkinci dönemin net satışları
-    D: İkinci dönemin finansman gideri
-    E: İkinci dönemin dönem sonu yarı mamul stoku
+    B: İkinci dönemin üretim maliyeti
+    C: İkinci dönemin dönem sonu mamul stoku
+    D: İkinci dönemin dönem başı yarı mamul stoku
+    E: İkinci dönemin satılan mamul maliyeti
   dogru: A
   aciklama:
     dogru_neden: Ardışık dönemlerde bir dönemin kapanış stoku izleyen dönemin açılış stokudur.
     celdiriciler:
-      B: B seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      C: C seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      D: D seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      E: E seçeneği kaynakta belirtilen işleyişle uyuşmaz.
+      B: Üretim maliyeti ikinci dönemin üretim giderlerinden oluşur; önceki dönemin stokuyla eşleşmez.
+      C: İlk dönemin dönem sonu stoku, ikinci dönemin dönem sonu değil dönem başı stokudur.
+      D: Mamul stoku yarı mamul stokuyla değil, mamul stokuyla devreder.
+      E: Satılan mamul maliyeti stok devrinin sonucudur; doğrudan dönem sonu stokuna eşit olmaz.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: MSUGT, Tekdüzen Hesap Planı açıklamaları
@@ -2813,7 +2857,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2834,8 +2878,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: alakasız çeldiriciler (net satışlar, finansman) stok ve tablo kalemleriyle değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2850,6 +2895,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: alakasız çeldiriciler (net satışlar, finansman) stok ve tablo kalemleriyle değiştirildi'
 - id: SMMM-MAL-TBL-0074
   sinav: smmm
   bolum:
@@ -3038,7 +3087,7 @@
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3060,8 +3109,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: Kök belirsiz ('karıştırılmamalıdır'); birden çok şık savunulabilir
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3076,6 +3126,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: Kök belirsiz ('karıştırılmamalıdır'); birden çok şık savunulabilir
 - id: SMMM-MAL-TBL-0077
   sinav: smmm
   bolum:
@@ -3090,21 +3144,21 @@
   kok: Bir işletme, gelir tablosunun eki olan Satışların Maliyeti Tablosu'nu birbirini izleyen dönemler için düzenlemektedir.
     Bu tabloya ilişkin aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Tablo, dönem içindeki stok hareketleriyle satılan mamul, ilk madde ve malzeme, ticari mal ve hizmet maliyetlerini
-      göstermeye yöneliktir.
-    B: Tablo yalnızca satılan mamul maliyetini kapsar; ticari mal ve hizmet maliyetlerini kapsamaz.
-    C: Satışların Maliyeti Tablosu, gelir tablosunun ekini oluşturur ve onu tamamlar.
+    A: Tablo, stok hareketleriyle satılan mamul, ticari mal ve hizmet maliyetlerini gösterir.
+    B: Tablo yalnız satılan mamul maliyetini kapsar; ticari mal ve hizmet maliyetleri bu tabloda yer almaz.
+    C: Satışların maliyeti tablosu gelir tablosunun ekini oluşturur ve onu tamamlar.
     D: Bir dönemin dönem sonu stoku, sonraki dönemin dönem başı stoku olarak dikkate alınır.
-    E: Tablonun ana kalemleri ayrı bir tablo halinde düzenlenir.
+    E: Tablo, satışların maliyetini oluşturan unsurları ayrıntılı olarak gösterir.
   dogru: B
   aciklama:
     dogru_neden: Kaynak, tablonun satılan mamul, ilk madde ve malzeme, ticari mal ve satılan hizmet maliyetlerini
       göstermeye yönelik olduğunu belirtir.
     celdiriciler:
-      A: Kaynak metindeki kapsamla uyumludur.
-      C: Kaynak metin tablonun gelir tablosunu tamamladığını açıkça belirtir.
-      D: Ardışık dönem tablolarında stok devri bu şekilde ele alınır.
-      E: Kaynak metin tablonun ayrı bir tablo halinde düzenlendiğini belirtir.
+      A: Satışların maliyeti tablosu satılan mamul, ticari mal ve hizmet maliyetlerini stok hareketleriyle gösterir;
+        ifade doğrudur.
+      C: Tablo, gelir tablosunun eki olarak düzenlenir; ifade doğrudur.
+      D: Stok devri bu şekilde yapılır; ifade doğrudur.
+      E: Tablonun amacı satışların maliyeti unsurlarını ayrıntılı göstermektir; ifade doğrudur.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği, Mali Tabloların Düzenlenmesi ve Sunulması
     madde: Satışların Maliyeti Tablosu açıklaması
@@ -3116,7 +3170,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3137,8 +3191,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: belirsiz E şıkkı açık bir doğru ifadeyle değiştirildi, şık uzunlukları dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3159,6 +3214,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: belirsiz E şıkkı açık bir doğru ifadeyle değiştirildi, şık uzunlukları dengelendi'
 - id: SMMM-MAL-TBL-0078
   sinav: smmm
   bolum:
@@ -3172,23 +3231,23 @@
   zorluk: 2
   kok: Bir işletmenin üretim maliyetini oluşturan unsurlara ilişkin aşağıdaki öncülleri değerlendirin. I. Direkt
     ilk madde ve malzeme giderleri üretim maliyetinin unsurlarındandır. II. Direkt işçilik giderleri üretim maliyetinin
-    unsurlarındandır. III. Genel üretim giderleri, direkt ilk madde ve malzeme ile direkt işçilik dışındaki üretim
-    faaliyetiyle ilgili giderleri kapsar. Buna göre hangi öncüller doğrudur?
+    unsurlarındandır. III. Genel üretim giderleri, satış ve dağıtım faaliyetleriyle ilgili giderleri de kapsar.
+    Buna göre hangi öncüller doğrudur?
   secenekler:
     A: Yalnız I
     B: Yalnız II
     C: I ve II
     D: II ve III
-    E: I, II ve III
-  dogru: E
+    E: I, II, III
+  dogru: C
   aciklama:
-    dogru_neden: Satışların Maliyeti Tablosu açıklaması direkt ilk madde ve malzeme, direkt işçilik ve genel üretim
-      giderlerini ayrı ana kalemler olarak tanımlar.
+    dogru_neden: DİMM ve direkt işçilik üretim maliyetinin unsurlarıdır. Satış ve dağıtım giderleri ise pazarlama
+      satış dağıtım giderleri (631) olarak dönem gideridir; genel üretim giderlerine girmez. Bu nedenle C doğrudur.
     celdiriciler:
-      A: II ve III de kaynak metinde yer alan üretim maliyeti unsurlarıyla uyumludur.
-      B: I ve III de kaynak metinde yer alan üretim maliyeti unsurlarıyla uyumludur.
-      C: III numaralı öncül genel üretim giderlerinin kapsamını doğru belirtir.
-      D: I numaralı öncül de doğrudur.
+      A: II. öncül de doğrudur.
+      B: I. öncül de doğrudur.
+      D: III. öncül yanlıştır; satış ve dağıtım giderleri GÜG kapsamında değildir.
+      E: Satış ve dağıtım giderleri dönem gideri olduğundan III. öncül yanlıştır.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği, Mali Tabloların Düzenlenmesi ve Sunulması
     madde: Satışların Maliyeti Tablosu, A-C kalemleri
@@ -3199,7 +3258,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3220,8 +3279,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: tümü doğru öncüller yerine GÜG kapsamı tuzağı eklendi; doğru şık E→C'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3236,6 +3296,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: tümü doğru öncüller yerine GÜG kapsamı tuzağı eklendi; doğru şık E→C'
 - id: SMMM-MAL-TBL-0079
   sinav: smmm
   bolum:
@@ -3247,25 +3311,28 @@
   kazanim: satılan mamul maliyeti
   tip: uygulama
   zorluk: 3
-  kok: 'Bir işletmede üretim maliyeti 840.000 TL, dönem başı mamul stoku 115.000 TL ve dönem sonu mamul stoku 145.000
-    TL''dir. Satılan mamul maliyetine ulaşmak için işlemleri doğru sırayla eşleştirin: (1) üretim maliyetini belirleme,
-    (2) mamul stok farkını hesaplama, (3) satılan mamul maliyetini bulma. Hangi sıra ve sonuç doğrudur?'
+  kok: KDV dikkate alınmayacaktır. Bir işletmede dönem içinde direkt ilk madde ve malzeme 400.000 TL, direkt işçilik
+    260.000 TL, genel üretim gideri 160.000 TL gerçekleşmiştir. Dönem başı yarı mamul 50.000 TL, dönem sonu yarı
+    mamul 30.000 TL; dönem başı mamul 115.000 TL, dönem sonu mamul 145.000 TL'dir. Satılan mamul maliyeti kaç TL'dir?
   secenekler:
-    A: 780.000 TL
+    A: 790.000 TL
     B: 810.000 TL
     C: 840.000 TL
     D: 870.000 TL
     E: 955.000 TL
   dogru: B
   aciklama:
-    dogru_neden: 'Satılan mamul maliyeti, üretim maliyetine dönem başı mamul stoku ile dönem sonu mamul stoku arasındaki
-      fark eklenerek bulunur: 840.000 + 115.000 − 145.000 = 810.000 TL. Dönem sonu stokunun dönem başı stokundan
-      yüksek olması satılan mamul maliyetini azaltır.'
+    dogru_neden: Üretim maliyeti = 400.000 + 260.000 + 160.000 + 50.000 − 30.000 = 840.000 TL. Satılan mamul maliyeti
+      = 840.000 + 115.000 − 145.000 = 810.000 TL. Bu nedenle B doğrudur.
     celdiriciler:
-      A: Stok farkını 60.000 TL olarak yanlış hesaplar.
-      C: Mamul stoklarındaki değişimi dikkate almayarak yalnız üretim maliyetini alır.
-      D: Stok artışını maliyete ekler.
-      E: Verilerden çıkmayan bir toplam kullanır.
+      A: Yarı mamul stok değişimi ihmal edilmiştir (820.000 + 115.000 − 145.000).
+      C: Satılan mamul maliyeti yerine üretim maliyeti verilmiştir.
+      D: Mamul stokları yer değiştirilmiştir (840.000 + 145.000 − 115.000).
+      E: Dönem sonu mamul stoku düşülmemiştir (840.000 + 115.000).
+    hesap_adimlari:
+    - 'Dönem üretim giderleri: 400.000 + 260.000 + 160.000 = 820.000 TL'
+    - 'Üretim maliyeti: 820.000 + 50.000 − 30.000 = 840.000 TL'
+    - 'Satılan mamul maliyeti: 840.000 + 115.000 − 145.000 = 810.000 TL'
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği, Mali Tabloların Düzenlenmesi ve Sunulması
     madde: Satışların Maliyeti Tablosu, E - Mamül Stoklarında Değişim
@@ -3276,9 +3343,11 @@
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: sonuc = 840000 + 115000 - 145000
+    python: 'uretim = 400000 + 260000 + 160000 + 50000 - 30000
+
+      sonuc = uretim + 115000 - 145000'
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3298,8 +3367,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kök ile şıklar uyuşmuyordu (''sıra ve sonuç''); üretim maliyeti adımı eklenerek
+          tek sayısal sonuç soruldu'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3314,6 +3385,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kök ile şıklar uyuşmuyordu (''sıra ve sonuç''); üretim maliyeti adımı eklenerek tek sayısal sonuç
+      soruldu'
 - id: SMMM-MAL-TBL-0080
   sinav: smmm
   bolum:

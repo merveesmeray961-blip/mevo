@@ -2250,7 +2250,7 @@
   tip: uygulama
   zorluk: 3
   kok: Bir editör aşağıdaki cümleleri anlatım bozukluğunun nedenine göre sınıflandırıyor. Hangisindeki bozukluk,
-    diğer üçündekinden farklı bir nedene dayanmaktadır?
+    diğerlerindekinden farklı bir nedene dayanmaktadır?
   secenekler:
     A: Bu kararın uygulanması, gelecekte ileride yapılacak çalışmaları etkileyecek.
     B: Toplantıya yaklaşık olarak yüz civarında kişi katıldı.
@@ -2277,7 +2277,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2298,8 +2298,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kökte ''diğer üçü'' ifadesi beş şıkla çelişiyordu; ''diğerlerindekinden'' yapıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -2314,6 +2315,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kökte ''diğer üçü'' ifadesi beş şıkla çelişiyordu; ''diğerlerindekinden'' yapıldı'
 - id: SMMM-GKY-TUR-0106
   sinav: smmm
   bolum:
@@ -2771,19 +2776,19 @@
   zorluk: 1
   kok: Aşağıdaki eşleştirmelerden hangisinde altı çizili sözcük ile açıklaması doğru eşleştirilmiştir?
   secenekler:
-    A: “Soruna **yaklaştı**.” — uzaklaştı
-    B: “Söyledikleri beni **incitti**.” — sevindirdi
-    C: “Dosyayı **kapatmak** gerekti.” — çoğaltmak
+    A: “Soruna **yaklaştı**.” — sorunu çözdü
+    B: “Söyledikleri beni **incitti**.” — beni şaşırttı
+    C: “Dosyayı **kapatmak** gerekti.” — dosyayı arşivlemek
     D: “Bu öneri oldukça **yerinde**.” — uygun, isabetli
-    E: “Konuyu **ertelemedi**.” — hemen unuttu
+    E: “Konuyu **ertelemedi**.” — gündemden çıkarmadı
   dogru: D
   aciklama:
     dogru_neden: “Yerinde” bu cümlede uygun ve isabetli anlamındadır.
     celdiriciler:
-      A: “Yaklaştı” uzaklaşmanın karşıtıdır.
-      B: “İncitti” üzüntü veya kırgınlık yaratmayı ifade eder; sevindirmek değildir.
-      C: “Kapatmak” burada çoğaltmak anlamına gelmez.
-      E: Ertelememek, unutmak anlamına gelmez.
+      A: “Soruna yaklaşmak” bir sorunu ele alış biçimini anlatır; sorunun çözülmesi anlamına gelmez.
+      B: “İncitmek” kırmak, gücendirmek anlamındadır; şaşırtmak farklı bir duygu durumudur.
+      C: Dosyayı kapatmak işi sonuçlandırmak ya da açık belgeyi kapamaktır; arşivlemek ayrı bir işlemdir.
+      E: “Ertelememek” işi sonraya bırakmamaktır; gündemden çıkarmamak anlamını karşılamaz.
   kaynaklar:
   - mevzuat: Genel bilgi — sözcükte anlam
     madde: '-'
@@ -2793,7 +2798,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2814,8 +2819,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: zıt anlamlı bariz çeldiriciler, yakın anlamlı akla yatkın yanlışlarla değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -2833,6 +2839,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: zıt anlamlı bariz çeldiriciler, yakın anlamlı akla yatkın yanlışlarla değiştirildi'
 - id: SMMM-GKY-TUR-0113
   sinav: smmm
   bolum:
@@ -3080,24 +3090,27 @@
   zorluk: 3
   kok: Aşağıdaki cümle çiftlerinden hangisinde virgül ile noktalı virgülün kullanım amacı doğru karşılaştırılmıştır?
   secenekler:
-    A: “Ali, Ayşe ve Ece toplantıya katıldı.” cümlesinde virgül eş görevli sözcükleri ayırırken; “Toplantıya Ali,
-      Ayşe ve Ece katıldı; kararları Mehmet yazdı.” cümlesinde noktalı virgül bağımsız cümleleri ayırmaktadır.
-    B: “Ali, Ayşe ve Ece toplantıya katıldı.” cümlesinde virgül özne ile yüklemi ayırmak için; “Ali geldi; Ayşe
-      konuştu.” cümlesinde noktalı virgül özneyi belirtmek için kullanılmıştır.
-    C: “Kitabı okudum, notlar çıkardım.” cümlesinde virgül yalnızca vurgu için; “Ali; Ayşe geldi.” cümlesinde noktalı
-      virgül kişi adlarını ayırmak için kullanılmıştır.
-    D: “Ankara, İzmir ve Bursa'ya gitti.” cümlesindeki virgüller yalnızca ara sözleri; “Bugün yağmur yağdı; fakat
-      dışarı çıktık.” cümlesindeki noktalı virgül ise her zaman bağlaçtan önce zorunlu noktalama olduğunu gösterir.
-    E: Virgül ve noktalı virgül aynı görevi görür; aralarındaki tek fark noktalı virgülün cümle sonunda kullanılmasıdır.
+    A: “Ali, Ayşe ve Ece toplantıya katıldı.” cümlesinde virgül eş görevli sözcükleri, “Ali geldi; Ayşe konuştu.”
+      cümlesinde noktalı virgül bağımsız cümleleri ayırır.
+    B: “Ali, Ayşe ve Ece toplantıya katıldı.” cümlesinde virgül sıralı cümleleri, “Ali geldi; Ayşe konuştu.” cümlesinde
+      noktalı virgül eş görevli sözcükleri ayırır.
+    C: “Ali, Ayşe ve Ece toplantıya katıldı.” cümlesinde virgül ara sözü, “Ali geldi; Ayşe konuştu.” cümlesinde
+      noktalı virgül açıklama cümlesini başlatır.
+    D: “Ali, Ayşe ve Ece toplantıya katıldı.” cümlesinde virgül özneyi vurgular, “Ali geldi; Ayşe konuştu.” cümlesinde
+      noktalı virgül cümlenin bittiğini gösterir.
+    E: “Ali, Ayşe ve Ece toplantıya katıldı.” cümlesinde virgül hitabı, “Ali geldi; Ayşe konuştu.” cümlesinde noktalı
+      virgül alıntı cümleyi ayırır.
   dogru: A
   aciklama:
-    dogru_neden: A seçeneğinde virgül eş görevli unsurları ayırmakta, noktalı virgül ise birbirine bağlı bağımsız
-      cümleleri ayırmaktadır. Diğer seçenekler bu işlevleri yanlış tanımlar veya geneller.
+    dogru_neden: Birinci cümlede virgül, aynı görevdeki özneleri (Ali, Ayşe, Ece) birbirinden ayırır. İkinci cümlede
+      noktalı virgül, kendi başına yargı bildiren iki bağımsız cümleyi (Ali geldi / Ayşe konuştu) ayırır. Bu nedenle
+      A doğrudur.
     celdiriciler:
-      B: Virgül özne ile yüklemi ayırmak için kullanılmaz; noktalı virgülün işlevi de yanlış açıklanmıştır.
-      C: Virgülün kullanımını yalnız vurguya, noktalı virgülü ise kişi adlarına bağlar.
-      D: Virgül ve noktalı virgülün işlevlerini ve zorunluluklarını geneller.
-      E: İki noktalama işaretinin farklı görevlerini yok sayar.
+      B: İşaretlerin görevleri yer değiştirilmiştir; birinci cümlede ayrılan sözcükler, ikinci cümlede ayrılan ise
+        bağımsız cümlelerdir.
+      C: Birinci cümlede ara söz yoktur; açıklama cümlesinden önce noktalı virgül değil iki nokta kullanılır.
+      D: Virgülün vurgu görevi bu cümlede söz konusu değildir; cümlenin bittiğini nokta gösterir.
+      E: Birinci cümlede hitap yoktur; alıntı cümle tırnak ve iki nokta ile verilir, noktalı virgülle değil.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Genel bilgi — yazım ve noktalama
@@ -3108,7 +3121,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3129,8 +3142,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: bariz ve mutlak ifadeli çeldiriciler, aynı örnek cümleler üzerinden görevlerin
+          karıştırılmasına dayalı çeldiricilerle yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -3145,6 +3160,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: bariz ve mutlak ifadeli çeldiriciler, aynı örnek cümleler üzerinden görevlerin karıştırılmasına
+      dayalı çeldiricilerle yenilendi'
 - id: SMMM-GKY-TUR-0117
   sinav: smmm
   bolum:
@@ -3232,19 +3252,20 @@
   kok: “Bu karar, projenin uygulanmasını **kolaylaştırdı**.” cümlesinde “kolaylaştırdı” sözcüğüyle ilgili aşağıdakilerden
     hangisi **yanlıştır**?
   secenekler:
-    A: İşi daha yapılabilir hâle getirmek anlamındadır.
-    B: Bir sürecin yürütülmesini daha rahat hâle getirmek anlamındadır.
-    C: Cümlede gerçek anlamıyla kullanılmaktadır.
-    D: “Zorlaştırdı” sözcüğüyle aynı anlamdadır.
-    E: Fiil görevindedir.
+    A: Türemiş bir fiildir.
+    B: Cümlede yüklem görevindedir.
+    C: Gerçek anlamıyla kullanılmıştır.
+    D: Yapım eki almamış, basit yapılı bir sözcüktür.
+    E: Nesne alabilen, geçişli bir fiildir.
   dogru: D
   aciklama:
-    dogru_neden: “Kolaylaştırdı” bir işi daha rahat yapılır hâle getirmek demektir; “zorlaştırdı” bunun karşıtıdır.
+    dogru_neden: “Kolaylaştırdı” sözcüğü kolay+laş+tır kök ve yapım eklerinden oluşur; bu nedenle türemiş bir fiildir
+      ve “basit yapılı” olduğu söylenemez. Yanlış olan D'dir.
     celdiriciler:
-      A: “Kolaylaştırdı”, işi daha yapılabilir hâle getirmek anlamını taşır.
-      B: Sürecin daha rahat yürütülmesini ifade eder.
-      C: Bu cümlede sözcük doğrudan kolay hâle getirme anlamında kullanılmıştır.
-      E: “Kolaylaştırdı” çekimli bir fiildir.
+      A: Sözcük, “kolay” adından -laş ve -tır yapım ekleriyle türemiştir; ifade doğrudur.
+      B: Cümlenin yargısını bildiren çekimli fiil olduğundan yüklem görevindedir; ifade doğrudur.
+      C: Bir işin yapılmasını kolay hâle getirme anlamıyla gerçek anlamda kullanılmıştır; ifade doğrudur.
+      E: “Neyi kolaylaştırdı?” sorusuna “uygulanmasını” cevabı verildiğinden geçişlidir; ifade doğrudur.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Genel bilgi — sözcükte anlam
@@ -3255,7 +3276,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3276,8 +3297,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: zıt anlam çeldiricisi yerine yapı, görev ve çatı bilgisini ölçen şıklar yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -3292,6 +3314,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: zıt anlam çeldiricisi yerine yapı, görev ve çatı bilgisini ölçen şıklar yazıldı'
 - id: SMMM-GKY-TUR-0119
   sinav: smmm
   bolum:
@@ -3533,11 +3559,11 @@
   kok: Aşağıdaki önermelerden hangilerinde yazım ve noktalama kullanımı doğrudur? I. Toplantı, saat 14.00'te başlayacak.
     II. Ankara'ya yarın sabah gideceğiz. III. Bu konuda sen de haklısın, fakat karar değişmeyecek.
   secenekler:
-    B: I, II ve III
-    E: Yalnız II
     A: Yalnız I
+    B: I, II, III
     C: I ve II
     D: II ve III
+    E: Yalnız II
   dogru: B
   aciklama:
     dogru_neden: Üç cümlede de verilen yazım ve noktalama kullanımları doğrudur.
@@ -3555,7 +3581,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3576,8 +3602,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: doğru şık kısaltılarak uzunluk ipucu giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -3592,6 +3619,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: doğru şık kısaltılarak uzunluk ipucu giderildi'
 - id: SMMM-GKY-TUR-0123
   sinav: smmm
   bolum:
@@ -3681,19 +3712,19 @@
   zorluk: 2
   kok: Aşağıdaki sözcüklerden hangisi cümlede gerçek anlamıyla kullanılmıştır?
   secenekler:
-    A: Yazar, eleştirilerin **ağırlığı** altında kaldı.
+    A: Bu sözler aramızdaki **buzları** eritti.
     B: Onun sözleri içimi **ısıttı**.
-    C: Bu haber bütün planlarımızı **yıktı**.
+    C: Yorgunluktan kolları **kopuyordu**.
     D: Masadaki bardak **kırıldı**.
-    E: Bu davranış arkadaşlığımızı **zedeledi**.
+    E: Sınav sonucu onu **yıktı**.
   dogru: D
   aciklama:
     dogru_neden: “Kırıldı” burada fiziksel bir nesnenin parçalanmasını bildirdiği için gerçek anlamdadır.
     celdiriciler:
-      A: Ağırlık burada eleştirilerin yoğunluğunu anlatan mecaz kullanımdır.
-      B: İçin ısınması duygusal, mecaz kullanımdır.
-      C: Planın bozulması mecaz kullanımdır.
-      E: Arkadaşlığın zarar görmesi mecaz kullanımdır.
+      A: “Buzları eritmek” soğukluğu, gerginliği gidermek anlamında mecazdır.
+      B: “İçini ısıtmak” mutlu etmek, umut vermek anlamında mecazdır.
+      C: Kolların kopması abartılı bir anlatımdır; çok yorulmak anlamında mecaz kullanılmıştır.
+      E: “Yıkmak” burada üzüntüye boğmak, sarsmak anlamında mecazdır.
   kaynaklar:
   - mevzuat: Genel bilgi — sözcükte anlam
     madde: '-'
@@ -3703,7 +3734,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3724,8 +3755,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler yaygın deyim ve abartma örnekleriyle güçlendirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -3746,6 +3778,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler yaygın deyim ve abartma örnekleriyle güçlendirildi'
 - id: SMMM-GKY-TUR-0125
   sinav: smmm
   bolum:
@@ -3758,11 +3794,11 @@
   zorluk: 3
   kok: Aşağıdaki cümle çiftlerinden hangisinde ikinci cümle, birinci cümledeki yargının gerçekleşme koşulunu belirtmektedir?
   secenekler:
-    E: Sınavda başarılı olabilirsin. Düzenli çalışırsan konuları daha iyi öğrenirsin.
-    C: Kitabı bitirdi. Ardından notlarını düzenledi.
     A: Toplantı erken bitti. Katılımcılar gündemi önceden incelemişti.
     B: Rapor zamanında gönderildi. Yönetici metni son kez kontrol etti.
+    C: Kitabı bitirdi. Ardından notlarını düzenledi.
     D: Hava aniden soğudu. Akşam saatlerinde yağmur başladı.
+    E: Sınavda başarılı olabilirsin. Bunun için düzenli çalışmalısın.
   dogru: E
   aciklama:
     dogru_neden: 'C seçeneğinde “düzenli çalışırsan” ifadesi, başarılı olma sonucunun hangi koşulda gerçekleşebileceğini
@@ -3782,7 +3818,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3803,8 +3839,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: doğru şık kısaltıldı; koşul anlamı korundu'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -3819,6 +3856,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: doğru şık kısaltıldı; koşul anlamı korundu'
 - id: SMMM-GKY-TUR-0126
   sinav: smmm
   bolum:
@@ -4013,7 +4054,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 3 + 5 + 4 + 6 - 1 + 1
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4034,8 +4075,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: Soru dil bilgisi değil yalnız toplama ölçüyor; sınav düzeyine uygun değil
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -4050,6 +4092,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: Soru dil bilgisi değil yalnız toplama ölçüyor; sınav düzeyine uygun değil
 - id: SMMM-GKY-TUR-0129
   sinav: smmm
   bolum:
@@ -4946,17 +4992,18 @@
     A: Toplantıya katılan herkes fikirlerini karşılıklı olarak paylaştı. / Toplantıya katılan herkes fikirlerini
       paylaştı.
     B: Bu konu hakkında görüş ve düşüncelerimi söyleyeceğim. / Bu konu hakkında görüşlerimi ve düşüncelerimi söyleyeceğim.
-    C: Yaklaşık olarak aşağı yukarı on dakika bekledik. / Yaklaşık olarak aşağı yukarı on dakika bekledik.
-    D: Sorunu çözmek için çözüm önerileri geliştirdik. / Sorunu çözmek için çözüm önerileri geliştirdik.
-    E: Geri iade edilen ürünler depoya kaldırıldı. / Geri iade edilen ürünler depoya kaldırıldı.
+    C: Yaklaşık on dakika kadar bekledik. / Yaklaşık olarak on dakika kadar bekledik.
+    D: Sorunu çözmek için öneriler geliştirdik. / Sorunu çözmek için çözüm önerileri geliştirdik.
+    E: Geri iade edilen ürünler depoya kaldırıldı. / Geri iade edilmiş ürünler depoya kaldırıldı.
   dogru: A
   aciklama:
     dogru_neden: A seçeneğinde 'karşılıklı olarak' ifadesinin gereksizliği giderilmiştir.
     celdiriciler:
-      B: İkinci cümle gereksiz sözcükleri azaltmamaktadır.
-      C: Aynı gereksiz ikili kullanım korunmuştur.
-      D: Aynı ifade korunmuştur.
-      E: '''Geri iade'' anlatımındaki gereksizlik korunmuştur.'
+      B: Birinci cümlede bir bozukluk yoktur; ikinci cümle de yalnız ekleri ayırarak aynı anlamı verir, düzeltme
+        söz konusu değildir.
+      C: “Yaklaşık” ile “kadar” aynı anlamı verir; ikinci cümle “olarak” ekleyerek gereksizliği sürdürmektedir.
+      D: Birinci cümle doğrudur; ikinci cümle “çözmek … çözüm” tekrarıyla gereksiz sözcük kullanımı yaratmıştır.
+      E: “Geri iade” anlatımındaki gereksiz sözcük ikinci cümlede de aynen sürmektedir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Genel bilgi — GKY anlatım bozuklukları
@@ -4967,7 +5014,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4988,8 +5035,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: iki cümlesi aynı olan dolgu şıklar, gerçek düzeltme/bozma çiftleriyle yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -5004,6 +5052,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: iki cümlesi aynı olan dolgu şıklar, gerçek düzeltme/bozma çiftleriyle yenilendi'
 - id: SMMM-GKY-TUR-0142
   sinav: smmm
   bolum:
@@ -5091,20 +5143,20 @@
     teslim tarihini geciktirebilir; ancak hatalı bir raporu zamanında sunmaktan daha sağlıklı olacaktır.” demiştir.
     Bu sözle aşağıdakilerden hangisi vurgulanmaktadır?
   secenekler:
-    A: Hızlı tamamlanan her işin kaliteli olduğu
-    B: Teslim tarihinin her durumda önemsiz olduğu
-    C: Hatalı raporların sonradan düzeltilemeyeceği
+    A: Teslim tarihine uymanın rapor kalitesini artıracağı
+    B: Veri kontrolünün başka bir ekibe devredilmesi gerektiği
+    C: Hataların teslimden sonra düzeltilmesinin daha pratik olduğu
     D: Doğruluk için gerektiğinde sürenin uzatılabileceği
-    E: Veri kontrolünün yalnızca yöneticinin görevi olduğu
+    E: Raporun kapsamı daraltılarak süreye yetiştirilebileceği
   dogru: D
   aciklama:
     dogru_neden: Sözde, zamanında teslim ile hatasız olma arasında tercih yapılmakta ve doğruluğun korunması için
       gerekirse teslimin geciktirilebileceği belirtilmektedir.
     celdiriciler:
-      A: Söz, hızlı tamamlamanın kaliteyi garanti ettiğini söylemez.
-      B: Teslim tarihinin önemsiz olduğu sonucuna varılamaz.
-      C: Hatalı raporların sonradan düzeltilemeyeceği söylenmemiştir.
-      E: Veri kontrolünün yalnızca yöneticiye ait olduğu belirtilmemiştir.
+      A: Yönetici, süreye uymanın değil doğruluğun öncelikli olduğunu söylemektedir.
+      B: Sözde kontrolün kimin yapacağına dair bir değerlendirme yoktur.
+      C: Yönetici hatalı raporu sunmaktansa önce kontrolü önermekte, sonradan düzeltmeyi savunmamaktadır.
+      E: Kapsamın daraltılmasından söz edilmemiştir; önerilen, teslim tarihinin gecikmesine razı olmaktır.
   kaynaklar:
   - mevzuat: Genel bilgi — GKY dersi
     madde: '-'
@@ -5114,7 +5166,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5135,8 +5187,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: mutlak ifadeli bariz çeldiriciler, metinle ilişkili akla yatkın yorumlarla değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -5157,6 +5210,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: mutlak ifadeli bariz çeldiriciler, metinle ilişkili akla yatkın yorumlarla değiştirildi'
 - id: SMMM-GKY-TUR-0144
   sinav: smmm
   bolum:
@@ -5622,20 +5679,20 @@
   kok: Bir kurum, başvuru süresini uzatmış; ancak duyurusunda bunun başvuruların çokluğundan değil, sistemde yapılan
     teknik çalışmadan kaynaklandığını belirtmiştir. Bu durumu en doğru ifade eden cümle aşağıdakilerden hangisidir?
   secenekler:
-    A: Başvuruların çokluğu, sürenin uzatılmasının temel nedenidir.
-    B: Başvuru yoğunluğu arttığı için teknik çalışma yapılmıştır.
-    C: Teknik çalışma, başvuruların erken tamamlanmasını sağlamıştır.
-    D: Başvuru süresinin uzatılması, yoğunluktan bağımsız bir teknik nedene bağlanmıştır.
-    E: Kurum, başvuru süresini uzatmayı sonradan iptal etmiştir.
+    A: Süre, başvuruların beklenenden fazla olması nedeniyle uzatılmıştır.
+    B: Teknik çalışma, başvuru yoğunluğunu azaltmak amacıyla yapılmıştır.
+    C: Süre uzatımı hem yoğunluğa hem de teknik çalışmaya bağlanmıştır.
+    D: Süre uzatımı, yoğunluk dışında teknik bir nedene dayandırılmıştır.
+    E: Kurum, süre uzatımının gerekçesini duyurusunda açıklamamıştır.
   dogru: D
   aciklama:
     dogru_neden: Senaryoda süre uzatmasının nedeni açıkça teknik çalışma olarak belirtilmiş, başvuru yoğunluğunun
       neden olmadığı özellikle vurgulanmıştır. A seçeneği bu iki bilgiyi birlikte doğru aktarır.
     celdiriciler:
-      B: Senaryoda yoğunluğun teknik çalışmaya neden olduğu söylenmemektedir.
-      C: Teknik çalışmanın başvuruların erken tamamlanmasını sağladığı belirtilmemiştir.
-      E: Sürenin uzatılmasının iptal edildiğine ilişkin bilgi yoktur.
-      A: Yoğunluk, uzatmanın nedeni olarak açıkça reddedilmiştir.
+      B: Teknik çalışmanın amacı yoğunluğu azaltmak olarak gösterilmemiştir.
+      C: Kurum yoğunluğu neden olarak kabul etmemiş, yalnız teknik çalışmayı göstermiştir.
+      E: Kurum gerekçeyi açıklamış ve uzatmayı teknik çalışmaya bağlamıştır.
+      A: Duyuruda uzatmanın başvuru çokluğundan kaynaklanmadığı açıkça belirtilmiştir.
   kaynaklar:
   - mevzuat: Genel bilgi — Türkçe cümlede anlam
     madde: '-'
@@ -5645,7 +5702,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5666,8 +5723,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: çeldiriciler metne yakın yanlış yorumlarla yenilendi, şık uzunlukları dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -5682,6 +5740,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: çeldiriciler metne yakın yanlış yorumlarla yenilendi, şık uzunlukları dengelendi'
 - id: SMMM-GKY-TUR-0151
   sinav: smmm
   bolum:
@@ -6162,7 +6224,7 @@
     baslangic: '2026-10-09'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -6184,8 +6246,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 2).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: C şıkkı (I ve IV) 'hangi cümle' sorusuna uymuyor; dört cümleyle beş geçerli şık kurulamıyor, sıralama
+          da tek cevaba bağlanamıyor
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -6200,6 +6264,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: C şıkkı (I ve IV) 'hangi cümle' sorusuna uymuyor; dört cümleyle beş geçerli şık kurulamıyor, sıralama
+      da tek cevaba bağlanamıyor
 - id: SMMM-GKY-TUR-0158
   sinav: smmm
   bolum:

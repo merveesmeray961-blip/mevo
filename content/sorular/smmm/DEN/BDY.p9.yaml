@@ -1,6 +1,6 @@
 - id: SMMM-DEN-BDY-0120
   sinav: smmm
-  bolum: &id001
+  bolum:
   - YET
   - SGS
   ders: DEN
@@ -11,20 +11,20 @@
   zorluk: 1
   kok: KGK Bağımsız Denetim Yönetmeliği'ndeki sicil hükümleri bakımından aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: Sicil numarası yalnızca denetim kuruluşlarına verilir; denetçilere verilmez.
-    B: Sicil numarası denetlenen işletme tarafından belirlenir.
-    C: Sicil numarası yalnızca KAYİK denetimi yapan denetçilere verilir.
+    A: Sicil numarası denetim kuruluşlarına verilir; denetçiler kuruluşun numarasını kullanır.
+    B: Sicil numarası denetim sözleşmesi imzalanırken denetlenen işletmece belirlenir.
+    C: Sicil numarası KAYİK denetimi yetkisi alan denetçilere verilir.
     D: Her denetim kuruluşuna ve denetçiye Kurum tarafından bir sicil numarası verilir.
-    E: Sicil numarası yalnızca faaliyet izni sona erdiğinde verilir.
+    E: Sicil numarası faaliyet izni sona erdiğinde arşiv amacıyla verilir.
   dogru: D
   aciklama:
     dogru_neden: Yönetmelik md. 17/2, Kurum tarafından her denetim kuruluşuna ve denetçiye bir sicil numarası verileceğini
       düzenler.
     celdiriciler:
-      A: Hüküm denetçileri de açıkça kapsar.
-      B: Numarayı Kurum verir.
-      C: KAYİK şartı getirilmemiştir.
-      E: Numaranın verilmesi faaliyet izninin sona ermesine bağlanmamıştır.
+      A: Denetçilere de ayrı sicil numarası verilir.
+      B: Sicil numarasını Kurum verir; denetlenen işletmenin bir yetkisi yoktur.
+      C: Sicil numarası KAYİK yetkisinden bağımsız olarak her denetçiye verilir.
+      E: Sicil numarası kayıt sırasında verilir; faaliyet izninin sona ermesine bağlı değildir.
   kaynaklar:
   - mevzuat: KGK Bağımsız Denetim Yönetmeliği
     madde: md. 17/2
@@ -34,7 +34,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -55,8 +55,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: ''yalnızca'' içeren çeldiriciler yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -77,6 +78,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: ''yalnızca'' içeren çeldiriciler yeniden yazıldı'
 - id: SMMM-DEN-BDY-0121
   sinav: smmm
   bolum:
@@ -168,7 +173,9 @@
     neden: 'R5/R6: şık uzunlukları dengelendi, mutlak ifadeler içerik bakımından yanlış doğal ifadelerle değiştirildi'
 - id: SMMM-DEN-BDY-0122
   sinav: smmm
-  bolum: *id001
+  bolum: &id001
+  - YET
+  - SGS
   ders: DEN
   unite: Bağımsız Denetim Yönetmeliği
   konu: BDY
@@ -2264,21 +2271,21 @@
   zorluk: 1
   kok: Bağımsız Denetim Yönetmeliği'ne göre aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Kurumca uygun görülen sermaye şirketlerine Bağımsız Denetim Kuruluşu Belgesi verilir.
+    A: Tescil işleminden sonra denetçiye Bağımsız Denetçi Belgesi, denetçi kimliği ve mührü verilir.
     B: Kurumca uygun görülen meslek mensuplarına Bağımsız Denetçi Belgesi verilir.
-    C: Bağımsız Denetim Kuruluşu Belgesi sermaye şirketlerine, Bağımsız Denetçi Belgesi meslek mensuplarına verilir.
+    C: Bağımsız Denetim Kuruluşu Belgesi, Kurumca uygun görülen sermaye şirketlerine verilir.
     D: Bağımsız Denetçi Belgesi, Kurumca uygun görülen sermaye şirketlerine verilir.
-    E: Meslek mensubu için öngörülen belge, Bağımsız Denetçi Belgesi'dir.
+    E: KAYİK denetimi yapan denetim kuruluşları yıllık şeffaflık raporunu Kuruma bildirir.
   dogru: D
   aciklama:
     dogru_neden: Yönetmelik md. 12/1'de sermaye şirketlerine Bağımsız Denetim Kuruluşu Belgesi, meslek mensuplarına
       Bağımsız Denetçi Belgesi verileceği belirtilmiştir. D seçeneği yeni bir üçüncü belge kategorisi varmış gibi
       ifade edildiği için yanlıştır.
     celdiriciler:
-      A: Sermaye şirketi için doğru belgeyi belirtir.
-      B: Meslek mensubu için doğru belgeyi belirtir.
-      C: İki belge türünü doğru eşleştirir.
-      E: Meslek mensubuna verilen belgeyi doğru belirtir.
+      A: Md. 14/2 uyarınca tescilden sonra bu belgeler verilir; ifade doğrudur.
+      B: Meslek mensuplarına verilen belge Bağımsız Denetçi Belgesi'dir; ifade doğrudur.
+      C: Sermaye şirketlerine Bağımsız Denetim Kuruluşu Belgesi verilir; ifade doğrudur.
+      E: Md. 36/1 uyarınca bu bildirim yapılır; ifade doğrudur.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: KGK Bağımsız Denetim Yönetmeliği
@@ -2291,7 +2298,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2312,8 +2319,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: aynı hükmü tekrar eden doğru ifadeler, farklı maddelerden doğru ifadelerle çeşitlendirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2328,6 +2336,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: aynı hükmü tekrar eden doğru ifadeler, farklı maddelerden doğru ifadelerle çeşitlendirildi'
 - id: SMMM-DEN-BDY-0147
   sinav: smmm
   bolum:
@@ -3054,21 +3066,20 @@
   zorluk: 1
   kok: Şeffaflık raporunun içeriğine ilişkin aşağıdaki eşleştirmelerden hangisi doğrudur?
   secenekler:
-    A: Raporu imzalayan → denetim ekibindeki kıdemli denetçi; içerik → yalnızca toplam denetim ücreti
-    B: Raporu imzalayan → denetlenen işletmenin yönetim organı başkanı; içerik → yalnızca finansal tablolar
-    C: Raporu imzalayan → Kurum Başkanı; içerik → yalnızca bir önceki yılın denetçi sayısı
-    D: Raporu imzalayan → denetim kuruluşunun yönetim organı başkanı; içerik → hukuki yapı ve ortaklar hakkında
-      açıklama
-    E: Raporu imzalayan → sorumlu denetçi; içerik → yalnızca denetim görüşleri
+    A: İmzalayan → sorumlu denetçi; içerik → kilit yöneticiler hakkında açıklama
+    B: İmzalayan → yönetim organı başkanı; içerik → denetlenen işletmenin finansal tabloları
+    C: İmzalayan → Kurum Başkanı; içerik → kalite güvence incelemesinin tarihi
+    D: İmzalayan → yönetim organı başkanı; içerik → hukuki yapı ve ortaklar hakkında açıklama
+    E: İmzalayan → kalite kontrol sorumlusu; içerik → denetim ağının yapısı
   dogru: D
   aciklama:
     dogru_neden: Yönetmelik md. 36/2, şeffaflık raporunun denetim kuruluşunun yönetim organı başkanı tarafından
       imzalanacağını ve hukuki yapı ile ortaklara ilişkin açıklamayı içereceğini düzenler.
     celdiriciler:
-      A: İmza yetkisini ve asgari içeriği değiştirir.
-      B: Denetlenen işletmenin yönetimini rapor imzacısı yapar.
-      C: Kurum Başkanına ait olmayan bir imza yetkisi yaratır.
-      E: Sorumlu denetçiyi imzacı olarak gösterir ve içeriği daraltır.
+      A: İçerik doğru olsa da rapor sorumlu denetçi değil yönetim organı başkanı tarafından imzalanır.
+      B: İmzalayan doğrudur; ancak denetlenen işletmenin finansal tabloları şeffaflık raporunun içeriği değildir.
+      C: Rapor denetim kuruluşunca hazırlanır; Kurum Başkanı imzalamaz.
+      E: İçerik doğru olsa da raporu kalite kontrol sorumlusu değil yönetim organı başkanı imzalar.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: KGK Bağımsız Denetim Yönetmeliği
@@ -3082,7 +3093,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3103,8 +3114,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: ''yalnızca'' içeren bariz eşleştirmeler, imza ve içerik unsurlarının çaprazlanmasına
+          dayalı şıklarla değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3125,6 +3138,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: ''yalnızca'' içeren bariz eşleştirmeler, imza ve içerik unsurlarının çaprazlanmasına dayalı şıklarla
+      değiştirildi'
 - id: SMMM-DEN-BDY-0156
   sinav: smmm
   bolum:
@@ -3541,22 +3559,21 @@
     denetim kuruluşu da bu belgeleri Sosyal Güvenlik Kurumuna bildirim süresi içinde Kuruma göndermiştir. Yönetmeliğe
     göre uygulamalı mesleki eğitimin başlangıcı aşağıdakilerden hangisidir?
   secenekler:
-    A: Adayın belgeleri hazırladığı tarih
-    B: Adayın denetçilik sınavına başvurduğu tarih
-    C: Gerekli şartları gösteren bilgi ve belgelerin, ilgili denetim kuruluşu veya denetim üstlenen bağımsız denetçi
-      tarafından SGK'ya bildirim süresi içinde Kuruma bildirilmesiyle
-    D: Denetim kuruluşunun adayla iş görüşmesi yaptığı tarih
-    E: Kurumun denetçilik sınavı sonucunu ilan ettiği tarih
+    A: Adayın denetim kuruluşuyla iş sözleşmesi imzaladığı tarihte
+    B: Belgelerin Kurumca onaylanıp adaya bildirildiği tarihte
+    C: Belgelerin, SGK'ya bildirim süresi içinde Kuruma bildirilmesiyle
+    D: Adayın SGK'ya sigortalı olarak bildirildiği tarihte
+    E: Denetçilik sınavı başvurusunun kabul edildiği tarihte
   dogru: C
   aciklama:
-    dogru_neden: Yönetmelik md. 15/5, uygulamalı mesleki eğitimin gerekli şartları gösteren bilgi ve belgelerin
-      ilgili kuruluş veya denetim üstlenen bağımsız denetçi tarafından SGK'ya bildirim süresi içerisinde Kuruma
-      bildirilmesiyle başlayacağını düzenler.
+    dogru_neden: Uygulamalı mesleki eğitim, şartları gösteren bilgi ve belgelerin ilgili denetim kuruluşu ya da
+      denetim üstlenen bağımsız denetçi tarafından SGK'ya bildirim süresi içinde Kuruma bildirilmesiyle başlar.
+      Bu nedenle C doğrudur.
     celdiriciler:
-      A: Belgelerin aday tarafından hazırlanması tek başına başlangıç anı değildir.
-      B: Sınav başvurusu, uygulamalı eğitimin başlangıç koşulu olarak düzenlenmemiştir.
-      D: İş görüşmesi Yönetmelikte başlangıç ölçütü değildir.
-      E: Sınav sonucunun ilanı başlangıç anı değildir.
+      A: İş sözleşmesinin imzalanması eğitimi başlatmaz; belgelerin Kuruma bildirilmesi gerekir.
+      B: Başlangıç için Kurum onayının adaya bildirilmesi beklenmez; Kuruma bildirim esastır.
+      D: SGK'ya sigortalı bildirimi tek başına yeterli değildir; belgelerin Kuruma bildirilmesi gerekir.
+      E: Denetçilik sınavı uygulamalı eğitimden sonra gelir; eğitimin başlangıcıyla ilgisi yoktur.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: KGK Bağımsız Denetim Yönetmeliği
@@ -3569,7 +3586,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3590,8 +3607,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: doğru şık kısaltıldı, çeldiriciler süreç adımlarının karıştırılmasına dayalı
+          yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3609,6 +3628,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: doğru şık kısaltıldı, çeldiriciler süreç adımlarının karıştırılmasına dayalı yazıldı'
 - id: SMMM-DEN-BDY-0161
   sinav: smmm
   bolum:
@@ -4989,7 +5012,7 @@
     baslangic: '2017-07-21'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -5011,8 +5034,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: 'BDY-0155 ile aynı hüküm (md.36/2: imzalayan ve içerik)'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5027,6 +5051,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: 'BDY-0155 ile aynı hüküm (md.36/2: imzalayan ve içerik)'
 - id: SMMM-DEN-BDY-0177
   sinav: smmm
   bolum:
@@ -5408,7 +5436,7 @@
     baslangic: '2017-07-21'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -5430,8 +5458,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: BDY-0160 ile aynı hüküm (md.15/5, eğitimin başlangıcı)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5446,6 +5475,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: BDY-0160 ile aynı hüküm (md.15/5, eğitimin başlangıcı)
 - id: SMMM-DEN-BDY-0182
   sinav: smmm
   bolum:
@@ -5540,28 +5573,24 @@
   tip: uygulama
   zorluk: 3
   kok: 'Bir denetim kuruluşu, şartları taşıdığı değerlendirilen Deniz''i sorumlu denetçi olarak görevlendirmek istemektedir.
-    Aşağıdaki işlemler gerçekleşecektir: I. Deniz''in sorumlu denetçi olabilme şartlarını taşıdığı belirlenir. II.
-    Denetim kuruluşu, Deniz''in şartları taşıdığını gösteren bilgi ve belgelerle Kuruma onay talebini gönderir.
-    III. Kurumun onayı alınarak Deniz görevlendirilir. Buna göre işlemlerin doğru sıralaması aşağıdakilerden hangisidir?'
+    Aşağıdaki işlemler gerçekleşecektir: I. Denetim kuruluşu, şartları gösteren bilgi ve belgelerle Kuruma onay
+    talebini gönderir. II. Kurumun onayı alınarak Deniz görevlendirilir. III. Deniz''in sorumlu denetçi olabilme
+    şartlarını taşıdığı belirlenir. Buna göre işlemlerin doğru sıralaması aşağıdakilerden hangisidir?'
   secenekler:
-    A: I – II – III
+    A: III – I – II
     B: I – III – II
     C: II – I – III
-    D: II – III – I
-    E: III – I – II
+    D: I – II – III
+    E: III – II – I
   dogru: A
   aciklama:
-    dogru_neden: 'Yönetmelik md. 28/1''e göre sorumlu denetçiler, şartları sağlayan denetçiler arasından Kurumun
-      onayı alınmak suretiyle görevlendirilir. Md. 28/2''ye göre onay talebi, şartların sağlandığını gösteren bilgi
-      ve belgelerle denetim kuruluşu veya denetim üstlenen bağımsız denetçi tarafından Kuruma gönderilir. Bu nedenle
-      önce şartların sağlandığı belirlenir, sonra belgeli onay talebi yapılır ve ardından Kurum onayıyla görevlendirme
-      gerçekleşir. Püf noktaları: Şartların varlığı ile Kurum onayı aynı işlem değildir; onay talebi, şartları gösteren
-      belgelerle yapılır.'
+    dogru_neden: Önce şartların taşındığı belirlenir (III), ardından denetim kuruluşu belgelerle Kuruma onay talebi
+      gönderir (I), Kurum onayından sonra görevlendirme yapılır (II). Bu nedenle A doğrudur.
     celdiriciler:
-      B: Kurum onayı görevlendirmeden önce alınmalıdır; III, II'den sonra gelmelidir.
-      C: Onay talebinin gönderilmesinden önce adayın şartları taşıdığının belirlenmesi gerekir.
-      D: Görevlendirme, Kurum onayı alınmadan önce yapılamaz.
-      E: Kurum onayı, adayın şartları ve belgeleri değerlendirilmeden önce gerçekleşen bir işlem değildir.
+      B: Şartlar belirlenmeden onay talebi gönderilemez.
+      C: Görevlendirme Kurum onayından önce yapılamaz.
+      D: Onay talebi şartların belirlenmesinden sonra gönderilir.
+      E: Görevlendirme, Kuruma onay talebi gönderilmeden yapılamaz.
   kaynaklar:
   - mevzuat: KGK Bağımsız Denetim Yönetmeliği
     madde: md. 28/1
@@ -5576,7 +5605,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5597,8 +5626,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kökteki sıra doğru cevapla aynıydı; öncüller karıştırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5613,6 +5643,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kökteki sıra doğru cevapla aynıydı; öncüller karıştırıldı'
 - id: SMMM-DEN-BDY-0184
   sinav: smmm
   bolum:
@@ -7463,7 +7497,9 @@
     ne: 'harici teslim aday_DEN.yaml, satır Merve_DEN-2026-10-08v2-G04 #15'
 - id: SMMM-DEN-BDY-0205
   sinav: smmm
-  bolum: *id002
+  bolum:
+  - YET
+  - SGS
   ders: DEN
   unite: Bağımsız Denetim Yönetmeliği
   konu: BDY
@@ -7475,23 +7511,20 @@
     denetim kuruluşunun siciline yalnızca ticaret unvanı ve sicil numarası kaydedilmiştir. Buna göre aşağıdakilerden
     hangisi doğrudur?
   secenekler:
-    A: Sicilde yalnız ticaret unvanı ve sicil numarasının bulunması yeterlidir; diğer bilgiler internet sitesinde
-      tutulur.
-    B: Denetim ağı bilgileri sicile kaydedilemez; yalnızca denetçilerin sicilinde tutulur.
-    C: Faal olma durumu yalnızca denetçilerin sicilinde gösterilir.
-    D: Denetim yapma yetkisi bulunan alanlara ilişkin bilgiler sicilde tutulmaz.
-    E: Merkez ve şube adresleri, denetim ağına ilişkin bilgiler, faal/gayri faal olma durumu ve denetim yapma yetkisi
-      bulunan alana ilişkin bilgiler de kuruluş sicilinde yer alır.
+    A: Sicilde ticaret unvanı ve sicil numarası bulunması yeterlidir.
+    B: Denetim ağı bilgileri kuruluşun değil denetçilerin sicilinde tutulur.
+    C: Faal olma durumu sicilde değil şeffaflık raporunda gösterilir.
+    D: Yetkili olunan denetim alanları sicilde değil faaliyet izninde yer alır.
+    E: Adresler, ağ üyeliği, faaliyet durumu ve yetkili alanlar da sicilde yer alır.
   dogru: E
   aciklama:
-    dogru_neden: 'Md. 18/1, denetim kuruluşunun sicilinde merkez ve şube adresleri, varsa denetim ağı bilgileri,
-      faal/gayri faal durumu ve denetim yapma yetkisi bulunan alana ilişkin bilgileri de saymaktadır. Püf noktaları:
-      Sicil, yalnız kimlik bilgilerini değil, kuruluşun faaliyetine ve yetki alanına ilişkin bilgileri de kapsar.'
+    dogru_neden: Kuruluş sicilinde merkez ve şube adresleri, denetim ağına ilişkin bilgiler, faal/gayri faal olma
+      durumu ve denetim yapma yetkisi bulunan alanlara ilişkin bilgiler de tutulur. Bu nedenle E doğrudur.
     celdiriciler:
-      A: Yönetmelik 18/1'de bu bilgilerin birden fazlasını açıkça saymaktadır.
-      B: Denetim ağına ilişkin bilgiler, kuruluş sicilinde yer alabilir.
-      C: Faal/gayri faal olma durumu kuruluş sicilinde açıkça sayılmıştır.
-      D: Denetim yapma yetkisi bulunan alana ilişkin bilgiler 18/1-ı bendinde yer alır.
+      A: Ticaret unvanı ve sicil numarası sicilde tutulacak bilgilerin yalnız bir kısmıdır.
+      B: Denetim ağı bilgileri kuruluş sicilinde de yer alır.
+      C: Faal/gayri faal olma durumu sicilde gösterilir.
+      D: Denetim yetkisi bulunan alanlar sicilde tutulan bilgiler arasındadır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Bağımsız Denetim Yönetmeliği
@@ -7509,7 +7542,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -7530,8 +7563,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: doğru şık kısaltıldı, mutlak ifadeli çeldiriciler bilginin tutulduğu yerin
+          karıştırılmasına dayalı yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -7546,6 +7581,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: doğru şık kısaltıldı, mutlak ifadeli çeldiriciler bilginin tutulduğu yerin karıştırılmasına
+      dayalı yazıldı'
 - id: SMMM-DEN-BDY-0206
   sinav: smmm
   bolum: *id002
@@ -9535,30 +9575,23 @@
   kazanim: sorumlu denetçi şartları
   tip: kavrama
   zorluk: 1
-  kok: KGK Bağımsız Denetim Yönetmeliği’ne göre sorumlu denetçi görevlendirilmesine ilişkin aşağıdaki eşleştirmelerden
-    hangisi doğrudur?
+  kok: KGK Bağımsız Denetim Yönetmeliği'ne göre denetim raporunu imzalamaya yetkili sorumlu denetçinin görevlendirilmesine
+    ilişkin aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Sorumlu denetçinin denetim raporunu imzalama yetkisi — Kurum onayıyla görevlendirme — onay talebinin yalnızca
-      aday denetçi tarafından Kuruma gönderilmesi
-    B: Sorumlu denetçinin denetim raporunu imzalama yetkisi — yalnızca şirket ortaklarının kararı — onay talebinin
-      vergi dairesine gönderilmesi
-    C: Sorumlu denetçinin denetim raporunu imzalama yetkisi — Kurum onayı aranmaz — onay talebinin denetçi tarafından
-      doğrudan mahkemeye gönderilmesi
-    D: Sorumlu denetçinin denetim raporunu imzalama yetkisi — yalnızca denetim kuruluşunun iç onayı — Kuruma bildirim
-      yapılması gerekmez
-    E: Sorumlu denetçinin denetim raporunu imzalama yetkisi — Kurum onayıyla görevlendirme — onay talebinin denetim
-      kuruluşu veya denetim üstlenen bağımsız denetçi tarafından Kuruma gönderilmesi
+    A: Onay talebi aday denetçi tarafından şahsen Kuruma gönderilir.
+    B: Görevlendirme ortaklar kurulu kararıyla tamamlanır; Kuruma bilgi verilir.
+    C: Kurum onayı, KAYİK denetimleriyle sınırlı olarak aranır.
+    D: Görevlendirme iç onayla yapılır, sonradan Kuruma bildirilir.
+    E: Onay talebi, denetim kuruluşu veya bağımsız denetçi tarafından Kuruma gönderilir.
   dogru: E
   aciklama:
-    dogru_neden: BDY md. 28/1’e göre sorumlu denetçiler denetim raporunu denetimi üstlenenler adına imzalama yetkisine
-      sahiptir ve şartları sağlayan denetçiler arasından Kurumun onayı alınarak görevlendirilir. Md. 28/2’ye göre
-      onay talepleri denetim kuruluşu veya denetim üstlenen bağımsız denetçi tarafından Kuruma gönderilir.
+    dogru_neden: Sorumlu denetçi Kurumun onayıyla görevlendirilir; onay talebi denetim kuruluşu ya da denetim üstlenen
+      bağımsız denetçi tarafından Kuruma gönderilir. Bu nedenle E doğrudur.
     celdiriciler:
-      A: Onay talebini yalnız aday denetçinin göndermesi öngörülmemiş, md. 28/2’de kuruluş veya denetimi üstlenen
-        bağımsız denetçi belirtilmiştir.
-      B: Yönetmelik vergi dairesine başvuru değil Kuruma gönderim öngörür.
-      C: Md. 28/1 Kurum onayını açıkça arar; ayrıca onay talebi mahkemeye yapılmaz.
-      D: Kurum onayı ve Kuruma gönderim şartları iç düzenleme ile kaldırılmış değildir.
+      A: Onay talebini aday değil, onu görevlendirecek denetim kuruluşu ya da bağımsız denetçi gönderir.
+      B: Ortaklar kurulu kararı yetmez; görevlendirme Kurum onayına bağlıdır.
+      C: Sorumlu denetçi görevlendirmesinde Kurum onayı KAYİK ayrımı yapılmaksızın aranır.
+      D: Kurum onayı görevlendirmeden önce alınır; sonradan bildirim yeterli değildir.
   kaynaklar:
   - mevzuat: KGK Bağımsız Denetim Yönetmeliği
     madde: md. 28/1
@@ -9573,7 +9606,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -9594,8 +9627,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: uzun ve mutlak ifadeli eşleştirmeler kısa, akla yatkın ifadelere dönüştürüldü'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -9613,6 +9647,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: uzun ve mutlak ifadeli eşleştirmeler kısa, akla yatkın ifadelere dönüştürüldü'
 - id: SMMM-DEN-BDY-0229
   sinav: smmm
   bolum:
@@ -9976,12 +10014,11 @@
   zorluk: 2
   kok: Denetim sözleşmesinin asgari içeriği bakımından aşağıdaki eşleştirmelerden hangisi Yönetmeliğe uygundur?
   secenekler:
-    A: Tarafların sorumlulukları — yalnızca sözlü olarak kararlaştırılır; yazılı sözleşmede bulunamaz.
-    B: Denetimin başlangıç ve bitiş tarihleri — sözleşmede yer alması yasaktır.
-    C: Denetim ekibindeki denetçilerin isim ve unvanları ile öngörülen çalışma süreleri ve uygun görülen ücretlerin
-      dökümü — sözleşmede yer alır.
-    D: Denetim konusu ve kıstası — sözleşmede yer alması zorunlu değildir.
-    E: Denetimle ilgili kayıtlara sınırsız erişim hükmü — yalnızca denetim raporundan sonra eklenebilir.
+    A: Tarafların sorumlulukları — teklif mektubunda belirtilir, sözleşmede yer almaz.
+    B: Denetimin başlangıç ve bitiş tarihleri — denetim planında yer alır, sözleşmede yer almaz.
+    C: Denetçilerin isim ve unvanları, çalışma süreleri ve ücret dökümü — sözleşmede yer alır.
+    D: Denetim konusu ve kıstası — denetim raporunda yer alır, sözleşmede yer almaz.
+    E: Kayıtlara erişim hükmü — yazılı beyanla sağlanır, sözleşmede yer almaz.
   dogru: C
   aciklama:
     dogru_neden: 'BDY md. 29/1-f, denetim ekibindeki denetçilerin, yedekleri de dâhil olmak üzere isim ve unvanlarını,
@@ -9989,12 +10026,10 @@
       sözleşmenin asgari içeriği arasında sayar. Diğer seçenekler md. 29’un açık hükümlerine aykırıdır. Püf noktaları:
       Sözleşmenin asgari içeriğinde ekip üyeleri, süreleri ve ücretleri ayrıntılı olarak düzenlenmiştir.'
     celdiriciler:
-      A: Md. 29/1-ç tarafların sorumluluklarını sözleşmenin zorunlu içeriği sayar.
-      B: Md. 29/1-ğ denetimin başlangıç ve bitiş tarihleri ile rapor teslim tarihinin sözleşmede yer almasını zorunlu
-        kılar.
-      D: Md. 29/1-c denetim konusu ve kıstasını açıkça sayar.
-      E: Md. 29/1-e kayıt ve bilgilere sınırsız erişim sağlanacağına ilişkin hükmü sözleşmenin zorunlu içeriğine
-        dahil eder.
+      A: Tarafların sorumlulukları sözleşmenin asgari içeriğindedir.
+      B: Denetimin başlangıç ve bitiş tarihleri sözleşmede yer alır.
+      D: Denetimin konusu ve kıstası sözleşmede yer alması gereken unsurlardandır.
+      E: Kayıtlara erişime ilişkin hüküm sözleşmede yer alır.
   kaynaklar:
   - mevzuat: KGK Bağımsız Denetim Yönetmeliği
     madde: md. 29/1-e-f-ğ
@@ -10009,7 +10044,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -10030,8 +10065,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: ''yasaktır'', ''yalnızca'' gibi bariz şıklar, unsurun yer aldığı belgenin
+          karıştırılmasına dayalı şıklarla değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -10049,6 +10086,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: ''yasaktır'', ''yalnızca'' gibi bariz şıklar, unsurun yer aldığı belgenin karıştırılmasına
+      dayalı şıklarla değiştirildi'
 - id: SMMM-DEN-BDY-0234
   sinav: smmm
   bolum:
