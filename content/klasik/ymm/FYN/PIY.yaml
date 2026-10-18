@@ -1,0 +1,154 @@
+- id: YMM-FYN-PIY-K001
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - vadeli işlem ve opsiyon
+  - kur riski ve korunma
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'İhracatçı (K) AŞ, 6 ay sonra yurt dışındaki müşterisinden 500.000 USD tahsil edecektir. Şirket kur riskinden korunmak
+    için aşağıdaki seçenekleri değerlendirmektedir. Piyasa verileri:
+
+
+    | Veri | Değer |
+
+    |---|---|
+
+    | Spot USD/TL kuru | 40,80 |
+
+    | TL yıllık basit faiz oranı (borç alma ve borç verme) | %36 |
+
+    | USD yıllık basit faiz oranı (borç alma ve borç verme) | %4 |
+
+    | 6 ay vadeli USD satım opsiyonu kullanım fiyatı | 47,00 TL |
+
+    | Satım opsiyonu primi (USD başına, peşin; zaman değeri ihmal) | 0,40 TL |
+
+
+    Faiz paritesinin geçerli olduğu varsayılacaktır.
+
+
+    **İstenenler**
+
+
+    (a) 6 ay vadeli USD/TL forward kurunu hesaplayınız ve forward satışla kilitlenen TL tahsilat tutarını bulunuz. (6 puan)
+
+
+    (b) Satım opsiyonu alınması durumunda, vadede spot kurun 45,00 ve 49,00 olması senaryolarında opsiyonun kullanılıp kullanılmayacağını
+    belirtiniz ve primi düştükten sonraki net TL tahsilatı hesaplayınız. (8 puan)
+
+
+    (c) Opsiyonla korunmanın forwardla korunmaya eşit net tahsilat sağladığı vade spot kurunu bulunuz ve iki yöntemi kısaca
+    karşılaştırınız. (5 puan)
+
+
+    (d) Para piyasası korunmasının adımlarını açıklayarak vadede elde edilecek TL tutarını hesaplayınız. (6 puan)
+
+    '
+  cozum: '**(a)** Faiz paritesi: F = S × (1 + i_TL × t) / (1 + i_USD × t) = 40,80 × (1 + 0,36 × 0,5) / (1 + 0,04 × 0,5) =
+    40,80 × 1,18 / 1,02 = **47,20 TL**.
+
+
+    Forward satışla kilitlenen tahsilat = 500.000 × 47,20 = **23.600.000 TL** (vadedeki spot kurdan bağımsızdır).
+
+
+    **(b)** Toplam prim = 500.000 × 0,40 = 200.000 TL.
+
+
+    | Vadede spot | Karar | Satış kuru | Brüt TL | Net TL (prim sonrası) |
+
+    |---|---|---|---|---|
+
+    | 45,00 | Opsiyon kullanılır (47,00 > 45,00) | 47,00 | 23.500.000 | **23.300.000** |
+
+    | 49,00 | Opsiyon kullanılmaz; spotta satılır | 49,00 | 24.500.000 | **24.300.000** |
+
+
+    **(c)** Kur 47,00''nin üstündeyken opsiyon kullanılmaz; net tahsilat = 500.000 × (S − 0,40). Forwarda eşitlik: S − 0,40
+    = 47,20 → **S = 47,60 TL**.
+
+
+    Vade spot kuru 47,60''ın altındaysa forward, üstündeyse opsiyon daha yüksek tahsilat sağlar. Opsiyon, 46,60 TL/USD (47,00
+    − 0,40) net tabanı korurken kurun yükselmesinden yararlanma imkânını bırakmaz; bunun bedeli primdir. Forward ise kazancı
+    da kaybı da 47,20 kurunda sabitler.
+
+
+    **(d)** Para piyasası korunması:
+
+
+    1. Vadedeki 500.000 USD''nin bugünkü değeri kadar USD borçlanılır: 500.000 / 1,02 = 490.196,08 USD.
+
+    2. Bu tutar spot kurdan TL''ye çevrilir: 490.196,08 × 40,80 = 20.000.000 TL.
+
+    3. TL 6 ay %36 faizle değerlendirilir: 20.000.000 × 1,18 = **23.600.000 TL**.
+
+    4. Vadede müşteriden tahsil edilen 500.000 USD ile USD borcu (anapara ve faiz) kapatılır.
+
+
+    Sonuç forward ile aynıdır; faiz paritesi geçerli olduğundan iki yöntem eşdeğerdir.
+
+    '
+  puanlama:
+  - olcut: Forward kurunu faiz paritesiyle 47,20 TL bulma
+    puan: 4
+  - olcut: Forwardla kilitlenen tahsilatı 23.600.000 TL bulma
+    puan: 2
+  - olcut: Toplam primi 200.000 TL bulma
+    puan: 1
+  - olcut: 45,00 senaryosunda kullanım kararı ve 23.300.000 TL net tahsilat
+    puan: 3
+  - olcut: 49,00 senaryosunda kullanmama kararı ve 24.300.000 TL net tahsilat
+    puan: 4
+  - olcut: Eşitlik kurunu 47,60 TL bulma
+    puan: 3
+  - olcut: Opsiyon ve forwardın risk-getiri karşılaştırması
+    puan: 2
+  - olcut: USD borçlanma tutarını ve TL karşılığını (20.000.000 TL) bulma
+    puan: 3
+  - olcut: Vadedeki TL tutarını 23.600.000 TL bulma ve forwardla eşdeğerliği belirtme
+    puan: 3
+  kaynaklar:
+  - mevzuat: Genel bilgi — Vadeli işlem, forward ve opsiyon sözleşmeleri
+    madde: '-'
+  - mevzuat: Genel bilgi — Kur riski ve korunma yöntemleri
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+  dogrulama:
+    python: 'f = round(40.80 * (1 + 0.36 * 0.5) / (1 + 0.04 * 0.5), 2)
+
+      forward_tl = 500000 * f
+
+      prim = 500000 * 0.40
+
+      s1 = 500000 * max(47.00, 45.00) - prim
+
+      s2 = 500000 * max(47.00, 49.00) - prim
+
+      esit = f + 0.40
+
+      tl_bugun = round(500000 / 1.02 * 40.80)
+
+      ppk = tl_bugun * 1.18
+
+      sonuc = {''forward_kur'': f, ''forward_tahsilat'': forward_tl, ''senaryo_45'': s1, ''senaryo_49'': s2, ''esitlik_kuru'':
+      round(esit, 2), ''tl_kredi'': tl_bugun, ''para_piyasasi_tutar'': ppk}'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, klasik 5

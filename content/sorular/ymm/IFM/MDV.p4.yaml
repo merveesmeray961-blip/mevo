@@ -1,0 +1,1122 @@
+- id: YMM-IFM-MDV-0001
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: TMS 16 maddi duran varlıklar ve amortisman
+  tip: hesaplama
+  zorluk: 1
+  kok: (A) AŞ, 2026 yılında üretimde kullanmak üzere bir makine ithal etmiştir. Makinenin liste fiyatı 2.000.000 TL olup satıcı
+    %10 ticari iskonto uygulamıştır. Gümrük vergisi 90.000 TL, indirilecek KDV 378.000 TL, gümrükten fabrikaya nakliye 30.000
+    TL, kurulum ve montaj 50.000 TL, makineyi kullanacak personelin eğitimi 40.000 TL ve yeni üretim hattının tanıtım reklamı
+    25.000 TL'dir. TMS 16'ya göre makinenin ilk muhasebeleştirmedeki maliyeti kaç TL'dir?
+  secenekler:
+    A: 1.920.000 TL
+    B: 1.970.000 TL
+    C: 2.010.000 TL
+    D: 2.035.000 TL
+    E: 2.170.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'TMS 16 par. 16''ya göre maliyet; iskonto düşülmüş satın alma fiyatı, ithalat vergileri ve varlığı çalışır
+      duruma getirme maliyetlerinden oluşur: 1.800.000 + 90.000 + 30.000 + 50.000 = 1.970.000 TL. İndirilecek KDV iade edilen
+      vergidir; personel eğitimi ve reklam par. 19''a göre maliyete girmez.'
+    celdiriciler:
+      A: Kurulum ve montaj, varlığı çalışabilir duruma getirme maliyeti olarak maliyete dahildir.
+      C: Personel eğitim gideri TMS 16 par. 19(c) gereği maliyete eklenmez.
+      D: Eğitim ve tanıtım reklamı giderleri maliyete eklenmiştir; ikisi de dönem gideridir.
+      E: Ticari iskonto satın alma fiyatından düşülmemiştir.
+    hesap_adimlari:
+    - Net alış fiyatı = 2.000.000 × 0,90 = 1.800.000
+    - + Gümrük vergisi 90.000 + nakliye 30.000 + kurulum 50.000
+    - Maliyet = 1.970.000
+  kaynaklar:
+  - mevzuat: TMS 16 Maddi Duran Varlıklar
+    madde: par. 16(a)
+    alinti: İndirimler ve ticari iskontolar düşüldükten sonra, ithalat vergileri ve iade edilmeyen alış vergileri dahil, satın
+      alma fiyatı.
+  - mevzuat: TMS 16 Maddi Duran Varlıklar
+    madde: par. 19(c)
+    alinti: Yeni bir yerde veya yeni bir müşteri kitlesiyle iş yapmak amacıyla katlanılan maliyetler (personel eğitim masrafları
+      dahil)
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 2000000 * 0.9 + 90000 + 30000 + 50000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 16
+- id: YMM-IFM-MDV-0002
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: TMS 16 maddi duran varlıklar ve amortisman
+  tip: uygulama
+  zorluk: 1
+  kok: (B) AŞ'nin satın aldığı bir makinenin faturası 15 Eylül 2026'da düzenlenmiş, makine 1 Ekim 2026'da fabrikaya teslim
+    edilmiştir. Kurulum ve deneme çalışmaları tamamlanarak makine 1 Aralık 2026'da yönetimin amaçladığı şekilde çalışabilir
+    duruma gelmiş; ancak sipariş yetersizliği nedeniyle fiilen 1 Şubat 2027'de üretime başlanmıştır. Makine doğrusal yöntemle
+    amortismana tabi tutulmaktadır. TMS 16'ya göre amortisman hangi tarihte başlar?
+  secenekler:
+    A: 1 Aralık 2026'da, makine kullanılabilir duruma geldiğinde
+    B: 1 Ekim 2026'da, makine fabrikaya teslim edildiğinde
+    C: 1 Şubat 2027'de, makine fiilen üretime başladığında
+    D: 15 Eylül 2026'da, makinenin faturası düzenlendiğinde
+    E: 1 Ocak 2027'de, makinenin aktife girdiği yılı izleyen yıl başında
+  dogru: A
+  aciklama:
+    dogru_neden: TMS 16 par. 55'e göre amortisman, varlık kullanılabilir olduğunda, yani yönetimin istediği yer ve duruma
+      getirildiğinde başlar. Varlığın atıl kalması amortismanı durdurmaz; bu nedenle fiilen üretime başlama tarihi beklenmez.
+    celdiriciler:
+      B: Teslim tarihinde kurulum tamamlanmadığından makine henüz kullanılabilir değildir.
+      C: Doğrusal yöntemde amortisman fiilî kullanıma değil, kullanılabilir olmaya bağlıdır.
+      D: Fatura tarihi mülkiyet ve kayıt zamanını gösterir; kullanılabilirlik şartı karşılanmamıştır.
+      E: TMS 16'da izleyen yıl başından başlama kuralı yoktur; kıst amortisman ayrılır.
+  kaynaklar:
+  - mevzuat: TMS 16 Maddi Duran Varlıklar
+    madde: par. 55
+    alinti: Bir varlığın amortismana tabi tutulması, varlık kullanılabilir olduğunda, örneğin, yönetim tarafından istenilen
+      yer ve duruma getirildiği zaman başlar.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 17
+- id: YMM-IFM-MDV-0003
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: yeniden değerleme modeli
+  tip: hesaplama
+  zorluk: 2
+  kok: Binalarına yeniden değerleme modeli uygulayan (C) AŞ, 31.12.2025'te bir binasında yeniden değerleme sonucu oluşan 200.000
+    TL azalışı (öncesinde bu bina için yeniden değerleme artışı yoktur) kâr veya zarara gider olarak yazmıştır. 31.12.2026'da
+    binanın defter değeri 3.100.000 TL, gerçeğe uygun değeri 3.600.000 TL'dir. Amortisman farkının etkisi ve vergi dikkate
+    alınmayacaktır. TMS 16'ya göre 2026 yılında diğer kapsamlı gelirde muhasebeleştirilecek yeniden değerleme artışı kaç TL'dir?
+  secenekler:
+    A: 0 TL
+    B: 200.000 TL
+    C: 300.000 TL
+    D: 500.000 TL
+    E: 700.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: Artış 3.600.000 − 3.100.000 = 500.000 TL'dir. TMS 16 par. 39'a göre artış, aynı varlığın daha önce kâr veya
+      zararla ilişkilendirilen 200.000 TL'lik azalışını tersine çevirdiği ölçüde gelirdir; kalan 300.000 TL diğer kapsamlı
+      gelirde muhasebeleştirilir ve özkaynakta birikir.
+    celdiriciler:
+      A: Önceki azalışı aşan kısım diğer kapsamlı gelirdedir; artışın tamamı gelir yazılmaz.
+      B: 200.000 TL kâr veya zarara yazılacak tersine çevirme tutarıdır.
+      D: Önceki dönemde gider yazılan azalışı tersine çeviren kısım diğer kapsamlı gelire alınmaz.
+      E: Önceki azalış artışa eklenmiştir; mahsup edilmesi gerekir.
+    hesap_adimlari:
+    - Toplam artış = 3.600.000 − 3.100.000 = 500.000
+    - Önceki gider yazılan azalışın iptali (gelir) = 200.000
+    - DKG = 500.000 − 200.000 = 300.000
+  kaynaklar:
+  - mevzuat: TMS 16 Maddi Duran Varlıklar
+    madde: par. 39
+    alinti: Ancak, bir yeniden değerleme değer artışı, aynı varlığın daha önce kar ya da zarar ile ilişkilendirilmiş bulunan
+      yeniden değerleme değer azalışını tersine çevirdiği ölçüde gelir olarak muhasebeleştirilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'artis = 3600000 - 3100000
+
+      sonuc = artis - 200000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 18
+- id: YMM-IFM-MDV-0004
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: yeniden değerleme modeli
+  tip: uygulama
+  zorluk: 2
+  kok: (D) AŞ'nin maliyeti 4.000.000 TL, birikmiş amortismanı 1.000.000 TL olan binasının 31.12.2026'daki gerçeğe uygun değeri
+    3.600.000 TL'dir. Şirket yeniden değerleme modelini ilk kez uygulamakta ve TMS 16 par. 35(a)'daki brüt defter değerinin
+    orantılı düzeltilmesi yöntemini seçmektedir. Ertelenmiş vergi etkisi ayrıca kaydedilecektir. Yeniden değerleme kaydı Tekdüzen
+    Hesap Planı'na göre hangisidir?
+  secenekler:
+    A: 252 Binalar B 600.000 / 522 M.D.V. Yeniden Değerleme Artışları A 600.000
+    B: 257 Birikmiş Amortismanlar B 1.000.000 / 252 Binalar A 1.000.000; 252 Binalar B 600.000 / 522 M.D.V. Yeniden Değerleme
+      Artışları A 600.000
+    C: 252 Binalar B 800.000 / 257 Birikmiş Amortismanlar A 200.000, 649 Faaliyetle İlgili Diğer Gelir ve Karlar A 600.000
+    D: 252 Binalar B 1.200.000 / 257 Birikmiş Amortismanlar A 600.000, 522 M.D.V. Yeniden Değerleme Artışları A 600.000
+    E: 252 Binalar B 800.000 / 257 Birikmiş Amortismanlar A 200.000, 522 M.D.V. Yeniden Değerleme Artışları A 600.000
+  dogru: E
+  aciklama:
+    dogru_neden: Defter değeri 3.000.000 TL, GUD 3.600.000 TL; artış 600.000 TL ve oran 1,2'dir. Brüt yöntemde maliyet 4.000.000
+      × 1,2 = 4.800.000 (artış 800.000), birikmiş amortisman 1.000.000 × 1,2 = 1.200.000 (artış 200.000) olur. Artış TMS 16
+      par. 39 gereği diğer kapsamlı gelirde, 522 M.D.V. Yeniden Değerleme Artışları hesabında izlenir.
+    celdiriciler:
+      A: Brüt yöntemde birikmiş amortisman da orantılı artırılır; kayıt yalnız net artışı göstermektedir.
+      B: Bu kayıt birikmiş amortismanın netleştirildiği yöntemdir (par. 35(b)); kökte brüt yöntem seçilmiştir.
+      C: Yeniden değerleme artışı kâr veya zarara değil diğer kapsamlı gelire (522) alınır.
+      D: Brüt değer ve birikmiş amortisman oran (1,2) yerine artış tutarı (600.000) ile düzeltilmiştir; brüt 4.800.000 olmalıdır.
+  kaynaklar:
+  - mevzuat: TMS 16 Maddi Duran Varlıklar
+    madde: par. 35(a)
+    alinti: Brüt defter değeri, varlığın defter değerinin yeniden değerlemesiyle tutarlı bir şekilde düzeltilir.
+  - mevzuat: Tekdüzen Hesap Planı
+    madde: '522'
+    alinti: 522. M.D.V. YENİDEN DEĞERLEME ARTIŞLARI
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 19
+- id: YMM-IFM-MDV-0005
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: yeniden değerleme modeli
+  tip: hesaplama
+  zorluk: 3
+  kok: (E) AŞ, 01.01.2026'da maliyet esasına göre defter değeri 1.500.000 TL olan ve kalan yararlı ömrü 10 yıl olan binasını
+    2.500.000 TL'ye yeniden değerlemiş; 1.000.000 TL artışı özkaynakta yeniden değerleme artışı olarak kaydetmiştir. Kalıntı
+    değer sıfırdır, doğrusal yöntem uygulanmaktadır. Şirketin muhasebe politikası, yeniden değerleme artışını varlık kullanıldıkça
+    geçmiş yıllar kârlarına aktarmaktır. Vergi etkisi dikkate alınmayacaktır. 2026 yılı kâr veya zararına yansıyan amortisman
+    gideri ve 31.12.2026'da özkaynakta kalan yeniden değerleme artışı hangisidir?
+  secenekler:
+    A: Amortisman 150.000 TL; değer artışı 1.000.000 TL
+    B: Amortisman 250.000 TL; değer artışı 1.000.000 TL
+    C: Amortisman 250.000 TL; değer artışı 900.000 TL
+    D: Amortisman 150.000 TL; değer artışı 900.000 TL
+    E: Amortisman 350.000 TL; değer artışı 900.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Amortisman yeniden değerlenmiş tutar üzerinden ayrılır: 2.500.000 / 10 = 250.000 TL ve tamamı kâr veya zarardadır.
+      TMS 16 par. 41''e göre aktarım, yeniden değerlenmiş tutar üzerinden amortisman (250.000) ile orijinal maliyet üzerinden
+      amortisman (150.000) arasındaki fark kadardır: 100.000 TL doğrudan geçmiş yıllar kârlarına aktarılır; özkaynakta 900.000
+      TL kalır. Aktarım kâr veya zarar üzerinden yapılamaz. Püf noktaları: Amortisman gideri yeniden değerlenmiş tutara göre
+      hesaplanır; aktarılan 100.000 TL gelir tablosundan geçmez, yalnız özkaynak içinde 522''den 570''e taşınır.'
+    celdiriciler:
+      A: Amortisman yeniden değerlenmiş tutar üzerinden ayrılır; ayrıca politika gereği aktarım yapılmalıdır.
+      B: Amortisman doğrudur, ancak seçilen politika gereği 100.000 TL geçmiş yıllar kârlarına aktarılmalıdır.
+      D: Amortisman orijinal maliyet üzerinden hesaplanmıştır; yeniden değerlenmiş tutar esas alınır.
+      E: Aktarım kâr veya zarar üzerinden yapılamaz (par. 41); 100.000 TL amortismana eklenmemelidir.
+    hesap_adimlari:
+    - Yeni amortisman = 2.500.000 / 10 = 250.000
+    - Maliyet esaslı amortisman = 1.500.000 / 10 = 150.000
+    - Aktarım = 100.000; kalan artış = 1.000.000 − 100.000 = 900.000
+  kaynaklar:
+  - mevzuat: TMS 16 Maddi Duran Varlıklar
+    madde: par. 41
+    alinti: Bu durumda, aktarılan değer artışı, varlığın yeniden değerlenmiş defter değeri üzerinden hesaplanan amortisman
+      ile orijinal maliyeti üzerinden hesaplanan amortisman arasındaki fark kadar olur. Yeniden değerleme değer artışından
+      geçmiş yıl kârlarına aktarım kâr veya zarar üzerinden yapılamaz.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'yeni = 2500000 / 10
+
+      eski = 1500000 / 10
+
+      sonuc = 1000000 - (yeni - eski)'
+    secenek_sayisi_bekleniyor: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 20
+- id: YMM-IFM-MDV-0006
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: TMS 38 maddi olmayan duran varlıklar ve kuruluş giderleri
+  tip: kavrama
+  zorluk: 1
+  kok: (F) AŞ'nin 2026 yılında yaptığı aşağıdaki harcamalardan hangisi TMS 38'e göre maddi olmayan duran varlık olarak aktifleştirilebilir?
+  secenekler:
+    A: Yeni bir malzeme teknolojisine ilişkin bilgi elde etmek amacıyla yürütülen laboratuvar araştırmaları
+    B: Şirketin bağlı ortaklık olarak kuruluşunda katlanılan tescil, noter ve sekreterya harcamaları
+    C: Yeni ürünün piyasaya sunulması için yapılan televizyon reklamı ve promosyon harcamaları
+    D: Par. 57'deki koşulların tamamının kanıtlandığı geliştirme safhasındaki prototip test harcamaları
+    E: Yeni yazılım sistemine geçiş nedeniyle muhasebe personeline verilen eğitim harcamaları
+  dogru: D
+  aciklama:
+    dogru_neden: TMS 38 par. 57'ye göre geliştirme safhasından kaynaklanan maddi olmayan duran varlık, sayılan koşulların
+      tamamı kanıtlandığında muhasebeleştirilir. Araştırma harcamaları (par. 54), kuruluş, eğitim ve reklam harcamaları (par.
+      69) gerçekleştiğinde giderdir.
+    celdiriciler:
+      A: Araştırma safhası harcamaları gerçekleştiğinde gider olarak muhasebeleştirilir (par. 54).
+      B: Tüzel kişiliğin oluşturulması için yapılan yasal ve sekreterya maliyetleri kuruluş maliyetidir ve giderdir (par.
+        69(a)).
+      C: Reklam ve promosyon harcamaları varlık doğurmaz (par. 69(c)).
+      E: Eğitim faaliyetlerine ilişkin harcamalar gerçekleştiğinde giderdir (par. 69(b)).
+  kaynaklar:
+  - mevzuat: TMS 38 Maddi Olmayan Duran Varlıklar
+    madde: par. 54
+    alinti: Araştırma (veya işletme içi bir projenin araştırma safhası) harcamaları gerçekleştiğinde gider olarak muhasebeleştirilir.
+  - mevzuat: TMS 38 Maddi Olmayan Duran Varlıklar
+    madde: par. 69(b)
+    alinti: Eğitim faaliyetlerine ilişkin harcamalar.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 21
+- id: YMM-IFM-MDV-0007
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: TMS 38 maddi olmayan duran varlıklar ve kuruluş giderleri
+  tip: uygulama
+  zorluk: 2
+  kok: Mart 2026'da kurulan (G) AŞ, VUK'a göre 250.000 TL kuruluş ve örgütlenme giderini 262 Kuruluş ve Örgütlenme Giderleri
+    hesabında aktifleştirmiş, 2026 için 50.000 TL itfa payını 268 Birikmiş Amortismanlar hesabına alacak, 770 Genel Yönetim
+    Giderleri hesabına borç kaydetmiştir. TFRS'ye uygun finansal tablolar için 2026 yılında yapılması gereken düzeltme kaydı
+    hangisidir? (Ertelenmiş vergi ayrıca değerlendirilecektir.)
+  secenekler:
+    A: 770 Genel Yönetim Giderleri B 200.000, 268 Birikmiş Amortismanlar B 50.000 / 262 Kuruluş ve Örgütlenme Giderleri A
+      250.000
+    B: 770 Genel Yönetim Giderleri B 250.000 / 262 Kuruluş ve Örgütlenme Giderleri A 250.000
+    C: 570 Geçmiş Yıllar Kârları B 200.000, 268 Birikmiş Amortismanlar B 50.000 / 262 Kuruluş ve Örgütlenme Giderleri A 250.000
+    D: 262 Kuruluş ve Örgütlenme Giderleri B 200.000 / 770 Genel Yönetim Giderleri A 200.000
+    E: 770 Genel Yönetim Giderleri B 200.000 / 268 Birikmiş Amortismanlar A 200.000
+  dogru: A
+  aciklama:
+    dogru_neden: TMS 38 par. 69(a)'ya göre kuruluş maliyetleri varlık doğurmaz, gerçekleştiğinde giderdir. 2026 gideri 250.000
+      TL olmalıdır; VUK kaydında 50.000 TL zaten gider yazıldığından ek gider 200.000 TL'dir. Aktifteki 262 bakiyesi ve 268'deki
+      birikmiş itfa kapatılır.
+    celdiriciler:
+      B: 268'deki 50.000 TL birikmiş itfa kapatılmadığı gibi 50.000 TL fazla gider yazılmış olur.
+      C: Harcama 2026'da yapılmıştır; geçmiş yıl düzeltmesi değil cari dönem gideridir.
+      D: Kuruluş giderini aktifleştirmeye yönelik ters kayıttır; TMS 38 aktifleştirmeye izin vermez.
+      E: İtfa artırılarak 262 bakiyesi aktifte bırakılmaktadır; varlık finansal tablodan çıkarılmalıdır.
+  kaynaklar:
+  - mevzuat: TMS 38 Maddi Olmayan Duran Varlıklar
+    madde: par. 69(a)
+    alinti: bir tüzel kişiliğin oluşturulması için yapılan yasal ve sekreterya türü maliyetler
+  - mevzuat: Tekdüzen Hesap Planı
+    madde: '262'
+    alinti: 262. KURULUŞ VE ÖRGÜTLENME GİDERLERİ
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 22
+- id: YMM-IFM-MDV-0008
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: TMS 38 maddi olmayan duran varlıklar ve kuruluş giderleri
+  tip: kavrama
+  zorluk: 2
+  kok: 'TMS 38''e göre aşağıdaki ifadelerden hangileri doğrudur?
+
+    I. Yararlı ömrü sınırsız olarak belirlenen satın alınmış bir marka itfa edilmez; yıllık olarak ve değer düşüklüğü belirtisi
+    olduğunda değer düşüklüğü testine tabi tutulur.
+
+    II. Aktif piyasası bulunmayan satın alınmış bir marka, bağımsız değerleme raporuna dayanılarak yeniden değerleme modeliyle
+    ölçülebilir.
+
+    III. İşletme içi yaratılan markalar ve müşteri listeleri maddi olmayan duran varlık olarak muhasebeleştirilmez.
+
+    '
+  secenekler:
+    A: Yalnız I
+    B: Yalnız III
+    C: I ve II
+    D: II ve III
+    E: I ve III
+  dogru: E
+  aciklama:
+    dogru_neden: 'I: Sınırsız ömürlü MODV itfa edilmez (TMS 38 par. 107) ve yıllık olarak ve belirti olduğunda test edilir
+      (par. 108). III: İşletme içi yaratılan markalar ve müşteri listeleri MODV olarak muhasebeleştirilmez (par. 63). II yanlıştır:
+      yeniden değerleme modelinde gerçeğe uygun değer aktif piyasaya göre belirlenir (par. 75); aktif piyasası olmayan markaya
+      bu model uygulanamaz.'
+    celdiriciler:
+      A: III numaralı ifade de par. 63'e göre doğrudur.
+      B: I numaralı ifade de par. 107-108'e göre doğrudur.
+      C: Aktif piyasası olmayan MODV yeniden değerleme modeliyle ölçülemez.
+      D: II yanlış, I doğrudur.
+  kaynaklar:
+  - mevzuat: TMS 38 Maddi Olmayan Duran Varlıklar
+    madde: par. 107
+    alinti: Sınırsız yararlı ömre sahip bir maddi olmayan duran varlık itfa edilmez.
+  - mevzuat: TMS 38 Maddi Olmayan Duran Varlıklar
+    madde: par. 63
+    alinti: İşletme içi yaratılan markalar, ticari başlıklar, yayın hakları, müşteri listeleri ve benzer nitelikteki kalemler,
+      maddi olmayan duran varlık olarak muhasebeleştirilmez.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 23
+- id: YMM-IFM-MDV-0009
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: TMS 36 varlıklarda değer düşüklüğü
+  tip: hesaplama
+  zorluk: 1
+  kok: (H) AŞ'nin değer düşüklüğü belirtisi bulunan bir makinesinin 31.12.2026 defter değeri 950.000 TL'dir. Makinenin gerçeğe
+    uygun değeri 800.000 TL, elden çıkarma maliyetleri 20.000 TL, kullanımından beklenen nakit akışlarının bugünkü değeri
+    820.000 TL'dir. TMS 36'ya göre makinenin geri kazanılabilir tutarı kaç TL'dir?
+  secenekler:
+    A: 130.000 TL
+    B: 780.000 TL
+    C: 800.000 TL
+    D: 820.000 TL
+    E: 950.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'TMS 36 par. 18''e göre geri kazanılabilir tutar, satış maliyetleri düşülmüş GUD (800.000 − 20.000 = 780.000)
+      ile kullanım değerinden (820.000) yüksek olanıdır: 820.000 TL. Değer düşüklüğü zararı 950.000 − 820.000 = 130.000 TL
+      olur.'
+    celdiriciler:
+      A: 130.000 TL geri kazanılabilir tutar değil, değer düşüklüğü zararıdır.
+      B: İki ölçütün düşük olanı alınmıştır; standart yüksek olanı ister.
+      C: Gerçeğe uygun değerden elden çıkarma maliyetleri düşülmemiş ve kullanım değeri ile karşılaştırılmamıştır.
+      E: Defter değeri geri kazanılabilir tutarla karşılaştırılan tutardır; kendisi geri kazanılabilir tutar değildir.
+    hesap_adimlari:
+    - Satış maliyetleri düşülmüş GUD = 800.000 − 20.000 = 780.000
+    - Kullanım değeri = 820.000
+    - Geri kazanılabilir tutar = max(780.000; 820.000) = 820.000
+  kaynaklar:
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: par. 18
+    alinti: satış maliyetleri düşülmüş gerçeğe uygun değer ile kullanım değerinden yüksek olanı olarak tanımlar.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = max(800000 - 20000, 820000)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 24
+- id: YMM-IFM-MDV-0010
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: TMS 36 varlıklarda değer düşüklüğü
+  tip: hesaplama
+  zorluk: 3
+  kok: '(I) AŞ, yeniden değerleme modeliyle izlediği binası için özkaynakta 120.000 TL yeniden değerleme artışı taşımaktadır.
+    31.12.2026''da değer düşüklüğü belirtisi oluşmuştur: binanın defter değeri 2.000.000 TL, satış maliyetleri düşülmüş gerçeğe
+    uygun değeri 1.650.000 TL, kullanım değeri 1.700.000 TL''dir. Vergi etkisi dikkate alınmayacaktır. TMS 36''ya göre 2026
+    yılı kâr veya zararına yansıyacak değer düşüklüğü zararı kaç TL''dir?'
+  secenekler:
+    A: 120.000 TL
+    B: 180.000 TL
+    C: 230.000 TL
+    D: 300.000 TL
+    E: 350.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Geri kazanılabilir tutar yüksek olan kullanım değeridir: 1.700.000 TL (par. 18). Değer düşüklüğü 2.000.000
+      − 1.700.000 = 300.000 TL. Yeniden değerlenmiş varlıkta zarar, aynı varlığın yeniden değerleme fazlasını aşmadığı ölçüde
+      fazladan düşülür ve diğer kapsamlı gelirde muhasebeleştirilir (par. 61): 120.000 TL DKG, kalan 180.000 TL kâr veya zarar.
+      Püf noktaları: Önce yüksek olan ölçütü seç, sonra zararı özkaynaktaki fazla ile kâr veya zarar arasında böl. Düşük ölçütü
+      alan aday 350.000 ve 230.000 TL''ye ulaşır.'
+    celdiriciler:
+      A: 120.000 TL diğer kapsamlı gelirde yeniden değerleme fazlasından düşülen kısımdır.
+      C: Geri kazanılabilir tutar düşük olan ölçüt (1.650.000 TL) ile hesaplanmıştır.
+      D: Yeniden değerleme fazlasından düşülecek 120.000 TL dikkate alınmamıştır.
+      E: Hem düşük ölçüt kullanılmış hem de yeniden değerleme fazlası mahsup edilmemiştir.
+    hesap_adimlari:
+    - Geri kazanılabilir tutar = max(1.650.000; 1.700.000) = 1.700.000
+    - Toplam zarar = 2.000.000 − 1.700.000 = 300.000
+    - DKG'den düşülen = 120.000; kâr veya zarar = 180.000
+  kaynaklar:
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: par. 61
+    alinti: yeniden değerlenmiş bir varlığa ilişkin değer düşüklüğü zararı, aynı varlığın yeniden değerleme fazlası tutarını
+      aşmadığı sürece yeniden değerleme fazlasından düşülerek diğer kapsamlı gelirde muhasebeleştirilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'gkt = max(1650000, 1700000)
+
+      zarar = 2000000 - gkt
+
+      sonuc = zarar - min(zarar, 120000)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 25
+- id: YMM-IFM-MDV-0011
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: TMS 40 yatırım amaçlı gayrimenkuller
+  tip: kavrama
+  zorluk: 2
+  kok: '(J) AŞ''nin 31.12.2026 itibarıyla sahip olduğu aşağıdaki gayrimenkullerden hangileri TMS 40''a göre yatırım amaçlı
+    gayrimenkuldür?
+
+    I. Gelecekte nasıl kullanılacağına henüz karar verilmemiş arsa
+
+    II. Çalışanların piyasa rayicinde kira ödeyerek oturduğu lojman binası
+
+    III. Faaliyet kiralaması yoluyla kiraya verilmek üzere elde tutulan boş ofis binası
+
+    IV. Şirketin olağan faaliyeti kapsamında satılmak üzere inşa ettiği konutlar
+
+    '
+  secenekler:
+    A: I ve II
+    B: Yalnız III
+    C: I ve III
+    D: II ve III
+    E: I, III ve IV
+  dogru: C
+  aciklama:
+    dogru_neden: TMS 40 par. 8(b) ve 8(d)'ye göre kullanımı henüz belirlenmemiş arsa ve faaliyet kiralamasıyla kiralanmak
+      üzere tutulan boş bina yatırım amaçlı gayrimenkuldür. Çalışanların ikamet ettiği gayrimenkul, kira rayice uygun olsa
+      da sahibi tarafından kullanılan gayrimenkuldür (par. 9(c)); olağan iş akışında satılmak üzere inşa edilen konutlar stoktur
+      (par. 9(a)).
+    celdiriciler:
+      A: Lojman, çalışanlar piyasa rayicinde kira ödese de TMS 16 kapsamındadır (par. 9(c)).
+      B: Kullanımı belirlenmemiş arsa da sermaye kazancı için tutulduğu varsayılarak YAG sayılır (par. 8(b)).
+      D: Lojman YAG değildir; kullanımı belirlenmemiş arsa ise YAG'dır.
+      E: Olağan faaliyette satılmak üzere inşa edilen konutlar TMS 2 kapsamında stoktur.
+  kaynaklar:
+  - mevzuat: TMS 40 Yatırım Amaçlı Gayrimenkuller
+    madde: par. 8(d)
+    alinti: Bir veya daha fazla faaliyet kiralaması çerçevesinde kiralanmak üzere elde tutulan boş bir bina.
+  - mevzuat: TMS 40 Yatırım Amaçlı Gayrimenkuller
+    madde: par. 9(c)
+    alinti: çalışanların ikamet ettiği gayrimenkuller (çalışanların piyasa rayicine uygun kira ödeyip ödemediğine bakılmaksızın)
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 26
+- id: YMM-IFM-MDV-0012
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: TMS 40 yatırım amaçlı gayrimenkuller
+  tip: hesaplama
+  zorluk: 2
+  kok: Yatırım amaçlı gayrimenkullerini gerçeğe uygun değer yöntemiyle ölçen (K) AŞ'nin kiraya verdiği bir binanın gerçeğe
+    uygun değeri 31.12.2025'te 5.000.000 TL, 31.12.2026'da 5.600.000 TL'dir. Bina 2026'da 400.000 TL kira geliri sağlamıştır.
+    Maliyet yöntemi uygulansaydı 2026 amortismanı 100.000 TL olacaktı. Vergi dikkate alınmayacaktır. Bu binanın 2026 yılı
+    kâr veya zararına toplam etkisi kaç TL'dir?
+  secenekler:
+    A: 300.000 TL
+    B: 400.000 TL
+    C: 600.000 TL
+    D: 900.000 TL
+    E: 1.000.000 TL
+  dogru: E
+  aciklama:
+    dogru_neden: 'GUD yönteminde amortisman ayrılmaz ve GUD değişimi oluştuğu dönemin kâr veya zararına yansır (TMS 40 par.
+      35): 600.000 TL kazanç. Kira geliri 400.000 TL ile toplam etki 1.000.000 TL''dir.'
+    celdiriciler:
+      A: Maliyet yönteminin sonucudur (kira 400.000 − amortisman 100.000); GUD yöntemi seçilmiştir.
+      B: GUD artışı yeniden değerleme gibi diğer kapsamlı gelire alınmış; YAG'da kâr veya zarardadır.
+      C: Kira geliri dikkate alınmamıştır.
+      D: GUD yönteminde amortisman ayrılmaz; 100.000 TL düşülmemelidir.
+    hesap_adimlari:
+    - GUD kazancı = 5.600.000 − 5.000.000 = 600.000
+    - Kira geliri = 400.000
+    - Toplam = 1.000.000
+  kaynaklar:
+  - mevzuat: TMS 40 Yatırım Amaçlı Gayrimenkuller
+    madde: par. 35
+    alinti: Yatırım amaçlı gayrimenkulün gerçeğe uygun değer değişiminden kaynaklanan kazanç veya kayıp, oluştuğu dönemde
+      kâr veya zarar olarak finansal tablolara yansıtılır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (5600000 - 5000000) + 400000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 27
+- id: YMM-IFM-MDV-0013
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: TMS 40 yatırım amaçlı gayrimenkuller
+  tip: hesaplama
+  zorluk: 3
+  kok: (L) AŞ, maliyet modeliyle izlediği ve idari amaçla kullandığı binasını 30.06.2026'da boşaltarak faaliyet kiralamasıyla
+    kiraya vermiş ve bu tarihte gerçeğe uygun değer yöntemiyle ölçülen yatırım amaçlı gayrimenkul olarak sınıflandırmıştır.
+    Binanın maliyeti 3.000.000 TL, 30.06.2026 itibarıyla (o tarihe kadarki amortisman dahil) birikmiş amortismanı 900.000
+    TL'dir; daha önce değer düşüklüğü kaydedilmemiştir. Binanın gerçeğe uygun değeri 30.06.2026'da 2.800.000 TL, 31.12.2026'da
+    3.000.000 TL'dir. Vergi dikkate alınmayacaktır. 2026 yılında bu gerçeğe uygun değer farklarından kâr veya zarara ve diğer
+    kapsamlı gelire yansıyan tutarlar hangisidir?
+  secenekler:
+    A: Kâr veya zarar 900.000 TL; diğer kapsamlı gelir 0 TL
+    B: Kâr veya zarar 0 TL; diğer kapsamlı gelir 900.000 TL
+    C: Kâr veya zarar 700.000 TL; diğer kapsamlı gelir 200.000 TL
+    D: Kâr veya zarar 200.000 TL; diğer kapsamlı gelir 700.000 TL
+    E: Kâr veya zarar 200.000 TL; diğer kapsamlı gelir 0 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Sınıflama tarihine kadar TMS 16 uygulanır; bu tarihte defter değeri 2.100.000 TL ile GUD 2.800.000 TL arasındaki
+      700.000 TL artış TMS 16''ya göre yeniden değerleme gibi işlenir ve önceki değer düşüklüğü olmadığından diğer kapsamlı
+      gelire alınır (TMS 40 par. 61-62(b)(ii)). Sınıflama sonrası GUD değişimi (3.000.000 − 2.800.000 = 200.000 TL) TMS 40
+      par. 35 gereği kâr veya zarardadır. Püf noktaları: Transfer anındaki fark ile transfer sonrasındaki GUD değişimi farklı
+      hükümlere tabidir; ilki yeniden değerleme gibi DKG''ye, ikincisi kâr veya zarara gider. Stoktan transferde ise fark
+      kâr veya zarardadır (par. 63); iki durumu karıştırma.'
+    celdiriciler:
+      A: Transfer anındaki 700.000 TL'lik fark kâr veya zarara değil diğer kapsamlı gelire alınır.
+      B: Transfer sonrası 200.000 TL'lik GUD değişimi kâr veya zarardadır.
+      C: İki tutar yer değiştirmiştir; transfer farkı DKG'de, sonraki GUD değişimi kâr veya zarardadır.
+      E: Transfer tarihindeki 700.000 TL'lik fark yeniden değerleme gibi DKG'de muhasebeleştirilmelidir.
+    hesap_adimlari:
+    - Transfer tarihi defter değeri = 3.000.000 − 900.000 = 2.100.000
+    - Transfer farkı = 2.800.000 − 2.100.000 = 700.000 → DKG
+    - Sonraki GUD değişimi = 3.000.000 − 2.800.000 = 200.000 → kâr veya zarar
+  kaynaklar:
+  - mevzuat: TMS 40 Yatırım Amaçlı Gayrimenkuller
+    madde: par. 61
+    alinti: TMS 16 veya TFRS 16’ya göre hesaplanmış olan defter değeri ile gerçeğe uygun değeri arasında bu tarihte oluşan
+      herhangi bir farklılığı ise yine TMS 16’ya göre yapılmış bir yeniden değerleme gibi değerlendirir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'dd = 3000000 - 900000
+
+      dkg = 2800000 - dd
+
+      kz = 3000000 - 2800000
+
+      sonuc = kz'
+    secenek_sayisi_bekleniyor: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 28
+- id: YMM-IFM-MDV-0014
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: TMS 23 borçlanma maliyetleri
+  tip: hesaplama
+  zorluk: 3
+  kok: (M) AŞ, yeni fabrika binası (özellikli varlık) inşaatı için 01.01.2026'da 6.000.000 TL özel kredi kullanmıştır; kredinin
+    yıllık faizi 2.400.000 TL olup aylara eşit tahakkuk etmektedir. İnşaat için ilk harcama yapılmış ve inşaat faaliyetleri
+    01.04.2026'da başlamış, yıl sonunda devam etmektedir; faaliyetlere ara verilmemiştir. Kullanılmayan kredi tutarı mevduatta
+    değerlendirilmiş; Ocak-Mart döneminde 90.000 TL, Nisan-Aralık döneminde 120.000 TL faiz geliri elde edilmiştir. TMS 23'e
+    göre 2026 yılında aktifleştirilecek borçlanma maliyeti kaç TL'dir?
+  secenekler:
+    A: 1.590.000 TL
+    B: 1.680.000 TL
+    C: 1.800.000 TL
+    D: 2.190.000 TL
+    E: 2.280.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Aktifleştirme; harcama yapılması, borçlanma maliyetinin oluşması ve hazırlık işlemlerine başlanması koşullarının
+      tümü sağlandığında, yani 01.04.2026''da başlar (TMS 23 par. 17). Nisan-Aralık faizi 9 × 200.000 = 1.800.000 TL''dir.
+      Özel borçlanmada aynı dönemdeki geçici nemalandırma geliri düşülür (par. 12): 1.800.000 − 120.000 = 1.680.000 TL. Ocak-Mart
+      faizi (600.000 TL) gider, aynı dönemin 90.000 TL mevduat faizi gelirdir. Püf noktaları: Aktifleştirme dönemi kredinin
+      kullanıldığı tarihten değil, üç koşulun birlikte sağlandığı tarihten başlar; nemalandırma geliri de yalnız aktifleştirme
+      dönemine ait olanla sınırlı olarak düşülür.'
+    celdiriciler:
+      A: Aktifleştirme başlamadan önceki Ocak-Mart nemalandırma geliri de düşülmüştür.
+      C: Aktifleştirme dönemindeki 120.000 TL geçici nemalandırma geliri düşülmemiştir.
+      D: Aktifleştirme 01.01.2026'dan başlatılmış ve her iki dönemin geliri düşülmüştür.
+      E: Aktifleştirme kredi kullanım tarihinden başlatılmıştır; inşaat faaliyetleri Nisan'da başlamıştır.
+    hesap_adimlari:
+    - Aylık faiz = 2.400.000 / 12 = 200.000
+    - Aktifleştirme dönemi faizi = 9 × 200.000 = 1.800.000
+    - Aktifleştirilecek = 1.800.000 − 120.000 = 1.680.000
+  kaynaklar:
+  - mevzuat: TMS 23 Borçlanma Maliyetleri
+    madde: par. 12
+    alinti: söz konusu fonların geçici olarak nemalandırılması ile sağlanan gelirlerin düşülmesi suretiyle belirler.
+  - mevzuat: TMS 23 Borçlanma Maliyetleri
+    madde: par. 17
+    alinti: 'Aktifleştirmenin başlama tarihi, işletmenin aşağıdaki koşulların tümünü sağladığı tarihtir:'
+  gecerlilik:
+    baslangic: '2009-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'aylik = 2400000 / 12
+
+      sonuc = 9 * aylik - 120000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 29
+- id: YMM-IFM-MDV-0015
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller
+  konu: MDV
+  kazanim: TMS 23 borçlanma maliyetleri
+  tip: kavrama
+  zorluk: 2
+  kok: TMS 23 Borçlanma Maliyetleri'ne göre aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Kısa sürede ve tekrarlanarak üretilen stoklar özellikli varlıktır; bunlara ilişkin finansman giderleri maliyete eklenir.
+    B: Hazırlık faaliyetlerine uzun süreli ara verilen dönemde oluşan borçlanma maliyetlerinin aktifleştirilmesine de ara
+      verilir.
+    C: Varlığın fiziken inşası tamamlandığında, olağan idari işlemler devam etse de borçlanma maliyetlerinin aktifleştirilmesine
+      son verilir.
+    D: Genel amaçlı borçlanmada aktifleştirme oranı, özellikli varlık için yapılan özel borçlanmalar hariç tutularak hesaplanır.
+    E: Bir dönemde aktifleştirilen borçlanma maliyeti, o dönemde katlanılan toplam borçlanma maliyetini aşamaz.
+  dogru: A
+  aciklama:
+    dogru_neden: TMS 23 par. 7'ye göre kısa süre içerisinde üretilen veya imal edilen stoklar özellikli varlık değildir; bu
+      stoklara ilişkin borçlanma maliyetleri oluştukları dönemde giderdir (par. 8).
+    celdiriciler:
+      B: Doğrudur; par. 20 uzun süreli ara verilen dönemde aktifleştirmeye ara verilmesini öngörür.
+      C: Doğrudur; par. 22-23'e göre fiziken inşanın tamamlanması varlığın kullanıma hazır olduğunu gösterir.
+      D: Doğrudur; par. 14 özel borçlanmaları aktifleştirme oranı hesabından hariç tutar.
+      E: Doğrudur; par. 14'ün son cümlesi bu sınırı koyar.
+  kaynaklar:
+  - mevzuat: TMS 23 Borçlanma Maliyetleri
+    madde: par. 7
+    alinti: Finansal varlıklar ve kısa süre içerisinde üretilen veya imal edilen stoklar özellikli varlık değildir.
+  gecerlilik:
+    baslangic: '2009-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 30

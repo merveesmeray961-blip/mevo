@@ -1,0 +1,1128 @@
+- id: YMM-IFM-STK-0001
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: TMS 2 stokların maliyeti ve net gerçekleşebilir değer
+  tip: hesaplama
+  zorluk: 1
+  kok: (A) AŞ, 2026 yılında satmak üzere ticari mal almıştır. Malın faturadaki alış fiyatı 500.000 TL, satıcının uyguladığı
+    ticari iskonto 25.000 TL, indirilecek KDV 95.000 TL'dir. Malın işletme deposuna getirilmesi için 15.000 TL nakliye ve
+    5.000 TL taşıma sigortası ödenmiştir. Mal daha sonra müşteriye satılmış ve müşteriye teslim için 8.000 TL nakliye ödenmiştir;
+    ayrıca muhasebe biriminin bu alıma ilişkin genel yönetim gideri payı 12.000 TL olarak hesaplanmıştır. TMS 2'ye göre ticari
+    malın maliyeti kaç TL'dir?
+  secenekler:
+    A: 475.000 TL
+    B: 490.000 TL
+    C: 495.000 TL
+    D: 507.000 TL
+    E: 590.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'TMS 2 par. 10-11''e göre maliyet, iskonto düşülmüş alış fiyatı ile stoku mevcut konumuna ve durumuna getirme
+      maliyetlerinden oluşur: 475.000 + 15.000 + 5.000 = 495.000 TL. Müşteriye teslim nakliyesi satış maliyeti, genel yönetim
+      gideri payı ise par. 16(c)-(d) gereği dönem gideridir; indirilecek KDV geri alınabilir vergidir.'
+    celdiriciler:
+      A: Depoya getirme nakliyesi ve sigortası maliyete dahildir.
+      B: Taşıma sigortası da stoku mevcut konumuna getirme maliyetidir.
+      D: Genel yönetim gideri payı stokun maliyetine eklenmez (par. 16(c)).
+      E: İndirilecek KDV geri alınabilir vergi olduğundan maliyete girmez.
+    hesap_adimlari:
+    - Net alış = 500.000 − 25.000 = 475.000
+    - + Nakliye 15.000 + sigorta 5.000
+    - Maliyet = 495.000
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 10
+    alinti: Stokların maliyeti; tüm satın alma maliyetlerini, dönüştürme maliyetlerini ve stokların mevcut konumuna ve durumuna
+      getirilmesi için katlanılan diğer maliyetleri içerir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16(c)
+    alinti: Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 500000 - 25000 + 15000 + 5000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 31
+- id: YMM-IFM-STK-0002
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: TMS 2 stokların maliyeti ve net gerçekleşebilir değer
+  tip: hesaplama
+  zorluk: 2
+  kok: (B) AŞ, 01.11.2026'da peşin fiyatı 800.000 TL olan ticari malı 4 ay vadeyle 880.000 TL'ye satın almıştır; vade farkı
+    normal kredi koşullarını yansıtmakta olup dönemlere doğrusal dağıtılacaktır. Mal 31.12.2026'da stokta bulunmaktadır ve
+    net gerçekleşebilir değeri maliyetinin üzerindedir. TMS 2'ye göre 31.12.2026 itibarıyla stokun maliyeti ve 2026 yılına
+    ait faiz gideri hangisidir?
+  secenekler:
+    A: Stok 880.000 TL; faiz gideri 0 TL
+    B: Stok 840.000 TL; faiz gideri 40.000 TL
+    C: Stok 800.000 TL; faiz gideri 80.000 TL
+    D: Stok 800.000 TL; faiz gideri 40.000 TL
+    E: Stok 800.000 TL; faiz gideri 0 TL
+  dogru: D
+  aciklama:
+    dogru_neden: TMS 2 par. 18'e göre satın alma finansman bileşeni içeriyorsa peşin fiyat ile ödenen tutar arasındaki fark
+      finansman dönemi boyunca faiz gideridir. Stok 800.000 TL'dir; 80.000 TL vade farkının 2 aylık (Kasım-Aralık) payı 80.000
+      × 2/4 = 40.000 TL 2026 faiz gideridir.
+    celdiriciler:
+      A: Vade farkı stok maliyetine eklenmez; finansman dönemi boyunca faiz gideridir.
+      B: Faiz gideri doğru, ancak tahakkuk eden faiz stok maliyetine eklenmemelidir.
+      C: Vade farkının tamamı 2026'ya yüklenmiştir; finansman dönemi Mart 2027'ye kadar sürer.
+      E: Kasım-Aralık dönemine isabet eden vade farkı 2026 faiz gideridir.
+    hesap_adimlari:
+    - Stok maliyeti = peşin fiyat 800.000
+    - Vade farkı = 880.000 − 800.000 = 80.000
+    - 2026 faiz gideri = 80.000 × 2/4 = 40.000
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 18
+    alinti: finansman sağlanan dönem boyunca faiz gideri olarak finansal tablolara yansıtılır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fark = 880000 - 800000
+
+      sonuc = fark * 2 / 4'
+    secenek_sayisi_bekleniyor: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 32
+- id: YMM-IFM-STK-0003
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: TMS 2 stokların maliyeti ve net gerçekleşebilir değer
+  tip: hesaplama
+  zorluk: 2
+  kok: (C) AŞ'nin üretim tesisinin normal kapasitesi yıllık 10.000 birimdir. 2026 yılında talep düşüklüğü nedeniyle 8.000
+    birim üretilmiştir (normal kapasiteye yakın kabul edilmemektedir). 2026 yılı sabit genel üretim giderleri 600.000 TL,
+    değişken genel üretim giderleri 240.000 TL'dir. TMS 2'ye göre stoklara yüklenmeyip 2026 yılında doğrudan gider yazılacak
+    sabit genel üretim gideri kaç TL'dir?
+  secenekler:
+    A: 0 TL
+    B: 120.000 TL
+    C: 150.000 TL
+    D: 240.000 TL
+    E: 480.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'TMS 2 par. 13''e göre sabit GÜG normal kapasiteye göre dağıtılır: 600.000 / 10.000 = 60 TL/birim. Üretilen
+      8.000 birime 480.000 TL yüklenir; dağıtılmayan 120.000 TL gerçekleştiği dönemde giderdir. Birim başına sabit gider düşük
+      üretim nedeniyle artırılmaz.'
+    celdiriciler:
+      A: Sabit giderin tamamını fiili üretime yüklemek, düşük üretimde birim maliyeti artırır; standart buna izin vermez.
+      C: Atıl kısım fiili üretim (8.000) yerine normal kapasite (10.000) esas alınarak hesaplanır.
+      D: Değişken GÜG fiili kullanıma göre tamamen stoklara yüklenir; gider yazılmaz.
+      E: 480.000 TL stoklara yüklenen sabit GÜG tutarıdır.
+    hesap_adimlari:
+    - Yükleme oranı = 600.000 / 10.000 = 60 TL
+    - Yüklenen = 8.000 × 60 = 480.000
+    - Gider = 600.000 − 480.000 = 120.000
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Dağıtılmayan genel giderler, gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'oran = 600000 / 10000
+
+      sonuc = 600000 - 8000 * oran'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 33
+- id: YMM-IFM-STK-0004
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: TMS 2 stokların maliyeti ve net gerçekleşebilir değer
+  tip: kavrama
+  zorluk: 1
+  kok: TMS 2 Stoklar'daki maliyet hesaplama yöntemlerine ilişkin aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Birbirinin yerine geçebilen stoklarda, tutarlı uygulanmak şartıyla son giren ilk çıkar (LIFO) yöntemi kullanılabilir.
+    B: Birbirinin yerine geçebilen stokların maliyeti ilk giren ilk çıkar (FIFO) yöntemiyle belirlenebilir.
+    C: Birbirinin yerine geçebilen stokların maliyeti ağırlıklı ortalama maliyet yöntemiyle belirlenebilir.
+    D: Belirli projeler için ayrılan ve birbirinin yerine geçemeyen stoklarda özel tanımlama yöntemi kullanılır.
+    E: Niteliği veya kullanımı farklı olan stok grupları için farklı maliyet hesaplama yöntemleri kullanılabilir.
+  dogru: A
+  aciklama:
+    dogru_neden: TMS 2 par. 25'e göre par. 23 dışındaki stokların maliyeti FIFO veya ağırlıklı ortalama maliyet yöntemiyle
+      belirlenir; LIFO bu yöntemler arasında yer almaz ve tutarlı uygulansa da kullanılamaz.
+    celdiriciler:
+      B: Doğrudur; FIFO par. 25'te sayılan yöntemlerdendir.
+      C: Doğrudur; ağırlıklı ortalama maliyet par. 25'te sayılan yöntemlerdendir.
+      D: Doğrudur; par. 23 özel tanımlama yöntemini düzenler.
+      E: Doğrudur; par. 25'in son cümlesi bu imkânı tanır.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 25
+    alinti: ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemi kullanılarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 34
+- id: YMM-IFM-STK-0005
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: TMS 2 stokların maliyeti ve net gerçekleşebilir değer
+  tip: hesaplama
+  zorluk: 3
+  kok: (D) AŞ'nin 31.12.2026 itibarıyla stoklarında maliyeti 700.000 TL olan bir yarı mamul partisi bulunmaktadır. Partinin
+    mamule dönüşmesi için 180.000 TL tamamlama maliyeti gerekecektir. Mamullerin tahmini satış fiyatı 900.000 TL'dir; satış
+    için 45.000 TL komisyon ve 15.000 TL müşteriye teslim nakliyesi ödenecektir. TMS 2'ye göre yarı mamul için ayrılacak stok
+    değer düşüklüğü kaç TL'dir?
+  secenekler:
+    A: 0 TL
+    B: 25.000 TL
+    C: 40.000 TL
+    D: 100.000 TL
+    E: 220.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'TMS 2 par. 6''ya göre NGD, tahmini satış fiyatından tahmini tamamlama maliyetleri ve satış için gerekli
+      tahmini maliyetler düşülerek bulunur: 900.000 − 180.000 − 45.000 − 15.000 = 660.000 TL. Stok, maliyet (700.000) ile
+      NGD''nin düşüğüyle ölçülür (par. 9): değer düşüklüğü 40.000 TL. Püf noktaları: Yarı mamulde tamamlama maliyetini düşmeyi
+      unutan aday NGD''yi maliyetin üstünde bulur ve indirgeme yapmaz; satış maliyetlerinin her kalemi (komisyon ve nakliye)
+      ayrı ayrı düşülmelidir.'
+    celdiriciler:
+      A: Tamamlama maliyeti düşülmeden NGD 840.000 TL bulunmuş ve indirgeme yapılmamıştır.
+      B: Müşteriye teslim nakliyesi satış için gerekli maliyettir; NGD hesabında düşülmelidir.
+      D: Satış maliyetleri (60.000 TL) iki kez düşülmüştür.
+      E: Tamamlama maliyeti iki kez düşülmüştür; NGD 660.000 TL'dir.
+    hesap_adimlari:
+    - NGD = 900.000 − 180.000 − 45.000 − 15.000 = 660.000
+    - Değer düşüklüğü = 700.000 − 660.000 = 40.000
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 9
+    alinti: Stoklar, maliyet değeri ile net gerçekleşebilir değerin düşük olanı üzerinden ölçülür.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ngd = 900000 - 180000 - 45000 - 15000
+
+      sonuc = max(0, 700000 - ngd)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 35
+- id: YMM-IFM-STK-0006
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: stok değer düşüklüğü
+  tip: hesaplama
+  zorluk: 2
+  kok: '(E) AŞ''nin birbiriyle ilişkisi bulunmayan, farklı amaçlarla kullanılan ve ayrı değerlenebilen üç mamul kalemine ilişkin
+    31.12.2026 verileri aşağıdadır (TL):
+
+    | Kalem | Maliyet | Net gerçekleşebilir değer |
+
+    |---|---|---|
+
+    | X | 100.000 | 130.000 |
+
+    | Y | 200.000 | 150.000 |
+
+    | Z | 300.000 | 280.000 |
+
+    TMS 2''ye göre ayrılacak stok değer düşüklüğü toplamı kaç TL''dir?
+
+    '
+  secenekler:
+    A: 0 TL
+    B: 20.000 TL
+    C: 40.000 TL
+    D: 50.000 TL
+    E: 70.000 TL
+  dogru: E
+  aciklama:
+    dogru_neden: TMS 2 par. 29'a göre indirgeme genellikle kalem bazında yapılır; birbiriyle ilişkisiz kalemlerde sınıf bazında
+      (tüm mamuller) indirgeme uygun değildir. Y için 50.000 TL, Z için 20.000 TL; toplam 70.000 TL. X'teki 30.000 TL fazla
+      NGD diğer kalemlerin düşüklüğüyle mahsup edilmez.
+    celdiriciler:
+      A: Kalemler tek tek karşılaştırıldığında Y ve Z'de NGD maliyetin altındadır.
+      B: Yalnız Z kalemi dikkate alınmış, Y'deki düşüklük atlanmıştır.
+      C: Sınıf bazında toplam maliyet (600.000) ile toplam NGD (560.000) karşılaştırılmıştır; par. 29'a aykırıdır.
+      D: Z kalemindeki 20.000 TL'lik düşüklük atlanmıştır.
+    hesap_adimlari:
+    - 'Y: 200.000 − 150.000 = 50.000'
+    - 'Z: 300.000 − 280.000 = 20.000'
+    - 'X: indirgeme yok'
+    - Toplam = 70.000
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 29
+    alinti: Stokların net gerçekleşebilir değere indirgenmesi genellikle, her bir kalem için ayrı ayrı gerçekleştirilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'x = max(0, 100000 - 130000)
+
+      y = max(0, 200000 - 150000)
+
+      z = max(0, 300000 - 280000)
+
+      sonuc = x + y + z'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 36
+- id: YMM-IFM-STK-0007
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: stok değer düşüklüğü
+  tip: hesaplama
+  zorluk: 3
+  kok: (F) AŞ'nin 31.12.2026 itibarıyla iki hammadde stoku vardır. H1 hammaddesinin maliyeti 400.000 TL, yenileme maliyeti
+    340.000 TL'dir; H1'in kullanıldığı M1 mamulünün tahmini birim maliyeti 1.000 TL, net gerçekleşebilir değeri 1.100 TL'dir.
+    H2 hammaddesinin maliyeti 250.000 TL, yenileme maliyeti 210.000 TL'dir; hammadde fiyatlarındaki düşüş nedeniyle H2'nin
+    kullanıldığı M2 mamullerinin toplam maliyetinin (900.000 TL) net gerçekleşebilir değerini (820.000 TL) aşacağı anlaşılmaktadır.
+    Yenileme maliyeti, net gerçekleşebilir değerin en iyi ölçüsüdür; stoklarda mamul bulunmamaktadır. TMS 2'ye göre hammaddeler
+    için ayrılacak değer düşüklüğü toplamı kaç TL'dir?
+  secenekler:
+    A: 0 TL
+    B: 40.000 TL
+    C: 60.000 TL
+    D: 80.000 TL
+    E: 100.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'TMS 2 par. 32''ye göre üretiminde kullanılacağı mamulün maliyetine eşit veya üstünde satılması beklenen
+      hammadde maliyetinin altına indirgenmez: H1 için indirgeme yoktur. Hammadde fiyatındaki düşüş mamul maliyetinin NGD''yi
+      aşacağını gösteriyorsa hammadde NGD''ye indirgenir ve yenileme maliyeti en iyi ölçü olabilir: H2 için 250.000 − 210.000
+      = 40.000 TL. Püf noktaları: Hammaddede ölçüt, hammaddenin kendi yenileme maliyeti değil, önce kullanılacağı mamulün
+      kârlılığıdır. H2 için mamul düzeyindeki 80.000 TL''lik fark değil, hammaddenin kendi indirgeme tutarı kullanılır.'
+    celdiriciler:
+      A: M2 mamulü maliyetinin altında satılacağından H2 hammaddesi indirgenmelidir.
+      C: H1'in mamulü maliyetinin üstünde satılacağından H1 indirgenmez; H2 ise indirgenir.
+      D: Mamul düzeyindeki fark (900.000 − 820.000) hammaddeye yüklenmiştir; H2'nin kendi indirgemesi 40.000 TL'dir.
+      E: H1 de indirgenmiştir; mamulü kârla satılacağından H1 maliyetle ölçülür.
+    hesap_adimlari:
+    - 'H1: M1 NGD > maliyet → indirgeme yok'
+    - 'H2: M2 maliyeti > NGD → H2 yenileme maliyetine indirilir'
+    - 250.000 − 210.000 = 40.000
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 32
+    alinti: Ancak hammadde fiyatlarındaki bir azalışın, mamullerin maliyetinin, net gerçekleşebilir değerini aşacağına işaret
+      etmesi durumunda, hammadde net gerçekleşebilir değerine indirgenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "h1 = 0\nif 1000 > 1100:\n    h1 = 400000 - 340000\nh2 = 0\nif 900000 > 820000:\n    h2 = 250000 - 210000\nsonuc\
+      \ = h1 + h2"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 37
+- id: YMM-IFM-STK-0008
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: stok değer düşüklüğü
+  tip: hesaplama
+  zorluk: 2
+  kok: (G) AŞ, maliyeti 500.000 TL olan bir ticari mal partisini 31.12.2025'te net gerçekleşebilir değeri olan 420.000 TL'ye
+    indirgemiş ve 80.000 TL değer düşüklüğü kaydetmiştir. Parti 31.12.2026'da da stokta olup satış fiyatlarındaki artış nedeniyle
+    net gerçekleşebilir değeri 470.000 TL'ye yükselmiştir. TMS 2'ye göre 2026 yılında iptal edilecek değer düşüklüğü tutarı
+    kaç TL'dir?
+  secenekler:
+    A: 0 TL
+    B: 30.000 TL
+    C: 50.000 TL
+    D: 80.000 TL
+    E: 130.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'TMS 2 par. 33''e göre NGD''deki artışa ilişkin açık kanıt varsa indirgeme, önceki indirgeme tutarıyla sınırlı
+      olarak iptal edilir; yeni defter değeri maliyet ile revize NGD''nin düşüğüdür: min(500.000; 470.000) = 470.000 TL. İptal
+      = 470.000 − 420.000 = 50.000 TL.'
+    celdiriciler:
+      A: TMS 2 değer düşüklüğünün iptaline izin verir (par. 33).
+      B: Maliyet ile yeni NGD arasındaki fark kalan değer düşüklüğüdür, iptal tutarı değildir.
+      D: Yeni NGD maliyetin altında olduğundan indirgemenin tamamı iptal edilemez.
+      E: İptal ve kalan indirgeme toplanmıştır; iptal tutarı 50.000 TL'dir.
+    hesap_adimlari:
+    - Yeni defter değeri = min(500.000; 470.000) = 470.000
+    - İptal = 470.000 − 420.000 = 50.000 (≤ 80.000)
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 33
+    alinti: indirgenen tutar iptal edilir (diğer bir ifadeyle iptal edilen tutar, daha önce indirgenen tutarla sınırlıdır).
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'yeni = min(500000, 470000)
+
+      sonuc = min(yeni - 420000, 80000)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 38
+- id: YMM-IFM-STK-0009
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: TMS 41 tarımsal faaliyetler
+  tip: kavrama
+  zorluk: 1
+  kok: Süt üretimi yapan (H) AŞ'nin sağmal inekleri için gerçeğe uygun değer güvenilir olarak ölçülebilmektedir. TMS 41'e
+    göre inekler ve bu ineklerden sağılan süt hakkında aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: İnekler maliyetten birikmiş amortisman düşülerek, süt ise net gerçekleşebilir değeriyle ölçülür.
+    B: İneklerin gerçeğe uygun değer değişimleri diğer kapsamlı gelirde, sütün değeri kâr veya zararda izlenir.
+    C: Hasat edilen süt, hasattan sonra da satılıncaya kadar TMS 41'e göre gerçeğe uygun değerle izlenir.
+    D: İnekler ilk kayıtta maliyetle, sonraki dönemlerde satış maliyetleri düşülmüş gerçeğe uygun değerle ölçülür.
+    E: Süt hasat noktasında satış maliyetleri düşülmüş GUD ile ölçülür; bu tutar TMS 2 açısından maliyettir.
+  dogru: E
+  aciklama:
+    dogru_neden: TMS 41 par. 13'e göre tarımsal ürünler hasat noktasında GUD'den satış maliyetleri düşülerek ölçülür ve bu
+      ölçüm TMS 2'nin uygulandığı tarihteki maliyettir. Canlı varlıklar (inekler) ilk kayıtta ve her dönem sonunda satış maliyetleri
+      düşülmüş GUD ile ölçülür (par. 12).
+    celdiriciler:
+      A: Maliyet esası GUD güvenilir ölçülemediğinde uygulanır (par. 30); kökte GUD ölçülebilmektedir.
+      B: Canlı varlıkların GUD değişimleri kâr veya zararda dikkate alınır (par. 26).
+      C: Hasattan sonra ürün TMS 2 kapsamında stok olarak izlenir.
+      D: Canlı varlık ilk kayıtta da satış maliyetleri düşülmüş GUD ile ölçülür (par. 12).
+  kaynaklar:
+  - mevzuat: TMS 41 Tarımsal Faaliyetler
+    madde: par. 13
+    alinti: Söz konusu ölçüm, TMS 2 Stoklar’ın veya uygun başka Standardın uygulandığı tarihteki maliyettir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 39
+- id: YMM-IFM-STK-0010
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: TMS 41 tarımsal faaliyetler
+  tip: kavrama
+  zorluk: 2
+  kok: 'Elma üretimi ve besicilik yapan (I) AŞ''nin aşağıdaki varlıklarından hangileri TMS 41 Tarımsal Faaliyetler kapsamında
+    muhasebeleştirilir?
+
+    I. Birden fazla dönem ürün veren ve önemsiz kalıntı satışları dışında ürün olarak satılması beklenmeyen elma ağaçları
+
+    II. Ağaçların üzerinde henüz hasat edilmemiş elmalar
+
+    III. Elma bahçesinin bulunduğu arazi
+
+    IV. Satılmak üzere beslenen danalar
+
+    '
+  secenekler:
+    A: I ve III
+    B: Yalnız II
+    C: I, II ve IV
+    D: II ve IV
+    E: I, II, III ve IV
+  dogru: D
+  aciklama:
+    dogru_neden: 'Elma ağaçları taşıyıcı bitki tanımını karşılar ve TMS 16 kapsamındadır; ancak TMS 41 taşıyıcı bitkilerin
+      ürünlerine uygulanır (par. 2(b)): ağaç üzerindeki elmalar TMS 41 kapsamındadır. Tarımsal faaliyetle ilgili arsa TMS
+      16 veya TMS 40 kapsamındadır (par. 2(a)). Besi danaları canlı varlıktır ve TMS 41 kapsamındadır.'
+    celdiriciler:
+      A: Taşıyıcı bitkiler ve arazi TMS 41 kapsamı dışındadır.
+      B: Satılmak üzere beslenen danalar da canlı varlık olarak TMS 41 kapsamındadır.
+      C: Taşıyıcı bitki niteliğindeki elma ağaçları TMS 16 kapsamındadır.
+      E: Taşıyıcı bitkiler ve tarımsal faaliyetle ilgili arsa TMS 41 kapsamında değildir.
+  kaynaklar:
+  - mevzuat: TMS 41 Tarımsal Faaliyetler
+    madde: par. 2(b)
+    alinti: 'Tarımsal faaliyetle ilgili taşıyıcı bitkiler (bakınız: TMS 16). Ancak, bu Standart taşıyıcı bitkilerin ürünlerine
+      uygulanır.'
+  gecerlilik:
+    baslangic: '2016-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 40
+- id: YMM-IFM-STK-0011
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: TMS 41 tarımsal faaliyetler
+  tip: hesaplama
+  zorluk: 3
+  kok: (J) AŞ'nin besi danalarının 01.01.2026'daki satış maliyetleri düşülmüş gerçeğe uygun değeri 2.500.000 TL'dir. Şirket
+    2026'da piyasadan 1.000.000 TL'ye (alım tarihindeki gerçeğe uygun değer) 20 baş dana daha satın almıştır; satış maliyetleri
+    gerçeğe uygun değerin %4'üdür. 31.12.2026'da sürüdeki tüm danaların gerçeğe uygun değeri 4.200.000 TL'dir (satış maliyetleri
+    %4). Yıl içinde hayvan satışı veya ölüm olmamıştır. TMS 41'e göre canlı varlıklardan 2026 yılı kâr veya zararına yansıyan
+    net kazanç kaç TL'dir?
+  secenekler:
+    A: 492.000 TL
+    B: 532.000 TL
+    C: 572.000 TL
+    D: 700.000 TL
+    E: 1.532.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Alınan danalar ilk kayıtta satış maliyetleri düşülmüş GUD ile ölçülür: 1.000.000 × 0,96 = 960.000 TL; 40.000
+      TL ilk muhasebeleştirme zararı doğar (par. 12, 26-27). Yıl sonu ölçüm 4.200.000 × 0,96 = 4.032.000 TL; GUD değişimi
+      kazancı 4.032.000 − (2.500.000 + 960.000) = 572.000 TL. Net etki 572.000 − 40.000 = 532.000 TL. Püf noktaları: Piyasadan
+      alınan canlı varlıkta satış maliyetleri nedeniyle ilk kayıtta zarar doğar; bu zarar ile yıl sonu değer artışı birlikte
+      kâr veya zarara yansır. Brüt GUD değil satış maliyetleri düşülmüş tutar kullanılır.'
+    celdiriciler:
+      A: İlk kayıt zararı iki kez düşülmüştür.
+      C: Alım anındaki 40.000 TL ilk muhasebeleştirme zararı dikkate alınmamıştır.
+      D: Satış maliyetleri düşülmeden brüt GUD'ler (4.200.000 − 3.500.000) karşılaştırılmıştır.
+      E: Satın alınan danaların bedeli (1.000.000 TL) kazançtan düşülmemiştir.
+    hesap_adimlari:
+    - İlk kayıt = 1.000.000 × 0,96 = 960.000; zarar 40.000
+    - Yıl sonu = 4.200.000 × 0,96 = 4.032.000
+    - GUD kazancı = 4.032.000 − 2.500.000 − 960.000 = 572.000
+    - Net = 572.000 − 40.000 = 532.000
+  kaynaklar:
+  - mevzuat: TMS 41 Tarımsal Faaliyetler
+    madde: par. 26
+    alinti: Canlı bir varlığın gerçeğe uygun değerinden satış maliyetlerinin düşülerek ilk muhasebeleştirilmesi sırasında
+      doğan kazanç veya zarar ile, ilgili varlığın gerçeğe uygun değerindeki değişiklikten doğan kazanç veya zarar oluştuğu
+      dönem kâr veya zararında dikkate alınır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ilk = 1000000 * 0.96
+
+      zarar = 1000000 - ilk
+
+      son = 4200000 * 0.96
+
+      sonuc = son - 2500000 - ilk - zarar'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 41
+- id: YMM-IFM-STK-0012
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: TMS 20 devlet teşvikleri
+  tip: kavrama
+  zorluk: 1
+  kok: (K) AŞ, 2026-2027 yıllarında katlanacağı eğitim giderlerini karşılamak üzere 600.000 TL tutarında devlet hibesi tahsil
+    etmiştir; hibe koşullarına uyulacağına dair makul güvence vardır. Şirketin mali işler müdürü hibenin tahsil edildiği gün
+    tamamının 549 Özel Fonlar hesabına alınarak özkaynakta izlenmesini önermektedir. TMS 20'ye göre aşağıdakilerden hangisi
+    doğrudur?
+  secenekler:
+    A: Hibe, eğitim giderlerinin gider yazıldığı dönemler boyunca sistematik olarak kâr veya zarara yansıtılır.
+    B: Öneri uygundur; TMS 20 hibenin kâr veya zarar dışında izlendiği sermaye yaklaşımını benimser.
+    C: Hibe tahsil edildiği 2026 yılında tamamıyla kâr veya zarara gelir olarak yansıtılır.
+    D: Hibe koşullar yerine gelip 2027 sonunda kesinleşinceye kadar finansal tablolara alınmaz.
+    E: Hibe diğer kapsamlı gelirde muhasebeleştirilir ve giderler oluştukça geçmiş yıllar kârlarına aktarılır.
+  dogru: A
+  aciklama:
+    dogru_neden: 'TMS 20 par. 12-13''e göre Standart gelir yaklaşımını benimser: devlet teşvikleri, karşılanması amaçlanan
+      maliyetlerin gider olarak muhasebeleştirildiği dönemler boyunca sistematik şekilde kâr veya zarara yansıtılır.'
+    celdiriciler:
+      B: Sermaye yaklaşımı TMS 20'de benimsenmez; teşvik kâr veya zarardan geçirilir.
+      C: Gider 2026 ve 2027'ye yayıldığından teşvik geliri de bu dönemlere dağıtılır.
+      D: Makul güvence oluştuğunda teşvik finansal tablolara alınır (par. 7); kesinleşme beklenmez.
+      E: Teşvik diğer kapsamlı gelire değil kâr veya zarara yansıtılır.
+  kaynaklar:
+  - mevzuat: TMS 20 Devlet Teşviklerinin Muhasebeleştirilmesi ve Devlet Yardımlarının Açıklanması
+    madde: par. 12
+    alinti: Devlet teşvikleri, bu teşviklerle karşılanması amaçlanan maliyetlerin gider olarak muhasebeleştirildiği dönemler
+      boyunca sistematik şekilde kâr veya zarara yansıtılır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 42
+- id: YMM-IFM-STK-0013
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: TMS 20 devlet teşvikleri
+  tip: hesaplama
+  zorluk: 2
+  kok: (L) AŞ, 01.07.2026'da 1.500.000 TL'ye aldığı ve aynı gün kullanıma hazır hale gelen makine için 450.000 TL devlet hibesi
+    tahsil etmiştir; hibe koşullarına uyulacağına dair makul güvence vardır. Makinenin yararlı ömrü 5 yıl, kalıntı değeri
+    sıfırdır (doğrusal yöntem, ay esası). Şirket teşviki varlığın defter değerinden indirme yöntemiyle sunmaktadır. 2026 yılı
+    kâr veya zarar tablosunda makineye ilişkin amortisman gideri kaç TL'dir?
+  secenekler:
+    A: 45.000 TL
+    B: 90.000 TL
+    C: 105.000 TL
+    D: 150.000 TL
+    E: 210.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'TMS 20 par. 27''ye göre bu yöntemde teşvik varlığın defter değerinden indirilir ve amortisman giderini azaltarak
+      kâr veya zarara yansır: (1.500.000 − 450.000) / 5 × 6/12 = 105.000 TL.'
+    celdiriciler:
+      A: 45.000 TL ertelenmiş gelir yönteminde 2026'ya düşen teşvik geliridir; amortisman değildir.
+      B: Yıllık teşvik payıdır (450.000 / 5); sorulan amortisman gideridir.
+      D: Teşvik varlıktan indirilmemiş, brüt maliyet üzerinden amortisman hesaplanmıştır.
+      E: Tam yıl amortisman hesaplanmıştır; makine 1 Temmuz'da kullanılabilir olmuştur.
+    hesap_adimlari:
+    - Net maliyet = 1.500.000 − 450.000 = 1.050.000
+    - Yıllık amortisman = 1.050.000 / 5 = 210.000
+    - 2026 (6 ay) = 105.000
+  kaynaklar:
+  - mevzuat: TMS 20 Devlet Teşviklerinin Muhasebeleştirilmesi ve Devlet Yardımlarının Açıklanması
+    madde: par. 27
+    alinti: Diğer yöntemde ise teşvik, varlığın defter değerinin hesaplanması sırasında indirilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (1500000 - 450000) / 5 * 6 / 12
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 43
+- id: YMM-IFM-STK-0014
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: TMS 20 devlet teşvikleri
+  tip: hesaplama
+  zorluk: 3
+  kok: (M) AŞ, 01.01.2024'te 1.000.000 TL'ye aldığı makine için 200.000 TL devlet hibesi almış ve teşviki varlığın defter
+    değerinden indirme yöntemiyle sunmuştur. Makinenin yararlı ömrü 10 yıl, kalıntı değeri sıfırdır (doğrusal yöntem). 2024
+    ve 2025 amortismanları ayrılmıştır. 01.01.2026'da şirketin hibe koşullarını ihlal ettiği ve hibenin tamamının geri ödenmesi
+    gerektiği kesinleşmiştir. TMS 20'ye göre geri ödeme nedeniyle 01.01.2026'da derhal kâr veya zarara yansıtılacak tutar
+    kaç TL'dir?
+  secenekler:
+    A: 0 TL
+    B: 40.000 TL
+    C: 160.000 TL
+    D: 200.000 TL
+    E: 240.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'TMS 20 par. 32''ye göre varlığa ilişkin teşvikin geri ödenmesinde varlığın defter değeri geri ödenecek tutar
+      kadar artırılır ve teşvik alınmamış olsaydı önceki dönemlerde kâr veya zarara yansıyacak birikmiş ek amortisman o anda
+      kâr veya zarara alınır. Teşvikli amortisman yılda 80.000, teşviksiz 100.000 TL''dir; iki yıllık fark 2 × 20.000 = 40.000
+      TL. Bu tutar bir muhasebe tahmini değişikliği olarak işlenir; geçmiş yıllar düzeltilmez. Püf noktaları: Geri ödenen
+      200.000 TL''nin tamamı gider değildir; varlığın defter değerine eklenir. Yalnız geçmiş yılların eksik kalan amortismanı
+      (40.000 TL) derhal gider yazılır.'
+    celdiriciler:
+      A: Teşvik olmasaydı ayrılacak birikmiş ek amortisman derhal kâr veya zarara alınır.
+      C: 160.000 TL, teşvikli maliyet üzerinden ayrılmış iki yıllık birikmiş amortismandır.
+      D: Geri ödenen tutar varlığın defter değerine eklenir; tamamı gider yazılmaz.
+      E: Geri ödeme tutarı ve ek amortisman birlikte gider yazılmıştır.
+    hesap_adimlari:
+    - Teşvikli yıllık amortisman = 800.000 / 10 = 80.000
+    - Teşviksiz yıllık amortisman = 1.000.000 / 10 = 100.000
+    - Birikmiş ek amortisman = 2 × 20.000 = 40.000
+  kaynaklar:
+  - mevzuat: TMS 20 Devlet Teşviklerinin Muhasebeleştirilmesi ve Devlet Yardımlarının Açıklanması
+    madde: par. 32
+    alinti: Teşvik alınmamış olsaydı önceki dönemlerde kâr ya da zararda muhasebeleştirilmiş olacak olan birikmiş amortisman
+      tutarı, teşvikin geri ödenmesiyle birlikte o anda kâr ya da zararda muhasebeleştirilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'tesvikli = (1000000 - 200000) / 10
+
+      tesviksiz = 1000000 / 10
+
+      sonuc = 2 * (tesviksiz - tesvikli)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 44
+- id: YMM-IFM-STK-0015
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Stoklar canlı varlıklar ve devlet teşvikleri
+  konu: STK
+  kazanim: TMS 20 devlet teşvikleri
+  tip: kavrama
+  zorluk: 2
+  kok: 'TMS 20''ye göre aşağıdaki ifadelerden hangileri doğrudur?
+
+    I. Önceden gerçekleşmiş zararları karşılamak amacıyla verilen ve gelecekte herhangi bir maliyet gerektirmeyen devlet teşviki,
+    tahsil edilebilir hale geldiği dönemde kâr veya zararda muhasebeleştirilir.
+
+    II. Devletten piyasa faiz oranının altında bir oranla alınan kredinin faydası devlet teşviki sayılmaz; kredi nominal tutarıyla
+    finansal tablolara alınır.
+
+    III. Gelire ilişkin teşvikler kâr veya zarar tablosunda ayrı olarak ya da ilgili giderlerden düşülerek gösterilebilir.
+
+    '
+  secenekler:
+    A: I ve III
+    B: Yalnız I
+    C: II ve III
+    D: I, II ve III
+    E: Yalnız III
+  dogru: A
+  aciklama:
+    dogru_neden: 'I: TMS 20 par. 20''ye göre doğrudur. III: Par. 29''a göre gelire ilişkin teşvikler ayrı olarak, "Diğer Gelirler"
+      başlığında veya ilgili giderlerden düşülerek gösterilir. II yanlıştır: par. 10A''ya göre piyasa faizinin altındaki kredinin
+      faydası devlet teşvikidir; kredi TFRS 9''a göre ölçülür ve fayda, TFRS 9''a göre belirlenen ilk defter değeri ile elde
+      edilen tutar arasındaki farktır.'
+    celdiriciler:
+      B: III numaralı ifade de par. 29'a göre doğrudur.
+      C: II yanlıştır; düşük faizli kredinin faydası teşviktir (par. 10A).
+      D: Düşük faizli kredinin faydası teşvik olarak kabul edilir; II yanlıştır.
+      E: I numaralı ifade de par. 20'ye göre doğrudur.
+  kaynaklar:
+  - mevzuat: TMS 20 Devlet Teşviklerinin Muhasebeleştirilmesi ve Devlet Yardımlarının Açıklanması
+    madde: par. 10A
+    alinti: Devletten piyasa faiz oranının altındaki bir oranla alınan kredinin faydası, devlet teşviki olarak kabul edilir.
+  - mevzuat: TMS 20 Devlet Teşviklerinin Muhasebeleştirilmesi ve Devlet Yardımlarının Açıklanması
+    madde: par. 20
+    alinti: tahsil edilebilir hale geldiği dönemde kâr ya da zararda muhasebeleştirilir.
+  gecerlilik:
+    baslangic: '2009-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S1.yaml, satır 45
