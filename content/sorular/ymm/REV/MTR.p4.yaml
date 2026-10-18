@@ -1,0 +1,458 @@
+- id: YMM-REV-MTR-0057
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Matrah ve beyan teknikleri
+  konu: MTR
+  kazanim: istisnalar ve indirimlerin sırası
+  tip: hesaplama
+  zorluk: 3
+  kok: '2012''den beri faaliyette olan, finans sektöründe bulunmayan (A) A.Ş.''nin 2026 yılı verileri şöyledir: ticari bilanço
+    kârı 4.000.000 TL; bu kârın içinde tam mükellef bir A.Ş.''den alınan 600.000 TL kâr payı vardır. Kamu yararına çalışan
+    bir derneğe makbuz karşılığı yapılan 150.000 TL nakdi bağış gider yazılmıştır; başka kanunen kabul edilmeyen gider yoktur.
+    2023 yılından devreden ve beyannamede gösterilmiş 1.400.000 TL geçmiş yıl zararı bulunmaktadır. Bağış sınırı 1 Seri No.lu
+    Kurumlar Vergisi Genel Tebliği''ndeki esasa göre hesaplanacaktır. Şirketin 2026 yılı kurumlar vergisi matrahı kaç TL''dir?'
+  secenekler:
+    A: 1.900.000 TL
+    B: 2.000.000 TL
+    C: 2.042.500 TL
+    D: 2.050.000 TL
+    E: 2.150.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Gider yazılan bağış önce KKEG olarak eklenir: mali kâr 4.150.000 TL. İştirak kazancı (600.000 TL) ve geçmiş
+      yıl zararı (1.400.000 TL) düşülür. Tebliğ bölüm 10.3.2.1''e göre bağış sınırının esası ticari bilanço kârı − (iştirak
+      kazançları istisnası + geçmiş yıl zararları) = 4.000.000 − 2.000.000 = 2.000.000 TL; sınır %5 → 100.000 TL. Matrah =
+      4.150.000 − 600.000 − 1.400.000 − 100.000 = 2.050.000 TL. Püf noktaları: Sınırın esası mali kâr değil, iştirak istisnası
+      ve zarar düşülmüş ticari bilanço kârıdır; sınırı aşan 50.000 TL sonraki yıla devretmez.'
+    celdiriciler:
+      A: Gider yazılan bağış KKEG olarak eklenmemiştir (4.000.000 − 2.000.000 − 100.000).
+      B: Bağışın tamamı indirilmiş; %5 sınırı uygulanmamıştır.
+      C: Sınır KKEG eklenmiş mali kâr üzerinden hesaplanmıştır ((4.150.000 − 2.000.000) × %5 = 107.500 TL).
+      E: Bağış KKEG olarak eklenmiş ama beyannamede hiç indirilmemiştir.
+    hesap_adimlari:
+    - 'Mali kâr: 4.000.000 + 150.000 = 4.150.000 TL'
+    - 'Bağış sınırı: (4.000.000 − 600.000 − 1.400.000) × 0,05 = 100.000 TL'
+    - 'Matrah: 4.150.000 − 600.000 − 1.400.000 − 100.000 = 2.050.000 TL'
+  kaynaklar:
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: bölüm 10.3.2.1
+    alinti: '[Ticari bilanço kârı – (iştirak kazançları istisnası + geçmiş yıl zararları)] tutardır.'
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 10/1-c
+    alinti: makbuz karşılığında yapılan bağış ve yardımların toplamının o yıla ait kurum kazancının % 5’ine kadar olan kısmı
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ticari = 4000000
+
+      istirak = 600000
+
+      zarar = 1400000
+
+      bagis = 150000
+
+      sinir = (ticari - istirak - zarar) * 5 / 100
+
+      indirim = min(bagis, sinir)
+
+      sonuc = ticari + bagis - istirak - zarar - indirim'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 46
+- id: YMM-REV-MTR-0058
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Matrah ve beyan teknikleri
+  konu: MTR
+  kazanim: geçmiş yıl zararları
+  tip: kavrama
+  zorluk: 2
+  kok: '(B) A.Ş., 2026 yılında KVK md. 19 ve 20 kapsamında (C) A.Ş.''yi devralmıştır. Devir tarihinde (C) A.Ş.''nin öz sermayesi
+    1.800.000 TL, beyannamelerinde yer alan ve beş yıllık süresi dolmamış zararları toplamı 3.000.000 TL''dir. (B) A.Ş.''nin
+    ayrıca Türkiye''de istisnadan yararlanan kazançlar elde ettiği bir ülkedeki şubesinden doğan yurt dışı zararı vardır.
+    Bu konuda aşağıdaki ifadeler veriliyor:
+
+
+    I. Devralınan zararın 1.800.000 TL''yi aşan kısmı (B) A.Ş.''nin kazancından indirilemez.
+
+    II. Devralınan zararın indirilebilmesi için (C) A.Ş.''nin son beş yıla ilişkin kurumlar vergisi beyannamelerinin kanuni
+    süresinde verilmiş olması gerekir.
+
+    III. Yurt dışı şube zararı, ilgili ülke mevzuatına göre denetim raporuna bağlanıp aslı ve tercümesi vergi dairesine ibraz
+    edilirse Türkiye''deki kazançtan indirilebilir.
+
+    IV. (B) A.Ş., devralınan faaliyete devrin yapıldığı hesap döneminden itibaren üç yıl sonra son verirse, zarar mahsubu
+    nedeniyle zamanında tahakkuk ettirilmeyen vergiler için vergi ziyaı doğmuş sayılır.
+
+
+    Bu ifadelerden hangileri doğrudur?'
+  secenekler:
+    A: I ve II
+    B: I ve IV
+    C: II ve III
+    D: I, III ve IV
+    E: I, II ve IV
+  dogru: E
+  aciklama:
+    dogru_neden: 'KVK md. 9/1-a: devralınan kurumun devir tarihindeki öz sermayesini geçmeyen zararları indirilebilir (I doğru);
+      son beş yılın beyannamelerinin kanuni süresinde verilmiş olması (II doğru) ve devralınan faaliyete en az beş yıl devam
+      edilmesi gerekir; şartların ihlalinde vergi ziyaı doğmuş sayılır (IV doğru). md. 9/1-b: Türkiye''de kurumlar vergisinden
+      istisna edilen kazançlarla ilgili yurt dışı zararlar indirilemez; denetim raporu bu yasağı kaldırmaz (III yanlış).'
+    celdiriciler:
+      A: IV de doğrudur; beş yıllık devam şartı ihlal edilmiştir.
+      B: II de doğrudur; beyannamelerin kanuni süresinde verilmesi ayrı bir şarttır.
+      C: III yanlıştır; istisna kazançlarla ilgili yurt dışı zarar, raporla tevsik edilse de indirilemez.
+      D: III yanlış, II ise doğrudur.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 9/1-a
+    alinti: Bu şartların ihlâli halinde, zarar mahsupları nedeniyle zamanında tahakkuk ettirilmeyen vergiler için vergi ziyaı
+      doğmuş sayılır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 9/1-b
+    alinti: Türkiye’de kurumlar vergisinden istisna edilen kazançlarla ilgili olanlar hariç olmak üzere
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 47
+- id: YMM-REV-MTR-0059
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Matrah ve beyan teknikleri
+  konu: MTR
+  kazanim: ticari bilanço kârından mali kâra geçiş
+  tip: hesaplama
+  zorluk: 2
+  kok: 2010'dan beri faaliyette olan ve finans sektöründe bulunmayan (D) A.Ş.'nin 2026 yılı gelir tablosunda dönem net kârı
+    1.800.000 TL'dir. Bu tutar, 691 Dönem Kârı Vergi ve Diğer Yasal Yükümlülük Karşılıkları hesabına alınan 600.000 TL tahmini
+    kurumlar vergisi düşüldükten sonra bulunmuştur. Giderler içinde 80.000 TL vergi ziyaı cezası ve VUK'a göre ödenen 20.000
+    TL gecikme faizi; gelirler içinde tam mükellef bir A.Ş.'den alınan 300.000 TL kâr payı vardır. Başka düzeltme gerektiren
+    kalem, geçmiş yıl zararı ve indirim yoktur. Şirketin 2026 yılı için hesaplanacak kurumlar vergisi (asgari kurumlar vergisi
+    kontrolü dahil) kaç TL'dir?
+  secenekler:
+    A: 400.000 TL
+    B: 525.000 TL
+    C: 545.000 TL
+    D: 550.000 TL
+    E: 625.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: KVK md. 11/1-d'ye göre bu Kanuna göre hesaplanan kurumlar vergisi, vergi cezaları ve VUK'a göre ödenen gecikme
+      faizleri indirilemez. Matrah = 1.800.000 + 600.000 + 80.000 + 20.000 − 300.000 (md. 5/1-a) = 2.200.000 TL; KV = 2.200.000
+      × %25 = 550.000 TL. Asgari KV = (2.400.000 + 100.000 − 300.000) × %10 = 220.000 TL olduğundan hesaplanan vergi geçerlidir.
+    celdiriciler:
+      A: Gider yazılan kurumlar vergisi karşılığı kâra eklenmemiştir (1.600.000 × %25).
+      B: Vergi ziyaı cezası ve gecikme faizi KKEG olarak eklenmemiştir (2.100.000 × %25).
+      C: VUK'a göre ödenen gecikme faizi KKEG sayılmamıştır (2.180.000 × %25).
+      E: İştirak kazancı istisnası düşülmemiştir (2.500.000 × %25).
+    hesap_adimlari:
+    - 'Ticari bilanço kârı (vergi öncesi): 1.800.000 + 600.000 = 2.400.000 TL'
+    - 'KKEG: 80.000 + 20.000 = 100.000 TL'
+    - 'Matrah: 2.400.000 + 100.000 − 300.000 = 2.200.000 TL'
+    - 'KV: 550.000 TL; asgari KV 220.000 TL'
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 11/1-d
+    alinti: Bu Kanuna göre hesaplanan kurumlar vergisi ile her türlü para cezaları, vergi cezaları
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'net = 1800000
+
+      kv_karsilik = 600000
+
+      kkeg = 80000 + 20000
+
+      istirak = 300000
+
+      matrah = net + kv_karsilik + kkeg - istirak
+
+      kv = matrah * 25 / 100
+
+      asgari = (net + kv_karsilik + kkeg - istirak) * 10 / 100
+
+      sonuc = max(kv, asgari)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 48
+- id: YMM-REV-MTR-0060
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Matrah ve beyan teknikleri
+  konu: MTR
+  kazanim: geçici vergi
+  tip: uygulama
+  zorluk: 3
+  kok: 'Hesap dönemi takvim yılı olan (E) A.Ş. nezdinde Ekim 2026''da yapılan incelemede, 2026 yılının ilk iki geçici vergi
+    dönemine ilişkin şu tespitler yapılmıştır:
+
+
+    | Dönem | Beyan edilen geçici vergi | Olması gereken geçici vergi |
+
+    |---|---|---|
+
+    | Ocak–Mart | 170.000 TL | 200.000 TL |
+
+    | Nisan–Haziran | 140.000 TL | 150.000 TL |
+
+
+    Bu tespitlerle ilgili olarak aşağıdaki ifadeler veriliyor:
+
+
+    I. Ocak–Mart dönemi için eksik beyan edilen 30.000 TL üzerinden ikmalen geçici vergi tarh edilir.
+
+    II. Nisan–Haziran dönemi için eksik beyan edilen 10.000 TL üzerinden ikmalen geçici vergi tarh edilir.
+
+    III. Mahsup süresi geçtikten sonra kesinleşen geçici vergiler terkin edilir; ancak gecikme faizi ve ceza tahsil edilir.
+
+    IV. Geçici vergi matrahının hesabında Kanunda düzenlenen indirim ve istisnalar dikkate alınmaz.
+
+
+    Bu ifadelerden hangileri doğrudur?'
+  secenekler:
+    A: Yalnız I
+    B: I ve II
+    C: I ve III
+    D: II ve IV
+    E: I, III ve IV
+  dogru: C
+  aciklama:
+    dogru_neden: 'GVK mük. md. 120''ye göre (KVK md. 32/2 ile kurumlara uygulanır) geçmiş dönemlere ait geçici verginin %10''u
+      aşan tutarda eksik beyan edildiği tespit edilirse eksik beyan edilen kısım için re''sen veya ikmalen tarhiyat yapılır.
+      Ocak–Mart''ta eksiklik 30.000 TL, olması gereken verginin %15''idir; %10''u aştığından eksik kısmın tamamı tarh edilir
+      (I doğru). Nisan–Haziran''da eksiklik 10.000 TL (%6,7) sınırı aşmaz (II yanlış). III madde metniyle aynıdır. IV yanlıştır;
+      matrahın hesabında VUK değerleme hükümleri ile indirim ve istisnalar dikkate alınır. Püf noktaları: %10 sınırı her geçici
+      vergi dönemi için ayrı karşılaştırılır; sınır aşılınca yalnız aşan kısım değil eksik beyan edilen tutarın tamamı tarh
+      edilir.'
+    celdiriciler:
+      A: III de doğrudur; madde mahsup süresinden sonra terkin ile gecikme faizi ve cezanın tahsilini öngörür.
+      B: Nisan–Haziran dönemindeki eksiklik %10 sınırını aşmadığından II yanlıştır.
+      D: II'deki eksiklik sınırın altındadır; IV ise maddeye aykırıdır.
+      E: IV yanlıştır; geçici vergi matrahında indirim ve istisnalar dikkate alınır.
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: mük. md. 120
+    alinti: geçmiş dönemlere ait geçici verginin % 10'u aşan tutarda eksik beyan edildiğinin tespiti halinde, eksik beyan
+      edilen bu kısım için re'sen veya ikmalen geçici vergi tarh edilir
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: mük. md. 120
+    alinti: Mahsup süresi geçtikten sonra, kesinleşen geçici vergiler terkin edilir, ancak gecikme faizi ve ceza tahsil edilir.
+  gecerlilik:
+    baslangic: '2025-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 49
+- id: YMM-REV-MTR-0061
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Matrah ve beyan teknikleri
+  konu: MTR
+  kazanim: asgari kurumlar vergisi
+  tip: hesaplama
+  zorluk: 3
+  kok: '2015''ten beri faaliyette olan, finans sektöründe bulunmayan ve indirimli oran veya yatırıma katkı uygulaması olmayan
+    (F) A.Ş.''nin 2026 yılı verileri şöyledir: ticari bilanço kârı 6.000.000 TL; kanunen kabul edilmeyen giderler 200.000
+    TL (gider yazılan 50.000 TL bağış dahil); 2024 yılından devreden geçmiş yıl zararı 3.000.000 TL; 5746 sayılı Kanun kapsamında
+    Ar-Ge indirimi 1.000.000 TL; kamu yararına çalışan derneğe makbuz karşılığı bağış 50.000 TL (bağış sınırı aşılmamaktadır).
+    Şirketin 2026 yılı için hesaplanacak kurumlar vergisi (yurt içi asgari kurumlar vergisi kontrolü dahil, geçici vergi mahsubu
+    öncesi) kaç TL''dir?'
+  secenekler:
+    A: 520.000 TL
+    B: 537.500 TL
+    C: 550.000 TL
+    D: 620.000 TL
+    E: 1.287.500 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Matrah = 6.000.000 + 200.000 − 3.000.000 − 1.000.000 − 50.000 = 2.150.000 TL; KV = 537.500 TL. Asgari KV
+      matrahı = ticari bilanço kârı + KKEG = 6.200.000 TL; md. 32/C-2-ç uyarınca Ar-Ge indirimi düşülür, geçmiş yıl zararı
+      (asgari KV Tebliği) ve bağış indirimi düşülmez: (6.200.000 − 1.000.000) × %10 = 520.000 TL. Hesaplanan vergi (537.500
+      TL) asgari vergiden yüksek olduğundan 537.500 TL ödenir. Püf noktaları: Ar-Ge indirimini asgari matrahta düşmeyi unutan
+      aday 620.000 TL asgari vergiyi esas alır; geçmiş yıl zararı ise asgari matrahta hiç düşülmez.'
+    celdiriciler:
+      A: 520.000 TL asgari vergidir; hesaplanan vergi bundan yüksek olduğundan esas alınmaz.
+      C: Bağış indirimi yapılmadan hesaplanmıştır (2.200.000 × %25).
+      D: Ar-Ge indirimi asgari KV matrahından düşülmemiş (6.200.000 × %10) ve asgari vergi esas alınmıştır.
+      E: Geçmiş yıl zararı indirilmeden matrah hesaplanmıştır (5.150.000 × %25).
+    hesap_adimlari:
+    - 'Matrah: 6.200.000 − 3.000.000 − 1.000.000 − 50.000 = 2.150.000 TL'
+    - 'KV: 2.150.000 × 0,25 = 537.500 TL'
+    - 'Asgari: (6.200.000 − 1.000.000) × 0,10 = 520.000 TL'
+    - max(537.500; 520.000) = 537.500 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 32/C-2-ç
+    alinti: 4691 sayılı Kanun kapsamındaki kazanç istisnası ile kurumlar vergisi matrahından indirim konusu yapılabilen Ar-Ge
+      ve tasarım indirimleri
+  - mevzuat: 'Kurumlar Vergisi Genel Tebliği (Seri No: 23)'
+    madde: asgari kurumlar vergisi
+    alinti: Beyannamelerde indirim konusu yapılan geçmiş yıl zararları asgari kurumlar vergisi matrahından düşülmeyecek
+  gecerlilik:
+    baslangic: '2025-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ticari = 6000000
+
+      kkeg = 200000
+
+      zarar = 3000000
+
+      arge = 1000000
+
+      bagis = 50000
+
+      kv = (ticari + kkeg - zarar - arge - bagis) * 25 / 100
+
+      asgari = (ticari + kkeg - arge) * 10 / 100
+
+      sonuc = max(kv, asgari)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 50

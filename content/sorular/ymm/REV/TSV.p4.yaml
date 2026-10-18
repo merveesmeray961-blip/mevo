@@ -1,0 +1,101 @@
+- id: YMM-REV-TSV-0040
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Teşvikler ve özel uygulamalar
+  konu: TSV
+  kazanim: bağış ve sponsorluk indirimleri
+  tip: hesaplama
+  zorluk: 3
+  kok: '(G) A.Ş.''nin 2026 yılı ticari bilanço kârı 5.000.000 TL''dir; kârın içinde tam mükellef bir A.Ş.''den alınan 1.000.000
+    TL kâr payı vardır ve geçmiş yıl zararı yoktur. Aşağıdaki harcamaların tamamı gider yazılmış ve beyannamede KKEG olarak
+    eklenmiştir:
+
+
+    - 3289 sayılı Kanun kapsamında amatör spor dalındaki bir kulübe sponsorluk: 300.000 TL
+
+    - 3813 sayılı Kanun kapsamında profesyonel futbol kulübüne sponsorluk: 400.000 TL
+
+    - Kamu yararına çalışan bir derneğe makbuz karşılığı nakdi bağış: 300.000 TL
+
+    - Cumhurbaşkanınca başlatılan yardım kampanyasına makbuz karşılığı nakdi bağış: 100.000 TL
+
+
+    Bağış sınırı 1 Seri No.lu Kurumlar Vergisi Genel Tebliği''ndeki esasa göre hesaplanacaktır. Şirketin 2026 yılı beyannamesinde
+    bu harcamalar için KVK md. 10 uyarınca indirebileceği toplam tutar kaç TL''dir?'
+  secenekler:
+    A: 800.000 TL
+    B: 850.000 TL
+    C: 900.000 TL
+    D: 1.000.000 TL
+    E: 1.100.000 TL
+  dogru: A
+  aciklama:
+    dogru_neden: 'md. 10/1-b: amatör spor sponsorluğunun tamamı (300.000 TL), profesyonel spor sponsorluğunun %50''si (200.000
+      TL). md. 10/1-c: dernek bağışı kurum kazancının %5''i ile sınırlıdır; Tebliğe göre esas tutar 5.000.000 − 1.000.000
+      = 4.000.000 TL, sınır 200.000 TL. md. 10/1-e: Cumhurbaşkanınca başlatılan kampanyaya yapılan bağışın tamamı (100.000
+      TL). Toplam = 300.000 + 200.000 + 200.000 + 100.000 = 800.000 TL. Püf noktaları: %5 sınırı yalnız (c) bendindeki bağışlara
+      uygulanır; profesyonel sporda oran %50''dir ve kampanya bağışı sınırsızdır.'
+    celdiriciler:
+      B: Bağış sınırı iştirak kazancı düşülmeden ticari kâr üzerinden hesaplanmıştır (5.000.000 × %5 = 250.000 TL).
+      C: Dernek bağışının tamamı (300.000 TL) indirilmiş; %5 sınırı uygulanmamıştır.
+      D: Profesyonel spor sponsorluğunun tamamı indirilmiştir; kanuni oran %50'dir.
+      E: Hem profesyonel sponsorluğun tamamı hem dernek bağışının tamamı indirilmiştir.
+    hesap_adimlari:
+    - 'Amatör: 300.000'
+    - 'Profesyonel: 400.000 × 0,50 = 200.000'
+    - 'Dernek: min(300.000; (5.000.000 − 1.000.000) × 0,05 = 200.000) = 200.000'
+    - 'Kampanya: 100.000'
+    - 'Toplam: 800.000 TL'
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 10/1-b
+    alinti: amatör spor dalları için tamamı, profesyonel spor dalları için % 50’si
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 10/1-e
+    alinti: Cumhurbaşkanınca başlatılan yardım kampanyalarına makbuz karşılığı yapılan ayni ve nakdî bağışların tamamı.
+  gecerlilik:
+    baslangic: '2014-09-11'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'amator = 300000
+
+      prof = 400000 * 50 / 100
+
+      sinir = (5000000 - 1000000) * 5 / 100
+
+      dernek = min(300000, sinir)
+
+      kampanya = 100000
+
+      sonuc = amator + prof + dernek + kampanya'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 51

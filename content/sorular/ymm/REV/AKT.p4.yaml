@@ -1,0 +1,415 @@
+- id: YMM-REV-AKT-0059
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Aktif hesapların revizyonu ve değerleme
+  konu: AKT
+  kazanim: menkul kıymet ve yabancı paraların değerlemesi (VUK md.279 ve 280)
+  tip: hesaplama
+  zorluk: 2
+  kok: '(L) A.Ş.''nin 31/12/2026 tarihli kayıtlarında yer alan avro cinsinden kalemler şunlardır: 120 Alıcılar hesabında 20.000
+    avro (kayıtlı değer 880.000 TL), 320 Satıcılar hesabında 10.000 avro (kayıtlı değer 450.000 TL), 100 Kasa hesabında 5.000
+    avro (kayıtlı değer 230.000 TL). Değerleme günü borsa rayici 1 avro = 48 TL''dir ve tüm kalemlerin değerlemesinde bu kur
+    esas alınacaktır; senede bağlı kalem yoktur. VUK md. 280''e göre yapılacak değerlemenin 2026 yılı dönem kârına net etkisi
+    kaç TL artıştır?'
+  secenekler:
+    A: 50.000 TL
+    B: 60.000 TL
+    C: 80.000 TL
+    D: 90.000 TL
+    E: 120.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'VUK md. 280''e göre yabancı paralar borsa rayiciyle değerlenir ve bu hüküm yabancı para ile olan senetli
+      veya senetsiz alacak ve borçlar için de geçerlidir. Alacak: 20.000 × 48 = 960.000 → +80.000 TL kambiyo kârı; kasa: 5.000
+      × 48 = 240.000 → +10.000 TL; borç: 10.000 × 48 = 480.000 → borç 30.000 TL artar, kambiyo zararı. Net etki = 80.000 +
+      10.000 − 30.000 = 60.000 TL artış.'
+    celdiriciler:
+      A: Kasadaki yabancı paranın değerlemesi atlanmıştır (80.000 − 30.000).
+      C: Yalnız alacak değerlenmiş; kasa ve borç dikkate alınmamıştır.
+      D: Borç değerlemesi atlanmıştır; md. 280 yabancı paralı borçlara da uygulanır.
+      E: Borçtaki artış kâr olarak yorumlanmıştır; borcun artması kambiyo zararıdır.
+    hesap_adimlari:
+    - 'Alacak: 960.000 − 880.000 = +80.000'
+    - 'Kasa: 240.000 − 230.000 = +10.000'
+    - 'Borç: 480.000 − 450.000 = −30.000'
+    - 'Net: +60.000 TL'
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 280
+    alinti: Bu madde hükmü yabancı para ile olan senetli veya senetsiz alacaklar ve borçlar hakkında da caridir.
+  gecerlilik:
+    baslangic: '1998-08-06'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kur = 48
+
+      alacak = 20000 * kur - 880000
+
+      kasa = 5000 * kur - 230000
+
+      borc = 10000 * kur - 450000
+
+      sonuc = alacak + kasa - borc'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 59
+- id: YMM-REV-AKT-0060
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Aktif hesapların revizyonu ve değerleme
+  konu: AKT
+  kazanim: menkul kıymet ve yabancı paraların değerlemesi (VUK md.279 ve 280)
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Menkul kıymet ticaretiyle uğraşmayan (M) A.Ş.''nin 31/12/2026 itibarıyla portföyü aşağıdadır (borsa rayiçlerinin muvazaalı
+    olmadığı kabul edilmektedir):
+
+
+    | Menkul kıymet | Alış bedeli (TL) | 31/12/2026 değeri (TL) |
+
+    |---|---|---|
+
+    | Borsa İstanbul''da işlem gören hisse senetleri | 500.000 | 650.000 (borsa rayici) |
+
+    | Portföyünün %60''ı Türkiye''de kurulu şirket hisselerinden oluşan yatırım fonu katılma belgesi | 300.000 | 360.000 (fon
+    fiyatı) |
+
+    | Borsada işlem gören Devlet tahvili | 800.000 | 860.000 (borsa rayici) |
+
+    | Borsada işlem gören özel sektör tahvili | 1.000.000 | 1.080.000 (borsa rayici) |
+
+
+    VUK md. 279''a göre yapılacak değerleme sonucunda kayıtlara alınacak toplam değer artışı kaç TL''dir?'
+  secenekler:
+    A: 60.000 TL
+    B: 80.000 TL
+    C: 140.000 TL
+    D: 290.000 TL
+    E: 350.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'md. 279''a göre hisse senetleri ile portföyünün en az %51''i Türkiye''de kurulu şirket hisselerinden oluşan
+      yatırım fonu katılma belgeleri alış bedeliyle değerlenir; bunlar dışındaki her türlü menkul kıymet borsa rayiciyle değerlenir.
+      Hisse senetleri ve hisse yoğun fon alış bedelinde kalır; tahviller borsa rayicine getirilir: 60.000 + 80.000 = 140.000
+      TL. Püf noktaları: Borsada işlem görmesi hisse senedini borsa rayiciyle değerlemeye yetmez; ölçüt kıymetin türüdür.
+      Fonda belirleyici olan portföyün %51''inin Türk hisse senedi olmasıdır.'
+    celdiriciler:
+      A: Yalnız Devlet tahvili değerlenmiş, özel sektör tahvili atlanmıştır.
+      B: Yalnız özel sektör tahvili değerlenmiş, Devlet tahvili atlanmıştır.
+      D: Hisse senetleri de borsa rayiciyle değerlenmiştir (150.000 + 60.000 + 80.000).
+      E: Tüm kalemler borsa rayici veya fon fiyatıyla değerlenmiştir.
+    hesap_adimlari:
+    - 'Hisse senedi: alış bedeli → 0'
+    - 'Hisse yoğun fon (%60 ≥ %51): alış bedeli → 0'
+    - 'Devlet tahvili: +60.000'
+    - 'Özel sektör tahvili: +80.000'
+    - 'Toplam: 140.000 TL'
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 279
+    alinti: Hisse senetleri ile fon portföyünün en az % 51'i Türkiye'de kurulmuş bulunan şirketlerin hisse senetlerinden oluşan
+      yatırım fonu katılma belgeleri alış bedeliyle, bunlar dışında kalan her türlü menkul kıymet borsa rayici ile değerlenir.
+  gecerlilik:
+    baslangic: '1998-08-06'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'devlet = 860000 - 800000
+
+      ozel = 1080000 - 1000000
+
+      sonuc = devlet + ozel'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 60
+- id: YMM-REV-AKT-0061
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Aktif hesapların revizyonu ve değerleme
+  konu: AKT
+  kazanim: amortismanlı iktisadi kıymet satışı (VUK md.328)
+  tip: uygulama
+  zorluk: 2
+  kok: Bilanço esasına göre defter tutan (N) A.Ş., maliyet bedeli 1.000.000 TL, birikmiş amortismanı 700.000 TL olan bir makineyi
+    Mayıs 2026'da 500.000 TL'ye satmıştır. Yönetim kurulu, satılan makinenin yenilenmesine satıştan önce karar vermiş ve yeni
+    makine için tedarikçiyle sözleşme imzalamıştır. Satış kârının vergisel durumu hakkında aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: 200.000 TL kâr 31/12/2029'a kadar pasifte geçici hesapta tutulabilir ve yeni kıymetin amortismanlarına mahsup edilir.
+    B: 200.000 TL kâr 31/12/2028'e kadar pasifte tutulabilir; bu sürede yenileme yapılmazsa 2026 yılı kazancına eklenir.
+    C: Kâr pasifte tutulabilir; ancak yenileme yapılmazsa vergi ziyaı doğmuş sayılarak satış yılı için cezalı tarhiyat yapılır.
+    D: Amortismanlı kıymetin satış kârı pasifte tutulamaz; 200.000 TL satış yılında 679 hesabına alınarak vergilendirilir.
+    E: Kâr 500.000 TL'dir; yenileme kararı bulunduğundan tamamı beş yıl süreyle özel fon hesabında tutulabilir.
+  dogru: A
+  aciklama:
+    dogru_neden: Satış kârı = 500.000 − (1.000.000 − 700.000) = 200.000 TL (VUK md. 328/1-2). md. 328/4-a'ya göre yenileme
+      işin niteliğine göre zorunlu ise veya işletmeyi idare edenlerce karar verilip teşebbüse geçilmişse kâr, satış tarihini
+      takip eden üçüncü takvim yılının sonuna (31/12/2029) kadar pasifte geçici bir hesapta tutulabilir. (b) bendine göre
+      bu tutar yeni kıymetin ayrılacak amortismanlarına mahsup edilir.
+    celdiriciler:
+      B: Süre satışı takip eden üçüncü takvim yılı sonudur (2029); yenileme olmazsa kâr satış yılına değil üçüncü takvim yılının
+        kâr ve zarar hesabına eklenir.
+      C: Kanun, yenileme yapılmaması hâlinde kârın üçüncü yılın kazancına eklenmesini öngörür; satış yılı için vergi ziyaı
+        hükmü yoktur.
+      D: md. 328, şartlar sağlandığında satış kârının pasifte geçici hesapta tutulmasına izin verir.
+      E: Satış kârı bedelden net değer düşülerek bulunur; beş yıllık özel fon md. 5/1-e istisnasına aittir.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 328/4-a
+    alinti: satıştan doğan kâr, satışın yapıldığı tarihi takip eden üçüncü takvim yılının sonuna kadar pasifte geçici bir
+      hesapta tutulabilir
+  gecerlilik:
+    baslangic: '2021-10-28'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 61
+- id: YMM-REV-AKT-0062
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Aktif hesapların revizyonu ve değerleme
+  konu: AKT
+  kazanim: amortismanlı iktisadi kıymet satışı (VUK md.328)
+  tip: uygulama
+  zorluk: 3
+  kok: Bilanço esasına göre defter tutan (P) A.Ş., 2026 yılında sattığı bir makineden doğan 300.000 TL kârı VUK md. 328 uyarınca
+    pasifte geçici bir hesaba almıştır. Satılan makinenin yerine Mart 2027'de 250.000 TL bedelle benzer nitelikte yeni bir
+    makine edinilmiş ve aktifleştirilmiştir. Yeni makine %20 oranında normal amortismana tabidir. Başka bir kıymet edinilmemiş,
+    işletme faaliyetine devam etmektedir. Geçici hesapta tutulan kârdan hangi tutar, hangi yılın kâr ve zarar hesabına eklenir?
+  secenekler:
+    A: 0 TL; fonun tamamı yeni makinenin amortismanlarına mahsup edilir.
+    B: 50.000 TL, 2029 yılında
+    C: 150.000 TL, 2029 yılında
+    D: 250.000 TL, 2027 yılında
+    E: 300.000 TL, 2029 yılında
+  dogru: B
+  aciklama:
+    dogru_neden: 'md. 328/4-b''ye göre geçici hesaptaki kâr yeni kıymetin ayrılacak amortismanlarına mahsup edilir; mahsup
+      edilebilecek tutar yeni kıymetin amortisman ayrılabilecek tutarıyla (250.000 TL) sınırlıdır. (c) bendine göre geçici
+      hesaptaki kâr, yerine edinilen yeni kıymetin amortisman ayrılabilecek tutarından fazla ise fazlalık, satışın yapıldığı
+      yılı takip eden üçüncü takvim yılının (2029) kâr ve zarar hesabına eklenir: 300.000 − 250.000 = 50.000 TL. Püf noktaları:
+      Fazlalık, yeni kıymetin bedeliyle karşılaştırılarak bulunur; o tarihe kadar ayrılmış amortismanla değil.'
+    celdiriciler:
+      A: Fon, yeni kıymetin amortisman ayrılabilecek tutarını 50.000 TL aşmaktadır; aşan kısım mahsup edilemez.
+      C: Fazlalık, 2027–2029 yıllarında ayrılan amortismanlar (150.000 TL) düşüldükten sonra kalan fon olarak hesaplanmıştır;
+        kanun yeni kıymetin amortismana tabi tutarını esas alır.
+      D: Yeni kıymet bedeli kadar tutar fondan mahsup edilir, kâra eklenmez.
+      E: Yenileme gerçekleştiğinden fonun tamamı kâra eklenmez; yalnız fazlalık eklenir.
+    hesap_adimlari:
+    - 'Mahsup edilebilir: yeni kıymetin amortismana tabi tutarı 250.000 TL'
+    - 'Fazlalık: 300.000 − 250.000 = 50.000 TL'
+    - 'Ekleme yılı: satış (2026) + 3 = 2029'
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 328/4-c
+    alinti: Pasifte geçici bir hesapta tutulan kâr, satışı yapılan iktisadi kıymetin yerine iktisap edilen yeni kıymetlerin
+      amortisman ayrılabilecek tutarından fazla ise bu fazlalık, satışın yapıldığı yılı takip eden üçüncü takvim yılının kâr
+      ve zarar hesabına eklenir.
+  gecerlilik:
+    baslangic: '2021-10-28'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fon = 300000
+
+      yeni = 250000
+
+      sonuc = max(fon - yeni, 0)'
+    secenek_sayisi_bekleniyor: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 62
+- id: YMM-REV-AKT-0063
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Aktif hesapların revizyonu ve değerleme
+  konu: AKT
+  kazanim: stokların değerlemesi
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Kıymetli maden alım satımı yapan (R) A.Ş.''nin 31/12/2026 tarihli kayıtlarında şu kalemler bulunmaktadır: has altın
+    stoku (maliyet bedeli 5.000.000 TL, değerleme günü borsa rayicine göre değeri 5.600.000 TL); gümüş stoku (maliyet bedeli
+    800.000 TL, borsa rayicine göre değeri 700.000 TL); bir kuyumcudan olan altın cinsinden senetsiz alacak (kayıtlı değeri
+    3.000.000 TL, borsa rayicine göre değeri 3.300.000 TL). Borsa rayiçlerinin muvazaalı olmadığı kabul edilmektedir. VUK
+    hükümlerine göre yapılacak değerlemenin 2026 yılı dönem kârına net etkisi kaç TL artıştır?'
+  secenekler:
+    A: 200.000 TL
+    B: 300.000 TL
+    C: 500.000 TL
+    D: 600.000 TL
+    E: 800.000 TL
+  dogru: E
+  aciklama:
+    dogru_neden: 'VUK md. 274/A''ya göre altın, gümüş, platin ve paladyum gibi kıymetli madenler borsa rayici ile değerlenir;
+      hüküm kıymetli maden ile olan senetli veya senetsiz alacak ve borçlar hakkında da caridir. Altın stoku +600.000 TL,
+      gümüş stoku −100.000 TL, altın alacağı +300.000 TL; net etki 800.000 TL artış. Püf noktaları: Kıymetli madenlerde emtiadaki
+      maliyet bedeli kuralı (md. 274) uygulanmaz; değer artışı da azalışı da borsa rayicine göre kayda alınır.'
+    celdiriciler:
+      A: Stoklarda maliyet ile rayicin düşüğü alınmış gibi yalnız gümüşteki azalış ve alacaktaki artış dikkate alınmıştır.
+      B: Stoklar md. 274 uyarınca maliyet bedelinde bırakılmış, yalnız alacak değerlenmiştir.
+      C: Stoklar borsa rayiciyle değerlenmiş ama altın cinsinden alacak kayıtlı değerinde bırakılmıştır.
+      D: Yalnız altın stokundaki artış dikkate alınmış; gümüş ve alacak atlanmıştır.
+    hesap_adimlari:
+    - 'Altın: 5.600.000 − 5.000.000 = +600.000'
+    - 'Gümüş: 700.000 − 800.000 = −100.000'
+    - 'Altın alacağı: 3.300.000 − 3.000.000 = +300.000'
+    - 'Net: +800.000 TL'
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 274/A
+    alinti: Altın, gümüş, platin ve paladyum gibi kıymetli madenler borsa rayici ile değerlenir.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 274/A
+    alinti: Bu madde hükmü kıymetli maden ile olan senetli veya senetsiz alacaklar ve borçlar hakkında da caridir.
+  gecerlilik:
+    baslangic: '2024-08-02'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'altin = 5600000 - 5000000
+
+      gumus = 700000 - 800000
+
+      alacak = 3300000 - 3000000
+
+      sonuc = altin + gumus + alacak'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 63

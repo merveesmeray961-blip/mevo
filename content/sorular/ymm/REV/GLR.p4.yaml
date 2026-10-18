@@ -1,0 +1,569 @@
+- id: YMM-REV-GLR-0017
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Gider ve gelir hesaplarının revizyonu
+  konu: GLR
+  kazanim: binek otomobil gider kısıtlaması
+  tip: hesaplama
+  zorluk: 2
+  kok: Faaliyet konusu binek otomobil kiralama veya işletme olmayan (A) A.Ş., Temmuz 2026'da sıfır kilometre bir binek otomobil
+    satın almış ve aynı ay aktifine kaydetmiştir. Aracın ÖTV ve KDV hariç bedeli 1.800.000 TL'dir; 900.000 TL ÖTV ile 540.000
+    TL KDV gider yazılmayıp maliyet bedeline eklenmiştir. Şirket aracı %20 oranında normal amortismana tabi tutmuş ve VUK
+    md. 320'deki binek otomobil kuralına göre 2026 yılı için kıst amortisman ayırmıştır. 2026 yılında ayrılan amortismanın
+    kanunen kabul edilmeyen gider olarak beyannameye eklenecek kısmı kaç TL'dir?
+  secenekler:
+    A: 0 TL
+    B: 42.000 TL
+    C: 64.000 TL
+    D: 128.000 TL
+    E: 186.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Vergiler maliyet bedeline eklendiğinden GVK md. 40/7 ve 332 Seri No.lu GV Genel Tebliği uyarınca 2026''da
+      amortismana esas sınır 2.600.000 TL''dir. Amortismana tabi tutar 1.800.000 + 900.000 + 540.000 = 3.240.000 TL. Binek
+      otomobillerde aktife girilen yılda kalan ay kadar amortisman ayrılır (Temmuz–Aralık, 6 ay). Ayrılan: 3.240.000 × %20
+      × 6/12 = 324.000 TL; indirilebilir: 2.600.000 × %20 × 6/12 = 260.000 TL; KKEG = 64.000 TL.'
+    celdiriciler:
+      A: Amortismana tabi tutar 2.600.000 TL sınırını aştığından fark KKEG'dir.
+      B: Vergiler hariç bedel ile 1.380.000 TL sınırı karşılaştırılmıştır; vergiler maliyete eklendiğinde sınır 2.600.000
+        TL'dir ve karşılaştırma vergiler dahil tutarla yapılır.
+      D: Binek otomobilde kıst amortisman zorunludur; tam yıl üzerinden hesaplanmıştır.
+      E: Vergiler maliyete eklendiği hâlde 1.380.000 TL sınırı uygulanmıştır ((3.240.000 − 1.380.000) × %20 × 6/12).
+    hesap_adimlari:
+    - 'Amortismana tabi tutar: 3.240.000 TL; sınır 2.600.000 TL'
+    - 'Ayrılan: 3.240.000 × 0,20 × 6/12 = 324.000 TL'
+    - 'İndirilebilir: 2.600.000 × 0,20 × 6/12 = 260.000 TL'
+    - 'KKEG: 64.000 TL'
+  kaynaklar:
+  - mevzuat: 332 Seri No.lu Gelir Vergisi Genel Tebliği
+    madde: 2026 tutarları
+    alinti: vergilerin maliyet bedeline eklendiği veya binek otomobilin ikinci el olarak iktisap edildiği hallerde 2.600.000
+      TL
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 320
+    alinti: otomobillerinin aktife girdiği hesap dönemi için ay kesri tam ay sayılmak suretiyle kalan ay süresi kadar amortisman
+      ayrılır
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'tutar = 1800000 + 900000 + 540000
+
+      sinir = 2600000
+
+      ayrilan = tutar * 20 / 100 * 6 / 12
+
+      indirilebilir = min(tutar, sinir) * 20 / 100 * 6 / 12
+
+      sonuc = ayrilan - indirilebilir'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 52
+- id: YMM-REV-GLR-0018
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Gider ve gelir hesaplarının revizyonu
+  konu: GLR
+  kazanim: binek otomobil gider kısıtlaması
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Faaliyet konusu binek otomobil kiralama veya işletme olmayan (B) A.Ş., 2026 yılında iki binek otomobil satın almış
+    ve iktisaplarına ilişkin ÖTV ve KDV''yi maliyete eklemeyip doğrudan gider yazmıştır: (X) aracı için ÖTV ve KDV toplamı
+    1.500.000 TL, (Y) aracı için 700.000 TL. Bu vergiler nedeniyle 2026 yılı beyannamesinde kanunen kabul edilmeyen gider
+    olarak eklenecek tutar kaç TL''dir?'
+  secenekler:
+    A: 0 TL
+    B: 300.000 TL
+    C: 660.000 TL
+    D: 1.000.000 TL
+    E: 2.200.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: GVK md. 40/1'e göre binek otomobillerin iktisabına ilişkin ÖTV ve KDV toplamının, araç başına, 2026 için
+      1.200.000 TL'ye kadarlık kısmı gider olarak dikkate alınabilir (332 Seri No.lu GV Genel Tebliği). (X) aracında 1.500.000
+      − 1.200.000 = 300.000 TL KKEG'dir; (Y) aracında 700.000 TL sınırın altında kaldığından KKEG yoktur.
+    celdiriciler:
+      A: Sınır araç başınadır; (X) aracındaki aşım KKEG'dir.
+      C: '%70 kuralı (GVK md. 40/5) işletme giderlerine aittir; iktisaptaki ÖTV ve KDV için tutar sınırı uygulanır.'
+      D: Sınır iki aracın toplamına bir kez uygulanmıştır (2.200.000 − 1.200.000); sınır her araç için ayrıdır.
+      E: KDV'nin indirilememesi (KDVK md. 30/b) gider yazılmasına engel değildir; sınıra kadar gider yazılabilir.
+    hesap_adimlari:
+    - '(X): 1.500.000 − 1.200.000 = 300.000 TL KKEG'
+    - '(Y): 700.000 < 1.200.000 → KKEG yok'
+    - 'Toplam: 300.000 TL'
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 40/1
+    alinti: binek otomobillerinin iktisabına ilişkin özel tüketim vergisi ve katma değer vergisi toplamının en fazla 115.000
+      Türk lirasına (1.200.000 TL) kadarlık kısmı gider olarak dikkate alınabilir
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'sinir = 1200000
+
+      sonuc = max(1500000 - sinir, 0) + max(700000 - sinir, 0)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 53
+- id: YMM-REV-GLR-0019
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Gider ve gelir hesaplarının revizyonu
+  konu: GLR
+  kazanim: finansman gider kısıtlaması
+  tip: kavrama
+  zorluk: 2
+  kok: 'KVK md. 11/1-i ve 3490 sayılı Cumhurbaşkanı Kararı kapsamındaki finansman gider kısıtlamasıyla ilgili aşağıdaki ifadeler
+    veriliyor:
+
+
+    I. Kullandığı yabancı kaynakları öz kaynaklarını aşmayan bir sanayi şirketinde kısıtlama uygulanmaz.
+
+    II. Faktoring şirketleri kısıtlamanın kapsamı dışındadır.
+
+    III. Yatırımın maliyetine eklenen faiz ve kur farkları da kısıtlamaya tabidir.
+
+    IV. 2026 hesap döneminde kısıtlama, öz kaynağı aşan yabancı kaynağa isabet eden gider ve maliyet unsurlarının %10''u üzerinden
+    uygulanır.
+
+
+    Bu ifadelerden hangileri doğrudur?'
+  secenekler:
+    A: I ve II
+    B: I ve III
+    C: II ve IV
+    D: I, II ve IV
+    E: II, III ve IV
+  dogru: D
+  aciklama:
+    dogru_neden: md. 11/1-i'ye göre kısıtlama yalnız kullanılan yabancı kaynakları öz kaynaklarını aşan işletmelerde ve aşan
+      kısma münhasır olarak uygulanır (I doğru); kredi kuruluşları, finansal kuruluşlar, finansal kiralama, faktoring ve finansman
+      şirketleri kapsam dışıdır (II doğru); yatırımın maliyetine eklenenler hariçtir (III yanlış). 3490 sayılı CBK, 1/1/2021'den
+      başlayan dönemlerden itibaren oranı %10 olarak belirlemiştir (IV doğru).
+    celdiriciler:
+      A: IV de doğrudur; 3490 sayılı CBK ile oran %10'dur.
+      B: III yanlıştır; yatırım maliyetine eklenen finansman giderleri kısıtlama dışındadır.
+      C: I de doğrudur; yabancı kaynak öz kaynağı aşmıyorsa kısıtlama yoktur.
+      E: III yanlıştır; kanun yatırımın maliyetine eklenenleri açıkça hariç tutar.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 11/1-i
+    alinti: Kredi kuruluşları, finansal kuruluşlar, finansal kiralama, faktoring ve finansman şirketleri dışında, kullanılan
+      yabancı kaynakları öz kaynaklarını aşan işletmelerde, aşan kısma münhasır olmak üzere, yatırımın maliyetine eklenenler
+      hariç
+  gecerlilik:
+    baslangic: '2021-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 54
+- id: YMM-REV-GLR-0020
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Gider ve gelir hesaplarının revizyonu
+  konu: GLR
+  kazanim: finansman gider kısıtlaması
+  tip: hesaplama
+  zorluk: 3
+  kok: Finansal kuruluş niteliği taşımayan (C) A.Ş.'nin 31/12/2026 tarihli VUK bilançosuna göre kullandığı yabancı kaynaklar
+    25.000.000 TL, öz kaynakları 15.000.000 TL'dir. Şirketin 2026 yılında yabancı kaynaklara ilişkin faiz, komisyon ve kur
+    farkı toplamı 2.000.000 TL'dir. Bu tutarın 500.000 TL'si, yıl içinde envantere alınan yeni üretim tesisine ait olup VUK
+    md. 262 uyarınca tesisin maliyetine eklenmiş; kalan 1.500.000 TL 780 Finansman Giderleri hesabına kaydedilmiştir. Finansman
+    gider kısıtlaması nedeniyle 2026 yılı beyannamesinde KKEG olarak eklenecek tutar kaç TL'dir?
+  secenekler:
+    A: 60.000 TL
+    B: 80.000 TL
+    C: 150.000 TL
+    D: 200.000 TL
+    E: 600.000 TL
+  dogru: A
+  aciklama:
+    dogru_neden: 'Yabancı kaynak öz kaynağı 10.000.000 TL aşmaktadır; aşan kısmın oranı 10.000.000 / 25.000.000 = %40. Yatırımın
+      maliyetine eklenen 500.000 TL kapsam dışıdır. Aşan kısma isabet eden gider: 1.500.000 × %40 = 600.000 TL; KKEG = 600.000
+      × %10 = 60.000 TL (3490 sayılı CBK). Püf noktaları: Önce maliyete eklenen yatırım finansmanını ayıklayın, sonra aşan
+      kısım oranını yabancı kaynak toplamına göre hesaplayın; %10 oranı aşan kısma isabet eden tutara uygulanır.'
+    celdiriciler:
+      B: Yatırımın maliyetine eklenen 500.000 TL de hesaba katılmıştır (2.000.000 × %40 × %10).
+      C: Oran aşan kısım ayrımı yapılmadan gider yazılan tutarın tamamına uygulanmıştır (1.500.000 × %10).
+      D: Maliyete eklenen dahil tüm finansman giderine %10 uygulanmıştır.
+      E: Aşan kısma isabet eden giderin tamamı KKEG sayılmış; %10 oranı uygulanmamıştır.
+    hesap_adimlari:
+    - 'Aşan kısım: 25.000.000 − 15.000.000 = 10.000.000 TL; oran %40'
+    - 'Kapsamdaki gider: 2.000.000 − 500.000 = 1.500.000 TL'
+    - 'İsabet eden: 1.500.000 × 0,40 = 600.000 TL'
+    - 'KKEG: 600.000 × 0,10 = 60.000 TL'
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 11/1-i
+    alinti: kâr payı, kur farkı ve benzeri adlar altında yapılan gider ve maliyet unsurları toplamının %10’unu aşmamak üzere
+      Cumhurbaşkanınca kararlaştırılan kısmı
+  gecerlilik:
+    baslangic: '2021-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'yk = 25000000
+
+      ok = 15000000
+
+      gider = 2000000 - 500000
+
+      sonuc = gider * (yk - ok) / yk * 10 / 100'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 55
+- id: YMM-REV-GLR-0021
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Gider ve gelir hesaplarının revizyonu
+  konu: GLR
+  kazanim: kanunen kabul edilmeyen giderler
+  tip: kavrama
+  zorluk: 2
+  kok: 'Aşağıda farklı kurumların 2026 yılında gider yazdığı tutarlar verilmiştir:
+
+
+    I. Lisanslı bir şans oyunları bayisi olan (D) A.Ş.''nin Mayıs 2026''da yaptırdığı şans oyunu ilan ve reklam gideri
+
+    II. Esas faaliyeti inşaat olan (E) A.Ş.''nin aktifinde kayıtlı sürat teknesinin bakım gideri ve amortismanı
+
+    III. (F) A.Ş.''nin ortaklarına, öz sermaye üzerinden hesaplayıp gider yazdığı faiz
+
+    IV. Esas faaliyeti yat kiralama olan (G) A.Ş.''nin kiraya verdiği yatın amortismanı
+
+
+    Bu giderlerden hangileri KVK md. 11 uyarınca kurum kazancının tespitinde indirilemez?'
+  secenekler:
+    A: I ve II
+    B: II ve III
+    C: I, II ve III
+    D: I, III ve IV
+    E: II, III ve IV
+  dogru: C
+  aciklama:
+    dogru_neden: 'I: 7577 sayılı Kanunla eklenen md. 11/1-k uyarınca her türlü şans ve bahis oyunlarına ait ilan ve reklam
+      giderleri indirilemez (17/4/2026''da yürürlüğe girmiştir). II: md. 11/1-f, esas faaliyet konusuyla ilgili olmayan yat,
+      kotra, tekne, sürat teknesi gibi deniz taşıtlarının giderlerini ve amortismanlarını kabul etmez. III: md. 11/1-a, öz
+      sermaye üzerinden hesaplanan faizleri kabul etmez. IV: Yat kiralama esas faaliyet konusu olduğundan (f) bendi uygulanmaz;
+      amortisman indirilebilir.'
+    celdiriciler:
+      A: III'teki öz sermaye faizi md. 11/1-a gereği indirilemez.
+      B: I'deki şans oyunu reklam gideri 2026'dan itibaren md. 11/1-k kapsamında indirilemez.
+      D: IV'teki yat esas faaliyet konusuyla ilgili olduğundan amortismanı indirilebilir; II ise indirilemez.
+      E: IV indirilebilir; I ise indirilemez.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 11/1-k
+    alinti: Her türlü şans ve bahis oyunlarına ait ilan ve reklam giderleri.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 11/1-f
+    alinti: uçak, helikopter gibi hava taşıtlarından işletmenin esas faaliyet konusu ile ilgili olmayanların giderleri ve
+      amortismanları
+  gecerlilik:
+    baslangic: '2026-04-17'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 56
+- id: YMM-REV-GLR-0022
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Gider ve gelir hesaplarının revizyonu
+  konu: GLR
+  kazanim: kur farkı ve türev işlemler
+  tip: uygulama
+  zorluk: 2
+  kok: (H) A.Ş., ithal ettiği ticari malların bedelini 1/9/2026'da kullandığı ABD doları cinsinden krediyle ödemiştir. Mallar
+    1/10/2026'da stoklara girmiştir. Kredinin kur farkları 1/9/2026–30/9/2026 dönemi için 120.000 TL, 1/10/2026–31/12/2026
+    dönemi için 300.000 TL'dir. VUK md. 262'ye göre bu kur farklarının işleme alınması hakkında aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: 420.000 TL'nin tamamı emtianın maliyet bedeline eklenmek zorundadır; kur farkları finansman gideri yazılamaz.
+    B: 420.000 TL'nin tamamı dönem gideri olarak 780 Finansman Giderleri hesabına alınmalıdır; kur farkı maliyete eklenemez.
+    C: 120.000 TL'nin maliyete eklenmesi ihtiyaridir; 300.000 TL ise finansman gideri olarak kaydedilmek zorundadır.
+    D: 120.000 TL maliyete eklenir; 300.000 TL stoklar satılıncaya kadar 180 Gelecek Aylara Ait Giderler hesabında izlenir.
+    E: 120.000 TL emtianın maliyetine eklenir; 300.000 TL için maliyete ekleme veya gider yazma konusunda şirket serbesttir.
+  dogru: E
+  aciklama:
+    dogru_neden: VUK md. 262/c'ye göre iktisadi kıymetin finansmanında kullanılan kredilere ait faiz ve kur farklarının emtiada
+      emtianın stoklara girdiği tarihe kadar olan kısmı maliyet bedeline dahil edilir. Diğer kısımlarını maliyet bedeline
+      ithal etmekte veya genel giderler arasında göstermekte mükellefler serbesttir. Bu nedenle 120.000 TL maliyete eklenir,
+      300.000 TL için seçim şirkete aittir.
+    celdiriciler:
+      A: Stoka girişten sonraki kur farkları için kanun mükellefe seçimlik hak tanır.
+      B: Stoka girişe kadar olan kur farkının maliyete eklenmesi zorunludur.
+      C: 'Zorunluluk ile seçimlik hak ters kurulmuştur: stoka girişe kadar ekleme zorunlu, sonrası seçimliktir.'
+      D: Kanun, sonraki kur farklarının gelecek aylara ait gider olarak ertelenmesini öngörmez; maliyete ekleme veya gider
+        yazma seçeneklerini tanır.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 262/c
+    alinti: emtiada emtianın stoklara girdiği tarihe kadar, diğer iktisadi kıymetlerde ise iktisadi kıymetin envantere alındığı
+      hesap döneminin sonuna kadar olan kısmı
+  gecerlilik:
+    baslangic: '2021-10-28'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 57
+- id: YMM-REV-GLR-0023
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Gider ve gelir hesaplarının revizyonu
+  konu: GLR
+  kazanim: binek otomobil gider kısıtlaması
+  tip: hesaplama
+  zorluk: 3
+  kok: Faaliyet konusu binek otomobil kiralama veya işletme olmayan (K) A.Ş., Ekim 2026'da ÖTV ve KDV hariç 1.500.000 TL bedelle
+    bir binek otomobil satın almış ve aynı ay aktife almıştır. İktisaba ilişkin 600.000 TL ÖTV ile 420.000 TL KDV doğrudan
+    gider yazılmıştır. Araç %20 oranında normal amortismana tabidir ve 2026 için VUK md. 320'ye göre kıst amortisman ayrılmıştır.
+    Araçla ilgili 2026 yılında ayrıca 50.000 TL akaryakıt ve bakım, 20.000 TL kasko ve trafik sigortası gideri kaydedilmiştir.
+    Bu araç nedeniyle 2026 yılı beyannamesinde KKEG olarak eklenecek toplam tutar kaç TL'dir?
+  secenekler:
+    A: 21.000 TL
+    B: 27.000 TL
+    C: 43.500 TL
+    D: 45.000 TL
+    E: 1.047.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'ÖTV + KDV = 1.020.000 TL, araç başına 1.200.000 TL sınırının altında kaldığından KKEG yoktur (GVK md. 40/1).
+      Amortisman (Ekim–Aralık, 3 ay): 1.500.000 × %20 × 3/12 = 75.000 TL; vergiler hariç bedel 1.380.000 TL sınırını aştığından
+      indirilebilir kısım 1.380.000 × %20 × 3/12 = 69.000 TL; KKEG 6.000 TL (md. 40/7). İşletme giderlerinin en fazla %70''i
+      indirilebilir (md. 40/5): (50.000 + 20.000) × %30 = 21.000 TL KKEG. Toplam 27.000 TL. Püf noktaları: Üç ayrı sınır vardır
+      ve birbirine karıştırılmaz: iktisap vergileri tutar sınırına, amortisman bedel sınırına, işletme giderleri %70 kuralına
+      tabidir.'
+    celdiriciler:
+      A: Vergiler gider yazıldığı hâlde 2.600.000 TL amortisman sınırı esas alınmış ve amortisman KKEG'i atlanmıştır.
+      C: '%70 kuralı amortismana da uygulanmıştır ((70.000 + 75.000) × %30); amortismanın kendi sınırı vardır.'
+      D: Kıst amortisman yerine tam yıl amortisman üzerinden sınır farkı hesaplanmıştır (24.000 + 21.000).
+      E: Gider yazılan ÖTV ve KDV'nin tamamı KKEG sayılmıştır; 1.200.000 TL'ye kadarki kısım gider yazılabilir.
+    hesap_adimlari:
+    - 'ÖTV + KDV: 1.020.000 ≤ 1.200.000 → KKEG 0'
+    - 'Amortisman: 75.000 − 69.000 = 6.000 TL KKEG'
+    - 'İşletme giderleri: 70.000 × 0,30 = 21.000 TL KKEG'
+    - 'Toplam: 27.000 TL'
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 40/5
+    alinti: binek otomobillere ilişkin giderlerin en fazla %70’i indirilebilir
+  - mevzuat: 332 Seri No.lu Gelir Vergisi Genel Tebliği
+    madde: 2026 tutarları
+    alinti: tüketim vergisi ve katma değer vergisi hariç 1.380.000 TL
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'otv_kdv = 600000 + 420000
+
+      k1 = max(otv_kdv - 1200000, 0)
+
+      k2 = 1500000 * 20 / 100 * 3 / 12 - 1380000 * 20 / 100 * 3 / 12
+
+      k3 = (50000 + 20000) * 30 / 100
+
+      sonuc = k1 + k2 + k3'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-18'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S2.yaml, satır 58
