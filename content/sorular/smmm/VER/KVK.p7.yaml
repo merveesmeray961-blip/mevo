@@ -865,20 +865,20 @@
   kok: Kurumlar vergisi matrahının tespitinde aşağıdakilerden hangisinin indirim konusu yapılması KVK md. 11/1 kapsamında
     kabul edilmez?
   secenekler:
-    A: Örtülü sermaye üzerinden ödenen veya hesaplanan faiz, kur farkları ve benzeri giderler
-    B: Müşteriden tahsil edilen bedel
-    C: Kanunen kabul edilen bir satış gideri
-    D: İşletme faaliyetinden doğan normal gelir
-    E: İşletmenin olağan satış hasılatı
+    A: Örtülü sermaye üzerinden ödenen veya hesaplanan faiz ve kur farkları
+    B: Kurumun faaliyet konusuyla ilgili olarak ödediği iş yeri kira giderleri
+    C: Kurumun işletmede kullandığı taşıtların vergi mevzuatına uygun amortismanı
+    D: Satılan mallara ilişkin olarak ödenen satış komisyonu giderleri
+    E: Çalışanlara ödenen ücretlerle bunlara bağlı işveren prim payları
   dogru: A
   aciklama:
     dogru_neden: KVK md. 11/1-b, örtülü sermaye üzerinden ödenen veya hesaplanan faiz, kur farkları ve benzeri giderlerin
-      indirimini kabul etmez.
+      kurum kazancının tespitinde indirimini kabul etmez.
     celdiriciler:
-      B: Tahsil edilen bedel gider olarak değerlendirilmez.
-      C: Kök, böyle bir giderin KKEG olduğuna ilişkin bir hüküm vermemektedir.
-      D: Normal işletme geliri KKEG niteliğinde bir gider değildir.
-      E: Satış hasılatı bu bentte KKEG olarak sayılmamıştır.
+      B: Faaliyetle ilgili kira giderleri md. 11/1'de sayılan kabul edilmeyen indirimler arasında yer almaz.
+      C: Vergi mevzuatına uygun amortisman gideri md. 11/1'de kabul edilmeyen indirimler arasında değildir.
+      D: Satış komisyonları md. 11/1'de sayılan indirimi kabul edilmeyen giderlerden değildir.
+      E: Ücret ve işveren prim payları md. 11/1'de sayılan kabul edilmeyen giderler arasında değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
@@ -889,7 +889,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -910,8 +910,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: çeldiriciler indirimi kabul edilen gerçekçi gider kalemleriyle yenilendi, uzunluk
+          dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -932,6 +934,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: çeldiriciler indirimi kabul edilen gerçekçi gider kalemleriyle yenilendi, uzunluk dengelendi'
 - id: SMMM-VER-KVK-0016
   sinav: smmm
   bolum:
@@ -1103,25 +1109,27 @@
   kazanim: finansman gider kısıtlaması
   tip: uygulama
   zorluk: 1
-  kok: Kredi kuruluşu olmayan bir kurumun kullanılan yabancı kaynakları öz kaynaklarını aşmaktadır. Bu durumda,
-    yatırımın maliyetine eklenenler hariç yabancı kaynaklara ilişkin faiz, komisyon, vade farkı, kâr payı ve kur
-    farkı gibi giderlerin aşan kısma isabet eden bölümü için hangi uygulama doğar?
+  kok: Kredi kuruluşu olmayan bir kurumun kullandığı yabancı kaynaklar öz kaynaklarını aşmaktadır. KVK md. 11/1-i
+    uyarınca, yatırımın maliyetine eklenenler hariç yabancı kaynaklara ilişkin faiz, komisyon, vade farkı, kâr payı
+    ve kur farkı gibi giderlerin aşan kısma isabet eden bölümü bakımından aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Yalnızca faiz gideri dikkate alınır.
-    B: Tamamı gider olarak indirilir.
-    C: Tamamı kurumlar vergisinden istisna edilir.
-    D: Belirlenen oranda gider kısıtlamasına tabi olur.
-    E: Yalnızca kur farkı gideri dikkate alınır.
+    A: Bu giderlerin tutarı kadar kurum kazancından ayrıca indirim yapılır.
+    B: Bu giderlerin yatırım maliyetine eklenmesi zorunlu hale gelir.
+    C: Bu giderler istisna kazanç sayılarak kurumlar vergisi kapsamı dışında bırakılır.
+    D: Cumhurbaşkanınca belirlenen kısmı (kanunda toplamın %10'unu aşmamak üzere) kurum kazancından indirilemez.
+    E: Kısıtlama, bu giderlerden faiz dışındaki kalemlere uygulanır, faiz giderleri kapsam dışında kalır.
   dogru: D
   aciklama:
     dogru_neden: KVK md. 11/1-i, kredi kuruluşları ve sayılan finansal kuruluşlar dışındaki, yabancı kaynakları
-      öz kaynaklarını aşan işletmelerde aşan kısma münhasır finansman giderlerinin belirlenen kısmının indirimini
-      kabul etmemektedir.
+      öz kaynaklarını aşan işletmelerde, aşan kısma münhasır olmak üzere finansman gider ve maliyet unsurları toplamının
+      %10'unu aşmamak üzere Cumhurbaşkanınca kararlaştırılan kısmının indirimini kabul etmez.
     celdiriciler:
-      A: Kanun faiz yanında komisyon, vade farkı, kâr payı ve kur farkı gibi giderleri de sayar.
-      B: Kanun, aşan kısma ilişkin giderlerin tamamını değil belirlenen kısmını kabul etmemektedir.
-      C: Hüküm bir istisna düzenlemesi değil, kurum kazancından indirilmeyecek gider kısmını düzenler.
-      E: Kur farkı tek başına değil, hükümde sayılan finansman giderleri bütünü içinde değerlendirilir.
+      A: Kanun bu giderler için ek bir indirim tanımaz; tersine belirlenen kısmın indirimini kabul etmez.
+      B: Yatırım maliyetine eklenenler zaten kısıtlama kapsamı dışındadır; kısıtlama bu giderlerin maliyete eklenmesini
+        zorunlu kılmaz.
+      C: Hüküm bir istisna düzenlemesi değildir; kurum kazancından indirilmeyecek gider kısmını belirler.
+      E: Hüküm faiz, komisyon, vade farkı, kâr payı, kur farkı ve benzeri tüm finansman gider unsurlarını birlikte
+        kapsar; faiz hariç tutulmamıştır.
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: md. 11/1-i
@@ -1141,7 +1149,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1162,8 +1170,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: çeldiriciler finansman gider kısıtlamasının sonuçları hakkında akla yatkın yanlışlarla
+          yenilendi, mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1181,6 +1191,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: çeldiriciler finansman gider kısıtlamasının sonuçları hakkında akla yatkın yanlışlarla yenilendi,
+      mutlak ifadeler kaldırıldı'
 - id: SMMM-VER-KVK-0019
   sinav: smmm
   bolum:
@@ -1366,35 +1381,35 @@
   kok: Bir kurum, öz sermaye kalemlerini sermayeye eklediği tarihten itibaren beş tam yıl geçmeden sermaye azaltımı
     yapmaktadır. KVK md. 32/B’ye göre azaltımın hangi sermaye unsurlarından yapıldığı kabul edilir?
   secenekler:
-    A: Sadece nakdî sermayeden
-    B: Sadece ayni sermayeden
-    C: Sırasıyla birinci fıkranın (a), (b) ve (c) bentlerindeki sermaye unsurlarından
-    D: Önce vergilendirilmeyecek sermayeden
-    E: Kurumun tercih ettiği herhangi bir sermaye unsurundan
+    A: Azaltım, nakdî ve ayni sermaye ile diğer unsurların toplam sermayeye oranlanması suretiyle belirlenen paylara
+      göre yapılmış sayılır.
+    B: Azaltım, önce nakdî sermayeden, sonra ayni sermayeden yapılmış sayılır.
+    C: Azaltım, sırasıyla birinci fıkranın (a), (b) ve (c) bentlerindeki sermaye unsurlarından yapılmış sayılır.
+    D: Azaltım, sırasıyla birinci fıkranın (c), (b) ve (a) bentlerindeki sermaye unsurlarından yapılmış sayılır.
+    E: Azaltım, kurumun genel kurul kararında belirttiği sermaye unsurlarından yapılmış sayılır.
   dogru: C
   aciklama:
-    dogru_neden: KVK md. 32/B/2, beş tam yıllık süre tamamlanmadan sermaye azaltımı yapılması durumunda azaltımın
-      sırasıyla birinci fıkranın (a), (b) ve (c) bentlerinde yer alan sermaye unsurlarından yapıldığının kabul edileceğini
-      düzenler.
+    dogru_neden: KVK md. 32/B/2, öz sermaye kalemlerinin sermayeye eklenmesinden itibaren beş tam yıllık süre tamamlanmadan
+      sermaye azaltımı yapılması durumunda azaltımın sırasıyla birinci fıkranın (a), (b) ve (c) bentlerinde yer
+      alan sermaye unsurlarından yapıldığının kabul edileceğini düzenler.
     celdiriciler:
-      A: Kanun yalnız nakdî sermayeyi değil, a-b-c sıralamasını esas alır.
-      B: Ayni sermaye tek başına esas alınmaz; a-b-c sıralaması uygulanır.
-      D: Vergilendirilmeyecek sermayenin öncelikli olduğu yönünde bir kural yoktur.
-      E: Mükellefin serbest seçimi değil, kanuni sıralama uygulanır.
+      A: Oranlama yöntemi md. 32/B/1'de beş tam yıl geçtikten sonra yapılan azaltım için öngörülmüştür; beş yıl
+        dolmadan azaltımda sıralama uygulanır.
+      B: Kanunda nakdî sermayeden başlayan bir sıralama yoktur; sıra (a), (b), (c) bentlerine göredir.
+      D: Sıralama tersten değil, (a), (b) ve (c) bentleri şeklinde ileri doğrudur.
+      E: Azaltımın hangi unsurdan yapılacağı genel kurul tercihine bırakılmamıştır; kanuni sıralama esastır.
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: md. 32/B/2
-    alinti: "        (2) Kurumların öz sermaye kalemlerini sermayeye ekledikleri tarihten itibaren beş tam\nyıllık\
-      \ süre tamamlanmadan sermaye azaltımı yapmaları durumunda, azaltımın sırasıyla birinci\nfıkranın (a), (b)\
-      \ ve (c) bentlerinde yer alan sermaye unsurlarından yapıldığı kabul edilir.\n        (3) Sermaye azaltımında,\
-      \ öncelikli olarak sermayeye ilave edilen öz sermaye\nkalemlerinden, sermayeye eklenme tarihi beş tam yıllık\
-      \ süreyi geçmemiş olanların işletmeden\nçekildiği kabul edilir."
+    alinti: Kurumların öz sermaye kalemlerini sermayeye ekledikleri tarihten itibaren beş tam yıllık süre tamamlanmadan
+      sermaye azaltımı yapmaları durumunda, azaltımın sırasıyla birinci fıkranın (a), (b) ve (c) bentlerinde yer
+      alan sermaye unsurlarından yapıldığı kabul edilir.
   gecerlilik:
     baslangic: '2023-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1415,8 +1430,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). 32/B-2'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler md.32/B/1 oranlama yöntemi ve ters sıralama gibi akla yatkın
+          yanlışlarla yenilendi; uzunluk dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1431,6 +1448,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler md.32/B/1 oranlama yöntemi ve ters sıralama gibi akla yatkın yanlışlarla yenilendi;
+      uzunluk dengelendi'
 - id: SMMM-VER-KVK-0022
   sinav: smmm
   bolum:
@@ -1525,23 +1547,25 @@
   kazanim: istisnalar (iştirak kazancı)
   tip: bilgi
   zorluk: 1
-  kok: Tam mükellef bir kurumun, başka bir tam mükellef kuruma ait sermaye payından elde ettiği kâr payı KVK md.
-    5 kapsamında hangi nedenle kurumlar vergisinden istisna olabilir?
+  kok: Tam mükellef bir kurumun, başka bir tam mükellef kuruma ait sermaye payından elde ettiği kâr payı, KVK md.
+    5/1-a uyarınca hangi nedenle kurumlar vergisinden istisna edilir?
   secenekler:
-    A: Tam mükellef kuruma iştirak kazancı olduğu için
-    B: Finansman gideri olduğu için
-    C: Dar mükellef kurum kazancı olduğu için
-    D: Tasfiye kazancı olduğu için
-    E: Yurt dışı iştirak kazancı olduğu için
+    A: Tam mükellefiyete tabi başka bir kurumun sermayesine katılımdan elde edilmesi nedeniyle
+    B: İştirak hissesinin en az iki tam yıl elde tutulduktan sonra satılması nedeniyle
+    C: Kâr payının yurt dışında yerleşik bir kurumdan elde edilmesi nedeniyle
+    D: Kâr payının elde edildiği yıl içinde sermayeye eklenmiş olması nedeniyle
+    E: Kâr payını dağıtan kurumun kurumlar vergisinden muaf kurumlar arasında bulunması nedeniyle
   dogru: A
   aciklama:
-    dogru_neden: KVK md. 5/1-a-1, kurumların tam mükellefiyete tabi başka bir kurumun sermayesine katılımlarından
-      elde ettikleri kazançları istisna kapsamına alır.
+    dogru_neden: KVK md. 5/1-a/1, kurumların tam mükellefiyete tabi başka bir kurumun sermayesine katılımlarından
+      elde ettikleri kazançları kurumlar vergisinden müstesna tutar.
     celdiriciler:
-      B: Finansman giderleri istisna sebebi değildir.
-      C: Dar mükellefiyet bir istisna gerekçesi değildir.
-      D: Tasfiye ayrı bir vergilendirme konusudur; kökteki kâr payının istisnası md. 5/1-a-1’e dayanır.
-      E: Bu hüküm tam mükellef iştirak kazancını düzenler; yurt dışı iştirakleri için farklı şartlar vardır.
+      B: Bu, iştirak hisselerinin satışından doğan kazançlara ilişkin ayrı bir istisna şartıdır; kâr payı istisnası
+        elde tutma süresine bağlanmamıştır.
+      C: Yurt dışı iştiraklerden elde edilen kâr payları farklı şartlara bağlı ayrı bir istisna düzenlemesine tabidir;
+        bu soruda iştirak edilen kurum tam mükelleftir.
+      D: Kâr payının sermayeye eklenmesi md. 5/1-a/1'deki istisnanın nedeni değildir.
+      E: Dağıtan kurumun muaf olması istisnanın nedeni değildir; ölçüt, dağıtan kurumun tam mükellefiyete tabi olmasıdır.
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: md. 5/1-a-1
@@ -1552,7 +1576,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1573,8 +1597,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: çeldiriciler iştirak istisnasının yakın hükümleriyle (hisse satışı, yurt dışı
+          iştirak) yenilendi, uzunluk dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1595,6 +1621,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: çeldiriciler iştirak istisnasının yakın hükümleriyle (hisse satışı, yurt dışı iştirak) yenilendi,
+      uzunluk dengelendi'
 - id: SMMM-VER-KVK-0024
   sinav: smmm
   bolum:
@@ -2263,20 +2294,21 @@
   kok: 5520 sayılı Kurumlar Vergisi Kanunu'na göre, tam mükellefiyete tabi başka bir kurumun sermayesine katılımdan
     elde edilen kazançlar bakımından aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Kural olarak kurumlar vergisinden istisnadır.
-    B: Her durumda kurumlar vergisine tabidir.
-    C: Yalnız dar mükellef kurumlar için istisnadır.
-    D: Sadece gerçek kişiler için istisnadır.
-    E: Yalnızca beş yıl elde tutulursa istisnadır.
+    A: Tam mükellef kurumun iştirak kazancı olarak kurumlar vergisinden istisnadır.
+    B: Kurum kazancına dahil edilir; ödenen stopaj hesaplanan vergiden mahsup edilir.
+    C: İstisna, hisselerin en az iki tam yıl elde tutulması şartına bağlıdır.
+    D: İstisna, ortaklık oranının %10'u aşması durumunda uygulanır.
+    E: İstisna, kâr payının elde edildiği yıl içinde dağıtılması şartına bağlıdır.
   dogru: A
   aciklama:
     dogru_neden: KVK md. 5/1-a/1, kurumların tam mükellefiyete tabi başka bir kurumun sermayesine katılımlarından
-      elde ettikleri kazançları kurumlar vergisinden istisna edilen kazançlar arasında saymaktadır.
+      elde ettikleri kazançları kurumlar vergisinden müstesna tutar. Bu bentte elde tutma süresi veya ortaklık oranı
+      şartı aranmaz.
     celdiriciler:
-      B: Tam mükellef başka kuruma iştirak kazancı md. 5/1-a/1'de istisna kapsamındadır.
-      C: Hüküm dar mükellef kurumlarla sınırlı değildir.
-      D: Hüküm kurumların elde ettiği kazançları düzenler; gerçek kişiler için değildir.
-      E: Bu bentte beş yıllık elde tutma şartı yer almamaktadır.
+      B: Kâr payı istisna kapsamındadır; kurum kazancına dahil edilip stopajın mahsubu yoluna gidilmez.
+      C: Md. 5/1-a/1'de iki tam yıllık elde tutma şartı yoktur; bu şart iştirak hissesi satış kazançlarına ilişkindir.
+      D: Ortaklık oranı şartı md. 5/1-a/1'de bulunmaz; oran ölçütü başka istisnalarda söz konusudur.
+      E: İstisna, kâr payının dağıtım yılına bağlı bir şart içermez.
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: md. 5/1-a/1
@@ -2287,7 +2319,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2308,8 +2340,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: çeldiriciler akla yatkın yakın şartlarla (elde tutma süresi, ortaklık oranı,
+          mahsup) yenilendi, mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2324,6 +2358,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: çeldiriciler akla yatkın yakın şartlarla (elde tutma süresi, ortaklık oranı, mahsup) yenilendi,
+      mutlak ifadeler kaldırıldı'
 - id: SMMM-VER-KVK-0033
   sinav: smmm
   bolum:
@@ -2337,32 +2376,30 @@
   kok: Aşağıdaki giderlerden hangisinin 5520 sayılı Kurumlar Vergisi Kanunu'nun 11 inci maddesine göre kurum kazancının
     tespitinde indirim olarak kabul edilmediği açıkça düzenlenmiştir?
   secenekler:
-    A: Örtülü sermaye üzerinden ödenen veya hesaplanan faiz, kur farkları ve benzeri giderler
-    B: İşletmenin normal satış giderleri
-    C: Mal alım bedelleri
-    D: Personelin kanuni ücretleri
-    E: İşletmenin faaliyetinden doğan genel giderlerin tamamı
+    A: Transfer fiyatlandırması yoluyla örtülü olarak dağıtılan kazançlar
+    B: Kurumun ticari faaliyetiyle ilgili olarak makul bedelle satın aldığı hizmetlerin giderleri
+    C: Kurumun faaliyetinde kullandığı taşıtların vergi mevzuatına uygun amortismanı
+    D: Çalışanlara ödenen ücretler ile bunlara ilişkin işveren prim payları
+    E: Kurumun faaliyetiyle ilgili olarak ödediği iş yeri kira giderleri
   dogru: A
   aciklama:
-    dogru_neden: KVK md. 11/1-b, örtülü sermaye üzerinden ödenen veya hesaplanan faiz, kur farkları ve benzeri giderlerin
-      indirimini kabul etmez.
+    dogru_neden: KVK md. 11/1-c, transfer fiyatlandırması yoluyla örtülü olarak dağıtılan kazançların kurum kazancının
+      tespitinde indiriminin kabul edilmediğini düzenler.
     celdiriciler:
-      B: Normal satış giderlerinin tamamı bu bentte KKEG olarak sayılmamıştır.
-      C: Mal alım bedelleri md. 11/1-b'nin konusu değildir.
-      D: Kanuni ücretler bu hükümde sayılan örtülü sermaye giderleri değildir.
-      E: Genel giderlerin tamamını KKEG sayan bir hüküm bulunmamaktadır.
+      B: Faaliyetle ilgili hizmet alım giderleri md. 11/1'de indirimi kabul edilmeyen unsurlar arasında sayılmamıştır.
+      C: Vergi mevzuatına uygun amortisman gideri md. 11/1'de sayılmamıştır.
+      D: Ücret ve işveren prim payları md. 11/1'de indirimi kabul edilmeyen giderler arasında değildir.
+      E: Faaliyetle ilgili kira giderleri md. 11/1'de indirimi kabul edilmeyen giderler arasında yer almaz.
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
-    madde: md. 11/1-b
-    alinti: 'Örtülü sermaye üzerinden ödenen veya hesaplanan faiz, kur farkları ve benzeri
-
-      giderler.'
+    madde: md. 11/1-c
+    alinti: Transfer fiyatlandırması yoluyla örtülü olarak dağıtılan kazançlar.
   gecerlilik:
     baslangic: '2006-06-21'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2383,8 +2420,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: doğru şık md.11/1-c''ye (soru 0015 ve 0065''ten farklı bent) alındı, çeldiriciler
+          indirimi kabul edilen gerçekçi giderlerle yenilendi; kaynak alıntısı güncellendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2405,6 +2444,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: doğru şık md.11/1-c''ye (soru 0015 ve 0065''ten farklı bent) alındı, çeldiriciler indirimi kabul
+      edilen gerçekçi giderlerle yenilendi; kaynak alıntısı güncellendi'
 - id: SMMM-VER-KVK-0034
   sinav: smmm
   bolum:
@@ -2415,39 +2459,36 @@
   kazanim: geçmiş yıl zararı
   tip: uygulama
   zorluk: 3
-  kok: Bir kurum 2026 beyannamesinde 2020 yılına ait geçmiş yıl zararını mahsup etmek istemektedir. Son beş yıla
-    ilişkin kurumlar vergisi beyannameleri kanuni süresinde verilmiş ve zarar başka bir şekilde kullanılmamıştır.
-    Ancak kurum, 2021 zararının bulunduğu yılın beşinci yılını izleyen dönemde mahsup yapmaktadır. 5520 sayılı Kanun'a
-    göre aşağıdakilerden hangisi doğrudur?
+  kok: Bir kurum, 2019 hesap dönemine ait geçmiş yıl zararını 2026 yılı beyannamesinde mahsup etmek istemektedir.
+    Zararın doğduğu yıldan itibaren tüm kurumlar vergisi beyannameleri kanuni süresinde verilmiş, zarar daha önce
+    başka bir şekilde kullanılmamıştır. 5520 sayılı Kanun'un 9 uncu maddesine göre aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Zarar süresiz olarak devredilebilir.
-    B: Geçmiş yıl zararı beş yıldan fazla nakledilemeyeceğinden 2026'da artık mahsup edilemez.
-    C: Zarar yalnızca yurt dışı faaliyet zararıysa mahsup edilemez.
-    D: Zarar 10 yıl boyunca devredilebilir.
-    E: Beyannamelerin süresinde verilmiş olması, beş yıllık süreyi ortadan kaldırır.
+    A: Zarar, beyannameler süresinde verildiği sürece 2026 yılına devredilebilir.
+    B: Zarar beş yıldan fazla nakledilemeyeceğinden 2026 yılı kazancından indirilemez.
+    C: Zarar yedi yıl boyunca nakledilebildiğinden 2026 yılı kazancından indirilir.
+    D: Zarar, zararın yurt dışı faaliyetten doğması koşuluyla 2026 yılında indirilebilir.
+    E: Zarar, ortaklara bildirim yapılması durumunda beş yıllık süre dışında da indirilebilir.
   dogru: B
   aciklama:
-    dogru_neden: 'KVK md. 9/1-a, geçmiş yılların beyannamelerinde yer alan zararların beş yıldan fazla nakledilmemek
-      şartıyla indirim konusu yapılabileceğini belirtir. Beyannamelerin süresinde verilmesi, bu süre sınırını kaldırmaz.
-      Püf noktaları: Beyanname verme şartı ile zarar taşıma süresi iki ayrı koşuldur; birinin sağlanması diğerini
-      uzatmaz.'
+    dogru_neden: KVK md. 9/1-a, beş yıldan fazla nakledilmemek şartıyla geçmiş yılların beyannamelerinde yer alan
+      zararların indirimini kabul eder. 2019 zararı en geç 2024 yılı kazancından indirilebileceğinden 2026 yılında
+      artık mahsup edilemez.
     celdiriciler:
-      A: Kanun açıkça beş yıldan fazla nakledilemeyeceğini söyler.
-      C: Kural yalnız yurt dışı zararlara özgü değildir; geçmiş yılların genel zararları da md. 9/1-a kapsamındadır.
-      D: Kanunda 10 yıllık genel taşıma süresi yoktur.
-      E: Süresinde beyan şartı, zarar taşıma süresinden bağımsız ek bir şarttır.
+      A: Beyannamelerin süresinde verilmesi zarar taşıma süresini uzatmaz; beş yıllık süre ayrı bir sınırdır.
+      C: Kanunda yedi yıllık bir zarar taşıma süresi yoktur; süre en çok beş yıldır.
+      D: Zararın yurt dışından doğması beş yıllık süre sınırını kaldırmaz; hüküm geçmiş yıl zararlarına genel olarak
+        uygulanır.
+      E: Ortaklara bildirim yapılması beş yıllık süreyi uzatmaz; kanun böyle bir istisna öngörmez.
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: md. 9/1-a
-    alinti: 'Beş yıldan fazla nakledilmemek şartıyla geçmiş yılların beyannamelerinde yer alan
-
-      zararlar.'
+    alinti: Beş yıldan fazla nakledilmemek şartıyla geçmiş yılların beyannamelerinde yer alan zararlar.
   gecerlilik:
     baslangic: '2006-06-21'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2468,8 +2509,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: karışık kök sadeleştirildi (2019 zararı, 2026 beyannamesi); çeldiriciler yakın
+          süre ve şart karışıklıklarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2490,6 +2533,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: karışık kök sadeleştirildi (2019 zararı, 2026 beyannamesi); çeldiriciler yakın süre ve şart karışıklıklarıyla
+      yenilendi'
 - id: SMMM-VER-KVK-0035
   sinav: smmm
   bolum:
@@ -3261,22 +3309,27 @@
   kazanim: tasfiye
   tip: bilgi
   zorluk: 1
-  kok: 5520 sayılı Kurumlar Vergisi Kanununa göre tasfiye halindeki bir kurumun vergi matrahı aşağıdakilerden hangisidir?
+  kok: 5520 sayılı Kurumlar Vergisi Kanununa göre tasfiye halindeki bir kurumun vergi matrahı olan tasfiye kârı
+    aşağıdakilerden hangisidir?
   secenekler:
-    A: Tasfiye kârı
-    B: Ödenmiş sermaye
-    C: Net satış hasılatı
-    D: Tasfiye başlangıcındaki öz sermaye
-    E: Dağıtılan kâr payı
+    A: Tasfiye dönemi sonundaki servet değeri ile tasfiye dönemi başındaki servet değeri arasındaki olumlu fark
+    B: Tasfiye dönemi sonundaki servet değerinin toplam tutarı
+    C: Tasfiye dönemi başındaki servet değeri ile ödenmiş sermaye arasındaki fark
+    D: Ortaklara dağıtılan tasfiye payı toplamı ile ödenmiş sermaye arasındaki fark
+    E: Tasfiye dönemi içinde elde edilen satış hasılatından giderlerin düşülmesiyle bulunan tutar
   dogru: A
   aciklama:
-    dogru_neden: KVK md. 17/4 uyarınca tasfiye halindeki kurumların vergi matrahı tasfiye kârıdır.
+    dogru_neden: KVK md. 17/4 uyarınca tasfiye halindeki kurumların vergi matrahı tasfiye kârıdır; tasfiye kârı,
+      tasfiye döneminin sonundaki servet değeri ile tasfiye döneminin başındaki servet değeri arasındaki olumlu
+      farktır.
     celdiriciler:
-      B: Ödenmiş sermaye tasfiye matrahı olarak tanımlanmamıştır.
-      C: Net satış hasılatı tasfiye kârının kanuni tanımı değildir.
-      D: Tasfiye döneminin başındaki servet değeri hesaplamada kullanılan unsurlardan biridir; matrahın kendisi
-        değildir.
-      E: Dağıtılan kâr payı tasfiye matrahının adı değildir.
+      B: Dönem sonu servet değeri tek başına matrah değildir; başlangıçtaki servet değeri ile karşılaştırılarak
+        olumlu fark bulunur.
+      C: Ödenmiş sermaye tasfiye kârının hesabında esas alınan bir ölçü değildir; karşılaştırılan tutarlar dönem
+        başı ve sonu servet değerleridir.
+      D: Dağıtılan tasfiye payı matrahın hesabında kanunda yer alan bir unsur değildir.
+      E: Tasfiye kârı dönem içi hasılat ve giderlere göre değil, dönem başı ve sonu servet değerleri arasındaki
+        farka göre bulunur.
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: md. 17/4
@@ -3290,7 +3343,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3311,8 +3364,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler tasfiye kârının hesabında karıştırılabilen kavramlarla (dönem sonu
+          servet, ödenmiş sermaye, tasfiye payı) yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3333,6 +3388,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler tasfiye kârının hesabında karıştırılabilen kavramlarla (dönem sonu servet, ödenmiş
+      sermaye, tasfiye payı) yenilendi'
 - id: SMMM-VER-KVK-0045
   sinav: smmm
   bolum:
@@ -3501,36 +3561,45 @@
   kazanim: istisnalar (iştirak kazancı)
   tip: kavrama
   zorluk: 2
-  kok: Tam mükellef (A) A.Ş., tam mükellef (B) A.Ş.’nin sermayesine iştirakinden 2026 yılında kâr payı elde etmiştir.
-    Kâr payının kurumlar vergisi bakımından durumunu belirlemek için aşağıdaki ifadelerden hangisi doğrudur?
+  kok: Tam mükellef bir kurumun elde ettiği iştirak kazançlarına ilişkin 5520 sayılı Kanun'un 5 inci maddesinin
+    birinci fıkrasının (a) bendi bakımından aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Kâr payı hiçbir koşulda istisna değildir.
-    B: Tam mükellef başka bir kurumun sermayesine katılımdan elde edilen kazançlar KVK md. 5/1-a kapsamında istisna
-      olabilir.
-    C: İştirak kazancı yalnız gerçek kişilerin gelir vergisinden istisnadır.
-    D: İştirak kazancı istisnası yalnız yurt dışı iştirakleri için vardır.
-    E: İstisna için iştirak edilen kurumun gerçek kişi olması gerekir.
+    A: Tam mükellefiyete tabi başka bir kurumun sermayesine katılımdan elde edilen kazançlar kurumlar vergisinden
+      müstesnadır.
+    B: İştirak kazancı istisnasından yararlanılabilmesi için iştirak edilen kurumun dar mükellefiyete tabi olması
+      gerekir.
+    C: Tam mükellefiyete tabi başka bir kurumun kârına katılma imkânı veren kurucu senetlerinden elde edilen kâr
+      payları da bu bent kapsamında istisnadır.
+    D: Tam mükellefiyete tabi girişim sermayesi yatırım fonlarının katılma paylarından elde edilen kâr payları bu
+      bent kapsamında istisna sayılmıştır.
+    E: Kanunî veya iş merkezi Türkiye'de bulunan bir kurum tam mükellef olduğundan, buraya katılımdan elde edilen
+      kazanç istisna kapsamındadır.
   dogru: B
   aciklama:
-    dogru_neden: KVK md. 5/1-a/1, kurumların tam mükellefiyete tabi başka bir kurumun sermayesine katılımlarından
-      elde ettikleri kazançları kurumlar vergisinden istisna edilen kazançlar arasında sayar.
+    dogru_neden: KVK md. 5/1-a/1, istisnayı tam mükellefiyete tabi başka bir kurumun sermayesine katılımdan elde
+      edilen kazançlara tanır. İştirak edilen kurumun dar mükellefiyete tabi olması gerektiği yönündeki ifade bu
+      nedenle **yanlıştır**.
     celdiriciler:
-      A: Kaynak, tam mükellef başka bir kuruma iştirakten doğan kazancı açıkça istisna kapsamında sayar.
-      C: Hüküm kurumlar vergisi mükellefi kurumların kazançlarına ilişkindir.
-      D: Md. 5’te yurt içi ve yurt dışı iştirakler için ayrı istisna düzenlemeleri bulunmaktadır; istisna yalnız
-        yurt dışına özgü değildir.
-      E: İştirak edilenin tam mükellef kurum olması gerekir; gerçek kişi olması şart değildir.
+      A: Md. 5/1-a/1 hükmünün doğru özetidir.
+      C: Md. 5/1-a/2 tam mükellef kurumun kurucu senetlerinden elde edilen kâr paylarını da istisna eder; ifade
+        doğrudur.
+      D: Md. 5/1-a/3 tam mükellef girişim sermayesi yatırım fonu katılma paylarından elde edilen kâr paylarını istisna
+        eder; ifade doğrudur.
+      E: Kanunî veya iş merkezi Türkiye'de bulunan kurum md. 3/1 uyarınca tam mükelleftir; ifade doğrudur.
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
-    madde: md. 5/1-a/1
-    alinti: "Kurumların;\n        1) Tam mükellefiyete tabi başka bir kurumun sermayesine katılımlarından elde\n\
-      ettikleri kazançlar,"
+    madde: md. 5/1-a-1
+    alinti: Tam mükellefiyete tabi başka bir kurumun sermayesine katılımlarından elde ettikleri kazançlar,
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 5/1-a-2
+    alinti: Tam mükellefiyete tabi başka bir kurumun kârına katılma imkânı veren kurucu senetleri ile diğer intifa
+      senetlerinden elde ettikleri kâr payları,
   gecerlilik:
     baslangic: '2012-06-15'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3551,8 +3620,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: olumsuz köke çevrildi; çeldiriciler md.5/1-a/1-3 ve md.3''ten doğru ifadelerle
+          yeniden yazıldı, mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3567,6 +3638,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: olumsuz köke çevrildi; çeldiriciler md.5/1-a/1-3 ve md.3''ten doğru ifadelerle yeniden yazıldı,
+      mutlak ifadeler kaldırıldı'
 - id: SMMM-VER-KVK-0048
   sinav: smmm
   bolum:
@@ -4768,39 +4844,36 @@
   kazanim: sermaye azaltımı
   tip: uygulama
   zorluk: 2
-  kok: Bir kurum, öz sermaye kalemlerini sermayeye eklediği tarihten itibaren beş tam yıl tamamlanmadan sermaye
-    azaltımı yapmıştır. 5520 sayılı Kanunun 32/B maddesine göre azaltımın hangi sermaye unsurlarından yapıldığı
-    kabul edilir?
+  kok: Bir kurum, öz sermaye kalemlerini sermayeye ekledikten sonra beş tam yıllık süre tamamlanmadan sermaye azaltımı
+    yapmıştır. 5520 sayılı Kanunun 32/B maddesinin üçüncü fıkrasına göre sermaye azaltımında öncelikle hangi unsurların
+    işletmeden çekildiği kabul edilir?
   secenekler:
-    A: Yalnızca ayni sermayeden
-    B: Sırasıyla (a), (b) ve (c) bentlerindeki sermaye unsurlarından
-    C: Yalnızca nakdî sermayeden
-    D: Ortakların tercihine göre
-    E: Yalnızca kâr yedeklerinden
+    A: Sermayeye ilave edilen öz sermaye kalemlerinden, eklenme tarihi beş tam yılı geçmiş olanlar
+    B: Sermayeye ilave edilen öz sermaye kalemlerinden, eklenme tarihi beş tam yılı geçmemiş olanlar
+    C: Kuruluşta taahhüt edilen nakdî sermaye unsurları
+    D: Ortakların genel kurulda tercih ettikleri sermaye unsurları
+    E: Nakdî ve ayni sermaye ile diğer unsurların toplam sermayeye oranlanmasıyla belirlenen unsurlar
   dogru: B
   aciklama:
-    dogru_neden: KVK md. 32/B/2, öz sermaye kalemlerinin sermayeye eklenmesinden itibaren beş tam yıllık süre tamamlanmadan
-      sermaye azaltımı yapılması durumunda azaltımın sırasıyla birinci fıkranın (a), (b) ve (c) bentlerindeki sermaye
-      unsurlarından yapıldığının kabul edileceğini düzenler.
+    dogru_neden: KVK md. 32/B/3, sermaye azaltımında öncelikle sermayeye ilave edilen öz sermaye kalemlerinden,
+      sermayeye eklenme tarihi beş tam yıllık süreyi geçmemiş olanların işletmeden çekildiğini kabul eder.
     celdiriciler:
-      A: Kanun yalnız ayni sermayeyi esas almaz.
-      C: Kanun yalnız nakdî sermayeyi esas almaz.
-      D: Azaltımın sırası kanunda belirlenmiştir; ortak tercihi belirleyici değildir.
-      E: Kanuni sıralama yalnız kâr yedekleriyle sınırlı değildir.
+      A: Öncelik, eklenme tarihi beş tam yılı geçmiş olanlarda değil, geçmemiş olanlardadır.
+      C: Kuruluşta taahhüt edilen nakdî sermaye, md. 32/B/3'te öncelikle çekilmiş sayılan unsur olarak gösterilmemiştir.
+      D: Çekilen unsurlar ortakların tercihine bırakılmamıştır; kanun öncelik sırasını belirler.
+      E: Oranlama yöntemi md. 32/B/1'de beş tam yıl geçtikten sonraki azaltım için öngörülmüştür; fıkra 3 öncelik
+        kuralı koyar.
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
-    madde: md. 32/B/2
-    alinti: "        (2) Kurumların öz sermaye kalemlerini sermayeye ekledikleri tarihten itibaren beş tam\nyıllık\
-      \ süre tamamlanmadan sermaye azaltımı yapmaları durumunda, azaltımın sırasıyla birinci\nfıkranın (a), (b)\
-      \ ve (c) bentlerinde yer alan sermaye unsurlarından yapıldığı kabul edilir.\n        (3) Sermaye azaltımında,\
-      \ öncelikli olarak sermayeye ilave edilen öz sermaye\nkalemlerinden, sermayeye eklenme tarihi beş tam yıllık\
-      \ süreyi geçmemiş olanların işletmeden\nçekildiği kabul edilir."
+    madde: md. 32/B/3
+    alinti: Sermaye azaltımında, öncelikli olarak sermayeye ilave edilen öz sermaye kalemlerinden, sermayeye eklenme
+      tarihi beş tam yıllık süreyi geçmemiş olanların işletmeden çekildiği kabul edilir.
   gecerlilik:
     baslangic: '2025-07-20'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4821,8 +4894,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: 0021 ile tekrarı önlemek için md.32/B/3 öncelik kuralı sorulacak şekilde
+          yeniden yazıldı; çeldiriciler yakın kurallarla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4843,6 +4918,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: 0021 ile tekrarı önlemek için md.32/B/3 öncelik kuralı sorulacak şekilde yeniden yazıldı;
+      çeldiriciler yakın kurallarla yenilendi'
 - id: SMMM-VER-KVK-0063
   sinav: smmm
   bolum:
@@ -4853,36 +4933,36 @@
   kazanim: mükellefiyet (tam/dar)
   tip: bilgi
   zorluk: 1
-  kok: Kanunî veya iş merkezi Türkiye'de bulunan bir kurumun kurumlar vergisi bakımından mükellefiyeti hangisidir?
+  kok: Kanunî merkezi ve iş merkezi yurt dışında bulunan, Türkiye'de ise bir iş yeri aracılığıyla faaliyet gösteren
+    yabancı bir kurumun, 5520 sayılı Kanun'a göre kurumlar vergisi bakımından durumu aşağıdakilerden hangisidir?
   secenekler:
-    A: Dar mükellefiyet
-    B: Tam mükellefiyet
-    C: Sadece geçici mükellefiyet
-    D: Yalnız kaynakta vergileme
-    E: Mükellefiyet yoktur
+    A: Tam mükellef olup dünya genelinde elde ettiği kazançların tamamı üzerinden vergilendirilir.
+    B: Dar mükellef olup Türkiye'de elde ettiği kazançları üzerinden vergilendirilir.
+    C: Tam mükellef olup iş yerinin kazançları ile Türkiye'deki diğer gelirleri üzerinden vergilendirilir.
+    D: Mükellefiyet, kanunî merkezin bulunduğu ülkeye göre belirlendiğinden Türkiye'de mükellefiyet doğmaz.
+    E: Her iki merkezin de Türkiye'de bulunmaması nedeniyle geçici mükellefiyet doğar.
   dogru: B
   aciklama:
-    dogru_neden: KVK md. 3/1'e göre kanunî veya iş merkezi Türkiye'de bulunan kurumlar tam mükelleftir ve Türkiye
-      içinde ve dışında elde ettikleri kazançların tamamı üzerinden vergilendirilir.
+    dogru_neden: KVK md. 3/2'ye göre kanunî ve iş merkezlerinin her ikisi de Türkiye'de bulunmayan kurumlar dar
+      mükelleftir ve sadece Türkiye'de elde ettikleri kazançları üzerinden vergilendirilirler.
     celdiriciler:
-      A: Dar mükellefiyet, kanunî ve iş merkezlerinin her ikisinin de Türkiye'de bulunmaması hâlinde söz konusudur.
-      C: Kanunda bu şekilde bir mükellefiyet türü yoktur.
-      D: Kanun tam mükellefiyeti küresel kazanç üzerinden tanımlar.
-      E: Kanunî veya iş merkezinin Türkiye'de bulunması mükellefiyet doğurur.
+      A: Tam mükellefiyet kanunî veya iş merkezinden birinin Türkiye'de bulunmasına bağlıdır; burada ikisi de yurt
+        dışındadır.
+      C: Tam mükellefiyet için merkezlerden birinin Türkiye'de bulunması gerekir; burada bu şart yoktur, mükellefiyet
+        türü dar mükellefiyettir.
+      D: Türkiye'de elde edilen kazanç dar mükellefiyet kapsamında vergilendirilir; mükellefiyetin doğmadığı söylenemez.
+      E: Kanunda geçici mükellefiyet diye bir mükellefiyet türü yoktur; mükellefiyet tam veya dar olarak ayrılır.
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
-    madde: md. 3/1-2
-    alinti: "        MADDE 3- (1) Tam mükellefiyet: Kanunun 1 inci maddesinde sayılı kurumlardan\nkanunî veya iş\
-      \ merkezi Türkiye'de bulunanlar, gerek Türkiye içinde gerekse Türkiye dışında\nelde ettikleri kazançların\
-      \ tamamı üzerinden vergilendirilirler.\n        (2) Dar mükellefiyet: Kanunun 1 inci maddesinde sayılı kurumlardan\
-      \ kanunî ve iş\nmerkezlerinin her ikisi de Türkiye'de bulunmayanlar, sadece Türkiye'de elde ettikleri\nkazançları\
-      \ üzerinden vergilendirilirler."
+    madde: md. 3/2
+    alinti: 'Dar mükellefiyet: Kanunun 1 inci maddesinde sayılı kurumlardan kanunî ve iş merkezlerinin her ikisi
+      de Türkiye''de bulunmayanlar, sadece Türkiye''de elde ettikleri kazançları üzerinden vergilendirilirler.'
   gecerlilik:
     baslangic: '2006-06-21'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4903,8 +4983,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: 0075 ile tekrarı önlemek için dar mükellefiyet vakasına çevrildi; çeldiriciler
+          tam/dar karışıklığıyla yenilendi, mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4919,6 +5001,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: 0075 ile tekrarı önlemek için dar mükellefiyet vakasına çevrildi; çeldiriciler tam/dar karışıklığıyla
+      yenilendi, mutlak ifadeler kaldırıldı'
 - id: SMMM-VER-KVK-0064
   sinav: smmm
   bolum:
@@ -5027,20 +5114,20 @@
   kok: Aşağıdaki giderlerden hangisinin kurum kazancının tespitinde kanunen kabul edilmeyen gider olarak dikkate
     alınması KVK md. 11 kapsamında açıkça düzenlenmiştir?
   secenekler:
-    A: Öz sermaye üzerinden hesaplanan faiz
-    B: İşletmenin faaliyet konusuyla ilgili normal personel ücreti
-    C: İşletmenin olağan malzeme gideri
-    D: Satıştan doğan ticari alacakların tahsil gideri
-    E: İşletmenin faaliyeti için yapılan olağan kira gideri
+    A: Öz sermaye üzerinden ödenen veya hesaplanan faiz
+    B: Satılan mallara ilişkin olarak ödenen satış komisyonu giderleri
+    C: Kurumun faaliyetinde kullandığı taşıtların vergi mevzuatına uygun amortismanı
+    D: Kurumun faaliyetiyle ilgili olarak ödediği iş yeri kira giderleri
+    E: Çalışanlara ödenen ücretler ile bunlara ilişkin işveren prim payları
   dogru: A
   aciklama:
     dogru_neden: KVK md. 11/1-a, öz sermaye üzerinden ödenen veya hesaplanan faizlerin kurum kazancının tespitinde
-      indirimini kabul etmez. Bu nedenle söz konusu gider KKEG'dir.
+      indirimini kabul etmez. Bu nedenle söz konusu gider kanunen kabul edilmeyen gider (KKEG) niteliğindedir.
     celdiriciler:
-      B: Olayda personel ücretinin KKEG olduğuna ilişkin bir hüküm verilmemiştir.
-      C: Olağan malzeme gideri tek başına md. 11/1-a kapsamındaki KKEG değildir.
-      D: Tahsil giderinin bu şekilde KKEG olduğuna dair md. 11/1-a kapsamında bir hüküm yoktur.
-      E: Faaliyet için yapılan olağan kira gideri md. 11/1-a'daki öz sermaye faizinden farklıdır.
+      B: Satış komisyonları md. 11/1-a kapsamında indirimi kabul edilmeyen giderlerden değildir.
+      C: Vergi mevzuatına uygun amortisman md. 11/1'de sayılan kabul edilmeyen indirimler arasında yer almaz.
+      D: Faaliyetle ilgili kira giderleri md. 11/1-a'daki öz sermaye faizinden farklıdır ve indirilebilir.
+      E: Ücret ve işveren prim payları md. 11/1'de kabul edilmeyen giderler arasında sayılmamıştır.
   kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: md. 11/1-a
@@ -5052,7 +5139,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5073,8 +5160,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: çeldiriciler indirimi kabul edilen gerçekçi gider kalemleriyle yenilendi, uzunluk
+          dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5095,3 +5184,7 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: çeldiriciler indirimi kabul edilen gerçekçi gider kalemleriyle yenilendi, uzunluk dengelendi'

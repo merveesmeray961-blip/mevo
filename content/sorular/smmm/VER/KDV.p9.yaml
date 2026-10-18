@@ -176,20 +176,20 @@
     **yanlıştır**?
   secenekler:
     A: 30.000 TL fark sonraki dönemlere devrolunur.
-    B: Fark, kural olarak iade edilmez.
-    C: Sonraki dönemlerde hesaplanan KDV'den mahsup edilmesi mümkün olabilir.
-    D: Sadece indirilecek KDV'nin hesaplanan KDV'yi aşması nedeniyle otomatik nakden iade hakkı doğmaz.
-    E: Farkın tamamı aynı dönemde gelir vergisi matrahından doğrudan indirilir.
+    B: Devreden tutar, sonraki dönemlerde hesaplanan KDV'den indirim konusu yapılır.
+    C: Devreden tutar, ilgili beyannamede sonraki döneme devreden KDV olarak gösterilir.
+    D: Devreden tutar sonraki dönemde de indirilemezse devri sonraki dönemlerde sürer.
+    E: Farkın beyannameyle bildirilmesi hâlinde tutar talep üzerine genel kural olarak nakden iade edilir.
   dogru: E
   aciklama:
     dogru_neden: KDVK md. 29/2, indirilecek KDV toplamının hesaplanan KDV'den fazla olması hâlinde farkın sonraki
-      dönemlere devrolunacağını ve iade edilmeyeceğini düzenler. Bu nedenle farkın aynı dönemde gelir vergisi matrahından
-      doğrudan indirilmesi yanlıştır.
+      dönemlere devrolunacağını ve iade edilmeyeceğini düzenler. Bu nedenle farkın talep üzerine nakden iade edilmesi
+      yanlıştır.
     celdiriciler:
-      A: Kanun farkın sonraki dönemlere devrini açıkça öngörür.
-      B: Genel kural, farkın iade edilmemesidir; özel hüküm saklıdır.
-      C: Devreden fark sonraki dönem hesaplamalarında dikkate alınabilir.
-      D: Sırf fazla indirilecek KDV bulunması genel bir nakden iade hakkı doğurmaz.
+      A: Kanun farkın sonraki dönemlere devrini öngörür.
+      B: Devreden fark sonraki dönemlerde hesaplanan KDV'den indirilir.
+      C: Devreden tutar beyannamede devreden KDV olarak izlenir.
+      D: Fark indirilemediği sürece devri sonraki dönemlere devam eder.
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 29/2
@@ -201,7 +201,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -222,8 +222,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: çeldiriciler doğru ifadeler olarak yeniden yazıldı, mutlak ifade kaldırıldı;
+          yanlış ifade (nakden iade) akla yatkın hale getirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -244,6 +246,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: çeldiriciler doğru ifadeler olarak yeniden yazıldı, mutlak ifade kaldırıldı; yanlış ifade (nakden
+      iade) akla yatkın hale getirildi'
 - id: SMMM-VER-KDV-0057
   sinav: smmm
   bolum:
@@ -559,32 +566,48 @@
   kazanim: devreden KDV hesabı
   tip: uygulama
   zorluk: 2
-  kok: Bir işletmenin dönemde hesaplanan KDV’si 72.000 TL, indirilecek KDV’si 91.000 TL’dir. İşletmenin bu dönem
-    için başka iade veya özel durum işlemi yoktur. Sonraki döneme devreden KDV kaç TL’dir?
+  kok: Bir işletmenin dönemde hesaplanan KDV'si 72.000 TL, indirilecek KDV'si 91.000 TL'dir. Aynı dönemde işletme
+    satın aldığı malların bir kısmını iade etmiş; iade nedeniyle KDVK md. 35 uyarınca indirilecek KDV'den düşülmesi
+    gereken düzeltme tutarı 5.000 TL'dir (91.000 TL düzeltme öncesi tutardır). Başka bir iade veya özel durum işlemi
+    yoktur. Sonraki döneme devreden KDV kaç TL'dir?
   secenekler:
-    A: 0 TL
-    B: 19.000 TL
-    C: 72.000 TL
-    D: 91.000 TL
-    E: 163.000 TL
+    A: 9.000 TL
+    B: 14.000 TL
+    C: 19.000 TL
+    D: 86.000 TL
+    E: 91.000 TL
   dogru: B
   aciklama:
-    dogru_neden: İndirilecek KDV hesaplanan KDV’den 19.000 TL fazla olduğundan bu fark devreden KDV’dir.
+    dogru_neden: Alış iadesi nedeniyle md. 35 gereği alıcı, indirme hakkı bulunan vergiyi düzeltir; indirilecek
+      KDV 91.000 - 5.000 = 86.000 TL olur. Bu tutar hesaplanan KDV'den fazla olduğundan md. 29/2 uyarınca 86.000
+      - 72.000 = 14.000 TL sonraki döneme devreder.
     celdiriciler:
-      A: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
-      C: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
-      D: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
-      E: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
+      A: 9.000 TL, düzeltme tutarının iki kez (91.000 - 10.000 - 72.000) düşülmesiyle bulunur; düzeltme bir kez
+        yapılır.
+      C: 19.000 TL, md. 35 düzeltmesinin hiç yapılmamasıyla bulunur; iade nedeniyle indirim düzeltilmelidir.
+      D: 86.000 TL düzeltilmiş indirilecek KDV'dir; devreden tutar bu tutardan hesaplanan KDV düşülerek bulunur.
+      E: 91.000 TL düzeltme öncesi indirilecek KDV'dir; devreden tutar farktır.
+    hesap_adimlari:
+    - Düzeltilmiş indirilecek KDV = 91.000 - 5.000 = 86.000 TL
+    - Devreden KDV = 86.000 - 72.000 = 14.000 TL
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 29/2
-    alinti: Katma Değer Vergisi, işlemin gerçekleştiği dönemi izleyen ikinci takvim yılının sonuna kadar
+    alinti: Bir vergilendirme döneminde indirilecek katma değer vergisi toplamı, mükellefin vergiye tâbi işlemleri
+      dolayısıyla hesaplanan katma değer vergisi toplamından fazla olduğu takdirde, aradaki fark sonraki dönemlere
+      devrolunur ve iade edilmez.
+  - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
+    madde: md. 35
+    alinti: Malların iade edilmesi, işlemin gerçekleşmemesi, işlemden vazgeçilmesi veya sair sebeplerle matrahta
+      değişiklik vukubulduğu hallerde, vergiye tabi işlemleri yapmış olan mükellef bunlar için borçlandığı vergiyi
+      bu işlemlere muhatap olan mükellef ise indirme hakkı bulunan vergiyi değişikliğin mahiyetine uygun şekilde
+      ve değişikliğin vukubulduğu dönem içinde düzeltilir.
   gecerlilik:
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -605,8 +628,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: alış iadesi düzeltmesi (md.35) eklendi; R3: alıntı (ilgisiz alıntı) md.29/2 ve
+          md.35 metniyle değiştirildi; açıklama çeldirici metinleri somutlaştırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -621,6 +646,13 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: alış iadesi düzeltmesi (md.35) eklendi; R3: alıntı (ilgisiz alıntı) md.29/2 ve md.35 metniyle değiştirildi;
+      açıklama çeldirici metinleri somutlaştırıldı'
+  dogrulama:
+    python: sonuc = (91000 - 5000) - 72000
 - id: SMMM-VER-KDV-0062
   sinav: smmm
   bolum:
@@ -631,34 +663,40 @@
   kazanim: verginin konusu ve Türkiye’de yapılma
   tip: uygulama
   zorluk: 3
-  kok: Yurt dışında bulunan bir şirket, hizmeti tamamen yurt dışında sunmuştur. Hizmetten Türkiye’deki bir işletme
-    Türkiye’de yararlanmaktadır. KDVK’nın işlemin Türkiye’de yapılmış sayılmasına ilişkin kuralı bakımından hangisi
-    doğrudur?
+  kok: Hizmetin Türkiye'de yapılmış sayılmasına ilişkin KDVK md. 6 hükümleri bakımından aşağıdaki ifadelerden hangisi
+    **yanlıştır**?
   secenekler:
-    A: Hizmetin sağlayıcısı yabancı olduğu için hiçbir durumda KDV doğmaz.
-    B: Hizmetin bedeli döviz ise işlem kapsam dışıdır.
-    C: Hizmetten Türkiye’de faydalanılması, kanundaki şartlarla işlemin Türkiye’de yapılmış sayılmasına yol açabilir.
-    D: Yalnız sözleşmenin yabancı dilde olması belirleyicidir.
-    E: Türkiye’de faydalanma hiçbir zaman dikkate alınmaz.
+    A: Hizmetin Türkiye'de yapılması, işlemin Türkiye'de yapılmış sayılması için yeterlidir.
+    B: Hizmetten Türkiye'de faydalanılması, işlemin Türkiye'de yapılmış sayılması için yeterlidir.
+    C: Hizmeti sunanın yurt dışında yerleşik olması, Türkiye'de faydalanılan hizmetin Türkiye'de yapılmış sayılmasını
+      engeller.
+    D: Mal teslimlerinde işlemin Türkiye'de yapılmış sayılması için malın teslim anında Türkiye'de bulunması gerekir.
+    E: Hizmetin yurt dışında ifa edilmiş olması, Türkiye'de faydalanma varsa işlemin Türkiye'de yapılmış sayılmasına
+      engel olmaz.
   dogru: C
   aciklama:
-    dogru_neden: KDVK md. 6, hizmetin Türkiye’de yapılması ve Türkiye’de faydalanılması ölçütlerini düzenler; olay
-      bu ölçüt çerçevesinde değerlendirilir.
+    dogru_neden: KDVK md. 6/b, hizmetin Türkiye'de yapılmasını veya hizmetten Türkiye'de faydalanılmasını ölçüt
+      sayar. Hizmeti sunanın yerleşim yeri bir ölçüt olmadığından, yurt dışında yerleşik olması Türkiye'de faydalanılan
+      hizmetin Türkiye'de yapılmış sayılmasını engellemez; bu nedenle C **yanlıştır**.
     celdiriciler:
-      A: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
-      B: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
-      D: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
-      E: Bu seçenek, kanundaki ilgili ayrımı veya şartı yanlış uygular.
+      A: Hizmetin Türkiye'de yapılması md. 6/b'de sayılan ölçütlerden biridir; ifade doğrudur.
+      B: Türkiye'de faydalanma md. 6/b'de sayılan diğer ölçüttür; ifade doğrudur.
+      D: Md. 6/a mal teslimlerinde malın teslim anında Türkiye'de bulunmasını ölçüt alır; ifade doğrudur.
+      E: Ölçütler seçimlik olduğundan ifa yerinin yurt dışı olması Türkiye'de faydalanmayı etkisiz kılmaz; ifade
+        doğrudur.
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
-    madde: md. 6
-    alinti: işlerinde, hizmetin iç parkura isabet eden kısmı Türkiye'de yapılmış sayılır.
+    madde: md. 6/b
+    alinti: Hizmetin Türkiye'de yapılmasını veya hizmetten Türkiye'de faydalanılmasını,
+  - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
+    madde: md. 6/a
+    alinti: Malların teslim anında Türkiye'de bulunmasını,
   gecerlilik:
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -679,8 +717,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: olumsuz köke çevrildi, doğru ifadelerden oluşan çeldiriciler yazıldı; R3:
+          md.7 alıntısı md.6/a-b ile değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -695,6 +735,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: olumsuz köke çevrildi, doğru ifadelerden oluşan çeldiriciler yazıldı; R3: md.7 alıntısı md.6/a-b
+      ile değiştirildi'
 - id: SMMM-VER-KDV-0063
   sinav: smmm
   bolum:
@@ -1118,35 +1163,42 @@
   kazanim: ihraç kaydıyla teslim
   tip: kavrama
   zorluk: 3
-  kok: İhraç kaydıyla teslimde imalatçının tecil-terkin uygulamasından yararlanması ile ihracatçının teslim aldığı
-    malı ihraç etmesi yükümlülükleri arasındaki ilişkiyi en doğru açıklayan seçenek hangisidir?
+  kok: İmalatçı, ihraç edilmek şartıyla ihracatçıya yaptığı mal teslimine ait KDV'yi ihracatçıdan tahsil etmemiş;
+    vergi, vergi dairesince tarh ve tahakkuk ettirilerek tecil edilmiştir. Mücbir sebep bulunmadığı ve ek süre verilmediği
+    varsayıldığında, mallar ihracatçıya teslim tarihini takip eden ay başından itibaren 3 ay içinde ihraç edilmezse
+    tecil edilen vergiye ilişkin sonuç aşağıdakilerden hangisidir?
   secenekler:
-    A: İhracatçı malı yurt içinde satarsa da ihracat şartı sağlanır.
-    B: İmalatçı, ihracatçı adına düzenlenen her faturada KDV’yi tahsil etmek zorundadır.
-    C: İhracat teslimleri istisnası ile ihraç kaydıyla teslim aynı işlem ve aynı mükellefiyet değildir.
-    D: İhraç kaydıyla teslim yalnız ithalatçılara yapılabilir.
-    E: İhracat süresi hiçbir koşulda uzatılamaz.
+    A: Tecil edilen vergi terkin edilir ve ihracatçıdan ek bir tutar istenmez.
+    B: Tecil edilen vergi, tecil edildiği tarihten itibaren tecil faiziyle birlikte tahsil edilir.
+    C: Tecil edilen vergi, tahakkuk ettirildiği tarihten itibaren gecikme zammıyla birlikte tahsil olunur.
+    D: Tecil edilen vergi, vergi ziyaı cezasıyla birlikte imalatçının cari dönem beyannamesine eklenerek ödenir.
+    E: İhracatçıya üç ay daha süre verilir ve bu sürenin sonunda tecil edilen vergi terkin edilir.
   dogru: C
   aciklama:
-    dogru_neden: 'KDVK md. 11 ihracat teslimi istisnasını düzenler; ihraç kaydıyla teslim ise bu istisnayla özdeş
-      değildir. Püf noktaları: İmalatçıdan ihracatçıya teslim aşaması ile malın yurt dışına çıkışı ayrı aşamalardır.'
+    dogru_neden: KDVK md. 11/1-c uyarınca ihracatın süresi içinde ve şartlara uygun gerçekleştirilmemesi hâlinde
+      tecil olunan vergi, tahakkuk ettirildiği tarihten itibaren 6183 sayılı Kanunun 51 inci maddesine göre belirlenen
+      gecikme zammıyla birlikte tahsil olunur.
     celdiriciler:
-      A: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
-      B: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
-      D: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
-      E: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
+      A: Terkin, malların süresinde ihraç edilmesi hâlinin sonucudur; ihracat gerçekleşmezse vergi terkin edilmez.
+      B: Tecil faiziyle tahsil, yalnızca Vergi Usul Kanunundaki mücbir sebepler nedeniyle ihraç edilememesi hâline
+        ilişkindir; burada mücbir sebep yoktur.
+      D: Kanun, tecil edilen verginin gecikme zammıyla tahsilini öngörür; imalatçının beyannamesine ceza ile eklenmesi
+        biçiminde bir hüküm yoktur.
+      E: Ek süre otomatik değildir; yalnız mücbir sebep veya beklenmedik durum nedeniyle süresinde başvuran ihracatçılara
+        verilebilir ve sürenin sonunda vergi kendiliğinden terkin edilmez.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
-    madde: md. 11/1-a
-    alinti: İhracat teslimleri ve bu teslimlere ilişkin hizmetler, yurt dışındaki müşteriler için yapılan hizmetler,
-      serbest bölgelerdeki müşteriler için yapılan fason hizmetler
+    madde: md. 11/1-c
+    alinti: İhracatın yukarıdaki şartlara uygun olarak gerçekleştirilmemesi halinde, tecil olunan vergi tahakkuk
+      ettirildiği tarihten itibaren 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanunun 51 inci maddesine
+      göre belirlenen gecikme zammıyla birlikte tahsil olunur.
   gecerlilik:
     baslangic: '1985-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1167,8 +1219,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kök netleştirildi (ihraç kaydıyla teslimde süre aşımı); çeldiriciler tecil faizi,
+          terkin, ek süre karışıklıklarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1183,6 +1237,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kök netleştirildi (ihraç kaydıyla teslimde süre aşımı); çeldiriciler tecil faizi, terkin, ek süre
+      karışıklıklarıyla yenilendi'
 - id: SMMM-VER-KDV-0069
   sinav: smmm
   bolum:
@@ -1196,33 +1255,35 @@
   kok: KDV’de vergi kesintisi yapmakla sorumlu tutulan bir alıcı, sorumlu sıfatıyla beyan edip ödediği KDV’yi indirim
     konusu yapmak istemektedir. Genel kural bakımından hangi ifade doğrudur?
   secenekler:
-    A: Sorumlu sıfatıyla ödenen KDV hiçbir durumda indirilemez.
-    B: İndirim, ilgili KDV mevzuatındaki şartlar çerçevesinde değerlendirilir; sorumlu sıfatıyla ödeme tek başına
-      tüm koşulları ortadan kaldırmaz.
-    C: Alıcı, KDV’yi satıcıya ödemedikçe her durumda indirim yapar.
-    D: Yalnız gerçek kişiler sorumlu sıfatıyla KDV öder.
-    E: Sorumlu sıfatıyla KDV kurumlar vergisinden mahsup edilir.
+    A: Sorumlu sıfatıyla ödenen KDV gider yazılabilir, ancak KDV indirimi konusu yapılamaz.
+    B: Sorumlu sıfatıyla beyan edilerek ödenen KDV, kesintiyi yapan mükellef tarafından hesaplanan KDV'den indirilebilir.
+    C: Sorumlu sıfatıyla ödenen KDV'nin indirilebilmesi için satıcıya ayrıca KDV tutarının ödenmiş olması gerekir.
+    D: Sorumlu sıfatıyla ödenen KDV, kurumlar vergisi beyannamesinde hesaplanan vergiden mahsup edilir.
+    E: Sorumlu sıfatıyla ödenen KDV ancak satıcıdan tahsil edildiğinde indirim konusu yapılabilir.
   dogru: B
   aciklama:
-    dogru_neden: KDVK md. 29, indirimi faaliyetle ilgili ve kanuna uygun vergi üzerinden düzenler; indirim şartları
-      somut işlem ve ilgili hükümlere göre değerlendirilir.
+    dogru_neden: KDVK md. 29/1-ç, vergi kesintisi yapmakla sorumlu tutulanlar tarafından sorumlu sıfatıyla beyan
+      edilerek ödenen KDV'nin indirilebileceğini düzenler. Bu nedenle kesintiyi yapan mükellef ödediği tutarı hesaplanan
+      KDV'den indirebilir.
     celdiriciler:
-      A: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
-      C: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
-      D: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
-      E: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
+      A: Md. 29/1-ç, sorumlu sıfatıyla ödenen KDV'yi indirim kapsamına alır; yalnızca gider yazmak kanunun öngördüğü
+        sonuç değildir.
+      C: Sorumlu sıfatıyla ödeme hâlinde KDV satıcıya ödenmez, alıcı tarafından beyan edilip ödenir; indirimin şartı
+        satıcıya ödeme değildir.
+      D: KDV kurumlar vergisinden mahsup edilen bir vergi değildir; indirim KDV beyannamesinde yapılır.
+      E: İndirim, satıcıdan tahsile bağlanmamıştır; md. 29/1-ç beyan edilerek ödenen KDV'yi esas alır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
-    madde: md. 29/1
-    alinti: Mükellefler, yaptıkları vergiye tabi işlemler üzerinden hesaplanan katma değer vergisinden, bu Kanunda
-      aksine hüküm olmadıkça, faaliyetlerine ilişkin olarak aşağıdaki vergileri indirebilirler.
+    madde: md. 29/1-ç
+    alinti: Vergi kesintisi yapmakla sorumlu tutulanlar tarafından sorumlu sıfatıyla beyan edilerek ödenen katma
+      değer vergisi,
   gecerlilik:
     baslangic: '1985-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1243,8 +1304,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: doğru şık somutlaştırıldı (md.29/1-ç), çeldiriciler yeniden yazıldı, mutlak
+          ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1259,6 +1322,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: doğru şık somutlaştırıldı (md.29/1-ç), çeldiriciler yeniden yazıldı, mutlak ifadeler kaldırıldı'
 - id: SMMM-VER-KDV-0070
   sinav: smmm
   bolum:
@@ -1271,32 +1338,40 @@
   zorluk: 2
   kok: Mal iadesi nedeniyle işlem bedeli ve KDV değiştiğinde aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Matrah değişikliğinin KDV bakımından sonuçları ilgili düzeltme hükümlerine göre ele alınır.
-    B: KDV indirimi, kanundaki şartlar dışında otomatik ve koşulsuz olarak sürer.
-    C: Alış ve satış tarafındaki kayıtlar değişikliğe uygun biçimde düzeltilmelidir.
-    D: İade edilen malın fiilen işletmeye girmesi ve belgelendirilmesi önem taşıyabilir.
-    E: İndirim hakkı KDVK md. 29 çerçevesinde değerlendirilir.
+    A: Satıcı, iade nedeniyle borçlandığı vergiyi değişikliğin mahiyetine uygun şekilde düzeltir.
+    B: Düzeltme, malın işletmeye girişi aranmaksızın iade faturasının düzenlendiği dönemde yapılır.
+    C: Alıcı, indirme hakkı bulunan vergiyi değişikliğin vukubulduğu dönem içinde düzeltir.
+    D: İade edilen malların fiilen işletmeye girmiş olması, düzeltmenin yapılabilmesi için aranan şarttır.
+    E: İade edilen malların girişinin defter kayıtları ile beyannamede gösterilmesi gerekir.
   dogru: B
   aciklama:
-    dogru_neden: KDV indirimi kanundaki şartlara bağlıdır; bedel ve vergi değişikliği dikkate alınmadan koşulsuz
-      devam ettiği söylenemez.
+    dogru_neden: KDVK md. 35 uyarınca iade olunan malların fiilen işletmeye girmiş olması ve bu girişin defter kayıtları
+      ile beyannamede gösterilmesi şarttır. Bu şart aranmaksızın iade faturasının düzenlendiği dönemde düzeltme
+      yapılabileceği ifadesi yanlıştır.
     celdiriciler:
-      A: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
-      C: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
-      D: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
-      E: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
+      A: Md. 35'e göre vergiye tabi işlemi yapan mükellef borçlandığı vergiyi düzeltir; ifade doğrudur.
+      C: Md. 35'e göre işlemlere muhatap olan mükellef indirme hakkı bulunan vergiyi değişikliğin vukubulduğu dönem
+        içinde düzeltir; ifade doğrudur.
+      D: Fiilen işletmeye giriş md. 35'te açıkça aranan şarttır; ifade doğrudur.
+      E: Girişin defter kayıtları ve beyannamede gösterilmesi md. 35'te aranan şarttır; ifade doğrudur.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
-    madde: md. 29/1
-    alinti: Mükellefler, yaptıkları vergiye tabi işlemler üzerinden hesaplanan katma değer vergisinden, bu Kanunda
-      aksine hüküm olmadıkça
+    madde: md. 35
+    alinti: Malların iade edilmesi, işlemin gerçekleşmemesi, işlemden vazgeçilmesi veya sair sebeplerle matrahta
+      değişiklik vukubulduğu hallerde, vergiye tabi işlemleri yapmış olan mükellef bunlar için borçlandığı vergiyi
+      bu işlemlere muhatap olan mükellef ise indirme hakkı bulunan vergiyi değişikliğin mahiyetine uygun şekilde
+      ve değişikliğin vukubulduğu dönem içinde düzeltilir.
+  - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
+    madde: md. 35
+    alinti: Şu kadar ki, iade olunan malların fiilen işletmeye girmiş olması ve bu girişin defter kayıtları ile
+      beyannamede gösterilmesi şarttır.
   gecerlilik:
     baslangic: '1985-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1317,8 +1392,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler md.35''in gerçek şartlarını içeren doğru ifadeler olarak yeniden yazıldı;
+          yanlış ifade akla yatkın hale getirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1339,6 +1416,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler md.35''in gerçek şartlarını içeren doğru ifadeler olarak yeniden yazıldı; yanlış ifade
+      akla yatkın hale getirildi'
 - id: SMMM-VER-KDV-0071
   sinav: smmm
   bolum:
@@ -1432,38 +1514,35 @@
   kok: 3065 sayılı Katma Değer Vergisi Kanunu bakımından aşağıdaki işlemlerden hangisinin, işlem Türkiye dışında
     gerçekleştirildiği ve teslim anında mallar Türkiye'de bulunmadığı için **KDV'nin konusu dışında kaldığı** söylenebilir?
   secenekler:
-    A: Türkiye'de bir anonim şirketin ticari faaliyeti kapsamında makine teslim etmesi
-    B: Türkiye'de bulunan bir taşınmazın kira hakkının kiraya verilmesi
-    C: Türkiye'de bir müzayede mahallinde mal satılması
-    D: Türkiye'de bir şirketin serbest meslek faaliyeti kapsamında danışmanlık hizmeti sunması
+    A: Türk şirketinin, Türkiye'deki deposunda bulunan malı Almanya'daki müşteriye satması
+    B: Türkiye'de bir müzayede mahallinde mal satılması
+    C: Gelir Vergisi Kanununun 70 inci maddesinde belirtilen mal ve hakların Türkiye'de kiralanması
+    D: Türkiye'de profesyonel sanatçıların yer aldığı bir konserin tertiplenmesi
     E: Türk şirketinin, mallar teslim anında Almanya'da bulunurken Almanya'daki müşteriye mal teslim etmesi
   dogru: E
   aciklama:
-    dogru_neden: KDVK md. 6/a'ya göre malların teslim anında Türkiye'de bulunması Türkiye'de yapılma ölçütüdür.
-      E seçeneğinde mallar teslim anında Almanya'da olduğundan işlem Türkiye'de yapılmış sayılmaz.
+    dogru_neden: KDVK md. 6/a'ya göre malların teslim anında Türkiye'de bulunması, mal teslimlerinde Türkiye'de
+      yapılma ölçütüdür. E seçeneğinde mallar teslim anında Almanya'da olduğundan işlem Türkiye'de yapılmış sayılmaz
+      ve KDV'nin konusu dışında kalır.
     celdiriciler:
-      A: Ticari faaliyet çerçevesindeki teslim Türkiye'de yapıldığı için md. 1 kapsamındadır.
-      B: Mal ve hakların kiralanması md. 1/3-f kapsamında sayılmıştır.
-      C: Müzayede mahallindeki satışlar md. 1/3-d kapsamındadır.
-      D: Türkiye'de yapılan serbest meslek hizmeti md. 1/1 kapsamındadır.
+      A: Mal teslim anında Türkiye'dedir; işlem KDV konusuna girer, yalnızca ihracat teslimi olarak md. 11/1-a uyarınca
+        vergiden istisna edilir. İstisna ile konu dışı kalma aynı şey değildir.
+      B: Müzayede mahallerinde yapılan satışlar md. 1/3-d kapsamında KDV'ye tabidir.
+      C: Mal ve hakların kiralanması md. 1/3-f kapsamında KDV'ye tabidir.
+      D: Profesyonel sanatçıların yer aldığı gösteri ve konserlerin tertiplenmesi md. 1/3-c kapsamında KDV'ye tabidir.
   kaynaklar:
-  - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
-    madde: md. 1
-    alinti: "Türkiye'de yapılan aşağıdaki işlemler katma değer vergisine tabidir:\n        1. Ticari, sınai, zirai\
-      \ faaliyet ve serbest meslek faaliyeti çerçevesinde yapılan teslim ve\nhizmetler,\n        2. Her türlü mal\
-      \ ve hizmet ithalatı,\n        3. Diğer faaliyetlerden doğan teslim ve hizmetler:\n        a) Posta, telefon,\
-      \ telgraf, teleks ve bunlara benzer hizmetler ile radyo ve televizyon\nhizmetleri,\n        b) (Değişik: 14/3/2007-5602/10\
-      \ md.) Her türlü şans ve talih oyunlarının tertiplenmesi\nve oynanması,\n        c) Profesyonel sanatçıların\
-      \ yer aldığı göst"
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 6/a
     alinti: Malların teslim anında Türkiye'de bulunmasını,
+  - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
+    madde: md. 1
+    alinti: 'Türkiye''de yapılan aşağıdaki işlemler katma değer vergisine tabidir:'
   gecerlilik:
     baslangic: '1985-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1484,8 +1563,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler KDV kapsamındaki gerçekçi işlemlerle (özellikle istisna-konu dışı
+          karışıklığı) yenilendi; R3: kesik md.1 alıntısı kısaltıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1500,6 +1581,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler KDV kapsamındaki gerçekçi işlemlerle (özellikle istisna-konu dışı karışıklığı) yenilendi;
+      R3: kesik md.1 alıntısı kısaltıldı'
 - id: SMMM-VER-KDV-0073
   sinav: smmm
   bolum:
@@ -1770,10 +1856,11 @@
     beyan edip ödemiştir. Fatura kanuni defterlerine kaydedilmiştir. Bu KDV'nin indirim konusu yapılması bakımından
     aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Sorumlu sıfatıyla ödenen KDV hiçbir durumda indirilemez.
-    B: İndirim hakkı, faturanın kanuni defterlere kaydedilmesi nedeniyle tamamen ortadan kalkar.
-    C: Bu KDV yalnızca yıllık kurumlar vergisi beyannamesinde gider yazılabilir.
-    D: Ödeme yapılmış olsa bile KDV yalnızca satıcı tarafından indirim konusu yapılabilir.
+    A: Sorumlu sıfatıyla ödenen KDV, ödemenin yapıldığı dönemden önceki dönemlerin hesaplanan KDV'sinden indirilebilir.
+    B: Sorumlu sıfatıyla ödenen KDV ancak satıcının aynı tutarı kendi beyannamesinde gösterdiği tespit edilirse
+      indirilebilir.
+    C: Sorumlu sıfatıyla ödenen KDV Haziran 2026 döneminde indirilemez, yıllık beyannamede indirim konusu yapılır.
+    D: Sorumlu sıfatıyla ödenen KDV hesaplanan KDV'den indirilemez, ancak gider olarak kayda alınabilir.
     E: Sorumlu sıfatıyla beyan edilip ödenen KDV, mükellefin vergiye tabi işlemleri üzerinden hesaplanan KDV'den
       indirilebilir.
   dogru: E
@@ -1781,23 +1868,25 @@
     dogru_neden: KDVK md. 29/1-ç, vergi kesintisi yapmakla sorumlu tutulanlarca sorumlu sıfatıyla beyan edilerek
       ödenen KDV'nin indirilebileceğini açıkça düzenler.
     celdiriciler:
-      A: Kanun tam tersine, ödenen sorumlu sıfatındaki KDV'yi indirim kapsamına alır.
-      B: Kanuni deftere kayıt, md. 34 bakımından belge şartının bir parçasıdır; indirim hakkını ortadan kaldırmaz.
-      C: KDV'nin gider olarak yazılması kanundaki indirim hükmünün yerine geçmez.
-      D: İndirim hakkı, şartları taşıyan mükellefe aittir.
+      A: Md. 29/1-ç ödenen verginin geriye dönük dönemlere indirilmesini öngören bir hüküm içermez; indirim, kanundaki
+        esaslara göre yapılır.
+      B: Satıcının beyanı indirimin şartı değildir; sorumlu sıfatıyla vergiyi beyan edip ödeyen mükellef kendi adına
+        indirim yapabilir.
+      C: KDV indirimi, KDV beyannamesinde hesaplanan vergiden yapılır; yıllık beyannameye bırakılan bir indirim
+        yoktur.
+      D: Kanun, sorumlu sıfatıyla ödenen KDV'nin indirimini açıkça kabul eder; yalnızca gider yazılması kanunun
+        sonucu değildir.
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 29/1-ç
-    alinti: "sorumlu sıfatıyla beyan edilerek ödenen katma değer vergisi,\n         2. (Değişik: 25/12/2003-5035/9\
-      \ md.) Bir vergilendirme döneminde indirilecek katma\ndeğer vergisi toplamı, mükellefin vergiye tâbi işlemleri\
-      \ dolayısıyla hesaplanan katma değer\nvergisi toplamından fazla olduğu takdirde, aradaki fark sonraki dönemlere\
-      \ devrolunur ve iade\nedilmez. Şu k"
+    alinti: Vergi kesintisi yapmakla sorumlu tutulanlar tarafından sorumlu sıfatıyla beyan edilerek ödenen katma
+      değer vergisi,
   gecerlilik:
     baslangic: '2024-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1818,8 +1907,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler yakın uygulama hatalarıyla (geriye dönük indirim, satıcı beyanı,
+          gider yazma) yenilendi; kesik alıntı düzeltildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1837,6 +1928,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler yakın uygulama hatalarıyla (geriye dönük indirim, satıcı beyanı, gider yazma)
+      yenilendi; kesik alıntı düzeltildi'
 - id: SMMM-VER-KDV-0077
   sinav: smmm
   bolum:
@@ -2009,10 +2105,10 @@
   kazanim: istisnalar
   tip: hesaplama
   zorluk: 1
-  kok: Bir işletmenin yalnızca KDVK md. 32 kapsamında iade hakkı doğuran bir istisna işlemine ilişkin olarak yüklendiği
-    ve indirilemeyen KDV 70.000 TL'dir. Aynı dönemde vergiye tabi işlemler üzerinden hesaplanan KDV 45.000 TL'dir.
-    Bu istisna işlemiyle ilgili başka bir veri bulunmamaktadır. İndirilemeyen KDV'nin iade edilebilecek tutarı kaç
-    TL'dir?
+  kok: Bir işletme, KDVK md. 11 kapsamında ihracat istisnasına tabi işlemleri nedeniyle 70.000 TL KDV yüklenmiştir.
+    Aynı dönemde vergiye tabi işlemleri üzerinden hesaplanan KDV 45.000 TL'dir ve başka bir indirim konusu yoktur.
+    KDVK md. 32'ye göre yüklenilen KDV önce hesaplanan KDV'den indirilir; indirilemeyen kısım için iade talebi yapılmıştır.
+    İade edilebilecek tutar kaç TL'dir?
   secenekler:
     A: 0 TL
     B: 20.000 TL
@@ -2021,18 +2117,19 @@
     E: 70.000 TL
   dogru: C
   aciklama:
-    dogru_neden: KDVK md. 32, ilgili istisna işlemlerine ilişkin indirilemeyen KDV'nin, vergiye tabi işlemlerden
-      hesaplanan KDV'nin indirilecek vergiden az olması hâlinde iade edilebileceğini düzenler. 70.000 TL'nin 45.000
-      TL'si hesaplanan vergiyle karşılanabildiğinden 25.000 TL indirilemeyen tutar kalır.
+    dogru_neden: KDVK md. 32'ye göre ihracat istisnasıyla ilgili yüklenilen KDV önce hesaplanan KDV'den indirilir;
+      hesaplanan verginin indirilecek vergiden az olması hâlinde indirilemeyen KDV iade olunur. 70.000 TL'nin 45.000
+      TL'si hesaplanan KDV'den indirilir, 25.000 TL iade edilebilir.
     celdiriciler:
-      A: İstisna işleminde iade hakkı bulunduğu için tutar sıfır değildir.
-      B: 70.000 - 45.000 = 25.000 TL'dir.
-      D: 45.000 TL hesaplanan KDV'dir; iade edilemeyen bakiye değildir.
-      E: 70.000 TL toplam yüklenilen/indirilemeyen tutardır; tamamı değil, kalan kısmı iade konusu olur.
+      A: İhracat istisnası nedeniyle yüklenilen ve indirilemeyen KDV md. 32 gereği iade edilir; iade hakkı bulunmaktadır.
+      B: 20.000 TL, iade tutarının (25.000 TL) hesaplanan KDV'den (45.000 TL) çıkarılmasıyla bulunur; iade tutarı
+        bu çıkarmayla belirlenmez.
+      D: 45.000 TL hesaplanan KDV'dir; iade edilecek tutar yüklenilen KDV'nin indirilemeyen kısmıdır.
+      E: 70.000 TL yüklenilen KDV'dir; bu tutarın hesaplanan KDV'den indirilen kısmı iade edilmez.
     hesap_adimlari:
-    - 'İndirilemeyen KDV: 70.000 TL.'
-    - 'Hesaplanan KDV: 45.000 TL.'
-    - İade konusu bakiye = 70.000 - 45.000 = 25.000 TL.
+    - Yüklenilen KDV = 70.000 TL
+    - Hesaplanan KDV'den indirilen kısım = 45.000 TL
+    - İade edilebilecek tutar = 70.000 - 45.000 = 25.000 TL
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 32
@@ -2054,7 +2151,7 @@
   dogrulama:
     python: sonuc = 70000 - 45000
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2074,8 +2171,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: belirsiz ''indirilemeyen KDV'' ifadesi netleştirildi (yüklenilen KDV, önce hesaplanandan
+          indirim); çeldiriciler tipik hata sonuçlarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2090,6 +2189,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: belirsiz ''indirilemeyen KDV'' ifadesi netleştirildi (yüklenilen KDV, önce hesaplanandan indirim);
+      çeldiriciler tipik hata sonuçlarıyla yenilendi'
 - id: SMMM-VER-KDV-0080
   sinav: smmm
   bolum:
@@ -2659,22 +2763,24 @@
   kok: Katma değer vergisinin sorumlu sıfatıyla ödenmesi ile belgesiz mal veya hizmet alımının vergilendirilmesi
     bakımından aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Her iki durumda da vergi mutlaka satıcı adına tarh edilir.
-    B: Sorumlu sıfatıyla ödeme yalnız ithalat işlemlerinde uygulanır.
-    C: Belgesiz alımda alıcıya hiçbir vergi yükümlülüğü doğmaz.
-    D: Sorumlu sıfatıyla ödenen KDV hiçbir durumda indirilemez.
-    E: Vergi kesintisi yapmakla sorumlu tutulanlarca sorumlu sıfatıyla beyan edilip ödenen KDV indirim konusu yapılabilir;
-      belgesiz mal veya hizmet alımında ise kanundaki özel düzenleme uyarınca vergi alıcıdan aranabilir.
+    A: Sorumlu sıfatıyla ödenen KDV indirilebilir; belgesiz mal bulunduran mükelleften ise ziyaa uğratılan KDV aranmaz.
+    B: Sorumlu sıfatıyla ödenen KDV indirim konusu yapılamaz; belgesiz alımda ziyaa uğratılan KDV satıcıdan aranır.
+    C: Sorumlu sıfatıyla KDV ödeyen mükellef ile belgesiz mal alan mükellef, KDV bakımından sorumlu tutulmaz.
+    D: Belgesiz hizmet alımında KDV aranır, ancak alış belgelerini ibraz için mükellefe süre tanınmaz.
+    E: Sorumlu sıfatıyla beyan edilip ödenen KDV indirilebilir; belgesiz alımda ziyaa uğratılan KDV alım yapan mükelleften
+      aranır.
   dogru: E
   aciklama:
-    dogru_neden: KDVK md.29/1-ç sorumlu sıfatıyla beyan edilip ödenen KDV’nin indirilebileceğini açıkça düzenler.
-      Md.9/2 ise belgesiz mal veya hizmet alımında, şartları oluştuğunda, alış nedeniyle zayi edilen KDV’nin alıcıdan
-      aranmasını düzenler.
+    dogru_neden: KDVK md. 29/1-ç sorumlu sıfatıyla beyan edilip ödenen KDV'nin indirilebileceğini açıkça düzenler.
+      Md. 9/2 ise belgesiz mal bulundurulması veya belgesiz hizmet satın alınması hâlinde ziyaa uğratılan KDV'nin
+      belgesiz alım yapan mükelleften aranacağını hükme bağlar.
     celdiriciler:
-      A: İki mekanizmayı da satıcıya bağlar.
-      B: Sorumluluk mekanizmasını yalnız ithalata sınırlar.
-      C: Belgesiz alımda alıcı sorumluluğunu yok sayar.
-      D: Sorumlu sıfatıyla ödenen KDV’nin indirimini yanlışlar.
+      A: Md. 9/2 belgesiz mal bulunduran mükelleften ziyaa uğratılan KDV'nin aranmasını öngörür; aranmaz demek hükme
+        aykırıdır.
+      B: Md. 29/1-ç sorumlu sıfatıyla ödenen KDV'yi indirim kapsamına alır; belgesiz alımda vergi de alıcıdan aranır.
+      C: 'Her iki durumda da mükellef sorumlu tutulur: sorumlu sıfatıyla ödeme md. 9/1 ve 29/1-ç ile, belgesiz alım
+        md. 9/2 ile düzenlenmiştir.'
+      D: Md. 9/2'ye göre belgesiz mal veya hizmet alan mükellefe alış belgelerini ibraz için 10 günlük süre verilir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
@@ -2693,7 +2799,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2714,8 +2820,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler iki hükmün (md.29/1-ç ve md.9/2) yakın yanlış birleşimleriyle
+          yenilendi, mutlak ifadeler kaldırıldı; uzunluk dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2730,6 +2838,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler iki hükmün (md.29/1-ç ve md.9/2) yakın yanlış birleşimleriyle yenilendi, mutlak
+      ifadeler kaldırıldı; uzunluk dengelendi'
 - id: SMMM-VER-KDV-0087
   sinav: smmm
   bolum:
@@ -2913,20 +3026,20 @@
   zorluk: 1
   kok: Bir hizmetin Türkiye’de yapılmış sayılmasında KDVK md. 6’ya göre aşağıdaki ölçütlerden hangisi esas alınır?
   secenekler:
-    A: Yalnız hizmeti verenin vatandaşlığı
-    B: Hizmetin Türkiye’de yapılması veya hizmetten Türkiye’de faydalanılması
-    C: Yalnız faturanın yabancı para ile düzenlenmesi
-    D: Hizmeti alanın şirket büyüklüğü
-    E: Sözleşmenin noter onaylı olması
+    A: Hizmeti veren firmanın Türkiye'de vergi mükellefi olması
+    B: Hizmetin Türkiye'de yapılması veya hizmetten Türkiye'de faydalanılması
+    C: Hizmete ilişkin faturanın Türkiye'de düzenlenmiş olması
+    D: Hizmeti alan işletmenin ikametgâhının Türkiye'de bulunması
+    E: Hizmet bedelinin Türk lirası cinsinden ödenmiş olması
   dogru: B
   aciklama:
-    dogru_neden: KDVK md. 6/b, hizmetin Türkiye’de yapılmasını veya hizmetten Türkiye’de faydalanılmasını ölçüt
-      alır.
+    dogru_neden: KDVK md. 6/b, hizmetin Türkiye'de yapılmasını veya hizmetten Türkiye'de faydalanılmasını Türkiye'de
+      yapılma ölçütü olarak kabul eder.
     celdiriciler:
-      A: Vatandaşlık ölçüt değildir.
-      C: Fatura para birimi belirleyici değildir.
-      D: Şirket büyüklüğü ölçüt değildir.
-      E: Noter onayı şartı yoktur.
+      A: Hizmeti verenin Türkiye'de mükellef olması md. 6/b'de ölçüt değildir.
+      C: Faturanın düzenlendiği yer md. 6/b'de ölçüt değildir.
+      D: Hizmeti alanın ikametgâhı md. 6/b'de ölçüt değildir; ölçüt faydalanmanın Türkiye'de olmasıdır.
+      E: Ödeme para birimi md. 6/b'de ölçüt değildir.
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 6/b
@@ -2940,7 +3053,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2961,8 +3074,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler mutlak ifadesiz, akla yatkın kavram karışıklıklarıyla yenilendi;
+          uzunluklar dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2977,6 +3092,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler mutlak ifadesiz, akla yatkın kavram karışıklıklarıyla yenilendi; uzunluklar dengelendi'
 - id: SMMM-VER-KDV-0090
   sinav: smmm
   bolum:
@@ -2987,36 +3106,36 @@
   kazanim: ihraç kaydıyla teslim
   tip: kavrama
   zorluk: 2
-  kok: İmalatçı, ihracatçıya ihraç edilmek şartıyla teslim yaptığı için teslimde hesaplanan KDV ihracatçıdan tahsil
-    edilmemiştir. İhracatçı malı süresinde ihraç ederse hangi sonuç doğar?
+  kok: İmalatçının, ihraç edilmek şartıyla ihracatçıya yaptığı teslimde tecil edilen KDV'nin terkin edilebilmesi
+    için malların, ihracatçıya teslim tarihini takip eden ay başından itibaren en geç kaç ay içinde ihraç edilmesi
+    gerekir? (Ek süre ve mücbir sebep hâlleri dikkate alınmayacaktır.)
   secenekler:
-    A: Teslim baştan itibaren KDV’nin konusu dışındadır.
-    B: İhracatçıya teslimde KDV hiç hesaplanmaz.
-    C: İhracatçı imalatçının yerine kurumlar vergisi öder.
-    D: İmalatçı tarafından hesaplanan KDV tecil-terkin hükümlerine konu olabilir.
-    E: İmalatçı her durumda KDV’yi ihracatçıdan tahsil eder.
+    A: 15 gün
+    B: 1 ay
+    C: 2 ay
+    D: 3 ay
+    E: 6 ay
   dogru: D
   aciklama:
-    dogru_neden: KDVK md. 11/1-c ihraç kaydıyla teslimde hesaplanan KDV’nin tecil-terkin mekanizmasını düzenler.
+    dogru_neden: KDVK md. 11/1-c uyarınca malların, ihracatçıya teslim tarihini takip eden ay başından itibaren
+      3 ay içinde ihraç edilmesi hâlinde tecil edilen vergi terkin olunur.
     celdiriciler:
-      A: Teslim KDV’nin konusu dışına çıkmaz.
-      B: KDV hesaplanır ancak tahsil/terkin özel kurala tabidir.
-      C: Kurumlar vergisi bu düzenlemenin konusu değildir.
-      E: Tahsil edilmeme mekanizmanın özelliğidir.
+      A: 15 gün, mücbir sebep veya beklenmedik durum hâlinde ek süre için başvuru süresidir; ihracat süresi değildir.
+      B: Kanun 1 aylık bir ihracat süresi öngörmez; süre 3 aydır.
+      C: Kanun 2 aylık bir ihracat süresi öngörmez; süre 3 aydır.
+      E: 6 ay, 3 aylık sürenin üç aya kadar ek süreyle uzatılması hâlinde ulaşılabilecek toplam süredir; kural olarak
+        ihracat süresi 3 aydır.
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 11/1-c
-    alinti: "m ve hizmetler vergiden müstesnadır:\n        a) (Değişik: 4/6/2008-5766/12 md.) İhracat teslimleri\
-      \ ve bu teslimlere ilişkin\nhizmetler, yurt dışındaki müşteriler için yapılan hizmetler, serbest bölgelerdeki\
-      \ müşteriler için\nyapılan fason hizmetler ve karşılıklı olmak şartıyla uluslararası roaming anlaşmaları\n\
-      çerçevesinde yurt dışındaki müşteriler için Türkiye'de verilen roaming hizmetleri,\n        b) Türkiye'de\
-      \ ikamet etmeyen yolcuların satın alarak Türkiye dışına götürdükleri\nmalların teslimi anı"
+    alinti: Söz konusu malların, ihracatçıya teslim tarihini takip eden ay başından itibaren 3 ay içinde ihraç edilmesi
+      halinde, tecil edilen vergi terkin olunur.
   gecerlilik:
     baslangic: '2000-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3037,8 +3156,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: kök süre sorusuna çevrildi, çeldiriciler yakın süre değerleriyle yenilendi;
+          R3: md.11/1-c alıntısı doğru metinle değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3059,6 +3180,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: kök süre sorusuna çevrildi, çeldiriciler yakın süre değerleriyle yenilendi; R3: md.11/1-c alıntısı
+      doğru metinle değiştirildi'
 - id: SMMM-VER-KDV-0091
   sinav: smmm
   bolum:
@@ -3074,19 +3200,20 @@
     hesaplanan KDV. Doğru eşleştirme hangisidir?'
   secenekler:
     A: 'I: indirim konusu olabilir; II: düzeltme yapılır; III: hesaplanan vergidir.'
-    B: 'I: hiçbir koşulda indirilemez; II: satıcı düzeltmez; III: indirilecek vergidir.'
-    C: 'I: hesaplanan vergidir; II: işlem etkisizdir; III: devreden vergidir.'
-    D: 'I: iade vergisidir; II: istisna sayılır; III: indirilecek vergidir.'
-    E: Üçü de yalnızca sorumlu sıfatıyla beyan edilir.
+    B: 'I: indirim konusu olabilir; II: etkisiz sayıldığından düzeltme yapılmaz; III: hesaplanan vergidir.'
+    C: 'I: indirim konusu olamaz; II: düzeltme yapılır; III: hesaplanan vergidir.'
+    D: 'I: indirim konusu olabilir; II: düzeltme yapılır; III: indirilecek vergidir.'
+    E: 'I: hesaplanan vergidir; II: düzeltme yapılır; III: indirim konusu olabilir.'
   dogru: A
   aciklama:
-    dogru_neden: KDVK md. 29, faaliyete ilişkin alış faturalarında gösterilen KDV’nin indirimini düzenler; iade
-      nedeniyle matrah değişikliğinde ilgili dönemde düzeltme hükümleri uygulanır.
+    dogru_neden: KDVK md. 29/1, faaliyete ilişkin alış faturasında gösterilen KDV'nin indirimini düzenler (I). İade
+      nedeniyle matrah değişikliğinde md. 35 uyarınca ilgili dönemde düzeltme yapılır (II). Vergiye tabi işlemler
+      üzerinden hesaplanan KDV ise hesaplanan vergidir (III).
     celdiriciler:
-      B: İade ve matrah değişikliği düzeltmesiz bırakılamaz.
-      C: Hesaplanan KDV ile indirilecek KDV ters çevrilmiştir.
-      D: İade tek başına istisna değildir.
-      E: Her işlem sorumlu sıfatıyla beyan değildir.
+      B: İade nedeniyle matrah değişikliğinde md. 35 gereği düzeltme yapılır; işlem etkisiz sayılamaz.
+      C: Faaliyete ilişkin alış faturasındaki KDV md. 29/1-a gereği indirim konusu olabilir.
+      D: Vergiye tabi işlemler üzerinden hesaplanan KDV hesaplanan vergidir; indirilecek vergi alışlara ait KDV'dir.
+      E: Alış faturasındaki KDV hesaplanan vergi değil indirilecek vergidir; hesaplanan KDV ise satışlara ilişkindir.
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 29/1
@@ -3099,7 +3226,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3120,8 +3247,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: çeldiriciler doğru eşleştirmeden tek noktada ayrılan akla yatkın varyantlarla
+          yenilendi, mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3136,6 +3265,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: çeldiriciler doğru eşleştirmeden tek noktada ayrılan akla yatkın varyantlarla yenilendi, mutlak
+      ifadeler kaldırıldı'
 - id: SMMM-VER-KDV-0092
   sinav: smmm
   bolum:
@@ -3224,35 +3358,39 @@
   kazanim: verginin konusu ve Türkiye’de yapılma
   tip: kavrama
   zorluk: 2
-  kok: Yurt dışında sunulan bir danışmanlık hizmetinden Türkiye’deki müşteri Türkiye’de faydalanmaktadır. KDVK md.
-    6’ya göre hizmet Türkiye’de yapılmış sayılır mı?
+  kok: Aşağıdaki ifadelerden hangileri KDVK md. 6'ya göre doğrudur? I. Hizmet yurt dışında yapılsa bile hizmetten
+    Türkiye'de faydalanılıyorsa işlem Türkiye'de yapılmış sayılır. II. Mal teslimlerinde ölçüt, malın teslim anında
+    Türkiye'de bulunmasıdır. III. Hizmetlerde ölçüt, hizmeti verenin yerleşik olduğu yerdir.
   secenekler:
-    A: Hayır; hizmetin fiziksel olarak Türkiye’de sunulması şarttır.
-    B: Evet; hizmetten Türkiye’de faydalanılması yeterlidir.
-    C: Hayır; yalnız hizmet sağlayıcının vatandaşlığı belirleyicidir.
-    D: Evet; yalnız müşteri yabancıysa.
-    E: Hayır; hizmetlerde yer ölçütü uygulanmaz.
+    A: I
+    B: I ve II
+    C: I ve III
+    D: II ve III
+    E: I, II ve III
   dogru: B
   aciklama:
-    dogru_neden: KDVK md. 6/b, hizmetin Türkiye’de yapılmasını veya hizmetten Türkiye’de faydalanılmasını Türkiye’de
-      yapılma ölçütü sayar.
+    dogru_neden: KDVK md. 6/a mal teslimlerinde malın teslim anında Türkiye'de bulunmasını (II), md. 6/b ise hizmetin
+      Türkiye'de yapılmasını veya hizmetten Türkiye'de faydalanılmasını (I) ölçüt alır. Hizmeti verenin yerleşim
+      yeri bir ölçüt değildir (III).
     celdiriciler:
-      A: Kanun iki alternatif ölçüt kullanır.
-      C: Vatandaşlık tek başına belirleyici değildir.
-      D: Müşterinin yabancı olması tek ölçüt değildir.
-      E: Hizmetler için açık yer ölçütü vardır.
+      A: II numaralı ifade de doğrudur; md. 6/a mal teslimlerinde teslim anında malın Türkiye'de bulunmasını ölçüt
+        alır.
+      C: III numaralı ifade yanlıştır; hizmetlerde ölçüt hizmeti verenin yerleşim yeri değil, hizmetin yapıldığı
+        yer veya faydalanılan yerdir.
+      D: I numaralı ifade doğru olduğu hâlde bu şıkta yer almamış, yanlış olan III bulunmaktadır.
+      E: III numaralı ifade yanlış olduğundan üçünün birlikte doğru olduğu söylenemez.
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
-    madde: md. 6/b
-    alinti: "Madde 6 – İşlemlerin Türkiye'de yapılması:\n       a) Malların teslim anında Türkiye'de bulunmasını,\n\
-      \       b) (Değişik : 27/1/2000 - 4503/3 md.) Hizmetin Türkiye'de yapılmasını veya\nhizmetten Türkiye'de faydalanılmasını,\n\
-      \       İfade eder."
+    madde: md. 6
+    alinti: 'İşlemlerin Türkiye''de yapılması: a) Malların teslim anında Türkiye''de bulunmasını, b) (Değişik :
+      27/1/2000 - 4503/3 md.) Hizmetin Türkiye''de yapılmasını veya hizmetten Türkiye''de faydalanılmasını, İfade
+      eder.'
   gecerlilik:
     baslangic: '1953-07-28'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3273,8 +3411,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: soru üç ifadeli kavrama sorusuna çevrildi (md.6/a ve 6/b birlikte), çeldiriciler
+          önerme kombinasyonlarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3289,6 +3429,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: soru üç ifadeli kavrama sorusuna çevrildi (md.6/a ve 6/b birlikte), çeldiriciler önerme kombinasyonlarıyla
+      yenilendi'
 - id: SMMM-VER-KDV-0094
   sinav: smmm
   bolum:
@@ -3301,20 +3446,21 @@
   zorluk: 1
   kok: KDVK md. 11/1-a kapsamında aşağıdaki işlemlerden hangisi açıkça istisna edilenler arasında sayılmıştır?
   secenekler:
-    A: Yurt içindeki bütün perakende satışlar
-    B: Türkiye’deki bütün taşınmaz kiraları
-    C: Her türlü ücret ödemesi
-    D: Her tür kamu hizmeti
+    A: Türkiye'de ikamet etmeyen yolcuların satın alarak Türkiye dışına götürdükleri malların teslimi
+    B: İhraç edilmek şartıyla imalatçılar tarafından ihracatçılara yapılan mal teslimleri
+    C: Diplomatik organ ve misyonlara yapılan teslim ve hizmetler
+    D: Banka ve sigorta muameleleri vergisine tabi işlemler
     E: İhracat teslimleri ve bu teslimlere ilişkin hizmetler
   dogru: E
   aciklama:
-    dogru_neden: KDVK md. 11/1-a, ihracat teslimleri ve bu teslimlere ilişkin hizmetleri açıkça istisna edilen işlemler
+    dogru_neden: KDVK md. 11/1-a, ihracat teslimleri ve bu teslimlere ilişkin hizmetleri vergiden müstesna işlemler
       arasında sayar.
     celdiriciler:
-      A: Bütün perakende satışlar genel istisna değildir.
-      B: Bütün taşınmaz kiraları bu bentte sayılmaz.
-      C: Ücret ödemeleri bu bentte sayılmaz.
-      D: Her tür kamu hizmeti bu bentte yer almaz.
+      A: Yolculara yapılan teslim md. 11/1-b'de düzenlenmiştir, md. 11/1-a'da değil.
+      B: İhraç kaydıyla teslim md. 11/1-c'de düzenlenmiştir, md. 11/1-a'da değil.
+      C: Diplomatik organ ve misyonlara yapılan teslimler ayrı bir maddede (md. 15) düzenlenmiştir.
+      D: Banka ve sigorta muameleleri vergisine tabi işlemler md. 17'deki istisnalar arasındadır, md. 11/1-a'da
+        değil.
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: md. 11/1-a
@@ -3327,7 +3473,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3348,8 +3494,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: çeldiriciler başka bentlerde/maddelerde düzenlenen istisnalarla yenilendi (bent
+          karıştırma); uzunluk dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3370,3 +3518,8 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: çeldiriciler başka bentlerde/maddelerde düzenlenen istisnalarla yenilendi (bent karıştırma);
+      uzunluk dengelendi'

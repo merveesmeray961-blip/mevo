@@ -8,30 +8,34 @@
   kazanim: ağırlıklı ortalama sermaye maliyeti
   tip: uygulama
   zorluk: 3
-  kok: 'Bir işletmenin sermaye yapısı %40 borç ve %60 öz kaynaktan oluşmaktadır. Borcun vergi öncesi maliyeti %12, kurumlar
-    vergisi oranı %20 ve öz kaynak maliyeti %18''dir. Buna göre işletmenin ağırlıklı ortalama sermaye maliyeti (AOSM/WACC)
-    nedir?
-
-    '
+  kok: Bir işletmenin sermaye yapısı %40 borç ve %60 öz kaynaktan oluşmaktadır. Borcun vergi öncesi maliyeti %12,
+    kurumlar vergisi oranı %20 varsayılmıştır ve öz kaynak maliyeti %18'dir. Buna göre işletmenin ağırlıklı ortalama
+    sermaye maliyeti (AOSM/WACC) nedir?
   secenekler:
     A: '%12,96'
     B: '%14,64'
-    C: '%13,44'
+    C: '%15,00'
     D: '%15,60'
-    E: '%11,52'
+    E: '%16,56'
   dogru: B
   aciklama:
-    dogru_neden: 'WACC = (Borç ağırlığı × Borç maliyeti × (1 − Vergi)) + (Öz kaynak ağırlığı × Öz kaynak maliyeti) = 0,40
-      × 0,12 × (1 − 0,20) + 0,60 × 0,18 = 0,40 × 0,096 + 0,60 × 0,18 = 0,0384 + 0,1080 = 0,1464 → %14,64. Borcun vergi sonrası
-      maliyeti %12 × 0,80 = %9,6 olarak hesaplanır; öz kaynak maliyeti ise %18 olarak verilmiştir. Ağırlıklı ortalama bu değerleri
-      birleştirir.
-
-      '
+    dogru_neden: WACC = (Borç ağırlığı × Borç maliyeti × (1 − Vergi)) + (Öz kaynak ağırlığı × Öz kaynak maliyeti)
+      = 0,40 × 0,12 × (1 − 0,20) + 0,60 × 0,18 = 0,40 × 0,096 + 0,60 × 0,18 = 0,0384 + 0,1080 = 0,1464 → %14,64.
+      Borcun vergi sonrası maliyeti %12 × 0,80 = %9,6 olarak hesaplanır; öz kaynak maliyeti ise %18 olarak verilmiştir.
+      Ağırlıklı ortalama bu değerleri birleştirir.
     celdiriciler:
-      A: Vergi kalkanı gözetilmeden borç maliyeti %12 olarak kullanıldığında bulunan hatalı değerdir.
-      C: Vergi oranı yanlış uygulandığında çıkan ara değerdir.
-      D: Borç ve öz kaynak maliyetleri doğrudan ortalamasına alındığında ulaşılan sonuçtur.
-      E: Ağırlıklar ters atanarak hesaplama yapıldığında elde edilen hatalı değerdir.
+      A: 'Ağırlıklar ters atanmıştır: 0,60 × 9,6 + 0,40 × 18 = %12,96; oysa borç ağırlığı 0,40, özkaynak ağırlığı
+        0,60''tır.'
+      C: 'Vergi öncesi maliyetlerin basit ortalaması alınmıştır: (12 + 18) / 2 = %15; ağırlıklandırma ve vergi kalkanı
+        yapılmamıştır.'
+      D: 'Borcun vergi kalkanı ihmal edilmiştir: 0,40 × 12 + 0,60 × 18 = 4,8 + 10,8 = %15,60.'
+      E: 'Vergi etkisi yanlış yönde uygulanmıştır: borç maliyeti 12 × (1 + 0,20) = %14,4 alınmış, 0,40 × 14,4 +
+        10,8 = %16,56 bulunmuştur.'
+    hesap_adimlari:
+    - 'Vergi sonrası borç maliyeti: 12 × (1 − 0,20) = %9,6'
+    - 'Borç payı: 0,40 × 9,6 = 3,84'
+    - 'Özkaynak payı: 0,60 × 18 = 10,80'
+    - AOSM = 3,84 + 10,80 = %14,64
   kaynaklar:
   - mevzuat: Genel bilgi — Sermaye maliyeti ve sermaye yapısı
     madde: '-'
@@ -39,7 +43,7 @@
     baslangic: '2026-10-11'
     bitis: '2027-10-10'
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: None'
@@ -59,8 +63,9 @@
         sonuc: bekliyor
       G5:
         sonuc: gecti
-        tarih: '2026-10-13'
-        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R2: oran varsayım olarak belirtildi; R4/sıralama: sayısal şıklar küçükten büyüğe sıralandı,
+          çeldiriciler tipik hatalara göre yenilendi (doğru harf B korundu)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -73,6 +78,13 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R2: oran varsayım olarak belirtildi; R4/sıralama: sayısal şıklar küçükten büyüğe sıralandı, çeldiriciler
+      tipik hatalara göre yenilendi (doğru harf B korundu)'
+  dogrulama:
+    python: sonuc = round(0.40*12*(1-0.20) + 0.60*18, 2)
 - id: YMM-FYN-SMR-0064
   sinav: ymm
   bolum:
@@ -83,9 +95,9 @@
   kazanim: finansal kaldıraç
   tip: uygulama
   zorluk: 3
-  kok: 'Şirket A %20 borç / %80 öz kaynak, Şirket B ise %60 borç / %40 öz kaynak oranıyla finanse edilmektedir. Her iki şirketin
-    faiz ve vergi öncesi kârı (FVÖK) eşittir. Yukarıdaki bilgilere göre finansal kaldıraç açısından aşağıdaki yargılardan
-    hangisi doğrudur?
+  kok: 'Şirket A %20 borç / %80 öz kaynak, Şirket B ise %60 borç / %40 öz kaynak oranıyla finanse edilmektedir.
+    Her iki şirketin faiz ve vergi öncesi kârı (FVÖK) eşittir. Yukarıdaki bilgilere göre finansal kaldıraç açısından
+    aşağıdaki yargılardan hangisi doğrudur?
 
     '
   secenekler:
@@ -96,9 +108,9 @@
     E: Finansal kaldıraç yalnızca öz kaynak ağırlıklı şirketlerde görülür.
   dogru: C
   aciklama:
-    dogru_neden: 'Şirket B daha fazla borç kullandığından faiz giderleri daha yüksektir; ancak aynı zamanda finansal kaldıraç
-      etkisi de daha güçlüdür. FVÖK arttığında Şirket B''nin hisse başına kârındaki artış orantısal olarak Şirket A''dan daha
-      büyük olur; bu finansal kaldıraç etkisidir.
+    dogru_neden: 'Şirket B daha fazla borç kullandığından faiz giderleri daha yüksektir; ancak aynı zamanda finansal
+      kaldıraç etkisi de daha güçlüdür. FVÖK arttığında Şirket B''nin hisse başına kârındaki artış orantısal olarak
+      Şirket A''dan daha büyük olur; bu finansal kaldıraç etkisidir.
 
       '
     celdiriciler:
@@ -134,8 +146,8 @@
       G5:
         sonuc: kaldi
         tarih: '2026-10-13'
-        not: Sermaye büyüklüğü/borç maliyeti ve getiri koşulu verilmemiş; 'daha fazla yararlanır' olumlu kaldıraç koşuluna
-          bağlı, yoruma açık
+        not: Sermaye büyüklüğü/borç maliyeti ve getiri koşulu verilmemiş; 'daha fazla yararlanır' olumlu kaldıraç
+          koşuluna bağlı, yoruma açık
       G6:
         sonuc: bekliyor
       GZ:
@@ -147,8 +159,8 @@
   - tarih: '2026-10-13'
     kim: hakem
     ne: 'durum: taslak → geri_cekildi'
-    neden: Sermaye büyüklüğü/borç maliyeti ve getiri koşulu verilmemiş; 'daha fazla yararlanır' olumlu kaldıraç koşuluna bağlı,
-      yoruma açık
+    neden: Sermaye büyüklüğü/borç maliyeti ve getiri koşulu verilmemiş; 'daha fazla yararlanır' olumlu kaldıraç
+      koşuluna bağlı, yoruma açık
 - id: YMM-FYN-SMR-0065
   sinav: ymm
   bolum:
@@ -170,8 +182,8 @@
     E: Beta × Piyasa getirisi − Risksiz faiz oranı
   dogru: A
   aciklama:
-    dogru_neden: 'CAPM formülü: E(Ri) = Rf + βi × (Rm − Rf). Risksiz faiz oranına, betanın piyasa risk primiyle çarpımı eklenerek
-      beklenen getiri bulunur.
+    dogru_neden: 'CAPM formülü: E(Ri) = Rf + βi × (Rm − Rf). Risksiz faiz oranına, betanın piyasa risk primiyle
+      çarpımı eklenerek beklenen getiri bulunur.
 
       '
     celdiriciler:
@@ -241,8 +253,8 @@
     E: Finansal kaldıraç, sabit finansman giderlerinin varlığından kaynaklanır.
   dogru: C
   aciklama:
-    dogru_neden: 'Yüksek finansal kaldıraç, FVÖK''ün sabit borç faizini karşılayamaması durumunda zarara yol açar; her koşulda
-      fayda sağladığı iddiası yanlıştır.
+    dogru_neden: 'Yüksek finansal kaldıraç, FVÖK''ün sabit borç faizini karşılayamaması durumunda zarara yol açar;
+      her koşulda fayda sağladığı iddiası yanlıştır.
 
       '
     celdiriciler:
@@ -278,7 +290,8 @@
       G5:
         sonuc: kaldi
         tarih: '2026-10-13'
-        not: 'düzey düşük: tek adımlı tanım/kural sorusu, YMM düzeyinin altında; ''her koşulda'' ifadesi cevabı ele veriyor'
+        not: 'düzey düşük: tek adımlı tanım/kural sorusu, YMM düzeyinin altında; ''her koşulda'' ifadesi cevabı
+          ele veriyor'
       G6:
         sonuc: bekliyor
       GZ:
@@ -290,7 +303,8 @@
   - tarih: '2026-10-13'
     kim: hakem
     ne: 'durum: taslak → geri_cekildi'
-    neden: 'düzey düşük: tek adımlı tanım/kural sorusu, YMM düzeyinin altında; ''her koşulda'' ifadesi cevabı ele veriyor'
+    neden: 'düzey düşük: tek adımlı tanım/kural sorusu, YMM düzeyinin altında; ''her koşulda'' ifadesi cevabı ele
+      veriyor'
 - id: YMM-FYN-SMR-0067
   sinav: ymm
   bolum:
@@ -301,8 +315,8 @@
   kazanim: optimal sermaye yapısı
   tip: uygulama
   zorluk: 2
-  kok: 'Bir şirkette AOSM %12, borç maliyeti (vergi sonrası) %7 ve öz sermaye maliyeti %16''dır. Borç/öz sermaye oranı %50/%50
-    ise aşağıdaki ifadelerden hangisi doğrudur?
+  kok: 'Bir şirkette AOSM %12, borç maliyeti (vergi sonrası) %7 ve öz sermaye maliyeti %16''dır. Borç/öz sermaye
+    oranı %50/%50 ise aşağıdaki ifadelerden hangisi doğrudur?
 
     '
   secenekler:
@@ -313,14 +327,16 @@
     E: Vergi sonrası borç maliyeti vergi kalkanının varlığını gösterir.
   dogru: E
   aciklama:
-    dogru_neden: 'Borç faiz ödemeleri vergiden düşülebildiği için vergi sonrası borç maliyeti brüt faiz oranından düşüktür;
-      bu, vergi kalkanı (tax shield) etkisinin göstergesidir.
+    dogru_neden: 'Borç faiz ödemeleri vergiden düşülebildiği için vergi sonrası borç maliyeti brüt faiz oranından
+      düşüktür; bu, vergi kalkanı (tax shield) etkisinin göstergesidir.
 
       '
     celdiriciler:
-      A: 0,5×%7 + 0,5×%16 = %11,5; fark yuvarlama ya da piyasa değeri ağırlıklarından kaynaklanabilir; hata iddiası yanlıştır.
+      A: 0,5×%7 + 0,5×%16 = %11,5; fark yuvarlama ya da piyasa değeri ağırlıklarından kaynaklanabilir; hata iddiası
+        yanlıştır.
       B: Optimal sermaye yapısı AOSM'yi MİNİMİZE ederek firma değerini maksimize etmeyi hedefler.
-      C: Borç oranı arttıkça finansal risk de artar; bir noktadan sonra yatırımcılar daha yüksek getiri ister ve AOSM yükselebilir.
+      C: Borç oranı arttıkça finansal risk de artar; bir noktadan sonra yatırımcılar daha yüksek getiri ister ve
+        AOSM yükselebilir.
       D: Öz sermaye maliyeti (%16) borç maliyetinden (%7) yüksektir; ifade tam tersi bir hata içermektedir.
   kaynaklar:
   - mevzuat: Genel bilgi — Sermaye maliyeti ve sermaye yapısı
@@ -373,8 +389,8 @@
   kazanim: ağırlıklı ortalama sermaye maliyeti
   tip: uygulama
   zorluk: 2
-  kok: 'Bir şirketin toplam sermayesi 1.000.000 TL''dir. 400.000 TL borç (%10 faiz, %20 kurumlar vergisi), 600.000 TL öz sermaye
-    (%14 maliyet) ile finanse edilmektedir. AOSM nedir?
+  kok: 'Bir şirketin toplam sermayesi 1.000.000 TL''dir. 400.000 TL borç (%10 faiz, %20 kurumlar vergisi), 600.000
+    TL öz sermaye (%14 maliyet) ile finanse edilmektedir. AOSM nedir?
 
     '
   secenekler:
@@ -385,7 +401,8 @@
     E: '%10,80'
   dogru: D
   aciklama:
-    dogru_neden: 'Vergi sonrası borç maliyeti = %10 × (1 − 0,20) = %8. AOSM = (0,40 × %8) + (0,60 × %14) = %3,2 + %8,4 = %11,60.
+    dogru_neden: 'Vergi sonrası borç maliyeti = %10 × (1 − 0,20) = %8. AOSM = (0,40 × %8) + (0,60 × %14) = %3,2
+      + %8,4 = %11,60.
 
       '
     celdiriciler:
@@ -444,8 +461,8 @@
   kazanim: CAPM ve beta
   tip: uygulama
   zorluk: 2
-  kok: 'CAPM''de beta katsayısı 1''den büyük olan bir hisse senedi, piyasaya göre ___ sistematik riske sahiptir ve piyasanın
-    üzerinde getiri beklentisi taşır.
+  kok: 'CAPM''de beta katsayısı 1''den büyük olan bir hisse senedi, piyasaya göre ___ sistematik riske sahiptir
+    ve piyasanın üzerinde getiri beklentisi taşır.
 
     '
   secenekler:
@@ -463,7 +480,8 @@
     celdiriciler:
       A: Beta < 1 olduğunda hisse piyasadan daha az değişkenlik gösterir; durum tam tersidir.
       B: Beta = 1 ise hisse piyasayla eş oranda hareket eder; beta > 1 için geçerli değildir.
-      C: Negatif beta, hissenin piyasayla ters yönde hareket ettiğini gösterir; beta > 1 senaryosunda söz konusu değildir.
+      C: Negatif beta, hissenin piyasayla ters yönde hareket ettiğini gösterir; beta > 1 senaryosunda söz konusu
+        değildir.
       E: Beta = 0 risksiz varlık anlamına gelir; soru beta > 1 durumunu sormaktadır.
   kaynaklar:
   - mevzuat: Genel bilgi — Sermaye maliyeti ve sermaye yapısı
@@ -527,8 +545,8 @@
     E: FVÖK / (FVÖK − Faiz giderleri)
   dogru: E
   aciklama:
-    dogru_neden: 'FKD = FVÖK / (FVÖK − I); FVÖK''teki yüzde 1''lik değişimin hisse başına kârda (EPS) kaç katlık değişime
-      yol açtığını ölçer.
+    dogru_neden: 'FKD = FVÖK / (FVÖK − I); FVÖK''teki yüzde 1''lik değişimin hisse başına kârda (EPS) kaç katlık
+      değişime yol açtığını ölçer.
 
       '
     celdiriciler:
@@ -587,8 +605,8 @@
   kazanim: ağırlıklı ortalama sermaye maliyeti
   tip: uygulama
   zorluk: 2
-  kok: 'Bir şirkette yeni bir yatırım projesinin iç verim oranı (İVO) %13 olup AOSM %11''dir. Bu bilgiye göre aşağıdaki yargılardan
-    hangisi doğrudur?
+  kok: 'Bir şirkette yeni bir yatırım projesinin iç verim oranı (İVO) %13 olup AOSM %11''dir. Bu bilgiye göre aşağıdaki
+    yargılardan hangisi doğrudur?
 
     '
   secenekler:
@@ -599,8 +617,8 @@
     E: Proje kararı AOSM değil yalnızca İVO'ya göre verilir.
   dogru: B
   aciklama:
-    dogru_neden: 'İVO > AOSM ise proje, sermaye maliyetinin üzerinde getiri sağlar; NBD > 0 olur ve proje firma değerine katkıda
-      bulunur, dolayısıyla kabul edilmelidir.
+    dogru_neden: 'İVO > AOSM ise proje, sermaye maliyetinin üzerinde getiri sağlar; NBD > 0 olur ve proje firma
+      değerine katkıda bulunur, dolayısıyla kabul edilmelidir.
 
       '
     celdiriciler:
@@ -659,8 +677,8 @@
   kazanim: CAPM ve beta
   tip: uygulama
   zorluk: 2
-  kok: 'Risksiz faiz oranı %5, piyasa beklenen getirisi %12 ve bir hisse senedinin betası 1,4 olduğunda CAPM''e göre hissenin
-    beklenen getirisi nedir?
+  kok: 'Risksiz faiz oranı %5, piyasa beklenen getirisi %12 ve bir hisse senedinin betası 1,4 olduğunda CAPM''e
+    göre hissenin beklenen getirisi nedir?
 
     '
   secenekler:
@@ -730,7 +748,8 @@
   kazanim: finansal kaldıraç
   tip: uygulama
   zorluk: 2
-  kok: 'Bir işletmenin FVÖK''ü 500.000 TL, yıllık faiz giderleri 100.000 TL ise finansal kaldıraç derecesi ___ olarak hesaplanır.
+  kok: 'Bir işletmenin FVÖK''ü 500.000 TL, yıllık faiz giderleri 100.000 TL ise finansal kaldıraç derecesi ___ olarak
+    hesaplanır.
 
     '
   secenekler:
@@ -800,8 +819,8 @@
   kazanim: CAPM ve beta
   tip: uygulama
   zorluk: 2
-  kok: 'X şirketinin betası 0,7, risksiz faiz oranı %4 ve piyasa risk primi %8''dir. Y şirketinin betası ise 1,3''tür. Buna
-    göre hangi seçenek doğrudur?
+  kok: 'X şirketinin betası 0,7, risksiz faiz oranı %4 ve piyasa risk primi %8''dir. Y şirketinin betası ise 1,3''tür.
+    Buna göre hangi seçenek doğrudur?
 
     '
   secenekler:
@@ -812,8 +831,8 @@
     E: Risksiz oran aynı olduğunda beklenen getiriler de eşit olur.
   dogru: B
   aciklama:
-    dogru_neden: 'X: %4 + 0,7×%8 = %9,6. Y: %4 + 1,3×%8 = %14,4. X''in beklenen getirisi Y''den düşüktür (beta düşük → daha
-      az sistematik risk → daha düşük beklenen getiri).
+    dogru_neden: 'X: %4 + 0,7×%8 = %9,6. Y: %4 + 1,3×%8 = %14,4. X''in beklenen getirisi Y''den düşüktür (beta düşük
+      → daha az sistematik risk → daha düşük beklenen getiri).
 
       '
     celdiriciler:
@@ -872,8 +891,8 @@
   kazanim: finansal kaldıraç
   tip: uygulama
   zorluk: 2
-  kok: 'Faaliyet kaldıracı ile finansal kaldıraç birlikte değerlendirildiğinde toplam (bileşik) kaldıraç derecesi (TKD) nasıl
-    bulunur?
+  kok: 'Faaliyet kaldıracı ile finansal kaldıraç birlikte değerlendirildiğinde toplam (bileşik) kaldıraç derecesi
+    (TKD) nasıl bulunur?
 
     '
   secenekler:
@@ -884,8 +903,8 @@
     E: TKD = FaKD × FKD
   dogru: E
   aciklama:
-    dogru_neden: 'TKD = FaKD × FKD; satışlardaki yüzde değişimin hisse başına kâra (EPS) yansımasını ölçen bileşik kaldıraç,
-      iki kaldıraç derecesinin çarpımıdır.
+    dogru_neden: 'TKD = FaKD × FKD; satışlardaki yüzde değişimin hisse başına kâra (EPS) yansımasını ölçen bileşik
+      kaldıraç, iki kaldıraç derecesinin çarpımıdır.
 
       '
     celdiriciler:
@@ -956,8 +975,8 @@
     E: kâr dağıtım politikasını
   dogru: A
   aciklama:
-    dogru_neden: 'Trade-off teorisi: Borçlanmanın vergi kalkanı avantajı (faiz giderlerinin vergiden düşülmesi) artan finansal
-      sıkıntı maliyetleriyle dengelendiğinde optimal borç düzeyine ulaşılır.
+    dogru_neden: 'Trade-off teorisi: Borçlanmanın vergi kalkanı avantajı (faiz giderlerinin vergiden düşülmesi)
+      artan finansal sıkıntı maliyetleriyle dengelendiğinde optimal borç düzeyine ulaşılır.
 
       '
     celdiriciler:
@@ -1016,8 +1035,8 @@
   kazanim: finansal kaldıraç
   tip: uygulama
   zorluk: 1
-  kok: 'Bir işletmenin satışları %10 arttığında FVÖK''ü %15 artıyorsa faaliyet kaldıraç derecesi (FaKD) 1,5''tir. Bu işletmenin
-    faiz giderleri FVÖK''ünün %20''si ise finansal kaldıraç derecesi (FKD) kaçtır?
+  kok: 'Bir işletmenin satışları %10 arttığında FVÖK''ü %15 artıyorsa faaliyet kaldıraç derecesi (FaKD) 1,5''tir.
+    Bu işletmenin faiz giderleri FVÖK''ünün %20''si ise finansal kaldıraç derecesi (FKD) kaçtır?
 
     '
   secenekler:
@@ -1028,7 +1047,8 @@
     E: 1,20
   dogru: B
   aciklama:
-    dogru_neden: 'FKD = FVÖK / (FVÖK − I). Faiz giderleri FVÖK''ün %20''si ise FVÖK − I = FVÖK × 0,80. FKD = 1 / 0,80 = 1,25.
+    dogru_neden: 'FKD = FVÖK / (FVÖK − I). Faiz giderleri FVÖK''ün %20''si ise FVÖK − I = FVÖK × 0,80. FKD = 1 /
+      0,80 = 1,25.
 
       '
     celdiriciler:
@@ -1087,7 +1107,8 @@
   kazanim: optimal sermaye yapısı
   tip: uygulama
   zorluk: 1
-  kok: 'Pecking order (finansman hiyerarşisi) teorisine göre işletmeler finansman kaynağı seçiminde hangi sırayı izler?
+  kok: 'Pecking order (finansman hiyerarşisi) teorisine göre işletmeler finansman kaynağı seçiminde hangi sırayı
+    izler?
 
     '
   secenekler:
@@ -1098,8 +1119,8 @@
     E: Borç → İç kaynaklar → Öz sermaye ihracı
   dogru: C
   aciklama:
-    dogru_neden: 'Myers ve Majluf''un pecking order teorisine göre asimetrik bilgi maliyetleri nedeniyle işletmeler önce iç
-      kaynakları (dağıtılmamış kâr), sonra borcu, en son öz sermaye ihracını tercih eder.
+    dogru_neden: 'Myers ve Majluf''un pecking order teorisine göre asimetrik bilgi maliyetleri nedeniyle işletmeler
+      önce iç kaynakları (dağıtılmamış kâr), sonra borcu, en son öz sermaye ihracını tercih eder.
 
       '
     celdiriciler:
@@ -1158,8 +1179,8 @@
   kazanim: optimal sermaye yapısı
   tip: uygulama
   zorluk: 1
-  kok: 'Bir firmanın mevcut AOSM''si %13''tür. Daha fazla borç alınması durumunda AOSM''nin %11''e düşeceği, ancak %14''e
-    yükselebileceği de tahmin edilmektedir. Bu bilgiye göre aşağıdaki yargıların hangisi doğrudur?
+  kok: 'Bir firmanın mevcut AOSM''si %13''tür. Daha fazla borç alınması durumunda AOSM''nin %11''e düşeceği, ancak
+    %14''e yükselebileceği de tahmin edilmektedir. Bu bilgiye göre aşağıdaki yargıların hangisi doğrudur?
 
     '
   secenekler:
@@ -1170,8 +1191,9 @@
     E: AOSM'nin %14'e çıkması mümkün değildir; borç her zaman maliyeti düşürür.
   dogru: B
   aciklama:
-    dogru_neden: 'AOSM düşerse firma değeri artar; ancak ek borçlanmanın finansal sıkıntı maliyetleri doğurup AOSM''yi %14''e
-      taşıması da gerçekçi bir senaryodur. Optimal yapıya ulaşmak borç-risk dengesine bağlıdır; kesin bir garanti yoktur.
+    dogru_neden: 'AOSM düşerse firma değeri artar; ancak ek borçlanmanın finansal sıkıntı maliyetleri doğurup AOSM''yi
+      %14''e taşıması da gerçekçi bir senaryodur. Optimal yapıya ulaşmak borç-risk dengesine bağlıdır; kesin bir
+      garanti yoktur.
 
       '
     celdiriciler:
@@ -1241,8 +1263,8 @@
     E: sistematik risk
   dogru: D
   aciklama:
-    dogru_neden: 'Risksiz faiz oranı (Rf), devlet tahvili gibi temerrüt ve piyasa riski taşımayan araçların getirisidir. CAPM''de
-      tüm beklenen getirilerin başlangıç noktasını oluşturur.
+    dogru_neden: 'Risksiz faiz oranı (Rf), devlet tahvili gibi temerrüt ve piyasa riski taşımayan araçların getirisidir.
+      CAPM''de tüm beklenen getirilerin başlangıç noktasını oluşturur.
 
       '
     celdiriciler:
@@ -1301,8 +1323,8 @@
   kazanim: finansal kaldıraç
   tip: uygulama
   zorluk: 1
-  kok: 'Bir işletme borçlanarak büyüdüğünde hem kâr potansiyelini artırır hem de finansal riski yükseltir. Bu ilişki finansal
-    yönetimde hangi kavramla açıklanır?
+  kok: 'Bir işletme borçlanarak büyüdüğünde hem kâr potansiyelini artırır hem de finansal riski yükseltir. Bu ilişki
+    finansal yönetimde hangi kavramla açıklanır?
 
     '
   secenekler:
@@ -1313,13 +1335,13 @@
     E: Sistematik olmayan risk
   dogru: C
   aciklama:
-    dogru_neden: 'Borç kullanan işletmede sabit faiz giderleri hem olumlu hem olumsuz piyasa koşullarında kazancı/zararı büyütür.
-      Bu mekanizmaya finansal kaldıraç adı verilir.
+    dogru_neden: 'Borç kullanan işletmede sabit faiz giderleri hem olumlu hem olumsuz piyasa koşullarında kazancı/zararı
+      büyütür. Bu mekanizmaya finansal kaldıraç adı verilir.
 
       '
     celdiriciler:
-      A: Faaliyet kaldıracı, sabit üretim maliyetleri nedeniyle satış değişiminin FVÖK'ü nasıl büyüttüğünü ölçer; borç finansmanıyla
-        ilgili değildir.
+      A: Faaliyet kaldıracı, sabit üretim maliyetleri nedeniyle satış değişiminin FVÖK'ü nasıl büyüttüğünü ölçer;
+        borç finansmanıyla ilgili değildir.
       B: Likidite riski, nakit ve kısa vadeli yükümlülük yönetimiyle ilgilidir.
       D: Çeşitlendirme portföy riskini azaltmayı ifade eder; borçlanma kaldıracını açıklamaz.
       E: Sistematik olmayan risk firmaya özgü ve çeşitlendirilebilir risktir; kaldıraçla farklı bir kavramdır.
@@ -1383,8 +1405,8 @@
     E: Borcun toplam varlıklar içindeki payını her zaman %50'nin üzerinde tutar.
   dogru: E
   aciklama:
-    dogru_neden: Optimal sermaye yapısında borç oranı sabit bir eşiğe bağlı değildir; firmanın sektörüne, nakit akışlarına
-      ve iflas riskine göre değişir. Her zaman %50 üzeri borç tutmak ne gereklidir ne de doğrudur.
+    dogru_neden: Optimal sermaye yapısında borç oranı sabit bir eşiğe bağlı değildir; firmanın sektörüne, nakit
+      akışlarına ve iflas riskine göre değişir. Her zaman %50 üzeri borç tutmak ne gereklidir ne de doğrudur.
     celdiriciler:
       A: AOSM minimize edilmesi optimal sermaye yapısının temel amacıdır; doğru bir özelliktir.
       B: Piyasa değerini maksimize etmek optimal yapının tanımlayıcı özelliğidir.
