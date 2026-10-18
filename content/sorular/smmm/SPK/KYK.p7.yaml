@@ -148,7 +148,7 @@
     baslangic: '2012-12-30'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -170,8 +170,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: Net aktif değer tanımının ezberi; çeldiriciler bariz, sınav düzeyinin altında
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -192,6 +193,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: Net aktif değer tanımının ezberi; çeldiriciler bariz, sınav düzeyinin altında
 - id: SMMM-SPK-KYK-0006
   sinav: smmm
   bolum:
@@ -204,23 +209,21 @@
   zorluk: 2
   kok: Bir yatırım fonunun kuruluşu için aşağıdaki koşullardan hangisinin yerine getirilmesi gerekir?
   secenekler:
-    A: Fonun ayrı bir tüzel kişilik kazanması ve ortaklar kurulunun kurulması.
-    B: Kurucunun, portföy saklama hizmetini yürütmek üzere Kurulca yetkilendirilmiş bir kuruluşla anlaşması ve fon
-      içtüzüğünün Kurulca onaylanması.
-    C: Fon malvarlığının kurucunun malvarlığıyla birleştirilmesi.
-    D: Kuruluş başvurusunun eksik belgelerle yapılması; Kurulun iki ay içinde tamamlanmasını istemesi.
-    E: Portföy yönetim şirketinin fon varlıklarını kendi adına ve kendi hesabına yönetmesi.
+    A: Fonun tüzel kişilik kazanması için ticaret siciline tescil edilmesi
+    B: Kurucunun yetkili bir saklama kuruluşuyla anlaşması ve içtüzüğün Kurulca onaylanması
+    C: Fon malvarlığının kurucunun malvarlığına dahil edilerek izlenmesi
+    D: Kurucunun asgari sermayesinin fon varlıklarına aktarılması
+    E: Portföy yöneticisinin fon varlıklarını kendi adına saklaması
   dogru: B
   aciklama:
     dogru_neden: SPKn md. 52/2'ye göre yatırım fonunun kuruluş izni alabilmesi için kurucunun portföy saklama hizmetini
       yürütmek üzere Kurulca yetkilendirilmiş bir kuruluşla anlaşmış olması ve fon içtüzüğünün Kurulca onaylanması
       gerekir.
     celdiriciler:
-      A: Yatırım fonu md. 52/1'de tüzel kişiliği bulunmayan malvarlığı olarak tanımlanır.
-      C: Fonun malvarlığı kurucunun malvarlığından ayrıdır; birleştirilmesi öngörülmez.
-      D: Başvurunun gerekli belgelerinin Kurula eksiksiz sunulması gerekir; iki aylık süre Kurulun karar verme süresidir.
-      E: Portföy yönetim şirketi fon hesabına ve mevzuat ile içtüzüğe uygun tasarrufta bulunur; kendi hesabına yönetim
-        öngörülmez.
+      A: Yatırım fonunun tüzel kişiliği yoktur.
+      C: Fon malvarlığı kurucunun malvarlığından ayrıdır.
+      D: Kurucunun sermayesi fona aktarılmaz.
+      E: Fon varlıkları yetkili saklama kuruluşunda saklanır; yönetici kendi adına saklayamaz.
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 52/1-2
@@ -240,7 +243,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -261,8 +264,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: bariz çeldiriciler fonun hukuki niteliğine ilişkin akla yatkın yanlışlarla değiştirildi,
+          doğru şık kısaltıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -277,6 +282,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: bariz çeldiriciler fonun hukuki niteliğine ilişkin akla yatkın yanlışlarla değiştirildi, doğru
+      şık kısaltıldı'
 - id: SMMM-SPK-KYK-0007
   sinav: smmm
   bolum:
@@ -290,21 +300,20 @@
   kok: Yatırım fonunun portföyünde bulunan sermaye piyasası araçları ve diğer varlıklar bakımından aşağıdakilerden
     hangisi doğrudur?
   secenekler:
-    A: Fon portföyündeki varlıkların saklanması kurucunun tercihine bırakılmıştır.
-    B: Fon portföyündeki varlıkların saklanması yalnızca fon yöneticisinin belirlediği iç düzenlemelere tabidir.
-    C: Fon portföyündeki varlıkların saklanması yalnızca Kurulun finansal raporlama düzenlemelerine göre yapılır.
-    D: Fon portföyündeki varlıkların, Kurulun portföy saklama hizmetine ilişkin düzenlemeleri çerçevesinde saklanması
-      zorunludur.
-    E: Fon portföyündeki varlıkların saklanması yalnızca yatırımcıların ayrıca talep etmesi hâlinde zorunludur.
+    A: Saklama, kurucunun tercihine göre fon bünyesinde de yapılabilir.
+    B: Saklama, fon yöneticisinin iç düzenlemelerine göre yürütülür.
+    C: Saklama, fon içtüzüğünde öngörülmüşse zorunludur.
+    D: Kurulun portföy saklama düzenlemeleri çerçevesinde saklanması zorunludur.
+    E: Saklama, yatırımcıların talebi hâlinde zorunlu hâle gelir.
   dogru: D
   aciklama:
     dogru_neden: Yatırım Fonlarına İlişkin Esaslar Tebliği md. 5/3'e göre fon portföyündeki varlıkların, Kurulun
       portföy saklama hizmetine ilişkin düzenlemeleri çerçevesinde saklanması zorunludur.
     celdiriciler:
-      A: Saklama kurucunun tercihine bırakılmamış, md. 5/3 ile zorunlu tutulmuştur.
-      B: Saklama yalnız iç düzenlemelere değil, Kurulun portföy saklama hizmetine ilişkin düzenlemelerine tabidir.
-      C: Hüküm finansal raporlamayı değil, doğrudan portföy saklama hizmetine ilişkin düzenlemeleri esas alır.
-      E: Zorunluluk yatırımcının talebine bağlanmamıştır; Tebliğ doğrudan zorunluluk öngörür.
+      A: Saklama zorunludur ve Kurul düzenlemelerine tabidir; kurucunun tercihine bırakılmamıştır.
+      B: Saklama iç düzenlemelere değil Kurulun saklama düzenlemelerine tabidir.
+      C: Saklama zorunluluğu Kanundan doğar; içtüzük hükmüne bağlı değildir.
+      E: Saklama yatırımcı talebinden bağımsız olarak zorunludur.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Yatırım Fonlarına İlişkin Esaslar Tebliği (III-52.1)
@@ -320,7 +329,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -341,8 +350,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: ''yalnızca'' kalıplı çeldiriciler yeniden yazıldı, doğru şık kısaltıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -357,6 +367,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: ''yalnızca'' kalıplı çeldiriciler yeniden yazıldı, doğru şık kısaltıldı'
 - id: SMMM-SPK-KYK-0008
   sinav: smmm
   bolum:
@@ -504,7 +518,7 @@
     baslangic: '2012-12-30'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -526,8 +540,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: KYK-0011 ile aynı tanım (SPKn md.48)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -542,6 +557,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: KYK-0011 ile aynı tanım (SPKn md.48)
 - id: SMMM-SPK-KYK-0010
   sinav: smmm
   bolum:
@@ -656,23 +675,21 @@
   kok: 6362 sayılı Sermaye Piyasası Kanunu'na göre yatırım ortaklıkları hangi amaçla kurulan ve hangi hukuki türdeki
     ortaklıklardır?
   secenekler:
-    A: Müşteri emirlerini karşı taraf olarak gerçekleştirmek üzere kurulan adi ortaklıklardır.
-    B: Yalnızca devlet tahvili portföyü işletmek amacıyla kurulan limited şirketlerdir.
-    C: Yalnızca gayrimenkul işletmek üzere kurulan kooperatiflerdir.
-    D: Sadece yatırım danışmanlığı sunmak üzere kurulan sermayesiz kuruluşlardır.
-    E: Paylarını ihraç etmek üzere, belirli portföyleri işletmek amacıyla kurulan sabit veya değişken sermayeli
-      anonim ortaklıklardır.
+    A: Portföy işletmek amacıyla katılma payı ihraç eden, tüzel kişiliği olmayan malvarlıklarıdır.
+    B: Devlet tahvili portföyü işletmek amacıyla kurulan limited şirketlerdir.
+    C: Gayrimenkul işletmek üzere kurulan ve ortaklarına pay veren kooperatiflerdir.
+    D: Portföy yönetimi hizmeti sunmak üzere kurulan aracı kurumlardır.
+    E: Belirli portföyleri işletmek amacıyla pay ihraç eden sabit veya değişken sermayeli anonim ortaklıklardır.
   dogru: E
   aciklama:
     dogru_neden: 6362 sayılı Kanun md. 48/1'e göre yatırım ortaklıkları; sermaye piyasası araçları, gayrimenkul,
       girişim sermayesi yatırımları ile Kurulca belirlenecek diğer varlık ve haklardan oluşan portföyleri işletmek
       amacıyla, paylarını ihraç etmek üzere kurulan sabit veya değişken sermayeli anonim ortaklıklardır.
     celdiriciler:
-      A: Karşı taraf olarak müşteri emirlerini yerine getirmek portföy aracılığı faaliyetinin tanımıdır; yatırım
-        ortaklığının hukuki tanımı değildir.
-      B: Kanun yatırım ortaklıklarını yalnız devlet tahviliyle veya limited şirket olarak tanımlamaz.
-      C: Yatırım ortaklıkları anonim ortaklıklardır ve faaliyet konusu yalnız gayrimenkulle sınırlı değildir.
-      D: Yatırım ortaklıklarının sermaye yapısı ve amacı md. 48/1'de farklı düzenlenmiştir.
+      A: Bu tanım yatırım fonuna aittir; yatırım ortaklıkları anonim ortaklıktır.
+      B: Yatırım ortaklıkları limited şirket olamaz ve portföyleri tahvillerle sınırlı değildir.
+      C: Yatırım ortaklıkları kooperatif değil anonim ortaklıktır.
+      D: Portföy yönetimi hizmeti portföy yönetim şirketlerinin faaliyetidir.
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 48/1
@@ -684,7 +701,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -705,8 +722,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler yatırım fonu ve diğer kurumlarla karıştırılabilecek tanımlarla
+          yazıldı; 0009 tekrarı çekildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -727,6 +746,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler yatırım fonu ve diğer kurumlarla karıştırılabilecek tanımlarla yazıldı; 0009
+      tekrarı çekildi'
 - id: SMMM-SPK-KYK-0012
   sinav: smmm
   bolum:
@@ -765,7 +789,7 @@
     baslangic: '2012-12-30'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -787,8 +811,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: KYK-0015 ile aynı hüküm (DSYO'da sermaye = net aktif değer)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -803,6 +828,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: KYK-0015 ile aynı hüküm (DSYO'da sermaye = net aktif değer)
 - id: SMMM-SPK-KYK-0013
   sinav: smmm
   bolum:
@@ -903,22 +932,21 @@
   kok: Bir kolektif yatırım kuruluşunun portföyündeki varlıklar bakımından portföy saklama hizmeti yürütülmektedir.
     Aşağıdakilerden hangisi portföy saklama hizmetinin kapsamındadır?
   secenekler:
-    A: Yalnızca kuruluşun vergi beyannamesini hazırlamak
-    B: Yalnızca reklam faaliyetlerini denetlemek
-    C: Yalnızca yatırımcıların vergi borçlarını ödemek
-    D: Yalnızca genel kurul toplantılarını yönetmek
-    E: Yatırım fonlarında katılma paylarının ihraç ve itfa işlemlerinin mevzuata ve fon iç tüzüğüne uygunluğunu
-      gözetmek
+    A: Fon portföyünün yatırım stratejisini belirlemek ve alım satım kararlarını vermek
+    B: Fonun izahnamesini hazırlayıp Kurulun onayına sunmak
+    C: Fonun finansal tablolarını bağımsız denetimden geçirmek
+    D: Katılma paylarının satışına aracılık ederek yatırımcılara iletmek
+    E: Katılma paylarının ihraç ve itfasının mevzuata ve içtüzüğe uygunluğunu gözetmek
   dogru: E
   aciklama:
     dogru_neden: md. 56/1-a'ya göre portföy saklama hizmeti, yatırım fonları hesabına katılma paylarının ihraç ve
       itfa edilmesi işlemlerinin mevzuat ve fon iç tüzüğü hükümlerine uygunluğunun sağlanmasını içerir. Aynı madde
       saklama hizmetinin varlıkların ayrı hesapta saklanmasını ve başka uygunluk kontrollerini de kapsadığını düzenler.
     celdiriciler:
-      A: Vergi beyannamesi hazırlama md. 56'da sayılan görev değildir.
-      B: Reklam denetimi saklama hizmetinin sayılan unsurlarından değildir.
-      C: Yatırımcıların vergi borçlarının ödenmesi saklama hizmetinin kapsamında değildir.
-      D: Genel kurul yönetimi md. 56/1'de sayılan saklama görevlerinden değildir.
+      A: Yatırım kararları portföy yöneticisinin görevidir.
+      B: İzahnamenin hazırlanması kurucunun görevidir.
+      C: Finansal tabloların denetimi bağımsız denetim kuruluşunca yapılır.
+      D: Katılma paylarının satışına aracılık dağıtıcı kuruluşların işidir.
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 56/1-a
@@ -931,7 +959,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -952,8 +980,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: ''yalnızca'' kalıplı saçma şıklar, fon ekosistemindeki diğer kurumların görevleriyle
+          değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -971,6 +1001,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: ''yalnızca'' kalıplı saçma şıklar, fon ekosistemindeki diğer kurumların görevleriyle değiştirildi'
 - id: SMMM-SPK-KYK-0015
   sinav: smmm
   bolum:
@@ -986,8 +1020,8 @@
     A: Sermayesi her zaman net aktif değerine eşit olan yatırım ortaklığıdır.
     B: Sermayesi her zaman esas sermaye tutarına eşit olan ortaklıktır.
     C: Yatırımcı payları sahibine idari haklar verir.
-    D: Paylarının itibari değeri bulunur ve yalnızca kurucu paylarından oluşur.
-    E: Pay sahibi talep etse dahi paylarını itfa etme yükümlülüğü bulunmaz.
+    D: Paylarının itibari değeri bulunur ve kurucu paylarından oluşur.
+    E: Pay sahibinin talebi üzerine payları itfa etme yükümlülüğü bulunmaz.
   dogru: A
   aciklama:
     dogru_neden: SPKn md. 50/1'e göre değişken sermayeli yatırım ortaklıkları, sermayesi her zaman net aktif değerine
@@ -1022,7 +1056,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1043,8 +1077,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: D şıkkındaki ''yalnızca'' ifadesi kaldırıldı; 0012 tekrarı çekildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1065,6 +1100,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: D şıkkındaki ''yalnızca'' ifadesi kaldırıldı; 0012 tekrarı çekildi'
 - id: SMMM-SPK-KYK-0016
   sinav: smmm
   bolum:
@@ -1194,7 +1233,7 @@
     baslangic: '2014-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1216,8 +1255,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: KYK-0007 ile aynı hüküm (md.56 saklama zorunluluğu)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1238,6 +1278,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: KYK-0007 ile aynı hüküm (md.56 saklama zorunluluğu)
 - id: SMMM-SPK-KYK-0018
   sinav: smmm
   bolum:
@@ -1362,7 +1406,7 @@
     baslangic: '2013-05-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1384,8 +1428,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: KYK-0007 ile aynı hüküm (md.56 saklama zorunluluğu)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1406,6 +1451,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: KYK-0007 ile aynı hüküm (md.56 saklama zorunluluğu)
 - id: SMMM-SPK-KYK-0020
   sinav: smmm
   bolum:

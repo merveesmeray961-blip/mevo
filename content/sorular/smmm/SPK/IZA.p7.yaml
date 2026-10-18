@@ -190,21 +190,20 @@
   zorluk: 1
   kok: Sermaye piyasası araçlarının halka arz yoluyla satışında aşağıdaki yöntemlerden hangileri kullanılabilir?
   secenekler:
-    A: Yalnız talep toplama yoluyla satış
-    B: Yalnız borsada satış
-    C: Talep toplama yoluyla satış, talep toplanmaksızın satış ve borsada satış
-    D: Yalnız sabit fiyatla talep toplama ve borsada satış
-    E: Yalnız fiyat aralığı ile talep toplama ve talep toplanmaksızın satış
+    A: Talep toplama ve borsada satış; talep toplanmaksızın satış kullanılamaz
+    B: Borsada satış ve tahsisli satış
+    C: Talep toplama, talep toplanmaksızın satış ve borsada satış
+    D: Talep toplama ve tahsisli satış; borsada satış kullanılamaz
+    E: Talep toplanmaksızın satış ve doğrudan satış
   dogru: C
   aciklama:
     dogru_neden: II-5.2 Tebliği md. 13/1'e göre sermaye piyasası araçlarının halka arz yoluyla satışında talep toplama
       yoluyla satış yöntemi, talep toplanmaksızın satış yöntemi ve borsada satış yöntemi kullanılabilir.
     celdiriciler:
-      A: Üç yöntem birlikte düzenlenmiştir; yalnız talep toplama eksiktir.
-      B: Talep toplama ve talep toplanmaksızın satış da md. 13/1 kapsamındadır.
-      D: Sabit fiyat ve fiyat aralığı, talep toplama yoluyla satış yönteminin alt yöntemleridir; md. 13/1'de üç
-        ana yöntem sayılır.
-      E: Seçenek yalnız iki alt/ana yöntemi içerir; md. 13/1'de üç ana yöntem vardır.
+      A: Talep toplanmaksızın satış da halka arz yöntemidir.
+      B: Tahsisli satış halka arz yöntemi değildir.
+      D: Tahsisli satış halka arz değildir; borsada satış ise halka arz yöntemidir.
+      E: '''Doğrudan satış'' halka arz yöntemleri arasında sayılmaz.'
   kaynaklar:
   - mevzuat: Sermaye Piyasası Araçlarının Satışı Tebliği (II-5.2)
     madde: md. 13/1
@@ -215,7 +214,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -236,8 +235,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: ''yalnız'' kalıplı çeldiriciler, halka arz ile tahsisli satışın karıştırılmasına
+          dayalı şıklarla değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -252,6 +253,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: ''yalnız'' kalıplı çeldiriciler, halka arz ile tahsisli satışın karıştırılmasına dayalı şıklarla
+      değiştirildi'
 - id: SMMM-SPK-IZA-0007
   sinav: smmm
   bolum:
@@ -348,23 +354,22 @@
     Zararın ihraççıdan tazmin edilememesi veya edilemeyeceğinin açıkça belli olması hâlinde aşağıdakilerden hangisi
     doğrudur?
   secenekler:
-    A: Hiçbir başka kişi veya kuruluşun sorumluluğu doğmaz.
-    B: Yalnız bağımsız denetim kuruluşu sorumludur.
-    C: Yalnız yatırımcıların talebi üzerine Kurul sorumluluğu belirler.
-    D: Halka arz edenler, ihraca aracılık eden lider yetkili kuruluşlar, varsa garantör ve ihraççının yönetim kurulu
-      üyeleri, kusurlarına ve durumun gereklerine göre zarar kendilerine yükletilebildiği ölçüde sorumlu olabilir.
-    E: Yalnız izahnameyi hazırlayan personel sorumludur; halka arz eden ve lider yetkili kuruluş sorumlu tutulamaz.
+    A: İhraççıdan tazmin edilemeyen zarar için başka kişinin sorumluluğu doğmaz.
+    B: Zarardan izahnameyi denetleyen bağımsız denetim kuruluşu tek başına sorumludur.
+    C: İzahnameyi onaylayan Kurul, zararı yatırımcılara doğrudan öder.
+    D: Halka arz edenler, lider yetkili kuruluş, varsa garantör ve yönetim kurulu üyeleri kusurlarına göre sorumludur.
+    E: Yönetim kurulu üyeleri kusurları aranmaksızın zararın tamamından sorumludur.
   dogru: D
   aciklama:
     dogru_neden: İzahname ve İhraç Belgesi Tebliği md. 25/1, yanlış, yanıltıcı ve eksik bilgilerden kaynaklanan
       zararlardan önce ihraççıyı sorumlu tutar; zarar ihraççıdan tazmin edilemiyorsa veya edilemeyeceği açıkça belli
       ise sayılan diğer kişiler kusur ve durumun gereklerine göre sorumlu olabilir.
     celdiriciler:
-      A: md. 25/1, ihraççıdan sonra belirli kişi ve kuruluşların şartlı sorumluluğunu düzenler.
-      B: Bağımsız denetim kuruluşları raporlarında yer alan yanlış, yanıltıcı ve eksik bilgilerden md. 25/2 uyarınca
-        sorumlu olabilir; ancak tek sorumlu değildir.
-      C: Kurulun sorumluluğu belirlemesi şeklinde bir şart yoktur; sorumluluk hükümden doğar.
-      E: Hüküm halka arz edenler ve lider yetkili kuruluşları açıkça sayar.
+      A: Zarar ihraççıdan tazmin edilemezse halka arz edenler, lider yetkili kuruluş, garantör ve yönetim kurulu
+        üyeleri sorumlu olabilir.
+      B: Bağımsız denetim kuruluşu kendi hazırladığı raporlarla sınırlı sorumludur; tek başına sorumlu değildir.
+      C: Kurulun onayı izahnamedeki bilgilerin doğruluğunu garanti etmez; Kurul zarar ödemez.
+      E: Sorumluluk kusur ve durumun gereklerine göre belirlenir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: İzahname ve İhraç Belgesi Tebliği (II-5.1)
@@ -385,7 +390,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -406,8 +411,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: doğru şık kısaltıldı, mutlak ifadeli çeldiriciler yeniden yazıldı; 0009 tekrarı
+          çekildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -422,6 +429,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: doğru şık kısaltıldı, mutlak ifadeli çeldiriciler yeniden yazıldı; 0009 tekrarı çekildi'
 - id: SMMM-SPK-IZA-0009
   sinav: smmm
   bolum:
@@ -467,7 +478,7 @@
     baslangic: '2013-07-22'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -489,8 +500,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: IZA-0008 ile aynı hüküm (SPKn md.10/1) ve aynı kurgu
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -505,6 +517,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: IZA-0008 ile aynı hüküm (SPKn md.10/1) ve aynı kurgu
 - id: SMMM-SPK-IZA-0010
   sinav: smmm
   bolum:
@@ -1119,7 +1135,7 @@
     baslangic: '2013-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1141,8 +1157,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 4). ihraççı öncelikle'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: IZA-0008 ile aynı hüküm; çeldiriciler 'yalnızca' kalıbıyla bariz
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1157,3 +1174,7 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: IZA-0008 ile aynı hüküm; çeldiriciler 'yalnızca' kalıbıyla bariz

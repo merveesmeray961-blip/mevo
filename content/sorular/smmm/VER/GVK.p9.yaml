@@ -714,7 +714,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -736,8 +736,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: Kök muğlak ('diğerlerinden ayrılır'); birden çok şık savunulabilir
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -758,6 +759,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: Kök muğlak ('diğerlerinden ayrılır'); birden çok şık savunulabilir
 - id: SMMM-VER-GVK-0068
   sinav: smmm
   bolum:
@@ -2398,7 +2403,7 @@
     baslangic: '2007-04-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2420,8 +2425,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: Kökte kontrol edilen yabancı kurum şartlarının tamamı verilmemiş; gerçek kişiler bakımından dayanağı
+          kaynakla doğrulanamadı
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2442,6 +2449,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: Kökte kontrol edilen yabancı kurum şartlarının tamamı verilmemiş; gerçek kişiler bakımından dayanağı
+      kaynakla doğrulanamadı
 - id: SMMM-VER-GVK-0088
   sinav: smmm
   bolum:
@@ -3622,20 +3634,20 @@
   kok: Bir gerçek kişi, komandit şirkette komanditer ortak olarak payına düşen kârı elde etmiştir. GVK bakımından
     bu gelir hangi niteliktedir?
   secenekler:
-    A: Menkul sermaye iradı sayılmaz; ticari kazançtır.
+    A: Ticari kazançtır; komanditer ortak tacir sayılır.
     B: Gayrimenkul sermaye iradıdır.
-    C: Ücret sayılır.
+    C: Ortak şirkette çalışıyorsa kâr payı ücret sayılır.
     D: Menkul sermaye iradıdır.
-    E: Her durumda değer artış kazancıdır.
+    E: Değer artışı kazancıdır.
   dogru: D
   aciklama:
     dogru_neden: GVK md. 75, komandit şirketlerde komanditerlerin kâr paylarını menkul sermaye iradı kapsamında
       düzenler.
     celdiriciler:
-      A: Yanlış; komanditer kâr payı md. 75 kapsamında sayılır.
-      B: Taşınmaz kiralaması söz konusu değildir.
-      C: Ortaklık kâr payı ücret değildir.
-      E: Kâr payı elde edilmesi tek başına elden çıkarma değildir.
+      A: Komandite ortağın payı ticari kazançtır; komanditer ortağın kâr payı ise menkul sermaye iradıdır.
+      B: Gayrimenkul sermaye iradı kiralama gelirleridir.
+      C: Komanditer ortağın kâr payı çalışmasına bağlı olarak ücrete dönüşmez.
+      E: Değer artışı kazancı elden çıkarma kazançlarıdır; kâr payı bu niteliği taşımaz.
   kaynaklar:
   - mevzuat: 193 sayılı Gelir Vergisi Kanunu
     madde: md. 75
@@ -3649,7 +3661,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3670,8 +3682,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: ''her durumda'' içeren bariz şık kaldırıldı; komandite/komanditer ayrımına dayalı
+          çeldirici eklendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3689,6 +3703,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: ''her durumda'' içeren bariz şık kaldırıldı; komandite/komanditer ayrımına dayalı çeldirici eklendi'
 - id: SMMM-VER-GVK-0102
   sinav: smmm
   bolum:
@@ -3881,7 +3899,7 @@
     baslangic: '2000-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3903,8 +3921,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: Tek kavram (mahsup); çeldiriciler ilgisiz, sınav düzeyinin çok altında
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3925,6 +3944,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: Tek kavram (mahsup); çeldiriciler ilgisiz, sınav düzeyinin çok altında
 - id: SMMM-VER-GVK-0105
   sinav: smmm
   bolum:
@@ -4286,7 +4309,7 @@
     bitis: null
     yila_bagli_tutar: true
     yil: 2026
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4308,8 +4331,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: Kök muğlak; doğru şık genel ilke cümlesi, tek cevaba net bağlanmıyor
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4330,6 +4354,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: Kök muğlak; doğru şık genel ilke cümlesi, tek cevaba net bağlanmıyor
 - id: SMMM-VER-GVK-0110
   sinav: smmm
   bolum:
@@ -4340,24 +4368,26 @@
   kazanim: menkul sermaye iradı
   tip: uygulama
   zorluk: 3
-  kok: 'Gelir türlerini sınıflandırınız: I. Gerçek kişinin ticari faaliyeti dışında nakdi sermayesinden elde ettiği
-    faiz. II. Tam mükellef kurum hisse senedinden alınan kâr payı. III. Ticari işletmeye dahil varlıktan işletme
-    faaliyeti kapsamında elde edilen gelir. GVK md. 75 açısından hangi sınıflandırma doğrudur?'
+  kok: 'Aşağıdaki gelirleri sınıflandırınız: I. Gerçek kişinin ticari faaliyeti dışında nakdi sermayesinden elde
+    ettiği faiz. II. Gerçek kişinin tam mükellef kurum hisse senedinden aldığı kâr payı. III. Ticari işletmeye dahil
+    varlıktan işletme faaliyeti kapsamında elde edilen faiz. Gelir Vergisi Kanunu bakımından hangi sınıflandırma
+    doğrudur?'
   secenekler:
-    A: I ve II menkul sermaye iradı; III yalnız bu niteliğiyle değerlendirilmez.
-    B: Yalnız I menkul sermaye iradıdır.
-    C: Yalnız III menkul sermaye iradıdır.
-    D: Üçü de her durumda menkul sermaye iradıdır.
-    E: Hiçbiri menkul sermaye iradı değildir.
+    A: I ve II menkul sermaye iradı; III ticari kazancın unsurudur.
+    B: I menkul sermaye iradı; II ve III ticari kazançtır.
+    C: II menkul sermaye iradı; I ve III ticari kazançtır.
+    D: I, II ve III menkul sermaye iradıdır.
+    E: I ve III menkul sermaye iradı; II ticari kazançtır.
   dogru: A
   aciklama:
-    dogru_neden: GVK md. 75, ticari, zirai veya mesleki faaliyet dışında nakdi sermaye veya para ile temsil edilen
-      değerlerden doğan iratları ve hisse kâr paylarını menkul sermaye iradı sayar.
+    dogru_neden: Ticari faaliyet dışındaki nakdi sermayeden elde edilen faiz (I) ve hisse senedi kâr payı (II) menkul
+      sermaye iradıdır. İşletmeye dahil varlıktan elde edilen gelir (III) ise ticari kazancın tespitinde dikkate
+      alınır. Bu nedenle A doğrudur.
     celdiriciler:
-      B: Hisse kâr payları da menkul sermaye iradı sayılır.
-      C: III tek başına md. 75 tanımını karşılamaz.
-      D: Ticari işletmeye dahil kazançlar ayrıdır.
-      E: I ve II açıkça kapsam içindedir.
+      B: Hisse senedi kâr payı (II) işletmeye dahil olmadıkça menkul sermaye iradıdır.
+      C: Faiz (I) ticari faaliyet dışında elde edildiğinden menkul sermaye iradıdır.
+      D: İşletmeye dahil varlıktan elde edilen gelir (III) ticari kazancın unsurudur.
+      E: Kâr payı (II) menkul sermaye iradı, işletme geliri (III) ticari kazançtır.
   kaynaklar:
   - mevzuat: 193 sayılı Gelir Vergisi Kanunu
     madde: md. 75
@@ -4370,7 +4400,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4391,8 +4421,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: muğlak doğru şık (''yalnız bu niteliğiyle değerlendirilmez'') net sınıflandırmaya
+          çevrildi; şıklar dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4407,6 +4439,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: muğlak doğru şık (''yalnız bu niteliğiyle değerlendirilmez'') net sınıflandırmaya çevrildi;
+      şıklar dengelendi'
 - id: SMMM-VER-GVK-0111
   sinav: smmm
   bolum:
@@ -4446,7 +4483,7 @@
     baslangic: '1953-07-28'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4468,8 +4505,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: GVK-0009 ile aynı hüküm (mük. md.80/6 beş yıl kuralı)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4484,3 +4522,7 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: GVK-0009 ile aynı hüküm (mük. md.80/6 beş yıl kuralı)
