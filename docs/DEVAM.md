@@ -80,6 +80,18 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
 3. Hakem (token harcar, en çok 2 ajan): `hakem_girdi.py` → `YMM_HAKEM_TALIMATI.md` / `YMM_KLASIK_HAKEM_TALIMATI.md`
    → `ymm_terfi.py` / `klasik terfi` → `disa_aktar --uygulama` (ELENDİ listesi boş olmalı) → `sik_dengele`.
 
+## 2026-10-19 — YMM soru üretimi (parti 4) tamam
+
+- 20 yeni YMM konusuna 15'er MC + 1 klasik; 20 sorusu az konu 15'e tamamlandı. Toplam ~493 MC + 23 klasik (S1–S4 teslim
+  dosyaları scratchpad'de; iç hat S3 + OZL). Hepsi bağımsız kör hakemden geçip `kontrolde`. YMM'de taslak soru kalmadı:
+  1887 MC + 100 klasik `kontrolde`.
+- Hakem düzeltmeleri: YRG-0002 (VUK 106 özel hükmü), OZL-0009 (7555 geçiş tarihi), GDR-0002, SRV-0063 (EVK 16 istisnası);
+  klasikler STK, ULU, DUZ yeniden yazıldı. Baş hakem kararıyla terfi: ULU-0007 (9707 CBK %5), SRV-0060 (VİV 16 yarı oran).
+- Atlanan kazanımlar (kaynak yok): matrah artırımı (7143/7326/7440), TFRS 1, TFRS 13.
+- Yöntem notları: `uretici_paketi al` bir kez çalıştırılır; `atlanan` öğeleri sözlük olmalı ({satir, neden}); kör hakem
+  girdisi `scratchpad/ymm_hakem4/kor_*.md`, terfi ymm_terfi.py mantığıyla (G5 notu + gecmis).
+- Kalan: YMM klasikleri DRM dışında ders başına 6–12 (hedef ~30); SMMM 72 taslak ve ince konular; paket + sürüm + imzalı derleme.
+
 ## Bekleyen işler (öncelik sırası)
 
 1. **YMM soruları (kullanıcı onayladı: kendi hattımızda + klasik soru türü):** Yazar talimatı `docs/devir/YMM_YAZAR_TALIMATI.md`
