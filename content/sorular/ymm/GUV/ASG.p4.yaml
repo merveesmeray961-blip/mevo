@@ -1,0 +1,689 @@
+- id: YMM-GUV-ASG-0015
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Asgari ve küresel asgari kurumlar vergisi
+  konu: ASG
+  kazanim: yurt içi asgari kurumlar vergisi
+  tip: hesaplama
+  zorluk: 2
+  kok: Hesap dönemi takvim yılı olan ve 2012'den beri faaliyette bulunan (Z) A.Ş.'nin 2026 yılı ticari bilanço zararı 2.000.000
+    TL, kanunen kabul edilmeyen giderleri 3.000.000 TL'dir. Şirketin beyannamede indirebileceği 1.000.000 TL geçmiş yıl zararı
+    vardır; başka indirim, istisna veya indirimli oran uygulaması yoktur. Kurumlar vergisi oranı %25, yurt içi asgari kurumlar
+    vergisi oranı %10'dur. Buna göre (Z) A.Ş.'nin 2026 yılı için hesaplanan kurumlar vergisi kaç TL'dir?
+  secenekler:
+    A: '0'
+    B: '100.000'
+    C: '250.000'
+    D: '300.000'
+    E: '500.000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Kurumlar vergisi matrahı: −2.000.000 + 3.000.000 − 1.000.000 = 0; beyana göre vergi 0''dır. İndirim ve istisnalar
+      düşülmeden önceki kurum kazancı ticari bilanço kârı veya zararına KKEG eklenerek bulunur ve sonuç sıfırdan büyükse asgari
+      vergi hesaplanır: −2.000.000 + 3.000.000 = 1.000.000; geçmiş yıl zararı bu tutardan düşülmez. Asgari vergi 1.000.000
+      × %10 = 100.000 TL olup hesaplanan vergiden yüksek olduğundan hesaplanan kurumlar vergisi 100.000 TL''dir.'
+    celdiriciler:
+      A: Ticari bilanço zararı bulunsa da zarar ile KKEG toplamı sıfırdan büyük olduğundan asgari vergi hesaplanır.
+      C: Geçmiş yıl zararı düşülmeden %25 oranı uygulanmıştır.
+      D: Ticari bilanço zararı dikkate alınmadan yalnız KKEG'ye %10 uygulanmıştır.
+      E: Ticari bilanço zararı işaret hatasıyla KKEG'ye eklenmiştir (5.000.000 × %10).
+    hesap_adimlari:
+    - KV matrahı = −2.000.000 + 3.000.000 − 1.000.000 = 0 → KV 0
+    - Asgari matrah = −2.000.000 + 3.000.000 = 1.000.000 (GYZ düşülmez)
+    - Asgari vergi = 100.000 > 0 → hesaplanan KV = 100.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 32/C/1
+    alinti: indirim ve istisnalar düşülmeden önceki kurum kazancının %10’undan az olamaz.
+  - mevzuat: Kurumlar Vergisi Genel Tebliği (Seri No 1) — Seri No 23 değişikliği
+    madde: bölüm 32.5.4
+    alinti: sıfırdan büyük olduğu durumlarda asgari kurumlar vergisi hesaplaması yapılacaktır.
+  - mevzuat: Kurumlar Vergisi Genel Tebliği (Seri No 1) — Seri No 23 değişikliği
+    madde: bölüm 32.5.4
+    alinti: Beyannamelerde indirim konusu yapılan geçmiş yıl zararları asgari kurumlar vergisi
+  gecerlilik:
+    baslangic: '2025-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kv = max(-2000000 + 3000000 - 1000000, 0) * 25 / 100
+
+      asgari = max(-2000000 + 3000000, 0) * 10 / 100
+
+      sonuc = max(kv, asgari)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 63
+- id: YMM-GUV-ASG-0016
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Asgari ve küresel asgari kurumlar vergisi
+  konu: ASG
+  kazanim: yurt içi asgari kurumlar vergisi
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Hesap dönemi takvim yılı olan ve uzun süredir faaliyette bulunan (H) A.Ş.''nin 2026 yılı bilgileri şöyledir:
+
+
+    - Ticari bilanço kârı: 6.000.000 TL (kanunen kabul edilmeyen gider yoktur)
+
+    - Kâra dahil, KVK md. 5/1-h kapsamında istisna edilen yurt dışı inşaat kazancı: 2.000.000 TL (bu kazanç için yurt dışında
+    100.000 TL kurumlar vergisi ödenmiştir)
+
+    - Kâra dahil, KVK md. 5/1-b kapsamında istisna edilen yurt dışı iştirak kazancı: 1.000.000 TL (kazancın yurt dışında taşıdığı
+    vergi yükü %15''tir)
+
+    - Kâra dahil, tam mükellef bir kurumdan alınan iştirak kazancı (md. 5/1-a): 500.000 TL
+
+    - Beyannamede indirilecek geçmiş yıl zararı: 2.000.000 TL
+
+
+    Kurumlar vergisi oranı %25, yurt içi asgari kurumlar vergisi oranı %10''dur; indirimli oran uygulaması yoktur. Kurumlar
+    Vergisi Genel Tebliği''ndeki açıklamalara göre (H) A.Ş.''nin 2026 yılı için hesaplanan kurumlar vergisi kaç TL''dir?
+
+    '
+  secenekler:
+    A: '125.000'
+    B: '250.000'
+    C: '350.000'
+    D: '450.000'
+    E: '550.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'KV matrahı: 6.000.000 − 2.000.000 − 1.000.000 − 500.000 − 2.000.000 = 500.000; KV 125.000 TL. Asgari matrahtan
+      md. 5/1-a kazancı düşülür. Yurt dışı kaynaklı istisnalardan en az %10 vergi yükü taşıyan yurt dışı iştirak kazancının
+      tamamı (1.000.000), %10''dan az yük taşıyan inşaat kazancının ise taşıdığı vergi yüküne isabet eden kısmı (100.000 /
+      0,10 = 1.000.000) düşülür. Asgari matrah: 6.000.000 − 500.000 − 1.000.000 − 1.000.000 = 3.500.000; asgari vergi 350.000
+      TL > 125.000 TL olduğundan hesaplanan kurumlar vergisi 350.000 TL''dir. Püf noktaları: Geçmiş yıl zararı asgari matrahtan
+      düşülmez; düşük vergili yurt dışı kazançta düşülecek kısım ödenen verginin %10''a bölünmesiyle bulunur.'
+    celdiriciler:
+      A: Asgari vergi karşılaştırması yapılmamıştır.
+      B: Yurt dışı inşaat kazancının tamamı asgari matrahtan düşülmüştür (2.500.000 × %10); %10'dan az yük taşıyan kazancın
+        yalnız isabet eden kısmı düşülür.
+      D: Yurt dışı inşaat kazancının hiçbir kısmı düşülmemiştir (4.500.000 × %10).
+      E: Yurt dışı kaynaklı istisnaların hiçbiri düşülmemiştir (5.500.000 × %10).
+    hesap_adimlari:
+    - KV = (6.000.000 − 2.000.000 − 1.000.000 − 500.000 − 2.000.000) × 0,25 = 125.000
+    - İnşaat kazancında düşülecek = 100.000 / 0,10 = 1.000.000
+    - Asgari matrah = 6.000.000 − 500.000 − 1.000.000 − 1.000.000 = 3.500.000
+    - Asgari vergi = 350.000 → hesaplanan KV = 350.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 32/C/2-a
+    alinti: a) 5 inci maddenin birinci fıkrasının (a), (ç), (i), (j) ve (k) bentleri ile sahip oldukları
+  - mevzuat: Kurumlar Vergisi Genel Tebliği (Seri No 1) — Seri No 23 değişikliği
+    madde: bölüm 32.5.6, Örnek 8
+    alinti: istisna kazançların ise, taşıdığı vergi yüküne isabet eden kazanç kısmı asgari vergi matrahından
+  gecerlilik:
+    baslangic: '2025-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kv = (6000000 - 2000000 - 1000000 - 500000 - 2000000) * 25 / 100
+
+      asgari = (6000000 - 500000 - 1000000 - 100000 / 0.10) * 10 / 100
+
+      sonuc = max(kv, asgari)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 64
+- id: YMM-GUV-ASG-0017
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Asgari ve küresel asgari kurumlar vergisi
+  konu: ASG
+  kazanim: uygulama kapsamı ve istisnalar
+  tip: uygulama
+  zorluk: 2
+  kok: 'Hesap dönemi takvim yılı olan aşağıdaki kurumlardan hangilerine 2026 hesap dönemi için KVK md. 32/C''deki yurt içi
+    asgari kurumlar vergisi uygulanır?
+
+
+    I. Kanunla kurumlar vergisinden muaf tutulmuş bir kurum
+
+    II. 2026 yılında iki şirketin birleşmesiyle yeni kurulan (B) A.Ş.
+
+    III. GVK md. 113 uyarınca kazancı hasılat esasına göre tespit edilen (C) Ltd. Şti.
+
+    IV. 2024 yılında nakdi sermayeyle kurulup aynı yıl faaliyete başlayan (D) A.Ş.
+
+    V. Türkiye''deki şubesinin kazancını kurumlar vergisi beyannamesiyle beyan eden dar mükellef (E) GmbH
+
+    '
+  secenekler:
+    A: Yalnız II
+    B: II ve IV
+    C: IV ve V
+    D: II, III ve V
+    E: II ve V
+  dogru: E
+  aciklama:
+    dogru_neden: Muaf kurumlar (I) ve hasılat esasına göre vergilendirilenler (III) asgari vergi dışındadır. İlk defa faaliyete
+      başlayan kurumlara faaliyete başlanılan dönemden itibaren üç hesap dönemi uygulanmaz; 2024'te başlayan (D) için 2024,
+      2025 ve 2026 bu kapsamdadır (IV). Birleşme, devir, tür değişikliği ve bölünmeyle kurulan şirketler ilk defa faaliyete
+      başlayan sayılmaz (II uygulanır). Kazancını beyannameyle bildiren dar mükellef kurumlar da asgari vergiye tabidir (V).
+    celdiriciler:
+      A: Beyanname veren dar mükellef kurum da asgari vergiye tabidir.
+      B: 2024'te faaliyete başlayan (D) için 2026, üçüncü hesap dönemidir; asgari vergi uygulanmaz.
+      C: (D) üç dönemlik süre içindedir; birleşmeyle kurulan (B) bu süreden yararlanamaz.
+      D: Hasılat esasına göre vergilendirilenlere asgari vergi uygulanmaz.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 32/C/5
+    alinti: (5) İlk defa faaliyete başlayan kurumlar hakkında faaliyete başlanılan hesap döneminden itibaren üç hesap dönemi
+      boyunca bu madde hükümleri uygulanmaz.
+  - mevzuat: Kurumlar Vergisi Genel Tebliği (Seri No 1) — Seri No 23 değişikliği
+    madde: bölüm 32.5.3
+    alinti: Birleşme, devir, tür değişikliği ile kısmi ve tam bölünme suretiyle kurulan şirketler ilk defa faaliyete başlayan
+      şirket olarak kabul edilmeyecektir.
+  - mevzuat: Kurumlar Vergisi Genel Tebliği (Seri No 1) — Seri No 23 değişikliği
+    madde: bölüm 32.5.2
+    alinti: zorunda olan dar mükellef kurumlar da asgari kurumlar vergisine tabi bulunmaktadır.
+  gecerlilik:
+    baslangic: '2025-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 65
+- id: YMM-GUV-ASG-0018
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Asgari ve küresel asgari kurumlar vergisi
+  konu: ASG
+  kazanim: yurt içi asgari kurumlar vergisi
+  tip: hesaplama
+  zorluk: 2
+  kok: Uzun süredir faaliyette bulunan (G) A.Ş.'nin 2026 yılı Ocak–Mart geçici vergi döneminde ticari bilanço kârı 2.000.000
+    TL, kanunen kabul edilmeyen giderleri 200.000 TL'dir. Bu dönemde mahsup edilebilecek geçmiş yıl zararı 1.800.000 TL olup
+    başka indirim, istisna, indirimli oran veya tevkifat yoktur. Kurumlar vergisi (geçici vergi) oranı %25, yurt içi asgari
+    kurumlar vergisi oranı %10'dur. KVK md. 32/C'ye göre (G) A.Ş.'nin bu dönem için ödeyeceği geçici vergi kaç TL'dir?
+  secenekler:
+    A: '100.000'
+    B: '120.000'
+    C: '200.000'
+    D: '220.000'
+    E: '550.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Md. 32/C hükmü geçici vergi dönemlerinde de uygulanır (md. 32/C/4). Geçici vergi matrahı: 2.000.000 + 200.000
+      − 1.800.000 = 400.000; vergi 100.000 TL. Asgari matrah: 2.000.000 + 200.000 = 2.200.000 (geçmiş yıl zararı düşülmez);
+      asgari vergi 220.000 TL. Asgari tutar yüksek olduğundan ödenecek geçici vergi 220.000 TL''dir.'
+    celdiriciler:
+      A: Asgari vergi karşılaştırması geçici vergi döneminde yapılmamıştır.
+      B: Yalnız asgari vergi ile hesaplanan vergi arasındaki fark bulunmuştur; ödenecek tutar asgari verginin tamamıdır.
+      C: KKEG asgari matraha eklenmemiştir.
+      E: Geçmiş yıl zararı düşülmeden %25 uygulanmıştır.
+    hesap_adimlari:
+    - Geçici vergi = (2.200.000 − 1.800.000) × 0,25 = 100.000
+    - Asgari = 2.200.000 × 0,10 = 220.000
+    - Ödenecek = 220.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 32/C/4
+    alinti: (4) Bu madde hükmü geçici vergi dönemleri için de uygulanır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 32/C/6
+    alinti: ibaresi, hesap dönemi sonundaki ticari bilanço kârına kanunen kabul edilmeyen giderlerin
+  gecerlilik:
+    baslangic: '2025-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'gv = (2000000 + 200000 - 1800000) * 25 / 100
+
+      asgari = (2000000 + 200000) * 10 / 100
+
+      sonuc = max(gv, asgari)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 66
+- id: YMM-GUV-ASG-0019
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Asgari ve küresel asgari kurumlar vergisi
+  konu: ASG
+  kazanim: yurt içi asgari kurumlar vergisi
+  tip: kavrama
+  zorluk: 2
+  kok: Yurt içi asgari kurumlar vergisi hesaplanırken indirim ve istisnalar düşülmeden önceki kurum kazancından aşağıdaki
+    istisnalardan hangisi **düşülemez**?
+  secenekler:
+    A: KVK md. 5/B kapsamındaki sınai mülkiyet haklarının satışından doğan kazanç istisnası
+    B: 3218 sayılı Kanun kapsamında serbest bölgelerde elde edilen kazanç istisnası
+    C: 4691 sayılı Kanun kapsamında teknoloji geliştirme bölgelerinde elde edilen kazanç istisnası
+    D: KVK md. 5/1-i kapsamındaki risturn kazancı istisnası
+    E: Türk Uluslararası Gemi Siciline kayıtlı gemilerin işletilmesinden sağlanan kazanç istisnası
+  dogru: A
+  aciklama:
+    dogru_neden: 'Md. 32/C/2''de asgari matrahtan düşülebilecek istisnalar tek tek sayılmıştır: md. 5/1-a, ç, i, j, k ve taşınmazlar
+      dışındaki 5/1-d istisnaları; 4490 ve 3218 sayılı Kanunlar kapsamındaki istisnalar; 4691 sayılı Kanun kapsamındaki kazanç
+      istisnası. Md. 5/B sınai mülkiyet hakları istisnası bu sayımda yer almadığından asgari matrahtan düşülemez.'
+    celdiriciler:
+      B: 3218 sayılı Kanun kapsamındaki istisna md. 32/C/2-c ile düşülür.
+      C: 4691 sayılı Kanun kapsamındaki kazanç istisnası md. 32/C/2-ç ile düşülür.
+      D: Risturn istisnası (md. 5/1-i) md. 32/C/2-a ile düşülür.
+      E: 4490 sayılı Kanun kapsamındaki istisna md. 32/C/2-c ile düşülür.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 32/C/2-c
+    alinti: ve 3218 sayılı Serbest Bölgeler Kanunu kapsamında vergiden istisna edilen kazançlar,
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 32/C/2-ç
+    alinti: ç) 4691 sayılı Kanun kapsamındaki kazanç istisnası ile kurumlar vergisi matrahından
+  gecerlilik:
+    baslangic: '2025-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 67
+- id: YMM-GUV-ASG-0020
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Asgari ve küresel asgari kurumlar vergisi
+  konu: ASG
+  kazanim: uygulama kapsamı ve istisnalar
+  tip: uygulama
+  zorluk: 2
+  kok: 'Hesap dönemleri takvim yılı olan dört çok uluslu işletme grubunun nihai ana işletmelerinin konsolide finansal tablolarındaki
+    yıllık konsolide hasılatları (milyon avro karşılığı) aşağıda verilmiştir:
+
+
+    | Grup | 2022 | 2023 | 2024 | 2025 |
+
+    |---|---|---|---|---|
+
+    | (X) | 900 | 700 | 720 | 760 |
+
+    | (Y) | 800 | 740 | 700 | 745 |
+
+    | (Z) | 760 | 700 | 700 | 700 |
+
+    | (W) | 700 | 720 | 760 | 400 (altı aylık hesap dönemi) |
+
+
+    (Z) grubunun 2021 hasılatı 900 milyon avrodur. (W) grubunun 2025 hesap dönemi, hesap dönemi değişikliği nedeniyle altı
+    ay sürmüştür. KVK ek md. 1''e göre hangi grupların bağlı işletmeleri 2026 hesap dönemi kazançları bakımından yerel ve
+    küresel asgari tamamlayıcı kurumlar vergisi kapsamındadır?
+
+    '
+  secenekler:
+    A: Yalnız (X)
+    B: (X) ve (W)
+    C: (X) ve (Z)
+    D: (X), (Y) ve (W)
+    E: (Y), (Z) ve (W)
+  dogru: B
+  aciklama:
+    dogru_neden: 'Kapsam, raporlanan dönemden önceki dört hesap döneminin (2022–2025) en az ikisinde konsolide hasılatın 750
+      milyon avroyu geçmesine bağlıdır. (X): 2022 ve 2025 → kapsamda. (Y): yalnız 2022 → kapsam dışı. (Z): dört dönemde yalnız
+      2022; 2021 dikkate alınmaz → kapsam dışı. (W): on iki aydan farklı dönemde hasılat yıla iblağ edilir: 400 × 2 = 800;
+      2024 (760) ile birlikte iki dönem → kapsamda.'
+    celdiriciler:
+      A: (W)'nin altı aylık hasılatı yıla iblağ edildiğinde 800 milyon avro olur; 2024 ile birlikte iki dönem sınırı geçer.
+      C: (Z) için 2021 yılı dört dönemlik pencerenin dışındadır.
+      D: (Y) yalnız bir dönemde sınırı geçmiştir.
+      E: (X) iki dönemde sınırı geçtiğinden kapsamdadır; (Y) ve (Z) kapsam dışıdır.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: ek md. 1/1
+    alinti: gelirin raporlandığı hesap döneminden önceki dört hesap döneminin en az ikisinde 750
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: ek md. 1/2
+    alinti: hesaplanan konsolide hasılatın bir yıla iblağ edilmesi ile tespit olunan tutar, birinci fıkra
+  gecerlilik:
+    baslangic: '2024-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 68
+- id: YMM-GUV-ASG-0021
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Asgari ve küresel asgari kurumlar vergisi
+  konu: ASG
+  kazanim: yerel ve küresel asgari tamamlayıcı vergi
+  tip: uygulama
+  zorluk: 3
+  kok: 'Türkiye''de yerleşik nihai ana işletmesi küresel asgari tamamlayıcı kurumlar vergisine tabi olan (N) grubunun dört
+    ülkedeki 2026 hesap dönemi (takvim yılı) ülke bazlı rapor verileri şöyledir (milyon avro):
+
+
+    | Ülke | Toplam hasılat | Vergi öncesi kâr | Basit vergi yükü | Çalışanların brüt ücretleri | Maddi duran varlıkların
+    net defter değeri |
+
+    |---|---|---|---|---|---|
+
+    | (A) | 9 | 0,8 | %2 | 3 | 2 |
+
+    | (B) | 50 | 10 | %16 | 30 | 20 |
+
+    | (C) | 40 | 2,5 | %5 | 20 | 10 |
+
+    | (D) | 8 | 1,2 | %18 | 2 | 1 |
+
+
+    Basit vergi yükü, grubun ülke bazlı kurumlar vergisi ve benzeri vergilerinin vergi öncesi kâra oranıdır. KVK geçici md.
+    17/1-e''deki geçiş dönemi güvenli liman hükümlerine göre hangi ülkelerdeki yerel ve küresel asgari tamamlayıcı kurumlar
+    vergisi sıfır kabul edilir? (Ücret ve maddi duran varlık oranlarını geçici md. 17/1-a''ya göre 2026 hesap dönemi için
+    hesaplayınız.)
+
+    '
+  secenekler:
+    A: (A) ve (D)
+    B: (A), (B) ve (D)
+    C: (B) ve (C)
+    D: (A) ve (C)
+    E: (A), (C) ve (D)
+  dogru: E
+  aciklama:
+    dogru_neden: 'Şartlardan herhangi birinin sağlanması yeterlidir. (A): hasılat 10 milyon ve vergi öncesi kâr 1 milyon avronun
+      altında → sıfır. (D): kâr 1 milyonu aştığından ilk şart sağlanmaz, ancak basit vergi yükü 2026 için aranan %17''ye eşit
+      veya fazladır (%18) → sıfır. (C): 2026 oranları 2024''teki %9,8 ve %7,8''den iki dönemde 0,2''şer puan azaltılarak %9,4
+      ve %7,4''tür; 20 × %9,4 + 10 × %7,4 = 1,88 + 0,74 = 2,62 milyon avro; vergi öncesi kâr (2,5) bu tutarı aşmadığından
+      → sıfır. (B): hasılat ve kâr eşikleri aşılmış, vergi yükü %16 (< %17), kâr 10 > 30 × %9,4 + 20 × %7,4 = 4,3 → sıfır
+      kabul edilmez. Püf noktaları: 2026 için vergi yükü eşiği %17''dir; ücret ve varlık oranları her yıl 0,2 puan düşer,
+      2026''da %9,4 ve %7,4 kullanılır.'
+    celdiriciler:
+      A: (C)'de vergi öncesi kâr, ücret ve maddi duran varlık tutarlarına 2026 oranları uygulanarak bulunan 2,62 milyon avroyu
+        aşmadığından sıfır kabul edilir.
+      B: (B)'nin vergi yükü %16 olup 2026 için aranan %17'nin altındadır; (C) şartı sağlar.
+      C: (B) şartların hiçbirini sağlamaz; (A) ve (D) sağlar.
+      D: (D)'nin vergi yükü %17'yi aştığından sıfır kabul edilir.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: geçici md. 17/1-e
+    alinti: '%15, 2025 hesap dönemi için %16 ve 2026 hesap dönemi için %17 oranlarına eşit veya daha'
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: geçici md. 17/1-e
+    alinti: toplam hasılatın 10 milyon avro karşılığı Türk lirasından ve vergi öncesi kârın 1 milyon avro
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: geçici md. 17/1-a
+    alinti: ücretlerinin %9,8’i dikkate alınır. Bu oranlar; takip eden dört hesap dönemi boyunca %0,2,
+  gecerlilik:
+    baslangic: '2024-01-01'
+    bitis: '2026-12-31'
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 69
+- id: YMM-GUV-ASG-0022
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Asgari ve küresel asgari kurumlar vergisi
+  konu: ASG
+  kazanim: yerel ve küresel asgari tamamlayıcı vergi
+  tip: bilgi
+  zorluk: 2
+  kok: 'KVK''nın Beşinci Kısmında düzenlenen yerel asgari tamamlayıcı kurumlar vergisine ilişkin aşağıdaki ifadelerden hangileri
+    doğrudur?
+
+
+    I. Verginin mükellefi, ek 1. madde kapsamındaki çok uluslu işletme gruplarına bağlı ve Türkiye''de yerleşik olan bağlı
+    işletmeler ve iş ortaklıklarıdır.
+
+    II. Kendilerine özel hesap dönemi tayin edilenlerde vergilendirme dönemi özel hesap dönemidir.
+
+    III. Türkiye''de yerleşik ve aynı gruba bağlı mükelleflerden biri verginin tamamını kendi adına beyan edip öderse diğer
+    mükelleflerin beyan ve ödeme sorumlulukları ortadan kalkar.
+
+    IV. Verginin tamamı ödenmese de bir mükellefin beyanname vermesiyle diğer mükelleflerin ödeme sorumluluğu sona erer.
+
+    '
+  secenekler:
+    A: I, II ve III
+    B: I ve III
+    C: II ve IV
+    D: I, III ve IV
+    E: II, III ve IV
+  dogru: A
+  aciklama:
+    dogru_neden: Mükellefler, gruba bağlı Türkiye'de yerleşik bağlı işletmeler ve iş ortaklıklarıdır (ek md. 9/1; I). Vergilendirme
+      dönemi hesap dönemi, özel hesap dönemi tayin edilenlerde özel hesap dönemidir (ek md. 10/1; II). Bir mükellefin verginin
+      tamamını beyan edip ödemesiyle diğerlerinin sorumluluğu kalkar (ek md. 10/5; III); verginin tamamı ödenmezse aynı gruba
+      bağlı mükelleflerin müştereken ve müteselsilen sorumluluğu devam eder (IV yanlış).
+    celdiriciler:
+      B: II de doğrudur.
+      C: IV yanlıştır; I doğrudur.
+      D: Tamamı ödenmeyen vergide müteselsil sorumluluk devam eder; IV yanlıştır.
+      E: IV yanlıştır.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: ek md. 9/1
+    alinti: uluslu işletme gruplarına bağlı ve Türkiye’de yerleşik olan; bağlı işletmeler
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: ek md. 10/5
+    alinti: kurumlar vergisinin tamamını kendi adına beyan edip ödemesi durumunda, diğer
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: ek md. 10/5
+    alinti: verginin tamamının ödenmemesi durumunda aynı çok uluslu işletme grubuna bağlı
+  gecerlilik:
+    baslangic: '2024-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 70

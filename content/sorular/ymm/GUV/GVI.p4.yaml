@@ -1,0 +1,604 @@
+- id: YMM-GUV-GVI-0064
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisinde istisna indirim ve beyan
+  konu: GVI
+  kazanim: vergi tarifesi
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Bayan (S)''nin 2026 yılındaki tek geliri iki ayrı işverenden aldığı ücretlerdir; ikinci işverenden alınan ücret beyan
+    sınırını aştığından yıllık beyanname vermek zorundadır. Beyan edilen ücretlerin vergi matrahı 2.000.000 TL''dir.
+
+
+    2026 yılı gelir vergisi tarifesinde (332 Seri No.lu GV Genel Tebliği) ücret gelirleri için: 1.500.000 TL''nin 400.000
+    TL''si için 70.500 TL, fazlası %27; 5.300.000 TL''nin 1.500.000 TL''si için 367.500 TL, fazlası %35''tir. Ücret dışı gelirler
+    için ise 5.300.000 TL''nin 1.000.000 TL''si için 232.500 TL, fazlası %35''tir.
+
+
+    Buna göre Bayan (S)''nin 2026 yılı için yıllık beyanname üzerinden hesaplanan gelir vergisi (tevkifat mahsubundan önce)
+    kaç TL''dir?
+
+    '
+  secenekler:
+    A: '502.500'
+    B: '542.500'
+    C: '582.500'
+    D: '700.000'
+    E: '717.500'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Matrah yalnız ücretten oluştuğundan tarifenin ücret gelirlerine ilişkin dilimleri uygulanır: 367.500 + (2.000.000
+      − 1.500.000) × %35 = 367.500 + 175.000 = 542.500 TL.'
+    celdiriciler:
+      A: 400.000 TL'yi aşan kısmın tamamına %27 uygulanmıştır (70.500 + 1.600.000 × %27); %27 dilimi ücretlerde 1.500.000
+        TL'de biter.
+      C: Ücret dışı gelirlere ait dilim kullanılmıştır (232.500 + 1.000.000 × %35).
+      D: Matrahın tamamına %35 uygulanmıştır.
+      E: Ücret dilimindeki 367.500 TL'lik tutar, ücret dışı dilimin 1.000.000 TL'lik sınırıyla birleştirilmiştir (367.500
+        + 1.000.000 × %35).
+    hesap_adimlari:
+    - 'Ücret tarifesi: 1.500.000 TL''ye kadar 367.500 TL'
+    - Aşan 500.000 × %35 = 175.000
+    - Vergi = 542.500 TL
+  kaynaklar:
+  - mevzuat: Gelir Vergisi Genel Tebliği (Seri No 332)
+    madde: md. 3/3
+    alinti: TL'nin 1.500.000 TL'si için 367.500 TL), fazlası
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: sonuc = 367500 + (2000000 - 1500000) * 35 / 100
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 50
+- id: YMM-GUV-GVI-0065
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisinde istisna indirim ve beyan
+  konu: GVI
+  kazanim: gelirin toplanması ve indirimler
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Türkiye''de yerleşik Bay (T)''nin 2026 yılına ilişkin bilgileri şöyledir:
+
+
+    - İşletme hesabı esasında defter tuttuğu ticari faaliyetinden zarar: 200.000 TL
+
+    - İşyeri olarak kiraya verdiği dükkândan beyan edilecek safi gayrimenkul sermaye iradı: 900.000 TL
+
+    - İktisabından itibaren iki yıl içinde sattığı arsadan doğan değer artışı zararı: 50.000 TL
+
+    - Kendisi ve küçük çocukları için Türkiye''de yaptığı ve gelir vergisi mükelleflerinden alınan belgelerle tevsik edilen
+    eğitim ve sağlık harcamaları: 120.000 TL
+
+    - Kamu yararına çalışan bir derneğe makbuz karşılığı yaptığı bağış: 50.000 TL (kalkınmada öncelikli yöre değildir)
+
+
+    Önceki yıllardan devreden zarar yoktur. GVK md. 88 ve 89''a göre Bay (T)''nin 2026 yılı gelir vergisi matrahı kaç TL''dir?
+
+    '
+  secenekler:
+    A: '530.000'
+    B: '552.500'
+    C: '595.000'
+    D: '700.000'
+    E: '765.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Ticari zarar diğer kaynakların kazancından mahsup edilir; diğer kazanç ve iratlardan (değer artışı) doğan
+      zarar mahsup edilemez (md. 88). Beyan edilen gelir: 900.000 − 200.000 = 700.000 TL. Eğitim ve sağlık harcamaları beyan
+      edilen gelirin %10''u (70.000 TL) ile, kamu yararına çalışan derneğe bağış %5''i (35.000 TL) ile sınırlıdır (md. 89/2,
+      4). Matrah: 700.000 − 70.000 − 35.000 = 595.000 TL. Püf noktaları: Önce zarar mahsubu yapılıp beyan edilen gelir bulunur,
+      sınırlar bu tutara uygulanır; değer artışı zararı hiçbir hesaba girmez.'
+    celdiriciler:
+      A: Eğitim-sağlık ve bağış tutarları sınırlanmadan indirilmiştir (700.000 − 120.000 − 50.000).
+      B: Değer artışı zararı da mahsup edilmiş, sınırlar 650.000 TL'ye uygulanmıştır (650.000 − 65.000 − 32.500).
+      D: Md. 89 indirimleri hiç yapılmamıştır.
+      E: Ticari zarar mahsup edilmemiş, sınırlar 900.000 TL'ye uygulanmıştır (900.000 − 90.000 − 45.000).
+    hesap_adimlari:
+    - Beyan edilen gelir = 900.000 − 200.000 = 700.000 (değer artışı zararı mahsup edilmez)
+    - Eğitim-sağlık sınırı = 70.000 → 70.000 indirilir
+    - Bağış sınırı = 35.000 → 35.000 indirilir
+    - Matrah = 700.000 − 105.000 = 595.000 TL
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 88
+    alinti: inci maddede yazılı diğer kazanç ve iratlardan doğanlar hariç) diğer kaynakların kazanç ve
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 89/2
+    alinti: Beyan edilen gelirin % 10’unu aşmaması, Türkiye’de yapılması ve gelir veya
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 89/4
+    alinti: toplamı beyan edilecek gelirin % 5’ini (kalkınmada öncelikli yöreler için % 10’unu) aşmamak
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'gelir = 900000 - 200000
+
+      es = min(120000, gelir * 10 / 100)
+
+      bagis = min(50000, gelir * 5 / 100)
+
+      sonuc = gelir - es - bagis'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 51
+- id: YMM-GUV-GVI-0066
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisinde istisna indirim ve beyan
+  konu: GVI
+  kazanim: geçici vergi ve mahsup
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Bilanço esasına göre defter tutan gerçek kişi tacir Bay (G)''nin 2026 yılı kümülatif geçici vergi matrahları (md.
+    42 kapsamındaki yıllara yaygın inşaat işlerinden doğan kazançlar hariç) şöyledir:
+
+
+    | Dönem | Kümülatif matrah |
+
+    |---|---|
+
+    | Ocak–Mart | 600.000 TL |
+
+    | Ocak–Haziran | 400.000 TL |
+
+    | Ocak–Eylül | 1.200.000 TL |
+
+
+    Birinci dönem için 90.000 TL geçici vergi ödenmiş, ikinci dönemde ödenecek geçici vergi çıkmamıştır. Temmuz–Eylül döneminde
+    Bay (G)''nin yürüttüğü yıllara yaygın inşaat işinin hakedişlerinden 15.000 TL gelir vergisi tevkif edilmiştir; başka tevkifat
+    yoktur. Geçici vergi oranı %15''tir. Buna göre Bay (G)''nin Temmuz–Eylül 2026 dönemi için ödeyeceği geçici vergi kaç TL''dir?
+
+    '
+  secenekler:
+    A: '75.000'
+    B: '90.000'
+    C: '120.000'
+    D: '165.000'
+    E: '180.000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Geçici vergi kümülatif matrah üzerinden hesaplanır ve önceki dönemlerde ödenen geçici vergi düşülür: 1.200.000
+      × %15 = 180.000 − 90.000 = 90.000 TL. Md. 42 kapsamındaki kazançlar geçici vergi matrahına girmediği gibi bunlardan
+      yapılan tevkifat da geçici vergiden mahsup edilmez (mükerrer md. 120).'
+    celdiriciler:
+      A: Yıllara yaygın inşaat hakedişlerinden kesilen 15.000 TL mahsup edilmiştir; bu tevkifat geçici vergiden mahsup edilemez.
+      C: Yalnız üçüncü dönemin dönemsel kazancına (1.200.000 − 400.000) oran uygulanmıştır; kümülatif hesapta önceki ödeme
+        düşülür.
+      D: Önceki ödeme düşülmemiş, md. 42 tevkifatı mahsup edilmiştir (180.000 − 15.000).
+      E: Birinci dönemde ödenen 90.000 TL düşülmemiştir.
+    hesap_adimlari:
+    - Kümülatif GV = 1.200.000 × 0,15 = 180.000
+    - Önceki ödemeler = 90.000
+    - Ödenecek = 90.000 TL (md. 42 tevkifatı mahsup edilmez)
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: mükerrer md. 120
+    alinti: Aynı dönem içinde tevkif edilmiş bulunan gelir vergisi (42 nci maddede belirtilen
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: mükerrer md. 120
+    alinti: kazançlar ile noterlik görevini ifa ile mükellef olanların bu işlerden
+  gecerlilik:
+    baslangic: '2007-04-06'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 1200000 * 15 / 100 - 90000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 52
+- id: YMM-GUV-GVI-0067
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisinde istisna indirim ve beyan
+  konu: GVI
+  kazanim: tevkifat (GVK md.94)
+  tip: hesaplama
+  zorluk: 2
+  kok: '(A) A.Ş.''nin Mart 2026''da yaptığı ödemeler şöyledir:
+
+
+    - Serbest avukat Bay (L)''ye net 80.000 TL vekâlet ücreti ödenmiş, kesilmesi gereken vergiyi şirket üstlenmiştir.
+
+    - İşyeri olarak kiraladığı dükkânın sahibi gerçek kişi Bayan (M)''ye net 40.000 TL kira ödenmiş, kesilmesi gereken vergiyi
+    şirket üstlenmiştir.
+
+    - Tam mükellef gerçek kişi ortaklarına nakden 200.000 TL brüt kâr payı dağıtılmıştır.
+
+    - 2025 yılı kârından 400.000 TL sermayeye eklenmiştir.
+
+
+    Tevkifat oranları serbest meslek ödemelerinde ve kira ödemelerinde %20, kâr paylarında %15''tir. GVK md. 94 ve 96''ya
+    göre (A) A.Ş.''nin Mart 2026 dönemi için yapacağı toplam gelir vergisi tevkifatı kaç TL''dir?
+
+    '
+  secenekler:
+    A: '54.000'
+    B: '56.000'
+    C: '60.000'
+    D: '70.000'
+    E: '120.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Vergi üstlenildiğinde tevkifat, ödenen net tutar ile üstlenilen verginin toplamı üzerinden hesaplanır (md.
+      96): avukatlık brüt 80.000 / 0,80 = 100.000, kesinti 20.000; kira brüt 40.000 / 0,80 = 50.000, kesinti 10.000. Kâr payı
+      kesintisi 200.000 × %15 = 30.000. Kârın sermayeye eklenmesi kâr dağıtımı sayılmaz. Toplam: 20.000 + 10.000 + 30.000
+      = 60.000 TL.'
+    celdiriciler:
+      A: Avukatlık ve kira kesintileri net tutar üzerinden hesaplanmıştır (16.000 + 8.000 + 30.000).
+      B: Avukatlık ödemesinde net tutar esas alınmıştır (16.000 + 10.000 + 30.000).
+      D: Kâr payına %20 oranı uygulanmıştır.
+      E: Sermayeye eklenen kâr da kâr dağıtımı sayılmıştır (60.000 + 400.000 × %15).
+    hesap_adimlari:
+    - 'Avukat: 80.000 / 0,80 = 100.000 → 20.000'
+    - 'Kira: 40.000 / 0,80 = 50.000 → 10.000'
+    - 'Kâr payı: 200.000 × 0,15 = 30.000'
+    - 'Sermayeye ekleme: 0'
+    - Toplam = 60.000 TL
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 96
+    alinti: üstlenilmesi halinde bu vergi, bilfiil ödenen miktar ile ödemeyi yapanın yüklendigi verginin
+  - mevzuat: 2009/14592 sayılı BKK (vergi kesintisi oranları)
+    madde: md. 1/6-a
+    alinti: bentlerinde yazılı kâr paylarından (kârın sermayeye eklenmesi kâr dağıtımı sayılmaz.) % 15,
+  - mevzuat: 2009/14592 sayılı BKK (vergi kesintisi oranları)
+    madde: md. 1/5-a
+    alinti: 70 inci maddede yazılı mal ve hakların kiralanması karşılığı yapılan ödemelerden % 20,
+  gecerlilik:
+    baslangic: '2024-12-22'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 80000 / 0.8 * 0.2 + 40000 / 0.8 * 0.2 + 200000 * 15 / 100
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 53
+- id: YMM-GUV-GVI-0068
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisinde istisna indirim ve beyan
+  konu: GVI
+  kazanim: muafiyet ve istisnalar
+  tip: hesaplama
+  zorluk: 3
+  kok: '(B) Ltd. Şti.''nde çalışan Bay (Ç)''nin Nisan 2026''daki durumu şöyledir:
+
+
+    - Bay (Ç) Nisan ayında 22 gün fiilen çalışmıştır. İşyerinde yemek verilmemekte, işveren her gün için (çalışılmayan 8 gün
+    dahil 30 gün) yemek kartına 400 TL yüklemektedir.
+
+    - İşveren taşıma hizmeti vermemekte; Bay (Ç)''nin çalıştığı 22 gün için toplu taşıma kartına günlük 200 TL yüklemektedir.
+
+
+    2026 yılı için GVK md. 23/8''deki günlük yemek bedeli istisnası 300 TL, md. 23/10''daki günlük ulaşım bedeli istisnası
+    158 TL''dir. Buna göre bu ödemelerden Bay (Ç)''nin Nisan 2026 ücretine eklenerek vergilendirilecek tutar toplamı kaç TL''dir?
+
+    '
+  secenekler:
+    A: '3.124'
+    B: '3.924'
+    C: '5.400'
+    D: '6.324'
+    E: '16.400'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Yemek istisnası yalnız çalışılan günler için günlük 300 TL''ye kadar uygulanır; aşan kısım ve diğer menfaatler
+      ücrettir. Çalışılan 22 gün: (400 − 300) × 22 = 2.200; çalışılmayan 8 gün: 8 × 400 = 3.200. Ulaşım istisnası çalışılan
+      günler için günlük 158 TL''dir: (200 − 158) × 22 = 924. Toplam: 2.200 + 3.200 + 924 = 6.324 TL. Püf noktaları: İstisna
+      ''çalışılan günlere ait'' bedelle sınırlıdır; çalışılmayan günlere yüklenen tutarın tamamı ücrettir. Yemek ve ulaşım
+      istisnaları ayrı ayrı hesaplanır.'
+    celdiriciler:
+      A: Çalışılmayan 8 gün için yüklenen yemek bedeli ücrete eklenmemiştir.
+      B: Yemek istisnası 30 günün tamamına uygulanmıştır (30 × 100 + 924).
+      C: Ulaşım bedelinin istisnayı aşan kısmı (924 TL) eklenmemiştir.
+      E: İstisnalar hiç uygulanmamıştır (12.000 + 4.400).
+    hesap_adimlari:
+    - Yemek (çalışılan) = 22 × 100 = 2.200
+    - Yemek (çalışılmayan) = 8 × 400 = 3.200
+    - Ulaşım = 22 × 42 = 924
+    - Toplam = 6.324 TL
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 23/8
+    alinti: durumlarda çalışılan günlere ait bir günlük yemek bedelinin 51 (300 TL) Türk lirasını
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 23/10
+    alinti: ulaşım bedelinin 10 Türk lirasını (158 TL) aşmaması ve buna ilişkin ödemenin toplu taşıma
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: sonuc = 22 * (400 - 300) + 8 * 400 + 22 * (200 - 158)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 54
+- id: YMM-GUV-GVI-0069
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisinde istisna indirim ve beyan
+  konu: GVI
+  kazanim: geçici vergi ve mahsup
+  tip: hesaplama
+  zorluk: 2
+  kok: Gerçek kişi tacir Bay (H)'nin 2026 yılı için Mart 2027'de verdiği yıllık beyanname üzerinden hesaplanan gelir vergisi
+    400.000 TL'dir. Bay (H) 2026 yılına ilişkin dönemler için toplam 520.000 TL geçici vergi ödemiştir. Bay (H)'nin vadesi
+    gelmiş 30.000 TL katma değer vergisi borcu bulunmaktadır; başka vergi borcu yoktur. Bay (H), kalan tutarın iadesini süresi
+    içinde yazılı olarak talep etmiştir. GVK mükerrer md. 120'ye göre Bay (H)'ye nakden iade edilecek geçici vergi kaç TL'dir?
+  secenekler:
+    A: '90.000'
+    B: '120.000'
+    C: '290.000'
+    D: '320.000'
+    E: '520.000'
+  dogru: A
+  aciklama:
+    dogru_neden: 'Geçici vergi önce yıllık beyanname üzerinden hesaplanan gelir vergisinden mahsup edilir (520.000 − 400.000
+      = 120.000); mahsup edilemeyen tutar mükellefin diğer vergi borçlarına mahsup edilir (120.000 − 30.000 = 90.000); kalan
+      tutar süresinde yazılı talep hâlinde iade edilir: 90.000 TL.'
+    celdiriciler:
+      B: Diğer vergi borcuna (KDV) mahsup yapılmamıştır.
+      C: Yıllık vergi yerine yalnız ilk taksit tutarı (200.000) mahsup edilmiş, KDV borcu düşülmüştür.
+      D: Yalnız ilk taksit tutarı mahsup edilmiş, KDV borcu düşülmemiştir.
+      E: Geçici verginin tamamı iade edilecek sanılmıştır; önce yıllık vergiden mahsup yapılır.
+    hesap_adimlari:
+    - 'Yıllık vergiye mahsup: 520.000 − 400.000 = 120.000'
+    - 'Diğer borçlara mahsup: 120.000 − 30.000 = 90.000'
+    - İade = 90.000 TL
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: mükerrer md. 120
+    alinti: Mahsup edilemeyen tutar, mükellefin diğer vergi borçlarına mahsup edilir.
+  gecerlilik:
+    baslangic: '2007-04-06'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 520000 - 400000 - 30000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 55
+- id: YMM-GUV-GVI-0070
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisinde istisna indirim ve beyan
+  konu: GVI
+  kazanim: muafiyet ve istisnalar
+  tip: uygulama
+  zorluk: 2
+  kok: Bayan (E), ayrı bir iş yeri açmadan ve seri üretim yapabilen makine kullanmadan evinde ürettiği takıları internet üzerinden
+    satmaktadır. Esnaf Vergi Muafiyeti Belgesi almış, Türkiye'deki bir bankada ticari hesap açmış ve bütün hasılatı bu hesaptan
+    tahsil etmiştir. 2026 yılında her ay en az on gün süreyle bir işçi çalıştırmış, yıllık hasılatı 2.100.000 TL olmuştur.
+    2026 yılı için GVK md. 9/10'daki hasılat sınırı 1.900.000 TL'dir. Buna göre aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Banka aktarımlardan %4 oranında tevkifat yapar; sınır aşıldığından Bayan (E) 2026 yılı için de gerçek usulde vergilendirilir.
+    B: Banka aktarımlardan %2 oranında tevkifat yapar; sınır aşıldığı aydan itibaren Bayan (E) gerçek usulde vergilendirilir.
+    C: Banka aktarımlardan %4 oranında tevkifat yapar; Bayan (E) 2027'den itibaren gerçek usule geçer, sınırın altında kaldığı
+      yılda yeniden muaf olabilir.
+    D: Banka %2 oranında tevkifat yapar; ayrıca alıcılar md. 94 uyarınca tevkifat yapar ve Bayan (E) muafiyetini korur.
+    E: Banka aktarımlardan %2 oranında tevkifat yapar; Bayan (E) 2027 yılı başından itibaren gerçek usulde vergilendirilir
+      ve tekrar bu muafiyetten yararlanamaz.
+  dogru: E
+  aciklama:
+    dogru_neden: Md. 9/10'a göre bankalar ticari hesaba aktarılan tutarlardan %4, bir ve üzeri işçi çalıştırılması (ilgili
+      ayda en az on gün) hâlinde %2 oranında tevkifat yapar ve bu hasılat üzerinden ayrıca md. 94 tevkifatı yapılmaz. Hasılatın
+      2026 için 1.900.000 TL'yi aşması hâlinde mükellef izleyen takvim yılı başından itibaren gerçek usulde vergilendirilir
+      ve tekrar bu muafiyetten yararlanamaz.
+    celdiriciler:
+      A: İşçi çalıştırıldığından oran %2'dir; gerçek usul aşımın olduğu yılı değil izleyen yıl başını kapsar.
+      B: Gerçek usule geçiş aşımın olduğu aydan değil izleyen takvim yılı başından itibaren olur.
+      C: Oran %2'dir; muafiyetten tekrar yararlanılamaz.
+      D: Bu hasılat üzerinden ayrıca md. 94 tevkifatı yapılmaz; sınır aşıldığından muafiyet sona erer.
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 9/10
+    alinti: üzerinden, aktarım tarihi itibarıyla %4 (bir ve üzeri işçi çalıştırıldığı durumda %2) oranında
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 9/10
+    alinti: (1.900.000 TL.) Türk lirasını aşması hâlinde, mükellef izleyen takvim yılı başından itibaren
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 56

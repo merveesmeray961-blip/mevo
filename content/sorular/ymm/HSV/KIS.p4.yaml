@@ -1,0 +1,264 @@
+- id: YMM-HSV-KIS-0075
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: KDV istisnaları ve iade
+  konu: KIS
+  kazanim: tecil-terkin uygulamaları
+  tip: hesaplama
+  zorluk: 3
+  kok: 'İmalatçı (F) A.Ş.''nin Haziran 2026 dönemine ilişkin bilgileri şöyledir (KDV oranı %20; tutarlar KDV hariç):
+
+
+    - Yurt içi toptancılara teslimler: 300.000 TL
+
+    - İhracatçı bir firmaya KDVK md. 11/1-c kapsamında ihraç kaydıyla teslimler: 500.000 TL
+
+    - Dönemin toplam indirilecek KDV''si: 140.000 TL (önceki dönemden devreden KDV yoktur)
+
+
+    İhraç kaydıyla teslim edilen mallar süresi içinde ihraç edilmiştir. KDV Genel Uygulama Tebliği''ne göre ihracatın gerçekleştiği
+    dönemde (F) A.Ş.''ye iade edilecek KDV kaç TL''dir?
+
+    '
+  secenekler:
+    A: '20.000'
+    B: '80.000'
+    C: '100.000'
+    D: '120.000'
+    E: '140.000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Hesaplanan KDV: (300.000 + 500.000) × %20 = 160.000; ödenmesi gereken KDV: 160.000 − 140.000 = 20.000. Tecil
+      edilebilir KDV, ihraç kaydıyla teslimlerin KDV''sidir: 500.000 × %20 = 100.000. Ödenmesi gereken tutar bundan az olduğundan
+      tecil edilecek KDV 20.000 TL''dir ve dönemde ödeme çıkmaz. Tecil edilemeyen 100.000 − 20.000 = 80.000 TL, ihracat gerçekleştiğinde
+      imalatçıya iade edilir. Püf noktaları: Tecil edilecek tutar, ödenmesi gereken KDV ile ihraç kayıtlı teslim KDV''sinden
+      küçük olanıdır; iade bu iki tutarın farkıdır, indirilecek KDV''nin tamamı değildir.'
+    celdiriciler:
+      A: Tecil edilen tutardır; bu tutar ihracatla terkin edilir, iade edilmez.
+      C: İhraç kaydıyla teslim KDV'sinin tamamı iade edilecek sanılmıştır; 20.000 TL'si tecil edilmiştir.
+      D: İndirilecek KDV'den tecil edilen tutar düşülmüştür (140.000 − 20.000); iade, tecil edilemeyen kısımla sınırlıdır.
+      E: İndirilecek KDV'nin tamamı iade edilecek sanılmıştır.
+    hesap_adimlari:
+    - Hesaplanan = 800.000 × 0,20 = 160.000
+    - Ödenmesi gereken = 160.000 − 140.000 = 20.000
+    - Tecil edilebilir = 500.000 × 0,20 = 100.000
+    - Tecil edilecek = min(20.000; 100.000) = 20.000
+    - İade = 100.000 − 20.000 = 80.000 TL
+  kaynaklar:
+  - mevzuat: KDV Genel Uygulama Tebliği
+    madde: Bölüm II/A-8.5
+    alinti: Tecil edilecek vergi miktarı, mükellefin ihraç kaydıyla teslimleri nedeniyle hesaplanan vergi tutarından fazla
+      olamaz.
+  - mevzuat: KDV Genel Uygulama Tebliği
+    madde: Bölüm II/A-8.5
+    alinti: edilemeyen bir kısım varsa, bu kısım imalatçı mükellefe iade edilir.
+  gecerlilik:
+    baslangic: '2023-07-10'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'odenmesi = (300000 + 500000) * 20 / 100 - 140000
+
+      tecil_edilebilir = 500000 * 20 / 100
+
+      tecil = min(odenmesi, tecil_edilebilir)
+
+      sonuc = tecil_edilebilir - tecil'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 71
+- id: YMM-HSV-KIS-0076
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: KDV istisnaları ve iade
+  konu: KIS
+  kazanim: diğer istisnalar (KDVK md.13-17)
+  tip: uygulama
+  zorluk: 2
+  kok: 'Aşağıdaki teslimlerden hangileri KDVK md. 13/1-n''deki basılı kitap ve süreli yayın istisnası kapsamındadır?
+
+
+    I. Sahafın sattığı ikinci el (kullanılmış) roman
+
+    II. 1117 sayılı Kanun hükümlerine göre poşetlenerek satılan dergi
+
+    III. Bir yayınevinin sattığı basılı soru bankası kitabı
+
+    IV. CD ile satılan görüntülü eğitim seti
+
+    V. Kitap şeklinde olmayan yaprak test
+
+    '
+  secenekler:
+    A: I ve II
+    B: I, III ve IV
+    C: III ve V
+    D: I, III ve V
+    E: I ve III
+  dogru: E
+  aciklama:
+    dogru_neden: İstisna, ikinci el olanlar dahil basılı kitap ve süreli yayınların her safhadaki tesliminde uygulanır (I);
+      soru ve bilgi bankası kitapları kapsamdadır (III). Poşetlenerek satılan yayınlar Kanun gereği istisna dışıdır (II);
+      CD veya flash bellekle satılan görüntülü eğitim setleri (IV) ile kitap şeklinde olmayan yaprak testler (V) kitap sayılmaz.
+    celdiriciler:
+      A: Poşetlenerek satılan yayınlar istisna dışıdır; III kapsamdadır.
+      B: Veri taşıyıcıyla satılan eğitim seti basılı kitap değildir.
+      C: Yaprak test kitap sayılmaz; I kapsamdadır.
+      D: Kitap şeklinde olmayan yaprak testler istisna kapsamında değildir.
+  kaynaklar:
+  - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
+    madde: md. 13/1-n
+    alinti: satılanlar hariç olmak üzere basılı kitap ve süreli yayınların teslimi (Bu bent hükmünün
+  - mevzuat: KDV Genel Uygulama Tebliği
+    madde: Bölüm II/B-17.1
+    alinti: İstisna, basılı kitap ve süreli yayınların (ikinci el olanlar dahil) yurt içindeki her safhada tesliminde ve
+  - mevzuat: KDV Genel Uygulama Tebliği
+    madde: Bölüm II/B-17.1
+    alinti: Kitap şeklinde olmayan yaprak testler, mevzuat setlerinin güncellenmesi amacıyla gönderilen föyler, ciltli
+  gecerlilik:
+    baslangic: '2019-02-22'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 72
+- id: YMM-HSV-KIS-0077
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: KDV istisnaları ve iade
+  konu: KIS
+  kazanim: indirim (md.29-30)
+  tip: uygulama
+  zorluk: 2
+  kok: '(M) A.Ş.''nin Mart 2026 dönemine ilişkin bilgileri şöyledir (KDV oranı %20):
+
+
+    - Yurt içi satışlar üzerinden hesaplanan KDV: 60.000 TL
+
+    - Belediyeye bedelsiz olarak teslim edilen malların alışında yüklenilen KDV: 30.000 TL (malların emsal bedeli 250.000
+    TL''dir)
+
+    - Diğer alışlara ait indirilecek KDV: 40.000 TL
+
+
+    Önceki dönemden devreden KDV yoktur. KDVK md. 17/2-b, 30/a ve 32''ye göre (M) A.Ş.''nin Mart 2026 beyannamesindeki sonuç
+    hangi seçenekte doğru verilmiştir?
+
+    '
+  secenekler:
+    A: Ödenecek KDV 20.000 TL'dir; bedelsiz teslime ait alış KDV'si indirilemez.
+    B: Ödenecek KDV 40.000 TL'dir; bedelsiz teslim emsal bedel üzerinden KDV'ye tabidir.
+    C: Sonraki döneme devreden KDV 10.000 TL'dir; bu tutar iade konusu yapılamaz.
+    D: İade edilecek KDV 10.000 TL'dir; tutar nakden veya mahsuben iade edilir.
+    E: Sonraki döneme devreden KDV 10.000 TL'dir; tutar iki yıl içinde iade istenebilir.
+  dogru: C
+  aciklama:
+    dogru_neden: 'Md. 17/1''de sayılan kurumlara (belediye dahil) bedelsiz yapılan mal teslimleri md. 17/2-b ile istisnadır;
+      teslim için KDV hesaplanmaz. Md. 30/a parantezi gereği bu istisnaya ilişkin yüklenilen KDV indirilebilir. İndirim: 30.000
+      + 40.000 = 70.000 > hesaplanan 60.000; fark 10.000 TL sonraki döneme devreder. Md. 32''deki iade hakkı md. 11, 13, 14,
+      15 ve 17/4-s istisnalarına tanındığından 17/2-b nedeniyle iade yapılmaz.'
+    celdiriciler:
+      A: Md. 30/a parantezi 17/2-b istisnasında indirim hakkı tanır.
+      B: Belediyeye bedelsiz teslim md. 17/2-b ile istisnadır; KDV hesaplanmaz.
+      D: 17/2-b, md. 32'deki iade hakkı doğuran istisnalar arasında değildir.
+      E: 17/2-b nedeniyle indirilemeyen KDV için md. 32'deki iade süresi işletilemez; iade hakkı yoktur.
+  kaynaklar:
+  - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
+    madde: md. 17/2-b
+    alinti: fıkrada sayılan kurum ve kuruluşlara bedelsiz olarak yapılan her türlü mal teslimi ve hizmet ifaları
+  - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
+    madde: md. 30/a
+    alinti: hizmet ifası (Bu Kanunun 17 nci maddesinin (2) numaralı fıkrasının (b), (c) ve (d) bentleri ile
+  - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
+    madde: md. 32
+    alinti: Madde 32 – Bu Kanunun 11, 13, 14 ve 15 inci maddeleri ile 17 nci maddenin (4)
+  gecerlilik:
+    baslangic: '2019-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 73

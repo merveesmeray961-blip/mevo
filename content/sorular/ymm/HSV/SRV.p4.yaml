@@ -1,0 +1,422 @@
+- id: YMM-HSV-SRV-0060
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: veraset ve intikal vergisi
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bay (B), Mart 2026''da emlak vergi değeri 4.566.935 TL olan dairesini oğlu Bay (C)''ye bağışlamıştır. Daire üzerinde,
+    dairenin alımı için kullanılan ve ipotekle teminat altına alınmış 500.000 TL banka borcu bulunmakta olup bu borcu Bay
+    (C) üstlenmiştir; Bay (B) borcu kendi üzerine almamıştır. Bay (C)''nin başka ivazsız iktisabı yoktur.
+
+
+    2026 yılı için ivazsız intikallerde istisna tutarı 66.935 TL; ivazsız intikal tarifesi ilk 3.000.000 TL için %10, sonra
+    gelen 7.000.000 TL için %15''tir. Veraset ve İntikal Vergisi Kanunu''na göre Bay (C)''nin ödeyeceği veraset ve intikal
+    vergisi kaç TL''dir?
+
+    '
+  secenekler:
+    A: '60.000'
+    B: '225.000'
+    C: '262.500'
+    D: '300.000'
+    E: '450.000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'İvazsız iktisaplarda intikal eden malın aynına ait borçlar indirilir; bağışlayan borcu üstlenmediğinden
+      500.000 TL düşülür (md. 12/b). İvazsız intikal istisnası 66.935 TL''dir (md. 4/d). Matrah: 4.566.935 − 500.000 − 66.935
+      = 4.000.000 TL. Babadan oğula ivazsız intikalde ivazsız tarifedeki oranların yarısı uygulanır (md. 16): 3.000.000 ×
+      %5 + 1.000.000 × %7,5 = 150.000 + 75.000 = 225.000 TL. Püf noktaları: Bağış veraset değildir, veraset tarifesi uygulanmaz;
+      ana-baba-çocuk arasındaki bağışta ivazsız oranlar yarıya iner ve füruğa tanınan miras istisnası değil ivazsız intikal
+      istisnası düşülür.'
+    celdiriciler:
+      A: Veraset tarifesi uygulanmıştır (3.000.000 × %1 + 1.000.000 × %3).
+      C: Malın aynına ait borç indirilmemiştir (matrah 4.500.000; 150.000 + 1.500.000 × %7,5).
+      D: Matrahın tamamına ikinci dilimin yarı oranı (%7,5) uygulanmıştır.
+      E: Ana-baba-çocuk arasında oranların yarıya indirilmesi gözden kaçırılmıştır (300.000 + 150.000).
+    hesap_adimlari:
+    - Matrah = 4.566.935 − 500.000 − 66.935 = 4.000.000
+    - İlk 3.000.000 × %5 = 150.000
+    - Kalan 1.000.000 × %7,5 = 75.000
+    - Vergi = 225.000 TL
+  kaynaklar:
+  - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
+    madde: md. 12/b
+    alinti: b) Diğer suretle iktisaplarda intikal eden malın aynına taallük eden borçlarla vergi
+  - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
+    madde: md. 4/d
+    alinti: lirası (66.935 TL);
+  - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
+    madde: md. 16
+    alinti: intikaller hariç) ivazsız mal intikali halinde vergi, ivazsız intikallere ilişkin tarifede yer alan
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'matrah = 4566935 - 500000 - 66935
+
+      sonuc = 3000000 * 5 / 100 + (matrah - 3000000) * 7.5 / 100'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 74
+- id: YMM-HSV-SRV-0061
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: borç ve masrafların indirimi
+  tip: uygulama
+  zorluk: 2
+  kok: 'Mart 2026''da vefat eden Bay (M)''nin mirasçıları veraset ve intikal vergisi beyannamesini hazırlamaktadır. Aşağıdaki
+    kalemlerden hangileri Veraset ve İntikal Vergisi Kanunu''nun 12. maddesine göre, beyannamede gösterilmek şartıyla, intikal
+    eden malların değerinden indirilebilir?
+
+
+    I. Bay (M)''nin bir tedarikçiye olan ve noter onaylı senede bağlı borcu
+
+    II. Bay (M)''nin vefat tarihinde ödenmemiş emlak vergisi borcu
+
+    III. Cenazenin techiz ve tedfini için yapılan masraflar
+
+    IV. Mirasçıların tereke mallarının değerini tespit ettirmek için ödedikleri ekspertiz ücreti
+
+    '
+  secenekler:
+    A: I, II ve III
+    B: I ve II
+    C: I ve III
+    D: II, III ve IV
+    E: I, II, III ve IV
+  dogru: A
+  aciklama:
+    dogru_neden: Veraset yoluyla intikallerde murisin belgeye dayanan (ihticaca salih vesaika müstenit) borçları ile vergi
+      borçları (md. 12/a; I, II) ve cenazenin techiz ve tedfini masrafları (md. 12/d; III) indirilir. Mirasçıların ölümden
+      sonra kendi işlemleri için yaptıkları ekspertiz ücreti md. 12'de sayılmamıştır (IV).
+    celdiriciler:
+      B: Cenaze masrafları md. 12/d ile indirilir.
+      C: Murisin vergi borçları da md. 12/a ile indirilir.
+      D: Mirasçıların ekspertiz ücreti indirilecek borç ve masraflar arasında sayılmamıştır; I indirilir.
+      E: IV md. 12 kapsamında değildir.
+  kaynaklar:
+  - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
+    madde: md. 12/a
+    alinti: a) Veraset yoliyle vukubulan intikallerde murisin ihticaca salih vesaika müstenit
+  - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
+    madde: md. 12/d
+    alinti: d) Cenazenin techiz ve tedfini için yapılan masraflar.
+  gecerlilik:
+    baslangic: '1959-06-15'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 75
+- id: YMM-HSV-SRV-0062
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: değerli konut vergisi
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bay (D)''nin Türkiye''deki mesken nitelikli taşınmazlarının 2026 yılı bina vergi değerleri şöyledir (hepsinin tam
+    maliki Bay (D)''dir; hiçbiri kiraya verilmemiştir):
+
+
+    - Ankara''daki daire: 15.000.000 TL
+
+    - İzmir''deki daire: 20.000.000 TL
+
+    - İstanbul''daki villa: 30.000.000 TL
+
+
+    2026 yılı için değerli konut vergisi sınırı 17.711.000 TL''dir. Tarife: 17.711.000 TL ile 26.567.000 TL arasında olanlarda
+    aşan kısmın binde 3''ü; 35.425.000 TL''ye kadar olanlarda 26.567.000 TL''si için 26.568 TL, fazlası binde 6''dır. Emlak
+    Vergisi Kanunu''na göre Bay (D)''nin 2026 yılı için ödeyeceği değerli konut vergisi toplamı kaç TL''dir?
+
+    '
+  secenekler:
+    A: '6.867'
+    B: '36.867'
+    C: '47.166'
+    D: '54.033'
+    E: '73.734'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Ankara''daki daire sınırın altında olduğundan vergi konusuna girmez. Birden fazla meskeni olanların değerli
+      konut vergisi konusuna giren en düşük değerli tek meskeni muaftır (md. 46/b): konuya giren İzmir (20.000.000) ve İstanbul
+      (30.000.000) arasından İzmir dairesi muaftır. İstanbul villası: 26.568 + (30.000.000 − 26.567.000) × binde 6 = 26.568
+      + 20.598 = 47.166 TL. Püf noktaları: Muafiyet tüm meskenler içindeki en düşük değerliye değil, vergi konusuna giren
+      meskenler içindeki en düşük değerliye uygulanır.'
+    celdiriciler:
+      A: Muafiyet yanlış meskene uygulanmış, yalnız İzmir dairesi vergilendirilmiştir ((20.000.000 − 17.711.000) × binde 3).
+      B: Sınırı aşan kısmın tamamına binde 3 uygulanmıştır ((30.000.000 − 17.711.000) × binde 3).
+      D: Muafiyet sınırın altındaki Ankara dairesine uygulanmış, İzmir ve İstanbul birlikte vergilendirilmiştir (6.867 + 47.166).
+      E: Sınırı aşan kısmın tamamına binde 6 uygulanmıştır ((30.000.000 − 17.711.000) × binde 6).
+    hesap_adimlari:
+    - Ankara < 17.711.000 → konu dışı
+    - 'Konuya girenler: İzmir 20.000.000, İstanbul 30.000.000 → İzmir muaf'
+    - İstanbul = 26.568 + 3.433.000 × 0,006 = 47.166 TL
+  kaynaklar:
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 46/b
+    alinti: vergisi konusuna giren en düşük değerli mesken nitelikli tek taşınmazı (intifa hakkına sahip
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu (EVK Genel Tebliği Seri No 88)
+    madde: md. 44
+    alinti: 7.500 (26.568) TL, fazlası için (Binde 6)
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu (EVK Genel Tebliği Seri No 88)
+    madde: md. 42
+    alinti: göre belirlenen bina vergi değeri 5.000.000 Türk lirasının (17.711.000) üzerinde olanlar
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: sonuc = 26568 + (30000000 - 26567000) * 6 / 1000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 76
+- id: YMM-HSV-SRV-0063
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: emlak vergisi matrah ve oranları
+  tip: hesaplama
+  zorluk: 2
+  kok: 5216 sayılı Kanun'un uygulandığı bir büyükşehir belediyesi sınırları içinde bulunan, Bay (A)'ya ait ve üzerinde bina
+    bulunmayan imar parselinin (arsa) 2026 yılı vergi değeri 2.000.000 TL, yine bu sınırlar içindeki tarım arazisinin vergi
+    değeri 1.000.000 TL'dir. Cumhurbaşkanınca belirlenmiş farklı bir oran bulunmadığı, muafiyet ve indirim şartlarının bulunmadığı
+    kabul edilecektir. Emlak Vergisi Kanunu'na göre Bay (A)'nın bu taşınmazlar için 2026 yılında ödeyeceği arazi vergisi toplamı
+    kaç TL'dir?
+  secenekler:
+    A: '6.000'
+    B: '7.000'
+    C: '12.000'
+    D: '14.000'
+    E: '18.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Arazi vergisinin oranı arazide binde bir, arsada binde üçtür; büyükşehir belediye sınırları ve mücavir alanlarda
+      %100 artırımlı uygulanır (md. 18). Arsa: 2.000.000 × binde 6 = 12.000; arazi: 1.000.000 × binde 2 = 2.000; toplam 14.000
+      TL (iki eşit taksitte).'
+    celdiriciler:
+      A: Arsaya da arazi oranı (binde 2) uygulanmıştır (4.000 + 2.000).
+      B: '%100 artırım uygulanmamıştır (6.000 + 1.000).'
+      C: Yalnız arsanın vergisi hesaplanmıştır; tarım arazisi de arazi vergisine tabidir.
+      E: Tarım arazisine de arsa oranı (binde 6) uygulanmıştır (12.000 + 6.000).
+    hesap_adimlari:
+    - Arsa = 2.000.000 × 0,006 = 12.000
+    - Arazi = 1.000.000 × 0,002 = 2.000
+    - Toplam = 14.000 TL
+  kaynaklar:
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 18
+    alinti: Arazi vergisinin oranı binde bir, arsalarda ise binde üçtür. Bu oranlar, 5216 sayılı
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 18
+    alinti: Kanunun uygulandığı büyük şehir belediye sınırları ve mücavir alanlar içinde % 100 artırımlı
+  gecerlilik:
+    baslangic: '2002-01-12'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 2000000 * 6 / 1000 + 1000000 * 2 / 1000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 77
+- id: YMM-HSV-SRV-0064
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: motorlu taşıtlar vergisi
+  tip: uygulama
+  zorluk: 2
+  kok: 'Aşağıdaki ifadelerden hangileri 197 sayılı Motorlu Taşıtlar Vergisi Kanunu''nun 14. maddesine göre doğrudur?
+
+
+    I. (A) A.Ş.''nin genel müdürüne tahsis ettiği ve (I) sayılı tarifeye giren otomobilin MTV''si kurumlar vergisi matrahının
+    tespitinde gider olarak kabul edilmez.
+
+    II. (A) A.Ş.''nin mal taşımada kullandığı ve (II) sayılı tarifeye giren kamyonetin MTV''si gider yazılabilir.
+
+    III. Taşıt kiralama faaliyetiyle uğraşan (R) A.Ş.''nin bu amaçla kiraya verdiği (I) sayılı tarifedeki otomobillerin MTV''si
+    gider yazılabilir.
+
+    IV. (A) A.Ş.''nin genel müdürüne tahsis ettiği otomobilin MTV''sinin geç ödenmesi nedeniyle ödenen gecikme zammı gider
+    yazılabilir.
+
+    '
+  secenekler:
+    A: I ve II
+    B: I ve IV
+    C: II ve III
+    D: II, III ve IV
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: Md. 14'e göre (I), (I/A) ve (IV) sayılı tarifelerdeki taşıtlardan alınan vergi ve cezalar ile gecikme zamları
+      gelir ve kurumlar vergisi matrahının tespitinde gider kabul edilmez (I doğru, IV yanlış); taşıt kiralama faaliyetiyle
+      uğraşanların bu amaçla kiraya verdikleri taşıtlar ile ticari maksatla kullanılan uçak ve helikopterler hariçtir (III
+      doğru). (II) sayılı tarife bu sayımda yer almadığından kamyonetin MTV'si gider yazılabilir (II doğru).
+    celdiriciler:
+      A: Kiralama işletmesinin kiraya verdiği taşıtlar istisna kapsamındadır; III de doğrudur.
+      B: Gecikme zammı da gider kabul edilmez; IV yanlıştır.
+      C: I de doğrudur.
+      D: IV yanlıştır; I doğrudur.
+  kaynaklar:
+  - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
+    madde: md. 14
+    alinti: amaçla kiraya verdikleri taşıtlar hariç) alınan vergi ve cezalar ile gecikme zamları gelir ve
+  - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
+    madde: md. 14
+    alinti: kurumlar vergilerinin matrahlarının tespitinde gider olarak kabul edilmez.
+  gecerlilik:
+    baslangic: '1985-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 78

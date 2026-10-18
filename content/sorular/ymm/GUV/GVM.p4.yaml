@@ -1,0 +1,382 @@
+- id: YMM-GUV-GVM-0063
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisi mükellefiyeti ve kazanç unsurları
+  konu: GVM
+  kazanim: ortaklıkların vergilendirilmesi
+  tip: hesaplama
+  zorluk: 2
+  kok: 'İki gerçek kişi ortağın (A ve B) eşit paylı olduğu (K) Kollektif Şirketi''nin 2026 yılı ticari bilanço kârı 1.500.000
+    TL''dir. Kâra ulaşılırken aşağıdaki ödemeler gider yazılmıştır:
+
+
+    - Şirkette çalışan ortak A''ya ödenen aylıklar toplamı: 300.000 TL
+
+    - Ortak B''nin şirkette çalışan eşine ödenen ücret: 120.000 TL
+
+    - Ortak A''nın şirkete koyduğu sermaye için yürütülen faiz: 80.000 TL
+
+    - Ortak olmayan şirket müdürüne ödenen ücret: 200.000 TL
+
+
+    Başka bir düzeltme gerektiren işlem yoktur. 193 sayılı Gelir Vergisi Kanunu''na göre ortak A''nın şirketten elde ettiği
+    ve şahsi ticari kazanç hükmünde olan payı kaç TL''dir?
+
+    '
+  secenekler:
+    A: '750.000'
+    B: '900.000'
+    C: '960.000'
+    D: 1.000.000
+    E: 1.100.000
+  dogru: D
+  aciklama:
+    dogru_neden: 'Kollektif şirket ortakları md. 41 uygulamasında teşebbüs sahibi sayılır. Teşebbüs sahibine ve eşine ödenen
+      ücretler ile işletmeye konulan sermaye için yürütülen faizler gider yazılamaz (md. 41/1-2, 3). Düzeltilmiş kâr: 1.500.000
+      + 300.000 + 120.000 + 80.000 = 2.000.000 TL; ortakların payı md. 37 uyarınca şahsi ticari kazanç hükmündedir: 2.000.000
+      / 2 = 1.000.000 TL. Ortak olmayan müdüre ödenen ücret gider olarak kalır.'
+    celdiriciler:
+      A: Kanunen kabul edilmeyen ödemeler kâra eklenmemiştir.
+      B: Yalnız ortağa ödenen aylık eklenmiş; eşe ödenen ücret ve sermaye faizi eklenmemiştir.
+      C: Sermaye faizi eklenmemiştir.
+      E: Ortak olmayan müdürün ücreti de kâra eklenmiştir; bu ödeme gider yazılabilir.
+    hesap_adimlari:
+    - Eklenecekler = 300.000 + 120.000 + 80.000 = 500.000
+    - Düzeltilmiş kâr = 1.500.000 + 500.000 = 2.000.000
+    - A'nın payı = 2.000.000 / 2 = 1.000.000 TL
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 41
+    alinti: komandit şirketlerin komandite ortakları teşebbüs sahibi sayılır.
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 41/1-2
+    alinti: 2. Teşebbüs sahibinin kendisine, eşine, küçük çocuklarına işletmeden ödenen aylıklar,
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 41/1-3
+    alinti: 3. Teşebbüs sahibinin işletmeye koyduğu sermaye için yürütülecek faizler;
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 37
+    alinti: ortakların ortaklık karından aldıkları paylar şahsi ticari kazanç hükmündedir.
+  gecerlilik:
+    baslangic: '1961-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (1500000 + 300000 + 120000 + 80000) / 2
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 46
+- id: YMM-GUV-GVM-0064
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisi mükellefiyeti ve kazanç unsurları
+  konu: GVM
+  kazanim: ortaklıkların vergilendirilmesi
+  tip: uygulama
+  zorluk: 3
+  kok: '(M) Adi Komandit Şirketi''nin komandite ortağı Bay (B), komanditer ortağı Bay (A)''dır. Bay (A) şirkette hizmet sözleşmesiyle
+    muhasebe müdürü olarak da çalışmaktadır. Şirketin 2026 yılı kârı 2027 Mart ayında dağıtılmıştır. 193 sayılı Gelir Vergisi
+    Kanunu''na göre aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. Bay (A)''nın 2026 kârından 2027''de aldığı kâr payı menkul sermaye iradı olup 2026 takvim yılında elde edilmiş sayılır.
+
+    II. Bay (A)''ya muhasebe müdürü olarak ödenen aylıklar şirket kazancının tespitinde gider yazılabilir ve Bay (A) bakımından
+    ücrettir.
+
+    III. Bay (B)''nin şirkette çalışan eşine ödenen ücret şirket kazancının tespitinde gider yazılamaz.
+
+    IV. Bay (B)''nin ortaklık kârından aldığı pay, komanditerin payı gibi menkul sermaye iradıdır.
+
+    '
+  secenekler:
+    A: I ve II
+    B: I, II ve III
+    C: II ve IV
+    D: I, III ve IV
+    E: II, III ve IV
+  dogru: B
+  aciklama:
+    dogru_neden: 'Komanditerlerin kâr payları menkul sermaye iradıdır ve şirket kârının ilişkin bulunduğu takvim yılında elde
+      edilmiş sayılır (md. 75/2-2; I). Md. 41''in uygulanmasında yalnız komandite ortaklar teşebbüs sahibi sayıldığından,
+      şirkette çalışan komanditere ödenen aylık gider yazılabilir ve onun için ücrettir (II); komandite ortağın eşine ödenen
+      ücret ise gider yazılamaz (md. 41/1-2; III). Komandite ortağın ortaklık kârından aldığı pay şahsi ticari kazanç hükmündedir
+      (md. 37); IV yanlıştır. Püf noktaları: Aynı şirkette iki ortak türü farklı gelir unsuruna tabidir; md. 41 kısıtlaması
+      yalnız teşebbüs sahibi sayılan komandite için geçerlidir. Komanditer kâr payında elde etme zamanı dağıtım yılı değil
+      kârın ait olduğu yıldır.'
+    celdiriciler:
+      A: Komandite ortağın eşine ödenen ücret md. 41/1-2 uyarınca gider yazılamaz; III de doğrudur.
+      C: Komandite ortağın payı şahsi ticari kazançtır; I doğrudur.
+      D: Komanditer teşebbüs sahibi sayılmadığından II doğrudur; IV yanlıştır.
+      E: IV yanlıştır; I doğrudur.
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 75/2-2
+    alinti: Adi komandit şirketlerde komanditerlerin kar payları, şirket karının ilişkin bulunduğu
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 41
+    alinti: komandit şirketlerin komandite ortakları teşebbüs sahibi sayılır.
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 37
+    alinti: ortakların ortaklık karından aldıkları paylar şahsi ticari kazanç hükmündedir.
+  gecerlilik:
+    baslangic: '1986-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 47
+- id: YMM-GUV-GVM-0065
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisi mükellefiyeti ve kazanç unsurları
+  konu: GVM
+  kazanim: diğer kazanç ve iratlar
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Türkiye''de yerleşik Bay (D)''nin ticari işletmesine dahil olmayan gayrimenkullerine ilişkin 2026 yılı satışları şöyledir:
+
+
+    - Mayıs 2022''de 3.000.000 TL''ye satın aldığı dükkânı Haziran 2026''da 9.000.000 TL''ye satmıştır. Satış nedeniyle kendi
+    üzerinde kalan tapu harcı ve emlakçı komisyonu toplamı 100.000 TL''dir. Dükkânın alış ayından satış ayına kadar (satış
+    ayı hariç) Yİ-ÜFE''deki artış oranı %150''dir.
+
+    - 2024 yılında babasından miras yoluyla intikal eden arsasını Nisan 2026''da 2.000.000 TL''ye satmıştır.
+
+    - Mart 2020''de satın aldığı konutunu Temmuz 2026''da 4.000.000 TL''ye satmıştır.
+
+
+    2026 yılı için değer artışı kazancı istisnası 150.000 TL''dir. Buna göre Bay (D)''nin 2026 yılı için beyan edeceği değer
+    artışı kazancı kaç TL''dir?
+
+    '
+  secenekler:
+    A: 1.250.000
+    B: 1.350.000
+    C: 1.400.000
+    D: 4.250.000
+    E: 5.750.000
+  dogru: A
+  aciklama:
+    dogru_neden: 'Gayrimenkulün ivazlı iktisabından itibaren beş yıl içinde elden çıkarılması değer artışı kazancı doğurur
+      (mükerrer md. 80/1-6). Dükkân 4 yıl 1 ay sonra satıldığından kapsamdadır; iktisap bedeli Yİ-ÜFE artışı (%150, %10 şartı
+      sağlanmış) oranında artırılır: 3.000.000 × 2,5 = 7.500.000. Safi kazanç: 9.000.000 − 7.500.000 − 100.000 = 1.400.000
+      (mükerrer md. 81). İstisna düşülür: 1.400.000 − 150.000 = 1.250.000 TL. Miras yoluyla edinilen arsa ivazsız iktisap
+      edildiğinden, konut ise beş yıldan sonra satıldığından değer artışı doğmaz. Püf noktaları: Endeks artışı oran olarak
+      verildiğinde maliyet 1 + oran ile çarpılır; satıcı üzerinde kalan giderler ve harçlar indirilir; istisna safi kazanç
+      bulunduktan sonra uygulanır.'
+    celdiriciler:
+      B: Satış giderleri indirilmemiştir (9.000.000 − 7.500.000 − 150.000).
+      C: İstisna uygulanmamıştır.
+      D: Maliyet artış oranıyla (×1,5) çarpılmıştır; doğru çarpan 1 + 1,5 = 2,5'tir.
+      E: Endeksleme yapılmamıştır (9.000.000 − 3.000.000 − 100.000 − 150.000).
+    hesap_adimlari:
+    - Endekslenmiş maliyet = 3.000.000 × 2,5 = 7.500.000
+    - Safi kazanç = 9.000.000 − 7.500.000 − 100.000 = 1.400.000
+    - Beyan = 1.400.000 − 150.000 = 1.250.000 TL
+    - Miras arsa (ivazsız) ve 6 yıllık konut kapsam dışı
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: mükerrer md. 80/1-6
+    alinti: İktisap şekli ne olursa olsun (ivazsız olarak iktisap edilenler hariç) 70 inci maddenin
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: mükerrer md. 81
+    alinti: giderlerin ve ödenen vergi ve harçların indirilmesi suretiyle bulunur.
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: mükerrer md. 81
+    alinti: bu endekslemenin yapılabilmesi için artış oranının % 10 veya üzerinde
+  - mevzuat: Gelir Vergisi Genel Tebliği (Seri No 332)
+    madde: md. 3/2-h
+    alinti: h) Mükerrer 80 inci maddesinin üçüncü fıkrasında yer alan değer artışı kazançlarına ilişkin istisna tutarı 150.000
+      TL,
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: sonuc = 9000000 - 3000000 * (1 + 150 / 100) - 100000 - 150000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 48
+- id: YMM-GUV-GVM-0066
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisi mükellefiyeti ve kazanç unsurları
+  konu: GVM
+  kazanim: diğer kazanç ve iratlar
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Türkiye''de yerleşik Bay (K)''nın 2026 yılında elde ettiği ve tamamı tahsil edilmiş arızi nitelikteki gelirleri şöyledir:
+
+
+    - Arızi olarak yaptığı bir ticari muameleye aracılıktan elde ettiği safi kazanç: 150.000 TL
+
+    - Kiracısı olduğu işyerini tahliye etmesi karşılığında aldığı tazminat: 90.000 TL (Bu tazminatla ilgili belgeli avukatlık
+    gideri 20.000 TL''dir.)
+
+    - Yürüttüğü serbest meslek faaliyetini terk etmesi karşılığında aldığı tutar: 60.000 TL
+
+    - Bir kamu ihalesine iştirak etmemesi karşılığında aldığı tutar: 120.000 TL
+
+
+    Bu kazançlar üzerinden vergi kesintisi yapılmamıştır. 2026 yılı için arızi kazanç istisnası 350.000 TL''dir. GVK md. 82''ye
+    göre Bay (K)''nın beyan edeceği arızi kazanç toplamı kaç TL''dir?
+
+    '
+  secenekler:
+    A: '50.000'
+    B: '70.000'
+    C: '120.000'
+    D: '180.000'
+    E: '400.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'İstisna (1)–(4) numaralı bentlerdeki kazançlara uygulanır; ihale, artırma ve eksiltmelere iştirak edilmemesi
+      ile hiç başlanmamış faaliyete girişilmemesi karşılığı alınanlar istisna dışıdır. Tahliye tazminatında belgeli gider
+      indirilir: 90.000 − 20.000 = 70.000. İstisnaya konu kazançlar: 150.000 + 70.000 + 60.000 = 280.000 TL < 350.000 TL olduğundan
+      tamamı istisnadır. İhaleye iştirak etmeme karşılığı 120.000 TL istisnadan yararlanamaz ve beyan edilir.'
+    celdiriciler:
+      A: İstisna ihaleye iştirak etmeme karşılığına da uygulanmıştır (400.000 − 350.000).
+      B: Hem tahliye giderini indirmeyip hem istisnayı bütün kazançlara uygulamaktan doğan sonuçtur (420.000 − 350.000).
+      D: Faaliyetin terki karşılığı da istisna dışı sayılmıştır; istisna dışı olan hiç girişilmeyen faaliyettir, terk edilen
+        faaliyet değildir.
+      E: İstisna hiç uygulanmamıştır.
+    hesap_adimlari:
+    - Tahliye safi = 90.000 − 20.000 = 70.000
+    - İstisnaya konu = 150.000 + 70.000 + 60.000 = 280.000 → tamamı istisna
+    - İstisna dışı = 120.000
+    - Beyan = 120.000 TL
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 82/2
+    alinti: başlamamış olan ticarî, ziraî veya meslekî bir faaliyete hiç girişilmemesi ile ihale, artırma ve
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 82
+    alinti: elde edilen hâsılattan tevsik edilmek kaydıyla yapılan giderler indirilir.
+  - mevzuat: Gelir Vergisi Genel Tebliği (Seri No 332)
+    madde: md. 3/2-ı
+    alinti: ı) 82 nci maddesinin ikinci fıkrasında yer alan arızi kazançlara ilişkin istisna tutarı 350.000 TL,
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'istisnali = 150000 + (90000 - 20000) + 60000
+
+      vergili = max(istisnali - 350000, 0)
+
+      sonuc = vergili + 120000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S4
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_S4.yaml, satır 49
