@@ -16,9 +16,9 @@
   secenekler:
     A: Türkiye’de ödenecek vergi 350.000 TL’dir; yurt dışında ödenen hiç mahsup edilemez.
     B: Türkiye’de ödenecek vergi 200.000 TL’dir; yurt dışında ödenen 150.000 TL’nin tamamı mahsup edilir.
-    C: Türkiye’de ödenecek vergi 0 TL’dir; yurt dışında ödenen stopaj Türkiye vergisini tamamen karşılar.
+    C: Türkiye’de ödenecek vergi 0 TL’dir; yurt dışında ödenen stopaj Türkiye vergisini karşılar.
     D: Türkiye’de ödenecek vergi 350.000 TL’dir; ancak 150.000 TL iade alınır.
-    E: Türkiye’de ödenecek vergi 150.000 TL’dir; mahsup yalnızca stopaj tutarı kadar yapılır.
+    E: Türkiye’de ödenecek vergi 150.000 TL’dir; mahsup stopaj tutarıyla sınırlıdır.
   dogru: B
   aciklama:
     dogru_neden: Mahsup yönteminde, kaynak ülkede ödenen vergi, Türkiye’de aynı kazanç üzerinden hesaplanan vergiden
@@ -52,7 +52,7 @@
   dogrulama:
     python: sonuc = 350000 - 150000
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -72,8 +72,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -88,6 +89,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-MLY-VTE-0004
   sinav: smmm
   bolum:
@@ -412,11 +417,11 @@
   kok: Uluslararası çifte vergilendirmeyi önlemede kullanılan temel yöntemlerden biri olan ‘mahsup (kredi) yöntemi’ne
     göre kaynak ülkede ödenen vergi ne olur?
   secenekler:
-    A: Tamamen yok sayılır; yerleşiklik ülkesi tam vergi alır.
-    B: Yalnızca anapara üzerinden mahsup yapılır, faiz hariç tutulur.
-    C: Kaynak ülkede ödenen verginin iki katı iade edilir.
-    D: Yerleşiklik ülkesinde aynı kazanç üzerinden hesaplanan vergiden düşülür (üst sınır yerleşiklik ülkesi vergisidir).
-    E: Mahsup yerine yalnızca istisna uygulanır.
+    A: Dikkate alınmaz; yerleşiklik ülkesi kazancın tamamı üzerinden tam vergi alır.
+    B: Mahsup anapara üzerinden yapılır, faiz hariç tutulur.
+    C: Kaynak ülkede ödenen verginin iki katı yerleşiklik ülkesince iade edilir.
+    D: Yerleşiklik ülkesinde hesaplanan vergiden, o vergiyle sınırlı olarak düşülür.
+    E: Mahsup yerine istisna yöntemi uygulanır.
   dogru: D
   aciklama:
     dogru_neden: Mahsup (tax credit) yönteminde, kaynak ülkede ödenen vergi, yerleşiklik ülkesinde aynı gelir üzerinden
@@ -436,7 +441,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -457,8 +462,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -476,6 +482,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-MLY-VTE-0009
   sinav: smmm
   bolum:

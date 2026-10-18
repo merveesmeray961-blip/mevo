@@ -12,10 +12,10 @@
     (progressive) bir vergi tarifesini doğru tanımlar?
   secenekler:
     A: Marjinal oran her matrah diliminde ortalama orana eşittir.
-    B: Marjinal oran, matrah arttıkça ortalama oranı yukarı çekecek şekilde ortalama oranın üzerinde kalır.
-    C: Marjinal oran, ortalama oranın sürekli altında seyretmek zorundadır.
+    B: Marjinal oran ortalama oranın üzerinde kalır ve matrah arttıkça ortalama oranı yükseltir.
+    C: Marjinal oran, matrah artsa da ortalama oranın sürekli altında seyretmek zorundadır.
     D: Ortalama oran sabit kalırken marjinal oran sıfırdır.
-    E: Marjinal oran ile ortalama oran arasında hiçbir sistematik ilişki yoktur.
+    E: Marjinal oran ile ortalama oran arasında sistematik bir ilişki bulunmaz.
   dogru: B
   aciklama:
     dogru_neden: Artan oranlı tarifede her ek gelir dilimine uygulanan marjinal oran, o ana kadarki ortalama orandan
@@ -36,7 +36,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -57,8 +57,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -76,6 +77,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-MLY-VTE-0016
   sinav: smmm
   bolum:
@@ -177,12 +182,11 @@
   secenekler:
     A: Ekonomik çifte vergilendirme yalnız şirketler için, hukuki çifte vergilendirme yalnız gerçek kişiler için
       geçerlidir.
-    B: Ekonomik çifte vergilendirme aynı gelirin farklı kişiler (şirket ve ortak) tarafından vergilendirilmesini,
-      hukuki çifte vergilendirme aynı kişinin aynı gelir üzerinden birden fazla ülkede vergilendirilmesini ifade
-      eder.
+    B: 'Ekonomik: aynı gelir farklı kişilerde (şirket-ortak) vergilenir; hukuki: aynı kişi aynı gelirden birden
+      çok ülkede vergilenir.'
     C: Ekonomik çifte vergilendirme stopaj, hukuki çifte vergilendirme beyan usulü ile ortaya çıkar.
     D: Hukuki çifte vergilendirme yurt içi, ekonomik çifte vergilendirme yurt dışı işlemlerde görülür.
-    E: İkisi arasında pratikte hiçbir fark yoktur.
+    E: İkisi arasında pratikte bir fark bulunmaz.
   dogru: B
   aciklama:
     dogru_neden: Ekonomik çifte vergilendirme, aynı ekonomik gelirin (örneğin şirket kârı) hem kurumlar vergisi
@@ -203,7 +207,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -224,8 +228,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -240,6 +245,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-MLY-VTE-0018
   sinav: smmm
   bolum:
@@ -350,9 +359,9 @@
   secenekler:
     A: Başa baş noktası = G / t ; bu noktada net transfer sıfırdır.
     B: Başa baş noktası = G × t ; bu noktada vergi borcu maksimumdur.
-    C: Temel gelir, yalnızca pozitif gelir diliminde uygulanır.
+    C: Temel gelir pozitif gelir diliminde uygulanır.
     D: Marjinal oran yalnız negatif dilimde geçerlidir.
-    E: Başa baş noktası = G − t ; net transfer her zaman pozitiftir.
+    E: Başa baş noktası = G − t ; net transfer bu noktada pozitiftir.
   dogru: A
   aciklama:
     dogru_neden: Negatif gelir vergisi formülünde net transfer = G − t × Y. Net transferin sıfır olduğu başa baş
@@ -372,7 +381,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -393,8 +402,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -409,6 +419,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-MLY-VTE-0020
   sinav: smmm
   bolum:
@@ -510,7 +524,7 @@
     B: I’de gelir maksimum, II’de sıfırdır.
     C: III’te gelir sıfırdır; I ve II’de maksimumdur.
     D: I, II ve III’te gelir aynıdır.
-    E: Yalnızca II’de gelir sıfırdır; I’de pozitiftir.
+    E: II’de gelir sıfırdır; I’de ise pozitiftir.
   dogru: A
   aciklama:
     dogru_neden: Laffer eğrisinde vergi oranı %0 iken matrah vardır ama oran sıfır olduğu için gelir sıfırdır; oran
@@ -531,7 +545,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -552,8 +566,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -568,6 +583,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-MLY-VTE-0022
   sinav: smmm
   bolum:
@@ -747,8 +766,7 @@
     A: Garanti edilen asgari gelir düzeyinin altında gelir elde edenlere transfer ödemesi yapılır.
     B: Marjinal vergi oranı hem pozitif hem negatif gelir bölgesinde aynı tutulabilir.
     C: Sistem, gelir arttıkça transfer ödemesini kademeli olarak azaltarak çalışma teşvikini korumayı amaçlar.
-    D: Negatif gelir vergisi uygulamasında, gelir sıfır olduğunda ödenen tutar her zaman temel gelir garantisinin
-      tamamına eşittir ve gelir arttıkça bu tutar artarak devam eder.
+    D: Gelir sıfırken ödenen tutar temel gelire eşittir ve gelir arttıkça bu tutar da artar.
     E: Pozitif gelir bölgesinde vergi borcu, negatif bölgede ise net transfer söz konusu olur.
   dogru: D
   aciklama:
@@ -770,7 +788,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -791,8 +809,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -813,6 +832,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-MLY-VTE-0025
   sinav: smmm
   bolum:
@@ -1148,7 +1171,7 @@
     A: 5.000 TL net transfer alır
     B: 10.000 TL net transfer alır
     C: 2.500 TL vergi öder
-    D: Hiçbir ödeme almaz ve vergi ödemez
+    D: Ödeme almaz ve vergi ödemez
     E: 15.000 TL net transfer alır
   dogru: B
   aciklama:
@@ -1173,7 +1196,7 @@
   dogrulama:
     python: sonuc = 15000 - 0.25 * 20000
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1193,8 +1216,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1209,6 +1233,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-MLY-VTE-0030
   sinav: smmm
   bolum:
@@ -1247,7 +1275,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1269,8 +1297,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: VTE-0035 ve 0015 ile aynı hüküm (tarife türlerinde oran ilişkisi)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1288,6 +1317,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: VTE-0035 ve 0015 ile aynı hüküm (tarife türlerinde oran ilişkisi)
 - id: SMMM-MLY-VTE-0031
   sinav: smmm
   bolum:
@@ -1649,7 +1682,7 @@
       oran ortalama orandan düşüktür.
     B: Artan oranlıda marjinal oran ortalama orandan düşüktür; düz oranlıda ikisi eşittir; azalan oranlıda marjinal
       oran ortalama orandan yüksektir.
-    C: Her üç tarifede de marjinal oran ile ortalama oran her zaman eşittir.
+    C: Her üç tarifede de marjinal oran ile ortalama oran eşittir.
     D: Artan oranlıda ortalama oran sabit, marjinal oran değişkendir.
     E: Azalan oranlıda ortalama oran artarken marjinal oran sabit kalır.
   dogru: A
@@ -1670,7 +1703,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1691,8 +1724,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1713,6 +1747,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-MLY-VTE-0036
   sinav: smmm
   bolum:
@@ -2131,13 +2169,13 @@
   kok: Laffer eğrisi ile klasik ‘vergi oranı arttıkça gelir artar’ yaklaşımı arasındaki temel fark aşağıdakilerden
     hangisinde doğru olarak karşılaştırılmıştır?
   secenekler:
-    A: Laffer eğrisi oran artışının her zaman geliri artıracağını; klasik yaklaşım ise belirli bir noktadan sonra
-      geliri düşüreceğini savunur.
+    A: Laffer eğrisi oran artışının geliri sürekli artıracağını; klasik yaklaşım ise belirli bir noktadan sonra
+      düşüreceğini savunur.
     B: Klasik yaklaşım matrah daralmasını dikkate alır; Laffer eğrisi dikkate almaz.
     C: Her iki yaklaşım da oran ile gelir arasında ters U ilişkisi olduğunu kabul eder.
-    D: Laffer eğrisi yalnızca dolaylı vergiler için geçerlidir; klasik yaklaşım tüm vergiler için geçerlidir.
-    E: Laffer eğrisi, belirli bir oranın ötesinde oran artışının matrahı daraltarak geliri düşürebileceğini; klasik
-      yaklaşım ise oran-gelir ilişkisini sürekli pozitif varsayar.
+    D: Laffer eğrisi dolaylı vergilerle sınırlıdır; klasik yaklaşım tüm vergiler için geçerlidir.
+    E: Laffer, belirli bir oranın ötesinde artışın matrahı daraltıp geliri düşürebileceğini; klasik yaklaşım ilişkiyi
+      sürekli pozitif varsayar.
   dogru: E
   aciklama:
     dogru_neden: Klasik (basit) yaklaşım oran ↑ → gelir ↑ varsayar; Laffer eğrisi ise t_max ötesinde oran ↑ → matrah
@@ -2156,7 +2194,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2177,8 +2215,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2199,6 +2238,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-MLY-VTE-0042
   sinav: smmm
   bolum:
@@ -2367,12 +2410,11 @@
   kok: Negatif gelir vergisi ile geleneksel sosyal yardım programları karşılaştırıldığında temel fark aşağıdakilerden
     hangisidir?
   secenekler:
-    A: Negatif gelir vergisi yalnızca çalışmayanlara ödeme yaparken sosyal yardım tüm düşük gelirlilere uygulanır.
+    A: Negatif gelir vergisi çalışmayanlara, sosyal yardım ise tüm düşük gelirlilere ödeme yapar.
     B: Negatif gelir vergisi sabit tutarda ödeme yaparken sosyal yardım gelire bağlı değişken tutar uygular.
     C: Negatif gelir vergisi idari maliyetleri daha yüksek tutarken sosyal yardım programları daha basittir.
-    D: Negatif gelir vergisi yalnızca servet üzerinden hesaplanırken sosyal yardım gelir üzerinden hesaplanır.
-    E: Negatif gelir vergisi, gelir arttıkça net transferi azaltarak çalışma teşvikini korumayı hedefler; sosyal
-      yardımlar çoğu zaman gelir arttıkça tamamen kesilir.
+    D: Negatif gelir vergisi servet üzerinden, sosyal yardım ise gelir üzerinden hesaplanır.
+    E: Negatif gelir vergisi gelir arttıkça transferi kademeli azaltır; sosyal yardımlar çoğu zaman tümüyle kesilir.
   dogru: E
   aciklama:
     dogru_neden: Negatif gelir vergisi (Friedman tipi), temel gelir garantisi ile marjinal vergi oranı birleştirerek
@@ -2394,7 +2436,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2415,8 +2457,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2434,6 +2477,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-MLY-VTE-0045
   sinav: smmm
   bolum:
@@ -2891,7 +2938,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2913,8 +2960,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: VTE-0041 ile aynı hüküm (Laffer etkisi); doğru şık aşırı uzun
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2932,6 +2980,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: VTE-0041 ile aynı hüküm (Laffer etkisi); doğru şık aşırı uzun
 - id: SMMM-MLY-VTE-0051
   sinav: smmm
   bolum:
