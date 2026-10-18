@@ -123,6 +123,10 @@ cd app && /opt/flutter-sdk/flutter/bin/flutter test
 cd app && /opt/flutter-sdk/flutter/bin/flutter build apk --release --split-per-abi --obfuscate --split-debug-info=build/hata-ayiklama
 ```
 
+**Windows'ta derleme:** Proje yolu ("Masaüstü") ASCII dışı olduğu için Android Gradle eklentisi derlemeyi reddeder.
+`app/` klasörü `C:\Users\erene\dev\mevo_insa\app` altına kopyalanıp orada derlenir (JAVA_HOME = JDK 21).
+`android/key.properties` (yükleme anahtarı) yoksa çıktı **debug imzalıdır**; Play'e yüklenecek AAB için anahtar gerekir.
+
 APK: `app-arm64-v8a-release.apk` (~20 MB) gönderilir. AAB 51 MB → gönderim sınırı 30 MB, `split -b 24m` ile bölünür.
 
 ## Dosya haritası
