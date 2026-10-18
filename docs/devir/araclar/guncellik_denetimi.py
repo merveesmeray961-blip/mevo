@@ -55,6 +55,8 @@ def _metin(s: dict) -> str:
 
 def denetle() -> dict:
     zayif = json.loads((KOK / "docs/denetim/2026-10-09_tam_hakem.json").read_text(encoding="utf-8"))["zayif"]
+    istisna_yolu = KOK / "docs/denetim/guncellik_istisna.json"  # elle doğrulanmış yanlış alarmlar
+    istisna = json.loads(istisna_yolu.read_text(encoding="utf-8")) if istisna_yolu.exists() else {}
     bulgu: dict[str, list[str]] = {}
     for sinav in ("smmm", "ymm"):
         for _, s in _sorular(sinav):
@@ -79,6 +81,7 @@ def denetle() -> dict:
                     h.append("R6 mutlak ifade yalnız çeldiricide: " + ",".join(mutlak))
             if sinav == "smmm" and re.search(r"\bBDS\s?\d{3}", str(s.get("kok", ""))):
                 h.append("R7 kökte BDS numarası")
+            h = [x for x in h if x[:2] not in istisna.get(s["id"], {}).get("kurallar", [])]
             if h:
                 bulgu[s["id"]] = h
     return bulgu
