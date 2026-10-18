@@ -173,21 +173,22 @@
   kok: (K) A.Ş.'de ortaklar 1.200.000 TL sermaye taahhüt etmiş, kuruluş anında bunun 700.000 TL'lik kısmı henüz
     ödenmemiştir. Ödenmemiş kısım hangi hesapta izlenir ve ilk taahhüt kaydında karşı hesap nedir?
   secenekler:
-    A: 501 Ödenmemiş Sermaye; karşılığında 500 Sermaye hesabı alacaklandırılır.
-    B: 500 Sermaye; karşılığında 501 Sermaye hesabı alacaklandırılır.
-    C: 540 Yasal Yedekler; karşılığında 500 Sermaye hesabı borçlandırılır.
-    D: 549 Özel Fonlar; karşılığında 501 Sermaye hesabı borçlandırılır.
-    E: 102 Bankalar; karşılığında 500 Sermaye hesabı borçlandırılır.
+    A: 501 Ödenmemiş Sermaye hesabı borçlandırılır; karşılığında 500 Sermaye hesabı alacaklandırılır.
+    B: 500 Sermaye hesabı borçlandırılır; karşılığında 501 Ödenmemiş Sermaye hesabı alacaklandırılır.
+    C: 501 Ödenmemiş Sermaye hesabı borçlandırılır; karşılığında 502 Sermaye Düzeltmesi Olumlu Farkları alacaklandırılır.
+    D: 501 Ödenmemiş Sermaye hesabı borçlandırılır; karşılığında 540 Yasal Yedekler hesabı alacaklandırılır.
+    E: 102 Bankalar hesabı borçlandırılır; karşılığında 500 Sermaye hesabı alacaklandırılır.
   dogru: A
   aciklama:
     dogru_neden: '501 Ödenmemiş Sermaye, işletmeye tahsis edilen veya ortaklarca yüklenilen sermayenin henüz ödenmemiş
-      kısmını izler. Taahhüt edilen sermayede 500 Sermaye hesabı alacak, 501 hesabı borç çalışır. Püf noktaları:
-      Taahhüt ile ödeme aynı aşama değildir; 501 henüz ödenmemiş kısmı ayırır.'
+      kısmını izler. Taahhüt edilen sermaye 500 Sermaye alacağı karşılığında 501''e borç yazılır. Püf noktası: taahhüt
+      ile ödeme aynı aşama değildir; ödeme yapıldıkça 501 alacaklandırılır.'
     celdiriciler:
-      B: 500 sermayenin kendisini izler; ödenmemiş kısmı 501 gösterir.
-      C: 540 yasal yedekler için kullanılır, sermaye taahhüdü için değil.
-      D: 549 özel fonlar hesabıdır; ödenmemiş sermayeyi izlemez.
-      E: 102 banka hesabıdır; kökte ödeme yapılmamış kısım sorulmaktadır.
+      B: Kayıt yönü ters kurulmuştur; 500 taahhüt edilen sermaye tutarıyla alacaklandırılır, 501 ise borçlandırılır.
+      C: 502 sermaye düzeltmesi olumlu farklarını izler; taahhüt edilen sermayenin karşılığı 500 Sermaye hesabıdır.
+      D: 540 kanunen ayrılan yedekleri izler; sermaye taahhüdünün karşı hesabı olamaz.
+      E: Taahhüt aşamasında para girişi yoktur; 102 Bankalar ancak ödeme yapıldığında borçlandırılır ve karşılığında
+        501 alacaklandırılır.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
     madde: 501. Ödenmemiş Sermaye (-)
@@ -198,7 +199,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -219,8 +220,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -235,6 +237,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
 - id: SMMM-FIN-OZK-0016
   sinav: smmm
   bolum:
@@ -568,21 +574,21 @@
   kok: Bir anonim şirket sermayesini iç kaynaklardan artırmak istemektedir. Aşağıdaki kaynaklardan hangisinin sermayeye
     dönüştürülebilmesi, TTK md. 462/1'deki koşullarla uyumludur?
   secenekler:
-    A: Belirli bir amaca özgülenmiş ve serbestçe kullanılamayan bir yedek akçe
-    B: Esas sözleşme veya genel kurul kararıyla ayrılmış, belirli bir amaca özgülenmemiş yedek akçe
-    C: Bilançoda hiç yer almayan, işletmede bulunmayan bir fon
-    D: Mevzuatın bilançoya konulmasına ve sermayeye eklenmesine izin vermediği bir fon
-    E: Şirket dışındaki üçüncü kişinin sermayeye koyacağı nakit
+    A: Belirli bir amaca özgülenmiş ve bu amaç dışında kullanılamayan yedek akçeler
+    B: Esas sözleşme veya genel kurul kararıyla ayrılmış, belirli bir amaca özgülenmemiş yedek akçeler
+    C: Kanuni yedek akçelerin tamamı, serbestçe kullanılabilen kısım ayrımı yapılmaksızın
+    D: Genel kurulca dağıtılmasına karar verilmiş ve ortaklara ödenmesi gereken kâr payları
+    E: Pay sahiplerinin artırım için şirkete ek olarak getireceği nakit katkılar
   dogru: B
   aciklama:
-    dogru_neden: TTK 462/1, esas sözleşme veya genel kurul kararıyla ayrılmış ve belirli bir amaca özgülenmemiş
-      yedek akçeler ile serbestçe kullanılabilen kanuni yedek akçe kısımlarını ve mevzuatın izin verdiği fonları
-      sayar.
+    dogru_neden: TTK md. 462/1'e göre esas sözleşme veya genel kurul kararıyla ayrılmış ve belirli bir amaca özgülenmemiş
+      yedek akçeler, kanuni yedek akçelerin serbestçe kullanılabilen kısımları ve mevzuatın izin verdiği fonlar
+      sermayeye dönüştürülerek iç kaynaklardan sermaye artırılabilir.
     celdiriciler:
       A: Belirli bir amaca özgülenmiş yedek akçe, md. 462/1'de sayılan koşulu karşılamaz.
-      C: Md. 462/2 iç kaynağın şirket bünyesinde gerçekten var olduğunun doğrulanmasını öngörür.
-      D: Mevzuatın sermayeye eklenmesine izin vermediği fon md. 462/1 kapsamında değildir.
-      E: Üçüncü kişinin nakit koyması iç kaynaklardan sermaye artırımı değildir.
+      C: Yalnızca kanuni yedek akçelerin serbestçe kullanılabilen kısımları dönüştürülebilir; tamamı dönüştürülemez.
+      D: Dağıtımına karar verilen kâr payı ortaklara karşı borç doğurur; md. 462/1'de sayılan kaynaklardan değildir.
+      E: Ortakların ek nakit koyması dış kaynaktan artırımdır; iç kaynaklardan sermaye artırımı sayılmaz.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6102 sayılı Türk Ticaret Kanunu
@@ -599,7 +605,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -620,8 +626,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -636,6 +643,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
 - id: SMMM-FIN-OZK-0021
   sinav: smmm
   bolum:
@@ -816,18 +827,19 @@
     A: Esas sözleşme veya genel kurul kararıyla ayrılmış ve belirli bir amaca özgülenmemiş yedek akçeler
     B: Kanuni yedek akçelerin serbestçe kullanılabilen kısımları
     C: Mevzuatın bilançoya konulmasına ve sermayeye eklenmesine izin verdiği fonlar
-    D: Belirli bir amaca özgülenmiş yedek akçelerin tamamı
-    E: Kanuni yedek akçelerin serbestçe kullanılabilen kısımlarından sermayeye dönüştürülen tutarlar
+    D: Belirli bir amaca özgülenmiş ve bu amaç dışında kullanılamayan yedek akçeler
+    E: Genel kurul kararıyla ayrılmış, belirli bir amaca özgülenmemiş olağanüstü yedek akçeler
   dogru: D
   aciklama:
-    dogru_neden: Doğru cevap D’dir. Md. 462/1, belirli bir amaca özgülenmemiş yedek akçeler ile kanuni yedek akçelerin
+    dogru_neden: Doğru cevap D'dir. Md. 462/1, belirli bir amaca özgülenmemiş yedek akçeler ile kanuni yedek akçelerin
       serbestçe kullanılabilen kısımlarını ve mevzuatın izin verdiği fonları sayar; belirli bir amaca özgülenmiş
-      yedek akçelerin tamamını saymaz.
+      yedek akçeler sayılmaz.
     celdiriciler:
-      A: Kaynakta açıkça sayılan bir kaynaktır.
-      B: Kaynakta açıkça sayılan kanuni yedek akçelerin serbestçe kullanılabilen kısmıdır.
-      C: Kaynakta açıkça izin verilen fon kategorisidir.
-      E: B seçeneğinin aynı hukuki kategorisini farklı ifadeyle verir.
+      A: Md. 462/1'de açıkça sayılan bir kaynaktır.
+      B: Md. 462/1'de açıkça sayılan, kanuni yedek akçelerin serbestçe kullanılabilen kısmıdır.
+      C: Md. 462/1'de mevzuatın izin verdiği fonlar açıkça sayılmıştır.
+      E: Genel kurul kararıyla ayrılan ve amaca özgülenmeyen olağanüstü yedek akçe, A seçeneğindeki kategoriye girer
+        ve dönüştürülebilir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6102 sayılı Türk Ticaret Kanunu
@@ -840,7 +852,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -861,8 +873,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -877,6 +890,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
 - id: SMMM-FIN-OZK-0024
   sinav: smmm
   bolum:

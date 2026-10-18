@@ -12,18 +12,20 @@
     hangisidir?
   secenekler:
     A: Tehlikeli
-    B: Sessiz
+    B: Kapalı
     C: Dar
-    D: Uzak
+    D: Engebeli
     E: Kalabalık
   dogru: E
   aciklama:
-    dogru_neden: “Crowded” sözcüğü, bir yerin çok sayıda insan veya araçla dolu, yani kalabalık olduğunu ifade eder.
+    dogru_neden: “Crowded” sözcüğü, bir yerin çok sayıda insan veya araçla dolu, yani kalabalık olduğunu ifade eder;
+      yolun kalabalık olması geç kalmanın makul nedenidir.
     celdiriciler:
-      A: “Tehlikeli” cümledeki sözcüğün anlamı değildir.
-      B: “Sessiz” anlamı crowded sözcüğüne karşılık gelmez.
-      C: “Dar” anlamı crowded sözcüğünün temel anlamı değildir.
-      D: “Uzak” farklı bir mekânsal niteliktir.
+      A: “Dangerous” karşılığıdır; yol tehlikeli olabilir ama “crowded” yoğunluğu anlatır, tehlikeyi değil.
+      B: “Closed” karşılığıdır; kapalı yol da gecikmeye yol açabilir ancak “crowded” kapalı anlamına gelmez.
+      C: “Narrow” karşılığıdır; dar yol gecikme yaratabilir fakat “crowded” genişlikle değil insan veya araç yoğunluğuyla
+        ilgilidir.
+      D: “Bumpy” karşılığıdır; yolun düzgün olmamasını anlatır, “crowded” ile ilgisi yoktur.
   kaynaklar:
   - mevzuat: Genel bilgi — İngilizce kelime bilgisi
     madde: '-'
@@ -33,7 +35,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -54,8 +56,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler gecikme bağlamına uyan akla yatkın sıfatlarla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -73,6 +76,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler gecikme bağlamına uyan akla yatkın sıfatlarla yenilendi'
 - id: SMMM-GKY-ING-0002
   sinav: smmm
   bolum:
@@ -382,21 +389,20 @@
   zorluk: 2
   kok: Although the restaurant was very busy, ______.
   secenekler:
-    A: the weather became colder
-    B: the food was not served at all
-    C: we had made a reservation for tomorrow
-    D: we arrived at the airport early
-    E: we decided to leave before ordering
+    A: the waiter took our order after an hour
+    B: the kitchen had run out of several dishes
+    C: many customers were still waiting for a table
+    D: we could hardly find a free table
+    E: we were served surprisingly quickly
   dogru: E
   aciklama:
-    dogru_neden: “Although” karşıtlık bildirir. Restoranın çok yoğun olmasına rağmen ayrılmaya karar verilmesi cümleyi
-      anlam ve yapı bakımından doğru tamamlar.
+    dogru_neden: “Although” karşıtlık bildirir. Restoranın çok yoğun olmasına rağmen hızlı servis almak beklentiyle
+      çeliştiği için E cümleyi anlam ve yapı bakımından doğru tamamlar.
     celdiriciler:
-      A: Havanın soğuması restoranın yoğunluğuyla anlamlı karşıtlık oluşturmaz.
-      B: Cümle dilbilgisel olarak tamamlanabilse de verilen karşıtlık ilişkisini doğal biçimde kurmaz ve eylem sonucu
-        açık değildir.
-      C: Yarına rezervasyon yapmak restoranın o anki yoğunluğuyla doğrudan karşıtlık oluşturmaz.
-      D: Havaalanına erken varmak restoran bağlamıyla uyumsuzdur.
+      A: Siparişin bir saat sonra alınması yoğunluğun doğal sonucudur; “although” ile beklenen karşıtlık kurulmaz.
+      B: Yemeklerin tükenmesi yoğunlukla uyumlu bir sonuçtur; karşıtlık değil devamlılık bildirir.
+      C: Bekleyen müşterilerin olması yoğunluğu pekiştirir, “although” yapısının gerektirdiği zıtlığı kurmaz.
+      D: Boş masa bulamamak yoğunlukla aynı yönde bir bilgidir; karşıtlık oluşturmaz.
   kaynaklar:
   - mevzuat: Genel bilgi — İngilizce cümle tamamlama
     madde: '-'
@@ -406,7 +412,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -427,8 +433,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 1).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: eski E çeldirici gibi çelişkiliydi; doğru şık karşıtlığı gerçekten kuracak şekilde
+          değiştirildi, çeldiriciler yoğunlukla uyumlu (karşıtlık kurmayan) cümlelerle yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -446,6 +454,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: eski E çeldirici gibi çelişkiliydi; doğru şık karşıtlığı gerçekten kuracak şekilde değiştirildi,
+      çeldiriciler yoğunlukla uyumlu (karşıtlık kurmayan) cümlelerle yenilendi'
 - id: SMMM-GKY-ING-0007
   sinav: smmm
   bolum:
@@ -1714,7 +1727,7 @@
     baslangic: '2026-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1736,8 +1749,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: 'R4: ''while'' (D) de savunulabilir, tek doğru net değil; ayrıca ING-0086 ile aynı soru kalıbı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -1752,6 +1766,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: 'R4: ''while'' (D) de savunulabilir, tek doğru net değil; ayrıca ING-0086 ile aynı soru kalıbı'
 - id: SMMM-GKY-ING-0024
   sinav: smmm
   bolum:
@@ -2082,23 +2100,23 @@
   kazanim: kelime bilgisi
   tip: bilgi
   zorluk: 1
-  kok: “The manager asked the employees to ______ the report before the meeting.” cümlesinde boşluğa “incelemek,
-    gözden geçirmek” anlamını veren hangi sözcük getirilmelidir?
+  kok: “The manager asked the employees to ______ the report carefully before the meeting so that any errors could
+    be corrected.” cümlesinde boşluğa aşağıdakilerden hangisi getirilmelidir?
   secenekler:
-    A: forget
-    B: repair
-    C: borrow
-    D: arrive
+    A: recall
+    B: conceal
+    C: submit
+    D: approve
     E: review
   dogru: E
   aciklama:
-    dogru_neden: “Review” bir metni veya raporu gözden geçirmek, incelemek anlamına gelir. Cümlede toplantıdan önce
-      raporun incelenmesi istenmektedir.
+    dogru_neden: “Review” bir metni dikkatle gözden geçirmek anlamına gelir; hataların düzeltilebilmesi için raporun
+      toplantıdan önce incelenmesi gerekir.
     celdiriciler:
-      A: “Forget” unutmak anlamındadır.
-      B: “Repair” onarmak anlamındadır.
-      C: “Borrow” ödünç almak anlamındadır.
-      D: “Arrive” varmak anlamındadır.
+      A: “Recall” hatırlamak ya da geri çağırmak demektir; raporun dikkatle incelenmesi anlamını vermez.
+      B: “Conceal” gizlemek demektir; hataların düzeltilmesi amacıyla çelişir.
+      C: “Submit” sunmak, teslim etmek demektir; hata düzeltme amacı için önce incelemek gerekir.
+      D: “Approve” onaylamak demektir; hatalar düzeltilmeden önce onay verilmesi bağlama uymaz.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Genel bilgi — kelime bilgisi
@@ -2109,7 +2127,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2130,8 +2148,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kökteki Türkçe karşılık ipucu kaldırıldı, bağlamdan seçtirildi; çeldiriciler iş
+          bağlamına yakın fiillerle yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -2149,6 +2169,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kökteki Türkçe karşılık ipucu kaldırıldı, bağlamdan seçtirildi; çeldiriciler iş bağlamına yakın
+      fiillerle yenilendi'
 - id: SMMM-GKY-ING-0029
   sinav: smmm
   bolum:
@@ -2159,23 +2184,24 @@
   kazanim: dil bilgisi (zamanlar; modals; koşul cümleleri; bağlaçlar)
   tip: kavrama
   zorluk: 2
-  kok: “When I arrived at the station, the train ______ already ______.” cümlesinde geçmişteki bir olaydan daha
-    önce gerçekleşmiş eylemi anlatmak için hangi yapı kullanılmalıdır?
+  kok: “By the time we reached the station, the train ______ and the platform was empty.” cümlesinde boşluğa hangisi
+    getirilmelidir?
   secenekler:
-    A: has / left
-    B: was / leaving
-    C: will / leave
-    D: had / left
-    E: did / leave
+    A: has left
+    B: was leaving
+    C: left
+    D: had left
+    E: would have left
   dogru: D
   aciklama:
-    dogru_neden: 'Geçmişteki “arrived” eyleminden daha önce tamamlanan “trenin ayrılması” past perfect ile ifade
-      edilir: had left.'
+    dogru_neden: '“By the time” ile verilen geçmiş noktadan önce tamamlanmış bir eylem past perfect ile anlatılır:
+      had left.'
     celdiriciler:
-      A: Present perfect, belirli bir geçmiş zamandaki başka bir olaydan önce gerçekleşmiş eylemi bu yapıyla anlatmaz.
-      B: Past continuous devam eden eylemi vurgular; burada önce tamamlanmış eylem vardır.
-      C: Future yapı geçmişteki olay dizisine uygun değildir.
-      E: Simple past tek başına iki geçmiş olay arasındaki önceliği açık biçimde kurmaz.
+      A: Present perfect, şimdiyle bağlantılı geçmişi anlatır; geçmişteki “reached” noktasından önceki eylem için
+        uygun değildir.
+      B: Past continuous eylemin sürdüğünü anlatır; platformun boş olması eylemin tamamlandığını gösterir.
+      C: Simple past iki olay arasındaki öncelik sırasını göstermez; “by the time” ile past perfect beklenir.
+      E: “Would have left” gerçekleşmemiş varsayımsal geçmişi anlatır; cümledeki gerçek olaya uymaz.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Genel bilgi — dil bilgisi (zamanlar
@@ -2186,7 +2212,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2207,8 +2233,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kökteki döngüsel ipucu kaldırıldı, ''by the time'' bağlamı ve yakın zaman çeldiricileriyle
+          yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -2229,6 +2257,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kökteki döngüsel ipucu kaldırıldı, ''by the time'' bağlamı ve yakın zaman çeldiricileriyle yenilendi'
 - id: SMMM-GKY-ING-0030
   sinav: smmm
   bolum:
@@ -2395,22 +2427,23 @@
   kazanim: dil bilgisi (zamanlar; modals; koşul cümleleri; bağlaçlar)
   tip: bilgi
   zorluk: 1
-  kok: “I wanted to go for a walk, ______ it was raining heavily.” cümlesinde iki zıt durumu bağlamak için hangi
-    bağlaç kullanılmalıdır?
+  kok: “Most of the committee members supported the plan, ______ a few of them were concerned about its cost.” cümlesinde
+    boşluğa hangi bağlaç getirilmelidir?
   secenekler:
-    A: and
-    B: or
+    A: so
+    B: unless
     C: because
-    D: but
-    E: so
+    D: although
+    E: in case
   dogru: D
   aciklama:
-    dogru_neden: “But” iki zıt durumu bağlar. Yürüyüşe çıkma isteği ile yoğun yağmur cümlede karşıtlık oluşturmaktadır.
+    dogru_neden: Üyelerin çoğunun planı desteklemesi ile birkaçının maliyet kaygısı taşıması arasında karşıtlık
+      vardır; “although” bu karşıtlığı kurar.
     celdiriciler:
-      A: “And” ekleme anlamı verir, karşıtlık kurmaz.
-      B: “Or” seçenek sunar.
-      C: “Because” neden-sonuç ilişkisi kurar.
-      E: “So” sonuç bildirir.
+      A: “So” sonuç bildirir; kaygı, desteğin sonucu değildir.
+      B: “Unless” olumsuz koşul bildirir; cümlede koşul ilişkisi yoktur.
+      C: “Because” neden bildirir; kaygılı olmak desteğin nedeni olamaz.
+      E: “In case” önlem amacı bildirir; cümlenin anlamına uymaz.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Genel bilgi — bağlaçlar
@@ -2421,7 +2454,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2442,8 +2475,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kök döngüselliği giderildi, cümle düzeyi yükseltildi (so/because/unless karışıklıkları)'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -2464,6 +2498,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kök döngüselliği giderildi, cümle düzeyi yükseltildi (so/because/unless karışıklıkları)'
 - id: SMMM-GKY-ING-0033
   sinav: smmm
   bolum:
@@ -2476,20 +2514,20 @@
   zorluk: 2
   kok: “Although the weather was cold, ______.” cümlesini anlamlı biçimde tamamlayan seçenek hangisidir?
   secenekler:
-    A: if the rain continued
-    B: because we had forgotten the tickets
-    C: the bus had already left
-    D: so we stayed at home
-    E: we decided to have a picnic
+    A: we put on our coats and stayed indoors
+    B: we turned the heating on at once
+    C: everyone wore a thick jacket
+    D: the lake froze over during the night
+    E: we decided to have a picnic in the park
   dogru: E
   aciklama:
-    dogru_neden: “Although” karşıtlık bildiren bir bağlaçtır. Soğuk havaya rağmen piknik yapmaya karar verilmesi
-      cümlenin anlamını doğru tamamlar.
+    dogru_neden: “Although” karşıtlık bildirir. Soğuk havaya rağmen piknik yapmaya karar verilmesi beklentiyle çeliştiği
+      için cümleyi doğru tamamlar.
     celdiriciler:
-      A: “If” koşul bildirir; “although” ile başlayan yapının karşıtlık anlamını tamamlamaz.
-      B: “Although” ile kurulmuş ana cümlede neden bildiren “because” yapısı bu bağlamda verilen anlamı tamamlamaz.
-      C: Otobüsün ayrılması soğuk hava ile anlamlı bir karşıtlık oluşturmaz.
-      D: “So” sonuç bildirir ve “although” ile verilen karşıtlık yapısını bozacak biçimde kullanılmıştır.
+      A: Montlanıp içeride kalmak soğuk havanın doğal sonucudur; karşıtlık oluşturmaz.
+      B: Isıtmayı açmak soğuğa uygun bir tepkidir; “although” ile beklenen zıtlığı kurmaz.
+      C: Kalın ceket giymek soğukla uyumlu bir davranıştır; karşıtlık içermez.
+      D: Gölün donması soğuk havanın sonucudur; karşıtlık değil devamlılık bildirir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Genel bilgi — cümle tamamlama
@@ -2500,7 +2538,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2521,8 +2559,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler dilbilgisi olarak doğru ama karşıtlık kurmayan (soğukla uyumlu) cümlelerle
+          yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -2540,6 +2580,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler dilbilgisi olarak doğru ama karşıtlık kurmayan (soğukla uyumlu) cümlelerle yenilendi'
 - id: SMMM-GKY-ING-0034
   sinav: smmm
   bolum:
@@ -2793,19 +2837,19 @@
     Diyaloğu anlamca en uygun biçimde tamamlayan seçenek hangisidir?'
   secenekler:
     A: That sounds like a good idea.
-    B: I have never attended a meeting.
-    C: The meeting room is on the second floor.
-    D: I finished the report yesterday.
-    E: Friday was colder last year.
+    B: Yes, the meeting was held last Friday.
+    C: Because the manager is out of town.
+    D: No, I didn’t know she was late.
+    E: It was postponed until Friday last week.
   dogru: A
   aciklama:
     dogru_neden: “Why don't we...?” öneri sunan bir yapıdır. “That sounds like a good idea.” bu öneriye olumlu ve
       doğal bir karşılıktır.
     celdiriciler:
-      B: Toplantıya katılmamış olmak, öneriye doğrudan yanıt vermez.
-      C: Toplantı odasının konumu öneriyi karşılamaz.
-      D: Raporun bitirilmesi, toplantının ertelenmesi önerisine doğrudan yanıt değildir.
-      E: Geçmişteki hava durumu, öneriyle anlam ilişkisi kurmaz.
+      B: Toplantının geçen Cuma yapıldığını söylemek öneriye yanıt değildir; zaman ve içerik uyumsuzdur.
+      C: “Why don't we...?” sebep sormaz, öneri sunar; “because” ile başlayan neden cevabı bu yapıyla karıştırılmıştır.
+      D: Geç kalan biriyle ilgili bu yanıt, öneriyle bağlantılı değildir.
+      E: Geçmiş zamanlı ve ertelemenin yapıldığını bildiren bu cümle, şimdiki öneriye yanıt vermez.
   kaynaklar:
   - mevzuat: Genel bilgi — ING
     madde: '-'
@@ -2815,7 +2859,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2836,8 +2880,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler öneri kalıbının sık karıştırılan yanıtlarıyla (neden cevabı, zaman
+          uyumsuzluğu) yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -2852,6 +2898,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler öneri kalıbının sık karıştırılan yanıtlarıyla (neden cevabı, zaman uyumsuzluğu) yenilendi'
 - id: SMMM-GKY-ING-0038
   sinav: smmm
   bolum:
@@ -3012,22 +3062,22 @@
   kazanim: dil bilgisi (zamanlar; modals; koşul cümleleri; bağlaçlar)
   tip: kavrama
   zorluk: 2
-  kok: Choose the sentence that correctly expresses an obligation using a modal verb.
+  kok: Which sentence expresses a strong obligation?
   secenekler:
-    A: You must wearing a helmet every day.
-    B: You might wear a helmet yesterday.
-    C: You can to wear a helmet during the race.
-    D: You should to wear a helmet yesterday.
+    A: You may wear a helmet when riding this bicycle.
+    B: You might wear a helmet when riding this bicycle.
+    C: You can wear a helmet when riding this bicycle.
+    D: You needn’t wear a helmet when riding this bicycle.
     E: You must wear a helmet when riding this bicycle.
   dogru: E
   aciklama:
-    dogru_neden: “Must + yalın fiil” güçlü zorunluluk ifade eder. “You must wear...” cümlesi hem yapı hem anlam
-      bakımından doğrudur.
+    dogru_neden: “Must + yalın fiil” güçlü zorunluluk ifade eder; diğer modallar izin, olasılık veya gereksizlik
+      bildirir.
     celdiriciler:
-      A: “Must”tan sonra fiilin yalın hâli gelir; “must wearing” yanlıştır.
-      B: “Might” olasılık bildirir; ayrıca “yesterday” ile verilen geçmiş zaman bağlamında bu kullanım uygun değildir.
-      C: Modal fiilden sonra “to” kullanılmaz; “can wear” olmalıdır.
-      D: “Should”dan sonra yalın fiil gelir; “should to wear” yanlıştır.
+      A: “May” izin veya olasılık bildirir, zorunluluk bildirmez.
+      B: “Might” zayıf olasılık bildirir.
+      C: “Can” yeterlilik ya da izin bildirir.
+      D: “Needn’t” gerekliliğin yokluğunu bildirir; zorunluluğun tersidir.
   kaynaklar:
   - mevzuat: Genel bilgi — ING
     madde: '-'
@@ -3037,7 +3087,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3058,8 +3108,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R5: bariz hatalı yapılar yerine dilbilgisel olarak doğru fakat anlamı farklı modallar
+          kullanıldı, şık uzunlukları eşitlendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -3077,6 +3129,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R5: bariz hatalı yapılar yerine dilbilgisel olarak doğru fakat anlamı farklı modallar kullanıldı,
+      şık uzunlukları eşitlendi'
 - id: SMMM-GKY-ING-0041
   sinav: smmm
   bolum:

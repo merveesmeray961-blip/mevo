@@ -82,10 +82,11 @@
   kazanim: Atatürk ilkeleri
   tip: hesaplama
   zorluk: 1
-  kok: 'Bir aday, Atatürk ilkeleriyle ilgili şu üç ifadeyi doğru kabul ediyor: I. Millî egemenliği esas alan yönetim
+  kok: 'Bir aday, Atatürk ilkeleriyle ilgili şu ifadeleri değerlendiriyor: I. Millî egemenliği esas alan yönetim
     anlayışı Cumhuriyetçilikle ilişkilidir. II. Din ve devlet işlerinin ayrılması Laiklikle ilişkilidir. III. Ekonomik
-    kalkınmada devletin düzenleyici ve girişimci rolünü vurgulayan yaklaşım Devletçilikle ilişkilidir. Bu üç ifadenin
-    doğru olanlarının sayısı kaçtır?'
+    kalkınmada devletin düzenleyici ve girişimci rolünü vurgulayan yaklaşım Devletçilikle ilişkilidir. IV. Eski
+    kurumların çağdaş kurumlarla değiştirilmesi anlayışı Halkçılıkla ilişkilidir. V. Millî sınırlar içinde bağımsızlığı
+    esas alan anlayış Devletçilikle ilişkilidir. Bu ifadelerden kaç tanesi doğrudur?'
   secenekler:
     A: '1'
     B: '2'
@@ -94,19 +95,22 @@
     E: '5'
   dogru: C
   aciklama:
-    dogru_neden: 'Üç ifade de ilgili ilkenin temel anlamıyla uyumludur: millî egemenlik Cumhuriyetçilikle, din ve
-      devlet işlerinin ayrılması Laiklikle, devletin ekonomik alandaki etkin rolü ise Devletçilikle ilişkilidir.
-      Doğru ifade sayısı 3’tür.'
+    dogru_neden: 'I, II ve III doğrudur: millî egemenlik Cumhuriyetçilikle, din ve devlet işlerinin ayrılması Laiklikle,
+      devletin ekonomik alandaki etkin rolü Devletçilikle ilişkilidir. IV ve V yanlıştır; doğru ifade sayısı 3''tür.'
     celdiriciler:
-      A: İfadelerden yalnız birini doğru kabul etmek, diğer iki ilkeyle kurulan açık ilişkiyi gözden kaçırır.
-      B: Üç ifadenin de doğru olması nedeniyle iki sonucu eksik sayar.
-      D: Soruda üç ifade bulunduğundan doğru ifade sayısı dörtten fazla olamaz.
-      E: Soruda üç ifade bulunduğundan beş doğru ifade bulunamaz.
+      A: Bir ifade doğru kabul edilirse I, II ve III'ten ikisi dışarıda kalır; oysa üçü de doğrudur.
+      B: İki ifade doğru kabul edilirse I, II ve III'ten biri dışarıda kalır; oysa üçü de doğrudur.
+      D: Dört ifade doğru sayılırsa IV de doğru kabul edilmiş olur; oysa eski kurumların çağdaş kurumlarla değiştirilmesi
+        İnkılapçılık ilkesiyle ilişkilidir.
+      E: Beş ifade doğru sayılırsa IV ve V de doğru kabul edilmiş olur; oysa V, Milliyetçilik ilkesini anlatır ve
+        Devletçilikle ilişkilendirilemez.
     hesap_adimlari:
-    - 'I doğru: 1.'
-    - 'II doğru: 2.'
-    - 'III doğru: 3.'
-    - 'Toplam doğru ifade sayısı: 3.'
+    - I doğru (Cumhuriyetçilik).
+    - II doğru (Laiklik).
+    - III doğru (Devletçilik).
+    - IV yanlış (İnkılapçılık ilkesidir).
+    - V yanlış (Milliyetçilik ilkesidir).
+    - 'Doğru ifade sayısı: 3.'
   kaynaklar:
   - mevzuat: Genel bilgi — Atatürk ilkeleri
     madde: '-'
@@ -118,7 +122,7 @@
   dogrulama:
     python: sonuc = 3
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -138,8 +142,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: ifade sayısı beşe çıkarıldı, iki ifade yanlış ilke eşleştirmesi yapıldı; D/E şıkları
+          mümkün hâle geldi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -154,6 +160,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: ifade sayısı beşe çıkarıldı, iki ifade yanlış ilke eşleştirmesi yapıldı; D/E şıkları mümkün hâle
+      geldi'
 - id: SMMM-GKY-TAR-0055
   sinav: smmm
   bolum:
@@ -701,20 +712,20 @@
     ateşkes hükümlerindeki güvenlik gerekçesini ileri sürerek stratejik gördükleri bazı noktaları işgal etmeye başladı.
     Bu gelişme aşağıdakilerden hangisinin ortaya çıkmasına doğrudan zemin hazırlamıştır?
   secenekler:
-    A: Osmanlı Devleti'nin I. Dünya Savaşı'na girmesine
-    B: Mondros Ateşkes Antlaşması'nın imzalanmasına
-    C: Millî Mücadele'nin başlaması ve işgallere karşı direnişin örgütlenmesine
-    D: TBMM'nin Lozan Antlaşması'nı onaylamasına
-    E: Saltanatın II. Meşrutiyet ile yeniden kurulmasına
+    A: İtilaf Devletleri'nin Osmanlı'ya yeniden savaş ilan etmesine
+    B: Osmanlı ordusunun Çanakkale'de zafer kazanmasına
+    C: Anadolu'da direnişin örgütlenerek Millî Mücadele'nin başlamasına
+    D: Osmanlı Hükûmeti'nin Mondros'u reddedip savaşı sürdürmesine
+    E: İstanbul Hükûmeti'nin işgallere silahlı karşılık vermesine
   dogru: C
   aciklama:
-    dogru_neden: Mondros sonrasında başlayan işgaller, Anadolu'da işgallere karşı direnişin ve Millî Mücadele'nin
-      örgütlenmesi sürecini tetiklemiştir.
+    dogru_neden: Mondros Ateşkesi'nin ardından başlayan işgaller, Anadolu'da direnişin örgütlenmesine ve Millî Mücadele'nin
+      başlamasına zemin hazırlamıştır.
     celdiriciler:
-      A: Savaşın sonrasındaki işgaller Osmanlı'nın savaşa girişinden önceki bir neden değildir.
-      B: Mondros bu gelişmeden sonra değil, işgallerin dayanağı olan ateşkes olarak önce gerçekleşmiştir.
-      D: Lozan, Millî Mücadele'nin sonrasındaki barış antlaşmasıdır.
-      E: II. Meşrutiyet 1908'de ilan edilmiştir; olayla zaman bakımından uyuşmaz.
+      A: İtilaf Devletleri ateşkes hükümlerine dayanarak işgal etmiştir; yeniden savaş ilan edilmemiştir.
+      B: Çanakkale zaferi 1915-1916'dadır ve ateşkesten öncedir; işgallerin sonucu değildir.
+      D: Osmanlı Hükûmeti ateşkesi imzalamış ve uygulamıştır; savaşı sürdürmemiştir.
+      E: İstanbul Hükûmeti işgallere silahlı karşılık vermemiş, direniş Anadolu'da halk tarafından örgütlenmiştir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Genel bilgi — Osmanlı'nın son dönemi ve I. Dünya Savaşı
@@ -725,7 +736,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -746,8 +757,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: çeldiriciler akla yatkın yanlış sonuçlarla yenilendi, doğru şık kısaltıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -762,6 +774,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: çeldiriciler akla yatkın yanlış sonuçlarla yenilendi, doğru şık kısaltıldı'
 - id: SMMM-GKY-TAR-0063
   sinav: smmm
   bolum:
@@ -776,20 +792,20 @@
     millî cemiyetlerin ortak bir teşkilat altında birleştirilmesini sağlamıştır. Bu kararın Millî Mücadele açısından
     temel sonucu aşağıdakilerden hangisidir?
   secenekler:
-    A: Bölgesel direnişlerin ortak bir ulusal örgütlenme altında toplanması
-    B: Saltanat makamının kaldırılması
-    C: TBMM'nin Lozan'ı imzalaması
-    D: Doğu Cephesi'nin askerî olarak kapanması
-    E: Cumhuriyet rejiminin ilan edilmesi
+    A: Bölgesel cemiyetlerin tek çatı altında birleşmesi
+    B: Manda ve himaye yönteminin kabul edilmesi
+    C: Kuvâ-yi Milliye'nin kaldırılarak düzenli ordunun kurulması
+    D: Doğu illerinin ayrı bir bölgesel yönetim altında toplanması
+    E: Mebusan Meclisi'nin Ankara'da toplanmasının kararlaştırılması
   dogru: A
   aciklama:
-    dogru_neden: Sivas Kongresi, bölgesel nitelikteki müdafaa-i hukuk cemiyetlerini Anadolu ve Rumeli Müdafaa-i
-      Hukuk Cemiyeti adı altında birleştirerek ulusal örgütlenmeyi güçlendirmiştir.
+    dogru_neden: Sivas Kongresi, bölgesel müdafaa-i hukuk cemiyetlerini Anadolu ve Rumeli Müdafaa-i Hukuk Cemiyeti
+      adı altında birleştirerek ulusal örgütlenmeyi güçlendirmiştir.
     celdiriciler:
-      B: Saltanatın kaldırılması 1922'de gerçekleşmiştir.
-      C: Lozan 1923'te Millî Mücadele'nin askerî ve siyasi sonucudur.
-      D: Doğu Cephesi ile ilgili askerî gelişmeler farklı bir süreçtir.
-      E: Cumhuriyet 1923'te ilan edilmiştir.
+      B: Sivas Kongresi'nde manda ve himaye reddedilmiştir; bu seçenek kongrenin kararına aykırıdır.
+      C: Düzenli ordunun kurulması TBMM döneminde (1920-1921) gerçekleşmiştir; Sivas Kongresi'nin kararı değildir.
+      D: Sivas Kongresi bölgesel ayrılığı değil, ulusal bütünlüğü ve tek örgütlenmeyi öne çıkarmıştır.
+      E: Kongre, Mebusan Meclisi'nin İstanbul'da toplanması yönünde karar almıştır; Ankara'da toplanması kararlaştırılmamıştır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Genel bilgi — Millî Mücadele hazırlık dönemi ve kongreler
@@ -800,7 +816,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -821,8 +837,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: çeldiriciler Millî Mücadele dönemine ait akla yatkın yanlış kararlarla yenilendi,
+          doğru şık kısaltıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -837,6 +855,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: çeldiriciler Millî Mücadele dönemine ait akla yatkın yanlış kararlarla yenilendi, doğru şık kısaltıldı'
 - id: SMMM-GKY-TAR-0064
   sinav: smmm
   bolum:
@@ -1231,20 +1253,21 @@
   zorluk: 1
   kok: Aşağıdaki gelişme–alan eşleştirmelerinden hangisi doğrudur?
   secenekler:
-    A: Balkan Antantı — eğitim reformu
+    A: Medeni Kanun — eğitimde laikleşme
     B: Montrö Boğazlar Sözleşmesi — dış politika ve güvenlik
-    C: Soyadı Kanunu — uluslararası ittifak
-    D: Tevhid-i Tedrisat — Balkan diplomasisi
-    E: Şapka Kanunu — Boğazlar rejimi
+    C: Tevhid-i Tedrisat Kanunu — hukuk alanı
+    D: Harf Devrimi — ekonomik kalkınma planı
+    E: Birinci Beş Yıllık Sanayi Planı — eğitim ve kültür
   dogru: B
   aciklama:
     dogru_neden: Montrö Boğazlar Sözleşmesi, Türkiye'nin Boğazlar üzerindeki haklarını güçlendiren ve dış politika-güvenlik
       alanında önemli sonuçlar doğuran bir gelişmedir.
     celdiriciler:
-      A: Balkan Antantı dış politika ve bölgesel güvenlikle ilgilidir; eğitim reformu değildir.
-      C: Soyadı Kanunu iç toplumsal düzenlemeyle ilgilidir; uluslararası ittifak değildir.
-      D: Tevhid-i Tedrisat eğitim alanındaki bir düzenlemedir; Balkan diplomasisi değildir.
-      E: Şapka Kanunu toplumsal düzenlemeyle ilgilidir; Boğazlar rejimini düzenlemez.
+      A: Medeni Kanun hukuk alanındaki bir düzenlemedir; eğitimde laikleşme Tevhid-i Tedrisat ile ilişkilidir.
+      C: Tevhid-i Tedrisat Kanunu eğitimin birleştirilmesini sağlayan eğitim alanı düzenlemesidir; hukuk alanında
+        değildir.
+      D: Harf Devrimi kültür ve eğitim alanında bir yenilik olup ekonomik kalkınma planı değildir.
+      E: Birinci Beş Yıllık Sanayi Planı ekonomik kalkınmaya yönelik bir plandır; eğitim ve kültür alanı değildir.
   kaynaklar:
   - mevzuat: Genel bilgi — Atatürk dönemi iç ve dış politika
     madde: '-'
@@ -1254,7 +1277,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1275,8 +1298,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: çeldiriciler gerçek gelişmelerin yanlış alanlarla eşleştirilmesiyle yenilendi,
+          şık uzunlukları dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -1291,6 +1316,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: çeldiriciler gerçek gelişmelerin yanlış alanlarla eşleştirilmesiyle yenilendi, şık uzunlukları
+      dengelendi'
 - id: SMMM-GKY-TAR-0070
   sinav: smmm
   bolum:
@@ -1456,23 +1486,23 @@
   kazanim: Millî Mücadele cepheleri ve antlaşmalar
   tip: uygulama
   zorluk: 2
-  kok: 1920 yılında TBMM Hükûmeti, Doğu Cephesi'ndeki askerî başarıların ardından Ermenistan ile bir antlaşma imzalamıştır.
-    Bu gelişmenin aşağıdakilerden hangisiyle sonuçlanması beklenir?
+  kok: 3 Aralık 1920'de TBMM Hükûmeti ile Ermenistan arasında imzalanan Gümrü Antlaşması'nın Millî Mücadele açısından
+    temel sonucu aşağıdakilerden hangisidir?
   secenekler:
-    A: Lozan Barış Antlaşması’nın imzalanması
-    B: Batı Cephesi savaşlarının tamamen sona ermesi
-    C: Fransa ile Ankara Antlaşması’nın imzalanması
-    D: Saltanatın kaldırılması
-    E: Doğu sınırının belirlenmesine yönelik ilk uluslararası kazanımlardan birinin elde edilmesi
+    A: Fransa ile Güney Cephesi'ndeki çatışmaların sona ermesi
+    B: Batı Cephesi'nde Yunan ordusunun geri çekilmesi
+    C: İtilaf Devletleri'nin TBMM Hükûmeti'ni resmen tanıması
+    D: Sevr Antlaşması'nın TBMM tarafından onaylanması
+    E: Doğu Cephesi'nin kapanması ve doğu sınırının belirlenmesi
   dogru: E
   aciklama:
-    dogru_neden: Doğu Cephesi’ndeki başarıların ardından Gümrü Antlaşması imzalanmış ve TBMM Hükûmeti doğu sınırı
-      bakımından önemli bir kazanım elde etmiştir.
+    dogru_neden: Gümrü Antlaşması (3 Aralık 1920) ile Doğu Cephesi kapanmış ve TBMM Hükûmeti doğu sınırı bakımından
+      ilk uluslararası kazanımlarından birini elde etmiştir.
     celdiriciler:
-      A: Lozan 1923’te imzalanmıştır.
-      B: Gümrü Antlaşması Batı Cephesi’ni sona erdirmemiştir.
-      C: Fransa ile yapılan antlaşma Ankara Antlaşmasıdır ve farklı bir cephe bağlamındadır.
-      D: Saltanatın kaldırılması 1922’de gerçekleşmiştir.
+      A: Güney Cephesi'ndeki çatışmalar 1921 Ankara Antlaşması ile sona ermiştir; Gümrü'nün sonucu değildir.
+      B: Yunan ordusunun geri çekilmesi 1922'deki Büyük Taarruz ve Mudanya sürecinin sonucudur.
+      C: İtilaf Devletleri TBMM Hükûmeti'ni bu aşamada resmen tanımamıştır; bu süreç sonraki antlaşmalarla yaşanmıştır.
+      D: TBMM Sevr'i hiçbir aşamada onaylamamıştır; Gümrü'nün sonucu olarak onay söz konusu değildir.
   kaynaklar:
   - mevzuat: Genel bilgi — Millî Mücadele cepheleri ve antlaşmalar
     madde: '-'
@@ -1482,7 +1512,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1503,8 +1533,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: kök Gümrü''nün sonucunu soracak şekilde netleştirildi; çeldiriciler akla
+          yatkın yanlışlarla yenilendi, mutlak ifade kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -1522,6 +1554,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: kök Gümrü''nün sonucunu soracak şekilde netleştirildi; çeldiriciler akla yatkın yanlışlarla
+      yenilendi, mutlak ifade kaldırıldı'
 - id: SMMM-GKY-TAR-0073
   sinav: smmm
   bolum:
@@ -2078,9 +2115,8 @@
   kazanim: Atatürk ilkeleri
   tip: uygulama
   zorluk: 1
-  kok: Bir belediye, halka sunulan hizmetlerin herhangi bir dinî inanca göre ayrıcalık tanınmadan ve kamu düzeni
-    içinde yürütülmesi gerektiğini vurgulayan bir ilke metni hazırlıyor. Bu yaklaşım Atatürk'ün hangi ilkesiyle
-    en doğrudan ilişkilidir?
+  kok: Bir belediye, kamu hizmetlerinin ve düzenlemelerinin dinî kurallara göre değil, akla ve çağdaş hukuka dayalı
+    biçimde yürütüleceğini ilke metnine yazıyor. Bu yaklaşım Atatürk'ün hangi ilkesiyle en doğrudan ilişkilidir?
   secenekler:
     A: Cumhuriyetçilik
     B: Halkçılık
@@ -2089,13 +2125,17 @@
     E: Milliyetçilik
   dogru: C
   aciklama:
-    dogru_neden: Din ve devlet işlerinin ayrılığı ile kamu hizmetlerinde dinî inanç temelinde ayrım yapılmaması
-      laiklik ilkesiyle doğrudan ilişkilidir.
+    dogru_neden: Kamu hizmetlerinin dinî kurallara göre değil, akla ve çağdaş hukuka göre yürütülmesi din ve devlet
+      işlerinin ayrılması olan laiklik ilkesiyle doğrudan ilişkilidir.
     celdiriciler:
-      A: Cumhuriyetçilik yönetim biçimi ve millî egemenlikle ilgilidir.
-      B: Halkçılık toplumda eşitlik anlayışını öne çıkarır.
-      D: Devletçilik ekonomik alanda devletin rolünü ifade eder.
-      E: Milliyetçilik millî birlik ve bağımsızlıkla ilgilidir.
+      A: Cumhuriyetçilik, millî egemenliğe dayalı yönetim biçimiyle ilgilidir; kamu hizmetlerinin dinî kurallardan
+        bağımsız yürütülmesi bu ilkenin konusu değildir.
+      B: Halkçılık, sınıf ayrıcalıklarının kaldırılması ve hukuk önünde eşitlikle ilgilidir; dinî kuralların kamu
+        hizmetinden ayrılmasını doğrudan ifade etmez.
+      D: Devletçilik, ekonomik alanda devletin etkin rolüyle ilgilidir; kamu hizmetlerinin dinî kurallardan ayrılmasıyla
+        ilgili değildir.
+      E: Milliyetçilik, millî birlik ve bağımsızlık anlayışıyla ilgilidir; din ve devlet işlerinin ayrılmasını ifade
+        etmez.
   kaynaklar:
   - mevzuat: Genel bilgi — Atatürk ilkeleri
     madde: '-'
@@ -2105,7 +2145,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2126,8 +2166,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kök Halkçılıkla karışmayacak şekilde laiklik temelinde netleştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -2148,6 +2189,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kök Halkçılıkla karışmayacak şekilde laiklik temelinde netleştirildi'
 - id: SMMM-GKY-TAR-0081
   sinav: smmm
   bolum:
@@ -3063,20 +3108,20 @@
   zorluk: 3
   kok: Atatürk dönemi Türkiye'sinin dış politikasıyla ilgili aşağıdakilerden hangisi **yanlıştır**?
   secenekler:
-    A: Yurtta barış, dünyada barış anlayışı barışçı dış politika yaklaşımını yansıtır.
-    B: Milletler Cemiyeti'ne 1932'de üye olunmuştur.
-    C: Balkan Antantı 1934'te imzalanmıştır.
-    D: Sadabat Paktı 1937'de imzalanmıştır.
-    E: Türkiye, Atatürk döneminde dış ilişkilerinde bütün komşularıyla askerî çatışmayı temel yöntem olarak benimsemiştir.
+    A: Türkiye, Milletler Cemiyeti'ne 1932'de üye olmuştur.
+    B: Balkan Antantı 1934'te Türkiye, Yunanistan, Romanya ve Yugoslavya arasında imzalanmıştır.
+    C: Montrö Sözleşmesi ile Türkiye Boğazlar'da askerî önlem alma hakkı kazanmıştır.
+    D: Sadabat Paktı 1937'de Türkiye, İran, Irak ve Afganistan arasında imzalanmıştır.
+    E: Hatay, Montrö Sözleşmesi ile aynı yıl olan 1936'da Türkiye'ye katılmıştır.
   dogru: E
   aciklama:
-    dogru_neden: Atatürk döneminin dış politika anlayışı barışçı ve dengeli ilişkileri esas almıştır; bütün komşularla
-      askerî çatışmayı temel yöntem olarak benimsememiştir.
+    dogru_neden: Hatay, 1936'da değil 1939'da Türkiye'ye katılmıştır (1938'de Hatay Devleti kurulmuş, 1939'da TBMM
+      katılma kararı almıştır); bu nedenle E **yanlıştır**.
     celdiriciler:
-      A: Barışçı dış politika anlayışıyla uyumludur.
-      B: Milletler Cemiyeti üyeliği 1932'de gerçekleşmiştir.
-      C: Balkan Antantı 1934 tarihlidir.
-      D: Sadabat Paktı 1937 tarihlidir.
+      A: Türkiye 1932'de Milletler Cemiyeti'ne üye olmuştur; ifade doğrudur.
+      B: Balkan Antantı 1934'te Türkiye, Yunanistan, Romanya ve Yugoslavya arasında imzalanmıştır; ifade doğrudur.
+      C: Montrö Sözleşmesi (1936) Türkiye'ye Boğazlar'ı yeniden silahlandırma hakkı tanımıştır; ifade doğrudur.
+      D: Sadabat Paktı 1937'de Türkiye, İran, Irak ve Afganistan arasında imzalanmıştır; ifade doğrudur.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Genel bilgi — GKY Atatürk dönemi iç ve dış politika
@@ -3087,7 +3132,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3108,8 +3153,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: yanlış ifade Hatay''ın katılış tarihiyle akla yatkın hâle getirildi; diğer şıklar
+          doğru bilgilerle yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -3124,6 +3171,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: yanlış ifade Hatay''ın katılış tarihiyle akla yatkın hâle getirildi; diğer şıklar doğru bilgilerle
+      yenilendi'
 - id: SMMM-GKY-TAR-0094
   sinav: smmm
   bolum:
@@ -3935,20 +3987,23 @@
   kok: Millî Mücadele hazırlık dönemindeki kongreler karşılaştırıldığında aşağıdakilerden hangisi Erzurum Kongresi
     ile Sivas Kongresi arasındaki farkı doğru ifade eder?
   secenekler:
-    A: Erzurum Kongresi'nde millî irade vurgulanmamış, Sivas Kongresi'nde ilk kez ortaya çıkmıştır.
-    B: Erzurum Kongresi İstanbul Hükûmeti tarafından, Sivas Kongresi TBMM tarafından düzenlenmiştir.
-    C: Erzurum Kongresi Batı Cephesi'nde, Sivas Kongresi Doğu Cephesi'nde toplanmıştır.
-    D: Erzurum Kongresi'nde manda kabul edilmiş, Sivas Kongresi'nde reddedilmiştir.
-    E: Erzurum Kongresi bölgesel bir kongre olarak toplanmış, Sivas Kongresi ülke çapında toplanmıştır.
+    A: Erzurum Kongresi'nde manda kabul edilmiş, Sivas Kongresi'nde reddedilmiştir.
+    B: Erzurum Kongresi İstanbul Hükûmeti tarafından, Sivas Kongresi TBMM tarafından toplanmıştır.
+    C: Anadolu ve Rumeli Müdafaa-i Hukuk Cemiyeti Erzurum'da, Doğu Anadolu Müdafaa-i Hukuk Cemiyeti Sivas'ta kurulmuştur.
+    D: Erzurum Kongresi'nde Misak-ı Millî kabul edilmiş, Sivas Kongresi'nde manda sorunu görüşülmüştür.
+    E: Erzurum Kongresi bölgesel niteliktedir, Sivas Kongresi ülke çapında toplanmıştır.
   dogru: E
   aciklama:
-    dogru_neden: Erzurum Kongresi toplanış amacı bakımından bölgesel, aldığı kararların niteliği bakımından millî;
-      Sivas Kongresi ise ülke çapında bir kongredir.
+    dogru_neden: Erzurum Kongresi toplanış amacı bakımından Doğu Anadolu'ya yönelik bölgesel nitelikteydi; Sivas
+      Kongresi ise bütün vilayetlerden delegelerin katıldığı ülke çapında bir kongredir.
     celdiriciler:
-      B: Kongrelerin bu kurumlarca düzenlendiği ve kurumsal ayrım bu şekilde değildir.
-      C: Kongrelerin cephe bölgeleriyle bu şekilde eşleştirilmesi yanlıştır.
-      D: Her iki kongrede de manda ve himaye anlayışına karşı millî bağımsızlık vurgusu vardır.
-      A: Millî irade ve bağımsızlık düşüncesi Erzurum'da da belirgindir.
+      B: Her iki kongre de Mustafa Kemal ve arkadaşlarının öncülüğünde toplanmıştır; İstanbul Hükûmeti ve TBMM tarafından
+        düzenlenmemiştir.
+      C: Doğu Anadolu Müdafaa-i Hukuk Cemiyeti Erzurum'da kurulmuştur; Sivas'ta ise Anadolu ve Rumeli Müdafaa-i
+        Hukuk Cemiyeti oluşturulmuştur. Seçenek bunu ters vermektedir.
+      D: Misak-ı Millî 1920'de Mebusan Meclisi tarafından kabul edilmiştir; Erzurum Kongresi'nde alınan bir karar
+        değildir.
+      A: Her iki kongrede de manda ve himaye reddedilmiştir; Erzurum'da kabul edilmesi söz konusu değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Genel bilgi — Millî Mücadele hazırlık dönemi ve kongreler
@@ -3959,7 +4014,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3980,8 +4035,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler kongrelerle ilgili akla yatkın yanlış bilgilerle yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -3996,6 +4052,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler kongrelerle ilgili akla yatkın yanlış bilgilerle yenilendi'
 - id: SMMM-GKY-TAR-0106
   sinav: smmm
   bolum:

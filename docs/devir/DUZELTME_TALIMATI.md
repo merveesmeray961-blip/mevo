@@ -58,7 +58,7 @@ Tek JSON nesnesi, anahtar soru `id`'si:
 }
 ```
 
-`duzelt` kararında yalnız değişen alanları yaz (`kok`, `secenekler`, `dogru`, `aciklama`, `kaynaklar`; kaynak alıntısı resmî metinde birebir olmalı). Paketteki **her** soru için
+`duzelt` kararında yalnız değişen alanları yaz (`kok`, `secenekler`, `dogru`, `aciklama`, `kaynaklar`, `dogrulama`; hesaplama sorusunda rakamı değiştirirsen `dogrulama.python` kodunu da güncelle — `sonuc` doğru şıkkın sayısal değerine eşit olmalı, hiçbir çeldirici aynı değeri taşımamalı; kaynak alıntısı resmî metinde birebir olmalı). Paketteki **her** soru için
 bir karar olmalı.
 
 ## Hafif tur (yalnız R5, R6, R7 bulgulu paketler)

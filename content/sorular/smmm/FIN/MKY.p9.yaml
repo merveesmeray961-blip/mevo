@@ -91,24 +91,23 @@
   kazanim: hisse senedi ve tahvil alım-satımı
   tip: kavrama
   zorluk: 1
-  kok: Bir finansal aracın niteliği bakımından aşağıdaki karşılaştırmalardan hangisi doğrudur?
+  kok: BOBİ FRS'ye göre aşağıdakilerden hangisi borçlanma aracı niteliğindeki finansal varlıklara örnek **değildir**?
   secenekler:
-    A: Hisse senedi borçlanma aracı, devlet tahvili özkaynak aracıdır.
-    B: Özel sektör tahvili özkaynak aracı, hisse senedi borçlanma aracıdır.
-    C: Devlet tahvili ve özel sektör tahvili özkaynak aracı, hisse senedi ise borçlanma aracıdır.
-    D: Hisse senedi ile tahvilin ikisi de aynı şekilde özkaynak aracı sayılır.
-    E: Hisse senedi özkaynak aracı niteliği taşırken devlet tahvili ve özel sektör tahvil ve bonoları borçlanma
-      aracı niteliğindeki finansal varlıklara örnektir.
+    A: Bankalardaki vadeli mevduat
+    B: Devlet tahvili
+    C: Hazine bonosu
+    D: Özel sektör tahvil ve bonoları
+    E: Başka bir işletmenin hisse senedi
   dogru: E
   aciklama:
-    dogru_neden: BOBİ FRS 9.3'te özkaynak aracının işletmenin tüm yükümlülükleri çıkarıldıktan sonra varlıklarında
-      bir hakkı temsil eden sözleşme olduğu belirtilir. 9.13 ise devlet tahvili ile özel sektör tahvil ve bonolarını
-      borçlanma aracı niteliğindeki finansal varlıklara örnek olarak sayar.
+    dogru_neden: BOBİ FRS 9.13, borçlanma aracı niteliğindeki finansal varlıklara örnek olarak bankalardaki vadeli
+      mevduatları, devlet tahvilini, hazine bonosunu ve özel sektör tahvil ve bonolarını gösterir. Başka bir işletmenin
+      hisse senedi ise özkaynak aracıdır (9.3).
     celdiriciler:
-      A: Hisse senedi özkaynak aracı, devlet tahvili ise borçlanma aracıdır; yönler ters kurulmuştur.
-      B: Özel sektör tahvili borçlanma aracı, hisse senedi özkaynak aracıdır.
-      C: Tahviller borçlanma aracı olduğundan seçenek ters sınıflandırma yapmaktadır.
-      D: Hisse senedi ile tahvil aynı finansal araç sınıfında değildir.
+      A: 9.13 bankalardaki vadeli mevduatı borçlanma aracı niteliğindeki finansal varlık örneği olarak sayar.
+      B: 9.13 devlet tahvilini borçlanma aracı niteliğindeki finansal varlık örneği olarak sayar.
+      C: 9.13 hazine bonosunu borçlanma aracı niteliğindeki finansal varlık örneği olarak sayar.
+      D: 9.13 özel sektör tahvil ve bonolarını borçlanma aracı niteliğindeki finansal varlık örneği olarak sayar.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Büyük ve Orta Boy İşletmeler İçin Finansal Raporlama Standardı (BOBİ FRS), Bölüm 9
@@ -125,7 +124,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -146,8 +145,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: tanım ezberi ve uzun doğru şık kaldırıldı; 9.13''teki örneklerle olumsuz kök
+          kuruldu, şıklar kısa ve eşit uzunlukta'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -162,6 +163,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: tanım ezberi ve uzun doğru şık kaldırıldı; 9.13''teki örneklerle olumsuz kök kuruldu, şıklar
+      kısa ve eşit uzunlukta'
 - id: SMMM-FIN-MKY-0027
   sinav: smmm
   bolum:
@@ -1074,23 +1080,26 @@
   kazanim: hisse senedi ve tahvil alım-satımı
   tip: uygulama
   zorluk: 3
-  kok: Bir işletme, geçici süreyle elde tutmak amacıyla bir yatırım fonu katılma belgesi edinmiştir. Bu menkul kıymet,
-    Tekdüzen Hesap Planında hisse senedi veya tahvil hesaplarından hangisine değil, hangi hesaba alınmalıdır?
+  kok: Bir işletme, geçici süreyle elde tutmak amacıyla bir yatırım fonu katılma belgesi edinmiştir. Tekdüzen Hesap
+    Planına göre bu menkul kıymet hangi hesapta izlenir?
   secenekler:
     A: 110 Hisse Senetleri
     B: 111 Özel Kesim Tahvil, Senet ve Bonoları
     C: 112 Kamu Kesimi Tahvil, Senet ve Bonoları
     D: 118 Diğer Menkul Kıymetler
-    E: 119 Menkul Kıymetler Değer Düşüklüğü Karşılığı
+    E: 248 Diğer Mali Duran Varlıklar
   dogru: D
   aciklama:
-    dogru_neden: Kaynak, 11 Menkul Kıymetler grubunda yatırım fonu katılma belgelerini saymakta; 118 hesabı ise
-      hisse senetleri ile kamu ve özel sektör tahvil, bono ve senetlerinin dışındaki diğer menkul kıymetleri izlemektedir.
+    dogru_neden: 11 Menkul Kıymetler grubu, geçici bir süre elde tutulmak üzere alınan hisse senedi, tahvil, hazine
+      bonosu, yatırım fonu katılma belgesi gibi menkul kıymetleri izler. 118 hesabı ise hisse senetleri ile kamu
+      ve özel sektör tarafından çıkarılmış tahvil, bono ve senetlerin dışındaki menkul kıymetleri kapsadığından
+      yatırım fonu katılma belgesi burada izlenir.
     celdiriciler:
       A: 110 geçici olarak elde tutulan hisse senetleri içindir; yatırım fonu katılma belgesi hisse senedi değildir.
-      B: 111 özel sektörün çıkardığı tahvil, senet ve bonolar içindir.
-      C: 112 kamu tarafından çıkarılan tahvil, senet ve bonolar içindir.
-      E: 119 bir değer düşüklüğü karşılığı hesabıdır; menkul kıymetin ilk sınıflandırma hesabı değildir.
+      B: 111 özel sektörün çıkardığı tahvil, senet ve bonoları izler; katılma belgesi bunlardan biri değildir.
+      C: 112 kamu tarafından çıkarılan tahvil, senet ve bonoları izler; katılma belgesi bunlardan biri değildir.
+      E: 248 duran varlıklar içindeki mali varlıkları izler; burada menkul kıymet geçici süreyle elde tutulduğundan
+        dönen varlıklarda izlenir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Tekdüzen Hesap Planı
@@ -1109,12 +1118,17 @@
       Menkul kıymetler edinildiğinde alış bedeli üzerinden yukarıdaki hesaplara borç, elden
 
       çıkartıldığında ise, aynı bedel ile alacak kaydedilir.'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 11 Menkul Kıymetler (grup açıklaması)
+    alinti: geçici bir süre elde tutulmak üzere alınan hisse senedi, tahvil, hazine bonosu, finansman bonosu, yatırım
+      fonu katılma belgesi, kâr-zarar ortaklığı belgesi, gelir ortaklığı senedi gibi, menkul kıymetler ile bunlara
+      ait değer azalma karşılıklarının izlenmesi amacıyla kullanılır.
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1135,8 +1149,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: dolambaçlı kök sadeleştirildi; bariz çeldirici 119 yerine duran varlık hesabı 248
+          getirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1151,6 +1167,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: dolambaçlı kök sadeleştirildi; bariz çeldirici 119 yerine duran varlık hesabı 248 getirildi'
 - id: SMMM-FIN-MKY-0039
   sinav: smmm
   bolum:
@@ -1964,9 +1984,10 @@
   kazanim: iştirak ve bağlı ortaklık sınıflaması (242/245)
   tip: hesaplama
   zorluk: 1
-  kok: (P) A.Ş. iki şirkette ortaklık payına sahiptir. X şirketinde sermaye payı %48, oy hakkı %52 ve yönetim çoğunluğunu
-    seçme hakkı %50'dir. Y şirketinde sermaye payı %20, oy hakkı %20 ve yönetime katılma hakkı %10'dur. Buna göre
-    245 Bağlı Ortaklıklar hesabında izlenecek ortaklık sayısı kaçtır?
+  kok: (P) A.Ş.'nin üç şirkette ortaklık payı vardır. X şirketinde sermaye payı %48, oy hakkı %48'dir ve yönetim
+    kurulu üyelerinin çoğunluğunu seçme hakkına sahiptir. Y şirketinde sermaye payı %20, oy hakkı %20, yönetime
+    katılma hakkı %10'dur. Z şirketinde sermaye payı %35, oy hakkı %35'tir ve yönetim çoğunluğunu seçme hakkı yoktur.
+    Buna göre (P) A.Ş.'nin 245 Bağlı Ortaklıklar hesabında izleyeceği ortaklık sayısı kaçtır?
   secenekler:
     A: '0'
     B: '1'
@@ -1975,18 +1996,19 @@
     E: '4'
   dogru: B
   aciklama:
-    dogru_neden: X şirketi 245 Bağlı Ortaklıklar hesabına girer; Y şirketi ise 242 İştirakler hesabına girer. Bu
-      nedenle 245 hesabında izlenecek ortaklık sayısı 1'dir.
+    dogru_neden: THP 245'e göre bağlı ortaklığın sahipliğinin belirlenmesinde yönetim çoğunluğunu seçme hakkı esas
+      alınır. Yalnızca X şirketinde bu hak vardır; Y ve Z'de sermaye payı ve oy hakkı %50'yi aşmadığından bunlar
+      242 İştirakler hesabında izlenir. 245'te izlenecek ortaklık sayısı 1'dir.
     celdiriciler:
-      A: X şirketi için 245 ölçütlerinin sağlandığı gözden kaçırılmıştır.
-      C: Y şirketi için de bağlı ortaklık ölçütlerinin sağlandığı varsayılmıştır; oysa yalnız iştirak ölçütleri
-        sağlanmaktadır.
-      D: İki ortaklığın da 245 hesabına alınacağı varsayılmıştır; Y bu koşulları sağlamaz.
-      E: Kökte yalnız iki ortaklık bulunduğundan dört ortaklık söz konusu olamaz.
+      A: X şirketinde yönetim kurulu çoğunluğunu seçme hakkı bulunduğundan 245 ölçütü sağlanmıştır; sayı 0 olamaz.
+      C: Y de bağlı ortaklık sayılmıştır; oysa Y'de pay %20, oy %20'dir ve yönetim çoğunluğu hakkı yoktur, iştiraktir.
+      D: Y ve Z'nin de 245'e alınması hatalıdır; ikisi de yalnızca iştirak ölçütlerini sağlar.
+      E: Kökte yalnızca üç ortaklık bulunduğundan dört ortaklık söz konusu olamaz.
     hesap_adimlari:
-    - 'X: oy hakkı %52 ve yönetim çoğunluğunu seçme hakkı %50 -> 245.'
-    - 'Y: sermaye ve oy hakkı %20, yönetime katılma hakkı %10 -> 242.'
-    - '245 hesabında sınıflanan ortaklık sayısı: 1.'
+    - 'X: yönetim çoğunluğunu seçme hakkı var → 245'
+    - 'Y: sermaye ve oy %20, yönetim hakkı %10 → 242'
+    - 'Z: sermaye ve oy %35, yönetim çoğunluğu yok → 242'
+    - '245''te izlenen ortaklık sayısı: 1'
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
     madde: 245. Bağlı Ortaklıklar
@@ -2010,7 +2032,7 @@
     python: sonuc = 1
     secenek_sayisi_bekleniyor: true
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2030,8 +2052,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: %50 sınırındaki belirsiz durum kaldırıldı; yönetim çoğunluğunun esas alındığı net
+          üç şirketli vaka kuruldu'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2046,6 +2070,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: %50 sınırındaki belirsiz durum kaldırıldı; yönetim çoğunluğunun esas alındığı net üç şirketli vaka
+      kuruldu'
 - id: SMMM-FIN-MKY-0050
   sinav: smmm
   bolum:

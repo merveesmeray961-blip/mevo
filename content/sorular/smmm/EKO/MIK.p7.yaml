@@ -262,7 +262,8 @@
   kazanim: fiyat farklılaştırması
   tip: bilgi
   zorluk: 1
-  kok: 'Bir firmanın aynı malı farklı alıcılara farklı fiyatlardan satmasına ne ad verilir?
+  kok: 'Bir sinema, aynı filmin biletini öğrencilere indirimli, diğer izleyicilere tam fiyattan satmaktadır. Bu
+    uygulama aşağıdakilerden hangisidir?
 
     '
   secenekler:
@@ -291,7 +292,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -312,8 +313,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: salt tanım sorusu kısa bir uygulama durumuna çevrildi; şıklar ve açıklamalar korundu'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -334,6 +336,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: salt tanım sorusu kısa bir uygulama durumuna çevrildi; şıklar ve açıklamalar korundu'
 - id: SMMM-EKO-MIK-0007
   sinav: smmm
   bolum:
@@ -1765,23 +1771,26 @@
 
     '
   secenekler:
-    A: Piyasaların birbirinden ayrılabilir olması ve arbitrajın engellenmesi
-    B: Hükûmetin fiyat tavanı uygulaması
-    C: Firmanın marjinal maliyetinin sıfır olması
-    D: Malın perfectly esnek arz edilmesi
-    E: Tüm tüketicilerin talep esnekliğinin aynı olması
+    A: Piyasaların ayrılabilir olması ve aralarında yeniden satışın (arbitraj) engellenmesi
+    B: Her piyasada marjinal maliyetin fiyata eşitlenmesi (P = MC)
+    C: Firmanın her müşterinin ödeme istekliliğini ayrı ayrı bilmesi
+    D: Sabit maliyetlerin sıfır olması ve ölçeğe göre artan getiri bulunması
+    E: Gruplar arasında talep esnekliğinin aynı düzeyde olması
   dogru: A
   aciklama:
     dogru_neden: 'Üçüncü derece fiyat farklılaştırmasında firma farklı tüketici gruplarına farklı fiyat uygular.
       Bunun için grupların ayrılabilir olması ve gruplar arası arbitrajın (yeniden satışın) mümkün olmaması gerekir.
-      B doğrudur.
+      Doğru cevap A''dır.
 
       '
     celdiriciler:
-      B: Fiyat tavanı farklılaştırmayı engeller, kolaylaştırmaz.
-      C: MC'nin sıfır olması gerekli değildir; sadece bilinen bir değer olması yeterlidir.
-      D: Arz esnekliği koşul değildir.
-      E: Tam tersine farklı esneklikler gerekir; aynı esneklikte farklı fiyat anlamsızdır.
+      B: P = MC koşulu tam rekabet piyasasının dengesidir; fiyat farklılaştıran tekelci fiyatı marjinal maliyetin
+        üzerinde belirler.
+      C: Her müşterinin ödeme istekliliğini bilmek birinci derece fiyat farklılaştırmasının koşuludur; üçüncü derecede
+        gruplar esas alınır.
+      D: Maliyet yapısı farklılaştırmanın koşulu değildir; belirleyici olan talep tarafında grupların ayrılabilmesidir.
+      E: Tam tersine gruplar arasında farklı talep esneklikleri gerekir; esneklikler aynıysa farklı fiyat uygulamak
+        kârı artırmaz.
   kaynaklar:
   - mevzuat: İktisat teorisi — genel kabul görmüş tanım
     madde: Üçüncü derece fiyat farklılaştırması koşulları
@@ -1791,7 +1800,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1812,8 +1821,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: doğru şık kısaltıldı, çeldiriciler birinci derece, P=MC ve maliyet yapısı karışıklıklarıyla
+          yenilendi; açıklamadaki yanlış ''B doğrudur'' düzeltildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -1834,6 +1845,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: doğru şık kısaltıldı, çeldiriciler birinci derece, P=MC ve maliyet yapısı karışıklıklarıyla yenilendi;
+      açıklamadaki yanlış ''B doğrudur'' düzeltildi'
 - id: SMMM-EKO-MIK-0024
   sinav: smmm
   bolum:

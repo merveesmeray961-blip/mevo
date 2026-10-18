@@ -23,7 +23,7 @@ sys.path.insert(0, str(KOK))
 
 import yaml  # noqa: E402
 
-from pipeline import g2_yapi  # noqa: E402
+from pipeline import g2_yapi, g4_hesap  # noqa: E402
 
 ALANLAR = ("id", "ders", "konu", "kazanim", "tip", "zorluk", "kok", "secenekler", "dogru", "aciklama", "kaynaklar")
 BUGUN = dt.date.today().isoformat()
@@ -71,7 +71,7 @@ def uygula(karar_yollari: list[Path]) -> None:
                 kapilar = s.setdefault("uretim", {}).setdefault("kapilar", {})
                 if islem == "duzelt":
                     yeni = copy.deepcopy(s)
-                    for alan in ("kok", "secenekler", "dogru", "kaynaklar"):
+                    for alan in ("kok", "secenekler", "dogru", "kaynaklar", "dogrulama"):
                         if alan in k:
                             yeni[alan] = k[alan]
                     if isinstance(k.get("aciklama"), dict):  # açıklama birleştirilir: verilmeyen alt alanlar korunur
@@ -85,8 +85,9 @@ def uygula(karar_yollari: list[Path]) -> None:
                                                     if h != yeni.get("dogru")}
                         yeni["aciklama"] = aciklama
                     # Düzeltme yeni bir yapı hatası getiriyorsa uygulanmaz; soru eski hâliyle kalır.
-                    eski_hata = set(g2_yapi.soru_denetle(s).hatalar)
-                    yeni_hata = [h for h in g2_yapi.soru_denetle(yeni).hatalar if h not in eski_hata]
+                    eski_hata = set(g2_yapi.soru_denetle(s).hatalar) | set(g4_hesap.soru_denetle(s).hatalar)
+                    yeni_hata = [h for h in g2_yapi.soru_denetle(yeni).hatalar + g4_hesap.soru_denetle(yeni).hatalar
+                                 if h not in eski_hata]
                     if yeni_hata:
                         reddedilen[s["id"]] = {"karar": k, "g2": yeni_hata}
                         sayac["reddedildi"] += 1

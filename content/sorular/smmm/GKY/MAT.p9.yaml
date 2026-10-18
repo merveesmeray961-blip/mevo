@@ -365,20 +365,20 @@
   zorluk: 3
   kok: Aşağıdaki eşitliklerden hangisi doğrudur?
   secenekler:
-    A: 0,2=1/4
+    A: 0,12=1/8
     B: 0,375=3/8
-    C: 0,45=1/2
-    D: 0,625=2/3
+    C: 0,45=4/9
+    D: 0,625=3/5
     E: 0,8=7/8
   dogru: B
   aciklama:
-    dogru_neden: '0,375, 375/1000=3/8’e sadeleşir. Püf noktaları: Ondalık sayıyı önce 10’un kuvvetine bölünmüş kesre
-      çevirip sadeleştirmek en güvenli yoldur.'
+    dogru_neden: 0,375 = 375/1000 olup 125 ile sadeleştirildiğinde 3/8 bulunur. Ondalık sayıyı 10'un kuvvetine bölünmüş
+      kesre çevirip sadeleştirmek en güvenli yoldur.
     celdiriciler:
-      A: 1/4=0,25’tir.
-      C: 1/2=0,5’tir.
-      D: 2/3 yaklaşık 0,6667’dir.
-      E: 7/8=0,875’tir.
+      A: 1/8 = 0,125'tir; 0,12 bu değere eşit değildir, eşitlik yanlıştır.
+      C: 4/9 = 0,444... olduğundan 0,45'e eşit değildir; 0,45 = 9/20'dir.
+      D: 3/5 = 0,6'dır; 0,625 ise 5/8'e eşittir, dolayısıyla eşitlik yanlıştır.
+      E: 7/8 = 0,875'tir; 0,8 ise 4/5'e eşittir, dolayısıyla eşitlik yanlıştır.
   kaynaklar:
   - mevzuat: Genel bilgi — rasyonel ve ondalık sayılar
     madde: '-'
@@ -388,7 +388,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -409,8 +409,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler gerçek değerlere yakın yanlış eşitliklerle yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -425,6 +426,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler gerçek değerlere yakın yanlış eşitliklerle yenilendi'
 - id: SMMM-GKY-MAT-0092
   sinav: smmm
   bolum:
@@ -3359,24 +3364,24 @@
   kazanim: tablo-grafik yorumlama ve sayısal mantık
   tip: kavrama
   zorluk: 2
-  kok: 'Bir kütüphanenin dört şubesindeki yeni üye sayıları şöyledir: K=48, L=36, M=60, N=45. Şubeler küçükten büyüğe
-    sıralanacak ve ardından her şubenin sıra numarası üye sayısına eklenecektir. Bu kurala göre hangi eşleştirme
-    doğrudur?'
+  kok: 'Bir kütüphanenin dört şubesindeki yeni üye sayıları şöyledir: K=48, L=36, M=60, N=45. Şubeler üye sayısına
+    göre küçükten büyüğe sıralanacak ve her şubenin sıra numarası (en küçük için 1) kendi üye sayısına eklenecektir.
+    Bu kurala göre yeni üye sayıları hangi seçenekte doğru verilmiştir?'
   secenekler:
-    A: K=2, L=1, M=4, N=3
-    B: K=3, L=1, M=4, N=2
-    C: K=2, L=1, M=3, N=4
-    D: K=3, L=2, M=4, N=1
-    E: K=4, L=1, M=3, N=2
+    A: K=50, L=37, M=64, N=48
+    B: K=51, L=37, M=64, N=47
+    C: K=50, L=40, M=61, N=48
+    D: K=50, L=36, M=63, N=46
+    E: K=51, L=37, M=63, N=47
   dogru: B
   aciklama:
     dogru_neden: Üye sayıları küçükten büyüğe L(36), N(45), K(48), M(60) şeklindedir. Sıra numaraları L=1, N=2,
-      K=3, M=4 olur.
+      K=3, M=4 olur ve eklenince L=37, N=47, K=51, M=64 bulunur.
     celdiriciler:
-      A: K ve N’nin sıraları yer değiştirilmiştir.
-      C: K ve M’nin sıra numaraları karıştırılmıştır.
-      D: L ile K’nin sıraları yanlış verilmiştir.
-      E: K en büyükmüş gibi değerlendirilmiştir.
+      A: K ile N'nin sırası yer değiştirmiştir; 45 < 48 olduğundan N ikinci, K üçüncü sırada yer alır.
+      C: Şubeler büyükten küçüğe sıralanmıştır; oysa kural küçükten büyüğe sıralamayı gerektirir.
+      D: Sıra numaraları 0'dan başlatılmıştır; kurala göre en küçük değerin sıra numarası 1'dir.
+      E: M şubesine 4 yerine 3 eklenmiştir; en büyük değer olan M'nin sıra numarası 4'tür.
   kaynaklar:
   - mevzuat: Genel bilgi — tablo-grafik yorumlama ve sayısal mantık
     madde: '-'
@@ -3386,7 +3391,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3407,8 +3412,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kural şıklara taşındı; şıklar sıra numarası eklenmiş yeni üye sayılarını veriyor,
+          hata türleri çeldirici yapıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -3423,6 +3430,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kural şıklara taşındı; şıklar sıra numarası eklenmiş yeni üye sayılarını veriyor, hata türleri çeldirici
+      yapıldı'
 - id: SMMM-GKY-MAT-0131
   sinav: smmm
   bolum:
@@ -3588,23 +3600,28 @@
   kazanim: oran-orantı
   tip: uygulama
   zorluk: 1
-  kok: Bir haritada 1 cm, gerçekte 250 metreyi göstermektedir. Haritada iki nokta arasındaki uzaklık 6 cm olduğuna
-    göre bu iki nokta arasındaki gerçek uzaklık kaç metredir?
+  kok: Ölçeği 1/25.000 olan bir haritada iki nokta arasındaki uzaklık 6 cm'dir. Buna göre bu iki nokta arasındaki
+    gerçek uzaklık kaç kilometredir?
   secenekler:
-    A: '750'
-    B: '1.000'
-    C: '1.250'
-    D: '1.500'
-    E: '1.750'
+    A: 0,15
+    B: 0,75
+    C: 1,2
+    D: 1,5
+    E: '15'
   dogru: D
   aciklama:
-    dogru_neden: 1 cm 250 metre ise 6 cm için 6 × 250 = 1.500 metre gerekir.
+    dogru_neden: Ölçek 1/25.000 olduğundan 6 cm gerçekte 6 × 25.000 = 150.000 cm'dir. 150.000 cm = 1.500 m = 1,5
+      km bulunur.
     celdiriciler:
-      A: 6 cm yerine 3 cm için gereken gerçek uzaklığa karşılık gelir.
-      B: Orantı katsayısının 250 metre yerine yaklaşık 167 metre alınmasıyla oluşur.
-      C: 5 cm'lik harita uzaklığına karşılık gelir.
-      E: 7 cm'lik harita uzaklığına karşılık gelir.
-    hesap_adimlari: []
+      A: 0,15 km, cm'den km'ye dönüşümde ondalık virgülün bir basamak fazla kaydırılmasıyla bulunur; doğru değer
+        1,5 km'dir.
+      B: 0,75 km, ölçeğin 1/12.500 sanılmasıyla çıkar; verilen ölçek 1/25.000'dir.
+      C: 1,2 km, ölçeğin 1/20.000 sanılmasıyla çıkar; verilen ölçek 1/25.000'dir.
+      E: 15 km, cm'den km'ye dönüşümde virgülün bir basamak az kaydırılmasıyla bulunur; doğru değer 1,5 km'dir.
+    hesap_adimlari:
+    - 6 × 25.000 = 150.000 cm
+    - 150.000 cm = 1.500 m
+    - 1.500 m = 1,5 km
   kaynaklar:
   - mevzuat: Genel bilgi — oran-orantı
     madde: '-'
@@ -3618,7 +3635,7 @@
 
       assert sonuc == 1500'
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3638,8 +3655,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: ölçek kesir biçiminde verildi, birim dönüşümü eklendi; çeldiriciler tipik hatalarla
+          yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -3654,6 +3673,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: ölçek kesir biçiminde verildi, birim dönüşümü eklendi; çeldiriciler tipik hatalarla yenilendi'
 - id: SMMM-GKY-MAT-0134
   sinav: smmm
   bolum:
@@ -4286,22 +4309,25 @@
   kazanim: tablo-grafik yorumlama ve sayısal mantık
   tip: kavrama
   zorluk: 1
-  kok: 'Bir kütüphanede dört bölümün kitap sayıları şöyledir: Roman 240, Bilim 180, Tarih 210, Sanat 150. Bölümler
-    kitap sayılarına göre büyükten küçüğe sıralanacaktır. Doğru sıralama hangisidir?'
+  kok: 'Bir kütüphanede dört bölümün kitap sayıları şöyledir: Roman 240, Bilim 180, Tarih 210, Sanat 150. Roman
+    bölümünden 40 kitap Bilim bölümüne aktarıldıktan sonra bölümler kitap sayılarına göre büyükten küçüğe sıralanacaktır.
+    Doğru sıralama hangisidir?'
   secenekler:
-    A: Tarih > Roman > Bilim > Sanat
-    B: Roman > Bilim > Tarih > Sanat
-    C: Bilim > Tarih > Roman > Sanat
-    D: Roman > Tarih > Bilim > Sanat
+    A: Roman > Tarih > Bilim > Sanat
+    B: Bilim > Roman > Tarih > Sanat
+    C: Tarih > Bilim > Roman > Sanat
+    D: Bilim > Tarih > Roman > Sanat
     E: Roman > Tarih > Sanat > Bilim
   dogru: D
   aciklama:
-    dogru_neden: 240 > 210 > 180 > 150 olduğundan sıralama Roman, Tarih, Bilim, Sanat şeklindedir.
+    dogru_neden: Aktarımdan sonra Roman 240 - 40 = 200, Bilim 180 + 40 = 220 olur; Tarih 210 ve Sanat 150 değişmez.
+      Büyükten küçüğe sıralama 220 > 210 > 200 > 150 yani Bilim, Tarih, Roman, Sanat şeklindedir.
     celdiriciler:
-      A: Tarih'i Roman'ın önüne alır.
-      B: Bilim ve Tarih'in sırasını ters verir.
-      C: Bilim'i ilk sıraya taşır.
-      E: Sanat ile Bilim'in sırasını değiştirir.
+      A: Bu sıralama aktarım yapılmadan önceki durumu gösterir; aktarım sonrası Bilim en başa çıkar.
+      B: Aktarım sonrası Roman 200 olur ve Tarih'in (210) altında kalır; Roman Tarih'ten önce gelemez.
+      C: Bilim bölümünün 220 yerine 205 kitaba çıktığı varsayılırsa elde edilir; oysa 40 kitap eklendiğinde Bilim
+        220 olur.
+      E: Aktarım ters yönde yapılırsa (Roman 280, Bilim 140) bulunur; soruda kitaplar Roman'dan Bilim'e aktarılmaktadır.
   kaynaklar:
   - mevzuat: Genel bilgi — tablo-grafik yorumlama ve sayısal mantık
     madde: '-'
@@ -4311,7 +4337,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4332,8 +4358,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: bölümler arası kitap aktarımı eklendi; çeldiriciler aktarımın yok sayılması ve
+          ters yönde hesaplanması gibi hatalardan türetildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -4351,6 +4379,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: bölümler arası kitap aktarımı eklendi; çeldiriciler aktarımın yok sayılması ve ters yönde hesaplanması
+      gibi hatalardan türetildi'
 - id: SMMM-GKY-MAT-0143
   sinav: smmm
   bolum:
@@ -7584,34 +7617,33 @@
   kazanim: sayılar ve temel işlemler
   tip: uygulama
   zorluk: 1
-  kok: 'Aşağıdaki ifadeleri sonuçlarıyla eşleştiriniz.
+  kok: 'Aşağıdaki ifadelerin sonuçları küçükten büyüğe sıralandığında doğru sıra hangisidir?
 
-    I. 18 − 7
+    I. 3 + 4 × 5
 
-    II. 4 × 6 − 5
+    II. (3 + 4) × 5
 
-    III. 42 ÷ 7 + 2
-
-    Bu ifadelerin sonuçları küçükten büyüğe sıralandığında doğru sıra hangisidir?'
+    III. 60 ÷ 5 + 2 × 6'
   secenekler:
-    A: II < I < III
-    B: I < II < III
-    C: III < I < II
-    D: I < III < II
+    A: I < II < III
+    B: II < I < III
+    C: I < III < II
+    D: III < I < II
     E: II < III < I
   dogru: C
   aciklama:
-    dogru_neden: I = 11, II = 19 ve III = 8 olduğundan küçükten büyüğe sıralama III < I < II'dir.
+    dogru_neden: I = 3 + 4 × 5 = 23, II = (3 + 4) × 5 = 35 ve III = 60 ÷ 5 + 2 × 6 = 24 bulunur. Küçükten büyüğe
+      sıralama 23 < 24 < 35 yani I < III < II'dir.
     celdiriciler:
-      A: II=19, I=11 ve III=8 olduğundan II<I<III sıralaması doğru değildir.
-      B: Doğru sıralama III<I<II'dir; I<II<III seçeneği yanlıştır.
-      D: II=19 en büyük sonuçtur; I<III<II sıralaması doğru değildir.
-      E: III=8 en küçük, II=19 en büyük sonuç olduğundan bu sıra yanlıştır.
+      A: Bu sıralamada III en büyük alınmıştır; III'ün değeri 24 olup II'nin (35) altındadır.
+      B: Bu sıralamada II, I'den küçük alınmıştır; oysa II = 35, I = 23'tür.
+      D: Bu sıralamada III en küçük alınmıştır; III = 24 olup I = 23'ten büyüktür.
+      E: Bu sıralamada I en büyük alınmıştır; oysa I = 23 üç değerin en küçüğüdür.
     hesap_adimlari:
-    - 'I: 18−7=11.'
-    - 'II: 4×6−5=19.'
-    - 'III: 42÷7+2=8.'
-    - 'Küçükten büyüğe: 8<11<19.'
+    - 'I: 3 + 20 = 23.'
+    - 'II: 7 × 5 = 35.'
+    - 'III: 12 + 12 = 24.'
+    - 'Küçükten büyüğe: 23 < 24 < 35.'
   kaynaklar:
   - mevzuat: Genel bilgi — sayılar ve temel işlemler
     madde: '-'
@@ -7623,7 +7655,7 @@
   dogrulama:
     python: I=18-7; II=4*6-5; III=42/7+2; sonuc='C' if III<I<II else 'X'
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -7643,8 +7675,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: işlem önceliği ve parantez içeren ifadelerle düzey yükseltildi; kök sadeleştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -7659,6 +7692,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: işlem önceliği ve parantez içeren ifadelerle düzey yükseltildi; kök sadeleştirildi'
 - id: SMMM-GKY-MAT-0187
   sinav: smmm
   bolum:

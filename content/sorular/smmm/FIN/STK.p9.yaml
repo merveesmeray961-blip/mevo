@@ -777,21 +777,23 @@
   kok: BOBİ FRS'ye göre benzer nitelik ve kullanıma sahip iki stok grubundan biri FIFO, diğeri ağırlıklı ortalama
     yöntemiyle izlenmek istenmektedir. Aşağıdaki değerlendirmelerden hangisi doğrudur?
   secenekler:
-    A: Benzer nitelik ve kullanıma sahip oldukları için aynı maliyet hesaplama yöntemi kullanılmalıdır.
-    B: Her iki stok grubu için LIFO zorunludur.
-    C: Benzer stoklarda her dönem farklı yöntem seçilebilir.
-    D: FIFO yalnız özel projelerde, ağırlıklı ortalama yalnız ticari mallarda kullanılabilir.
-    E: Benzer stoklar için hiçbir maliyet hesaplama yöntemi kullanılamaz.
+    A: Benzer nitelik ve kullanıma sahip stoklar için aynı maliyet hesaplama yöntemi kullanılmalıdır.
+    B: İşletme, benzer stoklar için de her dönem FIFO ile ağırlıklı ortalama arasında seçim yapabilir.
+    C: Ağırlıklı ortalama ticari mallar için, FIFO ise mamuller için kullanılabilir.
+    D: LIFO yasak olduğundan benzer stoklarda FIFO uygulanır, ağırlıklı ortalama uygulanamaz.
+    E: Biri FIFO, diğeri LIFO olmak koşuluyla iki gruba farklı yöntem uygulanabilir.
   dogru: A
   aciklama:
     dogru_neden: BOBİ FRS 6.20, benzer nitelik ve kullanıma sahip tüm stoklar için aynı maliyet hesaplama yönteminin
       kullanılacağını; farklı nitelik veya kullanım alanına sahip stoklar için farklı yöntemlerin kullanılabileceğini
       düzenler.
     celdiriciler:
-      B: LIFO'ya izin verilmemektedir.
-      C: Benzer stoklarda aynı yöntemin kullanılması gerekir.
-      D: Kaynak FIFO ve ağırlıklı ortalamayı stok türleriyle bu şekilde sınırlamaz.
-      E: Kaynak FIFO veya ağırlıklı ortalama yöntemlerinden birinin kullanılmasına izin verir.
+      B: Benzer stoklarda aynı yöntem kullanılır; her dönem serbestçe değiştirilecek bir seçim hakkı tanınmamıştır.
+      C: Kaynak yöntem seçimini stok türüne göre bu şekilde ayırmaz; ayrım nitelik ve kullanım alanı benzerliğine
+        göredir.
+      D: LIFO'ya izin verilmez; ancak FIFO veya ağırlıklı ortalama yöntemlerinden biri kullanılabilir, ağırlıklı
+        ortalama dışlanmış değildir.
+      E: LIFO'nun kullanımına izin verilmediğinden bu seçenekteki uygulama mümkün değildir.
   kaynaklar:
   - mevzuat: BOBİ FRS
     madde: '6.20'
@@ -804,7 +806,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -825,8 +827,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -841,6 +844,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
 - id: SMMM-FIN-STK-0041
   sinav: smmm
   bolum:
@@ -1112,29 +1119,33 @@
   kazanim: alış/satış iade ve iskontoları
   tip: hesaplama
   zorluk: 2
-  kok: Bir işletmenin brüt satışları 180.000 TL'dir. Satış sonrasında 12.000 TL tutarında mal iadesi yapılmış; ayrıca
-    müşterinin vadesinden önce ödeme yapması nedeniyle 6.000 TL kasa iskontosu uygulanmıştır. Net satış hasılatı
-    kaç TL'dir?
+  kok: Bir işletmenin brüt satışları 450.000 TL'dir. Dönem içinde 30.000 TL fatura tutarlı mal iade edilmiş, satış
+    gerçekleştikten sonra vadesinden önce ödeme yapan müşterilere 9.000 TL kasa iskontosu ve miktar iskontosu olarak
+    12.000 TL indirim uygulanmıştır. Ayrıca satıcının alıcı hesabına ödediği 4.000 TL'lik sevk gideri 612 Diğer
+    İndirimler hesabında izlenmektedir. Net satış hasılatı kaç TL'dir?
   secenekler:
-    A: 156.000 TL
-    B: 162.000 TL
-    C: 168.000 TL
-    D: 174.000 TL
-    E: 180.000 TL
+    A: 391.000 TL
+    B: 395.000 TL
+    C: 399.000 TL
+    D: 404.000 TL
+    E: 407.000 TL
   dogru: B
   aciklama:
-    dogru_neden: Satış iadeleri ve satış iskontoları net satış hasılatına ulaşırken brüt satışlardan indirilir.
-      180.000 - 12.000 - 6.000 = 162.000 TL.
+    dogru_neden: '610 Satıştan İadeler, 611 Satış İskontoları (kasa ve miktar iskontoları) ve 612 Diğer İndirimler
+      brüt satışlardan indirilerek net satış hasılatına ulaşılır: 450.000 - 30.000 - 9.000 - 12.000 - 4.000 = 395.000
+      TL.'
     celdiriciler:
-      A: İade ve iskontonun toplamı 24.000 TL değil; toplam indirim 18.000 TL'dir.
-      C: Yalnız 12.000 TL iadenin düşülmesiyle bulunan tutardır; 6.000 TL kasa iskontosu da düşülmelidir.
-      D: Yalnız 6.000 TL iskontonun düşülmesiyle bulunan tutardır; iade de düşülmelidir.
-      E: Brüt satış tutarıdır; satış indirimleri dikkate alınmamıştır.
+      A: Sevk gideri iki kez düşülmüştür; 4.000 TL yalnızca bir kez indirilmelidir.
+      C: 612 Diğer İndirimler hesabındaki 4.000 TL sevk gideri düşülmemiştir.
+      D: 9.000 TL kasa iskontosu düşülmemiştir; kasa iskontosu 611 hesabında izlenir ve brüt satıştan indirilir.
+      E: 12.000 TL miktar iskontosu düşülmemiştir; miktar iskontosu da 611 Satış İskontoları kapsamındadır.
     hesap_adimlari:
-    - 'Brüt satış: 180.000 TL'
-    - 'Satıştan iade: 12.000 TL'
-    - 'Kasa iskontosu: 6.000 TL'
-    - 'Net satış: 180.000 - 12.000 - 6.000 = 162.000 TL'
+    - 'Brüt satış: 450.000 TL'
+    - 'Satıştan iadeler (610): 30.000 TL'
+    - 'Kasa iskontosu (611): 9.000 TL'
+    - 'Miktar iskontosu (611): 12.000 TL'
+    - 'Diğer indirimler (612): 4.000 TL'
+    - 'Net satış: 450.000 - 30.000 - 9.000 - 12.000 - 4.000 = 395.000 TL'
   kaynaklar:
   - mevzuat: Tekdüzen Hesap Planı
     madde: '61'
@@ -1145,14 +1156,18 @@
 
 
       Satıştan iadeler, satış iskontoları ve diğer indirimler şeklinde bölümlenir.'
+  - mevzuat: Tekdüzen Hesap Planı
+    madde: '611'
+    alinti: Satışla ilgili faturanın düzenlenip satışın gerçekleşmesinden sonra yapılan her türlü kasa ve miktar
+      iskontoları bu hesapta yer alır.
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: sonuc = 180000 - 12000 - 6000
+    python: sonuc = 450000 - 30000 - 9000 - 12000 - 4000
   durum: kontrolde
-  surum: 1
+  surum: 3
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1172,8 +1187,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: G4 doğrulama kodu yeni rakamlara göre güncellendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1188,6 +1204,14 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: G4 doğrulama kodu yeni rakamlara göre güncellendi
 - id: SMMM-FIN-STK-0045
   sinav: smmm
   bolum:
@@ -1365,24 +1389,25 @@
   kazanim: stok değer düşüklüğü (158/654)
   tip: uygulama
   zorluk: 1
-  kok: Daha önce stok için 158 Stok Değer Düşüklüğü Karşılığı hesabında karşılık ayrılmıştır. İzleyen dönemde karşılık
-    ayrılan stok tamamen satılmış ve ayrılan karşılığın tamamının artık konusunun kalmadığı kesinleşmiştir. Bu durumda
-    önceki karşılık hangi hesap üzerinden kapatılmalıdır?
+  kok: Daha önce stok için 158 Stok Değer Düşüklüğü Karşılığı hesabında 40.000 TL karşılık ayrılmıştır. İzleyen
+    dönemde karşılık ayrılan stok tamamen satılmış ve ayrılan karşılığın artık konusunun kalmadığı kesinleşmiştir.
+    158 hesabı borçlandırılarak kapatılırken karşılığında alacaklandırılan hesap hangisidir?
   secenekler:
     A: 644 Konusu Kalmayan Karşılıklar
-    B: 645 Menkul Kıymet Satış Kârları
+    B: 649 Diğer Olağan Gelir ve Kârlar
     C: 654 Karşılık Giderleri
-    D: 656 Kambiyo Zararları
-    E: 690 Dönem Kârı veya Zararı
+    D: 679 Diğer Olağandışı Gelir ve Kârlar
+    E: 689 Diğer Olağandışı Gider ve Zararlar
   dogru: A
   aciklama:
-    dogru_neden: Kaynak, karşılık ayrılan stokun kullanılması veya satılması halinde daha önce ayrılan karşılığın
-      644 Konusu Kalmayan Karşılıklar hesabına aktarılarak kapatılacağını belirtir.
+    dogru_neden: Karşılık ayrılan stokun kullanılması veya satılması halinde daha önce ayrılan karşılık 644 Konusu
+      Kalmayan Karşılıklar hesabına aktarılarak kapatılır; 158 borçlandırılır, 644 alacaklandırılır.
     celdiriciler:
-      B: 645 menkul kıymet satış kârları içindir; stok karşılığının iptal hesabı değildir.
-      C: 654 karşılık gideridir; ilk karşılık ayrılırken kullanılır, konusunun kalmaması halinde 644'e aktarım yapılır.
-      D: 656 kambiyo zararlarını izler.
-      E: 690 dönem kârı veya zararı hesabıdır; karşılığın özel iptal hesabı değildir.
+      B: 649 diğer olağan faaliyetlerden gelir ve kârları izler; konusu kalmayan karşılıklar için özel hesap 644'tür.
+      C: 654 karşılık giderleri hesabıdır; karşılık ayrılırken borçlanır, karşılığın iptalinde kullanılmaz.
+      D: 679 olağandışı gelir ve kârları izler; stok karşılığının konusunun kalmaması olağan faaliyet geliri olan
+        644'te izlenir.
+      E: 689 olağandışı gider ve zararlar hesabıdır; karşılığın kapatılması bir gider değil gelir kaydıdır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Tekdüzen Hesap Planı
@@ -1397,7 +1422,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1418,8 +1443,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1434,6 +1460,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
 - id: SMMM-FIN-STK-0048
   sinav: smmm
   bolum:
@@ -1620,31 +1650,36 @@
   zorluk: 3
   kok: Aşağıdakilerden hangisi Tekdüzen Hesap Planı'ndaki satış indirimleri sınıflaması bakımından **yanlıştır**?
   secenekler:
-    A: Satıştan iadeler 610 hesabında izlenir.
-    B: Satış iskontoları 611 hesabında izlenir.
-    C: Diğer indirimler 612 hesabında izlenir.
-    D: Satıştan iadeler 611 hesabında izlenir.
-    E: 610, 611 ve 612 hesapları satış indirimleri grubundadır.
+    A: 610 Satıştan İadeler hesabı, satılan malların iade edilen bölümünün fatura tutarını kapsar.
+    B: 611 Satış İskontoları hesabı, satış gerçekleştikten sonraki kasa ve miktar iskontolarını kapsar.
+    C: 612 Diğer İndirimler hesabı, hatalı veya noksan mal nedeniyle yapılan zorunlu indirimleri kapsar.
+    D: Vadesinden önce ödeme nedeniyle verilen kasa iskontoları 612 Diğer İndirimler hesabında izlenir.
+    E: Satıcının alıcı hesabına ödediği sevk giderleri 612 Diğer İndirimler hesabında gösterilir.
   dogru: D
   aciklama:
-    dogru_neden: 610 satıştan iadeler, 611 satış iskontoları ve 612 diğer indirimlerdir.
+    dogru_neden: Kasa iskontosu, alıcının mal bedelini vadesinden önce ödemesi nedeniyle yapılan indirimdir ve 611
+      Satış İskontoları hesabında izlenir; 612 Diğer İndirimler hesabında izlenmez. Bu nedenle D **yanlıştır**.
     celdiriciler:
-      A: 610 hesabının doğru adıdır.
-      B: 611 hesabının doğru adıdır.
-      C: 612 hesabının doğru adıdır.
-      E: Üç hesabın da satış indirimleri grubunda olduğu kaynakta gösterilir.
+      A: 610 hesabı iade edilen malların fatura tutarını kapsar; ifade doğrudur.
+      B: 611 hesabı satıştan sonra yapılan kasa ve miktar iskontolarını kapsar; ifade doğrudur.
+      C: 612 hesabı hatalı veya noksan mal nedeniyle yapılması zorunlu indirimleri de kapsar; ifade doğrudur.
+      E: Alıcı hesabına ödenen sevk giderleri 612 Diğer İndirimler kapsamında gösterilir; ifade doğrudur.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: MSUGT Tekdüzen Hesap Planı
     madde: 61 Satış İndirimleri
     alinti: 61 SATIŞ İNDİRİMLERİ (-)  610. SATIŞTAN İADELER (-)  611. SATIŞ İSKONTOLARI (-)  612. DİĞER İNDİRİMLER
       (-)
+  - mevzuat: Tekdüzen Hesap Planı
+    madde: '611'
+    alinti: Satışla ilgili faturanın düzenlenip satışın gerçekleşmesinden sonra yapılan her türlü kasa ve miktar
+      iskontoları bu hesapta yer alır.
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1665,8 +1700,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1681,6 +1717,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
 - id: SMMM-FIN-STK-0051
   sinav: smmm
   bolum:
@@ -2418,20 +2458,20 @@
   kok: Bir üretim işletmesinde üretim sürecinde normal koşulların belirgin biçimde üzerinde fire meydana gelmiştir.
     BOBİ FRS'ye göre aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: Normalin üstünde gerçekleşen fire stok maliyetine dahil edilir.
+    A: Normalin üstündeki fire üretimin doğal sonucu olduğundan stok maliyetine dahil edilir.
     B: Normalin üstünde gerçekleşen fire oluştuğu dönemde gider olarak kâr veya zarara yansıtılır.
-    C: Normalin üstündeki fire aktifleştirilir.
-    D: Fire miktarı ne olursa olsun stok maliyetine eklenir.
-    E: Normalin üstündeki fire yalnız sonraki dönemde giderleştirilir.
+    C: Normalin üstündeki fire stok maliyetine eklenir ve sonraki dönemlerde itfa edilerek giderleştirilir.
+    D: Normalin üstündeki fire, sonraki üretim aşaması tamamlanana kadar yarı mamul değeri içinde izlenir.
+    E: Normalin üstündeki fire miktarı kalan sağlam ürünlerin birim maliyetine dağıtılarak aktifleştirilir.
   dogru: B
   aciklama:
     dogru_neden: BOBİ FRS 6.15(a), normalin üstünde gerçekleşen fire ve kayıpları stok maliyetine dahil edilemeyen
       ve oluştukları dönemde kâr veya zarara yansıtılan maliyetler arasında sayar.
     celdiriciler:
       A: Kaynak normalin üstündeki fireyi maliyete dahil edilemeyen giderler arasında sayar.
-      C: Fire aktifleştirilmez; oluştuğu dönemde giderleştirilir.
-      D: Kaynak tüm fireleri değil normalin üstündeki fireyi düzenler.
-      E: Giderleştirme oluştuğu dönemdedir.
+      C: Fire stok maliyetine eklenmez ve sonradan itfa edilmez; oluştuğu dönemde giderleştirilir.
+      D: Normalin üstündeki fire yarı mamul değerine eklenerek ertelenemez; oluştuğu dönemde gider yazılır.
+      E: Normalin üstündeki fire birim maliyetlere dağıtılıp aktifleştirilemez; 6.15(a) bunu maliyet dışı bırakır.
   kaynaklar:
   - mevzuat: BOBİ FRS
     madde: 6.15/a
@@ -2444,7 +2484,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2465,8 +2505,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2481,6 +2522,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
 - id: SMMM-FIN-STK-0061
   sinav: smmm
   bolum:

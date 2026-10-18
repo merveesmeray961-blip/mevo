@@ -212,17 +212,20 @@
   tip: uygulama
   zorluk: 2
   kok: Denetçi, bir hesap bakiyesi için önemli yanlışlık riskini yüksek değerlendirmiştir. Bu risk değerlendirmesinden
-    sonra uygulanacak müteakip denetim prosedürlerinin niteliği, zamanlaması ve kapsamının belirlenmesinde hangi
-    yaklaşım BDS 315 ve BDS 330 ile uyumludur?
+    sonra uygulanacak müteakip denetim prosedürlerinin niteliği, zamanlaması ve kapsamının belirlenmesinde, risklerin
+    belirlenmesi ve değerlendirilmesi ile değerlendirilen risklere karşı yapılacak işlere ilişkin standartlara uygun
+    olan yaklaşım hangisidir?
   secenekler:
-    A: Risk değerlendirmesi prosedürlerin niteliği, zamanlaması ve kapsamını etkilemez; tüm hesaplara aynı prosedür
-      uygulanır.
+    A: Müteakip prosedürler finansal tablo düzeyindeki genel riskler esas alınarak tasarlanır; yönetim beyanı düzeyindeki
+      riskler için ayrı tasarım gerekmez.
     B: Müteakip denetim prosedürleri, yönetim beyanı düzeyinde değerlendirilen önemli yanlışlık risklerini esas
       alacak ve bu risklere karşılık verecek şekilde tasarlanıp uygulanır.
-    C: Risk yüksekse denetçi denetim kanıtı toplamadan görüş verir.
-    D: Denetçi yalnızca finansal tablo düzeyindeki riski dikkate alır, yönetim beyanı düzeyindeki riski dikkate
-      almaz.
-    E: Risk değerlendirmesi yalnızca denetim raporu yazıldıktan sonra yapılır.
+    C: Prosedürlerin kapsamı önceki dönem denetim sonuçlarına göre belirlenir; cari dönem risk değerlendirmesi raporlama
+      aşamasında dikkate alınır.
+    D: Yüksek riskli hesap için prosedürlerin kapsamı genişletilir; niteliği ve zamanlaması ise risk değerlendirmesinden
+      bağımsız olarak belirlenir.
+    E: Yönetim beyanı düzeyindeki riskler belirlendikten sonra prosedürler, işletmenin kendi risk değerlendirmesine
+      göre yönetim tarafından belirlenir.
   dogru: B
   aciklama:
     dogru_neden: BDS 330/6, niteliği, zamanlaması ve kapsamı yönetim beyanı düzeyinde değerlendirilen önemli yanlışlık
@@ -230,12 +233,13 @@
       öngörür. BDS 315/5 de risklerin yönetim beyanı düzeyinde değerlendirilmesini ve yapısal risk ile kontrol riskinin
       ayrı ayrı değerlendirilmesini düzenler.
     celdiriciler:
-      A: BDS 330/6 risk değerlendirmesinin prosedürlerin niteliği, zamanlaması ve kapsamına temel oluşturduğunu
-        açıkça düzenler.
-      C: Risk değerlendirmesi denetim kanıtı toplama ve uygun prosedür uygulama sürecinin temelidir; kanıtsız görüş
-        sonucu doğurmaz.
-      D: BDS 315/5 yönetim beyanı düzeyinde risk değerlendirmesini açıkça öngörür.
-      E: Risk değerlendirmesi denetimin yürütülmesi sırasında ve öncesinde planlamayla bağlantılı olarak yapılır.
+      A: Yönetim beyanı düzeyindeki risklerin değerlendirilmesi ve bunlara karşılık verilmesi standartlarca açıkça
+        öngörülür.
+      C: Cari dönem risk değerlendirmesi, prosedürlerin niteliği, zamanlaması ve kapsamı için esas alınır; önceki
+        dönem tek başına dayanak olmaz.
+      D: Risk değerlendirmesi prosedürlerin niteliğini, zamanlamasını ve kapsamını birlikte etkiler; üçü de riske
+        göre belirlenir.
+      E: Prosedürleri denetçi tasarlar; bunlar yönetim tarafından belirlenmez ve yönetimin değerlendirmesine bırakılamaz.
   kaynaklar:
   - mevzuat: BDS 315 Önemli Yanlışlık Risklerinin Belirlenmesi ve Değerlendirilmesi
     madde: md. 5
@@ -254,7 +258,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -275,8 +279,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6/R7: çeldiriciler akla yatkın yanlışlarla yenilendi, uzunluklar dengelendi,
+          BDS numaraları kökten çıkarıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -297,6 +303,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6/R7: çeldiriciler akla yatkın yanlışlarla yenilendi, uzunluklar dengelendi, BDS numaraları kökten
+      çıkarıldı'
 - id: SMMM-DEN-RSK-0022
   sinav: smmm
   bolum:
@@ -308,15 +319,15 @@
   kazanim: makul güvence
   tip: uygulama
   zorluk: 3
-  kok: Bir denetçi, finansal tabloların önemli bir yanlışlık içerip içermediğine ilişkin görüşüne dayanak oluşturmak
-    üzere yeterli ve uygun kanıt toplamıştır. Ancak denetim kanıtlarının kesin olmaktan çok ikna edici olması ve
-    denetimin yapısal kısıtlamaları nedeniyle mutlak güvence sağlayamayacağını da dikkate almaktadır. BDS 200'e
-    göre bu durum aşağıdakilerden hangisini ifade eder?
+  kok: Bir denetçi, denetim riskini kabul edilebilir düşük bir seviyeye indirecek ölçüde yeterli ve uygun denetim
+    kanıtı toplamıştır. Ancak denetim kanıtlarının kesin olmaktan çok ikna edici olduğunu ve denetimin yapısal kısıtlamalarının
+    bulunduğunu da dikkate almaktadır. Bağımsız denetçinin genel amaçlarına ilişkin standarda göre bu durum aşağıdakilerden
+    hangisini ifade eder?
   secenekler:
-    A: Sınırlı güvence sağlandığını
-    B: Mutlak güvence sağlandığını
-    C: Yalnızca mesleki şüphecilik uygulandığını
-    D: Makul güvence sağlandığını
+    A: Sınırlı güvence düzeyine ulaşıldığını
+    B: Mutlak güvence düzeyine ulaşıldığını
+    C: Denetim riskinin sıfır düzeyine indirildiğini
+    D: Makul güvence düzeyine ulaşıldığını
     E: Görüş vermekten kaçınılması gerektiğini
   dogru: D
   aciklama:
@@ -328,10 +339,10 @@
       Püf noktaları: Yüksek güvence ile mutlak güvenceyi birbirine karıştırmamak gerekir; BDS 200 makul güvenceyi
       yüksek, fakat mutlak olmayan güvence olarak ele alır.'
     celdiriciler:
-      A: Sınırlı güvence, burada belirtilen yüksek güvence seviyesini ifade etmez.
+      A: Sınırlı güvence, burada anlatılan yüksek güvence seviyesini ifade etmez.
       B: Standart, denetimin yapısal kısıtlamaları nedeniyle makul güvencenin mutlak olmadığını açıkça belirtir.
-      C: Mesleki şüphecilik denetimin yürütülme biçimidir; güvence seviyesinin adı değildir.
-      E: Yeterli ve uygun kanıt elde edilmesi tek başına görüş vermekten kaçınmayı gerektirmez.
+      C: Denetim riski kabul edilebilir düşük seviyeye indirilir; sıfırlanması mümkün değildir.
+      E: Yeterli ve uygun kanıt elde edilmesi, görüş vermekten kaçınmayı gerektirmez.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: BDS 200
@@ -344,7 +355,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -365,8 +376,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6/R7: mutlak ifadeli çeldirici akla yatkın bir yanlışla değiştirildi, kök BDS numarasından
+          arındırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -381,6 +394,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6/R7: mutlak ifadeli çeldirici akla yatkın bir yanlışla değiştirildi, kök BDS numarasından arındırıldı'
 - id: SMMM-DEN-RSK-0023
   sinav: smmm
   bolum:
@@ -394,19 +411,20 @@
   zorluk: 1
   kok: Aşağıdaki eşleştirmelerden hangisi BDS'lerin temel konularını doğru göstermektedir?
   secenekler:
-    A: BDS 300—yazılı beyanlar; BDS 580—denetim planlaması
-    B: BDS 530—denetim örneklemesi; BDS 300—denetimin planlanması
-    C: BDS 210—görüş türleri; BDS 705—ön şartlar
-    D: BDS 450—KAYİK yetkilendirmesi; BDS 530—sorumlu denetçi şartları
-    E: BDS 330—denetim sözleşmesinin 60 günlük süresi; BDS 580—denetim raporu
+    A: BDS 300—yazılı beyanlar; BDS 580—denetimin planlanması
+    B: BDS 530—bağımsız denetimde örnekleme; BDS 300—finansal tabloların denetiminin planlanması
+    C: BDS 450—önemlilik belirleme; BDS 320—belirlenen yanlışlıkların değerlendirilmesi
+    D: BDS 315—değerlendirilen risklere karşı yapılacak işler; BDS 330—risklerin belirlenmesi ve değerlendirilmesi
+    E: BDS 210—örnekleme; BDS 530—denetim sözleşmesi şartlarının mutabakatı
   dogru: B
   aciklama:
     dogru_neden: BDS 530 denetim örneklemesini, BDS 300 ise denetimin planlanmasını düzenler.
     celdiriciler:
-      A: BDS 580 yazılı beyanlarla, BDS 300 planlamayla ilgilidir.
-      C: BDS 210 denetimin ön şartlarını; BDS 705 olumlu görüş dışındaki görüşleri ele alır.
-      D: Bu konular BDY veya başka BDS hükümleriyle ilgilidir.
-      E: BDS 330 risklere karşı yapılacak işleri, BDS 580 yazılı beyanları ele alır.
+      A: BDS 580 yazılı beyanlarla, BDS 300 ise denetimin planlanmasıyla ilgilidir; konular yer değiştirmiştir.
+      C: BDS 320 önemliliği, BDS 450 ise belirlenen yanlışlıkların değerlendirilmesini ele alır; konular yer değiştirmiştir.
+      D: BDS 315 risklerin belirlenmesi ve değerlendirilmesini, BDS 330 ise değerlendirilen risklere karşı yapılacak
+        işleri ele alır.
+      E: BDS 210 denetim sözleşmesi şartlarının mutabakatını, BDS 530 ise örneklemeyi ele alır; konular yer değiştirmiştir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: BDS 530
@@ -423,7 +441,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -444,8 +462,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler gerçek standart-konu çiftlerinin yer değiştirmesiyle akla yatkın hâle
+          getirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -460,6 +480,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler gerçek standart-konu çiftlerinin yer değiştirmesiyle akla yatkın hâle getirildi'
 - id: SMMM-DEN-RSK-0024
   sinav: smmm
   bolum:
@@ -471,13 +495,13 @@
   kazanim: BDS 200 amaç
   tip: kavrama
   zorluk: 2
-  kok: BDS 200'e göre finansal tabloların denetiminin yürütülmesinde denetçinin genel amaçlarından biri aşağıdakilerden
-    hangisidir?
+  kok: Bağımsız denetçinin genel amaçlarına ilişkin standarda göre, finansal tabloların denetiminin yürütülmesinde
+    denetçinin genel amaçlarından biri aşağıdakilerden hangisidir?
   secenekler:
-    A: Finansal tabloların tüm hatalarını kesin olarak ortadan kaldırmak
-    B: Yönetimin bütün kararlarını denetçi adına almak
-    C: İşletmenin gelecekteki kârlılığını garanti etmek
-    D: Finansal raporlama çerçevesini denetçi tarafından değiştirmek
+    A: Finansal tablolardaki hata ve hilelerin ortaya çıkarılmasını güvence altına alan bir güvence düzeyine ulaşmak
+    B: Yönetimin iç kontrol sistemine ilişkin sorumluluklarını denetim süresince denetçi olarak üstlenmek
+    C: İşletmenin sürekliliğine ilişkin ayrı bir güvence vererek gelecek dönem kârlılığını değerlendirmek
+    D: Finansal raporlama çerçevesinin uygunluğuna yönetim adına karar vererek çerçeveyi belirlemek
     E: Bir bütün olarak finansal tabloların önemli bir yanlışlık içerip içermediğine ilişkin makul güvence elde
       etmek
   dogru: E
@@ -485,10 +509,11 @@
     dogru_neden: BDS 200 md. 11, bir bütün olarak finansal tabloların hata veya hile kaynaklı önemli bir yanlışlık
       içerip içermediğine ilişkin makul güvence elde etmeyi denetçinin genel amaçlarından biri olarak belirler.
     celdiriciler:
-      A: Denetim mutlak hata yokluğu garantisi değildir.
-      B: Yönetimin karar alma sorumluluğu denetçiye geçmez.
-      C: Denetçinin amacı gelecekteki kârlılığı garanti etmek değildir.
-      D: Denetçi geçerli finansal raporlama çerçevesini değiştiren taraf değildir.
+      A: Denetim, hata ve hilelerin ortaya çıkarılmasını güvence altına almaz; makul güvence yüksek ancak mutlak
+        olmayan bir güvencedir.
+      B: Yönetimin iç kontrole ilişkin sorumluluğu denetçiye geçmez.
+      C: Denetçinin amacı işletmenin kârlılığına ilişkin güvence vermek değildir.
+      D: Geçerli finansal raporlama çerçevesini belirlemek denetçinin değil yönetimin ve ilgili mevzuatın alanıdır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: BDS 200
@@ -501,7 +526,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -522,8 +547,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R7: çeldiriciler yeniden yazıldı ve uzunluklar dengelendi, BDS numarası çıkarıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -544,6 +570,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R7: çeldiriciler yeniden yazıldı ve uzunluklar dengelendi, BDS numarası çıkarıldı'
 - id: SMMM-DEN-RSK-0025
   sinav: smmm
   bolum:
@@ -663,13 +693,14 @@
   kazanim: BDS 200 amaç
   tip: bilgi
   zorluk: 1
-  kok: BDS 200'e göre finansal tabloların bağımsız denetiminin genel amaçları arasında aşağıdakilerden hangisi yer
-    alır?
+  kok: Bağımsız denetçinin genel amaçlarına ilişkin standarda göre, finansal tabloların bağımsız denetiminin genel
+    amaçları arasında aşağıdakilerden hangisi yer alır?
   secenekler:
-    A: İşletmenin tüm hilelerini kesin olarak ortaya çıkarmak
-    B: İç kontrol sisteminin etkinliğini belgelendirmek
-    C: İşletmenin gelecekteki kârlılığını garanti etmek
-    D: Tüm muhasebe hatalarının tamamını düzeltmek
+    A: İşletmede meydana gelen hilelerin ortaya çıkarılmasını güvence altına almak ve sorumlular hakkında işlem
+      başlatmak
+    B: İşletmenin iç kontrol sisteminin etkinliği hakkında ayrı bir görüş oluşturmak ve bunu belgelendirmek
+    C: İşletmenin gelecek dönemlerdeki kârlılığına ilişkin kanaat oluşturmak ve bunu raporda belirtmek
+    D: Muhasebe kayıtlarındaki hataları denetçi tarafından düzeltmek ve kayıtların yeniden düzenlenmesini sağlamak
     E: Bir bütün olarak finansal tabloların hata veya hile kaynaklı önemli bir yanlışlık içerip içermediğine ilişkin
       makul güvence elde etmek
   dogru: E
@@ -677,11 +708,11 @@
     dogru_neden: BDS 200 md. 11'de genel amaçlardan biri, bir bütün olarak finansal tabloların hata veya hile kaynaklı
       önemli bir yanlışlık içerip içermediğine ilişkin makul güvence elde etmek olarak belirtilmiştir.
     celdiriciler:
-      A: BDS 200 denetimin yapısal kısıtlamaları nedeniyle mutlak bir hile tespit garantisi öngörmez.
-      B: İç kontrolün anlaşılması ve değerlendirilmesi denetimin bir parçası olabilir; ancak verilen ifade BDS 200
-        genel amacı değildir.
-      C: Gelecekteki kârlılığın garanti edilmesi denetimin genel amacı değildir.
-      D: Denetçi bütün hataların tamamını düzeltme sorumluluğu taşımaz.
+      A: BDS 200 denetimin yapısal kısıtlamaları nedeniyle hilelerin ortaya çıkarılmasına ilişkin güvence öngörmez.
+      B: İç kontrolün anlaşılması denetimin bir parçası olabilir; ancak etkinliği hakkında ayrı görüş oluşturmak
+        BDS 200 genel amacı değildir.
+      C: Gelecekteki kârlılığa ilişkin kanaat oluşturmak denetimin genel amacı değildir.
+      D: Kayıtların düzenlenmesi ve hataların düzeltilmesi yönetimin sorumluluğundadır; denetçi bu sorumluluğu taşımaz.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: BDS 200 Bağımsız Denetçinin Genel Amaçları ve Bağımsız Denetimin Bağımsız Denetim Standartlarına Uygun
@@ -693,7 +724,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -714,8 +745,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R7: çeldiriciler yeniden yazıldı, uzunluklar dengelendi, BDS numarası kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -733,6 +765,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R7: çeldiriciler yeniden yazıldı, uzunluklar dengelendi, BDS numarası kaldırıldı'
 - id: SMMM-DEN-RSK-0027
   sinav: smmm
   bolum:
@@ -745,22 +781,24 @@
   tip: kavrama
   zorluk: 2
   kok: Denetçi, denetim riskini kabul edilebilir düşük seviyeye indirmek için yeterli ve uygun denetim kanıtı elde
-    etmiştir. BDS 200'deki makul güvence kavramına göre aşağıdakilerden hangisi doğrudur?
+    etmiştir. Bağımsız denetçinin genel amaçlarına ilişkin standartta yer alan makul güvence kavramına göre aşağıdakilerden
+    hangisi doğrudur?
   secenekler:
-    A: Makul güvence mutlak güvence seviyesidir.
-    B: Makul güvence yalnızca yönetimin yazılı beyanıdır.
-    C: Makul güvence yalnızca sınırlı güvence denetimlerinde kullanılır.
-    D: Makul güvence yüksek ancak mutlak olmayan bir güvence seviyesidir.
-    E: Makul güvence, denetçinin hiç risk taşımamasını ifade eder.
+    A: Makul güvence, yeterli kanıt elde edildiğinde sağlanan ve yapısal kısıtlamalardan etkilenmeyen bir güvence
+      düzeyidir.
+    B: Makul güvence, yönetimin yazılı beyanlarına dayanılarak verilen bir güvence düzeyidir.
+    C: Makul güvence, sınırlı güvence denetimlerinde elde edilen güvence düzeyine karşılık gelir.
+    D: Makul güvence yüksek bir güvence seviyesidir; ancak mutlak güvence anlamına gelmez.
+    E: Makul güvence, denetçinin denetim riskini sıfır düzeyine indirmesiyle elde edilen güvence düzeyidir.
   dogru: D
   aciklama:
     dogru_neden: BDS 200, makul güvenceyi yüksek ancak mutlak olmayan güvence seviyesi olarak tanımlar. Denetim
       riskinin kabul edilebilir düşük seviyeye indirilmesi makul güvence elde edilmesiyle ilişkilidir.
     celdiriciler:
-      A: BDS 200 makul güvencenin mutlak olmadığını açıkça belirtir.
-      B: Makul güvence bir yönetim beyanı değil güvence seviyesidir.
-      C: Makul güvence bağımsız denetimin genel amaçlarıyla ilişkilidir; yalnızca sınırlı güvenceye özgü değildir.
-      E: Makul güvence yapısal kısıtlamalar nedeniyle risksiz bir denetim anlamına gelmez.
+      A: Makul güvence yüksek ancak mutlak olmayan bir güvencedir; denetimin yapısal kısıtlamalarından etkilenir.
+      B: Makul güvence bir yönetim beyanı değil, denetçinin elde ettiği güvence seviyesidir.
+      C: Makul güvence sınırlı güvenceyle aynı düzey değildir; sınırlı güvence daha düşük bir güvence düzeyidir.
+      E: Denetim riski kabul edilebilir düşük seviyeye indirilir; sıfırlanması mümkün değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: BDS 200 Bağımsız Denetçinin Genel Amaçları ve Bağımsız Denetimin Bağımsız Denetim Standartlarına Uygun
@@ -774,7 +812,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -795,8 +833,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6/R7: çeldiriciler yakın kavramlarla yenilendi, mutlak ifadeler kaldırıldı, kökten
+          BDS numarası çıkarıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -817,6 +857,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6/R7: çeldiriciler yakın kavramlarla yenilendi, mutlak ifadeler kaldırıldı, kökten BDS numarası
+      çıkarıldı'
 - id: SMMM-DEN-RSK-0028
   sinav: smmm
   bolum:
@@ -830,14 +875,14 @@
   zorluk: 3
   kok: Denetçi, yeterli ve uygun denetim kanıtı elde ederek denetim riskini kabul edilebilir düşük bir seviyeye
     indirmiştir. Buna rağmen elde edilen kanıtların yapısal kısıtlamalar nedeniyle kesin olmaktan çok ikna edici
-    olduğunu ve verilen güvence seviyesinin mutlak olmadığını dikkate almaktadır. Bu durum BDS 200'e göre neyi ifade
-    eder?
+    olduğunu ve verilen güvence seviyesinin mutlak olmadığını dikkate almaktadır. Bağımsız denetçinin genel amaçlarına
+    ilişkin standarda göre bu durum neyi ifade eder?
   secenekler:
-    A: Hiçbir güvence elde edilemediğini
+    A: Yeterli kanıt elde edilemediği için güvence sağlanamadığını
     B: Makul güvencenin yüksek ancak mutlak olmayan bir güvence seviyesi olduğunu
-    C: Sınırlı güvence sağlandığını
-    D: Makul güvencenin yalnızca yönetimin beyanlarına dayandığını
-    E: Denetim riskinin tamamen ortadan kaldırıldığını
+    C: Güvence seviyesinin sınırlı güvence düzeyinde kaldığını
+    D: Güvence seviyesinin yönetimin beyanlarına dayandırıldığını
+    E: Denetim riskinin sıfır düzeyine indirildiğini
   dogru: B
   aciklama:
     dogru_neden: 'BDS 200 md. 13''te makul güvence, finansal tabloların denetimi çerçevesinde yüksek ancak mutlak
@@ -845,11 +890,11 @@
       düşük seviyeye indirilmesiyle sağlandığını ve mutlak olmadığını açıklar. Püf noktaları: Makul güvence yüksek
       düzeydedir ancak denetimin yapısal kısıtlamaları nedeniyle mutlak güvence değildir.'
     celdiriciler:
-      A: Yeterli ve uygun kanıt ile riskin kabul edilebilir düşük seviyeye indirilmesi makul güvence elde edilmesini
-        destekler.
-      C: BDS 200 makul güvenceyi yüksek güvence seviyesi olarak tanımlar; burada sınırlı güvence söz konusu değildir.
-      D: Makul güvence yalnızca yönetimin beyanlarına dayalı bir güvence olarak tanımlanmamıştır.
-      E: Denetim riski kabul edilebilir düşük seviyeye indirilir; tamamen ortadan kaldırıldığı söylenmez.
+      A: Yeterli ve uygun kanıt elde edilmiş ve risk kabul edilebilir düşük seviyeye indirilmiştir; makul güvence
+        sağlanır.
+      C: Makul güvence yüksek güvence seviyesidir; burada sınırlı güvence söz konusu değildir.
+      D: Makul güvence yönetimin beyanlarına dayalı bir güvence olarak tanımlanmamıştır.
+      E: Denetim riski kabul edilebilir düşük seviyeye indirilir; sıfırlandığı söylenemez.
   kaynaklar:
   - mevzuat: BDS 200
     madde: md. 5
@@ -864,7 +909,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -885,8 +930,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6/R7: doğru şık uzunluğa uygun çeldiricilerle dengelendi, mutlak ifadeler kaldırıldı,
+          BDS numarası çıkarıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -907,6 +954,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6/R7: doğru şık uzunluğa uygun çeldiricilerle dengelendi, mutlak ifadeler kaldırıldı, BDS numarası
+      çıkarıldı'
 - id: SMMM-DEN-RSK-0029
   sinav: smmm
   bolum:
@@ -1006,12 +1058,16 @@
     ilgili alanda deneyimi sınırlıdır ve işletme tarafından sunulan ilk açıklama denetçinin daha önce oluşturduğu
     kanaati desteklemektedir. BDS kapsamındaki mesleki muhakeme yaklaşımına göre aşağıdakilerden hangisi en uygundur?
   secenekler:
-    A: İlk açıklama önceki kanaati desteklediği için ek değerlendirme yapmadan aynı sonuca varmak.
-    B: Mesleki muhakemeyi yalnızca teknik bilgi yetersizliği varsa kullanmak.
-    C: Karmaşık konularda yalnızca kıdemli denetçinin kararını uygulamak ve kendi değerlendirmesini yapmamak.
-    D: İlgili eğitim, bilgi, beceri ve deneyimi durumun niteliğine göre uygulamak; uzmanlık veya deneyimin yeterliliğini
-      ve gerekirse başka uzmanlara danışma ihtiyacını değerlendirmek.
-    E: Mesleki muhakemeyi kullanmamak; yalnızca yönetimin yazılı görüşünü esas almak.
+    A: Önceki kanaati destekleyen ilk açıklamayı yeterli görmek; ek değerlendirme yapmadan ve başka görüş almadan
+      aynı sonuca varmak.
+    B: Mesleki muhakemeyi teknik bilgi yetersizliği bulunduğunda kullanmak; bilgi yeterliyse tehdit değerlendirmesini
+      önceki deneyime göre sonuçlandırmak.
+    C: Karmaşık konularda kıdemli denetçinin kararını uygulamak ve kendi değerlendirmesini yapıp belgelendirmekten
+      kaçınmak.
+    D: İlgili eğitim, bilgi, beceri ve deneyimi duruma uygun biçimde uygulamak; uzmanlığın yeterliliğini ve gerekirse
+      başkalarına danışma ihtiyacını değerlendirmek.
+    E: Mesleki muhakemeyi yönetimin yazılı görüşü doğrultusunda kullanmak; muhasebe tahminlerinde yönetimin kanaatini
+      esas almak.
   dogru: D
   aciklama:
     dogru_neden: Etik Kurallar 120.5 U4'e göre mesleki muhakeme, durum ve gerçeklere uygun ilgili eğitim, mesleki
@@ -1020,10 +1076,10 @@
     celdiriciler:
       A: İlk kanaati destekleyen bilgiye dayanmak, metnin öngördüğü yeterlilik ve danışma değerlendirmelerinin yerine
         geçmez.
-      B: Mesleki muhakeme yalnız teknik bilgi yetersizliğiyle sınırlı değildir; mesleki faaliyetin niteliği ve kapsamı
+      B: Mesleki muhakeme teknik bilgi yetersizliğiyle sınırlı değildir; mesleki faaliyetin niteliği ve kapsamı
         ile çıkar ve ilişkiler de dikkate alınır.
-      C: Başka kişilere danışma ihtiyacının değerlendirilmesi mümkündür; bu, denetçinin kendi mesleki muhakemesini
-        tamamen bırakması anlamına gelmez.
+      C: Başkalarına danışma ihtiyacının değerlendirilmesi mümkündür; bu, denetçinin kendi mesleki muhakemesini
+        devretmesi anlamına gelmez.
       E: Yönetimin görüşü, denetçinin ilgili eğitim, bilgi, beceri ve deneyimi uygulama yükümlülüğünü ortadan kaldırmaz.
   kaynaklar:
   - mevzuat: Bağımsız Denetçiler İçin Etik Kurallar
@@ -1042,7 +1098,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1063,8 +1119,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: doğru şık kısaltıldı, çeldiriciler yaygın hatalı yaklaşımlarla yenilendi,
+          mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1085,6 +1143,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: doğru şık kısaltıldı, çeldiriciler yaygın hatalı yaklaşımlarla yenilendi, mutlak ifadeler
+      kaldırıldı'
 - id: SMMM-DEN-RSK-0031
   sinav: smmm
   bolum:

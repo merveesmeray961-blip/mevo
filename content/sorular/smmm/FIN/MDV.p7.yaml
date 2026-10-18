@@ -1078,19 +1078,22 @@
   kok: Aşağıdaki eşleştirmelerden hangisi Tekdüzen Hesap Planı açıklamalarına uygundur?
   secenekler:
     A: 260 Haklar — patent, lisans ve ticari marka gibi bedel ödenerek elde edilen hukuki tasarruflar
-    B: 261 Şerefiye — stok sayım fazlaları
-    C: 260 Haklar — banka kredileri
-    D: 261 Şerefiye — vergi borçları
-    E: 260 Haklar — ticari mal satış hasılatı
+    B: 261 Şerefiye — patent, lisans ve ticari marka gibi bedel ödenerek elde edilen hukuki tasarruflar
+    C: 260 Haklar — işletme devralınırken katlanılan maliyetin net varlıkların rayiç değerini aşan olumlu farkı
+    D: 262 Kuruluş ve Örgütlenme Giderleri — işletme devralınırken katlanılan maliyetin net varlık değerini aşan
+      farkı
+    E: 263 Araştırma ve Geliştirme Giderleri — patent, lisans ve ticari marka gibi bedel ödenerek elde edilen haklar
   dogru: A
   aciklama:
-    dogru_neden: 260 Haklar hesabı, imtiyaz, patent, lisans, ticari marka ve unvan gibi bedel ödenerek elde edilen
-      bazı hukuki tasarruflar ile belirli kullanma/yararlanma yetkileri için yapılan harcamaları kapsar.
+    dogru_neden: 260 Haklar hesabı imtiyaz, patent, lisans, ticari marka ve ünvan gibi bir bedel ödenerek elde edilen
+      bazı hukuki tasarrufları izler; 261 Şerefiye ise devralma maliyeti ile net varlıkların rayiç değeri arasındaki
+      olumlu farkı gösterir.
     celdiriciler:
-      B: 261 Şerefiye, işletme devralınırken maliyet ile net varlıkların rayiç değer farkını izler.
-      C: Banka kredileri 300/400 hesaplarında izlenir.
-      D: Vergi borçları 360 ve ilgili vergi hesaplarında izlenir.
-      E: Ticari mal satış hasılatı 600 grubundadır.
+      B: Eşleştirme ters kurulmuştur; patent ve lisans bedelleri 260'ta, şerefiye 261'de izlenir.
+      C: Devralma maliyetinin net varlıkları aşan olumlu farkı 260 değil 261 Şerefiye hesabında izlenir.
+      D: Devralma farkı 262'de değil 261 Şerefiye hesabında izlenir; 262 kuruluş ve örgütlenme giderleri içindir.
+      E: Satın alınan patent ve lisans bedelleri 263'te değil 260 Haklar hesabında izlenir; 263 araştırma ve geliştirme
+        harcamalarının hesabıdır.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
     madde: 260 Haklar Hesabı
@@ -1113,7 +1116,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1134,8 +1137,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: bariz saçma çeldiriciler yerine 260/261 ve 262/263 ile ters ve yakın eşleştirmeler
+          yazıldı; şık uzunlukları dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1150,6 +1155,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: bariz saçma çeldiriciler yerine 260/261 ve 262/263 ile ters ve yakın eşleştirmeler yazıldı; şık
+      uzunlukları dengelendi'
 - id: SMMM-FIN-MDV-0019
   sinav: smmm
   bolum:
@@ -1165,20 +1175,20 @@
     temel özelliğini doğru ifade eder?
   secenekler:
     A: Amortisman gideri beklenen kullanım veya üretim miktarı üzerinden ayrılır.
-    B: Amortisman gideri yalnızca varlık satıldığında hesaplanır.
-    C: Amortisman gideri faydalı ömür boyunca her dönemde sabittir.
-    D: Amortisman gideri her dönem bir önceki dönemin iki katıdır.
-    E: Amortisman gideri yalnızca varlık tamamen kullanımdan kaldırıldığında ayrılır.
+    B: Amortisman gideri, varlığın dönem sonundaki tahmini satış fiyatına göre tek seferde ayrılır.
+    C: Amortisman gideri faydalı ömür boyunca sabit tutarda ayrılır; üretim miktarı dikkate alınmaz.
+    D: Amortisman gideri ilk yıllarda yüksek, sonraki yıllarda giderek azalan tutarlarda ayrılır.
+    E: Amortisman gideri, dönemde elde edilen satış hasılatı oranında ayrılır.
   dogru: A
   aciklama:
-    dogru_neden: BOBİ FRS 12.29, üretim miktarı yönteminde amortismanın beklenen kullanım ya da üretim miktarı üzerinden
-      ayrıldığını belirtir.
+    dogru_neden: BOBİ FRS 12.29'a göre üretim miktarı yönteminde beklenen kullanım ya da üretim miktarı üzerinden
+      amortisman ayrılır.
     celdiriciler:
-      B: Amortisman varlığın satışına bağlı değildir.
-      C: Bu özellik, kalıntı değer değişmediğinde doğrusal yöntemin özelliğidir.
-      D: Bu ifade üretim miktarı yönteminin kuralı değildir.
-      E: Varlık atıl kaldığında dahi genel olarak amortisman devam eder; üretim miktarı yönteminde üretim yoksa
-        gider sıfır olabilir.
+      B: Amortisman, satış fiyatı tahminine göre tek seferde değil, faydalı ömre veya kullanıma yayılarak ayrılır.
+      C: Gider ömür boyunca sabit kalıyorsa bu doğrusal yöntemin özelliğidir (kalıntı değer değişmediği sürece).
+      D: Giderin ömür boyunca azalması azalan bakiyeler yönteminin özelliğidir.
+      E: Satış hasılatı oranı, 12.29'da sayılan yöntemlerden biri değildir; üretim miktarı yöntemi kullanım veya
+        üretim miktarına dayanır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: BOBİ FRS
@@ -1193,7 +1203,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1214,8 +1224,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: mutlak ifadeli bariz çeldiriciler, diğer yöntemlerin özellikleriyle (doğrusal,
+          azalan bakiyeler) ve doğal ifadelerle yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1233,6 +1245,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: mutlak ifadeli bariz çeldiriciler, diğer yöntemlerin özellikleriyle (doğrusal, azalan bakiyeler)
+      ve doğal ifadelerle yeniden yazıldı'
 - id: SMMM-FIN-MDV-0020
   sinav: smmm
   bolum:

@@ -254,34 +254,33 @@
   tip: hesaplama
   zorluk: 3
   kok: Bir maddi duran varlığın ilk maliyeti 150.000 TL'dir. Bunun 40.000 TL'lik önemli bir parçasının faydalı ömrü
-    4 yıl, kalan 110.000 TL'lik kısmın faydalı ömrü 10 yıldır ve doğrusal amortisman uygulanmaktadır. İkinci yılın
-    sonunda yeniden değerleme yapılmadan önceki defter değeri üzerinden hesaplanan tutar ile yeniden değerleme tarihindeki
-    gerçeğe uygun değer 132.000 TL'dir. Buna göre yeniden değerleme sonucu oluşan artış kaç TL'dir?
+    4 yıl, kalan 110.000 TL'lik kısmın faydalı ömrü 10 yıldır; kalıntı değer yoktur ve doğrusal amortisman uygulanmaktadır.
+    İkinci yılın sonunda varlık yeniden değerlenmiş ve gerçeğe uygun değeri 132.000 TL bulunmuştur. Buna göre yeniden
+    değerleme sonucu oluşan artış kaç TL'dir?
   secenekler:
-    A: 18.000 TL
-    B: 20.000 TL
+    A: 2.000 TL
+    B: 12.000 TL
     C: 24.000 TL
-    D: 28.000 TL
-    E: 30.000 TL
+    D: 57.000 TL
+    E: 132.000 TL
   dogru: C
   aciklama:
-    dogru_neden: 'Önemli parça ayrı amortismana tabi tutulur. İkinci yıl sonunda 40.000 TL''lik parçanın defter
-      değeri 20.000 TL, 110.000 TL''lik kısmın defter değeri 88.000 TL ve toplam defter değeri 108.000 TL''dir.
-      Yeniden değerleme tarihindeki gerçeğe uygun değer 132.000 TL olduğundan artış 24.000 TL''dir. Püf noktaları:
-      Önemli parçayı tek bir faydalı ömürle amortismana tabi tutmak, yeniden değerleme öncesi defter değerini olduğundan
-      farklı çıkarır.'
+    dogru_neden: BOBİ FRS 12.22'ye göre önemli parça ayrı amortismana tâbi tutulur. İkinci yıl sonunda 40.000 TL'lik
+      parçanın defter değeri 20.000 TL, 110.000 TL'lik kısmın defter değeri 88.000 TL, toplam defter değeri 108.000
+      TL'dir. Yeniden değerleme artışı 132.000 − 108.000 = 24.000 TL'dir.
     celdiriciler:
-      A: 18.000 TL, parçaların ikinci yıl sonundaki toplam defter değerinin hatalı hesaplanmasıyla elde edilir.
-      B: 20.000 TL, 40.000 TL'lik önemli parçanın kalan defter değerinin yeniden değerleme artışı sanılması hatasıdır.
-      D: 28.000 TL, 110.000 TL'lik kısmın amortismanının eksik hesaplanması sonucudur.
-      E: 30.000 TL, başlangıç maliyetinin yeniden değerleme artışı olarak alınması hatasına dayanır.
+      A: 2.000 TL, 110.000 TL'lik kısmın amortismana tâbi tutulmaması durumunda bulunur (defter değeri 20.000 +
+        110.000 = 130.000 TL).
+      B: 12.000 TL, tüm varlığın tek bir 10 yıllık ömürle amortismana tâbi tutulmasıyla bulunur (defter değeri 120.000
+        TL); parça ayrı amortismana tâbi tutulmamıştır.
+      D: 57.000 TL, tüm varlığın tek bir 4 yıllık ömürle amortismana tâbi tutulmasıyla bulunur (defter değeri 75.000
+        TL).
+      E: 132.000 TL gerçeğe uygun değerin kendisidir; artış, bu değer ile defter değeri arasındaki farktır.
     hesap_adimlari:
-    - 'Önemli parçanın yıllık amortismanı: 40.000 / 4 = 10.000 TL; ikinci yıl sonu defter değeri: 40.000 - 20.000
-      = 20.000 TL.'
-    - 'Kalan kısmın yıllık amortismanı: 110.000 / 10 = 11.000 TL; ikinci yıl sonu defter değeri: 110.000 - 22.000
-      = 88.000 TL.'
-    - 'Toplam yeniden değerleme öncesi defter değeri: 20.000 + 88.000 = 108.000 TL.'
-    - 'Yeniden değerleme artışı: 132.000 - 108.000 = 24.000 TL.'
+    - 'Parça: 40.000 / 4 = 10.000 TL/yıl → 2 yıl sonra defter değeri 20.000 TL'
+    - 'Kalan kısım: 110.000 / 10 = 11.000 TL/yıl → 2 yıl sonra defter değeri 88.000 TL'
+    - Toplam defter değeri = 20.000 + 88.000 = 108.000 TL
+    - Artış = 132.000 − 108.000 = 24.000 TL
   kaynaklar:
   - mevzuat: Büyük ve Orta Boy İşletmeler İçin Finansal Raporlama Standardı (BOBİ FRS), Bölüm 12
     madde: '12.22'
@@ -305,7 +304,7 @@
 
       sonuc = 132000 - defter'
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -325,8 +324,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: bozuk kök cümlesi onarıldı (hesaplanan tutar ifadesi kaldırıldı); çeldiriciler
+          tek ömür / amortismansız parça gibi tipik hatalarla yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -341,6 +342,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: bozuk kök cümlesi onarıldı (hesaplanan tutar ifadesi kaldırıldı); çeldiriciler tek ömür / amortismansız
+      parça gibi tipik hatalarla yazıldı'
 - id: SMMM-FIN-MDV-0038
   sinav: smmm
   bolum:
@@ -855,26 +861,31 @@
   kazanim: yenileme fonu (549)
   tip: kavrama
   zorluk: 2
-  kok: (R) A.Ş. amortismana tabi bir iktisadi kıymetini satmış ve satıştan kâr doğmuştur. İşletme, VUK md. 328'deki
-    yenileme koşullarının gerçekleştiği varsayımıyla bu kârı geçici olarak pasifte tutmayı değerlendirmektedir.
-    Aşağıdaki eşleştirmelerden hangisi doğrudur?
+  kok: Bilanço esasına göre defter tutan (R) A.Ş., 2026 yılında amortismana tabi bir iktisadi kıymetini satmış ve
+    satıştan kâr doğmuştur. İşletme, satılan kıymetin yenilenmesi için teşebbüse geçmiştir. VUK md. 328'e göre bu
+    kârın muhasebeleştirilmesine ilişkin aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: Satıştan doğan kâr — pasifte geçici hesapta tutulabilir; yenileme gerçekleşmezse sürenin sonunda kâra eklenir.
-    B: Satıştan doğan kâr — doğrudan 100 Kasa hesabında tutulur; yenileme gerçekleşmezse silinir.
-    C: Satıştan doğan kâr — yalnız 153 Ticari Mallar hesabında izlenir.
-    D: Satıştan doğan kâr — hiçbir koşulda geçici hesapta tutulamaz.
-    E: Satıştan doğan kâr — yalnızca satış bedelinden bağımsız olarak gelir yazılır.
+    A: Kâr, satış tarihini takip eden üçüncü takvim yılının sonuna kadar pasifte geçici bir hesapta tutulabilir;
+      yenileme gerçekleşmezse o yılın kâr ve zarar hesabına eklenir.
+    B: Kâr, satış tarihini takip eden ikinci takvim yılının sonuna kadar pasifte geçici bir hesapta tutulabilir;
+      yenileme gerçekleşmezse o yılın kâr ve zarar hesabına eklenir.
+    C: Kâr, satışın yapıldığı yılın kâr ve zarar hesabına geçirilir; yenileme gerçekleşirse sonraki yılda kayıttan
+      çıkarılır.
+    D: Pasifte geçici hesapta tutulan kâr, yenilenen kıymetin maliyetinden düşülür ve amortismanlar bu tutar üzerinden
+      ayrılır.
+    E: Pasifte geçici hesapta tutulan kâr, yenileme gerçekleşmezse süre sonunda 549 Özel Fonlar hesabına aktarılarak
+      kalıcı fon hâline getirilir.
   dogru: A
   aciklama:
-    dogru_neden: 'VUK md. 328, belirli koşullarda satıştan doğan kârın satış tarihini takip eden üçüncü takvim yılının
-      sonuna kadar pasifte geçici hesapta tutulmasına izin verir; yenileme gerçekleşmezse kâr ve zarar hesabına
-      eklenir. 549 ise özel fonların izlendiği hesaptır. Püf noktaları: Yenileme fonunda asıl ayırt edici nokta
-      kârın koşullu ve geçici olarak pasifte tutulmasıdır.'
+    dogru_neden: VUK md. 328'e göre yenileme için teşebbüse geçilmişse satıştan doğan kâr, satış tarihini takip
+      eden üçüncü takvim yılının sonuna kadar pasifte geçici bir hesapta tutulabilir. Bu sürede yenileme gerçekleşmezse
+      kâr, satış yılını takip eden üçüncü takvim yılının kâr ve zarar hesabına eklenir.
     celdiriciler:
-      B: Kaynak satış kârını kasa hesabıyla ilişkilendirmez.
-      C: 153 ticari mallar hesabı bu işlemin geçici fon hesabı değildir.
-      D: Kaynak koşullar sağlandığında geçici hesapta tutmaya izin verir.
-      E: Kaynakta satış kârının koşullu olarak geçici hesapta tutulması açıkça düzenlenmiştir.
+      B: Kanundaki süre üçüncü takvim yılının sonudur; ikinci takvim yılı olarak gösterilen süre hatalıdır.
+      C: Kâr, koşullar varsa geçici hesapta tutulabilir; satış yılında kâr ve zarar hesabına geçirilmesi zorunlu
+        kılınmamıştır.
+      D: Pasifteki kâr yeni kıymetin maliyetinden düşülmez; kıymetin amortismanlarına mahsup edilir (b bendi).
+      E: Yenileme gerçekleşmezse geçici hesaptaki kâr kâr ve zarar hesabına eklenir; kalıcı fona aktarılması öngörülmemiştir.
   kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: md. 328
@@ -887,7 +898,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -908,8 +919,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: çeldiriciler süre (ikinci yıl), mahsup yöntemi ve fon hesabı gibi akla yatkın
+          VUK md. 328 hatalarıyla yeniden yazıldı; mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -924,6 +937,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: çeldiriciler süre (ikinci yıl), mahsup yöntemi ve fon hesabı gibi akla yatkın VUK md. 328 hatalarıyla
+      yeniden yazıldı; mutlak ifadeler kaldırıldı'
 - id: SMMM-FIN-MDV-0045
   sinav: smmm
   bolum:
@@ -935,24 +953,30 @@
   kazanim: sigorta hasarı
   tip: kavrama
   zorluk: 1
-  kok: Yangın nedeniyle tamamen zarar gören amortismana tabi bir iktisadi kıymetin ayrılmış amortismanlar düşüldükten
-    sonraki değeri 300.000 TL, alınan sigorta tazminatı 340.000 TL'dir. VUK md. 329'a göre 40.000 TL farkın niteliği
-    nedir?
+  kok: Yangın nedeniyle tamamen zarar gören amortismana tabi bir iktisadi kıymetin maliyeti 500.000 TL, ayrılmış
+    amortismanı 180.000 TL'dir. Kıymet için 340.000 TL sigorta tazminatı alınmıştır. VUK md. 329'a göre kâr veya
+    zarar hesabına geçirilecek fark nedir?
   secenekler:
-    A: Kâr
-    B: Zarar
-    C: Sermaye yedeği
-    D: Stok değer düşüklüğü
-    E: Reeskont geliri
+    A: 20.000 TL kâr
+    B: 20.000 TL zarar
+    C: 160.000 TL zarar
+    D: 160.000 TL kâr
+    E: 340.000 TL kâr
   dogru: A
   aciklama:
-    dogru_neden: VUK md. 329, alınan sigorta tazminatı amortisman sonrası değerinden fazla veya eksik olduğunda
-      farkın kâr veya zarar hesabına geçirileceğini düzenler. 340.000 - 300.000 = 40.000 TL olduğundan fark kârdır.
+    dogru_neden: VUK md. 329'a göre tazminat, amortismanlı kıymetin ayrılmış amortisman çıktıktan sonra kalan değerinden
+      fazla veya eksikse fark kâr veya zarar hesabına geçirilir. Kalan değer 500.000 − 180.000 = 320.000 TL, tazminat
+      340.000 TL olduğundan 20.000 TL kâr doğar.
     celdiriciler:
-      B: Tazminat değerinden yüksek olduğu için kaynak kâr veya zarar farkı içinde kâr yönünü doğurur.
-      C: Kaynak farkı sermaye yedeği olarak sınıflandırmaz.
-      D: İşlem stokla ilgili değildir.
-      E: Sigorta tazminatı farkı reeskont işlemi değildir.
+      B: Tazminat kalan değerden fazla olduğundan fark zarar değil kârdır.
+      C: 160.000 TL, tazminatın maliyetle (500.000 − 340.000) karşılaştırılmasıyla bulunur; kanun ayrılmış amortisman
+        düşülmüş değeri esas alır.
+      D: 160.000 TL, tazminattan yalnızca ayrılmış amortismanın düşülmesiyle (340.000 − 180.000) bulunur; kalan
+        değer ile karşılaştırma yapılmamıştır.
+      E: 340.000 TL tazminatın tamamıdır; kâr, tazminatın kalan değeri aşan kısmıdır.
+    hesap_adimlari:
+    - Kalan değer = 500.000 − 180.000 = 320.000 TL
+    - Fark = 340.000 − 320.000 = 20.000 TL (kâr)
   kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: md. 329
@@ -965,7 +989,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -986,8 +1010,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: temel hüküm sorusu, ayrılmış amortismanın düşülmesini gerektiren sayısal vakaya
+          çıkarıldı; çeldiriciler maliyet/amortisman karıştırma hatalarıyla yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1002,6 +1028,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: temel hüküm sorusu, ayrılmış amortismanın düşülmesini gerektiren sayısal vakaya çıkarıldı; çeldiriciler
+      maliyet/amortisman karıştırma hatalarıyla yazıldı'
 - id: SMMM-FIN-MDV-0046
   sinav: smmm
   bolum:
@@ -1016,20 +1047,20 @@
   kok: Bir işletme kiraladığı mağazanın ekonomik değerini artırmak amacıyla yaptığı ve kiralanan varlığın geliştirilmesine
     yönelik özel harcamaları muhasebeleştirecektir. Aşağıdaki değerlendirmelerden hangisi doğrudur?
   secenekler:
-    A: Bu özel maliyetler maddi duran varlık olarak değerlendirilir.
-    B: Bu harcamalar yalnızca kira gideri olarak muhasebeleştirilir.
-    C: Bu harcamalar finansal borç olarak sınıflandırılır.
-    D: Bu harcamalar yalnızca özkaynaklarda gösterilir.
-    E: Bu harcamalar her durumda stok olarak sınıflandırılır.
+    A: Bu özel maliyetler, BOBİ FRS Bölüm 12 kapsamında maddi duran varlık olarak değerlendirilir.
+    B: Bu özel maliyetler, varlık işletmeye ait olmadığından doğrudan dönem gideri olarak muhasebeleştirilir.
+    C: Bu özel maliyetler, finansal varlık olarak sınıflandırılır ve kira süresince ertelenir.
+    D: Bu özel maliyetler, kiraya verenin varlığının parçası olduğundan kiracının finansal tablolarına alınmaz.
+    E: Bu özel maliyetler, stok niteliğinde olduğundan dönen varlıklar içinde gösterilir.
   dogru: A
   aciklama:
     dogru_neden: BOBİ FRS 12.3A, kiralanan varlıkların geliştirilmesi veya ekonomik değerinin artırılması amacıyla
       katlanılan özel maliyetlerin bu bölüm kapsamında maddi duran varlık olarak değerlendirilmesini öngörür.
     celdiriciler:
-      B: Kaynakta kira gideri olarak doğrudan sınıflama öngörülmemiştir.
-      C: Özel maliyet bir finansal borç değildir.
-      D: Özkaynak sınıflaması kaynak hükmünde yoktur.
-      E: Kaynak özel maliyetleri stok olarak değil maddi duran varlık olarak değerlendirir.
+      B: 12.3A bu maliyetleri gider olarak değil, maddi duran varlık olarak değerlendirir.
+      C: Özel maliyetler finansal varlık değil, maddi duran varlıktır.
+      D: Maliyetlere katlanan kiracı olduğundan bu tutarlar kiracının maddi duran varlıkları arasında yer alır.
+      E: Kiralanan varlığın geliştirilmesine ilişkin özel maliyetler stok değil, maddi duran varlıktır.
   kaynaklar:
   - mevzuat: BOBİ FRS
     madde: 12.3A
@@ -1040,7 +1071,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1061,8 +1092,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: mutlak ifadeli bariz çeldiriciler, kira gideri / finansal varlık / kiracı tablosuna
+          alınmama gibi akla yatkın yanlışlarla yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1083,6 +1116,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: mutlak ifadeli bariz çeldiriciler, kira gideri / finansal varlık / kiracı tablosuna alınmama
+      gibi akla yatkın yanlışlarla yeniden yazıldı'
 - id: SMMM-FIN-MDV-0047
   sinav: smmm
   bolum:
@@ -1094,23 +1132,29 @@
   kazanim: satış ve takas
   tip: kavrama
   zorluk: 2
-  kok: Bir maddi duran varlık parasal olmayan başka bir varlıkla takas edilerek edinilmiştir. Parasal bir ödeme
-    veya tahsilat yoktur. BOBİ FRS'ye göre edinilen maddi duran varlığın maliyeti hangi esasa göre belirlenir?
+  kok: Bir işletme, maliyeti 600.000 TL, birikmiş amortismanı 200.000 TL ve gerçeğe uygun değeri 450.000 TL olan
+    makinesini, başka bir makine ile takas etmiş; ayrıca karşı tarafa 30.000 TL nakit ödemiştir. BOBİ FRS'ye göre
+    edinilen makinenin maliyeti kaç TL olarak belirlenir?
   secenekler:
-    A: Her durumda sıfır değerle
-    B: Elden çıkarılan parasal olmayan kalemin net defter değeri esas alınarak
-    C: Yalnız alınan varlığın nominal değeriyle
-    D: Yalnız satış fiyatıyla
-    E: Özkaynak tutarıyla
+    A: 400.000 TL
+    B: 430.000 TL
+    C: 450.000 TL
+    D: 480.000 TL
+    E: 630.000 TL
   dogru: B
   aciklama:
-    dogru_neden: BOBİ FRS 12.12, takasla edinilen maddi duran varlığın maliyetini, elden çıkarılan parasal olmayan
-      kalemin net defter değerini esas alarak belirler. Parasal kalem bulunmadığı için ekleme veya indirim yapılmaz.
+    dogru_neden: BOBİ FRS 12.12'ye göre takasla edinilen varlığın maliyeti, elden çıkarılan parasal olmayan kalemin
+      net defter değeri esas alınarak belirlenir; ödenen parasal kalemin gerçeğe uygun değeri eklenir. Net defter
+      değeri 600.000 − 200.000 = 400.000 TL, maliyet 400.000 + 30.000 = 430.000 TL'dir.
     celdiriciler:
-      A: Kaynak sıfır maliyet öngörmez.
-      C: Nominal değer kaynakta ölçüm esası değildir.
-      D: Satış fiyatı tek başına kaynakta belirtilen esas değildir.
-      E: Özkaynak tutarı takas maliyetinin belirlenmesinde esas alınmaz.
+      A: 400.000 TL yalnızca net defter değeridir; ödenen 30.000 TL nakit maliyete eklenmemiştir.
+      C: 450.000 TL elden çıkarılan makinenin gerçeğe uygun değeridir; 12.12 net defter değerini esas alır.
+      D: 480.000 TL, gerçeğe uygun değere nakit ödemenin eklenmesiyle bulunur; ölçüm esası net defter değeridir.
+      E: 630.000 TL, maliyetin (birikmiş amortisman düşülmeden) nakit ödemeyle toplanmasıdır; net defter değeri
+        esas alınmamıştır.
+    hesap_adimlari:
+    - Net defter değeri = 600.000 − 200.000 = 400.000 TL
+    - Edinilen varlığın maliyeti = 400.000 + 30.000 = 430.000 TL
   kaynaklar:
   - mevzuat: BOBİ FRS
     madde: '12.12'
@@ -1122,7 +1166,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1143,8 +1187,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: bariz saçma çeldiriciler yerine sayısal takas vakası kuruldu; çeldiriciler
+          gerçeğe uygun değer / brüt maliyet gibi tipik hatalarla yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1159,6 +1205,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: bariz saçma çeldiriciler yerine sayısal takas vakası kuruldu; çeldiriciler gerçeğe uygun değer
+      / brüt maliyet gibi tipik hatalarla yazıldı'
 - id: SMMM-FIN-MDV-0048
   sinav: smmm
   bolum:
@@ -1602,24 +1653,25 @@
   kazanim: aktifleştirme/gider ayrımı
   tip: kavrama
   zorluk: 1
-  kok: Bir işletmenin maddi duran varlığına ilişkin aşağıdaki harcamalardan hangisinin doğrudan gider yazılması
-    gerektiğini söyleyen ifade **yanlıştır**?
+  kok: BOBİ FRS Bölüm 12'ye göre maddi duran varlığa ilişkin harcamalarla ilgili aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Varlığın ekonomik ömrünü uzatan harcama varlığın defter değerine dahil edilir.
-    B: Maddi duran varlık tanımını karşılayan büyük çaplı kontrol harcaması defter değerine dahil edilebilir.
-    C: Ekonomik ömrü uzatan harcamalar, niteliği ne olursa olsun oluştukları dönemde giderleştirilmelidir.
-    D: Varlığın ekonomik ömrünü uzatmayan veya kapasitesini genişletmeyen olağan bakım ve onarım giderleri maliyete
-      dahil edilmez.
-    E: Varlığın kapasitesini genişleten harcama, gelecekteki faydayı artırıyorsa defter değerine dahil edilir.
+    A: Varlığın ekonomik ömrünü uzatan harcamalar varlığın defter değerine dâhil edilir.
+    B: Maddi duran varlık tanımını karşılayan büyük çaplı kontrol harcamaları defter değerine dâhil edilebilir.
+    C: Varlığın kapasitesini genişleten harcamalar, oluştukları dönemde gider olarak muhasebeleştirilir.
+    D: Maddi duran varlıkla ilgili olağan bakım ve onarım giderleri varlığın maliyetine dâhil edilmez.
+    E: Maddi duran varlık tanımını karşılayan yenileme harcamaları defter değerine dâhil edilir.
   dogru: C
   aciklama:
-    dogru_neden: 12.4 gelecekteki faydayı artıran, ekonomik ömrü uzatan veya kapasiteyi genişleten harcamaların
-      defter değerine dahil edilmesini öngörür; bu nedenle bunların her durumda giderleştirilmesi yanlıştır.
+    dogru_neden: BOBİ FRS 12.4'e göre ekonomik ömrü uzatarak veya kapasiteyi genişleterek gelecekteki faydayı artıran
+      harcamalar varlığın defter değerine dâhil edilir. Kapasiteyi genişleten harcamaların dönem gideri yazılması
+      bu hükme aykırıdır, bu nedenle C ifadesi yanlıştır.
     celdiriciler:
-      A: 12.4'te ekonomik ömrünü uzatan harcamaların defter değerine dahil edileceği belirtilmiştir.
-      B: Büyük çaplı kontroller, maddi duran varlık tanımını karşılamaları halinde dahil edilebilir.
-      D: Olağan bakım ve onarımın maliyete dahil edilmediği sonraki ölçüm hükmüyle uyumludur.
-      E: Kapasiteyi genişleten ve gelecekteki faydayı artıran harcamalar için aynı hüküm geçerlidir.
+      A: 12.4 ekonomik ömrü uzatan harcamaların defter değerine dâhil edileceğini belirtir; ifade doğrudur.
+      B: 12.4 büyük çaplı kontrol harcamalarının, tanımı karşılamaları durumunda defter değerine dâhil edileceğini
+        belirtir; ifade doğrudur.
+      D: 12.15 olağan bakım ve onarım giderlerinin maliyete dâhil edilmediğini belirtir; ifade doğrudur.
+      E: 12.4 yenileme harcamalarının, tanımı karşılamaları durumunda defter değerine dâhil edileceğini belirtir;
+        ifade doğrudur.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: BOBİ FRS
@@ -1628,12 +1680,15 @@
       \ elde edilecek faydayı artıran harcamalar varlığın defter değerine dâhil edilir.\n        Bu tür harcamalar,\
       \ maddi duran varlık tanımını karşılamaları durumunda yenileme\n        harcamalarını ve büyük çaplı kontroller\
       \ için yapılan harcamaları içerir."
+  - mevzuat: Büyük ve Orta Boy İşletmeler İçin Finansal Raporlama Standardı (BOBİ FRS), Bölüm 12
+    madde: '12.15'
+    alinti: Maddi duran varlıkla ilgili yapılan olağan bakım ve onarım giderleri varlığın maliyetine dâhil edilmez.
   gecerlilik:
     baslangic: '2018-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1654,8 +1709,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çift olumsuz kök sadeleştirildi; doğru ifadelerden oluşan dengeli şıklarla olumsuz
+          kök yeniden kuruldu'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1676,6 +1733,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çift olumsuz kök sadeleştirildi; doğru ifadelerden oluşan dengeli şıklarla olumsuz kök yeniden kuruldu'
 - id: SMMM-FIN-MDV-0054
   sinav: smmm
   bolum:
@@ -1874,19 +1935,23 @@
   zorluk: 2
   kok: BOBİ FRS'ye göre aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Doğrusal yöntemde, kalıntı değer değişmediği sürece amortisman gideri faydalı ömür boyunca sabittir.
+    A: Doğrusal yöntemde, kalıntı değer değişmediği sürece, amortisman gideri faydalı ömür boyunca sabittir.
     B: Azalan bakiyeler yönteminde amortisman gideri faydalı ömür boyunca azalır.
-    C: Üretim miktarı yönteminde amortisman, beklenen kullanım veya üretim miktarı üzerinden ayrılır.
-    D: Üretim miktarı yönteminde üretim veya kullanımın olmadığı bir dönemde amortisman gideri sıfır olabilir.
-    E: Azalan bakiyeler yönteminde amortisman gideri faydalı ömür boyunca sabit kalır.
+    C: Üretim miktarı yönteminde, üretim veya kullanımın olmadığı zamanlarda amortisman gideri sıfır olabilir.
+    D: Amortisman ayırma işlemine, varlık atıl bırakıldığında ya da kullanımdan kaldırıldığında da devam edilir.
+    E: Varlık atıl bırakıldığında veya kullanımdan kaldırıldığında amortisman ayırma işlemine son verilir.
   dogru: E
   aciklama:
-    dogru_neden: Azalan bakiyeler yönteminde gider faydalı ömür boyunca azalır; sabitlik doğrusal yöntemin özelliğidir.
+    dogru_neden: BOBİ FRS 12.30'a göre amortisman ayırma işlemine, varlık atıl bırakıldığında ya da kullanımdan
+      kaldırıldığında da devam edilir; yalnızca üretim miktarı yönteminde gider, üretim veya kullanım olmadığı zamanlarda
+      sıfır olabilir. Bu nedenle E ifadesi yanlıştır.
     celdiriciler:
-      A: Doğrusal yöntemin sabit gider özelliğini doğru ifade eder.
-      B: Azalan bakiyeler yöntemini doğru açıklar.
-      C: Üretim miktarı yöntemini doğru açıklar.
-      D: Üretim veya kullanım yokluğunda sıfır olabilmesini doğru yansıtır.
+      A: 12.29 doğrusal yöntemde giderin kalıntı değer değişmediği sürece sabit olduğunu belirtir; ifade doğrudur.
+      B: 12.29 azalan bakiyeler yönteminde giderin ömür boyunca azaldığını belirtir; ifade doğrudur.
+      C: 12.30 üretim miktarı yönteminde üretim veya kullanım olmadığı zamanlarda giderin sıfır olabileceğini belirtir;
+        ifade doğrudur.
+      D: 12.30 atıl bırakma veya kullanımdan kaldırma hâlinde de amortisman ayırmaya devam edileceğini belirtir;
+        ifade doğrudur.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: BOBİ FRS
@@ -1895,12 +1960,15 @@
       ve üretim miktarı yöntemleri bu yöntemlere örnek olarak verilebilir. Doğrusal yöntemde, varlığın kalıntı değeri
       değişmediği sürece, amortisman gideri faydalı ömrü boyunca sabittir. Azalan bakiyeler yönteminde, amortisman
       gideri faydalı ömür boyunca azalır.
+  - mevzuat: Büyük ve Orta Boy İşletmeler İçin Finansal Raporlama Standardı (BOBİ FRS), Bölüm 12
+    madde: '12.30'
+    alinti: Amortisman ayırma işlemine, varlık atıl bırakıldığında ya da kullanımdan kaldırıldığında da devam edilir.
   gecerlilik:
     baslangic: '2018-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1921,8 +1989,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: birbirinin zıddı iki şık yerine 12.29 ve 12.30''a dayanan dengeli doğru ifadeler
+          ve 12.30''a aykırı yanlış ifade kuruldu'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1937,6 +2007,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: birbirinin zıddı iki şık yerine 12.29 ve 12.30''a dayanan dengeli doğru ifadeler ve 12.30''a aykırı
+      yanlış ifade kuruldu'
 - id: SMMM-FIN-MDV-0057
   sinav: smmm
   bolum:
@@ -2177,33 +2252,41 @@
   kazanim: haklar ve şerefiye
   tip: uygulama
   zorluk: 2
-  kok: Bir işletme bedel ödeyerek bir patent hakkı edinmiş ve ayrıca bir işletme birleşmesinde ortaya çıkan şerefiyeyi
-    aktifleştirmiştir. Tekdüzen Hesap Planı'nda bu iki unsur hangi hesaplarda izlenir?
+  kok: Bir işletme, işletme devralınırken ödediği bedelin devralınan net varlıkların rayiç değerini aşan olumlu
+    farkı olan 300.000 TL şerefiyeyi 261 Şerefiye hesabına kaydetmiştir. Tekdüzen Hesap Planına göre şerefiye bedelinin
+    amortisman yoluyla yok edilmesi için ilk yıl sonunda ayrılacak tutar kaç TL'dir?
   secenekler:
-    A: 260 Haklar ve 261 Şerefiye
-    B: 261 Şerefiye ve 260 Haklar
-    C: 253 Tesis, Makine ve Cihazlar ve 260 Haklar
-    D: 260 Haklar ve 257 Birikmiş Amortismanlar
-    E: 267 Diğer Maddi Olmayan Duran Varlıklar ve 261 Şerefiye
+    A: 60.000 TL
+    B: 75.000 TL
+    C: 100.000 TL
+    D: 150.000 TL
+    E: 300.000 TL
   dogru: A
   aciklama:
-    dogru_neden: Patent gibi haklar 260'da, şerefiye 261'de izlenir.
+    dogru_neden: THP 261 açıklamasına göre ödenen şerefiye bedellerinin tamamı hesabın borcuna kaydedilir ve yok
+      edilmeleri amortisman yoluyla 5 yıl içinde eşit taksitlerle yapılır. Yıllık tutar 300.000 / 5 = 60.000 TL'dir.
     celdiriciler:
-      B: Hesapların sırasını ters çevirir.
-      C: Patent hakkını maddi duran varlık hesabına taşır.
-      D: 257 maddi duran varlık amortisman hesabıdır; şerefiye için kullanılmaz.
-      E: Kaynakta patent için özel 260 hesabı vardır.
-    hesap_adimlari: []
+      B: 75.000 TL, yok etme süresinin 4 yıl alınmasıyla bulunur; THP 5 yıl öngörür.
+      C: 100.000 TL, yok etme süresinin 3 yıl alınmasıyla bulunur; THP 5 yıl öngörür.
+      D: 150.000 TL, yok etme süresinin 2 yıl alınmasıyla bulunur; THP 5 yıl öngörür.
+      E: 300.000 TL şerefiyenin tamamıdır; bedel tek yılda değil 5 yıla yayılarak yok edilir.
+    hesap_adimlari:
+    - 'Yok etme süresi: 5 yıl (eşit taksit)'
+    - Yıllık tutar = 300.000 / 5 = 60.000 TL
   kaynaklar:
   - mevzuat: MSUGT Tekdüzen Hesap Planı
     madde: 260-261
     alinti: 260. HAKLAR  261. ŞEREFİYE
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
+    madde: 261 Şerefiye
+    alinti: Ödenen şerefiye bedellerinin tamamı bu hesabın borcuna kaydolunur. Yok edilmeleri amortisman yoluyla
+      5 yıl içinde eşit taksitlerle yapılır.
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2224,8 +2307,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: MDV-0023 ile aynı bilgiyi ölçen 260/261 ayrımı yerine THP 261''in 5 yıllık eşit
+          taksitle yok etme hükmüne dayanan sayısal soru yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2240,6 +2325,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: MDV-0023 ile aynı bilgiyi ölçen 260/261 ayrımı yerine THP 261''in 5 yıllık eşit taksitle yok etme
+      hükmüne dayanan sayısal soru yazıldı'
 - id: SMMM-FIN-MDV-0061
   sinav: smmm
   bolum:
@@ -3300,23 +3390,25 @@
 
     III. Olağan bakım ve onarım gideri.
 
-    '
+    IV. Maddi duran varlık tanımını karşılayan büyük çaplı kontrol harcaması.'
   secenekler:
     A: Yalnız I
-    B: Yalnız II
-    C: I ve III
-    D: II ve III
-    E: I ve II; olağan bakım ve onarım ise maliyete dâhil edilmez.
+    B: I ve II
+    C: II ve III
+    D: I, III ve IV
+    E: I, II ve IV
   dogru: E
   aciklama:
     dogru_neden: BOBİ FRS 12.4, ekonomik ömrü uzatan veya kapasiteyi genişleterek gelecekteki faydayı artıran harcamaların
-      defter değerine dâhil edilmesini öngörür. Olağan bakım ve onarım giderleri ise 12.15 uyarınca maliyete dâhil
-      edilmez. Bu nedenle I ve II aktifleştirilir, III aktifleştirilmez.
+      ve tanımı karşılamaları durumunda büyük çaplı kontrol harcamalarının defter değerine dâhil edileceğini belirtir.
+      Olağan bakım ve onarım giderleri ise 12.15 uyarınca maliyete dâhil edilmez. Dolayısıyla I, II ve IV dâhil
+      edilir.
     celdiriciler:
-      A: II de 12.4 kapsamında açıkça aktifleştirilir; yalnız I eksiktir.
-      B: I de ekonomik ömrü uzattığı için aktifleştirilir; yalnız II doğru değildir.
-      C: III olağan bakım ve onarım olduğundan maliyete dâhil edilmez.
-      D: III maliyete dâhil edilmez ve I de aktifleştirilir; bu nedenle D yanlıştır.
+      A: Yalnız I eksiktir; kapasiteyi genişleten (II) ve tanımı karşılayan büyük çaplı kontrol (IV) harcamaları
+        da defter değerine dâhil edilir.
+      B: I ve II doğrudur ancak IV eksiktir; tanımı karşılayan büyük çaplı kontrol harcamaları 12.4 kapsamındadır.
+      C: III olağan bakım ve onarım olduğundan maliyete dâhil edilmez; ayrıca I ve IV de dâhil edilir.
+      D: III maliyete dâhil edilmediği için bu kombinasyon yanlıştır; ayrıca II de aktifleştirilir.
   kaynaklar:
   - mevzuat: BOBİ FRS Bölüm 12, Maddi Duran Varlıklar
     madde: '12.4'
@@ -3332,7 +3424,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3353,8 +3445,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: E şıkkındaki açıklama kaldırıldı, şıklar sade rakam kombinasyonuna çevrildi;
+          IV. öncül eklenerek çeldiriciler çeşitlendirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3369,6 +3463,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: E şıkkındaki açıklama kaldırıldı, şıklar sade rakam kombinasyonuna çevrildi; IV. öncül eklenerek
+      çeldiriciler çeşitlendirildi'
 - id: SMMM-FIN-MDV-0074
   sinav: smmm
   bolum:

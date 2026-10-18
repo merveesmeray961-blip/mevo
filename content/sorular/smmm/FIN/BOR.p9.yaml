@@ -181,25 +181,29 @@
   kazanim: kur farkı
   tip: kavrama
   zorluk: 2
-  kok: (I) A.Ş. yabancı para cinsinden bir borcunu dönem sonunda değerlemiştir. Borcun yabancı para olması nedeniyle
-    oluşan değerleme farkının muhasebe niteliğini aşağıdaki eşleştirmelerden hangisi doğru açıklar?
+  kok: (I) A.Ş., yurt dışından mal alımından doğan ticari borcunu ve yabancı para cinsinden kullandığı banka kredisini
+    dönem sonunda borsa rayici ile değerlemiş, kurdaki artış nedeniyle borçların TL karşılığı yükselmiştir. Tekdüzen
+    Hesap Planına göre bu kur farklarının muhasebeleştirilmesine ilişkin aşağıdaki eşleştirmelerden hangisi doğrudur?
   secenekler:
-    A: Yabancı para borcu değerleme farkı → kambiyo kârı/zararı; borçlanma ile ilgili gider farkı → finansman giderleri
-    B: Yabancı para borcu değerleme farkı → satış iskontosu; borçlanma ile ilgili gider farkı → karşılık gideri
-    C: Yabancı para borcu değerleme farkı → iştirak geliri; borçlanma ile ilgili gider farkı → stok maliyeti
-    D: Yabancı para borcu değerleme farkı → reeskont geliri; borçlanma ile ilgili gider farkı → satış maliyeti
-    E: Yabancı para borcu değerleme farkı → özel fon; borçlanma ile ilgili gider farkı → yasal yedek
+    A: Ticari borcun kur farkı 656 Kambiyo Zararları hesabına; banka kredisine ilişkin kur farkı finansman giderleri
+      hesaplarına yazılır.
+    B: Hem ticari borcun hem de banka kredisinin kur farkı 656 Kambiyo Zararları hesabına yazılır.
+    C: Hem ticari borcun hem de banka kredisinin kur farkı 660 Kısa Vadeli Borçlanma Giderleri hesabına yazılır.
+    D: Ticari borcun kur farkı finansman giderleri hesaplarına; banka kredisine ilişkin kur farkı 656 Kambiyo Zararları
+      hesabına yazılır.
+    E: Ticari borcun kur farkı 656 Kambiyo Zararları hesabına; banka kredisine ilişkin kur farkı 654 Karşılık Giderleri
+      hesabına yazılır.
   dogru: A
   aciklama:
-    dogru_neden: 'VUK md. 280 yabancı paraların değerlenmesini düzenler. THP açıklamasında ayrıca borçlanma ile
-      ilgili kur farklarının kambiyo zararlarına alınmayıp finansman gideri olarak muhasebeleştirildiği belirtilir.
-      Püf noktaları: Yabancı para değerlemesinin genel kuralı ile borçlanmaya ilişkin giderin hesap sınıfını birlikte
-      düşünün.'
+    dogru_neden: VUK md. 280'e göre yabancı paralar borsa rayici ile değerlenir. THP 656 açıklamasına göre kambiyo
+      zararları 656'da izlenir; ancak borçlanma ile ilgili kur farkları bu hesaba alınmaz, finansman gideri olarak
+      muhasebeleştirilir. Ticari borç kur farkı 656'ya, kredi kur farkı finansman giderlerine yazılır.
     celdiriciler:
-      B: Kur farkı satış iskontosu değildir; borçlanma gideri de karşılık hesabına alınmaz.
-      C: Kur farkı iştirak geliri değildir; borçlanma giderinin stok maliyeti olarak gösterileceği kaynakta belirtilmemiştir.
-      D: Reeskont ile kur farkı farklı işlemlerdir.
-      E: Kaynakta bu farkların özel fon veya yasal yedek olarak sınıflandırılması öngörülmez.
+      B: Banka kredisinin kur farkı borçlanma ile ilgilidir ve 656 açıklaması bu farkları hesaba almaz.
+      C: Ticari borcun kur farkı borçlanma gideri değil kambiyo zararıdır; ikisinin de 660'a yazılması 656'yı yok
+        sayar.
+      D: Eşleştirme ters kurulmuştur; borçlanma ile ilgili fark finansman giderine, ticari borç farkı 656'ya gider.
+      E: 654 karşılık giderleri hesabıdır; borçlanmayla ilgili kur farkı kaynakta finansman gideri olarak sınıflanır.
   kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: md. 280
@@ -214,7 +218,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -235,8 +239,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler yakın hesap eşleştirmeleriyle (ters eşleştirme, 660, 654) yeniden
+          yazıldı; kök ticari borç/kredi ayrımını sınayacak biçimde genişletildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -257,6 +263,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler yakın hesap eşleştirmeleriyle (ters eşleştirme, 660, 654) yeniden yazıldı; kök ticari
+      borç/kredi ayrımını sınayacak biçimde genişletildi'
 - id: SMMM-FIN-BOR-0023
   sinav: smmm
   bolum:
@@ -354,31 +365,36 @@
   kok: Yabancı para cinsinden bir banka kredisi dönem sonunda değerlenmiş ve kur değişimi nedeniyle borcun TL karşılığında
     artış oluşmuştur. Bu artışın niteliği bakımından aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Kur farkı hiçbir koşulda muhasebeleştirilmez.
+    A: Kur değişiminden doğan kazanç veya kayıp, işletme faaliyetlerinden nakit akışı olarak nakit akış tablosunda
+      gösterilir.
     B: Kur değişiminden doğan kazanç veya kayıp, nakit hareketine neden olmadığından nakit akışı olarak nitelenmez.
-    C: Kur farkı her durumda satış geliri sayılır.
-    D: Kur farkı yalnız özkaynakta izlenir.
-    E: Kur farkı yalnız tahsilat gerçekleştiğinde oluşur.
+    C: Kur değişiminden doğan artış, finansman faaliyetlerinden nakit çıkışı olarak nakit akış tablosunda gösterilir.
+    D: Kur değişiminden doğan artış, dönem sonu değerlemesinde dikkate alınmaz; borç ilk kayıt tutarıyla gösterilir.
+    E: Kur değişiminden doğan artış, yatırım faaliyetlerinden nakit çıkışı olarak nakit akış tablosunda gösterilir.
   dogru: B
   aciklama:
-    dogru_neden: BOBİ FRS 2.20, döviz kurlarındaki değişimlerden doğan kazanç ve kayıpların nakit hareketine neden
-      olmadığını ve nakit akışı olarak nitelendirilmediğini belirtir.
+    dogru_neden: BOBİ FRS 2.20'ye göre döviz kurlarındaki değişimler nedeniyle değerlemeden ortaya çıkan kazanç
+      ve kayıp tutarları nakit hareketine neden olmadığından nakit akışı olarak nitelendirilmez.
     celdiriciler:
-      A: Kaynak kur değişiminden doğan kazanç ve kayıpları açıkça düzenler.
-      C: Kur farkının her durumda satış geliri olduğu kaynakta yer almaz.
-      D: Kaynak kur farklarını yalnız özkaynakla sınırlamaz.
-      E: Değerleme kaynaklı kur farkı nakit hareketi olmadan da ortaya çıkabilir.
+      A: Değerleme kaynaklı kur farkı nakit hareketi yaratmadığından işletme faaliyetlerinden nakit akışı sayılmaz.
+      C: Borcun TL karşılığındaki artış nakit çıkışı değildir; finansman faaliyetlerinden nakit akışı olarak gösterilemez.
+      D: VUK md. 280'e göre yabancı para borçlar borsa rayici ile değerlenir; ilk kayıt tutarıyla bırakılamaz.
+      E: Nakit hareketi olmayan değerleme farkı yatırım faaliyetlerinden nakit çıkışı olarak da gösterilemez.
   kaynaklar:
   - mevzuat: BOBİ FRS
     madde: '2.20'
     alinti: Döviz kurlarındaki değişimler nedeniyle değerlemeden ortaya çıkan kazanç ve kayıp tutarları, nakit hareketine
       neden olmadığından nakit akışı olarak nitelendirilmez.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 280
+    alinti: Yabancı paralar borsa rayici ile değerlenir. Borsa rayicinin takarrüründe muvazaa olduğu anlaşılırsa
+      bu rayiç yerine alış bedeli esas alınır.
   gecerlilik:
     baslangic: '2018-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -399,8 +415,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: mutlak ifadeli bariz çeldiriciler kaldırıldı; nakit akışı sınıflaması ve
+          değerleme hatalarıyla dengeli uzunlukta yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -415,6 +433,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: mutlak ifadeli bariz çeldiriciler kaldırıldı; nakit akışı sınıflaması ve değerleme hatalarıyla
+      dengeli uzunlukta yeniden yazıldı'
 - id: SMMM-FIN-BOR-0025
   sinav: smmm
   bolum:

@@ -1313,20 +1313,21 @@
   kok: BOBİ FRS'ye göre benzer nitelik ve kullanıma sahip stokların maliyet hesaplamasında aşağıdaki yöntemlerden
     hangisi kullanılabilir?
   secenekler:
-    A: FIFO veya ağırlıklı ortalama maliyet
-    B: Yalnızca dönem sonu piyasa değeri
-    C: Yalnızca satış fiyatı
-    D: Yalnızca LIFO
-    E: FIFO ve LIFO birlikte
+    A: İlk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemlerinden biri
+    B: İlk giren ilk çıkar (FIFO) veya son giren ilk çıkar (LIFO) yöntemlerinden biri
+    C: Son giren ilk çıkar (LIFO) veya ağırlıklı ortalama maliyet yöntemlerinden biri
+    D: Dönem sonundaki net gerçekleşebilir değerin maliyet olarak kabul edilmesi
+    E: Stokun en son alış fiyatının dönem sonunda maliyet olarak kabul edilmesi
   dogru: A
   aciklama:
     dogru_neden: BOBİ FRS 6.20, stok maliyetinin FIFO veya ağırlıklı ortalama maliyet yöntemlerinden biri kullanılarak
       hesaplanacağını ve benzer nitelik/kullanıma sahip stoklarda aynı yöntemin kullanılacağını belirtir.
     celdiriciler:
-      B: Dönem sonu piyasa değeri maliyet hesaplama yöntemi değildir.
-      C: Satış fiyatı tek başına maliyet hesaplama yöntemi olarak belirtilmemiştir.
-      D: LIFO'nun kullanımına izin verilmemektedir.
-      E: LIFO'ya izin verilmediği için FIFO ve LIFO birlikte kullanılamaz.
+      B: LIFO yönteminin kullanımına izin verilmediğinden FIFO ile LIFO birlikte seçenek olamaz.
+      C: LIFO'nun kullanımına izin verilmediğinden bu seçenekteki LIFO yöntemi uygulanamaz.
+      D: Net gerçekleşebilir değer, stokların değerlemesinde karşılaştırma ölçüsüdür; maliyet hesaplama yöntemi
+        değildir.
+      E: Son alış fiyatı esaslı yaklaşım, BOBİ FRS'de sayılan maliyet hesaplama yöntemleri arasında yer almaz.
   kaynaklar:
   - mevzuat: BOBİ FRS
     madde: '6.20'
@@ -1340,7 +1341,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1361,8 +1362,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1383,6 +1385,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
 - id: SMMM-FIN-STK-0021
   sinav: smmm
   bolum:
@@ -1555,37 +1561,36 @@
   kazanim: normal fire
   tip: kavrama
   zorluk: 2
-  kok: Bir üretim işletmesinde üretim sürecindeki fire miktarı normal düzeyde gerçekleşmiştir. BOBİ FRS’nin stok
-    maliyeti yaklaşımına göre aşağıdakilerden hangisi doğrudur?
+  kok: BOBİ FRS'ye göre aşağıdakilerden hangisi stokların maliyetine dahil edilemeyen ve oluştukları dönemde gider
+    olarak kâr veya zarara yansıtılan maliyetlere örnektir?
   secenekler:
-    A: Fireler yalnızca finansman maliyetine eklenir.
-    B: Normal fire kesinlikle dönem gideri olarak kaydedilir.
-    C: Her türlü fire doğrudan satış gideridir.
-    D: Yalnızca normalin üstünde gerçekleşen fire stok maliyetine dahil edilmez.
-    E: Normal fire stoklarla hiçbir şekilde ilişkilendirilemez.
+    A: Üretim sürecinde normal düzeyde gerçekleşen fire ve kayıplar
+    B: Üretimle doğrudan ilişkilendirilebilen direkt işçilik giderleri
+    C: Stokların bulunduğu yere ve mevcut durumuna getirilmesiyle ilişkili diğer maliyetler
+    D: Bir sonraki üretim aşaması için zorunlu olanlar dışındaki depolama giderleri
+    E: Üretimde sistematik biçimde dağıtılan değişken genel üretim giderleri
   dogru: D
   aciklama:
-    dogru_neden: BOBİ FRS 6.15(a), stok maliyetine dahil edilmeyen giderler arasında normalin üstünde gerçekleşen
-      fire ve kayıpları sayar. Bu nedenle dışlanan kategori normalin üstündeki firedir; normal fire bu hükümle dışlanmış
-      değildir.
+    dogru_neden: BOBİ FRS 6.15(b), bir sonraki üretim aşaması için zorunlu olanlar dışındaki depolama giderlerini
+      stok maliyetine dahil edilemeyen, oluştukları dönemde gider yazılan maliyetlere örnek gösterir.
     celdiriciler:
-      A: Firelerin finansman maliyetine eklenmesi söz konusu değildir.
-      B: Kaynak normal fireyi değil, normalin üstündeki fireyi maliyete dahil edilmeyen unsur olarak belirtir.
-      C: Her türlü fire için böyle bir sınıflama yapılmamıştır.
-      E: Kaynak normalin üstündeki fireyi dışlar; normal fire için bu mutlak sonuç çıkarılamaz.
+      A: 6.15(a) yalnızca normalin üstünde gerçekleşen fire ve kayıpları maliyet dışı bırakır; normal fire dışlanmış
+        değildir.
+      B: Direkt işçilik giderleri 6.11 uyarınca dönüştürme maliyetine dahildir.
+      C: 6.14 uyarınca stokları bulunduğu yere ve mevcut durumuna getirmeyle ilişkili maliyetler stok maliyetine
+        dahil edilir.
+      E: Değişken genel üretim giderlerinden sistematik dağıtılan tutarlar 6.11 uyarınca dönüştürme maliyetine dahildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: BOBİ FRS
-    madde: 6.15(a)
-    alinti: Aşağıdaki maliyetler, stokların maliyetine dâhil edilemeyen maliyetlere örnek olarak gösterilebilir.
-      Bu tür maliyetler, oluştukları dönemde gider olarak kâr veya zarara yansıtılır. a) Normalin üstünde gerçekleşen;
-      fire ve kayıplar, işçilik ve diğer dönüştürme maliyetleri.
+    madde: 6.15(b)
+    alinti: Bir sonraki üretim aşaması için zorunlu olanlar dışındaki depolama giderleri.
   gecerlilik:
     baslangic: '2018-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1606,8 +1611,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1628,6 +1634,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
 - id: SMMM-FIN-STK-0024
   sinav: smmm
   bolum:

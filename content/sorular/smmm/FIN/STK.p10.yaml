@@ -9,49 +9,41 @@
   kazanim: normal fire
   tip: hesaplama
   zorluk: 3
-  kok: Üretime giren 1.000 kg hammaddenin normal fire oranı %4’tür. Sağlam ürün miktarı 960 kg olduğuna göre normal fire miktarı
-    kaç kg’dır?
+  kok: Üretime giren 2.000 kg hammaddeden 1.880 kg sağlam ürün elde edilmiştir. Normal fire oranı girdi miktarının
+    %2'sidir. BOBİ FRS'ye göre stok maliyetine dahil edilemeyen, normalin üstündeki fire miktarı kaç kg'dır?
   secenekler:
-    A: 20 kg
-    B: 30 kg
-    C: 40 kg
-    D: 50 kg
-    E: 60 kg
+    A: 37,6 kg
+    B: 40 kg
+    C: 80 kg
+    D: 120 kg
+    E: 160 kg
   dogru: C
   aciklama:
-    dogru_neden: Üretime giren 1.000 kg hammaddenin normal fire oranı %4’tür. Sağlam ürün miktarı 960 kg olduğuna göre normal
-      fire miktarı kaç kg’dır? Verilen sayılarla işlem yapıldığında sonuç 40 kg olur.
+    dogru_neden: Toplam fire 2.000 - 1.880 = 120 kg, normal fire 2.000 × %2 = 40 kg olduğundan normalin üstündeki
+      fire 120 - 40 = 80 kg'dır. BOBİ FRS 6.15(a) uyarınca normalin üstündeki fire stok maliyetine dahil edilmez,
+      oluştuğu dönemde gider yazılır.
     celdiriciler:
-      A: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
-      B: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
-      D: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
-      E: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
+      A: Oran girdi yerine sağlam ürüne (1.880 × %2) uygulanmıştır; ayrıca bu işlem normal fireyi verir, aşan kısmı
+        değil.
+      B: Bu tutar normal fire miktarıdır; sorulan normalin üstündeki fire için toplam fireden düşülmesi gerekir.
+      D: Bu tutar toplam fire miktarıdır; normal fire düşülmediği için normalin üstündeki kısım bulunamamıştır.
+      E: Normalin üstündeki fire miktarı (80 kg) yanlışlıkla iki katına çıkarılmıştır; hesap hatalıdır.
     hesap_adimlari:
-    - Üretime giren 1.000 kg hammaddenin normal fire oranı %4’tür. Sağlam ürün miktarı 960 kg olduğuna göre normal fire miktarı
-      kaç kg’dır?
-    - 'Sonuç: 40 kg.'
+    - Toplam fire = 2.000 - 1.880 = 120 kg
+    - Normal fire = 2.000 × %2 = 40 kg
+    - Normalin üstündeki fire = 120 - 40 = 80 kg
   kaynaklar:
-  - mevzuat: 1 Sıra No’lu Muhasebe Sistemi Uygulama Genel Tebliği
-    madde: Tekdüzen Hesap Çerçevesi, Hesap Planı ve Hesap Planı Açıklamaları
-    alinti: 'İşletmeler, muhasebe sistemlerini tekdüzen hesap çerçevesi ve hesap planı doğrultusunda
-
-      kurmak zorundadır. Hesapların çalışması hesap planı açıklamalarında belirtildiği gibi
-
-      gerçekleşir.
-
-
-      A – TEKDÜZEN HESAP ÇERÇEVESİ
-
-
-      Tekdüzen hesap çerçevesindeki he'
+  - mevzuat: BOBİ FRS
+    madde: 6.15(a)
+    alinti: Normalin üstünde gerçekleşen; fire ve kayıplar, işçilik ve diğer dönüştürme maliyetleri.
   gecerlilik:
     baslangic: '1992-12-26'
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: sonuc = 1000 * 0.04
+    python: sonuc = (2000 - 1880) - 2000 * 0.02
   durum: kontrolde
-  surum: 1
+  surum: 3
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -71,8 +63,9 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: G4 doğrulama kodu yeni rakamlara göre güncellendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -87,3 +80,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kalite hakemi + bağımsız çözücü (kaynaklı) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler akla yatkın yanlışlarla yenilendi, kök/anahtar kaynakla doğrulandı'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: G4 doğrulama kodu yeni rakamlara göre güncellendi

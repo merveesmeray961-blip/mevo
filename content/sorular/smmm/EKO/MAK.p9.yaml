@@ -8,24 +8,25 @@
   kazanim: para politikası ve para çarpanı
   tip: kavrama
   zorluk: 2
-  kok: Para çarpanının davranışı açısından aşağıdaki karşılaştırmalardan hangisi doğrudur?
+  kok: Basit para çarpanı modelinde, diğer koşullar sabitken halkın nakit tutma eğilimi ile bankaların fazla rezerv
+    tutma eğilimindeki artışın para çarpanına etkisi hakkında aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Para çarpanı bu iki davranıştan bağımsızdır.
-    B: Halkın nakit tutma eğiliminin artması mevduat çarpanını artırırken fazla rezervlerin artması çarpanı değiştirmez.
-    C: Fazla rezervlerin artması para yaratma kapasitesini artırırken nakit tercihinin artması kapasiteyi değiştirmez.
-    D: Her iki orandaki artış para çarpanını aynı ölçüde artırır.
-    E: Halkın nakit tutma eğilimi ile bankaların fazla rezerv tutma eğiliminin artması, diğer koşullar sabitken
-      mevduat yaratma sürecini zayıflatır.
+    A: Her iki artış da bankaların kredi verebileceği fonları çoğalttığı için çarpan yükselir.
+    B: Nakit tutma eğilimindeki artış çarpanı düşürür; fazla rezerv artışı çarpanı etkilemez.
+    C: Fazla rezerv artışı çarpanı düşürür; nakit tutma eğilimindeki artış çarpanı etkilemez.
+    D: Nakit tercihindeki artış çarpanı düşürürken fazla rezerv artışı çarpanı yükseltir.
+    E: Her iki eğilimdeki artış mevduat yaratma sürecini zayıflatır ve çarpanı düşürür.
   dogru: E
   aciklama:
     dogru_neden: Halkın daha fazla nakit tutması mevduat sisteminde kalan fonları azaltır; bankaların fazla rezerv
       tutması da kredi ve mevduat yaratma sürecini sınırlar. Her iki gelişme de diğer koşullar sabitken para çarpanını
       aşağı çeker.
     celdiriciler:
-      A: Her iki davranış para çarpanının belirleyicileri arasındadır.
-      B: Nakit tercihinin artması çarpanı artırmaz; fazla rezervler de çarpanı etkiler.
-      C: Fazla rezervlerin artması kapasiteyi artırmaz; nakit tercihinin de etkisi vardır.
-      D: İki orandaki artışın etkileri aynı ölçüde olmak zorunda değildir ve yön artış değil azalıştır.
+      A: Nakit sızıntısı ve atıl rezerv kredi verilebilir fonları azaltır, çoğaltmaz; çarpan düşer.
+      B: Nakit tercihinin artması çarpanı düşürür doğru, ancak fazla rezervler de çarpanın belirleyicisidir ve çarpanı
+        düşürür.
+      C: Fazla rezerv artışı çarpanı düşürür doğru, ancak nakit tercihindeki artış da çarpanı düşürür.
+      D: Fazla rezerv artışı da çarpanı düşürür; iki eğilim aynı yönde etki eder, zıt yönde değil.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: İktisat teorisi — genel kabul görmüş bilgi
@@ -36,7 +37,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -57,8 +58,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: kök netleştirildi; çeldiriciler iki değişkenin etki yönü kombinasyonlarıyla
+          yenilendi; doğru şık kısaltılıp uzunluklar dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -76,6 +79,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: kök netleştirildi; çeldiriciler iki değişkenin etki yönü kombinasyonlarıyla yenilendi; doğru
+      şık kısaltılıp uzunluklar dengelendi'
 - id: SMMM-EKO-MAK-0032
   sinav: smmm
   bolum:
@@ -158,40 +166,26 @@
   kazanim: TÜFE
   tip: kavrama
   zorluk: 2
-  kok: 'Aşağıdaki TÜFE değerlerini, baz yıla göre tüketici fiyat düzeyi değişimiyle eşleştiriniz.
-
-
-    I. 95
-
-    II. 100
-
-    III. 120
-
-
-    a. Fiyat düzeyi %5 düşmüştür.
-
-    b. Fiyat düzeyi değişmemiştir.
-
-    c. Fiyat düzeyi %20 artmıştır.
-
-
-    Doğru eşleştirme aşağıdakilerden hangisidir?'
+  kok: Baz yılı 100 alınan bir TÜFE serisinde (değerler varsayımsaldır) 2024 yılı değeri 125, 2025 yılı değeri 150'dir.
+    Buna göre 2025 yılında tüketici fiyat düzeyindeki yıllık artış oranı aşağıdakilerden hangisidir?
   secenekler:
-    A: I-a, II-b, III-c
-    B: I-b, II-a, III-c
-    C: I-c, II-b, III-a
-    D: I-a, II-c, III-b
-    E: I-b, II-c, III-a
+    A: '%20'
+    B: '%25'
+    C: '%50'
+    D: '%16,7'
+    E: '%33,3'
   dogru: A
   aciklama:
-    dogru_neden: TÜFE 100 baz yılı temsil eder. 100’ün altındaki 95, fiyat düzeyinin %5 düşük olduğunu; 120 ise
-      %20 yüksek olduğunu gösterir.
+    dogru_neden: 'Yıllık artış, iki yıllık endeks değerinin oranından bulunur: (150 − 125) / 125 = 0,20, yani %20.
+      Endeks puan farkı (25) artış oranı değildir.'
     celdiriciler:
-      B: 95’i değişim yok, 100’ü düşüş olarak yanlış eşleştirir.
-      C: 95’i artışla eşleştirir.
-      D: 100 ile 120’nin anlamlarını karıştırır.
-      E: 95 ile 100’ün anlamlarını yanlış eşleştirir.
-    hesap_adimlari: []
+      B: 25 puanlık endeks farkını yüzde artış gibi okumak hatasıdır; fark, önceki yıl değerine bölünmelidir.
+      C: Baz yıla göre kümülatif artıştır (150 − 100); soru bir önceki yıla göre yıllık artışı sorar.
+      D: 25 farkının önceki yıla değil cari yıla (150) bölünmesi hatasıdır; payda önceki yıl değeri olmalıdır.
+      E: Baz yıla göre 50 puanlık artışın cari yıl değerine (150) bölünmesiyle bulunan yanlış sonuçtur.
+    hesap_adimlari:
+    - (150 − 125) / 125 = 0,20
+    - Yıllık artış oranı = %20
   kaynaklar:
   - mevzuat: İktisat teorisi — genel kabul görmüş bilgi
     madde: '-'
@@ -203,7 +197,7 @@
   dogrulama:
     python: sonuc = (575 / 500) * 100
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -223,8 +217,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: trivial eşleştirme yerine baz-önceki yıl ayrımını sınayan hesap sorusu yazıldı;
+          dogru A korundu, tipik hata sonuçları çeldirici yapıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -239,6 +235,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: trivial eşleştirme yerine baz-önceki yıl ayrımını sınayan hesap sorusu yazıldı; dogru A korundu,
+      tipik hata sonuçları çeldirici yapıldı'
 - id: SMMM-EKO-MAK-0034
   sinav: smmm
   bolum:
@@ -564,25 +565,27 @@
   kazanim: TÜFE
   tip: uygulama
   zorluk: 2
-  kok: Bir ailenin sabit tüketim sepetinin baz yılındaki maliyeti 800 TL, cari yıldaki maliyeti 880 TL’dir. Sepetin
-    miktarları değişmemiştir. Bu bilgiye göre cari yıldaki TÜFE ve baz yıla göre tüketici fiyatlarındaki değişim
-    hangisidir?
+  kok: Sabit bir tüketim sepetinin maliyeti baz yılda 800 TL, 2025'te 880 TL, 2026'da 968 TL'dir (değerler varsayımsaldır;
+    sepetin miktarları değişmemiştir). Buna göre 2026 yılı TÜFE değeri (baz yıl = 100) ve 2025'e göre yıllık enflasyon
+    oranı hangisidir?
   secenekler:
-    A: TÜFE 90; fiyatlar %10 azalmıştır.
-    B: TÜFE 100; fiyatlar değişmemiştir.
-    C: TÜFE 105; fiyatlar %5 artmıştır.
-    D: TÜFE 110; fiyatlar %10 artmıştır.
-    E: TÜFE 120; fiyatlar %20 artmıştır.
+    A: TÜFE 110; yıllık enflasyon %10
+    B: TÜFE 121; yıllık enflasyon %21
+    C: TÜFE 121; yıllık enflasyon %11
+    D: TÜFE 121; yıllık enflasyon %10
+    E: TÜFE 120; yıllık enflasyon %20
   dogru: D
   aciklama:
-    dogru_neden: TÜFE = (880/800)×100 = 110’dur. Sabit sepet maliyeti %10 arttığı için tüketici fiyat düzeyi baz
-      yıla göre %10 yükselmiştir.
+    dogru_neden: 'TÜFE (2026) = (968/800)×100 = 121. Yıllık enflasyon, bir önceki yıla göre değişimdir: 968/880
+      = 1,10 yani %10. Baz yıla göre artış %21''dir.'
     celdiriciler:
-      A: Cari sepet maliyeti baz yıldan düşük değildir.
-      B: Maliyet %10 artmıştır.
-      C: 880/800 oranı 1,10’dur.
-      E: '%20 artış için cari maliyet 960 TL olmalıydı.'
-    hesap_adimlari: []
+      A: 110, 2025 yılının TÜFE değeridir; 2026 değeri 968/800×100 = 121'dir.
+      B: TÜFE doğru, ancak %21 baz yıla göre kümülatif artıştır; yıllık enflasyon 2025'e göre hesaplanır (%10).
+      C: 121 − 110 = 11 puan farkını yüzde gibi almak hatasıdır; oran 968/880 − 1 = %10'dur.
+      E: İki yıllık %10 artışı toplayarak 120 bulmak hatasıdır; artışlar bileşik işler (1,10 × 1,10 = 1,21).
+    hesap_adimlari:
+    - TÜFE 2026 = 968 / 800 × 100 = 121
+    - Yıllık enflasyon = 968 / 880 − 1 = %10
   kaynaklar:
   - mevzuat: İktisat teorisi — genel kabul görmüş bilgi
     madde: '-'
@@ -594,7 +597,7 @@
   dogrulama:
     python: sonuc = (880 / 800) * 100
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -614,8 +617,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: tek adımlık oran sorusu iki yıllı bileşik hesaba çevrildi (baz yıla göre ve yıllık
+          değişim ayrımı); dogru D korundu'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -630,6 +635,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: tek adımlık oran sorusu iki yıllı bileşik hesaba çevrildi (baz yıla göre ve yıllık değişim ayrımı);
+      dogru D korundu'
 - id: SMMM-EKO-MAK-0039
   sinav: smmm
   bolum:
@@ -717,21 +727,23 @@
     beklenen değişiklikler fiyat ve ücret kararlarına önceden yansımaktadır. Bu olay aşağıdaki yaklaşımlardan hangisiyle
     en çok ilişkilidir?
   secenekler:
-    A: Rasyonel beklentiler yaklaşımı; öngörülebilir politikanın etkisinin beklentiler yoluyla sınırlanması
-    B: Yalnızca uyarlanabilir beklentiler; çünkü tüm bilgiler geçmiş enflasyondan gelir.
-    C: Klasik yaklaşımın fiyatların hiçbir zaman değişmediği varsayımı
-    D: Monetarist yaklaşımın beklentileri tamamen dışlayan biçimi
-    E: Keynesyen yaklaşımın ekonomik birimlerin bilgi kullanmadığı varsayımı
+    A: Rasyonel beklentiler; öngörülen politikanın beklentiler yoluyla etkisiz kalması
+    B: Uyarlanabilir beklentiler; beklentilerin geçmiş enflasyondan yavaş yavaş oluşması
+    C: Keynesyen fiyat yapışkanlığı; politika değişikliğinin fiyatlara gecikmeli yansıması
+    D: Monetarist para illüzyonu; ücretlerin politika değişikliğini geriden izlemesi
+    E: Kısa dönem Phillips eğrisi yaklaşımı; enflasyon-işsizlik ödünleşiminin korunması
   dogru: A
   aciklama:
     dogru_neden: 'Senaryoda ekonomik birimler kamuya açıklanan politika bilgisini beklentilerine dahil ediyor. Bu,
       rasyonel beklentiler yaklaşımının temel mantığıyla uyumludur. Püf noktaları: Beklenen politika değişikliklerinin
       fiyat ve ücret kararlarına önceden yansıması, sürpriz politikanın ayrı değerlendirilmesini gerektirir.'
     celdiriciler:
-      B: Senaryoda mevcut politika duyurusu ve mevcut bilgiler kullanılıyor; yalnız geçmiş gerçekleşmeler değil.
-      C: Klasik yaklaşım fiyatların hiç değişmediğini varsaymaz.
-      D: Monetarist analiz beklentilerin rolünü dışlamaz.
-      E: Ekonomik birimlerin bilgi kullanmadığı yönünde bir varsayım yoktur.
+      B: Uyarlanabilir beklentilerde beklenti geçmiş gerçekleşmelerden oluşur; senaryoda ise duyuru ve mevcut bilgiler
+        kullanılıyor.
+      C: Fiyat yapışkanlığında fiyatlar gecikmeli ayarlanır; senaryoda ise beklenen politika fiyatlara önceden yansıyor.
+      D: Para illüzyonunda ücretler politikayı geriden izler; senaryoda beklentiler ileriye dönük oluşuyor.
+      E: Kısa dönem Phillips eğrisi beklentiler sabitken bir ödünleşim varsayar; senaryoda beklentiler duyuruyla
+        değişiyor.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: İktisat teorisi — genel kabul görmüş bilgi
@@ -742,7 +754,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -763,8 +775,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler mutlak ifadesiz, akla yatkın rakip yaklaşımlarla (uyarlanabilir
+          beklenti, yapışkanlık, para illüzyonu, Phillips) yenilendi; şık uzunlukları dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -779,6 +793,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler mutlak ifadesiz, akla yatkın rakip yaklaşımlarla (uyarlanabilir beklenti, yapışkanlık,
+      para illüzyonu, Phillips) yenilendi; şık uzunlukları dengelendi'
 - id: SMMM-EKO-MAK-0041
   sinav: smmm
   bolum:

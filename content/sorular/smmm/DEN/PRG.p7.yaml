@@ -184,22 +184,23 @@
   kazanim: amortisman denetimi
   tip: bilgi
   zorluk: 1
-  kok: BDS 540'ta verilen muhasebe tahmini örnekleri arasında aşağıdakilerden hangisi yer almaktadır?
+  kok: Muhasebe tahminlerinin denetimine ilişkin standartta, işlem sınıfları ve hesap bakiyelerine ilişkin muhasebe
+    tahmini örnekleri arasında aşağıdakilerden hangisi yer almaktadır?
   secenekler:
-    A: Denetim sözleşmesinin süresi
-    B: Maddi duran varlıkların amortismanı
-    C: Denetim ekibinin yedek sayısı
-    D: Denetçinin sicil numarası
-    E: Denetim raporunun teslim tarihi
+    A: Satın alınan maddi duran varlığın fatura bedeli üzerinden maliyetle kaydedilmesi
+    B: Faydalı ömre dayalı olarak ayrılan maddi duran varlık amortismanı
+    C: Dönem sonunda kasada bulunan nakdin sayımla tespit edilen tutarının kaydedilmesi
+    D: Ticari borçların fatura üzerindeki tutar esas alınarak kaydedilmesi
+    E: Alınan çekin belge üzerindeki vade tarihinin kayıtlara aktarılması
   dogru: B
   aciklama:
-    dogru_neden: BDS 540 A1'de muhasebe tahminlerinin örnekleri arasında maddi duran varlıkların amortismanı açıkça
-      sayılmıştır.
+    dogru_neden: Muhasebe tahminlerinin denetimi standardının A1 paragrafı, muhasebe tahmini örnekleri arasında
+      maddi duran varlıkların amortismanını sayar.
     celdiriciler:
-      A: Denetim sözleşmesinin süresi BDS 540 A1'de muhasebe tahmini örneği olarak sayılmamıştır.
-      C: Denetim ekibinin yedek sayısı muhasebe tahmini değildir ve A1'de yer almaz.
-      D: Sicil numarası muhasebe tahmini değildir ve A1'de yer almaz.
-      E: Rapor teslim tarihi muhasebe tahmini örneği değildir.
+      A: Alış maliyeti fatura gibi belgelere dayanır, ölçüm belirsizliği içermez; muhasebe tahmini örneği değildir.
+      C: Sayımla belirlenen nakit tutarı belirsizlik içermez; muhasebe tahmini örneği değildir.
+      D: Fatura tutarı kesindir; ticari borcun kaydı belirsizlik içeren bir tahmin gerektirmez.
+      E: Çekin vade tarihi belgeden alınan kesin bir bilgidir; tahmin gerektirmez.
   kaynaklar:
   - mevzuat: BDS 540 Muhasebe Tahminlerinin ve İlgili Açıklamaların Bağımsız Denetimi
     madde: A1
@@ -214,7 +215,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -235,8 +236,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R7: çeldiriciler tahmin içermeyen kayıt işlemleriyle yenilendi; kökten numara çıkarıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -254,6 +256,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R7: çeldiriciler tahmin içermeyen kayıt işlemleriyle yenilendi; kökten numara çıkarıldı'
 - id: SMMM-DEN-PRG-0004
   sinav: smmm
   bolum:
@@ -265,25 +271,28 @@
   kazanim: alacaklar
   tip: kavrama
   zorluk: 2
-  kok: BDS 505 Dış Teyitler Standardına göre, alacak hesap bakiyeleri için dış teyit talebine yanıt alınamaması
-    durumunda denetçinin uygulayabileceği alternatif denetim prosedürlerine örnek olarak aşağıdakilerden hangisi
-    verilebilir?
+  kok: Dış teyitler standardına göre alacak hesap bakiyeleri için dış teyit talebine yanıt alınamaması durumunda
+    denetçinin uygulayabileceği alternatif denetim prosedürlerine örnek olarak aşağıdakilerden hangisi verilebilir?
   secenekler:
-    A: Yalnızca yönetimin sözlü beyanını kabul etmek
-    B: Teyit talebini tekrar göndermeden denetimi tamamlamak
-    C: Alacak bakiyesini doğrudan bilançodan silmek
-    D: Daha sonra yapılan belirli nakit tahsilatların, sevk irsaliyelerinin ve dönem sonuna yakın tarihlerde gerçekleştirilen
-      satışların incelenmesi
-    E: Yalnızca iç kontrol testlerini artırmak
+    A: Yanıt vermeyen müşterilerin bakiyelerini yönetimin yazılı beyanına dayanarak doğrulanmış kabul etmek
+    B: Yanıt vermeyen müşterilerin bakiyelerini önceki yıl teyit sonuçlarına dayanarak doğrulanmış saymak
+    C: Teyit talebini yönetim aracılığıyla aynı müşterilere ikinci kez ileterek yanıt beklemek
+    D: Sonradan yapılan belirli nakit tahsilatları, sevk irsaliyelerini ve dönem sonuna yakın satışları incelemek
+    E: Yönetimin hazırladığı yaşlandırma raporunu incelemekle yetinerek bakiyelerin varlığına karar vermek
   dogru: D
   aciklama:
-    dogru_neden: BDS 505 A18, alacak hesap bakiyeleri için alternatif prosedür olarak daha sonra yapılan nakit tahsilatlar,
-      sevk irsaliyeleri ve dönem sonuna yakın satışların incelenmesini örnek verir.
+    dogru_neden: Dış teyitler standardının A18 paragrafı, alacak hesap bakiyeleri için alternatif prosedür örnekleri
+      olarak daha sonra yapılan belirli nakit tahsilatların, sevk irsaliyelerinin ve dönem sonuna yakın tarihlerde
+      gerçekleştirilen satışların incelenmesini verir.
     celdiriciler:
-      A: Sözlü beyan tek başına yeterli değildir.
-      B: Yanıt alınamaması durumunda alternatif prosedürler veya risk revizyonu gerekir.
-      C: Bakiye silme prosedür değildir.
-      E: İç kontrol testleri alternatif maddi doğrulama prosedürü değildir.
+      A: Yönetimin yazılı beyanı, bakiyenin varlığına ilişkin bağımsız bir kanıt değildir; alternatif prosedürün
+        yerine geçmez.
+      B: Önceki yılın teyit sonuçları cari dönem bakiyesinin varlığını kanıtlamaz; alternatif prosedür örneği olarak
+        sayılmamıştır.
+      C: Teyit sürecinin denetçinin kontrolü dışında yönetim aracılığıyla yürütülmesi güvenilirliği zayıflatır;
+        bu bir alternatif prosedür değildir.
+      E: Yönetimin hazırladığı yaşlandırma raporu bağımsız kanıt sağlamaz ve bakiyenin varlığını göstermez; A18'de
+        yer almaz.
   kaynaklar:
   - mevzuat: BDS 505 Dış Teyitler
     madde: A18
@@ -295,7 +304,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -316,8 +325,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6/R7: çeldiriciler yenilendi, mutlak ifadeler kaldırıldı; kökten numara çıkarıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -338,3 +348,7 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6/R7: çeldiriciler yenilendi, mutlak ifadeler kaldırıldı; kökten numara çıkarıldı'
