@@ -259,7 +259,7 @@
     A: İndirim 300.000 TL'nin tamamı üzerinden %5 olarak hesaplanır.
     B: İndirim tutarı %10'dur ve üst sınır 1.000.000 TL'dir.
     C: İndirim, yalnız ücret gelirine isabet eden vergi üzerinden hesaplanır.
-    D: Şartlar sağlanıyorsa hesaplanan verginin %5'i indirim konusu olabilir; üst sınır ayrıca dikkate alınır.
+    D: Şartlar sağlanıyorsa hesaplanan verginin %5'i indirilebilir; üst sınır da dikkate alınır.
     E: İndirim yalnız kurumlar vergisi mükelleflerine uygulanır.
   dogru: D
   aciklama:
@@ -284,7 +284,7 @@
     yila_bagli_tutar: true
     yil: 2026
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -305,8 +305,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -321,6 +322,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-VER-GVK-0062
   sinav: smmm
   bolum:
@@ -1059,7 +1064,7 @@
       tahvil faizi — değer artışı kazancı.
     D: Limited şirket ortağına dağıtılan kâr payı — menkul sermaye iradı; menkul kıymetin itfası nedeniyle alınan
       para — menkul sermaye iradı değildir.
-    E: Menkul kıymetin kuponlu satılması — her durumda menkul sermaye iradı; tahvil faizi — ticari kazanç.
+    E: Menkul kıymetin kuponlu satılması — menkul sermaye iradı; tahvil faizi — ticari kazanç.
   dogru: D
   aciklama:
     dogru_neden: 'A eşleştirmesi doğrudur. GVK md. 75/2, limited şirket ortaklarının kâr paylarını menkul sermaye
@@ -1089,7 +1094,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1110,8 +1115,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1129,6 +1135,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-VER-GVK-0072
   sinav: smmm
   bolum:
@@ -1530,11 +1540,11 @@
   kok: Bir bireysel emeklilik sözleşmesi bakımından aşağıdaki durumlardan hangisi ile Gelir Vergisi Kanunu md.75/2-16'nın
     bendi doğru eşleştirilmiştir?
   secenekler:
-    A: 10 yıldan az katkı payı ödeyerek ayrılma — 16/b
-    B: 10 yıl katkı payı ödeyip emeklilik hakkı kazanmadan ayrılma — 16/b
-    C: Emeklilik hakkı kazanarak ayrılma — 16/a
-    D: 10 yıldan az katkı payı ödeyerek ayrılma — 16/c
-    E: Emeklilik hakkı kazanarak ayrılma — 15/a
+    A: 10 yıldan az katkı payı ödeyerek sistemden ayrılma — 16/b
+    B: 10 yıl katkı payı ödeyip emeklilik hakkı olmadan ayrılma — 16/b
+    C: Emeklilik hakkı kazanarak sistemden ayrılma — 16/a
+    D: 10 yıldan az katkı payı ödeyerek sistemden ayrılma — 16/c
+    E: Emeklilik hakkı kazanarak sistemden ayrılma — 15/a
   dogru: B
   aciklama:
     dogru_neden: 10 yıl katkı payı ödenmiş olmakla birlikte emeklilik hakkı kazanılmadan ayrılma, 75 inci maddenin
@@ -1557,7 +1567,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1578,8 +1588,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1594,6 +1605,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-VER-GVK-0078
   sinav: smmm
   bolum:
@@ -1790,7 +1805,7 @@
     baslangic: '1981-12-31'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1812,8 +1827,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: GVK-0098 ile aynı hüküm (md.88 zarar mahsubu)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1831,6 +1847,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: GVK-0098 ile aynı hüküm (md.88 zarar mahsubu)
 - id: SMMM-VER-GVK-0081
   sinav: smmm
   bolum:
@@ -1883,7 +1903,7 @@
     bitis: null
     yila_bagli_tutar: true
     yil: 2026
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1905,8 +1925,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: GVK-0055 ve 0038 ile aynı hükümler; doğru şık aşırı uzun
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1921,6 +1942,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: GVK-0055 ve 0038 ile aynı hükümler; doğru şık aşırı uzun
 - id: SMMM-VER-GVK-0082
   sinav: smmm
   bolum:
@@ -2012,7 +2037,7 @@
   kok: 193 sayılı Gelir Vergisi Kanunu'nun mükerrer 120 nci maddesine göre aşağıdakilerden hangisi geçici verginin
     hesaplanması bakımından doğrudur?
   secenekler:
-    A: Geçici vergi yalnızca yıllık kazanç üzerinden hesaplanır ve üçer aylık dönemler dikkate alınmaz.
+    A: Geçici vergi yıllık kazanç üzerinden hesaplanır; üçer aylık dönemler dikkate alınmaz.
     B: 42 nci madde kapsamındaki kazançlar geçici vergi matrahına dahil edilir.
     C: Noterlik görevinden sağlanan kazançlar geçici vergi matrahına dahil edilir.
     D: Geçici vergi matrahının hesabında VUK'un değerleme hükümleri ile GVK'daki indirim ve istisnalar dikkate alınır.
@@ -2041,7 +2066,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2062,8 +2087,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2078,6 +2104,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-VER-GVK-0084
   sinav: smmm
   bolum:
@@ -2175,12 +2205,9 @@
   secenekler:
     A: Md. 18 kapsamındaki kazançların arızi olarak elde edilmesi istisna uygulamasını engeller.
     B: Md. 18 kapsamındaki istisna, 94 üncü madde uyarınca yapılacak tevkifata da otomatik olarak uygulanır.
-    C: Md. 21, mesken kira hasılatı istisnasını düzenler; istisna haddinin üzerinde hasılat elde edilip beyan edilmemesi
-      veya eksik beyan edilmesi halinde istisnadan yararlanılamaz.
-    D: Md. 18 yalnızca eser sahibinin eserini satmasından doğan hasılatı kapsar; mevcut hakların devri veya kiralanması
-      kapsam dışıdır.
-    E: Md. 21'deki mesken kira istisnası, herhangi bir gelir veya kazanç nedeniyle yıllık beyanname vermek zorunda
-      olanlar için her durumda uygulanır.
+    C: Md. 21 mesken kira istisnasıdır; haddi aşan hasılat beyan edilmez veya eksik beyan edilirse istisnadan yararlanılamaz.
+    D: Md. 18 eserin satışından doğan hasılatı kapsar; hakların devri veya kiralanması kapsam dışıdır.
+    E: Md. 21'deki mesken kira istisnası, başka gelirleri nedeniyle beyanname veren herkes için de uygulanır.
   dogru: C
   aciklama:
     dogru_neden: GVK md. 21 mesken kira hasılatı için istisna öngörür ve istisna haddinin üzerinde hasılatın beyan
@@ -2213,7 +2240,7 @@
     yila_bagli_tutar: true
     yil: 2026
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2234,8 +2261,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2250,6 +2278,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-VER-GVK-0086
   sinav: smmm
   bolum:
@@ -2563,8 +2595,8 @@
   secenekler:
     A: Kamu kurumlarına yapılan bağış ve yardımlar — beyan edilen gelirin %10'u ile sınırlıdır.
     B: Gıda bankacılığı kapsamında yapılan uygun nitelikteki ayni bağışlar — maliyet bedelinin tamamı indirilebilir.
-    C: Okul ve sağlık tesisi bağışları — her durumda beyan edilen gelirin %5'i ile sınırlıdır.
-    D: Eğitim ve sağlık harcamaları — yalnızca yurt dışında yapılan harcamalarda indirilebilir.
+    C: Okul ve sağlık tesisi bağışları — beyan edilen gelirin %5'i ile sınırlıdır.
+    D: Eğitim ve sağlık harcamaları — yurt dışında yapılmışsa indirilebilir.
     E: Kamu yararına çalışan derneklere yapılan bağışlar — belge ve makbuz şartı aranmaksızın indirilebilir.
   dogru: B
   aciklama:
@@ -2599,7 +2631,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2620,8 +2652,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2636,6 +2669,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-VER-GVK-0090
   sinav: smmm
   bolum:
@@ -2648,12 +2685,11 @@
   zorluk: 2
   kok: GVK md. 121 bakımından vergi mahsubu ve iadesine ilişkin aşağıdaki karşılaştırmalardan hangisi doğrudur?
   secenekler:
-    A: Fazla kesilen vergi için nakden iade her durumda yıllık beyanname tarihine bağlanır; mahsuben iade için belge
-      şartı yoktur.
-    B: Nakden ve mahsuben iadelerin hiçbirinde belge tamamlanması aranamaz.
-    C: Mahsuben iade yalnızca bir yılın sonunda yapılabilir; Bakanlık teminat isteyemez.
-    D: Mahsuben iade, aranan tüm belgeler tamamlandığında yıllık beyannamenin verildiği tarih esas alınarak yapılabilir;
-      Bakanlık iadeyi rapor, YMM raporu veya teminata bağlayabilir.
+    A: Fazla kesilen vergi için nakden iade yıllık beyanname tarihine bağlanır; mahsuben iade için belge şartı yoktur.
+    B: Nakden ve mahsuben iadelerde belge tamamlanması aranmaz.
+    C: Mahsuben iade bir yılın sonunda yapılabilir; Bakanlık teminat isteyemez.
+    D: Belgeler tamamlanınca mahsuben iade beyanname tarihi esas alınarak yapılır; Bakanlık iadeyi rapor veya teminata
+      bağlayabilir.
     E: Mahsuben iade, yıllık beyanname verilmeden önce yapılır; yıllık beyanname tarihi dikkate alınmaz.
   dogru: D
   aciklama:
@@ -2696,7 +2732,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2717,8 +2753,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2736,6 +2773,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-VER-GVK-0091
   sinav: smmm
   bolum:
@@ -3389,8 +3430,7 @@
     A: Bir kaynaktan doğan zarar, kural olarak diğer kaynakların kazanç ve iratlarına mahsup edilir.
     B: Mahsup sonucunda kapatılamayan zarar, müteakip yılların gelirinden indirilebilir.
     C: Beş yıl içinde mahsup edilmeyen zarar bakiyesi sonraki yıllara taşınamaz.
-    D: Türkiye’de gelir vergisinden istisna edilen kazançla ilgili yurt dışı zararı, yurt içindeki kazanç ve iratlardan
-      mahsup edilir.
+    D: İstisna kazançla ilgili yurt dışı zarar, yurt içi kazanç ve iratlardan mahsup edilir.
     E: Yurt dışı faaliyet zararı, kanunda öngörülen raporlama ve ibraz şartlarıyla mahsup edilebilir.
   dogru: D
   aciklama:
@@ -3415,7 +3455,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3436,8 +3476,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3455,6 +3496,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-VER-GVK-0099
   sinav: smmm
   bolum:
@@ -3720,9 +3765,9 @@
   kok: Bir kişi, bedel ödeyerek aldığı ihtira beratını kendi buluşu olmaksızın devralmış ve iktisaptan dört yıl
     sonra satmıştır. GVK mükerrer 80 bakımından kazanç nasıl değerlendirilir?
   secenekler:
-    A: İhtira beratları her durumda kapsam dışıdır.
-    B: Sadece beş yıl dolduğunda değer artış kazancı doğar.
-    C: Mucit dışındaki kişinin ihtira beratını elden çıkarması değer artış kazancı kapsamına girebilir.
+    A: İhtira beratları değer artışı kazancı kapsamı dışındadır.
+    B: Değer artış kazancı ancak beş yıl dolduğunda doğar.
+    C: Mucit dışındaki kişinin beratı elden çıkarması değer artışı kazancıdır.
     D: İvazlı edinilmiş tüm haklar bir yıl sonra kapsam dışına çıkar.
     E: Yalnız mirasçılar tarafından satış vergilendirilir.
   dogru: C
@@ -3748,7 +3793,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3769,8 +3814,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3785,6 +3831,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-VER-GVK-0103
   sinav: smmm
   bolum:
