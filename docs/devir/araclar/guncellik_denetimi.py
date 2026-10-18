@@ -5,7 +5,7 @@ Kurallar:
   R2 metinde eski oran/tutar kalıbı (KDV %18, damga binde 9,48, KV %20/%22/%23 …) — elle bakılır
   R3 kaynak alıntısı resmî metinlerde birebir bulunamadı
   R4 2026-10-09 tam hakemde "zayıf" işaretli (yeniden yazım adayı)
-  R5 doğru şık tek başına en uzun (ikinci en uzundan ≥%15 uzun; resmî sınavda bu oran %24, bankada %62)
+  R5 doğru şık en uzun çeldiriciden %30 fazla uzun (talimattaki sınır; resmî sınavda bu oran %24, bankada %62)
   R6 yalnız çeldiricilerde mutlak ifade (hiçbir, yalnızca, her zaman …) — eleme ipucu (resmîde %1,5)
   R7 SMMM kökünde BDS numarası (2026 resmî sorularında hiç yok)
 
@@ -72,7 +72,7 @@ def denetle() -> dict:
             if sec and s.get("dogru") in sec:
                 uz = {k: len(str(v)) for k, v in sec.items()}
                 digerleri = [v for k, v in uz.items() if k != s["dogru"]]
-                if digerleri and uz[s["dogru"]] >= 1.15 * max(digerleri):
+                if digerleri and max(uz.values()) > 20 and uz[s["dogru"]] > 1.3 * max(digerleri):  # kısa/sayısal şıklarda ipucu sayılmaz
                     h.append("R5 doğru şık en uzun")
                 mutlak = [k for k, v in sec.items() if k != s["dogru"] and MUTLAK.search(str(v))]
                 if mutlak and not MUTLAK.search(str(sec[s["dogru"]])):
