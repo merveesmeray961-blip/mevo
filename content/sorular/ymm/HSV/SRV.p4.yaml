@@ -61,7 +61,7 @@
     python: 'matrah = 4566935 - 500000 - 66935
 
       sonuc = 3000000 * 5 / 100 + (matrah - 3000000) * 7.5 / 100'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -80,7 +80,10 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: kör hakem E (450.000) işaretledi; VİV md. 16''ya göre ana-babadan çocuğa ivazsız intikalde oranların
+          yarısı uygulanır, anahtar B (225.000) doğru'
       G6:
         sonuc: bekliyor
       GZ:
@@ -89,6 +92,10 @@
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_S4.yaml, satır 74
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-HSV-SRV-0061
   sinav: ymm
   bolum:
@@ -140,7 +147,7 @@
     baslangic: '1959-06-15'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -160,7 +167,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -169,6 +178,10 @@
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_S4.yaml, satır 75
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-HSV-SRV-0062
   sinav: ymm
   bolum:
@@ -234,7 +247,7 @@
     yil: 2026
   dogrulama:
     python: sonuc = 26568 + (30000000 - 26567000) * 6 / 1000
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -253,7 +266,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 3)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -262,6 +277,10 @@
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_S4.yaml, satır 76
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-HSV-SRV-0063
   sinav: ymm
   bolum:
@@ -273,30 +292,28 @@
   tip: hesaplama
   zorluk: 2
   kok: 5216 sayılı Kanun'un uygulandığı bir büyükşehir belediyesi sınırları içinde bulunan, Bay (A)'ya ait ve üzerinde bina
-    bulunmayan imar parselinin (arsa) 2026 yılı vergi değeri 2.000.000 TL, yine bu sınırlar içindeki tarım arazisinin vergi
-    değeri 1.000.000 TL'dir. Cumhurbaşkanınca belirlenmiş farklı bir oran bulunmadığı, muafiyet ve indirim şartlarının bulunmadığı
-    kabul edilecektir. Emlak Vergisi Kanunu'na göre Bay (A)'nın bu taşınmazlar için 2026 yılında ödeyeceği arazi vergisi toplamı
-    kaç TL'dir?
+    bulunmayan imar parselinin (arsa) 2026 yılı vergi değeri 2.000.000 TL, yine bu sınırlar içindeki ve üzerinde bina bulunmayan
+    ikinci imar parselinin (arsa) vergi değeri 1.000.000 TL'dir. Cumhurbaşkanınca belirlenmiş farklı bir oran bulunmadığı,
+    muafiyet ve indirim şartlarının bulunmadığı kabul edilecektir. Emlak Vergisi Kanunu'na göre Bay (A)'nın bu taşınmazlar
+    için 2026 yılında ödeyeceği arazi vergisi toplamı kaç TL'dir?
   secenekler:
     A: '6.000'
-    B: '7.000'
+    B: '9.000'
     C: '12.000'
     D: '14.000'
     E: '18.000'
-  dogru: D
+  dogru: E
   aciklama:
     dogru_neden: 'Arazi vergisinin oranı arazide binde bir, arsada binde üçtür; büyükşehir belediye sınırları ve mücavir alanlarda
-      %100 artırımlı uygulanır (md. 18). Arsa: 2.000.000 × binde 6 = 12.000; arazi: 1.000.000 × binde 2 = 2.000; toplam 14.000
-      TL (iki eşit taksitte).'
+      %100 artırımlı uygulanır (md. 18). İki parsel de arsa olduğundan: (2.000.000 + 1.000.000) × binde 6 = 18.000 TL. Md.
+      16''daki 10.000 TL''lik istisna arsalara uygulanmaz.'
     celdiriciler:
-      A: Arsaya da arazi oranı (binde 2) uygulanmıştır (4.000 + 2.000).
-      B: '%100 artırım uygulanmamıştır (6.000 + 1.000).'
-      C: Yalnız arsanın vergisi hesaplanmıştır; tarım arazisi de arazi vergisine tabidir.
-      E: Tarım arazisine de arsa oranı (binde 6) uygulanmıştır (12.000 + 6.000).
+      A: Arsalara arazi oranı (binde 2) uygulanmıştır.
+      B: '%100 artırım uygulanmamıştır.'
+      C: Yalnız birinci arsanın vergisi hesaplanmıştır.
+      D: İkinci parsele arazi oranı uygulanmıştır.
     hesap_adimlari:
-    - Arsa = 2.000.000 × 0,006 = 12.000
-    - Arazi = 1.000.000 × 0,002 = 2.000
-    - Toplam = 14.000 TL
+    - (2.000.000 + 1.000.000) × 0,006 = 18.000 TL
   kaynaklar:
   - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
     madde: md. 18
@@ -309,8 +326,8 @@
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: sonuc = 2000000 * 6 / 1000 + 1000000 * 2 / 1000
-  durum: taslak
+    python: sonuc=(2000000+1000000)*0.006
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -329,7 +346,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: kör hakemin EVK md. 16 itirazı üzerine kök arsa olarak düzeltildi, anahtar E (18.000 TL)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -338,6 +357,14 @@
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_S4.yaml, satır 77
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: tarım arazisi arsa ile değiştirildi, anahtar D → E
+    neden: 'kör hakem: EVK md. 16 arazi istisnası hesaba katılmamıştı'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-HSV-SRV-0064
   sinav: ymm
   bolum:
@@ -391,7 +418,7 @@
     baslangic: '1985-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -411,7 +438,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -420,3 +449,7 @@
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_S4.yaml, satır 78
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
