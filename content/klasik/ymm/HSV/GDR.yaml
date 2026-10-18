@@ -128,7 +128,7 @@
   dogrulama:
     python: 'sonuc = {''bsmv'': 60000000 * 2 / 1000, ''degerli_kagit'': 2000 * 95, ''oransal_oiv'': 12000000 * 10 / 100, ''maktu_oiv'':
       (400 - 100) * 700, ''toplam_oiv'': 12000000 * 10 / 100 + (400 - 100) * 700, ''dhv'': 30000000 * 5 / 100}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -139,8 +139,14 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_S4.yaml, klasik 1
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
