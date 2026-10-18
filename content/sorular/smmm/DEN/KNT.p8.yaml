@@ -11,16 +11,17 @@
   zorluk: 3
   kok: Denetçi, satış analizinde bir dış bilgi kaynağından alınan sektör verisini ve işletmenin hazırladığı satış
     raporunu kullanacaktır. Dış verinin kaynağı güvenilir görünmekte; işletme raporunun ise doğruluğu ve tamlığı
-    konusunda henüz kanıt bulunmamaktadır. BDS 500'e göre denetçinin yaklaşımı aşağıdakilerden hangisidir?
+    konusunda henüz kanıt bulunmamaktadır. Denetim kanıtına ilişkin standarda göre denetçinin yaklaşımı aşağıdakilerden
+    hangisidir?
   secenekler:
     A: Dış bilgi kaynağının kullanılması, bu bilginin ihtiyaca uygunluk ve güvenilirlik bakımından değerlendirilmesini
       gerektirmez; işletme raporu da yönetimce hazırlandığı için doğrudan kullanılabilir.
-    B: Yalnız işletme raporunun doğruluğu test edilir; dış bilgi kaynağının ihtiyaca uygunluğu ve güvenilirliği
-      ayrıca değerlendirilmez.
-    C: Dış bilgi kaynağından alınan bilginin ihtiyaca uygunluğu ve güvenilirliği mütalaa edilir; işletme tarafından
-      oluşturulan rapor için de gerektiğinde doğruluk ve tamlığa ilişkin denetim kanıtı elde edilerek bilginin yeterli
-      açıklık ve ayrıntıda olup olmadığı değerlendirilir.
-    D: Her iki bilgi kaynağı da yönetim tarafından kullanıldığı için yalnızca yazılı beyan alınması yeterlidir.
+    B: İşletme raporunun doğruluğu ve tamlığı test edilir; dış bilgi kaynağı güvenilir göründüğünden uygunluğu ve
+      güvenilirliği ayrıca değerlendirilmez.
+    C: Dış bilgi kaynağından alınan bilginin ihtiyaca uygunluğu ve güvenilirliği mütalaa edilir; işletme raporu
+      için gerektiğinde doğruluk ve tamlığa ilişkin kanıt elde edilir.
+    D: Her iki bilgi kaynağı da yönetim tarafından kullanıldığı için yazılı beyan alınması yeterlidir ve kaynakların
+      güvenilirliği ayrıca değerlendirilmez.
     E: İşletme raporunun güvenilirliği yalnız önceki dönemle karşılaştırılarak belirlenir; dış bilgi kaynağı için
       ise yalnız kaynağın adı dikkate alınır.
   dogru: C
@@ -58,7 +59,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -79,8 +80,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5 R6: şık uzunlukları
+          dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -95,6 +98,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5 R6: şık uzunlukları dengelendi /
+      çeldiriciler mutlak ifadesiz yeniden yazıldı'
 - id: SMMM-DEN-KNT-0008
   sinav: smmm
   bolum:
@@ -110,13 +118,16 @@
     gönderilmesine izin vermemiştir. Yönetimin gerekçesi denetçiyi ikna etmemiş ve alternatif prosedürlerle de ihtiyaca
     uygun ve güvenilir kanıt elde edilememiştir. Buna göre denetçinin izlemesi gereken yol aşağıdakilerden hangisidir?
   secenekler:
-    A: Yönetimin izin vermemesi yeterli kabul edilir ve başka işlem yapılmadan alacak bakiyesi doğrulanmış sayılır.
-    B: Yalnızca olumlu teyit yerine olumsuz teyit gönderilir ve diğer adımlar uygulanmaz.
-    C: Teyit talebi yine de yönetim tarafından gönderilir; denetçinin doğrudan kontrolü gerekli değildir.
-    D: Denetçi yönetimin gerekçelerini sorgular ve bunların geçerliliği ile uygunluğu hakkında kanıt elde etmeye
-      çalışır; etkileri değerlendirir ve alternatif prosedür uygular. Kanıt elde edilemezse üst yönetimden sorumlu
-      olanlarla iletişim kurar ve görüş üzerindeki etkisini değerlendirir.
-    E: Denetçi alacak bakiyesini otomatik olarak hileli kabul eder ve görüşünü doğrudan olumsuza çevirir.
+    A: Yönetimin izin vermemesi gerekçeli kabul edilir ve başka işlem yapılmadan alacak bakiyesi doğrulanmış sayılır;
+      durum çalışma kâğıdına not edilir.
+    B: Olumlu teyit yerine olumsuz teyit gönderilir ve başka prosedür uygulanmaz; üst yönetimden sorumlu olanlarla
+      iletişim kurulmaz.
+    C: Teyit talebi yönetim tarafından gönderilir; denetçinin süreç üzerinde doğrudan kontrolü gerekmediğinden yanıtlar
+      yönetimden alınabilir.
+    D: Denetçi yönetimin gerekçesini sorgular, alternatif prosedür uygular; kanıt elde edilemezse iletişim kurar
+      ve görüşe etkisini değerlendirir.
+    E: Denetçi alacak bakiyesini hileli kabul eder ve görüşünü doğrudan olumsuza çevirir; alternatif prosedür uygulamaz
+      ve iletişim kurmaz.
   dogru: D
   aciklama:
     dogru_neden: 'BDS 505 md. 8, yönetimin izin vermemesi hâlinde gerekçelerin sorgulanmasını, etkilerin değerlendirilmesini
@@ -154,7 +165,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -175,8 +186,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5 R6: şık uzunlukları dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -194,6 +206,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5 R6: şık uzunlukları dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
 - id: SMMM-DEN-KNT-0009
   sinav: smmm
   bolum:
@@ -208,18 +224,19 @@
   kok: Bir denetçi, finansal tabloların hazırlanmasına ilişkin sorumluluğun yönetimde bulunduğu bir denetimde yazılı
     beyan alacaktır. Yönetim, beyan mektubunu denetçi raporu tarihinden iki gün sonra düzenlemek istemektedir. Ayrıca
     yönetim, bağımsız denetim sözleşmesinde mutabakata varılan tüm bilgileri denetçiye sağladığını ve tüm işlemlerin
-    finansal tablolara yansıtıldığını yazılı olarak teyit etmek istememektedir. BDS 580'e göre aşağıdakilerden hangisi
-    doğrudur?
+    finansal tablolara yansıtıldığını yazılı olarak teyit etmek istememektedir. Yazılı beyanlara ilişkin standarda
+    göre aşağıdakilerden hangisi doğrudur?
   secenekler:
     A: Beyan mektubunun rapor tarihinden sonra düzenlenmesi mümkündür; tüm bilgilerin sağlandığına ilişkin beyan
       ayrıca gerekli değildir.
     B: Yazılı beyanların tarihi rapor tarihinden sonra olabilir; yalnız finansal tabloların hazırlanmasına ilişkin
       sorumluluk beyanı yeterlidir.
-    C: Yazılı beyanların rapor tarihinden sonra olmaması ve bu tarihe mümkün olan en yakın tarihte düzenlenmesi
-      gerekir; ayrıca ilgili tüm bilgilerin sağlandığına ve tüm işlemlerin kaydedilip finansal tablolara yansıtıldığına
-      ilişkin beyanlar talep edilir.
-    D: Yazılı beyanlar yalnız üst yönetimden sorumlu olanlardan alınır; yönetimden alınamaz.
-    E: Yazılı beyanların tarihi serbesttir; ancak beyan mektubunda yalnız yönetimin muhasebe politikaları açıklanmalıdır.
+    C: Yazılı beyanlar rapor tarihinden sonra olmamalı, bu tarihe en yakın tarihte düzenlenmelidir; bilgilerin sağlandığına
+      ve işlemlerin yansıtıldığına ilişkin beyan da istenir.
+    D: Yazılı beyanlar üst yönetimden sorumlu olanlardan alınır; yönetimden alınmaz ve rapor tarihinden önce düzenlenmesi
+      gerekmez. Bilgilerin sağlandığına dair beyan ayrıca istenmez.
+    E: Yazılı beyanların tarihi serbesttir; beyan mektubunda yönetimin muhasebe politikalarının açıklanması yeterlidir
+      ve bilgilerin tamlığına ilişkin beyan istenmez.
   dogru: C
   aciklama:
     dogru_neden: 'BDS 580 md. 14, yazılı beyanların tarihinin denetçi raporu tarihinden sonra olamayacağını ve bu
@@ -261,7 +278,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -282,8 +299,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5: şık uzunlukları
+          dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -298,6 +317,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5: şık uzunlukları dengelendi / çeldiriciler
+      mutlak ifadesiz yeniden yazıldı'
 - id: SMMM-DEN-KNT-0010
   sinav: smmm
   bolum:
@@ -310,14 +334,18 @@
   tip: uygulama
   zorluk: 2
   kok: Denetçi, bir bilgi kaynağından elde ettiği kanıtın başka bir kaynaktan elde edilen kanıtla tutarsız olduğunu
-    fark etmiştir. BDS 500'e göre denetçinin sonraki adımı aşağıdakilerden hangisidir?
+    fark etmiştir. Denetim kanıtına ilişkin standarda göre denetçinin sonraki adımı aşağıdakilerden hangisidir?
   secenekler:
-    A: Tutarsızlığı önemsemeyip ilk elde edilen kanıtı kullanmak.
+    A: Tutarsızlığı önemsemeyip ilk elde edilen kanıtı daha güvenilir kabul ederek kullanmaya devam etmek ve prosedürleri
+      değiştirmemek.
     B: Sorunu çözmek için denetim prosedürlerinde ne tür değişiklik veya eklemeler yapılacağına karar vermek ve
-      varsa denetimin diğer yönleri üzerindeki etkisini mütalaa etmek.
-    C: Yalnız yönetimden sözlü açıklama almak ve başka prosedür uygulamamak.
-    D: Tüm denetim kanıtlarını geçersiz saymak ve denetimi sonlandırmak.
-    E: Tutarsızlığı yalnız denetçi raporu yayımlandıktan sonra değerlendirmek.
+      diğer yönlere etkisini mütalaa etmek.
+    C: Yönetimden sözlü açıklama almakla yetinmek ve tutarsızlığa ilişkin başka bir denetim prosedürü uygulamayıp
+      kanıtı olduğu gibi kabul etmek.
+    D: Tutarsızlık çözülemediği için elde edilen tüm kanıtları geçersiz sayıp denetimi sonlandırmak ve durumu üst
+      yönetimden sorumlu olanlara bildirmeden raporlamak.
+    E: Tutarsızlığı denetçi raporu yayımlandıktan sonra, sonraki dönem denetiminde değerlendirmek üzere not etmek
+      ve cari dönem prosedürlerini değiştirmemek.
   dogru: B
   aciklama:
     dogru_neden: BDS 500 md. 11, bir kaynaktan elde edilen denetim kanıtının başka bir kaynaktan elde edilen kanıtla
@@ -342,7 +370,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -363,8 +391,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5: şık uzunlukları
+          dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -379,6 +409,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5: şık uzunlukları dengelendi / çeldiriciler
+      mutlak ifadesiz yeniden yazıldı'
 - id: SMMM-DEN-KNT-0011
   sinav: smmm
   bolum:
@@ -486,15 +521,19 @@
   tip: uygulama
   zorluk: 3
   kok: Denetçi, bir dış teyit talebine verilen yanıtın güvenilirliği konusunda şüphe doğuran bilgiler elde etmiştir.
-    Daha sonra yanıtın güvenilir olmadığı sonucuna varmıştır. BDS 505'e göre denetçinin bu sonucun ardından dikkate
-    alması gereken husus aşağıdakilerden hangisidir?
+    Daha sonra yanıtın güvenilir olmadığı sonucuna varmıştır. Dış teyitlere ilişkin standarda göre denetçinin bu
+    sonucun ardından dikkate alması gereken husus aşağıdakilerden hangisidir?
   secenekler:
-    A: Durumu tamamen göz ardı eder; teyit yanıtının güvenilmezliği denetim riskini etkilemez.
-    B: Yalnızca teyit talebini yeniden gönderir; hile riski dâhil önemli yanlışlık risklerini değerlendirmez.
-    C: Yanıtın güvenilir olmamasını yalnızca yönetim beyanı dışında bir konu olarak kabul eder.
-    D: Güvenilmez yanıtı doğrudan olumlu görüşün kanıtı olarak kabul eder.
-    E: Durumun hile riski dâhil ilgili önemli yanlışlık risklerinin değerlendirilmesi ve diğer denetim prosedürlerinin
-      niteliği, zamanlaması ve kapsamı üzerindeki etkisini değerlendirir.
+    A: Durumu göz ardı eder; teyit yanıtının güvenilmezliği denetim riskinin değerlendirmesini etkilemez, ek prosedür
+      gerektirmez ve görüş etkilenmez.
+    B: Teyit talebini yeniden gönderir; hile riski dâhil önemli yanlışlık risklerini yeniden değerlendirmez, prosedürlerin
+      niteliğinde ve kapsamında değişiklik yapmaz.
+    C: Yanıtın güvenilir olmamasını yönetim beyanıyla ilgisiz bir konu olarak kabul eder; riskleri yeniden değerlendirmez
+      ve diğer prosedürleri etkilemez.
+    D: Güvenilmez yanıtı doğrudan olumlu görüşün kanıtı olarak kabul eder ve diğer prosedürlerin kapsamını daraltarak
+      denetimi tamamlar.
+    E: Durumun hile riski dâhil önemli yanlışlık risklerinin değerlendirilmesine ve diğer prosedürlerin niteliği,
+      zamanlaması, kapsamına etkisini değerlendirir.
   dogru: E
   aciklama:
     dogru_neden: 'BDS 505/11, teyit talebine verilen yanıtın güvenilir olmadığına karar verilmesi hâlinde denetçinin
@@ -502,7 +541,7 @@
       üzerindeki etkisini dikkate almasını öngörür. Püf noktaları: Güvenilirlik sorunu yalnızca teyit prosedürünün
       sonucu değildir; risk değerlendirmesi ve sonraki prosedürlerin tasarımını da etkiler.'
     celdiriciler:
-      A: BDS 505/11 güvenilir olmayan yanıtın risk değerlendirmesine etkisinin dikkate alınmasını gerektirir.
+      A: Yanıtın güvenilmez olması risk değerlendirmesini etkileyebilir ve ek prosedür gerektirebilir.
       B: Hüküm hile riski dâhil ilgili önemli yanlışlık risklerinin değerlendirilmesini de kapsar.
       C: Hüküm doğrudan yönetim beyanı düzeyindeki risk ve diğer prosedürlerle bağlantı kurar.
       D: Güvenilir olmayan yanıt olumlu görüş için otomatik kanıt değildir.
@@ -516,7 +555,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -537,8 +576,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5 R6: şık uzunlukları
+          dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -556,6 +597,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5 R6: şık uzunlukları dengelendi /
+      çeldiriciler mutlak ifadesiz yeniden yazıldı'
 - id: SMMM-DEN-KNT-0013
   sinav: smmm
   bolum:
@@ -660,15 +706,14 @@
   tip: uygulama
   zorluk: 3
   kok: Denetçi, önemli bir alacak bakiyesini dış teyit yoluyla doğrulamak istemektedir. Teyit talebinin hazırlanması
-    ve gönderilmesinde denetlenen işletme, hangi müşteriye teyit gönderileceğine karar vermek istemektedir. BDS
-    505'e göre aşağıdakilerden hangisi doğrudur?
+    ve gönderilmesinde denetlenen işletme, hangi müşteriye teyit gönderileceğine karar vermek istemektedir. Dış
+    teyitlere ilişkin standarda göre aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Teyit prosedürü yalnızca borç bakiyelerinde uygulanabilir.
-    B: Teyit talebinin içeriğine yalnızca işletme yönetimi karar verir.
-    C: Müşteri uygun tarafı seçtiği sürece denetçi teyit sürecine katılmak zorunda değildir.
-    D: Dış teyit yalnızca yönetimin yazılı onayıyla geçerli olur.
-    E: Denetçi dış teyit talepleri üzerinde kontrol sahibi olmalı ve uygun teyit edecek tarafın seçimine kendisi
-      karar vermelidir.
+    A: Dış teyit prosedürü borç bakiyelerine uygulanır; alacak bakiyeleri bu yöntemle doğrulanmaz.
+    B: Teyit talebinin içeriğine işletme yönetimi karar verir; denetçi talebi yönetimin hazırladığı hâliyle gönderir.
+    C: Müşteri uygun tarafı seçtiği sürece denetçi teyit sürecine katılmak zorunda değildir; talepleri işletme gönderebilir.
+    D: Dış teyit, yönetimin yazılı onayıyla geçerli olur; onay alınmadan elde edilen yanıtlar kanıt sayılmaz.
+    E: Denetçi dış teyit talepleri üzerinde kontrol sahibi olmalı ve teyit edecek uygun tarafı kendisi seçmelidir.
   dogru: E
   aciklama:
     dogru_neden: 'BDS 505 md. 7, dış teyit prosedürlerini uygularken denetçinin teyit talepleri üzerinde kontrol
@@ -693,7 +738,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -714,8 +759,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5 R6: şık uzunlukları
+          dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -736,6 +783,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5 R6: şık uzunlukları dengelendi /
+      çeldiriciler mutlak ifadesiz yeniden yazıldı'
 - id: SMMM-DEN-KNT-0015
   sinav: smmm
   bolum:
@@ -748,15 +800,19 @@
   tip: uygulama
   zorluk: 3
   kok: Denetçi, bir muhasebe tahminini işletmenin faydalandığı uzmanın çalışmasına dayanarak denetim kanıtı olarak
-    kullanmakta ve ayrıca işletmenin oluşturduğu başka bir bilgiyi de denetim prosedürlerinde kullanmaktadır. BDS
-    500'e göre aşağıdakilerden hangisi doğrudur?
+    kullanmakta ve ayrıca işletmenin oluşturduğu başka bir bilgiyi de denetim prosedürlerinde kullanmaktadır. Denetim
+    kanıtına ilişkin standarda göre aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Uzman çalışmasının varlığı, diğer bilgilerin güvenilirliğinin değerlendirilmesini gereksiz kılar.
-    B: İşletme tarafından oluşturulan bilgi hiçbir durumda denetim kanıtı olarak kullanılamaz.
-    C: BDS 500'e göre dış bilgi kaynağından gelen bilgiler her durumda güvenilir kabul edilir.
-    D: Denetçi yalnızca uzman çalışmasının sonucunu kabul eder ve kendi değerlendirmesini yapmaz.
-    E: Uzmanın yetkinlik, kabiliyet ve tarafsızlığı değerlendirilir; işletme tarafından oluşturulan bilginin de
-      gerektiğinde doğruluğu ve tamlığına ilişkin kanıt elde edilir.
+    A: Uzman çalışmasının varlığı, işletme tarafından oluşturulan diğer bilgilerin güvenilirliğinin değerlendirilmesini
+      gereksiz kılar ve ek kanıt aranmaz.
+    B: İşletme tarafından oluşturulan bilgi denetim kanıtı olarak kullanılamaz; kanıt, üçüncü kişilerden elde edilen
+      bilgilerle sınırlıdır ve bu kural uzman çalışması için de geçerlidir.
+    C: Dış bilgi kaynağından gelen bilgiler güvenilir kabul edilir ve ihtiyaca uygunlukları ile güvenilirlikleri
+      değerlendirilmez; ek kanıt aranmaz.
+    D: Denetçi uzman çalışmasının sonucunu kabul eder ve kendi değerlendirmesini yapmaz; uzmanın yetkinliğini ve
+      tarafsızlığını sorgulamaz.
+    E: Uzmanın yetkinliği ve tarafsızlığı değerlendirilir; işletme tarafından oluşturulan bilginin gerektiğinde
+      doğruluğu ve tamlığına ilişkin kanıt elde edilir.
   dogru: E
   aciklama:
     dogru_neden: 'BDS 500 md. 8, yönetimin faydalandığı uzmanın çalışması kullanıldığında uzmanın yetkinliği, kabiliyeti
@@ -769,7 +825,7 @@
       A: Uzman çalışması, işletme tarafından oluşturulan diğer bilginin güvenilirliğinin ayrıca değerlendirilmesini
         ortadan kaldırmaz.
       B: BDS 500, işletme tarafından oluşturulan bilgilerin güvenilirliğinin değerlendirilmesini öngörür; kullanımını
-        mutlak biçimde yasaklamaz.
+        yasaklamaz.
       C: Dış bilgi kaynağından elde edilen bilgiler de ihtiyaca uygunluk ve güvenilirlik açısından mütalaa edilir.
       D: Denetçi uzman çalışmasının uygunluğunu kendi amaçları açısından değerlendirir.
   kaynaklar:
@@ -787,7 +843,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -808,8 +864,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5 R6: şık uzunlukları
+          dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -827,6 +885,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5 R6: şık uzunlukları dengelendi /
+      çeldiriciler mutlak ifadesiz yeniden yazıldı'
 - id: SMMM-DEN-KNT-0016
   sinav: smmm
   bolum:
@@ -840,12 +903,13 @@
   zorluk: 2
   kok: Denetçi, önemli bir dava veya iddiaya ilişkin yeterli ve uygun denetim kanıtı elde edememiştir. Yönetim,
     denetçinin işletmenin dış hukuk müşaviriyle iletişime geçmesine izin vermemekte ve alternatif denetim prosedürleri
-    de yeterli kanıt sağlamamaktadır. BDS 501'e göre denetçi raporunda ne yapmalıdır?
+    de yeterli kanıt sağlamamaktadır. Belirli kalemlere ilişkin denetim kanıtı standardına göre denetçi raporunda
+    ne yapmalıdır?
   secenekler:
-    A: Yalnızca yönetimin yazılı açıklamasını yeterli kabul etmelidir.
-    B: Dava konusunu rapordan tamamen çıkarmalıdır.
+    A: Yönetimin yazılı açıklamasını yeterli kabul etmelidir.
+    B: Dava konusunu rapordan çıkararak görüşünü değiştirmemelidir.
     C: Olumlu görüş vermeye devam etmelidir.
-    D: Hiçbir raporlama yapmadan denetimi tamamlamalıdır.
+    D: Ek bir raporlama yapmadan denetimi tamamlamalıdır.
     E: BDS 705 uyarınca olumlu görüş dışında bir görüş vermelidir.
   dogru: E
   aciklama:
@@ -854,7 +918,7 @@
       uyarınca olumlu görüş dışında bir görüş verilmesini öngörür.
     celdiriciler:
       A: Yazılı açıklama tek başına md. 11'deki kanıt eksikliğini gidermiş sayılmaz.
-      B: Dava konusu raporlama sonucunu etkileyebilir; tamamen yok sayılması düzenlenen karşılık değildir.
+      B: Dava konusu raporlama sonucunu etkileyebilir; konunun yok sayılması düzenlenen karşılık değildir.
       C: Yeterli ve uygun denetim kanıtı elde edilememesi hâlinde standart olumlu görüşte ısrar edilmesini öngörmez.
       D: BDS 501 belirli koşullarda olumlu görüş dışında görüş verilmesini açıkça öngörür.
   kaynaklar:
@@ -867,7 +931,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -888,8 +952,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R6: şık uzunlukları
+          dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -910,6 +976,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R6: şık uzunlukları dengelendi / çeldiriciler
+      mutlak ifadesiz yeniden yazıldı'
 - id: SMMM-DEN-KNT-0017
   sinav: smmm
   bolum:
@@ -921,16 +992,19 @@
   kazanim: '520'
   tip: kavrama
   zorluk: 2
-  kok: Bir denetçi, BDS 520 kapsamında uyguladığı analitik prosedürlerde beklenen değerlerden ciddi ölçüde farklı
-    bir dalgalanma belirlemiştir. Dalgalanma diğer ilgili bilgilerle de tutarsızdır. Denetçinin bu bulgu karşısındaki
-    ilk yükümlülüğü aşağıdakilerden hangisidir?
+  kok: Bir denetçi, uyguladığı analitik prosedürlerde beklenen değerlerden ciddi ölçüde farklı bir dalgalanma belirlemiştir.
+    Dalgalanma diğer ilgili bilgilerle de tutarsızdır. Denetçinin bu bulgu karşısındaki ilk yükümlülüğü aşağıdakilerden
+    hangisidir?
   secenekler:
-    A: Farklılığı önemsememek ve yalnızca dönem sonu yönetim beyanını almak.
-    B: Yönetimi sorgulamak, yönetimin yanıtlarıyla ilgili uygun denetim kanıtı elde etmek ve şartlar altında gerekli
-      diğer denetim prosedürlerini uygulamak.
-    C: Analitik prosedürleri tamamen bırakıp önceki yıl çalışma kâğıtlarını aynen kullanmak.
-    D: Yalnızca farkın tutarını çalışma kâğıdına yazmak ve başka araştırma yapmamak.
-    E: Farklılığın kesin olarak hileden kaynaklandığı sonucuna varıp doğrudan olumlu görüş dışında görüş vermek.
+    A: Farklılığı önemsememek, dönem sonunda yönetim beyanı almakla yetinmek ve yönetime soru sormadan araştırma
+      yapmamak.
+    B: Yönetimi sorgulamak, yanıtlarıyla ilgili uygun denetim kanıtı elde etmek ve gerekirse diğer prosedürleri
+      uygulamak.
+    C: Analitik prosedürleri bırakıp önceki yıl çalışma kâğıtlarını aynen kullanmak, farkı araştırmamak ve yönetimi
+      sorgulamamak.
+    D: Farkın tutarını çalışma kâğıdına yazmak ve yönetimi sorgulamadan, ek kanıt elde etmeden başka araştırma yapmamak.
+    E: Farklılığın hileden kaynaklandığı sonucuna varıp denetimi tamamlamadan doğrudan olumlu görüş dışında görüş
+      vermek.
   dogru: B
   aciklama:
     dogru_neden: BDS 520 md. 7, beklenen değerlerden ciddi ölçüde farklı veya diğer ilgili bilgilerle tutarsız dalgalanma
@@ -954,7 +1028,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -975,8 +1049,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5 R6: şık uzunlukları
+          dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -994,3 +1070,8 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5 R6: şık uzunlukları dengelendi /
+      çeldiriciler mutlak ifadesiz yeniden yazıldı'

@@ -165,21 +165,20 @@
   kok: Uzun vadeli bir kredi borcunun gelecek dönemde ödenecek anapara taksitleri ve faizleri Tekdüzen Hesap Planında
     hangi hesapta izlenir?
   secenekler:
-    A: 300 Banka Kredileri
+    A: 302 Ertelenmiş Finansal Kiralama Borçlanma Maliyetleri (-)
     B: 303 Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri
-    C: 305 Çıkarılmış Bonolar ve Senetler
-    D: 405 Çıkarılmış Tahviller
-    E: 408 Menkul Kıymetler İhraç Farkı (-)
+    C: 304 Tahvil Anapara Borç, Taksit ve Faizleri
+    D: 400 Banka Kredileri
+    E: 405 Çıkarılmış Tahviller
   dogru: B
   aciklama:
     dogru_neden: 303 hesabının adı doğrudan uzun vadeli kredilerin anapara taksitleri ve faizlerini gösterir. Bu
       nedenle ilgili kısa vadeli izleme hesabı 303'tür.
     celdiriciler:
-      A: 300 Banka Kredileri genel banka kredileri hesabıdır; anapara taksitleri ve faizleri için kaynakta 303 hesabı
-        ayrıca tanımlanmıştır.
-      C: 305 çıkarılmış bonolar ve senetler içindir.
-      D: 405 çıkarılmış tahviller hesabıdır.
-      E: 408 menkul kıymetler ihraç farkı hesabıdır.
+      A: 302 finansal kiralama işlemlerinin ertelenmiş borçlanma maliyetlerini izleyen düzenleyici hesaptır.
+      C: 304 tahvillerin bir yıl içinde ödenecek anapara taksit ve faizleri içindir; banka kredisi değildir.
+      D: 400 uzun vadeli banka kredilerinin ana hesabıdır; bir yıl içinde ödenecek kısmın hesabı 303'tür.
+      E: 405 çıkarılmış tahviller hesabıdır.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
     madde: 303. Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri
@@ -189,7 +188,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -210,8 +209,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: çeldiriciler benzer uzunlukta gerçek hesap adlarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -226,6 +226,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: çeldiriciler benzer uzunlukta gerçek hesap adlarıyla yenilendi'
 - id: SMMM-FIN-BOR-0006
   sinav: smmm
   bolum:
@@ -508,7 +512,7 @@
     gerekir?
   secenekler:
     A: 303 Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri
-    B: 400 Banka Kredileri hesabında bırakılır
+    B: 400 Banka Kredileri hesabında uzun vadeli olarak bırakılır
     C: 405 Çıkarılmış Tahviller
     D: 304 Tahvil Anapara Borç, Taksit ve Faizleri
     E: 320 Satıcılar
@@ -532,7 +536,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -553,8 +557,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: çeldirici uzunluğu dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -569,6 +574,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: çeldirici uzunluğu dengelendi'
 - id: SMMM-FIN-BOR-0010
   sinav: smmm
   bolum:
@@ -754,20 +763,20 @@
   kok: Bir yılı aşan vadeli banka kredisinin bilanço tarihinden itibaren bir yıl içinde ödenecek anapara taksitleri
     ile tahakkuk ettiği halde henüz ödenmeyen faizleri hangi hesapta izlenir?
   secenekler:
-    A: 300 Banka Kredileri
+    A: 302 Ertelenmiş Finansal Kiralama Borçlanma Maliyetleri (-)
     B: 303 Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri
-    C: 400 Banka Kredileri
-    D: 320 Satıcılar
+    C: 304 Tahvil Anapara Borç, Taksit ve Faizleri
+    D: 400 Banka Kredileri
     E: 642 Faiz Gelirleri
   dogru: B
   aciklama:
     dogru_neden: 303 hesabı, uzun vadeli kredilerin bilanço tarihinden itibaren bir yıl içinde ödenecek anapara
       taksitleri ile vadesi bir yılın altına düşen ve tahakkuk ettiği halde henüz ödenmeyen faizlerini kapsar.
     celdiriciler:
-      A: 300 kısa vadeli banka kredilerini izler.
-      C: 400 uzun vadeli banka kredilerinin ana hesabıdır; soruda bir yıl içinde ödenecek taksit ve tahakkuk etmiş
+      A: 302 finansal kiralama işlemlerinin ertelenmiş borçlanma maliyetlerini izleyen düzenleyici hesaptır.
+      C: 304 tahvillerin bir yıl içinde ödenecek anapara taksit ve faizleri içindir; banka kredisi değildir.
+      D: 400 uzun vadeli banka kredilerinin ana hesabıdır; soruda bir yıl içinde ödenecek taksit ve tahakkuk etmiş
         faiz sorulmaktadır.
-      D: 320 ticari satıcılara olan borçlar içindir.
       E: 642 işletmenin faiz gelirlerini izler.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
@@ -782,7 +791,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -803,8 +812,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: çeldiriciler benzer uzunlukta gerçek hesap adlarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -819,6 +829,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: çeldiriciler benzer uzunlukta gerçek hesap adlarıyla yenilendi'
 - id: SMMM-FIN-BOR-0013
   sinav: smmm
   bolum:
@@ -996,9 +1010,9 @@
   secenekler:
     A: 300 Banka Kredileri
     B: 303 Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri
-    C: 320 Satıcılar
-    D: 405 Çıkarılmış Tahviller
-    E: 381 Gider Tahakkukları
+    C: 304 Tahvil Anapara Borç, Taksit ve Faizleri
+    D: 381 Gider Tahakkukları
+    E: 302 Ertelenmiş Finansal Kiralama Borçlanma Maliyetleri (-)
   dogru: B
   aciklama:
     dogru_neden: 400 Banka Kredileri hesabının işleyişinde, bilanço tarihinden itibaren bir yıl içinde ödenecek
@@ -1007,9 +1021,9 @@
     celdiriciler:
       A: 300 kısa vadeli banka kredilerinin ana hesabıdır; 400’den bir yıl içinde ödenecek taksitler için 303 aktarımı
         öngörülmüştür.
-      C: 320 ticari senetsiz borçları izler; banka kredisi değildir.
-      D: 405 çıkarılmış uzun vadeli tahvilleri izler.
-      E: 381 belgeye dayalı gider tahakkukları içindir; anapara vade sınıflaması değildir.
+      C: 304 tahvillerin bir yıl içinde ödenecek anapara taksit ve faizleri içindir; banka kredisi değildir.
+      D: 381 belgeye dayalı gider tahakkukları içindir; anapara vade sınıflaması değildir.
+      E: 302 finansal kiralama işlemlerinin ertelenmiş borçlanma maliyetlerini izleyen düzenleyici hesaptır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 1 Sıra No’lu Muhasebe Sistemi Uygulama Genel Tebliği
@@ -1020,7 +1034,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1041,8 +1055,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). 303'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: çeldiriciler benzer uzunlukta gerçek hesap adlarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1057,6 +1072,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: çeldiriciler benzer uzunlukta gerçek hesap adlarıyla yenilendi'
 - id: SMMM-FIN-BOR-0016
   sinav: smmm
   bolum:
@@ -1259,8 +1278,8 @@
     '
   secenekler:
     A: 770 Genel Yönetim Giderleri 100.000  /  100 Kasa 80.000 + 360 Ödenecek Vergi ve Fonlar 20.000
-    B: 770 Genel Yönetim Giderleri 80.000  /  100 Kasa 80.000
-    C: 770 Genel Yönetim Giderleri 100.000  /  100 Kasa 100.000
+    B: 770 Genel Yönetim Giderleri 80.000 + 360 Ödenecek Vergi ve Fonlar 20.000  /  100 Kasa 100.000
+    C: 770 Genel Yönetim Giderleri 100.000  /  100 Kasa 80.000 + 361 Ödenecek Sosyal Güvenlik Kesintileri 20.000
     D: 360 Ödenecek Vergi ve Fonlar 20.000  /  100 Kasa 20.000
     E: 770 Genel Yönetim Giderleri 20.000  /  360 Ödenecek Vergi ve Fonlar 20.000
   dogru: A
@@ -1272,8 +1291,8 @@
 
       '
     celdiriciler:
-      B: Yalnız net tutar gider yazılmıştır.
-      C: Stopaj kayda alınmamıştır.
+      B: Stopaj gider içinde gösterilmiş, kasadan ise brüt tutar çıkmış gibi kaydedilmiştir; ödeme net tutardır.
+      C: Stopaj yanlış hesapta izlenmiştir; vergi kesintisi 361 değil 360'ta izlenir.
       D: Yalnız stopaj ödeme kaydı (gider yok).
       E: Stopaj gider gibi yazılmıştır.
     hesap_adimlari: []
@@ -1289,7 +1308,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1310,8 +1329,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: çeldiriciler aynı ayrıntı düzeyinde yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1326,6 +1346,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: çeldiriciler aynı ayrıntı düzeyinde yeniden yazıldı'
 - id: SMMM-FIN-BOR-0019
   sinav: smmm
   bolum:

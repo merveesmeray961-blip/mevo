@@ -740,12 +740,12 @@
   zorluk: 1
   kok: Aşağıdaki eşleştirmelerden hangisi TTK'nın kâr payı ve genel kanuni yedek akçe hükümleriyle doğru eşleşmiştir?
   secenekler:
-    A: 'Genel kanuni yedek: yıllık kârın %10''u / Kâr payı: her durumda brüt kârdan'
-    B: 'Genel kanuni yedek: yıllık kârın %5''i / Kâr payı: yalnız sermaye faizinden'
-    C: 'Genel kanuni yedek: yıllık kârın %5''i, ödenmiş sermayenin %20''sine ulaşıncaya kadar / Kâr payı: net dönem
-      kârı ve serbest yedek akçelerden'
-    D: 'Genel kanuni yedek: ödenmiş sermayenin %20''si her yıl / Kâr payı: yalnız olağanüstü yedeklerden'
-    E: 'Genel kanuni yedek: yıllık kârın %20''si / Kâr payı: yalnız geçmiş yıl kârlarından'
+    A: 'Genel kanuni yedek: yıllık kârın %10''u, süresiz / Kâr payı: yedek akçe ayrılmadan brüt kârdan'
+    B: 'Genel kanuni yedek: yıllık kârın %5''i, süresiz olarak / Kâr payı: ödenmiş sermaye üzerinden faizden'
+    C: 'Genel kanuni yedek: yıllık kârın %5''i, sermayenin %20''sine kadar / Kâr payı: net dönem kârı ve serbest
+      yedekler'
+    D: 'Genel kanuni yedek: ödenmiş sermayenin %20''si her yıl / Kâr payı: olağanüstü yedek akçelerden'
+    E: 'Genel kanuni yedek: yıllık kârın %20''si, sermayenin yarısına kadar / Kâr payı: geçmiş yıl kârlarından'
   dogru: C
   aciklama:
     dogru_neden: TTK md. 519/1 genel kanuni yedek için yıllık kârın %5'ini ve ödenmiş sermayenin %20 sınırını; md.
@@ -774,7 +774,7 @@
   dogrulama:
     python: sonuc = 400000 * 0.05
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -794,8 +794,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6: doğru şık kısaltıldı, çeldiriciler mutlak ifadesiz yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -810,6 +811,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5/R6: doğru şık kısaltıldı, çeldiriciler mutlak ifadesiz yazıldı'
 - id: SMMM-FIN-OZK-0023
   sinav: smmm
   bolum:
@@ -915,7 +920,7 @@
     B: Yalnız II
     C: I ve II
     D: I ve III
-    E: I, II ve III
+    E: I, II, III
   dogru: E
   aciklama:
     dogru_neden: Doğru cevap E’dir. Md. 482/1 temerrüt faizini ihtara bağlamaz. Md. 483/1 ise 482/2 ve 3’ün uygulanabilmesi
@@ -943,7 +948,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -964,8 +969,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 2).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: öncül şıkları dengelendi (I, II, III biçimi); anlam aynı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -980,6 +986,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: öncül şıkları dengelendi (I, II, III biçimi); anlam aynı'
 - id: SMMM-FIN-OZK-0025
   sinav: smmm
   bolum:
@@ -995,10 +1005,10 @@
     ihraç priminin 50.000 TL'sini sermayeye eklemeye karar vermiştir. Aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
     A: 520 hesabında yalnız nominal değer izlenir; 150.000 TL 521'e alınır.
-    B: 150.000 TL fark 520 hesabında izlenir; sermayeye eklenen 50.000 TL kadar 520 borçlandırılır.
+    B: 150.000 TL fark 520'de izlenir; sermayeye eklenen 50.000 TL kadar 520 borçlandırılır.
     C: 150.000 TL fark doğrudan 500 Sermaye hesabına alacak kaydedilir.
     D: 520 hesabı yalnız iptal edilen paylardan doğan kârları izler.
-    E: İhraç primi oluştuğu anda tamamı 580 Geçmiş Yıllar Zararları hesabına aktarılır.
+    E: İhraç primi oluştuğunda tamamı 580 Geçmiş Yıllar Zararları hesabına aktarılır ve 520 açılmaz.
   dogru: B
   aciklama:
     dogru_neden: 520, yeni çıkarılan payların primli satışından doğan tutarı izler. Nominal ile satış fiyatı arasındaki
@@ -1024,7 +1034,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1045,8 +1055,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: doğru şık kısaltıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1061,6 +1072,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: doğru şık kısaltıldı'
 - id: SMMM-FIN-OZK-0026
   sinav: smmm
   bolum:
@@ -1319,10 +1334,9 @@
   kok: Nama yazılı pay senedine sahip bir ortak sermaye koyma borcunu süresinde yerine getirmemiştir. Iskat usulünde
     yönetim kurulunun ihtarı bakımından aşağıdakilerden hangisi **yanlıştır**?
   secenekler:
-    A: Nama yazılı pay sahibine ihtar ilan yerine iadeli taahhütlü mektupla yapılabilir.
+    A: Nama yazılı pay sahibine yapılacak ihtar, ilan yerine iadeli taahhütlü mektupla yapılabilir.
     B: İnternet sitesi mesajı da ihtarda kullanılır.
-    C: Nama yazılı pay sahibine ihtar yalnızca 35. maddede yazılı gazete ilanıyla yapılır; iadeli taahhütlü mektup
-      kullanılamaz.
+    C: Nama yazılı pay sahibine ihtar yalnız ilanla yapılır; iadeli taahhütlü mektup kullanılamaz.
     D: Bir aylık ödeme süresi mektubun alındığı tarihten başlar.
     E: İhtarda temerrüde konu tutarın bir ay içinde ödenmesi gerektiği belirtilir.
   dogru: C
@@ -1345,7 +1359,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1366,8 +1380,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: yanlış ifade (doğru cevap) kısaltıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1385,3 +1400,7 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: yanlış ifade (doğru cevap) kısaltıldı'

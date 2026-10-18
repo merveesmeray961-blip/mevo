@@ -91,22 +91,25 @@
   kok: Tekdüzen Muhasebe Sistemi açısından alınan veya verilen ileri tarihli çekler için aşağıdakilerden hangisi
     doğrudur?
   secenekler:
-    A: Muhasebe Sisteminde özün önceliği gereğince alacak veya borç senedi olarak kabul edilir ve reeskonta tabi
-      tutulur.
-    B: Çek niteliğini kaybetmez; bu nedenle hiçbir durumda senet olarak değerlendirilmez.
-    C: Yalnızca vergi uygulamasında alacak senedi olarak kabul edilir.
-    D: Her durumda normal çek olarak izlenir ve reeskonta tabi tutulmaz.
-    E: İleri tarihli çekler sadece bilanço dışında izlenir.
+    A: Özün önceliği gereği Muhasebe Sisteminde alacak veya borç senedi sayılır ve reeskonta tabi tutulur.
+    B: Çek niteliği korunduğundan Muhasebe Sisteminde de senet değil, normal çek olarak değerlendirilir.
+    C: Alacak veya borç senedi sayılması vergi uygulamasına özgüdür; Muhasebe Sisteminde normal çek kabul edilir.
+    D: Muhasebe Sisteminde vade tarihi beklenmeden kasa hesabında izlenir ve reeskonta tabi tutulmaz.
+    E: İleri tarihli çekler bilanço dışı hesaplarda izlenir; düzenlenme tarihine kadar finansal tablolarda yer almaz.
   dogru: A
   aciklama:
     dogru_neden: Kaynak metin, ileri tarihli çeklerin vergi uygulamasında normal çek kabul edilmesine karşılık Muhasebe
       Sisteminde özün önceliği kuralı gereğince alacak veya borç senedi kabul edildiğini ve reeskonta tabi tutulduğunu
       belirtir.
     celdiriciler:
-      B: Kaynak açıkça alacak veya borç senedi olarak kabul edildiğini söyler.
-      C: Kaynak, bu yaklaşımı vergi uygulamasına değil Muhasebe Sistemine bağlar.
-      D: Kaynak, Muhasebe Sisteminde normal çek değil senet kabul edildiğini belirtir.
-      E: Kaynak, reeskont uygulamasını açıkça belirtir; bilanço dışı izleme düzenlemesi yoktur.
+      B: Kaynak, Muhasebe Sisteminde özün önceliği gereği senet kabul edildiğini belirtir; normal çek yaklaşımı
+        vergi uygulamasına aittir.
+      C: Yaklaşımlar ters verilmiştir; vergi uygulamasında normal çek, Muhasebe Sisteminde alacak veya borç senedi
+        kabul edilir.
+      D: Kaynak, Muhasebe Sisteminde reeskont uygulandığını belirtir; kasada izleme ve reeskont dışı bırakma kaynakta
+        yoktur.
+      E: Kaynakta ileri tarihli çeklerin bilanço dışı izlendiğine dair bir düzenleme yoktur; alacak veya borç senedi
+        sayılırlar.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği ile yapılan düzenlemelerin vergi mevzuatı ile ilişkisine dair
       metin
@@ -119,7 +122,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -140,8 +143,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6: şık uzunlukları dengelendi, mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -162,6 +166,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5/R6: şık uzunlukları dengelendi, mutlak ifadeler kaldırıldı'
 - id: SMMM-FIN-ALC-0005
   sinav: smmm
   bolum:
@@ -345,21 +353,21 @@
   kok: Muhasebe Sistemi Uygulama Genel Tebliğlerine göre alınan ileri tarihli çeklerin muhasebeleştirilmesinde aşağıdaki
     yaklaşımlardan hangisi doğrudur?
   secenekler:
-    A: Her durumda kasa hesabında izlenir ve reeskonta tabi tutulmaz.
+    A: Kasa hesabında izlenir ve vadesi gelene kadar reeskonta tabi tutulmaz.
     B: Vergi uygulamasında senet, muhasebe sisteminde çek kabul edilir.
-    C: Muhasebe sisteminde özün önceliği gereği alacak veya borç senedi olarak kabul edilir ve reeskonta tabi tutulur.
-    D: Yalnız bankaya ibraz edildiğinde senet niteliği kazanır.
-    E: İleri tarihli çekler yalnızca vergi mevzuatına göre muhasebeleştirilir.
+    C: Özün önceliği gereği alacak veya borç senedi sayılır ve reeskonta tabi tutulur.
+    D: Bankaya ibraz edildiğinde senet niteliği kazanır ve reeskonta tabi tutulur.
+    E: Vergi mevzuatındaki niteliğe göre normal çek olarak muhasebeleştirilir.
   dogru: C
   aciklama:
     dogru_neden: MSUGT 2-15 açıklamasında, ileri tarihli çeklerin vergi uygulamasında normal çek kabul edilmesine
       karşılık Muhasebe Sisteminde özün önceliği gereği alacak veya borç senedi kabul edildiği ve reeskonta tabi
       tutulduğu belirtilir.
     celdiriciler:
-      A: Kaynak, ileri tarihli çeklerin reeskonta tabi tutulduğunu açıkça belirtir.
+      A: Kaynak, ileri tarihli çeklerin kasada değil senet olarak izlendiğini ve reeskonta tabi tutulduğunu belirtir.
       B: Vergi uygulaması ile muhasebe sistemindeki yaklaşım ters verilmiştir.
       D: Kaynakta bankaya ibraz koşulu yoktur; muhasebe sistemindeki nitelik özün önceliğine dayanır.
-      E: MSUGT, muhasebe sistemi açısından ayrıca düzenleme getirmektedir; yalnız vergi mevzuatına bırakılmamıştır.
+      E: Muhasebe sistemi vergi mevzuatındaki niteliği esas almaz; özün önceliği gereği ayrıca senet kabul eder.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:2-15)
     madde: İleri tarihli çekler
@@ -371,7 +379,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -392,8 +400,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6: uzunluk dengelendi, mutlak ifade kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -408,6 +417,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5/R6: uzunluk dengelendi, mutlak ifade kaldırıldı'
 - id: SMMM-FIN-ALC-0008
   sinav: smmm
   bolum:
@@ -500,12 +513,11 @@
   kok: (P) A.Ş. bir ithalat işlemi için banka aracılığıyla akreditif teyidi vermiştir. Bu işlemin bilanço sunumunda
     doğurduğu sorumluluk ilişkisinin gösterilmesine ilişkin aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Akreditif teyidinden doğan sorumluluklar hiçbir şekilde finansal tablolarda açıklanmaz.
-    B: Akreditif teyidi doğrudan stok maliyetine eklenir.
-    C: Akreditif teyidi yalnızca gelir tablosunda gelir olarak gösterilir.
-    D: Akreditif teyidi her durumda 120 Alıcılar hesabına borç yazılır.
-    E: Akreditif teyitlerinden doğan sorumluluklar pasifte gösterilmemişse bilanço altında veya ekte TMS'ye göre
-      açıklanır.
+    A: Akreditif teyidinden doğan sorumluluklar finansal tablolarda açıklanmaz.
+    B: Akreditif teyidi, ithal edilen malın stok maliyetine doğrudan eklenir.
+    C: Akreditif teyidi karşılığında alınan tutar gelir tablosunda gelir yazılır.
+    D: Akreditif teyidi ithalat bedeli olarak 120 Alıcılar hesabına borç yazılır.
+    E: Pasifte gösterilmemişse bilanço altında veya ekte TMS'ye göre açıklanır.
   dogru: E
   aciklama:
     dogru_neden: 'TTK md. 77, akreditif teyitlerinden doğan sorumlulukları pasifte gösterilmemişse bilançonun altında
@@ -513,8 +525,8 @@
       Buradaki işlem doğrudan bir gelir veya alacak kaydı olarak değil, sorumluluk ilişkisinin finansal tablo açıklaması
       bakımından ele alınmaktadır.'
     celdiriciler:
-      A: TTK md. 77 açıkça akreditif teyitlerini saymaktadır.
-      B: Kaynakta akreditif teyidinin otomatik olarak stok maliyetine eklenmesi hükmü yoktur.
+      A: TTK md. 77 akreditif teyitlerinden doğan sorumlulukların açıklanmasını öngörür.
+      B: Kaynakta akreditif teyidinin stok maliyetine eklenmesi hükmü yoktur.
       C: Kaynak, işlemi gelir olarak sınıflandırmamaktadır.
       D: 120 Alıcılar hesabı için böyle bir hüküm kaynakta yer almamaktadır.
   kaynaklar:
@@ -536,7 +548,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -557,8 +569,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6: uzunluk dengelendi, mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -579,6 +592,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5/R6: uzunluk dengelendi, mutlak ifadeler kaldırıldı'
 - id: SMMM-FIN-ALC-0010
   sinav: smmm
   bolum:
@@ -595,18 +612,19 @@
   secenekler:
     A: 121 Alacak Senetleri
     B: 122 Alacak Senetleri Reeskontu
-    C: 320 Satıcılar
-    D: 321 Borç Senetleri
-    E: 642 Faiz Gelirleri
+    C: 321 Borç Senetleri
+    D: 322 Borç Senetleri Reeskontu (-)
+    E: 647 Reeskont Faiz Gelirleri
   dogru: B
   aciklama:
     dogru_neden: 122 Alacak Senetleri Reeskontu hesabı, bilanço gününde alacak senetlerinin tasarruf değeriyle değerlenmesini
       sağlamak üzere ayrılan reeskont tutarlarını izler.
     celdiriciler:
       A: 121 senetli ticari alacakların kendisini izler.
-      C: 320 ticari borçları izler.
-      D: 321 işletmenin borç senetlerini izler.
-      E: 642 faiz gelirlerini izler; reeskont hesabı değildir.
+      C: 321 işletmenin borç senetlerini izler.
+      D: 322 borç senetlerinin reeskontunu izler; alacak senetleri reeskontu değildir.
+      E: 647 reeskont faiz gelirlerini izler; alacak senetlerinin tasarruf değerine indirilmesi için ayrılan karşılık
+        hesabı değildir.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
     madde: 122 Alacak Senetleri Reeskontu (-)
@@ -618,7 +636,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -639,8 +657,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: çeldiriciler aynı hesap grubundan, benzer uzunlukta hesaplarla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -655,6 +674,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: çeldiriciler aynı hesap grubundan, benzer uzunlukta hesaplarla yenilendi'
 - id: SMMM-FIN-ALC-0011
   sinav: smmm
   bolum:
@@ -759,18 +782,17 @@
     yaklaşımı aşağıdakilerden hangisidir?
   secenekler:
     A: Vergi uygulamasında senet, muhasebede normal çek kabul edilir ve reeskont uygulanmaz.
-    B: Hem vergi uygulamasında hem muhasebede yalnızca kasa mevcudu sayılır.
-    C: İleri tarihli çeklerin reeskontla hiçbir ilişkisi yoktur.
-    D: Vergi uygulamasında normal çek, muhasebe sisteminde özün önceliği nedeniyle alacak veya borç senedi kabul
-      edilir ve reeskonta tabi tutulur.
-    E: Muhasebe sisteminde yalnızca menkul kıymet olarak kabul edilir.
+    B: Hem vergi uygulamasında hem muhasebede kasa mevcudu sayılır ve reeskonta tabi tutulmaz.
+    C: İleri tarihli çekler reeskonta tabi tutulmaz; vade tarihine kadar kasa hesabında izlenir.
+    D: Vergide normal çek, muhasebede özün önceliği gereği senet sayılır ve reeskonta tabi tutulur.
+    E: Muhasebe sisteminde menkul kıymet kabul edilir ve değerleme günü kuruyla değerlenir.
   dogru: D
   aciklama:
     dogru_neden: MSUGT 2.15, ileri tarihli çeklerin vergi uygulamasında normal çek kabul edildiğini; muhasebe sisteminde
       ise özün önceliği nedeniyle alacak veya borç senedi kabul edilerek reeskonta tabi tutulduğunu açıkça belirtir.
     celdiriciler:
       A: Vergi uygulamasındaki normal çek kabulünü doğru verse de muhasebe sistemi ve reeskont kısmını tersine çevirmektedir.
-      B: Kaynakta ileri tarihli çekler kasa mevcudu olarak nitelendirilmez.
+      B: Kaynakta ileri tarihli çekler kasa mevcudu olarak nitelendirilmez; muhasebede reeskont uygulanır.
       C: Kaynak açıkça reeskonta tabi tutulduğunu belirtmektedir.
       E: Menkul kıymet olarak sınıflandırıldığına ilişkin hüküm yoktur.
     hesap_adimlari: []
@@ -785,7 +807,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -806,8 +828,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6: uzunluk dengelendi, mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -828,6 +851,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5/R6: uzunluk dengelendi, mutlak ifadeler kaldırıldı'
 - id: SMMM-FIN-ALC-0013
   sinav: smmm
   bolum:

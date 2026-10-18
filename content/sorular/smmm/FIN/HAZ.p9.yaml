@@ -86,11 +86,11 @@
   zorluk: 3
   kok: 100 Kasa ile 102 Bankalar hesaplarının işleyişi karşılaştırıldığında aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: 100 Kasa hesabında tahsilatlar alacak, ödemeler borç; 102 Bankalar hesabında yatırmalar alacak, çekimler
-      borç kaydedilir.
-    B: 100 Kasa hesabında tahsilatlar borç, ödemeler ve bankaya yatırmalar alacak; 102 Bankalar hesabında yatırılan
-      değerler borç, çekilen tutarlar alacak kaydedilir.
-    C: 100 Kasa hesabı alacak bakiyesi verebilir; 102 Bankalar hesabı hiçbir zaman alacak bakiye vermez.
+    A: 100 Kasa hesabında tahsilatlar alacak, ödemeler borç; 102 Bankalar hesabında yatırılan tutarlar alacak, çekilen
+      tutarlar borç kaydedilir.
+    B: 100 Kasa hesabında tahsilatlar borç, ödemeler alacak; 102 Bankalar hesabında yatırılan tutarlar borç, çekilen
+      tutarlar alacak kaydedilir.
+    C: 100 Kasa hesabı alacak bakiyesi verebilir; 102 Bankalar hesabı borç bakiyesi vermez.
     D: 100 Kasa hesabında bankaya yatırılan tutarlar borç; 102 Bankalar hesabında çekilen tutarlar borç kaydedilir.
     E: 100 Kasa ve 102 Bankalar hesaplarının her ikisinde de para girişleri alacak, para çıkışları borç kaydedilir.
   dogru: B
@@ -100,8 +100,7 @@
       kaydedilir.
     celdiriciler:
       A: Her iki hesap için borç/alacak yönleri ters verilmiştir; özellikle 102'de yatırmalar borç, çekimler alacaktır.
-      C: 100 Kasa hesabının alacak bakiyesi vermesi kaynakta açıkça reddedilmiştir; 102 için de böyle bir genel
-        hüküm verilmemiştir.
+      C: 100 Kasa hesabının alacak bakiyesi vermesi kaynakta açıkça reddedilmiştir.
       D: 100 Kasa'da bankaya yatırılan tutar alacak; 102 Bankalar'da çekilen tutar alacak kaydedilir.
       E: Her iki hesapta para girişinin alacak olduğu söylenemez; 100 Kasa'da tahsilatlar borçtur.
     hesap_adimlari: []
@@ -119,7 +118,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -140,8 +139,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6: B kısaltıldı, mutlak ifade kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -156,6 +156,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5/R6: B kısaltıldı, mutlak ifade kaldırıldı'
 - id: SMMM-FIN-HAZ-0017
   sinav: smmm
   bolum:
@@ -591,18 +595,17 @@
   kok: Aşağıdaki eşleştirmelerden hangisi Tekdüzen Hesap Planındaki Hazır Değerler grubunun hesap tanımlarıyla doğru
     biçimde uyuşur?
   secenekler:
-    A: 100 Kasa — yalnızca bankadaki yabancı para mevduatları izler.
-    B: 101 Alınan Çekler — bankaya tahsil için verilmiş çekleri izler.
-    C: 102 Bankalar — işletmenin yurt içi ve yurt dışı banka ve benzeri finans kurumlarına yatırdığı ve çektiği
-      paraları izler.
-    D: 100 Kasa — alınan ancak henüz ciro edilmemiş çekleri izler.
-    E: 101 Alınan Çekler — bankalardan çekilen tutarları izler.
+    A: 100 Kasa — işletmenin bankalardaki yabancı para mevduatlarını da izleyen hesaptır.
+    B: 101 Alınan Çekler — vadesi gelmiş olup tahsil için bankaya verilmiş çekleri izler.
+    C: 102 Bankalar — banka ve benzeri kurumlara yatırılan ve çekilen paraları izler.
+    D: 100 Kasa — işletmenin aldığı ancak henüz ciro etmediği çekleri izleyen hesaptır.
+    E: 101 Alınan Çekler — işletmenin bankalardan çektiği tutarları izleyen hesaptır.
   dogru: C
   aciklama:
     dogru_neden: 102 Bankalar hesabı, işletmenin yurt içi ve yurt dışı banka ve benzeri finans kurumlarına yatırdığı
       ve çektiği paraların izlenmesi için kullanılır.
     celdiriciler:
-      A: 100 Kasa ulusal ve yabancı paraların TL karşılığını izler; yalnız mevduat hesabı değildir.
+      A: 100 Kasa ulusal ve yabancı paraların TL karşılığını izler; mevduat hesabı değildir.
       B: 101, henüz tahsil için bankaya verilmemiş veya ciro edilmemiş çekleri izler.
       D: Bu tanım 101 Alınan Çekler hesabına aittir.
       E: Bankalardan çekilen tutarlar 102'nin alacak işleyişinde yer alır; 101 hesabının tanımı değildir.
@@ -624,7 +627,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -645,8 +648,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6: doğru şık kısaltıldı, çeldiriciler dengelendi, mutlak ifade kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -661,6 +665,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5/R6: doğru şık kısaltıldı, çeldiriciler dengelendi, mutlak ifade kaldırıldı'
 - id: SMMM-FIN-HAZ-0023
   sinav: smmm
   bolum:

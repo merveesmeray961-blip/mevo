@@ -217,8 +217,8 @@
     '
   secenekler:
     A: TÜFE, üretilen tüm nihai mal ve hizmetleri kapsar.
-    B: TÜFE, GSYH deflatöründen her zaman daha yüksektir.
-    C: TÜFE, yalnızca ithal malların fiyatlarını dikkate alır.
+    B: TÜFE, GSYH deflatörüyle aynı kapsamda hesaplanır.
+    C: TÜFE, ağırlıklı olarak ihraç edilen malların fiyatlarını dikkate alır.
     D: TÜFE, sabit bir mal sepetinin fiyat değişimini ölçer.
     E: TÜFE, üretici fiyatlarını yansıtır.
   dogru: D
@@ -229,9 +229,8 @@
       '
     celdiriciler:
       A: Tüm nihai mal ve hizmetleri kapsayan endeks GSYH deflatörüdür; TÜFE yalnızca tüketici sepetini kapsar.
-      B: TÜFE ile GSYH deflatörü arasındaki ilişki sabit değildir; sepet ve kapsam farkları nedeniyle her zaman
-        daha yüksek olması gerekmez.
-      C: TÜFE hem yerli hem ithal tüketim mallarını içerir; yalnızca ithal malları kapsamaz.
+      B: TÜFE tüketici sepetine, GSYH deflatörü tüm yurtiçi üretime dayanır; kapsamları aynı değildir.
+      C: TÜFE ihraç mallarını değil, hanehalkının tükettiği yerli ve ithal mal ve hizmetleri kapsar.
       E: Üretici fiyatlarını yansıtan endeks ÜFE'dir; TÜFE tüketici fiyatlarını ölçer.
   kaynaklar:
   - mevzuat: İktisat teorisi — genel kabul görmüş tanım
@@ -242,7 +241,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -263,8 +262,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6: B ve C çeldiricileri mutlak ifadesiz, içerik bakımından yanlış yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -282,6 +282,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R6: B ve C çeldiricileri mutlak ifadesiz, içerik bakımından yanlış yeniden yazıldı'
 - id: SMMM-EKO-MAK-0005
   sinav: smmm
   bolum:
@@ -400,9 +404,9 @@
 
     '
   secenekler:
-    A: Beklentiler yalnızca geçmiş enflasyon oranlarına bakılarak oluşturulur.
+    A: Beklentiler geçmiş enflasyon oranlarına bakılarak kademeli biçimde oluşur.
     B: Aktif maliye politikası çarpan etkisiyle toplam talebi kalıcı olarak artırır.
-    C: Ekonomi her zaman eksik istihdam dengesindedir.
+    C: Ekonomide işsizlik kalıcı olarak doğal oranın üzerinde kalır.
     D: Fiyatlar ve ücretler yapışkandır; piyasalar yavaş temizlenir.
     E: Sistematik para politikası kısa dönemde bile reel değişkenleri etkileyemez.
   dogru: E
@@ -419,7 +423,7 @@
     celdiriciler:
       A: Bu adaptif beklentiler tanımıdır; rasyonel beklentiler tüm mevcut bilgiyi kullanır.
       B: Yeni klasik yaklaşımda sistematik maliye politikası da beklentilere yansır ve kalıcı reel etki yaratmaz.
-      C: Yeni klasik yaklaşım ekonominin doğal oran etrafında dengede olduğunu, eksik istihdamın kalıcı olmadığını
+      C: Yeni klasik yaklaşım ekonominin doğal oran etrafında dengede olduğunu, kalıcı işsizlik fazlasının oluşmadığını
         savunur.
       D: Yapışkan fiyat ve yavaş temizlenme yeni Keynesyen yaklaşıma aittir.
   kaynaklar:
@@ -431,7 +435,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -452,8 +456,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6: A ve C çeldiricilerindeki mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -471,6 +476,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R6: A ve C çeldiricilerindeki mutlak ifadeler kaldırıldı'
 - id: SMMM-EKO-MAK-0007
   sinav: smmm
   bolum:
@@ -846,10 +855,10 @@
 
     '
   secenekler:
-    A: Her iki yaklaşımda da sistematik para politikası kısa dönemde çıktıyı mutlaka artırır.
+    A: Her iki yaklaşımda da sistematik para politikası kısa dönemde çıktıyı artırır.
     B: Yeni klasik modelde sistematik para politikası kısa dönemde bile reel etkisizdir (politika etkisizliği).
     C: Uyarlanabilir beklentilerde ajanlar tüm bilgiyi anında kullanır, bu yüzden politika etkisizdir.
-    D: Yeni klasik modelde yalnızca öngörülmeyen politikalar etkisizdir; sistematik olanlar etkilidir.
+    D: Yeni klasik modelde öngörülmeyen politikalar etkisizdir; sistematik olanlar etkilidir.
     E: Her iki modelde de Phillips eğrisi uzun dönemde negatif eğimlidir.
   dogru: B
   aciklama:
@@ -875,7 +884,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -896,8 +905,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6: D (ve A''daki ''mutlaka'') mutlak ifadesiz yazıldı; celdiriciler metni uyumlu kaldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -912,6 +922,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R6: D (ve A''daki ''mutlaka'') mutlak ifadesiz yazıldı; celdiriciler metni uyumlu kaldı'
 - id: SMMM-EKO-MAK-0012
   sinav: smmm
   bolum:
@@ -1294,10 +1308,10 @@
 
     '
   secenekler:
-    A: İşçiler her zaman rasyonel beklentiye sahiptir ve enflasyonu tam öngörür.
-    B: Beklenen enflasyon ile gerçekleşen enflasyon arasındaki fark (sürpriz enflasyon) kısa dönemde işsizliği etkiler.
+    A: İşçiler enflasyonu önceden tam olarak öngörür ve ücretleri buna göre belirler.
+    B: Sürpriz enflasyon (gerçekleşen − beklenen) kısa dönemde işsizliği etkiler.
     C: Para arzı artışı uzun dönemde de işsizliği kalıcı olarak düşürür.
-    D: Fiyatlar tamamen esnek olduğu için kısa dönem Phillips eğrisi yoktur.
+    D: Fiyatlar esnek olduğu için kısa dönem Phillips eğrisi oluşmaz.
     E: Hükûmetin maliye politikası kısa dönemde etkisizdir.
   dogru: B
   aciklama:
@@ -1322,7 +1336,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1343,8 +1357,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6: doğru şık kısaltıldı, A ve D mutlak ifadesiz yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -1359,6 +1374,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5/R6: doğru şık kısaltıldı, A ve D mutlak ifadesiz yazıldı'
 - id: SMMM-EKO-MAK-0017
   sinav: smmm
   bolum:
@@ -2190,8 +2209,8 @@
 
     '
   secenekler:
-    A: Yalnızca fiyat düzeyini düşürür, çıktıyı etkilemez.
-    B: Çıktı ve istihdam üzerinde hiçbir etki yaratmaz.
+    A: Fiyat düzeyini düşürür, çıktıyı etkilemez.
+    B: Çıktı ve istihdamı kısa dönemde bile etkilemez.
     C: Hem kısa hem uzun dönemde çıktıyı kalıcı olarak artırır.
     D: Çıktıyı artırır ancak uzun dönemde nötr kalır.
     E: Beklenen politika ile aynı etkiyi yaratır.
@@ -2199,7 +2218,7 @@
   aciklama:
     dogru_neden: 'Rasyonel beklentiler (yeni klasik) yaklaşımda yalnızca beklenmeyen politika şokları kısa dönemde
       Lucas arz eğrisi boyunca çıktıyı etkiler; ajanlar hatayı fark edince beklentiler güncellenir ve uzun dönemde
-      para nötrdür. Bu nedenle B doğrudur.
+      para nötrdür. Bu nedenle D doğrudur.
 
       '
     celdiriciler:
@@ -2216,7 +2235,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2237,8 +2256,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6: A ve B mutlak ifadesiz; açıklamadaki yanlış harf (B doğrudur) D yapıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -2259,6 +2279,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R6: A ve B mutlak ifadesiz; açıklamadaki yanlış harf (B doğrudur) D yapıldı'
 - id: SMMM-EKO-MAK-0027
   sinav: smmm
   bolum:
@@ -2536,21 +2560,20 @@
 
     '
   secenekler:
-    A: Keynesyenler kısa dönemde enflasyon-işsizlik trade-off'unu kabul ederken monetaristler doğal işsizlik oranına
-      dönüşü vurgular.
-    B: Her iki okul da Phillips eğrisinin her zaman dikey olduğunu savunur.
-    C: Monetaristler aktif talep yönetimini savunurken Keynesyenler para politikasının etkisiz olduğunu ileri sürer.
+    A: Keynesyenler kısa dönemde enflasyon-işsizlik ödünleşmesini kabul eder; monetaristler doğal orana dönüşü vurgular.
+    B: Her iki okul da Phillips eğrisinin kısa dönemde dikey olduğunu savunur.
+    C: Monetaristler aktif talep yönetimini savunurken Keynesyenler para politikasını etkisiz sayar.
     D: Her iki okul da uzun dönemde trade-off'un varlığını kabul eder.
     E: Keynesyenler rasyonel beklentileri, monetaristler adaptif beklentileri temel alır.
   dogru: A
   aciklama:
     dogru_neden: 'Geleneksel Keynesyen yaklaşım kısa dönemde enflasyon ile işsizlik arasında trade-off (negatif
       eğimli Phillips) kabul eder. Monetaristler (Friedman) beklentilerin uyum sağlamasıyla uzun dönemde doğal işsizlik
-      oranına dönüleceğini ve uzun dönem Phillips''in dikey olduğunu savunur. B doğrudur.
+      oranına dönüleceğini ve uzun dönem Phillips''in dikey olduğunu savunur.
 
       '
     celdiriciler:
-      B: Kısa dönemde en azından Keynesyen yaklaşım negatif eğimli kabul eder; dikey uzun dönemdir.
+      B: Keynesyenler kısa dönemde negatif eğimli kabul eder; dikey eğri uzun dönem için geçerlidir.
       C: 'Tam tersi: Keynesyenler talep yönetimini, monetaristler para kuralını savunur.'
       D: Uzun dönemde her iki okul da (özellikle monetarist) trade-off'un olmadığını kabul eder.
       E: Monetaristler adaptif, yeni klasikler rasyonel beklenti kullanır; Keynesyenler genellikle adaptif veya
@@ -2564,7 +2587,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2585,8 +2608,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6: A kısaltıldı, B mutlak ifadesiz; açıklamadaki yanlış harf kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -2604,3 +2628,7 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5/R6: A kısaltıldı, B mutlak ifadesiz; açıklamadaki yanlış harf kaldırıldı'

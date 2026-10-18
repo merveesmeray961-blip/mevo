@@ -104,7 +104,7 @@
     B: Yalnız II
     C: I ve II
     D: II ve III
-    E: I, II ve III
+    E: I, II, III
   dogru: E
   aciklama:
     dogru_neden: '305 kısa vadeli finansman bonosu ve banka bonosu gibi araçları; 405 vadesi bir yılı aşan tahvilleri;
@@ -133,7 +133,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -154,8 +154,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: öncül şıkları dengelendi (I, II, III biçimi); anlam aynı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -170,6 +171,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: öncül şıkları dengelendi (I, II, III biçimi); anlam aynı'
 - id: SMMM-FIN-BOR-0022
   sinav: smmm
   bolum:
@@ -632,9 +637,9 @@
   kok: 31.12.2026 tarihinde 400 Uzun Vadeli Yabancı Kaynaklar kapsamında izlenen bir kredinin, 2027 içinde ödenecek
     anapara taksitleri ve faizleri için Tekdüzen Hesap Planında hangi hesap kullanılmalıdır?
   secenekler:
-    A: 300 Banka Kredileri
+    A: 302 Ertelenmiş Finansal Kiralama Borçlanma Maliyetleri (-)
     B: 303 Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri
-    C: 320 Satıcılar
+    C: 304 Tahvil Anapara Borç, Taksit ve Faizleri
     D: 400 Banka Kredileri
     E: 409 Diğer Mali Borçlar
   dogru: B
@@ -642,8 +647,8 @@
     dogru_neden: 303 hesabın adı doğrudan uzun vadeli kredilerin anapara taksitleri ve faizlerini kapsar; soru,
       uzun vadeli borcun gelecek dönemdeki kısa vadeli kısmını ayırmaktadır.
     celdiriciler:
-      A: 300 Banka Kredileri genel kısa vadeli banka kredileri hesabıdır; kaynakta aranan özel aktarım hesabı 303'tür.
-      C: 320 ticari borçlar için kullanılır; banka kredisi niteliğindeki borca uygulanmaz.
+      A: 302 finansal kiralama işlemlerinin ertelenmiş borçlanma maliyetlerini izleyen düzenleyici hesaptır.
+      C: 304 tahvillerin bir yıl içinde ödenecek anapara taksit ve faizleri içindir; banka kredisi değildir.
       D: 400 Banka Kredileri uzun vadeli mali borç hesabıdır; gelecek yıl ödenecek kısmın özel hesabı 303'tür.
       E: 409 diğer mali borçlar için ayrılmıştır; uzun vadeli kredi taksitleri ve faizleri için özel hesap 303'tür.
     hesap_adimlari: []
@@ -656,7 +661,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -677,8 +682,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: çeldiriciler benzer uzunlukta gerçek hesap adlarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -693,6 +699,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: çeldiriciler benzer uzunlukta gerçek hesap adlarıyla yenilendi'
 - id: SMMM-FIN-BOR-0028
   sinav: smmm
   bolum:
@@ -707,21 +717,23 @@
   kok: Aşağıdaki ifadelerden hangisi Tekdüzen Hesap Planında kambiyo kârı ve kambiyo zararı ile ihracata ilişkin
     dönem içi kur farklarının izlenmesi bakımından doğrudur?
   secenekler:
-    A: Tüm kur farkları 646 Kambiyo Kârları hesabında izlenir.
-    B: Kambiyo kârları 646, kambiyo zararları 656 hesabında izlenir; ihracatla ilgili dönem içinde ortaya çıkan
-      kur farkları ise 646 yerine 601 Yurtdışı Satışlar hesabına aktarılır.
-    C: Kambiyo kârları 656, kambiyo zararları 646 hesabında izlenir.
-    D: İhracatla ilgili dönem içi kur farkları 656 Kambiyo Zararları hesabına aktarılır.
-    E: Kambiyo kârları ve zararları yalnızca 600 Yurtiçi Satışlar hesabında izlenir.
+    A: Kambiyo kârları ve zararları 646 hesabında izlenir; ihracatla ilgili kur farkları da bu hesapta kalır.
+    B: Kambiyo kârları 646, kambiyo zararları 656 hesabında izlenir; ihracatla ilgili dönem içi kur farkları 601'e
+      aktarılır.
+    C: Kambiyo kârları 656, kambiyo zararları 646 hesabında izlenir; ihracatla ilgili kur farkları 601'e aktarılır.
+    D: Kambiyo kârları 646, kambiyo zararları 656 hesabında izlenir; ihracatla ilgili dönem içi kur farkları 656'ya
+      aktarılır.
+    E: Kambiyo kârları ve zararları 600 Yurtiçi Satışlar hesabında izlenir; ihracatla ilgili kur farkları ayrıca
+      izlenmez.
   dogru: B
   aciklama:
     dogru_neden: 646 kambiyo kârlarını, 656 kambiyo zararlarını izler. Kaynak ayrıca ihracatla ilgili dönem içinde
       ortaya çıkan kur farklarının 646'ya değil 601 Yurtdışı Satışlar hesabına aktarılacağını özel olarak belirtir.
     celdiriciler:
-      A: İhracata ilişkin dönem içi kur farkları için kaynak özel bir istisna getirir.
+      A: İhracata ilişkin dönem içi kur farkları için kaynak özel bir istisna getirir; bu farklar 646'da bırakılmaz.
       C: 646 kâr, 656 zarar hesabıdır; yönleri ters verilmiştir.
       D: İhracatla ilgili dönem içi kur farklarının kaynakta 601'e aktarılacağı belirtilmiştir.
-      E: 600 yurtiçi satışlar hesabı bu kur farklarının özel hesabı değildir.
+      E: Kambiyo kâr ve zararları 600 değil 646 ve 656 hesaplarında izlenir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Tekdüzen Hesap Planı
@@ -743,7 +755,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -764,8 +776,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6: şıklar aynı ayrıntı düzeyine getirildi, mutlak ifade kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -780,6 +793,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5/R6: şıklar aynı ayrıntı düzeyine getirildi, mutlak ifade kaldırıldı'
 - id: SMMM-FIN-BOR-0029
   sinav: smmm
   bolum:
@@ -883,7 +900,7 @@
     B: Yalnız II
     C: I ve II
     D: II ve III
-    E: I, II ve III
+    E: I, II, III
   dogru: E
   aciklama:
     dogru_neden: Kaynakta 308 ihraç farkının gelecek döneme ait kısmını; 305 çıkarılmış bono ve senetleri; 405 ise
@@ -892,7 +909,7 @@
       A: II ve III de kaynakta açıkça yer alır.
       B: I ve III de kaynakta yer alır.
       C: III de doğrudur.
-      D: I de doğrudur.
+      D: I de doğrudur; bu öncül kaynakla uyumlu olduğundan seçenek eksiktir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: MSUGT Tekdüzen Hesap Planı
@@ -908,7 +925,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -929,8 +946,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: öncül şıkları dengelendi (I, II, III biçimi); anlam aynı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -945,6 +963,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: öncül şıkları dengelendi (I, II, III biçimi); anlam aynı'
 - id: SMMM-FIN-BOR-0031
   sinav: smmm
   bolum:
@@ -1294,11 +1316,11 @@
   zorluk: 2
   kok: Aşağıdaki işlemlerden hangisinde ortaya çıkan kur farkının hesabı diğerlerinden farklıdır?
   secenekler:
-    A: İhracatla ilgili dönem içinde ortaya çıkan kur farkı
-    B: İhracat bedelinin tahsilinden kaynaklanan kur farkı
-    C: İşletmenin faaliyetlerini yürütmek amacıyla kullandığı borçlanmaya ilişkin kur farkı
+    A: İhracatla ilgili olarak dönem içinde ortaya çıkan kur farkı
+    B: İhracat bedelinin tahsilinden kaynaklanan dönem içi kur farkı
+    C: Faaliyetleri yürütmek için kullanılan borçlanmaya ilişkin kur farkı
     D: İhracat satışına bağlı olarak dönem içinde oluşan kur farkı
-    E: Yurt dışı satışla doğrudan ilişkili dönem içi kur farkı
+    E: Yurt dışı satışla doğrudan ilişkili olarak dönem içinde oluşan kur farkı
   dogru: C
   aciklama:
     dogru_neden: MSUGT'ye göre ihracatla ilgili dönem içinde ortaya çıkan kur farkları 601 Yurtdışı Satışlar hesabına
@@ -1331,7 +1353,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1352,8 +1374,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: doğru şık kısaltıldı, çeldiriciler dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1368,6 +1391,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: doğru şık kısaltıldı, çeldiriciler dengelendi'
 - id: SMMM-FIN-BOR-0036
   sinav: smmm
   bolum:
@@ -1394,7 +1421,7 @@
     B: Yalnız II
     C: I ve II
     D: I ve III
-    E: I, II ve III
+    E: I, II, III
   dogru: E
   aciklama:
     dogru_neden: 303 hesabı, uzun vadeli kredilerin bilanço tarihinden itibaren bir yıl içinde ödenecek anapara
@@ -1422,7 +1449,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1443,8 +1470,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: öncül şıkları dengelendi (I, II, III biçimi); anlam aynı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1459,6 +1487,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: öncül şıkları dengelendi (I, II, III biçimi); anlam aynı'
 - id: SMMM-FIN-BOR-0037
   sinav: smmm
   bolum:

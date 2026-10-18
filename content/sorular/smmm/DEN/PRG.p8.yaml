@@ -14,17 +14,16 @@
     kontrollerinin tasarımını incelemiştir. Bu bulgular karşısında aşağıdaki denetim yaklaşımından hangisi BDS hükümleriyle
     uyumludur?
   secenekler:
-    A: Hasılat riski varsayıldığından, ayrıca hangi hasılat işlemlerinin veya yönetim beyanlarının riske yol açabileceğini
-      belirlemeye gerek yoktur.
+    A: Hasılat riski varsayıldığından, riske yol açabilecek hasılat işlemlerini veya yönetim beyanlarını ayrıca
+      belirlemeye gerek yoktur; tüm hasılat aynı yaklaşımla ele alınır.
     B: Hile riski ciddi risk sayılsa da satış kontrollerinin tasarımının değerlendirilmesi yeterlidir; müteakip
       prosedürlerin niteliği, zamanlaması ve kapsamı ayrıca risklere göre belirlenmez.
-    C: Hasılat riski yalnız finansal tablo düzeyinde değerlendirilir; işlem sınıfı ve yönetim beyanı düzeyinde ayrı
-      değerlendirme yapılmaz.
-    D: Denetçi, hangi hasılat türü, işlemi veya yönetim beyanının riske yol açabileceğini değerlendirir; ciddi risk
-      olarak ele aldığı risk için ilgili kontrolleri belirleyip tasarım ve uygulamalarını değerlendirir ve müteakip
-      prosedürlerini riske göre tasarlar.
-    E: Hasılatta hile riski varsayımı, yalnız yönetimin yazılı beyanının alınmasını gerektirir; kontrollerin değerlendirilmesi
-      zorunlu değildir.
+    C: Hasılat riski finansal tablo düzeyinde değerlendirilir; işlem sınıfı ve yönetim beyanı düzeyinde ayrı değerlendirme
+      yapılması gerekmez, sonuç tüm hesaplara eşit yansıtılır.
+    D: Denetçi, riske yol açabilecek hasılat türünü, işlemi veya yönetim beyanını belirler; ciddi risk için ilgili
+      kontrolleri değerlendirir ve müteakip prosedürleri riske göre tasarlar.
+    E: Hasılatta hile riski varsayımı yönetimin yazılı beyanının alınmasını gerektirir; kontrollerin değerlendirilmesi
+      zorunlu değildir ve müteakip prosedürler buna göre daraltılır.
   dogru: D
   aciklama:
     dogru_neden: 'BDS 240 md. 27 uyarınca hasılatın finansal tablolara alınmasında hile riski bulunduğu varsayımıyla
@@ -66,7 +65,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -87,8 +86,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: şık uzunlukları dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -103,6 +103,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: şık uzunlukları dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
 - id: SMMM-DEN-PRG-0006
   sinav: smmm
   bolum:
@@ -117,12 +121,16 @@
   kok: Denetçi, maddi duran varlıkların amortisman giderini incelerken hem analitik prosedür hem de muhasebe tahmininin
     denetimi bakımından bir denetim programı oluşturacaktır. Aşağıdaki işlemlerden hangisi BDS'lere en uygun yaklaşımdır?
   secenekler:
-    A: Amortisman tutarı bir muhasebe tahmini sayılamayacağından yalnız belge kontrolü yapılır.
-    B: Amortismanı beklenen sonuçlarla karşılaştırmak analitik prosedür kapsamında kullanılabilir; ayrıca risklere
-      karşılık olarak yönetimin tahmini nasıl oluşturduğunun test edilmesi de uygun bir müteakip prosedür olabilir.
-    C: Amortisman için yalnızca dış teyit alınması gerekir; analitik prosedür kullanılamaz.
-    D: Amortismanın denetiminde yalnız cari dönemden sonra gerçekleşen olaylar dikkate alınabilir.
-    E: Amortisman tahmini yüksek riskli olsa bile denetçinin prosedürleri her durumda aynı kapsamda olmalıdır.
+    A: Amortisman tutarı bir muhasebe tahmini sayılamayacağından denetimi belge kontrolüyle yapılır ve yönetimin
+      tahmin süreci ile varsayımları incelenmez.
+    B: Amortismanı beklenen sonuçlarla karşılaştırmak analitik prosedürdür; yönetimin tahmini nasıl oluşturduğunun
+      testi de müteakip prosedür olabilir.
+    C: Amortisman için dış teyit alınması gerekir; beklenen sonuçlarla karşılaştırma yoluyla analitik prosedür uygulanması
+      mümkün değildir.
+    D: Amortismanın denetiminde cari dönemden sonra gerçekleşen olaylar dikkate alınabilir; yönetimin tahmin süreci
+      ayrıca test edilmez.
+    E: Amortisman tahmini yüksek riskli olsa da prosedürlerin kapsamı risk düzeyine göre değiştirilmez; aynı testler
+      uygulanır.
   dogru: B
   aciklama:
     dogru_neden: BDS 520 A1, amortisman tahmini gibi denetçinin beklentilerinin analitik prosedürlerde karşılaştırma
@@ -130,7 +138,7 @@
       arasında sayar; md. 18 ise risklere karşı müteakip prosedürler arasında yönetimin muhasebe tahminini nasıl
       oluşturduğunun test edilmesini sayar.
     celdiriciler:
-      A: BDS 540 A1 amortismanı muhasebe tahminleri arasında açıkça sayar.
+      A: Amortisman muhasebe tahminleri arasında açıkça sayılır (BDS 540 A1).
       C: BDS 520 A1 amortisman tahminini analitik prosedürlerde kullanılabilecek bir beklenti örneği olarak verir;
         dış teyit zorunluluğu yoktur.
       D: BDS 540 md. 18 tek bir prosedür türüyle sınırlama getirmez; risklere uygun farklı yaklaşımlar öngörür.
@@ -156,7 +164,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -177,8 +185,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5 R6: şık uzunlukları dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -193,6 +202,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5 R6: şık uzunlukları dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
 - id: SMMM-DEN-PRG-0007
   sinav: smmm
   bolum:
@@ -208,13 +221,16 @@
     prosedürlerle yeterli kanıt elde edememiştir. Denetçi, alacakların önemli yanlışlık riskini ve teyit sürecinin
     sonuçlarını değerlendirirken aşağıdakilerden hangisini yapmalıdır?
   secenekler:
-    A: Yönetimin izin vermemesi, alacakların doğru olduğunun kanıtı sayılır ve ilave işlem yapılmaz.
-    B: Denetçi yönetimin gerekçesini sorgular, izin vermemenin risk değerlendirmesi ve diğer prosedürler üzerindeki
-      etkisini değerlendirir; alternatif prosedürler kanıt sağlamazsa iletişim ve görüş üzerindeki etkiyi ayrıca
-      ele alır.
-    C: Denetçi yalnızca olumsuz teyit kullanmak zorundadır; alternatif prosedür uygulanamaz.
-    D: Ticari alacaklar için dış teyit talebinde denetçinin süreç üzerinde kontrol sahibi olması gerekmez.
-    E: Alternatif prosedürler sonuç vermese bile görüş üzerindeki etki değerlendirilmeden denetim tamamlanır.
+    A: Yönetimin izin vermemesi alacakların doğru olduğunun kanıtı sayılır; yönetim beyanı yeterli kabul edilip
+      ilave işlem yapılmaz.
+    B: Denetçi yönetimin gerekçesini sorgular ve izin verilmemesinin risklere etkisini değerlendirir; kanıt yoksa
+      iletişim kurar, görüşe etkisini ele alır.
+    C: Denetçi olumsuz teyit kullanmak zorundadır; yönetim engel olsa bile alternatif prosedür uygulanamaz ve teyit
+      ertelenir.
+    D: Ticari alacaklar için dış teyit talebinde denetçinin süreç üzerinde kontrol sahibi olması gerekmez; talebi
+      yönetim hazırlar, gönderir ve yanıtları toplar.
+    E: Alternatif prosedürler sonuç vermese bile görüş üzerindeki etki değerlendirilmeden denetim tamamlanır ve
+      iletişim kurulmaz.
   dogru: B
   aciklama:
     dogru_neden: 'BDS 505 md. 7 dış teyit sürecinde denetçinin kontrol sahibi olmasını; md. 8 yönetimin izin vermemesi
@@ -226,7 +242,7 @@
       A: BDS 505 md. 8, yönetimin gerekçesinin ve izin vermemenin riskler üzerindeki etkisinin değerlendirilmesini
         ister; md. 9 ayrıca kanıt elde edilemezse sonraki adımları düzenler.
       C: BDS 505 md. 7 dış teyit sürecinin denetçi kontrolünde yürütülmesini, md. 8 ise gerektiğinde alternatif
-        prosedür uygulanmasını düzenler; olumsuz teyit zorunlu bir tek seçenek değildir.
+        prosedür uygulanmasını düzenler; olumsuz teyit zorunlu tek seçenek değildir.
       D: BDS 505 md. 7 dış teyit taleplerinde teyit edilecek bilginin ve uygun tarafın seçimi ile taleplerin gönderilmesi
         üzerinde denetçi kontrolünü öngörür.
       E: BDS 505 md. 9, uygun ve güvenilir kanıt elde edilememesi hâlinde görüş üzerindeki etkinin değerlendirilmesini
@@ -255,7 +271,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -276,8 +292,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5 R6: şık uzunlukları dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -298,6 +315,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5 R6: şık uzunlukları dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
 - id: SMMM-DEN-PRG-0008
   sinav: smmm
   bolum:
@@ -702,12 +723,12 @@
   zorluk: 2
   kok: Bir denetçi, ticari alacakların değerlemesine ilişkin detay testinde örnekleme yapmaktadır. Alacak bakiyelerinin
     doğrulanması için anakitleyi oluşturan münferit parasal birimleri örnekleme birimi olarak belirlemenin uygunluğu
-    konusunda aşağıdaki ifadelerden hangisi BDS 530'a uygundur?
+    konusunda aşağıdaki ifadelerden hangisi denetim örneklemesine ilişkin standarda uygundur?
   secenekler:
-    A: Münferit parasal birimlerin örnekleme birimi olarak belirlenmesi hiçbir durumda kullanılamaz.
-    B: Örnekleme yalnızca toplam alacak tutarının tamamı incelenerek yapılabilir.
-    C: Örnekleme birimi mutlaka müşteri şirket olmak zorundadır.
-    D: Alacaklarda yalnızca blok seçim yöntemi kullanılabilir.
+    A: Münferit parasal birimlerin örnekleme birimi olarak belirlenmesi, alacak bakiyeleri için uygun değildir.
+    B: Örnekleme, toplam alacak tutarının tamamı incelenerek yapılabilir.
+    C: Örnekleme birimi müşteri şirket olarak belirlenmelidir; münferit kalemler birim sayılamaz.
+    D: Alacak testlerinde blok seçim yöntemi tercih edilir.
     E: Detay testlerinde alacakların münferit parasal birimler olarak belirlenmesi daha etkin olabilir.
   dogru: E
   aciklama:
@@ -729,7 +750,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -750,8 +771,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R6: şık uzunlukları
+          dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -772,6 +795,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R6: şık uzunlukları dengelendi / çeldiriciler
+      mutlak ifadesiz yeniden yazıldı'
 - id: SMMM-DEN-PRG-0013
   sinav: smmm
   bolum:
@@ -872,17 +900,18 @@
   kok: (Y) AŞ'nin satış hesabında, yönetimin dönem sonu hedeflerini tutturma baskısı nedeniyle satışların olduğundan
     fazla gösterilmesi riski ciddi olarak değerlendirilmiştir. Özellikle bazı satış sözleşmelerinde teslimattan
     önce faturalama yapıldığı görülmüş, iade ve teslim şartlarının sözleşmeler arasında değiştiği belirlenmiştir.
-    Bu risk için hesap bazlı denetim programına aşağıdaki prosedürlerden hangisinin eklenmesi BDS 330 açısından
-    en uygundur?
+    Bu risk için hesap bazlı denetim programına aşağıdaki prosedürlerden hangisinin eklenmesi değerlendirilen risklere
+    karşı denetçinin yanıtlarına ilişkin standart açısından en uygundur?
   secenekler:
-    A: Yalnızca dönem sonunda ödenmemiş ticari alacakların bakiyelerini teyit etmek ve sözleşme ayrıntılarını incelememek.
+    A: Dönem sonunda ödenmemiş ticari alacakların bakiyelerini teyit etmek, sözleşme ayrıntılarını teyit kapsamına
+      almamak ve teslimat şartlarını sorgulamamak.
     B: Satışların tamamını yeniden kaydetmek; ancak teslimat tarihleri ve sözleşme şartlarına ilişkin herhangi bir
       doğrulama yapmamak.
-    C: Yalnızca önceki yıl satış toplamını cari yıl satış toplamıyla karşılaştırmak ve fark bulunmazsa başka prosedür
-      uygulamamak.
-    D: Satış sözleşmelerinin tarih, iade ve teslimata ilişkin şartlarını dış teyitle doğrulamak ve sözleşme veya
-      teslim şartlarındaki değişiklikler hakkında finans dışı personeli sorgulamak.
-    E: Yalnızca yönetimden satışların döneminde kaydedildiğine ilişkin yazılı beyan almak ve dış teyit uygulamamak.
+    C: Önceki yıl satış toplamını cari yıl satış toplamıyla karşılaştırmak ve fark bulunmazsa başka prosedür uygulamamak.
+    D: Satış sözleşmelerinin tarih, iade ve teslimata ilişkin şartlarını dış teyitle doğrulamak ve değişiklikleri
+      finans dışı personele sormak.
+    E: Yönetimden satışların döneminde kaydedildiğine ilişkin yazılı beyan almak, dış teyit uygulamamak ve sözleşme
+      şartlarını incelememek.
   dogru: D
   aciklama:
     dogru_neden: 'Yönetimin satışları olduğundan fazla gösterme riski, teslimattan önce faturalama ve hâsılatın
@@ -911,7 +940,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -932,8 +961,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5 R6: şık uzunlukları
+          dengelendi / çeldiriciler mutlak ifadesiz yeniden yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -951,3 +982,8 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R7: kökten standart numarası kaldırıldı, kavram adıyla soruldu; R5 R6: şık uzunlukları dengelendi /
+      çeldiriciler mutlak ifadesiz yeniden yazıldı'

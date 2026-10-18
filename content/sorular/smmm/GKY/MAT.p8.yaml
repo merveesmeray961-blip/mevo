@@ -1683,19 +1683,19 @@
   kok: Bir mağazanın dört gündeki satış sayıları sırasıyla pazartesi 20, salı 30, çarşamba 25 ve perşembe 35'tir.
     Buna göre dört günün toplam satışının günlük ortalaması kaçtır?
   secenekler:
-    A: '25'
-    B: '26'
-    C: '27'
+    A: 22,0
+    B: 25,0
+    C: 27,0
     D: 27,5
-    E: '30'
+    E: 32,5
   dogru: D
   aciklama:
     dogru_neden: Toplam satış 20 + 30 + 25 + 35 = 110'dur. Dört güne bölündüğünde günlük ortalama 27,5 olur.
     celdiriciler:
-      A: 25, toplamın dört yerine 100 alınmasıyla elde edilir.
-      B: 26 toplam satışın yanlış bölünmesiyle elde edilir.
-      C: 27 toplamın yanlış yuvarlanmasıyla elde edilir.
-      E: 30 verilerdeki satışların basit bir toplamı veya ortalaması değildir.
+      A: 22,0, toplam satışın (110) dört yerine beşe bölünmesiyle elde edilir.
+      B: '25,0, yalnız ilk üç günün ortalamasıdır: (20+30+25)/3.'
+      C: 27,0, doğru ortalama olan 27,5'in tam sayıya yuvarlanmasıyla elde edilir.
+      E: '32,5, yalnız son iki günün ortalamasıdır: (30+35)/2.'
   kaynaklar:
   - mevzuat: Genel bilgi — GKY tablo-grafik yorumlama ve sayısal mantık
     madde: '-'
@@ -1707,7 +1707,7 @@
   dogrulama:
     python: sonuc = (20 + 30 + 25 + 35) / 4
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1727,8 +1727,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: sayısal şıklar eşit uzunlukta ve tipik hata sonuçlarıyla yenilendi (doğru D=27,5
+          korundu)'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; kaynaksız ders'
@@ -1743,6 +1745,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: sayısal şıklar eşit uzunlukta ve tipik hata sonuçlarıyla yenilendi (doğru D=27,5 korundu)'
 - id: SMMM-GKY-MAT-0070
   sinav: smmm
   bolum:

@@ -93,9 +93,9 @@
   kok: BOBİ FRS'ye göre stok maliyetinin hesaplanmasında aşağıdaki yöntemlerden hangileri kullanılabilir?
   secenekler:
     A: FIFO veya ağırlıklı ortalama
-    B: LIFO veya FIFO
-    C: Yalnızca FIFO
-    D: Yalnızca LIFO
+    B: FIFO veya LIFO
+    C: LIFO veya ağırlıklı ortalama
+    D: FIFO ile LIFO; ağırlıklı ortalama kullanılamaz
     E: FIFO, LIFO ve ağırlıklı ortalamanın tümü
   dogru: A
   aciklama:
@@ -103,8 +103,8 @@
       LIFO kullanımına izin verilmediğini belirtir.
     celdiriciler:
       B: LIFO'nun kullanımına izin verilmemektedir.
-      C: Ağırlıklı ortalama da izin verilen yöntemlerden biridir.
-      D: LIFO izin verilen yöntem değildir.
+      C: BOBİ FRS LIFO'ya izin vermez; ağırlıklı ortalama ile birlikte geçerli olan yöntem FIFO'dur.
+      D: LIFO izin verilen yöntem değildir; ağırlıklı ortalama ise izin verilen yöntemlerdendir.
       E: Üç yöntemin tamamı kullanılamaz; LIFO yasaktır.
   kaynaklar:
   - mevzuat: Büyük ve Orta Boy İşletmeler İçin Finansal Raporlama Standardı
@@ -118,7 +118,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -139,8 +139,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6: mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -155,6 +156,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R6: mutlak ifadeler kaldırıldı'
 - id: SMMM-FIN-STK-0006
   sinav: smmm
   bolum:
@@ -252,11 +257,11 @@
     koşullarındaki seviyededir. Aynı dönemde ayrıca normal seviyenin çok üzerinde bir fire oluşmuştur. BOBİ FRS'ye
     göre bu iki fire türünün stok maliyetine etkisi bakımından aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: Her iki fire de stok maliyetine eklenir.
-    B: Firelerin tamamı net gerçekleşebilir değer üzerinden ölçülür.
+    A: Normal ve normalin üstündeki fire, birlikte stok maliyetine eklenir.
+    B: Normal fire ve normalin üstündeki fire net gerçekleşebilir değer üzerinden ölçülür.
     C: Normal fire dönem gideridir; normalin üstündeki fire stok maliyetine eklenir.
-    D: Normal fire maliyete dahil edilir; normalin üstündeki fire dönem gideri olarak kâr veya zarara yansıtılır.
-    E: Her iki fire de doğrudan satışların maliyetine aktarılır.
+    D: Normal fire maliyete dahil edilir; normalin üstündeki fire dönem gideri olur.
+    E: Her iki fire türü de doğrudan satışların maliyetine aktarılır.
   dogru: D
   aciklama:
     dogru_neden: 'BOBİ FRS 6.15 stok maliyetine dahil edilemeyen maliyetler arasında normalin üstünde gerçekleşen
@@ -266,7 +271,7 @@
       bırakır.'
     celdiriciler:
       A: Normalin üstündeki fire açıkça stok maliyetine dahil edilemeyen giderler arasında sayılmıştır.
-      B: Net gerçekleşebilir değer, firelerin tamamı için kullanılan bir ölçüm yöntemi değildir.
+      B: Net gerçekleşebilir değer, fire türlerinin maliyete etkisini belirleyen bir ölçüt değildir.
       C: Normal fire ile anormal fire için sonuçlar ters çevrilmiştir.
       E: Kaynak her iki fire türünün de otomatik olarak satışların maliyetine aktarılacağını söylemez.
   kaynaklar:
@@ -280,7 +285,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -301,8 +306,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: doğru şık kısaltıldı, çeldiriciler uzatıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -323,6 +329,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: doğru şık kısaltıldı, çeldiriciler uzatıldı'
 - id: SMMM-FIN-STK-0008
   sinav: smmm
   bolum:
@@ -588,11 +598,11 @@
     İşletme BOBİ FRS uygulamaktadır. Bu iki tutarın stok maliyetine alınması ve dönem gideri olarak yansıtılması
     bakımından aşağıdakilerden hangisi doğrudur?'
   secenekler:
-    A: (I) stok maliyetinde yer alabilir; (II) oluştuğu dönemde kâr veya zarara gider olarak yansıtılır.
+    A: (I) stok maliyetinde yer alabilir; (II) oluştuğu dönemde gider olarak yansıtılır.
     B: (I) ve (II) oluştuğu dönemde doğrudan gider yazılır.
     C: (I) ve (II) stok maliyetine dahil edilir.
     D: (I) gider yazılır; (II) stok maliyetine dahil edilir.
-    E: (I) yalnızca satış gerçekleştiğinde gider yazılır; (II) stok maliyetine dahil edilir.
+    E: (I) satış gerçekleştiğinde gider yazılır; (II) oluştuğu dönemde stok maliyetine dahil edilir.
   dogru: A
   aciklama:
     dogru_neden: 'BOBİ FRS 6.15(a), stok maliyetine dahil edilmeyen fire ve kayıpları özellikle normalin üstünde
@@ -623,7 +633,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -644,8 +654,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6: mutlak ifade kaldırıldı, uzunluk dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -660,6 +671,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R6: mutlak ifade kaldırıldı, uzunluk dengelendi'
 - id: SMMM-FIN-STK-0012
   sinav: smmm
   bolum:
@@ -749,12 +764,11 @@
   kok: Aşağıdaki ifadelerden hangisi BOBİ FRS'nin stok ölçümü ile normal üretim kapasitesine ilişkin hükümlerini
     birlikte doğru yansıtır?
   secenekler:
-    A: Stoklar maliyet bedeli ile net gerçekleşebilir değerden düşük olanıyla ölçülür; normal üretim kapasitesi
-      normal şartlarda beklenen ortalama üretim miktarıdır.
+    A: Stoklar maliyet ile net gerçekleşebilir değerin düşüğüyle ölçülür; normal kapasite beklenen ortalama üretimdir.
     B: Stoklar maliyet bedeli ile gerçeğe uygun değerden düşük olanıyla ölçülür; normal kapasite yalnız fiili üretimdir.
     C: Stoklar satış fiyatı ile maliyet bedelinden yüksek olanıyla ölçülür; normal kapasite bütçelenen azami üretimdir.
-    D: Stoklar yalnız maliyet bedeliyle ölçülür; normal kapasite geçmiş yılın fiili üretimidir.
-    E: Stoklar net gerçekleşebilir değer üzerinden ölçülür; normal kapasite satış kapasitesidir.
+    D: Stoklar maliyet bedeliyle ölçülür, değer düşüklüğü dikkate alınmaz; normal kapasite geçmiş yılın fiili üretimidir.
+    E: Stoklar net gerçekleşebilir değer üzerinden ölçülür, maliyet dikkate alınmaz; normal kapasite satış kapasitesidir.
   dogru: A
   aciklama:
     dogru_neden: BOBİ FRS 6.4 stokların maliyet bedeli ile net gerçekleşebilir değerden düşük olanı üzerinden ölçülmesini
@@ -764,9 +778,10 @@
     celdiriciler:
       B: Stok ölçümünde kaynak net gerçekleşebilir değeri esas alır; normal kapasite de yalnız fiili üretim değildir.
       C: Hem ölçüm yönü hem normal kapasite tanımı kaynak hükmüne aykırıdır.
-      D: Stoklar yalnız maliyet bedeliyle ölçülmez; ayrıca normal kapasite geçmiş yıl fiili üretimi olarak tanımlanmaz.
-      E: Stoklar yalnız net gerçekleşebilir değer üzerinden ölçülmez; maliyet ile net gerçekleşebilir değerin düşük
-        olanı esas alınır.
+      D: Stoklar maliyet bedeliyle ölçülür ancak değer düşüklüğü de dikkate alınır; normal kapasite geçmiş yıl fiili
+        üretimi olarak tanımlanmaz.
+      E: Stoklar net gerçekleşebilir değer ile maliyetten düşük olanıyla ölçülür; yalnız net gerçekleşebilir değer
+        esas alınmaz.
   kaynaklar:
   - mevzuat: Büyük ve Orta Boy İşletmeler İçin Finansal Raporlama Standardı (BOBİ FRS), Bölüm 6
     madde: '6.4'
@@ -784,7 +799,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -805,8 +820,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: doğru şık kısaltıldı, çeldiriciler uzatıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -821,6 +837,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: doğru şık kısaltıldı, çeldiriciler uzatıldı'
 - id: SMMM-FIN-STK-0014
   sinav: smmm
   bolum:
@@ -1149,10 +1169,10 @@
     hangi hesaplar kullanılmalıdır?
   secenekler:
     A: Borç 654 Karşılık Giderleri / Alacak 158 Stok Değer Düşüklüğü Karşılığı
-    B: Borç 158 / Alacak 654
-    C: Borç 621 / Alacak 158
-    D: Borç 158 / Alacak 600
-    E: Borç 689 / Alacak 153
+    B: Borç 158 Stok Değer Düşüklüğü Karşılığı / Alacak 654 Karşılık Giderleri
+    C: Borç 621 Satılan Ticari Mallar Maliyeti / Alacak 158 Stok Değer Düşüklüğü Karşılığı
+    D: Borç 158 Stok Değer Düşüklüğü Karşılığı / Alacak 600 Yurt İçi Satışlar
+    E: Borç 689 Diğer Olağandışı Gider ve Zararlar / Alacak 153 Ticari Mallar
   dogru: A
   aciklama:
     dogru_neden: 158 hesabının işleyişinde stok değer düşüklüğü tespit edildiğinde 654 Karşılık Giderleri hesabı
@@ -1177,7 +1197,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1198,8 +1218,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: çeldiriciler hesap adlarıyla aynı ayrıntı düzeyine getirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1214,6 +1235,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: çeldiriciler hesap adlarıyla aynı ayrıntı düzeyine getirildi'
 - id: SMMM-FIN-STK-0019
   sinav: smmm
   bolum:
@@ -2008,11 +2033,11 @@
 
     '
   secenekler:
-    A: 610 Satıştan İadeler 30.000 + 611 Satış İskontoları 5.000  /  120 Alıcılar 35.000
-    B: 120 Alıcılar 35.000  /  610 30.000 + 611 5.000
-    C: 610 35.000  /  120 Alıcılar 35.000
-    D: 611 35.000  /  120 Alıcılar 35.000
-    E: 600 Yurt İçi Satışlar 35.000  /  120 Alıcılar 35.000
+    A: 610 Satıştan İadeler 30.000 + 611 Satış İskontoları 5.000 / 120 Alıcılar 35.000
+    B: 120 Alıcılar 35.000 / 610 Satıştan İadeler 30.000 + 611 Satış İskontoları 5.000
+    C: 610 Satıştan İadeler 35.000 / 120 Alıcılar 35.000
+    D: 611 Satış İskontoları 35.000 / 120 Alıcılar 35.000
+    E: 600 Yurt İçi Satışlar 35.000 / 120 Alıcılar 35.000
   dogru: A
   aciklama:
     dogru_neden: 'İade 610’a, iskonto 611’e borç; alıcılar hesabı alacak yazılır. Her iki hesap da brüt satışlardan
@@ -2038,7 +2063,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2059,8 +2084,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: çeldiriciler aynı ayrıntı düzeyine getirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2075,6 +2101,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: çeldiriciler aynı ayrıntı düzeyine getirildi'
 - id: SMMM-FIN-STK-0029
   sinav: smmm
   bolum:

@@ -169,11 +169,11 @@
   kok: Bir hissedarın kâr payını alma hakkı doğduğu anda BOBİ FRS'ye göre kâr payı için hangi muhasebeleştirme ilkesi
     geçerlidir?
   secenekler:
-    A: Kâr payı yalnızca nakit ödendiğinde kayda alınır.
+    A: Kâr payı, nakit olarak ödendiği tarihte gelir olarak kayda alınır.
     B: Kâr payı, hissedarların ödemeyi alma hakkı oluştuğu anda kayda alınır.
     C: Kâr payı ancak yıl sonu bilançosu kesinleştikten sonra kayda alınır.
     D: Kâr payı hakkı oluşsa da tahsil edilene kadar kayda alınmaz.
-    E: Kâr payı yalnızca özkaynaklarda gösterilir, gelir olarak kayda alınmaz.
+    E: Kâr payı özkaynak kalemi olarak izlenir, gelir olarak kayda alınmaz.
   dogru: B
   aciklama:
     dogru_neden: BOBİ FRS metni kâr paylarının, hissedarların ödemeyi alma hakkı oluştuğu anda kayda alınacağını
@@ -192,7 +192,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -213,8 +213,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6: mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -235,6 +236,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R6: mutlak ifadeler kaldırıldı'
 - id: SMMM-FIN-MKY-0006
   sinav: smmm
   bolum:
@@ -745,7 +750,7 @@
     B: 644 Konusu Kalmayan Karşılıklar
     C: 654 Karşılık Giderleri
     D: 645 Menkul Kıymet Satış Kârları
-    E: 656 Kambiyo Zararları
+    E: 111 Özel Kesim Tahvil, Senet ve Bonoları
   dogru: A
   aciklama:
     dogru_neden: 119 hesabı, menkul kıymetlerde önemli ölçüde veya sürekli değer azalması nedeniyle ayrılan karşılıkların
@@ -754,7 +759,7 @@
       B: 644, ayrılmış karşılığın sonradan konusu kalmadığında kullanılan gelir hesabıdır.
       C: 654 karşılık giderinin izlendiği gider hesabıdır; karşılığın kendisi 119'da izlenir.
       D: 645 menkul kıymet satış kârlarını izler.
-      E: 656 kambiyo zararları içindir.
+      E: 111 özel kesim tahvil, senet ve bonolarını izler; değer düşüklüğü karşılığı bu hesapta değil 119'da izlenir.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1), Ek V Hesap Planı Açıklamaları
     madde: 119 Menkul Kıymetler Değer Düşüklüğü Karşılığı (-)
@@ -768,7 +773,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -789,8 +794,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: uzun çeldirici (111) eklendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -805,6 +811,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: uzun çeldirici (111) eklendi'
 - id: SMMM-FIN-MKY-0013
   sinav: smmm
   bolum:
