@@ -13,8 +13,7 @@
     hangisidir?
   secenekler:
     A: Önce sözleşmenin tüm bedeli TFRS 15'e dağıtılır, sonra özel standart uygulanır.
-    B: Önce diğer standardın ayırma ve/veya ilk ölçüm hükümleri uygulanır; bu kısımlara ilişkin tutarlar işlem bedelinden
-      çıkarılır ve kalan tutar TFRS 15 uyarınca dağıtılır.
+    B: Önce diğer standardın ayırma/ilk ölçüm hükümleri uygulanır; bu tutarlar düşülür, kalan TFRS 15'e göre dağıtılır.
     C: Sözleşmenin tamamı, bedelin çoğunluğunu oluşturan standarda tabi tutulur.
     D: İşletme iki standardı aynı anda uygulayamaz; sözleşmenin tamamı kapsam dışı kalır.
     E: Önce tüm bedel özel standarda göre ölçülür; kalan tutar hasılat olarak kaydedilmeden bırakılır.
@@ -38,7 +37,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -59,8 +58,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -75,6 +75,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-STD-TFR-0022
   sinav: smmm
   bolum:
@@ -175,12 +179,11 @@
     almıştır. Edinilen varlık grubu işletme tanımını karşılamamaktadır. TFRS 3'e göre hangi muhasebeleştirme yaklaşımı
     uygundur?
   secenekler:
-    A: Her durumda satın alma yöntemi uygulanır ve şerefiye hesaplanır.
-    B: İşlem işletme birleşmesi sayılır; kontrol gücü olmayan paylar belirlenir.
-    C: Varlık grubu tek kalem olarak özkaynaklarda muhasebeleştirilir.
-    D: İşlem ortak kontrole tabi birleşme sayılarak kapsam dışına çıkarılır.
-    E: Edinilen varlıklar ve üstlenilen borçlar ayrı ayrı tanımlanıp muhasebeleştirilir; maliyet, satın alma tarihindeki
-      gerçeğe uygun değerler temelinde dağıtılır ve şerefiye oluşmaz.
+    A: Satın alma yöntemi uygulanır; edinilen net varlıklar ile bedel arasındaki fark şerefiyedir.
+    B: İşlem işletme birleşmesi sayılır; kontrol gücü olmayan paylar ve şerefiye belirlenir.
+    C: Varlık grubu tek kalem olarak ve maliyet bedeliyle özkaynaklarda muhasebeleştirilir.
+    D: İşlem ortak kontrole tabi birleşme sayılır ve TFRS 3 kapsamı dışına çıkarılır.
+    E: Varlık ve borçlar ayrı ayrı tanınır; maliyet gerçeğe uygun değerlere göre dağıtılır ve şerefiye oluşmaz.
   dogru: E
   aciklama:
     dogru_neden: 'TFRS 3 paragraf 2(b), işletme tanımına uymayan varlık veya varlık grubunun edinimini kapsam dışında
@@ -203,7 +206,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -224,8 +227,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -246,6 +250,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0024
   sinav: smmm
   bolum:
@@ -260,10 +268,10 @@
     sözleşme yapmıştır. Karşı taraf, şirketin faaliyet risklerini paylaşan bir ortak değil, ürünleri edinen taraftır.
     TFRS 15 bakımından karşı taraf nasıl değerlendirilir?
   secenekler:
-    A: Her durumda ortak girişim katılımcısıdır.
-    B: Müşteri olarak değerlendirilir; sözleşme diğer kapsam istisnalarından birine girmiyorsa TFRS 15 uygulanır.
-    C: Sözleşme bedeli bulunması müşteri niteliğini ortadan kaldırır.
-    D: Sadece sözleşme peşin ödenirse müşteri olur.
+    A: Karşı taraf ortak girişim katılımcısı sayılır.
+    B: Müşteri sayılır; sözleşme başka bir kapsam istisnasına girmiyorsa TFRS 15 uygulanır.
+    C: Sözleşmede bedel bulunması karşı tarafın müşteri niteliğini ortadan kaldırır.
+    D: Karşı taraf ancak sözleşme peşin ödenirse müşteri olur.
     E: TFRS 15 yalnız hizmet sözleşmelerine uygulanır.
   dogru: B
   aciklama:
@@ -285,7 +293,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -306,8 +314,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -322,6 +331,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0025
   sinav: smmm
   bolum:
@@ -661,10 +674,10 @@
   zorluk: 3
   kok: TFRS 5'in kapsamı ve ölçüm hükümleri bakımından aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: TFRS 5'in ölçüm hükümleri, TMS 12 kapsamındaki ertelenmiş vergi varlıklarına her durumda uygulanır.
+    A: TFRS 5'in ölçüm hükümleri TMS 12 kapsamındaki ertelenmiş vergi varlıklarına da uygulanır.
     B: Satış amaçlı elde tutulan koşulları sağlanmasa da duran varlık otomatik olarak dönen varlık sınıflandırılır.
-    C: TFRS 5'in ölçüm hükümleri kapsamındaki bir duran varlık, elden çıkarılacak varlık grubuna dahilse grup defter
-      değeri ile satış maliyetleri düşülmüş gerçeğe uygun değerinden düşük olanıyla ölçülür.
+    C: Varlık elden çıkarılacak bir gruba dahilse grup, defter değeri ile satış maliyeti düşülmüş gerçeğe uygun
+      değerin düşüğüyle ölçülür.
     D: Elden çıkarılacak varlık grupları yalnız duran varlıklardan oluşabilir; borç içeremez.
     E: TFRS 5, finansal tablolara yansıtılan duran varlıkların sınıflandırılmasıyla ilgilenmez.
   dogru: C
@@ -690,7 +703,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -711,8 +724,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -727,6 +741,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0030
   sinav: smmm
   bolum:
@@ -754,7 +772,7 @@
     B: 'I: kapsam dışı; II: TFRS 15 kapsamında; III: TFRS 15 kapsamında'
     C: 'I: TFRS 15 kapsamında; II: TFRS 15 kapsamında; III: TFRS 15 kapsamında'
     D: 'I: kapsam dışı; II: kapsam dışı; III: yalnız TFRS 15 kapsamında'
-    E: 'I: TFRS 15 kapsamında; II: kapsam dışı; III: her durumda TFRS 15 kapsamında'
+    E: 'I: TFRS 15 kapsamında; II: kapsam dışı; III: istisnaya rağmen TFRS 15 kapsamında'
   dogru: A
   aciklama:
     dogru_neden: TFRS 15 paragraf 5(a), TFRS 16 kapsamındaki kiralamaları dışlar. Paragraf 5(d), aynı iş alanındaki
@@ -774,7 +792,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -795,8 +813,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -811,6 +830,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-STD-TFR-0031
   sinav: smmm
   bolum:
@@ -1061,11 +1084,10 @@
     muhasebeleştirecektir. TMS 16'nın kapsam hükümlerine göre hangi değerlendirme doğrudur?
   secenekler:
     A: Hem canlı varlıklar hem makine TMS 16 kapsamı dışındadır.
-    B: Canlı varlıklar TMS 16 kapsamındadır; makine TMS 41 kapsamındadır.
-    C: Canlı varlıklar kapsam dışındadır; ancak bu varlıkların geliştirilmesi veya korunmasında kullanılan maddi
-      duran varlık makine TMS 16 kapsamındadır.
+    B: Canlı varlıklar TMS 16 kapsamındadır; bunların korunmasında kullanılan makine ise TMS 41 kapsamındadır.
+    C: Canlı varlıklar kapsam dışıdır; ancak bunları geliştirmede veya korumada kullanılan makine TMS 16 kapsamındadır.
     D: Canlı varlıklar ve makine yalnız TFRS 5 kapsamında muhasebeleştirilir.
-    E: Makine, ilişkili olduğu canlı varlık kapsam dışı olduğundan hiçbir standarda tabi değildir.
+    E: Makine, ilişkili olduğu canlı varlık gibi TMS 41 kapsamında muhasebeleştirilir.
   dogru: C
   aciklama:
     dogru_neden: 'TMS 16 paragraf 3(b)-(d) belirli canlı varlıkları ve doğal kaynakları kapsam dışı bırakırken,
@@ -1086,7 +1108,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1107,8 +1129,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1123,6 +1146,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0035
   sinav: smmm
   bolum:
@@ -1214,8 +1241,8 @@
     B: Her iki maliyet grubu da birleşme bedeline eklenir.
     C: Danışmanlık ücretleri edinilen varlıklara dağıtılır; borçlanma aracı maliyeti doğrudan özkaynaklardan düşülür.
     D: Tüm maliyetler edinme tarihinden itibaren itfa edilir.
-    E: Satın alıma ilişkin maliyetler genel olarak oluştukları dönemde giderleştirilir; borçlanma aracı ihracına
-      ilişkin maliyetler ilgili finansal araç hükümlerine göre ele alınır.
+    E: Satın alıma ilişkin maliyetler oluştuğu dönemde giderleştirilir; borçlanma aracı ihraç maliyeti finansal
+      araç hükümlerine göre ele alınır.
   dogru: E
   aciklama:
     dogru_neden: 'TFRS 3 paragraf 53 satın alıma ilişkin maliyetlerin genel olarak gerçekleştiği ve hizmetin alındığı
@@ -1244,7 +1271,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1265,8 +1292,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1287,6 +1315,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-STD-TFR-0037
   sinav: smmm
   bolum:
@@ -1301,12 +1333,11 @@
     bir düzenleyici makamın gecikmesi nedeniyle bir yılı aşacaktır; buna karşın işletmenin satış planını sürdürdüğüne
     ilişkin yeterli kanıt vardır. TFRS 5’e göre hangi sonuç doğar?
   secenekler:
-    A: Bir yıllık süre aşıldığı için sınıflandırma her durumda sona erer.
-    B: Varlık yalnızca kiraya verilirse satış amaçlı sınıflandırılabilir.
-    C: Varlık yeniden değerlenerek sınıflandırma korunur.
-    D: Gecikme kontrol dışı koşullardan kaynaklanıyor ve satış planının devamına yeterli kanıt varsa süre uzaması
-      sınıflandırmayı engellemez.
-    E: Satış bedeli tahsil edilene kadar varlık stok olarak sınıflandırılır.
+    A: Bir yıllık süre aşıldığı için sınıflandırma sona erer ve varlık duran varlıklara aktarılır.
+    B: Varlık ancak satış tamamlanana kadar kiraya verilirse satış amaçlı sınıflandırılabilir.
+    C: Varlık yeniden değerlenerek satış amaçlı sınıflandırma korunur ve amortisman sürer.
+    D: Gecikme kontrol dışıysa ve satış planına bağlılık kanıtlanıyorsa süre uzaması sınıflandırmayı engellemez.
+    E: Satış bedeli tahsil edilene kadar varlık stok olarak sınıflandırılır ve maliyetle ölçülür.
   dogru: D
   aciklama:
     dogru_neden: 'TFRS 5 paragraf 9, işletmenin kontrolü dışındaki olaylar nedeniyle oluşan ve satış planının sürdüğüne
@@ -1334,7 +1365,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1355,8 +1386,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1371,6 +1403,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0038
   sinav: smmm
   bolum:
@@ -1386,10 +1422,9 @@
   secenekler:
     A: Prim ancak nakit tahsil edildiğinde işlem bedeline alınır.
     B: Prim doğrudan diğer kapsamlı gelire kaydedilir.
-    C: Prim her koşulda sözleşme bedelinden çıkarılır.
-    D: Prim yalnızca sözleşme sonunda kesinleşirse dikkate alınır ve önceki dönem hasılatı düzeltilmez.
-    E: Değişken bedeli tahmin ederek müşteriye taahhüt edilen mal veya hizmetlerin devri karşılığında hak kazanılacak
-      bedeli belirlemelidir.
+    C: Prim sözleşme bedelinden çıkarılır ve hasılata dahil edilmez.
+    D: Prim sözleşme sonunda kesinleşirse dikkate alınır ve önceki dönem hasılatı düzeltilmez.
+    E: Değişken bedeli tahmin ederek mal veya hizmet devri karşılığında hak kazanılacak bedeli belirlemelidir.
   dogru: E
   aciklama:
     dogru_neden: TFRS 15 paragraf 50, sözleşmede değişken bedel varsa işletmenin devredilen mal ve hizmetler karşılığında
@@ -1413,7 +1448,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1434,8 +1469,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1453,6 +1489,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0039
   sinav: smmm
   bolum:
@@ -1551,7 +1591,7 @@
       alınır.
     C: Tahmin değişikliği ileriye yönelik muhasebeleştirilir; önemli önceki dönem hatası ise uygulanabilir olduğu
       ölçüde geriye dönük düzeltilir.
-    D: Her iki durum da yalnızca dipnotlarda açıklanır.
+    D: Her iki durum da dipnotlarda açıklanır, muhasebeleştirilmez.
     E: Tahmin değişikliği özkaynakta, hata ise diğer kapsamlı gelirde muhasebeleştirilir.
   dogru: C
   aciklama:
@@ -1579,7 +1619,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1600,8 +1640,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1616,6 +1657,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-STD-TFR-0041
   sinav: smmm
   bolum:
@@ -1630,11 +1675,11 @@
     belirtisi bulunmadığını ileri sürerek yıllık değer düşüklüğü testini yapmamayı düşünmektedir. TMS 36 bakımından
     doğru yaklaşım hangisidir?
   secenekler:
-    A: Kullanıma hazır olmayan maddi olmayan duran varlık değer düşüklüğü açısından her yıl test edilir.
-    B: Yalnızca üç yılda bir test yapılır.
-    C: Test sadece varlık elden çıkarılacağı zaman yapılır.
+    A: Varlık her yıl değer düşüklüğü testine tabi tutulur.
+    B: Test üç yılda bir yapılır.
+    C: Test varlık elden çıkarılacağı zaman yapılır.
     D: Belirti yoksa test yapılması gerekmez.
-    E: Test yalnızca amortisman ayrılmaya başlandıktan sonra yapılır.
+    E: Test amortisman ayrılmaya başlandıktan sonra yapılır.
   dogru: A
   aciklama:
     dogru_neden: TMS 36, henüz kullanıma hazır olmayan maddi olmayan duran varlıklar için değer düşüklüğü belirtisinden
@@ -1660,7 +1705,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1681,8 +1726,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1700,6 +1746,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0042
   sinav: smmm
   bolum:
@@ -1799,12 +1849,11 @@
   kok: Bir işletme, üretimi 18 ay süren ve satışa hazır hale gelmesi önemli zaman alan bir varlık için kredi kullanmıştır.
     Aynı dönemde genel işletme giderlerini karşılamak için de borçlanmıştır. TMS 23 bakımından hangi ayrım doğrudur?
   secenekler:
-    A: Her iki borçlanmanın maliyetleri varlığın maliyetine eklenir.
-    B: Yalnızca özellikli varlığın elde edilmesi, inşası veya üretimiyle doğrudan ilişkilendirilebilen borçlanma
-      maliyetleri varlığın maliyetine eklenir; diğerleri giderleştirilir.
-    C: Borçlanma maliyetlerinin tamamı oluştukları dönemde giderleştirilir.
-    D: Faiz maliyetleri sadece varlık tamamlandıktan sonra aktifleştirilir.
-    E: Aktifleştirme yalnızca varlık bir yıldan kısa sürede tamamlanırsa yapılır.
+    A: Her iki borçlanmanın maliyetleri de özellikli varlığın maliyetine eklenerek aktifleştirilir.
+    B: Özellikli varlıkla doğrudan ilişkilendirilebilen borçlanma maliyetleri aktifleştirilir; diğerleri giderleştirilir.
+    C: Borçlanma maliyetlerinin tamamı, varlığın niteliğine bakılmaksızın oluştukları dönemde giderleştirilir.
+    D: Faiz maliyetleri ancak varlığın üretimi tamamlandıktan sonra aktifleştirilebilir.
+    E: Aktifleştirme ancak varlığın üretimi bir yıldan kısa sürede tamamlanırsa yapılır.
   dogru: B
   aciklama:
     dogru_neden: TMS 23 temel ilkesine göre özellikli varlığın elde edilmesi, inşası veya üretimiyle doğrudan ilişkilendirilebilen
@@ -1828,7 +1877,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1849,8 +1898,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1865,6 +1915,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-STD-TFR-0044
   sinav: smmm
   bolum:
@@ -1878,12 +1932,11 @@
   kok: Edinen işletme, işletme birleşmesi sırasında edinilen işletmenin eski sahiplerine, birleşmeden sonra belirli
     süre hizmet vermeleri koşuluyla ödeme yapmayı taahhüt etmiştir. Bu ödeme TFRS 3 bakımından nasıl değerlendirilmelidir?
   secenekler:
-    A: Her durumda transfer edilen bedelin parçasıdır.
-    B: Edinilen işletmenin şerefiyesine doğrudan eklenir.
-    C: Ayrı bir işlem olabileceği değerlendirilmelidir; gelecekteki hizmet karşılığı ödemeler birleşme bedelinden
-      ayrı işlem örnekleri arasındadır.
-    D: Her durumda kontrol gücü olmayan pay olarak muhasebeleştirilir.
-    E: Ödeme yalnızca edinme tarihinde giderleştirilir.
+    A: Ödeme, hizmet koşuluna bakılmaksızın transfer edilen bedelin parçası sayılır.
+    B: Ödeme, edinilen işletmenin şerefiyesine doğrudan eklenir ve itfa edilmez.
+    C: Birleşmeden ayrı bir işlem olup olmadığı değerlendirilmelidir; gelecek hizmet karşılığıdır.
+    D: Ödeme, edinme tarihinde kontrol gücü olmayan pay olarak muhasebeleştirilir.
+    E: Ödeme, hizmet süresine bakılmaksızın edinme tarihinde tek seferde giderleştirilir.
   dogru: C
   aciklama:
     dogru_neden: TFRS 3, önceki sahiplerin birleşme sonrası gelecekteki hizmetlerinin karşılığını ayrı işlem örneği
@@ -1907,7 +1960,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1928,8 +1981,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1944,6 +1998,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0045
   sinav: smmm
   bolum:
@@ -2306,12 +2364,11 @@
     tabi tutmaktadır. Parçalardan biri değiştirildiğinde ve diğer parçanın kullanımına devam edildiğinde TMS 16
     açısından hangi yaklaşım doğrudur?
   secenekler:
-    A: Önemli parçalar farklı ömürlere sahipse ayrı amortismana tabi tutulur; kalan kısım da amortismana tabi tutulmaya
-      devam eder.
+    A: Farklı ömürlü önemli parçalar ayrı amortismana tabi tutulur; kalan kısma da amortisman ayrılmaya devam edilir.
     B: Bir parça ayrı amortismana tabi tutuluyorsa varlığın kalan kısmına amortisman ayrılmaz.
-    C: Önemli parçaların tamamı her durumda tek bir amortisman oranıyla izlenir.
-    D: Parça yenileme maliyetleri hiçbir durumda varlık olarak muhasebeleştirilmez.
-    E: Amortisman yalnızca varlık tamamen kullanılamaz hale geldiğinde başlar.
+    C: Önemli parçaların tamamı tek bir amortisman oranıyla izlenir.
+    D: Parça yenileme maliyetleri varlık olarak değil, gider olarak muhasebeleştirilir.
+    E: Amortisman varlık kullanılamaz hale geldiğinde başlar.
   dogru: A
   aciklama:
     dogru_neden: 'TMS 16 önemli parçaların faydalı ömür ve amortisman yöntemi farklıysa ayrı amortismana tabi tutulmasını,
@@ -2336,7 +2393,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2357,8 +2414,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2373,6 +2431,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0050
   sinav: smmm
   bolum:
@@ -2475,12 +2537,11 @@
   kok: Edinen işletmenin daha önce edinilen işletmeyle sözleşmeye dayalı bir ilişkisi vardır. Birleşme işlemi, bu
     ilişkinin sona ermesi etkisini de doğurmaktadır. TFRS 3 bakımından edinen işletme neyi değerlendirmelidir?
   secenekler:
-    A: İlişkinin sona ermesini her durumda şerefiye içinde gösterir.
-    B: İlişkinin sona ermesi yalnızca nakit ödeme varsa dikkate alınır.
-    C: İlişkiyi sadece birleşme sonrası dipnotta açıklar; muhasebeleştirme yapmaz.
-    D: Önceden var olan ilişkinin mahsup edilmesi etkisi taşıyan işlemin, birleşmeden ayrı bir işlem olup olmadığını
-      değerlendirmelidir.
-    E: Önceden var olan ilişki, edinilen işletmenin varlığı olarak otomatik kaydedilir.
+    A: İlişkinin sona ermesinin etkisini ayrıca değerlendirmeden şerefiye içinde gösterir.
+    B: İlişkinin sona ermesi ancak nakit ödeme varsa dikkate alınır.
+    C: İlişkiyi birleşme sonrası dipnotta açıklar; muhasebeleştirme yapmaz.
+    D: Önceki ilişkinin mahsubu etkisi taşıyan işlemin birleşmeden ayrı işlem olup olmadığını değerlendirmelidir.
+    E: Önceden var olan ilişki, edinilen işletmenin tanımlanabilir varlığı olarak otomatik kaydedilir.
   dogru: D
   aciklama:
     dogru_neden: TFRS 3’ün ayrı işlemlere ilişkin açıklaması, edinen ile edinilen işletme arasındaki önceden var
@@ -2505,7 +2566,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2526,8 +2587,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2548,6 +2610,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0052
   sinav: smmm
   bolum:
@@ -2593,7 +2659,7 @@
     baslangic: '2018-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2615,8 +2681,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: TFR-0037 ile aynı hüküm (bir yılı aşan satış süreci)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2637,6 +2704,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: TFR-0037 ile aynı hüküm (bir yılı aşan satış süreci)
 - id: SMMM-STD-TFR-0053
   sinav: smmm
   bolum:
@@ -2748,7 +2819,7 @@
     birlikte aranmasının sonucu aşağıdakilerden hangisidir?
   secenekler:
     A: Yalnız maliyet güvenilir ölçülüyorsa varlık kaydedilir
-    B: Her iki koşul da sağlanırsa kalem varlık olarak finansal tablolara yansıtılır
+    B: İki koşul birlikte sağlanırsa kalem varlık olarak kaydedilir
     C: Yalnız ekonomik yarar muhtemelse varlık kaydedilir
     D: Koşullardan biri sağlanmasa da varlık kaydedilir
     E: Koşullar yalnız yeniden değerleme modelinde aranır
@@ -2773,7 +2844,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2794,8 +2865,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2810,6 +2882,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-STD-TFR-0055
   sinav: smmm
   bolum:
@@ -2976,12 +3052,11 @@
   kok: Satış amaçlı elde tutulan olarak sınıflandırma ölçütlerini sağlayan bir duran varlık için TFRS 5’in ölçüm
     ve amortisman uygulamasını birlikte doğru açıklayan seçenek hangisidir?
   secenekler:
-    A: Defter değeri ile satış maliyetleri düşülmüş gerçeğe uygun değerin düşük olanı esas alınır ve amortisman
-      durdurulur
-    B: Yüksek olan değer esas alınır ve amortisman sürer
-    C: Yalnız kullanım değeriyle ölçülür ve amortisman sürer
-    D: Maliyet bedeli korunur ve değer düşüklüğü değerlendirilmez
-    E: Ölçüm yapılmaz; varlık doğrudan özkaynaklardan düşülür
+    A: Defter değeri ile satış maliyeti düşülmüş gerçeğe uygun değerin düşüğü esas alınır; amortisman durur
+    B: Defter değeri ile gerçeğe uygun değerin yüksek olanı esas alınır ve amortisman sürer
+    C: Varlık kullanım değeriyle ölçülür ve kalan faydalı ömrü boyunca amortisman sürer
+    D: Maliyet bedeli korunur, amortisman sürer ve değer düşüklüğü değerlendirilmez
+    E: Satış maliyeti düşülmeden gerçeğe uygun değer esas alınır ve amortisman durur
   dogru: A
   aciklama:
     dogru_neden: TFRS 5 düşük olan değerle ölçüm ve amortismanın durdurulmasını öngörür.
@@ -3002,7 +3077,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3023,8 +3098,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3039,6 +3115,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-STD-TFR-0058
   sinav: smmm
   bolum:
@@ -3143,10 +3223,9 @@
     için ölçüm belirsizliği yüksektir ve sunulacak bilginin faydalı olup olmayacağı ayrıca değerlendirilmelidir.
     Kavramsal Çerçeve bakımından en uygun yaklaşım hangisidir?
   secenekler:
-    A: Tanıma uyması tek başına her durumda muhasebeleştirmeyi zorunlu kılar
-    B: Muhasebeleştirme kararı, ilgili bilginin faydalı olup olmadığı ve faydalı bilginin sağlanmasının maliyet
-      kısıtı dikkate alınarak değerlendirilir
-    C: Ölçüm belirsizliği bulunan hiçbir kalem finansal tablolara alınamaz
+    A: Tanıma uyması, ölçüm belirsizliğinden bağımsız olarak muhasebeleştirmeyi tek başına zorunlu kılar
+    B: Karar, bilginin faydalı olup olmadığı ve bu bilgiyi sağlamanın maliyeti dikkate alınarak verilir
+    C: Ölçüm belirsizliği bulunan kalemler, bilgi faydalı olsa bile finansal tablolara alınamaz
     D: Her kalem yalnız tarihi maliyetle ölçülür
     E: Muhasebeleştirme kararı yalnız vergi mevzuatına göre verilir
   dogru: B
@@ -3173,7 +3252,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3194,8 +3273,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3210,6 +3290,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0060
   sinav: smmm
   bolum:
@@ -3923,7 +4007,7 @@
     baslangic: '2006-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3945,8 +4029,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: TFR-0040 ile aynı hüküm (tahmin değişikliği ve hata düzeltmesi)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3961,6 +4046,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: TFR-0040 ile aynı hüküm (tahmin değişikliği ve hata düzeltmesi)
 - id: SMMM-STD-TFR-0069
   sinav: smmm
   bolum:
@@ -4854,7 +4943,7 @@
     baslangic: '2006-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4876,8 +4965,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: TFR-0057 ile aynı hüküm (TFRS 5 ölçümü)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4898,6 +4988,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: TFR-0057 ile aynı hüküm (TFRS 5 ölçümü)
 - id: SMMM-STD-TFR-0080
   sinav: smmm
   bolum:
@@ -4911,12 +5005,11 @@
   kok: TFRS 15 kapsamında sözleşmede taahhüt edilen mallar veya hizmetler değerlendirilirken edim yükümlülüğü olarak
     belirleme bakımından aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: Sözleşmedeki her taahhüt, farklı olup olmadığına bakılmadan ayrı edim yükümlülüğüdür.
-    B: Yalnızca nakit ödeme taahhütleri edim yükümlülüğüdür.
-    C: Edim yükümlülüğü sadece işletmenin fiziksel mal teslim ettiği durumlarda bulunur.
-    D: Edim yükümlülüğü sadece sözleşme sona erdiğinde belirlenir.
-    E: Farklı bir mal veya hizmet ya da büyük ölçüde benzer ve aynı devir örüntüsüne sahip bir mal veya hizmetler
-      serisi için verilen taahhüt edim yükümlülüğü olarak belirlenir.
+    A: Sözleşmedeki her taahhüt, farklı olup olmadığına ve devir örüntüsüne bakılmadan ayrı edim yükümlülüğüdür.
+    B: Nakit ödeme taahhütleri edim yükümlülüğüdür; mal ve hizmet taahhütleri değildir.
+    C: Edim yükümlülüğü işletmenin fiziksel mal teslim ettiği durumlarla sınırlıdır.
+    D: Edim yükümlülüğü sözleşme sona erdiğinde geriye dönük olarak belirlenir.
+    E: Farklı bir mal veya hizmet ya da aynı örüntüyle devredilen benzer bir seri için verilen taahhüt edim yükümlülüğüdür.
   dogru: E
   aciklama:
     dogru_neden: TFRS 15 paragraf 22, sözleşme başlangıcında farklı mal veya hizmet taahhütlerinin ya da belirli
@@ -4937,7 +5030,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4958,8 +5051,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4977,6 +5071,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0081
   sinav: smmm
   bolum:
@@ -5136,7 +5234,7 @@
     A: Varlık ilk kez gelir yarattığında
     B: Varlık kullanılabilir olduğunda
     C: Varlık için ödeme yapıldığında
-    D: Varlık tamamen ödendiğinde
+    D: Varlığın bedeli ödendiğinde
     E: Varlık için yeniden değerleme yapıldığında
   dogru: B
   aciklama:
@@ -5157,7 +5255,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5178,8 +5276,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5200,6 +5299,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-STD-TFR-0084
   sinav: smmm
   bolum:
@@ -5395,11 +5498,11 @@
   kok: Bir yazılım işletmesi müşteriye 12 aylık çevrim içi destek hizmeti sunmayı taahhüt etmiştir. Müşteri, destek
     hizmeti sunuldukça faydayı aynı anda almakta ve tüketmektedir. İşletme, hasılatı hangi şekilde muhasebeleştirmelidir?
   secenekler:
-    A: Hizmet sözleşmesi imzalandığı gün tutarın tamamını hasılat yazmalıdır.
-    B: Müşteriden ödeme alındığında tutarın tamamını hasılat yazmalıdır.
-    C: Hasılatı yalnızca sözleşme yenilenirse muhasebeleştirmelidir.
-    D: Hizmetin kontrolünü zamana yayılı devrettiği için edim yerine getirildikçe hasılatı zamana yayılı muhasebeleştirmelidir.
-    E: Hizmet tamamlanana kadar hiçbir koşulda hasılat muhasebeleştiremez.
+    A: Hizmet sözleşmesinin imzalandığı gün 12 aylık bedelin tamamını hasılat yazmalıdır.
+    B: Müşteriden peşin ödeme alındığında tutarın tamamını o dönemde hasılat yazmalıdır.
+    C: Hasılatı ancak sözleşme yenilenirse, yenileme tarihinde muhasebeleştirmelidir.
+    D: Kontrol zamana yayılı devredildiğinden hasılatı edim yerine getirildikçe kaydetmelidir.
+    E: Hizmet 12 ayın sonunda tamamlanana kadar hasılat muhasebeleştiremez.
   dogru: D
   aciklama:
     dogru_neden: 'TFRS 15 paragraf 35(a), müşteri edim yerine getirildikçe faydayı aynı anda alıp tüketiyorsa kontrolün
@@ -5419,7 +5522,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5440,8 +5543,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5462,6 +5566,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0087
   sinav: smmm
   bolum:
@@ -5475,11 +5583,11 @@
   kok: TMS 8’e göre, belirli bir işlem için doğrudan uygulanabilir bir TFRS bulunmadığında işletme yönetimi muhasebe
     politikası geliştirirken hangi yaklaşımı benimsemelidir?
   secenekler:
-    A: Yalnızca vergi mevzuatındaki ölçüm esasını uygular.
-    B: Önceki dönemde kullanılan politikayı her koşulda sürdürür.
+    A: Vergi mevzuatındaki ölçüm esasını uygular.
+    B: Önceki dönemde kullanılan politikayı değiştirmeden sürdürür.
     C: İşlem önemsiz olsa da mutlaka yeni bir politika oluşturur.
-    D: İhtiyaca uygun ve güvenilir bilgi sağlayan bir politika geliştirmek için takdirini kullanır.
-    E: Yönetim kurulu kararı olmadan hiçbir politika belirleyemez.
+    D: İhtiyaca uygun ve güvenilir bilgi sağlayan bir politika için takdirini kullanır.
+    E: Yönetim kurulu kararı olmadan politika belirleyemez.
   dogru: D
   aciklama:
     dogru_neden: TMS 8 paragraf 10, doğrudan uygulanabilir TFRS bulunmadığında yönetimin ihtiyaca uygun ve güvenilir
@@ -5500,7 +5608,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5521,8 +5629,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5543,6 +5652,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0088
   sinav: smmm
   bolum:
@@ -5825,9 +5938,9 @@
     A: Bilgi başka kaynaklardan elde edilebiliyorsa finansal raporlamada sunulması zorunlu olarak gereksizdir.
     B: Bazı kullanıcıların bilgiyi başka kaynaklardan edinmesi, bilginin kararları etkileme gücünü tek başına ortadan
       kaldırmaz.
-    C: Kararları etkileyen bilgi yalnızca parasal olarak kesinleşmiş tutarlardan oluşabilir.
+    C: Kararları etkileyen bilgi parasal olarak kesinleşmiş tutarlardan oluşur.
     D: Finansal bilgi ancak geçmiş işlemleri doğruluyorsa kararlar açısından faydalıdır.
-    E: Bilginin açıklanması yalnızca bütün kullanıcıların aynı kararı vereceği durumlarda anlamlıdır.
+    E: Bilginin açıklanması ancak bütün kullanıcıların aynı kararı vereceği durumlarda anlamlıdır.
   dogru: B
   aciklama:
     dogru_neden: Kavramsal Çerçeve, bazı kullanıcıların bilgiyi başka kaynaklardan edinmiş olmasının, finansal bilginin
@@ -5848,7 +5961,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5869,8 +5982,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5891,6 +6005,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-STD-TFR-0092
   sinav: smmm
   bolum:
@@ -6051,9 +6169,9 @@
     yararların muhtemel olması ve maliyetin güvenilir ölçülmesi koşullarını karşılayan harcama. TMS 16''ya göre
     hangi değerlendirme doğrudur?'
   secenekler:
-    A: I, II ve III'ün tamamı her durumda aktifleştirilir.
+    A: I, II ve III'ün tamamı aktifleştirilir.
     B: Yalnız I aktifleştirilir.
-    C: I giderleştirilir; II ve III ilgili muhasebeleştirme koşulları sağlanıyorsa varlık olarak muhasebeleştirilebilir.
+    C: I giderleştirilir; II ve III muhasebeleştirme koşulları sağlanıyorsa aktifleştirilebilir.
     D: I ve II giderleştirilir; III de maliyeti güvenilir ölçülse bile giderleştirilir.
     E: Yalnız II giderleştirilir; I ve III aktifleştirilir.
   dogru: C
@@ -6076,7 +6194,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -6097,8 +6215,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -6113,6 +6232,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-STD-TFR-0095
   sinav: smmm
   bolum:
@@ -6392,7 +6515,7 @@
     göre değişebileceği belirtilmiştir. TFRS 15 açısından işletme işlem bedelini belirlerken öncelikle hangi konuyu
     ele almalıdır?
   secenekler:
-    A: Sözleşme tutarının tamamını her durumda sabit bedel kabul etmelidir.
+    A: Sözleşme tutarının tamamını sabit bedel kabul etmelidir.
     B: Gecikme indirimi yalnız ödeme tahsil edildiğinde dikkate alınmalıdır.
     C: Değişken bedeli tahmin etmeli ve tahminin hasılata dahil edilmesine ilişkin sınırlamayı uygulamalıdır.
     D: Sözleşme imzalanınca tüm tutarı hasılat kaydetmelidir.
@@ -6418,7 +6541,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -6439,8 +6562,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -6455,6 +6579,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-STD-TFR-0099
   sinav: smmm
   bolum:

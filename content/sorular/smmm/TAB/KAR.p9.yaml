@@ -101,11 +101,11 @@
     Yönetim, brüt kâr oranının yüksek olmasına karşın faaliyet kâr oranının düşük olmasını araştırıyor. İki oran
     arasındaki farkı en doğru açıklayan seçenek hangisidir?
   secenekler:
-    A: Brüt kâr oranı %25, faaliyet kâr oranı %40’tır.
-    B: Brüt kâr oranı %40, faaliyet kâr oranı %15’tir; fark faaliyet giderlerinden kaynaklanır.
-    C: Her iki oran da %15’tir.
-    D: Brüt kâr oranı %60, faaliyet kâr oranı %25’tir.
-    E: Faaliyet kâr oranı, brüt kâr oranından her zaman yüksektir.
+    A: Brüt kâr oranı %25, faaliyet kâr oranı %40’tır; fark satış maliyetindendir.
+    B: Brüt kâr oranı %40, faaliyet kâr oranı %15’tir; fark faaliyet giderlerindendir.
+    C: Her iki oran da %15’tir; faaliyet giderleri oranı etkilemez.
+    D: Brüt kâr oranı %60, faaliyet kâr oranı %25’tir; fark faaliyet giderlerindendir.
+    E: Faaliyet kâr oranı brüt kâr oranından yüksektir; fark satış maliyetinden kaynaklanır.
   dogru: B
   aciklama:
     dogru_neden: 'Brüt kâr 400, faaliyet kârı 400−250=150 bin TL’dir. Net satışlara oranları sırasıyla %40 ve %15’tir.
@@ -133,7 +133,7 @@
   dogrulama:
     python: sonuc = (1000 - 600 - 250) / 1000 * 100
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -153,8 +153,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -169,6 +170,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-TAB-KAR-0009
   sinav: smmm
   bolum:
