@@ -1,0 +1,100 @@
+- id: YMM-VTK-YRG-K001
+  sinav: ymm
+  ders: VTK
+  konu: YRG
+  kazanimlar:
+  - davadan feragat ve kanun yolundan vazgeçme (VUK md.379)
+  - istinaf temyiz ve kanun yararına bozma
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: '(T) A.Ş.''ye 2024 yılına ilişkin inceleme sonucunda 600.000 TL KDV ile bir kat vergi ziyaı cezası ve ayrıca
+
+    20.000 TL usulsüzlük cezası kesilmiştir. Şirket Mart 2026''da tüm tarhiyata karşı dava açmıştır. Vergi mahkemesi
+
+    Ağustos 2026''da verginin 200.000 TL''sini kaldırmış, 400.000 TL''sini tasdik etmiş; usulsüzlük cezasının tamamını
+
+    kaldırmıştır.
+
+
+    (a) Bu karara karşı kanun yolunu, süresini ve gerekçesini belirtiniz. (5 puan)
+
+    (b) Şirket VUK md. 379''a göre kanun yolundan vazgeçerse tahakkuk edecek tutarları kalem kalem hesaplayınız. (12 puan)
+
+    (c) Tutarlar bir ay içinde ödenirse indirim ve ödenecek toplam tutarı (gecikme faizi hariç) bulunuz. (8 puan)
+
+    '
+  cozum: '**(a)** Dava 2026''da açıldığından 2026 istinaf sınırı (55.000 TL) esas alınır; dava konusu bu sınırı aştığından
+    karar
+
+    tebliğden itibaren **30 gün** içinde bölge idare mahkemesinde **istinaf** edilebilir (İYUK md. 45 ve Ek md. 1).
+
+
+    **(b)** Vazgeçmede tahakkuk (VUK md. 379):
+
+
+    | Kalem | Hesap | Tutar (TL) |
+
+    |---|---|---|
+
+    | Kaldırılan vergi | 200.000 × %60 | 120.000 |
+
+    | Tasdik edilen vergi | tamamı | 400.000 |
+
+    | Tasdik edilen vergiye ait vergi ziyaı cezası | 400.000 × %75 | 300.000 |
+
+    | Kaldırılan usulsüzlük cezası | 20.000 × %25 | 5.000 |
+
+    | **Toplam** | | **825.000** |
+
+
+    **(c)** Bir ayda %80 ödemede %20 indirim yapılır; tasdik edilen vergi (400.000 TL) indirim dışıdır.
+
+    İndirim = (120.000 + 300.000 + 5.000) × %20 = **85.000 TL**. Ödenecek = 825.000 − 85.000 = **740.000 TL**
+
+    (gecikme faiziyle birlikte bir ay içinde).
+
+    '
+  puanlama:
+  - olcut: Dava tarihindeki sınırın esas alınması ve istinaf yolunun 30 gün olarak belirtilmesi
+    puan: 5
+  - olcut: Kaldırılan verginin %60'ının hesaplanması
+    puan: 3
+  - olcut: Tasdik edilen verginin tamamı ve cezanın %75'inin hesaplanması
+    puan: 6
+  - olcut: Usulsüzlük cezasında %25'in uygulanması
+    puan: 3
+  - olcut: İndirimin tasdik edilen vergi dışındaki tutarlara uygulanması
+    puan: 5
+  - olcut: Ödenecek toplamın 740.000 TL bulunması
+    puan: 3
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 379
+  - mevzuat: 2577 sayılı İdari Yargılama Usulü Kanunu
+    madde: md. 45, Ek md. 1
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+  dogrulama:
+    python: 'tah=200000*0.6+400000+400000*0.75+20000*0.25
+
+      ind=(200000*0.6+400000*0.75+20000*0.25)*0.2
+
+      sonuc={''tahakkuk'':tah,''indirim'':ind,''odenecek'':tah-ind}'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S3-YRG
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S3_YRG.yaml, klasik 1
