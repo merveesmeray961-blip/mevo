@@ -1,0 +1,703 @@
+- id: YMM-REV-BDB-0003
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Birleşme devir bölünme ve tür değişikliği
+  konu: BDB
+  kazanim: KVK md.18-20 devir ve bölünme şartları
+  tip: hesaplama
+  zorluk: 1
+  kok: Tam mükellef (T) A.Ş.'nin KVK md. 19/3-a kapsamında tam bölünmesi planlanmaktadır. Devralan şirketlerin, bölünen şirketin
+    ortaklarına iştirak hisselerine ek olarak toplam 600.000 TL nakit ödeme yapması öngörülmektedir. İşlemin bölünme sayılmasına
+    engel olmaması için ortaklara verilecek iştirak hisselerinin toplam itibari değeri en az kaç TL olmalıdır?
+  secenekler:
+    A: 1.200.000
+    B: 3.000.000
+    C: 4.000.000
+    D: 5.400.000
+    E: 6.000.000
+  dogru: E
+  aciklama:
+    dogru_neden: KVK md. 19/3-a'ya göre devredilen şirketin ortaklarına verilecek iştirak hisselerinin itibari değerinin %10'una
+      kadarlık kısmının nakit olarak ödenmesi işlemin bölünme sayılmasına engel değildir. Nakit ≤ itibari değer × %10 olmalıdır;
+      600.000 / 0,10 = 6.000.000 TL.
+    celdiriciler:
+      A: '%50 sınırı varsayılmıştır (600.000 / 0,50); kanuni sınır %10''dur.'
+      B: '%20 sınırı varsayılmıştır (600.000 / 0,20).'
+      C: '%15 sınırı varsayılmıştır (600.000 / 0,15).'
+      D: '%10, hisse ve nakit toplamı üzerinden uygulanmış (6.000.000 − 600.000); oysa oran hisselerin itibari değerine uygulanır
+        ve bu durumda nakit 5.400.000''in %10''unu aşar.'
+    hesap_adimlari:
+    - Nakit ≤ %10 × itibari değer → itibari değer ≥ 600.000 / 0,10 = 6.000.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 19/3-a
+    alinti: Devredilen şirketin ortaklarına verilecek iştirak hisselerinin itibarî değerinin % 10’una kadarlık kısmının nakit
+      olarak ödenmesi, işlemin bölünme sayılmasına engel değildir.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = round(600000 / 0.10)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 1)'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-1.yaml, satır 17
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
+- id: YMM-REV-BDB-0004
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Birleşme devir bölünme ve tür değişikliği
+  konu: BDB
+  kazanim: tasfiye
+  tip: uygulama
+  zorluk: 1
+  kok: Hesap dönemi takvim yılı olan (L) A.Ş.'nin genel kurulu 20.8.2025 tarihinde şirketin tasfiyeye girmesine karar vermiş,
+    karar 8.9.2025 tarihinde ticaret siciline tescil edilmiştir. Tasfiyenin sona erdiğine ilişkin karar ise 17.3.2027 tarihinde
+    tescil edilmiştir. KVK md. 17'ye göre bu kurumun tasfiye dönemleri aşağıdakilerden hangisinde doğru verilmiştir?
+  secenekler:
+    A: 8.9.2025 – 31.12.2025; 1.1.2026 – 31.12.2026; 1.1.2027 – 17.3.2027
+    B: 20.8.2025 – 31.12.2025; 1.1.2026 – 31.12.2026; 1.1.2027 – 17.3.2027
+    C: 8.9.2025 – 7.9.2026; 8.9.2026 – 17.3.2027
+    D: 8.9.2025 – 17.3.2027 (tek tasfiye dönemi)
+    E: 1.1.2025 – 31.12.2025; 1.1.2026 – 31.12.2026; 1.1.2027 – 17.3.2027
+  dogru: A
+  aciklama:
+    dogru_neden: KVK md. 17/1-a'ya göre tasfiye, tasfiyeye girmeye ilişkin genel kurul kararının tescil edildiği tarihte (8.9.2025)
+      başlar ve tasfiye kararının tescil edildiği tarihte (17.3.2027) sona erer. Başlangıçtan aynı takvim yılı sonuna kadar
+      olan dönem, sonraki her takvim yılı ve son yıl başından bitiş tarihine kadar olan dönem ayrı birer tasfiye dönemidir.
+    celdiriciler:
+      B: Genel kurul kararının alındığı tarih değil, tescil tarihi esas alınır.
+      C: Tasfiye dönemleri on iki aylık dönemler hâlinde değil, takvim yılı esasına göre belirlenir.
+      D: Tek tasfiye dönemi yalnız tasfiyenin başladığı takvim yılı içinde sona ermesi hâlinde söz konusudur.
+      E: 1.1.2025 – 7.9.2025 dönemi tasfiye dönemi değil, normal faaliyet (kıst) dönemidir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 17/1-a
+    alinti: Tasfiye, kurumun tasfiyeye girmesine ilişkin genel kurul kararının tescil edildiği tarihte başlar ve tasfiye kararının
+      tescil edildiği tarihte sona erer. Başlangıç tarihinden aynı takvim yılı sonuna kadar olan dönem ile bu dönemden sonraki
+      her takvim yılı ve tasfiyenin sona erdiği dönem için ilgili takvim yılı başından tasfiyenin bitiş tarihine kadar olan
+      dönem bağımsız bir tasfiye dönemi sayılır.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-1.yaml, satır 18
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
+- id: YMM-REV-BDB-0005
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Birleşme devir bölünme ve tür değişikliği
+  konu: BDB
+  kazanim: KVK md.18-20 devir ve bölünme şartları
+  tip: uygulama
+  zorluk: 2
+  kok: Hesap dönemleri takvim yılı olan tam mükellef (B) Ltd. Şti. ile (C) A.Ş., KVK md. 19/1 şartlarına uygun olarak birleşmiş;
+    (B) Ltd. Şti. (C) A.Ş.'ye devrolmuştur. Devre ilişkin kararlar 12.2.2026 tarihinde ticaret siciline tescil edilmiş, birleşme
+    18.2.2026 tarihinde Türkiye Ticaret Sicili Gazetesinde ilan edilmiştir. (B) Ltd. Şti.'nin 2025 hesap dönemine ait kurumlar
+    vergisi beyannamesi henüz verilmemiştir. Buna göre beyan yükümlülüğü hakkında aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Yalnız 1.1.2026 – 12.2.2026 kıst dönem beyannamesi verilir; 2025 beyannamesini (C) A.Ş. Nisan 2026'da kendi adına verir.
+    B: Kıst dönem ve 2025 beyannameleri, devir tarihi olan 12.2.2026'dan itibaren otuz gün içinde (B) tarafından tek başına
+      imzalanarak verilir.
+    C: Kıst dönem kazancı (C) A.Ş.'nin 2026 beyannamesine dahil edilir; (B) Ltd. Şti. adına yalnız 2025 beyannamesi verilir.
+    D: 2025 ve kıst dönem beyannameleri, ilandan itibaren otuz gün içinde (B) ve (C)'nin müşterek imzasıyla (B)'nin vergi
+      dairesine verilir.
+    E: 2025 ve kıst dönem beyannameleri, ilan tarihinden itibaren otuz gün içinde (C) A.Ş.'nin bağlı olduğu vergi dairesine
+      verilir.
+  dogru: D
+  aciklama:
+    dogru_neden: KVK md. 20/1-a'ya göre devir tarihi, devre ilişkin kararın ticaret siciline tescil edildiği tarihtir (12.2.2026).
+      Münfesih kurum ile birleşilen kurum, devir tarihi itibarıyla hazırlayacakları kıst dönem beyannamesini; devir, hesap
+      döneminin kapandığı aydan (Aralık) beyannamenin verildiği ayın sonuna (Nisan) kadar olan sürede gerçekleştiğinden münfesih
+      kurumun önceki hesap dönemine (2025) ait beyannameyi de müştereken imzalayarak, birleşmenin Ticaret Sicili Gazetesinde
+      ilan edildiği tarihten itibaren otuz gün içinde münfesih kurumun bağlı olduğu vergi dairesine verirler.
+    celdiriciler:
+      A: 2025 beyannamesi de münfesih kurum adına, birleşilen kurumla müştereken ve aynı otuz günlük sürede verilir; genel
+        süreye kalmaz.
+      B: Otuz günlük süre tescilden değil Ticaret Sicili Gazetesindeki ilandan itibaren başlar; beyannameler müştereken imzalanır.
+      C: Devir tarihine kadar elde edilen kazanç münfesih kurum adına ayrı beyannameyle vergilendirilir; devralanın beyannamesine
+        dahil edilmez.
+      E: Beyannameler birleşilen kurumun değil münfesih kurumun bağlı olduğu vergi dairesine verilir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 20/1-a
+    alinti: Şirket yetkili kurulunun devre ilişkin kararının Ticaret Sicilinde tescil edildiği tarih, devir tarihidir. …
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-1.yaml, satır 19
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
+- id: YMM-REV-BDB-0006
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Birleşme devir bölünme ve tür değişikliği
+  konu: BDB
+  kazanim: devralınan zararların mahsubu
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Hesap dönemi takvim yılı olan (A) A.Ş., 2026 yılında (B) A.Ş.''yi KVK md. 19 ve 20/1 hükümlerine uygun olarak devralmıştır.
+    (B) A.Ş.''nin devir tarihi itibarıyla VUK''a göre tespit edilen öz sermayesi 600.000 TL''dir. (B)''nin beyannamelerinde
+    yer alan ve henüz mahsup edilmemiş zararları şöyledir: 2020 yılı 250.000 TL, 2023 yılı 400.000 TL, 2024 yılı 350.000 TL.
+    (B)''nin son beş yıla ait beyannameleri kanuni süresinde verilmiş, (A) (B)''nin faaliyetine devam etmektedir. (A)''nın
+    2026 kazancı yeterlidir. Buna göre (A) A.Ş.''nin 2026 kurumlar vergisi beyannamesinde (B)''den devralınan zararlardan
+    indirebileceği azami tutar kaç TL''dir?'
+  secenekler:
+    A: '0'
+    B: '150.000'
+    C: '600.000'
+    D: '750.000'
+    E: 1.000.000
+  dogru: C
+  aciklama:
+    dogru_neden: 'KVK md. 9/1-a''ya göre zararlar beş yıldan fazla nakledilemez: 2020 zararı en son 2025 kazancından indirilebilirdi,
+      2026''da kullanılamaz. Kullanılabilir zararlar 2023 ve 2024 yıllarına ait 750.000 TL''dir. Devirde devralınan zararlar,
+      devralınan kurumun devir tarihindeki öz sermayesini geçemez; indirilebilecek azami tutar 600.000 TL olup öz sermayeyi
+      aşan 150.000 TL iptal edilir.'
+    celdiriciler:
+      A: Zarar devri yasağı kısmi bölünmeye ilişkindir; devirde öz sermaye sınırı içinde zarar mahsubu mümkündür.
+      B: Öz sermayeyi aşan ve iptal edilen kısım (750.000 − 600.000) indirilebilir tutar sanılmıştır.
+      D: Öz sermaye sınırı uygulanmamıştır; devralınan zararlar devir tarihindeki öz sermayeyi geçemez.
+      E: Beş yıllık süresi dolmuş 2020 zararı da hesaba katılmış ve öz sermaye sınırı uygulanmamıştır.
+    hesap_adimlari:
+    - '2020 zararı: 2021–2025 dönemlerinde mahsup edilebilirdi → 2026''da kullanılamaz'
+    - Kullanılabilir zarar = 400.000 + 350.000 = 750.000
+    - Sınır = devir tarihindeki öz sermaye 600.000 → indirilecek 600.000 TL; 150.000 TL iptal
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 9/1-a
+    alinti: Beş yıldan fazla nakledilmemek şartıyla geçmiş yılların beyannamelerinde yer alan zararlar. Kanunun 20 nci maddesinin
+      birinci fıkrası çerçevesinde devralınan kurumların devir tarihi itibarıyla öz sermaye tutarını geçmeyen zararları
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: 9.2.3
+    alinti: Öz sermaye sınırlamasını aşan zarar tutarları ise iptal edilecektir.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kullanilabilir = 400000 + 350000
+
+      sonuc = min(kullanilabilir, 600000)'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-1.yaml, satır 20
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
+- id: YMM-REV-BDB-0007
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Birleşme devir bölünme ve tür değişikliği
+  konu: BDB
+  kazanim: KVK md.18-20 devir ve bölünme şartları
+  tip: kavrama
+  zorluk: 2
+  kok: 'KVK md. 19/3-b kapsamındaki kısmi bölünme hakkında 2026 yılı itibarıyla aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. İştirak hisselerinin kısmi bölünmeye konu edilebilmesi için bilançoda en az iki tam yıl süreyle elde tutulmuş olması
+    gerekir.
+
+    II. Üretim veya hizmet işletmesinin devrinde, işletme bütünlüğü korunacak şekilde faaliyetin devamı için gerekli aktif
+    ve pasif kalemlerin tümü devredilmelidir.
+
+    III. Bilançoda en az iki tam yıl süreyle bulunan bir taşınmaz, tek başına kısmi bölünme yoluyla kayıtlı değeri üzerinden
+    devredilebilir.
+
+    IV. Bölünen kurumun geçmiş yıl zararları, devredilen varlıklarla orantılı olarak devralan kuruma intikal eder.'
+  secenekler:
+    A: I ve II
+    B: I ve III
+    C: II ve IV
+    D: I, II ve III
+    E: I, II ve IV
+  dogru: A
+  aciklama:
+    dogru_neden: KVK md. 19/3-b'ye göre kısmi bölünmeye konu olabilecek varlıklar, en az iki tam yıl süreyle elde tutulan
+      iştirak hisseleri ile üretim veya hizmet işletmeleridir (I doğru); işletme devrinde faaliyetin devamı için gerekli aktif
+      ve pasif kalemlerin tümünün devri zorunludur (II doğru). 7456 sayılı Kanunla (15.7.2023) "taşınmazlar" ibaresi bentten
+      çıkarıldığından taşınmazlar tek başına kısmi bölünmeye konu edilemez (III yanlış). Kısmi bölünmede zarar intikali öngörülmemiştir;
+      geçmiş yıl zararları devredilemez (IV yanlış).
+    celdiriciler:
+      B: 'III yanlıştır: 7456 sayılı Kanunla taşınmazlar kısmi bölünme kapsamından çıkarılmıştır.'
+      C: 'IV yanlıştır: zarar devri yalnız devir ve tam bölünmede mümkündür; ayrıca doğru olan I eksiktir.'
+      D: III, değişiklik öncesi metne dayanır; 2026 itibarıyla taşınmaz tek başına kısmi bölünmeye konu edilemez.
+      E: 'IV yanlıştır: Tebliğe göre kısmi bölünmede geçmiş yıl zararlarının hiçbir şekilde devri mümkün değildir.'
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 19/3-b
+    alinti: 'Kısmî bölünme: Tam mükellef bir sermaye şirketinin veya sermaye şirketi niteliğindeki bir yabancı kurumun Türkiye’deki
+      iş yeri veya daimî temsilcisinin bilânçosunda yer alan ve en az iki tam yıl süreyle elde tutulan iştirak hisseleri ya
+      da sahip oldukları üretim veya hizmet işletmelerinin bir veya birkaçını kayıtlı değerleri üzerinden aynî sermaye olarak
+      mevcut veya yeni kurulacak tam mükellef bir sermaye şirketine devretmesi, bu Kanunun uygulanmasında kısmî bölünme hükmündedir.
+      …'
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: 19.2.2.1
+    alinti: Bu nedenle kısmi bölünmede, bölünen kurumdan devralan kuruma zarar intikali öngörülmediğinden, geçmiş yıl zararlarının
+      hiçbir şekilde devredilmesi mümkün değildir.
+  gecerlilik:
+    baslangic: '2023-07-15'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-1.yaml, satır 21
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
+- id: YMM-REV-BDB-0008
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Birleşme devir bölünme ve tür değişikliği
+  konu: BDB
+  kazanim: tasfiye
+  tip: hesaplama
+  zorluk: 3
+  kok: '(R) A.Ş. 3.2.2026 tarihinde tasfiyeye girmiş, tasfiye 20.11.2026 tarihinde sona ermiştir. Tasfiye dönemine ilişkin
+    bilgiler şöyledir:
+
+
+    - Tasfiye dönemi başındaki servet değeri (öz sermaye): 3.000.000 TL
+
+    - Tasfiye dönemi sonundaki servet değeri (öz sermaye): 3.400.000 TL (aşağıdaki işlemlerin tamamı yansıtılmış hâliyle)
+
+    - Tasfiye sırasında ortaklara avans olarak ödenen tutar: 500.000 TL
+
+    - Tasfiye sırasında ortaklarca sermayeye ilave olarak yapılan ödeme: 200.000 TL
+
+    - Tasfiye sırasında elde edilen ve kurumlar vergisinden istisna iştirak kazancı: 150.000 TL
+
+    - Tasfiye döneminde gider yazılan ve kanunen kabul edilmeyen gider niteliğindeki vergi cezası: 50.000 TL
+
+
+    Buna göre (R) A.Ş.''nin tasfiye dönemine ait kurumlar vergisi matrahı kaç TL''dir?'
+  secenekler:
+    A: '100.000'
+    B: '400.000'
+    C: '550.000'
+    D: '600.000'
+    E: '900.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Tasfiye aynı takvim yılında başlayıp bittiğinden tek tasfiye dönemi vardır. KVK md. 17/4''e göre tasfiye
+      kârı, dönem sonu ve başı servet değerleri arasındaki olumlu farktır; ortaklara avans olarak yapılan ödemeler sona, ortakların
+      sermayeye ilave ödemeleri ile istisna kazançlar başa eklenir: (3.400.000 + 500.000) − (3.000.000 + 200.000 + 150.000)
+      = 550.000 TL. Md. 17/4-c uyarınca md. 11 hükümleri de dikkate alınacağından gider yazılan 50.000 TL vergi cezası eklenir;
+      matrah 600.000 TL''dir. Püf noktaları: servet karşılaştırmasında sermaye ilavesi ve istisna kazanç başa, avanslar sona
+      eklenir; tasfiye kârı bulunduktan sonra KKEG''ler ayrıca eklenmelidir.'
+    celdiriciler:
+      A: 'Ortaklara ödenen avans dönem sonu servetine eklenmemiştir: (3.400.000 − 3.350.000) + 50.000.'
+      B: Yalnız servet değerleri farkı alınmış; hiçbir düzeltme yapılmamıştır.
+      C: Tasfiye kârı doğru bulunmuş, ancak md. 11 kapsamındaki 50.000 TL vergi cezası matraha eklenmemiştir.
+      E: Yalnız avans eklenmiş; sermaye ilavesi ve istisna kazanç başlangıç servetine eklenmemiş, KKEG de dikkate alınmamıştır
+        (3.900.000 − 3.000.000).
+    hesap_adimlari:
+    - Düzeltilmiş dönem sonu servet = 3.400.000 + 500.000 = 3.900.000
+    - Düzeltilmiş dönem başı servet = 3.000.000 + 200.000 + 150.000 = 3.350.000
+    - Tasfiye kârı = 3.900.000 − 3.350.000 = 550.000
+    - Matrah = 550.000 + 50.000 (KKEG) = 600.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 17/4
+    alinti: Tasfiye kârı, tasfiye döneminin sonundaki servet değeri ile tasfiye döneminin başındaki servet değeri arasındaki
+      olumlu farktır. a) Tasfiye kârı hesaplanırken; 1) Ortaklara veya kurum sahiplerine tasfiye esnasında avans olarak veya
+      diğer şekillerde yapılan her türlü ödemeler tasfiyenin sonundaki servet değerine, 2) Mevcut sermayeye ilave olarak ortaklar
+      veya sahipleri tarafından yapılan ödemeler ile tasfiye esnasında elde edilen ve vergiden istisna edilmiş olan kazanç
+      ve iratlar tasfiye döneminin başındaki servet değerine, eklenir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 17/4-c
+    alinti: Bu maddeye göre tasfiye kârının hesaplanması sırasında, Kanunun 8, 9, 10 ve 11 inci madde hükümleri de ayrıca
+      dikkate alınır.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'son = 3400000 + 500000
+
+      bas = 3000000 + 200000 + 150000
+
+      sonuc = (son - bas) + 50000'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 3)'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-1.yaml, satır 22
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
+- id: YMM-REV-BDB-0009
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Birleşme devir bölünme ve tür değişikliği
+  konu: BDB
+  kazanim: devralınan zararların mahsubu
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Tam mükellef (S) A.Ş., 2026 yılında KVK md. 19/3-a ve 20/2 hükümlerine uygun olarak tam bölünmüştür. Bölünme sonucunda
+    (S)''nin varlıklarının (kayıtlı değer itibarıyla) %60''ı (X) A.Ş.''ye, %40''ı (Y) A.Ş.''ye devredilmiş; öz sermayesi de
+    aynı oranlarda devralınmıştır. (S)''nin bölünme tarihi itibarıyla VUK''a göre öz sermayesi 500.000 TL''dir. (S)''nin beyannamelerinde
+    yer alan ve mahsup edilmemiş zararları şöyledir: 2019 yılı 200.000 TL, 2022 yılı 500.000 TL, 2024 yılı 400.000 TL. Zarar
+    mahsubuna ilişkin diğer şartlar sağlanmıştır ve (X)''in 2026 kazancı yeterlidir. Buna göre (X) A.Ş.''nin 2026 yılında
+    (S)''den devralınan zararlardan indirebileceği azami tutar kaç TL''dir?'
+  secenekler:
+    A: '0'
+    B: '300.000'
+    C: '500.000'
+    D: '540.000'
+    E: '660.000'
+  dogru: B
+  aciklama:
+    dogru_neden: '2019 zararının beş yıllık süresi 2024''te dolmuştur; kullanılabilir zararlar 2022 ve 2024 yıllarına ait
+      900.000 TL''dir. KVK md. 9/1-a''ya göre tam bölünmede devralan kurum, bölünen kurumun öz sermayesinin devralınan tutarını
+      geçmeyen ve devralınan kıymetle orantılı zararları indirebilir. Orantılı zarar: 900.000 × %60 = 540.000 TL; öz sermayenin
+      devralınan tutarı: 500.000 × %60 = 300.000 TL. Küçük olan 300.000 TL indirilebilir. Püf noktaları: tam bölünmede iki
+      sınır birlikte uygulanır (orantı ve devralınan öz sermaye); öz sermaye sınırı bölünen kurumun toplam öz sermayesi değil,
+      devralanın payına düşen kısmıdır.'
+    celdiriciler:
+      A: Zarar devri yasağı kısmi bölünmeye özgüdür; tam bölünmede sınırlar dahilinde zarar devralınabilir.
+      C: Öz sermaye sınırı bölünen kurumun toplam öz sermayesi olarak alınmış; sınır, öz sermayenin devralınan tutarıdır (300.000).
+      D: Yalnız orantı uygulanmış, devralınan öz sermaye sınırı gözden kaçırılmıştır.
+      E: Süresi dolmuş 2019 zararı da orantıya katılmış (1.100.000 × %60) ve öz sermaye sınırı uygulanmamıştır.
+    hesap_adimlari:
+    - Kullanılabilir zarar = 500.000 + 400.000 = 900.000 (2019 zararının süresi dolmuş)
+    - Orantılı zarar = 900.000 × 0,60 = 540.000
+    - Devralınan öz sermaye = 500.000 × 0,60 = 300.000
+    - İndirilebilecek = min(540.000; 300.000) = 300.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 9/1-a
+    alinti: '20 nci maddenin ikinci fıkrası kapsamında gerçekleştirilen tam bölünme işlemi sonucu bölünen kurumdaki öz sermayesinin
+      devralınan tutarını geçmeyen ve devralınan kıymetle orantılı zararların indirilmesinde aşağıdaki şartlar ayrıca aranır:'
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: '9.2'
+    alinti: Tam bölünme işleminde, bölünen kurumun zararlarından, söz konusu kurumun öz sermayesinin devralınan tutarını geçmeyen
+      ve devralınan kıymetle orantılı zarar kısmı mahsup edilebilecektir.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'zarar = 500000 + 400000
+
+      sonuc = round(min(zarar * 0.60, 500000 * 0.60))'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 3)'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-1.yaml, satır 23
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
+- id: YMM-REV-BDB-0010
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Birleşme devir bölünme ve tür değişikliği
+  konu: BDB
+  kazanim: nev'i değişikliği
+  tip: uygulama
+  zorluk: 3
+  kok: Hesap dönemi takvim yılı olan tam mükellef (K) Ltd. Şti., KVK md. 19/1'deki şartları sağlayarak (K) A.Ş.'ye dönüşmüştür.
+    Tür değişikliği kararı 10.3.2026 tarihinde ticaret siciline tescil edilmiş, 16.3.2026 tarihinde Türkiye Ticaret Sicili
+    Gazetesinde ilan edilmiştir. (K) Ltd. Şti.'nin 2025 hesap dönemine ait kurumlar vergisi beyannamesi henüz verilmemiştir.
+    Beyannameler 8.4.2026 tarihinde verilmiştir. Bu tür değişikliği hakkında aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Tür değişikliği devir hükmündedir; (K) Ltd. Şti.'nin yalnız devir tarihine kadarki kazancı vergilendirilir, devirden
+      doğan kâr hesaplanmaz.
+    B: (K) Ltd. Şti.'nin 1.1.2026 – 10.3.2026 kıst dönemine ve 2025 hesap dönemine ait beyannameleri birlikte verilir.
+    C: Beyannameler, 16.3.2026'dan itibaren otuz gün içinde Ltd. Şti. ve A.Ş. tarafından müştereken imzalanarak verilir.
+    D: Kıst dönem beyannamesi verildiğinden 1.1.2026 – 10.3.2026 dönemi için ayrıca geçici vergi beyannamesi verilmez.
+    E: A.Ş., devraldığı amortismana tabi kıymetleri yeni iktisap gibi değerlendirip faydalı ömrün başından itibaren amortismana
+      tabi tutar.
+  dogru: E
+  aciklama:
+    dogru_neden: 'KVK md. 19/2''ye göre şartlara uygun tür değişikliği devir hükmündedir. Devirde kıymetler kayıtlı değerleriyle,
+      düzenleyici hesaplarıyla birlikte devrolunduğundan Tebliğ (19.3.2) bu devri amortisman bakımından ilk iktisap saymaz;
+      devralan, bakiye değerler üzerinden kalan amortisman süresini dikkate alarak amortismana devam eder. E ifadesi bu nedenle
+      yanlıştır. Püf noktaları: tür değişikliği de devir hükümlerine (md. 20/1) tabidir; Mart ayında gerçekleşen dönüşüm,
+      Aralık–Nisan aralığına düştüğünden önceki dönem beyannamesini de aynı süreye çeker.'
+    celdiriciler:
+      A: Md. 19/2 ve 20/1'e göre doğrudur.
+      B: Devir, hesap döneminin kapandığı aydan beyannamenin verildiği ayın sonuna kadar olan sürede gerçekleştiğinden 2025
+        beyannamesi de kıst dönem beyannamesiyle birlikte verilir; doğrudur.
+      C: Md. 20/1-a'ya göre beyannameler ilandan itibaren otuz gün içinde müştereken imzalanarak münfesih kurumun vergi dairesine
+        verilir; doğrudur.
+      D: Tebliğe göre geçici vergi beyannamesinin verilme süresinden önce aynı döneme ilişkin devir beyannamesi verilmişse
+        ayrıca geçici vergi beyannamesi verilmez; birinci dönem geçici vergi beyan süresi henüz gelmemiştir; doğrudur.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 19/2
+    alinti: Kurumların yukarıdaki şartlar dahilinde tür değiştirmeleri de devir hükmündedir.
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: 19.3.2
+    alinti: Diğer bir ifadeyle devralan kurumda devir ve bölünme işlemi nedeniyle devrolan amortismana tabi iktisadi kıymetlerin
+      bakiye değerleri üzerinden kalan amortisman süreleri dikkate alınarak amortisman ayrılmaya devam edilecektir.
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: '20.1'
+    alinti: Öte yandan, geçici vergi beyannamesinin verilme süresinden önce aynı döneme ilişkin olarak devir işlemleri nedeniyle
+      kurumlar vergisi beyannamesi verilmesi halinde, bu dönem için ayrıca geçici vergi beyannamesi verilmeyecektir.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi VTK-1
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-11'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 3)'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-11'
+    kim: uretici
+    ne: harici teslim t_VTK-1.yaml, satır 24
+  - tarih: '2026-10-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü

@@ -42,6 +42,8 @@ EN_AZ_KELIME = 600
 
 _ON_BILGI = re.compile(r"\A---\n(.*?)\n---\n(.*)\Z", re.S)
 _IZINLI_BASLIK = re.compile(r"^#{2,3} \S")
+# Uygulama metni düz yazı olarak çizer; yalnız gerçek etiketler (<b>, </p>, <!--) sorun. "a < b" serbesttir.
+_HTML = re.compile(r"<[A-Za-z/!]")
 
 
 _ALAN = re.compile(r'^(\s*(?:-\s+)?)([A-Za-z_]+):\s+(.*\S)\s*$')
@@ -92,7 +94,7 @@ def denetle(bilgi: dict, metin: str, dersler: dict[str, set[str]]) -> list[str]:
     for satir in metin.splitlines():
         if satir.startswith("#") and not _IZINLI_BASLIK.match(satir):
             hatalar.append(f"desteklenmeyen başlık düzeyi: {satir[:40]!r} (yalnız ## ve ###)")
-    if "](" in metin or "<" in re.sub(r"<\s*\d", "", metin):
+    if "](" in metin or _HTML.search(metin):
         hatalar.append("bağlantı veya HTML kullanılmış; uygulama göstermez")
     from pipeline.uretici_paketi import alinti_sorunlari  # döngüsel içe aktarmayı önlemek için burada
 
@@ -150,17 +152,19 @@ def on_eleme(teslim: Path, sinav: str = "ymm", al: bool = False) -> list[str]:
     """Zip (yalnız okunur) ya da klasördeki .md anlatımlarını denetler; `al` ise geçenleri yazar."""
     import zipfile
 
+    # Anahtar göreli yoldur: farklı derslerde aynı konu kodu (IFM/VRG, DTK/VRG) birbirini ezmemeli.
     if teslim.is_dir():
-        dosyalar = {p.name: p.read_text(encoding="utf-8", errors="replace") for p in sorted(teslim.rglob("*.md"))}
+        dosyalar = {p.relative_to(teslim).as_posix(): p.read_text(encoding="utf-8", errors="replace")
+                    for p in sorted(teslim.rglob("*.md"))}
     else:
         with zipfile.ZipFile(teslim) as z:
-            dosyalar = {Path(n).name: z.read(n).decode("utf-8", errors="replace")
+            dosyalar = {n: z.read(n).decode("utf-8", errors="replace")
                         for n in z.namelist() if n.endswith(".md") and not n.endswith("/")}
     mufredat = {d["kod"]: d for d in _mufredat(sinav)}
     dersler = {k: {x["kod"] for x in d["konular"]} for k, d in mufredat.items()}
     rapor, gecen = [], 0
     for ad, ham in dosyalar.items():
-        if ad.upper().startswith(("ANLATIM_KURALLARI", "GOREV", "PROMPT", "ORNEK", "YMM_")):
+        if Path(ad).name.upper().startswith(("ANLATIM_KURALLARI", "GOREV", "PROMPT", "ORNEK", "YMM_")):
             continue
         try:
             bilgi, metin = metinden(ham, ad)

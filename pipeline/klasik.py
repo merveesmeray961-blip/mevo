@@ -45,8 +45,9 @@ def _konular(sinav: str) -> dict[tuple[str, str], str]:
 
 
 def dogrulama_calistir(kod: str) -> dict:
-    ad_alani: dict = {}
-    exec(kod, {"__builtins__": __builtins__}, ad_alani)  # noqa: S102 — kendi üretim hattımızın kodu
+    # Tek ad alanı: ayrı globals/locals verilirse Python <3.12'de kavrayış ve fonksiyonlar üst düzey adları göremez.
+    ad_alani: dict = {"__builtins__": __builtins__}
+    exec(kod, ad_alani)  # noqa: S102 — kendi üretim hattımızın kodu
     if "sonuc" not in ad_alani:
         raise ValueError("doğrulama kodu 'sonuc' değişkenini atamıyor")
     sonuc = ad_alani["sonuc"]

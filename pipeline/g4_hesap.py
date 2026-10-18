@@ -46,8 +46,9 @@ def sayiya_cevir(metin: str) -> float | None:
 def calistir(kod: str) -> float:
     if re.search(r"\b(import|open|exec|eval|__)", kod):
         raise ValueError("doğrulama kodunda izin verilmeyen ifade")
-    ad_alani: dict = {}
-    exec(kod, {"__builtins__": IZINLI}, ad_alani)  # noqa: S102 — yalnız kendi ürettiğimiz kod, kısıtlı builtins
+    # Tek ad alanı: ayrı globals/locals verilirse Python <3.12'de kavrayış ve fonksiyonlar üst düzey adları göremez.
+    ad_alani: dict = {"__builtins__": IZINLI}
+    exec(kod, ad_alani)  # noqa: S102 — yalnız kendi ürettiğimiz kod, kısıtlı builtins
     if "sonuc" not in ad_alani:
         raise ValueError("doğrulama kodu 'sonuc' değişkenini atamıyor")
     return float(ad_alani["sonuc"])

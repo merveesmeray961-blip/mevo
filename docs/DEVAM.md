@@ -1,4 +1,31 @@
-# Yeni oturum için devir notu (2026-10-13)
+# Yeni oturum için devir notu (2026-10-17)
+
+## 2026-10-17 oturumu (dal `claude/ymm-cikmis-analiz`, `claude/devam-md-continue-itrwgl` üstünde)
+
+- **Gerçek müfredat kaynağı bulundu:** TESMER resmî alt konu listesi yayımlamıyor; 2022/1–2026/1 YMM soru ve cevap
+  anahtarları (130 PDF) indirildi (`content/kaynaklar/cikmis/ymm/`, depoya girmez; uç nokta
+  `https://www2.tesmer.org.tr/ajax.php?type=sinav_yili&sinav_turu=ymm`, PDF `…/files/ortak/soru_cevaplar/ymm/<yıl>/<dönem>/<ders>/…`).
+  Ders ders analiz: `docs/denetim/ymm_cikmis_2026-10-17/` (soru dökümü, puan payı, stil, anlatım açıkları).
+- **`content/mufredat/ymm.yaml` sürüm 2:** ağırlıklar gerçek puan payına göre; yeni konular IFM KCV/MDV/STK/TAS,
+  FYN PIY, YNM MSS, DRM DSP/DGY, REV IST/ULU/GEC, VTK UGN/YRG/THS/DUZ/SRM, GUV OZL, HSV GDR, DTK TKP, SPM PAL.
+  VTK'daki TFR, BDB, MTR, TSV **REV'e taşındı** (sorular, klasikler, anlatımlar; kimlikler `YMM-REV-…`). Yeni konuların
+  sorusu ve anlatımı YOK → üretim gerekir.
+- **YMM anlatımları:** 59 konu dış tesliminden alındı (`content/anlatim/ymm/`, `durum: taslak`, uygulamaya girmez).
+  Çıkmış soru raporlarındaki "anlatım açıkları" bölümleri revizyon listesidir (ör. YNM/BTC GÜG sapma yöntemi anahtarla çelişiyor).
+- **Kaynaklar:** 21 yeni mevzuat (KDV oran kararları, 9160/11257/9707 CBK, 3218, ihracat/ithalat rejimi, SPK VII-128.8,
+  II-14.1, X-22, III-39.1, TSRS 1-2, TSRS eşik) `KAYNAKLAR.md`'de. Taranmış olanlar Tesseract (tur) ile OCR'landı; OCR "%"
+  işaretini bozuyor, kısa kararlar elle düzeltildi, `ithalat_rejimi_2026_10790.txt` düzeltilmedi.
+  Hâlâ eksik: 6802 Gider Vergileri K., 7194 (DHV), 210 Değerli Kağıtlar K., Gümrük Yönetmeliği, 5607, 3577, Tasfiye Yön.,
+  32 s. Karar tebliğleri (2018-32/45, 32/48), SPK II-16.1, II-26.1, II-22.1, VI-103.1, 555 s. VUK GT.
+- **Hat düzeltmeleri:** `anlatim.on_eleme` aynı konu kodlu farklı dersleri eziyordu; HTML kuralı "a < b"yi reddediyordu;
+  `g4_hesap`/`klasik` exec ad alanı Python 3.11'de 2 soruyu eliyordu. Paket: 4849 soru + 80 klasik, eleme yok.
+- **SMMM 2026 test biçimi** (TÜRMOB YK 14.01.2026): 8 ders × 20 soru, 45 dk/ders, yanlış ¼ götürür, hesap makinesi yok,
+  her dersten 50 / ortalama 60. TESMER 2026/1–2 test soruları yayımladı (`sinav_turu=smmm`). Bankanın üslubu bunlarla
+  karşılaştırılmalı.
+- **Soru sayısı:** 7.776 kayıt (SMMM 3.847 = YET+SGS; YMM 3.929), aktif 4.849 + 80 klasik.
+- **Kullanıcının hedefi (sıra):** 1) müfredat ✔ (YMM) → 2) bütün soruların denetimi → 3) anlatımların müfredat ve
+  öğretmen dili denetimi → 4) eksiklerin giderilmesi (YMM klasik vaka soruları, yeni konular) → 5) hatasız paket ve yayın.
+  Sonra: sesli okuma (cihaz TTS), seslendirme, video.
 
 Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden devam et."**
 
@@ -7,7 +34,7 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
 - Türkiye SMMM sınavına (Yeterlilik + SGS) hazırlık için çevrimdışı Android uygulaması (`app.mevo.smmm`), sahibi Merve.
   Ek hedef: YMM sınavı. Biz **denetleyiciyiz**: dış üreticilerden (ChatGPT, Grok, Gemini…) gelen soru/anlatımı eler,
   hakemden geçirir, uygulamaya alırız.
-- Dal: oturumun verdiği dal (son: `claude/devam-md-continue-itrwgl`); push öncesi `git pull --rebase`. PR açma (istenmedikçe).
+- Dal: oturumun verdiği dal (son: `claude/ymm-cikmis-analiz`); push öncesi `git pull --rebase`. PR açma (istenmedikçe).
   Commit sonu: `Co-Authored-By` + `Claude-Session` satırları (sistem hatırlatmasındaki). Repo içeriğine model adı yazma.
 - Commit EDİLMEZ: `.gizli/`, `key.properties`, `*.jks`, build çıktıları, TESMER/ÖSYM kitapçıkları, resmî PDF'ler
   (mevzuat `.txt` metinleri commit edilir).
