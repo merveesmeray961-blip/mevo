@@ -510,21 +510,26 @@
   secenekler:
     A: Program sınıflandırmasının ilk düzeyi, kurumsal ve finansman tipi sınıflandırmanın bütün düzeyleri ile ekonomik
       sınıflandırmanın ilk iki düzeyi
-    B: Fonksiyonel sınıflandırmanın tüm düzeylerini
-    C: Yalnızca ekonomik sınıflandırmanın dördüncü düzeyini
-    D: Yalnızca kurumsal sınıflandırmanın en alt düzeyini
-    E: Yalnızca finansman tipi sınıflandırmanın ilk düzeyini
+    B: Program sınıflandırmasının bütün düzeyleri, kurumsal sınıflandırmanın ilk düzeyi ile ekonomik sınıflandırmanın
+      ilk üç düzeyi
+    C: Program ve kurumsal sınıflandırmanın bütün düzeyleri ile finansman tipi ve ekonomik sınıflandırmanın ilk
+      düzeyleri
+    D: Kurumsal sınıflandırmanın ilk iki düzeyi, finansman tipi sınıflandırmanın bütün düzeyleri ile ekonomik sınıflandırmanın
+      ilk düzeyi
+    E: Program sınıflandırmasının ilk iki düzeyi, kurumsal sınıflandırmanın bütün düzeyleri ile finansman tipi sınıflandırmanın
+      ilk düzeyi
   dogru: A
   aciklama:
-    dogru_neden: 5018 sayılı Kanun md. 15’te (ilgili değişikliklerle) ‘tertip’ deyimi; program sınıflandırmasının
-      ilk düzeyi, kurumsal ve finansman tipi sınıflandırmanın bütün düzeyleri ile ekonomik sınıflandırmanın ilk
-      iki düzeyini ifade eder. Bu, analitik bütçe sınıflandırmasının uygulama kuralıdır.
+    dogru_neden: 5018 sayılı Kanun md. 15'e göre 'tertip' deyimi program sınıflandırmasının ilk düzeyini, kurumsal
+      ve finansman tipi sınıflandırmanın bütün düzeylerini ve ekonomik sınıflandırmanın ilk iki düzeyini ifade eder.
     celdiriciler:
-      B: Fonksiyonel sınıflandırma tertip tanımında sayılmamıştır.
-      C: Ekonomik sınıflandırmanın dördüncü düzeyi muhasebe kayıtlarında kullanılır; tertip tanımında ilk iki düzey
-        vardır.
-      D: Kurumsal sınıflandırmanın yalnız en alt düzeyi değil, bütün düzeyleri dahildir.
-      E: Finansman tipi sınıflandırmanın bütün düzeyleri dahildir, yalnız ilk düzey değil.
+      B: Program sınıflandırmasının yalnız ilk düzeyi tertibe girer; ekonomik sınıflandırmada ise ilk iki düzey
+        esastır.
+      C: Program sınıflandırmasının bütün düzeyleri tertibe girmez; ekonomik sınıflandırmadan ilk iki düzey alınır.
+      D: Kurumsal sınıflandırmanın bütün düzeyleri ve program sınıflandırmasının ilk düzeyi tertip kapsamındadır;
+        ifade eksiktir.
+      E: Program sınıflandırmasının yalnız ilk düzeyi, finansman tipi sınıflandırmanın ise bütün düzeyleri tertibe
+        girer.
   kaynaklar:
   - mevzuat: 5018 sayılı Kamu Malî Yönetimi ve Kontrol Kanunu
     madde: md. 15 (tertip tanımı)
@@ -537,7 +542,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -558,8 +563,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler md.15''teki düzey sayılarını karıştıran akla yatkın varyantlarla
+          yenilendi; mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -580,6 +587,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler md.15''teki düzey sayılarını karıştıran akla yatkın varyantlarla yenilendi; mutlak
+      ifadeler kaldırıldı'
 - id: SMMM-MLY-KGH-0009
   sinav: smmm
   bolum:
@@ -917,20 +929,19 @@
     B: Savaş veya büyük kriz dönemlerinde kamu harcamalarının kalıcı olarak yükselmesi (yer değiştirme etkisi)
     C: Gelir artışıyla birlikte eğitim, sağlık gibi üstün mallara olan talebin yükselmesi
     D: Devletin ekonomik hayata müdahalesinin artması ve regülasyon faaliyetlerinin genişlemesi
-    E: Nüfus artışı ve demografik yapı değişikliklerinin kamu hizmet talebini yükseltmesi
+    E: Sanayileşmeyle ekonomik ilişkilerin karmaşıklaşması sonucu adalet ve hukuk düzeni hizmetlerine duyulan gereksinimin
+      artması
   dogru: B
   aciklama:
-    dogru_neden: 'Wagner Kanunu, sanayileşme, kentleşme, gelir artışı ve devlet faaliyetlerinin genişlemesi sonucu
-      kamu harcamalarının millî gelirden daha hızlı arttığını öne sürer. “Yer değiştirme etkisi” (displacement effect)
-      Peacock-Wiseman hipotezine aittir; Wagner’in açıklamalarında yer almaz. Bu nedenle C, Wagner Kanunu’nun nedenleri
-      arasında değildir.
-
-      '
+    dogru_neden: Wagner Kanunu, sanayileşme, kentleşme, gelir artışı ve devlet faaliyetlerinin genişlemesi sonucu
+      kamu harcamalarının millî gelirden daha hızlı arttığını öne sürer. Savaş ve kriz dönemlerinde harcamaların
+      kalıcı olarak yükselmesi (yer değiştirme etkisi) ise Peacock-Wiseman hipotezine aittir; bu nedenle B, Wagner
+      Kanunu'nun nedenleri arasında **yer almaz**.
     celdiriciler:
-      A: Wagner’in klasik açıklamalarından biridir (sosyal ilerleme ve kentleşme).
-      C: Gelir esnekliği yüksek kamusal mallara talep artışı Wagner’in temel argümanıdır.
-      D: Devletin regülatör ve müdahaleci rolünün genişlemesi Wagner tarafından öngörülmüştür.
-      E: Nüfus ve demografik faktörler kamu hizmet talebini artıran klasik Wagnerci nedenlerdendir.
+      A: Sanayileşme ve kentleşmeyle altyapı ve düzen ihtiyacının artması Wagner'in klasik açıklamalarındandır.
+      C: Eğitim, sağlık gibi hizmetlerin gelir esnekliğinin yüksek olması Wagner'in temel argümanlarındandır.
+      D: Devletin ekonomik hayata müdahalesinin ve düzenleyici rolünün genişlemesi Wagner tarafından öngörülmüştür.
+      E: Adalet ve hukuk düzeni hizmetlerine duyulan gereksinimin artması Wagner'in açıklamaları arasında yer alır.
   kaynaklar:
   - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
     madde: Wagner Kanunu (artan devlet faaliyetleri yasası)
@@ -940,7 +951,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -961,8 +972,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: nüfus/demografi şıkkı Wagner''in klasik nedeni sayılmadığından ikinci doğru olasılığı
+          yarattığı için net bir Wagner gerekçesiyle değiştirildi; dogru_neden''deki harf hatası (C yerine B) düzeltildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -980,6 +993,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: nüfus/demografi şıkkı Wagner''in klasik nedeni sayılmadığından ikinci doğru olasılığı yarattığı
+      için net bir Wagner gerekçesiyle değiştirildi; dogru_neden''deki harf hatası (C yerine B) düzeltildi'
 - id: SMMM-MLY-KGH-0014
   sinav: smmm
   bolum:

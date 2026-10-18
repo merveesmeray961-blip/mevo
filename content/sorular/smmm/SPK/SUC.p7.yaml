@@ -982,22 +982,29 @@
   kok: 6362 sayılı Sermaye Piyasası Kanunu'na göre bir eylemin, suç oluşturmamak kaydıyla piyasa bozucu nitelikte
     sayılabilmesi için aşağıdaki koşullardan hangisinin bulunması gerekir?
   secenekler:
-    A: Makul bir ekonomik veya finansal gerekçeyle açıklanabilmesi ve piyasada işlem hacmini artırması.
-    B: Yalnızca yatırımcıların zarar etmesine yol açması.
-    C: Borsanın veya teşkilatlanmış diğer piyasaların güven, açıklık ve istikrar içinde çalışmasını bozacak nitelikte
-      olması ve makul bir ekonomik veya finansal gerekçeyle açıklanamaması.
-    D: Kurulun önceden yazılı izin vermemesi.
-    E: Her durumda bir sermaye piyasası suçunun da işlenmiş olması.
+    A: Eylemin, fiyatlara ilişkin yanlış veya yanıltıcı izlenim uyandırmak amacıyla yapılmış olması ve bu suretle
+      kendisine veya başkasına menfaat sağlanmış olması.
+    B: Eylemin, henüz kamuya duyurulmamış ve fiyatı etkileyebilecek bilgilere dayanılarak alım veya satım emri verilmesi
+      biçiminde gerçekleştirilmiş olması.
+    C: Eylemin makul bir ekonomik veya finansal gerekçeyle açıklanamaması ve piyasaların güven, açıklık ve istikrar
+      içinde çalışmasını bozacak nitelikte olması.
+    D: Eylem nedeniyle yatırımcıların fiilen maddi zarara uğramış olması ve bu zararın mahkeme kararıyla tespit
+      edilmiş olması.
+    E: Eylemin, Kanunda sayılan sermaye piyasası suçlarından birinin unsurlarını da taşıması ve bu suç nedeniyle
+      cezalandırılması.
   dogru: C
   aciklama:
     dogru_neden: 6362 sayılı Kanun md. 104/1'e göre makul bir ekonomik veya finansal gerekçeyle açıklanamayan ve
       borsa ile teşkilatlanmış diğer piyasaların güven, açıklık ve istikrar içinde çalışmasını bozacak nitelikteki
       eylem ve işlemler, bir suç oluşturmadığı takdirde piyasa bozucu nitelikte eylem sayılır.
     celdiriciler:
-      A: Tam tersine, makul bir ekonomik veya finansal gerekçeyle açıklanamama koşulu aranır.
-      B: Yalnız yatırımcı zararı md. 104/1'de yeterli ölçüt olarak düzenlenmemiştir.
-      D: Önceden Kurul yazılı izni bulunmaması, md. 104/1'de genel tanımın unsuru değildir.
-      E: Md. 104/1, eylemin bir suç oluşturmaması halinde piyasa bozucu nitelikte sayılabileceğini açıkça belirtir.
+      A: Yanıltıcı izlenim amacı ve menfaat temini md. 107/1'deki piyasa dolandırıcılığı suçunun unsurlarıdır; md.
+        104/1 bu unsurları aramaz.
+      B: Kamuya duyurulmamış bilgiye dayalı emir verme md. 106'daki bilgi suistimali suçunun unsurudur; md. 104/1'in
+        koşulu değildir.
+      D: Md. 104/1 yatırımcı zararının doğmasını ya da mahkemece tespitini aramaz; ölçüt piyasaların işleyişini
+        bozacak nitelik taşımasıdır.
+      E: Md. 104/1 eylemin suç oluşturmadığı hâlde uygulanır; suç oluşturan fiiller md. 106 ve 107'de ayrıca düzenlenmiştir.
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 104/1
@@ -1009,7 +1016,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1030,8 +1037,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). md104'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler md. 106/107 unsurları ve zarar ölçütüyle yenilendi; R5 uzunluk dengelendi;
+          R6 mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1052,6 +1061,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler md. 106/107 unsurları ve zarar ölçütüyle yenilendi; R5 uzunluk dengelendi; R6 mutlak
+      ifadeler kaldırıldı'
 - id: SMMM-SPK-SUC-0017
   sinav: smmm
   bolum:
@@ -1152,31 +1166,47 @@
     bilgi ve belge istemiştir. Kurum, özel mevzuatındaki sır saklama hükümlerini ileri sürerek bilgileri vermemiştir.
     Buna göre aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Kurum, denetim görevlilerinin kanunda sayılan bilgi ve belge taleplerini yerine getirmekle yükümlüdür; gizlilik
-      hükümleri ileri sürülerek bilgi vermekten kaçınılamaz.
-    B: Kurumun bilgi vermemesi zorunludur; özel mevzuat her durumda üstündür.
-    C: Denetim personeli yalnızca yazılı bilgi isteyebilir.
-    D: Kurul Başkanı talep etmedikçe hiçbir kayıt incelenemez.
-    E: Denetim yalnızca finansal tablolarla sınırlıdır.
+    A: Kurum, denetim görevlilerinin Kanun kapsamındaki bilgi ve belge isteklerini yerine getirmekle yükümlüdür;
+      özel kanunlardaki gizlilik ve sır saklama hükümlerini ileri sürerek bilgi vermekten kaçınamaz.
+    B: Kurum, özel kanunundaki sır saklama yükümlülüğünün bulunduğunu Kurula yazılı olarak bildirmek suretiyle denetim
+      görevlilerinin bilgi isteğini yerine getirmekten kaçınabilir.
+    C: Denetim görevlileri kurumdan bilgi ve belgeleri yazılı olarak isteyebilir; kurum çalışanlarından sözlü bilgi
+      alma yetkileri ise bulunmamaktadır.
+    D: Kurumun defter ve belgelerinin incelenebilmesi için Kurul Başkanının talebi ile sulh ceza hâkiminin kararı
+      bulunması gerekir; bunlar olmadan inceleme yapılamaz.
+    E: Denetim, kurumun vergi ile ilgili kayıtlarını kapsamaz; bu kayıtlar denetim görevlilerince değil, vergi idaresince
+      incelenebilir.
   dogru: A
   aciklama:
-    dogru_neden: 'md. 89/1 denetim görevlilerine defter, belge, kayıt ve bilgi sistemlerini inceleme ve işlem ve
-      hesapları denetleme yetkisi verir; md. 89/2 ilgililerin bu talepleri yerine getirmesini zorunlu kılar. md.
-      90/1 ise kendilerinden bilgi istenilenlerin gizlilik ve sır saklama hükümlerini ileri sürerek bilgi vermekten
-      imtina edemeyeceğini açıkça düzenler. Püf noktaları: Denetimin kapsamı geniştir ve özel sır saklama iddiası
-      bu bilgi talebine karşı bir kaçış yolu değildir.'
+    dogru_neden: 'Md. 89/1 denetim görevlilerine defter, belge, kayıt ve bilgi sistemlerini inceleme ve işlem ve
+      hesapları denetleme yetkisi verir; md. 89/2 ilgililerin bu isteklerini yerine getirmesini zorunlu kılar. Md.
+      90/1 ise kendilerinden bilgi istenilenlerin özel kanunlardaki gizlilik ve sır saklama hükümlerini ileri sürerek
+      bilgi vermekten imtina edemeyeceğini düzenler. Püf noktaları: Sır saklama iddiası bilgi talebine karşı bir
+      kaçış yolu değildir; Kurul Başkanı talebi ve sulh ceza hâkimi kararı ise yalnız arama için aranır (md. 89/3).'
     celdiriciler:
-      B: md. 90/1 açıkça gizlilik ve sır saklama hükümlerinin ileri sürülerek bilgi vermekten kaçınılamayacağını
-        söyler.
-      C: md. 89/1 yazılı ve sözlü bilgi alma yetkisini de düzenler.
-      D: Kayıtları inceleme yetkisi md. 89/1'de denetim görevlilerine verilmiştir; Kurul Başkanının her kayıt için
-        ayrıca talebi aranmaz.
-      E: md. 89/1 denetimi tüm ilgili faaliyet ve işlemleri kapsar; yalnız finansal tablolarla sınırlı değildir.
+      B: Md. 90/1'e göre sır saklama hükümleri ileri sürülerek bilgi vermekten imtina edilemez; Kurula bildirim
+        yapmak bu yükümlülüğü ortadan kaldırmaz.
+      C: Md. 89/1 denetim görevlilerine ilgililerden yazılı ve sözlü bilgi alma yetkisi verir.
+      D: Kurul Başkanı talebi ve sulh ceza hâkimi kararı md. 89/3'te arama yapılması için aranır; defter ve belgelerin
+        incelenmesi md. 89/1 gereği bu şartlara bağlı değildir.
+      E: Md. 89/1 denetimin kapsamına vergi ile ilgili kayıtlar dâhil tüm defter ve belgelerin incelenmesini açıkça
+        dâhil eder.
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 89/1-2
     alinti: Denetim, bu Kanun kapsamındaki tüm kurum ve kuruluş ile ilgili diğer gerçek ve tüzel kişilerin bu Kanun
       ve ilgili diğer mevzuatın sermaye piyasasına ilişkin hükümleriyle ilgili faaliyet ve işlemlerini kapsar.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 89/1
+    alinti: bunların vergi ile ilgili kayıtları dâhil olmak üzere tüm defter ve belgeleri ile elektronik ortamda
+      tutulanlar dâhil tüm kayıtlar ve sair bilgi ihtiva eden vasıtaları, bilgi sistemlerini incelemeye
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 89/1
+    alinti: ilgililerden yazılı ve sözlü bilgi almaya, gerekli tutanakları düzenlemeye yetkilidir.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 89/3
+    alinti: Kurul Başkanının talepte bulunması ve sulh ceza hâkiminin kararı üzerine gerekli yerlerde kolluk yardımı
+      ile arama yapılabilir.
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 90/1
     alinti: 89 uncu maddenin birinci ve ikinci fıkraları çerçevesinde kendilerinden bilgi istenilen gerçek ve tüzel
@@ -1187,7 +1217,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1208,8 +1238,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). SPKn md 96 bilgi verme zorunlu'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler md. 89/3 arama şartı, sözlü bilgi ve vergi kayıtları üzerinden akla
+          yatkın yanlışlarla yenilendi; R5/R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1230,6 +1262,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler md. 89/3 arama şartı, sözlü bilgi ve vergi kayıtları üzerinden akla yatkın yanlışlarla
+      yenilendi; R5/R6 giderildi'
 - id: SMMM-SPK-SUC-0019
   sinav: smmm
   bolum:
@@ -1243,21 +1280,23 @@
   kok: 6362 sayılı Sermaye Piyasası Kanunu'na göre sermaye piyasası araçlarının fiyatlarına ilişkin yanlış veya
     yanıltıcı izlenim uyandırmak amacıyla alım veya satım yapan kişi için aşağıdakilerden hangisi öngörülmüştür?
   secenekler:
-    A: Yalnızca idari para cezası
+    A: İki yıldan beş yıla kadar hapis ve beş bin günden on bin güne kadar adli para cezası
     B: Üç yıldan beş yıla kadar hapis ve beş bin günden on bin güne kadar adli para cezası
-    C: Yalnızca uyarı cezası
-    D: Bir yıldan iki yıla kadar hapis
-    E: Yalnızca işlem yasağı
+    C: Üç yıldan beş yıla kadar hapis ve beş bin güne kadar adli para cezası
+    D: Üç yıldan beş yıla kadar hapis veya adli para cezası
+    E: Beş yıldan on yıla kadar hapis ve beş bin günden on bin güne kadar adli para cezası
   dogru: B
   aciklama:
-    dogru_neden: md. 107/1'e göre sermaye piyasası araçlarının fiyatlarına, fiyat değişimlerine, arz ve taleplerine
-      ilişkin yanlış veya yanıltıcı izlenim uyandırmak amacıyla işlem yapanlar üç yıldan beş yıla kadar hapis ve
-      beş bin günden on bin güne kadar adli para cezası ile cezalandırılır.
+    dogru_neden: Md. 107/1'e göre sermaye piyasası araçlarının fiyatlarına, fiyat değişimlerine, arz ve taleplerine
+      ilişkin olarak yanlış veya yanıltıcı izlenim uyandırmak amacıyla alım veya satım yapanlar üç yıldan beş yıla
+      kadar hapis ve beş bin günden on bin güne kadar adli para cezası ile cezalandırılır.
     celdiriciler:
-      A: Piyasa dolandırıcılığı md. 107/1'de yalnızca idari para cezası olarak düzenlenmemiştir.
-      C: Kanun hapis ve adli para cezasını birlikte öngörmektedir.
-      D: Alt ve üst sınırlar md. 107/1'de üç ve beş yıl olarak belirlenmiştir.
-      E: İşlem yasağı md. 101'de tedbir olarak yer alabilir; md. 107/1'deki cezanın yerine geçmez.
+      A: Alt sınır iki yıl değildir; 7222 sayılı Kanunla md. 107/1'deki "iki" ibaresi "üç" olarak değiştirilmiştir.
+      C: Beş bin güne kadar adli para cezası md. 107/2'deki bilgi temelli fiil için öngörülmüştür; md. 107/1'de
+        alt sınır beş bin gündür.
+      D: Hapis veya adli para cezası seçenekli yaptırım md. 106'daki bilgi suistimalinde yer alır; md. 107/1 ikisini
+        birlikte öngörür.
+      E: Beş yıldan on yıla kadar hapis cezası md. 107/1'de öngörülmemiştir; üst sınır beş yıldır.
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 107/1
@@ -1270,7 +1309,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1291,8 +1330,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). md 107/1'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler md. 106/107/2 ve eski alt sınırla yakın cezalarla yenilendi; R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1313,6 +1353,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler md. 106/107/2 ve eski alt sınırla yakın cezalarla yenilendi; R6 giderildi'
 - id: SMMM-SPK-SUC-0020
   sinav: smmm
   bolum:
@@ -1327,22 +1371,27 @@
     içinde çalışmasını bozacak nitelik taşımaktadır; ancak suç oluşturmamaktadır. Bu işlem bakımından aşağıdakilerden
     hangisi doğrudur?
   secenekler:
-    A: Her durumda yalnızca adli para cezası uygulanır.
-    B: İşlem doğrudan piyasa dolandırıcılığı suçu sayılır.
-    C: Yalnızca işlemden zarar gören yatırımcı dava açarsa yaptırım uygulanabilir.
-    D: Kurulun bu tür eylemler hakkında herhangi bir yaptırım yetkisi yoktur.
-    E: Kurulca belirlenen piyasa bozucu eylem kapsamındaysa idari para cezası uygulanabilir.
+    A: Eylem Kurulca belirlenen piyasa bozucu eylemler arasında olsa bile Kurul uyarıda bulunabilir; idari para
+      cezası uygulanamaz.
+    B: Eylem piyasa dolandırıcılığı suçu sayılır ve fail hakkında hapis cezası ile adli para cezasına hükmedilir.
+    C: Kurul tarafından yaptırım uygulanabilmesi için işlemden zarar gören yatırımcının Kurula başvurmuş olması
+      gerekir.
+    D: Kurul, eylemin piyasa bozucu niteliğini tespit ettikten sonra yaptırım için asliye ceza mahkemesine başvurmak
+      zorundadır.
+    E: Eylem Kurulca belirlenen piyasa bozucu eylemler kapsamındaysa Kurul tarafından idari para cezası verilir.
   dogru: E
   aciklama:
     dogru_neden: SPKn md. 104/1, makul bir ekonomik veya finansal gerekçeyle açıklanamayan ve piyasaların güven,
       açıklık ve istikrar içinde çalışmasını bozacak nitelikteki eylem ve işlemleri, bir suç oluşturmadığı takdirde
-      piyasa bozucu nitelikte eylem sayar. Kurulca belirlenen bu eylemleri gerçekleştirenlere idari para cezası
-      verilir.
+      piyasa bozucu nitelikte eylem sayar. Kurulca belirlenen bu eylemleri gerçekleştirenlere Kurul tarafından idari
+      para cezası verilir.
     celdiriciler:
-      A: Md. 104/1'de yaptırım idari para cezasıdır; adli para cezası bu hükmün sonucu değildir.
-      B: Hüküm, eylemin suç oluşturmaması hâlini ayrıca düzenlemektedir; otomatik olarak suç sayılmaz.
-      C: Yaptırım için yatırımcının ayrıca dava açması şartı md. 104'te öngörülmemiştir.
-      D: Md. 104/1 açıkça Kurula idari para cezası verme yetkisi tanır.
+      A: Md. 104/1 piyasa bozucu eylemler için uyarı değil, Kurul tarafından verilen idari para cezası öngörür.
+      B: Md. 104/1 eylemin suç oluşturmadığı hâli düzenler; piyasa dolandırıcılığı suçu md. 107'de ayrıca tanımlanmıştır
+        ve bu olayda eylem suç oluşturmamaktadır.
+      C: Md. 104/1 yaptırımı doğrudan Kurula bırakır; yatırımcının başvurusunu şart koşmaz.
+      D: İdari para cezasını md. 104/1 uyarınca doğrudan Kurul verir; mahkemeye başvuru şartı yoktur, karara karşı
+        idari yargı yoluna gidilir (md. 105/4).
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 104/1
@@ -1355,7 +1404,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1376,8 +1425,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). md 104'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler yaptırım türü ve usul karışıklıklarıyla yenilendi; R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1395,6 +1445,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler yaptırım türü ve usul karışıklıklarıyla yenilendi; R6 giderildi'
 - id: SMMM-SPK-SUC-0021
   sinav: smmm
   bolum:
@@ -1487,23 +1541,28 @@
     nci maddelerdeki inceleme ve denetimlerle bağlantılı olduğunu tespit etmektedir. Aşağıdaki tedbirlerden hangisi
     Kanunda açıkça düzenlenmiştir?
   secenekler:
-    A: Yalnızca adli mahkemeye başvurulmasının zorunlu olması
-    B: İçeriği yayımlayan kişinin tüm sermaye piyasası araçlarının otomatik olarak iptal edilmesi
-    C: Borsadaki tüm işlemlerin süresiz olarak durdurulması
-    D: İçeriğin çıkarılmasına ve/veya erişimin engellenmesine karar verilmesi
-    E: Yayın yapan kuruluşun her durumda faaliyet izninin iptal edilmesi
+    A: Yayını yapan kişinin internet erişiminin, Kurul kararıyla belirli bir süre için kesilmesi.
+    B: Yayının yapıldığı internet sitesinin Kurulca doğrudan kapatılması ve alan adı tescilinin iptal edilmesi.
+    C: Yayıncıya içeriği düzeltmesi için Kurulca yazılı ihtar yapılması ve düzeltilmemesi hâlinde faaliyet izninin
+      kaldırılması.
+    D: İçeriğin çıkarılmasına ve/veya erişimin engellenmesine karar verilmesi ve kararın uygulanmak üzere Erişim
+      Sağlayıcıları Birliğine gönderilmesi.
+    E: Yayını yapan kişiden, yayın içeriğine ilişkin olarak teminat yatırmasının ve nakit blokesi konulmasının istenmesi.
   dogru: D
   aciklama:
     dogru_neden: 'SPKn md. 101/3''e göre 104, 106 ve 107 nci maddeler uyarınca gerçekleştirilen inceleme ve denetimler
       kapsamında Kurulca internet aracılığıyla yapılan yayınlarla ilgili olarak içeriğin çıkarılmasına ve/veya erişimin
-      engellenmesine karar verilebilir. Püf noktaları: Düzenlenen tedbir doğrudan internet yayınının içeriğine ve
-      erişimine yöneliktir; diğer şıklardaki otomatik ve sınırsız sonuçlar bu hükümde yoktur.'
+      engellenmesine karar verilebilir; karar uygulanmak üzere Erişim Sağlayıcıları Birliğine gönderilir. Püf noktaları:
+      Tedbir doğrudan yayının içeriğine ve erişimine yöneliktir; site kapatma, ihtar veya teminat gibi tedbirler
+      bu fıkrada yoktur.'
     celdiriciler:
-      A: Hüküm Kurula doğrudan içerik çıkarma ve erişim engelleme kararı verme imkânı tanır; yalnızca adli mahkeme
-        yolu öngörülmemiştir.
-      B: Kanunda yayınla bağlantılı olarak sermaye piyasası araçlarının otomatik iptal edilmesi düzenlenmemiştir.
-      C: Tüm borsa işlemlerinin süresiz durdurulması bu fıkranın öngördüğü tedbir değildir.
-      E: Faaliyet izninin her durumda iptali bu hükümde yer almamaktadır.
+      A: Md. 101/3 kişinin internet erişimini kesmeyi değil, yayının içeriğine ve erişimine yönelik kararı düzenler.
+      B: Md. 101/3 siteyi kapatma veya alan adı tescilini iptal etme yetkisi vermez; içeriğin çıkarılması ve/veya
+        erişimin engellenmesi kararı verilebilir.
+      C: Md. 101/3'te ihtar ve faaliyet izninin kaldırılması gibi bir tedbir yer almaz; hüküm içerik çıkarma ve
+        erişim engellemeyi düzenler.
+      E: Md. 101/3'te teminat veya nakit bloke tedbiri yoktur; teminat yükümlülüğü md. 101/1-ç'deki ayrı bir işlem
+        tedbiridir.
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 101/3
@@ -1516,7 +1575,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1537,8 +1596,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 4). erişim engeli'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler internet yayını bağlamında akla yatkın yanlış tedbirlerle yenilendi;
+          R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1556,6 +1617,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler internet yayını bağlamında akla yatkın yanlış tedbirlerle yenilendi; R6 giderildi'
 - id: SMMM-SPK-SUC-0023
   sinav: smmm
   bolum:
@@ -1746,26 +1811,27 @@
   tip: uygulama
   zorluk: 2
   kok: Bir sermaye piyasası kurumunun mevzuata ve Kurulca belirlenen standartlara aykırı faaliyet yürüttüğü tespit
-    edilmiştir. 6362 sayılı Sermaye Piyasası Kanunu'na göre Kurulun uygulayabileceği tedbirlerden biri aşağıdakilerden
-    hangisidir?
+    edilmiştir. 6362 sayılı Sermaye Piyasası Kanunu'nun 96 ncı maddesinin birinci fıkrasına göre Kurulun doğrudan
+    uygulayabileceği tedbir aşağıdakilerden hangisidir?
   secenekler:
-    A: Kurumun tüm ticari borçlarını doğrudan sona erdirmek.
+    A: Kurumun yönetim kurulu üyelerini, mahkeme kararı aranmaksızın görevden alarak yerlerine yenilerini atamak.
     B: Kurumun faaliyetlerinin kapsamını sınırlandırmak veya faaliyetlerini geçici olarak durdurmak.
-    C: Kurumun tüm paylarını hiçbir karar almaksızın yatırımcılara dağıtmak.
-    D: Kurumun özel hukuk sözleşmelerinin tamamını kendiliğinden geçersiz kılmak.
-    E: Kurumun vergi borçlarını Kurul bütçesinden ödemek.
+    C: Kurumun faaliyetlerini, önce mahkemeden ihtiyati tedbir kararı almak suretiyle geçici olarak durdurmak.
+    D: Kurumun esas sözleşmesini, genel kurul kararı aranmaksızın Kurul kararıyla doğrudan değiştirmek.
+    E: Kurumun sermayesini, ortakların onayı aranmaksızın Kurul kararıyla doğrudan artırmak veya azaltmak.
   dogru: B
   aciklama:
-    dogru_neden: 6362 sayılı Sermaye Piyasası Kanunu md. 96/1'e göre Kurul, sermaye piyasası kurumlarının mevzuata,
-      Kurulca belirlenen standartlara, esas sözleşmeye veya fon iç tüzüğüne aykırı faaliyetlerini tespit ettiğinde
-      ilgililerden aykırılıkların giderilmesini isteyebilir; ayrıca faaliyetlerin kapsamını sınırlandırabilir veya
-      geçici olarak durdurabilir, yetkileri iptal edebilir ya da diğer tedbirleri alabilir.
+    dogru_neden: 6362 sayılı Kanun md. 96/1'e göre Kurul, sermaye piyasası kurumlarının mevzuata, Kurulca belirlenen
+      standartlara, esas sözleşmeye veya fon iç tüzüğüne aykırı faaliyetlerini tespit ettiğinde ilgililerden aykırılıkların
+      giderilmesini isteyebilir; doğrudan faaliyetlerin kapsamını sınırlandırabilir veya geçici olarak durdurabilir,
+      yetkileri iptal edebilir ya da öngöreceği diğer her türlü tedbiri alabilir.
     celdiriciler:
-      A: md. 96'da kurumun bütün ticari borçlarının Kurulca sona erdirilmesi şeklinde bir tedbir düzenlenmemiştir.
-      C: Kurulun md. 96 kapsamındaki yetkileri kurum paylarının yatırımcılara dağıtılmasını içermez.
-      D: Faaliyetlere ilişkin tedbir yetkisi, kurumun bütün özel hukuk sözleşmelerini kendiliğinden geçersiz kılma
-        yetkisi anlamına gelmez.
-      E: Kurulun bu maddede sayılan tedbirleri kurumun vergi borçlarını üstlenmesini içermez.
+      A: Yönetim kurulu üyelerinin görevden alınması md. 96/2'de sorumluluğun mahkeme kararıyla tespit edilmesine
+        bağlıdır; md. 96/1 tedbiri değildir.
+      C: Md. 96/1 Kurula faaliyetleri doğrudan geçici olarak durdurma yetkisi verir; önce mahkemeden ihtiyati tedbir
+        alma şartı yoktur.
+      D: Md. 96'da Kurula kurumun esas sözleşmesini doğrudan değiştirme yetkisi tanınmamıştır.
+      E: Md. 96'da Kurula kurumun sermayesini doğrudan artırma veya azaltma yetkisi tanınmamıştır.
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 96/1
@@ -1780,7 +1846,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1801,8 +1867,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler md. 96/2 ve doğrudan müdahale karışıklıklarıyla yenilendi; kök md.
+          96/1''e netleştirildi; R5/R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1817,6 +1885,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler md. 96/2 ve doğrudan müdahale karışıklıklarıyla yenilendi; kök md. 96/1''e netleştirildi;
+      R5/R6 giderildi'
 - id: SMMM-SPK-SUC-0026
   sinav: smmm
   bolum:
@@ -1920,22 +1993,23 @@
   kok: 6362 sayılı Sermaye Piyasası Kanunu'nda tanımlanan veya Kanunun atıfta bulunduğu suçlardan dolayı yargılama
     yapmaya hangi mahkemeler yetkilidir?
   secenekler:
-    A: Asliye hukuk mahkemeleri
-    B: Sulh ceza hâkimlikleri
-    C: Ticaret mahkemeleri
-    D: Hâkimler ve Savcılar Kurulunun ihtisas mahkemesi olarak görevlendireceği asliye ceza mahkemeleri
-    E: İdare mahkemeleri
+    A: Hâkimler ve Savcılar Yüksek Kurulunun ihtisas mahkemesi olarak görevlendireceği asliye ticaret mahkemeleri
+    B: Hâkimler ve Savcılar Yüksek Kurulunun ihtisas mahkemesi olarak görevlendireceği ağır ceza mahkemeleri
+    C: Adalet Bakanlığınca ihtisas mahkemesi olarak belirlenecek asliye ceza mahkemeleri
+    D: Hâkimler ve Savcılar Yüksek Kurulunun ihtisas mahkemesi olarak görevlendireceği asliye ceza mahkemeleri
+    E: Kurulun başvurusu üzerine görevlendirilen sulh ceza hâkimlikleri
   dogru: D
   aciklama:
-    dogru_neden: 6362 sayılı Sermaye Piyasası Kanunu md. 116/1'e göre bu Kanunda tanımlanan veya atıfta bulunulan
-      suçlardan dolayı yargılama yapmaya Hâkimler ve Savcılar Kurulunun ihtisas mahkemesi olarak görevlendireceği
-      asliye ceza mahkemeleri yetkilidir.
+    dogru_neden: 6362 sayılı Kanun md. 116/1'e göre bu Kanunda tanımlanan veya atıfta bulunulan suçlardan dolayı
+      yargılama yapmaya Hâkimler ve Savcılar Yüksek Kurulunun ihtisas mahkemesi olarak görevlendireceği asliye ceza
+      mahkemeleri yetkilidir.
     celdiriciler:
-      A: md. 116/1 görevli mahkeme olarak asliye hukuk mahkemelerini değil, ihtisas mahkemesi olarak görevlendirilecek
-        asliye ceza mahkemelerini gösterir.
-      B: Sulh ceza hâkimlikleri, md. 116/1'deki yargılama görevini üstlenen mahkemeler olarak belirtilmemiştir.
-      C: Ticaret mahkemeleri md. 116/1'de sermaye piyasası suçlarının yargılama mercii olarak gösterilmemiştir.
-      E: İdare mahkemeleri idari davalara bakar; sermaye piyasası suçlarının yargılaması md. 116/1'e göre ceza mahkemesindedir.
+      A: Görevlendirmeyi yapan merci doğrudur, ancak mahkeme türü asliye ticaret değil asliye cezadır (md. 116/1).
+      B: Görevlendirmeyi yapan merci doğrudur, ancak mahkeme türü ağır ceza değil asliye cezadır (md. 116/1).
+      C: İhtisas mahkemesi görevlendirmesini Adalet Bakanlığı değil Hâkimler ve Savcılar Yüksek Kurulu yapar (md.
+        116/1).
+      E: Md. 116/1 yargılama görevini sulh ceza hâkimliklerine değil, görevlendirilecek asliye ceza mahkemelerine
+        verir.
   kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 116/1
@@ -1946,7 +2020,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1967,8 +2041,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). md 109 ihtisas mahkemesi'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler mahkeme türü ve görevlendiren merci karışıklıklarıyla yenilendi; kurum
+          adı kaynakla (Yüksek Kurul) uyumlu hale getirildi; R5 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1989,3 +2065,8 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler mahkeme türü ve görevlendiren merci karışıklıklarıyla yenilendi; kurum adı kaynakla
+      (Yüksek Kurul) uyumlu hale getirildi; R5 giderildi'

@@ -256,7 +256,7 @@
 
     II. Servet vergileri, mükellefin sahip olduğu varlık stoku üzerinden alınır.
 
-    III. Motorlu taşıtlar vergisi hem dolaylı vergi hem servet vergisi niteliği taşıyabilir.'
+    III. Katma değer vergisi, mükellefin elinde bulundurduğu varlık stoku üzerinden alınır.'
   secenekler:
     A: Yalnız I
     B: Yalnız II
@@ -265,14 +265,14 @@
     E: I, II ve III
   dogru: C
   aciklama:
-    dogru_neden: Dolaylı vergiler (KDV, ÖTV vb.) işlem/devri anında yansıtılır; servet vergileri (emlak, veraset
-      ve intikal, MTV’nin stok boyutu) varlık stoku üzerinden alınır. I ve II doğrudur. III tartışmalıdır; MTV yıllık
-      bir servet vergisi olarak sınıflandırılır, dolaylı vergi değildir.
+    dogru_neden: 'Dolaylı vergiler (KDV, ÖTV gibi) mal ve hizmet işlemleri sırasında tahsil edilir; servet vergileri
+      (emlak vergisi gibi) mükellefin sahip olduğu varlık stoku üzerinden alınır. I ve II doğrudur. III yanlıştır:
+      KDV işlem üzerinden alınan dolaylı vergidir.'
     celdiriciler:
-      A: II de doğrudur.
-      B: I de doğrudur.
-      D: III genel kabulde doğru değildir; MTV servet vergisi kabul edilir.
-      E: III yanlıştır.
+      A: 'II de doğrudur: servet vergileri varlık stoku üzerinden alınır.'
+      B: 'I de doğrudur: dolaylı vergiler işlem anında tahsil edilir.'
+      D: III yanlıştır; KDV varlık stokuna değil mal ve hizmet işlemlerine bağlı olarak alınır.
+      E: III yanlış olduğundan üç öncülün birlikte doğru olması mümkün değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
@@ -283,7 +283,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -304,8 +304,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: MTV sınıflaması doktrinde tartışmalı olduğundan III net bir yanlış ifadeyle (KDV
+          varlık stoku üzerinden alınır) değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -320,6 +322,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: MTV sınıflaması doktrinde tartışmalı olduğundan III net bir yanlış ifadeyle (KDV varlık stoku üzerinden
+      alınır) değiştirildi'
 - id: SMMM-MLY-VTE-0019
   sinav: smmm
   bolum:
@@ -1543,41 +1550,37 @@
   kazanim: negatif gelir vergisi
   tip: kavrama
   zorluk: 3
-  kok: 'Negatif gelir vergisi sisteminde aşağıdaki unsurlar ile işlevleri eşleştirildiğinde hangisi doğru sıralamayı
-    verir?
+  kok: 'Negatif gelir vergisi sisteminde aşağıdaki kavramlar ile tanımları eşleştirildiğinde hangisi doğru olur?
 
-    I. Temel gelir (garanti edilen asgari gelir)
+    I. Garanti edilen temel gelir (G)
 
     II. Marjinal vergi oranı (t)
 
     III. Başabaş noktası
 
-    IV. Transfer ödemesi
 
+    a) Kazanılan ek gelire uygulanan ve transferin azalma hızını belirleyen oran
 
-    a) Gelir sıfırken alınan net ödeme
+    b) Net transferin sıfır olduğu gelir düzeyi
 
-    b) Transferin sıfırlandığı gelir düzeyi
-
-    c) Gelir arttıkça transferin azalma hızı
-
-    d) Sistemin sağladığı minimum gelir güvencesi'
+    c) Hiç geliri olmayan kişiye sistem tarafından sağlanan asgari transfer tutarı'
   secenekler:
-    A: I-d, II-c, III-b, IV-a
-    B: I-a, II-b, III-c, IV-d
-    C: I-d, II-a, III-c, IV-b
-    D: I-b, II-c, III-d, IV-a
-    E: I-c, II-d, III-a, IV-b
+    A: I-c, II-a, III-b
+    B: I-a, II-b, III-c
+    C: I-c, II-b, III-a
+    D: I-b, II-a, III-c
+    E: I-b, II-c, III-a
   dogru: A
   aciklama:
-    dogru_neden: Temel gelir (G) minimum gelir güvencesidir (d). Marjinal oran t, gelir arttıkça transferin azalma
-      hızını belirler (c). Başabaş noktası G/t olup transferin sıfırlandığı gelirdir (b). Transfer ödemesi gelir
-      sıfırken alınan net tutardır (a).
+    dogru_neden: Garanti edilen temel gelir, hiç geliri olmayana sağlanan asgari transfer tutarıdır (c). Marjinal
+      oran, kazanılan ek gelire uygulanan ve transferin azalma hızını belirleyen orandır (a). Başabaş noktası, net
+      transferin sıfırlandığı gelir düzeyidir (b) ve G/t olarak bulunur.
     celdiriciler:
-      B: Temel gelir ‘alınan net ödeme’ değil güvencedir; eşleştirme tamamen kaymıştır.
-      C: Marjinal oran ‘alınan net ödeme’ değildir; başabaş ile transfer yer değiştirmiştir.
-      D: Temel gelir başabaş noktası değildir.
-      E: Hiçbir eşleştirme doğru değildir.
+      B: Temel gelir marjinal oran tanımıyla, başabaş noktası asgari transfer tutarıyla eşleştirilmiş; eşleştirme
+        tamamen kaymıştır.
+      C: Marjinal oran ile başabaş noktasının tanımları yer değiştirmiştir.
+      D: Temel gelir başabaş noktası tanımıyla eşleştirilmiş; başabaş noktası ise asgari transfer olarak gösterilmiştir.
+      E: Temel gelir başabaş noktasıyla, marjinal oran asgari transfer tutarıyla karıştırılmıştır.
   kaynaklar:
   - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
     madde: Negatif gelir vergisi (Friedman tipi)
@@ -1587,7 +1590,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1608,8 +1611,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: örtüşen a/d ve IV maddeleri kaldırıldı; üç kavramlı net eşleştirme kuruldu'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1624,6 +1628,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: örtüşen a/d ve IV maddeleri kaldırıldı; üç kavramlı net eşleştirme kuruldu'
 - id: SMMM-MLY-VTE-0035
   sinav: smmm
   bolum:
@@ -1962,20 +1970,20 @@
   zorluk: 2
   kok: Negatif gelir vergisi sistemine ilişkin aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Geliri belirli bir eşiğin altında olanlara net transfer ödemesi yapılır.
-    B: Marjinal vergi oranı hem pozitif hem negatif gelir bölgesinde aynıdır.
-    C: Temel gelir garantisi ile marjinal oran birlikte sistemin parametreleridir.
-    D: Başabaş noktasında net vergi/transfer sıfırdır.
-    E: Sistem, çalışma teşvikini tamamen ortadan kaldırır; hiç kimse çalışmaz.
+    A: Geliri belirli bir eşiğin altında kalan bireylere net transfer ödemesi yapılır.
+    B: Başabaş noktasında birey ne vergi öder ne de transfer alır.
+    C: Garanti edilen temel gelir ile marjinal oran sistemin temel parametreleridir.
+    D: Marjinal oran yükseltildiğinde, aynı temel gelir düzeyinde başabaş noktası düşer.
+    E: Marjinal oran yükseltildiğinde, aynı temel gelirde başabaş noktası yükselir ve çalışma teşviki artar.
   dogru: E
   aciklama:
-    dogru_neden: Negatif gelir vergisi çalışma teşvikini azaltabilir ancak tamamen ortadan kaldırmaz; marjinal oran
-      %100 olmadığı sürece ek gelir elde etmek hâlâ avantajlıdır. ‘Hiç kimse çalışmaz’ ifadesi yanlıştır.
+    dogru_neden: Başabaş noktası G/t ile bulunur; marjinal oran t yükseldiğinde başabaş noktası düşer ve ek gelirin
+      transferden düşülen kısmı artacağından çalışma teşviki azalır. E'deki ifade bu nedenle **yanlıştır**.
     celdiriciler:
-      A: Sistemin temel işleyişidir.
-      B: Tek oran varsayımı standarttır.
-      C: İki parametre sistemin özüdür.
-      D: Başabaş tanımı budur.
+      A: Geliri eşiğin altında olanlara net transfer yapılması negatif gelir vergisinin temel işleyişidir.
+      B: Başabaş noktasında net vergi veya transfer sıfırdır; ifade doğrudur.
+      C: Temel gelir garantisi ve marjinal oran sistemin iki temel parametresidir; ifade doğrudur.
+      D: Başabaş noktası G/t olduğundan t arttıkça düşer; ifade doğrudur.
   kaynaklar:
   - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
     madde: Negatif gelir vergisi
@@ -1985,7 +1993,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2006,8 +2014,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: doğru şık (yanlış ifade) ''hiç kimse çalışmaz'' saçmalığından G/t ilişkisini yanlış
+          yorumlayan akla yatkın bir ifadeye çevrildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2025,6 +2035,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: doğru şık (yanlış ifade) ''hiç kimse çalışmaz'' saçmalığından G/t ilişkisini yanlış yorumlayan akla
+      yatkın bir ifadeye çevrildi'
 - id: SMMM-MLY-VTE-0040
   sinav: smmm
   bolum:
@@ -2594,34 +2609,32 @@
   kazanim: dolaylı ve servet vergileri
   tip: kavrama
   zorluk: 3
-  kok: 'Aşağıdaki vergi türlerini (I) dolaylı vergi, (II) servet vergisi, (III) her iki niteliği de taşımayan olarak
-    eşleştiriniz.
+  kok: 'Aşağıdaki vergilerin türüne (dolaylı vergi, servet vergisi, gelir vergisi) göre doğru sınıflandırması hangisidir?
 
     I. Katma değer vergisi
 
     II. Veraset ve intikal vergisi
 
-    III. Motorlu taşıtlar vergisi
+    III. Kurumlar vergisi
 
-    IV. Kurumlar vergisi
-
-    Doğru eşleştirme hangisidir?'
+    IV. Emlak vergisi'
   secenekler:
-    A: I-dolaylı, II-servet, III-servet, IV-hiçbiri
-    B: I-dolaylı, II-servet, III-dolaylı, IV-servet
-    C: I-servet, II-dolaylı, III-servet, IV-hiçbiri
-    D: I-dolaylı, II-hiçbiri, III-servet, IV-dolaylı
-    E: I-hiçbiri, II-servet, III-dolaylı, IV-servet
+    A: I-dolaylı, II-servet, III-gelir, IV-servet
+    B: I-dolaylı, II-gelir, III-servet, IV-dolaylı
+    C: I-servet, II-dolaylı, III-gelir, IV-servet
+    D: I-dolaylı, II-servet, III-dolaylı, IV-gelir
+    E: I-gelir, II-servet, III-gelir, IV-dolaylı
   dogru: A
   aciklama:
-    dogru_neden: KDV tüketim üzerinden alınan klasik dolaylı vergidir. Veraset ve intikal vergisi servetin transferi
-      üzerinden alınan servet vergisidir. Motorlu taşıtlar vergisi taşıt mülkiyetine bağlı servet vergisidir. Kurumlar
-      vergisi gelir (kazanç) üzerinden alınan dolaysız vergidir; ne dolaylı ne servet vergisidir.
+    dogru_neden: KDV tüketim üzerinden alınan dolaylı vergidir. Veraset ve intikal vergisi servetin devri üzerinden
+      alınan servet vergisidir. Kurumlar vergisi kurum kazancı üzerinden alınan gelir vergisi türüdür. Emlak vergisi
+      taşınmaz mülkiyetine bağlı servet vergisidir.
     celdiriciler:
-      B: MTV dolaylı değil, servet vergisidir; kurumlar vergisi servet değildir.
-      C: KDV servet değil, dolaylıdır; veraset dolaylı değil.
-      D: Veraset servet vergisidir; kurumlar dolaylı değildir.
-      E: KDV dolaylıdır; MTV dolaylı değil.
+      B: Veraset ve intikal vergisi gelir vergisi değil servet vergisidir; kurumlar vergisi servet vergisi, emlak
+        vergisi dolaylı vergi değildir.
+      C: KDV servet vergisi değil dolaylı vergidir; veraset ve intikal vergisi dolaylı vergi değildir.
+      D: Kurumlar vergisi dolaylı vergi değil gelir vergisi türüdür; emlak vergisi gelir vergisi değil servet vergisidir.
+      E: KDV gelir vergisi değil dolaylı vergidir; emlak vergisi dolaylı değil servet vergisidir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
@@ -2632,7 +2645,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2653,8 +2666,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: MTV sınıflaması tartışmalı olduğundan kaldırıldı, kategori ve öncül numaraları
+          çakışması giderildi; çeldiriciler akla yatkın karışıklıklarla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2669,6 +2684,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: MTV sınıflaması tartışmalı olduğundan kaldırıldı, kategori ve öncül numaraları çakışması giderildi;
+      çeldiriciler akla yatkın karışıklıklarla yenilendi'
 - id: SMMM-MLY-VTE-0048
   sinav: smmm
   bolum:

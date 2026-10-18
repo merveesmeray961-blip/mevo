@@ -1247,20 +1247,23 @@
   kok: Davacı, idari işlemin gerçek muhatabı olan B yerine C kurumunu hasım göstererek dava açmıştır. Mahkeme ilk
     incelemede yanlış hasım gösterildiğini tespit etmiştir. İYUK md. 15 bakımından hangi işlem yapılmalıdır?
   secenekler:
-    A: Dava doğrudan esastan kabul edilir.
+    A: Dava dilekçesi görev veya yetki yönünden reddedilerek görevli mahkemeye gönderilir.
     B: Dava dilekçesi tespit edilecek gerçek hasma tebliğ edilir.
-    C: Dilekçe mutlaka görev yönünden reddedilir.
-    D: Dava süresiz olarak bekletilir.
-    E: Davacıya yeni dava açması için yeniden tam dava süresi verilir.
+    C: Dava dilekçesinin reddine karar verilir.
+    D: Davacıya otuz gün içinde dilekçeyi yeniden düzenlemesi için süre verilir.
+    E: Yanlış hasım yönünden dava, husumet nedeniyle esastan reddedilir.
   dogru: B
   aciklama:
-    dogru_neden: İYUK md. 15/1-c, yanlış hasım gösterilmesi hâlinde dava dilekçesinin tespit edilecek gerçek hasma
-      tebliğine karar verileceğini düzenler.
+    dogru_neden: İYUK md. 15/1-c, 14 üncü maddenin 3/f bendine göre davanın hasım gösterilmeden veya yanlış hasım
+      gösterilerek açılması hâlinde dava dilekçesinin tespit edilecek gerçek hasma tebliğine karar verileceğini
+      düzenler.
     celdiriciler:
-      A: Yanlış hasım için kanundaki sonuç esastan kabul değildir.
-      C: Yanlış hasım, görev yönünden ret sebebi olarak düzenlenmemiştir.
-      D: Kanun belirli bir bekletme usulü öngörmez.
-      E: Md. 15/1-cde öngörülen işlem gerçek hasma tebliğdir.
+      A: Görev veya yetki yönünden ret ve gönderme, md. 15/1-a'daki hâllere ilişkindir; yanlış hasım bu hâl değildir.
+      C: Dilekçenin reddi md. 15/1-b'de sayılan 3/c, 3/d ve 3/e hâllerine ilişkindir; yanlış hasım için ret değil
+        tebliğ öngörülmüştür.
+      D: Otuz günlük yeniden düzenleme süresi md. 15/1-d'deki 3 ve 5 inci maddelere aykırılık hâlinde verilir; yanlış
+        hasımda uygulanmaz.
+      E: Yanlış hasım gösterilmesi hâlinde kanun esastan ret değil, dilekçenin gerçek hasma tebliğini öngörür.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 2577 sayılı İdari Yargılama Usulü Kanunu
@@ -1272,7 +1275,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1293,8 +1296,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler md. 15/1''in diğer bentlerindeki işlemlerle (a, b, d) yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1315,6 +1319,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler md. 15/1''in diğer bentlerindeki işlemlerle (a, b, d) yenilendi'
 - id: SMMM-HUK-IYU-0048
   sinav: smmm
   bolum:
@@ -2140,24 +2148,34 @@
   kazanim: kanun yolları
   tip: uygulama
   zorluk: 3
-  kok: Bir idare mahkemesi kararının tebliğinden sonra istinaf yolu kullanılacaktır; ayrıca Danıştay dava dairesinin
-    nihai kararı söz konusudur. Aşağıdaki eşleştirmelerden hangisi doğrudur?
+  kok: İYUK md. 45 ve 46’ya göre, bir idare mahkemesi kararı ile bir Danıştay dava dairesinin nihai kararı bakımından
+    kural olarak başvurulacak kanun yolları aşağıdaki eşleştirmelerden hangisinde doğru gösterilmiştir?
   secenekler:
-    A: İdare mahkemesi kararı → Danıştay; Danıştay dava dairesi nihai kararı → bölge idare mahkemesi
-    B: İdare mahkemesi kararı → bölge idare mahkemesi; Danıştay dava dairesi nihai kararı → Danıştayda temyiz
-    C: Her iki karar → Anayasa Mahkemesi
-    D: İdare mahkemesi kararı → Yargıtay; Danıştay dava dairesi nihai kararı → bölge idare mahkemesi
-    E: Her iki karar → yalnız ilk derece mahkemesi
+    A: İdare mahkemesi kararı → bölge idare mahkemesinde istinaf; Danıştay dava dairesi nihai kararı → kesindir,
+      kanun yolu yoktur
+    B: İdare mahkemesi kararı → bölge idare mahkemesinde istinaf; Danıştay dava dairesi nihai kararı → Danıştayda
+      temyiz
+    C: İdare mahkemesi kararı → doğrudan Danıştayda temyiz; Danıştay dava dairesi nihai kararı → Danıştayda temyiz
+    D: İdare mahkemesi kararı → bölge idare mahkemesinde istinaf; Danıştay dava dairesi nihai kararı → bölge idare
+      mahkemesinde istinaf
+    E: İdare mahkemesi kararı → kararı veren mahkemeye itiraz; Danıştay dava dairesi nihai kararı → Danıştayda temyiz
   dogru: B
   aciklama:
-    dogru_neden: 'İYUK md. 45 idare mahkemesi kararlarına karşı bölge idare mahkemesinde istinafı, md. 46 ise Danıştay
-      dava dairelerinin nihai kararlarının Danıştayda temyiz edilebilmesini düzenler. Püf noktaları: İlk derece
-      idare mahkemesi kararı ile Danıştay dava dairesinin nihai kararı aynı kanun yoluna tabi değildir.'
+    dogru_neden: 'İYUK md. 45/1 idare ve vergi mahkemelerinin kararlarına karşı bölge idare mahkemesinde istinafı,
+      md. 46/1 ise Danıştay dava dairelerinin nihai kararlarının Danıştayda temyiz edilebilmesini düzenler.
+
+
+      Püf noktaları: İlk derece idare mahkemesi kararında yol istinaf, Danıştay dava dairesi nihai kararında yol
+      temyizdir.'
     celdiriciler:
-      A: İlk derece idare mahkemesi kararını doğrudan Danıştaya götürmek genel istinaf yoluna uymaz.
-      C: İki karar için Anayasa Mahkemesi genel kanun yolu değildir.
-      D: İdari yargı kararı için Yargıtay yolu kurulamaz.
-      E: Her iki kararın kanun yolunu kaldırır.
+      A: Danıştay dava dairelerinin nihai kararları md. 46/1 uyarınca Danıştayda temyiz edilebilir; kanun yolu kapalı
+        değildir.
+      C: İdare mahkemesi kararlarına karşı kural olarak önce bölge idare mahkemesine istinaf yoluna gidilir; doğrudan
+        temyiz genel yol değildir.
+      D: Bölge idare mahkemesi istinaf mercii olup Danıştay dava dairesi kararlarının kanun yolu mercii değildir;
+        bu kararlar Danıştayda temyiz edilir.
+      E: İdare mahkemesi kararlarına karşı kararı veren mahkemeye itiraz değil, bölge idare mahkemesine istinaf
+        öngörülmüştür.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 2577 sayılı İdari Yargılama Usulü Kanunu
@@ -2181,7 +2199,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2202,8 +2220,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: Yargıtay/AYM gibi saçma şıklar kaldırıldı; çeldiriciler istinaf-temyiz merci karışıklıklarıyla
+          yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2218,6 +2238,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: Yargıtay/AYM gibi saçma şıklar kaldırıldı; çeldiriciler istinaf-temyiz merci karışıklıklarıyla yenilendi'
 - id: SMMM-HUK-IYU-0059
   sinav: smmm
   bolum:
@@ -2315,25 +2339,29 @@
   kazanim: dava açma süreleri
   tip: uygulama
   zorluk: 3
-  kok: Özel kanunda ayrı süre öngörülmeyen bir idari uyuşmazlıkta yazılı bildirim 4 Nisan 2026 tarihinde yapılmıştır.
-    Aynı işlem için 11 inci madde kapsamında üst makama başvuru yapılmamıştır. Dava açma süresinin türü ve başlangıcı
-    bakımından hangisi doğrudur?
+  kok: Özel kanunda ayrı süre öngörülmeyen bir idari uyuşmazlıkta idare mahkemesinde dava açılacaktır. Yazılı bildirim
+    4 Nisan 2026 tarihinde yapılmıştır. Aynı işlem için 11 inci madde kapsamında üst makama başvuru yapılmamıştır.
+    Dava açma süresinin türü ve başlangıcı bakımından hangisi doğrudur?
   secenekler:
-    A: Vergi mahkemesi süresi olan 30 gün uygulanır ve sözlü bildirim esas alınır.
-    B: İdare mahkemesinde genel 60 günlük süre uygulanır ve süre yazılı bildirimin yapıldığı tarihten başlar.
-    C: Her durumda 30 günlük özel süre uygulanır.
-    D: Süre işlemin tesis edildiği tarihten bağımsız olarak 90 gündür.
-    E: Süre yalnız kesinleşmeden sonra başlar.
+    A: Vergi mahkemesinde olduğu gibi 30 günlük süre uygulanır ve süre sözlü bildirimin yapıldığı günü izleyen günden
+      başlar.
+    B: İdare mahkemesinde 60 günlük süre uygulanır ve süre yazılı bildirimin yapıldığı tarihi izleyen günden başlar.
+    C: İdare mahkemesinde 60 günlük süre uygulanır ve süre işlemin tesis edildiği tarihi izleyen günden başlar.
+    D: İdare mahkemesinde 30 günlük süre uygulanır ve süre yazılı bildirimin yapıldığı tarihi izleyen günden başlar.
+    E: İdare mahkemesinde 60 günlük süre uygulanır ve süre işlemin kesinleştiği tarihi izleyen günden başlar.
   dogru: B
   aciklama:
-    dogru_neden: 'İYUK md. 7, özel süre yoksa idare mahkemelerinde 60 gün ve idari uyuşmazlıklarda yazılı bildirimin
-      yapıldığı tarihi başlangıç olarak öngörür. Püf noktaları: İdari uyuşmazlığın genel süresi ile vergi mahkemesinin
-      30 günlük süresi ayrılmalıdır.'
+    dogru_neden: 'İYUK md. 7/1 özel süre yoksa idare mahkemelerinde 60 gün öngörür; md. 7/2-a idari uyuşmazlıklarda
+      sürenin yazılı bildirimin yapıldığı tarihi izleyen günden başladığını belirtir.
+
+
+      Püf noktaları: İdari uyuşmazlığın genel süresi (60 gün) ile vergi mahkemesinin 30 günlük süresi ayrılmalıdır.'
     celdiriciler:
-      A: 30 günlük süre vergi mahkemelerine aittir.
-      C: İvedi yargılama gibi özel bir süreyi genel uyuşmazlığa taşır.
-      D: Kanunda 90 günlük genel süre yoktur.
-      E: Genel dava süresinin başlangıcını yanlış belirler.
+      A: 30 günlük süre vergi mahkemelerine aittir; idari uyuşmazlıklarda başlangıç sözlü değil yazılı bildirimdir.
+      C: İdari uyuşmazlıklarda süre işlemin tesis tarihinden değil, yazılı bildirimin yapıldığı tarihi izleyen günden
+        başlar.
+      D: Md. 7/1'e göre idare mahkemesinde genel süre 30 değil 60 gündür.
+      E: Dava süresinin başlangıcı işlemin kesinleşmesi değil, idari uyuşmazlıklarda yazılı bildirimdir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 2577 sayılı İdari Yargılama Usulü Kanunu
@@ -2349,7 +2377,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2370,8 +2398,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: B şıkkı ''izleyen günden'' ifadesiyle düzeltildi, mutlak ifadeler kaldırıldı,
+          şıklar dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2386,6 +2416,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: B şıkkı ''izleyen günden'' ifadesiyle düzeltildi, mutlak ifadeler kaldırıldı, şıklar dengelendi'
 - id: SMMM-HUK-IYU-0061
   sinav: smmm
   bolum:
@@ -2871,28 +2905,26 @@
   tip: uygulama
   zorluk: 3
   kok: 'İYUK md. 28/1’deki 2026 düzenlemesi dikkate alınarak aşağıdaki durumları doğru sonuçla eşleştiriniz: I.
-    Genel bir iptal kararının idareye tebliği; II. İYUK md. 28/1’in 2026 ek cümlesinde sayılan güvenlik gerekçeli
-    göreve iade davalarından birinde göreve iade sonucu doğuran karar; III. Genel bir iptal kararında idarenin kararın
-    gereğini yerine getirmesi.'
+    Genel bir iptal kararı uyarınca idarenin işlem tesis süresinin başladığı an; II. Md. 28/1’in 2026 ek cümlesinde
+    sayılan güvenlik gerekçeli göreve iade davalarından birinde göreve iade sonucu doğuran kararın gereğinin yerine
+    getirilmesi; III. Genel kural olarak idarenin işlem tesis süresinin üst sınırı.'
   secenekler:
-    A: I-30 gün; II-kararın kesinleşmesi beklenir; III-gecikmeksizin ve en geç 30 gün
-    B: I-15 gün; II-30 gün; III-60 gün
-    C: I-kararın kesinleşmesi; II-hemen; III-30 gün
-    D: I-60 gün; II-15 gün; III-kararın kesinleşmesi
-    E: I-30 gün; II-60 gün; III-15 gün
+    A: I-kararın idareye tebliği; II-nihai kararın kesinleşmesinden sonra; III-30 gün
+    B: I-kararın kesinleşmesi; II-kararın tebliğinden sonra; III-60 gün
+    C: I-kararın idareye tebliği; II-kararın tebliğiyle birlikte hemen; III-30 gün
+    D: I-kararın kesinleşmesi; II-nihai kararın kesinleşmesinden sonra; III-30 gün
+    E: I-kararın idareye tebliği; II-nihai kararın kesinleşmesinden sonra; III-60 gün
   dogru: A
   aciklama:
-    dogru_neden: 'Md. 28/1 genel kural olarak idareyi kararın gereklerine göre gecikmeksizin işlem tesis etmeye
-      veya eylemde bulunmaya mecbur kılar ve bu süre tebliğden itibaren 30 günü geçemez. 2/7/2026 tarihli ek cümle
-      ise sayılan güvenlik gerekçeli davalarda göreve iade sonucunu doğuran kararların nihai kararların kesinleşmesinden
-      sonra yerine getirileceğini düzenler. Bu nedenle I-30 gün, II-kesinleşme, III-gecikmeksizin/en geç 30 gündür.
-      Püf noktaları: Genel 30 günlük uygulama kuralı ile 2026’da eklenen kesinleşme istisnasını ayrı tutun; istisna,
-      kökte sayılan özel davalar içindir.'
+    dogru_neden: İYUK md. 28/1 uyarınca idare, kararın icaplarına göre gecikmeksizin işlem tesis etmek zorundadır
+      ve bu süre kararın idareye tebliğinden başlayarak otuz günü geçemez. 2/7/2026 tarihli ek cümle ise sayılan
+      güvenlik gerekçeli göreve iade davalarında göreve iade sonucunu doğuran kararlar uyarınca tesis edilecek işlemlerin
+      nihai kararların kesinleşmesinden sonra yerine getirileceğini öngörür.
     celdiriciler:
-      B: Genel uygulama süresi 30 gündür; 60 ve 15 günlük süreler md. 28/1’deki bu durumlara uygulanmaz.
-      C: 2026 ek cümlesindeki özel davalarda kararın hemen uygulanması değil, nihai kararın kesinleşmesi aranır.
-      D: Genel kural 60 gün değil 30 gündür; özel istisna da 15 gün değildir.
-      E: Genel kararların uygulanmasında 15 veya 60 günlük süre öngörülmemiştir.
+      B: Süre kesinleşmeden değil tebliğden başlar; üst sınır 60 değil 30 gündür ve özel davalarda kesinleşme beklenir.
+      C: 2026 ek cümlesindeki özel davalarda kararın hemen uygulanması değil, nihai kararın kesinleşmesi beklenir.
+      D: Genel kararlarda süre kesinleşmeden değil, kararın idareye tebliğinden başlar.
+      E: Genel kuralda üst sınır 60 gün değil, tebliğden başlayarak 30 gündür.
   kaynaklar:
   - mevzuat: 2577 sayılı İdari Yargılama Usulü Kanunu
     madde: md. 28/1
@@ -2907,7 +2939,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2928,8 +2960,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: I ve III aynı 30 gün kuralına dayandığı için öncüller ayrıştırıldı (başlangıç anı
+          / özel istisna / üst sınır); çeldiriciler yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2944,6 +2978,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: I ve III aynı 30 gün kuralına dayandığı için öncüller ayrıştırıldı (başlangıç anı / özel istisna
+      / üst sınır); çeldiriciler yenilendi'
 - id: SMMM-HUK-IYU-0068
   sinav: smmm
   bolum:
@@ -2954,45 +2993,44 @@
   kazanim: kanun yolları
   tip: kavrama
   zorluk: 2
-  kok: 'Aşağıdaki kararları 2577 sayılı Kanundaki kanun yolu ile eşleştiriniz: I. İvedi yargılama usulüne tabi dava
-    kararı; II. İdare mahkemesinin istinafa açık kararı; III. İYUK md. 46 kapsamındaki bölge idare mahkemesi kararı.'
+  kok: 'Aşağıdaki kararları 2577 sayılı Kanundaki kanun yolu ile eşleştiriniz: I. İvedi yargılama usulüne tabi davada
+    verilen karar; II. Kanunda öngörülen parasal sınırı aşan bir vergi davasında vergi mahkemesinin verdiği karar;
+    III. Bölge idare mahkemesinin md. 46’da sayılan davalar dışında verdiği karar.'
   secenekler:
-    A: I-İstinaf açık; II-İstinaf açık; III-Temyiz açık
-    B: I-İstinaf kapalı; II-İstinaf açık; III-Temyiz açık
-    C: I-Temyiz açık; II-İstinaf kapalı; III-Temyiz kapalı
-    D: I-İstinaf kapalı; II-Temyiz açık; III-İstinaf açık
+    A: I-İstinaf açık; II-İstinaf açık; III-Temyiz kapalı
+    B: I-İstinaf kapalı; II-İstinaf açık; III-Temyiz kapalı
+    C: I-İstinaf kapalı; II-İstinaf kapalı; III-Temyiz kapalı
+    D: I-İstinaf kapalı; II-İstinaf açık; III-Temyiz açık
     E: I-İstinaf açık; II-İstinaf kapalı; III-Temyiz açık
   dogru: B
   aciklama:
-    dogru_neden: İYUK md. 45/8, ivedi yargılama usulüne tabi davalarda istinaf yolunu kapatır. Md. 45/1 genel olarak
-      idare ve vergi mahkemesi kararlarına karşı istinafı düzenler. Md. 46 ise belirli bölge idare mahkemesi kararlarının
-      Danıştayda temyiz edilebileceğini öngörür. Bu nedenle I kapalı, II açık, III açıktır.
+    dogru_neden: İYUK md. 45/8 ivedi yargılama usulüne tabi davalarda istinaf yolunu kapatır. Md. 45/1'e göre kanunda
+      belirtilen parasal sınırı aşan vergi davalarında vergi mahkemesi kararlarına karşı istinaf yoluna başvurulabilir.
+      Md. 45/6'ya göre bölge idare mahkemelerinin md. 46'ya göre temyize açık olmayan kararları kesindir.
     celdiriciler:
-      A: I bakımından ivedi yargılamada istinaf yolu kapalıdır.
-      C: II istinafa açık olarak verilmişken seçenek bunu tersine çevirmektedir.
-      D: III md. 46 kapsamındaysa temyiz yolu açıktır; istinaf değil.
-      E: I için istinafın açık olduğu ifadesi md. 45/8’e aykırıdır.
+      A: İvedi yargılama usulüne tabi davalarda md. 45/8 uyarınca istinaf yolu kapalıdır.
+      C: Parasal sınırı aşan vergi davasında vergi mahkemesi kararı istinafa açıktır; kesin olan kararlar sınırı
+        aşmayanlardır.
+      D: Md. 46 kapsamı dışındaki bölge idare mahkemesi kararları md. 45/6 uyarınca kesindir; temyiz açık değildir.
+      E: İvedi yargılamada istinaf kapalıdır; parasal sınırı aşan vergi davası kararı ise istinafa açıktır.
   kaynaklar:
   - mevzuat: 2577 sayılı İdari Yargılama Usulü Kanunu
     madde: md. 45/8
     alinti: İvedi yargılama usulüne tabi olan davalarda istinaf yoluna başvurulamaz.
   - mevzuat: 2577 sayılı İdari Yargılama Usulü Kanunu
     madde: md. 45/1
-    alinti: İdare ve vergi mahkemelerinin kararlarına karşı, başka kanunlarda farklı bir kanun yolu öngörülmüş olsa
-      dahi, mahkemenin bulunduğu yargı çevresindeki bölge idare mahkemesine, kararın tebliğinden itibaren otuz gün
-      içinde istinaf yoluna başvurulabilir.
+    alinti: davaları, tam yargı davaları ve idari işlemlere karşı açılan iptal davaları hakkında idare ve vergi
+      mahkemelerince verilen kararlar kesin olup, bunlara karşı istinaf yoluna başvurulamaz.
   - mevzuat: 2577 sayılı İdari Yargılama Usulü Kanunu
-    madde: md. 46/1
-    alinti: 'Danıştay dava dairelerinin nihai kararları ile bölge idare mahkemelerinin aşağıda sayılan davalar hakkında
-      verdikleri kararlar, başka kanunlarda aksine hüküm bulunsa dahi Danıştayda, kararın tebliğinden itibaren otuz
-      gün içinde temyiz edilebilir:'
+    madde: md. 45/6
+    alinti: Bölge idare mahkemelerinin 46 ncı maddeye göre temyize açık olmayan kararları kesindir.
   gecerlilik:
     baslangic: '2014-06-28'
     bitis: null
     yila_bagli_tutar: true
     yil: 2026
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3013,8 +3051,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: totolojik II. öncül parasal sınır vakasıyla, III. öncül md.45/6 ile değiştirildi;
+          kaynaklar güncellendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3029,6 +3069,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: totolojik II. öncül parasal sınır vakasıyla, III. öncül md.45/6 ile değiştirildi; kaynaklar güncellendi'
 - id: SMMM-HUK-IYU-0069
   sinav: smmm
   bolum:
@@ -3666,24 +3710,25 @@
   zorluk: 1
   kok: İYUK bakımından istinaf ile temyiz arasındaki temel ayrımlardan hangisi doğrudur?
   secenekler:
-    A: İstinaf yalnız Danıştay dava dairelerinin nihai kararlarına, temyiz ise yalnız ilk derece mahkemesi kararlarına
-      karşı başvurulan yoldur.
-    B: İstinaf başvuruları doğrudan Anayasa Mahkemesine, temyiz başvuruları bölge idare mahkemesine yapılır.
-    C: İstinaf yolunda bölge idare mahkemesi hiçbir şekilde ilk derece kararını kaldırıp yeniden karar veremez.
-    D: İstinaf, idare ve vergi mahkemelerinin kararlarına karşı kural olarak bölge idare mahkemesine başvuru yoludur;
-      temyiz ise kanunda sayılan kararlar bakımından Danıştay incelemesini ifade eder.
-    E: İstinaf ve temyiz aynı mahkemede yapılan ve kanunda kapsamları ayrılmamış tek bir kanun yoludur.
+    A: İstinaf Danıştay dava dairelerinin nihai kararlarına, temyiz ise ilk derece mahkemesi kararlarına karşı başvurulan
+      yoldur.
+    B: İstinaf başvuruları Danıştaya, temyiz başvuruları ise kararı veren ilk derece mahkemesine yapılır.
+    C: İstinafta bölge idare mahkemesi, ilk derece kararını hukuka uygun bulmadığında kararı kaldırmakla yetinir;
+      işin esası hakkında yeniden karar veremez.
+    D: İstinaf, idare ve vergi mahkemesi kararlarına karşı kural olarak bölge idare mahkemesine; temyiz ise sayılan
+      kararlar bakımından Danıştaya başvurulan yoldur.
+    E: İstinaf ile temyiz aynı mahkemede incelenen ve aralarında kapsam farkı bulunmayan kanun yollarıdır.
   dogru: D
   aciklama:
     dogru_neden: İYUK md. 45/1 idare ve vergi mahkemelerinin kararlarına karşı kural olarak bölge idare mahkemesine
-      istinaf yolunu, md. 46/1 ise Danıştay dava dairelerinin nihai kararları ile sayılan bölge idare mahkemesi
-      kararlarının temyiz edilebileceği halleri düzenler.
+      istinaf yolunu, md. 46/1 ise Danıştay dava dairelerinin nihai kararları ile sayılan davalardaki bölge idare
+      mahkemesi kararlarının Danıştayda temyiz edilebileceği hâlleri düzenler.
     celdiriciler:
       A: İstinaf bölge idare mahkemesine yönelir; Danıştay dava dairelerinin nihai kararları ise md. 46/1 kapsamında
         temyize konu olabilir.
-      B: İYUK'ta her iki yol için de Anayasa Mahkemesi başvurusu öngörülmemiştir.
-      C: Md. 45/4, bölge idare mahkemesinin bazı hâllerde ilk derece kararını kaldırıp esas hakkında yeniden karar
-        verebileceğini açıkça düzenler.
+      B: İstinaf başvurusu bölge idare mahkemesine yapılır; temyiz başvurusu Danıştaya yönelir.
+      C: Md. 45/4'e göre bölge idare mahkemesi, kararı hukuka uygun bulmadığında kaldırır ve işin esası hakkında
+        yeniden karar verir.
       E: İYUK, istinaf ve temyizi farklı maddelerde ve farklı mercilerle düzenler.
   kaynaklar:
   - mevzuat: 2577 sayılı İdari Yargılama Usulü Kanunu
@@ -3705,7 +3750,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3726,8 +3771,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: AYM şıkkı ve mutlak ifadeler kaldırıldı, çeldiriciler istinaf-temyiz mercii
+          ve yetki karışıklıklarıyla yenilendi, şıklar dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3742,6 +3789,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: AYM şıkkı ve mutlak ifadeler kaldırıldı, çeldiriciler istinaf-temyiz mercii ve yetki karışıklıklarıyla
+      yenilendi, şıklar dengelendi'
 - id: SMMM-HUK-IYU-0077
   sinav: smmm
   bolum:

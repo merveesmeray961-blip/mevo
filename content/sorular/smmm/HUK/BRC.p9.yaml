@@ -287,9 +287,9 @@
   kazanim: borç kaynakları
   tip: kavrama
   zorluk: 3
-  kok: Aşağıdaki olayların borç kaynağı bakımından doğru eşleştirilmesi hangisidir? I. Geçerli bir sözleşmeyle tarafların
-    karşılıklı irade açıklamaları sonucu doğan edim borcu. II. Kusurlu ve hukuka aykırı fiille başkasına zarar verilmesi.
-    III. Haklı sebep olmaksızın başkasının malvarlığından zenginleşme.
+  kok: Aşağıdaki olayların borç kaynağı bakımından doğru eşleştirilmesi hangisidir? I. Kiracının kira bedelini ödeme
+    borcu. II. Sürücünün dikkatsizlikle park hâlindeki araca çarparak verdiği zararı giderme borcu. III. Hatayla
+    başkasının hesabına yapılan ödemenin geri verilmesi borcu.
   secenekler:
     A: I-sözleşme, II-haksız fiil, III-sebepsiz zenginleşme
     B: I-haksız fiil, II-sözleşme, III-sebepsiz zenginleşme
@@ -298,15 +298,15 @@
     E: I-haksız fiil, II-sebepsiz zenginleşme, III-sözleşme
   dogru: A
   aciklama:
-    dogru_neden: 'I, sözleşmenin karşılıklı ve uygun irade açıklamalarıyla kurulmasına; II, kusurlu ve hukuka aykırı
-      fiille zararın giderilmesine; III, haklı sebep olmaksızın malvarlığından veya emekten zenginleşmenin geri
-      verilmesine dayanır. Püf noktaları: Borç kaynağını belirlerken olayın görünüşüne değil, borcu doğuran hukuki
-      olguya bakılmalı; sözleşme, haksız fiil ve sebepsiz zenginleşmenin kurucu unsurları ayrıştırılmalıdır.'
+    dogru_neden: I, karşılıklı ve birbirine uygun irade açıklamalarıyla kurulan kira sözleşmesine (md. 1); II, kusurlu
+      ve hukuka aykırı fiille başkasına zarar verilmesine (md. 49/1); III, haklı sebep olmaksızın başkasının malvarlığından
+      zenginleşmenin geri verilmesine (md. 77) dayanır. Borç kaynağını belirlerken olayın görünüşüne değil, borcu
+      doğuran hukuki olguya bakılmalıdır.
     celdiriciler:
       B: I ve II'nin kaynaklarını tersine çevirir.
       C: I ile III'ün kaynaklarını tersine çevirir.
       D: II ve III'ün kaynaklarını tersine çevirir.
-      E: Üçlü sınıflandırmayı iki noktada yanlış eşleştirir.
+      E: Üç olayın hiçbirini doğru kaynakla eşleştirmez.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
@@ -328,7 +328,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -349,8 +349,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: eşleştirme olayları somut örneklerle (kira, çarpma, hatalı ödeme) yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -365,6 +366,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: eşleştirme olayları somut örneklerle (kira, çarpma, hatalı ödeme) yenilendi'
 - id: SMMM-HUK-BRC-0049
   sinav: smmm
   bolum:
@@ -719,24 +724,27 @@
   kazanim: borç kaynakları
   tip: kavrama
   zorluk: 2
-  kok: A, B ve C arasında bir borç ilişkisi doğmuştur. A'nın B'ye karşı borcu bir sözleşmeden; C'nin D'ye verdiği
-    zarar ise hukuka aykırı bir fiilden doğmaktadır. Borç kaynakları bakımından aşağıdaki eşleştirmelerden hangisi
-    doğrudur?
+  kok: A'nın B'ye karşı borcu, aralarında kurulan bir satış sözleşmesinden doğmuştur. C ise D'nin aracına kusurlu
+    ve hukuka aykırı bir fiille zarar vermiş ve D'ye karşı tazminat borcu altına girmiştir. Borç kaynakları bakımından
+    aşağıdaki eşleştirmelerden hangisi doğrudur?
   secenekler:
     A: 'A-B ilişkisi: haksız fiil; C-D ilişkisi: sözleşme'
-    B: 'A-B ilişkisi: sebepsiz zenginleşme; C-D ilişkisi: sözleşme'
+    B: 'A-B ilişkisi: sebepsiz zenginleşme; C-D ilişkisi: haksız fiil'
     C: 'A-B ilişkisi: sözleşme; C-D ilişkisi: haksız fiil'
-    D: 'Her iki ilişki: sebepsiz zenginleşme'
-    E: 'Her iki ilişki: sözleşme'
+    D: 'A-B ilişkisi: sözleşme; C-D ilişkisi: sebepsiz zenginleşme'
+    E: 'A-B ilişkisi: haksız fiil; C-D ilişkisi: sebepsiz zenginleşme'
   dogru: C
   aciklama:
-    dogru_neden: Borç doğuran olayların niteliğine göre A-B ilişkisi sözleşmeden, C-D ilişkisi ise hukuka aykırı
-      fiilden kaynaklanmaktadır. TBK sistematiğinde bunlar ayrı borç kaynaklarıdır.
+    dogru_neden: A-B ilişkisi karşılıklı ve birbirine uygun irade açıklamalarıyla kurulan sözleşmeden (md. 1), C-D
+      ilişkisi ise kusurlu ve hukuka aykırı fiille zarar verilmesinden (md. 49/1) kaynaklanmaktadır. TBK sistematiğinde
+      bunlar ayrı borç kaynaklarıdır.
     celdiriciler:
       A: İki ilişkinin kaynakları ters çevrilmiştir.
-      B: Kökte A-B için sözleşme açıkça verilmiş, C-D için ise zarar doğuran fiil belirtilmiştir.
-      D: Kökte sebepsiz zenginleşmeye ilişkin bir malvarlığı aktarımı veya haklı sebep yokluğu anlatılmamıştır.
-      E: C-D ilişkisi sözleşmeye değil zarar doğuran fiile dayanmaktadır.
+      B: A-B ilişkisi satış sözleşmesinden doğar; sebepsiz zenginleşme için haklı sebep olmaksızın zenginleşme gerekir
+        (md. 77).
+      D: C-D ilişkisinde haklı sebepsiz bir zenginleşme değil, kusurlu zarar verici fiil vardır (md. 49/1).
+      E: A-B ilişkisi haksız fiil değildir, C-D ilişkisi de sebepsiz zenginleşme değildir; her iki kaynak da yanlış
+        gösterilmiştir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
@@ -750,7 +758,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -771,8 +779,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: dağınık kök düzeltildi; ''her iki ilişki'' şıkları yerine akla yatkın karışık eşleştirmeler
+          konuldu'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -787,6 +797,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: dağınık kök düzeltildi; ''her iki ilişki'' şıkları yerine akla yatkın karışık eşleştirmeler konuldu'
 - id: SMMM-HUK-BRC-0054
   sinav: smmm
   bolum:
@@ -800,23 +814,23 @@
   kok: Taraflar bir sözleşmenin esaslı noktalarında anlaşmış, ancak ikinci derecedeki bir nokta üzerinde hiç konuşmamıştır.
     6098 sayılı Türk Borçlar Kanununa göre aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: İkinci derecedeki nokta kararlaştırılmadığı için sözleşme kesinlikle kurulmaz.
-    B: Sözleşme kurulmuş sayılır; ikinci derecedeki noktada uyuşmazlık çıkarsa hâkim uyuşmazlığı işin özelliğine
-      bakarak karara bağlar.
-    C: Sözleşme yalnız noter huzurunda kurulmuş sayılır.
-    D: İkinci derecedeki nokta üzerinde anlaşılmaması hâlinde sözleşme yok hükmündedir.
-    E: İkinci derecedeki nokta için mutlaka ayrıca yazılı bir ek sözleşme gerekir.
+    A: Sözleşme kurulmamıştır; ikinci derecedeki nokta konuşulmadığından taraflar yeniden müzakere etmelidir.
+    B: Sözleşme kurulmuş sayılır; ikinci derecedeki noktada uyuşulamazsa hâkim işin özelliğine göre karar verir.
+    C: Sözleşme kurulmuş sayılır; ikinci derecedeki noktayı, uyuşulamazsa teklifi yapan taraf belirler.
+    D: Sözleşme kurulmuş sayılır; ancak ikinci derecedeki nokta sonradan kararlaştırılana kadar hüküm doğurmaz.
+    E: Sözleşme kurulmamıştır; esaslı noktaların yanında ikinci derecedeki noktaların da belirlenmesi gerekir.
   dogru: B
   aciklama:
     dogru_neden: TBK md. 2, tarafların esaslı noktalarda uyuşması hâlinde ikinci derecedeki noktalar üzerinde durulmamış
-      olsa bile sözleşmenin kurulmuş sayılacağını; uyuşmazlık çıkarsa hâkimin işin özelliğine göre karar vereceğini
-      düzenler.
+      olsa bile sözleşmenin kurulmuş sayılacağını; uyuşulamazsa hâkimin uyuşmazlığı işin özelliğine bakarak karara
+      bağlayacağını düzenler.
     celdiriciler:
-      A: Kanun tam tersine, esaslı noktalar üzerinde anlaşılmışsa ikinci derecedeki noktanın konuşulmamış olmasına
-        rağmen sözleşmenin kurulacağını söyler.
-      C: Noter şartı md. 2'de genel bir koşul olarak düzenlenmemiştir.
-      D: Kanun ikinci derecedeki noktadaki uyuşmazlık için hâkimin belirleme yapacağını öngörür.
-      E: Ayrıca yazılı ek sözleşme şartı yoktur; şekle ilişkin özel hükümler saklıdır.
+      A: Kanun tam tersine, esaslı noktalarda uyuşulmuşsa ikinci derecedeki noktanın konuşulmamış olmasına rağmen
+        sözleşmenin kurulmuş sayılacağını söyler.
+      C: İkinci derecedeki noktayı belirleme yetkisi teklifi yapan tarafa değil, uyuşulamadığında hâkime aittir.
+      D: Md. 2'ye göre sözleşme esaslı noktalarda uyuşmayla kurulmuş sayılır; ikinci derecedeki noktanın sonradan
+        kararlaştırılması hüküm doğması için aranmaz.
+      E: İkinci derecedeki noktaların da belirlenmesi şartı yoktur; bu noktalarda uyuşulamazsa hâkim karar verir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
@@ -829,7 +843,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -850,8 +864,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R5+R6: şıklar dengelendi, çeldiriciler yeniden yazıldı; mutlak ifadeler ve noter
+          şıkkı kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -866,6 +882,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R5+R6: şıklar dengelendi, çeldiriciler yeniden yazıldı; mutlak ifadeler ve noter şıkkı kaldırıldı'
 - id: SMMM-HUK-BRC-0055
   sinav: smmm
   bolum:
@@ -1519,24 +1539,25 @@
   kazanim: haksız fiil ve zamanaşımı
   tip: uygulama
   zorluk: 3
-  kok: K, Mnin kusurlu haksız fiili nedeniyle bir borç altına girmiştir. K, Mye karşı tazminat isteminin zamanaşımına
-    uğradığını öğrenmiştir; buna rağmen Knin Mye karşı doğmuş olan borcunun ifası henüz istenmektedir. TBK md. 72/2
-    bakımından Knin durumu hangisidir?
+  kok: M'nin kusurlu haksız fiili nedeniyle K zarar görmüş, ancak K'nın M'den tazminat isteme hakkı zamanaşımına
+    uğramıştır. M, K'nın kendisine karşı doğmuş olan başka bir borcunun ifasını istemektedir. TBK md. 72/2 bakımından
+    K'nın durumu aşağıdakilerden hangisidir?
   secenekler:
-    A: Tazminat istemi zamanaşımına uğradığı anda K borcunu mutlaka ifa etmek zorundadır.
-    B: K yalnız mahkeme kararıyla borçtan kurtulabilir.
-    C: K, haksız fiilden doğan tazminat istemi zamanaşımına uğramış olsa bile borcu her zaman ifadan kaçınabilir.
-    D: Knin ifadan kaçınması ancak iki yıl içinde mümkündür.
-    E: Bu hüküm yalnız ceza zamanaşımı daha uzunsa uygulanır.
+    A: K, tazminat istemi zamanaşımına uğradığı için M'ye karşı borcunu ifa etmek zorundadır.
+    B: K, M'nin talebine karşı ancak mahkeme kararıyla ifadan kaçınabilir.
+    C: K, tazminat istemi zamanaşımına uğramış olsa bile borcu ifadan kaçınabilir.
+    D: K, ifadan kaçınma hakkını ancak tazminat istemi zamanaşımına uğramadan önce ileri sürmüşse kullanabilir.
+    E: K, borcu ifadan kaçınabilir; ancak bunun için M'nin haksız fiili kasten işlemiş olması gerekir.
   dogru: C
   aciklama:
-    dogru_neden: Md. 72/2, haksız fiil dolayısıyla zarar gören bakımından bir borç doğmuşsa, tazminat istemi zamanaşımına
-      uğramış olsa bile zarar görenin bu borcu ifadan her zaman kaçınabileceğini düzenler.
+    dogru_neden: Md. 72/2, haksız fiil dolayısıyla zarar gören bakımından bir borç doğmuşsa zarar gören, haksız
+      fiilden doğan tazminat istemi zamanaşımına uğramış olsa bile bu borcu ifadan kaçınabileceğini düzenler.
     celdiriciler:
-      A: Md. 72/2 tam tersine, zamanaşımına rağmen ifadan kaçınma imkânı verir.
-      B: Mahkeme kararı şartı metinde yoktur.
-      D: Kanun iki yıllık süreyi bu ifadan kaçınma hakkına bağlamaz.
-      E: Ceza zamanaşımı kuralı md. 72/1in ayrı bir cümlesidir; md. 72/2 hakkı bununla sınırlı değildir.
+      A: Md. 72/2 tam tersine, tazminat istemi zamanaşımına uğramış olsa bile ifadan kaçınma imkânı verir.
+      B: Mahkeme kararı şartı md. 72/2'de yoktur; zarar gören ifadan kendiliğinden kaçınabilir.
+      D: Md. 72/2'deki ifadan kaçınma hakkı, tazminat istemi zamanaşımına uğradıktan sonra da kullanılabilir; önceden
+        ileri sürme şartı yoktur.
+      E: Md. 72/2 haksız fiilin kasten işlenmesini şart koşmaz; kusurlu haksız fiil yeterlidir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
@@ -1548,7 +1569,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1569,8 +1590,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R5+R6: kök özneleri (zarar gören K, karşı borç) netleştirildi; şıklar dengelendi,
+          mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1585,6 +1608,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R5+R6: kök özneleri (zarar gören K, karşı borç) netleştirildi; şıklar dengelendi, mutlak ifadeler
+      kaldırıldı'
 - id: SMMM-HUK-BRC-0064
   sinav: smmm
   bolum:
@@ -2085,12 +2113,13 @@
 
     I. Basit hesap yanlışlığı sözleşmenin geçerliliğini etkilemez.
 
-    II. Basit hesap yanlışlığında yalnızca hatanın düzeltilmesiyle yetinilir.
+    II. Yanılanın gerçekte üstlenmek istediğinden önemli ölçüde fazla bir edim için iradesini açıklaması esaslı
+    yanılma hâllerindendir.
 
-    III. Basit hesap yanlışlığı her durumda esaslı yanılma sayılır.
+    III. Basit hesap yanlışlığında yanılan taraf, bir yıl içinde sözleşme ile bağlı olmadığını bildirebilir.
 
 
-    TBK md.31 bakımından hangileri doğrudur?'
+    TBK md. 31 bakımından hangileri doğrudur?'
   secenekler:
     A: I ve II
     B: I ve III
@@ -2099,25 +2128,32 @@
     E: I, II ve III
   dogru: A
   aciklama:
-    dogru_neden: TBK md.31, basit hesap yanlışlıklarının sözleşmenin geçerliliğini etkilemediğini ve düzeltmeyle
-      yetinileceğini açıkça düzenler.
+    dogru_neden: TBK md. 31/5'e göre gerçekte üstlenmek istediğinden önemli ölçüde fazla bir edim için irade açıklanması
+      esaslı yanılma hâlidir (II doğru). Basit hesap yanlışlıkları ise sözleşmenin geçerliliğini etkilemez ve yalnız
+      düzeltilir (I doğru); bu nedenle yanılan, hesap yanlışlığı gerekçesiyle sözleşmeyle bağlı olmadığını bildiremez
+      (III yanlış).
     celdiriciler:
-      B: Bu kombinasyon, öncüllerden en az birinin kanundaki düzenlemeyle uyuşmamasından kaynaklanır.
-      C: Bu kombinasyon, öncüllerden en az birinin kanundaki düzenlemeyle uyuşmamasından kaynaklanır.
-      D: Bu kombinasyon, öncüllerden en az birinin kanundaki düzenlemeyle uyuşmamasından kaynaklanır.
-      E: Bu kombinasyon, öncüllerden en az birinin kanundaki düzenlemeyle uyuşmamasından kaynaklanır.
+      B: 'III yanlıştır: basit hesap yanlışlığı bağlılıktan kurtarmaz, düzeltmeyle yetinilir; ayrıca II doğru olduğu
+        hâlde bu seçenekte yer almaz.'
+      C: 'III yanlıştır: basit hesap yanlışlığında sözleşmeyle bağlı olmadığı bildirilemez; ayrıca I doğru olduğu
+        hâlde bu seçenekte yer almaz.'
+      D: I doğrudur ancak II de md. 31/5'e göre doğrudur; seçenek II'yi dışarıda bırakır.
+      E: III yanlış olduğundan üç öncülün birlikte doğru olduğu söylenemez.
   kaynaklar:
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
-    madde: md. 31
+    madde: md. 31/2
     alinti: 'Basit hesap yanlışlıkları sözleşmenin geçerliliğini etkilemez; bunların düzeltilmesi ile
 
       yetinilir.'
+  - mevzuat: 6098 sayılı Türk Borçlar Kanunu
+    madde: md. 31/1-5
+    alinti: gerçekte üstlenmek istediğinden önemli ölçüde fazla bir edim için veya
   gecerlilik:
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2138,8 +2174,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: I ve II aynı şeyi söylüyordu; öncüller md. 31/2 ve md. 31/5 ile yeniden kuruldu,
+          III akla yatkın yanlış yapıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2154,6 +2192,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: I ve II aynı şeyi söylüyordu; öncüller md. 31/2 ve md. 31/5 ile yeniden kuruldu, III akla yatkın
+      yanlış yapıldı'
 - id: SMMM-HUK-BRC-0071
   sinav: smmm
   bolum:
@@ -2423,19 +2466,21 @@
     beş yıllık zamanaşımına tabi **değildir**?
   secenekler:
     A: Kira bedeli alacağı
-    B: Anapara faizine ilişkin alacak
+    B: Vekâlet sözleşmesinden doğan alacak
     C: Küçük çapta perakende satıştan doğan alacak
-    D: Vekâlet sözleşmesinden doğan alacak
-    E: Genel nitelikte ve özel zamanaşımı düzenlemesi bulunmayan bir alacak
+    D: Ortaklık sözleşmesinden doğan, ortakların birbirlerinden olan alacakları
+    E: Toptan satış sözleşmesinden doğan satış bedeli alacağı
   dogru: E
   aciklama:
-    dogru_neden: TBK md.147, A-D'deki alacak türlerini beş yıllık zamanaşımı kapsamında sayar. Md.146 ise kanunda
-      aksine hüküm bulunmadıkça her alacak için genel sürenin on yıl olduğunu düzenler.
+    dogru_neden: TBK md. 147 kira bedellerini, vekâlet sözleşmesinden doğan alacakları, küçük çapta perakende satıştan
+      doğan alacakları ve ortaklık sözleşmesinden doğan alacakları beş yıllık zamanaşımına bağlar. Toptan satıştan
+      doğan satış bedeli alacağı bu sayımda yer almaz; md. 146'ya göre kanunda aksine hüküm bulunmadıkça her alacak
+      on yıllık zamanaşımına tabidir.
     celdiriciler:
-      A: Kira bedelleri md.147/1'de beş yıllık süreye tabidir.
-      B: Anapara faizleri md.147/1'de beş yıllık süreye tabidir.
-      C: Küçük çapta perakende satışlardan doğan alacaklar md.147/3'te sayılmıştır.
-      D: Vekâlet sözleşmesinden doğan alacaklar md.147/5'te sayılmıştır.
+      A: Kira bedelleri md. 147/1'de beş yıllık süreye tabidir.
+      B: Vekâlet sözleşmesinden doğan alacaklar md. 147/5'te sayılmıştır.
+      C: Küçük çapta perakende satışlardan doğan alacaklar md. 147/3'te sayılmıştır.
+      D: Ortaklık sözleşmesinden doğan ve ortakların birbirleriyle olan alacakları md. 147/4'te sayılmıştır.
   kaynaklar:
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
     madde: md. 146
@@ -2444,14 +2489,16 @@
       zamanaşımına tabidir.'
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
     madde: md. 147
-    alinti: "Aşağıdaki alacaklar için beş yıllık zamanaşımı uygulanır:\n        1. Kira bedelleri, anapara faizleri\
-      \ ve ücret gibi diğer dönemsel edimler."
+    alinti: 'Aşağıdaki alacaklar için beş yıllık zamanaşımı uygulanır:'
+  - mevzuat: 6098 sayılı Türk Borçlar Kanunu
+    madde: md. 147/3
+    alinti: Küçük sanat işlerinden ve küçük çapta perakende satışlardan doğan alacaklar.
   gecerlilik:
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2472,8 +2519,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R5: E şıkkı (özel düzenleme yok) ipucu veriyordu; md. 147''de sayılı dört alacak
+          ile 10 yıllık toptan satış alacağı karşılaştırıldı, uzunluklar dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2488,6 +2537,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R5: E şıkkı (özel düzenleme yok) ipucu veriyordu; md. 147''de sayılı dört alacak ile 10 yıllık toptan
+      satış alacağı karşılaştırıldı, uzunluklar dengelendi'
 - id: SMMM-HUK-BRC-0075
   sinav: smmm
   bolum:
@@ -2593,35 +2647,34 @@
   kazanim: borç kaynakları
   tip: kavrama
   zorluk: 2
-  kok: Aşağıdaki olaylardan hangisi doğrudan haksız fiil kaynaklı borç ilişkisine örnektir?
+  kok: Aşağıdaki olaylardan hangisinde borç ilişkisinin kaynağı haksız fiildir?
   secenekler:
-    A: Tarafların karşılıklı satış sözleşmesi yapması
-    B: Bir kişinin geçerli sözleşme olmaksızın başkasının malvarlığından haklı sebep olmadan zenginleşmesi
-    C: Bir şirketin sermaye taahhüdünde bulunması
-    D: Kusurlu ve hukuka aykırı fiille başkasına zarar verilmesi
-    E: Kiracının kira sözleşmesi imzalaması
+    A: Satıcının, bedelini ödemeyen alıcıdan satış bedelini talep etmesi
+    B: Hatalı havaleyle hesabına geçen parayı haklı sebep olmaksızın elinde tutan kişinin iade borcu
+    C: Yüklenicinin eseri sözleşmede kararlaştırılan sürede teslim etmemesi
+    D: Sürücünün dikkatsizlikle park hâlindeki araca çarparak zarar vermesi
+    E: Şirket ortağının taahhüt ettiği sermayeyi şirkete ödememesi
   dogru: D
   aciklama:
-    dogru_neden: TBK md. 49 kusurlu ve hukuka aykırı fiille başkasına zarar verilmesini haksız fiil sorumluluğunun
-      temel kaynağı olarak düzenler.
+    dogru_neden: TBK md. 49/1 kusurlu ve hukuka aykırı fiille başkasına zarar verilmesini haksız fiil sorumluluğunun
+      temel kaynağı olarak düzenler; dikkatsizce çarparak zarar veren sürücü ile araç sahibi arasında sözleşme ilişkisi
+      bulunmaz.
     celdiriciler:
-      A: Sözleşmeden doğan borç ilişkisini anlatır.
-      B: Sebepsiz zenginleşme kurumudur.
-      C: Şirketler hukukuna ilişkin bir taahhüttür.
-      E: Kira sözleşmesinden doğan sözleşmesel ilişkiyi anlatır.
+      A: Satış bedelinin talep edilmesi satış sözleşmesinden doğan borç ilişkisine dayanır.
+      B: Haklı sebep olmaksızın elde tutulan para sebepsiz zenginleşme kurumudur (md. 77).
+      C: Eserin süresinde teslim edilmemesi eser sözleşmesine aykırılıktan doğar.
+      E: Sermaye taahhüdü şirket sözleşmesinden ve şirketler hukukundan doğan bir borçtur.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
     madde: md. 49/1
-    alinti: "MADDE 49- Kusurlu ve hukuka aykırı bir fiille başkasına zarar veren, bu zararı\ngidermekle yükümlüdür.\n\
-      \        Zarar verici fiili yasaklayan bir hukuk kuralı bulunmasa bile, ahlaka aykırı bir fiille\nbaşkasına\
-      \ kasten zarar veren de, bu zararı gidermekle yükümlüdür.\n\f        II. Zararın ve kusurun ispatı"
+    alinti: Kusurlu ve hukuka aykırı bir fiille başkasına zarar veren, bu zararı
   gecerlilik:
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2642,8 +2695,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R3: çeldiriciler somut sözleşme/sebepsiz zenginleşme/şirket olaylarıyla yenilendi;
+          kaynak alıntısı sayfa artığı içermeyen kısma daraltıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2661,6 +2716,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R3: çeldiriciler somut sözleşme/sebepsiz zenginleşme/şirket olaylarıyla yenilendi; kaynak alıntısı
+      sayfa artığı içermeyen kısma daraltıldı'
 - id: SMMM-HUK-BRC-0077
   sinav: smmm
   bolum:
@@ -2671,26 +2731,28 @@
   kazanim: sözleşmenin kurulması
   tip: kavrama
   zorluk: 3
-  kok: Bir elektronik satış platformunda A, B'ye bağlayıcı olmayan bir ilan vermiş; B ilan üzerine doğrudan ödeme
-    yapmıştır. A, ödeme öncesinde açık kabul beklemediğini belirtmiştir. Aşağıdaki değerlendirmelerden hangisi sözleşmenin
-    kurulması bakımından doğrudur?
+  kok: A, elektronik satış platformunda B'ye bir mal satmayı öneren bir ilan vermiştir. İşin özelliği gereği A'nın
+    açık bir kabulü beklemesi gerekmemektedir. B ilan üzerine bedeli ödemiş, A ise uygun süre içinde öneriyi reddetmemiştir.
+    Aşağıdaki değerlendirmelerden hangisi sözleşmenin kurulması bakımından doğrudur?
   secenekler:
-    A: Her ilan mutlaka öneridir ve ödeme ile sözleşme kesin olarak kurulur.
-    B: Öneren kanun veya işin özelliği gereği açık kabul beklemek zorunda değilse, öneri uygun sürede reddedilmezse
-      sözleşme kurulmuş sayılabilir.
-    C: Elektronik iletişimde sözleşme kurulamaz.
-    D: Öneri yalnız noter aracılığıyla yapılabilir.
-    E: Açık kabul her sözleşmede zorunludur.
+    A: Açık kabul bulunmadığından sözleşme kurulmamıştır; B'nin ödemesi sebepsiz zenginleşme hükümlerine tabidir.
+    B: İşin özelliği gereği açık kabul beklenmediğinden ve öneri uygun sürede reddedilmediğinden sözleşme kurulmuş
+      sayılır.
+    C: Sözleşme B'nin ödeme yapmasıyla değil, A'nın yazılı kabul bildirmesiyle kurulabilir.
+    D: Sözleşme kurulmuştur; ancak A öneriyi sonradan reddederek bağlılıktan kurtulabilir.
+    E: Elektronik iletişimle yapılan öneriler, kabul açıklaması yapılsa bile sözleşme kurulmasına yetmez.
   dogru: B
   aciklama:
-    dogru_neden: 'TBK md. 6''ya göre öneren açık kabul beklemek zorunda değilse, öneri uygun sürede reddedilmezse
-      sözleşme kurulmuş sayılır. Püf noktaları: Elektronik iletişim tek başına sözleşme kurulmasını engellemez;
-      belirleyici olan açık kabulün beklenmesinin gerekip gerekmediğidir.'
+    dogru_neden: TBK md. 6'ya göre öneren, kanun veya işin özelliği ya da durumun gereği açık bir kabulü beklemek
+      zorunda değilse, öneri uygun bir sürede reddedilmediği takdirde sözleşme kurulmuş sayılır. Elektronik iletişim
+      tek başına sözleşme kurulmasını engellemez.
     celdiriciler:
-      A: Metindeki şartı kaldırır.
-      C: Elektronik iletişim için böyle bir yasak öngörmez.
-      D: Önerinin noter şartına bağlanması kaynakta yoktur.
-      E: Örtülü kabul imkânını ortadan kaldırır.
+      A: Md. 6'ya göre açık kabul beklenmeyen hâllerde öneri uygun sürede reddedilmezse sözleşme kurulmuş sayılır;
+        ödeme bu nedenle sebepsiz zenginleşme değildir.
+      C: Md. 6 açık kabulü beklemek zorunda olmayan öneren bakımından yazılı kabul bildirimi aramaz.
+      D: Md. 6'ya göre sözleşme kurulmuş sayıldıktan sonra A öneriyi tek taraflı reddederek bağlılıktan kurtulamaz.
+      E: Elektronik iletişim için böyle bir engel öngörülmemiştir; sözleşme icap ve kabulle ya da md. 6'daki örtülü
+        kabulle kurulabilir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
@@ -2703,7 +2765,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2724,8 +2786,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R5: bulanık kök (bağlayıcı olmayan ilan) netleştirildi; şıklar dengelendi, çeldiriciler
+          yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2740,6 +2804,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R5: bulanık kök (bağlayıcı olmayan ilan) netleştirildi; şıklar dengelendi, çeldiriciler yenilendi'
 - id: SMMM-HUK-BRC-0078
   sinav: smmm
   bolum:
@@ -3161,39 +3229,44 @@
   kazanim: taksitle satış
   tip: kavrama
   zorluk: 3
-  kok: Tüketici olmayan bir alıcı ile satıcı arasında taksitle satış sözleşmesi yapılmıştır. Aşağıdaki ifadelerden
-    hangisi 6098 sayılı Türk Borçlar Kanunu bakımından sözleşmenin geçerliliği açısından **yanlıştır**?
+  kok: Tüketici olmayan bir alıcı ile satıcı arasında yapılan taksitle satış sözleşmesine ilişkin aşağıdaki ifadelerden
+    hangisi 6098 sayılı Türk Borçlar Kanunu'na göre **yanlıştır**?
   secenekler:
-    A: Taksitle satışta yazılı şekil hiç aranmaz; sözlü anlaşma her durumda yeterlidir.
-    B: Satıcının ve alıcının edimleri sözleşmede belirli biçimde gösterilmelidir.
-    C: Taksitle satış hükümleri, tüketici işlemlerine ilişkin özel mevzuat hükümleri saklı kalmak üzere değerlendirilir.
-    D: Taksitle satış sözleşmesinde yazılı şekil önem taşır.
-    E: Sözleşmenin taksitli niteliği, satış bedelinin kısım kısım ödenmesinden kaynaklanabilir.
+    A: Taksitle satış sözleşmesinin geçerli olması için noter huzurunda düzenleme şeklinde yapılması gerekir.
+    B: Taksitle satış sözleşmesi, alıcı bakımından, imzalı nüshanın eline geçmesinden yedi gün sonra hüküm ve sonuçlarını
+      doğurur.
+    C: Malın satıcının ticari faaliyeti kapsamında satılması hâlinde sözleşmede peşin ve toplam satış bedeli belirtilir.
+    D: Taksitle satış sözleşmesi, yazılı şekilde yapılmadıkça geçerli olmaz.
+    E: Alıcı, peşin satış bedelinin en az onda birini en geç teslim anında peşin ödemekle yükümlüdür.
   dogru: A
   aciklama:
-    dogru_neden: TBK'nın taksitle satış hükümleri yazılı şekle ilişkin şartlar içerir; bu nedenle 'hiç aranmaz'
-      ifadesi yanlıştır.
+    dogru_neden: A yanlıştır. TBK md. 253/2'ye göre taksitle satış sözleşmesi yazılı şekilde yapılmadıkça geçerli
+      olmaz; noter huzurunda düzenleme şekli aranmaz.
     celdiriciler:
-      B: Sözleşmenin unsurlarının açıkça belirlenmesi kanuni şekil rejiminin parçasıdır.
-      C: Tüketici işlemleri bakımından özel mevzuat ayrıca saklı tutulur.
-      D: Taksitle satış sözleşmesinde kanuni şekil düzenlemesi bulunmaktadır.
-      E: Taksitli satış, bedelin kısım kısım ödenmesi esasına dayanır.
+      B: Doğru ifadedir; md. 255'e göre sözleşme alıcı bakımından imzalı nüshanın eline geçmesinden yedi gün sonra
+        hüküm ve sonuçlarını doğurur.
+      C: Doğru ifadedir; md. 253/3'e göre satıcının ticari faaliyeti kapsamında satışta peşin satış bedeli ve toplam
+        satış bedeli sözleşmede belirtilir.
+      D: Doğru ifadedir; md. 253/2 yazılı şekli geçerlilik şartı yapar.
+      E: Doğru ifadedir; md. 256/1'e göre alıcı peşin satış bedelinin en az onda birini en geç teslim anında ödemekle
+        yükümlüdür.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
-    madde: md. 253
-    alinti: "Taksitle satış sözleşmesi, yazılı şekilde yapılmadıkça geçerli olmaz.\n          Malın satıcının ticari\
-      \ faaliyeti kapsamında satılması hâlinde, sözleşmede aşağıdaki\nhususlar belirtilir:\n          1. Tarafların\
-      \ adı ve yerleşim yeri.\n          2. Satışın konusu.\n          3. Satılanın peşin satış bedeli.\n      \
-      \    4. Taksitle ödeme sebebiyle belirtilecek ilave bedel.\n          5. Toplam satış bedeli.\n          6.\
-      \ Alıcının nakden veya aynen üstlendiği diğer bütün edimler.\n          7. Peşinat ve taksitlerin tutarı ile\
-      \ vadesi ve ikiden az olmamak üzere taksit sayısı.\n          8. Alıcının yedi gün "
+    madde: md. 253/2
+    alinti: Taksitle satış sözleşmesi, yazılı şekilde yapılmadıkça geçerli olmaz.
+  - mevzuat: 6098 sayılı Türk Borçlar Kanunu
+    madde: md. 255
+    alinti: sözleşmenin bir nüshasının eline geçmesinden yedi gün sonra hüküm ve sonuçlarını doğurur.
+  - mevzuat: 6098 sayılı Türk Borçlar Kanunu
+    madde: md. 256/1
+    alinti: Alıcı, peşin satış bedelinin en az onda birini en geç teslim anında peşin
   gecerlilik:
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3214,8 +3287,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R6: yanlış ifade bariz değildi; doğru ifadeler md. 253-256''dan kuruldu, yanlış
+          ifade noter şekline çevrildi, kök olumsuzu kalın yapıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3233,6 +3308,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R6: yanlış ifade bariz değildi; doğru ifadeler md. 253-256''dan kuruldu, yanlış ifade noter şekline
+      çevrildi, kök olumsuzu kalın yapıldı'
 - id: SMMM-HUK-BRC-0084
   sinav: smmm
   bolum:
@@ -3274,7 +3354,7 @@
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3296,8 +3376,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: SMMM-HUK-BRC-0015 ile aynı bilgiyi (TBK borç kaynakları üçlüsü) aynı biçimde soruyor; mükerrer, 0015
+          yenilendi
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3315,6 +3397,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: SMMM-HUK-BRC-0015 ile aynı bilgiyi (TBK borç kaynakları üçlüsü) aynı biçimde soruyor; mükerrer, 0015
+      yenilendi
 - id: SMMM-HUK-BRC-0085
   sinav: smmm
   bolum:
@@ -3565,28 +3652,26 @@
   kazanim: müteselsil borç
   tip: kavrama
   zorluk: 3
-  kok: A, B ve C müteselsil borçludur. Alacaklı, B ile arasındaki kişisel ilişkiden doğan bir def’iyi ileri sürerek
-    B’nin sorumluluğunu kaldırmak istemektedir. B ise bu kişisel def’iyi A ve C’nin de kullanabileceğini savunmaktadır.
-    TBK md. 164’e göre aşağıdakilerden hangisi doğrudur?
+  kok: Müteselsil borçlular A, B ve C'den B, alacaklıya karşı kendisi ile alacaklı arasındaki kişisel ilişkiden
+    doğan bir def'iyi ileri sürmüştür. A ve C ise bu def'iyi kendi borçları bakımından da ileri sürebileceklerini
+    savunmaktadır. TBK md. 164'e göre aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: B’nin kişisel ilişkisine dayanan def’i, her durumda A ve C tarafından da ileri sürülebilir.
-    B: B yalnızca kendi kişisel ilişkisine dayanan def’iyi ileri sürebilir; bu def’i A ve C’ye kendiliğinden taşımaz.
-    C: Müteselsil borçlular kişisel def’ileri hiç ileri süremez.
-    D: B’nin kişisel def’iyi ileri sürmesi, A ve C’nin borcunu da sona erdirir.
-    E: Kişisel def’i yalnız alacaklının rızasıyla ileri sürülebilir.
+    A: B'nin kişisel def'isi, müteselsil borcun niteliği gereği A ve C tarafından da ileri sürülebilir.
+    B: B kişisel ilişkisinden doğan def'iyi ileri sürebilir; bu def'i A ve C'nin borcunu etkilemez.
+    C: B, alacaklıya karşı ancak borcun sebebinden doğan def'ileri ileri sürebilir; kişisel def'ileri ileri süremez.
+    D: B'nin kişisel def'iyi ileri sürmesi hâlinde A ve C'nin borcu da aynı oranda sona erer.
+    E: B'nin kişisel def'iyi ileri sürebilmesi için A ve C'nin onayı gerekir.
   dogru: B
   aciklama:
-    dogru_neden: 'TBK md. 164, müteselsil borçlulardan birinin alacaklıya karşı ancak onunla kendi arasındaki kişisel
-      ilişkilerden veya müteselsil borcun sebep ya da konusundan doğan def’i ve itirazları ileri sürebileceğini
-      düzenler. Kişisel ilişkiye dayanan def’i diğer borçlulara kendiliğinden aktarılmaz. Püf noktaları: Kişisel
-      def’i, yalnız ilgili müteselsil borçlunun alacaklıyla kendi ilişkisine dayanır; diğer borçlulara otomatik
-      olarak geçmez.'
+    dogru_neden: TBK md. 164, müteselsil borçlulardan birinin alacaklıya karşı ancak onunla kendi arasındaki kişisel
+      ilişkilerden veya müteselsil borcun sebep ya da konusundan doğan def'i ve itirazları ileri sürebileceğini
+      düzenler. Kişisel ilişkiye dayanan def'i diğer borçlulara geçmez ve onların borcunu etkilemez.
     celdiriciler:
-      A: Kişisel ilişkiye dayanan def’i, adı üzerinde B ile alacaklı arasındaki kişisel ilişkiden doğar; A ve C’ye
-        otomatik olarak geçmez.
-      C: Md. 164 kişisel ilişkilere dayanan def’ilerin ileri sürülebileceğini açıkça kabul eder.
-      D: Kişisel def’inin B tarafından ileri sürülmesi A ve C’nin borcunu kendiliğinden sona erdirmez.
-      E: Md. 164, alacaklının ayrıca rızasını şart koşmaz.
+      A: Kişisel ilişkiye dayanan def'i, B ile alacaklı arasındaki ilişkiden doğar; A ve C bunu kendi borçları bakımından
+        ileri süremez.
+      C: Md. 164 kişisel ilişkilerden doğan def'ilerin de ileri sürülebileceğini açıkça kabul eder.
+      D: Kişisel def'inin B tarafından ileri sürülmesi A ve C'nin borcunu kendiliğinden sona erdirmez.
+      E: Md. 164, B'nin kişisel def'isini ileri sürmesini A ve C'nin onayına bağlamaz.
   kaynaklar:
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
     madde: md. 164
@@ -3597,7 +3682,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3618,8 +3703,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R5: kökteki kurgu düzeltildi (def''iyi borçlu ileri sürer); şıklar dengelendi, mutlak
+          ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3634,6 +3721,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R5: kökteki kurgu düzeltildi (def''iyi borçlu ileri sürer); şıklar dengelendi, mutlak ifadeler kaldırıldı'
 - id: SMMM-HUK-BRC-0089
   sinav: smmm
   bolum:
@@ -3918,24 +4009,26 @@
     6098 sayılı Türk Borçlar Kanunu''na göre bu durumda borç ilişkisinin kaynağı bakımından aşağıdakilerden hangisi
     doğrudur?'
   secenekler:
-    A: Sözleşme kurulmaz; çünkü ikinci derecedeki her noktanın ayrıca kararlaştırılması zorunludur.
-    B: Sözleşme kurulmaz; paketleme ayrıntıları kararlaştırılmadan hiçbir borç doğamaz.
-    C: Sözleşme kurulmuştur; ikinci derecedeki noktalar üzerinde durulmamış olsa bile esaslı noktalarda uyuşma sözleşmenin
-      kurulması için yeterlidir.
-    D: Yalnızca sebepsiz zenginleşmeden doğan bir borç ilişkisi oluşur.
-    E: Yalnızca haksız fiilden doğan bir borç ilişkisi oluşur.
+    A: Sözleşme kurulmamıştır; ikinci derecedeki noktalarda anlaşma sağlanmadan edim borcu doğmaz.
+    B: Sözleşme kurulmuştur; paketleme ayrıntıları konusundaki boşluğu yayınevi tek taraflı olarak doldurur.
+    C: Sözleşme kurulmuştur; esaslı noktalarda uyuşulduğundan borç ilişkisinin kaynağı sözleşmedir.
+    D: Sözleşme kurulmamıştır; yayınevinin eseri kullanması hâlinde sebepsiz zenginleşme hükümleri uygulanır.
+    E: Sözleşme kurulmuştur; ancak paketleme ayrıntıları kararlaştırılıncaya kadar taraflar edim borçlarıyla bağlı
+      olmaz.
   dogru: C
   aciklama:
     dogru_neden: TBK md. 1 sözleşmeyi karşılıklı ve birbirine uygun irade açıklamalarıyla kurar; md. 2 ise taraflar
       esaslı noktalarda uyuşmuşsa ikinci derecedeki noktalar üzerinde durulmamış olsa bile sözleşmenin kurulmuş
       sayılacağını düzenler. Bu nedenle borç ilişkisinin kaynağı sözleşmedir.
     celdiriciler:
-      A: 'Yanlış: Md. 2, ikinci derecedeki noktaların kararlaştırılmamış olmasına rağmen sözleşmenin kurulmuş sayılacağını
-        söyler.'
-      B: 'Yanlış: Esaslı noktalarda uyuşma yeterlidir; ikinci derecedeki noktalar için ayrıca anlaşma şartı yoktur.'
-      D: 'Yanlış: Kökteki karşılıklı irade açıklamaları sözleşmeye dayalı borç ilişkisini gösterir; sebepsiz zenginleşme
-        olgusu yoktur.'
-      E: 'Yanlış: Haksız fiile ilişkin zarar verici fiil olgusu bulunmamaktadır; borç sözleşmeden doğmaktadır.'
+      A: Md. 2, ikinci derecedeki noktaların kararlaştırılmamış olmasına rağmen sözleşmenin kurulmuş sayılacağını
+        söyler; edim borcu doğar.
+      B: İkinci derecedeki noktalarda uyuşulamazsa boşluğu taraflardan biri değil hâkim, işin özelliğine bakarak
+        doldurur (md. 2/2).
+      D: Kökteki karşılıklı irade açıklamaları sözleşmenin kurulduğunu gösterir; haklı sebepsiz bir zenginleşme
+        olgusu yoktur.
+      E: Md. 2'ye göre ikinci derecedeki noktalar kararlaştırılmasa da sözleşme kurulmuş sayılır ve taraflar edimleriyle
+        bağlıdır.
   kaynaklar:
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
     madde: md. 1
@@ -3949,7 +4042,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3970,8 +4063,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R5+R6: çeldiriciler boşluğu tek taraflı doldurma, sebepsiz zenginleşme ve bağlı
+          olmama kurgusuyla yenilendi; mutlak ifadeler kaldırıldı, şıklar dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3992,3 +4087,8 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R5+R6: çeldiriciler boşluğu tek taraflı doldurma, sebepsiz zenginleşme ve bağlı olmama kurgusuyla
+      yenilendi; mutlak ifadeler kaldırıldı, şıklar dengelendi'

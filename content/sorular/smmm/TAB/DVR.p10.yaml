@@ -9,22 +9,22 @@
   kazanim: hedef süreden geri hesap
   tip: hesaplama
   zorluk: 1
-  kok: Bir işletmenin yıllık satışların maliyeti 900 bin TL, ortalama stokları 150 bin TL'dir. Yıl 360 gün kabul edildiğinde
-    stokta kalma süresi kaç gündür?
+  kok: Bir işletmenin yıllık satışların maliyeti 900 bin TL, ortalama stokları 150 bin TL'dir. Yıl 360 gün kabul
+    edildiğinde stokta kalma süresi kaç gündür?
   secenekler:
-    A: '30'
-    B: '45'
+    A: 0,17
+    B: '6'
     C: '60'
-    D: '90'
-    E: '120'
+    D: 60,83
+    E: '2.160'
   dogru: C
   aciklama:
     dogru_neden: Stok devir hızı 900 / 150 = 6 kezdir. Stokta kalma süresi 360 / 6 = 60 gündür.
     celdiriciler:
-      A: Bu seçenek, doğru formül veya yorumla uyuşmamaktadır.
-      B: Bu seçenek, doğru formül veya yorumla uyuşmamaktadır.
-      D: Bu seçenek, doğru formül veya yorumla uyuşmamaktadır.
-      E: Bu seçenek, doğru formül veya yorumla uyuşmamaktadır.
+      A: Ortalama stok maliyete oranlanmıştır (150 / 900); gün hesabı yapılmamıştır.
+      B: Stok devir hızı (6 kez) süre olarak yorumlanmıştır.
+      D: Yıl 360 değil 365 gün alınmıştır (365 / 6).
+      E: Devir hızı 360 ile çarpılmıştır (6 × 360).
     hesap_adimlari:
     - Stok devir hızı = 900 / 150 = 6
     - Stokta kalma süresi = 360 / 6 = 60 gün
@@ -39,7 +39,7 @@
   dogrulama:
     python: sonuc = 360 / (900 / 150)
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -59,8 +59,9 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler tipik hata sonuçlarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -75,6 +76,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kalite hakemi + bağımsız çözücü (kaynaklı) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler tipik hata sonuçlarıyla yenilendi'
 - id: SMMM-TAB-DVR-0022
   sinav: smmm
   bolum:
@@ -86,8 +91,8 @@
   kazanim: stok (ilk madde; yarı mamul; mamul; ticari mal) devir hızı/süresi
   tip: kavrama
   zorluk: 2
-  kok: Bir finans analisti, işletmenin mali tablolarını önceki dönemle karşılaştırırken tutar değişimlerini ve oran değişimlerini
-    birlikte değerlendirmektedir. Bu yaklaşımın temel amacı aşağıdakilerden hangisidir?
+  kok: Bir finans analisti, işletmenin mali tablolarını önceki dönemle karşılaştırırken tutar değişimlerini ve oran
+    değişimlerini birlikte değerlendirmektedir. Bu yaklaşımın temel amacı aşağıdakilerden hangisidir?
   secenekler:
     A: Yalnızca işletmenin nakit bakiyesini belirlemek
     B: Kalemlerin zaman içindeki değişimini ve mali yapıdaki eğilimleri değerlendirmek
@@ -96,8 +101,8 @@
     E: Mali tabloları yalnız vergi matrahı için kullanmak
   dogru: B
   aciklama:
-    dogru_neden: Karşılaştırmalı analiz, mali tablo kalemlerinin dönemler içindeki tutar ve eğilim değişimlerini ortaya koyarak
-      değerlendirmeyi destekler.
+    dogru_neden: Karşılaştırmalı analiz, mali tablo kalemlerinin dönemler içindeki tutar ve eğilim değişimlerini
+      ortaya koyarak değerlendirmeyi destekler.
     celdiriciler:
       A: Bu seçenek, doğru formül veya yorumla uyuşmamaktadır.
       C: Bu seçenek, doğru formül veya yorumla uyuşmamaktadır.
@@ -152,8 +157,8 @@
   kazanim: alacak tahsil süresi
   tip: hesaplama
   zorluk: 1
-  kok: Bir işletmenin yıllık net satışları 1.800 bin TL, ortalama ticari alacakları 300 bin TL'dir. Yıl 360 gün kabul edildiğinde
-    alacak tahsil süresi kaç gündür?
+  kok: Bir işletmenin yıllık net satışları 1.800 bin TL, ortalama ticari alacakları 300 bin TL'dir. Yıl 360 gün
+    kabul edildiğinde alacak tahsil süresi kaç gündür?
   secenekler:
     A: '30'
     B: '45'
@@ -181,7 +186,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 360 / (1800 / 300)
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -202,8 +207,9 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: SMMM-TAB-DVR-0010 ile aynı soru (1.800/300, 360 gün); mükerrer
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -218,6 +224,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kalite hakemi + bağımsız çözücü (kaynaklı) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: SMMM-TAB-DVR-0010 ile aynı soru (1.800/300, 360 gün); mükerrer
 - id: SMMM-TAB-DVR-0024
   sinav: smmm
   bolum:
@@ -229,8 +239,8 @@
   kazanim: stok (ilk madde; yarı mamul; mamul; ticari mal) devir hızı/süresi
   tip: hesaplama
   zorluk: 3
-  kok: Bir işletmenin yıllık satışların maliyeti 1.200 bin TL, ortalama ticari mal stoku 300 bin TL'dir. Yıl 360 gün kabul
-    edildiğinde ticari mal stok devir hızı ve stokta kalma süresi sırasıyla kaçtır?
+  kok: Bir işletmenin yıllık satışların maliyeti 1.200 bin TL, ortalama ticari mal stoku 300 bin TL'dir. Yıl 360
+    gün kabul edildiğinde ticari mal stok devir hızı ve stokta kalma süresi sırasıyla kaçtır?
   secenekler:
     A: 2 kez ve 180 gün
     B: 3 kez ve 120 gün
@@ -297,22 +307,22 @@
   kazanim: borç ödeme süresi
   tip: hesaplama
   zorluk: 2
-  kok: Bir işletmenin yıllık kredili alışları 1.200 bin TL, ortalama ticari borçları 200 bin TL'dir. Yıl 360 gün kabul edildiğinde
-    borç ödeme süresi kaç gündür?
+  kok: Bir işletmenin yıllık kredili alışları 1.200 bin TL, ortalama ticari borçları 200 bin TL'dir. Yıl 360 gün
+    kabul edildiğinde borç ödeme süresi kaç gündür?
   secenekler:
-    A: '30'
-    B: '45'
+    A: 0,17
+    B: '6'
     C: '60'
-    D: '90'
-    E: '120'
+    D: 60,83
+    E: '2.160'
   dogru: C
   aciklama:
     dogru_neden: Ticari borç devir hızı 1.200 / 200 = 6 kattır. Borç ödeme süresi 360 / 6 = 60 gündür.
     celdiriciler:
-      A: Bu seçenek, doğru formül veya yorumla uyuşmamaktadır.
-      B: Bu seçenek, doğru formül veya yorumla uyuşmamaktadır.
-      D: Bu seçenek, doğru formül veya yorumla uyuşmamaktadır.
-      E: Bu seçenek, doğru formül veya yorumla uyuşmamaktadır.
+      A: Ortalama borç alışlara oranlanmıştır (200 / 1.200); gün hesabı yapılmamıştır.
+      B: Borç devir hızı (6 kat) süre olarak yorumlanmıştır.
+      D: Yıl 360 değil 365 gün alınmıştır (365 / 6).
+      E: Devir hızı 360 ile çarpılmıştır (6 × 360).
     hesap_adimlari:
     - Ticari borç devir hızı = 1.200 / 200 = 6
     - Borç ödeme süresi = 360 / 6 = 60 gün
@@ -327,7 +337,7 @@
   dogrulama:
     python: sonuc = 360 / (1200 / 200)
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -347,8 +357,9 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler tipik hata sonuçlarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -363,3 +374,7 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kalite hakemi + bağımsız çözücü (kaynaklı) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler tipik hata sonuçlarıyla yenilendi'

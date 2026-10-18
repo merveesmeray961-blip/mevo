@@ -171,19 +171,21 @@
   zorluk: 1
   kok: Trend analizinde baz yılın yüzde 100 kabul edilmesiyle ilgili aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Baz yılın tutarı kendisiyle karşılaştırılır.
-    B: Baz yılın trend yüzdesi 100’dür.
-    C: Diğer yıllar baz yıl tutarına oranlanır.
-    D: Trend analizi zaman içindeki yönü incelemeye yarar.
-    E: Trend yüzdesi, her yılın tutarını doğrudan yüzde 100 yapar.
+    A: Baz yılın trend yüzdesi 100 olarak alınır
+    B: Baz yıldan sonraki yılların tutarları baz yıl tutarına oranlanır
+    C: Baz yıl tutarının iki katına ulaşan kalemin trend yüzdesi 200 olur
+    D: Baz yıl tutarının altına düşen kalemin trend yüzdesi 100'ün altında kalır
+    E: Her yılın trend yüzdesi, bir önceki yıl tutarına göre hesaplanır
   dogru: E
   aciklama:
-    dogru_neden: Baz yıl yüzde 100’dür; diğer yılların yüzdeleri tutarlarının baz yıl tutarına oranlanmasıyla bulunur.
+    dogru_neden: Trend analizinde baz yıl sabittir ve yüzde 100 kabul edilir; diğer yılların yüzdeleri tutarlarının
+      baz yıl tutarına oranlanmasıyla bulunur. Her yılı bir önceki yıla göre hesaplamak zincir (değişim) yaklaşımıdır;
+      bu nedenle E ifadesi **yanlıştır**.
     celdiriciler:
-      A: Doğru.
-      B: Doğru.
-      C: Doğru.
-      D: Doğru.
+      A: Doğru ifadedir; baz yıl kendisiyle karşılaştırıldığı için trend yüzdesi 100'dür.
+      B: Doğru ifadedir; trend yüzdeleri sabit baz yıl tutarı esas alınarak hesaplanır.
+      C: Doğru ifadedir; tutar baz yılın iki katı olduğunda 2 × 100 = 200 bulunur.
+      D: Doğru ifadedir; baz yıl tutarından küçük tutar için oran 1'in altında, yüzde 100'ün altında çıkar.
   kaynaklar:
   - mevzuat: Finansal tablolar analizi — trend analizi yöntemi
     madde: Trend yüzdeleri
@@ -193,7 +195,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -214,8 +216,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: çeldiriciler aynı uzunlukta doğru ifadelere çevrildi, yanlış ifade zincir yaklaşımı
+          karışıklığına dayandırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -233,6 +237,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: çeldiriciler aynı uzunlukta doğru ifadelere çevrildi, yanlış ifade zincir yaklaşımı karışıklığına
+      dayandırıldı'
 - id: SMMM-TAB-DIK-0026
   sinav: smmm
   bolum:
@@ -480,19 +489,19 @@
   zorluk: 1
   kok: Bir işletmenin bilançosunda toplam aktif 800 bin TL, stoklar 120 bin TL’dir. Stokların dikey yüzdesi kaçtır?
   secenekler:
-    A: '10'
-    B: '12'
+    A: 0,15
+    B: 13,04
     C: '15'
-    D: '18'
-    E: '20'
+    D: 17,65
+    E: '85'
   dogru: C
   aciklama:
-    dogru_neden: Stokların dikey yüzdesi 120/800×100=%15’tir.
+    dogru_neden: Stokların dikey yüzdesi 120/800×100 = %15'tir.
     celdiriciler:
-      A: '%10 yanlış bölme sonucudur.'
-      B: '%12 için yanlış baz gerekir.'
-      D: '%18 yanlış hesaplamadır.'
-      E: '%20 yanlış hesaplamadır.'
+      A: 120 / 800 = 0,15 bulunmuş, 100 ile çarpma işlemi unutulmuştur.
+      B: Payda stoklarla birlikte alınmıştır (120 / 920 × 100).
+      D: Payda stoklar düşülmüş toplam alınmıştır (120 / 680 × 100).
+      E: Stoklar dışındaki varlıkların payı (680 / 800 × 100) hesaplanmıştır.
     hesap_adimlari:
     - 120 / 800 × 100 = %15
   kaynaklar:
@@ -506,7 +515,7 @@
   dogrulama:
     python: sonuc = 120 / 800 * 100
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -526,8 +535,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler tipik hata sonuçlarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -542,6 +552,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler tipik hata sonuçlarıyla yenilendi'
 - id: SMMM-TAB-DIK-0030
   sinav: smmm
   bolum:
@@ -557,20 +571,20 @@
     anlam birliği sağlamak istemektedir. MSUGT Sıra No 1 – Ek 4'teki düzenleme ilkesine göre işletme hangi yaklaşımı
     benimsemelidir?
   secenekler:
-    A: Her dönem için farklı bir bilanço biçimi seçmelidir.
-    B: Yalnızca dönen varlıkları karşılaştırmalı biçimde sunmalıdır.
-    C: Varlık ve kaynak kalemlerini her dönemde farklı sırada göstermelidir.
-    D: Karşılaştırma için bilanço yerine yalnızca gelir tablosunu kullanmalıdır.
-    E: Ek formlardaki bilanço tiplerini esas almalıdır.
+    A: Her dönem için işletmeye uygun farklı bir bilanço biçimi seçmelidir
+    B: Dönen varlıkları karşılaştırmalı, duran varlıkları tek dönem olarak sunmalıdır
+    C: Varlık ve kaynak kalemlerini dönemden döneme farklı sırada göstermelidir
+    D: Karşılaştırmayı bilanço yerine gelir tablosu üzerinden yürütmelidir
+    E: Ek formlardaki bilanço tiplerini esas alarak bilançoyu düzenlemelidir
   dogru: E
   aciklama:
     dogru_neden: MSUGT Sıra No 1 – Ek 4, bilançoların bir örnekliğinin karşılaştırmayı kolaylaştırmak ve anlam birliği
-      oluşturmak amacı taşıdığını belirtir.
+      oluşturmak amacı taşıdığını belirtir; bu amaçla ek formlardaki tipler esas alınır.
     celdiriciler:
       A: Farklı biçimler bir örnekliği ve dönemler arası karşılaştırılabilirliği zayıflatır.
-      B: İlke yalnızca dönen varlıklarla sınırlı değildir; bilançoların genel biçimini kapsar.
+      B: İlke bilançonun genel biçimini kapsar; yalnız dönen varlıkları karşılaştırmaya konu etmez.
       C: Farklı sıralama, ortak biçim ve anlam birliği amacına aykırıdır.
-      D: Düzenleme ilkesi bilanço biçimiyle ilgilidir, bilanço yerine gelir tablosu kullanılmasını söylemez.
+      D: Düzenleme ilkesi bilanço biçimiyle ilgilidir, bilanço yerine gelir tablosu kullanılmasını öngörmez.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: MSUGT Sıra No 1 – Ek 4
@@ -582,7 +596,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -603,8 +617,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: çeldiriciler yeniden yazıldı, mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -622,6 +637,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: çeldiriciler yeniden yazıldı, mutlak ifadeler kaldırıldı'
 - id: SMMM-TAB-DIK-0031
   sinav: smmm
   bolum:

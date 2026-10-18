@@ -569,31 +569,38 @@
   kok: Bir satın alma işleminde edinilen varlıklar ile üstlenilen yükümlülüklerin bir işletme oluşturmadığı belirlenmiştir.
     TFRS 3'e göre işlem nasıl sınıflandırılmalıdır?
   secenekler:
-    A: Varlık edinimi olarak muhasebeleştirilir.
-    B: İşlem, satın alma yöntemiyle ve mutlaka şerefiye oluşturularak kaydedilir.
-    C: Her durumda pazarlıklı satın alma kazancı doğurur.
-    D: Konsolidasyon farkı olarak doğrudan özkaynaklara kaydedilir.
-    E: İşletme birleşmesi olarak muhasebeleştirilir.
+    A: Varlık edinimi olarak muhasebeleştirilir; şerefiye oluşmaz.
+    B: Varlık edinimi sayılır, ancak bedelin fazlası şerefiye olarak kaydedilir.
+    C: İşletme birleşmesi sayılır; net varlıkların bedeli aşan kısmı kazanç olarak kaydedilir.
+    D: Edinilen varlıklar önceki sahibin defter değerleri üzerinden kaydedilir.
+    E: İşletme birleşmesi olarak muhasebeleştirilir ve satın alma yöntemi uygulanır.
   dogru: A
   aciklama:
-    dogru_neden: TFRS 3 paragraf 3, edinilen varlıklar işletme değilse işlemin varlık edinimi olarak muhasebeleştirileceğini
-      belirtir.
+    dogru_neden: TFRS 3 par. 3'e göre edinilen varlıklar bir işletme değilse, işlem varlık edinimi olarak muhasebeleştirilir.
+      Par. 2(b) uyarınca maliyet, varlık ve borçlara satın alma tarihindeki gerçeğe uygun değerleri temelinde dağıtılır
+      ve şerefiye oluşmaz.
     celdiriciler:
-      B: Şerefiye işletme birleşmesi muhasebesinin bir unsurudur; burada işletme edinilmemiştir.
-      C: Pazarlıklı satın alma kazancı her varlık ediniminde doğmaz.
-      D: Metin bu yönde bir muhasebeleştirme öngörmez.
-      E: İşletme oluşturma koşulu karşılanmamıştır.
+      B: Par. 2(b) uyarınca bu tür bir işlem şerefiyeye yol açmaz; bedel varlık ve borçlara gerçeğe uygun değerlerine
+        göre dağıtılır.
+      C: Pazarlıklı satın alma kazancı (par. 34) işletme birleşmesine özgüdür; işletme oluşturmayan varlık ediniminde
+        kazanç doğmaz.
+      D: Maliyet, satın alma tarihindeki gerçeğe uygun değerlere göre dağıtılır (par. 2(b)); önceki sahibin defter
+        değerleri esas alınmaz.
+      E: Edinilenler işletme tanımını karşılamadığı için TFRS 3'ün satın alma yöntemi bu işleme uygulanmaz.
   kaynaklar:
   - mevzuat: TFRS 3 İşletme Birleşmeleri
     madde: par. 3
     alinti: Edinilen varlıklar bir işletme değilse, raporlama yapan işletme bu işlem veya diğer olayı varlık edinimi
       olarak muhasebeleştirir.
+  - mevzuat: TFRS 3 İşletme Birleşmeleri
+    madde: par. 2(b)
+    alinti: Bu tür bir işlem ya da olay, şerefiyeye yol açmaz.
   gecerlilik:
     baslangic: '2009-07-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -614,8 +621,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler şerefiye, pazarlıklı satın alma ve defter değeri hatalarıyla yenilendi;
+          R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -636,6 +645,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler şerefiye, pazarlıklı satın alma ve defter değeri hatalarıyla yenilendi; R6 giderildi'
 - id: SMMM-STD-TFR-0029
   sinav: smmm
   bolum:
@@ -808,27 +821,26 @@
   kazanim: Kavramsal Çerçeve; diğer TMS/TFRS kapsam ve ölçüm
   tip: uygulama
   zorluk: 3
-  kok: Bir şirketin satın aldığı varlık grubu, işletme tanımını karşılamamaktadır. İşlemde maddi olmayan duran varlık
-    tanımına ve muhasebeleştirme ölçütlerine uyan bir hak ile bazı borçlar da bulunmaktadır. TFRS 3'e göre hangi
-    yaklaşım doğrudur?
+  kok: Bir şirket, işletme tanımını karşılamayan bir varlık grubunu 1.000.000 TL bedelle satın almıştır. Grupta
+    yer alan tanımlanabilir varlıkların ve üstlenilen borçların satın alma tarihindeki gerçeğe uygun değerlerinin
+    net toplamı 900.000 TL'dir. TFRS 3'e göre aradaki 100.000 TL'lik fark nasıl muhasebeleştirilir?
   secenekler:
-    A: Yalnız maddi varlıklar kaydedilir; hak ve borçlar şerefiyeye dahil edilir.
-    B: İşletme birleşmesi kabul edilerek tüm kalemler topluca kaydedilir.
-    C: Edinilen varlıklar ve üstlenilen borçlar ayrı ayrı tanımlanıp muhasebeleştirilir; maliyet, satın alma tarihindeki
-      gerçeğe uygun değerleri temelinde dağıtılır ve şerefiye oluşmaz.
-    D: Varlık grubu yalnız satın alanın defter değerleriyle kaydedilir.
-    E: İşlem, işletme oluşturmadığından hiçbir varlık veya borç finansal tablolara alınmaz.
+    A: Şerefiye olarak finansal tablolara alınır ve değer düşüklüğü testine tabi tutulur.
+    B: Satın alma tarihinde gider olarak kâr veya zarara yansıtılır.
+    C: Maliyet, varlık ve borçlara gerçeğe uygun değerleriyle orantılı dağıtılır; şerefiye oluşmaz.
+    D: Ayrı bir maddi olmayan duran varlık olarak izlenir ve itfa edilir.
+    E: Maliyet, varlıkların defter değerleriyle orantılı dağıtılır; şerefiye oluşmaz.
   dogru: C
   aciklama:
-    dogru_neden: 'TFRS 3 paragraf 2(b), maddi olmayan duran varlıklar dahil uygun varlıkların ve üstlenilen borçların
-      ayrı ayrı tanımlanıp muhasebeleştirilmesini, maliyetin gerçeğe uygun değerler temelinde dağıtılmasını ve şerefiye
-      oluşmamasını öngörür. Püf noktaları: İşletme olmayan bir varlık grubunun ediniminde de varlık ve borçların
-      muhasebeleştirilmesi gerekir.'
+    dogru_neden: TFRS 3 par. 2(b), işletme tanımına uymayan varlık grubunun ediniminde varlıkların ve borçların
+      ayrı ayrı tanımlanıp muhasebeleştirilmesini, grubun maliyetinin satın alma tarihindeki gerçeğe uygun değerlerine
+      bağlı olarak bunlara dağıtılmasını ve işlemin şerefiyeye yol açmamasını öngörür. Bu nedenle 100.000 TL'lik
+      fark şerefiye olmaz, dağıtıma dahil edilir.
     celdiriciler:
-      A: Maddi olmayan duran varlıklar da paragrafta açıkça dahil edilmiştir.
-      B: İşletme tanımı karşılanmadığı için işletme birleşmesi değildir.
-      D: Metin satın alma tarihindeki gerçeğe uygun değerleri esas alır.
-      E: Varlık ediniminde varlıklar ve borçlar muhasebeleştirilir.
+      A: Şerefiye işletme birleşmesinde (par. 32) ortaya çıkar; par. 2(b) kapsamındaki işlem şerefiyeye yol açmaz.
+      B: Grubun maliyeti gider değildir; edinilen varlık ve borçlara dağıtılan bir maliyettir.
+      D: Fark ayrı bir maddi olmayan duran varlık oluşturmaz; maliyet tanımlanabilir varlık ve borçlara dağıtılır.
+      E: Dağıtımın esası defter değerleri değil, satın alma tarihindeki gerçeğe uygun değerlerdir (par. 2(b)).
   kaynaklar:
   - mevzuat: TFRS 3 İşletme Birleşmeleri
     madde: par. 2(b)
@@ -839,7 +851,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -860,8 +872,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: 0023 ile örtüşen kavram sorusu sayısal vakaya çevrildi; çeldiriciler şerefiye ve
+          defter değeri hatalarıyla yenilendi; R5/R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -876,6 +890,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: 0023 ile örtüşen kavram sorusu sayısal vakaya çevrildi; çeldiriciler şerefiye ve defter değeri hatalarıyla
+      yenilendi; R5/R6 giderildi'
 - id: SMMM-STD-TFR-0032
   sinav: smmm
   bolum:
@@ -1939,35 +1958,39 @@
     yerine getirilmiştir. TFRS 15’in temel ilkesine göre hasılatın tutarı hangi esasa dayanmalıdır?
   secenekler:
     A: Mal veya hizmet devri karşılığında hak kazanmayı beklediği bedeli yansıtan tutar.
-    B: Yalnızca müşteriden tahsil edilmiş nakit.
-    C: İşletmenin müşteriye fatura ettiği vergiler dahil toplam tutar.
-    D: İşletmenin tüm dönem giderlerine eşit bir tutar.
-    E: Sözleşme imzalandığında tahmin edilen kâr.
+    B: Müşteriden sözleşme süresince tahsil edilen nakit tutarların toplamı.
+    C: Müşteriye kesilen faturadaki tutar; üçüncü kişiler adına tahsil edilen vergiler dahildir.
+    D: Hizmetin sunulması için katlanılan maliyetlere makul bir kâr marjı eklenerek bulunan tutar.
+    E: İşletmenin benzer hizmetler için yayımladığı liste fiyatı üzerinden bulunan tutar.
   dogru: A
   aciklama:
-    dogru_neden: TFRS 15’in temel ilkesi hasılatın, taahhüt edilen mal veya hizmetlerin devri karşılığında hak kazanılması
-      beklenen bedeli yansıtan tutar üzerinden finansal tablolara alınmasıdır.
+    dogru_neden: TFRS 15 par. 2'ye göre temel ilke, hasılatın taahhüt edilen mal veya hizmetlerin devri karşılığında
+      hak kazanılması beklenen bedeli yansıtan tutar üzerinden finansal tablolara alınmasıdır. İşlem bedeli, üçüncü
+      kişiler adına tahsil edilen tutarları içermez (par. 47).
     celdiriciler:
-      B: Yalnızca müşteriden tahsil edilmiş nakit. ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından
-        doğru değildir.
-      C: İşletmenin müşteriye fatura ettiği vergiler dahil toplam tutar. ifadesi, soruda verilen hüküm veya koşullarla
-        uyuşmadığından doğru değildir.
-      D: İşletmenin tüm dönem giderlerine eşit bir tutar. ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından
-        doğru değildir.
-      E: Sözleşme imzalandığında tahmin edilen kâr. ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından
-        doğru değildir.
+      B: Hasılat tutarı nakit tahsilata göre değil, hak kazanılması beklenen bedele göre belirlenir; tahsilat hasılat
+        ölçüsü değildir.
+      C: İşlem bedeli, üçüncü kişiler adına tahsil edilen tutarlar (örneğin bazı satış vergileri) hariç, hak edilmesi
+        beklenen bedeldir (par. 47).
+      D: Hasılat maliyet artı kâr yaklaşımıyla değil, devredilen mal veya hizmet karşılığında hak kazanılan bedelle
+        ölçülür.
+      E: Liste fiyatı hasılat tutarının ölçütü değildir; hasılat, hak kazanılması beklenen bedele dayanır.
   kaynaklar:
-  - mevzuat: TFRS 15
-    madde: '2'
+  - mevzuat: TFRS 15 Müşteri Sözleşmelerinden Hasılat
+    madde: par. 2
     alinti: 1’inci paragrafta belirlenen amacın gerçekleştirilmesi açısından bu Standardın temel ilkesi, işletmenin
       müşterilerine taahhüt ettiği mal veya hizmetlerin devri karşılığında hak kazanmayı beklediği bedeli yansıtan
       bir tutar üzerinden hasılatı finansal tablolara yansıtmasıdır.
+  - mevzuat: TFRS 15 Müşteri Sözleşmelerinden Hasılat
+    madde: par. 47
+    alinti: İşlem bedeli, işletmenin üçüncü şahıslar adına tahsil edilen tutarlar hariç (örneğin bazı satış vergileri),
+      taahhüt ettiği mal veya hizmetleri müşteriye devretmesi karşılığında hak etmeyi beklediği bedeldir.
   gecerlilik:
     baslangic: '2018-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1988,8 +2011,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler yaygın hatalarla (tahsilat esası, vergi dahil fatura, maliyet artı
+          kâr, liste fiyatı) yenilendi; R5/R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2007,6 +2032,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler yaygın hatalarla (tahsilat esası, vergi dahil fatura, maliyet artı kâr, liste fiyatı)
+      yenilendi; R5/R6 giderildi'
 - id: SMMM-STD-TFR-0046
   sinav: smmm
   bolum:
@@ -2017,36 +2047,40 @@
   kazanim: Kavramsal Çerçeve; diğer TMS/TFRS kapsam ve ölçüm
   tip: kavrama
   zorluk: 2
-  kok: Finansal tablo hazırlayan bir işletme, bir varlığı ilk edindiğinde ödediği bedel ile işlem maliyetlerini
-    temel alan ölçüm yapmıştır. Bu ölçüm esası aşağıdakilerden hangisidir?
+  kok: Bir işletme, bir varlığı ilk muhasebeleştirirken varlığı edinmek için ödediği bedel ile işlem maliyetlerini
+    esas almış, bu tutarı sonraki dönemlerde amortisman ve değer düşüklüğü ile güncellemiştir. Kavramsal Çerçeve'ye
+    göre işletmenin uyguladığı ölçüm esası aşağıdakilerden hangisidir?
   secenekler:
     A: Gerçeğe uygun değer
     B: Tarihi maliyet
-    C: İtfa edilmiş maliyet dışındaki cari değer
-    D: Net gerçekleşebilir değer
-    E: Kullanım değeri
+    C: Cari maliyet
+    D: Kullanım değeri
+    E: İfa değeri
   dogru: B
   aciklama:
-    dogru_neden: Kavramsal Çerçeve paragraf 6.5, varlığın edinilmesi veya oluşturulması sırasında katlanılan maliyetleri,
-      ödenen bedel artı işlem maliyetleri olarak tarihi maliyet kapsamında tanımlar.
+    dogru_neden: Kavramsal Çerçeve par. 6.5'e göre varlığın tarihi maliyeti, varlığı edinmek için ödenen bedel artı
+      işlem maliyetlerinden oluşur. Tarihi maliyet, zamanla amortisman ve değer düşüklüğü gibi etkilerle güncellenir
+      (par. 6.7).
     celdiriciler:
-      A: Gerçeğe uygun değer ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından doğru değildir.
-      C: İtfa edilmiş maliyet dışındaki cari değer ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından
-        doğru değildir.
-      D: Net gerçekleşebilir değer ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından doğru değildir.
-      E: Kullanım değeri ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından doğru değildir.
+      A: Gerçeğe uygun değer, ölçüm tarihinde piyasa katılımcıları arasında olağan bir işlemde elde edilecek satış
+        fiyatıdır (par. 6.12); ödenen bedel değildir.
+      C: Cari maliyet, varlığın ölçüm tarihindeki edinim bedeli artı işlem maliyetleridir (par. 6.21); işlem tarihinde
+        ödenen bedeli esas almaz.
+      D: Kullanım değeri, varlığın kullanımından beklenen nakit akışlarının bugünkü değeridir (par. 6.17); ödenen
+        bedele dayanmaz.
+      E: İfa değeri yükümlülükler için kullanılan bir ölçüm esasıdır (par. 6.17) ve varlığın edinim bedelini yansıtmaz.
   kaynaklar:
   - mevzuat: Finansal Raporlamaya İlişkin Kavramsal Çerçeve
-    madde: 6.4–6.5
-    alinti: Tarihi maliyet ölçümleri; varlıklar, yükümlülükler ve ilgili gelir ve giderler hakkında parasal bilgi
-      sağlar. Bu parasal bilgi, en azından kısmi olarak, bunları doğuran işlem ya da diğer olayın fiyatından elde
-      edilir.
+    madde: '6.5'
+    alinti: Bir varlık edinildiğinde veya oluşturulduğunda söz konusu varlığın tarihi maliyeti, varlığın edinilmesi
+      veya oluşturulması sırasında katlanılan maliyetlerin değeridir. Bu değer varlığı edinmek ve oluşturmak için
+      ödenen bedel artı işlem maliyetlerinden oluşur.
   gecerlilik:
     baslangic: '2020-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2067,8 +2101,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kök uygulamaya yaklaştırıldı; anlamsız şık yerine cari maliyet, kullanım değeri
+          ve ifa değeri çeldiricileri kondu'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2089,6 +2125,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kök uygulamaya yaklaştırıldı; anlamsız şık yerine cari maliyet, kullanım değeri ve ifa değeri çeldiricileri
+      kondu'
 - id: SMMM-STD-TFR-0047
   sinav: smmm
   bolum:
@@ -2342,35 +2383,39 @@
   kazanim: TMS 23
   tip: kavrama
   zorluk: 1
-  kok: TMS 23’ün temel ilkesine göre, özellikli varlığın elde edilmesi, inşası veya üretimiyle doğrudan ilişkilendirilemeyen
-    borçlanma maliyetleri nasıl muhasebeleştirilir?
+  kok: Bir işletme, işletme sermayesi ihtiyacı için kullandığı genel amaçlı kredinin faizini ödemektedir. Bu faiz,
+    özellikli bir varlığın elde edilmesi, inşası veya üretimi ile doğrudan ilişkilendirilememektedir. TMS 23'e göre
+    bu borçlanma maliyeti nasıl muhasebeleştirilir?
   secenekler:
-    A: Varlığın maliyetine eklenir.
-    B: Şerefiye olarak muhasebeleştirilir.
-    C: Diğer kapsamlı gelire alınır.
-    D: Gider olarak muhasebeleştirilir.
-    E: Varlığın satışına kadar ertelenir.
+    A: Stokların maliyetine eklenir ve satış yapıldıkça giderleştirilir.
+    B: İşletmenin en yüksek tutarlı maddi duran varlığının maliyetine eklenir.
+    C: Dönem sonunda özkaynaklar içinde ayrı bir kalemde izlenir.
+    D: Oluştukları dönemde gider olarak muhasebeleştirilir.
+    E: Gelecek dönemlere ertelenir ve varlığın satışı gerçekleştiğinde gider yazılır.
   dogru: D
   aciklama:
-    dogru_neden: TMS 23 paragraf 1, doğrudan ilişkilendirilebilen borçlanma maliyetlerini varlık maliyetinin parçası
-      sayarken diğer borçlanma maliyetlerinin gider olarak muhasebeleştirilmesini ister.
+    dogru_neden: TMS 23 par. 8'e göre özellikli varlıkla doğrudan ilişkilendirilebilen borçlanma maliyetleri aktifleştirilir;
+      diğer borçlanma maliyetleri oluştukları dönemde gider olarak muhasebeleştirilir.
     celdiriciler:
-      A: Varlığın maliyetine eklenir. ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından doğru değildir.
-      B: Şerefiye olarak muhasebeleştirilir. ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından doğru
-        değildir.
-      C: Diğer kapsamlı gelire alınır. ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından doğru değildir.
-      E: Varlığın satışına kadar ertelenir. ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından doğru değildir.
+      A: Borçlanma maliyetleri, ilişkilendirilebilir olmadıkça stokların veya başka bir varlığın maliyetine eklenmez;
+        oluştukları dönemde gider yazılır.
+      B: Aktifleştirme için borçlanma maliyetinin özellikli varlıkla doğrudan ilişkilendirilebilmesi gerekir (par.
+        8); tutarın en büyük varlığa eklenmesi bir ilke değildir.
+      C: Standart, ilişkilendirilemeyen borçlanma maliyetleri için özkaynak yaklaşımı öngörmez; bunlar gider yazılır.
+      E: İlişkilendirilemeyen borçlanma maliyetleri ertelenmez; oluştukları dönemde gider olarak muhasebeleştirilir
+        (par. 8).
   kaynaklar:
-  - mevzuat: TMS 23
-    madde: '1'
-    alinti: Bir özellikli varlığın elde edilmesi, inşası veya üretimi ile doğrudan ilişkilendirilebilen borçlanma
-      maliyetleri bu varlığın maliyetinin bir parçasını oluşturur. Diğer borçlanma maliyetleri gider olarak muhasebeleştirilir.
+  - mevzuat: TMS 23 Borçlanma Maliyetleri
+    madde: par. 8
+    alinti: İşletmelerce, bir özellikli varlığın elde edilmesi, inşası veya üretimi ile doğrudan ilişkilendirilebilen
+      borçlanma maliyetleri, ilgili özellikli varlığın maliyetinin bir parçası olarak aktifleştirilir. İşletmeler,
+      diğer borçlanma maliyetlerini oluştukları dönemde gider olarak muhasebeleştirirler.
   gecerlilik:
     baslangic: '2009-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2391,8 +2436,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kök vakaya çevrildi; çeldiriciler yaygın yanlışlarla (stok maliyeti, başka varlığa
+          ekleme, özkaynak, erteleme) yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2410,6 +2457,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kök vakaya çevrildi; çeldiriciler yaygın yanlışlarla (stok maliyeti, başka varlığa ekleme, özkaynak,
+      erteleme) yenilendi'
 - id: SMMM-STD-TFR-0051
   sinav: smmm
   bolum:
@@ -2596,38 +2648,42 @@
   tip: uygulama
   zorluk: 3
   kok: Bir sözleşmede müşteriye tek bir bedel karşılığında iki ayrı mal ve hizmet taahhüt edilmiştir. Taahhüt edilen
-    mal ve hizmetler ayrı ayrı belirlenebilir ve müşteri her birinden tek başına veya kolayca elde edebileceği kaynaklarla
-    yararlanabilir. TFRS 15’in beş adımlı modelinde işletme, işlem bedelini belirledikten sonra hangi adımı izlemelidir?
+    mal ve hizmetler birbirinden farklı olup ayrı edim yükümlülükleri olarak belirlenmiştir ve işletme işlem bedelini
+    de tespit etmiştir. TFRS 15'in beş adımlı modelinde işletmenin bu aşamadan sonra izlemesi gereken adım aşağıdakilerden
+    hangisidir?
   secenekler:
-    A: Sözleşme bedelini doğrudan özkaynaklara aktarmak
-    B: Hasılatı sözleşme imzalandığı anda kaydetmek
-    C: Sözleşmeyi yeniden tanımlamak
-    D: Sözleşmenin varlığını değerlendirmeyi baştan yapmak
-    E: İşlem bedelini edim yükümlülüklerine dağıtmak
+    A: Hasılatı, edim yükümlülükleri yerine getirildikçe finansal tablolara almak
+    B: Sözleşmedeki edim yükümlülüklerini ayrı ayrı belirlemek
+    C: Müşteriyle yapılan sözleşmenin varlığını ve niteliğini tanımlamak
+    D: Değişken bedel tahminlerini sınırlandırarak işlem bedelini düzeltmek
+    E: İşlem bedelini sözleşmedeki edim yükümlülüklerine dağıtmak
   dogru: E
   aciklama:
-    dogru_neden: 'TFRS 15’in modelinde işlem bedelinin belirlenmesini, işlem bedelinin edim yükümlülüklerine dağıtılması
-      izler. Sözleşmedeki ayrı edim yükümlülükleri bu dağıtımın temelidir. Püf noktaları: Soru, adımların tamamını
-      ezberletmekten ziyade işlem bedeli belirlendikten sonraki sırayı sınar.'
+    dogru_neden: TFRS 15 par. 73-74'e göre işlem bedelinin dağıtımından amaç, işlem bedelinin her bir edim yükümlülüğüne
+      tahsis edilmesidir; dağıtım nispi tek başına satış fiyatı esasına göre yapılır. Bu adım, işlem bedelinin belirlenmesinden
+      sonra ve hasılatın finansal tablolara alınmasından önce gelir.
     celdiriciler:
-      A: Sözleşme bedelini doğrudan özkaynaklara aktarmak ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından
-        doğru değildir.
-      B: Hasılatı sözleşme imzalandığı anda kaydetmek ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından
-        doğru değildir.
-      C: Sözleşmeyi yeniden tanımlamak ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından doğru değildir.
-      D: Sözleşmenin varlığını değerlendirmeyi baştan yapmak ifadesi, soruda verilen hüküm veya koşullarla uyuşmadığından
-        doğru değildir.
+      A: Hasılat, bedel edim yükümlülüklerine dağıtıldıktan sonra, edim yükümlülüğü yerine getirildikçe finansal
+        tablolara alınır (par. 46); bu adım dağıtımın önüne geçemez.
+      B: Edim yükümlülükleri sözleşme başlangıcında belirlenir (par. 22); kökte bu adım zaten tamamlanmıştır.
+      C: Sözleşmenin tanımlanması modelin ilk adımıdır ve işlem bedelinin belirlenmesinden önce yapılmıştır.
+      D: Değişken bedel tahminlerinin sınırlandırılması işlem bedelinin belirlenmesi adımının içindedir (par. 56-58);
+        kökte bu adım tamamlanmıştır.
   kaynaklar:
-  - mevzuat: TFRS 15
-    madde: 73 ve 76
-    alinti: 50        Sözleşmede taahhüt edilen bedelin değişken bir tutar içermesi durumunda işletme, müşteriye
-      taahhüt ettiği mal ve hizmetlerin devri karşılığında hak kazanacağı bedeli tahmin eder.
+  - mevzuat: TFRS 15 Müşteri Sözleşmelerinden Hasılat
+    madde: par. 73
+    alinti: İşletme açısından, işlem bedelinin dağıtımından amaç, işlem bedelinin her bir edim yükümlülüğüne (veya
+      farklı mal veya hizmete) tahsis edilmesidir.
+  - mevzuat: TFRS 15 Müşteri Sözleşmelerinden Hasılat
+    madde: par. 74
+    alinti: Dağıtımın amacına ulaşmak için, işlem bedeli, 76–80 paragrafları uyarınca nispi tek başına satış fiyatı
+      esasına göre sözleşmede belirlenen her bir edim yükümlülüğüne dağıtılır
   gecerlilik:
     baslangic: '2018-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2648,8 +2704,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler modelin diğer adımlarıyla (önceki ve sonraki adım karışıklığı) yenilendi;
+          alıntı par. 50 yerine par. 73-74 ile değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2670,6 +2728,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler modelin diğer adımlarıyla (önceki ve sonraki adım karışıklığı) yenilendi; alıntı par.
+      50 yerine par. 73-74 ile değiştirildi'
 - id: SMMM-STD-TFR-0054
   sinav: smmm
   bolum:
@@ -2986,37 +3049,43 @@
   kazanim: par. 2
   tip: kavrama
   zorluk: 2
-  kok: Bir işletme müşterisine mal devretmeyi taahhüt etmiş ve bunun karşılığında belirli bir bedel beklemektedir.
-    TFRS 15’in temel ilkesi açısından hasılat hangi tutar üzerinden finansal tablolara yansıtılır?
+  kok: Bir işletme müşterisine mal devretmeyi taahhüt etmiştir. Müşteriden tahsil edilecek tutar içinde, üçüncü
+    kişiler adına tahsil edilen bir satış vergisi de bulunmaktadır. TFRS 15'in temel ilkesi ve işlem bedeli tanımı
+    açısından hasılat hangi tutar üzerinden finansal tablolara yansıtılır?
   secenekler:
-    A: Müşteriden tahsil edilen her tutarın tamamı üzerinden
-    B: İşletmenin müşteriye taahhüt ettiği mal veya hizmetlerin devri karşılığında hak kazanmayı beklediği bedeli
-      yansıtan tutar üzerinden
-    C: Yalnız sözleşme imzalandığı tarihteki tahmini maliyet üzerinden
-    D: Her durumda malın liste fiyatı üzerinden
-    E: Yalnız nakit tahsilatı tamamlandığında
+    A: Müşteriden tahsil edilen toplam tutar üzerinden; üçüncü kişiler adına alınan vergi dahil
+    B: Hak kazanmayı beklediği bedel üzerinden; üçüncü kişiler adına tahsil edilen vergi hariç
+    C: Malın sözleşme tarihindeki tahmini maliyeti ile vergi tutarının toplamı üzerinden
+    D: Malın liste fiyatı üzerinden; sözleşmedeki bedel liste fiyatından düşük olsa dahi
+    E: Nakit tahsilat tamamlandığında tahsil edilen net tutar üzerinden; vergi hariç
   dogru: B
   aciklama:
-    dogru_neden: TFRS 15 hasılatı, taahhüt edilen devir karşılığında hak kazanılması beklenen bedeli yansıtan tutarla
-      ilişkilendirir.
+    dogru_neden: TFRS 15 par. 2'ye göre hasılat, taahhüt edilen mal veya hizmetlerin devri karşılığında hak kazanılması
+      beklenen bedeli yansıtan tutar üzerinden finansal tablolara alınır. İşlem bedeli, üçüncü kişiler adına tahsil
+      edilen tutarlar (örneğin bazı satış vergileri) hariç belirlenir (par. 47).
     celdiriciler:
-      A: Tahsilat ile hasılat tutarı her durumda aynı değildir.
-      C: Maliyet, temel ilkenin hasılat ölçütü değildir.
-      D: Liste fiyatı her durumda esas alınmaz.
-      E: Hasılatın muhasebeleştirilmesi yalnız nakit tahsilatına bağlanmaz.
+      A: Üçüncü kişiler adına tahsil edilen vergi işletmenin hak ettiği bedel değildir; hasılata dahil edilmez (par.
+        47).
+      C: Maliyet hasılatın ölçüsü değildir; hasılat devir karşılığında hak kazanılan bedele dayanır.
+      D: Liste fiyatı sözleşmedeki bedelin yerine geçmez; hasılat hak kazanılması beklenen bedele dayanır.
+      E: Hasılatın tutarı ile kaydedileceği zaman ayrı kavramlardır; tutar nakit tahsilat tarihine değil, hak kazanılan
+        bedele göre belirlenir.
   kaynaklar:
   - mevzuat: TFRS 15 Müşteri Sözleşmelerinden Hasılat
     madde: par. 2
-    alinti: "Bu Standardın amacı, müşteriyle yapılan bir sözleşmeden doğan hasılatın ve nakit akışlarının niteliği,\n\
-      \       tutarı, zamanlaması ve belirsizliğine ilişkin faydalı bilgilerin finansal tablo kullanıcılarına\n\
-      \       raporlanmasında işletmenin uygulayacağı ilkeleri düzenlemektir.\n\n       Amacın Gerçekleştirilmesi\n\
-      2      1’inci paragrafta belirlenen amacın gerçekleştirilmesi açısınd"
+    alinti: 1’inci paragrafta belirlenen amacın gerçekleştirilmesi açısından bu Standardın temel ilkesi, işletmenin
+      müşterilerine taahhüt ettiği mal veya hizmetlerin devri karşılığında hak kazanmayı beklediği bedeli yansıtan
+      bir tutar üzerinden hasılatı finansal tablolara yansıtmasıdır.
+  - mevzuat: TFRS 15 Müşteri Sözleşmelerinden Hasılat
+    madde: par. 47
+    alinti: İşlem bedeli, işletmenin üçüncü şahıslar adına tahsil edilen tutarlar hariç (örneğin bazı satış vergileri),
+      taahhüt ettiği mal veya hizmetleri müşteriye devretmesi karşılığında hak etmeyi beklediği bedeldir.
   gecerlilik:
     baslangic: '2018-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3037,8 +3106,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: 0019/0045 ile tekrar eden temel ilke sorusu, üçüncü kişi vergisini içeren vakaya
+          çevrildi; çeldiriciler yenilendi; R5/R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3053,6 +3124,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: 0019/0045 ile tekrar eden temel ilke sorusu, üçüncü kişi vergisini içeren vakaya çevrildi; çeldiriciler
+      yenilendi; R5/R6 giderildi'
 - id: SMMM-STD-TFR-0059
   sinav: smmm
   bolum:
@@ -3146,33 +3222,42 @@
   zorluk: 2
   kok: TMS 8’e göre aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Önemli önceki dönem hataları, uygulanabilir olduğu ölçüde geriye dönük düzeltilir
-    B: Muhasebe tahminindeki değişiklik, yeni bilgi veya gelişmelerden kaynaklanabilir
-    C: Muhasebe tahminindeki değişiklikler genel olarak ileriye yönelik muhasebeleştirilir
-    D: Önceki dönem hataları ile tahmin değişiklikleri birbirinden ayrılır
-    E: Muhasebe politikası değişikliği ile muhasebe tahminindeki değişiklik aynı kavramdır ve her durumda aynı şekilde
-      uygulanır
+    A: Önemli önceki dönem hataları, uygulanabilir olduğu ölçüde geriye dönük olarak düzeltilir
+    B: Yeni bilgi edinilmesi, muhasebe tahmininin revize edilmesini gerektirebilir
+    C: İsteğe bağlı muhasebe politikası değişikliği, özel geçiş hükmü yoksa geriye dönük uygulanır
+    D: Muhasebe tahminindeki bir değişiklik, niteliği gereği bir hata düzeltmesi sayılmaz
+    E: Muhasebe tahminindeki değişiklik, sunulan önceki dönemlerin tutarları düzeltilerek yansıtılır
   dogru: E
   aciklama:
-    dogru_neden: Politika değişikliği, tahmin değişikliği ve önceki dönem hatası farklı kategorilerdir.
+    dogru_neden: 'E ifadesi **yanlıştır**: TMS 8 par. 36''ya göre muhasebe tahminindeki değişikliğin etkisi geriye
+      dönük değil, ileriye yönelik olarak kâr veya zarara yansıtılır; önceki dönem tutarları düzeltilmez. Geriye
+      dönük düzeltme muhasebe politikası değişiklikleri ve önemli hatalar için söz konusudur.'
     celdiriciler:
-      A: Önemli hatalarda geriye dönük düzeltme ilkesi vardır.
-      B: Yeni bilgi tahmin değişikliğine yol açabilir.
-      C: Tahmin değişikliği genel olarak ileriye yönelik uygulanır.
-      D: TMS 8 bu ayrımları düzenler.
+      A: Par. 42'ye göre önemli geçmiş dönem hataları geriye dönük düzeltilir; ifade doğrudur.
+      B: Par. 34'e göre yeni bilgi edinilmesi veya yeni gelişmeler tahminin revize edilmesini gerektirebilir; ifade
+        doğrudur.
+      C: Par. 19(b)'ye göre isteğe bağlı politika değişikliği, özel geçiş hükmü yoksa geriye dönük uygulanır; ifade
+        doğrudur.
+      D: Par. 34'e göre tahmin değişikliğinin geçmiş dönemlerle ilgisi yoktur ve hata düzeltmesi değildir; ifade
+        doğrudur.
   kaynaklar:
   - mevzuat: TMS 8 Muhasebe Politikaları, Muhasebe Tahminlerinde Değişiklikler ve Hatalar
-    madde: par. 5, 32, 36, 42
-    alinti: "Muhasebe politikalarındaki değişikliklerle ilgili olanlar dışındaki muhasebe politikalarına yönelik\
-      \ açıklama\n           hükümleri, TMS 1 Finansal Tabloların Sunuluşu’nda düzenlenmektedir.\n\nKapsam\n3  \
-      \        Bu Standart, muhasebe politikalarının seçimi ve uygulanması ile muhasebe politikalarındaki\n    \
-      \       değişikliklerin, muhasebe tahminlerindeki"
+    madde: par. 34
+    alinti: Niteliği gereği bir muhasebe tahminindeki değişikliğin geçmiş dönemlerle bir ilgisi yoktur ve söz konusu
+      değişiklik bir hata düzeltmesi değildir.
+  - mevzuat: TMS 8 Muhasebe Politikaları, Muhasebe Tahminlerinde Değişiklikler ve Hatalar
+    madde: par. 36
+    alinti: ileriye yönelik olarak finansal tablolara yansıtılır
+  - mevzuat: TMS 8 Muhasebe Politikaları, Muhasebe Tahminlerinde Değişiklikler ve Hatalar
+    madde: par. 42
+    alinti: işletme önemli geçmiş dönem hatalarını, bu hatalar tespit edildikten sonra yayımlanması için onaylanan
+      ilk finansal tablolarında geriye dönük olarak düzeltir.
   gecerlilik:
     baslangic: '2006-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3193,8 +3278,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: anahtar şık politika=tahmin karıştırmasından, tahminin geriye dönük düzeltilmesi
+          gibi akla yatkın yanlışa çevrildi; R5 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3212,6 +3299,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: anahtar şık politika=tahmin karıştırmasından, tahminin geriye dönük düzeltilmesi gibi akla yatkın
+      yanlışa çevrildi; R5 giderildi'
 - id: SMMM-STD-TFR-0061
   sinav: smmm
   bolum:
@@ -3222,34 +3314,40 @@
   kazanim: Tanımlar
   tip: kavrama
   zorluk: 1
-  kok: TMS 36’ya göre değer düşüklüğü zararı hangi durumu ifade eder?
+  kok: TMS 36'ya göre değer düşüklüğü zararı aşağıdakilerden hangisidir?
   secenekler:
-    A: Yeniden değerleme artışının tamamını
-    B: Satış hasılatının maliyetleri aşan kısmını
-    C: Amortisman giderinin yıllık toplamını
-    D: Defter değerinin geri kazanılabilir tutarı aşan kısmını
-    E: Nakit akışlarının toplam nominal tutarını
+    A: Varlığın maliyetinin yararlı ömür boyunca sistematik olarak dağıtılan kısmı
+    B: Defter değerinin, satış maliyetleri düşülmüş gerçeğe uygun değeri aşan kısmı
+    C: Defter değerinin, kullanım değerini aşan kısmı
+    D: Defter değerinin, geri kazanılabilir tutarı aşan kısmı
+    E: Geri kazanılabilir tutarın, defter değerini aşan kısmı
   dogru: D
   aciklama:
-    dogru_neden: TMS 36 değer düşüklüğü zararını defter değerinin geri kazanılabilir tutarı aşan kısmı olarak tanımlar.
+    dogru_neden: TMS 36 par. 6'ya göre değer düşüklüğü zararı, varlığın defter değerinin geri kazanılabilir tutarı
+      aşan kısmıdır. Geri kazanılabilir tutar, satış maliyetleri düşülmüş gerçeğe uygun değer ile kullanım değerinden
+      yüksek olanıdır.
     celdiriciler:
-      A: Yeniden değerleme artışı değildir.
-      B: Bu kâr ölçüsüdür.
-      C: Amortisman gideri farklı bir kavramdır.
-      E: Nominal nakit akışları tanım değildir.
+      A: Bu tanım amortismana aittir; amortisman maliyetin sistematik dağıtımıdır, değer düşüklüğü zararı değildir.
+      B: Karşılaştırma yalnızca satış maliyetleri düşülmüş gerçeğe uygun değerle değil, geri kazanılabilir tutarla
+        yapılır; kullanım değeri de dikkate alınır.
+      C: Karşılaştırma yalnızca kullanım değeriyle değil, geri kazanılabilir tutarla yapılır; satış maliyetleri
+        düşülmüş gerçeğe uygun değer de dikkate alınır.
+      E: Yön ters verilmiştir; zarar, geri kazanılabilir tutarın değil defter değerinin yüksek olması halinde doğar.
   kaynaklar:
   - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
-    madde: Tanımlar
-    alinti: "Değer düşüklüğü zararı: Bir varlığın veya nakit yaratan birimin defter değerinin geri kazanılabilir\n\
-      \      tutarı aşan kısmını ifade eder.\n      Geri kazanılabilir tutar: Bir varlığın veya nakit yaratan birimin,\
-      \ satış maliyetleri düşülmüş gerçeğe\n      uygun değeri ile kullanım değerinden yüksek olanıdır.\n      Yararlı\
-      \ ömür:\n      (a)       Bir varl"
+    madde: par. 6
+    alinti: 'Değer düşüklüğü zararı: Bir varlığın veya nakit yaratan birimin defter değerinin geri kazanılabilir
+      tutarı aşan kısmını ifade eder.'
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: par. 6
+    alinti: 'Geri kazanılabilir tutar: Bir varlığın veya nakit yaratan birimin, satış maliyetleri düşülmüş gerçeğe
+      uygun değeri ile kullanım değerinden yüksek olanıdır.'
   gecerlilik:
     baslangic: '2006-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3270,8 +3368,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler tek bileşeni ve ters yönü esas alan akla yatkın hatalarla yenilendi;
+          R5 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3289,6 +3389,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler tek bileşeni ve ters yönü esas alan akla yatkın hatalarla yenilendi; R5 giderildi'
 - id: SMMM-STD-TFR-0062
   sinav: smmm
   bolum:
@@ -3368,32 +3472,38 @@
   zorluk: 2
   kok: TMS 23’e göre aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: TMS 23 bütün borçlanma maliyetlerinin her koşulda doğrudan gider yazılmasını zorunlu kılar
-    B: Özellikli varlık, amaçlanan kullanıma veya satışa hazır duruma getirilmesi önemli bir süre gerektiren varlıktır
-    C: Borçlanma maliyetleri faiz ve borçlanmayla ilişkili diğer maliyetleri içerebilir
-    D: Özellikli varlıkla doğrudan ilişkilendirilebilen borçlanma maliyetleri standardın kapsamındadır
-    E: Standart borçlanma maliyetlerinin muhasebeleştirilmesini düzenler
+    A: Özel borçlanmanın geçici nemalandırılmasından sağlanan gelir, aktifleştirilecek borçlanma maliyetine eklenir
+    B: Özellikli varlık, amaçlanan kullanıma veya satışa hazır duruma getirilmesi uzun bir süre gerektiren varlıktır
+    C: Etkin faiz yöntemiyle hesaplanan faiz gideri, borçlanma maliyetleri arasında sayılabilir
+    D: Özellikli varlıkla doğrudan ilişkilendirilebilen borçlanma maliyetleri varlığın maliyetinin parçasıdır
+    E: Doğrudan ilişkilendirilemeyen diğer borçlanma maliyetleri oluştukları dönemde gider yazılır
   dogru: A
   aciklama:
-    dogru_neden: TMS 23 özellikli varlıkla doğrudan ilişkili borçlanma maliyetlerinin aktifleştirilmesini öngörebilir;
-      tüm maliyetler her koşulda gider yazılmaz.
+    dogru_neden: 'A ifadesi **yanlıştır**: TMS 23 par. 12''ye göre özellikli varlık için özel olarak borçlanılmışsa,
+      fonların geçici olarak nemalandırılmasından sağlanan gelirler borçlanma maliyetlerinden düşülür; aktifleştirilecek
+      tutara eklenmez.'
     celdiriciler:
-      B: Özellikli varlık tanımının ana unsuru doğru verilmiştir.
-      C: Bu maliyetler faiz ve diğer ilgili maliyetleri kapsayabilir.
-      D: Doğrudan ilişki standardın önemli unsurudur.
-      E: Standardın konusu doğru belirtilmiştir.
+      B: Par. 5'teki özellikli varlık tanımına uygundur; ifade doğrudur.
+      C: Par. 6(a)'ya göre etkin faiz yöntemiyle hesaplanan faiz gideri borçlanma maliyetleri arasında sayılabilir;
+        ifade doğrudur.
+      D: Par. 8'e göre doğrudan ilişkilendirilebilen borçlanma maliyetleri varlığın maliyetinin parçası olarak aktifleştirilir;
+        ifade doğrudur.
+      E: Par. 8'e göre diğer borçlanma maliyetleri oluştukları dönemde gider olarak muhasebeleştirilir; ifade doğrudur.
   kaynaklar:
   - mevzuat: TMS 23 Borçlanma Maliyetleri
-    madde: par. 9-10
-    alinti: ya üretimi ile doğrudan ilişkilendirilebilen borçlanma maliyetleri ilgili varlığın maliyetine dahil
-      edilir. Bu tür borçlanma maliyetleri, güvenilir bir biçimde ölçülebilmeleri ve işletmeye gelecekte ekonomik
-      fayda sağlamalarının muhtemel olması durumunda, özellikli varlığın maliyetinin bir parçası olarak aktifleştirilir.
+    madde: par. 12
+    alinti: Bir işletme bir özellikli varlığın edinilmesi amacıyla özellikle borçlanmış ise, bu durumda aktifleştirilecek
+      borçlanma maliyeti tutarı; ilgili dönem boyunca söz konusu borçlanmaya ilişkin oluşan borçlanma maliyetlerinden,
+      söz konusu fonların geçici olarak nemalandırılması ile sağlanan gelirlerin düşülmesi suretiyle belirler.
+  - mevzuat: TMS 23 Borçlanma Maliyetleri
+    madde: par. 8
+    alinti: İşletmeler, diğer borçlanma maliyetlerini oluştukları dönemde gider olarak muhasebeleştirirler.
   gecerlilik:
     baslangic: '2009-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3414,8 +3524,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: bariz yanlış anahtar yerine par. 12''deki geçici nemalandırma gelirinin ters işlemine
+          dayanan akla yatkın yanlış kondu; B şıkkı tanıma uyduruldu'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3436,6 +3548,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: bariz yanlış anahtar yerine par. 12''deki geçici nemalandırma gelirinin ters işlemine dayanan akla
+      yatkın yanlış kondu; B şıkkı tanıma uyduruldu'
 - id: SMMM-STD-TFR-0064
   sinav: smmm
   bolum:
@@ -3446,34 +3563,44 @@
   kazanim: par. 32
   tip: kavrama
   zorluk: 2
-  kok: TFRS 3 bakımından birleşme tarihinde ölçülen şerefiye ile ilgili aşağıdaki karşılaştırmalardan hangisi doğrudur?
+  kok: TFRS 3'e göre şerefiyenin birleşme tarihinde ölçülmesine ilişkin aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: Şerefiye, yalnız edinilen işletmenin nominal sermayesidir
-    B: Şerefiye, birleşme tarihinde belirli toplamların farkına dayalı olarak ölçülür
-    C: Şerefiye her durumda sıfır kabul edilir
-    D: Şerefiye yalnız birleşmeden sonraki yılın sonunda belirlenir
-    E: Şerefiye edinilen işletmenin tüm varlıklarının defter değerine eşittir
+    A: Transfer edilen bedelin, edinilen işletmenin varlıklarının defter değerleri toplamını aşan kısmıdır
+    B: Transfer edilen bedel, kontrol gücü olmayan pay ve varsa önceden elde tutulan pay toplamının, net tanımlanabilir
+      varlık tutarını aşan kısmıdır
+    C: Transfer edilen bedel ile edinilen tanımlanabilir varlıkların net tutarı arasındaki farktır; kontrol gücü
+      olmayan pay hesaba katılmaz
+    D: Edinilen işletmenin özkaynaklarının defter değeri ile transfer edilen bedel arasındaki farktır
+    E: Edinen işletmenin kendi varlıklarının gerçeğe uygun değeri ile transfer edilen bedel arasındaki farktır
   dogru: B
   aciklama:
-    dogru_neden: TFRS 3 şerefiyeyi birleşme tarihi itibarıyla tanımlı tutarların farkı üzerinden ölçer.
+    dogru_neden: TFRS 3 par. 32'ye göre şerefiye, birleşme tarihinde (a) transfer edilen bedel, edinilen işletmedeki
+      kontrol gücü olmayan pay ve varsa edinenin önceden elde tuttuğu özkaynak payının gerçeğe uygun değeri toplamının,
+      (b) edinilen tanımlanabilir varlıkların ve üstlenilen borçların net tutarını aşan kısmı olarak ölçülür.
     celdiriciler:
-      A: Nominal sermaye tanımı değildir.
-      C: Şerefiye her durumda sıfır değildir.
-      D: Ölçüm birleşme tarihinde yapılır.
-      E: Varlıkların defter değeriyle eşitlik kuralı yoktur.
+      A: Karşılaştırma defter değerleriyle değil, birleşme tarihindeki gerçeğe uygun değerleri esas alan net tutarla
+        yapılır (par. 18 ve 32).
+      C: Kontrol gücü olmayan pay şerefiye hesabının (a) bölümüne dahildir (par. 32); hesaba katılmaması ölçümü
+        hatalı kılar.
+      D: Karşılaştırma edinilen işletmenin özkaynaklarının defter değeriyle değil, tanımlanabilir varlık ve borçların
+        net tutarıyla yapılır.
+      E: Edinen işletmenin kendi varlıkları şerefiye hesabına girmez; karşılaştırma edinilen işletmenin tanımlanabilir
+        net varlıklarıyla yapılır.
   kaynaklar:
   - mevzuat: TFRS 3 İşletme Birleşmeleri
     madde: par. 32
-    alinti: "Edinen işletme, şerefiyeyi birleşme tarihi itibariyle aşağıda yer alan (a)’nın (b)’den fazlası şeklinde\n\
-      \      ölçerek muhasebeleştirir:\n      (a)       Aşağıdakilerin toplamı:\n                (i)        Bu TFRS’ye\
-      \ uygun olarak ölçülmüş, genellikle birleşme tarihindeki gerçeğe uygun\n                           değer üzerinden\
-      \ ölçümü gerektiren transfer edilmiş bedel (bkz. 37’nci"
+    alinti: 'Edinen işletme, şerefiyeyi birleşme tarihi itibariyle aşağıda yer alan (a)’nın (b)’den fazlası şeklinde
+      ölçerek muhasebeleştirir:'
+  - mevzuat: TFRS 3 İşletme Birleşmeleri
+    madde: par. 32(b)
+    alinti: Bu TFRS’ye uygun olarak ölçülmüş, edinilen tanımlanabilir varlıkların ve üstlenilen tanımlanabilir borçların
+      birleşme tarihindeki net tutarları.
   gecerlilik:
     baslangic: '2019-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3494,8 +3621,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: muğlak doğru şık tutarları (transfer edilen bedel, azınlık payı, net tanımlanabilir
+          varlık) belirtecek biçimde netleştirildi; çeldiriciler yaygın hatalarla yenilendi; R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3510,6 +3639,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: muğlak doğru şık tutarları (transfer edilen bedel, azınlık payı, net tanımlanabilir varlık) belirtecek
+      biçimde netleştirildi; çeldiriciler yaygın hatalarla yenilendi; R6 giderildi'
 - id: SMMM-STD-TFR-0065
   sinav: smmm
   bolum:
@@ -3594,32 +3728,35 @@
   kok: Bir yazılım sağlayıcısı müşterisine hizmet sunmayı taahhüt etmiş, ancak hizmetin henüz sunulmadığı ve edim
     yükümlülüğünün yerine getirilmediği durumda TFRS 15’in genel ilkesi bakımından aşağıdakilerden hangisi en uygundur?
   secenekler:
-    A: Hasılat her durumda sözleşme imzalanınca kaydedilir
+    A: Hasılat, sözleşme imzalanıp müşteriye fatura kesildiğinde sözleşme bedeli kadar kaydedilir
     B: Hasılat, edim yükümlülüğü yerine getirildiğinde veya getirildikçe muhasebeleştirilir
-    C: Hasılat yalnız maliyetler tahsil edildiğinde kaydedilir
-    D: Hasılat sadece yıl sonunda kaydedilebilir
-    E: Hasılat sözleşme bedelinin tamamı kadar peşinen kaydedilir
+    C: Müşteriden tahsil edilen avans, tahsil edildiği dönemde hasılat olarak kaydedilir
+    D: Hasılat, sözleşme dönemi sonunda toplu olarak kaydedilir; dönem içinde ara kayıt yapılmaz
+    E: Hasılat, hizmete ilişkin maliyetler ödendikçe ödenen tutar kadar kaydedilir
   dogru: B
   aciklama:
-    dogru_neden: TFRS 15 hasılatın edim yükümlülüğü yerine getirildiğinde veya getirildikçe kaydedilmesini öngörür.
+    dogru_neden: TFRS 15 par. 31'e göre işletme, taahhüt edilen mal veya hizmeti müşterisine devrederek edim yükümlülüğünü
+      yerine getirdiğinde (veya getirdikçe) hasılatı finansal tablolara alır. Hizmet henüz sunulmadığı için hasılat
+      kaydedilmez.
     celdiriciler:
-      A: Sözleşme imzası tek başına yeterli değildir.
-      C: Maliyet tahsilatı temel ölçüt değildir.
-      D: Yalnız yıl sonu koşulu yoktur.
-      E: Peşin kaydetme her durumda doğru değildir.
+      A: Sözleşmenin imzalanması ve faturalanması edim yükümlülüğünün yerine getirildiği anlamına gelmez; hasılat
+        bu tarihte kaydedilmez.
+      C: Hizmet sunulana kadar tahsil edilen avans sözleşme yükümlülüğü olarak izlenir; hasılat değildir.
+      D: Edim yükümlülüğü zamana yayılı yerine getiriliyorsa hasılat dönem içinde kaydedilir (par. 35); dönem sonu
+        beklenmez.
+      E: Maliyetlerin ödenmesi hasılat ölçütü değildir; hasılat kontrolün müşteriye devri ile ilişkilidir (par.
+        31).
   kaynaklar:
   - mevzuat: TFRS 15 Müşteri Sözleşmelerinden Hasılat
     madde: par. 31
-    alinti: "Edim yükümlülüğü, başlangıçta beklenen süresi bir yıl veya daha kısa olan bir sözleşmenin\n       \
-      \         parçasıdır veya\n      (b)       İşletme edim yükümlülüğünün yerine getirilmesini B16 paragrafı\
-      \ uyarınca hasılat olarak finansal\n                tablolara almaktadır.\n122   İşletme, 121’inci paragraftaki\
-      \ kolaylaştırıcı uygulamayı uygulayıp uygul"
+    alinti: İşletme taahhüt edilen bir mal veya hizmeti (başka bir ifadeyle, bir varlığı) müşterisine devrederek
+      edim yükümlülüğünü yerine getirdiğinde (veya getirdikçe) hasılatı finansal tablolara alır.
   gecerlilik:
     baslangic: '2018-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3640,8 +3777,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler yaygın hatalarla (imza/fatura, avans, dönem sonu, maliyet esaslı kayıt)
+          yenilendi; R5/R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3656,6 +3795,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler yaygın hatalarla (imza/fatura, avans, dönem sonu, maliyet esaslı kayıt) yenilendi;
+      R5/R6 giderildi'
 - id: SMMM-STD-TFR-0067
   sinav: smmm
   bolum:
@@ -3901,34 +4045,43 @@
   zorluk: 3
   kok: TMS 16’ya göre aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Bir maddi duran varlık kaleminin maliyeti, gelecekteki ekonomik yararların muhtemel olması ve maliyetin güvenilir
-      ölçülebilmesi koşullarıyla varlık olarak kaydedilir
-    B: Bir varlığın maliyeti güvenilir ölçülemese bile diğer koşullar varsa otomatik olarak varlık kaydedilir
-    C: Amortisman yöntemi varlığın gelecekteki ekonomik yararlarının beklenen tüketim biçimini yansıtmalıdır
-    D: Önemli parçalar farklı yararlı ömürlere sahipse ayrı amortisman gerekebilir
-    E: Maddi duran varlıklar için muhasebeleştirme koşulları standardın parçasıdır
+    A: Maliyetin güvenilir ölçülebilmesi, varlık olarak finansal tablolara alınmanın koşullarından biridir
+    B: Beklenen tüketim modeli değişse bile, ilk uygulanan amortisman yöntemi korunur
+    C: Amortisman yöntemi, varlığın gelecekteki ekonomik yararlarının beklenen tüketim modelini yansıtır
+    D: Maliyeti toplam maliyete göre önemli olan parçalar ayrı ayrı amortismana tabi tutulur
+    E: Maddi duran varlıkların günlük bakım maliyetleri oluştukları dönemde gelir tablosu ile ilişkilendirilir
   dogru: B
   aciklama:
-    dogru_neden: Güvenilir ölçüm koşulu da aranır; yalnız diğer koşulların bulunması yeterli değildir.
+    dogru_neden: 'B ifadesi **yanlıştır**: TMS 16 par. 61''e göre amortisman yöntemi en azından her hesap döneminin
+      sonunda gözden geçirilir; beklenen tüketim modelinde önemli bir değişiklik olursa yöntem değişen modeli yansıtacak
+      şekilde değiştirilir ve bu değişiklik muhasebe tahmini değişikliği olarak ele alınır.'
     celdiriciler:
-      A: Bu iki koşul doğru verilmiştir.
-      C: Beklenen tüketim biçimiyle uyum aranır.
-      D: Önemli parçalara ayrı amortisman uygulanabilir.
-      E: Muhasebeleştirme koşulları standartta yer alır.
+      A: Par. 7(b)'ye göre maliyetin güvenilir ölçülebilmesi muhasebeleştirme koşuludur; ifade doğrudur.
+      C: Par. 60'a göre yöntem beklenen tüketim modelini yansıtır; ifade doğrudur.
+      D: Par. 43'e göre toplam maliyete göre önemli maliyeti olan her parça ayrı amortismana tabi tutulur; ifade
+        doğrudur.
+      E: Par. 12'ye göre günlük bakım maliyetleri aktifleştirilmez, oluştukları tarihte gelir tablosuyla ilişkilendirilir;
+        ifade doğrudur.
   kaynaklar:
   - mevzuat: TMS 16 Maddi Duran Varlıklar
-    madde: par. 7, 43, 60
-    alinti: "Bir maddi duran varlık kaleminin maliyeti, sadece aşağıdaki koşulların oluşması durumunda varlık\n\
-      \         olarak finansal tablolara yansıtılır:\n         (a)       Bu kalemle ilgili gelecekteki ekonomik\
-      \ yararların işletmeye aktarılmasının muhtemel olması\n                   ve\n         (b)       İlgili kalemin\
-      \ maliyetinin güvenilir bir şekilde ölçülebilmesi.\n8        Yedek parça, yardımcı donanım ve servis donanımı\
-      \ gib"
+    madde: par. 60
+    alinti: Kullanılan amortisman yöntemi, varlığın gelecekteki ekonomik yararlarına ilişkin olarak işletme tarafından
+      uygulanması beklenen tüketim modelini yansıtır.
+  - mevzuat: TMS 16 Maddi Duran Varlıklar
+    madde: par. 61
+    alinti: Bir varlığa uygulanan amortisman yöntemi en azından, her hesap döneminin sonunda gözden geçirilir. Varlığın
+      gelecekteki ekonomik yararlarının beklenen tüketim modelinde önemli bir değişiklik olması durumunda yöntem,
+      değişmiş olan modeli yansıtacak şekilde değiştirilir.
+  - mevzuat: TMS 16 Maddi Duran Varlıklar
+    madde: par. 43
+    alinti: Bir maddi duran varlık kaleminin, toplam maliyetine göre önemli bir maliyeti olan her bir parçası ayrı
+      ayrı amortismana tabi tutulur.
   gecerlilik:
     baslangic: '2019-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3949,8 +4102,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: anahtar şık amortisman yönteminin gözden geçirilmesine ilişkin akla yatkın yanlışa
+          çevrildi (par. 61); çeldiriciler doğru ifadelerle yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3968,6 +4123,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: anahtar şık amortisman yönteminin gözden geçirilmesine ilişkin akla yatkın yanlışa çevrildi (par.
+      61); çeldiriciler doğru ifadelerle yazıldı'
 - id: SMMM-STD-TFR-0071
   sinav: smmm
   bolum:
@@ -3981,33 +4141,38 @@
   kok: TMS 23 açısından özellikli varlıkla doğrudan ilişkilendirilebilen borçlanma maliyetlerinin muhasebeleştirilmesinde
     temel ayrım hangisidir?
   secenekler:
-    A: Özellikli varlıkla doğrudan ilişkilendirilebilen maliyetler aktifleştirilebilir; diğer borçlanma maliyetleri
-      giderleştirilir
-    B: Bütün borçlanma maliyetleri özkaynaklara kaydedilir
-    C: Borçlanma maliyetleri yalnız varlık satıldığında kaydedilir
-    D: Borçlanma maliyetleri hiçbir zaman giderleştirilmez
-    E: Borçlanma maliyetleri yalnız nakit akış tablosunda gösterilir
+    A: Özellikli varlıkla doğrudan ilişkilendirilebilen maliyetler aktifleştirilir; diğer borçlanma maliyetleri
+      oluştukları dönemde gider yazılır
+    B: Doğrudan ilişkilendirilebilen maliyetler oluştukları dönemde gider yazılır; diğer borçlanma maliyetleri varlığın
+      maliyetine eklenir
+    C: Faiz giderleri gider yazılır; borçlanmayla ilişkili diğer maliyetler varlığın maliyetine eklenir
+    D: Aktifleştirme tercihe bağlıdır; işletme ilişkilendirilebilen maliyetleri dilerse gider yazabilir
+    E: Doğrudan ilişkilendirilebilen maliyetler varlık satıldığında gider yazılır; diğerleri oluştukları dönemde
+      gider yazılır
   dogru: A
   aciklama:
-    dogru_neden: TMS 23, özellikli varlığın edinimi/inşası/üretimiyle doğrudan ilişkilendirilebilen maliyetlerin
-      aktifleştirilmesi ile diğerlerinin giderleştirilmesi ayrımını kurar.
+    dogru_neden: TMS 23 par. 8'e göre özellikli varlığın elde edilmesi, inşası veya üretimi ile doğrudan ilişkilendirilebilen
+      borçlanma maliyetleri aktifleştirilir; diğer borçlanma maliyetleri oluştukları dönemde gider olarak muhasebeleştirilir.
     celdiriciler:
-      B: Özkaynaklara kaydetme genel kural değildir.
-      C: Satış anına kadar beklenmez.
-      D: Diğer borçlanma maliyetleri giderleştirilir.
-      E: Muhasebeleştirme yalnız nakit akış tablosuyla sınırlı değildir.
+      B: Ayrım ters çevrilmiştir; aktifleştirilen, doğrudan ilişkilendirilebilen maliyetlerdir.
+      C: Ayrımın ölçütü maliyetin türü değil, özellikli varlıkla doğrudan ilişkilendirilebilirliğidir; faiz ve diğer
+        maliyetlerin ikisi de borçlanma maliyetidir (par. 5-6).
+      D: Par. 8 aktifleştirmeyi bir tercih olarak değil, kural olarak belirler; ilişkilendirilebilen maliyetler
+        aktifleştirilir.
+      E: Doğrudan ilişkilendirilebilen maliyetler varlığın maliyetinin parçası olur; satış anına kadar beklenip
+        gider yazılmaz.
   kaynaklar:
   - mevzuat: TMS 23 Borçlanma Maliyetleri
-    madde: par. 9-10
-    alinti: ya üretimi ile doğrudan ilişkilendirilebilen borçlanma maliyetleri ilgili varlığın maliyetine dahil
-      edilir. Bu tür borçlanma maliyetleri, güvenilir bir biçimde ölçülebilmeleri ve işletmeye gelecekte ekonomik
-      fayda sağlamalarının muhtemel olması durumunda, özellikli varlığın maliyetinin bir parçası olarak aktifleştirilir.
+    madde: par. 8
+    alinti: İşletmelerce, bir özellikli varlığın elde edilmesi, inşası veya üretimi ile doğrudan ilişkilendirilebilen
+      borçlanma maliyetleri, ilgili özellikli varlığın maliyetinin bir parçası olarak aktifleştirilir. İşletmeler,
+      diğer borçlanma maliyetlerini oluştukları dönemde gider olarak muhasebeleştirirler.
   gecerlilik:
     baslangic: '2009-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4028,8 +4193,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: A şıkkı ''aktifleştirilir'' haline getirildi; çeldiriciler tercih, maliyet türü
+          ve ters ayrım hatalarıyla yenilendi; R5/R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4044,6 +4211,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: A şıkkı ''aktifleştirilir'' haline getirildi; çeldiriciler tercih, maliyet türü ve ters ayrım hatalarıyla
+      yenilendi; R5/R6 giderildi'
 - id: SMMM-STD-TFR-0072
   sinav: smmm
   bolum:
@@ -4123,23 +4295,26 @@
   tip: uygulama
   zorluk: 2
   kok: Bir işletme, bir duran varlığı satış amaçlı elde tutulan olarak sınıflandırmıştır. Sınıflandırma tarihinde
-    varlığın defter değeri 1.200.000 TL, satış maliyetleri düşülmüş gerçeğe uygun değeri 1.050.000 TL'dir. TFRS
-    5'e göre varlık hangi tutardan ölçülmelidir?
+    varlığın defter değeri 1.240.000 TL, gerçeğe uygun değeri 1.120.000 TL, satış için katlanılacak maliyetler ise
+    70.000 TL'dir. TFRS 5'e göre varlık hangi tutardan ölçülmelidir?
   secenekler:
-    A: 1.200.000 TL
+    A: 1.240.000 TL
     B: 1.050.000 TL
-    C: 2.250.000 TL
-    D: 150.000 TL
-    E: Ölçüm, yalnızca kullanım değeri üzerinden yapılır.
+    C: 1.120.000 TL
+    D: 1.170.000 TL
+    E: 1.310.000 TL
   dogru: B
   aciklama:
-    dogru_neden: TFRS 5 paragraf 15 uyarınca duran varlık, defter değeri ile satış maliyetleri düşülmüş gerçeğe
-      uygun değerinden düşük olanı ile ölçülür; bu olayda düşük tutar 1.050.000 TL'dir.
+    dogru_neden: TFRS 5 par. 15 uyarınca varlık, defter değeri ile satış maliyetleri düşülmüş gerçeğe uygun değerinden
+      düşük olanı ile ölçülür. Satış maliyetleri düşülmüş gerçeğe uygun değer 1.120.000 - 70.000 = 1.050.000 TL,
+      defter değeri 1.240.000 TL olduğundan düşük tutar 1.050.000 TL'dir; aradaki 190.000 TL değer düşüklüğü zararı
+      olarak muhasebeleştirilir (par. 20).
     celdiriciler:
-      A: Defter değeri tek başına esas alınmaz; karşılaştırılan iki tutarın düşüğü seçilir.
-      C: İki tutar toplanmaz.
-      D: İki tutar arasındaki fark ölçüm tutarı değildir.
-      E: Standart iki tutarın düşük olanını esas alır.
+      A: Defter değeri 1.240.000 TL tek başına esas alınmıştır; iki tutarın düşüğü seçilmediği için hatalıdır.
+      C: 1.120.000 TL, satış maliyetleri düşülmeden gerçeğe uygun değerdir; ölçümde maliyetler düşülmelidir.
+      D: 1.170.000 TL, maliyet defter değerinden düşülerek (1.240.000 - 70.000) bulunmuştur; satış maliyeti gerçeğe
+        uygun değerden düşülür.
+      E: 1.310.000 TL, satış maliyeti defter değerine eklenerek (1.240.000 + 70.000) bulunmuştur; maliyetler eklenmez.
   kaynaklar:
   - mevzuat: TFRS 5 Satış Amaçlı Elde Tutulan Duran Varlıklar ve Durdurulan Faaliyetler
     madde: par. 15
@@ -4150,7 +4325,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4171,8 +4346,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: tek adımlı karşılaştırma, satış maliyeti ve defter değeri içeren sayısal vakaya
+          çevrildi; çeldiriciler tipik hesap hatalarıyla yenilendi; R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4187,6 +4364,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: tek adımlı karşılaştırma, satış maliyeti ve defter değeri içeren sayısal vakaya çevrildi; çeldiriciler
+      tipik hesap hatalarıyla yenilendi; R6 giderildi'
 - id: SMMM-STD-TFR-0074
   sinav: smmm
   bolum:
@@ -4278,30 +4460,39 @@
   kok: Bir işletme, yeni bilgiler nedeniyle bir varlığın yararlı ömrü tahminini değiştirir. Bu değişiklik TMS 8
     bakımından nasıl değerlendirilir?
   secenekler:
-    A: Muhasebe tahmininde değişikliktir ve ileriye yönelik uygulanır.
-    B: Muhasebe politikası değişikliği olarak tüm geçmiş dönemler yeniden düzenlenir.
-    C: Her durumda doğrudan özkaynakta muhasebeleştirilir.
-    D: Önceki dönem hatası olarak geriye dönük düzeltilir.
-    E: Finansal tablolarda hiçbir etkisi olmaz.
+    A: Muhasebe tahmini değişikliğidir; etkisi ileriye yönelik olarak kâr veya zarara yansıtılır.
+    B: Muhasebe politikası değişikliğidir; önceki dönem tutarları geriye dönük yeniden düzenlenir.
+    C: Muhasebe tahmini değişikliğidir; ancak etkisi doğrudan geçmiş yıllar kârlarına yansıtılır.
+    D: Önceki dönem hatasıdır; hata düzeltmesi olarak karşılaştırmalı tutarlar yeniden düzenlenir.
+    E: Değişiklik dipnotlarda açıklanır ve kâr veya zarar tutarlarına yansıtılmaz.
   dogru: A
   aciklama:
-    dogru_neden: Yararlı ömür, yeni bilgi ve gelişmeler ışığında gözden geçirilen bir tahmindir; tahmindeki değişiklik,
-      hata veya politika değişikliği gibi geçmiş dönemlerin geriye dönük düzeltilmesi değildir.
+    dogru_neden: Yararlı ömür tahmininin yeni bilgi veya gelişmeler sonucunda değişmesi bir muhasebe tahmini değişikliğidir;
+      geçmiş dönemlerle ilgisi yoktur ve hata düzeltmesi değildir (TMS 8 par. 34). Etkisi, değişikliğin yapıldığı
+      dönemin ve gerekiyorsa gelecek dönemlerin kâr veya zararına ileriye yönelik yansıtılır (par. 36).
     celdiriciler:
-      B: Yararlı ömür tahmini muhasebe politikası değil tahmindir.
-      C: Tahmin değişikliğinin her durumda doğrudan özkaynakta kaydı öngörülmez.
-      D: Yeni bilgiye dayalı tahmin güncellemesi önceki dönem hatası değildir.
-      E: Tahmin değişikliği ilgili dönem ve gerekiyorsa gelecek dönem sonuçlarını etkileyebilir.
+      B: Yararlı ömür tahmini muhasebe politikası değil tahmindir; politika değişikliğindeki geriye dönük yeniden
+        düzenleme burada uygulanmaz.
+      C: Tahmin değişikliğinin etkisi, değişikliğin yapıldığı dönemin ve gerekiyorsa gelecek dönemlerin kâr veya
+        zararına yansıtılır (par. 36); geçmiş yıllar kârlarına aktarılmaz.
+      D: Yeni bilgiye dayalı tahmin güncellemesi önceki dönem hatası değildir; karşılaştırmalı tutarlar yeniden
+        düzenlenmez.
+      E: Tahmin değişikliğinin etkisi kâr veya zarara ileriye yönelik yansıtılır (par. 36); yalnızca dipnotta açıklanmakla
+        yetinilmez.
   kaynaklar:
   - mevzuat: TMS 8 Muhasebe Politikaları, Muhasebe Tahminlerinde Değişiklikler ve Hatalar
-    madde: muhasebe tahminlerinde değişiklikler bölümü
-    alinti: Muhasebe tahminlerinde değişiklikler
+    madde: par. 34
+    alinti: Niteliği gereği bir muhasebe tahminindeki değişikliğin geçmiş dönemlerle bir ilgisi yoktur ve söz konusu
+      değişiklik bir hata düzeltmesi değildir.
+  - mevzuat: TMS 8 Muhasebe Politikaları, Muhasebe Tahminlerinde Değişiklikler ve Hatalar
+    madde: par. 36
+    alinti: ileriye yönelik olarak finansal tablolara yansıtılır
   gecerlilik:
     baslangic: '2006-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4322,8 +4513,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler (özkaynak yerine geçmiş yıllar kârı, hata düzeltmesi, dipnot) akla
+          yatkın biçimde yenilendi; R6 giderildi; alıntı par. 34/36 ile değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4344,6 +4537,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler (özkaynak yerine geçmiş yıllar kârı, hata düzeltmesi, dipnot) akla yatkın biçimde yenilendi;
+      R6 giderildi; alıntı par. 34/36 ile değiştirildi'
 - id: SMMM-STD-TFR-0076
   sinav: smmm
   bolum:
@@ -4356,31 +4554,44 @@
   zorluk: 3
   kok: TMS 36'ya göre aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Bir varlığın defter değeri geri kazanılabilir tutarını aşarsa değer düşüklüğü gündeme gelir.
-    B: Geri kazanılabilir tutar, kullanım değeri ile satış maliyetleri düşülmüş gerçeğe uygun değerin yüksek olanıdır.
-    C: Değer düşüklüğü standardı, varlıkların geri kazanılabilir tutarından daha yüksek tutardan izlenmesini önlemeyi
-      amaçlar.
-    D: Değer düşüklüğü zararı muhasebeleştirilmesini gerektiren durumlar olabilir.
-    E: Geri kazanılabilir tutar belirlenirken iki ölçütten düşük olanı esas alınır.
+    A: Geri kazanılabilir tutar defter değerinden düşükse varlığın defter değeri geri kazanılabilir tutarına indirgenir.
+    B: Yeniden değerlenmiş tutarı üzerinden gösterilmeyen varlıkta değer düşüklüğü zararı derhal kâr veya zararda
+      muhasebeleştirilir.
+    C: Standardın amacı, varlıkların geri kazanılabilir tutarlarından daha yüksek bir tutardan izlenmemesini sağlamaktır.
+    D: Elden çıkarma maliyetleri, finansman maliyetleri ve gelir vergisi gideri hariç, varlığın elden çıkarılmasıyla
+      doğrudan ilgili maliyetlerdir.
+    E: Geri kazanılabilir tutar belirlenirken satış maliyetleri düşülmüş gerçeğe uygun değer ile kullanım değerinin
+      düşük olanı esas alınır.
   dogru: E
   aciklama:
-    dogru_neden: TMS 36'da geri kazanılabilir tutar iki tutardan düşük olanı değil, yüksek olanıdır.
+    dogru_neden: 'E ifadesi **yanlıştır**: TMS 36 par. 6''ya göre geri kazanılabilir tutar, satış maliyetleri düşülmüş
+      gerçeğe uygun değer ile kullanım değerinden düşük olanı değil, yüksek olanıdır.'
     celdiriciler:
-      A: Defter değerinin geri kazanılabilir tutarı aşması değer düşüklüğü göstergesidir.
-      B: Bu, geri kazanılabilir tutarın tanımıdır.
-      C: Standardın amacı bu üst sınırı sağlamaktır.
-      D: Defter değeri geri kazanılabilir tutarı aştığında zarar muhasebeleştirilir.
+      A: Par. 59'a göre geri kazanılabilir tutarın defter değerinden düşük olması halinde defter değeri geri kazanılabilir
+        tutarına indirgenir; ifade doğrudur.
+      B: Par. 60'a göre yeniden değerlenmiş tutarı üzerinden gösterilmeyen varlıkta değer düşüklüğü zararı derhal
+        kâr veya zararda muhasebeleştirilir; ifade doğrudur.
+      C: Par. 1'deki amaç budur; ifade doğrudur.
+      D: Elden çıkarma maliyetlerinin tanımı Standardın 6. paragrafında bu biçimde yer alır; ifade doğrudur.
   kaynaklar:
   - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
-    madde: Amaç
-    alinti: Bir varlığın defter değerinin; kullanımı ya da satışı ile geri kazanılacak tutarından fazla olması durumunda,
-      ilgili varlık geri kazanılabilir tutarından daha yüksek bir tutardan izlenir.
+    madde: par. 6
+    alinti: 'Geri kazanılabilir tutar: Bir varlığın veya nakit yaratan birimin, satış maliyetleri düşülmüş gerçeğe
+      uygun değeri ile kullanım değerinden yüksek olanıdır.'
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: par. 59
+    alinti: Sadece ve sadece, bir varlığın geri kazanılabilir tutarının defter değerinden düşük olması durumunda,
+      söz konusu varlığın defter değeri geri kazanılabilir tutarına indirgenir.
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: par. 6
+    alinti: 'Elden çıkarma maliyetleri: Finansman maliyetleri ve gelir vergisi gideri hariç, doğrudan bir varlığın
+      veya nakit yaratan birimin elden çıkarılması ile ilgili maliyetlerdir.'
   gecerlilik:
     baslangic: '2006-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4401,8 +4612,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: doğru ifadeler kaynaktaki paragraflara dayandırıldı; B ve E''nin birbirinin doğrudan
+          olumsuzu olması giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4420,6 +4633,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: doğru ifadeler kaynaktaki paragraflara dayandırıldı; B ve E''nin birbirinin doğrudan olumsuzu olması
+      giderildi'
 - id: SMMM-STD-TFR-0077
   sinav: smmm
   bolum:
@@ -4430,23 +4648,28 @@
   kazanim: TMS 16
   tip: kavrama
   zorluk: 2
-  kok: TMS 16 kapsamında bir maddi duran varlık kaleminin maliyetinin varlık olarak finansal tablolara alınması
+  kok: Bir işletme, maddi duran varlık olarak sınıflandırdığı bir kalemin maliyetini TMS 16'ya göre varlık olarak
+    finansal tablolara almak istemektedir. Bu kalemin maliyetinin varlık olarak finansal tablolara yansıtılabilmesi
     için hangi koşulların birlikte sağlanması gerekir?
   secenekler:
-    A: Varlığın fiziksel olması ve en az beş yıl kullanılacak olması
-    B: Maliyetinin tahmini olması ve gelecekte gelir yaratmasının kesin olması
-    C: Varlığın mutlaka satın alınmış olması ve peşin ödenmesi
-    D: Varlığın yeniden değerlenmiş olması ve satılabilir durumda bulunması
+    A: Maliyetin güvenilir ölçülebilmesi ve varlığın yeniden değerleme modeline göre izlenmesi
+    B: Varlığın işletme adına tescil edilmiş olması ve ileride satılabilir nitelikte bulunması
+    C: Ekonomik yararların işletmeye aktarılmasının muhtemel olması ve varlığın peşin ödenerek edinilmiş olması
+    D: Maliyetin güvenilir ölçülebilmesi ve ekonomik yararların bağımsız bir değerleme kuruluşunca belgelenmesi
     E: Gelecekteki ekonomik yararların işletmeye aktarılmasının muhtemel olması ve maliyetin güvenilir ölçülebilmesi
   dogru: E
   aciklama:
-    dogru_neden: TMS 16 paragraf 7, gelecekteki ekonomik yararların işletmeye aktarılmasının muhtemel olmasını ve
-      maliyetin güvenilir ölçülmesini birlikte arar.
+    dogru_neden: TMS 16 par. 7'ye göre maddi duran varlık kaleminin maliyeti, gelecekteki ekonomik yararların işletmeye
+      aktarılmasının muhtemel olması ve maliyetinin güvenilir şekilde ölçülebilmesi koşullarının birlikte oluşması
+      durumunda varlık olarak finansal tablolara yansıtılır.
     celdiriciler:
-      A: Beş yıllık asgari yararlı ömür şartı bulunmaz.
-      B: Maliyet güvenilir ölçülmeli; yararların aktarılması muhtemel olmalıdır, kesinlik aranmaz.
-      C: Standart, yalnızca satın alma veya peşin ödeme koşulu koymaz.
-      D: Yeniden değerleme ilk muhasebeleştirme koşulu değildir.
+      A: Ölçüm modeli (yeniden değerleme) ilk muhasebeleştirme koşulu değildir; koşullardan biri olan ekonomik yarar
+        da eksiktir.
+      B: Tescil veya satılabilirlik muhasebeleştirme koşulu değildir; par. 7 ekonomik yarar ve güvenilir ölçüm koşullarını
+        arar.
+      C: Ödeme şekli (peşin ödeme) koşul değildir; ayrıca güvenilir ölçülebilirlik koşulu eksiktir.
+      D: Ekonomik yararların bağımsız bir kuruluşça belgelenmesi koşulu yoktur; par. 7 yararların aktarılmasının
+        muhtemel olmasını arar.
   kaynaklar:
   - mevzuat: TMS 16 Maddi Duran Varlıklar
     madde: par. 7
@@ -4458,7 +4681,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4479,8 +4702,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kök vaka biçimine getirildi; çeldiriciler yeniden değerleme, tescil, ödeme şekli
+          ve değerleme belgesi gibi akla yatkın yanlışlarla yenilendi; R5 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4498,6 +4723,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kök vaka biçimine getirildi; çeldiriciler yeniden değerleme, tescil, ödeme şekli ve değerleme belgesi
+      gibi akla yatkın yanlışlarla yenilendi; R5 giderildi'
 - id: SMMM-STD-TFR-0078
   sinav: smmm
   bolum:
@@ -4508,35 +4738,44 @@
   kazanim: TMS 23
   tip: kavrama
   zorluk: 3
-  kok: TMS 23'ün borçlanma maliyetlerine ilişkin yaklaşımı bakımından aşağıdaki ifadelerden hangisi doğru eşleştirmedir?
-    I. Özellikli varlıkla doğrudan ilişkilendirilebilen borçlanma maliyeti. II. Diğer borçlanma maliyetleri.
+  kok: TMS 23'ün borçlanma maliyetlerine ilişkin yaklaşımı bakımından aşağıdaki durumların muhasebeleştirilmesini
+    doğru eşleştiren seçenek hangisidir? I. Özellikli varlık olan fabrikanın inşası için özel olarak alınan kredinin
+    faizi. II. Özellikli varlıkla ilişkilendirilemeyen işletme sermayesi kredisinin faizi. III. Özel kredinin henüz
+    kullanılmayan kısmının geçici olarak nemalandırılmasından elde edilen faiz geliri.
   secenekler:
-    A: I gider yazılır; II aktifleştirilir.
-    B: I ve II her durumda aktifleştirilir.
-    C: I ve II oluştukları dönemde gider yazılır.
-    D: I aktifleştirilir; II oluştukları dönemde gider yazılır.
-    E: I özkaynakta; II diğer kapsamlı gelirde muhasebeleştirilir.
+    A: I gider yazılır; II aktifleştirilir; III aktifleştirilecek tutara eklenir.
+    B: I ve II aktifleştirilir; III aktifleştirilecek tutardan düşülür.
+    C: I aktifleştirilir; II gider yazılır; III aktifleştirilecek tutara eklenir.
+    D: I aktifleştirilir; II gider yazılır; III aktifleştirilecek tutardan düşülür.
+    E: I aktifleştirilir; II gider yazılır; III diğer kapsamlı gelirde izlenir.
   dogru: D
   aciklama:
-    dogru_neden: TMS 23 paragraf 8, özellikli varlıkla doğrudan ilişkilendirilebilen borçlanma maliyetlerinin varlığın
-      maliyetine eklenmesini, diğer borçlanma maliyetlerinin ise oluştukları dönemde giderleştirilmesini öngörür.
+    dogru_neden: TMS 23 par. 8'e göre doğrudan ilişkilendirilebilen borçlanma maliyeti (I) aktifleştirilir, diğer
+      borçlanma maliyeti (II) oluştuğu dönemde gider yazılır. Par. 12'ye göre özel borçlanmanın geçici nemalandırılmasından
+      sağlanan gelir (III), aktifleştirilecek borçlanma maliyetinden düşülür.
     celdiriciler:
-      A: İki muhasebeleştirme yaklaşımı ters çevrilmiştir.
-      B: Diğer borçlanma maliyetleri her durumda aktifleştirilmez.
-      C: Özellikli varlıkla doğrudan ilişkilendirilen tutar aktifleştirilir.
-      E: Paragraf 8 bu iki kalem için özkaynak veya diğer kapsamlı gelir yaklaşımı öngörmez.
+      A: I ve II'nin işlemleri ters çevrilmiş, III'ün aktifleştirilecek tutara eklenmesi de par. 12'ye aykırıdır.
+      B: İlişkilendirilemeyen işletme sermayesi kredisinin faizi (II) aktifleştirilmez; oluştuğu dönemde gider yazılır
+        (par. 8).
+      C: III için eklenmesi yanlıştır; geçici nemalandırma geliri aktifleştirilecek borçlanma maliyetinden düşülür
+        (par. 12).
+      E: Geçici nemalandırma geliri diğer kapsamlı gelirde izlenmez; aktifleştirilecek borçlanma maliyetinden düşülür
+        (par. 12).
   kaynaklar:
   - mevzuat: TMS 23 Borçlanma Maliyetleri
     madde: par. 8
-    alinti: İşletmelerce, bir özellikli varlığın elde edilmesi, inşası veya üretimi ile doğrudan ilişkilendirilebilen
-      borçlanma maliyetleri, ilgili özellikli varlığın maliyetinin bir parçası olarak aktifleştirilir. İşletmeler,
-      diğer borçlanma maliyetlerini oluştukları dönemde gider olarak muhasebeleştirirler.
+    alinti: İşletmeler, diğer borçlanma maliyetlerini oluştukları dönemde gider olarak muhasebeleştirirler.
+  - mevzuat: TMS 23 Borçlanma Maliyetleri
+    madde: par. 12
+    alinti: aktifleştirilecek borçlanma maliyeti tutarı; ilgili dönem boyunca söz konusu borçlanmaya ilişkin oluşan
+      borçlanma maliyetlerinden, söz konusu fonların geçici olarak nemalandırılması ile sağlanan gelirlerin düşülmesi
+      suretiyle belirler.
   gecerlilik:
     baslangic: '2009-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4557,8 +4796,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: iki kalemli basit eşleştirme, geçici nemalandırma gelirini içeren üç kalemli eşleştirmeye
+          çevrildi; çeldiriciler yakın kombinasyonlarla yazıldı; R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4573,6 +4814,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: iki kalemli basit eşleştirme, geçici nemalandırma gelirini içeren üç kalemli eşleştirmeye çevrildi;
+      çeldiriciler yakın kombinasyonlarla yazıldı; R6 giderildi'
 - id: SMMM-STD-TFR-0079
   sinav: smmm
   bolum:
@@ -4966,33 +5212,38 @@
   zorluk: 2
   kok: TMS 23'e göre aşağıdakilerden hangisi **yanlıştır**?
   secenekler:
-    A: Özellikli varlıkla doğrudan ilişkilendirilebilen borçlanma maliyetleri aktifleştirilebilir.
+    A: Özellikli varlıkla doğrudan ilişkilendirilebilen borçlanma maliyetleri aktifleştirilir.
     B: Diğer borçlanma maliyetleri oluştukları dönemde gider olarak muhasebeleştirilir.
-    C: Özellikli varlık, amaçlanan kullanıma veya satışa hazır hale gelmesi zorunlu olarak uzun bir süre gerektiren
-      varlıktır.
-    D: Bütün borçlanma maliyetleri, varlıkla ilişkisine bakılmaksızın aktifleştirilir.
-    E: Özellikli varlıkla doğrudan ilişkilendirilebilen maliyetler, ilgili varlığın maliyetinin parçası yapılır.
+    C: Özellikli varlık, amaçlanan kullanıma veya satışa hazır duruma getirilmesi uzun bir süre gerektiren varlıktır.
+    D: Gerekli işlemlere uzun süreli ara verilen dönemlerde de borçlanma maliyetleri aktifleştirilmeye devam edilir.
+    E: Önemli teknik ve idari çalışmalara devam edilen dönemde aktifleştirmeye normal olarak ara verilmez.
   dogru: D
   aciklama:
-    dogru_neden: TMS 23 paragraf 8, yalnızca özellikli varlığın elde edilmesi, inşası veya üretimiyle doğrudan ilişkilendirilebilen
-      borçlanma maliyetlerinin aktifleştirilmesini öngörür.
+    dogru_neden: 'D ifadesi **yanlıştır**: TMS 23 par. 21''e göre varlığın hazırlanması için gerekli işlemlere uzun
+      süreli ara verilen dönemde oluşan borçlanma maliyetleri kısmen tamamlanmış varlıkların elde tutulmasından
+      kaynaklanan maliyetler olup aktifleştirilemez.'
     celdiriciler:
-      A: Doğrudan ilişkilendirilen maliyetler aktifleştirilir.
-      B: Diğer maliyetler oluştukları dönemde gider yazılır.
-      C: Bu ifade özellikli varlık tanımıyla uyumludur.
-      E: Paragraf 8'in gereği budur.
+      A: Par. 8'e göre doğrudan ilişkilendirilebilen borçlanma maliyetleri aktifleştirilir; ifade doğrudur.
+      B: Par. 8'e göre diğer borçlanma maliyetleri oluştukları dönemde gider yazılır; ifade doğrudur.
+      C: Par. 5'teki özellikli varlık tanımına uygundur; ifade doğrudur.
+      E: Par. 21'e göre önemli teknik ve idari çalışmalar sürerken aktifleştirmeye normal olarak ara verilmez; ifade
+        doğrudur.
   kaynaklar:
+  - mevzuat: TMS 23 Borçlanma Maliyetleri
+    madde: par. 21
+    alinti: Bu tür maliyetler kısmen tamamlanmış varlıkların elde tutulmasından kaynaklanan maliyetler olup, aktifleştirilmeleri
+      mümkün değildir. Ancak, önemli teknik ve idari çalışmalara devam edildiği bir dönemde normal olarak borçlanma
+      maliyetlerinin aktifleştirilmesine ara verilmez.
   - mevzuat: TMS 23 Borçlanma Maliyetleri
     madde: par. 8
     alinti: İşletmelerce, bir özellikli varlığın elde edilmesi, inşası veya üretimi ile doğrudan ilişkilendirilebilen
-      borçlanma maliyetleri, ilgili özellikli varlığın maliyetinin bir parçası olarak aktifleştirilir. İşletmeler,
-      diğer borçlanma maliyetlerini oluştukları dönemde gider olarak muhasebeleştirirler.
+      borçlanma maliyetleri, ilgili özellikli varlığın maliyetinin bir parçası olarak aktifleştirilir.
   gecerlilik:
     baslangic: '2009-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5013,8 +5264,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: anahtar şık par. 21''deki ara verme kuralının ters çevrilmesine dayandırıldı; A
+          ''aktifleştirilebilir'' ifadesi netleştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5032,6 +5285,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: anahtar şık par. 21''deki ara verme kuralının ters çevrilmesine dayandırıldı; A ''aktifleştirilebilir''
+      ifadesi netleştirildi'
 - id: SMMM-STD-TFR-0085
   sinav: smmm
   bolum:
@@ -5042,33 +5300,42 @@
   kazanim: TFRS 5
   tip: kavrama
   zorluk: 2
-  kok: TFRS 5'e göre satış amaçlı elde tutulan olarak sınıflandırılan duran varlığın ölçümünde aşağıdaki sıralamalardan
-    hangisi uygulanır?
+  kok: TFRS 5'e göre satış amaçlı elde tutulan olarak sınıflandırılan bir duran varlığın ölçümüne ilişkin aşağıdakilerden
+    hangisi doğrudur?
   secenekler:
-    A: İki tutarın yüksek olanı seçilir.
-    B: Önce kullanım değeri ile defter değeri toplanır.
-    C: Yalnızca satış fiyatı esas alınır.
-    D: Önce defter değeri ile satış maliyetleri düşülmüş gerçeğe uygun değer karşılaştırılır, düşük olan seçilir.
-    E: Ölçüm yapılmadan doğrudan özkaynağa aktarılır.
+    A: Defter değeri ile satış maliyetleri düşülmüş gerçeğe uygun değerin yüksek olanıyla ölçülür; amortisman ayrılmaz.
+    B: Defter değeri ile kullanım değerinin düşük olanıyla ölçülür; amortisman ayrılmaz.
+    C: Satış maliyetleri düşülmemiş gerçeğe uygun değeriyle ölçülür; amortisman ayrılmaz.
+    D: Defter değeri ile satış maliyetleri düşülmüş gerçeğe uygun değerin düşük olanıyla ölçülür; amortisman ayrılmaz.
+    E: Defter değeri ile satış maliyetleri düşülmüş gerçeğe uygun değerin düşük olanıyla ölçülür; amortisman ayrılmaya
+      devam edilir.
   dogru: D
   aciklama:
-    dogru_neden: TFRS 5 paragraf 15 iki tutardan düşük olanının ölçüm tutarı olmasını gerektirir.
+    dogru_neden: TFRS 5 par. 15'e göre satış amaçlı elde tutulan olarak sınıflandırılan duran varlık, defter değeri
+      ile satış maliyetleri düşülmüş gerçeğe uygun değerinden düşük olanı ile ölçülür. Par. 25 uyarınca bu varlık
+      amortismana tabi tutulmaz.
     celdiriciler:
-      A: Yüksek olan değil düşük olan seçilir.
-      B: Tutarlar toplanmaz.
-      C: Standart yalnızca satış fiyatını esas almaz.
-      E: Paragraf 15 doğrudan özkaynağa aktarım öngörmez.
+      A: İki tutarın yüksek olanı değil, düşük olanı seçilir (par. 15).
+      B: Karşılaştırma kullanım değeriyle değil, satış maliyetleri düşülmüş gerçeğe uygun değerle yapılır; kullanım
+        değeri TMS 36 geri kazanılabilir tutarının bileşenidir.
+      C: Gerçeğe uygun değerden satış maliyetleri düşülür ve defter değeriyle karşılaştırma yapılır (par. 15).
+      E: Ölçüm kuralı doğru verilmiştir ancak par. 25 uyarınca satış amaçlı sınıflandırılan duran varlık amortismana
+        tabi tutulmaz.
   kaynaklar:
   - mevzuat: TFRS 5 Satış Amaçlı Elde Tutulan Duran Varlıklar ve Durdurulan Faaliyetler
     madde: par. 15
     alinti: İşletme satış amaçlı elde tutulan varlık olarak sınıflandırılan bir duran varlığı (veya elden çıkarılacak
       duran varlık grubunu) defter değeri ile satış maliyeti düşülmüş gerçeğe uygun değerinden düşük olanı ile ölçer.
+  - mevzuat: TFRS 5 Satış Amaçlı Elde Tutulan Duran Varlıklar ve Durdurulan Faaliyetler
+    madde: par. 25
+    alinti: İşletme, satış amaçlı sınıflandırılan veya satış amaçlı sınıflandırılan elden çıkarılacak varlık grubunun
+      bir parçası olan bir duran varlığı amortismana tabi tutmaz (veya itfa etmez).
   gecerlilik:
     baslangic: '2006-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5089,8 +5356,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: tekrar eden ölçüm kuralı, amortisman ayrılmaması (par. 25) ile birleştirildi; çeldiriciler
+          yakın ölçüm ve amortisman hatalarıyla yenilendi; R5/R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5108,6 +5377,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: tekrar eden ölçüm kuralı, amortisman ayrılmaması (par. 25) ile birleştirildi; çeldiriciler yakın
+      ölçüm ve amortisman hatalarıyla yenilendi; R5/R6 giderildi'
 - id: SMMM-STD-TFR-0086
   sinav: smmm
   bolum:
@@ -5360,36 +5634,40 @@
   kok: TMS 16’ya göre maddi duran varlıklarla ilgili maliyetlerin muhasebeleştirilmesi hakkında aşağıdaki ifadelerden
     hangisi **yanlıştır**?
   secenekler:
-    A: Edinme veya inşa maliyetleri oluştuğu tarihte dikkate alınır.
-    B: Bütün bakım harcamaları, gelecekteki ekonomik yararı artırıp artırmadığına bakılmaksızın varlığın maliyetine
-      eklenir.
-    C: Maddi duran varlıkla ilgili maliyetler finansal tablolara alma ilkesi çerçevesinde ele alınır.
-    D: Sonradan yapılan ekleme ve kısmi yenileme maliyetleri de değerlendirilir.
-    E: Bazı önemsiz kalemlerin toplam değerine finansal tablolara alma ilkelerinin uygulanması uygun olabilir.
+    A: Maddi duran varlıkla ilgili maliyetler, oluştukları tarihte finansal tablolara alma ilkesi çerçevesinde dikkate
+      alınır
+    B: Günlük bakım maliyetleri, varlığın kullanılabilirliğini sürdürdükleri için varlığın defter değerine eklenir
+    C: Düzenli aralıklarla yenilenen bir parçanın maliyeti, ölçütler sağlandığında defter değerine dahil edilir
+    D: Büyük çaplı kontrol maliyeti defter değerine eklenirken önceki kontrolden kalan tutar kayıttan çıkarılır
+    E: Binanın iç duvarlarının değiştirilmesi gibi yenileme maliyetleri, ölçütler sağlanıyorsa aktifleştirilir
   dogru: B
   aciklama:
-    dogru_neden: 'TMS 16 paragraf 10 maliyetleri oluştuğu tarihte dikkate almayı söyler; ancak bu, bütün bakım harcamalarının
-      otomatik olarak varlığa eklenmesi anlamına gelmez. Püf noktaları: Bir maliyetin varlıkla ilişkili olması tek
-      başına aktifleştirme için yeterli değildir.'
+    dogru_neden: 'B ifadesi **yanlıştır**: TMS 16 par. 12''ye göre işletme, maddi duran varlık kalemlerinin günlük
+      bakım maliyetlerini aktifleştiremez; bu maliyetleri oluştukları tarihte gelir tablosu ile ilişkilendirir.'
     celdiriciler:
-      A: Paragraf 10 edinme ve inşa maliyetlerini kapsar.
-      C: Paragraf 10 maliyetlerin finansal tablolara alma ilkesi çerçevesinde ele alınmasını gerektirir.
-      D: Paragraf 10 sonradan ekleme, kısmi yenileme ve bakım maliyetlerinden söz eder; bunlar ilgili muhasebeleştirme
-        ilkesiyle değerlendirilir.
-      E: Paragraf 9 önemsiz tekil kalemlerin toplanmasına imkân verir.
+      A: Par. 10'a göre bütün maliyetler finansal tablolara alma ilkesi çerçevesinde oluştukları tarihte dikkate
+        alınır; ifade doğrudur.
+      C: Par. 13'e göre düzenli aralıklarla yenilenen parçanın maliyeti, kriterler sağlanırsa defter değerine dahil
+        edilir; ifade doğrudur.
+      D: Par. 14'e göre büyük çaplı kontrol maliyeti defter değerine dahil edilir ve önceki kontrolden kalan tutar
+        finansal tablo dışı bırakılır; ifade doğrudur.
+      E: Par. 13'e göre iç duvar değişimi gibi daha az sıklıkta yenilemeler de kriterler sağlandığında defter değerine
+        dahil edilir; ifade doğrudur.
   kaynaklar:
+  - mevzuat: TMS 16 Maddi Duran Varlıklar
+    madde: par. 12
+    alinti: bir işletme maddi duran varlık kalemlerinin günlük bakım maliyetlerini aktifleştiremez. Aksine, bu maliyetleri
+      oluştukları tarihte gelir tablosu ile ilişkilendirir.
   - mevzuat: TMS 16 Maddi Duran Varlıklar
     madde: par. 10
     alinti: İşletme söz konusu finansal tablolara alma ilkesi çerçevesinde, maddi duran varlıklarla ilgili bütün
-      maliyetleri oluştuğu tarihte dikkate alır. Bu maliyetler, bir maddi duran varlık kaleminin edinilmesi veya
-      inşa edilmesi için katlanılan maliyetler ile sonradan; ekleme, kısmi yenileme veya bakım için katlanılan maliyetlerden
-      oluşur.
+      maliyetleri oluştuğu tarihte dikkate alır.
   gecerlilik:
     baslangic: '2006-12-31'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5410,8 +5688,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: anahtar şık günlük bakımın aktifleştirilmesi (par. 12) yanlışına dayandırıldı;
+          çeldiriciler par. 10, 13 ve 14''e dayalı doğru ifadelerle yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5432,6 +5712,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: anahtar şık günlük bakımın aktifleştirilmesi (par. 12) yanlışına dayandırıldı; çeldiriciler par.
+      10, 13 ve 14''e dayalı doğru ifadelerle yazıldı'
 - id: SMMM-STD-TFR-0090
   sinav: smmm
   bolum:
@@ -5442,34 +5727,41 @@
   kazanim: TMS 23
   tip: kavrama
   zorluk: 1
-  kok: TMS 23’e göre genel amaçlı borçlanmalardan sağlanan fonların bir kısmı özellikli varlığın finansmanında kullanıldığında
-    aktifleştirme oranı hangi esasa göre belirlenir?
+  kok: Bir işletme, özellikli varlığın finansmanında genel amaçlı borçlanmalardan sağlanan fonları kullanmıştır.
+    TMS 23'e göre aktifleştirilecek borçlanma maliyeti hangi aktifleştirme oranıyla belirlenir?
   secenekler:
-    A: Yalnızca en yüksek faizli borcun faiz oranına göre
-    B: Her durumda merkez bankası politika faizine göre
-    C: Varlığın tahmini satış fiyatına göre
-    D: Yalnızca özkaynak maliyetine göre
-    E: İşletmenin dönem içindeki tüm borçlarına ilişkin borçlanma maliyetlerinin ağırlıklı ortalamasına göre
+    A: Dönem boyunca mevcut borçların faiz oranlarının basit aritmetik ortalamasıyla
+    B: Özel borçlar da hesaba katılarak, dönem boyunca mevcut borçların ağırlıklı ortalama maliyetiyle
+    C: Varlığın tamamlandığı tarihteki cari piyasa faiz oranıyla
+    D: Dönem içinde en son kullanılan borcun faiz oranıyla
+    E: Özel borçlar hariç tutularak, dönem boyunca mevcut borçların borçlanma maliyetlerinin ağırlıklı ortalamasıyla
   dogru: E
   aciklama:
-    dogru_neden: TMS 23 paragraf 14, genel amaçlı borçlanmalarda aktifleştirme oranının dönem boyunca mevcut tüm
-      borçlara ilişkin borçlanma maliyetlerinin ağırlıklı ortalaması olduğunu belirtir.
+    dogru_neden: TMS 23 par. 14'e göre aktifleştirme oranı, işletmenin dönem süresince mevcut borçlarına ilişkin
+      borçlanma maliyetlerinin ağırlıklı ortalamasıdır; özellikli varlık alımı için yapılmış özel borçlanmalar,
+      varlık hazır hale gelinceye kadar bu hesaplamadan hariç tutulur.
     celdiriciler:
-      A: Tek bir en yüksek faizli borç esas alınmaz.
-      B: Standart politika faizini esas göstermez.
-      C: Satış fiyatı aktifleştirme oranının esası değildir.
-      D: Özkaynak maliyeti borçlanma maliyeti değildir.
+      A: Oran basit değil, ağırlıklı ortalamadır; borçların tutarları ve süreleri dikkate alınır.
+      B: Özellikli varlık için yapılmış özel borçlanmalar, varlık hazır hale gelinceye kadar oran hesabından hariç
+        tutulur.
+      C: Oran cari piyasa faizine göre değil, işletmenin mevcut borçlarının maliyetlerine göre belirlenir.
+      D: Tek bir borcun faiz oranı esas alınmaz; mevcut borçların ağırlıklı ortalaması kullanılır.
   kaynaklar:
   - mevzuat: TMS 23 Borçlanma Maliyetleri
     madde: par. 14
     alinti: Bu aktifleştirme oranı, işletmenin ilgili dönem süresince mevcut olan tüm borçlarına ilişkin borçlanma
       maliyetlerinin ağırlıklı ortalamasıdır.
+  - mevzuat: TMS 23 Borçlanma Maliyetleri
+    madde: par. 14
+    alinti: Bununla birlikte işletme, bilhassa özellikli varlık alımı için yapılmış borçlanmalara ilişkin borçlanma
+      maliyetlerini, bu varlığın amaçlanan kullanıma veya satışa hazır hale getirilmesi için gerekli tüm faaliyetler
+      tamamlanıncaya kadar bu hesaplamadan hariç tutar.
   gecerlilik:
     baslangic: '2007-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5490,8 +5782,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: doğru şık özel borçların hariç tutulduğu par. 14 hükmüyle netleştirildi; çeldiriciler
+          basit ortalama ve özel borç dahil gibi akla yatkın hatalarla yenilendi; R5/R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5509,6 +5803,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: doğru şık özel borçların hariç tutulduğu par. 14 hükmüyle netleştirildi; çeldiriciler basit ortalama
+      ve özel borç dahil gibi akla yatkın hatalarla yenilendi; R5/R6 giderildi'
 - id: SMMM-STD-TFR-0091
   sinav: smmm
   bolum:
@@ -5826,25 +6125,34 @@
   zorluk: 3
   kok: TMS 23'e göre borçlanma maliyetlerinin aktifleştirilmesi hakkında aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Özellikli varlığın amaçlanan kullanıma hazır hale gelmesi için gerekli faaliyetler tamamlandıktan sonra da
-      aynı varlık için borçlanma maliyetleri sınırsız biçimde aktifleştirilir.
-    B: Genel borçlanmalara ilişkin aktifleştirilecek tutar, uygun aktifleştirme oranıyla belirlenebilir.
-    C: Genel aktifleştirme oranı, dönem boyunca mevcut borçlanma maliyetlerinin ağırlıklı ortalamasına dayanır.
-    D: Özellikli varlık için özel olarak alınmış borçlanmaya ilişkin maliyetler, ilgili varlıkla ilişkilendirilebilir.
-    E: Özel borçlanma maliyetleri, genel aktifleştirme oranının hesaplanmasında hariç tutulabilir.
+    A: Gerekli işlemler tamamlandıktan sonra da varlık fiilen kullanılmaya başlanana kadar aktifleştirmeye devam
+      edilir.
+    B: Genel borçlanmalara ilişkin aktifleştirilecek tutar, harcamalara uygulanan bir aktifleştirme oranıyla belirlenir.
+    C: Genel aktifleştirme oranı, dönem boyunca mevcut borçlara ilişkin borçlanma maliyetlerinin ağırlıklı ortalamasıdır.
+    D: Özel borçlanmaya ilişkin maliyetlerden, fonların geçici nemalandırılmasından sağlanan gelir düşülür.
+    E: Özel borçlanmaların maliyetleri, varlık hazır hale gelene kadar genel aktifleştirme oranı hesabının dışında
+      tutulur.
   dogru: A
   aciklama:
-    dogru_neden: 'TMS 23, özellikli varlığın amaçlanan kullanıma veya satışa hazır hale getirilmesi için gerekli
-      faaliyetler tamamlanıncaya kadar aktifleştirmeye izin verir; bu süreden sonra sınırsız aktifleştirme yapılamaz.
-      Püf noktaları: Aktifleştirme süresi, varlığın hazır hale gelmesiyle sınırlıdır.'
+    dogru_neden: 'A ifadesi **yanlıştır**: TMS 23 par. 22''ye göre varlığın amaçlanan kullanıma veya satışa hazır
+      duruma getirilmesi için gerekli işlemler esas itibarıyla tamamlandığında borçlanma maliyetlerinin aktifleştirilmesine
+      son verilir; varlığın fiilen kullanılmaya başlanması beklenmez.'
     celdiriciler:
-      B: Genel borçlanmalarda aktifleştirme oranı kullanılabilir.
-      C: Oran, ilgili dönemdeki borçlanma maliyetlerinin ağırlıklı ortalamasına dayanır.
-      D: Özel borçlanmalarla doğrudan ilişkilendirilebilen maliyetler dikkate alınır.
-      E: Özellikli varlık için özel alınan borçlanmalar, genel oran hesabından hariç tutulur.
+      B: Par. 14'e göre genel borçlanmalarda aktifleştirilecek tutar, harcamalara uygulanan aktifleştirme oranıyla
+        belirlenir; ifade doğrudur.
+      C: Par. 14'e göre oran, dönem süresince mevcut borçlara ilişkin borçlanma maliyetlerinin ağırlıklı ortalamasıdır;
+        ifade doğrudur.
+      D: Par. 12'ye göre özel borçlanmada geçici nemalandırma gelirleri borçlanma maliyetlerinden düşülür; ifade
+        doğrudur.
+      E: Par. 14'e göre özel borçlanmalar, varlık hazır hale gelinceye kadar oran hesabından hariç tutulur; ifade
+        doğrudur.
   kaynaklar:
   - mevzuat: TMS 23 Borçlanma Maliyetleri
-    madde: Aktifleştirme oranı açıklaması
+    madde: par. 22
+    alinti: Bir varlığın amaçlanan kullanıma veya satışa hazır duruma getirilmesi için gerekli tüm işlemler esas
+      itibarıyla tamamlandığında, borçlanma maliyetlerinin aktifleştirilmesine son verilir.
+  - mevzuat: TMS 23 Borçlanma Maliyetleri
+    madde: par. 14
     alinti: Bu aktifleştirme oranı, işletmenin ilgili dönem süresince mevcut olan tüm borçlarına ilişkin borçlanma
       maliyetlerinin ağırlıklı ortalamasıdır.
   gecerlilik:
@@ -5852,7 +6160,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5873,8 +6181,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: anahtar şık par. 22''ye aykırı akla yatkın bir ifadeye çevrildi (fiili kullanıma
+          kadar aktifleştirme); çeldiriciler par. 12 ve 14''e dayalı doğru ifadelerle yazıldı; R5 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5892,6 +6202,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: anahtar şık par. 22''ye aykırı akla yatkın bir ifadeye çevrildi (fiili kullanıma kadar aktifleştirme);
+      çeldiriciler par. 12 ve 14''e dayalı doğru ifadelerle yazıldı; R5 giderildi'
 - id: SMMM-STD-TFR-0096
   sinav: smmm
   bolum:
@@ -5902,34 +6217,40 @@
   kazanim: TFRS 3
   tip: kavrama
   zorluk: 2
-  kok: TFRS 3'te işletme birleşmesi muhasebesinde edinen işletmenin belirlenmesi ile edinilen tanımlanabilir varlık
-    ve üstlenilen borçların muhasebeleştirilmesi arasındaki ilişkiyi en doğru açıklayan seçenek hangisidir?
+  kok: TFRS 3'e göre bir işletme birleşmesinde edinilen tanımlanabilir varlıklar ve üstlenilen tanımlanabilir borçlar,
+    genel ilke olarak hangi esasa göre ölçülür?
   secenekler:
-    A: Her birleşmede edinen işletme belirlenir; edinilen tanımlanabilir varlık ve üstlenilen tanımlanabilir borçların
-      finansal tablolara yansıtılması ve ölçülmesi edinme yönteminin kapsamındadır.
-    B: Edinen işletme ancak birleşme nakit karşılığı yapılmışsa belirlenir.
-    C: Edinilen varlıklar yalnız önceki defter değerleriyle kaydedilir.
-    D: Edinen işletme belirlenmeden önce şerefiye kesin tutarla kaydedilir.
-    E: Üstlenilen borçlar işletme birleşmesinde finansal tablolara alınmaz.
+    A: Birleşme tarihindeki gerçeğe uygun değerleri ile ölçülür.
+    B: Edinilen işletmenin kayıtlarındaki önceki defter değerleri ile ölçülür.
+    C: Edinen işletmenin kayıtlarında benzer kalemler için izlenen defter değerleri ile ölçülür.
+    D: Birleşme sonrası ilk hesap dönemi sonundaki gerçeğe uygun değerleri ile ölçülür.
+    E: Transfer edilen bedelin, kalemlerin defter değerlerine oranlanmasıyla bulunan tutarlarla ölçülür.
   dogru: A
   aciklama:
-    dogru_neden: TFRS 3 her işletme birleşmesinde edinen işletmenin belirlenmesini ve tanımlanabilir varlıklar ile
-      borçların muhasebeleştirilip ölçülmesini öngörür.
+    dogru_neden: TFRS 3 par. 18'e göre edinen işletme, edinilen tanımlanabilir varlıkları ve üstlendiği tanımlanabilir
+      borçları birleşme tarihindeki gerçeğe uygun değerleri ile ölçer.
     celdiriciler:
-      B: Edinen işletmenin belirlenmesi yalnız nakit bedel koşuluna bağlı değildir.
-      C: Seçenek edinme yönteminin ölçüm çerçevesini yanlış daraltır.
-      D: Şerefiye, edinme yöntemi kapsamındaki belirleme ve ölçümlerle ilişkilidir.
-      E: Üstlenilen tanımlanabilir borçlar da yöntemin kapsamındadır.
+      B: Edinilen işletmenin önceki defter değerleri ölçüm esası değildir; ölçüm birleşme tarihindeki gerçeğe uygun
+        değerlerle yapılır.
+      C: Edinen işletmenin defter değerleri esas alınmaz; kalemler edinilen işletmeden gelir ve gerçeğe uygun değerle
+        ölçülür.
+      D: Ölçüm tarihi birleşme tarihidir; birleşme sonrası ilk dönem sonu değerleri esas alınmaz.
+      E: Transfer edilen bedel kalemlere defter değerleri oranında dağıtılarak ölçüm yapılmaz; ölçüm gerçeğe uygun
+        değerlerle yapılır.
   kaynaklar:
   - mevzuat: TFRS 3 İşletme Birleşmeleri
-    madde: par. 6-7 ve amaç
+    madde: par. 18
+    alinti: Edinen işletme, edinilen tanımlanabilir varlıkları ve üstlendiği tanımlanabilir borçları birleşme tarihindeki
+      gerçeğe uygun değerleri ile ölçer.
+  - mevzuat: TFRS 3 İşletme Birleşmeleri
+    madde: par. 6
     alinti: Her bir işletme birleşmesinde birleşen işletmelerden biri edinen işletme olarak belirlenir.
   gecerlilik:
     baslangic: '2018-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5950,8 +6271,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: uzun ve genel doğru şık, par. 18''deki ölçüm esasını soran kısa kök-şık yapısına
+          çevrildi; çeldiriciler defter değeri ve ölçüm tarihi hatalarıyla yenilendi; R5 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5966,6 +6289,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: uzun ve genel doğru şık, par. 18''deki ölçüm esasını soran kısa kök-şık yapısına çevrildi; çeldiriciler
+      defter değeri ve ölçüm tarihi hatalarıyla yenilendi; R5 giderildi'
 - id: SMMM-STD-TFR-0097
   sinav: smmm
   bolum:
@@ -5976,33 +6304,36 @@
   kazanim: TFRS 5
   tip: kavrama
   zorluk: 1
-  kok: Aşağıdaki durum-standardın düzenlediği alan eşleştirmelerinden hangisi doğrudur?
+  kok: Aşağıdaki standart-konu eşleştirmelerinden hangisi doğrudur?
   secenekler:
-    A: TFRS 5 — yalnız stokların ilk ölçümü
-    B: TFRS 5 — satış amaçlı elde tutulan duran varlıkların sınıflandırılması, sunumu ve ölçümü
-    C: TFRS 5 — çalışanlara sağlanan faydaların ölçümü
-    D: TFRS 5 — borçlanma maliyetlerinin aktifleştirilmesi
-    E: TFRS 5 — muhasebe tahminlerindeki değişiklikler
+    A: TMS 36 — Satış amaçlı elde tutulan duran varlıkların sınıflandırılması ve ölçümü
+    B: TFRS 5 — Satış amaçlı elde tutulan duran varlıkların sınıflandırılması, sunumu ve ölçümü
+    C: TMS 23 — Maddi duran varlıklarda amortisman yönteminin belirlenmesi
+    D: TFRS 3 — Muhasebe tahminlerindeki değişikliklerin muhasebeleştirilmesi
+    E: TMS 8 — Borçlanma maliyetlerinin aktifleştirilmesi
   dogru: B
   aciklama:
-    dogru_neden: TFRS 5'in adı ve hükümleri satış amaçlı elde tutulan duran varlıklar ve durdurulan faaliyetlerle
-      ilgilidir.
+    dogru_neden: TFRS 5'in amacı, satış amaçlı elde tutulan varlıkların muhasebeleştirilme esasları ile durdurulan
+      faaliyetlere ilişkin açıklama ve sunumları belirlemektir; sınıflandırma, sunum ve ölçüm hükümleri bu Standartta
+      yer alır.
     celdiriciler:
-      A: Stoklar TMS 2'nin konusudur.
-      C: Çalışanlara sağlanan faydalar TMS 19'un konusudur.
-      D: Borçlanma maliyetleri TMS 23'ün konusudur.
-      E: Muhasebe tahminleri TMS 8 kapsamında ele alınır.
+      A: TMS 36 varlıkların geri kazanılabilir tutarından yüksek tutardan izlenmemesini düzenler; satış amaçlı sınıflandırma
+        TFRS 5'in konusudur.
+      C: Amortisman yöntemi TMS 16'da düzenlenir (par. 60); TMS 23 borçlanma maliyetlerini düzenler.
+      D: Muhasebe tahminlerindeki değişiklikler TMS 8'de düzenlenir (par. 34); TFRS 3 işletme birleşmelerini düzenler.
+      E: Borçlanma maliyetlerinin aktifleştirilmesi TMS 23'ün konusudur (par. 8); TMS 8 politika, tahmin ve hataları
+        düzenler.
   kaynaklar:
   - mevzuat: TFRS 5 Satış Amaçlı Elde Tutulan Duran Varlıklar ve Durdurulan Faaliyetler
-    madde: Kapsam
-    alinti: Satış amaçlı elde tutulan olarak sınıflandırılan duran varlıklara (veya elden çıkarılacak varlık gruplarına)
-      yönelik sınıflandırma, sunum ve ölçüm hükümleri
+    madde: par. 1
+    alinti: Bu TFRS’nin amacı; satış amaçlı elde tutulan varlıkların muhasebeleştirilme esasları ile durdurulan
+      faaliyetlere ilişkin olarak yapılması gereken açıklama ve sunumları belirlemektir.
   gecerlilik:
     baslangic: '2018-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -6023,8 +6354,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: alakasız çeldiriciler yerine birbirine karıştırılan standart-konu çiftleri (TMS
+          36, 23, 16, 8, TFRS 3) kondu; R5 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -6039,6 +6372,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: alakasız çeldiriciler yerine birbirine karıştırılan standart-konu çiftleri (TMS 36, 23, 16, 8, TFRS
+      3) kondu; R5 giderildi'
 - id: SMMM-STD-TFR-0098
   sinav: smmm
   bolum:

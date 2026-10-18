@@ -45,6 +45,12 @@ Her soruda ayrıca: anahtar doğru mu (kendin çöz), tek doğru cevap var mı, 
 - `aciklama` mevcut yapıyı korur: `dogru_neden` (metin) ve `celdiriciler` (her yanlış şık için ≥15 karakterlik neden);
   hesaplama sorularında `hesap_adimlari` (liste) varsa güncelle. Olumsuz kökte olumsuz ifade **kalın** (`**değildir**`).
 - Bağlantı ve HTML kullanma.
+- **Sayısal şıklar A'dan E'ye küçükten büyüğe sıralı olmalı** (resmî sınavda hep böyle; G4 sıralı değilse reddeder).
+  Doğru harfi korumak için çeldirici değerlerini doğru değer o harfe düşecek biçimde seç (ör. doğru C ise iki küçük,
+  iki büyük çeldirici). Mümkün değilse `dogru` harfini değiştir ve `neden`de "sıralama için harf değişti" yaz.
+- Hesaplama sorusunda rakam değiştiyse `dogrulama.python` kodunu mutlaka yeniden yaz; hiçbir çeldirici doğru değere
+  eşit olmamalı. Kararı yazmadan önce her hesaplama sorusu için kodu çalıştırıp `sonuc`un doğru şıkla aynı olduğunu
+  kontrol et (`python -c "sonuc=...; print(sonuc)"`).
 
 ## Çıktı
 

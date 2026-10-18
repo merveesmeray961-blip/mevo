@@ -441,30 +441,28 @@
   kazanim: sigorta kolları
   tip: uygulama
   zorluk: 3
-  kok: '5510 sayılı Kanun’a göre, 4 üncü maddenin birinci fıkrasının (c) bendi kapsamında sigortalı sayılanlar hakkında
-    aşağıdakilerden hangisi uygulanmaz?
-
-    '
+  kok: 5510 sayılı Kanun’a göre, 4 üncü maddenin birinci fıkrasının (c) bendi kapsamında sigortalı sayılanlar hakkında
+    aşağıdakilerden hangisi **uygulanmaz**?
   secenekler:
-    A: Uzun vadeli sigorta kolları
-    B: Genel sağlık sigortası
-    C: İş kazası ve meslek hastalığı sigortası hükümleri (kısmen)
-    D: Malullük, yaşlılık ve ölüm sigortası
-    E: Kısa vadeli sigorta kolları
+    A: Malûllük sigortası hükümleri
+    B: Genel sağlık sigortası hükümleri
+    C: Yaşlılık sigortası hükümleri
+    D: Ölüm sigortası hükümleri
+    E: Hastalık ve analık sigortası hükümleri
   dogru: E
   aciklama:
-    dogru_neden: 'Madde 4’ün son fıkrasına göre: Bu Kanunun kısa vadeli sigorta kollarına ilişkin hükümleri bu maddenin
-      birinci fıkrasının (c) bendi kapsamında sigortalı sayılanlara bu kapsamda oldukları sürece uygulanmaz.
+    dogru_neden: 'Madde 4’ün son fıkrasına göre kısa vadeli sigorta kollarına ilişkin hükümler 4/1-c kapsamında
+      sigortalı sayılanlara bu kapsamda oldukları sürece uygulanmaz. Hastalık ve analık sigortası kısa vadeli kollardandır;
+      malûllük, yaşlılık ve ölüm ise uzun vadeli kollardır ve uygulanır.
 
-      Püf noktaları: (c) benttekiler (kamu görevlileri) kısa vadeli (iş kazası, meslek hastalığı, hastalık, analık)
-      sigorta kollarından muaf tutulmuştur; uzun vadeli ve GSS uygulanır.
 
-      '
+      Püf noktaları: 4/c''dekilere uzun vadeli sigorta kolları ve genel sağlık sigortası uygulanır, kısa vadeli
+      kollar uygulanmaz.'
     celdiriciler:
-      A: Uzun vadeli sigorta kolları uygulanır.
-      B: GSS uygulanır.
-      C: Kısa vadeli kollar uygulanmaz; kısmen bile değil.
-      D: Malullük, yaşlılık, ölüm uzun vadelidir ve uygulanır.
+      A: Malûllük uzun vadeli sigorta kollarındandır ve 4/c kapsamındakilere uygulanır.
+      B: Md. 60/1-a uyarınca 4/c kapsamındakiler genel sağlık sigortalısıdır; genel sağlık sigortası uygulanır.
+      C: Yaşlılık uzun vadeli sigorta kollarındandır ve 4/c kapsamındakilere uygulanır.
+      D: Ölüm sigortası uzun vadeli sigorta kollarındandır ve 4/c kapsamındakilere uygulanır.
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
     madde: md. 4
@@ -475,7 +473,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -496,8 +494,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: iş kazası/meslek hastalığı gibi kısa vadeli olup belirsiz kalan C şıkkı kaldırıldı;
+          tek doğru cevap netleştirildi, olumsuz kök kalın'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -518,6 +518,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: iş kazası/meslek hastalığı gibi kısa vadeli olup belirsiz kalan C şıkkı kaldırıldı; tek doğru cevap
+      netleştirildi, olumsuz kök kalın'
 - id: SMMM-HUK-SGK-0017
   sinav: smmm
   bolum:
@@ -616,24 +621,27 @@
 
     '
   secenekler:
-    A: Yalnızca net ücret tutarını
-    B: Yalnızca (b) bendi kapsamındaki bağımsız çalışanların kazançlarını
-    C: Yalnızca prim, ikramiye ve sosyal yardımları
-    D: Yalnızca asgari ücret tutarını
-    E: 4 üncü maddenin birinci fıkrasının (a) ve (c) bendi kapsamında sigortalı sayılanlara saatlik, günlük, haftalık,
-      aylık veya yıllık olarak para ile ödenen ve süreklilik niteliği taşıyan brüt tutarı
+    A: 4/b kapsamındaki sigortalılara saatlik, günlük, haftalık, aylık veya yıllık olarak ödenen ve süreklilik niteliği
+      taşıyan brüt tutarı
+    B: 4/a ve 4/c kapsamındaki sigortalılara saatlik, günlük, haftalık, aylık veya yıllık olarak para ile ödenen
+      ve süreklilik niteliği taşıyan net tutarı
+    C: 4/a ve 4/c kapsamındaki sigortalılara saatlik, günlük, haftalık, aylık veya yıllık olarak para veya ayni
+      ödenen ve süreklilik niteliği taşıyan tutarı
+    D: 4/a ve 4/c kapsamındaki sigortalılara saatlik, günlük, haftalık, aylık veya yıllık olarak para ile ödenen
+      brüt tutarı; süreklilik niteliği aranmaz
+    E: 4/a ve 4/c kapsamındaki sigortalılara saatlik, günlük, haftalık, aylık veya yıllık olarak para ile ödenen
+      ve süreklilik niteliği taşıyan brüt tutarı
   dogru: E
   aciklama:
-    dogru_neden: 'Madde 3/12’ye göre ücret; 4 üncü maddenin birinci fıkrasının (a) ve (c) bendi kapsamında sigortalı
+    dogru_neden: Madde 3/12’ye göre ücret; 4 üncü maddenin birinci fıkrasının (a) ve (c) bendi kapsamında sigortalı
       sayılanlara saatlik, günlük, haftalık, aylık veya yıllık olarak para ile ödenen ve süreklilik niteliği taşıyan
       brüt tutarıdır.
-
-      '
     celdiriciler:
-      A: Net değil brüt tutardır.
-      B: (b) bendi bağımsız çalışanlar içindir; ücret tanımı (a) ve (c) içindir.
-      C: Prim ve ikramiyeler ayrı değerlendirilebilir; tanım süreklilik niteliği taşıyan brüt tutarı kapsar.
-      D: Asgari ücret ayrı tanımlanmıştır.
+      A: Ücret tanımı 4/b bağımsız çalışanların kazancını değil, 4/a ve 4/c kapsamındaki sigortalılara ödenen tutarı
+        kapsar.
+      B: Tanımda esas alınan tutar net değil brüt tutardır.
+      C: Tanım ayni ödemeleri değil, para ile ödenen tutarı kapsar.
+      D: Süreklilik niteliği, tanımın unsurlarından biridir; ödeme bu niteliği taşımıyorsa ücret sayılmaz.
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
     madde: md. 3/12
@@ -644,7 +652,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -665,8 +673,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: çeldiriciler tanımın tek bir unsurunu (bent, net/brüt, ayni, süreklilik) bozan
+          akla yatkın ifadelerle yenilendi; mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -684,6 +694,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: çeldiriciler tanımın tek bir unsurunu (bent, net/brüt, ayni, süreklilik) bozan akla yatkın ifadelerle
+      yenilendi; mutlak ifadeler kaldırıldı'
 - id: SMMM-HUK-SGK-0019
   sinav: smmm
   bolum:
@@ -1333,34 +1348,39 @@
   kazanim: sigorta kolları
   tip: kavrama
   zorluk: 3
-  kok: Bir çalışan aynı anda hem 4/a kapsamında hizmet akdiyle çalışmakta hem de 4/b kapsamında kendi adına bağımsız
-    faaliyette bulunmaktadır. 5510 sayılı Kanunun kısa ve uzun vadeli sigorta kolları bakımından aşağıdaki eşleştirmelerden
-    hangisi doğrudur?
+  kok: Bir kişi bir işverenin yanında hizmet akdiyle çalışmakta ve aynı zamanda bir anonim şirketin yönetim kurulu
+    üyesi olan ortağı bulunmaktadır. 5510 sayılı Kanunun 4 üncü maddesinin birinci fıkrası bakımından bu iki durumun
+    karşılığı aşağıdakilerden hangisidir?
   secenekler:
-    A: 4/a yalnız uzun vadeli, 4/b yalnız kısa vadeli sigorta kollarını ifade eder.
-    B: 4/a hizmet akdiyle çalışanı, 4/b kendi adına ve hesabına bağımsız çalışanı ifade eder.
-    C: 4/a kamu görevlisini, 4/b hizmet akdiyle çalışanı ifade eder.
-    D: 4/a ve 4/b yalnız genel sağlık sigortası bakımından kullanılan statülerdir.
-    E: 4/b yalnız tarımsal faaliyette bulunanları kapsar.
+    A: Her iki faaliyet de 4/a kapsamında değerlendirilir.
+    B: Hizmet akdiyle çalışma 4/a, anonim şirket yönetim kurulu üyesi ortaklığı 4/b kapsamındadır.
+    C: Hizmet akdiyle çalışma 4/a, anonim şirket yönetim kurulu üyesi ortaklığı 4/c kapsamındadır.
+    D: Hizmet akdiyle çalışma 4/b, anonim şirket yönetim kurulu üyesi ortaklığı 4/a kapsamındadır.
+    E: Hizmet akdiyle çalışma 4/a kapsamındadır; anonim şirket ortaklığı ayrıca sigortalılık doğurmaz.
   dogru: B
   aciklama:
-    dogru_neden: Md. 4/1-a hizmet akdiyle bir veya birden fazla işveren tarafından çalıştırılanları; md. 4/1-b ise
-      bağımsız çalışanların sayılan gruplarını kapsar.
+    dogru_neden: Md. 4/1-a hizmet akdi ile işveren yanında çalıştırılanları kapsar; md. 4/1-b-3 ise anonim şirketlerin
+      yönetim kurulu üyesi olan ortaklarını 4/b kapsamında sayar. Kişi iki faaliyeti nedeniyle ayrı bentlerde sigortalı
+      sayılır.
     celdiriciler:
-      A: 4/a ve 4/bnin kısa ve uzun vadeli sigorta kollarıyla ilgisi ters kurulmuştur.
-      C: Kamu idarelerindeki belirli personel md. 4/1-c kapsamındadır.
-      D: Statüler yalnız GSS için tanımlanmamıştır.
-      E: 4/b tarımsal faaliyetten ibaret değildir.
+      A: Yönetim kurulu üyesi ortaklık hizmet akdi değildir; md. 4/1-b-3 uyarınca 4/b kapsamındadır.
+      C: 4/c kamu idarelerinde çalışanlara ilişkindir; anonim şirket yönetim kurulu üyesi ortağı 4/c değil 4/b kapsamındadır.
+      D: Bentler ters kurulmuştur; hizmet akdiyle çalışma 4/a, yönetim kurulu üyesi ortaklık 4/b kapsamındadır.
+      E: Md. 4/1-b-3, anonim şirketlerin yönetim kurulu üyesi olan ortaklarını açıkça 4/b kapsamında sayar; ayrıca
+        sigortalılık doğar.
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
-    madde: md. 4/1-a, 4/1-b
-    alinti: a) Hizmet akdi ile bir veya birden fazla işveren tarafından çalıştırılanlar,
+    madde: md. 4/1-a
+    alinti: Hizmet akdi ile bir veya birden fazla işveren tarafından çalıştırılanlar,
+  - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
+    madde: md. 4/1-b-3
+    alinti: Anonim şirketlerin yönetim kurulu üyesi olan ortakları,
   gecerlilik:
     baslangic: '2008-10-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1381,8 +1401,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: 0009/0088 ile aynı olan kök, 4/b-3 (anonim şirket yönetim kurulu üyesi ortak) vakasına
+          çevrildi; çeldiriciler yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1397,6 +1419,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: 0009/0088 ile aynı olan kök, 4/b-3 (anonim şirket yönetim kurulu üyesi ortak) vakasına çevrildi;
+      çeldiriciler yenilendi'
 - id: SMMM-HUK-SGK-0028
   sinav: smmm
   bolum:
@@ -1562,22 +1589,23 @@
   kazanim: ücret tanımı
   tip: bilgi
   zorluk: 3
-  kok: 5510 sayılı Kanunun 3 üncü maddesine göre “ücret” kavramının kapsamını aşağıdakilerden hangisi doğru verir?
+  kok: 5510 sayılı Kanunun 3 üncü maddesindeki “ücret” tanımına göre aşağıdakilerden hangisi **yanlıştır**?
   secenekler:
-    A: Saatlik, günlük, haftalık, aylık veya yıllık olarak para ile ödenen ve süreklilik taşıyan brüt tutarı
-    B: Yalnızca prim ve ikramiyeleri
-    C: Her türlü ayni yardımın toplamını
-    D: Sadece aylık olarak ödenen net tutarı
-    E: Sadece asgari ücret tutarını
+    A: Ücret tanımı, 4/b bendi kapsamındaki bağımsız çalışanların kazançlarını da kapsar.
+    B: Ücret tanımı 4/a ve 4/c bentleri kapsamında sigortalı sayılanlar bakımından yapılmıştır.
+    C: Ödemenin saatlik, günlük, haftalık, aylık veya yıllık dönemler itibarıyla yapılması tanımın kapsamındadır.
+    D: Tanımda ödemenin para ile yapılması ve süreklilik niteliği taşıması aranır.
+    E: Tanımda esas alınan tutar brüt tutardır.
   dogru: A
   aciklama:
-    dogru_neden: Kanunun 3/1-12 bendindeki tanım ücretin ödeme dönemlerini, para ile ödenmesini, süreklilik niteliğini
-      ve brüt tutarı birlikte belirtir.
+    dogru_neden: Kanunun 3/1-12 bendinde ücret, 4 üncü maddenin birinci fıkrasının (a) ve (c) bendi kapsamında sigortalı
+      sayılanlara saatlik, günlük, haftalık, aylık veya yıllık olarak para ile ödenen ve süreklilik niteliği taşıyan
+      brüt tutar olarak tanımlanır. Bağımsız çalışanlar (4/b) tanım dışındadır.
     celdiriciler:
-      B: Prim ve ikramiye şeklinde daraltılmamıştır.
-      C: Ayni yardımlar tanımın unsuru değildir.
-      D: Tanım yalnız aylık ve net tutarla sınırlı değildir.
-      E: Ücret yalnız asgari ücret değildir.
+      B: Tanım doğrudur; ücret yalnız 4/a ve 4/c kapsamındaki sigortalılar için tanımlanmıştır.
+      C: Tanım doğrudur; ödeme dönemi olarak saatlik, günlük, haftalık, aylık ve yıllık dönemler sayılmıştır.
+      D: Tanım doğrudur; ödemenin para ile yapılması ve süreklilik niteliği taşıması tanımın unsurlarıdır.
+      E: Tanım doğrudur; ücret net değil brüt tutar olarak tanımlanmıştır.
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
     madde: md. 3/1-12
@@ -1587,7 +1615,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1608,8 +1636,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). md.3 ücret tanımı'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: 0018 ile aynı tanım sorusu olumsuz kökle farklı açıdan soruldu; çeldiriciler
+          tanımın doğru unsurlarını içeren ifadeler oldu, mutlak ifadeler kalktı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1630,6 +1660,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: 0018 ile aynı tanım sorusu olumsuz kökle farklı açıdan soruldu; çeldiriciler tanımın doğru unsurlarını
+      içeren ifadeler oldu, mutlak ifadeler kalktı'
 - id: SMMM-HUK-SGK-0031
   sinav: smmm
   bolum:
@@ -2241,21 +2276,20 @@
   zorluk: 2
   kok: 5510 sayılı Kanuna göre aşağıdaki eşleştirmelerden hangisi kısa ve uzun vadeli sigorta kollarını doğru göstermektedir?
   secenekler:
-    A: 'Kısa: iş kazası, meslek hastalığı, hastalık, analık — Uzun: malûllük, yaşlılık, ölüm'
-    B: 'Kısa: malûllük, yaşlılık, ölüm — Uzun: iş kazası, hastalık, analık'
-    C: 'Kısa: yalnız iş kazası ve meslek hastalığı — Uzun: genel sağlık sigortası'
-    D: 'Kısa: genel sağlık sigortası — Uzun: iş kazası ve analık'
-    E: 'Kısa: yaşlılık ve ölüm — Uzun: hastalık ve analık'
+    A: 'Kısa: iş kazası ve meslek hastalığı, hastalık, analık — Uzun: malûllük, yaşlılık, ölüm'
+    B: 'Kısa: iş kazası ve meslek hastalığı, hastalık — Uzun: analık, malûllük, yaşlılık, ölüm'
+    C: 'Kısa: hastalık, analık, ölüm — Uzun: iş kazası ve meslek hastalığı, malûllük, yaşlılık'
+    D: 'Kısa: iş kazası ve meslek hastalığı, hastalık, analık, ölüm — Uzun: malûllük, yaşlılık'
+    E: 'Kısa: hastalık ve analık — Uzun: iş kazası ve meslek hastalığı, malûllük, yaşlılık, ölüm'
   dogru: A
   aciklama:
     dogru_neden: 5510 md. 3/4 kısa vadeli sigorta kollarını iş kazası ve meslek hastalığı, hastalık ve analık olarak;
       md. 3/5 uzun vadeli sigorta kollarını malûllük, yaşlılık ve ölüm olarak tanımlar.
     celdiriciler:
-      B: Kısa ve uzun vadeli gruplar ters yazılmıştır.
-      C: Hastalık ve analık da kısa vadeli sigorta kollarındadır; genel sağlık sigortası bu sınıflandırmanın parçası
-        değildir.
-      D: Genel sağlık sigortası kısa vadeli sigorta kolu olarak tanımlanmamıştır.
-      E: Yaşlılık ve ölüm uzun vadeli sigorta kollarındadır; hastalık ve analık kısa vadeli sigorta kollarındadır.
+      B: Analık kısa vadeli sigorta kollarındandır; uzun vadeli kollara yazılmıştır.
+      C: Ölüm uzun vadeli sigorta koludur; iş kazası ve meslek hastalığı ise kısa vadelidir.
+      D: Ölüm kısa vadeli değil, uzun vadeli sigorta kollarındandır.
+      E: İş kazası ve meslek hastalığı uzun değil, kısa vadeli sigorta kollarındandır.
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
     madde: md. 3/3-5
@@ -2271,7 +2305,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2292,8 +2326,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). md.4 kısa/uzun vadeli kollar'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: çeldiriciler tek bir kolun yanlış gruba kaydırıldığı akla yatkın eşleştirmelerle
+          yenilendi, şıklar dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2308,6 +2344,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: çeldiriciler tek bir kolun yanlış gruba kaydırıldığı akla yatkın eşleştirmelerle yenilendi, şıklar
+      dengelendi'
 - id: SMMM-HUK-SGK-0039
   sinav: smmm
   bolum:
@@ -2404,13 +2445,13 @@
   tip: uygulama
   zorluk: 2
   kok: 5510 sayılı Kanun'un 4 üncü maddesine göre, hizmet akdi ile bir veya birden fazla işveren tarafından çalıştırılanlar
-    hangi bent kapsamında sigortalı sayılır?
+    aşağıdakilerden hangisi kapsamında sigortalı sayılır?
   secenekler:
-    A: 4/a
-    B: 4/b
-    C: 4/c
-    D: 5 inci madde
-    E: 6 ncı madde
+    A: 4/1-(a) bendi kapsamında hizmet akdiyle çalışan sigortalı
+    B: 4/1-(b) bendi kapsamında bağımsız çalışan sigortalı
+    C: 4/1-(c) bendi kapsamında kamu idarelerinde çalışan sigortalı
+    D: Md. 50 kapsamında isteğe bağlı sigortalı
+    E: Md. 60/1-(c) kapsamında gelir testine tabi genel sağlık sigortalısı
   dogru: A
   aciklama:
     dogru_neden: '5510 md. 4/1-(a) hizmet akdi ile çalışanları kapsar. 4/b bağımsız çalışanlar, 4/c kamu görevlileridir.
@@ -2418,10 +2459,12 @@
 
       Püf noktaları: 4/a = hizmet akdi (eski SSK), 4/b = Bağ-Kur, 4/c = Emekli Sandığı.'
     celdiriciler:
-      B: 4/b bağımsız çalışanlardır.
-      C: 4/c kamu görevlileridir.
-      D: 5 inci madde bazı özel durumları düzenler.
-      E: 6 ncı madde istisnaları düzenler.
+      B: 4/b muhtarlar ve bağımsız çalışanlara ilişkindir.
+      C: 4/c kamu idarelerinde kadro ve pozisyonlarda çalışanlara ilişkindir.
+      D: İsteğe bağlı sigorta, başka bir kapsamda sigortalı olmayanların prim ödeyerek yararlandığı sigortadır;
+        hizmet akdiyle çalışma bu kapsamda değildir.
+      E: Gelir testi sonucuna göre genel sağlık sigortalısı sayılma, sigortalı olarak çalışanlar için değil, sigortalı
+        sayılmayanlar için öngörülmüştür.
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
     madde: md. 4
@@ -2432,7 +2475,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2453,8 +2496,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). md.4/a'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: dolgu madde numaraları yerine isteğe bağlı sigorta ve gelir testli GSS gibi akla
+          yatkın çeldiriciler getirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2469,6 +2514,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: dolgu madde numaraları yerine isteğe bağlı sigorta ve gelir testli GSS gibi akla yatkın çeldiriciler
+      getirildi'
 - id: SMMM-HUK-SGK-0041
   sinav: smmm
   bolum:
@@ -2481,23 +2531,21 @@
   zorluk: 3
   kok: 5510 sayılı Kanun md. 4'e göre aşağıdaki kişilerden hangisi 4/a kapsamında sigortalı sayılır?
   secenekler:
-    A: Tarımda kendi nam ve hesabına çalışanlar
-    B: Köy ve mahalle muhtarları
-    C: Kamu idarelerinde çalışanlar (4/c)
-    D: Bağımsız çalışanlar
-    E: Hizmet akdi ile bir veya birden fazla işveren tarafından çalıştırılanlar
+    A: Tarımsal faaliyette bulunan ve kendi adına ve hesabına çalışan kişi
+    B: Köy ve mahalle muhtarı
+    C: Kamu idarelerinde kadro ve pozisyonlarda sürekli çalışan kişi
+    D: Anonim şirketin yönetim kurulu üyesi olan ortak
+    E: Hizmet akdi ile bir işverenin yanında çalıştırılan kişi
   dogru: E
   aciklama:
-    dogru_neden: 'Md. 4/1-(a) hizmet akdi ile bir veya birden fazla işveren tarafından çalıştırılanları kapsar.
-      4/b bağımsız çalışanlar ve muhtarlar, 4/c kamu görevlileridir.
-
-
-      Püf noktaları: 4/a = hizmet akdi (eski SSK kapsamı).'
+    dogru_neden: Md. 4/1-(a) hizmet akdi ile bir veya birden fazla işveren tarafından çalıştırılanları kapsar. Tarımda
+      bağımsız çalışanlar, muhtarlar ve anonim şirket yönetim kurulu üyesi ortakları 4/b, kamu idarelerinde kadroda
+      çalışanlar 4/c kapsamındadır.
     celdiriciler:
-      A: Tarımda kendi namına çalışanlar 4/b'dir.
+      A: Tarımda kendi nam ve hesabına çalışanlar 4/b kapsamındadır.
       B: Muhtarlar 4/b kapsamındadır.
-      C: Kamu idarelerinde çalışanlar 4/c'dir.
-      D: Bağımsız çalışanlar 4/b'dir.
+      C: Kamu idarelerinde kadroda sürekli çalışanlar 4/c kapsamındadır.
+      D: Anonim şirketlerin yönetim kurulu üyesi olan ortakları 4/b kapsamındadır.
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
     madde: md. 4
@@ -2508,7 +2556,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2529,8 +2577,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). md.4/a'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: (4/c) ipucu kaldırıldı, çeldiriciler 4/b ve 4/c''nin gerçek alt gruplarıyla
+          yenilendi, şıklar dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2548,6 +2598,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: (4/c) ipucu kaldırıldı, çeldiriciler 4/b ve 4/c''nin gerçek alt gruplarıyla yenilendi, şıklar
+      dengelendi'
 - id: SMMM-HUK-SGK-0042
   sinav: smmm
   bolum:
@@ -2646,34 +2701,38 @@
   kazanim: sigortalılık (4/a-b-c) ve kapsam
   tip: bilgi
   zorluk: 1
-  kok: 5510 sayılı Kanuna göre hizmet akdi ile bir veya birden fazla işveren tarafından çalıştırılan kişi hangi
-    kapsamda sigortalı sayılır?
+  kok: 5510 sayılı Kanun md. 4'e göre, birinci fıkranın (a) bendi gereği sigortalı sayılanlara ilişkin hükümler
+    aşağıdakilerden hangisi hakkında da uygulanır?
   secenekler:
-    A: 4/a
-    B: 4/b
-    C: 4/c
-    D: İsteğe bağlı sigortalı
-    E: Genel sağlık sigortalısı olmayan kişi
+    A: İşçi sendikaları ile sendika şubelerinin başkanlıkları ve yönetim kurullarına seçilenler
+    B: Köy ve mahalle muhtarları
+    C: Kamu idarelerinde kadro ve pozisyonlarda sürekli çalışanlar
+    D: Anonim şirketlerin yönetim kurulu üyesi olan ortakları
+    E: Gelir vergisinden muaf olup esnaf ve sanatkâr siciline kayıtlı olanlar
   dogru: A
   aciklama:
-    dogru_neden: 5510 sayılı Kanun md. 4/1-a, hizmet akdi ile bir veya birden fazla işveren tarafından çalıştırılanları
-      bu bent kapsamında sigortalı sayar.
+    dogru_neden: 5510 md. 4'ün (a) bendi gereği sigortalı sayılanlara ilişkin hükümler, işçi sendikaları ve konfederasyonları
+      ile sendika şubelerinin başkanlıkları ve yönetim kurullarına seçilenler hakkında da uygulanır. Diğer şıklardaki
+      gruplar 4/b veya 4/c kapsamındadır.
     celdiriciler:
-      B: 4/b, bağımsız çalışanlara ilişkin benttir.
-      C: 4/c, kanunda belirtilen kamu görevlilerine ilişkin benttir.
-      D: İsteğe bağlı sigortalılık, hizmet akdiyle çalışmanın karşılığı değildir.
-      E: Genel sağlık sigortalılığı ayrı bir statüdür.
+      B: Köy ve mahalle muhtarları 4/b kapsamındadır; (a) bendi hükümlerinin uygulandığı gruplar arasında sayılmamıştır.
+      C: Kamu idarelerinde kadroda sürekli çalışanlar 4/c kapsamındadır.
+      D: Anonim şirketlerin yönetim kurulu üyesi olan ortakları 4/b-3 kapsamındadır.
+      E: Esnaf ve sanatkâr siciline kayıtlı gelir vergisinden muaf kişiler 4/b-2 kapsamındadır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
-    madde: md. 4/1-a
-    alinti: Hizmet akdi ile bir veya birden fazla işveren tarafından çalıştırılanlar,
+    madde: md. 4
+    alinti: Birinci fıkranın (a) bendi gereği sigortalı sayılanlara ilişkin hükümler;
+  - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
+    madde: md. 4
+    alinti: İşçi sendikaları ve konfederasyonları ile sendika şubelerinin başkanlıkları ve yönetim kurullarına seçilenler,
   gecerlilik:
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2694,8 +2753,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). md.4/a'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: 0040/0041 ile aynı olan trivial kök, md.4 (a) bendi hükümlerinin genişletildiği
+          gruplara çevrilerek sınav düzeyine çıkarıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2710,6 +2771,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: 0040/0041 ile aynı olan trivial kök, md.4 (a) bendi hükümlerinin genişletildiği gruplara çevrilerek
+      sınav düzeyine çıkarıldı'
 - id: SMMM-HUK-SGK-0044
   sinav: smmm
   bolum:
@@ -2886,24 +2952,26 @@
   kazanim: iş kazası ve kısa vadeli sigortalar
   tip: uygulama
   zorluk: 2
-  kok: 5510 sayılı Kanun md. 13 kapsamındaki bir iş kazası, 4 üncü maddenin birinci fıkrasının (a) bendi kapsamındaki
-    sigortalı bakımından işveren tarafından meydana gelmiştir. İşverenin Kuruma bildirim için genel süre sınırı
-    nedir?
+  kok: 5510 sayılı Kanun md. 13’e göre, 4 üncü maddenin birinci fıkrasının (a) bendi kapsamındaki bir sigortalı,
+    işverenin kontrolündeki bir yerde iş kazası geçirmiştir. İşverenin kazayı Kuruma bildirmesi için kanundaki süre
+    sınırı aşağıdakilerden hangisidir?
   secenekler:
-    A: Aynı gün
-    B: Üç iş günü
-    C: Yedi gün
-    D: İki iş günü
-    E: On beş gün
+    A: Kazadan sonraki ilk işgünü içinde
+    B: Kazadan sonraki üç işgünü içinde
+    C: Kazadan sonraki on gün içinde
+    D: Kazadan sonraki beş işgünü içinde
+    E: Kazadan sonraki bir ay içinde
   dogru: B
   aciklama:
-    dogru_neden: 5510 sayılı Kanun md. 13, 4/1-a kapsamındaki sigortalılar bakımından işverenin iş kazasını Kuruma
-      en geç kazadan sonraki üç işgünü içinde bildirmesini öngörür.
+    dogru_neden: 5510 md. 13'e göre iş kazası, (a) bendi kapsamındaki sigortalılar bakımından işveren tarafından
+      o yer yetkili kolluk kuvvetlerine derhal ve Kuruma da en geç kazadan sonraki üç işgünü içinde bildirilir.
     celdiriciler:
-      A: Kolluk için derhal bildirim öngörülse de Kuruma genel süre üç iş günüdür.
-      C: Kanundaki genel süre yedi gün değildir.
-      D: Kanun iki iş günü öngörmez.
-      E: Kanundaki genel süre on beş gün değildir.
+      A: Kuruma bildirim süresi bir işgünü değil, kazadan sonraki üç işgünüdür.
+      C: On günlük süre md. 13'te değil, diğer bildirim yükümlülüklerinde (ör. md. 9) geçer; iş kazası bildirimi
+        üç işgünüdür.
+      D: Md. 13/a beş işgünü değil, üç işgünü öngörür.
+      E: Bir aylık sınır, (b) bendi kapsamındaki sigortalının rahatsızlığı nedeniyle bildirim yapamaması hâliyle
+        ilgilidir; işveren için süre üç işgünüdür.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
@@ -2918,7 +2986,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2939,8 +3007,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). md.13: üç işgünü'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: bozuk kök düzeltildi; çeldiriciler 5510''daki diğer yakın bildirim süreleriyle
+          yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2961,6 +3031,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: bozuk kök düzeltildi; çeldiriciler 5510''daki diğer yakın bildirim süreleriyle yenilendi'
 - id: SMMM-HUK-SGK-0047
   sinav: smmm
   bolum:
@@ -2971,36 +3045,41 @@
   kazanim: GSS
   tip: uygulama
   zorluk: 3
-  kok: İkametgâhı Türkiye’de olan ve 4 üncü maddenin birinci fıkrasının (a) veya (c) bendi kapsamında sigortalı
-    sayılan bir kişi bakımından, 5510 sayılı Kanun md. 60/1-a uyarınca genel sağlık sigortalılığı hangi kapsamda
-    doğar?
+  kok: İkametgâhı Türkiye’de olan ve bir işverenin yanında hizmet akdiyle çalışan bir kişinin genel sağlık sigortalısı
+    sayılması, 5510 sayılı Kanun md. 60/1’in hangi bendine dayanır?
   secenekler:
-    A: Yalnız isteğe bağlı sigortalılık yoluyla
-    B: 4/a veya 4/c kapsamındaki sigortalılık nedeniyle
-    C: Yalnız gelir testi sonucunda
-    D: Yalnız emeklilik aylığı alınmasıyla
-    E: Yalnız yabancı ülke sigortası bulunmasıyla
+    A: '60/1-c: sigortalı sayılmayanlardan, aile içinde kişi başına düşen aylık geliri gelir testiyle belirlenen
+      asgari ücretin üçte birinden az olanlar'
+    B: '60/1-a: 4 üncü maddenin birinci fıkrasının (a) ve (c) bentleri gereğince sigortalı sayılanlar'
+    C: '60/1-b: isteğe bağlı sigortalı olan kişiler'
+    D: '60/1-f: bu Kanuna veya önceki sosyal güvenlik kanunlarına göre gelir veya aylık alan kişiler'
+    E: '60/1-g: diğer bentlerin dışında kalan ve başka bir ülkede sağlık sigortasından yararlanma hakkı bulunmayan
+      vatandaşlar'
   dogru: B
   aciklama:
-    dogru_neden: 5510 sayılı Kanun md. 60/1-a, ikametgâhı Türkiye’de olanlardan 4 üncü maddenin birinci fıkrasının
-      (a) ve (c) bentleri gereğince sigortalı sayılan kişileri genel sağlık sigortalısı kapsamına alır.
+    dogru_neden: 5510 md. 60/1-a-1, ikametgâhı Türkiye'de olan kişilerden 4 üncü maddenin birinci fıkrasının (a)
+      ve (c) bentleri gereğince sigortalı sayılanları genel sağlık sigortalısı kapsamına alır. Hizmet akdiyle çalışan
+      kişi 4/a kapsamında olduğundan bu bende girer.
     celdiriciler:
-      A: Md. 60/1-a doğrudan 4/a ve 4/c kapsamındaki sigortalılığı sayar.
-      C: Gelir testi, bu kişiler için soruda belirtilen temel kapsamın şartı değildir.
-      D: Emeklilik aylığı alma, md. 60/1-a’daki statünün temeli değildir.
-      E: Yabancı ülke sigortası bulunması bu kapsamın şartı değildir.
+      A: Gelir testi, md. 60/1-c kapsamında sigortalı sayılmayanlar içindir; hizmet akdiyle çalışan kişi sigortalıdır.
+      C: İsteğe bağlı sigortalılık md. 60/1-b'dir; hizmet akdiyle çalışan kişi 4/a kapsamında sigortalıdır.
+      D: Gelir veya aylık alma md. 60/1-f'dir; çalışan sigortalının genel sağlık sigortalılığı 60/1-a'ya dayanır.
+      E: Md. 60/1-g diğer bentlerin dışında kalan vatandaşlara ilişkindir; sigortalı çalışan bu bendin kapsamında
+        değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
-    madde: md. 60/1-a
-    alinti: "        İkametgahı Türkiye'de olan kişilerden;\n        a) 4 üncü maddenin birinci fıkrasının;\n  \
-      \      1) (a) ve (c) bentleri gereğince sigortalı sayılan kişiler,"
+    madde: md. 60/1-a-1
+    alinti: 1) (a) ve (c) bentleri gereğince sigortalı sayılan kişiler,
+  - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
+    madde: md. 60
+    alinti: İkametgahı Türkiye'de olan kişilerden;
   gecerlilik:
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3021,8 +3100,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kök cevabı vermeyecek biçimde yeniden yazıldı; çeldiriciler md. 60/1''in diğer
+          bentleriyle yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3037,6 +3118,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kök cevabı vermeyecek biçimde yeniden yazıldı; çeldiriciler md. 60/1''in diğer bentleriyle yenilendi'
 - id: SMMM-HUK-SGK-0048
   sinav: smmm
   bolum:
@@ -3050,31 +3135,40 @@
   kok: 5510 sayılı Kanun md. 80 bakımından 4/a kapsamındaki sigortalıların prime esas kazançlarının hesabında aşağıdakilerden
     hangisi kural olarak esas alınır?
   secenekler:
-    A: Hak edilen ücretler
-    B: Yalnız ayni yardımlar
-    C: Yalnız görev yollukları
-    D: Yalnız ölüm yardımı
-    E: Yalnız kıdem tazminatı
+    A: Hak edilen ücretler ile prim, ikramiye ve benzeri istihkaklardan o ay içinde yapılan ödemelerin brüt toplamı
+    B: Sigortalıya o ay içinde fiilen ödenen net ücret tutarı
+    C: Sigortalının seçtiği gelir basamağına göre belirlenen günlük kazanç
+    D: Ücretin yanında ayni yardımlar, görev yollukları ve ölüm yardımları dahil tüm ödemelerin toplamı
+    E: Hak edilen ücretler ile kıdem tazminatı mahiyetindeki toplu ödemelerin brüt toplamı
   dogru: A
   aciklama:
-    dogru_neden: 5510 sayılı Kanun md. 80/1-a-1, prime esas kazançların hesabında hak edilen ücretlerin brüt toplamının
-      esas alınacağını düzenler.
+    dogru_neden: 5510 md. 80/1-a, 4/a kapsamındaki sigortalıların prime esas kazançlarının hesabında hak edilen
+      ücretlerin ile prim, ikramiye ve bu nitelikteki her çeşit istihkaktan o ay içinde yapılan ödemelerin brüt
+      toplamının esas alınacağını düzenler.
     celdiriciler:
-      B: Ayni yardımlar md. 80/1-b’de prime esas kazanca tabi tutulmayanlar arasında sayılmıştır.
-      C: Görev yollukları istisna edilen kalemler arasındadır.
-      D: Ölüm yardımları istisna edilen ödemelerdendir.
-      E: Kıdem tazminatı mahiyetindeki toplu ödemeler istisna edilen kalemler arasındadır.
+      B: Esas alınan tutar net değil brüt toplamdır.
+      C: Seçilen gelir basamağı 4/a sigortalıları için değil, kazancı beyana dayanan sigortalılar için söz konusudur;
+        4/a'da hak edilen ücret esastır.
+      D: Ayni yardımlar, görev yollukları ve ölüm yardımları md. 80/1-b'de prime esas kazanca tabi tutulmayanlar
+        arasındadır.
+      E: Kıdem tazminatı mahiyetindeki toplu ödemeler md. 80/1-b'de prime esas kazanç dışında sayılmıştır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
     madde: md. 80/1-a-1
-    alinti: "       a) Prime esas kazançların hesabında;\n       1) Hak edilen ücretlerin,"
+    alinti: Hak edilen ücretlerin,
+  - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
+    madde: md. 80/1-a-2
+    alinti: Prim, ikramiye ve bu nitelikteki her çeşit istihkaktan o ay içinde yapılan ödemelerin
+  - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
+    madde: md. 80/1-a
+    alinti: brüt toplamı esas alınır.
   gecerlilik:
     baslangic: '2008-10-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3095,8 +3189,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 4). md.80: hak edilen ücret'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: ''yalnız'' çeldiricileri kaldırıldı; çeldiriciler PEK''e dahil/hariç kalemleri
+          ve net-brüt karışıklığını içeren akla yatkın seçeneklerle yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3111,3 +3207,8 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: ''yalnız'' çeldiricileri kaldırıldı; çeldiriciler PEK''e dahil/hariç kalemleri ve net-brüt karışıklığını
+      içeren akla yatkın seçeneklerle yenilendi'

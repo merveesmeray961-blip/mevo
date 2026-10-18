@@ -405,11 +405,11 @@
   zorluk: 1
   kok: 'Operasyonel açık kavramı ile ilgili aşağıdaki öncülleri değerlendiriniz.
 
-    I. Nominal bütçe açığından, borç stokunun enflasyon nedeniyle eriyen reel değerinin çıkarılmasıyla bulunur.
+    I. Nominal bütçe açığından, enflasyonun borç stokunun reel değerini aşındıran kısmı çıkarılarak bulunur.
 
-    II. Faiz ödemelerinin enflasyon bileşeni operasyonel açık hesabında dikkate alınır.
+    II. Hesaplanırken nominal faiz ödemelerinin enflasyon kaynaklı bileşeni dışarıda bırakılır.
 
-    III. Operasyonel açık, yalnızca faiz dışı açığı ifade eder.
+    III. Faiz ödemelerinin tamamı hariç tutularak hesaplanan faiz dışı açığa eşittir.
 
     Hangileri doğrudur?'
   secenekler:
@@ -420,14 +420,13 @@
     E: I, II ve III
   dogru: C
   aciklama:
-    dogru_neden: Operasyonel açık, nominal bütçe açığından enflasyonun borç stoku üzerindeki reel eritme etkisini
-      (yaklaşık enflasyon × borç stoku) düşerek hesaplanır. Böylece faiz ödemelerinin enflasyon primini ayıklamış
-      olur. III yanlıştır; faiz dışı açık birincil açıktır, operasyonel açık farklı bir düzeltmedir.
+    dogru_neden: 'Operasyonel açık, nominal açıktan enflasyonun borç stokunu aşındıran kısmı çıkarılarak bulunur;
+      bu nedenle faizin enflasyon bileşeni ayıklanır. I ve II doğrudur. III yanlıştır: faiz dışı açık birincil açıktır.'
     celdiriciler:
-      A: II de doğrudur.
-      B: I de doğrudur.
-      D: III yanlıştır.
-      E: III yanlıştır.
+      A: 'II de doğrudur: faizin enflasyon bileşeni operasyonel açıkta dışarıda tutulur.'
+      B: 'I de doğrudur: aşındırma etkisi nominal açıktan çıkarılır.'
+      D: III yanlıştır; faiz ödemelerinin tamamı çıkarıldığında birincil açık bulunur.
+      E: III yanlış olduğundan üç öncülün birlikte doğru olması mümkün değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
@@ -438,7 +437,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -459,8 +458,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: II. öncülün belirsizliği giderildi, III birincil açık karışıklığına çevrildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -475,6 +475,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: II. öncülün belirsizliği giderildi, III birincil açık karışıklığına çevrildi'
 - id: SMMM-MLY-BUT-0018
   sinav: smmm
   bolum:
@@ -564,40 +568,40 @@
   kazanim: bütçe ilkeleri ve türleri (5018)
   tip: uygulama
   zorluk: 3
-  kok: 5018 sayılı Kanun’a göre bir kamu idaresi, stratejik planında yer almayan ancak yıl içinde ortaya çıkan acil
-    bir ihtiyacı karşılamak üzere bütçesinde yer alan bir ödeneği, tahsis amacını değiştirerek ve tutarı aşarak
-    kullanmak istemektedir. Bu durumda aşağıdakilerden hangisi doğrudur?
+  kok: Bir kamu idaresi, bütçesinde yer alan bir ödeneği tahsis amacı dışında kullanmak ve tutarını aşan bir harcama
+    yapmak istemektedir. 5018 sayılı Kanun'a göre aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Bütçe ilkeleri gereği ödenekler belirli amaçları gerçekleştirmek üzere tahsis edilir; amaç dışı kullanım
-      ve ödenek üstü harcama kural olarak mümkün değildir, istisnalar kanunla belirlenir.
-    B: Stratejik planda yer almayan harcamalar için ödenek kullanılamaz; idare kendi bütçesi dışında borçlanarak
-      karşılar.
-    C: Yalnızca Cumhurbaşkanlığı kararı ile her türlü amaç değişikliği ve tutar aşımı serbest bırakılır.
-    D: Ödenekler belirli amaçlar için tahsis edildiğinden, amaç değişikliği ve tutar aşımı her durumda serbestçe
-      yapılabilir.
-    E: 5018 sayılı Kanun ödeneklerin amacını ve tutarını hiçbir şekilde sınırlamaz.
+    A: Ödenekler tahsis edildikleri amaçlar doğrultusunda kullanılır; idare bütçesindeki ödeneğin üzerinde harcama
+      yapamaz.
+    B: Stratejik planda yer alan harcamalar için ödenek üzerinde harcama yapılabilir; amaç dışı kullanım ise yasaktır.
+    C: Acil ihtiyaçlarda üst yöneticinin onayıyla hem amaç dışı kullanım hem de ödenek üstü harcama yapılabilir.
+    D: Ödenek üzerinde harcama yapılamaz; ancak ödeneğin amacı yıl içinde idarenin kararıyla değiştirilebilir.
+    E: Amaç dışı kullanım yasaktır; ancak ödenek üstü harcama, harcama yetkilisinin sorumluluğunda yapılabilir.
   dogru: A
   aciklama:
-    dogru_neden: '5018 md. 13/o: ‘Bütçelerde, ödenekler belirli amaçları gerçekleştirmek üzere tahsis edilir.’ Ayrıca
-      ödenek üstü harcama ve amaç dışı kullanım temel ilkelerle sınırlıdır; istisnalar özel hükümlerle düzenlenir.
-      Senaryo, ilkenin uygulanmasını sınar.'
+    dogru_neden: 5018 md. 13/o ödeneklerin belirli amaçlar için tahsis edildiğini, md. 20/d ise kamu idarelerinin
+      ödeneklerin üzerinde harcama yapamayacağını ve ödeneklerin tahsis amaçları doğrultusunda kullanılacağını düzenler.
     celdiriciler:
-      B: Stratejik plan bütçe hazırlığında esas alınır ancak acil ihtiyaçlar için mekanizmalar vardır; borçlanma
-        serbest değildir.
-      C: Genel bir serbest bırakma yoktur.
-      D: Tahsis ilkesi serbestliği değil sınırlamayı öngörür.
-      E: Kanun açıkça sınırlar koyar.
+      B: Ödenek üstü harcama stratejik planda yer alsa bile md. 20/d gereği yapılamaz.
+      C: Üst yöneticinin onayı ödenek üstü harcamaya veya amaç dışı kullanıma yetki vermez; md. 20/d bağlayıcıdır.
+      D: Ödeneğin amacı idarenin kararıyla değiştirilemez; ödenekler tahsis amaçları doğrultusunda kullanılır.
+      E: Ödenek üstü harcama yasağı harcama yetkilisinin sorumluluğuyla kaldırılamaz; md. 20/d idareler için kesindir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5018 sayılı Kamu Malî Yönetimi ve Kontrol Kanunu
     madde: md. 13/o
     alinti: o) Bütçelerde, ödenekler belirli amaçları gerçekleştirmek üzere tahsis edilir.
+  - mevzuat: 5018 sayılı Kamu Malî Yönetimi ve Kontrol Kanunu
+    madde: md. 20/d
+    alinti: Kamu idareleri, bütçelerinde yer alan ödeneklerin üzerinde harcama yapamaz. Bütçeyle verilen ödenekler,
+      tahsis edildikleri amaçlar doğrultusunda yılı içinde yaptırılan iş, satın alınan mal ve hizmetler ile diğer
+      giderlerin karşılanmasında kullanılır.
   gecerlilik:
     baslangic: '2006-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -618,8 +622,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6/R3: kök sadeleştirildi (stratejik plan ayrıntısı çıkarıldı), çeldiriciler
+          akla yatkın yazıldı, md.20/d alıntısı eklendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -640,6 +646,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6/R3: kök sadeleştirildi (stratejik plan ayrıntısı çıkarıldı), çeldiriciler akla yatkın yazıldı,
+      md.20/d alıntısı eklendi'
 - id: SMMM-MLY-BUT-0020
   sinav: smmm
   bolum:
@@ -1301,21 +1312,20 @@
   kok: Borç dinamiği denkleminde (r − g) terimi ile birincil fazla (s) arasındaki ilişki bakımından aşağıdaki karşılaştırmalardan
     hangisi doğrudur?
   secenekler:
-    A: r > g iken borç oranının istikrarlı kalması için birincil açık verilmesi yeterlidir.
-    B: r < g iken borç oranı otomatik olarak düşer; birincil fazla gerekmez.
-    C: r > g iken birincil fazla s > 0 olması borç oranını mutlaka düşürür.
-    D: r > g iken borç oranının sabit kalması için s ≥ (r − g)·b şartı aranır.
-    E: r = g iken birincil fazla ne olursa olsun borç oranı artar.
+    A: r > g iken borç oranının sabit kalması için birincil açık verilmesi gerekir.
+    B: r < g iken birincil dengenin sıfır olması borç oranının artmasına yol açar.
+    C: r > g iken s > 0 olması, s tutarından bağımsız olarak borç oranını düşürür.
+    D: r > g iken borç oranının sabit kalması için s = (r − g)·b olacak şekilde birincil fazla verilmesi gerekir.
+    E: r = g iken borç oranının sabit kalması için birincil fazlanın borç oranına eşit olması (s = b) gerekir.
   dogru: D
   aciklama:
-    dogru_neden: Δb ≈ (r − g)·b − s = 0 için s = (r − g)·b gerekir. r > g ise pozitif birincil fazla, borç oranını
-      sabitlemek için en az (r − g)·b kadar olmalıdır. Bu, istikrar koşuludur.
+    dogru_neden: Δb ≈ (r − g)·b − s = 0 için s = (r − g)·b gerekir. r > g ise borç oranını sabitlemek için pozitif
+      birincil fazla verilmelidir.
     celdiriciler:
-      A: r > g iken birincil açık borç oranını daha da yükseltir; fazla gerekir.
-      B: r < g iken (r − g) negatif olduğu için borç oranı düşme eğilimindedir ama birincil açık bu etkiyi tersine
-        çevirebilir; 'otomatik' mutlak değildir.
+      A: r > g iken birincil açık borç oranını daha da yükseltir; sabitlemek için fazla gerekir.
+      B: r < g iken (r − g)·b negatiftir; birincil denge sıfır olsa da borç oranı düşer.
       C: s > 0 olsa bile s < (r − g)·b ise borç oranı artmaya devam eder.
-      E: r = g iken Δb ≈ −s; birincil fazla borç oranını düşürür, açık artırır.
+      E: r = g iken Δb ≈ −s olduğundan oranı sabitlemek için s = 0 yeterlidir; s = b gerekmez.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Kamu maliyesi teorisi — genel kabul görmüş tanım
@@ -1326,7 +1336,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1347,8 +1357,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: D''deki ≥ eşitsizliği sabitleme koşulu için eşitliğe düzeltildi; çeldiriciler yeniden
+          yazıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1369,6 +1381,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: D''deki ≥ eşitsizliği sabitleme koşulu için eşitliğe düzeltildi; çeldiriciler yeniden yazıldı'
 - id: SMMM-MLY-BUT-0029
   sinav: smmm
   bolum:

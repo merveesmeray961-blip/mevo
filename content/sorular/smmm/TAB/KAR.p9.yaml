@@ -9,24 +9,25 @@
   kazanim: DuPont
   tip: uygulama
   zorluk: 2
-  kok: Bir işletmenin özkaynak kârlılığı düşük çıkmıştır. Yönetim, DuPont yaklaşımıyla sorunun kâr marjından mı,
-    varlıkların devir hızından mı, yoksa finansal kaldıraçtan mı kaynaklandığını incelemek istemektedir. Bu yaklaşımın
-    uygun uygulaması hangisidir?
+  kok: Bir işletmenin özkaynak kârlılığı düşük çıkmıştır. Yönetim, sorunun kâr marjından mı, varlıkların devir hızından
+    mı, yoksa finansal kaldıraçtan mı kaynaklandığını incelemek istemektedir. Bu amaçla kullanılacak DuPont ayrıştırması
+    aşağıdakilerden hangisidir?
   secenekler:
-    A: Özkaynak kârlılığını yalnızca net kâr marjına eşitlemek
-    B: Yalnızca brüt kârı toplam aktife bölmek
-    C: Yalnızca cari oranı hesaplamak
-    D: Kâr marjı, varlık devir hızı ve özkaynak çarpanını birlikte değerlendirmek
-    E: Net satışları dönem sonu stoklarına bölmek
+    A: Net kâr marjı × cari oran × stok devir hızı
+    B: Brüt kâr marjı × alacak devir hızı × kaldıraç oranı
+    C: Faaliyet kâr marjı × stok devir hızı × cari oran
+    D: Net kâr marjı × varlık devir hızı × toplam varlıklar / özkaynaklar
+    E: Net kâr marjı × varlık devir hızı × toplam yabancı kaynaklar / toplam varlıklar
   dogru: D
   aciklama:
-    dogru_neden: DuPont ayrıştırması özkaynak kârlılığını kârlılık marjı, varlık devir hızı ve finansal kaldıraç
-      bileşenleriyle açıklar.
+    dogru_neden: DuPont ayrıştırması özkaynak kârlılığını net kâr marjı, varlık devir hızı ve finansal kaldıraç
+      (toplam varlıklar / özkaynaklar) bileşenlerinin çarpımı olarak açıklar.
     celdiriciler:
-      A: Bu, bileşenlerden yalnızca birini kullanır.
-      B: Brüt kâr/aktif, DuPont bileşenlerinin birleşimi değildir.
-      C: Cari oran likidite ölçüsüdür.
-      E: Bu, stok devir hızının standart pay-payda tanımı değildir.
+      A: Cari oran ve stok devir hızı DuPont ayrıştırmasının bileşeni değildir; likidite ve faaliyet oranlarıdır.
+      B: Brüt kâr marjı ve alacak devir hızı kullanılmıştır; DuPont net kâr marjı ve varlık devir hızını esas alır.
+      C: Faaliyet kâr marjı, stok devir hızı ve cari oran DuPont bileşenlerini oluşturmaz.
+      E: Toplam yabancı kaynaklar / toplam varlıklar kaldıraç oranıdır; DuPont'ta özkaynak çarpanı (varlıklar /
+        özkaynaklar) kullanılır.
   kaynaklar:
   - mevzuat: Finansal tablolar analizi — DuPont yöntemi
     madde: DuPont ayrıştırması
@@ -36,7 +37,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -57,8 +58,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler bileşen karışıklığına dayalı çarpım biçimlerine çevrildi, mutlak
+          ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -79,6 +82,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler bileşen karışıklığına dayalı çarpım biçimlerine çevrildi, mutlak ifadeler kaldırıldı'
 - id: SMMM-TAB-KAR-0008
   sinav: smmm
   bolum:
@@ -175,20 +182,21 @@
   zorluk: 1
   kok: Varlık kârlılığı ile özkaynak kârlılığı arasındaki farkı en doğru açıklayan seçenek hangisidir?
   secenekler:
-    A: Özkaynak kârlılığı her zaman varlık kârlılığına eşittir.
-    B: Varlık kârlılığı yalnızca özkaynakları esas alır.
-    C: İki oran da net satışları kısa vadeli borçlara böler.
-    D: Varlık kârlılığı stok devir hızının başka adıdır.
-    E: Özkaynak kârlılığı net kârı özkaynaklarla; varlık kârlılığı net kârı toplam varlıklarla ilişkilendirir.
+    A: Varlık kârlılığı net kârın özkaynaklara, özkaynak kârlılığı toplam varlıklara oranıdır
+    B: Özkaynak kârlılığı, net kârın toplam yabancı kaynaklara oranı olarak hesaplanır
+    C: Her iki oranın paydasında da net satışlar yer alır
+    D: Varlık kârlılığı, net kârın dönen varlıklara oranı olarak hesaplanır
+    E: Özkaynak kârlılığının paydası özkaynak, varlık kârlılığının paydası toplam varlıklardır
   dogru: E
   aciklama:
-    dogru_neden: Varlık kârlılığı işletmenin varlık tabanına, özkaynak kârlılığı ortakların özkaynak yatırımına
-      göre kârlılığı ölçer.
+    dogru_neden: Özkaynak kârlılığı net kârı özkaynaklara, varlık kârlılığı ise net kârı toplam varlıklara oranlar;
+      ilki ortakların yatırımına, ikincisi varlık tabanına göre kârlılığı gösterir.
     celdiriciler:
-      A: Finansal kaldıraç nedeniyle oranlar farklılaşabilir.
-      B: Varlık kârlılığı toplam varlıkları esas alır.
-      C: Bu likidite veya devir oranı değildir.
-      D: Stok devir hızı farklı bir göstergedir.
+      A: Paydalar yer değiştirmiştir; varlık kârlılığının paydası toplam varlıklar, özkaynak kârlılığının paydası
+        özkaynaklardır.
+      B: Özkaynak kârlılığının paydası yabancı kaynaklar değil özkaynaklardır.
+      C: Net satışlar bu oranların paydası değildir; payda varlık veya özkaynaktır.
+      D: Varlık kârlılığı toplam varlıkları esas alır; yalnız dönen varlıkları dikkate almaz.
   kaynaklar:
   - mevzuat: Finansal tablolar analizi — kârlılık oranları
     madde: Varlık ve özkaynak kârlılığı
@@ -198,7 +206,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -219,8 +227,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler payda karışıklığıyla yeniden yazıldı, mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -241,6 +250,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler payda karışıklığıyla yeniden yazıldı, mutlak ifadeler kaldırıldı'
 - id: SMMM-TAB-KAR-0010
   sinav: smmm
   bolum:

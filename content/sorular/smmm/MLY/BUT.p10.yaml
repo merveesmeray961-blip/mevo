@@ -95,21 +95,23 @@
   zorluk: 2
   kok: Operasyonel açık kavramını doğru açıklayan ifade aşağıdakilerden hangisidir?
   secenekler:
-    A: nominal faiz ödemelerinin enflasyonun borç stokunun reel değerini aşındıran kısmı ayıklandıktan sonraki bütçe
-      açığı ölçüsüdür
-    B: bütçe açığının yalnızca yerel yönetimlere ait kısmıdır
-    C: borç anaparasının tamamının bütçe geliri sayılmasıdır
-    D: yalnızca faiz dışı harcamalar ile vergi gelirleri arasındaki farktır
-    E: enflasyonun borç stokuna etkisini dikkate almayan toplam nakit fazlasıdır
+    A: Nominal bütçe açığından, enflasyonun borç stokunun reel değerini aşındıran kısmı çıkarıldıktan sonra kalan
+      açıktır
+    B: Bütçe açığından faiz ödemelerinin tamamı çıkarıldıktan sonra kalan, faiz dışı bütçe dengesini gösteren açıktır
+    C: Nominal bütçe açığına, enflasyonun borç stokunun reel değerini aşındıran kısmı eklenerek bulunan açıktır
+    D: Sermaye harcamalarının cari gelirlerle karşılanamayan kısmından doğan, altın kurala dayalı açıktır
+    E: Borç anapara ödemeleri de dahil edilerek hesaplanan toplam kamu finansman ihtiyacını gösteren açıktır
   dogru: A
   aciklama:
-    dogru_neden: 'Operasyonel açık: nominal faiz ödemelerinin enflasyonun borç stokunun reel değerini aşındıran
-      kısmı ayıklandıktan sonraki bütçe açığı ölçüsüdür'
+    dogru_neden: Operasyonel açık, nominal bütçe açığından enflasyonun borç stokunun reel değerini aşındıran kısmı
+      çıkarılarak bulunur; böylece faizin enflasyon kaynaklı bileşeni ayıklanmış olur.
     celdiriciler:
-      B: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      C: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      D: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      E: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
+      B: Faiz ödemelerinin tamamının çıkarılmasıyla bulunan açık birincil (faiz dışı) açıktır; operasyonel açık
+        değildir.
+      C: Enflasyonun aşındırıcı etkisi nominal açığa eklenmez, çıkarılır; işlem yönü ters kurulmuştur.
+      D: Altın kural, borçlanmanın yatırım harcamalarıyla sınırlanmasını öngörür; operasyonel açığın tanımı değildir.
+      E: Anapara ödemeleri finansman kalemidir; operasyonel açık toplam finansman ihtiyacını değil enflasyondan
+        arındırılmış açığı gösterir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Maliye teorisi — genel kabul görmüş kavram
@@ -120,7 +122,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -141,8 +143,10 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler yakın kavramlarla (birincil açık, altın kural, işlem yönü hatası)
+          yeniden yazıldı, uzunluklar dengelendi, mutlak ifade kalmadı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -163,6 +167,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler yakın kavramlarla (birincil açık, altın kural, işlem yönü hatası) yeniden yazıldı,
+      uzunluklar dengelendi, mutlak ifade kalmadı'
 - id: SMMM-MLY-BUT-0034
   sinav: smmm
   bolum:
@@ -173,23 +182,23 @@
   kazanim: borç dinamiği
   tip: uygulama
   zorluk: 3
-  kok: Borç dinamiği kavramını doğru açıklayan ifade aşağıdakilerden hangisidir?
+  kok: Borç/GSYH oranının dinamiğine ilişkin aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: reel büyüme faiz oranını aştığında borç oranı her durumda yükselir
-    B: birincil fazla borç oranını artıran tek unsurdur
-    C: GSYH büyümesi borç/GSYH oranının paydasını etkilemez
-    D: reel faiz oranı büyüme oranını aştığında, diğer koşullar sabitken mevcut borç/GSYH oranı üzerinde artırıcı
-      baskı oluşur; birincil fazla bu baskıyı azaltır
-    E: borç oranı yalnızca nominal faiz oranıyla belirlenir
+    A: Reel faiz oranı büyüme oranından düşükse bile borç oranını sabit tutmak için birincil fazla vermek gerekir
+    B: Birincil fazla verilse bile reel faiz oranı büyüme oranını aştığı sürece borç oranı yükselmeye devam eder
+    C: Reel büyüme hızının artması borç/GSYH oranının paydasını küçülttüğü için oranı yükseltici etki yapar
+    D: Reel faiz oranı büyümeyi aştığında, diğer koşullar sabitken borç/GSYH oranı artma eğilimi gösterir; birincil
+      fazla bu eğilimi azaltır
+    E: Borç oranının artması için birincil açık verilmesi şarttır; faiz ve büyüme oranları sonucu etkilemez
   dogru: D
   aciklama:
-    dogru_neden: 'Borç dinamiği: reel faiz oranı büyüme oranını aştığında, diğer koşullar sabitken mevcut borç/GSYH
-      oranı üzerinde artırıcı baskı oluşur; birincil fazla bu baskıyı azaltır'
+    dogru_neden: 'Borç dinamiğinde Δb ≈ (r − g)·b − s ilişkisi geçerlidir: r > g iken borç oranı artma eğilimindedir,
+      birincil fazla (s) bu artışı azaltır.'
     celdiriciler:
-      A: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      B: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      C: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      E: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
+      A: r < g iken (r − g)·b negatiftir; borç oranı küçük bir birincil açıkla bile sabit kalabilir veya düşebilir.
+      B: Yeterince büyük bir birincil fazla, r > g iken de borç oranını sabitleyebilir veya düşürebilir.
+      C: Büyümenin artması GSYH'yi yani paydayı büyütür ve borç oranını düşürücü etki yapar.
+      E: Borç oranı faiz ve büyüme farkından da etkilenir; birincil açık yokken de r > g ile oran yükselebilir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Maliye teorisi — genel kabul görmüş kavram
@@ -200,7 +209,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -221,8 +230,10 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: çeldiriciler faiz-büyüme farkı ve birincil denge yorumuna ilişkin akla yatkın
+          hatalarla yazıldı; mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -243,6 +254,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: çeldiriciler faiz-büyüme farkı ve birincil denge yorumuna ilişkin akla yatkın hatalarla yazıldı;
+      mutlak ifadeler kaldırıldı'
 - id: SMMM-MLY-BUT-0035
   sinav: smmm
   bolum:
@@ -256,32 +272,31 @@
   kok: 'Borç dinamiği hakkında aşağıdaki öncülleri değerlendiriniz.
 
 
-    I. reel faiz oranı büyüme oranını aştığında, diğer koşullar sabitken mevcut borç/GSYH oranı üzerinde artırıcı
-    baskı oluşur; birincil fazla bu baskıyı azaltır
+    I. Reel faiz oranının büyüme oranını aştığı durumda, diğer koşullar sabitken borç/GSYH oranı artma eğilimi gösterir.
 
 
-    II. reel büyüme faiz oranını aştığında borç oranı her durumda yükselir
+    II. Borç/GSYH oranını sabit tutmak için gereken birincil fazla, reel faiz ile büyüme oranı arasındaki farktan
+    bağımsızdır.
 
 
-    III. birincil fazla borç oranını artıran tek unsurdur
+    III. Reel faiz oranı büyümeyi aştığında, borç oranının düşmesi için birincil dengenin sıfır olması yeterlidir.
 
 
     Hangisi doğrudur?'
   secenekler:
     A: Yalnız I
     B: Yalnız II
-    C: I ve II
-    D: I ve III
+    C: I ve III
+    D: II ve III
     E: I, II ve III
   dogru: A
   aciklama:
-    dogru_neden: 'Borç dinamiği: reel faiz oranı büyüme oranını aştığında, diğer koşullar sabitken mevcut borç/GSYH
-      oranı üzerinde artırıcı baskı oluşur; birincil fazla bu baskıyı azaltır'
+    dogru_neden: Δb ≈ (r − g)·b − s olduğundan r > g iken borç oranı artma eğilimindedir; yalnız I doğrudur.
     celdiriciler:
-      B: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      C: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      D: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      E: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
+      B: Borç oranını sabitlemek için gereken birincil fazla s = (r − g)·b olup faiz-büyüme farkına bağlıdır.
+      C: r > g iken birincil dengenin sıfır olması borç oranını düşürmez; oran artma eğilimini sürdürür.
+      D: 'II ve III yanlıştır: gereken fazla (r − g) farkına bağlıdır ve sıfır birincil denge r > g iken yetmez.'
+      E: II ve III yanlış olduğundan üçünün birlikte doğru olması mümkün değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Maliye teorisi — genel kabul görmüş kavram
@@ -292,7 +307,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -313,8 +328,9 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: II ve III akla yatkın hatalara çevrildi, şıklar çeşitlendirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -329,6 +345,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kalite hakemi + bağımsız çözücü (kaynaklı) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: II ve III akla yatkın hatalara çevrildi, şıklar çeşitlendirildi'
 - id: SMMM-MLY-BUT-0036
   sinav: smmm
   bolum:
@@ -339,51 +359,49 @@
   kazanim: bütçe ilkeleri ve türleri (5018)
   tip: uygulama
   zorluk: 2
-  kok: '5018 sayılı Kanun kapsamında bütçe ilkeleri ve türleri hakkında aşağıdaki öncülleri değerlendiriniz.
+  kok: '5018 sayılı Kanun kapsamında bütçe türleri hakkında aşağıdaki öncülleri değerlendiriniz.
 
 
-    I. genel yönetim bütçeleri merkezî yönetim, sosyal güvenlik kurumları ve mahallî idare bütçeleri olarak hazırlanır
-    ve uygulanır
+    I. Genel yönetim kapsamındaki idarelerin bütçeleri; merkezî yönetim bütçesi, sosyal güvenlik kurumları bütçeleri
+    ve mahallî idareler bütçeleri olarak hazırlanır ve uygulanır.
 
 
-    II. merkezî yönetim bütçesi yalnızca genel bütçeden oluşur
+    II. Merkezî yönetim bütçesi yalnız genel bütçe ile özel bütçelerden oluşur.
 
 
-    III. kamu idareleri kanunda sayılanların dışında sınırsız sayıda bütçe oluşturabilir
+    III. Kamu idareleri, ihtiyaç duyduğunda Kanunda sayılan bütçelerin dışında kendi adlarıyla ayrı bir bütçe oluşturabilir.
 
 
     Hangisi doğrudur?'
   secenekler:
     A: Yalnız I
     B: Yalnız II
-    C: I ve II
-    D: I ve III
+    C: I ve III
+    D: II ve III
     E: I, II ve III
   dogru: A
   aciklama:
-    dogru_neden: '5018 sayılı Kanun kapsamında bütçe ilkeleri ve türleri: genel yönetim bütçeleri merkezî yönetim,
-      sosyal güvenlik kurumları ve mahallî idare bütçeleri olarak hazırlanır ve uygulanır'
+    dogru_neden: 5018 sayılı Kanun md. 12'ye göre genel yönetim bütçeleri merkezî yönetim, sosyal güvenlik kurumları
+      ve mahallî idare bütçeleri olarak hazırlanır; yalnız I doğrudur.
     celdiriciler:
-      B: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      C: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      D: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      E: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
+      B: Merkezî yönetim bütçesi genel bütçe ve özel bütçelerin yanında düzenleyici ve denetleyici kurum bütçelerinden
+        de oluşur.
+      C: Kanun, kamu idarelerinin sayılan bütçeler dışında herhangi bir ad altında bütçe oluşturmasını yasaklar;
+        III yanlıştır.
+      D: II eksik, III Kanuna aykırıdır; her ikisi de yanlış olduğundan bu seçenek doğru değildir.
+      E: II ve III yanlış öncüller içerdiğinden üçünün birlikte doğru olması mümkün değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5018 sayılı Kamu Malî Yönetimi ve Kontrol Kanunu
     madde: md. 12
-    alinti: 'Madde 12- Genel yönetim kapsamındaki idarelerin bütçeleri; merkezî yönetim bütçesi, sosyal güvenlik
-      kurumları bütçeleri ve mahallî idareler bütçeleri olarak hazırlanır ve uygulanır. Kamu idarelerince bunlar
-      dışında herhangi bir ad altında bütçe oluşturulamaz. Merkezî yönetim bütçesi, bu Kanuna ekli (I), (II) ve
-      (III) sayılı cetvellerde yer alan kamu idarelerinin bütçelerinden oluşur. Genel bütçe, Devlet tüzel kişiliğine
-      dahil olan ve bu Kanuna ekli (I) sayılı cetvelde yer alan kamu idarelerinin bütçesidir. Özel bütçe, bir bakanlığa
-      bağlı veya ilgili olarak belirli bir kamu hizmetini '
+    alinti: Kamu idarelerince bunlar dışında herhangi bir ad altında bütçe oluşturulamaz. Merkezî yönetim bütçesi,
+      bu Kanuna ekli (I), (II) ve (III) sayılı cetvellerde yer alan kamu idarelerinin bütçelerinden oluşur.
   gecerlilik:
     baslangic: '2006-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -404,8 +422,10 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R3: II ve III md.12''ye dayanan akla yatkın hatalara çevrildi; alıntı birebir ve
+          tam cümlelerle değiştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -420,6 +440,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kalite hakemi + bağımsız çözücü (kaynaklı) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R3: II ve III md.12''ye dayanan akla yatkın hatalara çevrildi; alıntı birebir ve tam cümlelerle değiştirildi'
 - id: SMMM-MLY-BUT-0037
   sinav: smmm
   bolum:
@@ -433,32 +457,31 @@
   kok: 'Operasyonel açık hakkında aşağıdaki öncülleri değerlendiriniz.
 
 
-    I. nominal faiz ödemelerinin enflasyonun borç stokunun reel değerini aşındıran kısmı ayıklandıktan sonraki bütçe
-    açığı ölçüsüdür
+    I. Nominal bütçe açığından, enflasyonun borç stokunun reel değerini aşındıran kısmı çıkarılarak bulunur.
 
 
-    II. yalnızca faiz dışı harcamalar ile vergi gelirleri arasındaki farktır
+    II. Bütçe açığından faiz ödemelerinin tamamı çıkarılarak hesaplanır.
 
 
-    III. bütçe açığının yalnızca yerel yönetimlere ait kısmıdır
+    III. Nominal bütçe açığına, enflasyonun borç stokunu aşındıran kısım eklenerek hesaplanır.
 
 
     Hangisi doğrudur?'
   secenekler:
     A: Yalnız I
     B: Yalnız II
-    C: I ve II
-    D: I ve III
+    C: I ve III
+    D: II ve III
     E: I, II ve III
   dogru: A
   aciklama:
-    dogru_neden: 'Operasyonel açık: nominal faiz ödemelerinin enflasyonun borç stokunun reel değerini aşındıran
-      kısmı ayıklandıktan sonraki bütçe açığı ölçüsüdür'
+    dogru_neden: Operasyonel açık, nominal açıktan enflasyonun borç stokunun reel değerini aşındıran kısmı çıkarılarak
+      bulunur; yalnız I doğrudur.
     celdiriciler:
-      B: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      C: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      D: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
-      E: Bu seçenek, kavramın tanımındaki temel ilişkiyi veya sınıflandırma ölçütünü yanlış kurmaktadır.
+      B: Faiz ödemelerinin tamamının çıkarılmasıyla birincil açık bulunur; operasyonel açık değildir.
+      C: Enflasyon etkisi nominal açığa eklenmez, çıkarılır; III işlem yönünü ters kurmaktadır.
+      D: II birincil açığı, III ters işlemi tanımlar; ikisi de operasyonel açığı doğru açıklamaz.
+      E: II ve III yanlış olduğundan üç öncülün birlikte doğru olması mümkün değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Maliye teorisi — genel kabul görmüş kavram
@@ -469,7 +492,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -490,8 +513,10 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: II (birincil açık karışıklığı) ve III (işlem yönü hatası) akla yatkın yanlışlara
+          çevrildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -506,3 +531,7 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kalite hakemi + bağımsız çözücü (kaynaklı) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: II (birincil açık karışıklığı) ve III (işlem yönü hatası) akla yatkın yanlışlara çevrildi'

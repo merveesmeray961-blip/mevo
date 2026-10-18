@@ -12,37 +12,40 @@
   kok: Bir fabrikada bakım atölyesi üretim makinelerine, yemekhane ise çalışanlara hizmet vermektedir. Maliyet muhasebesi
     sorumlusu bu birimleri gider yeri planına alırken aşağıdaki yaklaşımlardan hangisini esas almalıdır?
   secenekler:
-    A: Yalnız satış yapılan yerleri gider yeri saymalıdır.
-    B: Gider yerlerini yalnız bina katlarına göre belirlemelidir.
-    C: Organizasyon yapısını esas almalı, faaliyet ve teknolojik akışa uygun alt gider yerleri açabilmelidir.
-    D: Yalnız esas üretim gider yerleri tanımlanmalıdır.
-    E: Yardımcı hizmet birimleri gider yeri planına alınmamalıdır.
+    A: Bu birimleri dönem gideri sayıp gider yeri planı dışında tutmalıdır.
+    B: Hizmet verdikleri birimlerin gider yerlerine dahil edip ayrı gider yeri açmamalıdır.
+    C: Organizasyon şemasını esas alıp faaliyet alanı ve teknolojik akışa uygun alt gider yerleri açmalıdır.
+    D: Gider yerlerini giderlerin çeşidine göre (işçilik, malzeme, amortisman) belirlemelidir.
+    E: Gider yerlerini mamul türlerine göre belirleyip her mamul için ayrı gider yeri açmalıdır.
   dogru: C
   aciklama:
-    dogru_neden: Gider yerlerinin belirlenmesinde genellikle organizasyon şeması esas alınır; faaliyet alanı ve teknolojik
-      akışa uygun gider yerleri ana gruplar altında açılabilir.
+    dogru_neden: Gider yerlerinin saptanmasında genellikle kuruluşun organizasyon şeması esas alınır. Kuruluşlar
+      işletme faaliyet alanı ile faaliyetin teknolojik akımına uygun gider yerleri açabilir; bu yerler verilen ana
+      grup başlıkları altında yer alır.
     celdiriciler:
-      A: Gider yerleri yalnız satış noktalarıyla sınırlı değildir.
-      B: Kaynak bina katlarını ölçüt olarak koymaz.
-      D: Gider yeri türleri esas üretimle sınırlı değildir.
-      E: Yardımcı hizmet gider yerleri de listelenmiştir.
+      A: Yardımcı üretim ve hizmet birimleri de gider yerleri arasında sayılır; dönem gideri sayılarak plan dışında
+        bırakılmaz.
+      B: Yardımcı hizmet birimleri ayrı bir gider yeri grubudur; hizmet verilen birimlere dahil edilerek ayrı yer
+        açılmaması gerekmez.
+      D: Giderlerin çeşidine göre ayrım gider çeşitleri hesaplarıyla yapılır; gider yeri örgütsel birimdir.
+      E: Gider yerleri mamul türlerine değil, üretim ve hizmetlerin yapıldığı örgütsel birimlere göre belirlenir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
     madde: 10-99 Gider Yerleri
-    alinti: Gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu, örgütün bir birimini ya da birim içindeki
-      bir yeri ifade eder.
+    alinti: Gider yerlerinin saptanmasında genellikle kuruluşların organizasyon şeması esas alınır.
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
-    madde: Gider yerlerinin bölümlenmesi
-    alinti: Gider yerlerinin bölümlenmesinde yukarıda verilen gider yerleri gruplanması esas olmakla beraber, kuruluşların
-      işletme faaliyet alanı ile faaliyetin teknolojik akımına uygun olarak açılacak gider yerleri, bu verilen ana grup başlıkları
-      altında yer alabilir.
+    madde: 10-99 Gider Yerleri
+    alinti: Gider yerlerinin bölümlenmesinde yukarıda verilen gider yerleri gruplanması esas olmakla
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 10-99 Gider Yerleri
+    alinti: '- Yardımcı hizmet gider yerleri'
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -63,8 +66,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: çeldiriciler gider yeri belirlemede akla yatkın yaklaşım hataları (dönem gideri
+          sayma, gider yerine dahil etme, çeşit/mamul esası); doğru şık kısaltıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -79,6 +84,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: çeldiriciler gider yeri belirlemede akla yatkın yaklaşım hataları (dönem gideri sayma, gider
+      yerine dahil etme, çeşit/mamul esası); doğru şık kısaltıldı'
 - id: SMMM-MAL-SIP-0007
   sinav: smmm
   bolum:
@@ -90,8 +100,8 @@
   kazanim: GÜG yükleme oranı
   tip: bilgi
   zorluk: 2
-  kok: 'Sipariş maliyet sistemini uygulayan bir işletmede genel üretim giderlerinin yüklenmesiyle ilgili aşağıdaki ifadelerden
-    hangisi **yanlıştır**?
+  kok: 'Sipariş maliyet sistemini uygulayan bir işletmede genel üretim giderlerinin yüklenmesiyle ilgili aşağıdaki
+    ifadelerden hangisi **yanlıştır**?
 
     '
   secenekler:
@@ -102,8 +112,8 @@
     E: Fiili GÜG tutarı, yükleme oranı ile fiili faaliyet hacminin çarpımıdır.
   dogru: E
   aciklama:
-    dogru_neden: 'Fiili GÜG, dönem içinde gerçekleşen gerçek tutardır; yüklenen GÜG ise yükleme oranı × fiili hacimdir. E
-      ifadesi fiili GÜG’yi yanlış tanımlar. Püf noktaları: Fiili ile yüklenen ayrımı kritiktir.'
+    dogru_neden: 'Fiili GÜG, dönem içinde gerçekleşen gerçek tutardır; yüklenen GÜG ise yükleme oranı × fiili hacimdir.
+      E ifadesi fiili GÜG’yi yanlış tanımlar. Püf noktaları: Fiili ile yüklenen ayrımı kritiktir.'
     celdiriciler:
       A: Yükleme oranı formülü doğrudur.
       B: Fazla/eksik yükleme tanımı doğrudur.
@@ -112,8 +122,8 @@
   kaynaklar:
   - mevzuat: MSUGT 2-15
     madde: Maliyet hesaplama sistemleri
-    alinti: '"Maliyet hesaplama sistemleri (safha veya sipariş) ve stok değerleme yöntemleri (ağırlıklı ortalama maliyet,
-      ilk giren ilk çıkar, hareketli ortalama maliyet vs.. gibi)"'
+    alinti: '"Maliyet hesaplama sistemleri (safha veya sipariş) ve stok değerleme yöntemleri (ağırlıklı ortalama
+      maliyet, ilk giren ilk çıkar, hareketli ortalama maliyet vs.. gibi)"'
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
@@ -167,9 +177,10 @@
   kazanim: fazla/eksik yükleme
   tip: hesaplama
   zorluk: 3
-  kok: 'Sipariş maliyet sistemini uygulayan TY İşletmesi, genel üretim giderlerini makine saati üzerinden yüklemektedir. Yıl
-    başında tahmini GÜG 360.000 TL, tahmini makine saati 12.000 saat olarak belirlenmiştir. Yıl içinde fiili GÜG 385.000 TL,
-    fiili makine saati 11.500 saat gerçekleşmiştir. Fazla veya eksik yükleme tutarı kaç TL’dir ve ne yöndedir?
+  kok: 'Sipariş maliyet sistemini uygulayan TY İşletmesi, genel üretim giderlerini makine saati üzerinden yüklemektedir.
+    Yıl başında tahmini GÜG 360.000 TL, tahmini makine saati 12.000 saat olarak belirlenmiştir. Yıl içinde fiili
+    GÜG 385.000 TL, fiili makine saati 11.500 saat gerçekleşmiştir. Fazla veya eksik yükleme tutarı kaç TL’dir ve
+    ne yöndedir?
 
     '
   secenekler:
@@ -180,8 +191,8 @@
     E: 25.000 TL eksik yükleme
   dogru: D
   aciklama:
-    dogru_neden: 'Yükleme oranı = 360.000 / 12.000 = 30 TL/saat. Yüklenen GÜG = 11.500 × 30 = 345.000 TL. Fiili 385.000 −
-      345.000 = 40.000 TL eksik yükleme. Püf noktaları: Fiili > yüklenen ise eksik yüklemedir.'
+    dogru_neden: 'Yükleme oranı = 360.000 / 12.000 = 30 TL/saat. Yüklenen GÜG = 11.500 × 30 = 345.000 TL. Fiili
+      385.000 − 345.000 = 40.000 TL eksik yükleme. Püf noktaları: Fiili > yüklenen ise eksik yüklemedir.'
     celdiriciler:
       A: Farkı ters yönde ve yanlış tutarla alır.
       B: Tutar yanlış, yön doğru.
@@ -194,8 +205,8 @@
   kaynaklar:
   - mevzuat: MSUGT 2-15
     madde: Maliyet hesaplama sistemleri
-    alinti: '"Maliyet hesaplama sistemleri (safha veya sipariş) ve stok değerleme yöntemleri (ağırlıklı ortalama maliyet,
-      ilk giren ilk çıkar, hareketli ortalama maliyet vs.. gibi)"'
+    alinti: '"Maliyet hesaplama sistemleri (safha veya sipariş) ve stok değerleme yöntemleri (ağırlıklı ortalama
+      maliyet, ilk giren ilk çıkar, hareketli ortalama maliyet vs.. gibi)"'
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
@@ -251,30 +262,31 @@
   secenekler:
     A: I. dağıtımda giderler doğrudan ilgili gider yerlerine dağıtılır.
     B: II. dağıtımda yardımcı gider yerleri esas üretim yerlerine dağıtılır.
-    C: Kademeli dağıtımda yardımcı yerler arasında karşılıklı hizmet alışverişi dikkate alınmaz.
+    C: Kademeli dağıtımda yardımcı yerler arasındaki karşılıklı hizmetler eş anlı denklemlerle çözülür.
     D: Matematiksel dağıtımda yardımcı yerler arasındaki karşılıklı hizmetler denklemlerle çözülür.
     E: Doğrudan dağıtımda yardımcı yerler arası hizmetler yok sayılır.
   dogru: C
   aciklama:
-    dogru_neden: 'Kademeli (step-down) dağıtımda yardımcı yerler belirli bir sırayla dağıtılır ve karşılıklı hizmet kısmen
-      dikkate alınır; tamamen yok sayılmaz. C ifadesi yanlıştır. Püf noktaları: Matematiksel (karşılıklı) yöntem tam denklemi
-      çözer; kademeli yaklaşık çözüm verir.'
+    dogru_neden: Yardımcı yerler arasındaki karşılıklı hizmetlerin denklem sistemiyle eş anlı çözülmesi matematiksel
+      (karşılıklı) dağıtım yöntemidir. Kademeli dağıtımda yardımcı yerler belirli bir sırayla dağıtılır ve hizmetler
+      tek yönlü dikkate alınır; denklem sistemi kurulmaz. Bu nedenle C yanlıştır.
     celdiriciler:
-      A: I. dağıtım tanımı doğrudur.
-      B: II. dağıtım tanımı doğrudur.
-      D: Matematiksel yöntem tanımı doğrudur.
-      E: Doğrudan dağıtım tanımı doğrudur.
+      A: 'Doğru ifadedir: I. dağıtımda giderler doğrudan ilgili gider yerlerine dağıtılır.'
+      B: 'Doğru ifadedir: II. dağıtımda yardımcı gider yerlerinin toplamı esas üretim yerlerine dağıtılır.'
+      D: 'Doğru ifadedir: matematiksel yöntem karşılıklı hizmetleri denklemlerle çözer.'
+      E: 'Doğru ifadedir: doğrudan dağıtımda yardımcı yerler arası hizmetler dikkate alınmaz.'
+    hesap_adimlari: []
   kaynaklar:
   - mevzuat: MSUGT Tekdüzen Hesap Planı
     madde: Gider yerleri
-    alinti: Bu uygulamada yardımcı defterlerde izlenecek Gider Çeşitleri 0-9 sayılı hesaplarda, Gider Yerleri ise 10-99 sayılı
-      hesaplarda gösterildiği gibidir.
+    alinti: Bu uygulamada yardımcı defterlerde izlenecek Gider Çeşitleri 0-9 sayılı hesaplarda, Gider Yerleri ise
+      10-99 sayılı hesaplarda gösterildiği gibidir.
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -295,8 +307,11 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/anahtar: C ifadesi (''kademeli dağıtımda karşılıklı hizmet dikkate alınmaz'') tartışmalıydı
+          (kademeli yöntem hizmetleri tek yönlü dikkate alır); C kademeli yöntemi matematiksel yöntemle karıştıran
+          net biçimde yanlış bir ifadeyle değiştirildi, anahtar C kaldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -311,6 +326,12 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/anahtar: C ifadesi (''kademeli dağıtımda karşılıklı hizmet dikkate alınmaz'') tartışmalıydı (kademeli
+      yöntem hizmetleri tek yönlü dikkate alır); C kademeli yöntemi matematiksel yöntemle karıştıran net biçimde
+      yanlış bir ifadeyle değiştirildi, anahtar C kaldı'
 - id: SMMM-MAL-SIP-0010
   sinav: smmm
   bolum:
@@ -322,8 +343,8 @@
   kazanim: fazla/eksik yükleme
   tip: kavrama
   zorluk: 2
-  kok: Önceden saptanmış maliyet uygulamasında fiilî genel üretim giderleri ile maliyetlere yüklenen tutarların karşılaştırılması
-    yapılmaktadır. Aşağıdaki ifadelerden hangisi hesap gruplarının işlevini doğru ayırt eder?
+  kok: Önceden saptanmış maliyet uygulamasında fiilî genel üretim giderleri ile maliyetlere yüklenen tutarların
+    karşılaştırılması yapılmaktadır. Aşağıdaki ifadelerden hangisi hesap gruplarının işlevini doğru ayırt eder?
   secenekler:
     A: 732 bütçe farklarını, 733 verimlilik farklarını, 734 kapasite farklarını izler.
     B: 732 kapasite farklarını, 733 bütçe farklarını, 734 verimlilik farklarını izler.
@@ -332,8 +353,8 @@
     E: 734 hizmet üretim maliyeti yansıtma hesabıdır.
   dogru: A
   aciklama:
-    dogru_neden: Tekdüzen Hesap Planı'nda 732 Genel Üretim Giderleri Bütçe Farkları, 733 Genel Üretim Giderleri Verimlilik
-      Farkları ve 734 Genel Üretim Giderleri Kapasite Farkları olarak adlandırılmıştır.
+    dogru_neden: Tekdüzen Hesap Planı'nda 732 Genel Üretim Giderleri Bütçe Farkları, 733 Genel Üretim Giderleri
+      Verimlilik Farkları ve 734 Genel Üretim Giderleri Kapasite Farkları olarak adlandırılmıştır.
     celdiriciler:
       B: Üç hesabın işlevlerini birbirine karıştırır.
       C: 732 hesabı genel üretim giderleri bütçe farklarına ilişkindir.
@@ -342,8 +363,8 @@
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği, Tekdüzen Hesap Planı
     madde: 732-734 hesapları
-    alinti: 732. GENEL ÜRETİM GİDERLERİ BÜTÇE FARKLARI  733. GENEL ÜRETİM GİDERLERİ VERİMLİLİK FARKLARI  734. GENEL ÜRETİM
-      GİDERLERİ KAPASİTE FARKLARI
+    alinti: 732. GENEL ÜRETİM GİDERLERİ BÜTÇE FARKLARI  733. GENEL ÜRETİM GİDERLERİ VERİMLİLİK FARKLARI  734. GENEL
+      ÜRETİM GİDERLERİ KAPASİTE FARKLARI
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null

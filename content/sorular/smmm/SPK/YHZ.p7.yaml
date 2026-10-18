@@ -635,24 +635,30 @@
   kok: Bir yetkili kuruluş, müşterisiyle bireysel portföy yöneticiliği hizmeti için çerçeve sözleşme imzalamadan
     önce hangi değerlendirmeyi yapmak zorundadır?
   secenekler:
-    A: Yalnız müşterinin gelir düzeyini değerlendiren kredi testi
-    B: Müşterinin yalnız geçmiş işlem hacmini ölçen işlem testi
-    C: Müşterinin yalnız risk ve getiri tercihini belirleyen uygunluk testi
+    A: Müşterinin gelir düzeyi ile yatırım amaçlı varlığına ilişkin bilgilere dayanarak mali durumunu değerlendiren
+      test
+    B: Müşterinin geçmişte gerçekleştirdiği işlemlerin türü, hacmi ve sıklığına bakarak bilgi ve tecrübesini ölçen
+      test
+    C: Müşterinin yatırım süresi ile risk ve getiri tercihlerini belirleyerek yatırım amaçlarını saptayan test
     D: Müşterinin yatırım amaçları, mali durumu ile bilgi ve tecrübesinin sunulacak hizmetle uyumunu değerlendiren
       yerindelik testi
-    E: Yalnız profesyonel müşteri olup olmadığını belirleyen sınıflandırma testi
+    E: Müşterinin genel ya da profesyonel müşteri olarak sınıflandırılmasını belirleyen ve hizmeti buna göre şekillendiren
+      test
   dogru: D
   aciklama:
-    dogru_neden: Yatırım Hizmetleri ve Faaliyetleri Tebliği md. 40/1'e göre yetkili kuruluşun müşteriye bireysel
-      portföy yöneticiliği veya yatırım danışmanlığı hizmeti sunmak üzere çerçeve sözleşme imzalamasından önce yerindelik
-      testi uygulaması zorunludur. Test, hizmet ile müşterinin yatırım amaçları, mali durumu ve bilgi ve tecrübesinin
-      uyumlu olup olmadığını değerlendirir.
+    dogru_neden: Yatırım Hizmetleri ve Faaliyetleri Tebliği md. 40/1'e göre yetkili kuruluşun bireysel portföy yöneticiliği
+      veya yatırım danışmanlığı hizmeti sunmak üzere çerçeve sözleşme imzalamasından önce yerindelik testi uygulaması
+      zorunludur. Test, hizmet ile müşterinin yatırım amaçları, mali durumu ve bilgi ve tecrübesinin uyumlu olup
+      olmadığını değerlendirir.
     celdiriciler:
-      A: Yerindelik testi yalnız gelir düzeyini değil yatırım amaçları, mali durum ve bilgi-tecrübeyi birlikte değerlendirir.
-      B: Geçmiş işlem hacmi testte dikkate alınabilecek bir bilgi olsa da test yalnız bundan ibaret değildir.
-      C: Yerindelik testi, yalnız risk ve getiri tercihini belirleyen bir test değildir.
-      E: Profesyonel müşteri olup olmama bilgisi değerlendirmede yer alabilse de testin tamamı bu sınıflandırmadan
-        ibaret değildir.
+      A: Mali durum değerlendirmesi (md. 40/2-b) testin yalnız bir unsurudur; test yatırım amaçları ile bilgi ve
+        tecrübeyi de kapsar.
+      B: Geçmiş işlemler bilgi ve tecrübe değerlendirmesinde kullanılır (md. 40/2-c); test yatırım amaçları ile
+        mali durumu da kapsar.
+      C: Yatırım süresi ile risk ve getiri tercihleri yatırım amaçlarına ilişkin bilgilerdir (md. 40/2-a); test
+        mali durum ile bilgi ve tecrübeyi de değerlendirir.
+      E: Genel veya profesyonel müşteri olmak bilgi ve tecrübe bilgilerinden biridir (md. 40/2-c); testin tamamı
+        bu sınıflandırmadan ibaret değildir.
   kaynaklar:
   - mevzuat: Yatırım Hizmetleri ve Faaliyetleri ile Yan Hizmetlere İlişkin Esaslar Hakkında Tebliğ (III-37.1)
     madde: md. 40/1
@@ -660,12 +666,15 @@
       üzere çerçeve sözleşmesi imzalamasından önce “yerindelik testi” uygulaması zorunludur. Yerindelik testi, bireysel
       portföy yöneticiliği veya yatırım danışmanlığı kapsamında müşteriye sunulacak hizmet ile müşterinin yatırım
       amaçları, mali durumu ile bilgi ve tecrübesinin uyumlu olup olmadığının yetkili kuruluşlar tarafından değerlendirilmesidir.
+  - mevzuat: Yatırım Hizmetleri ve Faaliyetleri ile Yan Hizmetlere İlişkin Esaslar Hakkında Tebliğ (III-37.1)
+    madde: md. 40/2
+    alinti: Müşterinin yatırım amaçlarına ilişkin olarak; yatırım süresi ile risk ve getiri tercihleri.
   gecerlilik:
     baslangic: '2014-07-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -686,8 +695,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). yerindelik testi'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler yerindelik testinin alt unsurlarından (md. 40/2) türetilen eksik tanımlarla
+          yenilendi; R5/R6 giderildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -702,6 +713,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler yerindelik testinin alt unsurlarından (md. 40/2) türetilen eksik tanımlarla yenilendi;
+      R5/R6 giderildi'
 - id: SMMM-SPK-YHZ-0011
   sinav: smmm
   bolum:
@@ -985,19 +1001,22 @@
     çerçeve sözleşmesi imzalamadan önce hangi uygulamayı yapmak zorundadır?
   secenekler:
     A: Uygunluk testi
-    B: Likidite testi
-    C: Temerrüt testi
-    D: Stres testi
+    B: Müşteri risk profili anketi
+    C: Yatırım bilgi düzeyi sınavı
+    D: Mali yeterlilik belgesi incelemesi
     E: Yerindelik testi
   dogru: E
   aciklama:
     dogru_neden: III-37.1 sayılı Tebliğ md. 40/1'e göre yetkili kuruluşun bireysel portföy yöneticiliği veya yatırım
-      danışmanlığı hizmeti sunmak üzere çerçeve sözleşmesi imzalamadan önce yerindelik testi uygulaması zorunludur.
+      danışmanlığı hizmeti sunmak üzere çerçeve sözleşmesi imzalamasından önce yerindelik testi uygulaması zorunludur.
     celdiriciler:
-      A: Md. 40'ta bu hizmetler için zorunlu uygulama olarak 'uygunluk testi' değil 'yerindelik testi' belirtilmiştir.
-      B: Tebliğin 40 ıncı maddesi likidite testi öngörmez.
-      C: Temerrüt testi bu hükümde yer almamaktadır.
-      D: Tebliğin 40 ıncı maddesi stres testi yapılmasını düzenlemez.
+      A: Md. 40/1 bu hizmetler için yerindelik testini zorunlu kılar; uygunluk testi bu hükmün yerini almaz.
+      B: Risk ve getiri tercihleri yerindelik testinin bir bileşeni olabilir; ancak md. 40/1 zorunlu uygulama olarak
+        testin kendisini sayar, ayrı bir anketi değil.
+      C: Bilgi ve tecrübe yerindelik testi kapsamında değerlendirilir; md. 40/1 ayrı bir sınav değil, yerindelik
+        testini zorunlu kılar.
+      D: Mali durum bilgisi yerindelik testi kapsamında alınır (md. 40/2-b); ayrı bir belge incelemesi md. 40/1'in
+        öngördüğü uygulama değildir.
   kaynaklar:
   - mevzuat: Yatırım Hizmetleri ve Faaliyetleri ile Yan Hizmetlere İlişkin Esaslar Hakkında Tebliğ (III-37.1)
     madde: md. 40/1
@@ -1008,7 +1027,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1029,8 +1048,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). yerindelik testi'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler yerindelik testiyle karıştırılabilecek test/anket adlarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1051,6 +1071,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler yerindelik testiyle karıştırılabilecek test/anket adlarıyla yenilendi'
 - id: SMMM-SPK-YHZ-0015
   sinav: smmm
   bolum:

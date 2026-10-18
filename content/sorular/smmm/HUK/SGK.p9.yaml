@@ -1042,23 +1042,24 @@
   kazanim: sigorta kolları
   tip: uygulama
   zorluk: 2
-  kok: Bir sigortalı aynı olay nedeniyle geçici bir sağlık sorunu yaşamış, olay iş kazası niteliğinde değildir ve
-    doğumla da ilgisi yoktur. 5510 sayılı Kanunun kısa vadeli sigorta kolları bakımından hangi kol gündeme gelir?
+  kok: Bir sigortalı aynı olay nedeniyle geçici bir sağlık sorunu yaşamış, olay iş kazası veya meslek hastalığı
+    niteliğinde değildir ve doğumla da ilgisi yoktur. 5510 sayılı Kanunun kısa vadeli sigorta kolları bakımından
+    hangi kol gündeme gelir?
   secenekler:
-    A: Malûllük
-    B: Yaşlılık
-    C: Ölüm
-    D: Hastalık
-    E: Emeklilik
+    A: İş kazası ve meslek hastalığı
+    B: Analık sigortası kolu
+    C: Malûllük sigortası kolu
+    D: Hastalık sigortası kolu
+    E: Genel sağlık sigortası
   dogru: D
   aciklama:
     dogru_neden: 5510 md. 3/4, kısa vadeli sigorta kolları arasında iş kazası ve meslek hastalığı, hastalık ve analık
-      sigortalarını sayar. Kökte iş kazası ve analık dışlandığından hastalık kolu kalır.
+      sigortalarını sayar. Kökte iş kazası, meslek hastalığı ve analık dışlandığından hastalık kolu kalır.
     celdiriciler:
-      A: Malûllük uzun vadeli sigorta kollarındandır.
-      B: Yaşlılık uzun vadeli sigorta koludur.
-      C: Ölüm uzun vadeli sigorta koludur.
-      E: Kanunda 'emeklilik' bağımsız bir kısa vadeli sigorta kolu olarak sayılmamıştır.
+      A: Olay iş kazası veya meslek hastalığı niteliğinde olmadığı için bu kol gündeme gelmez.
+      B: Olay doğumla ilgili olmadığından analık sigortası gündeme gelmez.
+      C: Malûllük uzun vadeli sigorta kollarındandır.
+      E: Genel sağlık sigortası md. 3/4'teki kısa vadeli sigorta kolları arasında sayılmamıştır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
@@ -1072,7 +1073,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1093,8 +1094,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kısa/uzun vade ayırımı dışındaki dolgu şıklar yerine iş kazası, analık, GSS gibi
+          yakın seçenekler getirildi; kök meslek hastalığını da dışlayacak biçimde netleştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1109,6 +1112,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kısa/uzun vade ayırımı dışındaki dolgu şıklar yerine iş kazası, analık, GSS gibi yakın seçenekler
+      getirildi; kök meslek hastalığını da dışlayacak biçimde netleştirildi'
 - id: SMMM-HUK-SGK-0062
   sinav: smmm
   bolum:
@@ -1382,20 +1390,19 @@
   kok: 5510 sayılı Kanun md. 3'teki “ücret” tanımına göre aşağıdaki ödemelerden hangisi bu tanımın unsurlarını birlikte
     taşır?
   secenekler:
-    A: Yalnız bir defaya mahsus masraf iadesi
-    B: Herhangi bir kişiye yapılan ayni hediye
-    C: Sadece prim olarak ve süreklilik olmadan yapılan ödeme
-    D: İşverence üçüncü kişiye yapılan kira ödemesi
-    E: 4/a sigortalısına saatlik çalışma karşılığında düzenli olarak para ile ödenen brüt tutar
+    A: Bir defaya mahsus yapılan masraf iadesi
+    B: 4/b kapsamındaki esnafın her ay düzenli elde ettiği kazanç
+    C: 4/a sigortalısına her ay düzenli olarak verilen ayni gıda yardımı
+    D: İşverence üçüncü bir kişiye yapılan kira ödemesi
+    E: 4/a sigortalısına her ay düzenli olarak para ile ödenen brüt maaş
   dogru: E
   aciklama:
     dogru_neden: 5510 md. 3/12 ücret; 4/a ve 4/c kapsamında sigortalılara saatlik, günlük, haftalık, aylık veya
       yıllık olarak para ile ödenen ve süreklilik niteliği taşıyan brüt tutarı ifade eder.
     celdiriciler:
-      A: Tek seferlik masraf iadesi, kanundaki düzenli ve süreklilik taşıyan para ödemesi tanımını karşılamaz.
-      B: Kanun ücret tanımını ayni hediye olarak değil, belirli sigortalılara para ile ödenen brüt tutar olarak
-        kurar.
-      C: Süreklilik niteliği taşımayan ödeme tanımın unsurlarından biridir.
+      A: Tek seferlik masraf iadesi, kanundaki süreklilik niteliği taşıyan para ödemesi tanımını karşılamaz.
+      B: 4/b kapsamındaki esnafın kazancı, tanımın kapsadığı 4/a ve 4/c sigortalılarına yapılan ödeme değildir.
+      C: Ayni yardım para ile ödenen tutar değildir; tanımın para ile ödenme unsurunu taşımaz.
       D: Ödemenin sigortalıya yapılması gerekir; üçüncü kişiye yapılan kira ödemesi bu tanıma girmez.
     hesap_adimlari: []
   kaynaklar:
@@ -1411,7 +1418,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1432,8 +1439,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler ücret tanımının tek bir unsurunu (süreklilik, bent, para, sigortalıya
+          ödeme) taşımayan akla yatkın ödemelerle yenilendi; mutlak ifadeler kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1448,6 +1457,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler ücret tanımının tek bir unsurunu (süreklilik, bent, para, sigortalıya ödeme)
+      taşımayan akla yatkın ödemelerle yenilendi; mutlak ifadeler kaldırıldı'
 - id: SMMM-HUK-SGK-0066
   sinav: smmm
   bolum:
@@ -3205,38 +3219,50 @@
   kazanim: idari para cezaları
   tip: uygulama
   zorluk: 1
-  kok: Aşağıdakilerden hangisi 5510 sayılı Kanun bakımından **yanlıştır**?
+  kok: İşyeri ve sigortalı bildirgelerine ilişkin idari yaptırımlar bakımından 5510 sayılı Kanunla ilgili aşağıdakilerden
+    hangisi **yanlıştır**?
   secenekler:
-    A: İşyeri bildirgesinin süresinde verilmemesi hâlinde idari para cezası uygulanabilir.
-    B: Kanunda öngörülen bazı bildirim yükümlülüklerinin yerine getirilmemesi 102 nci maddeye göre yaptırıma bağlanmıştır.
-    C: İşyeri bildirgesinin süresinde verilmemesi, hiçbir durumda idari para cezası uygulanmasına yol açmaz.
-    D: Sigortalı işe giriş bildirgesinin süresinde verilmemesi belirli hâllerde idari para cezasına konu olabilir.
-    E: İdari para cezasına ilişkin düzenleme 102 nci maddede yer almaktadır.
+    A: İşyeri bildirgesini kanundaki süre içinde Kuruma vermeyenlere 102 nci maddenin birinci fıkrasının (b) bendi
+      uyarınca idari para cezası uygulanır.
+    B: Sigortalı işe giriş bildirgesini kanunda belirtilen süre içinde vermeyenler hakkında her bir sigortalı için
+      102 nci maddenin birinci fıkrasının (a) bendi uyarınca idari para cezası uygulanır.
+    C: İşyeri bildirgesini süresinde vermeyen işverene uygulanacak idari para cezası, defter tutma durumuna bakılmaksızın
+      asgari ücretin üç katı tutarındadır.
+    D: İdari para cezasının uygulanması, işyeri bildirgesinin verilmesi yükümlülüğünü ortadan kaldırmaz.
+    E: İşyeri bildirgesinin verilmemesi veya geç verilmesi, Kanunda belirtilen hak ve yükümlülükleri ortadan kaldırmaz.
   dogru: C
   aciklama:
-    dogru_neden: 5510 sayılı Kanunun 11 inci maddeye ilişkin hükmü, işyeri bildirgesinin süresinde verilmemesi durumunda
-      102 nci maddeye göre idari para cezası uygulanacağını belirtir.
+    dogru_neden: İşyeri bildirgesine ilişkin idari para cezası md. 102/1-b'de kamu idareleri ile bilanço esasına
+      göre defter tutanlar için asgari ücretin üç katı, diğer defterleri tutanlar için iki katı, defter tutmakla
+      yükümlü olmayanlar için bir aylık asgari ücret olarak farklılaştırılmıştır. Bu nedenle ceza tutarının defter
+      tutma durumuna bakılmaksızın üç kat olduğu ifadesi yanlıştır.
     celdiriciler:
-      A: Kaynak hükümle uyumludur.
-      B: Bildirim yükümlülüklerinin yaptırıma bağlandığını ifade eder.
-      D: 102 nci madde kapsamındaki işe giriş bildirimi yaptırımına ilişkindir.
-      E: Yaptırımın temel maddesi 102 nci maddedir.
+      A: Md. 11 son fıkra, bu yükümlülüğü yerine getirmeyenler hakkında 102/1-b uyarınca idari para cezası uygulanacağını
+        belirtir.
+      B: Sigortalı işe giriş bildirgesinin süresinde verilmemesi md. 102/1-a kapsamında her bir sigortalı için idari
+        para cezasına bağlanmıştır.
+      D: Md. 11 son fıkra, idari para cezası uygulanmasının yükümlülüklerin yerine getirilmesine engel teşkil etmediğini
+        belirtir.
+      E: Md. 11 son fıkra, işyeri bildirgesinin verilmemesi veya geç verilmesinin Kanundaki hak ve yükümlülükleri
+        ortadan kaldırmadığını belirtir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
-    madde: md. 11/son; md. 102
-    alinti: "MADDE 11- İşyeri, sigortalı sayılanların maddî olan ve olmayan unsurlar ile birlikte\nişlerini yaptıkları\
-      \ yerlerdir.\n         İşyerinde üretilen mal veya verilen hizmet ile nitelik yönünden bağlılığı bulunan ve\n\
-      aynı yönetim altında örgütlenen işyerine bağlı yerler, dinlenme, çocuk emzirme, yemek, uyku,\nyıkanma, muayene\
-      \ ve bakım, beden veya meslek eğitimi yerleri, avlu ve büro gibi diğer\neklentiler ile araçlar da işyerinden\
-      \ sayılır.\n         İşveren, örneği Kurumca hazırlanacak işyeri bildirgesini en geç sigortalı çalıştırmaya\n\
-      başladığı tarihte, Kuruma vermekle yükümlüdür. (Değişik ikinci cümle:"
+    madde: md. 11/son
+    alinti: bu maddede belirtilen yükümlülükleri yerine getirmeyenler hakkında, 102 nci maddenin birinci fıkrasının
+      (b) bendi uyarınca idarî para cezası uygulanır.
+  - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
+    madde: md. 102/1-b
+    alinti: Kamu idareleri ile bilânço esasına göre defter tutmak zorunda olanlar için asgari ücretin üç katı tutarında,
+  - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
+    madde: md. 102/1-b
+    alinti: Defter tutmakla yükümlü olmayanlar için bir aylık asgari ücret tutarında,
   gecerlilik:
     baslangic: '2008-10-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3257,8 +3283,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: ''hiçbir durumda'' kaldırıldı; yanlış ifade defter tutma durumuna göre değişen
+          ceza tutarıyla kuruldu, çeldiriciler kaynağa uygun doğru ifadeler oldu'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3279,6 +3307,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: ''hiçbir durumda'' kaldırıldı; yanlış ifade defter tutma durumuna göre değişen ceza tutarıyla
+      kuruldu, çeldiriciler kaynağa uygun doğru ifadeler oldu'
 - id: SMMM-HUK-SGK-0088
   sinav: smmm
   bolum:
@@ -3295,18 +3328,18 @@
   secenekler:
     A: İlki 4/a, ikincisi 4/b kapsamındadır.
     B: İlki 4/b, ikincisi 4/a kapsamındadır.
-    C: Her ikisi 4/c kapsamındadır.
-    D: Her ikisi yalnız 4/a kapsamındadır.
-    E: Her ikisi yalnız 4/b kapsamındadır.
+    C: İlki 4/a kapsamındadır; ikinci faaliyet, birincisi nedeniyle ayrıca sigortalılık doğurmaz.
+    D: İlki 4/a kapsamındadır; ikinci faaliyet için ancak isteğe bağlı sigorta yaptırılabilir.
+    E: İlki 4/a, ikincisi 4/c kapsamındadır.
   dogru: A
   aciklama:
     dogru_neden: 5510 md. 4/1-a hizmet akdiyle işverene bağlı çalışmayı, 4/1-b ise hizmet akdine bağlı olmaksızın
-      kendi adına ve hesabına bağımsız çalışmayı kapsar.
+      kendi adına ve hesabına bağımsız çalışmayı kapsar; kişi iki faaliyeti nedeniyle ayrı bentlerde sigortalı sayılır.
     celdiriciler:
       B: Çalışma türlerini ters çevirmiştir.
-      C: Kamu görevliliğine ilişkin 4/c durumunu varsayar.
-      D: Bağımsız faaliyeti 4/a'ya taşır.
-      E: Hizmet akdine bağlı çalışmayı 4/b'ye taşır.
+      C: Ticari faaliyet nedeniyle gelir vergisi mükellefi olan kişi 4/b kapsamında ayrıca sigortalı sayılır.
+      D: Bağımsız faaliyet 4/b kapsamında sigortalılık doğurduğundan isteğe bağlı sigorta gündeme gelmez.
+      E: Kamu idarelerindeki çalışmaya ilişkin 4/c, ticari faaliyet için söz konusu değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
@@ -3322,7 +3355,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3343,8 +3376,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler ayrı sigortalılığın doğmadığı veya isteğe bağlı sigortaya yönlendirildiği
+          akla yatkın yanlışlarla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3359,6 +3394,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler ayrı sigortalılığın doğmadığı veya isteğe bağlı sigortaya yönlendirildiği akla yatkın
+      yanlışlarla yenilendi'
 - id: SMMM-HUK-SGK-0089
   sinav: smmm
   bolum:
@@ -3628,35 +3668,35 @@
     sağlık sigortalısı gruplarından biridir?
   secenekler:
     A: İsteğe bağlı sigortalı olan kişi
-    B: Kanundaki tüm sigortalılık kapsamları dışında olup GSS'den de yararlanmak istemeyen kişi
-    C: Türkiye'de hiç ikamet etmeyen ve başka bir bağlantısı olmayan kişi
-    D: Yalnızca özel sağlık sigortası yaptırmış kişi
-    E: Yalnızca işveren sıfatı bulunmayan kişi
+    B: Oturma izni almış olup yabancı bir ülke mevzuatı kapsamında sigortalı olan yabancı ülke vatandaşı
+    C: İkametgâhı Türkiye'de bulunmayan ve başka bir ülkede sağlık sigortası olmayan vatandaş
+    D: Genel sağlık sigortalısının bakmakla yükümlü olduğu kişi sayılan eş
+    E: Ceza infaz kurumunda bulunan hükümlü
   dogru: A
   aciklama:
-    dogru_neden: 5510 md. 60, ikametgâhı Türkiye'de olan kişiler arasında isteğe bağlı sigortalı olan kişileri GSS
-      kapsamındaki gruplar arasında sayar.
+    dogru_neden: 5510 md. 60/1-b, ikametgâhı Türkiye'de olan kişilerden isteğe bağlı sigortalı olan kişileri genel
+      sağlık sigortalısı sayar.
     celdiriciler:
-      B: Kaynak hüküm isteğe bağlı sigortalıyı açıkça sayar.
-      C: Md. 60'ın ikametgâh Türkiye şartıyla bağdaşmaz.
-      D: Özel sağlık sigortası tek başına md. 60'taki bu bendi oluşturmaz.
-      E: İşveren sıfatının bulunmaması tek başına GSS statüsü değildir.
+      B: Md. 60/1-d yabancı ülke vatandaşlarından yabancı bir ülke mevzuatı kapsamında sigortalı olmayanları sayar;
+        sigortalı olanlar bu gruba girmez.
+      C: Md. 60 ikametgâhı Türkiye'de olan kişileri kapsar; Türkiye'de ikametgâhı bulunmayan kişi bu gruba girmez.
+      D: Bakmakla yükümlü olunan kişi, md. 3/10'da ayrıca tanımlanmıştır; genel sağlık sigortalısı olarak md. 60'ta
+        sayılan gruplardan biri değildir.
+      E: Ceza infaz kurumlarındaki hükümlü ve tutuklular genel sağlık sigortalısı sayılmaz.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
     madde: md. 60/1-b
-    alinti: "MADDE 60- (Değişik: 17/4/2008-5754/38 md.)\n        İkametgahı Türkiye'de olan kişilerden;\n      \
-      \  a) 4 üncü maddenin birinci fıkrasının;\n        1) (a) ve (c) bentleri gereğince sigortalı sayılan kişiler,\n\
-      \        2) (b) bendi gereğince sigortalı sayılan kişiler,\n\n96\n  17/4/2008 tarihli ve 5754 sayılı Kanunun\
-      \ 65 inci maddesiyle; bu fıkrada yer alan “denetim ve kontrolle\ngörevlendirilmiş memurları,” ibaresi “denetim\
-      \ elemanları” şeklinde değiştirilmiştir.\n\f        b) İsteğe bağlı sigortalı olan kişiler,\n        c) Yukarıdaki\
-      \ (a) ve (b) bentlerine göre sigortalı sayılmayanlardan;\n        1) Harcam"
+    alinti: b) İsteğe bağlı sigortalı olan kişiler,
+  - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
+    madde: md. 60
+    alinti: ceza infaz kurumları ile tutukevleri bünyesinde bulunan hükümlü ve tutuklular
   gecerlilik:
     baslangic: '2008-10-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3677,8 +3717,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: bariz saçma ve mutlak ifadeli şıklar kaldırıldı; çeldiriciler md. 60/1-d, bakmakla
+          yükümlü olunan kişi ve hükümlü gibi akla yatkın gruplarla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3699,6 +3741,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: bariz saçma ve mutlak ifadeli şıklar kaldırıldı; çeldiriciler md. 60/1-d, bakmakla yükümlü olunan
+      kişi ve hükümlü gibi akla yatkın gruplarla yenilendi'
 - id: SMMM-HUK-SGK-0093
   sinav: smmm
   bolum:
@@ -4129,20 +4176,23 @@
   zorluk: 1
   kok: Aşağıdaki olaylardan hangisi 5510 sayılı Kanunun iş kazası tanımında açıkça sayılan hâllerden biridir?
   secenekler:
-    A: Sigortalının yıllık izin sırasında kendi aracıyla yaptığı özel yolculuk
-    B: Sigortalının işverence sağlanan taşıtla işin yapıldığı yere gidiş gelişi sırasında meydana gelen olay
-    C: Sigortalının emeklilikten sonra yaptığı hobi faaliyeti
-    D: Sigortalının iş sözleşmesi kurulmadan önce yaptığı özel faaliyet
-    E: Sigortalının işyeriyle ilgisiz bir tatil sırasında yaşadığı olay
+    A: Sigortalının işe giderken kendi özel aracıyla yaptığı yolculuk sırasında meydana gelen olay
+    B: Sigortalının işverence sağlanan taşıtla işin yapıldığı yere gidiş gelişi sırasında meydana gelen ve onu engelli
+      hâle getiren olay
+    C: Sigortalının öğle arasında işyeri dışında özel işi için bulunduğu sırada meydana gelen olay
+    D: Sigortalının görevlendirilmeksizin kendi isteğiyle gittiği yerde geçirdiği zamanda meydana gelen olay
+    E: Sigortalının işyerinden ayrıldıktan sonra evinde meydana gelen olay
   dogru: B
   aciklama:
     dogru_neden: 5510 md. 13/e, işverence sağlanan taşıtla işin yapıldığı yere gidiş geliş sırasında meydana gelen
-      ve sigortalıyı bedenen veya ruhen engelli hâle getiren olayı iş kazası kapsamında sayar.
+      ve sigortalıyı hemen veya sonradan bedenen ya da ruhen engelli hâle getiren olayı iş kazası kapsamında sayar.
     celdiriciler:
-      A: Yıllık izin sırasında özel yolculuk, tek başına md. 13'te sayılan hâl değildir.
-      C: Emeklilik sonrası hobi faaliyeti iş kazası tanımındaki sigortalılık bağından yoksundur.
-      D: Sözleşme öncesi özel faaliyet, kaynakta sayılan hâllerden değildir.
-      E: İşyeriyle ilgisiz tatil olayı md. 13'teki hâller arasında değildir.
+      A: Sigortalının kendi özel aracıyla yaptığı yolculuk, işverence sağlanan taşıt şartını taşımadığından md.
+        13'te sayılan hâl değildir.
+      C: İşyeri dışında özel iş için bulunma md. 13'te sayılan hâllerden değildir.
+      D: Md. 13/c işverence görevli olarak işyeri dışında başka yere gönderilmeyi arar; görevlendirme olmaksızın
+        gidilen yerde geçen zaman bu hâl değildir.
+      E: İşyeri ile ilgisi bulunmayan, evde meydana gelen olay md. 13'te sayılan hâller arasında değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
@@ -4158,7 +4208,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4179,8 +4229,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: bariz alakasız şıklar yerine md. 13''ün a-e bentlerine yakın akla yatkın durumlar
+          getirildi, şıklar dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4201,6 +4253,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: bariz alakasız şıklar yerine md. 13''ün a-e bentlerine yakın akla yatkın durumlar getirildi,
+      şıklar dengelendi'
 - id: SMMM-HUK-SGK-0099
   sinav: smmm
   bolum:
@@ -4885,19 +4942,19 @@
 
     Bu ödeme aşağıdakilerden hangisidir?'
   secenekler:
-    A: Ücret tanımının dışında kalır; çünkü yalnız 4/a kapsamındakiler için ücret söz konusudur.
+    A: Ücret tanımının dışında kalır; çünkü tanım 4/a kapsamındaki sigortalılar için öngörülmüştür.
     B: Ücret sayılır; çünkü 4/c kapsamındaki sigortalılara da süreklilik taşıyan brüt para ödemesi yapılmaktadır.
-    C: Ücret sayılır; ancak yalnız günlük ödeme yapılıyorsa bu sonuca ulaşılır.
-    D: Ücret tanımının dışında kalır; çünkü kamu idaresinden yapılan ödemeler hiçbir şekilde ücret değildir.
-    E: Ücret sayılır; fakat brüt değil net tutar esas alınır.
+    C: Ücret sayılır; ancak ödemenin ücret niteliği taşıması için günlük olarak yapılması gerekir.
+    D: Ücret tanımının dışında kalır; çünkü kamu idaresince yapılan ödemeler ücret niteliği taşımaz.
+    E: Ücret sayılır; ancak esas alınacak tutar brüt değil, sigortalıya fiilen ödenen net tutardır.
   dogru: B
   aciklama:
     dogru_neden: 5510 md. 3/1-12, ücret tanımını 4/a ve 4/c kapsamında sigortalı sayılanlara saatlik, günlük, haftalık,
-      aylık veya yıllık olarak para ile ödenen ve süreklilik niteliği taşıyan brüt tutar üzerinden kurar.
+      aylık veya yıllık olarak para ile ödenen ve süreklilik niteliği taşıyan brüt tutar üzerinden kurar. Bu kişi
+      4/c kapsamında olduğundan aylık düzenli brüt ödeme ücret sayılır.
     celdiriciler:
       A: 4/c de tanımın açıkça kapsamındadır; tanım yalnız 4/a ile sınırlı değildir.
-      C: Tanım ödeme dönemini yalnız günlükle sınırlamaz; saatlik, günlük, haftalık, aylık veya yıllık ödemeleri
-        kapsar.
+      C: Tanım ödeme dönemini günlükle sınırlamaz; saatlik, günlük, haftalık, aylık veya yıllık ödemeleri kapsar.
       D: Kamu idaresinden ödeme yapılması tek başına ücret niteliğini dışlamaz; 4/c açıkça tanımın içindedir.
       E: Tanım brüt tutarı esas alır; net tutar şeklinde düzenlenmemiştir.
   kaynaklar:
@@ -4910,7 +4967,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -4931,8 +4988,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: ''yalnız'' ve ''hiçbir şekilde'' ifadeleri kaldırıldı; çeldiriciler tanımın
+          unsurlarına (bent, dönem, net-brüt) yönelik akla yatkın yanlışlarla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -4947,6 +5006,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: ''yalnız'' ve ''hiçbir şekilde'' ifadeleri kaldırıldı; çeldiriciler tanımın unsurlarına (bent,
+      dönem, net-brüt) yönelik akla yatkın yanlışlarla yenilendi'
 - id: SMMM-HUK-SGK-0108
   sinav: smmm
   bolum:
@@ -5605,29 +5669,29 @@
   kazanim: bildirimler
   tip: kavrama
   zorluk: 1
-  kok: 5510 sayılı Kanuna göre sigortalılığın başlangıcı ile sona ermesine ilişkin bildirimleri karşılaştıran aşağıdaki
-    ifadelerden hangisi doğrudur?
+  kok: 5510 sayılı Kanun md. 9’a göre sigortalılığın sona ermesinin Kuruma bildirilmesi bakımından aşağıdakilerden
+    hangisi doğrudur?
   secenekler:
-    A: Sigortalının işe giriş bildirgesi, her durumda hizmet akdinin sona ermesinden sonra verilir; sona erme bildirimi
-      ise işe başlamadan önce yapılır.
-    B: 4/1-(a), (c) ve (d) bentlerine göre sigortalılığı sona erenlerin durumları, ilgili düzenlemedeki genel kurala
-      göre en geç on gün içinde Kuruma bildirilir.
-    C: 4/1-(a) kapsamındaki sigortalılığın sona ermesi Kuruma hiçbir zaman bildirilmez.
-    D: Sigortalılığın sona ermesi bildirimi için kanunda hiçbir süre öngörülmemiştir.
-    E: 4/1-(b) kapsamındaki sigortalılığın sona ermesi hâlinde bildirim her durumda üç ay içinde yapılır; on günlük
-      süre hiçbir durumda uygulanmaz.
+    A: Sigortalı işe giriş bildirgesi hizmet akdinin sona ermesinden sonra, sona erme bildirimi ise işe başlamadan
+      önce verilir.
+    B: Md. 9/1’in (a), (c) ve (d) bentlerine göre sigortalılığı sona erenlerin durumları işverenleri tarafından
+      en geç on gün içinde Kuruma bildirilir.
+    C: 4/1-(a) kapsamındaki sigortalılığın sona ermesi işveren tarafından değil, sigortalının kendisi tarafından
+      Kuruma bildirilir.
+    D: Sigortalılığın sona ermesi bildirimi için kanunda süre öngörülmemiş olup Kurumun denetimde tespitiyle yetinilir.
+    E: 4/1-(b) kapsamındaki sigortalılığın sona ermesi, ilgili kuruluşlar veya vergi daireleri tarafından üç ay
+      içinde bildirilir.
   dogru: B
   aciklama:
     dogru_neden: 5510 md. 9, birinci fıkranın (a), (c) ve (d) bentlerine göre sigortalılığı sona erenlerin durumlarının
-      işverenler tarafından en geç on gün içinde Kuruma bildirilmesini düzenler. Bu, işe giriş bildirgesinin başlangıçta
+      işverenleri tarafından en geç on gün içinde Kuruma bildirilmesini düzenler. Bu, işe giriş bildirgesinin başlangıçta
       verilmesi kuralından farklı bir bildirim yükümlülüğüdür.
     celdiriciler:
-      A: İşe giriş bildirgesi başlangıçtan önce verilmesi gereken bildirimdir; sona erme bildirimi bunun tersine
-        çevrilmiş değildir.
-      C: Md. 9, 4/a sona erenlerin durumunun bildirilmesini açıkça düzenler.
-      D: Md. 9 açıkça on günlük süre öngörür.
-      E: Md. 9/b ile sona erme şekline göre farklı düzenlemeler bulunsa da 4/a, 4/c ve 4/d için genel bildirim kuralı
-        on gündür.
+      A: İşe giriş bildirgesi başlangıçta verilir, sona erme bildirimi sona ermeden sonra yapılır; sıra ters çevrilmemiştir.
+      C: Md. 9, (a) kapsamında sona erenlerin durumunun işverenleri tarafından bildirileceğini düzenler.
+      D: Md. 9 sona erme bildirimi için en geç on günlük süre öngörür.
+      E: Md. 9’a göre (b) bendinde belirtilen şekillerde sona erenlerin durumları da en geç on gün içinde bildirilir;
+        üç aylık süre öngörülmemiştir.
   kaynaklar:
   - mevzuat: 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu
     madde: md. 9
@@ -5643,7 +5707,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -5664,8 +5728,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R6: kökteki hatalı ''4/1-(d)'' atfı md. 9/1 olarak düzeltildi; mutlak ifadeler kaldırıldı,
+          çeldiriciler akla yatkın bildirim yanlışlarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -5680,3 +5746,8 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R6: kökteki hatalı ''4/1-(d)'' atfı md. 9/1 olarak düzeltildi; mutlak ifadeler kaldırıldı, çeldiriciler
+      akla yatkın bildirim yanlışlarıyla yenilendi'

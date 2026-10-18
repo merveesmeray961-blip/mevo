@@ -106,42 +106,45 @@
   tip: hesaplama
   zorluk: 2
   kok: Maliyet muhasebesinin genel muhasebeden ayrı izlendiği bir işletmede dönem içinde maliyetle ilgili giderler
-    700 Maliyet Muhasebesi Bağlantı Hesabı'na toplam 240.000 TL borç kaydedilmiştir. Dönem sonunda maliyet muhasebesinin
-    genel muhasebeye bildirdiği 190.000 TL tutar, 700 hesabının alacağına kaydedilmiştir. Başka bir işlem bulunmadığına
-    göre 700 hesabının dönem sonundaki borç bakiyesi kaç TL'dir?
+    tahakkuk ettikçe 700 Maliyet Muhasebesi Bağlantı Hesabı'na iki ayrı kayıtla 240.000 TL ve 85.000 TL borç kaydedilmiştir.
+    Dönem sonunda maliyet muhasebesi tarafından genel muhasebeye bildirilen veriler nedeniyle aynı hesabın alacağına
+    190.000 TL ve 60.000 TL kaydedilmiştir. Başka bir işlem bulunmadığına göre 700 hesabının dönem sonundaki borç
+    bakiyesi kaç TL'dir?
   secenekler:
-    A: 40.000 TL
-    B: 50.000 TL
-    C: 60.000 TL
-    D: 190.000 TL
-    E: 240.000 TL
+    A: 50.000 TL
+    B: 75.000 TL
+    C: 135.000 TL
+    D: 250.000 TL
+    E: 325.000 TL
   dogru: B
   aciklama:
-    dogru_neden: 700 hesabına dönem içinde 240.000 TL borç, dönem sonunda genel muhasebeye bildirilen 190.000 TL
-      için alacak kaydı yapılır. Borç bakiyesi 240.000 − 190.000 = 50.000 TL'dir.
+    dogru_neden: 700 hesabının borç toplamı 240.000 + 85.000 = 325.000 TL, alacak toplamı 190.000 + 60.000 = 250.000
+      TL'dir. Borç bakiyesi 325.000 − 250.000 = 75.000 TL'dir.
     celdiriciler:
-      A: 40.000 TL, 240.000 TL ile 200.000 TL arasındaki farktır; kökteki 190.000 TL kullanılmamıştır.
-      C: 60.000 TL, 240.000 TL'den 180.000 TL çıkarılmasıyla bulunur; verilen alacak tutarı 190.000 TL'dir.
-      D: 190.000 TL, 700 hesabına kaydedilen alacak tutarıdır; net borç bakiyesi değildir.
-      E: 240.000 TL, dönem içindeki borç toplamıdır; dönem sonundaki 190.000 TL alacak kaydı düşülmemiştir.
+      A: 50.000 TL, yalnız ilk borç ve ilk alacak kaydı (240.000 − 190.000) dikkate alınarak bulunur; ikinci kayıtlar
+        atlanmıştır.
+      C: 135.000 TL, ikinci alacak kaydı (60.000 TL) düşülmeden bulunur (325.000 − 190.000).
+      D: 250.000 TL, hesabın alacak toplamıdır; borç bakiyesi değildir.
+      E: 325.000 TL, hesabın borç toplamıdır; alacak kayıtları düşülmemiştir.
     hesap_adimlari:
-    - 700 borç toplamı = 240.000 TL.
-    - 700 alacak toplamı = 190.000 TL.
-    - 700 borç bakiyesi = 240.000 − 190.000 = 50.000 TL.
+    - Borç toplamı = 240.000 + 85.000 = 325.000 TL
+    - Alacak toplamı = 190.000 + 60.000 = 250.000 TL
+    - Borç bakiyesi = 325.000 − 250.000 = 75.000 TL
   kaynaklar:
-  - mevzuat: MSUGT Tekdüzen Hesap Planı
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
     madde: 700. Maliyet Muhasebesi Bağlantı Hesabı
-    alinti: Maliyetle ilgili tüm giderler tahakkuk ettikçe hu hesaba borç, ilgili aktif ve pasif hesaplara alacak
-      kaydedilir. Maliyet dönemleri sonunda maliyet muhasebesi tarafından genel muhasebeye bildirilen veriler bu
-      hesabın alacağına, ilgili hesapların borcuna kaydedilir.
+    alinti: Maliyetle ilgili tüm giderler tahakkuk ettikçe hu hesaba borç, ilgili aktif ve pasif hesaplara
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 700. Maliyet Muhasebesi Bağlantı Hesabı
+    alinti: alacak kaydedilir. Maliyet dönemleri sonunda maliyet muhasebesi tarafından genel muhasebeye
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: sonuc = 240000 - 190000
+    python: sonuc = (240000 + 85000) - (190000 + 60000)
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -161,8 +164,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: tek çıkarma yerine iki borç ve iki alacak kaydı olan 700 hesabı bakiyesi; şıklar
+          tipik hata sonuçları; dogrulama güncellendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -177,6 +182,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: tek çıkarma yerine iki borç ve iki alacak kaydı olan 700 hesabı bakiyesi; şıklar tipik hata sonuçları;
+      dogrulama güncellendi'
 - id: SMMM-MAL-KAV-0028
   sinav: smmm
   bolum:
@@ -351,32 +361,37 @@
   kok: Bir işletmede maliyetlerin oluştuğu, üretim ve hizmetlerin yapıldığı birimler belirlenmektedir. Gider yeri
     kavramıyla ilgili aşağıdaki ifadelerden hangisi **yanlıştır**?
   secenekler:
-    A: Gider yeri yalnızca mamulün satıldığı fiziksel mağazayı ifade eder.
-    B: Gider yerleri maliyetlerin oluştuğu yerleri kapsar.
-    C: Gider yerleri giderlerin planlanması ve kontrolüne yardımcı olur.
-    D: Gider yeri, örgütün bir birimi veya birim içindeki bir yer olabilir.
-    E: Gider yeri belirlenirken organizasyon şeması genellikle dikkate alınır.
+    A: Pazarlama, satış ve dağıtım birimleri üretim yapmadığı için gider yeri sayılmaz.
+    B: Gider yerleri, giderlerin dengeli biçimde toplanıp dağıtılmasını sağlar.
+    C: Gider yerlerinin saptanmasında genellikle kuruluşun organizasyon şeması esas alınır.
+    D: Yardımcı hizmet birimleri ayrı bir gider yeri grubu olarak değerlendirilir.
+    E: Gider yeri, örgütün bir birimi olabileceği gibi birim içindeki bir yer de olabilir.
   dogru: A
   aciklama:
-    dogru_neden: Gider yeri tanımı üretim ve hizmetlerin yapıldığı, maliyetlerin oluştuğu örgütsel birimi veya birim
-      içindeki yeri kapsar; satış mağazasıyla sınırlı değildir.
+    dogru_neden: Gider yerleri esas üretim yerleriyle sınırlı değildir; pazarlama, satış ve dağıtım gider yerleri
+      de gider yeri ana gruplarından biridir. Bu nedenle A yanlıştır.
     celdiriciler:
-      B: Tanımın doğrudan karşılığıdır.
-      C: Gider yerlerinin belirtilen işlevleri arasındadır.
-      D: Tanımın doğrudan karşılığıdır.
-      E: Organizasyon şeması genellikle esas alınır.
+      B: 'Doğru ifadedir: gider yerleri giderlerin planlanması, kontrolü ve dengeli toplanıp dağıtılmasını sağlar.'
+      C: 'Doğru ifadedir: gider yerlerinin saptanmasında genellikle organizasyon şeması esas alınır.'
+      D: 'Doğru ifadedir: yardımcı hizmet gider yerleri ana gruplardan biridir.'
+      E: 'Doğru ifadedir: gider yeri örgütün bir birimini ya da birim içindeki bir yeri ifade eder.'
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
     madde: 10-99 Gider Yerleri
-    alinti: Gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu, örgütün bir birimini ya da birim
-      içindeki bir yeri ifade eder.
+    alinti: Gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu, örgütün bir birimini ya da
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 10-99 Gider Yerleri
+    alinti: '- Pazarlama, satış ve dağıtım gider yerleri'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 10-99 Gider Yerleri
+    alinti: Gider yerlerinin saptanmasında genellikle kuruluşların organizasyon şeması esas alınır.
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -397,8 +412,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: bariz saçma çeldirici (E) ve tanım tekrarı yerine gider yeri ilkelerine ilişkin
+          akla yatkın doğru ifadeler; yanlış şık gerçekten yanlış bir sınırlama'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -419,6 +436,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: bariz saçma çeldirici (E) ve tanım tekrarı yerine gider yeri ilkelerine ilişkin akla yatkın doğru
+      ifadeler; yanlış şık gerçekten yanlış bir sınırlama'
 - id: SMMM-MAL-KAV-0031
   sinav: smmm
   bolum:
@@ -856,53 +878,59 @@
   kazanim: maliyet unsurları
   tip: kavrama
   zorluk: 2
-  kok: 'Aşağıdaki eşleştirmelerden hangisi Satışların Maliyeti Tablosu''ndaki maliyet unsurları ile açıklamalarını
-    doğru verir?
+  kok: 'Satışların Maliyeti Tablosu''ndaki maliyet unsurlarına ilişkin aşağıdaki ifadelerden hangileri doğrudur?
 
+    I. Direkt ilk madde ve malzeme kalemi, mamülün bünyesine giren ve doğrudan yüklenebilen maddelerin kullanımını
+    kapsar.
 
-    I. Direkt ilk madde ve malzeme
+    II. Genel üretim giderleri, direkt ilk madde ve malzeme ile direkt işçilik dışında kalan üretim giderlerini
+    kapsar.
 
-    II. Direkt işçilik
+    III. Yarı mamül stoklarında değişim kalemi, dönem başı mamül stoku ile dönem sonu mamül stoku arasındaki farkı
+    gösterir.
 
-    III. Genel üretim giderleri
-
-    IV. Yarı mamul stoklarında değişim'
+    IV. Üretimde kullanılmayıp satılan ilk madde ve malzemenin maliyeti, direkt ilk madde ve malzeme giderlerine
+    dahil edilir.'
   secenekler:
-    A: I — mamulün bünyesine doğrudan yüklenemeyen giderler; II — tüm ücretler; III — yalnız direkt işçilik; IV
-      — yalnız dönem sonu stoku
-    B: I — mamulün bünyesine doğrudan yüklenebilen temel maddeler; II — maliyetlere doğrudan yüklenebilen işçilik;
-      III — direkt ilk madde ve direkt işçilik dışındaki üretimle ilgili giderler; IV — üretim aşamasındaki maddelerin
-      dönem başı ve dönem sonu stok farkı
-    C: I — yalnız satın alma giderleri; II — yalnız endirekt işçilik; III — satış giderleri; IV — mamul stok farkı
-    D: I — ticari mallar; II — genel yönetim; III — pazarlama; IV — finansman
-    E: I — mamul stok değişimi; II — yarı mamul kullanım tutarı; III — ticari mal maliyeti; IV — satış maliyeti
+    A: Yalnız I
+    B: I ve II
+    C: I ve III
+    D: II ve IV
+    E: III ve IV
   dogru: B
   aciklama:
-    dogru_neden: Kaynakta A-E açıklamaları sırasıyla direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri
-      ve yarı mamul stoklarında değişimi tanımlamaktadır; B bu dört açıklamayı doğru eşleştirir.
+    dogru_neden: 'I ve II kaynak metne uygundur. III yanlıştır: yarı mamül stoklarında değişim, üretim aşamasındaki
+      maddelerin dönem başı ve dönem sonu stokları arasındaki farktır; mamül stok farkı ayrı bir kalemdir. IV yanlıştır:
+      üretimde kullanılmayıp satılan ilk madde ve malzemenin maliyeti tablonun ticari faaliyete ilişkin bölümünde
+      dikkate alınır.'
     celdiriciler:
-      A: Direkt ilk maddeyi dolaylı gider olarak ve genel üretim giderlerini yalnız direkt işçilik olarak tanımlar.
-      C: Direkt işçilik ve genel üretim giderlerinin kaynakta verilen kapsamını değiştirir.
-      D: Dört kalemin de üretim maliyeti tablosundaki tanımını yanlış fonksiyonlara taşır.
-      E: Kaynakta sayılan maliyet unsurlarını farklı stok ve satış kalemleriyle karıştırır.
+      A: 'II de doğrudur: genel üretim giderleri direkt ilk madde ve direkt işçilik dışında kalan üretim giderleridir.'
+      C: 'III yanlıştır: kalem yarı mamül stoklarındaki değişimi gösterir, mamül stokunu değil.'
+      D: IV yanlıştır (satılan ilk madde ticari faaliyet bölümündedir) ve I de doğru olduğu halde dışarıda bırakılmıştır.
+      E: III ve IV yanlıştır; I ve II doğru ifadelerdir.
+    hesap_adimlari: []
   kaynaklar:
-  - mevzuat: MSUGT — Mali Tabloların Düzenlenmesi ve Sunulması
-    madde: Satışların Maliyeti Tablosu, A-D açıklamaları
-    alinti: 'A _ Direkt İlk Madde ve Malzeme Giderleri : Mamülün bünyesine giren mamülün temel öğesini oluşturan
-      ve mamülün bünyesine doğrudan yüklenebilen maddelerin kullanımı bu grupta yer alır. Üretimde kullanılmayan
-      ve satılan ilk madde ve malzemenin maliyeti, tablonun ticari faaliyete ilişkin bölümünde dikkate alınır.
-
-      B _ Direkt İşçilik Giderleri : Mamülü meydana getirmek için harcanan ve maliyetlere doğrudan yüklenebilen
-      direkt işçilik giderlerini içerir.
-
-      C _ Genel Üretim Giderleri : Üretim faaliyetleri ve bu faaliyetlerle ilgili olarak yapılan hizmetlere ilişkin
-      direkt ilk madde ve malzeme ile direk'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — A. Direkt İlk Madde ve Malzeme Giderleri
+    alinti: Mamülün bünyesine giren mamülün temel öğesini oluşturan ve mamülün bünyesine doğrudan yüklenebilen maddelerin
+      kullanımı bu grupta yer alır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — A. Direkt İlk Madde ve Malzeme Giderleri
+    alinti: Üretimde kullanılmayan ve satılan ilk madde ve malzemenin maliyeti, tablonun ticari faaliyete ilişkin
+      bölümünde dikkate alınır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — C. Genel Üretim Giderleri
+    alinti: Üretim faaliyetleri ve bu faaliyetlerle ilgili olarak yapılan hizmetlere ilişkin direkt ilk madde ve
+      malzeme ile direkt işçilik giderleri dışında kalan giderleri içerir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — D. Yarı Mamül Stoklarında Değişim
+    alinti: üretim aşamasındaki maddelerin dönem başı stoku ile dönem sonu stoku arasındaki fark bu grupta yer alır.
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -923,8 +951,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: uzun eşleştirme şıkları yerine dört önermeli doğru/yanlış sorusu; yanlış önermeler
+          yarı mamul/mamül değişimi ve satılan ilk madde karışıklıkları'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -939,6 +969,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: uzun eşleştirme şıkları yerine dört önermeli doğru/yanlış sorusu; yanlış önermeler yarı mamul/mamül
+      değişimi ve satılan ilk madde karışıklıkları'
 - id: SMMM-MAL-KAV-0037
   sinav: smmm
   bolum:
@@ -952,66 +987,35 @@
   zorluk: 2
   kok: Aşağıdaki ifadelerden hangisi gider yeri kavramını en doğru biçimde ayırt eder?
   secenekler:
-    A: Gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu örgütsel bir birimi veya birim içindeki
-      yeri ifade eder.
-    B: Gider yeri, yalnızca giderlerin kaydedildiği hesap kodudur.
-    C: Gider yeri yalnızca genel yönetim giderlerinin toplandığı bir bölümdür.
-    D: Gider yeri yalnızca işletmenin satış yaptığı fiziksel mağazayı ifade eder.
-    E: Gider yeri, sadece dönem sonunda maliyetlerin dağıtılması için kullanılan stok hesabıdır.
+    A: Üretim ve hizmetlerin yapıldığı, maliyetlerin oluştuğu örgütsel bir birim ya da birim içindeki yerdir.
+    B: Giderlerin niteliğine göre (ilk madde, işçilik, amortisman gibi) sınıflandırıldığı gruptur.
+    C: Giderlerin fonksiyonlarına göre (üretim, pazarlama, yönetim) ayrıldığı hesap kategorileridir.
+    D: Gelir ve giderin birlikte izlenerek kârlılığın ölçüldüğü kâr merkezidir.
+    E: Giderlerin mamul veya hizmet gibi maliyet taşıyıcılarına yüklenmiş son halini gösterir.
   dogru: A
   aciklama:
     dogru_neden: MSUGT gider yerini, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu örgütün bir birimi
-      ya da birim içindeki bir yer olarak tanımlar; ayrıca giderlerin planlanması, kontrolü ve dengeli biçimde toplanıp
+      ya da birim içindeki bir yer olarak tanımlar; gider yerleri giderlerin planlanması, kontrolü ve dengeli toplanıp
       dağıtılmasını sağlar.
     celdiriciler:
-      B: Gider yeri bir hesap kodu olarak tanımlanmamıştır.
-      C: Genel yönetim gider yerlerinden yalnızca biridir; kavram bundan geniştir.
-      D: Kavram yalnız satış mağazasıyla sınırlı değildir.
-      E: Gider yeri stok hesabı değildir; maliyetlerin oluştuğu yerle ilgilidir.
+      B: Giderlerin niteliğine göre sınıflandırılması gider çeşitleridir (0-9 hesapları); gider yeri değildir.
+      C: Fonksiyonlara göre ayrım 7/A'daki fonksiyonel gider hesaplarıdır; gider yeri örgütsel birimdir.
+      D: Gider yeri maliyetin oluştuğu yerdir; gelirin birlikte izlendiği kâr merkezi tanımı değildir.
+      E: Maliyet taşıyıcılarına yüklenen maliyetler mamul veya hizmet maliyetidir; gider yeri ise maliyetin oluştuğu
+        birimdir.
   kaynaklar:
-  - mevzuat: MSUGT Tekdüzen Hesap Planı Açıklamaları
-    madde: Gider Yerleri
-    alinti: 'Gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu, örgütün bir birimini ya da
-
-      birim içindeki bir yeri ifade eder.
-
-
-      Giderlerin planlanması, kontrol edilmesi ve bu giderlerin dengeli bir biçimde toplanıp
-
-      dağıtılmasını sağlar.
-
-
-      Gider yerlerinin saptanmasında genellikle kuruluşların organizasyon şeması esas alınır.
-
-
-      Gider yerleri aşağıdaki gibi bölümlenir.
-
-
-      - Esas üretim gider yerleri
-
-
-      - Yardımcı üretim gider yerleri
-
-
-      - Yardımcı hizmet gider yerleri
-
-
-      - Yatırım gider yerleri
-
-
-      - Üretim yerleri yönetimi gider yerleri
-
-
-      - Araştırma ve geliştirme gider yerleri
-
-
-      - Pazarlama, satış ve d'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 10-99 Gider Yerleri
+    alinti: Gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu, örgütün bir birimini ya da
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 10-99 Gider Yerleri
+    alinti: Giderlerin planlanması, kontrol edilmesi ve bu giderlerin dengeli bir biçimde toplanıp
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1032,8 +1036,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler gider yeri ile gider çeşidi, fonksiyon ve kâr merkezi kavramlarını
+          karıştıran akla yatkın tanımlar; mutlak ifadeler kaldırıldı; doğru şık kısaltıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1054,6 +1060,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler gider yeri ile gider çeşidi, fonksiyon ve kâr merkezi kavramlarını karıştıran
+      akla yatkın tanımlar; mutlak ifadeler kaldırıldı; doğru şık kısaltıldı'
 - id: SMMM-MAL-KAV-0038
   sinav: smmm
   bolum:
@@ -1065,44 +1076,42 @@
   kazanim: asal maliyet
   tip: uygulama
   zorluk: 2
-  kok: 'KDV dikkate alınmayacaktır. BL İşletmesi 7/A seçeneğini uygulamaktadır. Dönem içinde fonksiyon esasına göre
-    kaydedilen giderler şöyledir:
-
-    - 710 Direkt İlkmadde ve Malzeme Giderleri: 280.000 TL
-
-    - 720 Direkt İşçilik Giderleri: 150.000 TL
-
-    - 730 Genel Üretim Giderleri: 95.000 TL
-
-    - 760 Pazarlama Satış ve Dağıtım Giderleri: 40.000 TL
-
-    Buna göre asal maliyet tutarı kaç TL''dir?
-
-    '
+  kok: KDV dikkate alınmayacaktır. BL İşletmesi 7/B seçeneğini uygulamaktadır. Dönem boyunca 790 İlk Madde ve Malzeme
+    Giderleri hesabında 300.000 TL, 791 İşçi Ücret ve Giderleri hesabında 220.000 TL izlenmiştir. Maliyet çıkarma
+    döneminde düzenlenen gider dağıtım tablosuna göre ilk madde ve malzemenin tamamı ile işçi ücretlerinin %75'i
+    doğrudan mamullere yüklenebilmekte, işçi ücretlerinin kalan %25'i ise genel üretim giderlerine ait bulunmaktadır.
+    Asal maliyet, direkt ilk madde ve malzeme ile direkt işçilik giderlerinin toplamıdır. Buna göre asal maliyet
+    tutarı kaç TL'dir?
   secenekler:
-    A: '280.000'
-    B: '430.000'
-    C: '525.000'
-    D: '370.000'
-    E: '245.000'
+    A: '520.000'
+    B: '465.000'
+    C: '355.000'
+    D: '300.000'
+    E: '165.000'
   dogru: B
   aciklama:
-    dogru_neden: Asal maliyet, direkt ilkmadde ve malzeme giderleri ile direkt işçilik giderlerinin toplamıdır.
-      280.000 + 150.000 = 430.000 TL. Genel üretim ve pazarlama giderleri asal maliyete dahil edilmez.
+    dogru_neden: 7/B seçeneğinde çeşit esasına göre izlenen giderler, maliyet çıkarma döneminde gider dağıtım tablosuyla
+      fonksiyonlarına dönüştürülür. Direkt işçilik = 220.000 × %75 = 165.000 TL'dir; ilk madde ve malzemenin tamamı
+      direkt olduğundan asal maliyet 300.000 + 165.000 = 465.000 TL'dir. İşçi ücretlerinin %25'i (55.000 TL) genel
+      üretim giderine ait olup asal maliyete girmez.
     celdiriciler:
-      A: Yalnız 710 tutarını alarak asal maliyeti eksik hesaplamıştır.
-      C: 710 + 720 + 730 toplamını alarak asal maliyeti dönüştürme maliyetiyle karıştırmıştır.
-      D: 710 + 730 toplamını alarak asal maliyeti yanlış tanımlamıştır.
-      E: 720 + 730 toplamını alarak asal maliyeti dönüştürme maliyetiyle karıştırmıştır.
+      A: 520.000 TL, işçi ücretlerinin tamamı (220.000 TL) direkt işçilik sayılarak bulunur; %25'lik GÜG payı ayrılmamıştır.
+      C: 355.000 TL, GÜG'ye ait %25'lik pay (55.000 TL) asal maliyete eklenerek bulunur; direkt işçilik payı eklenmemiştir.
+      D: 300.000 TL, yalnız ilk madde ve malzeme tutarıdır; direkt işçilik eklenmemiştir.
+      E: 165.000 TL, yalnız direkt işçilik tutarıdır; direkt ilk madde ve malzeme eklenmemiştir.
     hesap_adimlari:
-    - Asal maliyet = 710 + 720 = 280.000 + 150.000 = 430.000 TL
+    - Direkt işçilik = 220.000 × %75 = 165.000 TL
+    - Asal maliyet = 300.000 + 165.000 = 465.000 TL
   kaynaklar:
   - mevzuat: MSUGT Tekdüzen Hesap Planı
-    madde: 71 Direkt İlkmadde Ve Malzeme Giderleri / 72 Direkt İşçilik Giderleri
-    alinti: Bu grupta yer alan hesaplar, üretilen mamülün bünyesine ana madde olarak katılan ve hangi mamülden ne
-      kadar tüketildiği, ekonomik bakımdan ayrı olarak izlenebilen ilkmadde ve malzemelerle ilgili gider, yansıtma
-      ve fark hesaplarını kapsar. ... Bu grup bir mal veya hizmetin üretim maliyetine doğrudan doğruya verilebilen
-      işçilik giderleri ile ilgili gider, yansıtma ve fark hesaplarından oluşur.
+    madde: 7/B seçeneğinde maliyet hesapları
+    alinti: Maliyet çıkarma dönemlerinde, söz konusu giderler gider dağıtım tablosu aracılığıyla
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 72. Direkt İşçilik Giderleri
+    alinti: Bu grup bir mal veya hizmetin üretim maliyetine doğrudan doğruya verilebilen işçilik
+  - mevzuat: MSUGT Tekdüzen Hesap Planı
+    madde: 73. Genel Üretim Giderleri
+    alinti: Bu grup işletmenin üretimi ve bu üretime bağlı hizmetler için yapılan direkt ilk madde ve
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
@@ -1110,7 +1119,7 @@
   dogrulama:
     python: sonuc = 280000 + 150000
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1130,8 +1139,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: iki tutar toplama yerine 7/B''de gider dağıtım tablosuna göre işçi ücretinin
+          bir kısmı direkt işçilik; şıklar tipik hatalar, sıralı; açıklamalar yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1146,6 +1157,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: iki tutar toplama yerine 7/B''de gider dağıtım tablosuna göre işçi ücretinin bir kısmı direkt
+      işçilik; şıklar tipik hatalar, sıralı; açıklamalar yenilendi'
 - id: SMMM-MAL-KAV-0039
   sinav: smmm
   bolum:
@@ -1237,35 +1253,38 @@
   kazanim: maliyet unsurları
   tip: kavrama
   zorluk: 1
-  kok: Üretim maliyeti içinde direkt ilk madde ve malzeme ile direkt işçilik dışında kalan, üretim faaliyetleriyle
-    ilgili giderleri hangi unsur kapsar?
+  kok: 7/A seçeneğinde, üretim maliyeti içinde direkt ilk madde ve malzeme ile direkt işçilik dışında kalan, üretim
+    faaliyetleriyle ilgili giderler hangi hesap grubunda izlenir?
   secenekler:
-    A: Genel üretim giderleri
-    B: Pazarlama giderleri
-    C: Finansman giderleri
-    D: Genel yönetim giderleri
-    E: Satış iskontoları
+    A: 73 Genel Üretim Giderleri
+    B: 76 Pazarlama Satış ve Dağıtım Giderleri
+    C: 78 Finansman Giderleri
+    D: 77 Genel Yönetim Giderleri
+    E: 75 Araştırma ve Geliştirme Giderleri
   dogru: A
   aciklama:
-    dogru_neden: Genel üretim giderleri, üretimle ilgili olup direkt ilk madde ve direkt işçilik dışında kalan giderleri
-      içerir.
+    dogru_neden: 73 Genel Üretim Giderleri grubu, işletmenin üretimi ve bu üretime bağlı hizmetler için yapılan,
+      direkt ilk madde ve malzeme ile direkt işçilik dışında kalan giderlerle ilgili gider, yansıtma ve fark hesaplarından
+      oluşur.
     celdiriciler:
-      B: B seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      C: C seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      D: D seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      E: E seçeneği kaynakta belirtilen işleyişle uyuşmaz.
+      B: 76 grubu pazarlama, satış ve dağıtım faaliyetlerine ilişkin giderleri izler; üretim maliyeti unsuru değildir.
+      C: 78 grubu borçlanmaya ilişkin finansman giderlerini izler; üretim maliyeti unsuru değildir.
+      D: 77 grubu genel yönetim giderlerini izler; üretim maliyeti unsuru değildir.
+      E: 75 grubu araştırma ve geliştirme faaliyetlerine ilişkin giderleri izler; genel üretim giderleri değildir.
     hesap_adimlari: []
   kaynaklar:
-  - mevzuat: MSUGT, mali tabloların düzenlenmesi
-    madde: ilgili hesap açıklaması
-    alinti: Üretim faaliyetleri ve bu faaliyetlerle ilgili olarak yapılan hizmetlere ilişkin direkt ilk madde ve
-      malzeme ile direkt işçilik giderleri dışında kalan giderleri içerir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 73 Genel Üretim Giderleri
+    alinti: Bu grup işletmenin üretimi ve bu üretime bağlı hizmetler için yapılan direkt ilk madde ve
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 73 Genel Üretim Giderleri
+    alinti: malzeme ve direkt işçilik dışında kalan giderlerle ilgili gider, yansıtma ve fark hesaplarından
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1286,8 +1305,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler 7/A''daki yakın hesap gruplarıyla (76, 78, 77, 75) yenilendi; kök
+          73 grubunu ayırt etmeye yönlendirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1302,6 +1323,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler 7/A''daki yakın hesap gruplarıyla (76, 78, 77, 75) yenilendi; kök 73 grubunu ayırt
+      etmeye yönlendirildi'
 - id: SMMM-MAL-KAV-0041
   sinav: smmm
   bolum:
@@ -1313,34 +1339,43 @@
   kazanim: gider yeri
   tip: kavrama
   zorluk: 3
-  kok: Bir işletmede aynı üretim bölümünün içinde ayrı bir bakım atölyesi ve montaj alanı bulunmaktadır. Gider yeri
-    tanımına göre aşağıdakilerden hangisi **yanlıştır**?
+  kok: MSUGT Tekdüzen Hesap Planı açıklamalarına göre gider yerlerinin bölümlenmesine ilişkin aşağıdakilerden hangisi
+    **yanlıştır**?
   secenekler:
-    A: Örgütün bir birimi olabilir.
-    B: Bir birim içindeki bir yer olabilir.
-    C: Maliyetlerin oluştuğu yerle ilgilidir.
-    D: Yalnız işletmenin tüzel kişiliğinin tamamını ifade eder.
-    E: Üretim veya hizmetlerin yapıldığı yer olabilir.
+    A: Esas üretim, yardımcı üretim ve yardımcı hizmet gider yerleri ayrı gruplardır.
+    B: Kuruluşlar faaliyet alanına ve teknolojik akışa uygun gider yerleri açabilir.
+    C: Açılan gider yerleri, verilen ana grup başlıkları altında yer alabilir.
+    D: Araştırma ve geliştirme ile genel yönetim birimleri esas üretim gider yerleri grubu içinde izlenir.
+    E: Pazarlama, satış ve dağıtım birimleri ayrı bir gider yeri grubunu oluşturur.
   dogru: D
   aciklama:
-    dogru_neden: Gider yeri yalnız işletmenin tamamı değil, örgütün birimi veya birim içindeki yer de olabilir.
+    dogru_neden: Araştırma ve geliştirme gider yerleri ile genel yönetim gider yerleri, esas üretim gider yerleri
+      içinde değil, kendi ana gruplarında yer alır. Bu nedenle D yanlıştır.
     celdiriciler:
-      A: A seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      B: B seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      C: C seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      E: E seçeneği kaynakta belirtilen işleyişle uyuşmaz.
+      A: 'Doğru ifadedir: esas üretim, yardımcı üretim ve yardımcı hizmet gider yerleri ayrı ana gruplardır.'
+      B: 'Doğru ifadedir: kuruluşlar faaliyet alanı ve teknolojik akışa uygun gider yerleri açabilir.'
+      C: 'Doğru ifadedir: açılacak gider yerleri verilen ana grup başlıkları altında yer alabilir.'
+      E: 'Doğru ifadedir: pazarlama, satış ve dağıtım gider yerleri ayrı bir ana gruptur.'
     hesap_adimlari: []
   kaynaklar:
-  - mevzuat: MSUGT, Tekdüzen Hesap Planı açıklamaları
-    madde: ilgili hesap açıklaması
-    alinti: Gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu, örgütün bir birimini ya da birim
-      içindeki bir yeri ifade eder.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 10-99 Gider Yerleri
+    alinti: '- Esas üretim gider yerleri'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 10-99 Gider Yerleri
+    alinti: '- Araştırma ve geliştirme gider yerleri'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 10-99 Gider Yerleri
+    alinti: '- Genel yönetim gider yerleri.'
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 10-99 Gider Yerleri
+    alinti: açılacak gider yerleri, bu verilen ana grup başlıkları altında yer alabilir.
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1361,8 +1396,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: tanım tekrarı ve bariz yanlış yerine gider yerlerinin bölümlenmesine ilişkin
+          akla yatkın ifadeler; yanlış şık gerçekten yanlış bir gruplama'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1377,6 +1414,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: tanım tekrarı ve bariz yanlış yerine gider yerlerinin bölümlenmesine ilişkin akla yatkın ifadeler;
+      yanlış şık gerçekten yanlış bir gruplama'
 - id: SMMM-MAL-KAV-0042
   sinav: smmm
   bolum:
@@ -1388,9 +1430,10 @@
   kazanim: maliyet muhasebesinin amaçları
   tip: kavrama
   zorluk: 2
-  kok: Maliyet hesaplarının işletme içindeki işlevi bakımından aşağıdaki önermelerden hangileri doğrudur? I. Giderlerin
-    izlenmesine hizmet eder. II. Giderlerin gider yeri ve gider çeşidi bilgileriyle ilişkilendirilmesini destekler.
-    III. Yalnızca satış gelirlerini kaydetmek için kullanılır.
+  kok: Maliyet hesaplarındaki fark hesaplarının işleyişine ilişkin aşağıdaki ifadelerden hangileri doğrudur? I.
+    Fark hesapları, önceden saptanmış maliyet yöntemlerinin uygulanması halinde kullanılır. II. Olumsuz farklar
+    fark hesabının borcuna, olumlu farklar alacağına kaydedilir. III. Fark hesapları dönem sonunda 700 Maliyet Muhasebesi
+    Bağlantı Hesabı'na devredilerek kapatılır.
   secenekler:
     A: Yalnız I
     B: Yalnız II
@@ -1399,24 +1442,33 @@
     E: I, II ve III
   dogru: C
   aciklama:
-    dogru_neden: I ve II doğrudur; maliyet hesapları giderleri izler, III ise bu hesapların işlevini yanlış tanımlar.
+    dogru_neden: Fark hesapları, önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda fiili ile önceden
+      saptanmış tutarlar arasındaki farkları izler; olumsuz farklar borca, olumlu farklar alacağa kaydedilir (I
+      ve II doğru). Dönem sonunda fark hesapları ilgili stok ve satış maliyet hesaplarına aktarılarak kapatılır,
+      700 hesabına değil (III yanlış).
     celdiriciler:
-      A: A seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      B: B seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      D: D seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      E: E seçeneği kaynakta belirtilen işleyişle uyuşmaz.
+      A: 'II de doğrudur: olumsuz farklar fark hesabının borcuna, olumlu farklar alacağına kaydedilir.'
+      B: 'I de doğrudur: fark hesapları önceden saptanmış maliyet yöntemlerinin uygulanmasında kullanılır.'
+      D: 'III yanlıştır: fark hesapları ilgili stok ve satış maliyet hesaplarına aktarılarak kapatılır; I ise doğru
+        olduğu halde dışarıda bırakılmıştır.'
+      E: 'III yanlıştır: fark hesapları 700 bağlantı hesabına değil, ilgili stok ve satış maliyet hesaplarına aktarılır.'
     hesap_adimlari: []
   kaynaklar:
-  - mevzuat: MSUGT, Tekdüzen Hesap Planı açıklamaları
-    madde: ilgili hesap açıklaması
-    alinti: Bu hesaplar; dönem içinde yapılan ve tahakkuk ettirilen giderlerin izlendiği ve borçlarına kaydedildiği
-      hesaplardır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: Fark hesapları
+    alinti: Bu hesaplar, önceden saptanmış maliyet yöntemlerinin uygulanması halinde fiili giderler ile
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 712. Direkt İlkmadde ve Malzeme Fiyat Farkı
+    alinti: hesaptır. Olumsuz fiyat farkları bu hesabın borcuna, olumlu fiyat farkları ise alacağına
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 712. Direkt İlkmadde ve Malzeme Fiyat Farkı
+    alinti: kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyet hesaplarına aktarılarak
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1437,8 +1489,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: bariz saçma III. öncül yerine fark hesaplarına ilişkin akla yatkın öncüller (700''e
+          aktarım yanılgısı); kök netleştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1453,6 +1507,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: bariz saçma III. öncül yerine fark hesaplarına ilişkin akla yatkın öncüller (700''e aktarım yanılgısı);
+      kök netleştirildi'
 - id: SMMM-MAL-KAV-0043
   sinav: smmm
   bolum:
@@ -1464,33 +1523,40 @@
   kazanim: muhasebe bilgi sistemi
   tip: kavrama
   zorluk: 2
-  kok: Genel muhasebe ile maliyet muhasebesi ayrı yürütüldüğünde, Tekdüzen Hesap Planı’nda bağlantı hesaplarının
-    varlığı en doğrudan hangi ihtiyaca yöneliktir?
+  kok: Maliyet muhasebesinin genel muhasebeden ayrı yürütüldüğü bir işletmede 700 Maliyet Muhasebesi Bağlantı Hesabı'nın
+    işleyişine ilişkin aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: İki muhasebe sistemi arasındaki kayıt bağlantısını kurmaya
-    B: Stokların fiziksel sayımını kaldırmaya
-    C: Satış fiyatlarını otomatik belirlemeye
-    D: Vergi beyannamesini tek başına oluşturmaya
-    E: Üretim kayıplarını tamamen önlemeye
+    A: Giderler tahakkuk ettikçe genel muhasebe tarafından bu hesaba borç, ilgili aktif ve pasif hesaplara alacak
+      kaydedilir.
+    B: Giderler tahakkuk ettikçe maliyet muhasebesi tarafından bu hesaba alacak, ilgili hesaplara borç kaydedilir.
+    C: Hesap maliyet muhasebesi tarafından tutulur ve genel muhasebe kayıtlarında yer almaz.
+    D: Dönem sonunda maliyet muhasebesinin bildirdiği veriler bu hesabın borcuna, ilgili hesapların alacağına kaydedilir.
+    E: Hesap, 7/B seçeneğini uygulayan işletmelerde kullanılan bir bağlantı hesabıdır.
   dogru: A
   aciklama:
-    dogru_neden: 70 grubu maliyet muhasebesi bağlantı hesapları olarak adlandırılmıştır.
+    dogru_neden: 700 hesabı genel muhasebe tarafından tutulur; maliyetle ilgili giderler tahakkuk ettikçe bu hesaba
+      borç, ilgili aktif ve pasif hesaplara alacak kaydedilir. Maliyet dönemleri sonunda maliyet muhasebesinin bildirdiği
+      veriler hesabın alacağına, ilgili hesapların borcuna yazılır.
     celdiriciler:
-      B: B seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      C: C seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      D: D seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      E: E seçeneği kaynakta belirtilen işleyişle uyuşmaz.
+      B: 'Yön ters verilmiştir: giderler 700 hesabının borcuna, ilgili aktif ve pasif hesapların alacağına kaydedilir.'
+      C: 700 hesabı maliyet muhasebesi değil, genel muhasebe tarafından tutulan bağlantı hesabıdır.
+      D: 'Yön ters verilmiştir: maliyet muhasebesinin bildirdiği veriler hesabın alacağına, ilgili hesapların borcuna
+        kaydedilir.'
+      E: 70 grubu 7/A seçeneğindeki bağlantı hesaplarıdır; 7/B seçeneğinde 79 grubu kullanılır.
     hesap_adimlari: []
   kaynaklar:
-  - mevzuat: MSUGT, Tekdüzen Hesap Planı açıklamaları
-    madde: ilgili hesap açıklaması
-    alinti: 70 MALİYET MUHASEBESİ BAĞLANTI HESAPLARI
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 700. Maliyet Muhasebesi Bağlantı Hesabı
+    alinti: Genel Muhasebe ile maliyet muhasebesi arasında bağlantıyı sağlayan ve genel muhasebe
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 700. Maliyet Muhasebesi Bağlantı Hesabı
+    alinti: Maliyetle ilgili tüm giderler tahakkuk ettikçe hu hesaba borç, ilgili aktif ve pasif hesaplara
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1511,8 +1577,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5/R6: çeldiriciler 700 hesabının işleyişini (taraf, yön, kullanan, seçenek) karıştıran
+          akla yatkın ifadeler; mutlak ifade kaldırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1527,6 +1595,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5/R6: çeldiriciler 700 hesabının işleyişini (taraf, yön, kullanan, seçenek) karıştıran akla yatkın
+      ifadeler; mutlak ifade kaldırıldı'
 - id: SMMM-MAL-KAV-0044
   sinav: smmm
   bolum:
@@ -1538,9 +1611,11 @@
   kazanim: asal maliyet
   tip: kavrama
   zorluk: 3
-  kok: Asal maliyet kavramı direkt ilk madde ve malzeme ile direkt işçilik toplamı olarak ele alındığında aşağıdaki
-    önermelerden hangileri doğrudur? I. Direkt ilk madde ve malzeme bu toplama girer. II. Direkt işçilik bu toplama
-    girer. III. Genel üretim giderleri de asal maliyete eklenir.
+  kok: Bu soruda asal maliyet, direkt ilk madde ve malzeme ile direkt işçilik toplamı; dönüştürme maliyeti ise direkt
+    işçilik ile genel üretim giderleri toplamı olarak kabul edilmektedir. Buna göre aşağıdaki ifadelerden hangileri
+    doğrudur? I. Direkt işçilik hem asal maliyetin hem de dönüştürme maliyetinin unsurudur. II. Genel üretim giderleri
+    dönüştürme maliyetinin unsuru olup asal maliyete girmez. III. Direkt ilk madde ve malzeme dönüştürme maliyetinin
+    unsurudur.
   secenekler:
     A: Yalnız I
     B: Yalnız II
@@ -1549,17 +1624,23 @@
     E: I, II ve III
   dogru: C
   aciklama:
-    dogru_neden: Asal maliyet direkt ilk madde ve direkt işçilik toplamıdır; genel üretim giderleri bu tanıma dahil
-      değildir.
+    dogru_neden: Kökte verilen tanımlara göre direkt işçilik her iki maliyetin ortak unsurudur (I doğru); genel
+      üretim giderleri yalnız dönüştürme maliyetine girer (II doğru); direkt ilk madde ve malzeme ise asal maliyetin
+      unsuru olup dönüştürme maliyetine girmez (III yanlış).
     celdiriciler:
-      A: A seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      B: B seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      D: D seçeneği kaynakta belirtilen işleyişle uyuşmaz.
-      E: E seçeneği kaynakta belirtilen işleyişle uyuşmaz.
+      A: 'II de doğrudur: genel üretim giderleri dönüştürme maliyetinin unsuru olup asal maliyete girmez.'
+      B: 'I de doğrudur: direkt işçilik hem asal hem dönüştürme maliyetinin unsurudur.'
+      D: 'III yanlıştır: direkt ilk madde ve malzeme dönüştürme maliyetine değil, asal maliyete girer; II de doğru
+        olduğu halde dışarıda bırakılmıştır.'
+      E: 'III yanlıştır: direkt ilk madde ve malzeme dönüştürme maliyetinin unsuru değildir.'
     hesap_adimlari: []
   kaynaklar:
-  - mevzuat: MSUGT, mali tabloların düzenlenmesi
-    madde: ilgili hesap açıklaması
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — C. Genel Üretim Giderleri
+    alinti: Üretim faaliyetleri ve bu faaliyetlerle ilgili olarak yapılan hizmetlere ilişkin direkt ilk madde ve
+      malzeme ile direkt işçilik giderleri dışında kalan giderleri içerir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — E. Mamül Stoklarında Değişim
     alinti: Direkt ilk madde ve malzeme, direkt işçilik, genel üretim giderleri ve yarı mamül kullanım tutarlarının
       toplamı üretim maliyetini verir.
   gecerlilik:
@@ -1567,7 +1648,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1588,8 +1669,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: bariz yanlış III. öncül yerine asal ve dönüştürme maliyeti ilişkisi (ortak unsur
+          direkt işçilik, DİM''in dönüştürmeye girmediği); kök tanımları içeriyor'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1604,6 +1687,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: bariz yanlış III. öncül yerine asal ve dönüştürme maliyeti ilişkisi (ortak unsur direkt işçilik,
+      DİM''in dönüştürmeye girmediği); kök tanımları içeriyor'
 - id: SMMM-MAL-KAV-0045
   sinav: smmm
   bolum:
@@ -1695,35 +1783,44 @@
   kazanim: maliyet muhasebesinin amaçları
   tip: kavrama
   zorluk: 1
-  kok: Maliyet muhasebesinin işlevine ilişkin aşağıdaki öncülleri değerlendirin. I. Üretim maliyetini oluşturan
-    gider kalemlerini sınıflandırmaya yardımcı olur. II. Satışların maliyeti tablosunun hazırlanmasına temel oluşturan
-    maliyet bilgilerini sağlar. III. İşletmenin stok ve satılan mamul maliyetlerinin izlenmesiyle ilgilidir. Hangi
-    öncüller kaynak metnin kapsamıyla uyumludur?
+  kok: Satışların Maliyeti Tablosu'na ilişkin aşağıdakilerden hangisi **yanlıştır**?
   secenekler:
-    A: Yalnız I
-    B: I ve II
-    C: I ve III
-    D: II ve III
-    E: I, II ve III
+    A: Tablo, gelir tablosunun ekini oluşturur ve gelir tablosunu tamamlar.
+    B: Tablo, dönem içindeki stok hareketlerini ve satılan hizmetlerin maliyetini gösterir.
+    C: Mamül stok farkının üretim maliyetine eklenmesiyle satılan mamülün maliyetine ulaşılır.
+    D: Satılan mamül, ticari mal ve hizmet maliyetlerinin toplamı gelir tablosunda Satışların Maliyeti bölümünde
+      yer alır.
+    E: Üretimde kullanılmayıp satılan ilk madde ve malzemenin maliyeti, direkt ilk madde ve malzeme giderlerine
+      dahil edilir.
   dogru: E
   aciklama:
-    dogru_neden: Kaynak metin maliyet kalemlerinin ve stok hareketlerinin izlenmesini, satılan mamul ve diğer satış
-      maliyetlerinin gösterilmesini kapsar.
+    dogru_neden: Üretimde kullanılmayan ve satılan ilk madde ve malzemenin maliyeti, direkt ilk madde ve malzeme
+      giderlerine değil, tablonun ticari faaliyete ilişkin bölümünde dikkate alınır. Bu nedenle E yanlıştır.
     celdiriciler:
-      A: II ve III de tablonun açıkça belirtilen amacı ve kapsamıyla uyumludur.
-      B: III numaralı öncül de tablo kapsamıyla uyumludur.
-      C: II numaralı öncül de tablo kapsamıyla uyumludur.
-      D: I numaralı öncül maliyet unsurlarının ayrı kalemler halinde sınıflandırılmasıyla uyumludur.
+      A: 'Doğru ifadedir: tablo gelir tablosunun ekini oluşturur ve gelir tablosunu tamamlar.'
+      B: 'Doğru ifadedir: tablo dönem içindeki stok hareketlerini ve satılan maddelerle hizmetlerin maliyetini gösterir.'
+      C: 'Doğru ifadedir: mamül stok farkı üretim maliyetine eklenerek satılan mamülün maliyetine ulaşılır.'
+      D: 'Doğru ifadedir: satılan mamül, ticari mal ve hizmet maliyetlerinin toplamı Satışların Maliyeti bölümünü
+        oluşturur.'
+    hesap_adimlari: []
   kaynaklar:
-  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği, Mali Tabloların Düzenlenmesi ve Sunulması
-    madde: Satışların Maliyeti Tablosu açıklaması
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu
     alinti: Bu tablo, gelir tablosunun ekini oluşturur ve gelir tablosunu tamamlar.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — A. Direkt İlk Madde ve Malzeme Giderleri
+    alinti: Üretimde kullanılmayan ve satılan ilk madde ve malzemenin maliyeti, tablonun ticari faaliyete ilişkin
+      bölümünde dikkate alınır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — E. Mamül Stoklarında Değişim
+    alinti: İşletmenin satılan mamul maliyeti, satılan ticari mal maliyeti ve satılan hizmet maliyetinin toplamı,
+      gelir tablosunda
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1744,8 +1841,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 3).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: muğlak kök ve hepsi-doğru kalıbı yerine Satışların Maliyeti Tablosu''na ilişkin
+          yanlış-ifade sorusu; yanlış şık satılan ilk madde karışıklığı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1760,6 +1859,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: muğlak kök ve hepsi-doğru kalıbı yerine Satışların Maliyeti Tablosu''na ilişkin yanlış-ifade
+      sorusu; yanlış şık satılan ilk madde karışıklığı'
 - id: SMMM-MAL-KAV-0047
   sinav: smmm
   bolum:
@@ -1771,10 +1875,10 @@
   kazanim: muhasebe bilgi sistemi
   tip: kavrama
   zorluk: 2
-  kok: Bir işletmede maliyet muhasebesi ile genel muhasebe kayıtlarının bağlantısı kurulurken aşağıdaki öncülleri
-    değerlendirin. I. Maliyet bilgileri, finansal tabloların satış maliyetleri bölümünün hazırlanmasına katkı sağlar.
-    II. Maliyet tabloları stok hareketlerini ve satılan mamul, ticari mal ve hizmet maliyetlerini gösterebilir.
-    III. Maliyet muhasebesi bilgileri yalnızca vergi dairesine bildirim amacıyla kullanılır. Hangi öncüller doğrudur?
+  kok: Satışların Maliyeti Tablosu'ndaki maliyet unsurlarına ilişkin aşağıdaki ifadelerden hangileri doğrudur? I.
+    Direkt işçilik giderleri, mamülü meydana getirmek için harcanan ve maliyetlere doğrudan yüklenebilen işçilik
+    giderlerini içerir. II. Yarı mamül stoklarında değişim, üretim aşamasındaki maddelerin dönem başı ve dönem sonu
+    stokları arasındaki farkı gösterir. III. Genel üretim giderleri, direkt işçilik giderlerini de kapsar.
   secenekler:
     A: Yalnız I
     B: Yalnız III
@@ -1783,24 +1887,33 @@
     E: I, II ve III
   dogru: C
   aciklama:
-    dogru_neden: Kaynak, satışların maliyeti tablosunun stok hareketleri ile çeşitli satış maliyetlerini göstermesini
-      ve gelir tablosunu tamamlamasını belirtir. III numaralı öncül bu kapsamı hatalı biçimde yalnızca vergi bildirimine
-      indirger.
+    dogru_neden: 'I ve II kaynak metne uygundur. III yanlıştır: genel üretim giderleri, direkt ilk madde ve malzeme
+      ile direkt işçilik giderleri dışında kalan üretim giderlerini kapsar.'
     celdiriciler:
-      A: II numaralı öncül de kaynak metnin kapsamıyla uyumludur.
-      B: III numaralı öncül yanlıştır; I numaralı öncül doğrudur.
-      D: III numaralı öncül yanlıştır.
-      E: III numaralı öncül yanlış olduğu için tümü doğru değildir.
+      A: 'II de doğrudur: yarı mamül stoklarında değişim dönem başı ve dönem sonu yarı mamül stokları arasındaki
+        farktır.'
+      B: 'III yanlıştır: genel üretim giderleri direkt işçiliğin dışında kalan giderlerdir.'
+      D: III yanlıştır; I ise doğru olduğu halde dışarıda bırakılmıştır.
+      E: 'III yanlıştır: genel üretim giderleri direkt işçilik giderlerini kapsamaz.'
+    hesap_adimlari: []
   kaynaklar:
-  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği, Mali Tabloların Düzenlenmesi ve Sunulması
-    madde: Satışların Maliyeti Tablosu açıklaması
-    alinti: Bu tablo, gelir tablosunun ekini oluşturur ve gelir tablosunu tamamlar.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — B. Direkt İşçilik Giderleri
+    alinti: Mamülü meydana getirmek için harcanan ve maliyetlere doğrudan yüklenebilen direkt işçilik giderlerini
+      içerir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — C. Genel Üretim Giderleri
+    alinti: Üretim faaliyetleri ve bu faaliyetlerle ilgili olarak yapılan hizmetlere ilişkin direkt ilk madde ve
+      malzeme ile direkt işçilik giderleri dışında kalan giderleri içerir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-4 Mali Tabloların Düzenlenmesi ve Sunulması
+    madde: e) Satışların Maliyeti Tablosu — D. Yarı Mamül Stoklarında Değişim
+    alinti: üretim aşamasındaki maddelerin dönem başı stoku ile dönem sonu stoku arasındaki fark bu grupta yer alır.
   gecerlilik:
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1821,8 +1934,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 4).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4/R5: bariz saçma III. öncül yerine Satışların Maliyeti Tablosu kalemlerine ilişkin
+          akla yatkın yanlış öncül (GÜG direkt işçiliği kapsar); kök netleştirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1837,6 +1952,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4/R5: bariz saçma III. öncül yerine Satışların Maliyeti Tablosu kalemlerine ilişkin akla yatkın yanlış
+      öncül (GÜG direkt işçiliği kapsar); kök netleştirildi'
 - id: SMMM-MAL-KAV-0048
   sinav: smmm
   bolum:

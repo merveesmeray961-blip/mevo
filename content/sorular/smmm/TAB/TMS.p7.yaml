@@ -256,24 +256,24 @@
   kazanim: gelir tablosu yapısı
   tip: kavrama
   zorluk: 1
-  kok: Bir işletmenin faaliyet dönemine ilişkin gelir tablosu hesapları aşağıdaki gruplardan hangisini içermez?
+  kok: Tekdüzen Hesap Planı'na göre bir işletmenin faaliyet dönemine ilişkin gelir tablosu hesapları aşağıdaki kalemlerden
+    hangisini içermez?
   secenekler:
-    A: Dönen varlıklar
+    A: Yeniden değerleme artışları
     B: Satışların maliyeti
     C: Faaliyet giderleri
     D: Finansman giderleri
-    E: Brüt satışlar
+    E: Olağandışı gider ve zararlar
   dogru: A
   aciklama:
-    dogru_neden: Kaynak metin, gelir tablosu hesaplarının brüt satışlar, satış indirimleri, satışların maliyeti,
-      faaliyet giderleri, diğer faaliyetlerden gelir ve kârlar, diğer faaliyetlerden gider ve zararlar, finansman
-      giderleri ve olağandışı gelir ve giderlerden oluştuğunu belirtir. Dönen varlıklar gelir tablosu hesapları
-      arasında yer almaz.
+    dogru_neden: Tekdüzen Hesap Planı'na göre gelir tablosu hesapları brüt satışlar, satış indirimleri, satışların
+      maliyeti, faaliyet giderleri, diğer faaliyet gelir/gider kalemleri, finansman giderleri ve olağandışı kalemlerden
+      oluşur. Yeniden değerleme artışları özkaynak kalemidir, gelir tablosu hesabı değildir.
     celdiriciler:
-      B: Satışların maliyeti gelir tablosu hesapları arasında açıkça sayılmıştır.
-      C: Faaliyet giderleri gelir tablosu hesapları arasında açıkça sayılmıştır.
-      D: Finansman giderleri gelir tablosu hesapları arasında açıkça sayılmıştır.
-      E: Brüt satışlar gelir tablosu hesapları arasında açıkça sayılmıştır.
+      B: Satışların maliyeti gelir tablosu hesapları arasında sayılmıştır.
+      C: Faaliyet giderleri gelir tablosu hesapları arasında sayılmıştır.
+      D: Finansman giderleri gelir tablosu hesapları arasında sayılmıştır.
+      E: Olağandışı gider ve zararlar gelir tablosu hesapları arasında sayılmıştır.
   kaynaklar:
   - mevzuat: MSUGT — Tekdüzen Hesap Planı
     madde: 6. GELİR TABLOSU HESAPLARI
@@ -287,7 +287,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -308,8 +308,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: doğru şık bilanço-gelir tablosu karışıklığına dayalı bir özkaynak kalemine çevrildi,
+          çeldiriciler listedeki kalemlerle yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -327,6 +329,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: doğru şık bilanço-gelir tablosu karışıklığına dayalı bir özkaynak kalemine çevrildi, çeldiriciler
+      listedeki kalemlerle yenilendi'
 - id: SMMM-TAB-TMS-0008
   sinav: smmm
   bolum:
@@ -428,23 +435,23 @@
   kazanim: gelir tablosu yapısı
   tip: bilgi
   zorluk: 1
-  kok: Gelir tablosunun kaynak metindeki ana kalem sıralamasına göre net satışlardan hemen sonra hangi ana kalem
-    yer alır?
+  kok: Gelir tablosunun kaynak metindeki ana kalem sıralamasına göre net satışlardan hemen sonra hangi kalem yer
+    alır?
   secenekler:
-    A: Faaliyet giderleri
-    B: Diğer faaliyetlerden olağan gelir ve kârlar
-    C: Dönem kârı veya zararı
-    D: Finansman giderleri
+    A: Satış indirimleri
+    B: Brüt satışlar
+    C: Faaliyet giderleri
+    D: Brüt satış kârı veya zararı
     E: Satışların maliyeti
   dogru: E
   aciklama:
     dogru_neden: Kaynak metindeki gelir tablosu yapısında net satışlardan sonra C başlığı altında satışların maliyeti
       yer alır. Bunun ardından brüt satış kârı veya zararı ve faaliyet giderleri gelir.
     celdiriciler:
-      A: Faaliyet giderleri, satışların maliyetinden ve brüt satış kârı veya zararından sonra yer alan D ana kalemidir.
-      B: Diğer faaliyetlerden olağan gelir ve kârlar, faaliyet giderlerinden sonraki E ana kalemidir.
-      C: Dönem kârı veya zararı gelir tablosunun daha sonraki aşamasında yer alır; net satışlardan hemen sonra gelmez.
-      D: Finansman giderleri, diğer faaliyetlerden olağan gelir ve kârlardan sonraki bölümlerde yer alır.
+      A: Satış indirimleri net satışlardan önce gelir; brüt satışlardan indirilerek net satışlara ulaşılır.
+      B: Brüt satışlar tablonun ilk kalemidir ve net satışlardan önce yer alır.
+      C: Faaliyet giderleri, satışların maliyetinden ve brüt satış kârı veya zararından sonra yer alan D ana kalemidir.
+      D: Brüt satış kârı veya zararı satışların maliyetinden sonra hesaplanır; net satışlardan hemen sonra gelmez.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği Sıra No 1 – Ek 4
     madde: IV / 2.e Gelir Tablosu
@@ -480,7 +487,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -501,8 +508,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler tablo sırasındaki komşu kalemlerle yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -520,6 +528,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler tablo sırasındaki komşu kalemlerle yenilendi'
 - id: SMMM-TAB-TMS-0010
   sinav: smmm
   bolum:

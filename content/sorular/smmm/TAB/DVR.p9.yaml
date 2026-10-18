@@ -89,19 +89,19 @@
     tedarikçilere ödeme süresinin uzamasını değerlendirirken hangi hesaplamayı esas almalıdır? Yıl 360 gün kabul
     edilecektir.
   secenekler:
-    A: 900 / 150 = 6 gün
+    A: 900 / 150 × 360 = 2.160 gün
     B: 150 / 900 × 360 = 60 gün
-    C: 900 / 150 × 360 = 2.160 gün
-    D: 150 / 900 = 0,17 gün
-    E: 30 gün
+    C: 150 / 900 × 365 = 60,83 gün
+    D: 900 / 150 = 6 gün
+    E: 150 / (900 + 150) × 360 = 51,43 gün
   dogru: B
   aciklama:
-    dogru_neden: Borç ödeme süresi = ortalama ticari borçlar / kredili alışlar × 360 = 150/900×360 = 60 gün.
+    dogru_neden: Borç ödeme süresi = ortalama ticari borçlar / kredili alışlar × 360 = 150 / 900 × 360 = 60 gündür.
     celdiriciler:
-      A: Devir hızını gün olarak yorumlamıştır.
-      C: Oran ters çevrilmiş ve 360 ile çarpılmıştır.
-      D: Gün dönüşümü yapılmamıştır.
-      E: Formülde 360 yerine 180 kullanılmasıyla bulunur.
+      A: Oran ters çevrilmiş ve 360 ile çarpılmıştır; devir hızı süreyle karıştırılmıştır.
+      C: Yıl 360 gün kabul edilecekken 365 gün kullanılmıştır.
+      D: Borç devir hızı (6 kez) gün olarak yorumlanmıştır.
+      E: Payda kredili alışlara ortalama borç eklenmiştir; payda yalnız kredili alışlardır.
     hesap_adimlari:
     - Borç devir hızı = 900 / 150 = 6
     - Ödeme süresi = 360 / 6 = 60 gün
@@ -116,7 +116,7 @@
   dogrulama:
     python: sonuc = 360 / (900 / 150)
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -136,8 +136,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler yakın formül hatalarıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -152,6 +153,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler yakın formül hatalarıyla yenilendi'
 - id: SMMM-TAB-DVR-0018
   sinav: smmm
   bolum:

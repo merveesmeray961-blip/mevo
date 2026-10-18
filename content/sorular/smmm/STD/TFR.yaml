@@ -442,26 +442,22 @@
         dair gözlemlenebilir gösterge bulunmasını gerektirir, olayda böyle bir gösterge yoktur.
   kaynaklar:
   - mevzuat: TFRS 15 Müşteri Sözleşmelerinden Hasılat
-    madde: par. 76
-    alinti: İşletme, işlem bedelinin her bir edim yükümlülüğüne dağıtımını nispi tek başına satış fiyatı esasına
-      göre yapmak için, sözleşmedeki her bir edim yükümlülüğü kapsamındaki farklı mal veya hizmetin sözleşme başlangıcındaki
-      tek başına satış fiyatını tespit eder ve işlem bedelini bu tek başına satış fiyatlarına orantılı olarak dağıtır.
+    madde: par. 74
+    alinti: Dağıtımın amacına ulaşmak için, işlem bedeli, 76–80 paragrafları uyarınca nispi tek başına satış fiyatı
+      esasına göre sözleşmede belirlenen her bir edim yükümlülüğüne dağıtılır
   - mevzuat: TFRS 15 Müşteri Sözleşmelerinden Hasılat
-    madde: par. 81
-    alinti: Sözleşmede taahhüt edilen mal veya hizmetlerin tek başına satış fiyatları toplamının sözleşmede bunlar
-      için taahhüt edilen bedeli aşması durumunda, müşteri bir mal veya hizmet paketi satın alması karşılığında
-      indirim almış demektir. İndirimin sözleşmede düzenlenen edim yükümlülüklerinin tamamına değil yalnızca bir
-      veya birkaçına ilişkin olduğuna dair 82'nci paragraf uyarınca gözlemlenebilir göstergelerin bulunduğu durumlar
-      haricinde, işletme, indirimi sözleşmedeki tüm edim yükümlülüklerine orantılı bir şekilde dağıtır.
+    madde: par. 76
+    alinti: başlangıcındaki tek başına satış fiyatını tespit eder ve işlem bedelini bu tek başına satış fiyatlarına
+      orantılı olarak dağıtır.
   - mevzuat: TFRS 15 Müşteri Sözleşmelerinden Hasılat
     madde: par. 77
     alinti: Tek başına satış fiyatı, işletmenin taahhüt ettiği bir mal veya hizmeti müşteriye ayrı olarak satmış
       olması durumunda talep edeceği fiyattır.
   - mevzuat: TFRS 15 Müşteri Sözleşmelerinden Hasılat
-    madde: par. 74
-    alinti: Dağıtımın amacına ulaşmak için, işlem bedeli, 76–80 paragrafları uyarınca nispi tek başına satış fiyatı
-      esasına göre sözleşmede belirlenen her bir edim yükümlülüğüne dağıtılır [81–83 paragrafları (indirimlerin
-      dağıtılması) ile 84–86 paragraflarında (değişken tutarları içeren bedelin dağıtımı) belirlenen durumlar hariç].
+    madde: par. 81
+    alinti: İndirimin sözleşmede düzenlenen edim yükümlülüklerinin tamamına değil yalnızca bir veya birkaçına ilişkin
+      olduğuna dair 82’nci paragraf uyarınca gözlemlenebilir göstergelerin bulunduğu durumlar haricinde, işletme,
+      indirimi sözleşmedeki tüm edim yükümlülüklerine orantılı bir şekilde dağıtır.
   dogrulama:
     python: 'islem_bedeli = 900000
 
@@ -477,7 +473,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 3
+  surum: 4
   uretim:
     kaynak_turu: yapay_zeka
     model: claude
@@ -499,8 +495,9 @@
         tarih: '2026-10-03'
       G5:
         sonuc: gecti
-        tarih: '2026-10-04'
-        not: 'hakem: Yalnız TFRS 15 par. 74 alıntısı eklendi.'
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R3: par. 76 alıntısı kaynak metindeki sayfa başlığı kesintisi nedeniyle eşleşmiyordu;
+          kaynakta birebir geçen kısım alındı. Hesap doğrulandı: 900.000 x 800/1.000 = 720.000'
       G6:
         sonuc: gecti
         tarih: '2026-10-04'
@@ -519,3 +516,8 @@
     kim: duzeltici
     ne: TFRS 15 par. 74 alıntısı kaynaklara eklendi.
     neden: 'G6 denetçi notu (DUZELTME_LISTESI.md): açıklamada atıf yapılan par. 74''ün alıntısı yoktu.'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R3: par. 76 alıntısı kaynak metindeki sayfa başlığı kesintisi nedeniyle eşleşmiyordu; kaynakta birebir
+      geçen kısım alındı. Hesap doğrulandı: 900.000 x 800/1.000 = 720.000'
