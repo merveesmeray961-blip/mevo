@@ -1,4 +1,17 @@
-# Yeni oturum için devir notu (2026-10-17)
+# Yeni oturum için devir notu (2026-10-18)
+
+## 2026-10-18 oturumu (aynı dal) — soru bankası düzeltme turları tamamlandı
+
+- **Ağır + hafif tur bitti:** `guncellik_denetimi.py` bulgulu soru 828 → **0**. Tekrar eden hükümler çekildi, mutlak
+  ifadeli çeldiriciler ve "doğru şık en uzun" ipuçları giderildi, SMMM köklerinden BDS numaraları çıkarıldı, sınav
+  düzeyinin altındaki 35 tek adımlık soru çekildi. Son durum: SMMM 3.128 aktif (72 taslak), YMM 1.485 aktif + 80 klasik.
+  Rapor: `docs/denetim/2026-10-18_guncellik_son.json`.
+- **Elle doğrulanmış yanlış alarmlar** `docs/denetim/guncellik_istisna.json` içinde (gerekçeli; denetçi bunları atlar).
+- **SMMM tutarları ₺ biçiminde** (`para_birimi.py --uygula`; ek ünlüsü "lira"ya göre: ₺'dır, ₺'ya). Alıntılar ve
+  doğrulama kodu TL olarak kalır. YMM'de TL korunur.
+- `duzeltme.py` artık `secenek_degis` (yalnız verilen şıkları değiştirir) kabul eder.
+- **Sıradaki:** anlatım denetimi (69 SMMM + 59 YMM taslak; YMM raporlarındaki "anlatım açıkları"), yeni YMM konuları
+  için soru/anlatım, paket + sürüm 1.0.8 + APK/AAB.
 
 ## 2026-10-17 oturumu (dal `claude/ymm-cikmis-analiz`, `claude/devam-md-continue-itrwgl` üstünde)
 
