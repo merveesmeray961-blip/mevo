@@ -2,7 +2,7 @@
 ders: "VTK"
 konu: "THS"
 baslik: "Vergi alacağının tahsili"
-durum: "taslak"
+durum: "kontrolde"
 yazar: "mevo-editor"
 kaynaklar:
   - mevzuat: "6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun"

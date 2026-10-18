@@ -2,7 +2,7 @@
 ders: IFM
 konu: KCV
 baslik: "Kavramsal Çerçeve ve finansal tabloların sunuluşu"
-durum: "taslak"
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "Finansal Raporlamaya İlişkin Kavramsal Çerçeve"

@@ -2,7 +2,7 @@
 ders: IFM
 konu: MDV
 baslik: "Maddi ve maddi olmayan duran varlıklar ve yatırım amaçlı gayrimenkuller"
-durum: "taslak"
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "TMS 16 Maddi Duran Varlıklar"

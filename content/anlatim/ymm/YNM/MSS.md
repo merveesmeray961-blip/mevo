@@ -2,7 +2,7 @@
 ders: YNM
 konu: MSS
 baslik: "Maliyet sistemleri ve maliyet akışı"
-durum: taslak
+durum: "kontrolde"
 yazar: mevo-editor
 kaynaklar:
   - mevzuat: "Genel bilgi — Sipariş ve safha maliyet sistemleri"

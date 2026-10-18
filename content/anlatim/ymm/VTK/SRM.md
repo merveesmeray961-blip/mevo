@@ -2,7 +2,7 @@
 ders: "VTK"
 konu: "SRM"
 baslik: "Vergi sorumluluğu ve teminat"
-durum: "taslak"
+durum: "kontrolde"
 yazar: "mevo-editor"
 kaynaklar:
   - mevzuat: "213 sayılı Vergi Usul Kanunu"

@@ -2,7 +2,7 @@
 ders: IFM
 konu: TAB
 baslik: "Nakit akış tablosu ve özel raporlama konuları"
-durum: "taslak"
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "TMS 7 Nakit Akış Tablosu"

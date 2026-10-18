@@ -2,7 +2,7 @@
 ders: FYN
 konu: PIY
 baslik: "Finansal piyasalar ve türev ürünler"
-durum: "taslak"
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "Genel bilgi — Para ve sermaye piyasası araçları, halka arz"

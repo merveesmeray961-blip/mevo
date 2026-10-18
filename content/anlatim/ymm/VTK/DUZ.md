@@ -2,7 +2,7 @@
 ders: "VTK"
 konu: "DUZ"
 baslik: "İnceleme, takdir ve düzeltme"
-durum: "taslak"
+durum: "kontrolde"
 yazar: "mevo-editor"
 kaynaklar:
   - mevzuat: "213 sayılı Vergi Usul Kanunu"

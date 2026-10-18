@@ -2,7 +2,7 @@
 ders: SPM
 konu: PAL
 baslik: "Piyasa altyapısı ve yatırımcı koruma"
-durum: taslak
+durum: "kontrolde"
 yazar: mevo-editor
 kaynaklar:
   - mevzuat: "6362 sayılı Sermaye Piyasası Kanunu"

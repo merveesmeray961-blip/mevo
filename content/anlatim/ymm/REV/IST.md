@@ -2,7 +2,7 @@
 ders: REV
 konu: IST
 baslik: "Kurumlar vergisi istisnaları"
-durum: taslak
+durum: "kontrolde"
 yazar: mevo-editor
 kaynaklar:
   - mevzuat: "5520 sayılı Kurumlar Vergisi Kanunu"

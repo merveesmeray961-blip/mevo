@@ -2,7 +2,7 @@
 ders: IFM
 konu: STK
 baslik: "Stoklar, canlı varlıklar ve devlet teşvikleri"
-durum: "taslak"
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "TMS 2 Stoklar"

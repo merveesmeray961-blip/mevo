@@ -2,7 +2,7 @@
 ders: REV
 konu: ULU
 baslik: "Dar mükellefiyet, çifte vergilendirme ve vergi kesintisi"
-durum: taslak
+durum: "kontrolde"
 yazar: mevo-editor
 kaynaklar:
   - mevzuat: "5520 sayılı Kurumlar Vergisi Kanunu"

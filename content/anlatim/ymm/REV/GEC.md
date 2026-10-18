@@ -2,7 +2,7 @@
 ders: REV
 konu: GEC
 baslik: "Geçici ve af düzenlemeleri"
-durum: taslak
+durum: "kontrolde"
 yazar: mevo-editor
 kaynaklar:
   - mevzuat: "5520 sayılı Kurumlar Vergisi Kanunu"

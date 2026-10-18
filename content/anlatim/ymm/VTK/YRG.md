@@ -2,7 +2,7 @@
 ders: "VTK"
 konu: "YRG"
 baslik: "Vergi yargısı"
-durum: "taslak"
+durum: "kontrolde"
 yazar: "mevo-editor"
 kaynaklar:
   - mevzuat: "2577 sayılı İdari Yargılama Usulü Kanunu"

@@ -2,7 +2,7 @@
 ders: "VTK"
 konu: "UGN"
 baslik: "Vergi usulünün genel hükümleri"
-durum: "taslak"
+durum: "kontrolde"
 yazar: "mevo-editor"
 kaynaklar:
   - mevzuat: "213 sayılı Vergi Usul Kanunu"
