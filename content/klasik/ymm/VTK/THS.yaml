@@ -1,0 +1,87 @@
+- id: YMM-VTK-THS-K001
+  sinav: ymm
+  ders: VTK
+  konu: THS
+  kazanimlar:
+  - mahsup ve gecikme zammı
+  - 6183 sayılı Kanun ödeme emri ve haciz
+  - teminat ve tecil
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: '(U) Ltd.''nin vadesi 31.03.2026 olan 120.000 TL kurumlar vergisi ile aynı tarihte vadesi gelen 120.000 TL vergi ziyaı
+
+    cezası ödenmemiştir. Vergi dairesi 10.06.2026''da ödeme emri tebliğ etmiş, şirket borcun tamamını 25.06.2026''da ödemiştir.
+
+    Aylık gecikme zammı oranı %3,7''dir (ay kesirleri günlük, ay 30 gün kabul edilecektir).
+
+
+    (a) Ödeme emrine itiraz edilebilecek konuları, süresini ve merciini yazınız. (6 puan)
+
+    (b) Vergi ve vergi ziyaı cezası için ödenecek gecikme zammını ayrı ayrı hesaplayınız. (12 puan)
+
+    (c) Şirket ödeme yerine tecil isteseydi teminat ve süre bakımından hangi şartlar aranırdı? (7 puan)
+
+    '
+  cozum: '**(a)** Borçlu; böyle bir borcu olmadığını, borcu kısmen ödediğini veya borcun zamanaşımına uğradığını tebliğden
+
+    itibaren **15 gün** içinde **vergi itiraz komisyonu** nezdinde ileri sürebilir. Kısmi itirazda cihet ve miktar
+
+    açıkça gösterilmezse itiraz edilmemiş sayılır; komisyon 7 günde kesin karar verir (6183 md. 58).
+
+
+    **(b)** 31.03–31.05 arası 2 tam ay, 31.05–25.06 arası 25 gün.
+
+    - Vergi: 120.000 × %3,7 × 2 = 8.880; 120.000 × %3,7 / 30 × 25 = 3.700 → **12.580 TL**.
+
+    - Vergi ziyaı cezası: VUK''a göre kesilen vergi ziyaı cezasına gecikme zammı **aynı oranda** uygulanır → **12.580 TL**.
+
+    - Toplam gecikme zammı **25.160 TL** (6183 md. 51).
+
+
+    **(c)** Tecil için borcun vadesinde ödenmesinin veya haczin borçluyu **çok zor duruma** düşürmesi, borçlunun **yazılı
+
+    talebi** ve **teminat** gerekir; süre **72 ayı** geçemez ve **faiz** alınır. Toplam tecil 1.000.000 TL''yi aşmadığından
+
+    (240.000 TL) teminat aranmaz (6183 md. 48).
+
+    '
+  puanlama:
+  - olcut: İtiraz sebepleri, 15 günlük süre ve vergi itiraz komisyonu
+    puan: 6
+  - olcut: Tam ay ve ay kesrinin doğru belirlenmesi
+    puan: 3
+  - olcut: Vergi için 12.580 TL gecikme zammı
+    puan: 4
+  - olcut: Vergi ziyaı cezasına aynı oranda gecikme zammı uygulanması
+    puan: 5
+  - olcut: Tecil şartları (zor durum, yazılı talep, 72 ay, faiz)
+    puan: 4
+  - olcut: 1.000.000 TL altı borçta teminat aranmaması
+    puan: 3
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 48, 51, 58
+  gecerlilik:
+    baslangic: '2025-11-14'
+    bitis: null
+  dogrulama:
+    python: 'g=120000*0.037*2+120000*0.037/30*25
+
+      sonuc={''vergi'':g,''ceza'':g,''toplam'':2*g}'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi S3-THS
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-18'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-18'
+    kim: uretici
+    ne: harici teslim t_S3_THS.yaml, klasik 1
