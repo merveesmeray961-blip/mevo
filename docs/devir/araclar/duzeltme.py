@@ -5,7 +5,7 @@
         Ajan yalnız bu dosyayı okur (bankanın tamamını okumaz).
 
     python docs/devir/araclar/duzeltme.py uygula <karar.json> [<karar2.json> …]
-        Karar biçimi: {"<id>": {"islem": "duzelt"|"cek"|"dokunma", "kok"?, "secenekler"?, "dogru"?,
+        Karar biçimi: {"<id>": {"islem": "duzelt"|"cek"|"dokunma", "kok"?, "secenekler"?, "secenek_degis"?, "dogru"?,
                                 "aciklama"?, "neden": "..."}}
         duzelt → verilen alanlar yazılır, G5 notu ve geçmiş kaydı eklenir; cek → geri_cekildi; dokunma → yalnız not.
 """
@@ -74,6 +74,8 @@ def uygula(karar_yollari: list[Path]) -> None:
                     for alan in ("kok", "secenekler", "dogru", "kaynaklar", "dogrulama"):
                         if alan in k:
                             yeni[alan] = k[alan]
+                    if isinstance(k.get("secenek_degis"), dict):  # yalnız verilen şıklar değişir
+                        yeni["secenekler"] = {**yeni["secenekler"], **k["secenek_degis"]}
                     if isinstance(k.get("aciklama"), dict):  # açıklama birleştirilir: verilmeyen alt alanlar korunur
                         aciklama = dict(yeni.get("aciklama") or {})
                         for alt, deger in k["aciklama"].items():
