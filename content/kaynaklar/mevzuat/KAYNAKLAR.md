@@ -328,3 +328,9 @@ Eksik (eklenecek): 3218 sayılı Serbest Bölgeler Kanunu, İhracat ve İthalat 
 | `gvk_bkk_2009_14592.htm` | `gvk_bkk_2009_14592.txt` | 2009/14592 sayılı BKK (GVK md. 94 tevkifat nispetleri) | RG 03.02.2009/27130 asıl metin; değişiklikler işlenmedi | https://www.resmigazete.gov.tr/eskiler/2009/02/20090203-3.htm | `ebf097997e4ce6a49810509cdc73173612e8700e4860d266632dd9bb30fbdda3` | 2026-10-18 |
 | `kvk_bkk_2009_14593.htm` | `kvk_bkk_2009_14593.txt` | 2009/14593 sayılı BKK (KVK md. 30 kesinti oranları) | RG 03.02.2009/27130 asıl metin; değişiklikler işlenmedi | https://www.resmigazete.gov.tr/eskiler/2009/02/20090203-4.htm | `baf88f8b63a9ec5b8b8b11990f9c8472c907b807d17a0f241a6d3ae8a9e6ea9d` | 2026-10-18 |
 | `vergi_kesinti_cbk_9286.pdf` | `vergi_kesinti_cbk_9286.txt` | 9286 sayılı Cumhurbaşkanı Kararı (GVK 94, KVK 15 ve 30 kesinti oranı değişikliği) | RG 22.12.2024/32760; taranmış, OCR; oranlar elle doğrulandı | https://www.mevzuat.gov.tr/MevzuatMetin/20.5.9286.pdf | `33b90df1c8c5741336cade799ea29fc8b07fe9168ddcc70d73fcaa9f4302e5c5` | 2026-10-18 |
+
+## Mali tatil (2026-10-18)
+
+| dosya | metin | belge adı | son değişiklik / yürürlük | kaynak URL | SHA-256 | indirme tarihi |
+|---|---|---|---|---|---|---|
+| `mali_tatil_5604.pdf` | `mali_tatil_5604.txt` | 5604 sayılı Mali Tatil İhdas Edilmesi Hakkında Kanun | RG 28.03.2007/26476; 6661 sayılı Kanunla değişik | https://www.mevzuat.gov.tr/MevzuatMetin/1.5.5604.pdf | `164bf2711b1bd2d2190563b4e5cecca0533b99d28f89f0e79b699474a21c70fb` | 2026-10-18 |
