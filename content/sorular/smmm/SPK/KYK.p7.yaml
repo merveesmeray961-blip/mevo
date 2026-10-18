@@ -429,7 +429,7 @@
     baslangic: '2012-12-30'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -451,8 +451,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: KYK-0001 ve 0020 ile aynı hüküm (fon malvarlığının ayrılığı ve haczedilmezliği)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -473,6 +474,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: KYK-0001 ve 0020 ile aynı hüküm (fon malvarlığının ayrılığı ve haczedilmezliği)
 - id: SMMM-SPK-KYK-0009
   sinav: smmm
   bolum:
@@ -619,7 +624,7 @@
     baslangic: '2014-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 2
   uretim:
     kaynak_turu: yapay_zeka
@@ -641,9 +646,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: gecti
+        sonuc: kaldi
         tarih: '2026-10-18'
-        not: 'düzeltme turu: açıklamadaki doğru şık harfi anahtarla eşitlendi (şık dengelemeden kalma)'
+        not: KYK-0001 ile aynı hüküm (haciz ve mahsup yasağı)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -662,6 +667,10 @@
     kim: hakem
     ne: düzeltildi
     neden: açıklamadaki doğru şık harfi anahtarla eşitlendi (şık dengelemeden kalma)
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: KYK-0001 ile aynı hüküm (haciz ve mahsup yasağı)
 - id: SMMM-SPK-KYK-0011
   sinav: smmm
   bolum:
@@ -849,8 +858,7 @@
   secenekler:
     A: Tek ihraççı sınırı aşıldığı için fon yatırımı uygun değildir.
     B: Aynı grup sınırı aşıldığı için fon yatırımı uygun değildir.
-    C: '%5''ten fazla yatırım yapılan ihraççıların toplamı sınırı aşmadığı için verilen üç tutar bakımından sınırlamalar
-      aşılmamıştır.'
+    C: Verilen tutarlar bakımından yatırım sınırlamalarından hiçbiri aşılmamıştır.
     D: Tek ihraççı sınırı 5 milyon TL olduğu için yatırım uygun değildir.
     E: Aynı grup sınırı 10 milyon TL olduğu için yatırım uygun değildir.
   dogru: C
@@ -882,7 +890,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -903,8 +911,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). %10/%20/%40 sınırları aşılmamış'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -919,6 +928,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-SPK-KYK-0014
   sinav: smmm
   bolum:
@@ -1296,10 +1309,9 @@
     gündeme gelmiştir. Tebliğ hükümleri birlikte değerlendirildiğinde aşağıdakilerden hangisi doğrudur?
   secenekler:
     A: Şemsiye fona bağlı fonların tüm varlık ve yükümlülükleri ortak kabul edildiğinden kullanım mümkündür.
-    B: Yalnızca kurucunun onayı alınırsa bir fonun malvarlığı diğer fonun borcu için kullanılabilir.
-    C: Her bir fonun tüm varlık ve yükümlülükleri birbirinden ayrıdır; fon malvarlığı da kurucunun ve portföy saklayıcısının
-      malvarlığından ayrıdır.
-    D: Fon malvarlığının ayrılığı yalnızca borsada işlem gören fonlar için geçerlidir.
+    B: Kurucunun onayı alınırsa bir fonun malvarlığı diğer fonun borcu için kullanılabilir.
+    C: Her fonun varlık ve yükümlülükleri birbirinden, kurucunun ve saklayıcının malvarlığından ayrıdır.
+    D: Fon malvarlığının ayrılığı borsada işlem gören fonlarla sınırlıdır.
     E: Portföy saklayıcısının malvarlığı ile fon malvarlığı arasında ayrım yapılmaz.
   dogru: C
   aciklama:
@@ -1325,7 +1337,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1346,8 +1358,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1368,6 +1381,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
 - id: SMMM-SPK-KYK-0019
   sinav: smmm
   bolum:
@@ -1468,11 +1485,10 @@
   kok: Bir yatırım fonunun malvarlığının fon kurucusunun borçları nedeniyle haczedilmesi istenmektedir. Yatırım
     Fonlarına İlişkin Esaslar Tebliği'ne göre aşağıdakilerden hangisi doğrudur?
   secenekler:
-    A: Fon malvarlığı, kurucunun ve portföy saklayıcısının malvarlığından ayrıdır; kamu alacaklarının tahsili amacı
-      da dahil olmak üzere haczedilemez.
-    B: Fon malvarlığı yalnızca kurucunun onayıyla haczedilebilir.
+    A: Fon malvarlığı kurucu ve saklayıcının malvarlığından ayrıdır; kamu alacakları için dahi haczedilemez.
+    B: Fon malvarlığı kurucunun onayıyla haczedilebilir.
     C: Fon malvarlığı kurucunun malvarlığıyla birlikte değerlendirilir ve kamu alacağı için haczedilebilir.
-    D: Fon malvarlığı sadece özel hukuk alacakları için haczedilebilir.
+    D: Fon malvarlığı özel hukuk alacakları için haczedilebilir, kamu alacakları için haczedilemez.
     E: Fon malvarlığı ayrıdır; ancak portföy saklayıcısının borçları için haczedilebilir.
   dogru: A
   aciklama:
@@ -1498,7 +1514,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1519,8 +1535,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5/R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1541,3 +1558,7 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık C → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5/R6
