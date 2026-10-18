@@ -776,9 +776,9 @@
     gider 730 Genel Üretim Giderleri hesabının borcuna kaydedilecektir. KDV dikkate alınmayacaktır. Tekdüzen Hesap
     Planı'na göre bu kayda ilişkin muhasebe fişinde aşağıdakilerden hangisi yazılmalıdır?
   secenekler:
-    A: Yalnızca gider çeşidi kodu (3); gider yeri kodu fişe değil, yalnızca dönem sonu maliyet raporuna yazılır
+    A: Gider çeşidi kodu (3) yazılır; gider yeri kodu dönem sonu maliyet raporunda belirlenir
     B: Gider çeşidi kodu olarak 12, gider yeri kodu olarak 3
-    C: Gider çeşidi kodu olarak 3 (dışarıdan sağlanan fayda ve hizmetler), gider yeri kodu olarak 12
+    C: Gider çeşidi kodu 3 (dışarıdan sağlanan fayda ve hizmetler), gider yeri kodu 12
     D: Gider çeşidi kodu olarak 4 (çeşitli giderler), gider yeri kodu olarak 12
     E: Gider çeşidi kodu olarak 0 (ilk madde ve malzeme), gider yeri kodu olarak 12
   dogru: C
@@ -813,7 +813,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -834,8 +834,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). çeşit 3 dışarıdan fayda; yer 12'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -850,6 +851,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-MAL-KAV-0012
   sinav: smmm
   bolum:
@@ -1227,8 +1232,8 @@
       aralığındaki ilgili gider yeri numarası birlikte yazılır.
     C: 730 Genel Üretim Giderleri hesabının borcuna kaydedilir; gider çeşidi 10-99 aralığındaki, gider yeri ise
       0-9 aralığındaki numaralarla yardımcı defterde izlenir.
-    D: 730 Genel Üretim Giderleri hesabının borcuna kaydedilir; fişe yalnızca 1 nolu gider çeşidi yazılır, gider
-      yeri numarası dönem sonunda gider dağıtımı sırasında belirlenir.
+    D: 730 Genel Üretim Giderleri hesabının borcuna kaydedilir; fişe 1 nolu gider çeşidi yazılır, gider yeri numarası
+      dönem sonunda gider dağıtımı sırasında belirlenir.
     E: 770 Genel Yönetim Giderleri hesabının borcuna kaydedilir; muhasebe fişine 1 nolu gider çeşidi ile 10-99 aralığındaki
       ilgili gider yeri numarası birlikte yazılır.
   dogru: A
@@ -1270,7 +1275,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1291,8 +1296,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). 730; çeşit 1 + yer birlikte'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R6'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1307,6 +1313,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R6
 - id: SMMM-MAL-KAV-0016
   sinav: smmm
   bolum:
@@ -1418,11 +1428,11 @@
     hangi mamulden ne kadar tüketildiği ekonomik bakımdan ayrı izlenebilen maddelerle ilgili giderlerin izlendiği
     grup aşağıdakilerden hangisidir?
   secenekler:
-    A: 71 Direkt İlkmadde ve Malzeme Giderleri
+    A: 71 Direkt İlk Madde ve Malzeme Giderleri
     B: 72 Direkt İşçilik Giderleri
     C: 73 Genel Üretim Giderleri
-    D: 74 Hizmet Üretim Maliyeti
-    E: 79 Gider Çeşitleri
+    D: 75 Araştırma ve Geliştirme Giderleri
+    E: 76 Pazarlama, Satış ve Dağıtım Giderleri
   dogru: A
   aciklama:
     dogru_neden: MSUGT Tekdüzen Hesap Planı’nda 71 grubu; üretilen mamulün bünyesine ana madde olarak katılan ve
@@ -1433,8 +1443,9 @@
       B: 72 grubu mamulü meydana getirmek için harcanan ve maliyetlere doğrudan yüklenebilen işçilik giderlerini
         kapsar; madde gideri değildir.
       C: 73 grubu üretim faaliyetleri ile ilgili direkt madde ve işçilik dışında kalan giderleri kapsar.
-      D: 74 grubu hizmet işletmelerinin hizmet üretim maliyetlerini izler; mamul maddesi değildir.
-      E: 79 grubu 7/B seçeneğinde çeşit esasına göre giderleri izler; fonksiyonel unsur grubu değildir.
+      D: 75 grubu araştırma ve geliştirme faaliyetlerinin giderlerini izler; mamul bünyesine giren madde bu grupta
+        yer almaz.
+      E: 76 grubu pazarlama, satış ve dağıtım faaliyetlerinin giderlerini izler; üretim maliyetinin unsuru değildir.
   kaynaklar:
   - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
     madde: 71 DİREKT İLKMADDE VE MALZEME GİDERLERİ
@@ -1450,7 +1461,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1471,8 +1482,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: çeldiriciler gerçek 7/A grup adlarıyla dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1487,6 +1499,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: çeldiriciler gerçek 7/A grup adlarıyla dengelendi'
 - id: SMMM-MAL-KAV-0018
   sinav: smmm
   bolum:

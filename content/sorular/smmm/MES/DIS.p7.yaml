@@ -16,8 +16,7 @@
     A: Uyarma ve kınama cezaları Hazine ve Maliye Bakanlığına duyurulur; diğer cezalar duyurulmaz.
     B: Uyarma dışındaki tüm disiplin cezaları Hazine ve Maliye Bakanlığına duyurulur.
     C: Kınama dışındaki tüm disiplin cezaları Hazine ve Maliye Bakanlığına duyurulur.
-    D: Uyarma ve kınama cezaları hariç diğer disiplin cezaları Hazine ve Maliye Bakanlığı ile diğer ilgili kurum
-      ve kuruluşlara duyurulur.
+    D: Uyarma ve kınama dışındaki cezalar Bakanlık ile diğer ilgili kurum ve kuruluşlara duyurulur.
     E: Yalnız meslekten çıkarma cezası Hazine ve Maliye Bakanlığına duyurulur.
   dogru: D
   aciklama:
@@ -39,7 +38,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -60,8 +59,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -76,6 +76,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-MES-DIS-0005
   sinav: smmm
   bolum:
@@ -95,8 +99,7 @@
     B: Yeni eylem için yalnız kınama cezası verilebilir.
     C: Yeni eylem için en fazla bir yıl süreyle geçici olarak mesleki faaliyetten alıkoyma cezası verilebilir.
     D: Yeni eylem için yeminli sıfatını kaldırma cezası zorunludur.
-    E: Beş yıllık dönem içinde iki kez geçici olarak mesleki faaliyetten alıkoyma cezasından sonra bu cezayı gerektiren
-      eylemin yeniden işlenmesi hâlinde meslekten çıkarma cezası uygulanır.
+    E: Yeni eylem için meslekten çıkarma cezası uygulanır.
   dogru: E
   aciklama:
     dogru_neden: Disiplin Yönetmeliği md. 9/1-a'ya göre beş yıllık dönem içinde iki defa mesleki faaliyetten alıkoyma
@@ -119,7 +122,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -140,8 +143,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -156,6 +160,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-MES-DIS-0006
   sinav: smmm
   bolum:
@@ -720,7 +728,7 @@
     baslangic: '2000-10-31'
     bitis: null
     yila_bagli_tutar: false
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -742,8 +750,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: DIS-0004 ve 0013 ile aynı hükümler (duyuru ve Resmî Gazete ilanı)
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -758,6 +767,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: DIS-0004 ve 0013 ile aynı hükümler (duyuru ve Resmî Gazete ilanı)
 - id: SMMM-MES-DIS-0013
   sinav: smmm
   bolum:
@@ -774,7 +787,7 @@
   secenekler:
     A: Uyarma, kınama ve geçici olarak mesleki faaliyetten alıkoyma
     B: Uyarma, kınama ve yeminli sıfatının kaldırılması
-    C: Geçici olarak mesleki faaliyetten alıkoyma, meslekten çıkarma ve yeminli sıfatının kaldırılması
+    C: Geçici faaliyetten alıkoyma, meslekten çıkarma ve yeminli sıfatın kaldırılması
     D: Kınama, geçici olarak mesleki faaliyetten alıkoyma ve meslekten çıkarma
     E: Uyarma, yeminli sıfatının kaldırılması ve meslekten çıkarma
   dogru: C
@@ -799,7 +812,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -820,8 +833,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -842,6 +856,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-MES-DIS-0014
   sinav: smmm
   bolum:

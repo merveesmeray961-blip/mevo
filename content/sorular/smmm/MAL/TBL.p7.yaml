@@ -2628,12 +2628,11 @@
   kok: Satışların maliyet tablosunda satılan mamul maliyetine ulaşmak için üretim maliyetine hangi işlemin uygulanması
     gerekir?
   secenekler:
-    A: Dönem başı mamul stoku ile dönem sonu mamul stoku (ve varsa iç tüketim) arasındaki farkın eklenmesi veya
-      çıkarılması
-    B: Dönem başı yarı mamul stokunun eklenmesi
-    C: Dönem sonu ticari mal stokunun çıkarılması
-    D: Finansman giderlerinin eklenmesi
-    E: Pazarlama satış dağıtım giderlerinin çıkarılması
+    A: Mamul stoklarındaki değişimin (dönem başı ve dönem sonu farkı) dikkate alınması
+    B: Dönem başı yarı mamul stokunun üretim maliyetine eklenmesi
+    C: Dönem sonu ticari mal stokunun üretim maliyetinden çıkarılması
+    D: Finansman giderlerinin üretim maliyetine eklenmesi
+    E: Pazarlama, satış ve dağıtım giderlerinin üretim maliyetinden çıkarılması
   dogru: A
   aciklama:
     dogru_neden: 'Üretim maliyetine, dönem başı mamul stoku ile dönem sonu mamul stoku ve varsa iç tüketim tutarları
@@ -2659,7 +2658,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2680,8 +2679,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2696,6 +2696,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-MAL-TBL-0031
   sinav: smmm
   bolum:
@@ -2791,11 +2795,10 @@
   kok: 7/A seçeneğinde 710 Direkt İlkmadde ve Malzeme Giderleri hesabına kaydedilen tutarların niteliği aşağıdakilerden
     hangisinde doğru olarak belirtilmiştir?
   secenekler:
-    A: Esas üretim gider yerlerinde mamulün bünyesine giren, mamulün temel öğesini oluşturan ve doğrudan yüklenebilen
-      maddelerin fiili kullanım tutarları
-    B: Satılan ilk madde ve malzemenin maliyeti
-    C: Üretimde kullanılmayan ilk madde ve malzemenin maliyeti
-    D: Genel üretim gider yerlerinde kullanılan endirekt madde tutarları
+    A: Mamulün bünyesine giren ve doğrudan yüklenebilen maddelerin fiilî kullanım tutarları
+    B: Üretimde kullanılmadan satılan ilk madde ve malzemenin maliyeti
+    C: Üretimde kullanılmayıp dönem sonunda stokta kalan malzemenin maliyeti
+    D: Genel üretim gider yerlerinde kullanılan endirekt malzeme tutarları
     E: Pazarlama faaliyetlerinde kullanılan ambalaj malzemesi tutarları
   dogru: A
   aciklama:
@@ -2820,7 +2823,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2841,8 +2844,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2857,6 +2861,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: R5
 - id: SMMM-MAL-TBL-0033
   sinav: smmm
   bolum:
