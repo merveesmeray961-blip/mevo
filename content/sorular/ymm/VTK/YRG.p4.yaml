@@ -32,7 +32,7 @@
     baslangic: '1982-01-20'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -52,7 +52,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 1)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -61,6 +63,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 1
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0002
   sinav: ymm
   bolum:
@@ -71,25 +77,31 @@
   kazanim: vergi davası açma süreleri ve ilk inceleme
   tip: kavrama
   zorluk: 2
-  kok: Adresi belli olmadığı için vergi ihbarnamesi ilan yoluyla tebliğ edilen bir mükellefin dava açma süresi, İYUK'a göre
-    ne zaman işlemeye başlar?
+  kok: Adresi belli olmadığı için vergi ihbarnamesi ilan yoluyla tebliğ edilen mükellef, ilan tarihinden itibaren bir ay içinde
+    ne vergi dairesine başvurmuş ne de adresini bildirmiştir. Bu mükellefin vergi mahkemesinde dava açma süresi bakımından
+    tebliğ hangi tarihte yapılmış sayılır?
   secenekler:
     A: Son ilan tarihini izleyen günden itibaren on beş gün sonra
-    B: İlan yazısının vergi dairesine asıldığı günü izleyen günden itibaren
-    C: İlan tarihinden itibaren bir ay geçtikten sonra
-    D: Mükellefin vergi dairesine başvurup ihbarnameyi teslim aldığı günden itibaren
-    E: İlk ilan tarihini izleyen günden itibaren
-  dogru: A
+    B: İlan yazısının vergi dairesine asıldığı günü izleyen günde
+    C: İlan tarihinden başlayarak bir ayın sonunda
+    D: Mükellefin vergi dairesine başvurup ihbarnameyi teslim aldığı günde
+    E: İlk ilan tarihini izleyen günde
+  dogru: C
   aciklama:
-    dogru_neden: 'İYUK md. 7/3: ilan yoluyla bildirimde, özel kanunda aksine hüküm yoksa süre son ilan tarihini izleyen günden
-      itibaren on beş gün sonra işlemeye başlar.'
+    dogru_neden: 'VUK md. 106''ya göre ilan tarihinden başlayarak bir ay içinde vergi dairesine başvurmamış ve adresini bildirmemiş
+      olanlara bir ayın sonunda tebliğ yapılmış sayılır; dava açma süresi bu tebliğ tarihinden işler. İYUK md. 7/3''teki on
+      beş günlük kural, özel kanunda aksine hüküm bulunmayan hâller içindir; vergi ihbarnamelerinde VUK''un özel hükmü uygulanır.
+      Püf noktaları: genel kural ile özel kanun hükmünü ayırt et.'
     celdiriciler:
-      B: Askı tarihi değil son ilan tarihi esas alınır ve ayrıca on beş gün beklenir.
-      C: Bir aylık süre VUK md. 106'daki ilanen tebliğ kuralıdır; İYUK'taki dava süresi başlangıcı ayrıca düzenlenmiştir.
-      D: Süre mükellefin başvurusuna bağlı değildir.
-      E: İlk değil son ilan esas alınır ve on beş günlük bekleme vardır.
+      A: İYUK md. 7/3'teki genel kuraldır; vergi ihbarnamesinde VUK md. 106 özel hükmü uygulanır.
+      B: Asılma tarihi tebliğ tarihi sayılmaz.
+      D: Mükellef bir ay içinde başvurmamıştır; teslim alma söz konusu değildir.
+      E: Kanun bir aylık süre öngörür.
     hesap_adimlari: []
   kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 106
+    alinti: adresini bildirmiş olanlara bir ayın sonunda tebliğ yapılmış sayılır.
   - mevzuat: 2577 sayılı İdari Yargılama Usulü Kanunu
     madde: md. 7/3
     alinti: süre, son ilan tarihini izleyen günden itibaren onbeş gün sonra işlemeye başlar.
@@ -126,6 +138,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 2
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: anahtar A → C, kök ve şıklar yeniden yazıldı
+    neden: 'kör hakem: VUK md. 106 özel hükmü İYUK 7/3''ün önüne geçer'
 - id: YMM-VTK-YRG-0003
   sinav: ymm
   bolum:
@@ -162,7 +178,7 @@
     baslangic: '1982-01-20'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -182,7 +198,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -191,6 +209,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 3
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0004
   sinav: ymm
   bolum:
@@ -227,7 +249,7 @@
     baslangic: '1994-06-10'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -247,7 +269,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 1)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -256,6 +280,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 4
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0005
   sinav: ymm
   bolum:
@@ -293,7 +321,7 @@
     baslangic: '2012-07-05'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -313,7 +341,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 1)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -322,6 +352,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 5
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0006
   sinav: ymm
   bolum:
@@ -359,7 +393,7 @@
     bitis: null
     yila_bagli_tutar: true
     yil: 2026
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -379,7 +413,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -388,6 +424,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 6
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0007
   sinav: ymm
   bolum:
@@ -434,7 +474,7 @@
       s=math.floor(31000*1.4393/1000)*1000
 
       sonuc=math.floor(s*1.2549/1000)*1000'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -453,7 +493,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 3)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -462,6 +504,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 7
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0008
   sinav: ymm
   bolum:
@@ -499,7 +545,7 @@
     bitis: null
     yila_bagli_tutar: true
     yil: 2026
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -519,7 +565,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 3)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -528,6 +576,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 8
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0009
   sinav: ymm
   bolum:
@@ -567,7 +619,7 @@
     bitis: null
     yila_bagli_tutar: true
     yil: 2026
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -587,7 +639,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -596,6 +650,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 9
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0010
   sinav: ymm
   bolum:
@@ -631,7 +689,7 @@
     baslangic: '1990-04-11'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -651,7 +709,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 1)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -660,6 +720,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 10
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0011
   sinav: ymm
   bolum:
@@ -717,7 +781,7 @@
       ind=(k*0.6+t*0.75)*0.2
 
       sonuc=tah-ind'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -736,7 +800,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 3)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -745,6 +811,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 11
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0012
   sinav: ymm
   bolum:
@@ -786,7 +856,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc=40000*0.25*0.8
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -805,7 +875,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 4, seviye 3)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -814,6 +886,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 12
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0013
   sinav: ymm
   bolum:
@@ -854,7 +930,7 @@
     baslangic: '1990-04-11'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -874,7 +950,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -883,6 +961,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 13
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0014
   sinav: ymm
   bolum:
@@ -918,7 +1000,7 @@
     baslangic: '2019-12-07'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -938,7 +1020,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 2)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -947,6 +1031,10 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 14
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-VTK-YRG-0015
   sinav: ymm
   bolum:
@@ -982,7 +1070,7 @@
     baslangic: '1994-06-10'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1002,7 +1090,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'kitap düzeyi hakem: uygun, anahtarla aynı (güven 5, seviye 1)'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1011,3 +1101,7 @@
   - tarih: '2026-10-18'
     kim: uretici
     ne: harici teslim t_S3_YRG.yaml, satır 15
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
