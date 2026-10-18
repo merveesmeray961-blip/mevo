@@ -238,20 +238,22 @@
   kok: 6183 sayılı Kanun'a göre ödeme emrine itiraz eden borçlu, borcun yalnız bir bölümüne itiraz etmektedir. Aşağıdaki
     işlem sıralamalarından hangisi usule uygundur?
   secenekler:
-    A: İtirazı sözlü yapar; miktarı daha sonra bildirir.
-    B: Tebliğden itibaren 15 gün içinde ilgili tahsil dairesine itiraz eder ve kısmi itiraz ettiği miktarı açıkça
-      belirtir.
-    C: Önce haciz uygulanmasını bekler, sonra 30 gün içinde itiraz eder.
-    D: İtirazı yalnız ödeme emrini düzenleyen memura telefonla bildirir.
-    E: Kısmi itiraz mümkün olmadığından borcun tamamını öder.
+    A: İtirazı sözlü olarak yapar ve itiraz ettiği miktarı sonradan bildirir.
+    B: 15 gün içinde vergi itiraz komisyonuna itiraz eder; itiraz ettiği kısmın cihet ve miktarını açıkça gösterir.
+    C: Hacizin uygulanmasını bekler, ardından 30 gün içinde itiraz komisyonuna başvurur.
+    D: Tebliğden itibaren 7 gün içinde itiraz eder; kısmi itirazda miktarını belirtmesi gerekmez.
+    E: Kısmi itiraz mümkün olmadığından borcun tamamına itiraz eder ya da tamamını öder.
   dogru: B
   aciklama:
-    dogru_neden: 6183 md. 58 uyarınca itiraz süresi 15 gündür; kısmi itirazda itiraz edilen kısım açıkça gösterilmelidir.
+    dogru_neden: 6183 md. 58 uyarınca tebliğ tarihinden itibaren 15 gün içinde vergi itiraz komisyonu nezdinde itiraz
+      edilir; borcun bir kısmına itiraz eden borçlu o kısmın cihet ve miktarını açıkça göstermelidir, aksi halde
+      itiraz edilmemiş sayılır.
     celdiriciler:
-      A: Kanun yazılı itiraz ve miktarın açıklanmasını gerektirir.
-      C: Süre 30 gün değildir ve haciz beklenmez.
-      D: Telefonla bildirim kanuni usul değildir.
-      E: Kanun kısmi itiraza izin verir.
+      A: Kanun itirazda, itiraz edilen kısmın cihet ve miktarının açıkça gösterilmesini ister; miktarın sonradan
+        bildirilmesi yeterli değildir.
+      C: Süre 30 gün değil 15 gündür ve itiraz için haciz beklenmez.
+      D: 7 gün, komisyonun itirazı karara bağlama süresidir; itiraz süresi 15 gündür ve miktar gösterilmelidir.
+      E: Kanun borcun bir kısmına itiraza açıkça izin verir.
   kaynaklar:
   - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
     madde: md. 58
@@ -262,7 +264,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -283,8 +285,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: B kısaltıldı (md. 58''e uygun olarak vergi itiraz komisyonuna düzeltildi), diğer
+          şıklar uzatıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -299,6 +303,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: B kısaltıldı (md. 58''e uygun olarak vergi itiraz komisyonuna düzeltildi), diğer şıklar uzatıldı'
 - id: SMMM-VER-AAT-0034
   sinav: smmm
   bolum:
@@ -551,21 +559,21 @@
   kok: Vadesinde ödenmeyen bir amme alacağı için 6183 sayılı Kanunun 55 inci maddesine göre ödeme emri düzenlenmektedir.
     Aşağıdakilerden hangisinin ödeme emrinde yer alması kanunen öngörülmüştür?
   secenekler:
-    A: Borçlunun özel hayatına ilişkin gelir-gider dökümü
-    B: Borçlunun son beş yıldaki tüm banka hesap hareketleri
-    C: Borçlunun gelecekte edineceği malların tahmini listesi
+    A: Borçlunun ödeme gücüne ilişkin gelir-gider ve yaşam standardı dökümü
+    B: Haczedilecek malların cinsi, adedi ve tahmini değerleri
+    C: Ödeme emrine itiraz hakkının bulunmadığı ve emrin kesin olduğu
     D: Borcun asıl ve ferilerinin mahiyet ve miktarları ile nereye ödeneceği
-    E: Yalnızca ana para tutarı; feriler ödeme emrinde gösterilemez
+    E: Borçlunun haciz sırasında mal bildirimi yapma hakkından vazgeçtiğine ilişkin beyanı
   dogru: D
   aciklama:
     dogru_neden: 6183 md. 55, ödeme emrinde borcun asıl ve ferilerinin mahiyet ve miktarlarının ve nereye ödeneceğinin
-      kayıtlı bulunacağını açıkça düzenler. Aynı maddede süresinde ödeme veya mal bildirimi yapılmaması halinde
-      uygulanacak sonuçların da bildirilmesi öngörülmüştür.
+      kayıtlı bulunacağını düzenler. Aynı maddede süresinde ödeme veya mal bildirimi yapılmaması halinde uygulanacak
+      sonuçların da bildirilmesi öngörülmüştür.
     celdiriciler:
-      A: Özel hayat gelir-gider dökümü md. 55'te zorunlu içerik olarak sayılmamıştır.
-      B: Kanun ödeme emrinin içeriği bakımından banka hesap hareketleri gibi bir döküm öngörmemektedir.
-      C: Gelecekte edinilecek malların tahmini listesi md. 55'te ödeme emrinin zorunlu içeriği değildir.
-      E: Borcun ferileri de ödeme emrinde mahiyet ve miktarlarıyla gösterilir.
+      A: Gelir-gider ve yaşam standardı dökümü md. 55'te ödeme emrinin zorunlu içeriği olarak sayılmamıştır.
+      B: Haczedilecek malların listesi haciz aşamasına aittir; md. 55'te ödeme emrinin içeriği arasında yer almaz.
+      C: Ödeme emrine 15 gün içinde itiraz edilebilir (md. 58); emrin kesin olduğu yazılmaz.
+      E: Md. 55'e göre ödeme emrinde mal bildirimine ilişkin sonuçlar bildirilir; borçlunun vazgeçme beyanı alınmaz.
   kaynaklar:
   - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
     madde: md. 55
@@ -578,7 +586,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -599,8 +607,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler akla yatkın yanlış içeriklerle yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -621,6 +630,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler akla yatkın yanlış içeriklerle yenilendi'
 - id: SMMM-VER-AAT-0038
   sinav: smmm
   bolum:
@@ -794,19 +807,21 @@
   kok: Amme alacağı vadesinde ödenmemiş ve ödeme emri borçluya tebliğ edilmiştir. Borçlu, borcun yalnız bir kısmının
     ödendiğini ileri sürerek ödeme emrine kısmen itiraz edecektir. Hangi usul kuralına uymalıdır?
   secenekler:
-    A: Tebliğden itibaren 7 gün içinde sözlü itiraz etmelidir.
-    B: 15 gün içinde itiraz etmeli ve itiraz ettiği kısmın cihet ve miktarını açıkça göstermelidir.
-    C: 30 gün içinde yalnız mahkemeye başvurmalıdır.
-    D: Kısmi itirazda miktarı belirtmesi gerekmez.
-    E: Ödeme emrine karşı kısmi itiraz mümkün değildir.
+    A: Tebliğ tarihinden itibaren 7 gün içinde, miktar göstermeden sözlü itirazda bulunmalıdır.
+    B: 15 gün içinde itiraz etmeli; itiraz ettiği kısmın cihet ve miktarını açıkça göstermelidir.
+    C: 30 gün içinde mahkemeye başvurmalı; itiraz komisyonuna başvuruda bulunmamalıdır.
+    D: Kısmi itirazda itiraz edilen kısmın cihet ve miktarını göstermesi gerekmez, genel itiraz yeterlidir.
+    E: Ödeme emrine karşı kısmi itiraz mümkün değildir; borçlu ya tamamına itiraz eder ya da öder.
   dogru: B
   aciklama:
-    dogru_neden: 6183 md. 58 uyarınca 15 gün içinde itiraz edilir; kısmi itirazda cihet ve miktar açıkça gösterilmelidir.
+    dogru_neden: 6183 md. 58 uyarınca ödeme emrinin tebliğinden itibaren 15 gün içinde itiraz edilir; borcun bir
+      kısmına itiraz eden borçlu o kısmın cihet ve miktarını açıkça göstermelidir, aksi halde itiraz edilmemiş sayılır.
     celdiriciler:
-      A: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
-      C: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
-      D: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
-      E: Bu seçenek, ilgili hükmün şartını, oranını veya uygulamasını yanlış yorumlar.
+      A: İtiraz süresi 7 gün değil 15 gündür; 7 gün itiraz komisyonunun karar verme süresidir ve miktar gösterilmesi
+        gerekir.
+      C: Md. 58'e göre itiraz 30 gün içinde mahkemeye değil, 15 gün içinde vergi itiraz komisyonuna yapılır.
+      D: Miktar ve cihetin gösterilmemesi halinde itiraz edilmemiş sayılır.
+      E: Md. 58 borcun bir kısmına itirazı açıkça kabul eder.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
@@ -818,7 +833,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -839,8 +854,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: şık uzunlukları dengelendi; genel geçer çeldirici açıklamaları somutlaştırıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -855,6 +871,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: şık uzunlukları dengelendi; genel geçer çeldirici açıklamaları somutlaştırıldı'
 - id: SMMM-VER-AAT-0041
   sinav: smmm
   bolum:
@@ -1272,22 +1292,24 @@
   kok: 6183 sayılı Kanun bakımından aşağıdaki ifadelerden hangisi tahsil zamanaşımını kesen hâl ile zamanaşımının
     işlememesini doğru biçimde ayırır?
   secenekler:
-    A: Borçlunun yabancı memlekette bulunması zamanaşımını keser; ödeme ise yalnız durdurur.
-    B: Ödeme zamanaşımını kesen hâllerden biridir; borçlunun yabancı memlekette bulunması ise bu hâl devam ettiği
-      sürece zamanaşımının işlemesini engeller.
-    C: Ödeme ve yabancı memlekette bulunma aynı hukuki sonucu doğurur ve yeni süre başlatmaz.
-    D: Ödeme zamanaşımını etkilemez; yalnız ödeme emri tebliği keser.
-    E: Yabancı memlekette bulunma yalnız zamanaşımı süresini beş yıldan on yıla çıkarır.
+    A: Borçlunun yabancı memlekette bulunması zamanaşımını keser; ödeme ise yalnız süreyi durdurur.
+    B: Ödeme zamanaşımını keser; borçlunun yabancı memlekette bulunması ise hâl sürdükçe zamanaşımını işletmez.
+    C: Ödeme ve yabancı memlekette bulunma aynı hukuki sonucu doğurur ve ikisi de yeni süre başlatmaz.
+    D: Ödeme zamanaşımını etkilemez; yalnız ödeme emri tebliği zamanaşımını keser, yabancı memlekette bulunma ise
+      etkisizdir.
+    E: Yabancı memlekette bulunma, zamanaşımı süresini beş yıldan on yıla çıkarır; ödeme ise süreyi keser.
   dogru: B
   aciklama:
     dogru_neden: 6183 md. 103, ödemeyi tahsil zamanaşımını kesen hâller arasında sayar ve kesilmeden sonra süre
       yeniden başlar. Md. 104 ise borçlunun yabancı memlekette bulunması hâlinde bu durum devam ettiği sürece zamanaşımının
       işlemeyeceğini düzenler.
     celdiriciler:
-      A: Yabancı memlekette bulunma md. 104 kapsamında işlememeye; ödeme md. 103 kapsamında kesmeye ilişkindir.
-      C: İki hâlin hukuki sonuçları farklıdır.
-      D: Ödeme açıkça kesici hâl olarak sayılmıştır.
-      E: Yabancı memlekette bulunma süreyi on yıla çevirmemektedir; sürenin işlemesini geçici olarak engeller.
+      A: Yabancı memlekette bulunma md. 104 kapsamında işlememeye; ödeme md. 103 kapsamında kesmeye ilişkindir,
+        roller tersine çevrilmiştir.
+      C: İki hâlin hukuki sonuçları farklıdır; kesme yeni süre başlatır, işlememe ise sebep kalkana kadar süreyi
+        durdurur.
+      D: Ödeme açıkça kesici hâl olarak sayılmıştır (md. 103/1).
+      E: Yabancı memlekette bulunma süreyi on yıla çıkarmaz; sürenin işlemesini geçici olarak engeller.
   kaynaklar:
   - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
     madde: md. 103
@@ -1304,7 +1326,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1325,8 +1347,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: B kısaltıldı, diğer şıklar uzatıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1341,6 +1364,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: B kısaltıldı, diğer şıklar uzatıldı'
 - id: SMMM-VER-AAT-0047
   sinav: smmm
   bolum:
@@ -1590,21 +1617,21 @@
   kok: Ödeme emrine karşı borcun bir kısmının ödendiği ve kalan kısmın zamanaşımına uğradığı ileri sürülecektir.
     6183 sayılı Kanun md. 58 bakımından doğru yaklaşım hangisidir?
   secenekler:
-    A: İtiraz yalnız borcun tamamı için yapılabilir.
-    B: İtiraz süresi 7 gündür.
-    C: Tebliğden itibaren 15 gün içinde kısmi itiraz yapılabilir; itiraz edilen kısım açıkça belirtilmelidir.
-    D: Ödeme emrine karşı zamanaşımı iddiası ileri sürülemez.
-    E: İtiraz için önce borcun tamamı ödenmelidir.
+    A: İtiraz yalnız borcun tamamı için yapılabilir; kısmi itiraz kabul edilmez.
+    B: İtiraz süresi tebliğden itibaren 30 gündür; kısmi itirazda miktar göstermek gerekmez.
+    C: Tebliğden itibaren 15 gün içinde kısmi itiraz yapılabilir; itiraz edilen kısmın cihet ve miktarı gösterilmelidir.
+    D: Zamanaşımı iddiası ödeme emrine itirazda değil, yalnızca haciz aşamasında ileri sürülebilir.
+    E: Borcun bir kısmına itiraz, itiraz edilmeyen kısım bakımından mal bildirimi süresini uzatır.
   dogru: C
   aciklama:
-    dogru_neden: '6183 md. 58 borcun olmadığı, kısmen ödendiği veya zamanaşımına uğradığı iddialarını 15 gün içinde
-      ileri sürmeye izin verir; kısmi itirazda itiraz edilen kısım açıkça gösterilmelidir. Püf noktaları: kısmi
-      itiraz mümkündür, fakat kapsamı belirgin olmalıdır.'
+    dogru_neden: 6183 md. 58 borcun olmadığı, kısmen ödendiği veya zamanaşımına uğradığı iddialarını tebliğden itibaren
+      15 gün içinde ileri sürmeye izin verir; borcun bir kısmına itiraz eden borçlu o kısmın cihet ve miktarını
+      açıkça göstermelidir. Borcun bir kısmına karşı yapılan itirazlar mal bildirimi süresini uzatmaz.
     celdiriciler:
-      A: Kısmi itiraz mümkündür.
-      B: Süre 15 gündür.
-      D: Zamanaşımı iddiası kanunda sayılır.
-      E: Ödeme ön şart değildir.
+      A: Md. 58 borcun bir kısmına itirazı açıkça kabul eder.
+      B: İtiraz süresi 30 gün değil 15 gündür ve miktar gösterilmezse itiraz edilmemiş sayılır.
+      D: Zamanaşımına uğradığı iddiası md. 58'de ödeme emrine itiraz sebepleri arasında sayılmıştır.
+      E: Md. 58'in son fıkrasına göre borcun bir kısmına karşı yapılan itirazlar mal bildirimi süresini uzatamaz.
   kaynaklar:
   - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
     madde: md. 58
@@ -1620,7 +1647,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1641,8 +1668,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R5: çeldiriciler md. 58 son fıkra dahil akla yatkın yanlışlarla yenilendi, şıklar
+          dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1657,6 +1686,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R5: çeldiriciler md. 58 son fıkra dahil akla yatkın yanlışlarla yenilendi, şıklar dengelendi'
 - id: SMMM-VER-AAT-0051
   sinav: smmm
   bolum:
@@ -1670,20 +1703,21 @@
   kok: Vadesinde ödenmeyen bir amme alacağı için ödeme emri tebliğ edilen borçluya, 6183 sayılı Kanun’a göre temel
     olarak ne yapılması bildirilir?
   secenekler:
-    A: 7 gün içinde yalnız dava açması
-    B: 15 gün içinde borcu ödemesi veya mal bildiriminde bulunması
-    C: 30 gün içinde yalnız uzlaşma istemesi
-    D: 60 gün içinde yalnız teminat göstermesi
-    E: Borcu ödemeden süresiz beklemesi
+    A: 7 gün içinde borcunu ödemesi veya mal bildiriminde bulunması
+    B: 15 gün içinde borcunu ödemesi veya mal bildiriminde bulunması
+    C: 30 gün içinde borcunu ödemesi veya teminat göstermesi
+    D: 60 gün içinde borcunu ödemesi veya itirazda bulunması
+    E: 15 gün içinde yalnızca teminat göstermesi veya kefil bulması
   dogru: B
   aciklama:
     dogru_neden: 6183 md. 55, ödeme emriyle 15 gün içinde borcun ödenmesi veya mal bildiriminde bulunulması gerektiğini
       düzenler.
     celdiriciler:
-      A: Kanundaki süre 15 gündür.
-      C: 30 günlük süre bu hükümde yer almaz.
-      D: Teminat tek temel yükümlülük değildir.
-      E: Süresiz bekleme hakkı tanınmaz.
+      A: Süre 7 gün değil 15 gündür; 7 gün itiraz komisyonunun karar süresiyle karıştırılmamalıdır.
+      C: Süre 30 gün değildir ve ödeme emrinde teminat gösterme yükümlülüğü değil mal bildirimi yükümlülüğü bildirilir.
+      D: Süre 60 gün değil 15 gündür; itiraz ödeme emrinde bildirilen seçenek olarak yazılmaz.
+      E: Ödeme emriyle teminat veya kefil gösterilmesi değil, borcun ödenmesi veya mal bildiriminde bulunulması
+        istenir.
   kaynaklar:
   - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
     madde: md. 55
@@ -1696,7 +1730,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1717,8 +1751,10 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R5: çeldiriciler yakın sürelerle (7/30/60 gün) yenilendi; B''nin tek ayırt edici
+          özelliği kalmadı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1733,6 +1769,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R5: çeldiriciler yakın sürelerle (7/30/60 gün) yenilendi; B''nin tek ayırt edici özelliği kalmadı'
 - id: SMMM-VER-AAT-0052
   sinav: smmm
   bolum:
@@ -1746,20 +1786,21 @@
   kok: 6183 sayılı Kanun’a göre tahsil zamanaşımını kesen haller bakımından aşağıdaki karşılaştırmalardan hangisi
     doğrudur?
   secenekler:
-    A: Ödeme ve ödeme emri tebliği zamanaşımını kesen hallerdendir.
-    B: Yalnız borçlunun ölümü zamanaşımını keser.
-    C: Haciz zamanaşımını hiçbir zaman kesmez.
-    D: Ödeme emri tebliği yalnız tarh zamanaşımını keser.
-    E: Tahsil zamanaşımı süresi her durumda on yıldır.
+    A: Ödeme, haciz tatbiki ve ödeme emri tebliği tahsil zamanaşımını kesen hallerdendir.
+    B: Mal bildirimi ve haciz tatbiki zamanaşımını kesmez; yalnız ödeme zamanaşımını keser.
+    C: Borçlunun yabancı memlekette bulunması zamanaşımını keser ve yeni süre başlatır.
+    D: Ödeme emri tebliği zamanaşımını keser; ödeme ise yalnızca süreyi durdurur.
+    E: Tahsil zamanaşımı her durumda ödeme emri tebliğinden itibaren beş yıldır.
   dogru: A
   aciklama:
-    dogru_neden: 6183 md. 103, ödeme, haciz tatbiki, tahsilat ve ödeme emri tebliği gibi halleri tahsil zamanaşımını
-      kesen işlemler arasında sayar.
+    dogru_neden: 6183 md. 103, ödeme, haciz tatbiki, cebren tahsil sonucu tahsilat ve ödeme emri tebliği gibi halleri
+      tahsil zamanaşımını kesen işlemler arasında sayar.
     celdiriciler:
-      B: Kanun yalnız ölüm kuralı koymaz.
-      C: Haciz açıkça kesme sebebidir.
-      D: Ödeme emri tebliği tahsil zamanaşımını keser.
-      E: Md. 102’de genel süre beş yıldır.
+      B: Mal bildirimi (md. 103/5) ve haciz tatbiki (md. 103/2) de kesen hallerdendir.
+      C: Yabancı memlekette bulunma md. 104'te zamanaşımının işlememesi sebebidir; kesen hal değildir.
+      D: Ödeme de md. 103/1'de kesen hal olarak sayılmıştır; yalnızca durdurmaz, keser.
+      E: Md. 102'ye göre süre vadenin rastladığı yılı izleyen yıl başından itibaren beş yıldır; ödeme emri tarihine
+        bağlı değildir.
   kaynaklar:
   - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
     madde: md. 103
@@ -1770,7 +1811,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1791,8 +1832,9 @@
         tarih: '2026-10-07'
         not: 'kör çözücü (kaynaksız): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler md. 103/104 ayrımı ve kesme/durma karışıklığıyla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1807,3 +1849,7 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kör çözücü (kaynaksız) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler md. 103/104 ayrımı ve kesme/durma karışıklığıyla yenilendi'

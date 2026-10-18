@@ -346,20 +346,20 @@
   zorluk: 1
   kok: Bir binanın bina vergisi bakımından mükellefi aşağıdakilerden hangisidir?
   secenekler:
-    A: Binanın maliki; varsa intifa hakkı sahibi, her ikisi de yoksa malik gibi tasarruf eden
-    B: Binanın bulunduğu yerdeki vergi dairesi
-    C: Yalnızca belediye
-    D: Her durumda kiracı
-    E: Binayı kullanan gerçek kişi
+    A: Binanın maliki; varsa intifa hakkı sahibi, ikisi de yoksa malik gibi tasarruf eden
+    B: Binayı fiilen kullanan kiracı; kiracı yoksa binanın maliki
+    C: Binanın maliki ile intifa hakkı sahibi, eşit paylarla birlikte
+    D: Binanın tapuda kayıtlı maliki; intifa hakkı sahibi mükellef olamaz
+    E: Binanın yapı kullanma izin belgesini alan kişi veya müteahhit
   dogru: A
   aciklama:
-    dogru_neden: Emlak Vergisi Kanunu md. 3, bina vergisini öncelikle binanın malikinin, varsa intifa hakkı sahibinin,
-      ikisi de yoksa malik gibi tasarruf edenin ödeyeceğini düzenler.
+    dogru_neden: Emlak Vergisi Kanunu md. 3, bina vergisini binanın malikinin, varsa intifa hakkı sahibinin, ikisi
+      de yoksa malik gibi tasarruf edenin ödeyeceğini düzenler.
     celdiriciler:
-      B: Vergi dairesi mükellef sıfatını kazanmaz.
-      C: Belediye verginin mükellefi değildir.
-      D: Kiracı, md. 3te belirtilen asli mükellef sıralamasında yer almaz.
-      E: Salt kullanım, kanundaki malik/intifa hakkı sahibi/malik gibi tasarruf eden sıralamasının yerine geçmez.
+      B: Kiracı md. 3'te sayılan mükellefler arasında yer almaz; kullanım tek başına mükellefiyet doğurmaz.
+      C: Md. 3 malik ile intifa hakkı sahibini eşit paylı ortak mükellef olarak değil, sıralı olarak düzenler.
+      D: Md. 3 intifa hakkı sahibini açıkça mükellef olarak sayar; yalnız tapu maliki esas alınmaz.
+      E: Yapı kullanma izni veya yapım işi mükellefiyet ölçütü değildir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
@@ -371,7 +371,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -392,8 +392,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). EVK 3'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R5: çeldiriciler akla yatkın yanlış mükellef tanımlarıyla yenilendi, şıklar dengelendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -414,6 +415,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık D → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R5: çeldiriciler akla yatkın yanlış mükellef tanımlarıyla yenilendi, şıklar dengelendi'
 - id: SMMM-VER-DIG-0009
   sinav: smmm
   bolum:
@@ -426,22 +431,23 @@
   zorluk: 2
   kok: ÖTV Kanununa göre aşağıdaki ifadelerden hangisi doğrudur?
   secenekler:
-    A: ÖTV istisna ve muafiyetleri yalnızca Cumhurbaşkanı kararıyla düzenlenebilir.
-    B: ÖTV istisna ve muafiyetleri ancak bu Kanuna hüküm eklenerek veya bu Kanunda değişiklik yapılarak düzenlenebilir;
-      uluslararası anlaşma hükümleri saklıdır.
-    C: Diğer kanunlardaki tüm istisna ve muafiyetler ÖTV bakımından da otomatik uygulanır.
-    D: ÖTVde kanuna ekli listeler bulunmaz.
-    E: Uluslararası anlaşma hükümleri ÖTV bakımından hiçbir şekilde dikkate alınmaz.
+    A: ÖTV istisna ve muafiyetleri yalnızca Cumhurbaşkanı kararıyla düzenlenebilir ve diğer kanunlarla genişletilebilir.
+    B: Ancak ÖTV Kanununa hüküm eklenerek veya Kanunda değişiklik yapılarak düzenlenebilir; uluslararası anlaşmalar
+      saklıdır.
+    C: Diğer kanunlardaki tüm istisna ve muafiyetler ÖTV bakımından da otomatik olarak uygulanır ve geçerlidir.
+    D: ÖTV Kanununda ekli listeler bulunmaz; vergiye tabi mallar her yıl yeniden belirlenerek ilan edilir.
+    E: Uluslararası anlaşma hükümleri ÖTV bakımından hiçbir şekilde dikkate alınmaz ve istisnaya konu olamaz.
   dogru: B
   aciklama:
     dogru_neden: ÖTVK md. 10/1, istisna ve muafiyetlerin ancak kanuna hüküm eklenmek veya kanunda değişiklik yapılmak
       suretiyle düzenlenebileceğini, diğer kanunlardaki hükümlerin geçersiz olduğunu ve uluslararası anlaşmaların
       saklı bulunduğunu belirtir.
     celdiriciler:
-      A: Kanun düzenlemesi gerekir; yalnız Cumhurbaşkanı kararı denemez.
-      C: Diğer kanunlardaki istisna ve muafiyetler geçersizdir.
-      D: Kanun ekli listeler üzerinden vergileme yapar.
-      E: Uluslararası anlaşma hükümleri açıkça saklı tutulmuştur.
+      A: İstisnalar kanun düzeyinde ve ÖTV Kanununa işlenerek düzenlenir; yalnız Cumhurbaşkanı kararıyla düzenlenemez,
+        diğer kanunlarla da genişletilemez.
+      C: Diğer kanunlardaki istisna ve muafiyetler md. 10/1'e göre ÖTV bakımından geçersizdir.
+      D: ÖTV Kanununa (I)–(IV) sayılı listeler ekli olup vergiye tabi mallar bu listelerde gösterilmiştir.
+      E: Uluslararası anlaşma hükümleri md. 10/1'de açıkça saklı tutulmuştur.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
@@ -454,7 +460,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -475,8 +481,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). ÖTV md 7 sonu'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: B kısaltıldı, diğer şıklar uzatıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -497,6 +504,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: B kısaltıldı, diğer şıklar uzatıldı'
 - id: SMMM-VER-DIG-0010
   sinav: smmm
   bolum:
@@ -507,21 +518,22 @@
   kazanim: damga vergisi genel hükümleri
   tip: kavrama
   zorluk: 2
-  kok: Damga Vergisi Kanununa göre, kâğıtları imza edenler bakımından aşağıdakilerden hangisi doğrudur?
+  kok: Damga Vergisi Kanununa göre damga vergisinin mükellefi (genel kural) aşağıdakilerden hangisidir?
   secenekler:
-    A: Damga vergisinin mükellefi her zaman kâğıdı kullanan kişidir.
-    B: Damga vergisinin mükellefi alıcıdır.
-    C: Damga vergisinin mükellefi yalnızca resmi dairedir.
+    A: Damga vergisinin mükellefi kâğıdı ibraz edenlerdir.
+    B: Damga vergisinin mükellefi kâğıdı düzenleyen veya tanzim eden taraftır.
+    C: Damga vergisinin mükellefi kâğıttan doğan hakkın sahibi olan alacaklıdır.
     D: Damga vergisinin mükellefi kâğıtları imza edenlerdir.
-    E: Damga vergisinin mükellefi yalnızca belgeyi düzenleyen memurdur.
+    E: Damga vergisinin mükellefi kâğıtta borçlu sıfatıyla yer alan taraftır.
   dogru: D
   aciklama:
     dogru_neden: DVK md. 3, damga vergisinin mükellefinin kâğıtları imza edenler olduğunu açıkça düzenler.
     celdiriciler:
-      A: Kanun mükellefiyeti genel olarak imza edenlere bağlar.
-      B: Alıcı sıfatı genel mükellefiyet ölçütü değildir.
-      C: Resmi daire her durumda mükellef değildir.
-      E: Kanun mükellefiyeti memur sıfatına bağlamaz.
+      A: Kâğıdı ibraz etmek yalnız yabancı memleketlerde düzenlenen kâğıtlar bakımından md. 3/3'te mükellefiyet
+        doğurur; genel kural imza edenlerdir.
+      B: Düzenleyen taraf olmak tek başına mükellefiyet ölçütü değildir; kanun imza edenleri esas alır.
+      C: Alacaklı sıfatı genel mükellefiyet ölçütü değildir.
+      E: Borçlu sıfatı mükellefiyeti belirlemez; ölçüt kâğıdı imza etmektir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 488 sayılı Damga Vergisi Kanunu
@@ -532,7 +544,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -553,8 +565,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). DVK'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kök sadeleştirilip çeldiriciler ibraz/düzenleme/alacaklı gibi akla yatkın ölçütlerle
+          yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -575,6 +589,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kök sadeleştirilip çeldiriciler ibraz/düzenleme/alacaklı gibi akla yatkın ölçütlerle yenilendi'
 - id: SMMM-VER-DIG-0011
   sinav: smmm
   bolum:
@@ -661,19 +679,22 @@
   kok: Aşağıdakilerden hangisi, Motorlu Taşıtlar Vergisi Kanunu kapsamında motorlu taşıtlar vergisinden istisna
     edilen taşıtlardan biridir?
   secenekler:
-    A: Belediye adına kayıt ve tescilli taşıt
-    B: Özel şirket adına kayıtlı otomobil
-    C: Gerçek kişi adına kayıtlı motosiklet
-    D: Kamu personeline ait özel otomobil
-    E: Serbest meslek erbabına ait kamyonet
+    A: Bir belediye adına kayıt ve tescil edilen taşıt
+    B: Belediyeye bağlı, ayrı tüzel kişiliği bulunan işletme adına kayıtlı taşıt
+    C: Türkiye Kızılay Derneği dışındaki bir derneğe ait taşıt
+    D: Engellilik oranı %90'ın altında olan kişi adına kayıtlı standart otomobil
+    E: Yabancı bir devletin fahri konsolosuna ait taşıt
   dogru: A
   aciklama:
     dogru_neden: MTVK md. 4/a, belediyeler adına kayıt ve tescil edilen taşıtları vergiden istisna etmektedir.
     celdiriciler:
-      B: Özel şirket taşıtları bu bentte sayılan kamu idareleri ve kuruluşları kapsamında değildir.
-      C: Gerçek kişinin özel taşıtı md. 4/a kapsamındaki kurum adına kayıtlı değildir.
-      D: Kamu personelinin kişisel taşıtı kamu idaresi adına kayıtlı değildir.
-      E: Serbest meslek erbabının taşıtı md. 4/a kapsamındaki bir idare adına kayıtlı değildir.
+      B: Md. 4/a, idarelere bağlı olup ayrı tüzel kişiliği olan işletmelerin taşıtlarını istisna kapsamı dışında
+        bırakır.
+      C: Md. 4/a derneklerden yalnızca Türkiye Kızılay Derneği adına kayıtlı taşıtları kapsar; diğer dernekler istisna
+        dışındadır.
+      D: Md. 4/c, engellilik oranı %90 ve üzeri olanların taşıtlarını kapsar; %90'ın altındakilerde yalnız engele
+        uygun özel tertibatlı taşıtlar istisnadır.
+      E: Md. 4/b diplomatik istisnada fahri konsolosları kapsam dışında tutar.
   kaynaklar:
   - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
     madde: md. 4/a
@@ -689,7 +710,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -710,8 +731,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). MTVK 4/a'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler md. 4/a, 4/b, 4/c''nin sınır durumlarıyla (ayrı tüzel kişilik, fahri
+          konsolos, %90 eşiği) yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -726,6 +749,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler md. 4/a, 4/b, 4/c''nin sınır durumlarıyla (ayrı tüzel kişilik, fahri konsolos, %90
+      eşiği) yenilendi'
 - id: SMMM-VER-DIG-0013
   sinav: smmm
   bolum:
@@ -900,19 +928,19 @@
   kok: İki kişi arasında imzalanan ve Damga Vergisi Kanununa ekli (1) sayılı tabloda yer alan bir kâğıdın Damga
     Vergisi bakımından temel mükellefi kimdir?
   secenekler:
-    A: Kâğıdı imzalayanlar
-    B: Her durumda kamu idaresi
-    C: Vergi dairesi
-    D: Kâğıdı teslim alan üçüncü kişi
+    A: Kâğıdı imza eden taraflar
+    B: Kâğıdı ibraz edenler
+    C: Kâğıttan doğan alacağın sahibi
+    D: Kâğıdı resmî daireye teslim alan kişi
     E: Kâğıdı düzenleyen noter
   dogru: A
   aciklama:
-    dogru_neden: DVK md. 3’e göre Damga Vergisinin mükellefi kağıtları imza edenlerdir.
+    dogru_neden: DVK md. 3'e göre Damga Vergisinin mükellefi kağıtları imza edenlerdir.
     celdiriciler:
-      B: Kamu idaresi her durumda mükellef değildir; kanun kişilerle resmi daireler arasındaki işlemler için ayrıca
-        kural koyar.
-      C: Vergi dairesi verginin mükellefi değildir.
-      D: Üçüncü kişinin belgeyi teslim alması tek başına genel mükellefiyet doğurmaz.
+      B: Kâğıdı ibraz etmek genel kuralda mükellefiyet doğurmaz; ibraz yalnız yabancı memleketlerde düzenlenen kâğıtlarda
+        md. 3/3'te önem taşır.
+      C: Alacaklı sıfatı genel mükellefiyet ölçütü değildir.
+      D: Kâğıdı teslim almak tek başına genel mükellefiyet doğurmaz.
       E: Noter, kanundaki genel mükellef tanımında yer almamaktadır.
   kaynaklar:
   - mevzuat: 488 sayılı Damga Vergisi Kanunu
@@ -924,7 +952,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -945,8 +973,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). DVK mükellef imza edenler'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler ibraz/alacaklı/teslim alan gibi akla yatkın yanlışlarla yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -967,6 +996,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → A (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler ibraz/alacaklı/teslim alan gibi akla yatkın yanlışlarla yenilendi'
 - id: SMMM-VER-DIG-0016
   sinav: smmm
   bolum:
@@ -1139,21 +1172,20 @@
   zorluk: 1
   kok: 1319 sayılı Emlak Vergisi Kanunu'na göre bina vergisinin mükellefi kural olarak kimdir?
   secenekler:
-    A: Binanın kiracısı
-    B: Binanın maliki; varsa intifa hakkı sahibi, her ikisi de yoksa binaya malik gibi tasarruf edenler
-    C: Binanın bulunduğu belediye
-    D: Binayı yapan müteahhit
-    E: Yalnız intifa hakkı sahibi
+    A: Binanın kiracısı; kiracı yoksa binanın maliki sorumlu olur
+    B: Binanın maliki; varsa intifa hakkı sahibi, ikisi de yoksa malik gibi tasarruf eden
+    C: Yalnızca binanın tapuda kayıtlı maliki; intifa hakkı sahibi mükellef sayılmaz
+    D: Binayı yapan müteahhit ile binayı yaptıran kişi müteselsilen mükelleftir
+    E: Yalnız intifa hakkı sahibi; intifa hakkı yoksa bina vergisi doğmaz
   dogru: B
   aciklama:
     dogru_neden: Emlak Vergisi Kanunu md. 3, bina vergisini binanın malikinin, varsa intifa hakkı sahibinin, her
       ikisi de yoksa binaya malik gibi tasarruf edenlerin ödeyeceğini düzenler.
     celdiriciler:
       A: Kiracı kural olarak bina vergisinin kanuni mükellefi değildir.
-      C: Belediye verginin mükellefi değildir.
+      C: Md. 3 intifa hakkı sahibini de mükellef sayar; yalnız tapu maliki esas alınmaz.
       D: Müteahhit yalnız binayı yaptığı için kanuni mükellef olmaz.
-      E: İntifa hakkı sahibi ancak malik yoksa ve varsa intifa hakkı sahibi olarak kanunda sayılan sırada yer alır;
-        seçenek genel kuralı eksik ifade eder.
+      E: İntifa hakkı yoksa vergi doğmaz denemez; malik veya malik gibi tasarruf eden mükelleftir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
@@ -1165,7 +1197,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1186,8 +1218,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). EVK 3'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: B kısaltıldı, diğer şıklar uzatıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1202,6 +1235,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: B kısaltıldı, diğer şıklar uzatıldı'
 - id: SMMM-VER-DIG-0019
   sinav: smmm
   bolum:
@@ -1216,20 +1253,23 @@
     bakımından özel tüketim vergisinin konusu oluşur?
   secenekler:
     A: Malın her el değiştirmesi
-    B: Malın ilk iktisabı
-    C: Malın yıllık kullanımı
-    D: Malın amortismana ayrılması
-    E: Malın üçüncü kişiye kiralanması
+    B: Kayıt ve tescile tabi malın ilk iktisabı
+    C: Malın imal edenlerce teslimi
+    D: Malın perakende aşamada satışı
+    E: Malın yıllık kullanımı veya kayıt yenilemesi
   dogru: B
   aciklama:
-    dogru_neden: 'ÖTVK md. 1/1-b, (II) sayılı listedeki mallardan kayıt ve tescile tabi olanların ilk iktisabını
-      bir defaya mahsus ÖTV''ye tabi işlem olarak düzenler. Püf noktaları: (II) sayılı liste bakımından kayıt ve
-      tescile tabi mal ile diğer liste mallarının vergiyi doğuran işlemleri birbirinden ayrılmalıdır.'
+    dogru_neden: ÖTVK md. 1/1-b, (II) sayılı listedeki mallardan kayıt ve tescile tabi olanların ilk iktisabını
+      bir defaya mahsus ÖTV'ye tabi işlem olarak düzenler. Kayıt ve tescile tabi olmayan (II) sayılı liste malları
+      ile (III)–(IV) sayılı liste mallarında ise ithalat veya imal edenlerce teslim vergiyi doğurur.
     celdiriciler:
-      A: Kanun her el değiştirmeyi değil, kayıt ve tescile tabi II sayılı liste mallarında ilk iktisabı esas alır.
-      C: Yıllık kullanım ÖTV'nin konusu olarak düzenlenmemiştir.
-      D: Amortisman ayırmak vergiyi doğuran olay değildir.
-      E: Kiraya verme tek başına md. 1/1-b'deki ilk iktisap değildir.
+      A: Kanun her el değiştirmeyi değil, kayıt ve tescile tabi (II) sayılı liste mallarında ilk iktisabı esas alır;
+        vergi bir defaya mahsustur.
+      C: İmal edenlerce teslim, kayıt ve tescile tabi olmayan (II) sayılı liste malları ile (III)–(IV) sayılı liste
+        malları bakımından konudur; kayıt ve tescile tabi olanlarda ilk iktisap esastır.
+      D: ÖTV tek aşamalı vergidir; perakende satış kayıt ve tescile tabi (II) sayılı liste malları bakımından konu
+        değildir.
+      E: Yıllık kullanım veya kayıt yenilemesi md. 1/1'de ÖTV'nin konusu olarak düzenlenmemiştir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
@@ -1243,7 +1283,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1264,8 +1304,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). ÖTV md 1 ilk iktisap'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler (her el değişimi, imalatçı teslimi, perakende satış) akla yatkın yanlışlarla
+          yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1286,6 +1328,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → B (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler (her el değişimi, imalatçı teslimi, perakende satış) akla yatkın yanlışlarla yenilendi'
 - id: SMMM-VER-DIG-0020
   sinav: smmm
   bolum:
@@ -1296,21 +1342,23 @@
   kazanim: damga vergisi genel hükümleri
   tip: bilgi
   zorluk: 2
-  kok: 488 sayılı Damga Vergisi Kanunu'nun genel hükmüne göre damga vergisinin mükellefi kimdir?
+  kok: 488 sayılı Damga Vergisi Kanununa göre resmî dairelerle kişiler arasındaki işlemlere ait kâğıtların damga
+    vergisini kim öder?
   secenekler:
-    A: Kağıdı düzenleyen memur
-    B: Belgenin teslim edildiği banka
-    C: Kağıdı okuyanlar
-    D: Kağıdı imza edenler
-    E: Belgenin tanıkları
+    A: Kâğıdı düzenleyen resmî daire
+    B: Kâğıdı düzenleyen resmî daire ile kişiler eşit oranda
+    C: Vergi dairesi
+    D: İşlemin tarafı olan kişiler
+    E: Kâğıdı düzenleyen resmî dairenin üst yöneticisi
   dogru: D
   aciklama:
-    dogru_neden: Damga Vergisi Kanunu md. 3'e göre damga vergisinin mükellefi kağıtları imza edenlerdir.
+    dogru_neden: DVK md. 3/2'ye göre resmî dairelerle kişiler arasındaki işlemlere ait kâğıtların damga vergisini
+      kişiler öder.
     celdiriciler:
-      A: Kanun genel mükellefi imza edenler olarak belirler; memur olma tek başına ölçüt değildir.
-      B: Belgenin bankaya teslim edilmesi genel mükellefiyet kuralını değiştirmez.
-      C: Kağıdı okumak mükellefiyet doğurmaz.
-      E: Tanık olmak tek başına kanuni mükellefiyet ölçütü değildir.
+      A: Resmî daire, kişilerle yapılan işlemlere ait kâğıtlarda vergi yükümlüsü olmaz; vergiyi kişiler öder.
+      B: Kanun vergi yükünü resmî daire ile kişiler arasında paylaştırmaz; vergi kişilere aittir.
+      C: Vergi dairesi verginin tarh ve tahsil mercii olabilir ancak ödeyen taraf değildir.
+      E: Resmî dairenin üst yöneticisi md. 3/2'de vergiyi ödeyen olarak gösterilmemiştir.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 488 sayılı Damga Vergisi Kanunu
@@ -1321,7 +1369,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1342,8 +1390,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). DVK'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kök resmî daire-kişi işlemleri (md. 3/2) yönüne çevrilerek 0010/0015 ile tekrar
+          giderildi, çeldiriciler yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1364,6 +1414,11 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık E → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kök resmî daire-kişi işlemleri (md. 3/2) yönüne çevrilerek 0010/0015 ile tekrar giderildi, çeldiriciler
+      yenilendi'
 - id: SMMM-VER-DIG-0021
   sinav: smmm
   bolum:
@@ -1799,20 +1854,20 @@
   zorluk: 1
   kok: 1319 sayılı Emlak Vergisi Kanununa göre bina vergisini kural olarak aşağıdakilerden hangisi öder?
   secenekler:
-    A: Binayı kiralayan kişi
-    B: Binayı yapan müteahhit
-    C: Binanın bulunduğu yerdeki belediye
-    D: Binanın maliki
-    E: Binanın sigorta şirketi
+    A: Binada fiilen oturan kiracı
+    B: Binayı işleten işletme sahibi
+    C: Binanın üzerinde ipotek hakkı bulunan alacaklı
+    D: Binanın maliki (varsa intifa hakkı sahibi)
+    E: Binayı yapan müteahhit
   dogru: D
   aciklama:
     dogru_neden: EVK md. 3'e göre bina vergisini binanın maliki, varsa intifa hakkı sahibi, her ikisi de yoksa binaya
       malik gibi tasarruf edenler öder. Kural olarak malik mükelleftir.
     celdiriciler:
       A: Kiracı md. 3'te kural mükellef olarak sayılmamıştır.
-      B: Müteahhit sırf binayı yapmış olması nedeniyle bina vergisi mükellefi değildir.
-      C: Belediye verginin mükellefi değil, ilgili idaredir.
-      E: Sigorta şirketi md. 3'te mükellef olarak düzenlenmemiştir.
+      B: Binayı işletmek veya kullanmak tek başına bina vergisi mükellefiyeti doğurmaz.
+      C: İpotek alacaklısı, bina üzerinde mülkiyet veya intifa hakkına sahip olmadığından md. 3'te mükellef değildir.
+      E: Müteahhit sırf binayı yapmış olması nedeniyle bina vergisi mükellefi değildir.
   kaynaklar:
   - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
     madde: md. 3
@@ -1823,7 +1878,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1844,8 +1899,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 4). EVK 3'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler kullanıcı/işletmeci/ipotek alacaklısı gibi akla yatkın yanlışlarla
+          yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -1863,6 +1920,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler kullanıcı/işletmeci/ipotek alacaklısı gibi akla yatkın yanlışlarla yenilendi'
 - id: SMMM-VER-DIG-0027
   sinav: smmm
   bolum:
@@ -1958,24 +2019,27 @@
     Ayrıca kâğıtta iki ayrı kişinin imzası vardır. Damga Vergisi Kanununun genel hükümlerine göre aşağıdaki ifadelerden
     hangisi doğrudur?
   secenekler:
-    A: Her işlem için tek damga vergisi alınır ve imza sayısı vergiyi her durumda iki katına çıkarır.
-    B: Tamamen ayrı işlemlerin her birinden ayrı vergi alınır; birbirine bağlı ve bir asıldan doğan işlemler en
-      yüksek vergi gerektiren işlem üzerinden vergilenir; birden fazla imza tek başına verginin tekerrürünü gerektirmez.
-    C: Birbirine bağlı işlemlerin tamamından ayrı ayrı vergi alınır; imza sayısı yalnız nispi vergide önemlidir.
-    D: Bir kâğıtta birden fazla işlem varsa yalnız ilk işlem vergilendirilir; imza sayısı daima dikkate alınır.
-    E: Ayrı işlemlerden yalnız en yüksek vergili olan vergilendirilir; birden fazla imza her durumda mükellef sayısını
-      artırır.
+    A: Kâğıttaki her işlem için tek vergi alınır; ikinci imza her durumda verginin iki katını gerektirir.
+    B: Ayrı işlemlerin her birinden ayrı vergi alınır; bağlı işlemlerde en yüksek vergili işlem esas alınır; birden
+      fazla imza tek başına tekerrür doğurmaz.
+    C: Bağlı ve bir asıldan doğan işlemlerin her birinden ayrı vergi alınır; imza sayısı nispi vergide verginin
+      tekerrürünü gerektirir.
+    D: Kâğıtta birden fazla işlem varsa yalnız ilk işlem vergilendirilir; her imza sahibi için ayrıca vergi alınır.
+    E: Tamamen ayrı işlemlerden yalnız en yüksek vergili olan vergilendirilir; birden fazla imza her durumda verginin
+      tekerrürünü gerektirir.
   dogru: B
   aciklama:
-    dogru_neden: 'DVK md. 6''ya göre tamamen ayrı akit ve işlemlerin her birinden ayrı vergi alınır; birbirine bağlı
-      ve bir asıldan doğan işlemler en yüksek vergi gerektiren işlem üzerinden vergilenir. Md. 7''ye göre birden
-      fazla imza tek başına verginin tekerrürünü gerektirmez. Püf noktaları: İşlemlerin bağlantısı ile imza sayısının
-      etkisi iki ayrı kuraldır.'
+    dogru_neden: DVK md. 6'ya göre tamamen ayrı akit ve işlemlerin her birinden ayrı vergi alınır; birbirine bağlı
+      ve bir asıldan doğma işlemler en yüksek vergi gerektiren işlem üzerinden vergilenir. Md. 7'ye göre birden
+      fazla imza tek başına verginin tekerrürünü gerektirmez. İşlemlerin bağlantısı ile imza sayısının etkisi iki
+      ayrı kuraldır.
     celdiriciler:
       A: Ayrı işlemler için tek vergi ve imza sayısına göre otomatik iki kat kuralı yoktur.
       C: Bağlı işlemlerde en yüksek vergiyi gerektiren işlem esastır; çoklu imza otomatik tekerrür doğurmaz.
-      D: Tamamen ayrı işlemlerin her birinden vergi alınır; yalnız ilk işlem vergilenmez.
-      E: En yüksek vergi kuralı bağlı işlemler içindir; ayrı işlemlerin her biri vergilenir.
+      D: Tamamen ayrı işlemlerin her birinden vergi alınır; yalnız ilk işlem vergilenmez ve imza sayısı vergiyi
+        çoğaltmaz.
+      E: En yüksek vergi kuralı bağlı işlemler içindir; ayrı işlemlerin her biri vergilenir ve çoklu imza tek başına
+        tekerrür doğurmaz.
   kaynaklar:
   - mevzuat: 488 sayılı Damga Vergisi Kanunu
     madde: md. 6
@@ -1990,7 +2054,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2011,8 +2075,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). DVK 6'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R5: şıklar aynı ayrıntı düzeyine getirildi (B artık en uzun değil)'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2027,6 +2092,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R5: şıklar aynı ayrıntı düzeyine getirildi (B artık en uzun değil)'
 - id: SMMM-VER-DIG-0029
   sinav: smmm
   bolum:
@@ -2041,28 +2110,29 @@
     ayrıca sözleşmede başka bir belgeye açıkça atıf yapılmıştır. Damga vergisinin konusunun ve kağıdın mahiyetinin
     belirlenmesinde aşağıdaki yaklaşımlardan hangisi doğrudur?
   secenekler:
-    A: Her durumda yalnızca sözleşmenin başlığına bakılır.
-    B: Ayrı işlemler tek işlem sayılır ve atıf yapılan belge dikkate alınmaz.
-    C: Yalnızca elektronik ortamda düzenlenen belgeler Damga Vergisine tabidir.
-    D: Kağıdın mahiyeti belirlenirken içeriğine ve atıf yapılan kağıdın hükümlerine bakılır; birbirinden tamamen
-      ayrı işlemler için ayrı ayrı vergi alınır.
-    E: Bir kağıtta birden fazla işlem bulunması halinde her zaman yalnız en yüksek vergi alınmasını gerektiren işlem
-      esas alınır.
+    A: Kâğıdın mahiyeti her durumda başlığındaki adına göre belirlenir; atıf yapılan kâğıt dikkate alınmaz.
+    B: Tamamen ayrı akitler tek işlem sayılır ve en yüksek vergiyi gerektiren akit üzerinden vergi alınır.
+    C: Atıf yapılan kâğıdın hükümlerine göre mahiyet belirlenir; tamamen ayrı akitlerde yalnız en yüksek vergili
+      akit vergilendirilir.
+    D: Atıf yapılan kâğıdın hükümleri mahiyetin belirlenmesinde dikkate alınır; tamamen ayrı akit ve işlemlerin
+      her birinden ayrı vergi alınır.
+    E: Kanunda adı belirtilmemiş kâğıtlarda mahiyet, tarafların verdiği ada göre belirlenir; ayrı akitlerden ayrı
+      vergi alınmaz.
   dogru: D
   aciklama:
-    dogru_neden: 'DVK md. 1, 4 ve 6 birlikte değerlendirildiğinde damga vergisine tabi kağıdın mahiyetinin belirlenmesinde
-      yazının hüküm ve manasına, başka kağıda atıf varsa atıf yapılan kağıdın hükümlerine bakılır. Bir kağıtta birbirinden
-      tamamen ayrı birden fazla akit ve işlem varsa her birinden ayrı ayrı vergi alınır; bağlı işlemlerde ise en
-      yüksek vergiyi gerektiren işlem esas alınır. Püf noktaları: Önce kağıdın mahiyetini, sonra işlemlerin birbirinden
-      tamamen ayrı mı yoksa bağlı mı olduğunu ayırmalısın.'
+    dogru_neden: DVK md. 4'e göre kâğıdın mahiyeti belirlenirken, kanunda adı belirtilmemiş kâğıtlarda üzerindeki
+      yazının hüküm ve manasına bakılır; başka bir kâğıda atıf varsa atıf yapılan kâğıdın hükümlerine göre mahiyet
+      belirlenir. Md. 6'ya göre tamamen ayrı akit ve işlemlerin her birinden ayrı vergi alınır; bağlı ve bir asıldan
+      doğma işlemlerde en yüksek vergi esas alınır.
     celdiriciler:
-      A: Kanun, yalnızca kağıdın başlığına bakılacağını değil, mahiyetinin hüküm ve manaya göre belirleneceğini
-        düzenler.
-      B: Tamamen ayrı işlemler için ayrı ayrı vergi alınır; atıf yapılan kağıdın hükümleri de mahiyet tayininde
-        dikkate alınır.
-      C: DVK md. 1 elektronik imzalı belgeleri de kapsamına alır; kapsam yalnız elektronik belgelerle sınırlı değildir.
-      E: En yüksek vergi kuralı birbirine bağlı ve bir asıldan doğma işlemler içindir; tamamen ayrı işlemlerde her
-        birinden ayrı vergi alınır.
+      A: Mahiyet başlığa göre belirlenmez; kanunda adı belirtilmemiş kâğıtlarda yazının hüküm ve manasına, atıf
+        varsa atıf yapılan kâğıda bakılır.
+      B: Tamamen ayrı işlemler için ayrı ayrı vergi alınır; en yüksek vergi kuralı bağlı ve bir asıldan doğma işlemlere
+        ilişkindir.
+      C: Atıf kuralı doğrudur ancak tamamen ayrı akitlerin her birinden ayrı vergi alınır; yalnız en yüksek vergili
+        akit vergilendirilmez.
+      E: Mahiyet tarafların verdiği ada göre değil, hüküm ve manaya göre belirlenir; tamamen ayrı akitlerden ayrı
+        ayrı vergi alınır.
   kaynaklar:
   - mevzuat: 488 sayılı Damga Vergisi Kanunu
     madde: md. 1
@@ -2082,7 +2152,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2103,8 +2173,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). DVK 4,6'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler md. 4 ve md. 6''nın karıştırılmış yarı doğru versiyonlarıyla yenilendi;
+          D şıkkı kökü tekrar etmez hale getirildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2119,6 +2191,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler md. 4 ve md. 6''nın karıştırılmış yarı doğru versiyonlarıyla yenilendi; D şıkkı kökü
+      tekrar etmez hale getirildi'
 - id: SMMM-VER-DIG-0030
   sinav: smmm
   bolum:
@@ -2295,24 +2372,24 @@
   kazanim: bina vergisi mükellefiyeti
   tip: bilgi
   zorluk: 1
-  kok: Bir binanın maliki gerçek kişi (P), ayrıca intifa hakkı sahibi bulunmamaktadır. Bina Vergisinin mükellefi
-    kimdir?
+  kok: Gerçek kişi P'nin maliki olduğu bina Q'ya kiralanmıştır; binada intifa hakkı sahibi yoktur ve P dışında malik
+    gibi tasarruf eden kimse bulunmamaktadır. Bina Vergisinin mükellefi kimdir?
   secenekler:
-    A: Binanın bulunduğu yerdeki muhtar
-    B: Kiracı
-    C: Belediye
-    D: Binanın maliki (P)
-    E: Hazine
+    A: Binayı kullanan kiracı Q
+    B: P ile Q, kira bedeli oranında paylı olarak
+    C: Binanın bulunduğu yerdeki belediye
+    D: Binanın maliki olan gerçek kişi P
+    E: Kira sözleşmesinde taraflarca serbestçe belirlenen kişi
   dogru: D
   aciklama:
-    dogru_neden: EVK md. 3’e göre Bina Vergisini binanın maliki, varsa intifa hakkı sahibi, her ikisi de yoksa binaya
-      malik gibi tasarruf edenler öder. Kökte binanın maliki (P) bulunduğundan mükellef P’dir.
+    dogru_neden: EVK md. 3'e göre Bina Vergisini binanın maliki, varsa intifa hakkı sahibi, her ikisi de yoksa binaya
+      malik gibi tasarruf edenler öder. Kökte binanın maliki (P) bulunduğundan ve intifa hakkı sahibi olmadığından
+      mükellef P'dir; kiralama mükellefiyeti değiştirmez.
     celdiriciler:
-      A: Muhtarlık md. 3’te Bina Vergisi mükellefi olarak düzenlenmemiştir.
-      B: Kiracı, md. 3’te malik veya intifa hakkı sahibi ya da malik gibi tasarruf eden sıfatıyla genel mükellef
-        olarak sayılmamıştır.
-      C: Belediye md. 3’te genel Bina Vergisi mükellefi olarak sayılmamıştır.
-      E: Hazine md. 3’te genel Bina Vergisi mükellefi olarak sayılmamıştır.
+      A: Kiracı, md. 3'te malik, intifa hakkı sahibi veya malik gibi tasarruf eden sıfatıyla mükellef olarak sayılmamıştır.
+      B: Kanun mükellefiyeti kira bedeline göre paylaştırmaz; paylı mülkiyette ancak hisse oranları esastır.
+      C: Belediye md. 3'te Bina Vergisi mükellefi olarak düzenlenmemiştir; verginin tarh ve tahsil yeridir.
+      E: Mükellef sözleşmeyle belirlenmez; vergi mükellefiyeti kanunla belirlenir ve taraflarca değiştirilemez.
   kaynaklar:
   - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
     madde: md. 3
@@ -2324,7 +2401,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2345,8 +2422,9 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). EVK 3'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: kök kiralama vakasına çevrildi, çeldiriciler yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2364,6 +2442,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık A → D (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: kök kiralama vakasına çevrildi, çeldiriciler yenilendi'
 - id: SMMM-VER-DIG-0033
   sinav: smmm
   bolum:
@@ -2378,22 +2460,26 @@
     aynı dönemde (IV) sayılı listedeki bir malı ithal etmiş ve (I) sayılı listedeki bir malı ihraç etmiştir. Bu
     üç işlemden hangisi ÖTV’nin konusuna girer ve ihracat işlemi bakımından hangi şart aranır?
   secenekler:
-    A: (II) sayılı listedeki ilk iktisap; ihracatta malın Türkiye’den çıkması şart değildir.
-    B: (II) sayılı listedeki ilk iktisap ve (IV) sayılı listedeki ithalat; ihracat teslimi, şartları varsa istisnadır.
-    C: Yalnız (I) sayılı listedeki ihracat; ihracat her durumda ÖTV’ye tabidir.
-    D: Yalnız (IV) sayılı listedeki ithalat; (II) sayılı listedeki ilk iktisap ÖTV dışıdır.
-    E: Üç işlemin hiçbiri; ÖTV yalnızca yurt içi teslimlerde doğar.
+    A: (II) sayılı listedeki ilk iktisap konudur; ihracatta malın Türkiye Gümrük Bölgesinden çıkması ve yurt dışı
+      müşteriye teslimi şartı aranmaz.
+    B: (II) sayılı listedeki ilk iktisap ve (IV) sayılı listedeki ithalat konudur; ihracat, yurt dışı müşteriye
+      teslim ve gümrük bölgesinden çıkış şartıyla istisnadır.
+    C: Yalnız (I) sayılı listedeki ihracat konudur; ihracat şartları sağlansa bile her durumda ÖTV'ye tabi tutulur.
+    D: Yalnız (IV) sayılı listedeki ithalat konudur; (II) sayılı listedeki ilk iktisap ÖTV dışıdır ve ihracat için
+      ayrıca şart aranmaz.
+    E: Üç işlemin hiçbiri konu değildir; ÖTV yalnızca yurt içi teslimlerde doğar ve ihracat için ayrıca şart aranmaz.
   dogru: B
   aciklama:
-    dogru_neden: 'Kanunun 1 inci maddesine göre (II) sayılı listedeki kayıt ve tescile tabi malların ilk iktisabı
-      ile (III) ve (IV) sayılı listedeki malların ithalatı ÖTV’nin konusundadır. (I) sayılı listedeki malın ihracat
-      teslimi ise md. 5’teki şartlarla istisnadır. Püf noktaları: Liste numarası, vergiyi doğuran işlemin türünü
-      değiştirir; ihracatta ayrıca yurt dışındaki müşteriye teslim ve malın gümrük bölgesinden çıkması aranır.'
+    dogru_neden: Kanunun 1 inci maddesine göre (II) sayılı listedeki kayıt ve tescile tabi malların ilk iktisabı
+      ile (III) ve (IV) sayılı listedeki malların ithalatı ÖTV'nin konusundadır. İhracat teslimi ise md. 5'e göre
+      teslimin yurt dışındaki bir müşteriye yapılması ve malın Türkiye Gümrük Bölgesinden çıkmış olması şartlarıyla
+      vergiden müstesnadır.
     celdiriciler:
-      A: İhracatta istisna için malın Türkiye Cumhuriyeti Gümrük Bölgesinden çıkması da aranır.
-      C: İhracat teslimi şartları varsa istisna olduğundan ÖTV’ye tabi işlem olarak kabul edilmez.
-      D: (II) sayılı listedeki kayıt ve tescile tabi malların ilk iktisabı ÖTV’nin konusundadır.
-      E: (II), (III) ve (IV) sayılı listelerde kanunda belirtilen işlemler ÖTV’nin konusuna alınmıştır.
+      A: İhracatta istisna için malın Türkiye Cumhuriyeti Gümrük Bölgesinden çıkması da aranır (md. 5/1-b).
+      C: İhracat teslimi md. 5'teki şartlar varsa istisnadır; her durumda vergiye tabi değildir.
+      D: (II) sayılı listedeki kayıt ve tescile tabi malların ilk iktisabı ÖTV'nin konusundadır (md. 1/1-b).
+      E: ÖTV yalnız yurt içi teslimlerle sınırlı değildir; ithalat ve ilk iktisap da konuya girer ve ihracatta md.
+        5 şartları aranır.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
@@ -2413,7 +2499,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2434,8 +2520,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 4). ÖTV konu ve ihracat istisnası'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: doğru şık ihracat şartını (yurt dışı müşteri, gümrük bölgesinden çıkış) kökün istediği
+          biçimde açıkça belirtecek şekilde düzeltildi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2450,6 +2538,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: doğru şık ihracat şartını (yurt dışı müşteri, gümrük bölgesinden çıkış) kökün istediği biçimde açıkça
+      belirtecek şekilde düzeltildi'
 - id: SMMM-VER-DIG-0034
   sinav: smmm
   bolum:
@@ -2777,26 +2870,30 @@
   kazanim: ÖTV listeleri ve istisnalar
   tip: uygulama
   zorluk: 3
-  kok: 4760 sayılı Özel Tüketim Vergisi Kanunu bakımından bir malın ÖTV'den istisna tutulabilmesi için yalnızca
-    başka bir kanunda istisna bulunması yeterli midir? Kanundaki istisna düzenlemesi dikkate alındığında hangisi
-    doğrudur?
+  kok: Bir kanunda, kapsamındaki işlemlerin her türlü vergi, resim ve harçtan müstesna olduğu hükme bağlanmıştır.
+    4760 sayılı ÖTV Kanunu'nun istisna düzenlemesi dikkate alındığında bu hükmün ÖTV bakımından sonucu aşağıdakilerden
+    hangisidir?
   secenekler:
-    A: Evet; başka kanundaki her istisna ÖTV'ye de uygulanır.
-    B: Evet; yalnız belediye işlemlerindeki istisnalar uygulanır.
-    C: Hayır; ÖTV istisna ve muafiyetleri ancak ÖTV Kanunu'na hüküm eklenmesi veya bu Kanunda değişiklik yapılması
-      suretiyle düzenlenir; uluslararası anlaşmalar saklıdır.
-    D: Hayır; ÖTV'de hiçbir istisna uygulanamaz.
-    E: Evet; VUK'taki her muafiyet otomatik olarak ÖTV'ye taşınır.
+    A: ÖTV bakımından da uygulanır; çünkü özel kanun hükümleri genel hükümlere göre önceliklidir ve ÖTV'yi de kapsar.
+    B: Yalnız Maliye Bakanlığı uygun görür ve gerekli teminatı alırsa, ilgili işlemler için ÖTV bakımından da uygulanır.
+    C: ÖTV bakımından geçersizdir; istisna ancak ÖTV Kanununa hüküm eklenerek veya Kanunda değişiklik yapılarak
+      getirilir; anlaşma hükümleri saklıdır.
+    D: ÖTV Kanunundan sonra yürürlüğe girmişse yeni kanun önceliklidir ve söz konusu hüküm ÖTV bakımından da aynen
+      uygulanır.
+    E: Yalnızca ÖTV beyannamesi verilmeyen işlemler bakımından, beyanname verilmeyen dönemlere ilişkin olarak ÖTV
+      bakımından da uygulanır.
   dogru: C
   aciklama:
     dogru_neden: ÖTVK md. 10/1, ÖTV'ye ilişkin istisna ve muafiyetlerin ancak bu Kanuna hüküm eklenmesi veya bu
       Kanunda değişiklik yapılması suretiyle düzenlenebileceğini, diğer kanunlardaki istisna veya muafiyetlerin
-      ÖTV bakımından geçersiz olduğunu ve uluslararası anlaşmaların saklı olduğunu belirtir.
+      ÖTV bakımından geçersiz olduğunu ve uluslararası anlaşmaların saklı olduğunu belirtir. Dolayısıyla başka bir
+      kanundaki genel muafiyet hükmü ÖTV'yi kapsamaz.
     celdiriciler:
-      A: Diğer kanunlardaki istisnalar kural olarak ÖTV'ye taşınmaz.
-      B: Kural belediyelerle sınırlı değildir.
-      D: Kanun çok sayıda özel istisna düzenlemiştir; mutlak yasak yoktur.
-      E: VUK'taki muafiyetlerin otomatik aktarılması kanunda öngörülmemiştir.
+      A: Md. 10/1 diğer kanunlardaki istisna ve muafiyetleri, özel kanun olsa bile, ÖTV bakımından geçersiz sayar.
+      B: Maliye Bakanlığı md. 10/2'ye göre uygulama usul ve esaslarını belirler; kanunda olmayan bir istisnayı kendiliğinden
+        uygulayamaz.
+      D: Sonradan çıkan kanun olması sonucu değiştirmez; istisna ancak ÖTV Kanununa hüküm eklenerek düzenlenir.
+      E: ÖTV beyannamesi verilip verilmemesi başka kanundaki muafiyetin ÖTV bakımından geçerliliğini belirlemez.
   kaynaklar:
   - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
     madde: md. 10/1
@@ -2808,7 +2905,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2829,8 +2926,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). ÖTV md 7 sonu / MTV benzeri'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R5: kök vaka biçimine getirildi (yönlendirme kaldırıldı), çeldiriciler yenilendi,
+          C kısaltılıp diğerleri uzatıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2845,6 +2944,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R5: kök vaka biçimine getirildi (yönlendirme kaldırıldı), çeldiriciler yenilendi, C kısaltılıp diğerleri
+      uzatıldı'
 - id: SMMM-VER-DIG-0039
   sinav: smmm
   bolum:
@@ -2858,20 +2962,21 @@
   kok: 488 sayılı Damga Vergisi Kanunu'na göre bir kâğıdın damga vergisine tabi olup olmadığının belirlenmesinde
     aşağıdaki ölçütlerden hangisi esastır?
   secenekler:
-    A: Kâğıdın düzenlendiği yerin nüfusu
-    B: Tarafların cirosu
-    C: Kâğıdın mahiyeti ve buna göre tabloda yazılı vergisinin bulunması
-    D: Kâğıdın yalnızca elektronik olup olmaması
-    E: Kâğıdın düzenlendiği ay
+    A: Kâğıdın düzenlendiği resmî dairenin niteliği
+    B: Kâğıdın noterde düzenlenmiş olması
+    C: Kâğıdın mahiyeti ve tabloda yazılı vergisi
+    D: Kâğıdın tarafların kendi aralarında verdiği ad
+    E: Kâğıtta yazılı tutarın belli bir sınırı aşması
   dogru: C
   aciklama:
     dogru_neden: Damga Vergisi Kanunu md. 4'e göre bir kâğıdın tabi olacağı verginin tayini için kâğıdın mahiyetine
-      bakılır ve buna göre tabloda yazılı vergisi alınır.
+      bakılır ve buna göre tabloda yazılı vergisi bulunur.
     celdiriciler:
-      A: Düzenleme yerinin nüfusu md. 4'te ölçüt değildir.
-      B: Tarafların cirosu kâğıdın mahiyetini belirleyen ölçüt değildir.
-      D: Elektronik belgeler de kanundaki kâğıt tanımına girebilir.
-      E: Düzenleme ayı tek başına vergileme ölçütü değildir.
+      A: Düzenlendiği dairenin niteliği md. 4'te ölçüt değildir; mahiyet esastır.
+      B: Noterde düzenlenmiş olmak vergiye tabi olmanın ölçütü değildir.
+      D: Mahiyet tarafların verdiği adla değil, kanundaki ada veya yazının hüküm ve manasına göre belirlenir.
+      E: Tutar, nispi vergide matrahı belirler; kâğıdın vergiye tabi olup olmadığı ise mahiyetine ve tabloya göre
+        belirlenir.
   kaynaklar:
   - mevzuat: 488 sayılı Damga Vergisi Kanunu
     madde: md. 4
@@ -2882,7 +2987,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -2903,8 +3008,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). DVK 4'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4+R5: çeldiriciler tarafların verdiği ad, tutar, noter gibi akla yatkın ölçütlerle
+          yenilendi; C kısaltıldı'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -2922,6 +3029,10 @@
   - tarih: '2026-10-09'
     kim: otomatik
     ne: 'şık dengeleme: doğru şık B → C (metinler yer değiştirdi).'
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4+R5: çeldiriciler tarafların verdiği ad, tutar, noter gibi akla yatkın ölçütlerle yenilendi; C kısaltıldı'
 - id: SMMM-VER-DIG-0040
   sinav: smmm
   bolum:
@@ -3253,19 +3364,20 @@
   secenekler:
     A: Yalnız en yüksek vergili işlem üzerinden
     B: Her akit ve işlemden ayrı ayrı
-    C: Yalnız ilk işlemden
-    D: Hiç alınmaz
-    E: Yalnız maktu vergi alınır
+    C: İmza sayısı kadar vergi alınır
+    D: Kâğıt başına tek bir maktu vergi alınır
+    E: Yalnız en düşük vergili işlem üzerinden
   dogru: B
   aciklama:
     dogru_neden: DVK md. 6'ya göre bir kâğıtta birbirinden tamamen ayrı birden fazla akit ve işlem bulunursa bunların
-      her birinden ayrı ayrı vergi alınır. Aynı maddede birbirine bağlı ve bir asıldan doğma akitler için farklı
-      bir kural öngörülmüştür.
+      her birinden ayrı ayrı vergi alınır. Aynı maddede birbirine bağlı ve bir asıldan doğma akitler için en yüksek
+      vergi kuralı öngörülmüştür.
     celdiriciler:
       A: En yüksek vergi kuralı, birbirine bağlı ve bir asıldan doğan akitler için düzenlenmiştir.
-      C: Kanun tamamen ayrı akit ve işlemlerin her birini vergilendirir.
-      D: Tamamen ayrı akit ve işlemler vergiye tabidir.
-      E: Kanun yalnız maktu vergi alınmasını öngörmez.
+      C: Vergi imza sayısına göre değil akit ve işlem sayısına göre alınır; birden fazla imza tek başına tekerrür
+        doğurmaz (md. 7).
+      D: Kanun tamamen ayrı akit ve işlemlerin her birini ayrı ayrı vergilendirir; kâğıt başına tek vergi öngörmez.
+      E: Kanunda en düşük vergili işlemin esas alınması gibi bir kural yoktur.
   kaynaklar:
   - mevzuat: 488 sayılı Damga Vergisi Kanunu
     madde: md. 6
@@ -3278,7 +3390,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3299,8 +3411,10 @@
         tarih: '2026-10-07'
         not: 'kaynaklı kör çözücü: anahtarla aynı (güven 5). DVK 6'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: gecti
+        tarih: '2026-10-18'
+        not: 'düzeltme turu: R4: çeldiriciler md. 6/md. 7 karışıklıklarıyla (imza sayısı, kâğıt başına tek vergi)
+          yenilendi'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -3315,6 +3429,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kaynaklı kör çözücü anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: düzeltildi
+    neden: 'R4: çeldiriciler md. 6/md. 7 karışıklıklarıyla (imza sayısı, kâğıt başına tek vergi) yenilendi'
 - id: SMMM-VER-DIG-0045
   sinav: smmm
   bolum:
