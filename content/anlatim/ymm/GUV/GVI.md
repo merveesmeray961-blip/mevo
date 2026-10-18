@@ -2,7 +2,7 @@
 ders: GUV
 konu: GVI
 baslik: Gelir vergisinde istisna indirim ve beyan
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 193 sayılı Gelir Vergisi Kanunu

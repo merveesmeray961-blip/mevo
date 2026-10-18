@@ -320,3 +320,11 @@ Eksik (eklenecek): 3218 sayılı Serbest Bölgeler Kanunu, İhracat ve İthalat 
 | `spk_vi_103_1_yonetici_kazanclari.pdf` | `spk_vi_103_1_yonetici_kazanclari.txt` | SPK VI-103.1 Yöneticilerin Net Alım Satım Kazançlarını İhraççılara Ödemeleri Hakkında Tebliğ | RG 12.12.2013/28849 | https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatTertip=5&mevzuatTur=Teblig&mevzuatNo=19114 | `09cd433d77ac9304beb03ad3bbcf4d2119c42d9b8d72280e8f81e2103c20811f` | 2026-10-18 |
 | `spk_ii_15_2_borsada_islem_gormeyen.pdf` | `spk_ii_15_2_borsada_islem_gormeyen.txt` | SPK II-15.2 Payları Borsada İşlem Görmeyen Ortaklıklara İlişkin Özel Durumlar Tebliği | RG 23.01.2014/28891 | https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatTertip=5&mevzuatTur=Teblig&mevzuatNo=19332 | `6348571186a8e8eedbb7218f2080138c74a6425b9f051faae9ae56b59846c6ed` | 2026-10-18 |
 | `vuk_teblig_555_enflasyon.pdf` | `vuk_teblig_555_enflasyon.txt` | 555 Sıra No.lu VUK Genel Tebliği (enflasyon düzeltmesi) | RG 30.12.2023/32415 (2. Mükerrer) | https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatTertip=5&mevzuatTur=Teblig&mevzuatNo=40611 | `17be441d32e54df431def4b7238ac69d8f9424cb3fb5a22ed40da7ce71094a73` | 2026-10-18 |
+
+## Vergi kesinti oranları (2026-10-18)
+
+| dosya | metin | belge adı | son değişiklik / yürürlük | kaynak URL | SHA-256 | indirme tarihi |
+|---|---|---|---|---|---|---|
+| `gvk_bkk_2009_14592.htm` | `gvk_bkk_2009_14592.txt` | 2009/14592 sayılı BKK (GVK md. 94 tevkifat nispetleri) | RG 03.02.2009/27130 asıl metin; değişiklikler işlenmedi | https://www.resmigazete.gov.tr/eskiler/2009/02/20090203-3.htm | `ebf097997e4ce6a49810509cdc73173612e8700e4860d266632dd9bb30fbdda3` | 2026-10-18 |
+| `kvk_bkk_2009_14593.htm` | `kvk_bkk_2009_14593.txt` | 2009/14593 sayılı BKK (KVK md. 30 kesinti oranları) | RG 03.02.2009/27130 asıl metin; değişiklikler işlenmedi | https://www.resmigazete.gov.tr/eskiler/2009/02/20090203-4.htm | `baf88f8b63a9ec5b8b8b11990f9c8472c907b807d17a0f241a6d3ae8a9e6ea9d` | 2026-10-18 |
+| `vergi_kesinti_cbk_9286.pdf` | `vergi_kesinti_cbk_9286.txt` | 9286 sayılı Cumhurbaşkanı Kararı (GVK 94, KVK 15 ve 30 kesinti oranı değişikliği) | RG 22.12.2024/32760; taranmış, OCR; oranlar elle doğrulandı | https://www.mevzuat.gov.tr/MevzuatMetin/20.5.9286.pdf | `33b90df1c8c5741336cade799ea29fc8b07fe9168ddcc70d73fcaa9f4302e5c5` | 2026-10-18 |

@@ -2,7 +2,7 @@
 ders: GUV
 konu: GVM
 baslik: Gelir vergisi mükellefiyeti ve kazanç unsurları
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 193 sayılı Gelir Vergisi Kanunu

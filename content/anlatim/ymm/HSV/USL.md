@@ -2,7 +2,7 @@
 ders: HSV
 konu: USL
 baslik: Harcama vergilerinde usul ve cezalar
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu

@@ -2,7 +2,7 @@
 ders: GUV
 konu: DAR
 baslik: Dar mükellefiyet ve uluslararası vergilendirme
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
