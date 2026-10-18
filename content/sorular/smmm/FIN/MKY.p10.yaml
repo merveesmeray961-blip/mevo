@@ -9,8 +9,8 @@
   kazanim: temettü
   tip: hesaplama
   zorluk: 2
-  kok: İşletmenin sahip olduğu paylar için hisse başına 2 TL temettü kararı alınmıştır; işletmenin 1.500 payı vardır. Temettü
-    geliri kaç TL’dir?
+  kok: İşletmenin sahip olduğu paylar için hisse başına 2 TL temettü kararı alınmıştır; işletmenin 1.500 payı vardır.
+    Temettü geliri kaç TL’dir?
   secenekler:
     A: 1.500 TL
     B: 2.000 TL
@@ -19,16 +19,16 @@
     E: 5.000 TL
   dogru: C
   aciklama:
-    dogru_neden: İşletmenin sahip olduğu paylar için hisse başına 2 TL temettü kararı alınmıştır; işletmenin 1.500 payı vardır.
-      Temettü geliri kaç TL’dir? Verilen sayılarla işlem yapıldığında sonuç 3.000 TL olur.
+    dogru_neden: İşletmenin sahip olduğu paylar için hisse başına 2 TL temettü kararı alınmıştır; işletmenin 1.500
+      payı vardır. Temettü geliri kaç TL’dir? Verilen sayılarla işlem yapıldığında sonuç 3.000 TL olur.
     celdiriciler:
       A: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       B: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       D: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       E: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
     hesap_adimlari:
-    - İşletmenin sahip olduğu paylar için hisse başına 2 TL temettü kararı alınmıştır; işletmenin 1.500 payı vardır. Temettü
-      geliri kaç TL’dir?
+    - İşletmenin sahip olduğu paylar için hisse başına 2 TL temettü kararı alınmıştır; işletmenin 1.500 payı vardır.
+      Temettü geliri kaç TL’dir?
     - 'Sonuç: 3.000 TL.'
   kaynaklar:
   - mevzuat: 1 Sıra No’lu Muhasebe Sistemi Uygulama Genel Tebliği
@@ -50,7 +50,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 1500 * 2
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -71,8 +71,9 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: 'R4: sınav düzeyinin altında / biçim hatası ( Tek işlemli çarpma (2x1.500); sınav düzeyinin çok altında.)'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -87,3 +88,7 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kalite hakemi + bağımsız çözücü (kaynaklı) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: 'R4: sınav düzeyinin altında / biçim hatası ( Tek işlemli çarpma (2x1.500); sınav düzeyinin çok altında.)'

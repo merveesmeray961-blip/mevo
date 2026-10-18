@@ -9,8 +9,8 @@
   kazanim: senet yenileme ve iskonto
   tip: hesaplama
   zorluk: 3
-  kok: İşletmenin vadesi gelen 20.000 TL alacak senedi, 2.000 TL faiz eklenerek yenilenmiştir. Yeni senedin nominal tutarı
-    kaç TL’dir?
+  kok: İşletmenin vadesi gelen 20.000 TL alacak senedi, 2.000 TL faiz eklenerek yenilenmiştir. Yeni senedin nominal
+    tutarı kaç TL’dir?
   secenekler:
     A: 18.000 TL
     B: 20.000 TL
@@ -19,16 +19,16 @@
     E: 26.000 TL
   dogru: C
   aciklama:
-    dogru_neden: İşletmenin vadesi gelen 20.000 TL alacak senedi, 2.000 TL faiz eklenerek yenilenmiştir. Yeni senedin nominal
-      tutarı kaç TL’dir? Verilen sayılarla işlem yapıldığında sonuç 22.000 TL olur.
+    dogru_neden: İşletmenin vadesi gelen 20.000 TL alacak senedi, 2.000 TL faiz eklenerek yenilenmiştir. Yeni senedin
+      nominal tutarı kaç TL’dir? Verilen sayılarla işlem yapıldığında sonuç 22.000 TL olur.
     celdiriciler:
       A: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       B: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       D: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       E: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
     hesap_adimlari:
-    - İşletmenin vadesi gelen 20.000 TL alacak senedi, 2.000 TL faiz eklenerek yenilenmiştir. Yeni senedin nominal tutarı
-      kaç TL’dir?
+    - İşletmenin vadesi gelen 20.000 TL alacak senedi, 2.000 TL faiz eklenerek yenilenmiştir. Yeni senedin nominal
+      tutarı kaç TL’dir?
     - 'Sonuç: 22.000 TL.'
   kaynaklar:
   - mevzuat: 1 Sıra No’lu Muhasebe Sistemi Uygulama Genel Tebliği
@@ -50,7 +50,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 22000
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -71,8 +71,10 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: 'R4: sınav düzeyinin altında / biçim hatası ( Tek toplamla çözülen çok basit soru; sınav düzeyinin
+          altında.)'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -87,6 +89,10 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kalite hakemi + bağımsız çözücü (kaynaklı) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: 'R4: sınav düzeyinin altında / biçim hatası ( Tek toplamla çözülen çok basit soru; sınav düzeyinin altında.)'
 - id: SMMM-FIN-ALC-0030
   sinav: smmm
   bolum:
@@ -98,8 +104,9 @@
   kazanim: akreditif
   tip: hesaplama
   zorluk: 3
-  kok: İşletme yurt dışındaki satıcı lehine 12.000 USD akreditif açtırmıştır. Akreditif açılışında izlenen tutar 12.000 USD’nin
-    TL karşılığıdır; soru kapsamında kur ve komisyon dikkate alınmayacaktır. Akreditif tutarı 1 USD=30 TL üzerinden kaç TL’dir?
+  kok: İşletme yurt dışındaki satıcı lehine 12.000 USD akreditif açtırmıştır. Akreditif açılışında izlenen tutar
+    12.000 USD’nin TL karşılığıdır; soru kapsamında kur ve komisyon dikkate alınmayacaktır. Akreditif tutarı 1 USD=30
+    TL üzerinden kaç TL’dir?
   secenekler:
     A: 300.000 TL
     B: 330.000 TL
@@ -108,18 +115,18 @@
     E: 420.000 TL
   dogru: C
   aciklama:
-    dogru_neden: İşletme yurt dışındaki satıcı lehine 12.000 USD akreditif açtırmıştır. Akreditif açılışında izlenen tutar
-      12.000 USD’nin TL karşılığıdır; soru kapsamında kur ve komisyon dikkate alınmayacaktır. Akreditif tutarı 1 USD=30 TL
-      üzerinden kaç TL’dir? Verilen sayılarla işlem yapıldığında sonuç 360.000 TL olur.
+    dogru_neden: İşletme yurt dışındaki satıcı lehine 12.000 USD akreditif açtırmıştır. Akreditif açılışında izlenen
+      tutar 12.000 USD’nin TL karşılığıdır; soru kapsamında kur ve komisyon dikkate alınmayacaktır. Akreditif tutarı
+      1 USD=30 TL üzerinden kaç TL’dir? Verilen sayılarla işlem yapıldığında sonuç 360.000 TL olur.
     celdiriciler:
       A: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       B: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       D: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       E: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
     hesap_adimlari:
-    - İşletme yurt dışındaki satıcı lehine 12.000 USD akreditif açtırmıştır. Akreditif açılışında izlenen tutar 12.000 USD’nin
-      TL karşılığıdır; soru kapsamında kur ve komisyon dikkate alınmayacaktır. Akreditif tutarı 1 USD=30 TL üzerinden kaç
-      TL’dir?
+    - İşletme yurt dışındaki satıcı lehine 12.000 USD akreditif açtırmıştır. Akreditif açılışında izlenen tutar
+      12.000 USD’nin TL karşılığıdır; soru kapsamında kur ve komisyon dikkate alınmayacaktır. Akreditif tutarı 1
+      USD=30 TL üzerinden kaç TL’dir?
     - 'Sonuç: 360.000 TL.'
   kaynaklar:
   - mevzuat: 1 Sıra No’lu Muhasebe Sistemi Uygulama Genel Tebliği
@@ -141,7 +148,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 12000 * 30
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -162,8 +169,9 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: 'R4: sınav düzeyinin altında / biçim hatası ( Tek çarpma işlemi (12.000x30); sınav düzeyinin altında.)'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -178,3 +186,7 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kalite hakemi + bağımsız çözücü (kaynaklı) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: 'R4: sınav düzeyinin altında / biçim hatası ( Tek çarpma işlemi (12.000x30); sınav düzeyinin altında.)'

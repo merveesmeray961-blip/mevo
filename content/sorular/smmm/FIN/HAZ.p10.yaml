@@ -9,7 +9,8 @@
   kazanim: kasa ve banka işlemleri
   tip: hesaplama
   zorluk: 1
-  kok: İşletmenin bankadaki 25.000 TL’sinden 7.000 TL’si kasaya çekilmiştir. İşlem sonrasında kasadaki artış kaç TL’dir?
+  kok: İşletmenin bankadaki 25.000 TL’sinden 7.000 TL’si kasaya çekilmiştir. İşlem sonrasında kasadaki artış kaç
+    TL’dir?
   secenekler:
     A: 5.000 TL
     B: 6.000 TL
@@ -18,15 +19,16 @@
     E: 25.000 TL
   dogru: C
   aciklama:
-    dogru_neden: İşletmenin bankadaki 25.000 TL’sinden 7.000 TL’si kasaya çekilmiştir. İşlem sonrasında kasadaki artış kaç
-      TL’dir? Verilen sayılarla işlem yapıldığında sonuç 7.000 TL olur.
+    dogru_neden: İşletmenin bankadaki 25.000 TL’sinden 7.000 TL’si kasaya çekilmiştir. İşlem sonrasında kasadaki
+      artış kaç TL’dir? Verilen sayılarla işlem yapıldığında sonuç 7.000 TL olur.
     celdiriciler:
       A: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       B: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       D: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       E: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
     hesap_adimlari:
-    - İşletmenin bankadaki 25.000 TL’sinden 7.000 TL’si kasaya çekilmiştir. İşlem sonrasında kasadaki artış kaç TL’dir?
+    - İşletmenin bankadaki 25.000 TL’sinden 7.000 TL’si kasaya çekilmiştir. İşlem sonrasında kasadaki artış kaç
+      TL’dir?
     - 'Sonuç: 7.000 TL.'
   kaynaklar:
   - mevzuat: 1 Sıra No’lu Muhasebe Sistemi Uygulama Genel Tebliği
@@ -48,7 +50,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 7000
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -69,8 +71,10 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: 'R4: sınav düzeyinin altında / biçim hatası ( Cevap kökte açıkça veriliyor (7.000 TL kasaya çekilmiş);
+          hesap yok, dü)'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -85,6 +89,11 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kalite hakemi + bağımsız çözücü (kaynaklı) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: 'R4: sınav düzeyinin altında / biçim hatası ( Cevap kökte açıkça veriliyor (7.000 TL kasaya çekilmiş);
+      hesap yok, dü)'
 - id: SMMM-FIN-HAZ-0032
   sinav: smmm
   bolum:
@@ -105,8 +114,8 @@
     E: 25.000 TL
   dogru: C
   aciklama:
-    dogru_neden: Bir mizanda borç toplamı 480.000 TL, alacak toplamı 465.000 TL’dir. Mizan farkının mutlak tutarı kaç TL’dir?
-      Verilen sayılarla işlem yapıldığında sonuç 15.000 TL olur.
+    dogru_neden: Bir mizanda borç toplamı 480.000 TL, alacak toplamı 465.000 TL’dir. Mizan farkının mutlak tutarı
+      kaç TL’dir? Verilen sayılarla işlem yapıldığında sonuç 15.000 TL olur.
     celdiriciler:
       A: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
       B: Bu seçenek, ilgili hesabın işlevini yanlış geneller veya hesapların farklı niteliklerini birbirine karıştırır.
@@ -135,7 +144,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 480000 - 465000
-  durum: kontrolde
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -156,8 +165,10 @@
         tarih: '2026-10-07'
         not: 'kalite hakemi + bağımsız çözücü (kaynaklı): anahtarla aynı (güven 5).'
       G5:
-        sonuc: atlandi
-        not: 'hızlı denetim: hakem incelemesi yapılmadı'
+        sonuc: kaldi
+        tarih: '2026-10-18'
+        not: 'R4: sınav düzeyinin altında / biçim hatası ( Tek çıkarma işlemi (480.000-465.000); sınav düzeyinin
+          çok altında.)'
       G6:
         sonuc: atlandi
         not: 'hızlı denetim: hakem incelemesi yapılmadı; alıntılar otomatik olarak resmî metinde doğrulandı'
@@ -172,3 +183,8 @@
     kim: otomatik
     ne: 'durum: taslak → kontrolde (hızlı denetim).'
     neden: kalite hakemi + bağımsız çözücü (kaynaklı) anahtarla uyuştu
+  - tarih: '2026-10-18'
+    kim: hakem
+    ne: 'durum: kontrolde → geri_cekildi'
+    neden: 'R4: sınav düzeyinin altında / biçim hatası ( Tek çıkarma işlemi (480.000-465.000); sınav düzeyinin çok
+      altında.)'
