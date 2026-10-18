@@ -1,8 +1,8 @@
 ---
 ders: VTK
 konu: DEG
-baslik: Değerleme
-durum: taslak
+baslik: Değerleme ve enflasyon düzeltmesi
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
@@ -12,8 +12,14 @@ kaynaklar:
     madde: md. 262
     alinti: "Maliyet bedeli, iktisadi bir kıymetin iktisap edilmesi veyahut değerinin"
   - mevzuat: 213 sayılı Vergi Usul Kanunu
-    madde: md. 263
-    alinti: "Borsa rayici, gerek menkul kıymetler ve kambiyo borsasına, gerekse"
+    madde: md. 280/A
+    alinti: "teşvik belgesi kapsamında sarf olunan kısmı nedeniyle oluşan kur farkları pasifte özel bir fon"
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 324
+    alinti: "Konkordato veya sulh yoliyle alınmasından vazgeçilen alacaklar,"
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: mükerrer md. 298/A-2-k
+    alinti: "k) Taşıma katsayısı; malî tabloların ait olduğu aya ilişkin fiyat endeksinin, bir önceki"
   - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: mükerrer md. 298/Ç
     alinti: "Her yılın yeniden değerleme oranı ancak o yıla ait değerlemede nazara alınabilir."
@@ -26,107 +32,103 @@ kaynaklar:
 ---
 ## Bu konuda neler öğreneceksin
 
-- VUK md.258-298 değerleme ölçüleri ve hangi kıymetin hangi ölçüyle değerlendiği
-- Maliyet bedeline giren ve girmeyen unsurlar, borsa rayicinin kullanıldığı kıymetler
-- Yeniden değerleme (VUK mükerrer 298/ç) şartları, hesaplanması ve kaydı
-- Amortisman uygulaması: normal ve azalan bakiyeler usulü, süre, kıst ve gün esası
-- Tam tasdikte değerleme ve amortisman kalemlerinin kontrolü
+- VUK md. 258-298 değerleme ölçülerini, maliyet bedeli ve borsa rayicini
+- Alacak ve borç değerlemesini, reeskontu, şüpheli, değersiz ve vazgeçilen alacakları (VUK md. 280/A, 281-285, 322-324)
+- Amortisman uygulamasının temel kurallarını
+- Enflasyon düzeltmesini (VUK mükerrer 298/A) ve 2025-2027 dönemindeki durumu
+- Yeniden değerlemeyi (VUK mükerrer 298/Ç) hesaplamayı ve kaydetmeyi
 
-## 1. VUK md.258-298 değerleme ölçüleri
+## 1. Değerleme ölçüleri
 
-**Değerleme**, Vergi Usul Kanunu'na (VUK) göre vergi matrahlarının hesaplanmasıyla ilgili iktisadi kıymetlerin takdir ve tespitidir (md.258). Değerlemede kıymetlerin vergi kanunlarında gösterilen gün ve zamanlarda sahip oldukları değerler esas alınır (md.259). Kural olarak her kıymet tek başına değerlenir; teamülen aynı cinsten sayılan mallar ile düşük kıymetli müteferrik eşya toplu değerlenebilir (md.260).
+**Değerleme**, vergi matrahlarının hesaplanmasıyla ilgili iktisadi kıymetlerin takdir ve tespitidir (VUK md. 258). Kıymetin kanunda gösterilen gün ve zamandaki değeri esas alınır (md. 259). VUK md. 261 dokuz ölçü sayar: maliyet bedeli, borsa rayici, tasarruf değeri, mukayyet değer, itibari değer, vergi değeri, rayiç bedel, emsal bedeli ve ücreti, alış bedeli.
 
-VUK md.261 dokuz ölçü sayar: maliyet bedeli, borsa rayici, tasarruf değeri, mukayyet değer, itibari değer, vergi değeri, rayiç bedel, emsal bedeli ve ücreti, alış bedeli. **Mukayyet değer** kıymetin muhasebe kayıtlarında gösterilen hesap değeri; **tasarruf değeri** değerleme gününde sahibi için arz ettiği gerçek değer; **alış bedeli** ise yalnız satın alma bedelidir, iktisapla ilgili diğer giderler buna dahil değildir (md.268/A).
-
-| Kıymet | Değerleme ölçüsü | Madde |
+| Kıymet | Ölçü | Madde |
 |---|---|---|
-| Gayrimenkuller, tesisat, makineler, taşıtlar, gayrimaddi haklar | Maliyet bedeli | md.269 |
-| Demirbaş eşya | Maliyet bedeli | md.273 |
-| Emtia | Maliyet bedeli | md.274 |
-| Kıymetli madenler | Borsa rayici | md.274/A |
-| Hisse senetleri | Alış bedeli | md.279 |
-| Diğer menkul kıymetler | Borsa rayici | md.279 |
-| Yabancı paralar | Borsa rayici | md.280 |
-| Alacaklar ve borçlar | Mukayyet değer | md.281, md.285 |
-| Kasa mevcudu | İtibari değer | md.284 |
-| Karşılıklar | Mukayyet değer | md.288 |
+| Gayrimenkul, tesisat, makine, taşıt, haklar, demirbaş | Maliyet bedeli | md. 269, 273 |
+| Emtia | Maliyet bedeli (satış bedeli %10 ve fazla düşükse emsal bedeli seçimlik) | md. 274 |
+| Kıymeti önemli ölçüde düşen emtia, hurda | Emsal bedeli | md. 278 |
+| Kıymetli madenler | Borsa rayici | md. 274/A |
+| Hisse senetleri ve en az %51'i Türk hissesinden oluşan fon payları | Alış bedeli | md. 279 |
+| Diğer menkul kıymetler | Borsa rayici; yoksa alış bedeli + isabet eden getiri | md. 279 |
+| Yabancı paralar, dövizli alacak ve borçlar | Borsa rayici | md. 280 |
+| Alacaklar ve borçlar | Mukayyet değer | md. 281, 285 |
+| Karşılıklar | Mukayyet değer | md. 288 |
 
-Kuralın istisnası olarak afet, bozulma, çürüme gibi nedenlerle değeri önemli ölçüde azalan emtia ile hurda ve döküntüler emsal bedeliyle değerlenir (md.278). Ayrıca emtianın değerleme günündeki satış bedeli maliyet bedeline göre yüzde 10 ve daha fazla düşükse mükellef, md.267'nin ikinci sırası (maliyet bedeli esası) hariç olmak üzere emsal bedelini uygulayabilir (md.274).
+**Maliyet bedeli**, iktisap veya değer artırımı için yapılan ödemelerle bunlara bağlı bütün giderlerin toplamıdır (md. 262): gümrük vergisi, nakliye, montaj, tapu ve noter giderleri, danışmanlık ve komisyon gibi. Kredi faizi ve kur farkının emtiada stoka girişe, diğer kıymetlerde envantere alındığı dönem sonuna kadarki kısmı maliyete girer; sonrası seçimliktir. Gayrimenkulü genişletme veya değerini devamlı artırma giderleri maliyete eklenir, normal bakım-onarım gider yazılır (md. 272). **Borsa rayici**, değerlemeden önceki son muamele günündeki ortalama borsa değeridir (md. 263).
 
-> **Sınav ipucu:** Hisse senetleri ve fon portföyünün en az yüzde 51'i Türkiye'de kurulmuş şirket hisselerinden oluşan yatırım fonu katılma belgeleri borsa rayiciyle değil, alış bedeliyle değerlenir (md.279).
+> **Sık yapılan hata:** Hisse senetlerini yıl sonu borsa değeriyle değerlemek. VUK md. 279 hisse senetleri için alış bedelini öngörür; borsa rayici tahvil, bono ve diğer menkul kıymetler içindir.
 
-## 2. Maliyet bedeli ve borsa rayici
+## 2. Alacak ve borçların değerlemesi
 
-### Maliyet bedeli
+- Alacaklar ve borçlar **mukayyet değerle** değerlenir; mevduat veya kredi sözleşmesine dayananlar değerleme gününe kadar hesaplanan faizleriyle dikkate alınır (md. 281, 285).
+- Vadesi gelmemiş **senede bağlı** alacak ve borçlar değerleme günü kıymetine irca edilebilir (reeskont); senette faiz yazılı değilse Merkez Bankası iskonto haddi uygulanır. Alacak senetlerini reeskonta tabi tutan borç senetlerini de tutmak zorundadır (md. 281, 285).
+- **Yabancı paralı** alacak ve borçlar borsa rayiciyle değerlenir; senede bağlı olanlar reeskont edilebilir, faiz yazılı değilse LIBOR esas alınır (md. 280).
+- **VUK md. 280/A:** Yatırım teşvik belgesi kapsamında yatırım yapacak tam mükellef sermaye şirketine, işe başladığı dönemi izleyen dönem sonuna kadar yurt dışından getirilip sermaye olarak konulan yabancı paraların teşvik belgesi kapsamında harcanan kısmından doğan kur farkları **pasifte özel bir fon hesabına** alınabilir. Harcanmayan kısım bu süre boyunca mukayyet değerle, süre sonunda md. 280'e göre değerlenir. Fon sermayeye eklenme dışında başka hesaba aktarılır veya çekilirse o dönemde vergilendirilir. Şart: tescili izleyen üçüncü ayın sonuna kadar teşvik belgesi başvurusu ve izleyen dönem sonuna kadar belgenin alınması.
+- **Şüpheli alacak (md. 323):** dava veya icra safhasındaki alacaklar ile protestoya veya birden fazla yazılı talebe rağmen ödenmeyen ve 2026 için 25.000 TL'yi aşmayan alacaklar; karşılık ayrılabilir, sonradan tahsil edilen kısım tahsil dönemi kârına alınır.
+- **Değersiz alacak (md. 322):** kazai hüküm veya kanaat verici vesikaya göre tahsil imkânı kalmayan alacak mukayyet değeriyle zarara yazılır; KDV'si zarar yazıldığı dönemde indirilebilir (KDVK md. 29/4).
+- **Vazgeçilen alacak (md. 324):** konkordato veya sulh yoluyla vazgeçilen alacaklar borçlunun defterinde özel bir karşılık hesabına alınır; üç yıl içinde zararla itfa edilmezse kâra aktarılır.
 
-**Maliyet bedeli**, iktisadi bir kıymetin iktisap edilmesi veya değerinin artırılması dolayısıyla yapılan ödemelerle bunlara bağlı bütün giderlerin toplamıdır (md.262). Kanun maliyete dahil edilecek giderleri sayar: doğrudan ilgili gümrük vergileri, yükleme, boşaltma, nakliye ve montaj giderleri; resim ve harçlar, noter, tapu, değer tespiti, danışmanlık ve komisyon giderleri; stoklara ya da envantere alındığı tarihe kadarki depolama ve sigorta giderleri; satın alınıp yıkılan binanın yıkım ve arsa tesviye giderleri.
+> **Sınav ipucu:** Konkordato olayında iki tarafı ayrı değerlendir: alacaklıda dava veya icra safhası şüpheli alacak, konkordatonun mahkemece tasdikiyle kesinleşen vazgeçme değersiz alacak gerekçesidir (konkordato mühleti dönemindeki uygulama için idarenin sirkülerine bak); borçluda vazgeçilen tutar md. 324'e göre özel karşılıkta üç yıl bekler.
 
-Finansman giderlerinde ayrım vardır. Kredi faizi ve kur farkının emtiada stoklara girdiği tarihe, diğer kıymetlerde envantere alındığı hesap döneminin sonuna kadarki kısmı maliyete girer; sonraki kısımları maliyete eklemekte veya gider yazmakta mükellef serbesttir. Emtia hariç kıymetlerde özel tüketim vergisi, indirilemeyecek KDV, BSMV ve KKDF için de aynı seçimlik hak tanınmıştır. Gayrimenkulle doğrudan ilgili olup envantere alındığı dönem sonuna kadar alınan hibeler maliyetten indirilir.
+## 3. Amortisman uygulaması
 
-Normal bakım ve onarım giderleri dışında, gayrimenkulü genişletmek veya değerini devamlı olarak artırmak amacıyla yapılan giderler maliyet bedeline eklenir (md.272). İmal edilen emtianın maliyeti ilk madde, işçilik, genel imal giderleri payı ve gerekiyorsa ambalajı içerir; genel idare giderlerinden pay verilmesi ise ihtiyaridir (md.275).
+**Amortisman**, bir yıldan fazla kullanılan ve yıpranmaya maruz kıymetlerin değerinin yok edilmesidir (md. 313); arsa ve arazi amortismana tabi değildir (md. 314). Değeri 2026 için 12.000 TL'yi aşmayan demirbaş doğrudan gider yazılabilir (588 Sıra No.lu Tebliğ).
 
-### Borsa rayici
+- Normal amortisman ilan edilen faydalı ömre göre ayrılır (md. 315); azalan bakiyeler oranı %50'yi geçmemek üzere normalin iki katıdır (mük. md. 315).
+- Azalan bakiyelerden normal usule geçilebilir, tersi yapılamaz (mük. md. 320).
+- Binek otomobillerinde (kiralama ve işletme faaliyeti hariç) aktife girilen yılda kıst amortisman ayrılır; dileyen mükellef diğer yeni kıymetlerde gün esasını seçebilir (md. 320).
+- Her yılın amortismanı yalnız o yıla aittir; ayrılmayan amortisman sonraki yıla aktarılmaz. Afet ve benzeri hallerde fevkalade amortisman uygulanabilir (md. 317).
 
-**Borsa rayici**, borsaya kayıtlı iktisadi kıymetlerin değerlemeden önceki son muamele gününde borsadaki muamelelerinin ortalama değeridir (md.263). Fiyatlarda bariz kararsızlık varsa Bakanlık, son muamele günü yerine değerlemeden önceki 30 gün içindeki ortalama rayici esas aldırmaya yetkilidir. Yabancı paralar borsa rayiciyle değerlenir; rayicin oluşumunda muvazaa anlaşılırsa alış bedeli esas alınır (md.280). Kıymetli madenlerde borsa rayici yoksa ya da muvazaalı oluşmuşsa maliyet bedeli kullanılır (md.274/A).
+## 4. Enflasyon düzeltmesi (VUK mükerrer 298/A)
 
-> **Sık yapılan hata:** Gayrimenkulün normal bakım ve tamir giderini maliyete eklemek. Yalnız genişletme ve değeri devamlı artırma amaçlı giderler maliyete girer; karma giderlerde mükellef maliyete eklenecek kısmı ayrıca göstermek zorundadır (md.272).
+### Kural
 
-## 3. Yeniden değerleme (VUK mükerrer 298/ç)
+Bilanço esasında kazanç tespit edenler, ÜFE artışı içinde bulunulan dönem dahil son üç hesap döneminde %100'den ve içinde bulunulan dönemde %10'dan fazlaysa mali tablolarını düzeltir. Yalnız **parasal olmayan kıymetler** düzeltilir; parasal kıymetler (kasa, banka, alacak, borç, yabancı paralar) düzeltilmez.
 
-### Tanım ve kapsam
+- **Düzeltme katsayısı** = bilanço ayı endeksi / düzeltmeye esas tarih ayı endeksi.
+- **Taşıma katsayısı** = bilanço ayı endeksi / bir önceki dönem sonu endeksi; önceki dönemde düzeltilmiş tutarlar bununla taşınır.
+- Düzeltmeye esas tarih: duran varlık ve stokta kayıt tarihi, nakdi sermayede tahsil tarihi, yedeklerden sermaye artırımında tescil tarihi.
+- Varlık artışları 698 Enflasyon Düzeltme Hesabının alacağına, özkaynak artışları borcuna yazılır; sermaye farkı 502 Sermaye Düzeltmesi Olumlu Farkları hesabında izlenir. 698 bakiyesi 648 Enflasyon Düzeltmesi Kârları veya 658 Enflasyon Düzeltmesi Zararları hesabına aktarılarak dönem sonucuna, dolayısıyla matraha yansır.
 
-**Yeniden değerleme**, amortismana tabi iktisadi kıymetlerin ve birikmiş amortismanlarının yeniden değerleme oranıyla artırılmasıdır; nitelikleri korundukça sat-kirala-geri al işlemine veya kira sertifikası ihracına konu edilen kıymetler kapsam dışıdır. Mükerrer 298 inci maddenin (Ç) fıkrasına göre tam mükellef ve bilanço esasına göre defter tutan gelir veya kurumlar vergisi mükellefleri, (A) fıkrasındaki enflasyon düzeltmesi şartlarının gerçekleşmediği hesap dönemlerinin sonu itibarıyla bu işlemi yapabilir. Kayıtlarını Türk parası dışında bir para birimiyle tutanlar ile (A) fıkrasının (9) numaralı bendi kapsamındaki altın-gümüş mükellefleri kapsam dışıdır.
+### 2025-2027 durumu
 
-VUK geçici md.37'ye göre 2025 hesap dönemi ile geçici vergi dönemleri de dahil olmak üzere 2026 ve 2027 hesap dönemlerinde (özel hesap dönemi tayin edilenlerde 2026, 2027 ve 2028 yılında biten hesap dönemleri itibarıyla), mükerrer 298 inci maddedeki şartların oluşup oluşmadığına bakılmaksızın mali tablolar enflasyon düzeltmesine tabi tutulmaz. Cumhurbaşkanı bu dönemleri üç hesap dönemine kadar uzatmaya yetkilidir. Bu dönemler (uzatılanlar dahil) (Ç) fıkrası açısından enflasyon düzeltmesi şartlarının gerçekleşmediği dönem sayılır; bu nedenle bu dönemlerde yeniden değerleme yapılabilir. (A) fıkrasının (9) numaralı bendindeki altın-gümüş mükellefleri bu hükmün dışındadır.
+VUK geçici md. 37'ye göre 2025 hesap dönemi (geçici vergi dönemleri dahil) ile 2026 ve 2027 hesap dönemlerinde, şartların oluşup oluşmadığına bakılmaksızın mali tablolar **enflasyon düzeltmesine tabi tutulmaz**; Cumhurbaşkanı bu süreyi üç hesap dönemine kadar uzatabilir. Bu dönemler (Ç) fıkrası bakımından şartların gerçekleşmediği dönem sayılır; bu nedenle yeniden değerleme yapılabilir. Altın-gümüş mükellefleri (A-9) bu hükmün dışındadır.
 
-### Kurallar
+### Çözümlü örnek (son düzeltmenin yapıldığı 2024 dönemi mantığıyla)
 
-- Yasal defterlerdeki dönem sonu değerleri esas alınır; ayrılmamış amortisman tam ayrılmış varsayılır.
-- Aktifleştirildiği dönem hariç maliyete eklenmiş kur farkları ve kredi faizleri kapsama girmez.
-- Hesap dönemi içinde aktife giren kıymet o dönemde yeniden değerlenmez.
-- Değer artışı, yeniden değerleme sonrası ve öncesi **net bilanço aktif değerleri** arasındaki farktır ve pasifte özel bir fon hesabında gösterilir.
-- Fon, sermayeye ilave dışında başka hesaba nakledilir veya işletmeden çekilirse o dönemde vergilendirilir; sermayeye eklenmesi kâr dağıtımı sayılmaz.
-- Kıymet elden çıkarıldığında ona isabet eden fon tutarı aynen amortismanlar gibi muameleye tabi tutulur.
-- Her yılın oranı yalnız o yılın değerlemesinde kullanılır; yapılmayan yıl için geriye dönük değerleme yapılamaz.
+Endeksler varsayımsaldır: Aralık 2023 = 3.000, Haziran 2024 = 3.250, Aralık 2024 = 3.900. Arsa 31.12.2023 düzeltilmiş değeri 1.000.000 TL; makine Haziran 2024'te 500.000 TL'ye alınmış; sermaye ve sermaye düzeltmesi farkları toplamı dönem başında 2.000.000 TL.
 
-Yıllık oran, (B) fıkrasına göre Ekim ayı itibarıyla bir önceki yılın aynı dönemine göre üretici fiyat endeksindeki ortalama artıştır. 2025 yılı için yeniden değerleme oranı yüzde 25,49'dur (588 Sıra No.lu VUK Genel Tebliği; 585 Sıra No.lu Tebliğ). Geçici vergi dönemlerinde ise Yİ-ÜFE'deki ortalama artışa göre belirlenen oran kullanılır.
+1. Taşıma katsayısı 3.900 / 3.000 = 1,30. Arsa 1.300.000 TL; fark 300.000 TL: 250 Arazi ve Arsalar borç / 698 alacak.
+2. Makine katsayısı 3.900 / 3.250 = 1,20. Değer 600.000 TL; fark 100.000 TL: 253 borç / 698 alacak.
+3. Sermaye 2.000.000 × 1,30 = 2.600.000 TL; fark 600.000 TL: 698 borç / 502 alacak.
+4. 698: alacak 400.000, borç 600.000; borç bakiyesi 200.000 TL. Kapanış: 658 Enflasyon Düzeltmesi Zararları borç / 698 alacak 200.000. Bu zarar matrahı azaltır.
+5. 2026 sorusunda aynı veriler verilse bile geçici md. 37 nedeniyle düzeltme yapılmaz; amortisman düzeltilmemiş değerler üzerinden ayrılır.
 
-### Örnek: 31.12.2025 tarihli yeniden değerleme ve 2026 amortismanı
+## 5. Yeniden değerleme (VUK mükerrer 298/Ç)
 
-A AŞ'nin 2024'te aktife aldığı makinenin 31.12.2025 tarihli yasal kayıtlardaki değerleri: maliyet 2.000.000 TL, birikmiş amortisman 800.000 TL. Normal amortisman oranı yüzde 20'dir (varsayım).
+Tam mükellef ve bilanço esasında defter tutanlar, enflasyon düzeltmesi şartlarının gerçekleşmediği dönem sonlarında **amortismana tabi kıymetleri** ve birikmiş amortismanlarını yeniden değerleme oranıyla artırabilir. Sat-kirala-geri al ve kira sertifikası işlemine konu kıymetler kapsam dışıdır.
 
-1. Yeniden değerlenmiş maliyet: 2.000.000 x 1,2549 = 2.509.800 TL.
-2. Yeniden değerlenmiş birikmiş amortisman: 800.000 x 1,2549 = 1.003.920 TL.
-3. Net değer önce: 2.000.000 - 800.000 = 1.200.000 TL; sonra: 2.509.800 - 1.003.920 = 1.505.880 TL.
-4. Değer artışı: 1.505.880 - 1.200.000 = 305.880 TL.
-5. Kayıt (31.12.2025): 253 Tesis, Makine ve Cihazlar borç 509.800 TL; 257 Birikmiş Amortismanlar alacak 203.920 TL; 522 M.D.V. Yeniden Değerleme Artışları alacak 305.880 TL. Borç 509.800 = alacak 203.920 + 305.880.
-6. 2026 amortismanı yeniden değerlenmiş tutar üzerinden: 2.509.800 x 0,20 = 501.960 TL; 730 Genel Üretim Giderleri borç, 257 Birikmiş Amortismanlar alacak 501.960 TL.
+- Ayrılmamış amortisman tam ayrılmış sayılır; aktifleştirildiği dönem hariç maliyete eklenmiş kur farkı ve faiz kapsama girmez.
+- O dönem aktife giren kıymet o dönemde yeniden değerlenmez.
+- Değer artışı, sonraki ve önceki net bilanço aktif değerleri farkıdır; pasifte özel fonda (522) izlenir. Fon sermayeye ilave dışında başka hesaba aktarılır veya çekilirse vergilendirilir.
+- Her yılın oranı yalnız o yılın değerlemesinde kullanılır. 2025 yılı oranı **%25,49**'dur.
 
-## 4. Amortisman uygulaması
+Örnek: 2024'te aktife alınan makine, 31.12.2025'te maliyet 2.000.000, birikmiş amortisman 800.000 TL; oran %20.
 
-### Tanım ve konu
+1. Yeni maliyet 2.000.000 × 1,2549 = 2.509.800 TL; yeni birikmiş amortisman 800.000 × 1,2549 = 1.003.920 TL.
+2. Net değer 1.200.000 TL'den 1.505.880 TL'ye çıkar; değer artışı 305.880 TL.
+3. Kayıt: 253 Tesis, Makine ve Cihazlar borç 509.800 / 257 Birikmiş Amortismanlar alacak 203.920 / 522 M.D.V. Yeniden Değerleme Artışları alacak 305.880.
+4. 2026 amortismanı: 2.509.800 × %20 = 501.960 TL.
 
-**Amortisman**, işletmede bir yıldan fazla kullanılan ve yıpranmaya, aşınmaya veya değer kaybına uğrayan gayrimenkuller, gayrimenkul gibi değerlenen kıymetler, alet, edevat, mefruşat, demirbaş ve sinema filmlerinin değerinin yok edilmesidir (md.313). Boş arazi ve arsalar amortismana tabi değildir (md.314). Değeri belirli tutarı aşmayan demirbaş ve peştemallıklar doğrudan gider yazılabilir; bu had 2026 yılı için 12.000 TL'dir (588 Sıra No.lu VUK Genel Tebliği). İktisadi ve teknik bütünlük arz edenlerde had topluca dikkate alınır.
+## 6. Tasdik uygulama notu
 
-### Usuller ve süre
-
-- **Normal amortisman:** Bakanlığın faydalı ömre göre ilan ettiği oranlar uygulanır (md.315). Süre, 1 rakamının oranına bölünmesiyle bulunur ve kıymetin aktife girdiği yıldan başlar (md.320).
-- **Azalan bakiyeler usulü:** Yalnız bilanço esasında; oran, yüzde 50'yi geçmemek üzere normal oranın iki katıdır, kalan değer üzerinden hesaplanır ve son yıla kalan bakiye o yıl yok edilir (mükerrer md.315). Örneğin 100.000 TL maliyetli, normal oranı yüzde 20 olan kıymette oran yüzde 40'tır: ilk yıl 40.000 TL, ikinci yıl 60.000 x 0,40 = 24.000 TL.
-- **Usul değişikliği:** Normal usule başlandıktan sonra azalan bakiyelere dönülemez; azalan bakiyelerden normale geçilebilir (mükerrer md.320).
-- **Süre seçimi:** Mükellef, ilan edilen faydalı ömürden kısa olmamak, bu sürenin iki katını ve elli yılı aşmamak üzere süreyi belirleyebilir; tercih envantere alındığı geçici vergi dönemi sonunda kullanılır ve sonra değiştirilemez (md.320).
-- **Kıst ve gün esası:** Binek otomobillerinde (kiralama veya işletme faaliyetinde kullanılanlar hariç) aktife girdiği dönem için kalan ay kadar amortisman ayrılır. Dileyen mükellef aktife yeni kaydedilen kıymetlerde (binek otomobilleri hariç) kullanıma hazır olduğu tarihten itibaren gün esasına göre amortisman ayırabilir; bu hesaplama şeklinden sonra vazgeçilemez (md.320).
-
-Her yılın amortismanı yalnız o yılın değerlemesinde dikkate alınır; ayrılmayan amortisman süreyi uzatmaz. İstisnai olarak afet, yeni icat veya cebri çalışma hallerinde, mükellefin başvurusu üzerine Bakanlıkça her işletme için ayrı belirlenen fevkalade amortisman nispetleri uygulanır (md.317).
-
-### Tasdik uygulama notu
-
-Tam tasdikte YMM, demirbaş listesini ve amortisman kayıtlarını tek tek kontrol eder: maliyete giren faiz ve kur farkının dönem ayrımını, doğrudan gider yazılan kalemlerin 2026 haddini, uygulanan oranların ilan edilen faydalı ömürle uyumunu ve usul değişikliklerini inceler. Yeniden değerleme yapılmışsa aktife o dönem giren kıymetlerin dışlandığını, fon tutarının kıymet bazında ayrıntılı izlendiğini ve sermayeye ilave dışında başka hesaba aktarılmadığını raporuna yansıtır.
+Tam tasdikte maliyete eklenen faiz ve kur farkının dönem ayrımı, menkul kıymetlerin türüne göre md. 279 ölçüsü, dövizli bakiyelerin kurla değerlemesi, şüpheli ve değersiz alacak belgeleri ile 280/A fonu kontrol edilir. 2026'da enflasyon düzeltmesi kaydı yapılmadığı, yeniden değerlemede o yıl aktife giren kıymetlerin dışlandığı ve fonun kıymet bazında izlendiği raporda gösterilir.
 
 ## Özet
 
-- Değerleme, matrah hesabıyla ilgili kıymetlerin takdir ve tespitidir; md.261 dokuz ölçü sayar.
-- Gayrimenkul, demirbaş ve emtia maliyet bedeliyle; kıymetli maden, yabancı para ve hisse dışı menkul kıymetler borsa rayiciyle değerlenir.
-- Kredi faizi ve kur farkı, envantere alındığı dönem sonuna (emtiada stoka girişe) kadar maliyete girer; sonrası seçimliktir.
-- Yeniden değerleme, enflasyon düzeltmesi şartlarının gerçekleşmediği dönem sonlarında yapılır; geçici md.37 nedeniyle 2025-2027 bu niteliktedir.
-- 2025 yılı yeniden değerleme oranı yüzde 25,49; değer artışı net aktif değer farkıdır ve pasifte özel fonda izlenir.
-- Azalan bakiyeler oranı normalin iki katıdır ve yüzde 50'yi geçemez; 2026 doğrudan gider haddi 12.000 TL'dir.
+- VUK md. 261 dokuz ölçü sayar; hisse senedi alış bedeliyle, diğer menkul kıymet ve yabancı para borsa rayiciyle değerlenir.
+- Alacak ve borç mukayyet değerle değerlenir; senede bağlı olanlarda reeskont seçimliktir, alacakta yapılırsa borçta da zorunludur.
+- 280/A fonu, teşvik belgeli yatırıma harcanan sermaye dövizinin kur farkını vergilendirmeden pasifte tutar.
+- Şüpheli alacak (2026 sınırı 25.000 TL), değersiz alacak ve konkordatoda vazgeçilen alacak ayrı kurallara tabidir.
+- Enflasyon düzeltmesinde parasal olmayan kalemler katsayı veya taşıma katsayısıyla düzeltilir, fark 698 üzerinden 648/658'e gider.
+- Geçici md. 37 nedeniyle 2025-2027'de düzeltme yapılmaz; bu dönemlerde mükerrer 298/Ç yeniden değerlemesi yapılabilir (2025 oranı %25,49).

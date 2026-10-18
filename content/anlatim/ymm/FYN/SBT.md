@@ -2,126 +2,118 @@
 ders: FYN
 konu: SBT
 baslik: Sermaye bütçelemesi
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "Genel bilgi — Sermaye bütçelemesi: net bugünkü değer"
     madde: "-"
-  - mevzuat: "Genel bilgi — İç verim oranı"
+  - mevzuat: "Genel bilgi — İç verim oranı ve düzeltilmiş iç verim oranı"
     madde: "-"
   - mevzuat: "Genel bilgi — Geri ödeme süresi ve karlılık endeksi"
     madde: "-"
-  - mevzuat: "Genel bilgi — Yatırım projelerinde nakit akışı tahmini"
+  - mevzuat: "Genel bilgi — Yatırım projelerinde nakit akışı tahmini ve makine yenileme"
+    madde: "-"
+  - mevzuat: "Genel bilgi — Yıllık eşdeğer ve ikame zinciri"
     madde: "-"
 ---
 ## Bu konuda neler öğreneceksin
 
 - Net bugünkü değer yöntemiyle yatırım kararı vermek
-- İç verim oranını deneme ve doğrusal enterpolasyonla bulmak
-- Geri ödeme süresini ve iskontolu geri ödeme süresini hesaplamak
-- Karlılık endeksini yorumlamak ve yöntemleri karşılaştırmak
-- Proje nakit akışlarını artımsal esasla tahmin etmek
+- İç verim oranını enterpolasyonla, düzeltilmiş iç verim oranını (MIRR) formülle bulmak
+- Geri ödeme süresini, iskontolu geri ödeme süresini ve karlılık endeksini hesaplamak
+- Proje nakit akışlarını artımsal esasla ve vergi etkisiyle tahmin etmek
+- Farklı ömürlü projeleri yıllık eşdeğerle karşılaştırmak ve makine yenileme kararı vermek
 
 ## 1. Net bugünkü değer
 
-**Sermaye bütçelemesi**, faydası bir yıldan uzun sürecek yatırım harcamalarının (makine, tesis, yeni ürün hattı) değerlendirilip seçilmesi sürecidir. Bu konudaki bütün iskontolu yöntemler paranın zaman değerine dayanır.
-
-**Net bugünkü değer (NBD)**, projenin gelecekteki net nakit akışlarının sermaye maliyetiyle iskonto edilmiş toplamından ilk yatırım tutarının çıkarılmasıyla bulunur:
+**Sermaye bütçelemesi**, faydası bir yıldan uzun sürecek yatırım harcamalarının değerlendirilip seçilmesidir. **Net bugünkü değer (NBD)**, gelecekteki net nakit akışlarının sermaye maliyetiyle iskonto edilmiş toplamından ilk yatırımın çıkarılmasıdır:
 
 - NBD = Σ NAt / (1 + r)^t − I0
 
-NAt t yılındaki net nakit akışı, r sermaye maliyeti (iskonto oranı), I0 ilk yatırımdır. Bu anlatımda literatürdeki yaygın kabul izlenmiştir: ilk yatırım sıfır anında yapılır, sonraki nakit akışları **her yılın sonunda** gerçekleşir.
+NAt t yılının net nakit akışı, r sermaye maliyeti, I0 ilk yatırımdır. Aksi söylenmedikçe ilk yatırım sıfır anında, sonraki akışlar **yıl sonunda** gerçekleşir. Karar kuralı: NBD > 0 ise kabul; birbirini dışlayan projelerde NBD'si en yüksek olan seçilir.
 
-Karar kuralı: NBD > 0 ise proje kabul edilir, NBD < 0 ise reddedilir. Birbirini dışlayan projelerde NBD'si en yüksek olan seçilir. NBD, projenin işletme değerine yaptığı katkıyı TL olarak gösterdiği için teorik olarak en güçlü yöntem kabul edilir.
+### Örnek: Bir projenin bütün yöntemlerle değerlendirilmesi
 
-### Örnek: Bir projenin dört yöntemle değerlendirilmesi
+İlk yatırım 100.000 TL; yıl sonu akışları 30.000, 40.000, 50.000 ve 20.000 TL; sermaye maliyeti %10. Tutarlar kuruşa yuvarlanmıştır.
 
-İlk yatırımı 100.000 TL olan bir projenin yıl sonu net nakit akışları sırasıyla 30.000, 40.000, 50.000 ve 20.000 TL'dir. Sermaye maliyeti yüzde 10'dur. Bugünkü değerler kuruşa yuvarlanmıştır.
+1. Bugünkü değerler: 27.272,73 + 33.057,85 + 37.565,74 + 13.660,27 = 111.556,59 TL.
+2. NBD = 111.556,59 − 100.000 = 11.556,59 TL > 0; proje kabul edilir.
 
-1. Birinci yıl: 30.000 / 1,10 = 27.272,73 TL.
-2. İkinci yıl: 40.000 / 1,10^2 = 33.057,85 TL.
-3. Üçüncü yıl: 50.000 / 1,10^3 = 37.565,74 TL.
-4. Dördüncü yıl: 20.000 / 1,10^4 = 13.660,27 TL.
-5. Bugünkü değerler toplamı: 111.556,59 TL.
-6. NBD = 111.556,59 − 100.000 = 11.556,59 TL. NBD pozitif olduğu için proje kabul edilir.
+> **Sık yapılan hata:** Sıfır anındaki ilk yatırımı da iskonto etmek. Yalnız sonraki yılların akışları iskonto edilir.
 
-Aynı projenin iç verim oranı, geri ödeme süresi ve karlılık endeksi aşağıdaki bölümlerde bu verilerle hesaplanmıştır.
+## 2. İç verim oranı ve düzeltilmiş iç verim oranı
 
-> **Sık yapılan hata:** İlk yatırımı da iskonto etmek. Sıfır anında yapılan harcama zaten bugünkü değerdir; yalnız sonraki yılların nakit akışları iskonto edilir.
-
-## 2. İç verim oranı
-
-**İç verim oranı (İVO)**, projenin NBD'sini sıfıra eşitleyen iskonto oranıdır. Başka bir ifadeyle nakit girişlerinin bugünkü değerini ilk yatırıma eşitleyen orandır:
-
-- Σ NAt / (1 + İVO)^t − I0 = 0
-
-Karar kuralı: İVO > sermaye maliyeti ise proje kabul edilir. Nakit akışları eşit değilse İVO formülle doğrudan çözülemez; ya deneme-yanılma ile ya da finansal hesap makinesi ve tablolama programıyla bulunur.
-
-### Deneme ve doğrusal enterpolasyon
-
-Sınavda kullanılan yöntem şudur: NBD'yi pozitif yapan bir oran (r1) ile negatif yapan bir oran (r2) bulunur ve arada doğrusal enterpolasyon yapılır:
+**İç verim oranı (İVO)**, NBD'yi sıfıra eşitleyen iskonto oranıdır. Karar kuralı: İVO > sermaye maliyeti ise kabul. Akışlar eşit değilse İVO deneme ve **doğrusal enterpolasyonla** bulunur: NBD'yi pozitif yapan r1 ile negatif yapan r2 arasında
 
 - İVO ≈ r1 + (r2 − r1) × NBD1 / (NBD1 − NBD2)
 
-Örnekteki projede yüzde 15'te NBD = 643,58 TL, yüzde 16'da NBD = −1.332,71 TL'dir. Enterpolasyonla İVO ≈ 0,15 + 0,01 × 643,58 / 1.976,29 ≈ yüzde 15,33 bulunur. Bilgisayarla bulunan kesin değer yaklaşık yüzde 15,32'dir; aradaki küçük fark, NBD eğrisinin doğrusal olmamasından kaynaklanır. Bu nedenle enterpolasyon aralığı dar (1 puan) seçilmelidir. İVO sermaye maliyetinden (yüzde 10) yüksek olduğu için proje kabul edilir.
+Örnekte %15'te NBD = 643,58 TL, %16'da NBD = −1.332,71 TL'dir. İVO ≈ 0,15 + 0,01 × 643,58 / 1.976,29 ≈ %15,33 (kesin değer %15,32). Sınavda aralık çoğu zaman %5 veya %10 genişlikte verilir; aralık genişledikçe hata büyür ama yöntem aynıdır.
 
-### İVO'nun sınırları
+İVO, ara akışların İVO ile yeniden yatırıldığını varsayar; işareti birden fazla değişen akışlarda birden çok İVO çıkabilir. **Düzeltilmiş iç verim oranı (MIRR)** ara akışları sermaye maliyetiyle proje sonuna taşır:
 
-İVO, ara nakit akışlarının yine İVO ile yeniden yatırıldığını varsayar. İşaret birden fazla değişen (alışılmamış) nakit akışlarında birden çok İVO çıkabilir. Birbirini dışlayan ve büyüklüğü farklı projelerde NBD ile İVO farklı sıralama verebilir; bu çatışmada NBD tercih edilir. Yeniden yatırım sorununu gidermek için **düzeltilmiş iç verim oranı** (ara akışların sermaye maliyetiyle yeniden yatırıldığını varsayan oran) kullanılabilir.
+- MIRR = (Girişlerin n yılındaki gelecek değeri / Çıkışların bugünkü değeri)^(1/n) − 1
 
-> **Sınav ipucu:** Bağımsız ve alışılmış nakit akışlı bir projede NBD ile İVO her zaman aynı kabul/ret kararını verir. Çatışma yalnız birbirini dışlayan projelerin sıralamasında ortaya çıkar.
+Örnekte girişlerin 4. yıl sonu değeri: 30.000 × 1,331 + 40.000 × 1,21 + 50.000 × 1,10 + 20.000 = 39.930 + 48.400 + 55.000 + 20.000 = 163.330 TL. MIRR = (163.330 / 100.000)^(1/4) − 1 ≈ %13,05. MIRR %10'u aştığı için proje kabul edilir; MIRR her zaman sermaye maliyeti ile İVO arasında kalır.
+
+> **Sınav ipucu:** Bağımsız ve alışılmış akışlı projede NBD, İVO, MIRR ve KE aynı kabul/ret kararını verir. Çatışma yalnız birbirini dışlayan projelerin sıralamasında çıkar; o zaman NBD esas alınır. Karar tablosunda her yöntemin sonucunu ayrı satırda "kabul/ret" diye yaz; nihai karar cümlesi ayrı puan alır.
 
 ## 3. Geri ödeme süresi
 
-**Geri ödeme süresi**, ilk yatırımın projenin nakit girişleriyle kaç yılda geri kazanıldığını gösterir. Kümülatif nakit akışları ilk yatırıma ulaşana kadar toplanır; son yıl için kesir, yıl içinde akışların düzenli geldiği varsayımıyla bulunur.
+**Geri ödeme süresi**, ilk yatırımın kümülatif girişlerle kaç yılda geri kazanıldığıdır. Örnekte ilk iki yılın toplamı 70.000 TL; kalan 30.000 TL üçüncü yılın 50.000 TL'sinden karşılanır: 2 + 30.000 / 50.000 = 2,6 yıl. Yöntem paranın zaman değerini ve geri ödeme sonrasındaki akışları dikkate almaz.
 
-Örnekte ilk iki yılın kümülatif girişi 70.000 TL'dir. Kalan 30.000 TL, üçüncü yılın 50.000 TL'lik girişinden karşılanır: 2 + 30.000 / 50.000 = 2,6 yıl. Karar kuralı: hesaplanan süre işletmenin belirlediği azami süreden kısaysa proje kabul edilir.
-
-Yöntem basit ve likidite riskini öne çıkardığı için yaygındır; ancak paranın zaman değerini ve geri ödeme sonrasındaki nakit akışlarını dikkate almaz. Birinci eksikliği gidermek için **iskontolu geri ödeme süresi** kullanılır: kümülatif toplam, iskonto edilmiş akışlarla yapılır. Örnekte ilk üç yılın bugünkü değerleri toplamı 97.896,32 TL'dir; kalan 2.103,68 TL dördüncü yılın 13.660,27 TL'lik bugünkü değerinden karşılanır: 3 + 2.103,68 / 13.660,27 ≈ 3,15 yıl.
+**İskontolu geri ödeme süresi** kümülatif toplamı bugünkü değerlerle yapar: ilk üç yılın bugünkü değeri 97.896,32 TL; kalan 2.103,68 TL dördüncü yılın 13.660,27 TL'sinden karşılanır: 3 + 2.103,68 / 13.660,27 ≈ 3,15 yıl.
 
 ## 4. Karlılık endeksi
 
-**Karlılık endeksi (KE)**, nakit girişlerinin bugünkü değerinin ilk yatırıma oranıdır; yatırılan her bir liranın bugünkü değer cinsinden ne kadar getiri sağladığını gösterir:
+**Karlılık endeksi (KE)**, girişlerin bugünkü değerinin çıkışların bugünkü değerine oranıdır. Örnekte KE = 111.556,59 / 100.000 ≈ 1,12 > 1; kabul. KE > 1 ile NBD > 0 aynı anlamdadır; KE özellikle **sermaye kısıtı** altında projeleri sıralamada kullanılır.
 
-- KE = [Σ NAt / (1 + r)^t] / I0
+Yatırım birden fazla döneme yayılıyorsa payda da iskonto edilir. Örnekteki 100.000 TL'nin 60.000 TL'si bugün, 44.000 TL'si birinci yıl sonunda ödenseydi çıkışların bugünkü değeri 60.000 + 44.000 / 1,10 = 100.000 TL olurdu; payda bu tutardır, iskontosuz toplam (104.000 TL) değildir.
 
-Karar kuralı: KE > 1 ise proje kabul edilir. KE > 1 ile NBD > 0 aynı anlamı taşır. Örnekte KE = 111.556,59 / 100.000 ≈ 1,1156'dır; proje kabul edilir.
+## 5. Nakit akışı tahmini ve makine yenileme kararı
 
-Karlılık endeksi özellikle **sermaye kısıtı** (bütçe sınırı) altında projeleri sıralamada işe yarar: bütçe yetmediğinde KE'si yüksek projelerden başlanarak seçim yapılır. İstisna olarak, birbirini dışlayan ve büyüklüğü farklı projelerde KE, NBD ile çelişebilir; bu durumda yine NBD esas alınır.
-
-| Yöntem | Kabul kuralı | Zaman değeri |
-|---|---|---|
-| Net bugünkü değer | NBD > 0 | Dikkate alır |
-| İç verim oranı | İVO > sermaye maliyeti | Dikkate alır |
-| Karlılık endeksi | KE > 1 | Dikkate alır |
-| Geri ödeme süresi | Süre < azami süre | Dikkate almaz |
-
-## 5. Yatırım projelerinde nakit akışı tahmini
-
-Yöntemlerin hepsi doğru tahmin edilmiş nakit akışına dayanır. **Artımsal (ilave) nakit akışı ilkesi**: yalnız proje kabul edildiği için ortaya çıkacak nakit akışları hesaba katılır. Bu ilkenin sonuçları şunlardır:
-
-- **Batık maliyetler** (proje kararından önce yapılmış ve geri alınamayacak harcamalar, ör. yapılmış fizibilite etüdü) dikkate alınmaz.
-- **Fırsat maliyetleri** (ör. projede kullanılacak işletmeye ait arsanın alternatif kira geliri) dikkate alınır.
-- **Net işletme sermayesi** artışı başlangıçta nakit çıkışı, proje sonunda geri dönüşü nakit girişi sayılır.
-- Finansman giderleri (faiz) nakit akışına yazılmaz; finansman maliyeti iskonto oranının içindedir.
-
-Proje nakit akışı üç kısımdan oluşur: başlangıç yatırımı, yıllık faaliyet nakit akışı ve proje sonu akışları (hurda değer ile işletme sermayesinin geri dönüşü). Amortisman nakit çıkışı değildir; ancak vergiyi azalttığı için faaliyet nakit akışını etkiler:
+**Artımsal nakit akışı ilkesi**: yalnız proje kabul edildiği için ortaya çıkan akışlar hesaba katılır. Batık maliyetler (yapılmış fizibilite etüdü) dışarıda kalır; fırsat maliyetleri (kullanılacak arsanın kira geliri) ve net işletme sermayesi artışı (başta çıkış, sonda giriş) dahil edilir; faiz nakit akışına yazılmaz, çünkü finansman maliyeti iskonto oranının içindedir. Amortisman nakit çıkışı değildir ama vergiyi azaltır:
 
 - Faaliyet nakit akışı = (Satışlar − Nakit giderler − Amortisman) × (1 − t) + Amortisman
+- Eşdeğeri: (Nakit giderlerdeki tasarruf) × (1 − t) + Amortisman × t (amortisman vergi kalkanı)
 
-Aşağıdaki örnekte vergi oranı **yalnız hesap amacıyla varsayılan yüzde 30** olarak alınmıştır; bu oran yürürlükteki bir vergi oranını göstermez. Yıllık satışlar 80.000 TL, nakit giderler 40.000 TL, amortisman 25.000 TL ise vergi öncesi kâr 15.000 TL, vergi 4.500 TL, net kâr 10.500 TL olur. Faaliyet nakit akışı 10.500 + 25.000 = 35.500 TL'dir.
+### Örnek: Makine yenileme
 
-> **Sık yapılan hata:** Amortismanı nakit çıkışı gibi düşmek ya da kredi faizini hem nakit akışına hem iskonto oranına yansıtarak finansman maliyetini iki kez saymak.
+Eski makinenin defter değeri 40.000 TL, kalan ömrü 4 yıl (yıllık amortisman 10.000 TL), bugünkü satış değeri 30.000 TL, 4 yıl sonraki hurda değeri sıfırdır. Yeni makine 200.000 TL'dir; 4 yılda doğrusal amortismana tabidir (yıllık 50.000 TL) ve yıllık nakit gideri 60.000 TL azaltır. 4 yıl sonra 20.000 TL'ye satılacaktır (defter değeri sıfır). Vergi oranı %25, sermaye maliyeti %12 alınmıştır.
+
+1. Başlangıç akışı: −200.000 + 30.000 (eski makinenin satışı) + 10.000 × 0,25 (satış zararının vergi tasarrufu 2.500) = −167.500 TL.
+2. Yıllık artımsal akış: 60.000 × 0,75 = 45.000 TL; amortisman farkı (50.000 − 10.000) × 0,25 = 10.000 TL vergi kalkanı; toplam 55.000 TL. Eski makinenin kaybedilen 10.000 TL'lik amortismanı bu farkla dikkate alınmış olur.
+3. Proje sonu: hurda 20.000 TL tamamen kazanç olduğundan vergi sonrası 20.000 × 0,75 = 15.000 TL.
+4. Bugünkü değer: 55.000 × 3,0373 (4 yıl, %12 anüite faktörü) = 167.054,21 TL; 15.000 / 1,12^4 = 9.532,77 TL; toplam 176.586,98 TL.
+5. NBD = 176.586,98 − 167.500 = 9.086,98 TL > 0; makine yenilenir.
+
+> **Sık yapılan hata:** Eski makinenin satış bedelini vergi etkisi olmadan almak ya da eski makinenin amortismanını hiç düşmeden yeni makinenin bütün amortismanını vergi kalkanı saymak. Yenileme kararı her kalemde "yeni − eski" farkıyla çözülür.
+
+## 6. Yıllık eşdeğer ve ikame zinciri
+
+Ömürleri farklı, birbirini dışlayan projeler NBD ile doğrudan karşılaştırılamaz. **Yıllık eşdeğer** yöntemi NBD'yi (ya da maliyetlerin bugünkü değerini) proje ömrü boyunca eşit yıllık tutara çevirir:
+
+- Yıllık eşdeğer = NBD / Anüite faktörü(r, n)
+
+Gelir doğuran projelerde yıllık eşdeğer net hasılası büyük olan, yalnız gider içeren seçeneklerde yıllık eşdeğer gideri küçük olan seçilir. **İkame zinciri** ise projeleri ortak ömre (ömürlerin en küçük ortak katına) kadar tekrar ederek NBD'leri karşılaştırır; iki yöntem aynı kararı verir.
+
+### Örnek: Yıllık eşdeğer gider
+
+A makinesi 100.000 TL, 3 yıl ömürlü, yıllık işletme gideri 20.000 TL; B makinesi 150.000 TL, 5 yıl ömürlü, yıllık gideri 15.000 TL; r = %10.
+
+1. A: 100.000 / 2,4869 + 20.000 = 40.211,48 + 20.000 = 60.211,48 TL.
+2. B: 150.000 / 3,7908 + 15.000 = 39.569,62 + 15.000 = 54.569,62 TL.
+3. B'nin yıllık eşdeğer gideri düşük olduğundan B seçilir. İkame zincirinde ortak ömür 15 yıldır (A beş kez, B üç kez tekrarlanır) ve sonuç aynıdır.
 
 ### Tasdik uygulama notu
 
-YMM'ler sermaye bütçelemesi tablolarıyla özellikle yatırım teşvik belgeli projelerde, teşvik kapsamındaki yatırım harcamalarının tespitinde ve fizibilite raporlarının incelenmesinde karşılaşır. Kontrolde proje tutarının ve yatırım harcamalarının belgelerle uyumu, nakit akışı tahminlerinde batık maliyet ile finansman giderinin dışarıda tutulup tutulmadığı, amortismanın faaliyet nakit akışına doğru yansıtılıp yansıtılmadığı ve iskonto oranının gerekçesi incelenir. NBD ve İVO hesapları çalışma kâğıtlarında yeniden yapılarak doğrulanır.
+YMM, sermaye bütçelemesi tablolarıyla yatırım teşvik belgeli projelerde, fizibilite raporlarında ve değerleme raporlarında karşılaşır. Kontrolde yatırım harcamalarının belgelerle uyumu, batık maliyet ve faizin nakit akışından çıkarıldığı, eski varlık satışının vergi etkisi ve amortisman vergi kalkanının doğru yansıtıldığı, iskonto oranının gerekçesi incelenir; NBD ve İVO çalışma kâğıdında yeniden hesaplanır.
 
 ## Özet
 
 - NBD = Σ NAt / (1 + r)^t − I0; akışlar yıl sonunda varsayılır; NBD > 0 ise kabul.
-- İVO, NBD'yi sıfırlayan orandır; enterpolasyon yaklaşık sonuç verir, aralık dar seçilmelidir.
-- Birbirini dışlayan projelerde NBD ile İVO çatışırsa NBD esas alınır.
-- Geri ödeme süresi zaman değerini ve sonraki akışları yok sayar; iskontolu türü ilk eksikliği giderir.
-- KE = girişlerin bugünkü değeri / I0; KE > 1 ile NBD > 0 eşdeğerdir, sermaye kısıtında sıralama aracıdır.
-- Nakit akışı artımsal esasla tahmin edilir: batık maliyet hariç, fırsat maliyeti ve işletme sermayesi dahil, faiz hariç.
+- İVO enterpolasyonla bulunur; MIRR = (girişlerin gelecek değeri / çıkışların bugünkü değeri)^(1/n) − 1.
+- Birbirini dışlayan projelerde yöntemler çatışırsa NBD esas alınır.
+- Geri ödeme süresi zaman değerini yok sayar; iskontolu türü bu eksikliği giderir.
+- KE = girişlerin bugünkü değeri / çıkışların bugünkü değeri; çok dönemli yatırımda payda da iskonto edilir.
+- Nakit akışı artımsal ve vergi sonrası tahmin edilir; yenileme kararında satış zararı, amortisman farkı ve hurda vergisi hesaba katılır.
+- Farklı ömürlü projeler yıllık eşdeğer ya da ikame zinciriyle karşılaştırılır.

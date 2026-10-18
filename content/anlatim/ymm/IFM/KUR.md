@@ -2,7 +2,7 @@
 ders: IFM
 konu: KUR
 baslik: Kur değişimi ve yabancı para işlemleri
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: TMS 21 Kur Değişiminin Etkileri

@@ -135,11 +135,11 @@ Ticaret şirketleri **kollektif, komandit, anonim, limited ve kooperatif** şirk
 |---|---|---|---|
 | Kollektif (md. 211) | Yalnız gerçek kişiler; tüm ortaklar sınırsız sorumlu | Şahıs | Yok |
 | Komandit (md. 304) | Komandite sınırsız, komanditer sınırlı sorumlu; komandite yalnız gerçek kişi olabilir | Şahıs | Yok |
-| Anonim (md. 329) | Sermayesi paylara bölünmüş; borçlardan yalnız şirket malvarlığı sorumlu | Sermaye | 250.000 TL; kayıtlı sermayede başlangıç sermayesi 500.000 TL |
-| Limited (md. 573) | Bir veya daha çok gerçek/tüzel kişi; ortak şirket borçlarından sorumlu değildir | Sermaye | 50.000 TL |
+| Anonim (md. 329) | Sermayesi paylara bölünmüş; borçlardan yalnız şirket malvarlığı sorumlu | Sermaye | 250.000 ₺; kayıtlı sermayede başlangıç sermayesi 500.000 ₺ |
+| Limited (md. 573) | Bir veya daha çok gerçek/tüzel kişi; ortak şirket borçlarından sorumlu değildir | Sermaye | 50.000 ₺ |
 | Kooperatif | md. 124/2 şahıs veya sermaye şirketi saymaz | Ayrı tür | Özel kanun |
 
-Sermayesi paylara bölünmüş komandit şirket de **sermaye şirketi** sayılır. Asgari sermaye tutarları 24/11/2023 tarihli Cumhurbaşkanı Kararı ile artırılmıştır (kanun metnindeki 50.000 / 100.000 / 10.000 TL tutarları güncel değildir).
+Sermayesi paylara bölünmüş komandit şirket de **sermaye şirketi** sayılır. Asgari sermaye tutarları 24/11/2023 tarihli Cumhurbaşkanı Kararı ile artırılmıştır (kanun metnindeki 50.000 / 100.000 / 10.000 ₺ tutarları güncel değildir).
 
 ## 4. Kıymetli evrak
 
@@ -219,9 +219,9 @@ Gönderen, taşımanın durdurulması, eşyanın geri getirilmesi veya başka bi
 - **Sorumluluk sınırları (md. 882):** zıya veya hasarda brüt ağırlığın kilogramı başına **8,33 Özel Çekme Hakkı (ÖÇH)**; gecikmede **taşıma ücretinin üç katı**.
 - Taşıyıcı **kasten veya pervasızca** davranmışsa sorumluluk sınırlarından ve kurtulma hâllerinden yararlanamaz (md. 886).
 - Açıkça görülen zıya veya hasar **en geç teslim anında**, görülmeyen zarar teslimden sonra **yedi gün** içinde bildirilmezse eşya sözleşmeye uygun teslim edilmiş sayılır; gecikme **yirmi bir gün** içinde bildirilmezse gecikmeden doğan haklar sona erer (md. 889).
-- Zamanaşımı: genel olarak **bir yıl**; yolcunun ölümü veya bedensel zararında **on yıl**; kasıt veya pervasızlıkta **üç yıl** (md. 855).
+- Zamanaşımı (md. 855): yolcunun kaza sonucu ölümü veya bedensel zararında **on yıl**, diğer zararlarda **bir yıl**. Süre eşya taşımasında eşyanın gönderilene teslimiyle, eşya tamamen zayi olmuşsa teslim edilmesi gereken tarihten itibaren işler.
 
-**Örnek:** Brüt 1.000 kg'lık gönderi tamamen zayi olursa taşıyıcının sorumluluğu 1.000 × 8,33 = **8.330 ÖÇH** ile sınırlıdır (TCMB değeriyle TL'ye çevrilir). Taşıma ücreti 20.000 TL ise gecikme tazminatı en fazla 3 × 20.000 = **60.000 TL** olur.
+**Örnek:** Brüt 1.000 kg'lık gönderi tamamen zayi olursa taşıyıcının sorumluluğu 1.000 × 8,33 = **8.330 ÖÇH** ile sınırlıdır (TCMB değeriyle TL'ye çevrilir). Taşıma ücreti 20.000 ₺ ise gecikme tazminatı en fazla 3 × 20.000 = **60.000 ₺** olur.
 
 > **Sık yapılan hata:** Zıya karinesindeki yirmi günü gecikme ihbarındaki yirmi bir gün ile karıştırma.
 

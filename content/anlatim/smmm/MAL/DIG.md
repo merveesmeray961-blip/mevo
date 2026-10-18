@@ -45,22 +45,22 @@ TMS 2 paragraf 13'e göre sabit genel üretim giderleri normal kapasite esas al�
 
 ### Çözümlü örnek
 
-Dönem başı stok yoktur. Üretim 10.000 birim, satış 8.000 birim, satış fiyatı 50 TL. Birim değişken üretim maliyeti 20 TL, sabit GÜG 100.000 TL (birim başına 10 TL). Birim değişken pazarlama gideri 2 TL, sabit faaliyet giderleri 40.000 TL.
+Dönem başı stok yoktur. Üretim 10.000 birim, satış 8.000 birim, satış fiyatı 50 ₺. Birim değişken üretim maliyeti 20 ₺, sabit GÜG 100.000 ₺ (birim başına 10 ₺). Birim değişken pazarlama gideri 2 ₺, sabit faaliyet giderleri 40.000 ₺.
 
-**Tam maliyet:** Birim mamul maliyeti = 20 + 10 = 30 TL.
+**Tam maliyet:** Birim mamul maliyeti = 20 + 10 = 30 ₺.
 
-1. Satışlar = 8.000 × 50 = **400.000 TL**
-2. Satılan mamul maliyeti = 8.000 × 30 = **240.000 TL** → brüt kâr 160.000 TL
-3. Faaliyet giderleri = 8.000 × 2 + 40.000 = **56.000 TL** → faaliyet kârı **104.000 TL**
-4. Dönem sonu stok = 2.000 × 30 = **60.000 TL**
+1. Satışlar = 8.000 × 50 = **400.000 ₺**
+2. Satılan mamul maliyeti = 8.000 × 30 = **240.000 ₺** → brüt kâr 160.000 ₺
+3. Faaliyet giderleri = 8.000 × 2 + 40.000 = **56.000 ₺** → faaliyet kârı **104.000 ₺**
+4. Dönem sonu stok = 2.000 × 30 = **60.000 ₺**
 
-**Değişken maliyet:** Birim mamul maliyeti = 20 TL.
+**Değişken maliyet:** Birim mamul maliyeti = 20 ₺.
 
-1. Değişken giderler = 8.000 × 20 + 8.000 × 2 = **176.000 TL** → katkı payı 400.000 − 176.000 = **224.000 TL**
-2. Sabit giderler = 100.000 + 40.000 = **140.000 TL** → faaliyet kârı **84.000 TL**
-3. Dönem sonu stok = 2.000 × 20 = **40.000 TL**
+1. Değişken giderler = 8.000 × 20 + 8.000 × 2 = **176.000 ₺** → katkı payı 400.000 − 176.000 = **224.000 ₺**
+2. Sabit giderler = 100.000 + 40.000 = **140.000 ₺** → faaliyet kârı **84.000 ₺**
+3. Dönem sonu stok = 2.000 × 20 = **40.000 ₺**
 
-**Fark** = 104.000 − 84.000 = **20.000 TL** = stok artışı 2.000 × birim sabit GÜG 10 TL. Tam maliyette 20.000 TL sabit GÜG stokta kalmış, gelecek döneme ertelenmiştir.
+**Fark** = 104.000 − 84.000 = **20.000 ₺** = stok artışı 2.000 × birim sabit GÜG 10 ₺. Tam maliyette 20.000 ₺ sabit GÜG stokta kalmış, gelecek döneme ertelenmiştir.
 
 | Stok değişimi | Kâr karşılaştırması |
 |---|---|
@@ -76,11 +76,11 @@ Dönem başı stok yoktur. Üretim 10.000 birim, satış 8.000 birim, satış fi
 
 Aynı örnekte normal kapasite 12.500 birim olsun (fiili üretim 10.000).
 
-1. Sabit GÜG yükleme oranı = 100.000 / 12.500 = **8 TL/birim**
-2. Mamullere yüklenen sabit GÜG = 10.000 × 8 = **80.000 TL**; birim maliyet = 20 + 8 = **28 TL**
-3. Kullanılmayan (atıl) kapasite maliyeti = 100.000 − 80.000 = **20.000 TL** veya (12.500 − 10.000) × 8
+1. Sabit GÜG yükleme oranı = 100.000 / 12.500 = **8 ₺/birim**
+2. Mamullere yüklenen sabit GÜG = 10.000 × 8 = **80.000 ₺**; birim maliyet = 20 + 8 = **28 ₺**
+3. Kullanılmayan (atıl) kapasite maliyeti = 100.000 − 80.000 = **20.000 ₺** veya (12.500 − 10.000) × 8
 
-Atıl kapasite payı mamul maliyetine girmez; dönem gideri olarak **680 Çalışmayan Kısım Gider ve Zararları** hesabına alınır. Tam maliyette birim maliyet 30 TL iken normal maliyette 28 TL'dir; fark, düşük üretimin bedelinin stoklara yüklenmemesidir.
+Atıl kapasite payı mamul maliyetine girmez; dönem gideri olarak **680 Çalışmayan Kısım Gider ve Zararları** hesabına alınır. Tam maliyette birim maliyet 30 ₺ iken normal maliyette 28 ₺'dir; fark, düşük üretimin bedelinin stoklara yüklenmemesidir.
 
 > **Sık yapılan hata:** Normal kapasiteyi fiili üretimle karıştırmak. Normal kapasite, planlı bakım-onarım duruşları da dikkate alınarak normal koşullarda birkaç dönemde ulaşılması beklenen **ortalama** üretim düzeyidir.
 
@@ -99,12 +99,12 @@ MHK analizi; satış fiyatı, birim değişken gider ve toplam sabit giderin faa
 
 ### Çözümlü örnek
 
-Satış fiyatı 80 TL, birim değişken gider 50 TL, sabit giderler 90.000 TL.
+Satış fiyatı 80 ₺, birim değişken gider 50 ₺, sabit giderler 90.000 ₺.
 
-1. Birim KP = 80 − 50 = **30 TL**; KP oranı = 30 / 80 = **%37,5**
-2. Başabaş miktarı = 90.000 / 30 = **3.000 birim**; başabaş tutarı = 90.000 / 0,375 = **240.000 TL**
-3. 30.000 TL kâr için: (90.000 + 30.000) / 30 = **4.000 birim**
-4. Vergi oranı %20 iken 24.000 TL vergi sonrası kâr için: 24.000 / 0,80 = 30.000 TL vergi öncesi → yine **4.000 birim**
+1. Birim KP = 80 − 50 = **30 ₺**; KP oranı = 30 / 80 = **%37,5**
+2. Başabaş miktarı = 90.000 / 30 = **3.000 birim**; başabaş tutarı = 90.000 / 0,375 = **240.000 ₺**
+3. 30.000 ₺ kâr için: (90.000 + 30.000) / 30 = **4.000 birim**
+4. Vergi oranı %20 iken 24.000 ₺ vergi sonrası kâr için: 24.000 / 0,80 = 30.000 ₺ vergi öncesi → yine **4.000 birim**
 5. Fiili satış 5.000 birim ise güvenlik marjı = (5.000 − 3.000) / 5.000 = **%40**
 6. Bu düzeyde toplam KP 150.000, kâr 60.000 → faaliyet kaldıracı = 150.000 / 60.000 = **2,5**. Satışlar %10 artarsa kâr %25 artar.
 
@@ -120,15 +120,15 @@ Satış fiyatı 80 TL, birim değişken gider 50 TL, sabit giderler 90.000 TL.
 
 ### Çözümlü örnek
 
-Bir safhada (DBYM ve DSYM yok) 10.000 kg üretime başlanmış, 9.300 kg sağlam ürün tamamlanmıştır. Kayıplar safhanın sonunda kontrolde tespit edilir (tamamlanma %100). Normal kayıp, başlanan miktarın %5'idir. Toplam üretim maliyeti 285.000 TL.
+Bir safhada (DBYM ve DSYM yok) 10.000 kg üretime başlanmış, 9.300 kg sağlam ürün tamamlanmıştır. Kayıplar safhanın sonunda kontrolde tespit edilir (tamamlanma %100). Normal kayıp, başlanan miktarın %5'idir. Toplam üretim maliyeti 285.000 ₺.
 
 1. Toplam kayıp = 10.000 − 9.300 = **700 kg**
 2. Normal kayıp = 10.000 × %5 = **500 kg**; anormal kayıp = 700 − 500 = **200 kg**
-3. Birim maliyet = 285.000 / 10.000 = **28,50 TL**
-4. Normal kayıp maliyeti = 500 × 28,50 = **14.250 TL** → sağlam ürünlere eklenir
-5. Sağlam ürün maliyeti = 9.300 × 28,50 + 14.250 = 265.050 + 14.250 = **279.300 TL** (birim 30,03 TL)
-6. Anormal kayıp maliyeti = 200 × 28,50 = **5.700 TL** → dönem gideri
-7. Kontrol: 279.300 + 5.700 = **285.000 TL**
+3. Birim maliyet = 285.000 / 10.000 = **28,50 ₺**
+4. Normal kayıp maliyeti = 500 × 28,50 = **14.250 ₺** → sağlam ürünlere eklenir
+5. Sağlam ürün maliyeti = 9.300 × 28,50 + 14.250 = 265.050 + 14.250 = **279.300 ₺** (birim 30,03 ₺)
+6. Anormal kayıp maliyeti = 200 × 28,50 = **5.700 ₺** → dönem gideri
+7. Kontrol: 279.300 + 5.700 = **285.000 ₺**
 
 > **Sınav ipucu:** Önce normal kaybı hesapla, sonra fiili kayıpla karşılaştır; fiili kaybın tamamını anormal saymak sık yapılan hatadır. Normal kayıp üretim sonunda oluşuyorsa maliyeti yalnızca o dönem **tamamlanan** sağlam ürünlere yüklenir, DSYM'ye pay verilmez.
 
@@ -140,29 +140,29 @@ TMS 2 paragraf 25'e göre birbirinin yerine geçebilen stokların maliyeti **FIF
 
 | Tarih | Hareket | Miktar | Birim fiyat |
 |---|---|---:|---:|
-| 1 Mart | Dönem başı stok | 1.000 kg | 10 TL |
-| 5 Mart | Alış | 2.000 kg | 13 TL |
+| 1 Mart | Dönem başı stok | 1.000 kg | 10 ₺ |
+| 5 Mart | Alış | 2.000 kg | 13 ₺ |
 | 10 Mart | Üretime çıkış | 1.800 kg | |
-| 20 Mart | Alış | 1.800 kg | 15 TL |
+| 20 Mart | Alış | 1.800 kg | 15 ₺ |
 | 25 Mart | Üretime çıkış | 1.500 kg | |
 
-Toplam: 4.800 kg, 63.000 TL; toplam çıkış 3.300 kg; dönem sonu stok 1.500 kg.
+Toplam: 4.800 kg, 63.000 ₺; toplam çıkış 3.300 kg; dönem sonu stok 1.500 kg.
 
 **FIFO (ilk giren ilk çıkar):**
 
-1. 10 Mart: 1.000 × 10 + 800 × 13 = **20.400 TL**
-2. 25 Mart: 1.200 × 13 + 300 × 15 = **20.100 TL**
-3. Toplam çıkış **40.500 TL**; dönem sonu stok 1.500 × 15 = **22.500 TL**
+1. 10 Mart: 1.000 × 10 + 800 × 13 = **20.400 ₺**
+2. 25 Mart: 1.200 × 13 + 300 × 15 = **20.100 ₺**
+3. Toplam çıkış **40.500 ₺**; dönem sonu stok 1.500 × 15 = **22.500 ₺**
 
 **Hareketli ortalama:**
 
-1. 5 Mart sonrası: 36.000 / 3.000 = **12 TL**; 10 Mart çıkışı 1.800 × 12 = **21.600 TL**; kalan 1.200 kg, 14.400 TL
-2. 20 Mart sonrası: (14.400 + 27.000) / 3.000 = **13,80 TL**; 25 Mart çıkışı 1.500 × 13,80 = **20.700 TL**
-3. Toplam çıkış **42.300 TL**; dönem sonu stok **20.700 TL**
+1. 5 Mart sonrası: 36.000 / 3.000 = **12 ₺**; 10 Mart çıkışı 1.800 × 12 = **21.600 ₺**; kalan 1.200 kg, 14.400 ₺
+2. 20 Mart sonrası: (14.400 + 27.000) / 3.000 = **13,80 ₺**; 25 Mart çıkışı 1.500 × 13,80 = **20.700 ₺**
+3. Toplam çıkış **42.300 ₺**; dönem sonu stok **20.700 ₺**
 
-**Dönemsel ağırlıklı ortalama:** 63.000 / 4.800 = **13,125 TL**; çıkış 3.300 × 13,125 = **43.312,50 TL**; dönem sonu stok **19.687,50 TL**.
+**Dönemsel ağırlıklı ortalama:** 63.000 / 4.800 = **13,125 ₺**; çıkış 3.300 × 13,125 = **43.312,50 ₺**; dönem sonu stok **19.687,50 ₺**.
 
-Her yöntemde çıkış + dönem sonu stok = 63.000 TL'dir. Fiyatlar yükselirken FIFO üretime en düşük maliyeti aktarır, dönem sonu stoku en yüksek gösterir ve kârı en yüksek çıkarır.
+Her yöntemde çıkış + dönem sonu stok = 63.000 ₺'dir. Fiyatlar yükselirken FIFO üretime en düşük maliyeti aktarır, dönem sonu stoku en yüksek gösterir ve kârı en yüksek çıkarır.
 
 > **Sık yapılan hata:** Hareketli ortalamada birim maliyeti yalnız **girişte** yeniden hesaplamak gerekirken çıkışta da değiştirmek. Çıkış ortalamayı değiştirmez; yeni ortalama ancak yeni bir giriş olduğunda bulunur.
 

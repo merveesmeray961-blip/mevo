@@ -134,7 +134,7 @@ Kurumsal finansman danışmanlığı, aracılık yüklenimine ilişkin hizmetler
 - **Kapsamda:** Yatırım kuruluşunca yatırımcı adına **saklanan veya yönetilen** nakit veya araçların teslim yükümlülüğünün yerine getirilmemesinden doğan talepler.
 - **Kapsam dışında:** Yatırım danışmanlığından veya **piyasadaki fiyat hareketlerinden** kaynaklanan zararlar; bilgi suistimali (md. 106), piyasa dolandırıcılığı (md. 107) veya suç gelirlerini aklama suçundan mahkum olanların bu eylemlerle ilgili talepleri.
 - **Tazmin edilmeyenler:** Kuruluşun yönetim kurulu üyeleri, yöneticileri, **yüzde beş veya daha fazla** paya sahip ortakları, denetim kurulu üyeleri ve bunların eşleri ile **ikinci dereceye kadar** kan ve kayın hısımları; aynı gruptaki şirketler; bu kişilerin **yüzde yirmi beş** veya daha fazla payına sahip olduğu şirketler; kuruluşun mali sıkıntısında sorumluluğu veya menfaati olanlar.
-- **Sınır:** Kanunda her bir yatırımcı için azami tazmin tutarı **100.000 TL** olarak belirlenmiş olup bu tutar **her yıl yeniden değerleme oranında** artırılır; Cumhurbaşkanı Kurulun teklifiyle **beş katına kadar** artırabilir. Sınır, hesap sayısı, türü ve para birimine bakılmaksızın bir yatırımcının **aynı kuruluştan** olan tüm taleplerini kapsar.
+- **Sınır:** Kanunda her bir yatırımcı için azami tazmin tutarı **100.000 ₺** olarak belirlenmiş olup bu tutar **her yıl yeniden değerleme oranında** artırılır; Cumhurbaşkanı Kurulun teklifiyle **beş katına kadar** artırabilir. Sınır, hesap sayısı, türü ve para birimine bakılmaksızın bir yatırımcının **aynı kuruluştan** olan tüm taleplerini kapsar.
 
 ### Tazmin süreci (md. 85-86)
 
@@ -145,15 +145,15 @@ Kurumsal finansman danışmanlığı, aracılık yüklenimine ilişkin hizmetler
 
 ### Çözümlü örnek
 
-Örneğin kolaylığı için azami tutar kanundaki **100.000 TL** kabul edilmiştir (gerçekte o yıl için güncellenmiş tutar uygulanır).
+Örneğin kolaylığı için azami tutar kanundaki **100.000 ₺** kabul edilmiştir (gerçekte o yıl için güncellenmiş tutar uygulanır).
 
-**Yatırımcı A:** MKK kayıtlarında 90.000 TL değerinde payı var, kurum nezdinde 60.000 TL nakit alacağı karşılanamıyor, kuruma 5.000 TL kredili işlem borcu var. Ayrıca danışmanlık tavsiyesiyle aldığı bir payda 15.000 TL değer kaybı yaşadı.
+**Yatırımcı A:** MKK kayıtlarında 90.000 ₺ değerinde payı var, kurum nezdinde 60.000 ₺ nakit alacağı karşılanamıyor, kuruma 5.000 ₺ kredili işlem borcu var. Ayrıca danışmanlık tavsiyesiyle aldığı bir payda 15.000 ₺ değer kaybı yaşadı.
 
 1. Paylar ayrı izlendiği için **aynen iade** edilir; tazmine konu olmaz.
 2. Değer kaybı fiyat hareketi ve danışmanlık zararıdır; **kapsam dışıdır**.
-3. Tazmine esas tutar: 60.000 − 5.000 = **55.000 TL**. Sınırın altında olduğu için tamamı ödenir.
+3. Tazmine esas tutar: 60.000 − 5.000 = **55.000 ₺**. Sınırın altında olduğu için tamamı ödenir.
 
-**Yatırımcı B:** Aynı kurumda TL hesabında 120.000 TL, döviz hesabında 60.000 TL karşılığı nakit alacağı karşılanamıyor. Toplam 180.000 TL'dir; sınır hesap ve para birimi ayrımı yapılmadan uygulanır, YTM **100.000 TL** öder. Kalan 80.000 TL için B tedrici tasfiye veya iflas sürecinde alacaklı olarak başvurur; YTM ödediği 100.000 TL için B'ye halef olur.
+**Yatırımcı B:** Aynı kurumda TL hesabında 120.000 ₺, döviz hesabında 60.000 ₺ karşılığı nakit alacağı karşılanamıyor. Toplam 180.000 ₺'dir; sınır hesap ve para birimi ayrımı yapılmadan uygulanır, YTM **100.000 ₺** öder. Kalan 80.000 ₺ için B tedrici tasfiye veya iflas sürecinde alacaklı olarak başvurur; YTM ödediği 100.000 ₺ için B'ye halef olur.
 
 ## Özet
 
@@ -162,4 +162,4 @@ Kurumsal finansman danışmanlığı, aracılık yüklenimine ilişkin hizmetler
 - Yerindelik testi portföy yöneticiliği ve danışmanlıkta sözleşmeden önce zorunludur; yatırım amacı, mali durum ve bilgi-tecrübe ölçülür; uygun olmayan hizmet sunulamaz.
 - Uygunluk testi yalnız bilgi-tecrübeyi ölçer; uygun değilse müşteri uyarılır, ısrarında işlem yapılabilir.
 - Tazmin kararını Kurul verir; YTM kamu tüzel kişisidir, Kurulca idare edilir, katılım zorunludur.
-- Tazmin yalnız saklanan veya yönetilen varlıkların teslim edilmemesini karşılar; fiyat ve danışmanlık zararlarını karşılamaz. Sınır yatırımcı başına 100.000 TL'nin yeniden değerlenmiş tutarıdır; talep süresi ilandan itibaren bir yıldır.
+- Tazmin yalnız saklanan veya yönetilen varlıkların teslim edilmemesini karşılar; fiyat ve danışmanlık zararlarını karşılamaz. Sınır yatırımcı başına 100.000 ₺'nin yeniden değerlenmiş tutarıdır; talep süresi ilandan itibaren bir yıldır.

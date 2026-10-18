@@ -79,9 +79,9 @@ Fiziki kontrol: 1.000 + 9.000 = 8.000 + 2.000 = 10.000 birim.
 
 | Maliyet | İlk madde | Dönüşüm | Toplam |
 |---|---:|---:|---:|
-| DBYM maliyeti | 22.000 TL | 26.800 TL | 48.800 TL |
-| Dönem içi maliyet | 180.000 TL | 246.000 TL | 426.000 TL |
-| Toplam | 202.000 TL | 272.800 TL | 474.800 TL |
+| DBYM maliyeti | 22.000 ₺ | 26.800 ₺ | 48.800 ₺ |
+| Dönem içi maliyet | 180.000 ₺ | 246.000 ₺ | 426.000 ₺ |
+| Toplam | 202.000 ₺ | 272.800 ₺ | 474.800 ₺ |
 
 ## 4. Ağırlıklı ortalama yöntemi
 
@@ -93,12 +93,12 @@ Ağırlıklı ortalamada DBYM maliyeti ile dönem maliyeti **tek havuzda** topla
 
 1. İlk madde eşdeğer birimi = 8.000 + 2.000 × %100 = **10.000**
 2. Dönüşüm eşdeğer birimi = 8.000 + 2.000 × %40 = **8.800**
-3. İlk madde birim maliyeti = 202.000 / 10.000 = **20,20 TL**
-4. Dönüşüm birim maliyeti = 272.800 / 8.800 = **31,00 TL**
-5. Tam birim maliyet = 20,20 + 31,00 = **51,20 TL**
-6. Tamamlanan mamul maliyeti = 8.000 × 51,20 = **409.600 TL**
-7. DSYM maliyeti = (2.000 × 20,20) + (800 × 31,00) = 40.400 + 24.800 = **65.200 TL**
-8. Kontrol: 409.600 + 65.200 = **474.800 TL**
+3. İlk madde birim maliyeti = 202.000 / 10.000 = **20,20 ₺**
+4. Dönüşüm birim maliyeti = 272.800 / 8.800 = **31,00 ₺**
+5. Tam birim maliyet = 20,20 + 31,00 = **51,20 ₺**
+6. Tamamlanan mamul maliyeti = 8.000 × 51,20 = **409.600 ₺**
+7. DSYM maliyeti = (2.000 × 20,20) + (800 × 31,00) = 40.400 + 24.800 = **65.200 ₺**
+8. Kontrol: 409.600 + 65.200 = **474.800 ₺**
 
 ## 5. FIFO yöntemi
 
@@ -111,12 +111,12 @@ Aynı sonuç şöyle de kurulur: DBYM × (1 − derece) + dönemde başlanıp bi
 1. Başlanıp bitirilen = 8.000 − 1.000 = **7.000 birim**
 2. İlk madde eşdeğer birimi = 1.000 × %0 + 7.000 + 2.000 × %100 = **9.000**
 3. Dönüşüm eşdeğer birimi = 1.000 × %40 + 7.000 + 2.000 × %40 = 400 + 7.000 + 800 = **8.200**
-4. İlk madde birim maliyeti = 180.000 / 9.000 = **20 TL**; dönüşüm = 246.000 / 8.200 = **30 TL**
-5. DBYM'nin tamamlanma maliyeti = 48.800 + (400 × 30) = **60.800 TL**
-6. Başlanıp bitirilenler = 7.000 × (20 + 30) = **350.000 TL**
-7. Tamamlanan mamul maliyeti = 60.800 + 350.000 = **410.800 TL**
-8. DSYM maliyeti = (2.000 × 20) + (800 × 30) = **64.000 TL**
-9. Kontrol: 410.800 + 64.000 = **474.800 TL**
+4. İlk madde birim maliyeti = 180.000 / 9.000 = **20 ₺**; dönüşüm = 246.000 / 8.200 = **30 ₺**
+5. DBYM'nin tamamlanma maliyeti = 48.800 + (400 × 30) = **60.800 ₺**
+6. Başlanıp bitirilenler = 7.000 × (20 + 30) = **350.000 ₺**
+7. Tamamlanan mamul maliyeti = 60.800 + 350.000 = **410.800 ₺**
+8. DSYM maliyeti = (2.000 × 20) + (800 × 30) = **64.000 ₺**
+9. Kontrol: 410.800 + 64.000 = **474.800 ₺**
 
 > **Sınav ipucu:** FIFO'da DBYM'nin "yüzde kaç tamamlanmış olarak devraldığı" bilgisi, bu dönemde **kalan kısmı** hesaplamak için kullanılır. DBYM dönüşüm bakımından %60 tamamsa bu dönem 1.000 × %40 = 400 eşdeğer birimlik iş yapılmıştır; 600 değil.
 
@@ -133,7 +133,7 @@ Aynı sonuç şöyle de kurulur: DBYM × (1 − derece) + dönemde başlanıp bi
 
 ## 7. Birden fazla safhalı üretim
 
-İkinci ve sonraki safhalarda, önceki safhadan devralınan birimlerin maliyeti **devralınan maliyet (önceki safha maliyeti)** adlı ayrı bir unsur gibi işlenir. Bu unsurun tamamlanma derecesi DSYM için de %100 kabul edilir. Örneğin I. safha ortalama yönteme göre 8.000 birimi 409.600 TL ile II. safhaya devretmişse, II. safhada bu 409.600 TL ayrı sütunda toplanır; II. safhanın kendi işçilik ve GÜG'si ise II. safhadaki tamamlanma derecelerine göre eşdeğer birime dağıtılır.
+İkinci ve sonraki safhalarda, önceki safhadan devralınan birimlerin maliyeti **devralınan maliyet (önceki safha maliyeti)** adlı ayrı bir unsur gibi işlenir. Bu unsurun tamamlanma derecesi DSYM için de %100 kabul edilir. Örneğin I. safha ortalama yönteme göre 8.000 birimi 409.600 ₺ ile II. safhaya devretmişse, II. safhada bu 409.600 ₺ ayrı sütunda toplanır; II. safhanın kendi işçilik ve GÜG'si ise II. safhadaki tamamlanma derecelerine göre eşdeğer birime dağıtılır.
 
 Kayıt akışı: Safhalar arası devirde 151 hesabının safha alt hesapları arasında aktarma yapılır. **Son safhadan** çıkan tam mamuller için:
 
@@ -147,8 +147,8 @@ DSYM maliyeti 151 hesabında borç kalanı olarak kalır ve gelecek dönemin DBY
 Sınavlarda tamamlanma derecesi çoğu zaman bilinmeyen olarak sorulur. Dört yol vardır (örnek verileri kullanılmıştır):
 
 1. **Toplam eşdeğer birimden:** Ortalama yönteminde dönüşüm eşdeğer birimi 8.800, tamamlanan 8.000 ise DSYM eşdeğeri 800'dür. Derece = 800 / 2.000 = **%40**.
-2. **Toplam maliyet ve birim maliyetten:** Ortalama yönteminde toplam dönüşüm maliyeti 272.800 TL ve dönüşüm birim maliyeti 31 TL verilmişse eşdeğer birim = 272.800 / 31 = 8.800 → DSYM eşdeğeri 800 → **%40**.
-3. **DSYM maliyetinden:** DSYM maliyeti 65.200 TL, birim maliyetler ilk madde 20,20 TL ve dönüşüm 31 TL ise: (65.200 − 2.000 × 20,20) / 31 = 24.800 / 31 = 800 → **%40**.
+2. **Toplam maliyet ve birim maliyetten:** Ortalama yönteminde toplam dönüşüm maliyeti 272.800 ₺ ve dönüşüm birim maliyeti 31 ₺ verilmişse eşdeğer birim = 272.800 / 31 = 8.800 → DSYM eşdeğeri 800 → **%40**.
+3. **DSYM maliyetinden:** DSYM maliyeti 65.200 ₺, birim maliyetler ilk madde 20,20 ₺ ve dönüşüm 31 ₺ ise: (65.200 − 2.000 × 20,20) / 31 = 24.800 / 31 = 800 → **%40**.
 4. **İki yöntemin farkından:** Dönüşüm için ortalama eşdeğer birim 8.800, FIFO eşdeğer birim 8.200 ise fark 600 = DBYM × derece → 600 / 1.000 = DBYM'nin geçen dönemdeki derecesi **%60**.
 
 > **Sık yapılan hata:** Geri hesapta önce hangi maliyet unsurunun sorulduğunu belirlememek. İlk madde başta konuluyorsa ilk madde derecesi zaten %100'dür; bilinmeyen derece neredeyse her zaman dönüşüm (işçilik ve GÜG) derecesidir. Ayrıca FIFO'da DBYM'nin **geçen dönemde ulaştığı** derece ile **bu dönemde tamamlanan** kısmı karıştırma.

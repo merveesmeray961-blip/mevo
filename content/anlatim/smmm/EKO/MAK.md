@@ -38,8 +38,8 @@ Deflatör, cari yıl üretim bileşimini ağırlık olarak kullanır (**Paasche*
 
 | Yıl | Ekmek (adet × fiyat) | Kumaş (adet × fiyat) |
 |---|---|---|
-| 2025 | 90 × 10 TL | 50 × 40 TL |
-| 2026 | 100 × 12 TL | 50 × 50 TL |
+| 2025 | 90 × 10 ₺ | 50 × 40 ₺ |
+| 2026 | 100 × 12 ₺ | 50 × 50 ₺ |
 
 1. Nominal GSYH 2025 = 900 + 2.000 = 2.900 (baz yılda reel = nominal).
 2. Nominal GSYH 2026 = 1.200 + 2.500 = **3.700**.
@@ -175,7 +175,7 @@ TCMB'nin politika faizi **bir hafta vadeli repo ihale faiz oranıdır**; reeskon
 
 - GSYH, yurt içinde üretilen nihai mal ve hizmetlerin değeridir; üretim, harcama ve gelir yöntemleriyle ölçülür. Transferler, ikinci el satışlar ve finansal işlemler girmez.
 - Deflatör = nominal / reel GSYH × 100; Paasche tipidir, ithal malları kapsamaz. Büyüme reel GSYH ile ölçülür.
-- TÜFE sabit sepetli Laspeyres endeksidir, ithal tüketim mallarını kapsar ve enflasyonu yüksek gösterme eğilimindedir; reel değer = nominal artış / enflasyon.
+- TÜFE sabit sepetli Laspeyres endeksidir, ithal tüketim mallarını kapsar ve enflasyonu yüksek gösterme eğilimindedir; reel artış = (1 + nominal artış) / (1 + enflasyon) − 1.
 - Harcama çarpanı 1 / (1 − c), vergi çarpanı −c / (1 − c), denk bütçe çarpanı 1; vergi oranı ve ithalat çarpanı küçültür.
 - Klasikler esneklik ve Say yasası, Keynesyenler efektif talep ve katılık, monetaristler para ve doğal işsizlik, yeni klasikler rasyonel beklenti ve politika etkisizliği, yeni Keynesyenler rasyonel beklenti ile katılığı birleştirir.
 - Para çarpanı m = (1 + c) / (c + r); zorunlu karşılık, nakit tercihi ve serbest rezerv arttıkça küçülür. APİ'de tahvil alımı genişletici politikadır.

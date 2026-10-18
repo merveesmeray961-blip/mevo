@@ -2,7 +2,7 @@
 ders: IFM
 konu: ENF
 baslik: Enflasyon düzeltmesi
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
@@ -107,7 +107,7 @@ VUK geçici md. 33 uyarınca 31/12/2023 tarihli mali tablolar şartlara bakılma
 
 Bu dönemler (uzatılanlar dahil) (Ç) fıkrası bakımından şartların gerçekleşmediği dönem sayılır. Madde, geçici md. 33'ün dördüncü fıkrası kapsamındaki mükelleflere de uygulanır; altın ve gümüş mükellefleri (A-9) ise birinci ve ikinci fıkranın dışındadır.
 
-588 Sıra No.lu VUK Genel Tebliği enflasyon düzeltmesine ilişkin hüküm içermez; 2025 yılında uygulanan had ve tutarları, 2025 yılı için yüzde 25,49 olarak tespit edilen yeniden değerleme oranıyla artırarak 1/1/2026'dan itibaren uygulanacak tutarları belirler.
+> **Sınav ipucu:** 2023 ve 2024 dönemlerine ait çıkmış sorular VUK düzeltmesini hesaplatıyordu. 2026 sorusunda önce "geçici md. 37 nedeniyle vergi kayıtlarında düzeltme yapılmaz" tespitini yap; TMS 29 düzeltmesi ise TFRS raporlamasında devam eder ve ertelenmiş vergi doğurur.
 
 ## 4. TMS 29 yüksek enflasyonlu ekonomi
 
@@ -128,6 +128,15 @@ Kurallar:
 | Fark | 698, kapanışta 648 veya 658 | Net parasal pozisyon kâr veya zararı |
 
 İstisna: Yüksek enflasyon sona erdiğinde önceki dönemin cari ölçüm birimiyle ifade edilen tutarlar sonraki tabloların defter değeri olur (TMS 29.38).
+
+### Örnek: TMS 29 düzeltmesi ve ertelenmiş vergi (2026)
+
+Bilanço ayı endeksi 3.000. Makine 1.000.000 TL (alış ayı endeksi 2.000), birikmiş amortismanı 200.000 TL; nakdi sermaye 800.000 TL (tahsil ayı endeksi 1.600). Diğer kalemler parasaldır. KV oranı %25.
+
+1. Makine katsayısı 3.000 / 2.000 = 1,5. Maliyet farkı 500.000, amortisman farkı 100.000; net artış 400.000 TL. Kayıt: 253 Tesis, Makine ve Cihazlar borç 500.000 / 257 Birikmiş Amortismanlar alacak 100.000 / net parasal pozisyon hesabı alacak 400.000.
+2. Sermaye katsayısı 3.000 / 1.600 = 1,875. Fark 700.000 TL. Kayıt: net parasal pozisyon hesabı borç 700.000 / 502 Sermaye Düzeltmesi Olumlu Farkları alacak 700.000.
+3. Net parasal pozisyon kaybı = 700.000 − 400.000 = 300.000 TL; kâr veya zarara alınır (TMS 29.28). Sınav anahtarları bunu 658 Enflasyon Düzeltmesi Zararları (kazançta 648) hesabında, bazı dönemlerde ilave açılan ayrı NPP hesaplarında gösterdi; hangi kodu kullandığını hesap adıyla yaz.
+4. EV: Geçici md. 37 nedeniyle vergi kayıtlarında makine 800.000 TL'de kalır; TFRS değeri 1.200.000 TL'dir. Vergiye tabi fark 400.000 TL, ertelenmiş vergi yükümlülüğü 100.000 TL (695 borç / 489 alacak). Sermaye özkaynak kalemi olduğundan geçici fark ve EV doğmaz.
 
 ### Tasdik uygulama notu
 

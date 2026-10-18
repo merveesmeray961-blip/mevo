@@ -2,12 +2,15 @@
 ders: SPM
 konu: DNT
 baslik: Finansal raporlama ve bağımsız denetim
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 14
     alinti: "finansal tablo ve raporları, şekil ve içerik bakımından Türkiye Muhasebe Standartları"
+  - mevzuat: Sermaye Piyasasında Finansal Raporlamaya İlişkin Esaslar Tebliği (II-14.1)
+    madde: md. 10/1-a
+    alinti: "Konsolide finansal tablo hazırlama yükümlülüğünün bulunmadığı durumlarda, hesap dönemlerinin bitimini izleyen 60 gün,"
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
     madde: md. 62
     alinti: "tarafından yetkilendirilmiş bağımsız denetim kuruluşlarından bu Kanun uyarınca bağımsız"
@@ -41,6 +44,8 @@ Kurallar:
 - Yönetim kurulu, finansal tablo ve raporların kabulüne dair ayrı bir karar alır; tabloları hazırlayan yöneticiler ve sorumlu yönetim kurulu üyeleri gerçeğe uygunluk beyanı verir (md. 14/2).
 - Kurulca belirlenen tablolar, Kurulun listesindeki bir bağımsız denetim kuruluşuna Türkiye Denetim Standartları çerçevesinde denetletilir (md. 14/3).
 - Kurul; halka arzda, borsada işlem görme başvurusunda, md. 23'teki önemli nitelikteki işlemlerde işlemin tarafı ortaklıklardan da bağımsız denetim raporu isteyebilir (md. 14/4).
+
+**Bildirim süreleri (Finansal Raporlama Tebliği II-14.1 md. 10):** Araçları borsada işlem gören işletmeler yıllık finansal raporlarını ve bağımsız denetim raporlarını, konsolide tablo yükümlülüğü yoksa hesap dönemi bitiminden itibaren **60 gün**, varsa **70 gün** içinde KAP'ta bildirir. Halka açık ortaklıklar ayrıca bu raporları genel kuruldan en az **üç hafta** önce bildirir; her hâlde son süre dönem bitimini izleyen üçüncü ayın sonudur.
 
 **İzahnamedeki tablolar:** İzahname ve İhraç Belgesi Tebliği (II-5.1) md. 10/1'e göre ortaklık hakkı veren araçların izahnamesinde son üç yıla, ortaklık hakkı vermeyen araçlarda son iki yıla ve varsa ara döneme ait bağımsız denetimden ve/veya sınırlı incelemeden geçmiş tablolar yer alır.
 

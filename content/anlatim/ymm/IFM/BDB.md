@@ -2,7 +2,7 @@
 ders: IFM
 konu: BDB
 baslik: Birleşme devir ve bölünme muhasebesi
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: TFRS 3 İşletme Birleşmeleri
@@ -20,6 +20,12 @@ kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: mükerrer md. 266
     alinti: "Rayiç bedel, bir iktisadi kıymetin değerleme günündeki normal alım satım değeridir."
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 19/1-b
+    alinti: "Münfesih kurumun devir tarihindeki bilânço değerlerinin, birleşilen kurum"
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 17/4
+    alinti: "Tasfiye halindeki kurumların vergi matrahı tasfiye kârıdır."
   - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: md. 162
     alinti: "Tasfiye ve iflas hallerinde, mükellefiyet vergi ile ilgili muamelelerin"
@@ -36,7 +42,7 @@ kaynaklar:
 
 ### Tanım
 
-**Birleşme**, iki veya daha fazla işletmenin tek bir işletme altında toplanmasıdır. Devralma yoluyla birleşmede **devrolunan** şirket varlık ve borçlarını bir bütün olarak **devralan** şirkete aktarır ve devrolunan şirketin ortakları devralan şirketin paylarını alır; yeni kuruluş yoluyla birleşmede ise birleşen işletmelerin tümü yeni bir şirkete devrolunur. Türkiye Finansal Raporlama Standardı (TFRS) 3'e göre bir işletme birleşmesi, net varlıkların yasal olarak edinen işletmeye dâhil edilmesi, birleşen işletmenin bağlı ortaklığa dönüşmesi ya da net varlıkların yeni kurulan işletmeye devri gibi yollarla yapılandırılabilir (TFRS 3.B6). Bu bölümdeki birleşme ve bölünme türü tanımları genel muhasebe tanımlarıdır: Türk Ticaret Kanunu (TTK) ve Kurumlar Vergisi Kanunu'nun (KVK) birleşme, bölünme, hisse değişimi ve tasfiyeye ilişkin şartları kaynak setinde yer almadığından burada kesin hüküm olarak verilmez.
+**Birleşme**, iki veya daha fazla işletmenin tek bir işletme altında toplanmasıdır. Devralma yoluyla birleşmede **devrolunan** şirket varlık ve borçlarını bir bütün olarak **devralan** şirkete aktarır ve devrolunan şirketin ortakları devralan şirketin paylarını alır; yeni kuruluş yoluyla birleşmede ise birleşen işletmelerin tümü yeni bir şirkete devrolunur. Türkiye Finansal Raporlama Standardı (TFRS) 3'e göre bir işletme birleşmesi, net varlıkların yasal olarak edinen işletmeye dâhil edilmesi, birleşen işletmenin bağlı ortaklığa dönüşmesi ya da net varlıkların yeni kurulan işletmeye devri gibi yollarla yapılandırılabilir (TFRS 3.B6). Vergi açısından birleşme, infisah eden kurum için tasfiye hükmündedir ve birleşme kârı vergilendirilir (Kurumlar Vergisi Kanunu, KVK md. 18); ancak KVK md. 19'daki şartlarla yapılan birleşme **devir** sayılır ve birleşme kârı hesaplanmaz (KVK md. 20). Ayrıntılı vergisel şartlar REV dersinde işlenir; burada muhasebe kaydına odaklanılır.
 
 ### Kural
 
@@ -79,7 +85,7 @@ B AŞ'nin birleşme tarihindeki bilançosu: 102 Bankalar 200.000; 153 Ticari Mal
 
 **Hisse değişimi**, bir şirketin başka bir şirketin paylarını kendi payları karşılığında edinmesidir; payları edinilen şirketin tüzel kişiliği devam eder. Örneğin A AŞ, C AŞ'nin çoğunluk paylarını kendi payları karşılığında alırsa 245 Bağlı Ortaklıklar hesabını borç, 500 Sermaye hesabını nominal değerle, nominal değeri aşan kısmı 520 Hisse Senetleri İhraç Primleri hesabını alacak kaydeder. Kontrol bu yolla, yani özkaynak payları ihraç edilerek de ele geçirilebilir (TFRS 3.B5(c)). Bu durumda yalnız özkaynak payları değiştirildiğinden, edinilen işletmenin paylarının gerçeğe uygun değeri daha güvenilir ölçülebiliyorsa şerefiye hesabında o değer kullanılır (TFRS 3.33). Bağlı ortaklık konsolidasyona dâhil edilir.
 
-Vergisel boyutta devir, bölünme ve hisse değişiminin şartları KVK'da düzenlenir; bu hükümler kaynak setinde yer almadığından burada işlenmez. VUK md. 280/A ise yalnız yatırım teşvik belgesi kapsamındaki kur farkı fonu için KVK'ya göre yapılan devir ve bölünmeyi istisna olarak anar; devir ve bölünmenin genel şartlarını düzenlemez.
+Muhasebe kaydını vergi şartı belirler. KVK md. 19/1-b'ye göre devirde münfesih kurumun **bilanço değerleri bir bütün halinde devralınıp aynen bilançoya geçirilmelidir**; tam ve kısmi bölünmede de varlıklar **kayıtlı değerleri** üzerinden devredilir (KVK md. 19/3-a, b). Bu nedenle vergiden muaf devir ve bölünmede yasal defterde rayiç değer ve şerefiye kaydı yapılmaz; gerçeğe uygun değer farkları yalnız TFRS tablolarında izlenir ve ertelenmiş vergi doğurur. Kısmi bölünmede devredilen iştirak hisselerinin en az iki tam yıl elde tutulmuş olması ve üretim/hizmet işletmesinde işletme bütünlüğünün korunması gerekir. Tam bölünme ve hisse değişiminde verilen hisselerin itibari değerinin %10'una kadarının nakit ödenmesi işlemin niteliğini bozmaz.
 
 ## 4. Tasfiye muhasebesi
 
@@ -94,11 +100,11 @@ Kayıt sırası şöyledir:
 3. Tasfiye sonucunun kapatılması: gelir ve gider hesapları 690 Dönem Kârı veya Zararı hesabına, oradan 692 Dönem Net Kârı veya Zararı hesabına ve son olarak 590 Dönem Net Kârı veya 591 Dönem Net Zararı hesabına aktarılır.
 4. Kalan net varlığın ortaklara aktarılması: 500 Sermaye ve diğer özkaynak hesapları borç, 331 Ortaklara Borçlar alacak; ödemede 331 Ortaklara Borçlar borç, 102 Bankalar alacak.
 
-Tasfiye dönemi kazancının vergilendirilmesine ilişkin Kurumlar Vergisi Kanunu hükümleri kaynak setinde bulunmadığından burada verilmemiştir.
+Vergi açısından tasfiyede hesap dönemi yerine **tasfiye dönemi** geçerlidir; tasfiye, genel kurul kararının tescil edildiği tarihte başlar. Matrah **tasfiye kârıdır**: tasfiye dönemi sonundaki servet değeri ile başındaki servet değeri arasındaki olumlu fark (KVK md. 17/4). Son döneme ait tasfiye beyannamesi tasfiyenin sonuçlandığı tarihten itibaren otuz gün içinde verilir (KVK md. 17/2).
 
 ### Tasdik uygulama notu
 
-Birleşme ve bölünmelerde YMM, devir bilançosunun devrolunanın yasal defterleriyle uyumunu, devralanın açılış kayıtlarında vergi açısından hangi değerin esas alındığını (bu şartlar KVK'da düzenlenir ve kaynak setinde yer almaz) ve TFRS raporlamasında gerçeğe uygun değer farklarının ayrı izlendiğini kontrol eder. Şerefiye tutarının bedel ve değerleme raporuyla, sermaye artışının ticaret sicili tescil belgesiyle uyumunu belgeler. Tasfiyede tasfiye açılış bilançosunu, satış faturalarını ve VUK md. 162 bildirimlerinin yapıldığını, ortaklara dağıtılan tutarın 331 hesabıyla uyumunu inceler.
+Birleşme ve bölünmelerde YMM, devir bilançosunun devrolunanın yasal defterleriyle uyumunu, devralanın açılış kayıtlarında KVK md. 19 gereği bilanço değerlerinin aynen devralındığını ve TFRS raporlamasında gerçeğe uygun değer farklarının ayrı izlendiğini kontrol eder. Şerefiye tutarının bedel ve değerleme raporuyla, sermaye artışının ticaret sicili tescil belgesiyle uyumunu belgeler. Tasfiyede tasfiye açılış bilançosunu, satış faturalarını ve VUK md. 162 bildirimlerinin yapıldığını, ortaklara dağıtılan tutarın 331 hesabıyla uyumunu inceler.
 
 ## Özet
 

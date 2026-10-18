@@ -2,7 +2,7 @@
 ders: FYN
 konu: RGT
 baslik: Risk getiri ve portföy
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "Genel bilgi — Beklenen getiri ve varyans"
@@ -78,6 +78,8 @@ Yukarıdaki A ve B hisselerine eşit ağırlıkla (wA = wB = 0,50) yatırım yap
 
 Kontrol: Portföyün durumlara göre getirileri %5, %11,5 ve %15,5'tir; bunlardan doğrudan hesaplanan varyans da 14,1719 (%²) çıkar.
 
+**Minimum varyanslı portföy:** Herhangi bir ρ için riski en düşük yapan ağırlık wA = (σB² − Kov) / (σA² + σB² − 2Kov) formülüyle bulunur. Örnekte wA = (72 + 135) / (254,6875 + 72 + 270) = 207 / 596,6875 ≈ 0,347; wB ≈ 0,653.
+
 > **Sınav ipucu:** Soruda korelasyon verilip kovaryans istenmiyorsa formülde Kov(A,B) yerine doğrudan ρ × σA × σB yaz. ρ = +1 sorularında hesap yapmadan σp = wA × σA + wB × σB yazabilirsin.
 
 **Etkin portföy**, aynı risk düzeyinde en yüksek beklenen getiriyi (ya da aynı getiride en düşük riski) sunan portföydür; bu portföylerin oluşturduğu eğriye **etkin sınır** denir (Markowitz yaklaşımı). Eşit ağırlıklı portföyde varlık sayısı arttıkça tek tek varyansların etkisi azalır ve portföy varyansı, varlıklar arasındaki **ortalama kovaryansa** yaklaşır. İstisna: Varlıklar arasında yüksek pozitif korelasyon varsa (ör. aynı sektörden hisseler) varlık sayısını artırmak riski anlamlı ölçüde düşürmez.
@@ -108,11 +110,22 @@ X hissesinin piyasa getirisiyle kovaryansı 0,0216, piyasa getirisinin standart 
 5. Toplam riskin %51,84'ü sistematiktir (0,0324 / 0,0625). Bu oran ρim²'ye eşittir: ρim = 0,0216 / (0,25 × 0,12) = 0,72 ve 0,72² = 0,5184.
 6. Portföyün %40'ı X'e (β = 1,5), %60'ı betası 0,8 olan Y'ye yatırılırsa βp = 0,4 × 1,5 + 0,6 × 0,8 = 1,08 olur.
 
-İstisna: Beta geçmiş verilerle tahmin edildiği için firmanın faaliyet ya da sermaye yapısı değiştiğinde geçmiş beta geleceği yansıtmayabilir.
+### Örnek: Geçmiş getirilerden beta
+
+Dört yılda piyasa getirisi %10, %4, −%2, %12; Z hissesinin getirisi %14, %6, −%6, %18'dir.
+
+1. Ortalamalar: Rm = 24 / 4 = %6; Rz = 32 / 4 = %8.
+2. Sapmalar: piyasa 4, −2, −8, 6; hisse 6, −2, −14, 10.
+3. Sapma çarpımları toplamı: 24 + 4 + 112 + 60 = 200; piyasa sapma kareleri toplamı: 16 + 4 + 64 + 36 = 120.
+4. Örneklem kovaryansı 200 / 3 ≈ 66,67 (%²); piyasa varyansı 120 / 3 = 40 (%²).
+5. β = 66,67 / 40 ≈ 1,67. Bölenler (n − 1) aynı olduğundan β = 200 / 120 olarak da bulunur.
+6. Karakteristik doğrunun sabiti α = 8 − 1,67 × 6 ≈ −2: hisse, piyasa sıfır getiri sağladığında yaklaşık −%2 getirir.
+
+Yorum: β > 1 olduğundan Z agresiftir; piyasa %1 değiştiğinde ortalama %1,67 değişir. Beta geçmiş verilerle tahmin edildiği için firmanın faaliyet veya sermaye yapısı değişirse geleceği yansıtmayabilir.
 
 ### Tasdik uygulama notu
 
-Tam tasdik ve incelemede risk-getiri bilgisi özellikle işletmenin finansal yatırımları ve riskten korunma işlemlerinde karşına çıkar. Menkul kıymet portföyünün alım-satım kayıtları aracı kurum ekstreleriyle, türev ürün sözleşmeleri banka teyitleriyle karşılaştırılır. Kur veya faiz riskinden korunma amacıyla yapıldığı söylenen türev işlemlerinde, korunan kalemin gerçekten var olup olmadığı ve işlemin belgeleri incelenir; ilişkili kişilerle piyasa koşullarından farklı getiri sağlayan işlemler ilgili vergi mevzuatı yönünden ayrıca değerlendirilir. Yüksek riskli yatırımlarda oluşan zararların işletmenin faaliyetiyle ilgisi ve belgelendirilmesi ayrıca kontrol edilir.
+Tam tasdik ve incelemede risk-getiri bilgisi işletmenin finansal yatırımlarında ve riskten korunma işlemlerinde karşına çıkar. Menkul kıymet alım-satımları aracı kurum ekstreleriyle, türev sözleşmeleri banka teyitleriyle karşılaştırılır. Korunma amaçlı denilen türevlerde korunan kalemin varlığı belgeyle incelenir; ilişkili kişilerle piyasa koşulları dışında getiri sağlayan işlemler örtülü kazanç yönünden değerlendirilir.
 
 ## Özet
 

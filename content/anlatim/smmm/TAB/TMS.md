@@ -82,10 +82,10 @@ Başlıca DKG kalemleri: yeniden değerleme fazlasındaki değişimler (TMS 16, 
 
 DKG kalemleri iki grupta sunulur (paragraf 82A): **sonradan kâr veya zararda yeniden sınıflandırılmayacaklar** (yeniden değerleme fazlası, tanımlanmış fayda yeniden ölçümleri) ve **belirli koşullarda yeniden sınıflandırılacaklar** (çevrim farkları, nakit akış korunması gibi). DKG kalemleri vergi etkisi düşülmüş net ya da brüt tutarla (vergi ayrı satırda) sunulabilir.
 
-Örnek: Dönem net kârı 120.000 TL. Arsa yeniden değerleme artışı 50.000 TL (ertelenmiş vergi etkisi 10.000 TL), yurtdışı işletme çevrim farkı zararı 15.000 TL (vergi sonrası). Ayrıca 30.000 TL temettü dağıtılmış, 100.000 TL nakdi sermaye artırımı yapılmıştır.
+Örnek: Dönem net kârı 120.000 ₺. Arsa yeniden değerleme artışı 50.000 ₺ (ertelenmiş vergi etkisi 10.000 ₺), yurtdışı işletme çevrim farkı zararı 15.000 ₺ (vergi sonrası). Ayrıca 30.000 ₺ temettü dağıtılmış, 100.000 ₺ nakdi sermaye artırımı yapılmıştır.
 
-1. DKG = (50.000 − 10.000) − 15.000 = **25.000 TL**
-2. TKG = 120.000 + 25.000 = **145.000 TL**
+1. DKG = (50.000 − 10.000) − 15.000 = **25.000 ₺**
+2. TKG = 120.000 + 25.000 = **145.000 ₺**
 3. Temettü ve sermaye artırımı ortaklarla ortak sıfatıyla yapılan işlemlerdir; özkaynak değişim tablosunda yer alır, **TKG'ye girmez**.
 
 > **Sık yapılan hata:** Dönem net kârını toplam kapsamlı gelirle aynı saymak veya temettü/sermaye artırımını TKG'ye katmak. TKG yalnız kâr veya zarar ile DKG'nin toplamıdır.
@@ -115,7 +115,7 @@ MSUGT kuralları: gelir tablosu hesapları arasında **mahsup yapılamaz**; "di�
 - **Gider analizi (paragraf 99-103):** Giderler **çeşit** yöntemine (amortisman, hammadde, çalışanlara sağlanan faydalar gibi; fonksiyonlara dağıtılmaz) veya **fonksiyon (satışların maliyeti)** yöntemine göre sunulur. Fonksiyon yönteminde en az satışların maliyeti diğer giderlerden ayrı gösterilir ve amortisman ile çalışanlara sağlanan faydalar dipnotta ayrıca açıklanır (paragraf 104).
 - Paragraf 82, hasılat, finansman maliyetleri, vergi gideri ve durdurulan faaliyetler gibi asgari kalemleri sayar.
 
-Çözümlü örnek (bin TL): Brüt satışlar 1.050, satış indirimleri 50, satışların maliyeti 650, faaliyet giderleri 150, diğer olağan gelir 40, diğer olağan gider 15, finansman gideri 45, olağandışı gelir 10, olağandışı gider 30, vergi karşılığı 40.
+Çözümlü örnek (bin ₺): Brüt satışlar 1.050, satış indirimleri 50, satışların maliyeti 650, faaliyet giderleri 150, diğer olağan gelir 40, diğer olağan gider 15, finansman gideri 45, olağandışı gelir 10, olağandışı gider 30, vergi karşılığı 40.
 
 1. Net satışlar = 1.050 − 50 = **1.000**
 2. Brüt satış kârı = 1.000 − 650 = **350**
@@ -136,7 +136,7 @@ MSUGT Ek 4: **Satışlardan elde edilen nakit = Net satışlar + Satışlardan d
 
 Alacak artışı, satışın tahsil edilmemiş kısmıdır; azalış ise önceki dönem alacaklarının bu dönemde tahsil edildiğini gösterir. Müşteriden peşin alınan **sipariş avansları** ters yönde çalışır: avans artışı henüz satışa dönüşmemiş tahsilattır ve eklenir; avans azalışı daha önce tahsil edilip bu dönem satışa dönüşen tutardır ve düşülür.
 
-Örnek (bin TL): Net satışlar 1.000. Ticari alacaklar 300'den 360'a çıkmış, alınan sipariş avansları 50'den 30'a inmiştir.
+Örnek (bin ₺): Net satışlar 1.000. Ticari alacaklar 300'den 360'a çıkmış, alınan sipariş avansları 50'den 30'a inmiştir.
 
 1. Alacak artışı 60 → düşülür.
 2. Avans azalışı 20 → düşülür.
@@ -158,7 +158,7 @@ TMS 7 paragraf 20'ye göre dönem kâr veya zararı şunlara göre düzeltilir: 
 | Ticari alacak, stok, peşin ödenmiş gider artışı | Düşülür (azalış eklenir) |
 | Ticari borç, alınan avans, gider tahakkuku artışı | Eklenir (azalış düşülür) |
 
-Örnek (bin TL): Dönem kârı 400; amortisman 90; karşılık gideri 20; makine satış kârı 30; gerçekleşmemiş kur farkı zararı 10; ticari alacak artışı 70; stok azalışı 40; ticari borç azalışı 25.
+Örnek (bin ₺): Dönem kârı 400; amortisman 90; karşılık gideri 20; makine satış kârı 30; gerçekleşmemiş kur farkı zararı 10; ticari alacak artışı 70; stok azalışı 40; ticari borç azalışı 25.
 
 1. 400 + 90 + 20 = 510
 2. Makine satış kârı: 510 − 30 = 480

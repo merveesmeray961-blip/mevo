@@ -96,7 +96,7 @@ Satılan ticari malın maliyeti 153'ün alacağına, 621'in borcuna kaydedilir. 
 
 ## 5. Çözümlü kapsamlı örnek
 
-KDV dikkate alınmayacaktır. Bir üretim işletmesinin dönem verileri (TL):
+KDV dikkate alınmayacaktır. Bir üretim işletmesinin dönem verileri (₺):
 
 | Kalem | Tutar |
 |---|---:|
@@ -119,17 +119,17 @@ KDV dikkate alınmayacaktır. Bir üretim işletmesinin dönem verileri (TL):
 
 Çözüm:
 
-1. Net alışlar = 300.000 + 6.000 − 10.000 = 296.000 TL.
-2. Toplam ilk madde kullanımı = 40.000 + 296.000 − 56.000 = 280.000 TL.
-3. Direkt ilk madde gideri = 280.000 − 20.000 = **260.000 TL**.
-4. GÜG = 20.000 + 30.000 + 25.000 + 15.000 = **90.000 TL**.
-5. Dönemin üretim giderleri = 260.000 + 150.000 + 90.000 = **500.000 TL**.
-6. Üretim maliyeti = 500.000 + 30.000 − 50.000 = **480.000 TL**.
-7. Satılan mamul maliyeti = 480.000 + 60.000 − 45.000 = **495.000 TL**.
-8. Satılan ticari mal maliyeti = 20.000 + 80.000 − 25.000 = **75.000 TL**.
-9. Satışların maliyeti = 495.000 + 75.000 = **570.000 TL**.
+1. Net alışlar = 300.000 + 6.000 − 10.000 = 296.000 ₺.
+2. Toplam ilk madde kullanımı = 40.000 + 296.000 − 56.000 = 280.000 ₺.
+3. Direkt ilk madde gideri = 280.000 − 20.000 = **260.000 ₺**.
+4. GÜG = 20.000 + 30.000 + 25.000 + 15.000 = **90.000 ₺**.
+5. Dönemin üretim giderleri = 260.000 + 150.000 + 90.000 = **500.000 ₺**.
+6. Üretim maliyeti = 500.000 + 30.000 − 50.000 = **480.000 ₺**.
+7. Satılan mamul maliyeti = 480.000 + 60.000 − 45.000 = **495.000 ₺**.
+8. Satılan ticari mal maliyeti = 20.000 + 80.000 − 25.000 = **75.000 ₺**.
+9. Satışların maliyeti = 495.000 + 75.000 = **570.000 ₺**.
 
-Genel yönetim (40.000), pazarlama (35.000) ve faiz (12.000) tutarlarının hiçbiri tabloya girmedi. Aynı verilerle asal maliyet 260.000 + 150.000 = 410.000 TL, dönüştürme maliyeti 150.000 + 90.000 = 240.000 TL olur.
+Genel yönetim (40.000), pazarlama (35.000) ve faiz (12.000) tutarlarının hiçbiri tabloya girmedi. Aynı verilerle asal maliyet 260.000 + 150.000 = 410.000 ₺, dönüştürme maliyeti 150.000 + 90.000 = 240.000 ₺ olur.
 
 ## 6. Geri hesap teknikleri
 
@@ -137,25 +137,25 @@ Genel yönetim (40.000), pazarlama (35.000) ve faiz (12.000) tutarlarının hiç
 
 ### Brüt satış kârından satışların maliyetine
 
-Net satışlar 760.000 TL ve brüt satış kârı **satışların %25'i** ise:
+Net satışlar 760.000 ₺ ve brüt satış kârı **satışların %25'i** ise:
 
-- Brüt kâr = 760.000 × 0,25 = 190.000 TL; satışların maliyeti = 760.000 − 190.000 = **570.000 TL**.
+- Brüt kâr = 760.000 × 0,25 = 190.000 ₺; satışların maliyeti = 760.000 − 190.000 = **570.000 ₺**.
 
 Aynı soruda kâr **maliyetin %25'i** olarak verilseydi:
 
-- Satışlar = Maliyet × 1,25 olduğundan maliyet = 760.000 / 1,25 = **608.000 TL** olurdu.
+- Satışlar = Maliyet × 1,25 olduğundan maliyet = 760.000 / 1,25 = **608.000 ₺** olurdu.
 
 > **Sınav ipucu:** "Satışlar üzerinden kâr oranı" ile "maliyet üzerinden kâr oranı" (kâr marjı ile kâr yüzdesi) en sık kurulan tuzaklardandır. İlkinde maliyet = satış × (1 − oran), ikincisinde maliyet = satış / (1 + oran).
 
 ### Satılan mamul maliyetinden ilk madde alışına
 
-Yukarıdaki örnekte SMM'nin 495.000 TL olduğu biliniyor, ilk madde net alışları isteniyor olsun:
+Yukarıdaki örnekte SMM'nin 495.000 ₺ olduğu biliniyor, ilk madde net alışları isteniyor olsun:
 
-1. Üretim maliyeti = SMM − DB mamul + DS mamul = 495.000 − 60.000 + 45.000 = 480.000 TL.
-2. Dönemin üretim giderleri = Üretim maliyeti − DB yarı mamul + DS yarı mamul = 480.000 − 30.000 + 50.000 = 500.000 TL.
-3. Direkt ilk madde = 500.000 − 150.000 − 90.000 = 260.000 TL.
-4. Toplam kullanım = 260.000 + 20.000 = 280.000 TL.
-5. Net alışlar = Kullanım + DS ilk madde − DB ilk madde = 280.000 + 56.000 − 40.000 = **296.000 TL**.
+1. Üretim maliyeti = SMM − DB mamul + DS mamul = 495.000 − 60.000 + 45.000 = 480.000 ₺.
+2. Dönemin üretim giderleri = Üretim maliyeti − DB yarı mamul + DS yarı mamul = 480.000 − 30.000 + 50.000 = 500.000 ₺.
+3. Direkt ilk madde = 500.000 − 150.000 − 90.000 = 260.000 ₺.
+4. Toplam kullanım = 260.000 + 20.000 = 280.000 ₺.
+5. Net alışlar = Kullanım + DS ilk madde − DB ilk madde = 280.000 + 56.000 − 40.000 = **296.000 ₺**.
 
 Geri giderken işaretler tersine döner: ileri yönde çıkarılan dönem sonu stokları geri yönde **eklenir**, eklenen dönem başı stokları **çıkarılır**.
 
@@ -173,10 +173,10 @@ Geri giderken işaretler tersine döner: ileri yönde çıkarılan dönem sonu s
 | DS mamul | (70.000) | ? |
 | Satılan mamul maliyeti | 370.000 | 480.000 |
 
-1. 1. dönem üretim maliyeti = 400.000 + 20.000 − 30.000 = 390.000 TL; SMM = 390.000 + 50.000 − 70.000 = 370.000 TL.
-2. 2. dönemin DB yarı mamulü 30.000 TL ve DB mamulü 70.000 TL'dir; ikisi de 1. dönemin dönem sonu stoklarıdır.
-3. 2. dönem üretim maliyeti = 450.000 + 30.000 − 25.000 = 455.000 TL.
-4. 2. dönem DS mamul = DB mamul + Üretim maliyeti − SMM = 70.000 + 455.000 − 480.000 = **45.000 TL**.
+1. 1. dönem üretim maliyeti = 400.000 + 20.000 − 30.000 = 390.000 ₺; SMM = 390.000 + 50.000 − 70.000 = 370.000 ₺.
+2. 2. dönemin DB yarı mamulü 30.000 ₺ ve DB mamulü 70.000 ₺'dir; ikisi de 1. dönemin dönem sonu stoklarıdır.
+3. 2. dönem üretim maliyeti = 450.000 + 30.000 − 25.000 = 455.000 ₺.
+4. 2. dönem DS mamul = DB mamul + Üretim maliyeti − SMM = 70.000 + 455.000 − 480.000 = **45.000 ₺**.
 
 Çözerken şu sırayı izle: her stok türünü (ilk madde, yarı mamul, mamul, ticari mal) ayrı satırda takip et; dönem sonu stoklarını bir sonraki sütuna taşı; tek bilinmeyeni olan eşitlikten başla; sonucu "başlangıç + giriş − çıkış = bitiş" dengesiyle kontrol et.
 

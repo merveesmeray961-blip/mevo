@@ -135,11 +135,11 @@ Bildirimden sonra sendika temsilcileriyle çıkarmayı önleme veya etkisini aza
 - Denkleştirmede ortalama aşılmadıkça bazı haftalarda 45 saatin aşılması fazla çalışma sayılmaz.
 - Gece çalışmasında ve sağlık nedeniyle süresi kısaltılan işlerde fazla çalışma yapılamaz.
 
-**Çözümlü örnek:** Normal saat ücreti 200 TL olan işçinin sözleşmesinde haftalık süre 40 saattir ve işçi bir hafta 48 saat çalışmıştır.
+**Çözümlü örnek:** Normal saat ücreti 200 ₺ olan işçinin sözleşmesinde haftalık süre 40 saattir ve işçi bir hafta 48 saat çalışmıştır.
 
-1. 40-45 saat arası 5 saat fazla sürelerle çalışmadır: 5 × 200 × 1,25 = **1.250 TL**.
-2. 45 saati aşan 3 saat fazla çalışmadır: 3 × 200 × 1,50 = **900 TL**.
-3. Toplam ek ücret **2.150 TL**'dir. İşçi para yerine serbest zaman isterse 5 × 1,25 + 3 × 1,5 = **10,75 saat** izin kullanır.
+1. 40-45 saat arası 5 saat fazla sürelerle çalışmadır: 5 × 200 × 1,25 = **1.250 ₺**.
+2. 45 saati aşan 3 saat fazla çalışmadır: 3 × 200 × 1,50 = **900 ₺**.
+3. Toplam ek ücret **2.150 ₺**'dir. İşçi para yerine serbest zaman isterse 5 × 1,25 + 3 × 1,5 = **10,75 saat** izin kullanır.
 
 > **Sınav ipucu:** Sözleşmedeki süre 45 saat ise 45'i aşan her saat %50 zamlıdır ve %25'lik dilim hiç oluşmaz. %25'lik dilim yalnız sözleşmeyle 45 saatin altında süre belirlenmişse doğar.
 
@@ -166,7 +166,7 @@ Bildirimden sonra sendika temsilcileriyle çıkarmayı önleme veya etkisini aza
 
 - Analık izninden sonra işçi isterse **altı aya** kadar ücretsiz izin alabilir.
 - Bir yaşından küçük çocuk için günde **1,5 saat** süt izni verilir ve bu süre çalışma süresinden sayılır.
-- Analık izninden sonra kadın işçi isterse ilk doğumda 60, ikinci doğumda 120, sonraki doğumlarda 180 gün yarım çalışma şeklinde ücretsiz izin kullanır.
+- Analık izninden sonra kadın işçi (ve üç yaşını doldurmamış çocuğu evlat edinen kadın veya erkek işçi) isterse ilk doğumda 60, ikinci doğumda 120, sonraki doğumlarda 180 gün haftalık çalışma süresinin yarısı kadar ücretsiz izin kullanır. Çoğul doğumda bu sürelere 30'ar gün eklenir; çocuk engelli doğmuşsa süre 360 gündür. Bu dönemde süt izni uygulanmaz.
 
 **Mazeret izinleri (Ek md. 2):** İşçiye ücretli izin şöyle verilir:
 

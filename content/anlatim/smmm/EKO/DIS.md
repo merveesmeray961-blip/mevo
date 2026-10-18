@@ -110,9 +110,9 @@ Aynı sürede A ülkesi 10 kumaş veya 20 şarap, B ülkesi 6 kumaş veya 6 şar
 
 ## 3. Döviz kuru: temel kavramlar
 
-**Nominal döviz kuru**, bir birim yabancı paranın ulusal para cinsinden fiyatıdır (örneğin 1 dolar = 36 TL). Bu gösterimde kurun **yükselmesi TL'nin değer kaybı** demektir.
+**Nominal döviz kuru**, bir birim yabancı paranın ulusal para cinsinden fiyatıdır (örneğin 1 dolar = 36 ₺). Bu gösterimde kurun **yükselmesi TL'nin değer kaybı** demektir.
 
-Yüzde hesabında tuzak vardır: Kur 30 TL'den 36 TL'ye çıkarsa doların TL değeri (36 − 30)/30 = **%20** artar; ama 1 TL'nin dolar değeri 1/30'dan 1/36'ya düşer, yani TL **%16,67** değer kaybeder (1 − 30/36).
+Yüzde hesabında tuzak vardır: Kur 30 ₺'den 36 ₺'ye çıkarsa doların TL değeri (36 − 30)/30 = **%20** artar; ama 1 ₺'nin dolar değeri 1/30'dan 1/36'ya düşer, yani TL **%16,67** değer kaybeder (1 − 30/36).
 
 **Reel döviz kuru**, nominal kurun fiyat düzeyleriyle düzeltilmiş hâlidir: q = e × P* / P (e: nominal kur, P*: yabancı fiyat düzeyi, P: yurt içi fiyat düzeyi). Bu tanımda q'nun artması ulusal paranın reel değer kaybıdır ve rekabet gücünü artırır. TCMB'nin reel efektif kur endeksinde ise artış TL'nin reel değer kazancını gösterir; soruda hangi tanımın kullanıldığına bak.
 
@@ -126,7 +126,7 @@ Kur rejimleri: **sabit kur** (merkez bankası kuru ilan eder, rezervle savunur),
 
 ### 4.2 Etki mekanizması
 
-Devalüasyon yerli malları yabancılar için ucuzlatır, ithal malları yerli alıcılar için pahalılaştırır. Örnek: 360 TL'lik bir Türk malı, kur 30 iken 12 dolar, kur 36 olunca 10 dolardır. 100 dolarlık ithal mal ise 3.000 TL'den 3.600 TL'ye çıkar. Beklenen sonuç ihracat miktarının artması, ithalat miktarının azalması ve dış ticaret dengesinin iyileşmesidir. Bu sonuç üç koşula bağlıdır:
+Devalüasyon yerli malları yabancılar için ucuzlatır, ithal malları yerli alıcılar için pahalılaştırır. Örnek: 360 ₺'lik bir Türk malı, kur 30 iken 12 dolar, kur 36 olunca 10 dolardır. 100 dolarlık ithal mal ise 3.000 ₺'den 3.600 ₺'ye çıkar. Beklenen sonuç ihracat miktarının artması, ithalat miktarının azalması ve dış ticaret dengesinin iyileşmesidir. Bu sonuç üç koşula bağlıdır:
 
 1. **Marshall-Lerner koşulu (esneklik yaklaşımı):** Başlangıçta dış ticaret dengedeyse ve arz esneklikleri sonsuz kabul edilirse, devalüasyonun dış ticaret dengesini iyileştirmesi için ihracat ve ithalat talebinin fiyat esnekliklerinin mutlak değerleri toplamı 1'den büyük olmalıdır (mutlak Ex + mutlak Em 1'den büyük). Örneğin esneklikler 0,8 ve 0,5 ise toplam 1,3 olduğundan denge iyileşir; 0,4 ve 0,3 ise toplam 0,7'dir ve devalüasyon dengeyi bozar.
 2. **J-eğrisi:** Kısa dönemde sözleşmeler ve alışkanlıklar nedeniyle miktarlar hemen değişmez, ama ithalatın ulusal para cinsinden faturası hemen kabarır. Bu yüzden dış ticaret dengesi önce kötüleşir, esneklikler zamanla büyüdükçe iyileşir. Grafiği "J" harfine benzer.

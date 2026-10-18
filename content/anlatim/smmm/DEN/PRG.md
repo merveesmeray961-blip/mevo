@@ -89,21 +89,21 @@ kaynaklar:
    - **İstisna (fark):** Yanlışlık olup olmadığı araştırılır; yolda para, iade, fiyat farkı veya hata olabilir.
    - **Yönetim izin vermezse:** Gerekçe sorgulanır, kanıtla desteklenmeye çalışılır, hile riski yeniden değerlendirilir, alternatif prosedür uygulanır. Gerekçe makul değilse veya kanıt elde edilemezse ÜYSO'ya bildirilir ve görüşe etkisi BDS 705'e göre değerlendirilir.
 4. **Sonraki tahsilatlar:** Bilanço tarihinden sonra bankaya geçen tahsilatlar var olma ve değerlemeye güçlü kanıttır.
-5. **Değerleme:** Yaşlandırma, icra ve dava dosyaları, avukat yazıları ve teminatlar incelenir. Vergi açısından **şüpheli alacak** (VUK md. 323): ticari kazançla ilgili olup dava veya icra safhasındaki alacaklar ile protesto edilmiş veya yazıyla birden fazla istenmiş ve 2026 için **25.000 TL**'yi aşmayan alacaklar. Teminatlı alacakta karşılık teminattan kalan kısma ayrılır. Tahsil imkânı kalmayan alacak **değersiz alacaktır** (VUK md. 322). TFRS uygulayan işletmede ayrıca TFRS 9 beklenen kredi zararı değerlendirilir.
+5. **Değerleme:** Yaşlandırma, icra ve dava dosyaları, avukat yazıları ve teminatlar incelenir. Vergi açısından **şüpheli alacak** (VUK md. 323): ticari kazançla ilgili olup dava veya icra safhasındaki alacaklar ile protesto edilmiş veya yazıyla birden fazla istenmiş ve 2026 için **25.000 ₺**'yi aşmayan alacaklar. Teminatlı alacakta karşılık teminattan kalan kısma ayrılır. Tahsil imkânı kalmayan alacak **değersiz alacaktır** (VUK md. 322). TFRS uygulayan işletmede ayrıca TFRS 9 beklenen kredi zararı değerlendirilir.
 6. **Sunum:** Ortaklardan ve ilişkili taraflardan alacaklar ticari alacaktan ayrılır; vadesi bir yılı aşanlar uzun vadeye sınıflanır.
 
 ### Çözümlü örnek: Teyit farkı ve şüpheli alacak
 
-31.12.2026 itibarıyla 120 Alıcılar 6.000.000 TL'dir.
+31.12.2026 itibarıyla 120 Alıcılar 6.000.000 ₺'dir.
 
-**a) Teyit farkı:** M Ltd. kayıtlarda 450.000 TL borçlu, teyitte 420.000 TL bildiriyor. Fark 450.000 − 420.000 = **30.000 TL**. İnceleme: M Ltd. 28 Aralık'ta 30.000 TL'lik malı iade etmiş, iade faturası kayda alınmamış. Bu bir yanlışlıktır (KDV ihmal edilmiştir). Düzeltme önerisi: 610 Satıştan İadeler borç 30.000 / 120 Alıcılar alacak 30.000. Stok etkisi de değerlendirilir.
+**a) Teyit farkı:** M Ltd. kayıtlarda 450.000 ₺ borçlu, teyitte 420.000 ₺ bildiriyor. Fark 450.000 − 420.000 = **30.000 ₺**. İnceleme: M Ltd. 28 Aralık'ta 30.000 ₺'lik malı iade etmiş, iade faturası kayda alınmamış. Bu bir yanlışlıktır (KDV ihmal edilmiştir). Düzeltme önerisi: 610 Satıştan İadeler borç 30.000 / 120 Alıcılar alacak 30.000. Stok etkisi de değerlendirilir.
 
-**b) Şüpheli alacak:** K AŞ'nin 180.000 TL'lik alacağı 9 aydır vadesi geçmiş, Kasım 2026'da icra takibi başlatılmış, 50.000 TL'lik ipotek alınmış; işletme karşılık ayırmamış.
+**b) Şüpheli alacak:** K AŞ'nin 180.000 ₺'lik alacağı 9 aydır vadesi geçmiş, Kasım 2026'da icra takibi başlatılmış, 50.000 ₺'lik ipotek alınmış; işletme karşılık ayırmamış.
 
 1. Alacak icra safhasında olduğu için şüphelidir: 128 borç 180.000 / 120 alacak 180.000.
-2. Karşılık teminattan kalan kısma ayrılır: 180.000 − 50.000 = **130.000 TL**.
+2. Karşılık teminattan kalan kısma ayrılır: 180.000 − 50.000 = **130.000 ₺**.
 3. Kayıt: 654 Karşılık Giderleri borç 130.000 / 129 Şüpheli Ticari Alacaklar Karşılığı alacak 130.000.
-4. Alacaklar toplamda 30.000 + 130.000 = **160.000 TL** fazla gösterilmiştir; tutar önemlilikle karşılaştırılır, yönetimden düzeltme istenir.
+4. Alacaklar toplamda 30.000 + 130.000 = **160.000 ₺** fazla gösterilmiştir; tutar önemlilikle karşılaştırılır, yönetimden düzeltme istenir.
 
 > **Sık yapılan hata:** Teyit yanıtının gelmemesini "kanıt yok, sorun da yok" diye geçmek. BDS 505'e göre yanıt gelmeyen her bakiye için alternatif prosedür şarttır. Ayrıca teyit var olmaya güçlü kanıttır ama **tahsil edilebilirliği** kanıtlamaz; değerleme ayrıca test edilir.
 
@@ -123,11 +123,11 @@ kaynaklar:
 
 ### Çözümlü örnek: Kesim testi
 
-Kesim testinde 29.12.2026 tarihli 240.000 TL'lik fatura bulunuyor. Mal 4.01.2027'de sevk edilmiş; sözleşmeye göre kontrol, malın alıcı deposuna tesliminde geçiyor. Malın maliyeti 160.000 TL'dir ve işletme stok çıkışını fatura ile birlikte 2026'da yapmış.
+Kesim testinde 29.12.2026 tarihli 240.000 ₺'lik fatura bulunuyor. Mal 4.01.2027'de sevk edilmiş; sözleşmeye göre kontrol, malın alıcı deposuna tesliminde geçiyor. Malın maliyeti 160.000 ₺'dir ve işletme stok çıkışını fatura ile birlikte 2026'da yapmış.
 
-1. Kontrol 2027'de geçtiği için 2026 hasılatı **240.000 TL fazla**.
-2. Satışların maliyeti **160.000 TL fazla**, stok 160.000 TL eksik.
-3. Dönem kârına etkisi: 240.000 − 160.000 = **80.000 TL fazla kâr**. Alacak da 240.000 TL fazla gösterilmiştir (KDV etkisi ayrıca değerlendirilir).
+1. Kontrol 2027'de geçtiği için 2026 hasılatı **240.000 ₺ fazla**.
+2. Satışların maliyeti **160.000 ₺ fazla**, stok 160.000 ₺ eksik.
+3. Dönem kârına etkisi: 240.000 − 160.000 = **80.000 ₺ fazla kâr**. Alacak da 240.000 ₺ fazla gösterilmiştir (KDV etkisi ayrıca değerlendirilir).
 4. Denetçi benzer kesim hatalarını aramak için incelemeyi genişletir ve bulguyu kasıt açısından BDS 240'a göre değerlendirir.
 
 ## 4. Maddi duran varlıklar ve amortisman denetimi
@@ -137,7 +137,7 @@ Kesim testinde 29.12.2026 tarihli 240.000 TL'lik fatura bulunuyor. Mal 4.01.2027
 **Program adımları:**
 
 1. **Hareket tablosu:** Açılış + girişler − çıkışlar = kapanış; brüt değer ve birikmiş amortisman için ayrı ayrı. Açılış bakiyesi önceki yıl dosyasıyla karşılaştırılır.
-2. **Girişler:** Fatura, sözleşme, ödeme ve kabul belgeleri incelenir. Ömrü uzatan veya kapasiteyi artıran harcama aktifleştirilir; varlığı mevcut durumda tutan **bakım-onarım gider yazılır**. VUK md. 313'e göre 2026'da **12.000 TL**'yi aşmayan demirbaşlar doğrudan gider yazılabilir.
+2. **Girişler:** Fatura, sözleşme, ödeme ve kabul belgeleri incelenir. Ömrü uzatan veya kapasiteyi artıran harcama aktifleştirilir; varlığı mevcut durumda tutan **bakım-onarım gider yazılır**. VUK md. 313'e göre 2026'da **12.000 ₺**'yi aşmayan demirbaşlar doğrudan gider yazılabilir.
 3. **Var olma:** Önemli varlıklar yerinde incelenir (kayıttan varlığa). Fiziki inceleme var olmayı kanıtlar, **mülkiyeti ve değeri kanıtlamaz**; tapu, ruhsat ve fatura ayrıca incelenir.
 4. **Çıkışlar:** Satış ve hurdaya ayırma belgeleri, maliyet ve birikmiş amortismanın kayıttan çıkarılması, satış kâr/zararının yeniden hesaplanması.
 5. **Amortisman:** Örnek varlıklarda **yeniden hesaplama** ve gider/ortalama brüt MDV oranıyla analitik test. TMS 16'ya göre amortisman varlık **kullanılabilir olduğunda** başlar; yararlı ömür ve kalıntı değer **en az her yıl sonu** gözden geçirilir, değişiklik tahmin değişikliği olarak ileriye dönük uygulanır. Değer düşüklüğü göstergeleri TMS 36'ya göre değerlendirilir.
@@ -145,13 +145,13 @@ Kesim testinde 29.12.2026 tarihli 240.000 TL'lik fatura bulunuyor. Mal 4.01.2027
 
 ### Çözümlü örnek: Amortismanın yeniden hesaplanması
 
-Yönetimde kullanılan bir sunucu sistemi 1.200.000 TL'ye alınmış, **1.07.2026**'da kullanılabilir duruma gelmiştir. TFRS'ye göre yararlı ömür 5 yıl, kalıntı değer 200.000 TL, yöntem doğrusal. İşletme TFRS tablolarında 2026 için 200.000 TL amortisman ayırmıştır.
+Yönetimde kullanılan bir sunucu sistemi 1.200.000 ₺'ye alınmış, **1.07.2026**'da kullanılabilir duruma gelmiştir. TFRS'ye göre yararlı ömür 5 yıl, kalıntı değer 200.000 ₺, yöntem doğrusal. İşletme TFRS tablolarında 2026 için 200.000 ₺ amortisman ayırmıştır.
 
-1. Amortismana tabi tutar: 1.200.000 − 200.000 = **1.000.000 TL**.
-2. Yıllık amortisman: 1.000.000 / 5 = **200.000 TL**.
-3. 2026 payı (6 ay): 200.000 × 6/12 = **100.000 TL**.
-4. Fark: 200.000 − 100.000 = **100.000 TL fazla gider**. Düzeltme önerisi: 257 Birikmiş Amortismanlar borç 100.000 / 770 Genel Yönetim Giderleri alacak 100.000.
-5. Vergi tarafı: Bakanlık listesindeki oranın %20 olduğu varsayılırsa, VUK'ta kalıntı değer düşülmez ve gün esası seçilmemişse aktife girilen yıl için tam yıl ayrılır: 1.200.000 × %20 = **240.000 TL**. TFRS ile vergi arasındaki fark ertelenmiş vergi hesabına konu olur; denetçi iki hesabı karıştırmaz.
+1. Amortismana tabi tutar: 1.200.000 − 200.000 = **1.000.000 ₺**.
+2. Yıllık amortisman: 1.000.000 / 5 = **200.000 ₺**.
+3. 2026 payı (6 ay): 200.000 × 6/12 = **100.000 ₺**.
+4. Fark: 200.000 − 100.000 = **100.000 ₺ fazla gider**. Düzeltme önerisi: 257 Birikmiş Amortismanlar borç 100.000 / 770 Genel Yönetim Giderleri alacak 100.000.
+5. Vergi tarafı: Bakanlık listesindeki oranın %20 olduğu varsayılırsa, VUK'ta kalıntı değer düşülmez ve gün esası seçilmemişse aktife girilen yıl için tam yıl ayrılır: 1.200.000 × %20 = **240.000 ₺**. TFRS ile vergi arasındaki fark ertelenmiş vergi hesabına konu olur; denetçi iki hesabı karıştırmaz.
 
 > **Sınav ipucu:** "Fiziki inceleme maddi duran varlığın mülkiyetine kanıt sağlar" ifadesi yanlıştır; var olmaya kanıt sağlar. "Amortisman varlık alındığı tarihte başlar" ifadesi de TMS 16'ya göre yanlıştır; varlık **kullanılabilir olduğunda** başlar.
 

@@ -94,14 +94,14 @@ Genel muhasebe ile maliyet muhasebesi ayrı yürütülüyorsa **70 Maliyet Muhas
 - **734 Kapasite farkı** = Fiili saate göre esnek bütçe GÜG − Fiili saat × standart yükleme oranı (sabit GÜG'nin normal kapasitenin altında kullanılması)
 - **733 Verimlilik farkı** = (Fiili saat − Fiili üretim için standart saat) × standart yükleme oranı
 
-**Örnek:** Bütçelenen sabit GÜG 60.000 TL, değişken GÜG saat başına 4 TL, normal kapasite 20.000 makine saati. Yükleme oranı = 60.000 / 20.000 + 4 = **7 TL/saat**. Dönemde 18.000 saat çalışılmış, fiili üretim için standart süre 17.000 saattir; fiili GÜG 136.000 TL'dir.
+**Örnek:** Bütçelenen sabit GÜG 60.000 ₺, değişken GÜG saat başına 4 ₺, normal kapasite 20.000 makine saati. Yükleme oranı = 60.000 / 20.000 + 4 = **7 ₺/saat**. Dönemde 18.000 saat çalışılmış, fiili üretim için standart süre 17.000 saattir; fiili GÜG 136.000 ₺'dir.
 
-1. Yüklenen GÜG = 17.000 × 7 = 119.000 TL; toplam fark = 136.000 − 119.000 = **17.000 TL olumsuz**.
-2. Esnek bütçe (18.000 saat) = 60.000 + 18.000 × 4 = 132.000 TL.
-3. Bütçe farkı = 136.000 − 132.000 = **4.000 TL olumsuz** (732 borç).
-4. Kapasite farkı = 132.000 − 18.000 × 7 = 132.000 − 126.000 = **6.000 TL olumsuz** (734 borç).
-5. Verimlilik farkı = (18.000 − 17.000) × 7 = **7.000 TL olumsuz** (733 borç).
-6. Kontrol: 4.000 + 6.000 + 7.000 = 17.000 TL.
+1. Yüklenen GÜG = 17.000 × 7 = 119.000 ₺; toplam fark = 136.000 − 119.000 = **17.000 ₺ olumsuz**.
+2. Esnek bütçe (18.000 saat) = 60.000 + 18.000 × 4 = 132.000 ₺.
+3. Bütçe farkı = 136.000 − 132.000 = **4.000 ₺ olumsuz** (732 borç).
+4. Kapasite farkı = 132.000 − 18.000 × 7 = 132.000 − 126.000 = **6.000 ₺ olumsuz** (734 borç).
+5. Verimlilik farkı = (18.000 − 17.000) × 7 = **7.000 ₺ olumsuz** (733 borç).
+6. Kontrol: 4.000 + 6.000 + 7.000 = 17.000 ₺.
 
 Kayıtlar: dönem içinde 730 borç 136.000 / çeşitli hesaplar alacak; yüklemede 151 borç 119.000 / 731 alacak 119.000. Dönem sonunda 731 borç 119.000, 732 borç 4.000, 733 borç 7.000, 734 borç 6.000 / 730 alacak 136.000. Ürünlerin tamamı satılmışsa farklar 620 borç 17.000 / 732, 733, 734 alacak kaydıyla kapatılır; bir kısmı stokta ise farklar 151, 152 ve 620 arasında paylaştırılır.
 
@@ -111,20 +111,20 @@ Kayıtlar: dönem içinde 730 borç 136.000 / çeşitli hesaplar alacak; yüklem
 
 Hizmet işletmelerinde 71, 72 ve 73 grupları kullanılmaz; hizmet üretimine ilişkin tüm giderler **74 Hizmet Üretim Maliyeti** grubunda izlenir.
 
-**Fiili maliyet yöntemi.** Bir danışmanlık işletmesinde dönem içinde 180.000 TL hizmet üretim gideri oluşmuştur.
+**Fiili maliyet yöntemi.** Bir danışmanlık işletmesinde dönem içinde 180.000 ₺ hizmet üretim gideri oluşmuştur.
 
 1. Giderler oluştukça: 740 borç 180.000 / ilgili kasa, banka, borç hesapları alacak 180.000.
 2. Dönem sonu aktarım: 622 borç 180.000 / 741 alacak 180.000.
 3. Kapanış: 741 borç 180.000 / 740 alacak 180.000.
 4. Yıl sonunda 622, diğer gider hesaplarıyla birlikte 690 Dönem Kârı veya Zararı hesabına devredilir (690 borç / 622 alacak).
 
-**Önceden saptanmış maliyet yöntemi.** Aynı işletmede önceden saptanan hizmet maliyeti 170.000 TL, fiili maliyet 180.000 TL olsun.
+**Önceden saptanmış maliyet yöntemi.** Aynı işletmede önceden saptanan hizmet maliyeti 170.000 ₺, fiili maliyet 180.000 ₺ olsun.
 
 1. 622 borç 170.000 / 741 alacak 170.000.
 2. Kapanış: 741 borç 170.000, 742 borç 10.000 / 740 alacak 180.000.
 3. Farkın kapanışı: 622 borç 10.000 / 742 alacak 10.000.
 
-Sonuçta 622'de fiili tutar olan 180.000 TL toplanır. 7/B uygulayan hizmet işletmesinde ise aynı tutar 799'da toplanır ve dönem sonunda 622 borç / 799 alacak kaydıyla aktarılır.
+Sonuçta 622'de fiili tutar olan 180.000 ₺ toplanır. 7/B uygulayan hizmet işletmesinde ise aynı tutar 799'da toplanır ve dönem sonunda 622 borç / 799 alacak kaydıyla aktarılır.
 
 ## 5. 78 Finansman giderleri
 
@@ -132,7 +132,7 @@ Sonuçta 622'de fiili tutar olan 180.000 TL toplanır. 7/B uygulayan hizmet işl
 
 Faizin bir kısmı varlık maliyetine girer. VUK md. 262/c'ye göre bir iktisadi kıymetin finansmanında kullanılan kredilerin faiz ve kur farklarının **emtiada emtianın stoklara girdiği tarihe kadar**, diğer iktisadi kıymetlerde envantere alındığı hesap döneminin sonuna kadar olan kısmı maliyet bedeline dahil edilir; sonraki kısmı maliyete eklemek ya da gider yazmak mükellefin tercihindedir. TMS 23 de özellikli varlıkla doğrudan ilişkilendirilebilen borçlanma maliyetlerinin aktifleştirilmesini öngörür. Bu kısımlar 78'e değil, ilgili varlık hesabına (153, 258 gibi) kaydedilir.
 
-**Örnek:** Kısa vadeli banka kredisinin dönem faizi 30.000 TL'dir; 6.000 TL'si ithal edilen ticari malın stoğa girişinden önceki döneme aittir.
+**Örnek:** Kısa vadeli banka kredisinin dönem faizi 30.000 ₺'dir; 6.000 ₺'si ithal edilen ticari malın stoğa girişinden önceki döneme aittir.
 
 1. 153 borç 6.000 / 300 alacak 6.000 (maliyete eklenen kısım).
 2. 780 borç 24.000 / 300 alacak 24.000.
@@ -145,7 +145,7 @@ Faizin bir kısmı varlık maliyetine girer. VUK md. 262/c'ye göre bir iktisadi
 
 Ücret bordrosu tahakkuk ettirilirken her çalışanın brüt ücreti ve işveren payları **fonksiyonuna** göre gider hesabına; kesintiler ve net ücret ilgili borç hesaplarına yazılır.
 
-**Örnek:** Brüt ücretler: direkt üretim işçileri 200.000, fabrika bakım işçileri 50.000, satış personeli 40.000, yönetim personeli 60.000 TL (toplam 350.000 TL). İşçilerden kesilen SGK ve işsizlik sigortası primleri 52.500 TL, gelir ve damga vergisi 40.000 TL, işveren SGK ve işsizlik payları 70.000 TL'dir (her grubun brüt ücretinin %20'si olduğu varsayılmıştır).
+**Örnek:** Brüt ücretler: direkt üretim işçileri 200.000, fabrika bakım işçileri 50.000, satış personeli 40.000, yönetim personeli 60.000 ₺ (toplam 350.000 ₺). İşçilerden kesilen SGK ve işsizlik sigortası primleri 52.500 ₺, gelir ve damga vergisi 40.000 ₺, işveren SGK ve işsizlik payları 70.000 ₺'dir (her grubun brüt ücretinin %20'si olduğu varsayılmıştır).
 
 **7/A'da tahakkuk kaydı:**
 
@@ -159,7 +159,7 @@ Faizin bir kısmı varlık maliyetine girer. VUK md. 262/c'ye göre bir iktisadi
 | 360 Ödenecek Vergi ve Fonlar | | 40.000 |
 | 361 Ödenecek Sosyal Güvenlik Kesintileri | | 122.500 |
 
-Net ücret = 350.000 − 52.500 − 40.000 = 257.500 TL; 361'e işçi ve işveren payları birlikte yazılır: 52.500 + 70.000 = 122.500 TL.
+Net ücret = 350.000 − 52.500 − 40.000 = 257.500 ₺; 361'e işçi ve işveren payları birlikte yazılır: 52.500 + 70.000 = 122.500 ₺.
 
 Yansıtma kayıtları: 151 borç 240.000 / 721 alacak 240.000; 151 borç 60.000 / 731 alacak 60.000 (GÜG'ün diğer kalemleriyle birlikte); 631 borç 48.000 / 761 alacak 48.000; 632 borç 72.000 / 771 alacak 72.000. Ardından 721/720, 731/730, 761/760 ve 771/770 karşılaştırılarak kapatılır. Fiili maliyet yönteminde üretim yapılmayan işçilik 721'in alacağı karşılığında **680 Çalışmayan Kısım Gider ve Zararları**na aktarılır.
 

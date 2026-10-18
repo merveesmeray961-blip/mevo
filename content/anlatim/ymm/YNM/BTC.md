@@ -2,7 +2,7 @@
 ders: YNM
 konu: BTC
 baslik: Bütçeleme ve standart maliyet
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "Genel bilgi — Bütçeleme ve standart maliyet"
@@ -15,9 +15,10 @@ kaynaklar:
 ## Bu konuda neler öğreneceksin
 
 - Ana bütçenin bileşenlerini ve hazırlanma sırasını
+- Nakit bütçesini hazırlamayı ve finansman ihtiyacını (borçlanma, faiz, geri ödeme) bulmayı
 - Statik bütçe ile esnek bütçe arasındaki farkı
 - Malzeme ve işçilik sapmalarını fiyat ve miktar bileşenlerine ayırmayı
-- Genel üretim gideri sapmalarını üçlü ve ikili ayrımla hesaplamayı
+- Genel üretim gideri sapmalarını sınav anahtarının kullandığı modelle üçlü ve ikili ayrımla hesaplamayı
 - Sapmaların toplamının toplam sapmaya eşitliğini kontrol etmeyi
 
 ## 1. Ana bütçe
@@ -32,7 +33,28 @@ Kural: Hazırlık **satış bütçesiyle** başlar; çünkü diğer bütçeler s
 - Üretim miktarı = Bütçelenen satış + İstenen dönem sonu mamul stoku − Dönem başı mamul stoku
 - Malzeme satın alma miktarı = Üretim için gereken malzeme + İstenen dönem sonu malzeme stoku − Dönem başı malzeme stoku
 
-İstisna: Kapasite, hammadde ya da finansman satıştan daha bağlayıcı bir kısıtsa bütçe bu kısıttan başlatılır.
+- Ticari işletmede mal alım bütçesi = Satışların maliyeti + İstenen dönem sonu stok − Dönem başı stok
+
+İstisna: Kapasite, hammadde ya da finansman satıştan daha bağlayıcı bir kısıtsa bütçe bu kısıttan başlatılır. Sonuç verilip satış istenirse aynı eşitliği bilinmeyene göre çöz.
+
+### Nakit bütçesi ve finansman ihtiyacı
+
+**Nakit bütçesi**, dönem başı kasa + tahsilatlar − ödemeler ile bulunan nakit durumunu **asgari kasa** bakiyesiyle karşılaştırır; açık varsa borçlanma, fazla varsa borç geri ödemesi planlanır. Tahsilat ve ödemeler satış ve alımların vade yapısından (ör. %60 peşin, %40 izleyen dönem) türetilir; amortisman nakit çıkışı değildir.
+
+Örnek: Dönem başı kasa 60.000, asgari kasa 50.000 TL. Satışlar Ç1 400.000, Ç2 600.000 TL; %60'ı aynı çeyrek, %40'ı izleyen çeyrek tahsil edilir; dönem başı alacak 150.000 TL Ç1'de tahsil edilir. Alımlar Ç1 250.000, Ç2 300.000 TL; %50'si aynı, %50'si izleyen çeyrek ödenir; dönem başı borç 100.000 TL Ç1'de ödenir. Diğer nakit giderler Ç1 230.000, Ç2 150.000 TL. Borç 10.000 TL'nin katları hâlinde çeyrek başında alınır; faiz çeyreklik %4'tür ve anaparayla birlikte çeyrek sonunda ödenir.
+
+| Kalem | Ç1 | Ç2 |
+|---|---|---|
+| Dönem başı kasa | 60.000 | 55.000 |
+| Tahsilat | 150.000 + 240.000 = 390.000 | 160.000 + 360.000 = 520.000 |
+| Alım ödemeleri | 100.000 + 125.000 = 225.000 | 125.000 + 150.000 = 275.000 |
+| Diğer giderler | 230.000 | 150.000 |
+| Finansman öncesi kasa | −5.000 | 150.000 |
+| Borçlanma / (geri ödeme) | 60.000 | (60.000) |
+| Faiz | – | (60.000 × %4 × 2 = 4.800) |
+| Dönem sonu kasa | 55.000 | 85.200 |
+
+Ç1'de asgari kasaya ulaşmak için 55.000 TL gerekir; 10.000'in katı olarak 60.000 TL borç alınır. Ç2'de fazla nakitle anapara ve iki çeyreklik faiz ödenir; kasa 50.000 TL'nin üzerinde kalır.
 
 ## 2. Esnek bütçe
 
@@ -76,14 +98,14 @@ Kural: Fiyat ve ücret sapmaları genellikle satın alma ve personel birimlerini
 
 **Genel üretim gideri** (GÜG) standart maliyete **yükleme oranıyla** aktarılır: Yükleme oranı = Bütçelenen GÜG / Normal kapasite (direkt işçilik saati). Oran değişken ve sabit kısımlara ayrılır. Mamullere yüklenen GÜG = SS × Toplam oran.
 
-Genel üretim gideri sapmaları ekole göre farklı ayrılır; bu anlatımda Türkiye'de yaygın olan model kullanılır:
+Genel üretim gideri sapmaları ekole göre farklı ayrılır. YMM sınavının resmî cevap anahtarları (2022/1 ve 2023/2) **Anglosakson modelini** kullanır; bu anlatımda da varsayılan model budur:
 
-- **Üçlü ayrım**: Bütçe farkı = Fiili GÜG − (Sabit bütçe + FS × Değişken oran); Kapasite farkı = (Normal kapasite − FS) × Sabit oran; Verimlilik farkı = (FS − SS) × Toplam oran.
+- **Üçlü ayrım**: Harcama (bütçe) farkı = Fiili GÜG − (Sabit bütçe + FS × Değişken oran); **Verimlilik farkı = (FS − SS) × Değişken oran**; **Kapasite (hacim) farkı = (Normal kapasite − SS) × Sabit oran** (= SS'deki esnek bütçe − SS × Toplam oran).
 - **İkili ayrım**: Bütçe (kontrol edilebilir) farkı = Fiili GÜG − (Sabit bütçe + SS × Değişken oran); Kapasite (hacim) farkı = (Normal kapasite − SS) × Sabit oran.
 
-İstisna: Anglosakson modelinde üçlü ayrımda verimlilik yalnız değişken oranla, hacim farkı ise standart saatle hesaplanır. Her iki modelde de bütçe farkı ile toplam sapma aynıdır; yalnız verimlilik ve kapasite arasındaki bölüşüm değişir.
+Alternatif (Türk ders kitaplarında yaygın) model: Verimlilik = (FS − SS) × Toplam oran, Kapasite = (Normal kapasite − FS) × Sabit oran. Harcama farkı ve toplam sapma iki modelde aynıdır; yalnız verimlilik ile kapasite arasındaki bölüşüm değişir. Model belirtilmemişse Anglosakson modeliyle çöz ve formülü yaz.
 
-> **Sınav ipucu:** Tek Düzen Hesap Planı 7/A seçeneğinde GÜG farkları 732 Genel Üretim Giderleri Bütçe Farkları, 733 Genel Üretim Giderleri Verimlilik Farkları ve 734 Genel Üretim Giderleri Kapasite Farkları hesaplarında ayrı izlenir; olumsuz (aleyhte) farklar borca, olumlu (lehte) farklar alacağa yazılır. Soru hangi modeli istediğini belirtmiyorsa üçlü ayrımı kullan ve hangi oranı çarptığını yaz.
+> **Sınav ipucu:** Tek Düzen Hesap Planı 7/A seçeneğinde GÜG farkları 732 Genel Üretim Giderleri Bütçe Farkları, 733 Genel Üretim Giderleri Verimlilik Farkları ve 734 Genel Üretim Giderleri Kapasite Farkları hesaplarında ayrı izlenir; olumsuz (aleyhte) farklar borca, olumlu (lehte) farklar alacağa yazılır. Soru hangi modeli istediğini belirtmiyorsa üçlü ayrımı Anglosakson modeliyle kullan ve hangi oranı çarptığını yaz.
 
 ### Örnek: Standart maliyet sapmaları
 
@@ -94,8 +116,8 @@ Birim standartlar: direkt malzeme 4 kg × 10 TL = 40 TL; direkt işçilik 2 saat
 3. Malzeme fiyat sapması = (10,40 − 10) × 19.500 = 7.800 TL A; miktar sapması = (19.500 − 19.200) × 10 = 3.000 TL A. Toplam = 202.800 − 192.000 = 10.800 TL A.
 4. İşçilik ücret sapması = (49 − 50) × 9.800 = −9.800 TL L; süre sapması = (9.800 − 9.600) × 50 = 10.000 TL A. Toplam = 480.200 − 480.000 = 200 TL A.
 5. Yüklenen GÜG = 9.600 × 35 = 336.000 TL; toplam GÜG sapması = 352.000 − 336.000 = 16.000 TL A.
-6. Üçlü ayrım: FS'ye göre esnek bütçe = 200.000 + 9.800 × 15 = 347.000 TL. Bütçe farkı = 352.000 − 347.000 = 5.000 TL A; kapasite farkı = (10.000 − 9.800) × 20 = 4.000 TL A; verimlilik farkı = (9.800 − 9.600) × 35 = 7.000 TL A. Toplam 16.000 TL A.
-7. İkili ayrım: SS'ye göre esnek bütçe = 200.000 + 9.600 × 15 = 344.000 TL. Bütçe farkı = 352.000 − 344.000 = 8.000 TL A; kapasite farkı = (10.000 − 9.600) × 20 = 8.000 TL A. Toplam 16.000 TL A.
+6. Üçlü ayrım (Anglosakson): FS'ye göre esnek bütçe = 200.000 + 9.800 × 15 = 347.000 TL. Harcama farkı = 352.000 − 347.000 = 5.000 TL A; verimlilik farkı = (9.800 − 9.600) × 15 = 3.000 TL A; kapasite farkı = (10.000 − 9.600) × 20 = 8.000 TL A. Toplam 16.000 TL A. (Alternatif modelde verimlilik 200 × 35 = 7.000 TL A, kapasite (10.000 − 9.800) × 20 = 4.000 TL A; toplam yine 16.000 TL.)
+7. İkili ayrım: SS'ye göre esnek bütçe = 200.000 + 9.600 × 15 = 344.000 TL. Bütçe farkı = 352.000 − 344.000 = 8.000 TL A (= harcama 5.000 + verimlilik 3.000); kapasite farkı = 8.000 TL A. Toplam 16.000 TL A.
 8. Genel kontrol: fiili toplam maliyet = 202.800 + 480.200 + 352.000 = 1.035.000 TL; standart maliyet = 4.800 × 210 = 1.008.000 TL; fark 27.000 TL A = 10.800 + 200 + 16.000.
 
 ### Örnek: Ana bütçe ve esnek bütçe bağlantısı
@@ -110,7 +132,7 @@ Aynı işletmede satış 4.900 birim, istenen dönem sonu mamul stoku 500, döne
 
 ### Tasdik uygulama notu
 
-Vergi Usul Kanunu stokların maliyet bedeliyle değerlenmesini esas aldığından standart maliyet sistemi uygulayan işletmede dönem sonu bilançosunda standart değil, fiili maliyete yaklaştırılmış tutar yer almalıdır. Tek Düzen Hesap Planı'na göre fark hesapları (712, 713, 722, 723, 732, 733, 734) dönem sonunda ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır. Tam tasdikte bu kapanışın yapılıp yapılmadığı ve farkların 151 Yarı Mamuller - Üretim, 152 Mamuller ile 620 Satılan Mamuller Maliyeti arasında makul bir ölçüye (genellikle bu kalemlerdeki standart maliyet payına) göre dağıtılıp dağıtılmadığı kontrol edilir. Standartların gerçekçiliği, önemli ve süreklilik gösteren sapmaların nedenleri ile atıl kapasiteye bağlı kapasite farkının nasıl işlendiği çalışma kâğıdında belgelenir.
+Vergi Usul Kanunu stokların maliyet bedeliyle değerlenmesini esas aldığından standart maliyet uygulayan işletmede dönem sonu bilançosunda fiili maliyete yaklaştırılmış tutar yer almalıdır. Fark hesapları (712, 713, 722, 723, 732, 733, 734) dönem sonunda 151 Yarı Mamuller, 152 Mamuller ve 620 Satılan Mamuller Maliyeti arasında makul bir ölçüyle dağıtılarak kapatılır. Tam tasdikte bu dağıtım ve atıl kapasiteye bağlı kapasite farkının işlenişi kontrol edilir.
 
 ## Özet
 
@@ -118,5 +140,6 @@ Vergi Usul Kanunu stokların maliyet bedeliyle değerlenmesini esas aldığında
 - Esnek bütçe değişken maliyeti fiili hacme göre ayarlar; performans esnek bütçeyle ölçülür.
 - İşaret kuralı: Sapma = Fiili − Standart; pozitif aleyhte, negatif lehte.
 - Malzeme: fiyat (FF − SF) × FM, miktar (FM − SM) × SF; işçilik: ücret (FÜ − SÜ) × FS, süre (FS − SS) × SÜ.
-- GÜG üçlü ayrım: bütçe, kapasite (NK − FS) × sabit oran, verimlilik (FS − SS) × toplam oran; ikili ayrım: bütçe ve kapasite (NK − SS) × sabit oran.
+- GÜG üçlü ayrım (sınav anahtarı modeli): harcama, verimlilik (FS − SS) × değişken oran, kapasite (NK − SS) × sabit oran; ikili ayrım: bütçe ve kapasite (NK − SS) × sabit oran.
+- Nakit bütçesinde finansman öncesi kasa asgari kasa ile karşılaştırılır; açık borçla kapatılır, fazla nakitle anapara ve faiz ödenir.
 - Fiyat sapması kullanılan miktar üzerinden ayrıldığında sapmaların toplamı fiili maliyet ile standart maliyet farkına eşittir; dönem sonunda stoklar ve satılan mamul maliyeti arasında dağıtılır.

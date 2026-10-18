@@ -2,7 +2,7 @@
 ders: SPM
 konu: IHR
 baslik: İhraç ve halka arz
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
@@ -29,7 +29,8 @@ kaynaklar:
 - İzahname ile ihraç belgesinin hangi durumda gerektiği, onay ve ilan süreleri
 - Satış şekilleri, halka arzda satış yöntemleri ve tahsisat kuralları
 - İzahnameden ve diğer kamuyu aydınlatma belgelerinden doğan sorumluluk
-- Borçlanma araçlarına ilişkin kanuni çerçeve
+- Borçlanma araçları, borçlanma aracı sahipleri kurulu ve teminat yöneticisi
+- Konut ve varlık finansmanı araçlarını (SPKn md. 57-61/B)
 - Fiyat aralığı ve tahsisat hesaplaması
 
 ## 1. İzahname ve ihraç belgesi
@@ -49,10 +50,8 @@ Kitle fonlaması yoluyla para toplanması izahname ve ihraç belgesi yükümlül
 | Kurulun karara bağlaması | 10 iş günü; payların ilk halka arzında 20 iş günü | SPKn md. 6/2; Tebliğ md. 19/1 |
 | Eksikliğin bildirilmesi | Başvurudan itibaren 10 iş günü içinde | SPKn md. 6/3 |
 | Eksikliğin giderilmesi | 20 iş günü; süreler belgelerin tamamlanmasından itibaren baştan işler | Tebliğ md. 19/2 |
-| Onaylanmamış taslağın ilanı | Başvurudan itibaren 5 iş günü içinde | Tebliğ md. 28/2 |
 | Onaylı izahnamenin teslim alınması | Onay kararını takip eden 20 iş günü; aksi hâlde yeniden onay | Tebliğ md. 22/5 |
 | Onaylı izahnamenin ilanı | Teslimden itibaren 15 iş günü içinde | Tebliğ md. 28/3 |
-| Yayım yerinin tescili | İlandan itibaren 10 iş günü içinde | Tebliğ md. 28/9 |
 | Geçerlilik | İlk yayımdan itibaren 12 ay | SPKn md. 9; Tebliğ md. 17 |
 
 İzahnamenin onaylanması, bilgilerin doğruluğunun Kurulca **tekeffülü** anlamına gelmez ve yatırım tavsiyesi sayılmaz (SPKn md. 6/1). Satıştan önce veya satış süresinde yatırım kararını etkileyecek bir değişiklik çıkarsa durum derhal Kurula bildirilir, değişiklik **yedi iş günü** içinde onaylanır. Daha önce talepte bulunan yatırımcı, değişikliğin yayımından itibaren **iki iş günü** içinde talebini geri alabilir (SPKn md. 8).
@@ -124,9 +123,24 @@ Sermaye piyasası araçları **halka arz** edilerek ya da halka arz edilmeksizin
 - İhraç yetkisi esas sözleşme ile yönetim kuruluna **süreli veya süresiz** devredilebilir.
 - Ödeme yükümlülüğü yerine getirilmezse Merkezi Kayıt Kuruluşunun (MKK) düzenlediği belge, İcra ve İflas Kanunu md. 68/1'deki belgelerden sayılır.
 
-**Borçlanma aracı sahipleri kurulu (md. 31/A):** Sermaye Piyasası Kurulunca ya da izahname veya ihraç belgesinde daha ağır nisap öngörülmedikçe, bu kurul nominal tutarın asgari yarısını temsil eden sahiplerin olumlu oyuyla karar alır. **Teminat yöneticisi (md. 31/B):** Teminata konu varlıklar teminat yöneticisinin mal varlığından ayrıdır; onun borçları için haczedilemez.
+**Borçlanma aracı sahipleri kurulu (BASK, md. 31/A):** Aynı ihraca ait borçlanma aracı sahipleri, ortak menfaatlerini korumak için kurul hâlinde karar alır; Kurulca veya izahname/ihraç belgesinde daha ağır nisap öngörülmedikçe kararlar nominal tutarın asgari yarısını temsil eden sahiplerin olumlu oyuyla alınır; Kurulca öngörülen nitelikli çoğunlukla alınan kararlar olumlu oy vermeyenleri de bağlar. Temerrütten sonra şartlar değiştirilirse başlatılmış takipler durur (md. 31/A-5). **Teminat yöneticisi (md. 31/B):** İhraca ilişkin teminatları sahipler adına yönetir; teminat varlıkları teminat yöneticisinin mal varlığından ayrıdır, onun borçları için haczedilemez ve iflas masasına girmez.
 
-Halka arz edilmeksizin satışta ihraç tavanı için onaylanan ihraç belgesinin ardından her tertip için ayrı bir **tertip ihraç belgesi** hazırlanır (Tebliğ II-5.1 md. 16).
+## 5. Konut ve varlık finansmanı
+
+**Konut finansmanı**, konut edinmek amacıyla tüketiciye kredi kullandırılması, konutun finansal kiralama yoluyla kiralanması ve bu kredilerin yeniden finansmanıdır (SPKn md. 57/1). Kredi ipotek veya Kurulca uygun görülen teminatla güvenceye alınır. **Varlık finansmanı**, Kurulca uygun görülen varlıklara dayalı sermaye piyasası aracı ihracıdır (md. 57/4).
+
+| Araç / kurum | Niteliği | Dayanak |
+|---|---|---|
+| Konut ve varlık finansmanı fonu | İpoteğe veya varlığa dayalı menkul kıymet karşılığı toplanan paralarla kurulan, tüzel kişiliği olmayan mal varlığı; kurucu ve devredenlerin varlığından ayrıdır | md. 58 |
+| İpotek ve varlık teminatlı menkul kıymet | İhraççının **genel yükümlülüğü** olan, teminat varlıklar karşılık gösterilerek ihraç edilen araç | md. 59 |
+| İpotek finansmanı kuruluşu | Varlıkları devralan, yöneten ve teminat olarak alan anonim ortaklık; sermaye nakden ödenir | md. 60 |
+| Kira sertifikası | Varlık kiralama şirketinin ihraç ettiği, sahiplerine varlık gelirlerinden pay veren araç | md. 61 |
+| Gayrimenkul sertifikası | Gayrimenkul projesinin bağımsız bölümlerini veya alan birimini temsil eden araç | md. 61/A |
+| Projeye dayalı menkul kıymet | Altyapı, enerji gibi projelerin gelirlerine dayalı proje finansman fonu aracı | md. 61/B |
+
+Ortak koruma kuralı: fon mal varlıkları ve teminat varlıklar, ihraççının yönetimi kamuya devredilse dahi amaç dışında tasarruf edilemez, rehnedilemez, kamu alacakları için dahi **haczedilemez ve iflas masasına girmez**. Teminatlı menkul kıymette ihraççı ödeyemezse teminat gelirleri önce menkul kıymet sahiplerine kullanılır; karşılanmayan kısım için ihraççının diğer varlıklarına başvurulabilir (md. 59/4).
+
+> **Sınav ipucu:** "Dayalı" ile "teminatlı" ayrımını yap: ipoteğe/varlığa **dayalı** menkul kıymette alacak fon portföyüne bağlıdır; ipotek/varlık **teminatlı** menkul kıymette ihraççının genel yükümlülüğü sürer, teminat ek güvencedir.
 
 ### Tasdik uygulama notu
 
@@ -140,4 +154,5 @@ Halka arz yapılan dönemin tam tasdikinde yeminli mali müşavir (YMM), onaylı
 - Tahsisli satışta yatırımcı sayısı esas olarak 150'yi geçemez; nitelikli yatırımcı satışında sayı sınırı yoktur.
 - Fiyat aralığında tavan, tabanın yüzde 20 fazlasını aşamaz; yurt içi bireysel ve kurumsal yatırımcılara en az yüzde 10'ar tahsis zorunludur.
 - İzahname sorumluluğunda önce ihraççı sorumludur; kamuyu aydınlatma belgelerinde imzalayanlar müteselsilen sorumludur ve zamanaşımı altı aydır.
-- Borçlanma aracı limitini Kurul belirler; ihraç yetkisi esas sözleşmeyle yönetim kuruluna devredilebilir.
+- Borçlanma aracı limitini Kurul belirler; ihraç yetkisi esas sözleşmeyle yönetim kuruluna devredilebilir; BASK kararları kural olarak nominalin yarısının olumlu oyuyla alınır.
+- Konut ve varlık finansmanında fon ve teminat varlıkları haczedilemez, iflas masasına girmez; teminatlı menkul kıymet ihraççının genel yükümlülüğüdür.

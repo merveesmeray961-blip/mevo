@@ -54,7 +54,7 @@ TMS 2'ye göre her ürünün dönüştürme maliyeti ayrı belirlenemiyorsa mali
 - Ürünün satış değeri = Üretim miktarı × Birim satış fiyatı
 - Ürünün payı = Ortak maliyet × Ürünün satış değeri / Toplam satış değeri
 
-**Örnek:** Ortak maliyet 240.000 TL. A ürününden 2.000 kg (satış fiyatı 90 TL/kg), B ürününden 4.000 kg (30 TL/kg) elde edilmiştir.
+**Örnek:** Ortak maliyet 240.000 ₺. A ürününden 2.000 kg (satış fiyatı 90 ₺/kg), B ürününden 4.000 kg (30 ₺/kg) elde edilmiştir.
 
 | Ürün | Miktar | Fiyat | Satış değeri | Oran | Ortak maliyet payı | Birim maliyet |
 |---|---:|---:|---:|---:|---:|---:|
@@ -64,7 +64,7 @@ TMS 2'ye göre her ürünün dönüştürme maliyeti ayrı belirlenemiyorsa mali
 
 Her iki ürünün brüt kâr oranı aynıdır: A için (90 − 72) / 90 = %20, B için (30 − 24) / 30 = %20. Satış değeri yöntemi, ayrılma noktasında satılan ürünlere **eşit kâr oranı** verir.
 
-Aynı veriler **fiziksel miktar (birim) yöntemiyle** dağıtılsaydı kg başına 240.000 / 6.000 = 40 TL düşer; A'ya 80.000, B'ye 160.000 TL yüklenirdi. B'nin birim maliyeti (40 TL) satış fiyatının (30 TL) üstüne çıkar ve B zarar ediyormuş gibi görünürdü. Satış değeri yönteminin tercih edilme nedeni budur.
+Aynı veriler **fiziksel miktar (birim) yöntemiyle** dağıtılsaydı kg başına 240.000 / 6.000 = 40 ₺ düşer; A'ya 80.000, B'ye 160.000 ₺ yüklenirdi. B'nin birim maliyeti (40 ₺) satış fiyatının (30 ₺) üstüne çıkar ve B zarar ediyormuş gibi görünürdü. Satış değeri yönteminin tercih edilme nedeni budur.
 
 > **Sık yapılan hata:** Dağıtımı yalnız miktarlara göre yapmak. Soru "satış değeri" diyorsa önce miktar ile fiyatı çarpıp toplam satış değerlerini bul, oranı bunlardan kur.
 
@@ -76,15 +76,15 @@ Aynı veriler **fiziksel miktar (birim) yöntemiyle** dağıtılsaydı kg başı
 - Ürünün payı = Ortak maliyet × Ürünün net satış değeri / Toplam net satış değeri
 - Ürünün toplam maliyeti = Ortak maliyet payı + Ayrılma sonrası maliyet
 
-**Örnek:** Ortak maliyet 300.000 TL. X ürününden 5.000 litre çıkar; 50.000 TL ek işlemden sonra litresi 70 TL'den satılır. Y ürününden 2.000 litre çıkar; 50.000 TL ek işlemden sonra litresi 125 TL'den satılır.
+**Örnek:** Ortak maliyet 300.000 ₺. X ürününden 5.000 litre çıkar; 50.000 ₺ ek işlemden sonra litresi 70 ₺'den satılır. Y ürününden 2.000 litre çıkar; 50.000 ₺ ek işlemden sonra litresi 125 ₺'den satılır.
 
-1. X nihai satış değeri = 5.000 × 70 = 350.000 TL; net satış değeri = 350.000 − 50.000 = **300.000 TL**.
-2. Y nihai satış değeri = 2.000 × 125 = 250.000 TL; net satış değeri = 250.000 − 50.000 = **200.000 TL**.
-3. Toplam net satış değeri = **500.000 TL**.
-4. X'in ortak maliyet payı = 300.000 × 300.000 / 500.000 = **180.000 TL**; Y'nin payı = 300.000 × 200.000 / 500.000 = **120.000 TL**.
-5. X toplam maliyeti = 180.000 + 50.000 = 230.000 TL (birim 46 TL); Y toplam maliyeti = 120.000 + 50.000 = 170.000 TL (birim 85 TL).
+1. X nihai satış değeri = 5.000 × 70 = 350.000 ₺; net satış değeri = 350.000 − 50.000 = **300.000 ₺**.
+2. Y nihai satış değeri = 2.000 × 125 = 250.000 ₺; net satış değeri = 250.000 − 50.000 = **200.000 ₺**.
+3. Toplam net satış değeri = **500.000 ₺**.
+4. X'in ortak maliyet payı = 300.000 × 300.000 / 500.000 = **180.000 ₺**; Y'nin payı = 300.000 × 200.000 / 500.000 = **120.000 ₺**.
+5. X toplam maliyeti = 180.000 + 50.000 = 230.000 ₺ (birim 46 ₺); Y toplam maliyeti = 120.000 + 50.000 = 170.000 ₺ (birim 85 ₺).
 
-Kontrol: 180.000 + 120.000 = 300.000 TL. Ek işlem maliyetleri dağıtıma girmedi, doğrudan ilgili ürüne eklendi.
+Kontrol: 180.000 + 120.000 = 300.000 ₺. Ek işlem maliyetleri dağıtıma girmedi, doğrudan ilgili ürüne eklendi.
 
 > **Sınav ipucu:** Soruda ayrılma sonrası maliyet verilmişse bu bilgi çoğu zaman net satış değeri yöntemine işarettir. Nihai satış değerini doğrudan oranlamak da, ek işlem maliyetini ortak maliyete katıp dağıtmak da yanlış sonuç verir.
 
@@ -97,7 +97,7 @@ Kontrol: 180.000 + 120.000 = 300.000 TL. Ek işlem maliyetleri dağıtıma girme
 3. Ürünün maliyeti = Eşdeğer miktar × Eşdeğer birim maliyet
 4. Ürünün birim maliyeti = Eşdeğer birim maliyet × Katsayı
 
-**Örnek:** Ortak maliyet 168.000 TL. A ürünü 1.000 adet (katsayı 1), B ürünü 2.000 adet (katsayı 1,5), C ürünü 500 adet (katsayı 2).
+**Örnek:** Ortak maliyet 168.000 ₺. A ürünü 1.000 adet (katsayı 1), B ürünü 2.000 adet (katsayı 1,5), C ürünü 500 adet (katsayı 2).
 
 | Ürün | Miktar | Katsayı | Eşdeğer miktar | Maliyet payı | Birim maliyet |
 |---|---:|---:|---:|---:|---:|
@@ -106,7 +106,7 @@ Kontrol: 180.000 + 120.000 = 300.000 TL. Ek işlem maliyetleri dağıtıma girme
 | C | 500 | 2 | 1.000 | 33.600 | 67,2 |
 | Toplam | 3.500 | | 5.000 | 168.000 | |
 
-Eşdeğer birim maliyet = 168.000 / 5.000 = **33,6 TL**. A ile C'nin fiziksel miktarları farklı olduğu hâlde eşdeğer miktarları eşit olduğu için eşit pay almışlardır.
+Eşdeğer birim maliyet = 168.000 / 5.000 = **33,6 ₺**. A ile C'nin fiziksel miktarları farklı olduğu hâlde eşdeğer miktarları eşit olduğu için eşit pay almışlardır.
 
 > **Sık yapılan hata:** Ortak maliyeti fiziksel miktara bölüp sonra katsayıyla çarpmak. Önce eşdeğer miktarlar toplanır; bölme, toplam **eşdeğer** miktara yapılır.
 
@@ -123,15 +123,15 @@ Yan ürünün değeri önemsiz olduğundan ortak maliyet ona ayrıca dağıtılm
 
 Normal kâr da düşülürse yan ürün, ileride satıldığında yalnızca normal kârını verecek bir maliyetle stoğa alınmış olur. Soruda normal kâr verilmemişse tutar net gerçekleşebilir değere eşittir.
 
-**Örnek:** Ortak maliyet 213.000 TL. Ana üründen 10.000 kg, yan üründen 1.000 kg elde edilmiştir. Yan ürünün satış fiyatı 20 TL/kg; satıştan önce 3.000 TL ek işlem maliyeti ve 2.000 TL satış gideri gerekir; normal kâr satış tutarının %10'udur.
+**Örnek:** Ortak maliyet 213.000 ₺. Ana üründen 10.000 kg, yan üründen 1.000 kg elde edilmiştir. Yan ürünün satış fiyatı 20 ₺/kg; satıştan önce 3.000 ₺ ek işlem maliyeti ve 2.000 ₺ satış gideri gerekir; normal kâr satış tutarının %10'udur.
 
-1. Yan ürün satış değeri = 1.000 × 20 = 20.000 TL.
-2. Normal kâr = 20.000 × %10 = 2.000 TL.
-3. Ayrılma noktasındaki değer = 20.000 − 2.000 − 3.000 − 2.000 = **13.000 TL**.
-4. Ana ürüne kalan maliyet = 213.000 − 13.000 = **200.000 TL**; birim maliyet = 200.000 / 10.000 = **20 TL/kg**.
-5. Kontrol: yan ürünün stok maliyeti 13.000 + 3.000 = 16.000 TL'dir; 20.000 TL'ye satılıp 2.000 TL satış gideri yapıldığında kâr 20.000 − 16.000 − 2.000 = 2.000 TL olur, yani tam normal kâr.
+1. Yan ürün satış değeri = 1.000 × 20 = 20.000 ₺.
+2. Normal kâr = 20.000 × %10 = 2.000 ₺.
+3. Ayrılma noktasındaki değer = 20.000 − 2.000 − 3.000 − 2.000 = **13.000 ₺**.
+4. Ana ürüne kalan maliyet = 213.000 − 13.000 = **200.000 ₺**; birim maliyet = 200.000 / 10.000 = **20 ₺/kg**.
+5. Kontrol: yan ürünün stok maliyeti 13.000 + 3.000 = 16.000 ₺'dir; 20.000 ₺'ye satılıp 2.000 ₺ satış gideri yapıldığında kâr 20.000 − 16.000 − 2.000 = 2.000 ₺ olur, yani tam normal kâr.
 
-Kayıt mantığı: ayrılma noktasında yan ürün 157 Diğer Stoklar hesabına 13.000 TL ile **borç**, 151 Yarı Mamuller - Üretim hesabına **alacak** yazılır; ana ürün de 200.000 TL ile 152'ye aktarılır.
+Kayıt mantığı: ayrılma noktasında yan ürün 157 Diğer Stoklar hesabına 13.000 ₺ ile **borç**, 151 Yarı Mamuller - Üretim hesabına **alacak** yazılır; ana ürün de 200.000 ₺ ile 152'ye aktarılır.
 
 Ana ürünler birden fazlaysa (ortak ürün ve yan ürün birlikte) sıra şöyledir: önce yan ürün değeri ortak maliyetten düşülür, kalan tutar ortak ürünler arasında satış değeri veya net satış değeri yöntemiyle dağıtılır.
 
@@ -141,7 +141,7 @@ Ana ürünler birden fazlaysa (ortak ürün ve yan ürün birlikte) sıra şöyl
 
 Ortak maliyet dağıtımı stok değerlemesi ve dönem kârının belirlenmesi içindir; **karar alma** için değildir. Bir ürünü ayrılma noktasında satmak ile ek işleme sokmak arasında karar verirken yalnızca **ek gelir** ve **ek maliyet** karşılaştırılır; ortak maliyet her iki seçenekte de değişmediği için ilgisizdir.
 
-Örneğin bir ürün ayrılma noktasında 120.000 TL'ye satılabiliyor, 30.000 TL ek işlemden sonra 170.000 TL'ye satılabiliyorsa ek işlem kârlıdır: ek gelir 50.000 TL, ek maliyet 30.000 TL, artış 20.000 TL. Bu karar ortak maliyetin ürüne düşen payına bakılmadan verilir.
+Örneğin bir ürün ayrılma noktasında 120.000 ₺'ye satılabiliyor, 30.000 ₺ ek işlemden sonra 170.000 ₺'ye satılabiliyorsa ek işlem kârlıdır: ek gelir 50.000 ₺, ek maliyet 30.000 ₺, artış 20.000 ₺. Bu karar ortak maliyetin ürüne düşen payına bakılmadan verilir.
 
 ## Özet
 

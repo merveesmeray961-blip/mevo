@@ -107,12 +107,12 @@ Ayrıca SMMM ve YMM hizmeti **hiçbir sıfat altında marka olarak tescil ettiri
 
 ### Çözümlü örnek
 
-Varsayalım ki bir defter tutma hizmeti için ilgili il grubunda tarifedeki aylık asgari ücret 4.000 TL'dir (rakam varsayımsaldır). SMMM Ali Bey yeni bir müşteriyle 12 aylık sözleşme yapar: ilk 3 ay ücretsiz, sonraki 9 ay aylık 4.000 TL. Ayrıca müşterinin isteğiyle aylık 4.000 TL yerine 2.500 TL'lik makbuz düzenler.
+Varsayalım ki bir defter tutma hizmeti için ilgili il grubunda tarifedeki aylık asgari ücret 4.000 ₺'dir (rakam varsayımsaldır). SMMM Ali Bey yeni bir müşteriyle 12 aylık sözleşme yapar: ilk 3 ay ücretsiz, sonraki 9 ay aylık 4.000 ₺. Ayrıca müşterinin isteğiyle aylık 4.000 ₺ yerine 2.500 ₺'lik makbuz düzenler.
 
-1. Tarifeye göre yıllık asgari tutar: 12 × 4.000 = **48.000 TL**.
-2. Sözleşmedeki yıllık tutar: 9 × 4.000 = **36.000 TL**; fark 12.000 TL.
+1. Tarifeye göre yıllık asgari tutar: 12 × 4.000 = **48.000 ₺**.
+2. Sözleşmedeki yıllık tutar: 9 × 4.000 = **36.000 ₺**; fark 12.000 ₺.
 3. İlk 3 ayın ücretsiz olması: **ücretsiz hizmet** yasağı (md. 7/a) ve yıllık bazda tarife altına inilmesi.
-4. Makbuzun 2.500 TL düzenlenmesi: **sözleşme değerinin altında makbuz** (md. 7/d); her ay 1.500 TL, yılda 9 × 1.500 = 13.500 TL eksik belge.
+4. Makbuzun 2.500 ₺ düzenlenmesi: **sözleşme değerinin altında makbuz** (md. 7/d); her ay 1.500 ₺, yılda 9 × 1.500 = 13.500 ₺ eksik belge.
 5. Disiplin karşılığı: tarife altında iş kabulü Disiplin Yönetmeliği md. 6/g uyarınca **kınama** gerektirir.
 
 ## 5. Haksız Rekabetle Mücadele Kurulları ve yaptırım

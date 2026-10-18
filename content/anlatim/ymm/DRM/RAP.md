@@ -2,7 +2,7 @@
 ders: DRM
 konu: RAP
 baslik: Denetim ve tasdik raporlaması
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: BDS 700 Finansal Tablolara İlişkin Görüş Oluşturma ve Raporlama
@@ -112,7 +112,18 @@ Uygulama alanı: BDS 701.5 borsada işlem gören işletmeleri esas alır; ancak 
 - Veraset ve intikal vergisi beyannameleri; 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun kapsamında tecil talep formları ve terkin beyanları; damga vergisi beyannameleri,
 - Teşvik, indirim, istisna ve muafiyet tasdikleri (yeniden değerleme, stok değerlemesi gibi).
 
-**Tam tasdik** ifadesi kaynak mevzuatta tanımlanmaz; 2026 yılı YMM tasdik işlemleri asgari ücret tarifesinde yalnız "tam tasdik sözleşmesi" ve "tam tasdik ücreti" olarak geçer. Kaynaklar, tam tasdiki md. 7'deki belirli bir tasdik konusuyla açıkça eşleştirmez; bu nedenle bu eşleştirmeyi mevzuat hükmü gibi sunan ifadelere dikkat et.
+**Tam tasdik raporu**, md. 7/A-a ve 7/B-a'daki yıllık gelir veya kurumlar vergisi beyannamesi ile ekli mali tabloların tasdiki için düzenlenir; Kanun ve Yönetmelik "tam tasdik" terimini tanımlamaz, terim uygulamada ve KDV Genel Uygulama Tebliğinde "tam tasdik sözleşmesi" olarak geçer. Raporun "III-Hesap İncelemeleri" bölümünde ticari kârdan mali kâra geçiş, "IV-Sonuç" bölümünde mali kâr ve ödenecek vergiler gösterilir (ayrıntı DRM/YMM konusunda).
+
+### Meslek mevzuatındaki rapor türleri
+
+Sınavda BDS dışında meslek mevzuatına göre rapor türleri de soruldu (2022/2, 2023/3). SMMM ve YMM'lerce Tutulacak Defter ve Kayıtlar ile Bildirim Mecburiyeti Hakkında Yönetmelik md. 13'e göre (metni bu klasörde yok; TÜRMOB 2023/3 cevabına göre) meslek mensupları dört tür rapor düzenler:
+
+1. **Özet standart denetim raporu:** Ayrıntılı denetim raporundan yararlanılarak düzenlenir; muhasebe denetiminin kapsamı, yorumlama ve görüş bölümlerini içerir.
+2. **Tasdik raporu:** YMM'nin tasdik işlemleri için düzenlediği rapordur; kazıntısız, silintisiz ve açık ifadeli olur.
+3. **Özel amaçlı rapor:** Firmanın veya resmi mercilerin isteğiyle yapılan denetim sonunda düzenlenir; aylık veya üç aylık dönemsel raporlar bu türdendir.
+4. **Yardımcı rapor:** Başka meslek mensuplarınca düzenlenen teknik ve mali raporlardır; denetim ve tasdik raporlarında bunlardaki bilgiler esas alınır.
+
+Görüşe göre denetim raporları **olumlu**, **şartlı** (kapsam sınırlaması ve denetlenmesi istenen halleri içeren) ve **olumsuz** (gerçek durumu yansıtmadığı kanaatini içeren) olarak üçe ayrılır. Bu ayrım BDS 705'teki sınırlı olumlu, olumsuz ve görüş vermekten kaçınma ayrımından farklıdır; soru hangi mevzuatı soruyorsa onun terimini kullan.
 
 Zaman bakımından tasdik, dönem başından itibaren **sürekli denetleme** ya da **dönem sonu denetimi** sonucu yapılır ve hangisi olduğu raporda açıkça belirtilir (md. 8).
 
@@ -133,3 +144,4 @@ Tasdik raporunda YMM, md. 19 uyarınca bir bütün olarak mali tabloların gerç
 - Kilit denetim konuları TTK denetimlerinde tüm şirketlerde bildirilir; olumlu dışı görüşün yerine geçmez.
 - Tasdik raporları tasdik konusuna göre çeşitlenir; sürekli veya dönem sonu denetimi raporda belirtilir.
 - Rapor 3 örnek düzenlenir, "YMM" rumuzlu sayı alır, her sayfası paraf edilip mühürlenir.
+- Meslek mevzuatında rapor türleri: özet standart denetim, tasdik, özel amaçlı ve yardımcı rapor; görüşe göre olumlu, şartlı, olumsuz.

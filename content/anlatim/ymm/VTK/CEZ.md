@@ -2,7 +2,7 @@
 ders: VTK
 konu: CEZ
 baslik: Vergi cezaları ve uzlaşma
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
@@ -21,6 +21,12 @@ kaynaklar:
     madde: md. 376
     alinti: "usulsüzlük ve özel usulsüzlük cezalarının yarısını ihbarnamelerin tebliğ tarihinden itibaren"
   - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 339
+    alinti: "durumunda, vergi ziyaı cezası yüzde elli, usulsüzlük cezası yüzde yirmibeş oranında"
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 374
+    alinti: "Madde 374 – Aşağıda yazılı süreler geçtikten sonra vergi cezası kesilmez:"
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: Ek md. 1
     alinti: "artırımlı olarak uygulanır. Uzlaşma talebi vergi ihbarnemesinin tebliğ tarihinden itibaren"
 ---
@@ -30,6 +36,7 @@ kaynaklar:
 - Pişmanlık ve ıslah şartları
 - Uzlaşma ve izaha davet müesseselerinin kapsamı ve süreleri
 - Ceza indirimi (VUK md. 376) ve uzlaşma ile ilişkisi
+- Tekerrür, fiil birleşmesi ve fiil ayrılığı ile ceza zamanaşımını
 
 ## 1. Vergi ziyaı ve usulsüzlük cezaları
 
@@ -97,7 +104,6 @@ En az ceza haddi: Diğer vergilerde 300 TL'ye ulaşmayan cezalar kesilmez (md. 3
 - Uzlaşma vaki olmazsa yeniden talep edilemez; mükellef dava açma süresinin sonuna kadar idarenin nihai teklifini yazılı kabul ederse uzlaşma sağlanmış sayılır.
 - Uzlaşma tutanağı kesindir; uzlaşılan husus hakkında dava açılamaz (Ek md. 6).
 - Tarhiyat öncesi uzlaşma (Ek md. 11): vergi incelemesine dayanan vergi ziyaı cezaları ile 40.000 TL'yi aşan usulsüzlük cezalarında yapılır; uzlaşmaya varılamazsa ceza kesildikten sonra uzlaşma istenemez.
-- Ek md. 12'ye göre ücretlilere vergi iadesinde kesilen cezalar da uzlaşma kapsamındadır.
 
 > **Sınav ipucu:** Uzlaşılan cezalara başkaca indirim uygulanmaz (Ek md. 9). Md. 376 indirimi uygulanan cezalar için uzlaşma yapılmaz; mükellef uzlaşma tutanağını imzalayıncaya kadar vazgeçip md. 376'yı isteyebilir.
 
@@ -122,6 +128,46 @@ En az ceza haddi: Diğer vergilerde 300 TL'ye ulaşmayan cezalar kesilmez (md. 3
 
 Kayıt (ödenecek cezalar): 689 Diğer Olağandışı Gider ve Zararlar borç 54.250 TL / 360 Ödenecek Vergi ve Fonlar alacak 54.250 TL. Cezalar KVK md. 11/1-d gereği kanunen kabul edilmeyen giderdir.
 
+## 5. Tekerrür, fiil birleşmesi ve ceza zamanaşımı
+
+### Fiil birleşmesi ve fiil ayrılığı
+
+- **Fiil birleşmesi (içtima, md. 336):** Tek fiille vergi ziyaı ve usulsüzlük birlikte işlenirse yalnız miktarca en ağır ceza kesilir. Önce usulsüzlük cezası kesilip sonra aynı fiilin vergi ziyaına yol açtığı anlaşılırsa, iki ceza karşılaştırılır ve eksik kalan kısım tamamlanır.
+- **Fiil ayrılığı (md. 337):** Ayrı ayrı işlenen fiillere ayrı ayrı ceza kesilir. Md. 352'deki aynı nevi (aynı derece ve fıkra) usulsüzlük aynı takvim yılında birden fazla yapılırsa, ikinci ve sonrakilerin her biri için birincisinin dörtte biri kesilir.
+- **Suçlarda birleşme (md. 340):** Vergi ziyaı ve usulsüzlük cezaları ile md. 359'daki hapis cezaları içtima ve tekerrür bakımından birleştirilemez; vergi cezası kesilmesi md. 359'a göre kovuşturmaya engel değildir.
+
+### Tekerrür (md. 339)
+
+Cezası kesinleşen mükellefe yeniden ceza kesilirse ceza artırılır:
+
+| Ceza türü | Tekerrür süresi | Artırım |
+|---|---|---|
+| Vergi ziyaı | Kesinleşmeyi izleyen günden itibaren beşinci yılın isabet ettiği takvim yılı sonuna kadar | %50 |
+| Usulsüzlük | Kesinleşmeyi izleyen günden itibaren ikinci yılın isabet ettiği takvim yılı sonuna kadar | %25 |
+
+Artırım tutarı, kesinleşmiş cezadan (birden fazlaysa en yükseğinden) fazla olamaz. Süreler artırıma esas cezanın kesinleşme tarihinden hesaplanır.
+
+Örnek: (D) Ltd.'ye kesilen 60.000 TL vergi ziyaı cezası 10/3/2024'te kesinleşmiştir. 2026'da yeni bir inceleme sonucu 140.000 TL vergi ziyaı cezası kesilir.
+
+1. Tekerrür süresi 11/3/2024'ten itibaren beşinci yıl olan 2029'un sonuna kadardır; 2026 bu sürededir.
+2. Artırım: 140.000 × %50 = 70.000 TL; ancak kesinleşmiş ceza 60.000 TL olduğundan artırım 60.000 TL ile sınırlıdır.
+3. Kesilecek ceza: 140.000 + 60.000 = 200.000 TL.
+
+### Ölüm ve ceza zamanaşımı
+
+Ölüm halinde vergi cezası düşer (md. 372); vergi aslı mirasçılara geçse de ceza geçmez. Mücbir sebep varsa ceza kesilmez (md. 373).
+
+**Ceza kesmede zamanaşımı (md. 374):**
+
+- Vergi ziyaı cezasında: cezanın bağlı olduğu vergi alacağının doğduğu takvim yılını izleyen yılın başından itibaren **beş yıl**,
+- Md. 353 ve mükerrer md. 355 özel usulsüzlüklerinde: usulsüzlüğün yapıldığı yılı izleyen yılın başından itibaren **beş yıl**,
+- Genel usulsüzlükte: aynı başlangıçtan itibaren **iki yıl**,
+- Md. 336'ya göre birleşen cezalar vergi ziyaı süresi içinde kesilir.
+
+Ceza ihbarnamesinin bu süreler içinde tebliğiyle zamanaşımı kesilir. Örnek: 2021 hesap dönemine ait kurumlar vergisi için vergi alacağı 2021'de doğar; ceza zamanaşımı 1/1/2022'den başlar ve 31/12/2026'da dolar. İhbarname en geç bu tarihte tebliğ edilmelidir.
+
+> **Sınav ipucu:** Olay sorusunda sıralama şudur: önce fiil sayısını ve md. 336 birleşmesini belirle, sonra tekerrürü kontrol et, en son md. 376 ya da uzlaşma tercihini hesapla. Zamanaşımı sorulursa vergi türünün vergiyi doğuran olay tarihini gerekçesiyle yaz.
+
 ### İnceleme uygulama notu
 
 YMM, tasdik ettiği raporlarda yer alan bilgilerin kayıt ve belgelere uygun olmamasından doğan vergi ziyaında vergi, ceza ve gecikme faizinden mükellefle birlikte müştereken ve müteselsilen sorumludur (VUK mükerrer md. 227). Bu nedenle tasdik öncesinde eksik beyan riski görüldüğünde pişmanlıkla düzeltme yapılıp yapılmadığı, izaha davet yazısı tebliğ edilip edilmediği ve tasdik raporunun süresinde ibrazı kontrol edilir.
@@ -134,3 +180,5 @@ YMM, tasdik ettiği raporlarda yer alan bilgilerin kayıt ve belgelere uygun olm
 - İzaha davette otuz gün; izah yetersizse otuz günde düzeltmeyle vergi ziyaı cezası %20.
 - Uzlaşma konusu cezalardır; talep otuz gün; md. 359 cezaları ve md. 370/b cezaları hariç.
 - Md. 376: cezanın yarısı indirilir; 40.000 TL ve altı usulsüzlük cezalarında indirim oranı %50 artırımlı (sonuç %75).
+- Tekerrürde vergi ziyaı cezası %50 (5 yıl), usulsüzlük %25 (2 yıl) artırılır; artırım kesinleşen cezayı aşamaz.
+- Ceza zamanaşımı vergi ziyaı ve özel usulsüzlükte 5 yıl, usulsüzlükte 2 yıldır; ölümle ceza düşer.

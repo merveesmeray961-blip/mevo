@@ -2,7 +2,7 @@
 ders: REV
 konu: PSF
 baslik: Pasif ve özkaynak hesaplarının revizyonu
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: BDS 500 Bağımsız Denetim Kanıtları
@@ -78,7 +78,7 @@ Karşılık bir **muhasebe tahminidir**: ölçümü tahmin belirsizliğine maruz
 
 Revizyonda iki yönlü bakılır. Eksik karşılık kârı fazla gösterir; aşırı karşılık ise kârı gizler. Mali Tablolar İlkelerine göre karşılıklar kârı keyfi biçimde azaltmak veya bir döneme ait kârı diğer döneme aktarmak amacıyla kullanılmamalıdır. İhtiyatlılık kavramı da gizli yedek veya gereğinden fazla karşılık ayrılmasına gerekçe oluşturamaz.
 
-İstisna: Ticari bilançoda ayrılan bir karşılığın vergi matrahını azaltıp azaltmayacağı ayrı bir sorudur; bu konu gelir tablosu revizyonundaki kanunen kabul edilmeyen giderler başlığında incelenir.
+İstisna: Ticari bilançoda ayrılan karşılık vergi matrahını kendiliğinden azaltmaz. Vergi kanunlarında açıkça düzenlenmiş olanlar (ör. VUK md. 323 şüpheli alacak karşılığı) dışında kalan kıdem tazminatı, dava, garanti ve benzeri karşılıklar beyannamede kanunen kabul edilmeyen gider olarak kâra eklenir; tutar fiilen ödendiği yıl gider yazılır. TFRS raporlamasında bu fark ertelenmiş vergi varlığı doğurur.
 
 > **Sınav ipucu:** 37 grubundaki karşılıklar pasif hesaplardır; 129, 158 ve 257 gibi aktifi düzenleyici hesaplarla karıştırma.
 

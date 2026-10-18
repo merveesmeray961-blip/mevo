@@ -106,11 +106,11 @@ Halka açık ortaklıkların ilişkili kişilerle **emsallere, piyasa teamüller
 
 ### Çözümlü örnek: kâr payı avansı
 
-Borsada işlem gören X AŞ'nin verileri: 2025 net dönem kârı **40 milyon TL**; 2026 altı aylık net dönem kârı **30 milyon TL**; ayrılacak yedek akçe **1,5 milyon TL**; geçmiş yıl zararı **2 milyon TL**; ara dönem tablosunda net dönem kârı dışındaki dağıtılabilir kaynaklar **18 milyon TL**.
+Borsada işlem gören X AŞ'nin verileri: 2025 net dönem kârı **40 milyon ₺**; 2026 altı aylık net dönem kârı **30 milyon ₺**; ayrılacak yedek akçe **1,5 milyon ₺**; geçmiş yıl zararı **2 milyon ₺**; ara dönem tablosunda net dönem kârı dışındaki dağıtılabilir kaynaklar **18 milyon ₺**.
 
-1. Bu avans için sınır: (30 − 1,5 − 2) / 2 = **13,25 milyon TL**.
-2. Dönem toplam sınırı: min(40 / 2 = 20; 18) = **18 milyon TL**.
-3. Altı aylık avans en fazla **13,25 milyon TL** olabilir. Dokuz aylık dönemde ikinci avans verilirse, bu 13,25 milyon TL toplam sınırdan düşülür; en fazla 18 − 13,25 = **4,75 milyon TL** kalır.
+1. Bu avans için sınır: (30 − 1,5 − 2) / 2 = **13,25 milyon ₺**.
+2. Dönem toplam sınırı: min(40 / 2 = 20; 18) = **18 milyon ₺**.
+3. Altı aylık avans en fazla **13,25 milyon ₺** olabilir. Dokuz aylık dönemde ikinci avans verilirse, bu 13,25 milyon ₺ toplam sınırdan düşülür; en fazla 18 − 13,25 = **4,75 milyon ₺** kalır.
 
 > **Sık yapılan hata:** Avans sınırını yalnız "önceki yıl kârının yarısı" olarak düşünmek. Tebliğ, cari ara dönem kârının yarısı ile toplam sınırı **ayrı ayrı** uygular; ikisinin de sağlanması gerekir.
 
@@ -143,7 +143,7 @@ SPKn md. 23 ve II-23.3 md. 4'e göre: **birleşme ve bölünme** (tebliğde say�
 
 - Halka açık ortaklıklar ve halka arz için başvuranlar **Kurul izniyle** sisteme geçebilir (SPKn md. 18).
 - Yönetim kurulu, TTK'nın sermaye artırımı hükümlerine bağlı kalmadan esas sözleşmedeki **kayıtlı sermaye tavanına** kadar sermaye artırabilir. Yetki genel kurulca **en çok beş yıl** için verilir ve beşer yıllık dönemlerle uzatılabilir.
-- **Tavan**, ödenmiş/çıkarılmış sermaye veya özsermayeden **yüksek olanının beş katını** aşamaz (II-18.1 md. 5). Tebliğe göre başlangıç sermayesi **100.000 TL**'den az olamaz.
+- **Tavan**, ödenmiş/çıkarılmış sermaye veya özsermayeden **yüksek olanının beş katını** aşamaz (II-18.1 md. 5). Tebliğe göre başlangıç sermayesi **100.000 ₺**'den az olamaz.
 - Çıkarılan paylar satılıp bedelleri ödenmedikçe veya satılamayanlar iptal edilmedikçe **yeni pay çıkarılamaz**.
 - İç kaynaklardan bedelsiz artırımlar ve birleşme gibi işlemlerle tavan, her tavan için **bir defaya mahsus** aşılabilir; **nakdi artırımla tavan aşılamaz**.
 - **İmtiyazlı veya primli/iskontolu pay çıkarma** ve **rüçhan hakkını kısıtlama** yetkisi için esas sözleşmede açık hüküm gerekir; rüçhan kısıtlaması pay sahipleri arasında eşitsizlik yaratamaz.
@@ -179,7 +179,7 @@ Azınlığın gündeme madde ekletme hakkı halka açık ortaklıkta **karar tas
 - **Haber ve söylentiler:** Fiyatı etkileyebilecek haberler hakkında ihraççı, Kurul veya borsanın uyarısını beklemeden açıklama yapar.
 - **Geleceğe yönelik değerlendirmeler** yılda **en fazla dört kez** açıklanabilir.
 - **Sürekli bilgi:** Payları borsada işlem gören ihraççıda sermaye veya oy haklarında **%5, %10, %15, %20, %25, %33, %50, %67, %95** eşiklerine ulaşılması veya altına düşülmesi açıklanır. Doğrudan pay sahipliğinde açıklamayı **MKK** yapar.
-- **Yöneticilerin işlemleri:** İdari sorumluluğu bulunan kişiler ve ana ortağın pay işlemleri, takvim yılında toplam **250.000 TL**'ye ulaşınca açıklanır.
+- **Yöneticilerin işlemleri:** İdari sorumluluğu bulunan kişiler ve ana ortağın pay işlemleri, takvim yılında toplam **250.000 ₺**'ye ulaşınca açıklanır.
 
 > **Sınav ipucu:** Ertelenen içsel bilgiyle ilgili bir söylenti çıkarsa **erteleme sebebi ortadan kalkmış** sayılır ve ihraççı açıklama yapmak zorundadır.
 

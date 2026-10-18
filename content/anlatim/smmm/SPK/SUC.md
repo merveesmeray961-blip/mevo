@@ -82,7 +82,7 @@ kaynaklar:
 
 ### Etkin pişmanlık (md. 107/3)
 
-İşlem bazlı piyasa dolandırıcılığını işleyen kişi, **elde ettiği veya elde edilmesine sebep olduğu menfaatin iki katı** kadar parayı, **500.000 TL'den az olmamak üzere** Hazineye öderse:
+İşlem bazlı piyasa dolandırıcılığını işleyen kişi, **elde ettiği veya elde edilmesine sebep olduğu menfaatin iki katı** kadar parayı, **500.000 ₺'den az olmamak üzere** Hazineye öderse:
 
 - **Soruşturma başlamadan önce** ödemişse: cezaya hükmolunmaz.
 - **Soruşturma evresinde** ödemişse: ceza **yarı oranında** indirilir.
@@ -115,7 +115,7 @@ Bilgi suistimali ve piyasa dolandırıcılığı bir **tüzel kişi yararına** 
 
 Makul bir ekonomik veya finansal gerekçeyle açıklanamayan, borsanın **güven, açıklık ve istikrar** içinde çalışmasını bozan eylem ve işlemler, **suç oluşturmadığı takdirde** piyasa bozucu eylem sayılır. Hangi eylemlerin bu nitelikte olduğunu **Kurul belirler** (Piyasa Bozucu Eylemler Tebliği VI-104.1). Örneğin gerçek bir el değiştirme amacı taşımayan karşılıklı işlemler ya da işlem amacı taşımayan emirlerle fiyatı etkileme bu kapsamda değerlendirilebilir.
 
-- Yaptırım **idari para cezasıdır**: **20.000 TL'den 500.000 TL'ye** kadar; menfaat temin edilmişse ceza menfaatin **iki katından az olamaz**.
+- Yaptırım **idari para cezasıdır**: **20.000 ₺'den 500.000 ₺'ye** kadar; menfaat temin edilmişse ceza menfaatin **iki katından az olamaz**.
 - Kurul, md. 101 tedbirlerini piyasa bozucu eylem şüphesinde de uygulayabilir.
 
 > **Sınav ipucu:** Piyasa bozucu eylem **suç değil, kabahattir**; yaptırımı Kurul verir ve itiraz **idari yargıya** yapılır. Fiil md. 106 veya 107'deki suçu oluşturuyorsa artık piyasa bozucu eylem olarak değil, suç olarak değerlendirilir.
@@ -126,14 +126,14 @@ Makul bir ekonomik veya finansal gerekçeyle açıklanamayan, borsanın **güven
 
 | Aykırılık | Ceza |
 |---|---|
-| Kanuna dayalı düzenlemelere, standart ve formlara, Kurulun genel ve özel kararlarına aykırılık (103/1) | **20.000-250.000 TL**; menfaat varsa en az **menfaatin iki katı** |
-| Tüzel kişilere (103/1) | Asgari 20.000 TL'den az olmamak üzere, aykırılıktan önceki son bağımsız denetimden geçmiş yıllık tabloya göre **brüt satış hasılatının %1'i ile vergi öncesi kârın %20'sinden yüksek olanına kadar** |
+| Kanuna dayalı düzenlemelere, standart ve formlara, Kurulun genel ve özel kararlarına aykırılık (103/1) | **20.000-250.000 ₺**; menfaat varsa en az **menfaatin iki katı** |
+| Tüzel kişilere (103/1) | Asgari 20.000 ₺'den az olmamak üzere, aykırılıktan önceki son bağımsız denetimden geçmiş yıllık tabloya göre **brüt satış hasılatının %1'i ile vergi öncesi kârın %20'sinden yüksek olanına kadar** |
 | Pay alım teklifi zorunluluğunu yerine getirmemek (103/3) | Teklife konu payların **toplam bedeline kadar** |
 | Yöneticilerin kısa vadeli işlem kazancını ihraççıya **30 gün** içinde vermemesi (103/4) | Menfaatin **iki katı** |
-| Örtülü kazanç aktarımı (yapmama yoluyla, 103/6) | 20.000-250.000 TL; en az menfaatin iki katı |
+| Örtülü kazanç aktarımı (yapmama yoluyla, 103/6) | 20.000-250.000 ₺; en az menfaatin iki katı |
 | Kurula bilgi-belge vermemek, yanıltıcı bilgi vermek, görevi zorlaştırmak (103/7) | 103/1 sınırları |
-| Gerçeğe aykırı bilgiyle gereksiz denetime yol açmak (103/8) | 1.000-25.000 TL |
-| Piyasa bozucu eylem (104) | 20.000-500.000 TL; en az menfaatin iki katı |
+| Gerçeğe aykırı bilgiyle gereksiz denetime yol açmak (103/8) | 1.000-25.000 ₺ |
+| Piyasa bozucu eylem (104) | 20.000-500.000 ₺; en az menfaatin iki katı |
 
 Aykırılığı yapan kişi bir özel hukuk tüzel kişisinin organı, temsilcisi veya görevlisiyse **tüzel kişiye de ayrıca** ceza verilir; aykırılık tüzel kişinin **zararına** sonuç doğurmuşsa tüzel kişiye ceza verilmez. Menfaat hesabında komisyon, vergi, kredi faizi gibi **maliyetler düşülmez** ve menfaatin nakde çevrilip çevrilmediğine bakılmaz.
 
@@ -148,11 +148,11 @@ Kanundaki maktu tutarlar, **Kabahatler Kanunu md. 17/7** uyarınca her yıl yeni
 
 ### Çözümlü örnek
 
-**a)** Bir gerçek kişi Kurul kararına aykırı davranarak **400.000 TL** menfaat sağladı. Kanundaki üst sınır 250.000 TL olsa da ceza menfaatin iki katından az olamaz: en az 2 × 400.000 = **800.000 TL**.
+**a)** Bir gerçek kişi Kurul kararına aykırı davranarak **400.000 ₺** menfaat sağladı. Kanundaki üst sınır 250.000 ₺ olsa da ceza menfaatin iki katından az olamaz: en az 2 × 400.000 = **800.000 ₺**.
 
-**b)** Aykırılık bir AŞ tarafından yapıldı. Son denetlenmiş yıllık tablolarda brüt satış hasılatı **500 milyon TL**, vergi öncesi kâr **40 milyon TL**. Üst sınır: %1 × 500 = 5 milyon TL; %20 × 40 = 8 milyon TL → yüksek olan **8 milyon TL**. Ceza, alt sınırdan (20.000 TL) az olmamak üzere en fazla 8 milyon TL olabilir.
+**b)** Aykırılık bir AŞ tarafından yapıldı. Son denetlenmiş yıllık tablolarda brüt satış hasılatı **500 milyon ₺**, vergi öncesi kâr **40 milyon ₺**. Üst sınır: %1 × 500 = 5 milyon ₺; %20 × 40 = 8 milyon ₺ → yüksek olan **8 milyon ₺**. Ceza, alt sınırdan (20.000 ₺) az olmamak üzere en fazla 8 milyon ₺ olabilir.
 
-**c)** İşlem bazlı piyasa dolandırıcılığından **200.000 TL** menfaat elde eden kişi etkin pişmanlıkta bulunmak istiyor. 2 × 200.000 = 400.000 TL, kanuni alt sınır olan 500.000 TL'nin altında kaldığı için ödemesi gereken tutar **500.000 TL**'dir. Menfaat 300.000 TL olsaydı 2 × 300.000 = **600.000 TL** ödenirdi.
+**c)** İşlem bazlı piyasa dolandırıcılığından **200.000 ₺** menfaat elde eden kişi etkin pişmanlıkta bulunmak istiyor. 2 × 200.000 = 400.000 ₺, kanuni alt sınır olan 500.000 ₺'nin altında kaldığı için ödemesi gereken tutar **500.000 ₺**'dir. Menfaat 300.000 ₺ olsaydı 2 × 300.000 = **600.000 ₺** ödenirdi.
 
 ## 4. Kurul tedbirleri
 
@@ -203,10 +203,10 @@ md. 104, 106 veya 107'deki fiilleri işlediğine dair **makul şüphe** bulunan 
 ## Özet
 
 - **Bilgi suistimali:** Kamuya açıklanmamış bilgiyle emir verip menfaat sağlamak; **3-5 yıl hapis veya** adli para cezası (en az menfaatin iki katı).
-- **İşlem bazlı piyasa dolandırıcılığı:** Yanıltıcı izlenim amacıyla işlem; **3-5 yıl hapis ve 5.000-10.000 gün** APC; etkin pişmanlıkta menfaatin iki katı, en az **500.000 TL** ödenir.
+- **İşlem bazlı piyasa dolandırıcılığı:** Yanıltıcı izlenim amacıyla işlem; **3-5 yıl hapis ve 5.000-10.000 gün** APC; etkin pişmanlıkta menfaatin iki katı, en az **500.000 ₺** ödenir.
 - **Bilgi bazlı piyasa dolandırıcılığı:** Yanıltıcı bilgi veya söylenti yayıp menfaat sağlamak; 3-5 yıl hapis ve 5.000 güne kadar APC.
-- **Piyasa bozucu eylem** suç değildir; **20.000-500.000 TL** idari para cezası verilir.
-- Genel idari para cezası **20.000-250.000 TL**'dir; tüzel kişide üst sınır hasılatın %1'i ile vergi öncesi kârın %20'sinden yüksek olanıdır; maktu tutarlar her yıl yeniden değerlenir.
+- **Piyasa bozucu eylem** suç değildir; **20.000-500.000 ₺** idari para cezası verilir.
+- Genel idari para cezası **20.000-250.000 ₺**'dir; tüzel kişide üst sınır hasılatın %1'i ile vergi öncesi kârın %20'sinden yüksek olanıdır; maktu tutarlar her yıl yeniden değerlenir.
 - Cezadan önce **30 günlük** savunma alınır; tekrar eden kabahatte ceza iki kat artırılır; cezaların yarısı YTM'ye gider.
 - Kurul işlem yasağı, ihtiyati tedbir, iptal davası, imza yetkisinin kaldırılması, faaliyet durdurma ve erişim engeli gibi tedbirler alabilir.
 - Arama için **sulh ceza hâkimi kararı** gerekir; gizlilik gerekçesiyle bilgi vermekten kaçınılamaz.

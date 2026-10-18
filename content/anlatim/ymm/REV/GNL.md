@@ -2,7 +2,7 @@
 ders: REV
 konu: GNL
 baslik: Revizyonun kapsamı ve teknikleri
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: Yeminli Mali Müşavirlerin Tasdik Edecekleri Belgeler, Tasdik Konuları, Tasdike İlişkin Usul ve Esaslar Hakkında Yönetmelik

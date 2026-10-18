@@ -58,7 +58,7 @@ Maliyet muhasebesi bu yapıda **köprü** işlevi görür: ürettiği stok ve sa
 
 Bu dört terim günlük dilde karışır; maliyet muhasebesinde ayrı anlamları vardır:
 
-- **Harcama:** Bir mal veya hizmet edinmek için ödeme yapılması ya da borç üstlenilmesidir. Örneğin 100.000 TL'lik hammadde alımı bir harcamadır; hammadde henüz stoktadır.
+- **Harcama:** Bir mal veya hizmet edinmek için ödeme yapılması ya da borç üstlenilmesidir. Örneğin 100.000 ₺'lik hammadde alımı bir harcamadır; hammadde henüz stoktadır.
 - **Maliyet:** Belirli bir amaca (bir mamule, siparişe, hizmete) ulaşmak için katlanılan ve parayla ölçülen fedakârlıktır. Üretimde kullanılan hammadde mamulün maliyetine girer ve mamul satılana kadar **stokta varlık** olarak taşınır.
 - **Gider:** Belirli bir dönemde gelir elde etmek amacıyla tüketilen ve o dönemin gelirinden düşülen kısımdır. Mamul satıldığında maliyeti "satılan mamul maliyeti" adıyla gidere dönüşür.
 - **Zarar:** Karşılığında gelir veya fayda elde edilmeyen değer kaybıdır; yangında yanan stok, normalin üstündeki fire gibi.
@@ -95,7 +95,7 @@ Direkt işçilik **her iki toplamda da** yer alır. Bu yüzden:
 
 **Dönemin üretim giderleri = Asal maliyet + Dönüştürme maliyeti − Direkt işçilik**
 
-Bu eşitlik, geri hesap sorularının anahtarıdır. Örneğin asal maliyet 200.000 TL, dönüştürme maliyeti 145.000 TL ve toplam üretim gideri 265.000 TL verilmişse direkt işçilik = 200.000 + 145.000 − 265.000 = **80.000 TL**'dir.
+Bu eşitlik, geri hesap sorularının anahtarıdır. Örneğin asal maliyet 200.000 ₺, dönüştürme maliyeti 145.000 ₺ ve toplam üretim gideri 265.000 ₺ verilmişse direkt işçilik = 200.000 + 145.000 − 265.000 = **80.000 ₺**'dir.
 
 ## 5. GÜG kalemleri ve davranışları
 
@@ -132,16 +132,16 @@ THP'deki gider yeri grupları: esas üretim, yardımcı üretim, yardımcı hizm
 
 ## 7. Çözümlü sayısal örnek
 
-KDV dikkate alınmayacaktır. Bir işletmenin dönem giderleri (TL): direkt ilk madde 120.000; direkt işçilik 80.000; endirekt malzeme 10.000; endirekt işçilik 15.000; fabrika kirası 20.000; üretim makineleri amortismanı 12.000; fabrika enerji gideri 8.000; genel müdürlük kirası 18.000; satış personeli ücreti 25.000; banka kredisi faizi 9.000.
+KDV dikkate alınmayacaktır. Bir işletmenin dönem giderleri (₺): direkt ilk madde 120.000; direkt işçilik 80.000; endirekt malzeme 10.000; endirekt işçilik 15.000; fabrika kirası 20.000; üretim makineleri amortismanı 12.000; fabrika enerji gideri 8.000; genel müdürlük kirası 18.000; satış personeli ücreti 25.000; banka kredisi faizi 9.000.
 
-1. GÜG = 10.000 + 15.000 + 20.000 + 12.000 + 8.000 = **65.000 TL**.
-2. Asal maliyet = 120.000 + 80.000 = **200.000 TL**.
-3. Dönüştürme maliyeti = 80.000 + 65.000 = **145.000 TL**.
-4. Dönemin üretim giderleri = 120.000 + 80.000 + 65.000 = **265.000 TL**.
-5. Kontrol: 200.000 + 145.000 − 80.000 = 265.000 TL.
-6. Dönem giderleri = 18.000 (genel yönetim) + 25.000 (pazarlama) + 9.000 (finansman) = **52.000 TL**; bunlar maliyete girmez.
+1. GÜG = 10.000 + 15.000 + 20.000 + 12.000 + 8.000 = **65.000 ₺**.
+2. Asal maliyet = 120.000 + 80.000 = **200.000 ₺**.
+3. Dönüştürme maliyeti = 80.000 + 65.000 = **145.000 ₺**.
+4. Dönemin üretim giderleri = 120.000 + 80.000 + 65.000 = **265.000 ₺**.
+5. Kontrol: 200.000 + 145.000 − 80.000 = 265.000 ₺.
+6. Dönem giderleri = 18.000 (genel yönetim) + 25.000 (pazarlama) + 9.000 (finansman) = **52.000 ₺**; bunlar maliyete girmez.
 
-Genel müdürlük kirasını, satış personeli ücretini veya faizi GÜG'e katan aday; GÜG'ü 117.000 TL, dönüştürme maliyetini 197.000 TL bulur. Şıklarda bu yanlış tutarlar özellikle yer alır.
+Genel müdürlük kirasını, satış personeli ücretini veya faizi GÜG'e katan aday; GÜG'ü 117.000 ₺, dönüştürme maliyetini 197.000 ₺ bulur. Şıklarda bu yanlış tutarlar özellikle yer alır.
 
 > **Sınav ipucu:** Bir kalemi sınıflandırırken iki soruyu sırayla sor: (1) Üretimle ilgili mi? Hayırsa dönem gideridir. (2) Belirli bir mamule ekonomik olarak doğrudan izlenebiliyor mu? Evetse direkt ilk madde veya direkt işçilik, hayırsa GÜG'dür.
 

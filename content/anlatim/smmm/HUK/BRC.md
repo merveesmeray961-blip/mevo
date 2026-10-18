@@ -126,11 +126,11 @@ Sözleşme, tarafların iradelerini karşılıklı ve birbirine uygun açıklama
 
 **İç ilişki (md. 167-168):** Aksi kararlaştırılmadıkça borçlular **eşit paylarla** sorumludur. Payından fazla ödeyen, diğerlerine **payları oranında** rücu eder ve alacaklıya halef olur. Birinden alınamayan pay, diğerlerince eşit olarak üstlenilir. Haksız fiilde paylaşımda kusurun ağırlığı ve yaratılan tehlike gözetilir (md. 62).
 
-**Çözümlü örnek:** A, B ve C, 90.000 TL'lik borçtan müteselsilen sorumludur.
+**Çözümlü örnek:** A, B ve C, 90.000 ₺'lik borçtan müteselsilen sorumludur.
 
-1. Alacaklı 90.000 TL'nin tamamını A'dan tahsil eder.
-2. A'nın payı 30.000 TL'dir. Fazla ödediği 60.000 TL için B'ye ve C'ye **30.000'er TL** rücu eder; her birine yalnız payı oranında başvurabilir.
-3. C ödeme gücünü yitirmişse, C'nin 30.000 TL'lik payını A ve B eşit üstlenir. Bu durumda A, B'den 30.000 + 15.000 = **45.000 TL** ister.
+1. Alacaklı 90.000 ₺'nin tamamını A'dan tahsil eder.
+2. A'nın payı 30.000 ₺'dir. Fazla ödediği 60.000 ₺ için B'ye ve C'ye **30.000'er TL** rücu eder; her birine yalnız payı oranında başvurabilir.
+3. C ödeme gücünü yitirmişse, C'nin 30.000 ₺'lik payını A ve B eşit üstlenir. Bu durumda A, B'den 30.000 + 15.000 = **45.000 ₺** ister.
 
 ## 6. Borcun sona ermesi
 
@@ -189,12 +189,12 @@ Sözleşme, tarafların iradelerini karşılıklı ve birbirine uygun açıklama
 - Hâkim, güvence veren alıcıya ödeme kolaylığı tanıyabilir.
 - Alıcı tacir ise veya mal ticari ya da meslekî amaçla alınmışsa yalnız md. 259/2, 260/1 ve 261 uygulanır (md. 263).
 
-**Çözümlü örnek:** Peşin satış bedeli 120.000 TL olan bir mal, 12.000 TL ilave bedelle toplam 132.000 TL'ye satılıyor. Peşinat 12.000 TL, kalan tutar 12 taksitte 10.000 TL olarak ödenecek.
+**Çözümlü örnek:** Peşin satış bedeli 120.000 ₺ olan bir mal, 12.000 ₺ ilave bedelle toplam 132.000 ₺'ye satılıyor. Peşinat 12.000 ₺, kalan tutar 12 taksitte 10.000 ₺ olarak ödenecek.
 
-1. Asgari peşinat: 120.000 × 1/10 = **12.000 TL** olduğu için şart karşılanmıştır.
-2. Muacceliyet eşiği: 132.000 × 1/10 = **13.200 TL**.
-3. Alıcı ardışık iki taksidi (20.000 TL) ödemezse eşik aşılır. Hak saklı tutulmuşsa satıcı, 15 gün süre verdikten sonra kalan bedelin tamamını isteyebilir.
-4. Yalnız bir ara taksit (10.000 TL) ödenmezse bu tutar 13.200 TL'nin ve dörtte birin (33.000 TL) altındadır. Bu durumda satıcı yalnız muaccel taksiti isteyebilir.
+1. Asgari peşinat: 120.000 × 1/10 = **12.000 ₺** olduğu için şart karşılanmıştır.
+2. Muacceliyet eşiği: 132.000 × 1/10 = **13.200 ₺**.
+3. Alıcı ardışık iki taksidi (20.000 ₺) ödemezse eşik aşılır. Hak saklı tutulmuşsa satıcı, 15 gün süre verdikten sonra kalan bedelin tamamını isteyebilir.
+4. Yalnız bir ara taksit (10.000 ₺) ödenmezse bu tutar 13.200 ₺'nin ve dörtte birin (33.000 ₺) altındadır. Bu durumda satıcı yalnız muaccel taksiti isteyebilir.
 
 ## Özet
 

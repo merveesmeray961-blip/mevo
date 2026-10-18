@@ -2,7 +2,7 @@
 ders: IFM
 konu: KON
 baslik: Konsolidasyon ve işletme birleşmeleri
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: TFRS 10 Konsolide Finansal Tablolar
@@ -122,9 +122,15 @@ Grup, tek bir ekonomik birim gibi raporlanır; kendi kendine satış yapan bir i
 
 Sayısal durum: A, maliyeti 80.000 TL olan malı B'ye 100.000 TL'ye satıyor; dönem sonunda malın yarısı B'nin stoklarında. Birleşik tablolarda hasılat 100.000 TL fazla, satışların maliyeti ise 130.000 TL (A'nın 80.000 + B'nin satılan yarı için 50.000) görünür; grup açısından doğru maliyet 40.000 TL'dir. Stoktaki gerçekleşmemiş kâr 50.000 − 40.000 = 10.000 TL'dir. Eliminasyon: 600 Yurtiçi Satışlar borç 100.000; 621 Satılan Ticari Mallar Maliyeti alacak 90.000; 153 Ticari Mallar alacak 10.000.
 
+Grup içi alacak ve borç da karşılıklı kapatılır: B'nin A'ya 60.000 TL borcu varsa 320 Satıcılar borç / 120 Alıcılar alacak 60.000.
+
+Duran varlık satışında gerçekleşmemiş kâr amortismanla birlikte ayıklanır. A, yıl başında defter değeri 300.000 TL olan bir yazılım lisansını B'ye 400.000 TL'ye satar; B lisansı 5 yılda itfa eder. Eliminasyon: 679 Diğer Olağandışı Gelir ve Kârlar (A'nın satış kârının izlendiği hesap) borç / 260 Haklar alacak 100.000. Fazla itfa 100.000 / 5 = 20.000 TL: 268 Birikmiş Amortismanlar borç / 770 Genel Yönetim Giderleri alacak 20.000. Yıl sonunda gerçekleşmemiş kâr 80.000 TL'ye iner.
+
 İstisna niteliğindeki not: Grup içi zarar, konsolide tablolara yansıtılması gereken bir değer düşüklüğünün göstergesi olabilir. Eliminasyondan doğan geçici farklara TMS 12 uygulanır (TFRS 10.B86(c)).
 
 ## 5. TMS 28 özkaynak yöntemi
+
+TMS 28 hem **iştiraklere** hem de TFRS 11'deki **iş ortaklıklarına** uygulanır. **Müşterek kontrol**, kontrolün sözleşmeyle paylaşılması ve ilgili faaliyet kararlarının kontrolü paylaşan tarafların oybirliğini gerektirmesidir; taraflar düzenlemenin net varlıkları üzerinde hak sahibiyse iş ortaklığı (özkaynak yöntemi), varlıkları üzerinde hak ve borçlarından sorumluysa müşterek faaliyet (kendi payına düşen varlık, borç, gelir ve gider) vardır.
 
 **Önemli etki**, yatırım yapılan işletmenin finansal ve faaliyet politikası kararlarına katılma gücüdür; kontrol veya müşterek kontrol değildir (TMS 28.3). Doğrudan ya da dolaylı yüzde 20 veya daha fazla oy hakkı, aksi açıkça gösterilmedikçe önemli etki sayılır (TMS 28.5). Yönetim kurulunda temsil, politika belirlemeye katılma, önemli işlemler, yönetici değişimi ve teknik bilgi sağlanması da göstergedir (TMS 28.6).
 

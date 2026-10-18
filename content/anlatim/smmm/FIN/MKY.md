@@ -77,13 +77,13 @@ Aynı hisse senedi, işletmenin onu neden aldığına göre farklı hesaplara gi
 
 TDHP'ye göre menkul kıymetler **alış bedeliyle** ilgili hesaba borç yazılır. Aracı kurum komisyonu gibi **satın alma giderleri maliyete eklenmez**; 65 grubundaki ilgili gider hesabına, genellikle 653 Komisyon Giderleri'ne yazılır. Satış kârı **645 Menkul Kıymet Satış Kârları**, satış zararı **655 Menkul Kıymet Satış Zararları** hesabında izlenir.
 
-**Örnek:** 1.000 adet hisse senedi tanesi 150 TL'den alınıyor; aracı kurum komisyonu 300 TL.
+**Örnek:** 1.000 adet hisse senedi tanesi 150 ₺'den alınıyor; aracı kurum komisyonu 300 ₺.
 
 - 110 Hisse Senetleri borç 150.000
 - 653 Komisyon Giderleri borç 300
 - 102 Bankalar alacak 150.300
 
-Hisselerin 400 adedi tanesi 165 TL'den satılıyor (satış komisyonu 120 TL):
+Hisselerin 400 adedi tanesi 165 ₺'den satılıyor (satış komisyonu 120 ₺):
 
 - 102 Bankalar borç 65.880
 - 653 Komisyon Giderleri borç 120
@@ -94,7 +94,7 @@ Satılan kıymet kayıtlı değeriyle (alış bedeliyle) hesaptan çıkarılır.
 
 ### Bedelsiz hisse
 
-Şirket iç kaynaklardan sermaye artırıp ortaklara bedelsiz hisse verirse yatırımcının toplam maliyeti değişmez, yalnız adet artar ve birim maliyet düşer; gelir kaydı yapılmaz. Örneğin 1.000 adet x 15 TL = 15.000 TL'lik paya %50 bedelsiz verilirse 1.500 adet olur, yeni birim maliyet 15.000 / 1.500 = 10 TL'dir. Sonraki satışlarda kâr bu birim maliyete göre hesaplanır.
+Şirket iç kaynaklardan sermaye artırıp ortaklara bedelsiz hisse verirse yatırımcının toplam maliyeti değişmez, yalnız adet artar ve birim maliyet düşer; gelir kaydı yapılmaz. Örneğin 1.000 adet x 15 ₺ = 15.000 ₺'lik paya %50 bedelsiz verilirse 1.500 adet olur, yeni birim maliyet 15.000 / 1.500 = 10 ₺'dir. Sonraki satışlarda kâr bu birim maliyete göre hesaplanır.
 
 > **Sık yapılan hata:** Alım komisyonunu 110'a eklemek. TDHP menkul kıymetlerin satın alma giderlerini 65 grubunda izletir; maliyet yalnız alış bedelidir.
 
@@ -107,7 +107,7 @@ VUK md. 279 menkul kıymetleri ikiye ayırır:
 
 Borsa rayici bulunmayan ve getirisi ihraç edenin kâr ve zararına bağlı olduğu için değerleme günü hesaplanamayan menkul kıymetler de alış bedeliyle değerlenir.
 
-**Örnek:** 1 Ekim'de nominal ve alış bedeli 100.000 TL, yıllık %30 faizli, borsa rayici oluşmayan bir özel sektör tahvili alınıyor. 31 Aralık'ta 3 aylık gelir eklenir: 100.000 x 0,30 x 3/12 = 7.500 TL.
+**Örnek:** 1 Ekim'de nominal ve alış bedeli 100.000 ₺, yıllık %30 faizli, borsa rayici oluşmayan bir özel sektör tahvili alınıyor. 31 Aralık'ta 3 aylık gelir eklenir: 100.000 x 0,30 x 3/12 = 7.500 ₺.
 
 - Alış: 111 Özel Kesim Tahvil, Senet ve Bonoları borç 100.000; 102 alacak 100.000
 - Değerleme: 111 borç 7.500; 642 Faiz Gelirleri alacak 7.500 (bazı uygulamalarda borç tarafında 181 Gelir Tahakkukları kullanılır)
@@ -132,16 +132,16 @@ Karşılık ayrılan kıymet **elden çıkarıldığında** veya **değer düş�
 
 ### Çözümlü örnek
 
-İşletme 1.000 adet hisseyi 150.000 TL'ye almıştır. Yıl sonunda borsa değeri 130.000 TL'dir ve düşüş sürekli niteliktedir.
+İşletme 1.000 adet hisseyi 150.000 ₺'ye almıştır. Yıl sonunda borsa değeri 130.000 ₺'dir ve düşüş sürekli niteliktedir.
 
 1. Karşılık: 654 borç 20.000; 119 alacak 20.000
-2. Gelecek yıl hisseler 140.000 TL'ye satılıyor:
+2. Gelecek yıl hisseler 140.000 ₺'ye satılıyor:
    - 102 Bankalar borç 140.000
    - 655 Menkul Kıymet Satış Zararları borç 10.000
    - 110 Hisse Senetleri alacak 150.000
 3. Karşılığın kapatılması: 119 borç 20.000; 644 alacak 20.000
 
-İkinci yılın net etkisi: 20.000 gelir - 10.000 zarar = +10.000 TL. Bu tutar, yıl sonu değeri 130.000 TL ile satış bedeli 140.000 TL arasındaki farka eşittir. Satış zararı **brüt maliyete** (150.000 TL) göre hesaplanır; karşılığın tamamı 644'e aktarılır, 644'e "kalan kadar" yazmak TDHP işleyişine aykırıdır.
+İkinci yılın net etkisi: 20.000 gelir - 10.000 zarar = +10.000 ₺. Bu tutar, yıl sonu değeri 130.000 ₺ ile satış bedeli 140.000 ₺ arasındaki farka eşittir. Satış zararı **brüt maliyete** (150.000 ₺) göre hesaplanır; karşılığın tamamı 644'e aktarılır, 644'e "kalan kadar" yazmak TDHP işleyişine aykırıdır.
 
 İştirak ve bağlı ortaklık paylarında aynı mantık 244 ve 247 karşılık hesaplarıyla, 240 için 241 hesabıyla işler (654 borç; iptalde 644 alacak).
 
@@ -151,13 +151,13 @@ Karşılık ayrılan kıymet **elden çıkarıldığında** veya **değer düş�
 
 - İştirakten alınan: 102 borç; **640 İştiraklerden Temettü Gelirleri** alacak
 - Bağlı ortaklıktan alınan: 102 borç; **641 Bağlı Ortaklıklardan Temettü Gelirleri** alacak
-- 11 grubundaki geçici amaçlı hisselerden alınan kâr payı için TDHP'de ayrı hesap yoktur; 64 grubunun tanımı "diğer temettü gelirleri"ni kapsar ve uygulamada 642 veya 649 hesabı kullanılır.
+- 11 grubundaki geçici amaçlı hisselerden alınan kâr payı için TDHP'de ayrı hesap yoktur; uygulamada çoğunlukla **649 Faaliyetle İlgili Diğer Olağan Gelir ve Kârlar** kullanılır. Bazı ders kitapları 642'yi tercih eder; ancak THP 642'yi mali yatırımlardan sağlanan **faiz** gelirleri için tanımlar. Sınavda şıklarda 640/641 yoksa ve 649 varsa 649'u seç.
 
 640 hesabına menkul kıymet satış kârları alınmaz; satış kârı 645'tir. Tahvil faizi ise 642 Faiz Gelirleri'dir.
 
 KVK md. 5/1-a'ya göre kurumların **tam mükellef başka bir kurumun sermayesine katılımından** elde ettikleri kâr payları kurumlar vergisinden istisnadır. Bu nedenle 640/641'deki temettü ticari kâra girer ama beyannamede istisna olarak indirilir.
 
-**Örnek:** %30 oranında iştirak edilen tam mükellef şirket 50.000 TL temettü dağıtıyor: 102 borç 50.000; 640 alacak 50.000. Ticari kârda gelirdir; kurumlar vergisi matrahından istisna olarak düşülür.
+**Örnek:** %30 oranında iştirak edilen tam mükellef şirket 50.000 ₺ temettü dağıtıyor: 102 borç 50.000; 640 alacak 50.000. Ticari kârda gelirdir; kurumlar vergisi matrahından istisna olarak düşülür.
 
 ## 6. İştirak ve bağlı ortaklık
 
@@ -182,10 +182,10 @@ KVK md. 5/1-a'ya göre kurumların **tam mükellef başka bir kurumun sermayesin
 
 İştirak için taahhütte bulunulduğunda borcun tamamı hemen ödenmez:
 
-1. Taahhüt (600.000 TL): 242 İştirakler borç 600.000; 243 İştiraklere Sermaye Taahhütleri alacak 600.000
+1. Taahhüt (600.000 ₺): 242 İştirakler borç 600.000; 243 İştiraklere Sermaye Taahhütleri alacak 600.000
 2. Dörtte birinin ödenmesi: 243 borç 150.000; 102 alacak 150.000
 
-243 bakiyesi (450.000 TL), 242'den düşülerek gösterilir. Bağlı ortaklıkta aynı kayıtlar 245 ve 246 ile yapılır.
+243 bakiyesi (450.000 ₺), 242'den düşülerek gösterilir. Bağlı ortaklıkta aynı kayıtlar 245 ve 246 ile yapılır.
 
 > **Sınav ipucu:** "%50" sınırında dikkat: tam %50 pay iştirak (242), %50'nin üzeri bağlı ortaklıktır (245). %50'nin altında olsa bile yönetim çoğunluğunu seçme hakkı varsa bağlı ortaklıktır.
 

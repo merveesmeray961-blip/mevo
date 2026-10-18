@@ -2,7 +2,7 @@
 ders: YNM
 konu: KRV
 baslik: Karar verme ve ilgili maliyetler
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "Genel bilgi — Karar verme ve ilgili maliyetler"
@@ -10,6 +10,8 @@ kaynaklar:
   - mevzuat: "Genel bilgi — Fark analizi ve kısa dönemli kararlar"
     madde: "-"
   - mevzuat: "Genel bilgi — Kıt kaynak kullanımı"
+    madde: "-"
+  - mevzuat: "Genel bilgi — Ortak ürünler ve ek işlem kararı"
     madde: "-"
 ---
 ## Bu konuda neler öğreneceksin
@@ -19,6 +21,7 @@ kaynaklar:
 - Özel sipariş kararında boş kapasite ve kaybedilen katkı payını hesaba katmayı
 - Ürün hattını kapatma kararında ortak sabit maliyetleri doğru yorumlamayı
 - Kıt kaynak kullanımında ürünleri kısıt birimi başına katkı payına göre sıralamayı
+- Ortak ürünlerde ayrılma noktasında satma veya ek işlem kararını ve kayıtsızlık fiyatını
 
 ## 1. İlgili maliyet ve fark analizi
 
@@ -63,7 +66,7 @@ Yılda 10.000 birim parça gerekir. Birim maliyet: direkt malzeme 12 TL, direkt 
 4. Üretmek 10.000 TL avantajlıdır.
 5. Parça dışarıdan alınınca boşalan alan yıllık 25.000 TL'ye kiralanabiliyorsa: net satın alma maliyeti = 300.000 − 25.000 = 275.000 TL; bu kez satın almak 15.000 TL avantajlıdır.
 
-İstisna: Nitel etkenler (kalite, tedarik güvenliği, know-how kaybı, tedarikçiye bağımlılık) sayısal sonucu değiştirebilir; sınavda "başka bilgi yoksa" sayısal sonuca göre karar verilir.
+İstisna: Nitel etkenler sayısal sonucu değiştirebilir: tedarikçinin kalite düzeyi ve teslim güvenilirliği, tedarikçiye bağımlılık ve ileride fiyat artırma riski, know-how ve gizli bilgi kaybı, boşalan işgücünün durumu, kapasitenin gelecekteki kullanımı. Sınav anahtarları bu listeyi madde madde ister; sayısal sonuca ek olarak en az birkaçını yaz. Talep miktarı değişiyorsa, ekipman kirası gibi **adım sabit maliyetleri** her hacim için ayrı hesapla; kararın yönü hacme göre değişebilir.
 
 ## 3. Özel sipariş
 
@@ -83,7 +86,7 @@ Kapasite 50.000 birim, mevcut satış 40.000 birimdir. Normal fiyat 50 TL, birim
 3. Sipariş 15.000 birim ise 5.000 birim normal satıştan vazgeçilir: kaybedilen katkı = 5.000 × (50 − 30) = 100.000 TL.
 4. Siparişin katkısı = 15.000 × 5 = 75.000 TL; net etki = 75.000 − 100.000 = −25.000 TL; reddedilir.
 
-İstisna: Siparişin normal müşterilerin fiyat beklentisini bozma riski, rekabet ve fiyat ayrımcılığı kuralları gibi nitel etkenler değerlendirilir.
+İstisna: Sipariş kabul edilince **mevcut müşterilere de fiyat indirimi** yapılması gerekiyorsa, mevcut satış miktarı × indirim tutarı fırsat maliyetidir. Yukarıdaki 8.000 birimlik sipariş, mevcut 40.000 birimde 2 TL indirim gerektirseydi kayıp 80.000 TL olur, 40.000 TL'lik ek katkıyı aşar ve sipariş reddedilirdi. Rekabet ve fiyat ayrımcılığı kuralları da değerlendirilir.
 
 > **Sınav ipucu:** Özel sipariş sorusunda ilk iş boş kapasiteyi hesaplamaktır. Sipariş boş kapasiteyi aşıyorsa aşan kısım için normal satışların birim katkı payı ilgili maliyete eklenir.
 
@@ -138,6 +141,23 @@ Kullanılabilir makine saati 4.000'dir.
 
 İstisna: Birden fazla kısıt aynı anda bağlayıcıysa sıralama yöntemi yetmez; doğrusal programlama gerekir.
 
+## 6. Ortak ürünlerde ayrılma noktası ve ek işlem kararı
+
+**Ortak ürünler**, aynı üretim sürecinden aynı anda çıkan ürünlerdir; ayrı ayrı tanınabildikleri yer **ayrılma noktasıdır**. Ayrılma noktasına kadarki **ortak maliyet**, ürünü ayrılmada satsan da işlesen de değişmediği için ek işlem kararında **ilgisizdir** (batık niteliktedir).
+
+Kural: Ek işlemden doğan **ek gelir** (işlenmiş satış değeri − ayrılma noktası satış değeri) **ek işlem maliyetinden** büyükse ürün işlenir; küçükse ayrılma noktasında satılır.
+
+### Örnek: Ek işlem kararı
+
+Ortak maliyet 300.000 TL. A ürünü: 10.000 kg, ayrılma noktasında 20 TL/kg; 60.000 TL ek işlemle 28 TL/kg'a satılır. B ürünü: 5.000 kg, ayrılma noktasında 30 TL/kg; 50.000 TL ek işlemle 38 TL/kg'a satılır.
+
+1. A: ek gelir = 10.000 × (28 − 20) = 80.000 TL; ek maliyet 60.000 TL; fark +20.000 TL. **İşlenmeli.**
+2. B: ek gelir = 5.000 × (38 − 30) = 40.000 TL; ek maliyet 50.000 TL; fark −10.000 TL. **Ayrılma noktasında satılmalı.**
+3. Ortak maliyet 300.000 TL iki kararda da yer almaz; dağıtım yöntemi (fiziki miktar, satış değeri) kararı değiştirmez.
+4. **Kayıtsızlık (başabaş) fiyatı:** A'nın ayrılma noktası fiyatı p olsun. 10.000 × (28 − p) = 60.000 eşitliğinden p = 22 TL. Ayrılma noktası fiyatı 22 TL'yi aşarsa A da ayrılmada satılmalıdır.
+
+> **Sık yapılan hata:** Ortak maliyeti ürünlere dağıtıp "A ürünü zararda, işlemeyelim" demek. Ortak maliyet her iki seçenekte aynıdır; yalnız ek gelir ile ek maliyet karşılaştırılır.
+
 ### Tasdik uygulama notu
 
 Kısa dönemli kararlar vergi beyanına doğrudan girmez; ancak sonuçları inceleme ve tasdikte sorgulanır. Tam maliyetin altında yapılan özel sipariş satışlarında ya da ilişkili kişiden yapılan "satın al" tedarikinde fiyatın emsale uygunluğu araştırılır; işletmenin fark analizini, boş kapasite ve maliyet hesaplarını belgelemesi istenir. Kapatılan ürün hatlarında elden çıkarılan ya da atıl kalan duran varlıkların ve stokların kayıtlardan çıkışı ayrıca kontrol edilir.
@@ -150,3 +170,4 @@ Kısa dönemli kararlar vergi beyanına doğrudan girmez; ancak sonuçları ince
 - Özel sipariş: boş kapasite varsa sabit maliyet ilgisizdir; yoksa vazgeçilen katkı payı eklenir.
 - Ürün hattını kapatma: kaybedilen katkı payı ile kaçınılan sabit maliyet karşılaştırılır; dağıtılmış ortak maliyet ilgisizdir.
 - Kıt kaynakta ölçü, kısıt birimi başına katkı payıdır.
+- Ortak üründe ortak maliyet ilgisizdir; ek gelir ek işlem maliyetini aşarsa ürün işlenir, aksi hâlde ayrılma noktasında satılır.

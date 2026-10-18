@@ -60,11 +60,11 @@ kaynaklar:
 
 | Konu | 2026 tutarı |
 |---|---|
-| Bilanço esası hadleri (md. 177): yıllık alış / satış | 2.500.000 TL / 3.500.000 TL |
-| Bilanço esası: yıllık gayrisafi iş hasılatı | 1.200.000 TL |
-| Fatura kullanma mecburiyeti (md. 232) | 12.000 TL |
-| Doğrudan gider yazılabilecek demirbaş (md. 313) | 12.000 TL |
-| Şüpheli alacak tutarı (md. 323) | 25.000 TL |
+| Bilanço esası hadleri (md. 177): yıllık alış / satış | 2.500.000 ₺ / 3.500.000 ₺ |
+| Bilanço esası: yıllık gayrisafi iş hasılatı | 1.200.000 ₺ |
+| Fatura kullanma mecburiyeti (md. 232) | 12.000 ₺ |
+| Doğrudan gider yazılabilecek demirbaş (md. 313) | 12.000 ₺ |
+| Şüpheli alacak tutarı (md. 323) | 25.000 ₺ |
 
 **Vergi cezaları:**
 
@@ -89,22 +89,22 @@ Gelir, gerçek kişinin bir takvim yılında elde ettiği kazanç ve iratların 
 
 | Gelir dilimi | Oran |
 |---|---|
-| 190.000 TL'ye kadar | %15 |
-| 400.000 TL'nin 190.000 TL'si için 28.500 TL, fazlası | %20 |
-| 1.000.000 TL'nin 400.000 TL'si için 70.500 TL, fazlası (ücrette 1.500.000 TL'ye kadar) | %27 |
-| 5.300.000 TL'nin 1.000.000 TL'si için 232.500 TL, fazlası (ücrette 1.500.000 TL için 367.500 TL) | %35 |
-| 5.300.000 TL'den fazlası | %40 |
+| 190.000 ₺'ye kadar | %15 |
+| 400.000 ₺'nin 190.000 ₺'si için 28.500 ₺, fazlası | %20 |
+| 1.000.000 ₺'nin 400.000 ₺'si için 70.500 ₺, fazlası (ücrette 1.500.000 ₺'ye kadar) | %27 |
+| 5.300.000 ₺'nin 1.000.000 ₺'si için 232.500 ₺, fazlası (ücrette 1.500.000 ₺ için 367.500 ₺) | %35 |
+| 5.300.000 ₺'den fazlası | %40 |
 
 ### Çözümlü örnek
 
-**a) 2026 yılı ticari kazanç matrahı 1.200.000 TL:**
-1.000.000 TL'ye kadar vergi 232.500 TL; kalan 200.000 × %35 = 70.000 TL; toplam **302.500 TL**.
+**a) 2026 yılı ticari kazanç matrahı 1.200.000 ₺:**
+1.000.000 ₺'ye kadar vergi 232.500 ₺; kalan 200.000 × %35 = 70.000 ₺; toplam **302.500 ₺**.
 
-**b) Aynı tutar ücret geliri olsaydı:** Ücrette %27'lik dilim 1.500.000 TL'ye kadar uzar. 400.000 TL'ye kadar 70.500 TL; kalan 800.000 × %27 = 216.000 TL; toplam **286.500 TL**.
+**b) Aynı tutar ücret geliri olsaydı:** Ücrette %27'lik dilim 1.500.000 ₺'ye kadar uzar. 400.000 ₺'ye kadar 70.500 ₺; kalan 800.000 × %27 = 216.000 ₺; toplam **286.500 ₺**.
 
-**c) KDV:** Mükellefin bir aydaki vergiye tabi satışı 500.000 TL (%20), indirilecek KDV'si 60.000 TL'dir. Hesaplanan KDV 100.000 TL; ödenecek KDV 100.000 − 60.000 = **40.000 TL**.
+**c) KDV:** Mükellefin bir aydaki vergiye tabi satışı 500.000 ₺ (%20), indirilecek KDV'si 60.000 ₺'dir. Hesaplanan KDV 100.000 ₺; ödenecek KDV 100.000 − 60.000 = **40.000 ₺**.
 
-**d) Ceza indirimi ve gecikme zammı:** Tarhiyat sonucu 40.000 TL vergi ziyaı cezası kesilen mükellef md. 376'dan yararlanırsa ceza 20.000 TL'ye iner. Vadesinde ödenmeyen 10.000 TL vergiye 3 ay için uygulanan gecikme zammı: 10.000 × %3,7 × 3 = **1.110 TL**.
+**d) Ceza indirimi ve gecikme zammı:** Tarhiyat sonucu 40.000 ₺ vergi ziyaı cezası kesilen mükellef md. 376'dan yararlanırsa ceza 20.000 ₺'ye iner. Vadesinde ödenmeyen 10.000 ₺ vergiye 3 ay için uygulanan gecikme zammı: 10.000 × %3,7 × 3 = **1.110 ₺**.
 
 ## 3. Katma değer vergisi (3065 sayılı KDVK)
 
@@ -164,7 +164,7 @@ Emlak vergisi iki eşit taksitte ödenir: **birinci taksit Mart-Nisan-Mayıs**, 
 
 - Vergi alacağı vergiyi doğuran olayla doğar; tarh zamanaşımı ve 6183'teki tahsil zamanaşımı izleyen yıl başından itibaren 5 yıldır.
 - Vergi ziyaı cezası bir kat, kaçakçılıkta üç kattır; md. 376 ile ceza yarı yarıya indirilir; pişmanlıkta beyan ve ödeme 15 gün içinde yapılır.
-- 2026'da fatura sınırı 12.000 TL, demirbaş sınırı 12.000 TL, şüpheli alacak tutarı 25.000 TL'dir.
+- 2026'da fatura sınırı 12.000 ₺, demirbaş sınırı 12.000 ₺, şüpheli alacak tutarı 25.000 ₺'dir.
 - Gelirin yedi unsuru vardır; 2026 tarifesi %15-%20-%27-%35-%40'tır; yıllık beyan Mart'ta, ödeme Mart ve Temmuz'da iki taksittir; geçici vergi %15'tir.
 - KDV'de genel oran %20, indirimli oranlar %10 ve %1'dir; vergiyi doğuran olay teslim veya hizmetin yapılmasıdır.
 - Kurumlar vergisi %25 (finans kuruluşlarında %30), asgari kurumlar vergisi %10'dur; beyan dördüncü ayda yapılır.

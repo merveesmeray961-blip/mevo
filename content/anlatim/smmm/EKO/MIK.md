@@ -33,12 +33,12 @@ Talep kanunu nedeniyle işaret negatiftir; yorum mutlak değerle yapılır:
 
 **Yay (orta nokta) esnekliği:** İki nokta arasında yüzde değişmeler, iki değerin ortalamasına bölünerek bulunur. **Nokta esnekliği:** (ΔQ/ΔP) × (P/Q). Doğrusal bir talep eğrisinde eğim sabit olsa da esneklik her noktada farklıdır: eğrinin **orta noktasında birim esnek**, üst yarısında esnek, alt yarısında esnek değildir. Dik açılı hiperbol (P × Q = sabit) biçimindeki talep her noktada birim esnektir.
 
-**Çözümlü örnek:** Fiyat 20 TL'den 24 TL'ye çıkınca miktar 100'den 80'e düşüyor.
+**Çözümlü örnek:** Fiyat 20 ₺'den 24 ₺'ye çıkınca miktar 100'den 80'e düşüyor.
 
 1. Miktar değişmesi: −20 / ortalama 90 = −0,222
 2. Fiyat değişmesi: 4 / ortalama 22 = 0,182
 3. Yay esnekliği: −0,222 / 0,182 ≈ **−1,22** → talep esnek.
-4. Kontrol: toplam hasılat 20 × 100 = 2.000 TL'den 24 × 80 = 1.920 TL'ye düştü; esnek talepte fiyat artışı hasılatı azaltır.
+4. Kontrol: toplam hasılat 20 × 100 = 2.000 ₺'den 24 × 80 = 1.920 ₺'ye düştü; esnek talepte fiyat artışı hasılatı azaltır.
 
 Başlangıç değerleri kullanılsaydı sonuç −20% / 20% = −1 çıkardı; soruda hangi yöntemin istendiğine dikkat et.
 
@@ -62,10 +62,10 @@ Rekabetçi denge toplam fazlayı (TF + ÜF) en büyük yapar. Vergi, fiyat tavan
 
 1. Denge: 100 − Q = 20 + Q → Q = 40, P = 60.
 2. TF = 40 × (100 − 60) / 2 = **800**; ÜF = 40 × (60 − 20) / 2 = **800**; toplam 1.600.
-3. Üreticiden birim başına 20 TL vergi alınsın: arz P = 40 + Q olur. 100 − Q = 40 + Q → Q = 30. Tüketici 70 TL öder, üretici 50 TL alır.
+3. Üreticiden birim başına 20 ₺ vergi alınsın: arz P = 40 + Q olur. 100 − Q = 40 + Q → Q = 30. Tüketici 70 ₺ öder, üretici 50 ₺ alır.
 4. Yeni TF = 30 × 30 / 2 = 450; yeni ÜF = 30 × (50 − 20) / 2 = 450; vergi geliri = 20 × 30 = 600; toplam 1.500.
 5. Ölü ağırlık kaybı = 1.600 − 1.500 = **100** (= 20 × 10 / 2).
-6. Eğimler eşit olduğundan vergi yükü eşit bölünür: tüketici 10 TL, üretici 10 TL.
+6. Eğimler eşit olduğundan vergi yükü eşit bölünür: tüketici 10 ₺, üretici 10 ₺.
 
 > **Sık yapılan hata:** "Vergi sonrası fiyat yükseldiği için üretici fazlası artar" demek yanlıştır. Tüketicinin ödediği fiyat yükselir ama üreticinin eline geçen fiyat düşer; hem TF hem ÜF azalır.
 
@@ -84,7 +84,7 @@ Rekabetçi denge toplam fazlayı (TF + ÜF) en büyük yapar. Vergi, fiyat tavan
 
 **Tüketici dengesi**, bütçe doğrusunun ulaşılabilen en yüksek farksızlık eğrisine **teğet** olduğu noktadır: MRS = Px / Py.
 
-**Çözümlü örnek:** Fayda U = X × Y, gelir 120 TL, Px = 4, Py = 2. Bu fayda fonksiyonunda MRS = Y / X'tir. Denge koşulu Y / X = 4 / 2 → Y = 2X. Bütçede yerine koy: 4X + 2(2X) = 120 → X = 15, Y = 30.
+**Çözümlü örnek:** Fayda U = X × Y, gelir 120 ₺, Px = 4, Py = 2. Bu fayda fonksiyonunda MRS = Y / X'tir. Denge koşulu Y / X = 4 / 2 → Y = 2X. Bütçede yerine koy: 4X + 2(2X) = 120 → X = 15, Y = 30.
 
 **Özel durumlar:** Tam ikame mallarda farksızlık eğrisi **doğrusal** (köşe çözümü olabilir), tam tamamlayıcı mallarda **L biçimlidir**. Mallardan biri kötü mal (fayda azaltan) ise eğri pozitif eğimlidir.
 
@@ -158,10 +158,10 @@ Bu nedenle tam rekabetçi firmanın kısa dönem arz eğrisi, **MC eğrisinin AV
 | İkinci derece | Fiyat satın alınan miktara göre değişir (blok tarife, paket indirimi) | Tüketiciler seçtikleri paketle kendilerini ayırır |
 | Üçüncü derece | Piyasa gruplara ayrılır (öğrenci, bölge, saat) | Her grupta MR = MC; **esnekliği düşük gruba yüksek fiyat** |
 
-**Çözümlü örnek (üçüncü derece):** MC = 30 TL. A grubunun talep esnekliği 2, B grubununki 4 (mutlak değer). P = MC / (1 − 1/|e|) kuralıyla:
+**Çözümlü örnek (üçüncü derece):** MC = 30 ₺. A grubunun talep esnekliği 2, B grubununki 4 (mutlak değer). P = MC / (1 − 1/|e|) kuralıyla:
 
-- A: 30 / (1 − 0,5) = **60 TL**
-- B: 30 / (1 − 0,25) = **40 TL**
+- A: 30 / (1 − 0,5) = **60 ₺**
+- B: 30 / (1 − 0,25) = **40 ₺**
 
 Daha az esnek A grubu daha yüksek fiyat öder.
 

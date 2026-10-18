@@ -2,7 +2,7 @@
 ders: GUV
 konu: KVI
 baslik: Kurumlar vergisinde istisnalar
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
@@ -11,12 +11,21 @@ kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: md. 5/1-b
     alinti: "Kanunî ve iş merkezi Türkiye’de bulunmayan anonim ve limited şirket niteliğindeki"
+  - mevzuat: 11257 sayılı Cumhurbaşkanı Kararı
+    madde: md. 2/1
+    alinti: "oranı, yurt dışı iştirakin ödenmiş sermayesinin en az %20'sine sahip olunması durumunda"
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: md. 5/1-e
     alinti: "süreyle aktiflerinde yer alan iştirak hisseleri ile aynı süreyle sahip oldukları kurucu senetleri,"
+  - mevzuat: 9160 sayılı Cumhurbaşkanı Kararı
+    madde: md. 1/1
+    alinti: "maddesinin birinci fıkrasının (e) bendi uyarınca uygulanacak istisna oranı %50 olarak"
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: geçici md. 16
     alinti: "birinci fıkrasının (e) bendinde yer alan %50 oranı, bu maddenin yürürlüğe girdiği tarihten"
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 5/1-h
+    alinti: "Yurt dışında yapılan inşaat, onarım, montaj işleri ile teknik hizmetlerden sağlanarak"
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
     madde: md. 5/1-ç
     alinti: "Anonim şirketlerin kuruluşlarında veya sermayelerini artırdıkları sırada çıkardıkları"
@@ -26,100 +35,100 @@ kaynaklar:
 ---
 ## Bu konuda neler öğreneceksin
 
-- İştirak kazançları istisnasının kapsamı ve yatırım fonu kâr paylarına getirilen sınırlar
-- Yurt dışı iştirak ve şube kazançları istisnasının şartları ile %50'lik özel istisna
-- Taşınmaz ve iştirak hissesi satış istisnasında oran, süre ve özel fon hesabı şartları
-- Emisyon primi istisnası ve istisna kazançlara ilişkin gider ve zararların durumu
-- Tam tasdikte istisna şartlarının nasıl kontrol edildiği
+- İştirak kazançları istisnasının kapsamını ve yatırım fonu kâr paylarına getirilen sınırları
+- Yurt dışı iştirak kazançları, yurt dışı iştirak hissesi satışı ve yurt dışı şube kazançları istisnalarında vergi yükü testini
+- Taşınmaz ve iştirak hissesi satış istisnasında 2026'da uygulanan oranları, süre ve özel fon şartlarını
+- Yurt dışı inşaat onarım montaj kazançları istisnası ile 5/1-f, i, j, k istisnalarını
+- Emisyon primini, istisna kazançlara ait gider ve zararları ve tasdikte kontrol noktalarını
 
-## 1. İştirak kazançları istisnası
+## 1. İştirak kazançları istisnası (md.5/1-a)
 
-**İştirak kazancı**, bir kurumun başka bir kurumun sermayesine katılması nedeniyle elde ettiği kâr payıdır. 5520 sayılı Kurumlar Vergisi Kanunu (KVK) md.5/1-a uyarınca kurumların şu kazançları kurumlar vergisinden istisnadır:
+**İştirak kazancı**, bir kurumun başka bir kurumun sermayesine katılmasından elde ettiği kâr payıdır. 5520 sayılı Kurumlar Vergisi Kanunu (KVK) md.5/1-a; tam mükellef kurumlardan alınan kâr paylarını, tam mükellef kurumun kurucu ve intifa senetlerinden alınan kâr paylarını ve tam mükellef girişim sermayesi yatırım fonu ve ortaklıklarından elde edilen kâr payları ile fona iade ve VUK md.279 değerleme kazançlarını istisna eder. Amaç **mükerrer vergilemeyi** önlemektir; 1 Seri No.lu KV Genel Tebliği (Tebliğ) bölüm 5.1'e göre iştirak oranı ve süre aranmaz.
 
-1. Tam mükellefiyete tabi başka bir kurumun sermayesine katılımlarından elde ettikleri kazançlar,
-2. Tam mükellef bir kurumun kârına katılma imkânı veren kurucu senetleri ve diğer intifa senetlerinden elde ettikleri kâr payları,
-3. Tam mükellef girişim sermayesi yatırım fonu katılma payları ile girişim sermayesi yatırım ortaklıklarının hisse senetlerinden elde ettikleri kâr payları, katılma paylarının fona iadesinden doğan gelirler ve bu katılma paylarının Vergi Usul Kanunu (VUK) md.279 kapsamında değerlenmesinden doğan değer artışları.
+Diğer yatırım fonu ve yatırım ortaklıklarından alınan kâr payları istisna dışıdır; md.5/1-d istisnasından yararlanamayan fon ve ortaklıklardan alınanlar hariç. 7524 sayılı Kanunla 2025'ten itibaren 5/1-d kapsamındaki fon ve ortaklıklar (emeklilik fonları hariç) taşınmaz kazançlarının en az %50'sini beyanname ayını izleyen ikinci ayın sonuna kadar dağıtmak zorundadır.
 
-İstisnanın amacı **mükerrer vergilemeyi** önlemektir: kazanç, elde edildiği ilk kurumda zaten vergilenmiştir. 1 Seri No.lu Kurumlar Vergisi Genel Tebliği (Tebliğ) bölüm 5.1'e göre iştirak oranı ve elde tutma süresi aranmaz; kâr payını alan kurumun tam ya da dar mükellef olması da önemli değildir. Buna karşılık kanuni ve iş merkezi Türkiye dışında bulunan bir kurumdan alınan kâr payı bu bentten yararlanamaz.
+> **Sık yapılan hata:** Yurt dışındaki şirketten alınan kâr payını md.5/1-a ile tamamen istisna saymak. Bu kâr payı yalnız md.5/1-b şartlarıyla istisnadır.
 
-### Yatırım fonu ve ortaklık kâr payları
-
-Diğer yatırım fonu katılma payları ile yatırım ortaklıklarının hisse senetlerinden elde edilen kâr payları istisna dışıdır. Ancak md.5/1-d istisnasından yararlanamayan fon ve ortaklıklardan alınan kâr payları istisnaya konu edilebilir; bu istisnadan yararlanan fon ve ortaklıklardan alınan kâr payları ise kural olarak istisnadan yararlanamaz. 7524 sayılı Kanunla 1/1/2025'ten itibaren md.5/1-d kapsamındaki fon ve ortaklıklar (emeklilik yatırım fonları hariç), taşınmazlardan elde ettikleri kazançların en az %50'sini beyanname verilmesi gereken ayı izleyen ikinci ayın sonuna kadar dağıtırsa istisnadan yararlanır. Tebliğe göre istisnadan yararlanan bu fon ve ortaklıkların ödediği asgari kurumlar vergisine isabet eden kısım için şu formülle istisna uygulanır: istisna tutarı = (asgari vergi oranı / tabi olunan kurumlar vergisi oranı) x kâr payı. Tebliğ örneğinde 1.000.000 TL kâr payının (10/25) x 1.000.000 = 400.000 TL'lik kısmı istisnadır.
-
-> **Sık yapılan hata:** Yurt dışındaki bir şirketten alınan kâr payını md.5/1-a kapsamında tamamen istisna saymak. Bu kâr payı yalnız md.5/1-b şartları sağlanırsa istisnadır.
-
-## 2. Yurt dışı iştirak ve şube kazançları
+## 2. Yurt dışı iştirak, hisse satışı ve şube kazançları
 
 ### Yurt dışı iştirak kazançları (md.5/1-b)
 
-Kanuni ve iş merkezi Türkiye'de bulunmayan anonim veya limited şirket niteliğindeki şirketlerden elde edilen iştirak kazançları, aşağıdaki şartların **topluca** sağlanması hâlinde istisnadır:
+Kanuni ve iş merkezi Türkiye dışındaki anonim veya limited şirketten alınan kâr payı, şu dört şart **topluca** sağlanırsa tamamen istisnadır:
 
-1. İştirak payını elinde tutan şirketin yurt dışı iştirakin ödenmiş sermayesinin en az %10'una sahip olması,
-2. Kazancın elde edildiği tarih itibarıyla iştirak payının kesintisiz en az bir yıl elde tutulması,
-3. Kazancın en az %15 oranında gelir ve kurumlar vergisi benzeri toplam vergi yükü taşıması; esas faaliyet konusu finansal kiralama dâhil finansman temini, sigorta ya da menkul kıymet yatırımı olan iştiraklerde en az Türkiye'de uygulanan kurumlar vergisi oranında vergi yükü taşıması,
-4. Kazancın, elde edildiği döneme ilişkin kurumlar vergisi beyannamesinin verilmesi gereken tarihe kadar Türkiye'ye transfer edilmesi.
+1. Yurt dışı iştirakin ödenmiş sermayesinin en az %10'una sahip olunması,
+2. Payın kâr elde edildiği tarihte kesintisiz en az bir yıl elde tutulması,
+3. Kazancın en az %15 vergi yükü taşıması (esas faaliyeti finansman, sigorta veya menkul kıymet yatırımı olanda en az Türkiye'deki kurumlar vergisi oranı),
+4. Kazancın beyannamenin verilmesi gereken tarihe kadar Türkiye'ye transfer edilmesi.
 
-**Vergi yükü**, ilgili dönemde tahakkuk eden ve kâr payına kaynak kazançlar üzerinden ödenen vergiler dâhil toplam verginin, dağıtılabilir kurum kazancı ile tahakkuk eden vergiler toplamına oranıdır. Yurt dışında inşaat, onarım, montaj ve teknik hizmet için ilgili ülke mevzuatı gereği kurulması zorunlu olan özel amaçlı şirketlerde bu şartlar aranmaz.
+**Vergi yükü** = Ödenen gelir ve kurumlar vergisi benzeri vergiler / (Dağıtılabilir kurum kazancı + Bu vergiler). Örneğin vergi öncesi kazancı 1.000.000 avro olan iştirak 112.500 avro vergi ödemişse vergi yükü %11,25'tir; %15 şartı sağlanmadığından dört şartlı istisna uygulanmaz.
 
-7491 sayılı Kanunla eklenen paragrafa göre yurt dışı iştirakin ödenmiş sermayesinin en az %50'sine sahip olan ve kazancı beyanname verilmesi gereken tarihe kadar Türkiye'ye transfer eden kurumlar için, diğer şartlar aranmaksızın istisna oranı Kanun metnine göre %50'dir. Kanun dipnotu bu paragrafın uygulanması için 11257 sayılı Cumhurbaşkanı Kararına (30/4/2026) atıf yapar; md.5/2 yetkisi nedeniyle karar kapsamındaki durumlarda oran Kanun metnindekinden farklı olabilir. Tebliğ bölüm 5.2.3'e göre istisnaya isabet eden yurt dışı vergiler mahsup edilemez, istisna dışı kalan %50'lik kısma ait vergiler ise mahsup edilebilir.
+7491 sayılı Kanunla eklenen paragrafa göre ödenmiş sermayenin en az %50'sine sahip olup kazancı beyanname tarihine kadar transfer eden kurumda, diğer şartlar aranmaksızın istisna oranı %50'dir. 11257 sayılı Cumhurbaşkanı Kararı (CBK) bu paragrafı 1/1/2026'dan itibaren başlayan dönemler için yeniden belirlemiştir: ödenmiş sermayenin **en az %20'sine** sahip olunması durumunda istisna oranı **%80**'dir. Tebliğ bölüm 5.2.3'e göre istisnaya isabet eden yurt dışı vergiler mahsup edilemez; vergilenen kısma ait vergiler md.33 ile mahsup edilebilir.
 
-### Yurt dışı şube kazançları (md.5/1-g)
+### Yurt dışı iştirak hissesi satışı (md.5/1-c) ve şube kazancı (md.5/1-g)
 
-Kurumların yurt dışındaki iş yerleri veya daimî temsilcileri aracılığıyla elde ettiği kazançlar; doğduğu ülkede en az %15 vergi yükü taşıması (finansman, sigorta ve menkul kıymet yatırımında en az Türkiye'deki kurumlar vergisi oranı) ve beyanname verilmesi gereken tarihe kadar Türkiye'ye transfer edilmesi şartıyla istisnadır. Vergi yükü md.5/1-b'deki tanıma göre hesaplanır.
+md.5/1-c, aralıksız en az bir yıl nakit dışı aktif toplamının %75 veya fazlası, her birine en az %10 katılınan yurt dışı iştiraklerden oluşan tam mükellef anonim şirketin, en az iki tam yıl aktifte tuttuğu yurt dışı iştirak hisselerinin satış kazancını istisna eder. Örneğin aktif 10.000.000 TL, nakit 2.000.000 TL ve yurt dışı iştirakler 6.400.000 TL ise oran 6.400.000 / 8.000.000 = %80'dir; test sağlanır.
 
-Ayrıca md.5/1-c, aktif toplamının (nakit varlıklar hariç) aralıksız en az bir yıl %75 veya fazlası, her birine en az %10 oranında katılınan yurt dışı iştiraklerden oluşan tam mükellef anonim şirketlerin, en az iki tam yıl aktifte tuttuğu yurt dışı iştirak hisselerinin satışından doğan kazancı istisna eder.
+md.5/1-g ise yurt dışı iş yeri veya daimi temsilci aracılığıyla elde edilen kazancı, en az %15 vergi yükü (finansman, sigorta, menkul kıymet yatırımında KV oranı) ve beyanname tarihine kadar transfer şartıyla istisna eder.
 
-> **Sınav ipucu:** md.5/1-b'de süre "en az bir yıl", md.5/1-c ve md.5/1-e'de "en az iki tam yıl"dır. Şıklarda bu sürelerin yer değiştirmesine dikkat et.
+> **Sınav ipucu:** md.5/1-b'de süre "en az bir yıl", md.5/1-c ve 5/1-e'de "en az iki tam yıl"dır. Vergi yükü eşiği 5/1-b ve 5/1-g'de %15, kontrol edilen yabancı kurumda ise "%10'dan az" şeklindedir.
 
 ## 3. Taşınmaz ve iştirak hissesi satış istisnası
 
 ### İştirak hissesi satışı (md.5/1-e)
 
-En az iki tam yıl (Tebliğe göre 730 gün) aktifte yer alan iştirak hisseleri ile aynı süreyle sahip olunan kurucu senetleri, intifa senetleri, rüçhan hakları ve md.5/1-a kapsamında istisna kazançlarına kaynak oluşturan yatırım fonu katılma paylarının satış kazancının **%75'lik kısmı** istisnadır. Şartlar:
+En az iki tam yıl (730 gün) aktifte tutulan iştirak hisseleri, aynı süreyle sahip olunan kurucu ve intifa senetleri, rüçhan hakları ve 5/1-a kapsamındaki fon katılma paylarının satış kazancı istisnadır. Kanun metnindeki oran %75'tir; md.5/2 yetkisiyle çıkarılan 9160 sayılı CBK (27/11/2024'ten itibaren) oranı **%50** olarak belirlemiştir. Şartlar:
 
-- İstisna kısmı, satışın yapıldığı yılı izleyen beşinci yılın sonuna kadar pasifte **özel fon hesabında** tutulur.
-- Satış bedeli, satış yılını izleyen ikinci takvim yılının sonuna kadar tahsil edilmelidir.
-- Fon tutarı beş yıl içinde sermayeye ilave dışında başka hesaba aktarılır, işletmeden çekilir, dar mükellefçe ana merkeze aktarılır ya da kurum tasfiye edilirse (devir ve bölünmeler hariç) zamanında tahakkuk etmeyen vergiler ziyaa uğramış sayılır.
-- Menkul kıymet ticaretiyle uğraşan kurumların bu amaçla elde tuttukları değerlerin satış kazancı kapsam dışıdır.
+- İstisna tutarı satış yılını izleyen beşinci yılın sonuna kadar pasifte **özel fon hesabında** tutulur.
+- Satış bedeli satış yılını izleyen ikinci takvim yılının sonuna kadar tahsil edilir; tahsil edilmeyen kısma isabet eden vergi ziyaa uğramış sayılır.
+- Fon beş yıl içinde sermayeye ilave dışında başka hesaba aktarılır, çekilir ya da kurum tasfiye edilirse (devir ve bölünme hariç) istisna bozulur.
+- Bedelsiz ve rüçhan hakkıyla alınan hisselerde eski hisselerin edinim tarihi esas alınır; menkul kıymet ticaretiyle uğraşanların bu amaçla tuttuğu değerler kapsam dışıdır.
 
-KVK md.5/2 uyarınca Cumhurbaşkanı, bu maddedeki vergi yükü oranlarını sıfıra kadar indirmeye veya kurumlar vergisi oranına kadar artırmaya, diğer oranları sıfıra kadar indirmeye veya %100'e kadar artırmaya yetkilidir. Kanun dipnotu bu bendin uygulanması için 9160 sayılı Cumhurbaşkanı Kararına (26/11/2024) atıf yapar. Bu nedenle %75, Kanun metnindeki orandır; karar kapsamına giren satışlarda Cumhurbaşkanınca belirlenen oran uygulanır.
+Enflasyon düzeltmesi yapılan dönemlerde satış kazancı, hissenin düzeltilmiş değeri esas alınarak bulunur (VUK mükerrer md. 298, 555 Sıra No.lu VUK Genel Tebliği); yabancı para ile alınmış hissede maliyet alış tarihindeki kurla TL'ye çevrilmiş tutardır. Sınav düzeltme katsayısını ya da endeksi soruda verir.
 
 ### Taşınmaz satışı (geçici md.16)
 
-7456 sayılı Kanunla, 15/7/2023'ten itibaren taşınmaz satış kazancı istisnası kaldırılmıştır. Geçici md.16 uyarınca bu tarihten önce kurumun aktifinde bulunan taşınmazlar için eski hükümler (iki tam yıl, fon hesabı, tahsil şartı) uygulanmaya devam eder; ancak oran **%25**'tir. 15/7/2023'ten sonra edinilen taşınmazın satış kazancı tamamen vergilenir.
+7456 sayılı Kanunla 15/7/2023'ten itibaren taşınmaz satış istisnası kaldırılmıştır. Bu tarihten önce aktifte bulunan taşınmazlarda eski hükümler uygulanır; oran **%25**'tir. 15/7/2023'ten sonra edinilen taşınmazın kazancı tamamen vergilenir.
 
-### Örnek: İstisnaların matraha etkisi
+### Borç karşılığı devir (md.5/1-f)
 
-(X) A.Ş.'nin 2026 hesap döneminde 1.000.000 TL ticari kazancı yanında şu kazançları vardır: tam mükellef (Y) A.Ş.'den 400.000 TL kâr payı; 1/3/2023'te 2.000.000 TL'ye alınıp 15/6/2026'da 5.000.000 TL'ye peşin satılan iştirak hissesi; 2019'da alınmış, net değeri 1.200.000 TL olan ve 2.000.000 TL'ye peşin satılan taşınmaz. Kanunen kabul edilmeyen gider yoktur; oran olarak Kanun metnindeki %75 esas alınmıştır.
+Bankalara, finansal kiralama veya finansman şirketlerine borcu nedeniyle kanuni takibe alınmış ya da TMSF'ye borçlu kurumlar ile kefil ve ipotek verenlerin taşınmaz, iştirak hissesi, kurucu ve intifa senedi ile rüçhan haklarını bu borçlara karşılık devrinden doğan kazancın, hasılatın borç tasfiyesinde kullanılan kısmına isabet eden bölümü istisnadır. Kanun metnine göre taşınmazlarda %50, diğer kıymetlerde %75 uygulanır; bankanın sonradan yaptığı satışta da aynı oranlar geçerlidir. Bu istisnada 5/1-e'deki iki yıl ve özel fon şartı yer almaz.
 
-1. Ticari bilanço kârı: 1.000.000 + 400.000 + 3.000.000 + 800.000 = 5.200.000 TL.
-2. İştirak kazancı istisnası: 400.000 TL (tamamı).
-3. Hisse satış istisnası: 3.000.000 x %75 = 2.250.000 TL (iki tam yıl dolmuştur).
-4. Taşınmaz istisnası: 800.000 x %25 = 200.000 TL (15/7/2023 öncesi edinim).
-5. Matrah: 5.200.000 − 2.850.000 = 2.350.000 TL; kurumlar vergisi %25 ile 587.500 TL.
-6. Yurt içi asgari kurumlar vergisi kontrolü: md.5/1-a istisnası düşülür, md.5/1-e istisnaları düşülmez. (5.200.000 − 400.000) x %10 = 480.000 TL; 587.500 TL daha yüksek olduğundan asgari vergi doğmaz.
-7. Özel fon kaydı (2.250.000 + 200.000 = 2.450.000 TL, beyanname verilmeden önce): 590 Dönem Net Kârı borç 2.450.000 TL; 549 Özel Fonlar alacak 2.450.000 TL.
+## 4. Yurt dışı inşaat onarım montaj kazançları ve diğer istisnalar
 
-## 4. Emisyon primi
+**md.5/1-h**, yurt dışında yapılan inşaat, onarım, montaj işleri ile teknik hizmetlerden sağlanarak Türkiye'de genel sonuç hesaplarına aktarılan kazancı istisna eder. Tebliğ bölüm 5.9'a göre vergi yükü ve Türkiye'ye transfer şartı yoktur; genel sonuç hesaplarına intikal yeterlidir. Teknik hizmetin yurt dışı inşaat işine bağlı olması şart değildir; ancak yurt dışında inşaat işi yoksa teknik hizmet yurt dışı iş yeri veya daimi temsilci aracılığıyla yapılmalıdır, aksi hâlde hizmet ihracı sayılır. md.5/3 gereği yurt dışı inşaat zararı Türkiye'deki istisna dışı kazançtan indirilemez; Tebliğ bölüm 5.18'e göre bu istisna faaliyet esaslıdır, yani aynı dönemdeki yurt dışı işlerin kâr ve zararları birlikte değerlendirilir.
 
-**Emisyon primi**, anonim şirketlerin kuruluşta veya sermaye artırımında çıkardığı payların itibari değeri aşan bedelle ihraç edilmesinden doğan farktır. md.5/1-ç bu farkı istisna eder. Tebliğ bölüm 5.4'e göre istisna, şirketin portföyündeki başka şirketlere ait hisselerin satış kazancını kapsamaz; bu kazançlar için md.5/1-e şartlarına ayrıca bakılır.
+Diğer istisnalar kısaca:
 
-Kayıt örneği: itibari değeri 1.000.000 TL olan paylar 1.500.000 TL'ye nakden ihraç edilirse 102 Bankalar borç 1.500.000 TL; 500 Sermaye alacak 1.000.000 TL; 520 Hisse Senetleri İhraç Primleri alacak 500.000 TL.
+- **md.5/1-i risturn**: kooperatif ortaklarına yönetim gideri artığı ve tüketim kooperatiflerinde mal alımına göre hesaplanan risturnlar; ortak dışı işlemler kapsam dışıdır.
+- **md.5/1-j sat-kirala-geri al**: taşınır ve taşınmazların geri kiralama ve sözleşme sonunda geri alma şartıyla finansal kiralama şirketleri, katılım bankaları ile kalkınma ve yatırım bankalarına satış kazancı; tutar özel fonda tutulur ve yalnız bu varlıkların amortismanlarının itfasında kullanılır.
+- **md.5/1-k kira sertifikası**: varlıkların kira sertifikası ihracı için varlık kiralama şirketine satışı ve geri devrinden doğan kazanç; benzer özel fon şartı vardır.
 
-### İstisna kazançlara ilişkin gider ve zararlar
+## 5. Emisyon primi ve istisna kazançlara ait giderler
 
-KVK md.5/3'e göre istisna kazançlara ilişkin giderler ve istisna kapsamındaki faaliyetlerden doğan zararlar istisna dışı kazançtan indirilemez. Ancak iştirak hisseleri alımıyla ilgili finansman giderleri indirilebilir.
+**Emisyon primi**, anonim şirketin kuruluşta veya sermaye artırımında payları itibari değeri aşan bedelle ihraç etmesinden doğan farktır ve md.5/1-ç ile istisnadır. Tebliğ bölüm 5.4'e göre portföydeki başka şirket hisselerinin satış kazancını kapsamaz. Kayıt: 1.000.000 TL itibari değerli paylar 1.500.000 TL'ye ihraç edilirse 102 Bankalar borç 1.500.000; 500 Sermaye alacak 1.000.000; 520 Hisse Senetleri İhraç Primleri alacak 500.000 TL.
+
+KVK md.5/3'e göre istisna kazançlara ait giderler ve istisna faaliyetlerinden doğan zararlar istisna dışı kazançtan indirilemez; iştirak hissesi alımına ait finansman giderleri ise indirilebilir.
+
+### Örnek: 2026 istisnalarının matraha etkisi
+
+(X) A.Ş.'nin 2026 kazançları: diğer faaliyet kârı 1.000.000; tam mükellef (Y) A.Ş.'den kâr payı 400.000; 1/3/2023'te alınıp 15/6/2026'da peşin satılan iştirak hissesinden 3.000.000; 2019'da alınmış taşınmazın satışından 800.000; %30 payla iki yıldır sahip olunan, vergi yükü %11,25 olan (D) GmbH'den transfer edilen kâr payı 600.000; vergi yükü %10 olan yurt dışı inşaat kazancı 500.000 TL. KKEG yoktur.
+
+1. Ticari bilanço kârı: 6.300.000 TL.
+2. İstisnalar: 5/1-a 400.000; 5/1-e hisse 3.000.000 × %50 = 1.500.000; taşınmaz 800.000 × %25 = 200.000; 5/1-b (vergi yükü %15'in altında, pay %20'nin üstünde) 600.000 × %80 = 480.000; 5/1-h 500.000. Toplam 3.080.000 TL.
+3. Matrah 3.220.000 TL; kurumlar vergisi %25 ile 805.000 TL.
+4. Yurt içi asgari KV: 5/1-a ile %10 ve üzeri vergi yükü taşıyan yurt dışı istisnalar düşülür (Tebliğ bölüm 32.5.6, Örnek 8); 5/1-e düşülmez. (6.300.000 − 400.000 − 480.000 − 500.000) × %10 = 492.000 TL < 805.000 TL; ek vergi doğmaz.
+5. Özel fon: 1.700.000 TL için 590 Dönem Net Kârı borç; 549 Özel Fonlar alacak.
 
 ### Tasdik uygulama notu
 
-Tam tasdikte Yeminli Mali Müşavir (YMM); yurt dışı iştirak kazancında ödenmiş sermaye payını, bir yıllık süreyi, vergi yükü hesabını ve transfer tarihini banka belgeleriyle; hisse ve taşınmaz satışında edinim tarihini (730 gün), 15/7/2023 öncesi aktif kaydını, 549 Özel Fonlar hesabındaki tutarı ve tahsilatın izleyen ikinci takvim yılı sonuna kadar yapılıp yapılmadığını kontrol eder. md.5/3 kapsamında istisna kazanca ait giderlerin ayrıştırılması da raporda gösterilir.
+Tam tasdikte Yeminli Mali Müşavir (YMM); 5/1-b'de sermaye payını, bir yıllık süreyi, iştirakin finansal tablosundan vergi yükünü ve transferi banka belgesiyle; 5/1-e'de edinim tarihini (730 gün), 15/7/2023 öncesi aktif kaydını, 549 hesabını ve izleyen ikinci yıl sonuna kadar tahsilatı; 5/1-h'de yurt dışı şube sonuçlarının genel sonuç hesaplarına intikal tarihini ve kurunu kontrol eder. İstisna kazanca ait giderlerin ayrıştırılması raporda gösterilir.
 
 ## Özet
 
-- md.5/1-a: tam mükellef kurumlardan alınan kâr payları oran ve süre şartı olmadan istisnadır; yatırım fonu kâr paylarında sınırlama vardır.
-- md.5/1-b: %10 pay, bir yıl, %15 vergi yükü ve beyanname tarihine kadar transfer şartları topluca aranır; %50 pay ve transfer hâlinde Kanun metnine göre %50 istisna uygulanır.
-- md.5/1-g: yurt dışı şube kazancı %15 vergi yükü ve transfer şartıyla istisnadır.
-- md.5/1-e: iki tam yıl aktifte tutulan iştirak hisselerinin satış kazancının Kanun metnine göre %75'i istisnadır (Cumhurbaşkanı md.5/2 ile oranı değiştirebilir); fon hesabı beş yıl, tahsil izleyen ikinci takvim yılı sonu.
-- Taşınmaz satış istisnası 15/7/2023'te kaldırıldı; öncesinde aktifte olan taşınmazlarda oran %25'tir.
-- md.5/1-ç emisyon primi istisnadır; portföydeki hisselerin satış kazancını kapsamaz.
-- İstisna kazançlara ilişkin gider ve zararlar indirilemez; iştirak hissesi alımına ait finansman giderleri ise indirilebilir.
+- md.5/1-a: tam mükellef kurumdan kâr payı oran ve süre şartı olmadan istisnadır.
+- md.5/1-b: %10 pay, bir yıl, %15 vergi yükü ve transfer şartlarıyla tam istisna; 2026'dan itibaren %20 pay ve transferle %80 istisna (11257 sayılı CBK).
+- md.5/1-c ve 5/1-g: yurt dışı iştirak hissesi satışında %75 aktif testi; şube kazancında %15 vergi yükü ve transfer.
+- md.5/1-e: iki tam yıl, özel fon ve tahsil şartlarıyla iştirak hissesi satış kazancının %50'si (9160 sayılı CBK); 15/7/2023 öncesi taşınmazlarda %25.
+- md.5/1-h: yurt dışı inşaat, onarım, montaj ve teknik hizmet kazancı şartsız istisnadır; zararı istisna dışı kazançtan düşülemez.
+- md.5/1-f, i, j, k: borç karşılığı devir, risturn, sat-kirala-geri al ve kira sertifikası istisnaları.
+- Emisyon primi istisnadır; istisna kazançlara ait gider ve zararlar indirilemez.

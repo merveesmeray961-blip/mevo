@@ -2,7 +2,7 @@
 ders: HSV
 konu: DMG
 baslik: Damga vergisi ve harçlar
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 488 sayılı Damga Vergisi Kanunu
@@ -46,10 +46,6 @@ kaynaklar:
 - **Yurt dışında düzenlenen kağıtlar**, Türkiye'de resmi dairelere ibraz edildiğinde, üzerinde devir veya ciro işlemi yapıldığında ya da hükümlerinden herhangi bir şekilde faydalanıldığında vergiye tabi olur (DVK md. 1).
 - **Şümul**: Vergiye tabi kağıtların yerini alan mektup ve şerhler ile bu kağıtların yenilenmesine, uzatılmasına, değiştirilmesine, devrine veya bozulmasına ilişkin mektup ve şerhler de vergiye tabidir (DVK md. 2).
 
-### İstisnai durum
-
-Kağıdın vergiye tabi olması için (1) sayılı tabloda yer alması gerekir. Tabloda sayılan bir kağıt (2) sayılı tabloda ayrıca istisna edilmişse vergi alınmaz (DVK md. 9).
-
 > **Sık yapılan hata:** Belgenin başlığına bakarak vergiyi belirlemek. "Protokol" başlıklı bir belge belli parayı içeren bir taahhüt içeriyorsa mukavelename gibi vergilendirilir; DVK md. 4 içeriğe bakılmasını ister.
 
 ## 2. Nispi ve maktu vergi
@@ -63,8 +59,10 @@ DVK md. 10'a göre vergi nispi veya maktu olarak alınır. **Nispi vergide** ka�
 - **Nüsha**: Maktu vergiye tabi kağıtların her nüshası ayrı ayrı vergilendirilir; nispi vergiye tabi kağıtların yalnız bir nüshası vergiye tabidir (DVK md. 5).
 - **Birden fazla akit**: Birbirinden tamamen ayrı akitlerin her birinden ayrı vergi alınır. Birbirine bağlı ve bir asıldan doğan akitlerde en yüksek vergiyi gerektiren akit üzerinden vergi alınır. Pey akçesi, cayma tazminatı, cezai şart gibi müeyyide niteliğindeki taahhütlerden, başlı başına bir sözleşmeye konu olmadıkça vergi alınmaz (DVK md. 6).
 - **İmza sayısı**: İmzanın birden fazla olması verginin tekerrürünü gerektirmez (DVK md. 7).
-- **Azami tutar**: Her bir kağıt için hesaplanan vergi, (1) sayılı tablodaki sınırlamalar saklı kalmak üzere azami bir tutarı aşamaz. Bu tutar her takvim yılı başından geçerli olmak üzere o yıl için ilan olunan yeniden değerleme oranında artırılır (DVK md. 14).
-- **Ödeme şekli**: Vergi makbuz karşılığı, istihkaktan kesinti veya basılı damga konulması şekillerinden biriyle ödenir (DVK md. 15). Beyan ve ödeme süreleri usul konusunda işlenir.
+- **Azami tutar**: Her bir kağıt için hesaplanan vergi, (1) sayılı tablodaki sınırlamalar saklı kalmak üzere azami bir tutarı aşamaz (2023 için 10.732.371,80 TL). Bu tutar her yıl yeniden değerleme oranında artırılır (DVK md. 14). Belli parayı içeren sözleşme değiştirilirse yalnız artan miktar vergilenir.
+- **Yabancı para**: Kağıttaki döviz tutarı Bakanlıkça ilan edilen kurla Türk parasına çevrilerek vergi hesaplanır (DVK md. 12).
+- **Ödeme şekli**: Vergi makbuz karşılığı, istihkaktan kesinti veya basılı damga konulması şekillerinden biriyle ödenir (DVK md. 15). Kamu idareleri ve bankaların ödemelerinde kullanılan nispi vergili makbuzların vergisi ödeme sırasında istihkaktan kesilir (md. 19). Fatura, makbuz ve ulaştırma kağıtlarında basılı damga kullanılabilir (md. 17). Makbuz karşılığı ödemede Bakanlıkça belirlenenler kağıtları ertesi ayın 20'nci günü akşamına kadar beyan eder, 26'ncı günü akşamına kadar öder (md. 22).
+- **Sorumluluk**: Vergi ödenmemiş kağıdı ibraz eden, mükellefe rücu hakkı saklı kalmak üzere vergi ve cezadan sorumludur (md. 24). Birden fazla kişinin imzaladığı kağıtta imza edenler müteselsil sorumludur; aralarında vergiden müstesna olanın bulunması verginin eksik ödenmesini gerektirmez. Yabancı ülkelerde düzenlenen ticari ve mütedavil kağıtların vergisi hamilinden alınır (md. 25).
 
 ### 2026 yılı oran ve tutarları
 
@@ -109,6 +107,8 @@ DVK md. 9'a göre (2) sayılı tabloda yazılı kağıtlar damga vergisinden mü
 - Bankalar, yurt dışı kredi kuruluşları ve uluslararası kurumlarca kullandırılacak kredilere, teminatlarına ve geri ödenmelerine ilişkin kağıtlar (kredilerin kullanımları hariç).
 - Ticari, zirai veya mesleki faaliyetlere ilişkin olmamak şartıyla gerçek kişiler arasındaki akitlere ilişkin kağıtlar; bunlar resmi dairelere veya noterlere ibraz edilirse ibraz tarihinde vergiye tabi olur. Aynı bentte Gelir Vergisi Kanunu (GVK) md. 23'te belirtilen ücretlere ilişkin kağıtlar da istisnadır; GVK md. 23'ün birinci fıkrasının (18) numaralı bendindeki ücretlerde istisna, aylık brüt asgari ücrete isabet eden kısım için uygulanır.
 
+2026'da eklenen istisnalar: TOKİ'nin 31/12/2027'ye kadar sosyal konut yapım işlerine ilişkin ihale kararları ve sözleşmeleri (geçici md. 5, 7579 sayılı Kanun); nükleer enerji santrali yatırımlarına ilişkin kağıtlar ((2) sayılı tablo IV-56, 7590 sayılı Kanun).
+
 ### İhracat istisnası (Ek md. 2)
 
 İhracat ve ihracata ilişkin olduğunun tevsiki kaydıyla ihracat karşılığı ödemeler, ihracattan doğan alacağın temliki, ihracat bağlantıları, transit ticaret ve dahilde işleme izni kapsamındaki ithalat gibi işlemler nedeniyle düzenlenen kağıtlar istisnadır. Döviz kazandırıcı faaliyetlerde ise Vergi, Resim, Harç İstisnası Belgesi aranır ve istisna belgenin geçerlilik süresi ile belgedeki tutarla sınırlıdır. İşlem gerçekleşmezse alınmayan vergi, Vergi Usul Kanunu (VUK) hükümlerine göre ceza ve gecikme faiziyle geri alınır; istisna uygulayan kuruluş, işlemin mahiyetini ve alınmayan vergiyi işlem tarihini takip eden otuz gün içinde vergi dairesine bildirir.
@@ -131,7 +131,7 @@ DVK md. 9'a göre (2) sayılı tabloda yazılı kağıtlar damga vergisinden mü
 8. İmtiyazname, ruhsatname ve diploma harçları,
 9. Trafik harçları.
 
-Her harç türü Kanuna bağlı (1)'den (9)'a kadar numaralı tarifelerde düzenlenir.
+Her harç türü Kanuna bağlı (1)'den (9)'a kadar numaralı tarifelerde düzenlenir. Vergi yargısı harçları (3) sayılı tarifede (başvurma, nispi, maktu ve suret harçları), meslek ruhsat harçları (8) sayılı tarifede, araç tescil ve sürücü belgesi harçları (9) sayılı tarifede yer alır. 98 Seri No.lu Harçlar Kanunu Genel Tebliği ile 2026 tutarları: yeminli mali müşavirlik ruhsatı 62.919,90 TL, bağımsız denetçi yetkilendirme belgesi 31.454,30 TL, serbest muhasebeci mali müşavirlik ruhsatı 15.724,70 TL.
 
 ### Kural
 
@@ -151,7 +151,7 @@ Genel ve özel bütçeli idareler, il özel idareleri, belediyeler ve köylerin 
 
 ### Tasdik uygulama notu
 
-Tam tasdikte YMM dönemde imzalanan sözleşmeleri, ihale kararlarını ve ücret bordrolarını listeler. Her kağıdın (1) sayılı tablodaki karşılığı ve (2) sayılı tablo kapsamında istisna olup olmadığı tek tek kontrol edilir; nispi vergide yalnız bir nüshanın vergilendiği, ücretlerde asgari ücret istisnasının doğru uygulandığı doğrulanır. Beyannameler ile 360 hesabı mutabakatı yapılır; gayrimenkul alımlarında tapu harcı matrahı emlak vergisi değeriyle karşılaştırılır.
+Tam tasdikte YMM dönemde imzalanan sözleşmeleri, ihale kararlarını ve ücret bordrolarını listeler; her kağıdın (1) sayılı tablodaki karşılığını ve (2) sayılı tablo istisnasını, nispi vergide tek nüsha kuralını ve asgari ücret istisnasını kontrol eder. Damga vergisi beyannameleri 360 hesabıyla, tapu harcı matrahı emlak vergisi değeriyle karşılaştırılır.
 
 ## Özet
 

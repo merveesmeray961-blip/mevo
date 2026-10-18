@@ -116,11 +116,11 @@ Sık sorulan örnekler (işveren yönünden, md. 25/II):
 
 ### Çözümlü örnek: fazla çalışma ve ihbar
 
-Saatlik ücreti 300 TL olan işçi bir haftada 50 saat çalışmıştır.
+Saatlik ücreti 300 ₺ olan işçi bir haftada 50 saat çalışmıştır.
 
 1. Fazla çalışma süresi: 50 − 45 = 5 saat.
-2. Zamlı saat ücreti: 300 × 1,5 = 450 TL.
-3. Fazla çalışma ücreti: 5 × 450 = 2.250 TL.
+2. Zamlı saat ücreti: 300 × 1,5 = 450 ₺.
+3. Fazla çalışma ücreti: 5 × 450 = 2.250 ₺.
 4. İşçi isterse para yerine her fazla saat için 1 saat 30 dakika, yani 7,5 saat serbest zamanı 6 ay içinde kullanabilir.
 
 İşçi 2 yıl kıdemliyse ve bildirimsiz feshedilirse bildirim süresi **6 hafta** (42 gün) olduğundan 42 günlük ücret tutarında ihbar tazminatı doğar.
@@ -183,10 +183,10 @@ Kısa vadeli sigorta primini işçi değil, **tamamen işveren** öder. Prime es
 
 ### 5.3. Çözümlü örnek: prim hesabı
 
-Aylık brüt ücreti 60.000 TL olan, 30 gün çalışan 4/a sigortalı (kazanç alt ve üst sınır arasında):
+Aylık brüt ücreti 60.000 ₺ olan, 30 gün çalışan 4/a sigortalı (kazanç alt ve üst sınır arasında):
 
-- Sigortalı payı: MYÖ 60.000 × %9 = 5.400; GSS 60.000 × %5 = 3.000; işsizlik 60.000 × %1 = 600 → **9.000 TL** (%15).
-- İşveren payı: MYÖ 60.000 × %12 = 7.200; kısa vadeli 60.000 × %2,25 = 1.350; GSS 60.000 × %7,5 = 4.500; işsizlik 60.000 × %2 = 1.200 → **14.250 TL** (%23,75).
+- Sigortalı payı: MYÖ 60.000 × %9 = 5.400; GSS 60.000 × %5 = 3.000; işsizlik 60.000 × %1 = 600 → **9.000 ₺** (%15).
+- İşveren payı: MYÖ 60.000 × %12 = 7.200; kısa vadeli 60.000 × %2,25 = 1.350; GSS 60.000 × %7,5 = 4.500; işsizlik 60.000 × %2 = 1.200 → **14.250 ₺** (%23,75).
 
 ### 5.4. İş kazası ve meslek hastalığı
 

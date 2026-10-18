@@ -2,7 +2,7 @@
 ders: GUV
 konu: KVM
 baslik: Kurumlar vergisi mükellefiyeti ve matrah
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
@@ -28,7 +28,7 @@ kaynaklar:
 
 - Kurumlar vergisi mükelleflerini ve tam ile dar mükellefiyet ayrımını
 - Kurum kazancının ticari kazanç hükümlerine göre tespitini ve kurumlara özgü indirilecek giderleri
-- KVK md. 11'de sayılan kabul edilmeyen indirimleri ve beyannamede kâra eklenmelerini
+- KVK md. 11'de sayılan kabul edilmeyen indirimleri, örtülü sermaye ve finansman gider kısıtlaması hesabını
 - Geçmiş yıl, devir ve yurt dışı zararlarının mahsup şartlarını
 - Kurumlar vergisinin hesaplanmasını, muhasebe kaydını, beyan ve ödeme sürelerini
 
@@ -58,7 +58,7 @@ KVK md. 2 bu grupları tanımlar:
 
 Kurumlar vergisi, bir hesap dönemi içinde elde edilen **safi kurum kazancı** üzerinden hesaplanır (md. 6). Safi kurum kazancının tespitinde Gelir Vergisi Kanunu'nun (GVK) ticari kazanç hükümleri uygulanır. Kurumlar birinci sınıf tüccar olarak bilanço esasında defter tutar; temel ölçü dönem sonu ve dönem başı öz sermaye karşılaştırmasıdır (KV Genel Tebliği bölüm 6).
 
-Bu nedenle GVK md. 40'taki indirilebilir giderler ve sınırlar kurumlar için de geçerlidir. Örneğin binek otomobil kiralama veya işletme faaliyeti olmayanlarda binek otomobil giderlerinin en fazla %70'i indirilebilir (GVK md. 40/5). KVK md. 8 kurumlara özgü ek giderler sayar: menkul kıymet ihraç giderleri, kuruluş ve örgütlenme giderleri, genel kurul toplantı giderleri ile birleşme, devir, bölünme, fesih ve tasfiye giderleri.
+Bu nedenle GVK md. 40'taki indirilebilir giderler ve sınırlar kurumlar için de geçerlidir. Örneğin binek otomobil kiralama veya işletme faaliyeti olmayanlarda binek otomobil giderlerinin en fazla %70'i indirilebilir (GVK md. 40/5). KVK md. 8 kurumlara özgü ek giderler sayar: menkul kıymet ihraç giderleri, kuruluş ve örgütlenme giderleri, genel kurul toplantı giderleri, birleşme, devir, bölünme, fesih ve tasfiye giderleri ile sermayesi paylara bölünmüş komandit şirkette komandite ortağın kâr payı. Kazanç **tahakkuk esasına** göre dönemine yazılır; hasılatın tahsil edilip edilmemesi önemli değildir.
 
 Beyannamede ticari bilanço kârına kabul edilmeyen giderler eklenir; istisna kazançlar (md. 5), geçmiş yıl zararları (md. 9) ve beyanname üzerinde ayrıca gösterilen diğer indirimler (md. 10) düşülerek matraha ulaşılır.
 
@@ -85,6 +85,14 @@ KVK md. 11/1'de sayılanlar:
 - 5651 sayılı Kanunun ek 4. maddesi kapsamında reklam yasağı uygulananlara verilen reklamların giderleri (bent j),
 - Her türlü şans ve bahis oyunlarına ait ilan ve reklam giderleri (bent k; 2/4/2026 tarihli 7577 sayılı Kanunla eklenmiştir).
 
+### Örtülü sermaye ve finansman gider kısıtlaması
+
+**Örtülü sermaye** (md. 12): kurumun ortaklarından veya ortaklarla ilişkili kişilerden doğrudan veya dolaylı temin edip işletmede kullandığı borçların, dönem içinde herhangi bir tarihte VUK'a göre tespit edilmiş **dönem başı öz sermayenin üç katını** aşan kısmıdır. Ortak veya ortakla ilişkili banka ve kredi kurumlarından borçlar %50 oranında dikkate alınır; ortakların gayrinakdi teminatıyla üçüncü kişilerden alınan krediler ile bankaların borçlanmaları örtülü sermaye sayılmaz. Örtülü sermayeye ödenen faiz ve kur farkları KKEG'dir; faiz ve benzerleri (kur farkı hariç) şartların gerçekleştiği dönemin son günü itibarıyla **dağıtılmış kâr payı** sayılır.
+
+**Finansman gider kısıtlaması** (md. 11/1-i): kredi ve finans kuruluşları dışında, yabancı kaynakları öz kaynaklarını aşan işletmelerde aşan kısma isabet eden finansman giderlerinin (yatırım maliyetine eklenenler hariç) Cumhurbaşkanınca belirlenen oranı kabul edilmez; oran 3490 sayılı Cumhurbaşkanı Kararıyla 2021'den itibaren %10'dur. Örnek: yabancı kaynak 12.000.000 TL, öz kaynak 8.000.000 TL, finansman gideri 1.800.000 TL ve oran %10 ise aşan kısma isabet eden gider 1.800.000 × 4.000.000 / 12.000.000 = 600.000 TL; KKEG 600.000 × %10 = 60.000 TL'dir.
+
+Örtülü sermaye örneği: dönem başı öz sermaye 1.000.000 TL, ortaktan alınan borç 5.000.000 TL, bu borcun faizi 1.000.000 TL ise sınır 3.000.000 TL; örtülü sermaye 2.000.000 TL; faizin 1.000.000 × 2/5 = 400.000 TL'si KKEG ve dağıtılmış kâr payıdır. Aynı dönemde ikisi birlikte varsa önce örtülü sermayeye isabet eden faiz ayrılır; finansman gider kısıtlaması kalan finansman giderine uygulanır (Tebliğ bölüm 11.13).
+
 Kurumlar Vergisi Genel Tebliği (Seri No 1), yönetim kurulu başkan ve üyelerine verilen temettü ikramiyelerini (bunlar menkul sermaye iradıdır) ve rüşvet gibi kanunen yasaklanmış fiiller nedeniyle katlanılan giderleri de indirilemez sayar. Personele ödenen temettü ikramiyesi ise ücret olduğundan gider yazılabilir (bölüm 11.11 ve 11.12).
 
 > **Sık yapılan hata:** Ödenen vergi cezasını defterlere hiç kaydetmemek. Ceza **689 Diğer Olağandışı Gider ve Zararlar** hesabına borç, **102 Bankalar** hesabına alacak kaydedilir; kanunen kabul edilmeyen niteliği yalnız beyannamede kâra eklenerek dikkate alınır.
@@ -108,7 +116,7 @@ Devir ve tam bölünmede devralan kurum, devralınan kurumun devir tarihindeki �
 5. Kayıt: **691 Dönem Kârı Vergi ve Diğer Yasal Yükümlülük Karşılıkları** 937.500 TL borç; **370 Dönem Kârı Vergi ve Diğer Yasal Yükümlülük Karşılıkları** 937.500 TL alacak.
 6. Mahsup: 370 hesabı 937.500 TL borç; **193 Peşin Ödenen Vergiler ve Fonlar** 700.000 TL alacak; **360 Ödenecek Vergi ve Fonlar** 237.500 TL alacak.
 
-Hesaplanan verginin yurt içi asgari kurumlar vergisiyle (md. 32/C) karşılaştırılması ASG konusunda işlenir. Beyanname, hesap döneminin kapandığı ayı izleyen dördüncü ayın birinci gününden yirmibeşinci günü akşamına kadar verilir (md. 14); vergi, beyannamenin verildiği ayın sonuna kadar ödenir (md. 21).
+Hesaplanan verginin yurt içi asgari kurumlar vergisiyle (md. 32/C) karşılaştırılması ASG konusunda işlenir. Geçici vergi kurumlar vergisi oranında (%25) ve dört üç aylık dönem için ödenir (md. 32/2; GVK mükerrer md. 120). Beyanname, hesap döneminin kapandığı ayı izleyen dördüncü ayın birinci gününden yirmibeşinci günü akşamına kadar verilir (md. 14); vergi, beyannamenin verildiği ayın sonuna kadar ödenir (md. 21).
 
 ### Tasdik uygulama notu
 
@@ -120,5 +128,6 @@ Kurumlar vergisi tam tasdikinde yeminli mali müşavir (YMM), 689 ve 770 gibi gi
 - Kanuni veya iş merkezi Türkiye'de olan kurum tam, ikisi de yurt dışında olan dar mükelleftir.
 - Kurum kazancı GVK ticari kazanç hükümlerine göre bilanço esasında bulunur; genel oran %25, bankalar ve md. 32'de sayılan diğer kurumlarda %30'dur.
 - KVK md. 11'deki giderler defterde kayıtlı kalır, beyannamede ticari kâra eklenir.
+- Ortaklardan borcun dönem başı öz sermayenin üç katını aşan kısmı örtülü sermayedir; finansman gider kısıtlaması aşan yabancı kaynağa isabet eden giderin %10'udur.
 - Geçmiş yıl zararları yıl bazında gösterilerek en çok beş yıl mahsup edilir; devralınan zararlar öz sermaye ile sınırlıdır.
 - Beyanname dördüncü ayın 1–25'i arasında verilir, vergi aynı ayın sonuna kadar ödenir.

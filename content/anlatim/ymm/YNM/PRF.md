@@ -2,7 +2,7 @@
 ders: YNM
 konu: PRF
 baslik: Performans ölçümü ve transfer fiyatı
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "Genel bilgi — Sorumluluk merkezleri"
@@ -67,7 +67,7 @@ Bir yatırım merkezinin satışları 5.000.000 TL, faaliyet kârı 600.000 TL, 
 2. ROI = %12 × 1,25 = %15 (kontrol: 600.000 / 4.000.000 = %15).
 3. Mevcut artık kâr = 600.000 − 4.000.000 × 0,12 = 600.000 − 480.000 = 120.000 TL.
 4. Projenin ROI'si = 130.000 / 1.000.000 = %13; asgari oran olan %12'nin üzerindedir, işletme açısından kabul edilmelidir.
-5. Proje sonrası bölüm ROI'si = 730.000 / 5.000.000 = %14,6; %15'ten düşer. ROI ile değerlendirilen yönetici projeyi reddetmeye yönelir.
+5. Proje sonrası bölüm ROI'si = (600.000 + 130.000) / (4.000.000 + 1.000.000) = 730.000 / 5.000.000 = %14,6; %15'ten düşer. ROI ile değerlendirilen yönetici projeyi reddetmeye yönelir.
 6. Projenin artık kârı = 130.000 − 1.000.000 × 0,12 = 10.000 TL; bölümün artık kârı 120.000 TL'den 130.000 TL'ye çıkar. Artık kârla değerlendirilen yönetici projeyi kabul eder.
 
 Bu durum **hedef uyumsuzluğu** olarak adlandırılır: ROI, işletmenin yararına olan bir yatırımı yöneticinin gözünde çekici olmaktan çıkarmıştır.

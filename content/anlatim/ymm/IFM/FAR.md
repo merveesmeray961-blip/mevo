@@ -2,7 +2,7 @@
 ders: IFM
 konu: FAR
 baslik: Finansal araçlar
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: TFRS 9 Finansal Araçlar
@@ -24,7 +24,7 @@ kaynaklar:
 ## Bu konuda neler öğreneceksin
 
 - Finansal varlıkların üç ölçüm kategorisini ve sınıflandırmada kullanılan iki testi
-- Etkin faiz oranını hesaplamayı ve itfa edilmiş maliyet tablosu kurmayı
+- Etkin faiz oranını hesaplamayı, itfa edilmiş maliyet tablosu kurmayı ve alıcı/satıcı reeskontunu
 - Beklenen kredi zararında 12 aylık ve ömür boyu ölçüm ayrımını, basitleştirilmiş yaklaşımı
 - Korunma muhasebesinin uygulanma kıstaslarını ve üç korunma türünü
 - Türkiye Finansal Raporlama Standardı (TFRS) 9 ile Vergi Usul Kanunu (VUK) değerlemesi arasındaki farkların tasdikte nasıl izlendiğini
@@ -50,7 +50,6 @@ kaynaklar:
 ### İstisnalar ve tercihler
 
 - Ticari amaçla elde tutulmayan özkaynak aracı yatırımları için, ilk kayıtta geri dönülemez biçimde, gerçeğe uygun değer değişimlerinin DKG'de sunulması seçilebilir; temettüler yine kâr veya zarara alınır (TFRS 9.5.7.5–5.7.6).
-- Muhasebe uyumsuzluğunu ortadan kaldırıyor veya önemli ölçüde azaltıyorsa, bir varlık ilk kayıtta geri dönülemez biçimde gerçeğe uygun değer değişimi kâr veya zarara yansıtılan olarak tanımlanabilir (TFRS 9.4.1.5).
 - Finansal yükümlülükler, sayılan istisnalar dışında itfa edilmiş maliyetinden ölçülür (TFRS 9.4.2.1).
 - Finansal varlıklar yalnız iş modeli değiştiğinde yeniden sınıflandırılır; finansal yükümlülükler hiç yeniden sınıflandırılmaz (TFRS 9.4.4.1–4.4.2).
 
@@ -66,8 +65,6 @@ Kural olarak faiz geliri, **brüt defter değerine** (zarar karşılığı düş
 
 - Satın alındığında veya oluşturulduğunda kredi-değer düşüklüğü bulunan varlıklarda, itfa edilmiş maliyete **krediye göre düzeltilmiş etkin faiz oranı** uygulanır.
 - Sonradan kredi-değer düşüklüğüne uğrayan varlıklarda, sonraki dönemlerde itfa edilmiş maliyete etkin faiz oranı uygulanır.
-
-Formül düz metinle: Fiyat = Σ Kupon / (1 + r)^t + Nominal / (1 + r)^n. Buradaki r etkin faiz oranıdır ve deneme yanılma ile bulunur.
 
 ### Örnek: İtfa edilmiş maliyetle ölçülen tahvil
 
@@ -89,7 +86,26 @@ A AŞ 01.01.2026'da 3 yıl vadeli, nominal değeri 100.000 TL, yıllık kupon fa
 
 > **Sınav ipucu:** Kupon oranı etkin faiz oranının altındaysa varlık iskontolu alınmıştır ve defter değeri her yıl artarak vadede nominal değere ulaşır; primli alımda tersi olur.
 
-## 3. Beklenen kredi zararı
+## 3. Reeskont: VUK'tan TFRS'ye itfa edilmiş maliyet
+
+VUK'ta reeskont isteğe bağlıdır ve yalnız vadesi gelmemiş **senede bağlı** alacak ve borçlar için yapılabilir (VUK md. 281 ve 285; alacak senedini reeskonta tabi tutan borç senedini de tutmak zorundadır). TFRS 9'da ise önemli finansman bileşeni içeren senetli ve senetsiz bütün ticari alacak ve borçlar itfa edilmiş maliyetle, yani iskonto edilmiş değerle gösterilir. YMM sınavında bu fark her dönem dönüşüm vakasının bir kalemidir.
+
+Senetsiz bakiyelerde vade verilmez; ortalama vade **devir hızından** bulunur: gün = 365 / devir hızı. İskonto tutarı **iç iskonto** formülüyle hesaplanır: İskonto = T × n × t / (36.500 + n × t). Burada T nominal tutar, n gün, t yıllık faiz oranıdır (yüzde olarak).
+
+### Çözümlü örnek
+
+31.12.2026'da 120 Alıcılar bakiyesi 2.200.000 TL, 320 Satıcılar bakiyesi 1.320.000 TL. Alacak ve borç devir hızı 5, yıllık faiz %50, KV oranı %25. VUK'ta reeskont yapılmamıştır.
+
+1. Ortalama vade = 365 / 5 = 73 gün; n × t = 73 × 50 = 3.650.
+2. Alıcı reeskontu = 2.200.000 × 3.650 / (36.500 + 3.650) = 200.000 TL. Kayıt: 657 Reeskont Faiz Giderleri borç / 122 Alacak Senetleri Reeskontu alacak 200.000.
+3. Satıcı reeskontu = 1.320.000 × 3.650 / 40.150 = 120.000 TL. Kayıt: 322 Borç Senetleri Reeskontu borç / 647 Reeskont Faiz Gelirleri alacak 120.000.
+4. EV: Alacağın TFRS değeri vergi değerinden 200.000 TL düşük, indirilebilir fark: 289 Ertelenmiş Vergi Varlığı borç / 696 Ertelenmiş Vergi Geliri alacak 50.000. Borcun TFRS değeri 120.000 TL düşük, vergiye tabi fark: 695 Ertelenmiş Vergi Gideri borç / 489 Ertelenmiş Vergi Yükümlülüğü alacak 30.000.
+
+Banka kredilerinde de aynı mantık işler: TFRS 9'da kredi komisyonu ve masraflar işlem maliyeti olarak kredinin ilk tutarından düşülür ve etkin faizle vadeye yayılır; VUK'ta ise doğrudan gider yazılır. Bir yıl içinde ödenecek anapara kısa vadeli (300), kalanı uzun vadeli (400) olarak sınıflandırılır.
+
+> **Sık yapılan hata:** Senetsiz alacakta "VUK reeskonta izin vermiyor, TFRS'de de yapılmaz" demek. TFRS düzeltmesi vergi kuralından bağımsızdır; vergideki fark ertelenmiş vergiyle karşılanır.
+
+## 4. Beklenen kredi zararı
 
 **Kredi zararı**, sözleşmeye göre alınacak nakit akışları ile tahsil edilmesi beklenen nakit akışları arasındaki farkın başlangıçtaki etkin faiz oranıyla hesaplanan bugünkü değeridir. **Beklenen kredi zararları** ise kredi zararlarının temerrüt risklerine göre ağırlıklandırılmış ortalamasıdır (TFRS 9 Ek A).
 
@@ -102,8 +118,6 @@ A AŞ 01.01.2026'da 3 yıl vadeli, nominal değeri 100.000 TL, yıllık kupon fa
 - Sözleşmeye bağlı ödemeler vadeyi 30 günden fazla aşmışsa kredi riskinin önemli ölçüde arttığına dair aksi ispat edilebilir bir ön kabul vardır (TFRS 9.5.5.11).
 - Karşılıktaki değişim değer düşüklüğü kazancı veya kaybı olarak kâr veya zarara alınır (TFRS 9.5.5.8).
 
-Ölçüm; olasılıklarla ağırlıklandırılmış tarafsız bir tutarı, paranın zaman değerini ve aşırı maliyete katlanmadan elde edilebilen makul ve desteklenebilir bilgiyi yansıtır (TFRS 9.5.5.17).
-
 Örnekteki tahvilde 31.12.2026'da kredi riskinde önemli artış olmadığını, 12 ay içinde temerrüt olasılığının %2 ve temerrüt hâlinde bugünkü değerle nakit açığının 40.000 TL olduğunu varsay. Beklenen kredi zararı 0,02 x 40.000 = 800 TL'dir. Kayıt: 654 Karşılık Giderleri (borç) 800; 241 Bağlı Menkul Kıymetler Değer Düşüklüğü Karşılığı (alacak) 800. Faiz geliri yine brüt defter değeri üzerinden hesaplanmaya devam eder.
 
 ### İstisnalar
@@ -111,7 +125,7 @@ A AŞ 01.01.2026'da 3 yıl vadeli, nominal değeri 100.000 TL, yıllık kupon fa
 - Ticari alacaklar ve sözleşme varlıkları (önemli finansman bileşeni içermeyenler) için zarar karşılığı her zaman ömür boyu beklenen kredi zararına eşit ölçülür; buna **basitleştirilmiş yaklaşım** denir (TFRS 9.5.5.15).
 - Gerçeğe uygun değer değişimi DKG'ye yansıtılan varlıklarda zarar karşılığı DKG'ye yansıtılır ve varlığın defter değerini azaltmaz (TFRS 9.5.5.2).
 
-## 4. Riskten korunma muhasebesi temel ilkeleri
+## 5. Riskten korunma muhasebesi temel ilkeleri
 
 **Korunma muhasebesi**, belirli riskleri yönetmek için finansal araçlarla yürütülen risk yönetimi faaliyetlerinin etkisini finansal tablolarda göstermeyi amaçlar (TFRS 9.6.1.1). Uygulama isteğe bağlıdır; işletme korunma aracı ile korunan kalem arasında ilişki tanımlamayı seçebilir (TFRS 9.6.1.2).
 
@@ -129,19 +143,18 @@ A AŞ 01.01.2026'da 3 yıl vadeli, nominal değeri 100.000 TL, yıllık kupon fa
 | Nakit akış değişkenliğinden korunma | Etkin kısım DKG'ye ve nakit akış değişkenliğinden korunma fonuna, etkin olmayan kısım kâr veya zarara (TFRS 9.6.5.11) |
 | Yurtdışı işletmedeki net yatırım riskinden korunma | Türkiye Muhasebe Standardı (TMS) 21'de tanımlanan net yatırımın korunması |
 
-İstisna niteliğindeki kural: işletme korunma muhasebesine yalnız ilişki, yeniden dengeleme dikkate alındıktan sonra kıstasları artık karşılamadığında, ileriye yönelik olarak son verir; korunma aracının süresinin dolması, satılması, feshedilmesi veya kullanılması da bu kapsamdadır (TFRS 9.6.5.6).
-
-> **Sınav ipucu:** Nakit akış korunmasında fon, korunma aracındaki toplam kazanç veya kayıp ile korunan kalemin gerçeğe uygun değerindeki toplam değişimden mutlak değerce düşük olanına göre düzeltilir; aşan kısım etkinsizliktir.
+Korunma muhasebesine yalnız ilişki kıstasları artık karşılamadığında ileriye yönelik son verilir; korunma aracının süresinin dolması, satılması veya feshedilmesi de bu kapsamdadır (TFRS 9.6.5.6). Nakit akış korunmasında fon, araçtaki toplam kazanç veya kayıp ile korunan kalemin değerindeki toplam değişimden mutlak değerce düşük olanına göre düzeltilir; aşan kısım etkinsizliktir.
 
 ### Tasdik uygulama notu
 
-Tam tasdikte TFRS 9 ile hazırlanmış tablolar ile VUK kayıtları arasındaki farklar ayrıca izlenir. VUK md.279'a göre hisse senetleri ile fon portföyünün en az %51'i Türkiye'de kurulmuş şirketlerin hisse senetlerinden oluşan yatırım fonu katılma belgeleri alış bedeliyle, bunlar dışındaki menkul kıymetler borsa rayici ile değerlenir; borsa rayici yoksa alış bedeline vadede elde edilecek gelirin (kur farkları dâhil) iktisaptan değerleme gününe kadar geçen süreye isabet eden kısmı eklenir; bu, etkin faiz tablosundan farklı sonuç verebilir. Beklenen kredi zararı karşılığı ise VUK md.323'teki şüpheli alacak şartlarına dayanmaz; tasdikte bu karşılığın vergi matrahına etkisi ayrıca kontrol edilir. Korunma muhasebesinde belgelendirmenin ilişkinin başlangıcında yapılıp yapılmadığı incelenir.
+Tam tasdikte TFRS 9 tutarları ile VUK kayıtları arasındaki farklar mutabakatla izlenir. VUK md. 279'a göre hisse senetleri alış bedeliyle, diğer menkul kıymetler borsa rayici ile değerlenir; borsa rayici yoksa alış bedeline vadede elde edilecek gelirin değerleme gününe kadar isabet eden kısmı eklenir. Beklenen kredi zararı karşılığı VUK md. 323'teki şüpheli alacak şartlarına dayanmadığından vergi matrahına eklenir (KKEG) ve ertelenmiş vergi varlığı doğurur. Korunma muhasebesinde belgelendirmenin ilişkinin başlangıcında yapıldığı kontrol edilir.
 
 ## Özet
 
 - Sınıflandırma iş modeli ve sözleşmeye bağlı nakit akışı testine dayanır (TFRS 9.4.1.1); üç kategori vardır.
 - İlk ölçüm gerçeğe uygun değerdir; kâr veya zarara yansıtılmayanlarda işlem maliyeti dâhil edilir (TFRS 9.5.1.1).
 - Faiz geliri, kural olarak brüt defter değerine etkin faiz oranı uygulanarak bulunur (TFRS 9.5.4.1).
+- Senetsiz bakiyelerde vade 365 / devir hızı ile bulunur; reeskont iç iskonto formülüyle hesaplanır ve her düzeltmenin EV kaydı yapılır.
 - Kredi riskinde önemli artış yoksa 12 aylık, varsa ömür boyu beklenen kredi zararı ayrılır; 30 günü aşan gecikme önemli artış ön kabulü doğurur.
 - Ticari alacak ve sözleşme varlıklarında basitleştirilmiş yaklaşımla ömür boyu ölçüm yapılır (TFRS 9.5.5.15).
 - Korunma muhasebesi TFRS 9.6.4.1 kıstaslarına bağlıdır; üç korunma türü vardır.

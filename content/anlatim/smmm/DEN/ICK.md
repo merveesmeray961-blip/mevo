@@ -123,10 +123,10 @@ Kontrol çevresi yanlışlıkları **doğrudan** önlemez, tespit etmez ve düze
 
 ### Çözümlü örnek
 
-Ticari alacaklar 9.000.000 TL, önemlilik 400.000 TL olsun. Satış faturalarını düzenleyen, müşteri kredi limitini onaylayan ve tahsilatı kaydeden aynı kişidir; telafi edici gözden geçirme yoktur. Denetçinin 25 alacak teyidinden birinde 30.000 TL fark çıkmış, fark kayda alınmamış bir tahsilattan kaynaklanmıştır.
+Ticari alacaklar 9.000.000 ₺, önemlilik 400.000 ₺ olsun. Satış faturalarını düzenleyen, müşteri kredi limitini onaylayan ve tahsilatı kaydeden aynı kişidir; telafi edici gözden geçirme yoktur. Denetçinin 25 alacak teyidinden birinde 30.000 ₺ fark çıkmış, fark kayda alınmamış bir tahsilattan kaynaklanmıştır.
 
 1. **Eksiklik var mı?** Görevler ayrılığı yok, telafi edici kontrol yok: tasarım eksikliği vardır.
-2. **Önemli mi?** Bulunan yanlışlık (30.000 TL) önemliliğin altındadır; fakat 9.000.000 TL'lik bakiye zimmet ve hayali satışa açıktır, muhtemel yanlışlık önemliliği rahatlıkla aşabilir. Yanlışlığın küçük olması belirleyici değildir; denetçi **önemli eksiklik** sonucuna varır.
+2. **Önemli mi?** Bulunan yanlışlık (30.000 ₺) önemliliğin altındadır; fakat 9.000.000 ₺'lik bakiye zimmet ve hayali satışa açıktır, muhtemel yanlışlık önemliliği rahatlıkla aşabilir. Yanlışlığın küçük olması belirleyici değildir; denetçi **önemli eksiklik** sonucuna varır.
 3. **Denetim yaklaşımı:** Bu kontrole güvenilmez; teyit sayısı, sonraki tahsilat incelemesi ve kesim testleri gibi maddi doğrulama prosedürleri artırılır. Farkın kasıtlı olup olmadığı BDS 240 açısından değerlendirilir.
 4. **Bildirim:** ÜYSO'ya ve mali işler yöneticisine zamanında, yazılı bildirim yapılır; çalışma kâğıdına eklenir.
 

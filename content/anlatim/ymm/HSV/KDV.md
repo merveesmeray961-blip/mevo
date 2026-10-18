@@ -2,7 +2,7 @@
 ders: HSV
 konu: KDV
 baslik: KDV konusu mükellefiyet ve vergiyi doğuran olay
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
@@ -24,134 +24,122 @@ kaynaklar:
     madde: "md. 20/1"
     alinti: "Teslim ve hizmet işlemlerinde matrah, bu işlemlerin karşılığını teşkil"
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
+    madde: "md. 23/e"
+    alinti: "e) (Ek : 6/12/1984 - 3099/2 md.) Altından mamül veya altın ihtiva eden ziynet eşyaları ile"
+  - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
     madde: "md. 28"
     alinti: "Katma değer vergisi oranı, vergiye tabi her bir işlem için % 10'dur."
+  - mevzuat: Mal ve Hizmetlere Uygulanacak KDV Oranlarının Tespitine İlişkin Karar (2007/13033)
+    madde: "md. 1/1-a"
+    alinti: "a) Ekli listelerde yer alanlar hariç olmak üzere, vergiye tabi işlemler için,"
 ---
 ## Bu konuda neler öğreneceksin
 
-- Katma değer vergisinin konusuna giren işlemleri ve bir işlemin Türkiye'de yapılmış sayılma ölçütlerini
-- Mükellef ile vergi sorumlusu arasındaki farkı ve tevkifatın hukuki dayanağını
-- Vergiyi doğuran olayın işlem türlerine göre ne zaman doğduğunu
-- Matrahın unsurlarını, matraha giren ve girmeyen kalemleri ve oran yetkisinin yapısını
-- Tam tasdikte bu konuların nasıl kontrol edildiğini
+- KDV'nin konusuna giren işlemleri, teslim sayılan halleri ve Türkiye'de yapılma ölçütlerini
+- Mükellef ile vergi sorumlusu farkını ve müzayede satışlarında mükellefiyeti
+- Vergiyi doğuran olayın işlem türlerine göre doğduğu anı
+- Matrahın unsurlarını, kur farkını, arsa karşılığı inşaatı ve özel matrah şekillerini
+- 2026'da uygulanan oranları ve oran yetkisini
 
 ## 1. Verginin konusu ve Türkiye'de yapılma
 
-### Tanım
+**Katma değer vergisi (KDV)**, 3065 sayılı Kanun (KDVK) uyarınca her aşamada yaratılan değerden alınan genel harcama vergisidir. Md. 1'e göre Türkiye'de yapılan şu işlemler vergiye tabidir: ticari, sınai, zirai ve serbest meslek faaliyeti çerçevesindeki teslim ve hizmetler; her türlü mal ve hizmet ithalatı; maddede sayılan diğer işlemler (şans oyunları, GVK md. 70'teki mal ve hakların kiralanması, **müzayede mahallerinde yapılan satışlar** vb.). Faaliyetin devamlılığı GVK'ya göre belirlenir; **arızi** işlemler vergilendirilmez. İthalat başka şart aranmadan konuya girer.
 
-**Katma değer vergisi (KDV)**, 3065 sayılı Katma Değer Vergisi Kanunu (KDVK) uyarınca mal ve hizmet akışının her aşamasında yaratılan değer üzerinden alınan genel bir harcama vergisidir. KDVK md. 1'e göre Türkiye'de yapılan üç grup işlem vergiye tabidir: ticari, sınai, zirai faaliyet ve serbest meslek faaliyeti çerçevesinde yapılan teslim ve hizmetler; her türlü mal ve hizmet ithalatı; maddede sayılan diğer faaliyetlerden doğan teslim ve hizmetler (şans oyunları, GVK md. 70'teki mal ve hakların kiralanması, kamu kurumlarına ait iktisadi müesseselerin işlemleri gibi).
+**Teslim**, bir mal üzerindeki tasarruf hakkının alıcıya devridir (md. 2). Malın işletmeden vergiye tabi işlemler dışındaki amaçla çekilmesi ya da personele verilmesi **teslim sayılan hal** (md. 3), vergiye tabi bir hizmetten karşılıksız yararlandırma **hizmet sayılan hal**dir (md. 5). Trampa iki ayrı teslimdir.
 
-### Kural
+**Kap ve ambalaj (md. 2/4):** Geri verilmesi mutat olan kap ve ambalajda (ör. tüpgaz tüpü) teslim yalnız içindeki mal itibarıyla yapılmış sayılır; ambalaj bedeli vergilenmez. Geri dönmeyeceği kesinleşirse o tarihte KDV hesaplanır. Geri verilmesi mutat değilse ambalaj asıl malla birlikte, asıl malın oranıyla vergilenir.
 
-Faaliyetin devamlılığı, kapsamı ve niteliği Gelir Vergisi Kanunu (GVK) hükümlerine göre belirlenir. KDV Genel Uygulama Tebliği (KDVGUT), devamlılık arz eden faaliyetlerin vergiye tabi olduğunu, **arızi faaliyetler** çerçevesindeki teslim ve hizmetlerin ise vergilendirilmediğini açıklar. İşlemi yapanın hukuki statüsü, uyruğu ya da iş merkezinin Türkiye'de olup olmaması vergilendirmeyi engellemez. İthalat ise başka bir şart aranmaksızın verginin konusuna girer.
-
-**Teslim**, bir mal üzerindeki tasarruf hakkının malik veya onun adına hareket edenlerce alıcıya devredilmesidir (md. 2). Malın işletmeden vergiye tabi işlemler dışındaki amaçlarla çekilmesi ya da personele ücret, prim, hediye gibi namlarla verilmesi **teslim sayılan hal** (md. 3); vergiye tabi bir hizmetten işletme sahibinin, personelin veya diğer kişilerin karşılıksız yararlandırılması **hizmet sayılan hal**dir (md. 5). Trampa iki ayrı teslim hükmündedir.
-
-İşlemin **Türkiye'de yapılması** (md. 6) şunu ifade eder:
-
-| İşlem | Türkiye'de yapılmış sayılma ölçütü |
+| İşlem | Türkiye'de yapılmış sayılma ölçütü (md. 6, 7) |
 |---|---|
 | Mal teslimi | Malın teslim anında Türkiye'de bulunması |
-| Hizmet | Hizmetin Türkiye'de yapılması veya hizmetten Türkiye'de faydalanılması |
-| Uluslararası ve transit taşıma | Hizmetin iç parkura isabet eden kısmı (md. 7) |
+| Hizmet | Hizmetin Türkiye'de yapılması veya Türkiye'de faydalanılması |
+| Uluslararası ve transit taşıma | Yalnız iç parkura isabet eden kısım |
 
-Hizmette iki ölçütten birinin gerçekleşmesi yeterlidir. Yurt dışında yapılan ama Türkiye'de faydalanılan bir hizmet de Türkiye'de yapılmış sayılır.
+**Yurt dışı turlar (KDVGUT I/B-9):** Türk seyahat acentesinin yurt dışına düzenlediği turda, yurt dışında verilen konaklama, yeme-içme, ulaşım ve rehberlik hizmetleri Türkiye'de vergilenmez; yurt içinde verilen hizmetler vergiye tabidir. Yurt dışında satın alınan hizmet bedelleri belgelenmek şartıyla KDV dışında kalır.
 
-### İstisna ve sınır durumlar
-
-Türkiye dışında yapılan mal teslimleri, teslim edenin uyruğu ne olursa olsun verginin konusuna girmez. Verginin konusuna girmemek ile istisna farklıdır: istisnada işlem konuya girer, ancak kanun hükmüyle vergiden bağışık tutulur.
-
-> **Sık yapılan hata:** Hizmetin yurt dışında ifa edilmesini tek başına "konu dışı" saymak. Hizmetten Türkiye'de faydalanılıyorsa işlem Türkiye'de yapılmış sayılır ve KDV doğar.
+> **Sık yapılan hata:** Hizmetin yurt dışında ifa edilmesini tek başına "konu dışı" saymak. Hizmetten Türkiye'de faydalanılıyorsa işlem Türkiye'de yapılmış sayılır.
 
 ## 2. Mükellef ve sorumlu
 
-### Mükellef
+**Mükellef** vergiyi doğuran olayla bağlantılı kişidir. Md. 8/1'e göre mal teslimi ve hizmet ifasında bu işleri yapanlar, ithalatta ithal edenler, müzayede mahallerinde satış yapanlar, şans oyunlarını tertip edenler ve GVK md. 70'teki mal ve hakları kiraya verenler mükelleftir. Md. 8/2'ye göre belgede KDV göstermeye hakkı olmadığı halde KDV gösteren de bu vergiyi ödemekle mükelleftir.
 
-**Mükellef**, vergiyi doğuran olayla doğrudan bağlantılı olup vergi borcunu taşıyan kişidir. KDVK md. 8/1'e göre mükellef, esas olarak mal teslimi ve hizmet ifasında bu işleri yapanlar, ithalatta mal ve hizmet ithal edenlerdir. Transit taşımalarda gümrük veya geçiş işlemine muhatap olanlar, müzayede mahallerinde satış yapanlar, şans oyunlarını tertip edenler, GVK md. 70'teki mal ve hakları kiraya verenler ve isteğe bağlı mükellefiyette talepte bulunanlar da mükelleftir.
+**Müzayede (md. 1/3-d, 8, 23/d):** Cebri icra, izale-i şüyu ve tasfiye dahil müzayede satışlarında mükellef satışı düzenleyen kişi veya icra dairesidir. Vergiyi doğuran olay satış tarihidir; matrah **kesin satış bedelidir**. İzale-i şüyuda alıcı hissedarsa kendi hissesi matrahtan düşülür. İcra daireleri KDV'yi bedelin tahsilini izleyen günün mesai bitimine kadar yatırır.
 
-KDVK md. 8/2 özel bir mükellefiyet getirir: vergiye tabi bir işlem olmadığı veya KDV'yi belgede göstermeye hakkı bulunmadığı halde düzenlediği belgede KDV gösteren, bu vergiyi ödemekle mükelleftir. Borçlu olduğundan yüksek KDV gösteren için de hüküm aynıdır.
+**Vergi sorumlusu**, olayla bağı olmadan verginin ödenmesinden sorumlu tutulandır. Md. 9/1, mükellefin Türkiye'de ikametgâhı, işyeri, kanuni ve iş merkezi bulunmayan hallerde ve gerekli görülen diğer hallerde işleme taraf olanları sorumlu tutma yetkisi verir; **tevkifat** buna dayanır ve 2 No.lu beyannameyle beyan edilir. Yurt dışından alınan ve Türkiye'de faydalanılan hizmette alıcı KDV'nin tamamını öder. Belgesiz mal bulundurana 10 gün süre verilir; belge ibraz edilmezse emsal bedel üzerinden re'sen tarh yapılır (md. 9/2).
 
-### Vergi sorumlusu
+> **Sınav ipucu:** Tevkifatta alıcı mükellef değil, sorumludur. Müzayedede ise satışı düzenleyen mükelleftir.
 
-**Vergi sorumlusu**, vergiyi doğuran olayla bağı olmadığı halde verginin ödenmesi bakımından vergi dairesine muhatap tutulan kişidir. KDVK md. 9/1 uyarınca, mükellefin Türkiye'de ikametgâhı, işyeri, kanuni ve iş merkezinin bulunmaması hallerinde ve gerekli görülen diğer hallerde Bakanlık, vergiye tabi işlemlere taraf olanları verginin ödenmesinden sorumlu tutabilir. **Tevkifat** bu yetkiye dayanır; vergi, işlemi yapan yerine alıcı tarafından sorumlu sıfatıyla ve genel bütçeli idareler dışında 2 No.lu KDV Beyannamesi ile beyan edilir.
-
-KDVGUT'a göre yurt dışındaki bir firmadan alınan ve Türkiye'de faydalanılan hizmette KDV'nin tamamı, alıcı KDV mükellefi olmasa da sorumlu sıfatıyla ödenir. Ancak KDV mükellefi olmayan gerçek kişilere yurt dışından elektronik ortamda sunulan hizmetlerde vergiyi hizmeti sunan beyan edip öder (md. 9/1). Tevkifatın türleri ve oranları KDV istisnaları ve iade konusunda ayrıntılı işlenir.
-
-Md. 9/2 belgesiz mal bulundurma halinde ayrı bir sorumluluk kurar: tespit tarihinden itibaren alış belgelerinin ibrazı için 10 günlük süre verilir; ibraz edilemezse emsal bedel üzerinden hesaplanan KDV, belgesiz mal bulunduran mükellef adına re'sen tarh edilir ve vergi ziyaı cezası uygulanır.
-
-> **Sınav ipucu:** Mükellef vergiyi doğuran olayla bağlantılı kişidir; sorumlu ise bu bağ olmadan, kanunun verdiği yetkiyle verginin ödenmesinden yükümlü tutulan kişidir. Şıklarda "alıcı mükelleftir" ifadesi tevkifat için yanlıştır; alıcı sorumludur.
-
-## 3. Vergiyi doğuran olay
-
-### Tanım ve kural
-
-**Vergiyi doğuran olay**, vergi borcunu doğuran hukuki durumun gerçekleşmesidir; KDV'nin hangi döneme beyan edileceğini belirler. KDVK md. 10 olayı işlem türüne göre ayrı ayrı tespit eder:
+## 3. Vergiyi doğuran olay (md. 10)
 
 | İşlem | Vergiyi doğuran olayın anı |
 |---|---|
 | Mal teslimi, hizmet ifası | Malın teslimi veya hizmetin yapılması |
-| Teslim veya hizmetten önce fatura düzenlenmesi | Belgede gösterilen miktarla sınırlı olarak belgenin düzenlenmesi |
-| Kısım kısım teslim veya hizmet | Her bir kısmın teslimi veya yapılması |
+| Önceden fatura düzenlenmesi | Belgedeki miktarla sınırlı olarak belgenin düzenlenmesi |
+| Kısım kısım teslim veya hizmet | Her bir kısmın teslimi |
 | Komisyoncu veya konsinyasyon satışı | Malların alıcıya teslimi |
 | Malın alıcıya gönderilmesi | Nakliyeye başlanması veya nakliyeciye tevdi |
-| Su, elektrik, gaz vb. dağıtım | Bedelin tahakkuk ettirilmesi |
-| İthalat | Gümrük vergisi ödeme mükellefiyetinin başlaması; gümrük vergisine tabi değilse beyannamenin tescili |
+| Su, elektrik, gaz dağıtımı | Bedelin tahakkuku |
+| İthalat | Gümrük vergisi ödeme mükellefiyetinin başlaması; yoksa beyannamenin tescili |
 
-### Uygulamadan örnekler
+Hakedişli işlerde olay hakediş raporunun onaylandığı tarihte doğar. Fatura düzenlenmedikçe hizmetten önce alınan avans KDV doğurmaz. Konsinyasyonda malın konsinyatöre verilmesi vergiyi doğurmaz.
 
-KDVGUT'a göre hakedişli işlerde olay, hakediş raporunun onaylandığı tarihte doğar. Birden fazla vergilendirme dönemine yayılan hizmetlerde bedelin hizmetten önce tahsil edilmesi, fatura düzenlenmemişse KDV doğurmaz; hizmetin gerçekleştiği aylık dönemlere isabet eden tutar o dönemde beyan edilir.
+## 4. Matrah
 
-### İstisna niteliğindeki durum
+**Matrah**, işlemin karşılığını teşkil eden **bedeldir** (md. 20): alıcıdan her ne suretle olursa olsun alınan veya borçlanılan para, mal ve menfaatlerin toplamı.
 
-Fatura teslimden önce düzenlenirse vergi, teslim anını beklemeden belgede gösterilen tutar kadar doğar. Konsinyasyonda malın konsinyatöre verilmesi vergiyi doğurmaz.
+- Matraha dahil (md. 24): satıcının alıcının gösterdiği yere kadar yaptığı taşıma giderleri; ambalaj, sigorta, komisyon gibi gider karşılıkları ile vergi, resim, harç; vade farkı, fiyat farkı, kur farkı, faiz.
+- Matraha dahil değil (md. 25): faturada gösterilen, ticari teamüle uygun iskontolar; hesaplanan KDV.
+- İthalatta (md. 21): gümrük kıymeti, ithalde ödenen vergiler ve tescile kadar yapılan diğer giderler.
+- Bedelin bulunmadığı veya emsale göre açıkça düşük olduğu hallerde **emsal bedel** esastır (md. 27).
 
-## 4. Matrah ve oranlar
+### Kur farkı (KDVGUT III/A-5.3)
 
-### Matrah
+1. Satıcı lehine kur farkı: satıcı fatura düzenler; teslim tarihindeki oranla KDV hesaplar.
+2. Alıcı lehine kur farkı: alıcı satıcıya fatura düzenler; teslim tarihindeki oranla KDV hesaplanır.
+3. Yalnız mal ve hizmet bedeline isabet eden kur farkı matraha girer; KDV'ye isabet eden kur farkı girmez.
+4. Yıl sonu ve geçici vergi dönemlerinde VUK değerlemesinden doğan kur farkı KDV doğurmaz.
 
-**Matrah**, vergi oranının uygulandığı değerdir. Teslim ve hizmet işlemlerinde matrah, işlemin karşılığını teşkil eden **bedel**dir (md. 20); bedel, alıcıdan her ne suretle olursa olsun alınan veya borçlanılan para, mal ve para ile temsil edilebilen menfaat ve değerlerin toplamıdır.
+**Örnek:** Mal bedeli 10.000 ABD doları, KDV 2.000 dolardır (%20). Teslim günü kur 40 TL, tahsil günü 42 TL'dir. Matraha giren kur farkı (42 − 40) × 10.000 = 20.000 TL; KDV 20.000 × %20 = 4.000 TL. KDV'ye ait 2.000 dolarlık kısmın kur farkı (4.000 TL) matraha girmez.
 
-- Matraha dahil (md. 24): alıcının gösterdiği yere kadar satıcının yaptığı taşıma, yükleme ve boşaltma giderleri; ambalaj, sigorta, komisyon gibi gider karşılıkları ile vergi, resim, harç, pay, fon karşılıkları; vade farkı, fiyat farkı, kur farkı, faiz, prim gibi gelirler.
-- Matraha dahil değil (md. 25): faturada gösterilen ve ticari teamüllere uygun iskontolar; hesaplanan KDV.
-- İthalatta matrah (md. 21): gümrük vergisine esas kıymet (ya da CIF değer), ithalatta ödenen vergi, resim, harç ve paylar, beyannamenin tescil tarihine kadar yapılan ve vergilendirilmeyen diğer giderler ve ödemeler.
-- Bedeli bulunmayan veya bilinmeyen işlemlerde ve bedelin emsale göre açıkça düşük olup haklı sebeple açıklanamadığı hallerde matrah **emsal bedeli** veya **emsal ücreti**dir (md. 27). Döviz, vergiyi doğuran olay anındaki cari kurla Türk parasına çevrilir (md. 26).
-- Özel matrah şekilleri (md. 23): ör. ikinci el motorlu kara taşıtı veya taşınmaz ticaretiyle uğraşanların KDV mükellefi olmayanlardan (mükelleflerden istisna kapsamında yapılan alımlar dahil) alıp vasfında esaslı değişiklik yapmadan sattığı taşıt veya taşınmazların matrahı, alış bedeli düşüldükten sonra kalan tutardır.
+### Arsa karşılığı inşaat (md. 27/6)
 
-### Oran
+İki teslim vardır. Arsa sahibinin arsa payı teslimi, arsa iktisadi işletmeye dahilse ya da arsa ticareti mutat ve sürekliyse vergiye tabidir; arızi ise vergilenmez. Müteahhidin arsa sahibine bıraktığı konutun matrahı, VUK md. 267/2'deki maliyet bedeli esasına göre bulunur: maliyete (genel idare giderleri payı dahil) toptan satışta %5, perakendede %10 eklenir.
 
-KDVK md. 28'e göre kanuni oran vergiye tabi her işlem için yüzde 10'dur. Cumhurbaşkanı bu oranı dört katına kadar artırmaya, yüzde 1'e kadar indirmeye ve mal ve hizmetler itibarıyla farklı oranlar belirlemeye yetkilidir. Uygulanan oranlar bu yetkiye dayanan kararlarla belirlenir.
+### Özel matrah şekilleri (md. 23)
 
-Dikkat: KDVGUT'un oran bölümü (III/B-1) hâlâ 2007/13033 sayılı Kararın ilk metnindeki yüzde 18 genel ve yüzde 8 indirimli oranları aktarır; bu metin güncel oran değildir. Tebliğin 2024'te değiştirilen bazı bölümleri ve örnekleri ise yüzde 20 oranını kullanır. Bu nedenle oranı her zaman yürürlükteki Cumhurbaşkanı kararına göre değerlendir. KDVGUT'a göre farklı oranlı işlemler birlikte yapılır ve bedel ayrıştırılamazsa işlem grubundaki en yüksek oran uygulanır.
+| Durum | Matrah |
+|---|---|
+| Müzayede ve gümrük depolarında satış | Kesin satış bedeli |
+| Altından mamul ziynet eşyası ve sikke altın | Satış bedelinden külçe altın (has) bedeli düşülür |
+| İkinci el taşıt veya taşınmaz ticareti (yetki belgeli) | KDV mükellefi olmayandan alınıp esaslı değişiklik yapılmadan satılanda satış − alış farkı |
+| Piyango, at yarışı, sportif gösteriler | Katılma veya giriş bedeli |
 
-### Örnek: KDV matrahının hesaplanması
+**İkinci el araç örneği (2026):** Yetki belgeli galeri, KDV mükellefi olmayan bir kişiden aracı 800.000 TL'ye alır; bakım yaptırıp (esaslı değişiklik değildir) KDV hariç 1.000.000 TL'ye satar. Özel matrah 1.000.000 − 800.000 = 200.000 TL; KDV 200.000 × %20 = 40.000 TL. Araç KDV ödenerek alınmış olsaydı özel matrah uygulanmazdı.
 
-(A) A.Ş. bir alıcıya 100.000 TL'lik mal satmış, faturada ticari teamüle uygun 5.000 TL iskonto göstermiştir. Malı alıcının deposuna kendisi taşımış ve 3.000 TL taşıma bedeli yansıtmış, ayrıca 2.000 TL vade farkı faturalamıştır. Örnek için varsayım: KDV oranı yüzde 20 kabul edilmiştir (gerçek oran yürürlükteki karara göre belirlenir).
+## 5. Oranlar
 
-1. Bedel: 100.000 TL.
-2. İskonto düşülür (md. 25): 100.000 − 5.000 = 95.000 TL.
-3. Taşıma gideri eklenir (md. 24/a): 95.000 + 3.000 = 98.000 TL.
-4. Vade farkı eklenir (md. 24/c): 98.000 + 2.000 = 100.000 TL matrah.
-5. Hesaplanan KDV: 100.000 × 0,20 = 20.000 TL; fatura toplamı 120.000 TL.
+KDVK md. 28'e göre kanuni oran %10'dur; Cumhurbaşkanı oranı dört katına kadar artırmaya, %1'e kadar indirmeye yetkilidir. 2007/13033 sayılı Karara göre 10/7/2023'ten beri genel oran **%20**, (I) sayılı listedekiler **%1**, (II) sayılı listedekiler **%10**'dur. KDVGUT'un bazı örneklerinde eski %18 ve %8 oranları kalmıştır; sınavda olay tarihindeki oranı kullan. Farklı oranlı işlemler birlikte yapılır ve bedel ayrıştırılamazsa en yüksek oran uygulanır. Kur farkı ve matrah düzeltmelerinde ilk işlem tarihindeki oran esas alınır.
 
-Kayıt:
+### Örnek: Matrah hesabı (2026, %20)
 
-| Hesap | Borç | Alacak |
-|---|---|---|
-| 120 Alıcılar | 120.000 | |
-| 600 Yurt İçi Satışlar | | 98.000 |
-| 642 Faiz Gelirleri | | 2.000 |
-| 391 Hesaplanan KDV | | 20.000 |
-| Toplam | 120.000 | 120.000 |
+(A) A.Ş. 100.000 TL'lik mal satar; faturada 5.000 TL ticari iskonto gösterir, 3.000 TL taşıma ve 2.000 TL vade farkı yansıtır.
+
+1. 100.000 − 5.000 = 95.000 TL (md. 25).
+2. 95.000 + 3.000 + 2.000 = 100.000 TL matrah (md. 24).
+3. KDV 20.000 TL; fatura toplamı 120.000 TL.
+
+Kayıt: 120 Alıcılar 120.000 borç / 600 Yurt İçi Satışlar 98.000, 642 Faiz Gelirleri 2.000, 391 Hesaplanan KDV 20.000 alacak.
 
 ### Tasdik uygulama notu
 
-Tam tasdikte YMM, satış faturalarının düzenlenme tarihleri ile sevk irsaliyeleri ve hakediş onay tarihlerini karşılaştırarak KDV'nin doğru döneme beyan edildiğini kontrol eder. Vade ve kur farkı faturalarının düzenlenip düzenlenmediği, personele verilen mal ve hizmetlerin teslim sayılan hal olarak beyanı, yurt dışından alınan hizmetler için 2 No.lu KDV Beyannamesinin verilip verilmediği ve emsal bedele göre düşük satış bulunup bulunmadığı ayrıca incelenir.
+Tam tasdikte YMM, fatura tarihlerini sevk irsaliyesi ve hakediş onay tarihleriyle karşılaştırır; tahsilatta kur farkı faturası düzenlenip düzenlenmediğini, personele verilen malların teslim sayılan hal olarak beyanını, yurt dışı hizmet alımlarında 2 No.lu beyannameyi ve arsa karşılığı inşaatta maliyet bedeli hesabını kontrol eder.
 
 ## Özet
 
-- KDV'nin konusu Türkiye'de yapılan teslim ve hizmetler, ithalat ve kanunda sayılan diğer işlemlerdir; arızi faaliyetler vergilendirilmez.
-- Mal tesliminde malın Türkiye'de bulunması, hizmette Türkiye'de yapılma veya faydalanma yeterlidir.
-- Mükellef işlemi yapandır; md. 9/1 ile işleme taraf olanlar sorumlu tutulabilir ve tevkifat buna dayanır.
-- Vergiyi doğuran olay kural olarak teslim veya hizmet anıdır; önceden düzenlenen fatura, kısmi teslim, konsinyasyon ve ithalat için özel anlar vardır.
-- Matrah bedeldir; taşıma, vade ve kur farkı dahil, ticari teamüle uygun iskonto ve KDV hariçtir.
-- Kanuni oran yüzde 10'dur; Cumhurbaşkanı dört katına kadar artırma, yüzde 1'e indirme yetkisine sahiptir.
+- KDV'nin konusu Türkiye'de yapılan teslim ve hizmetler, ithalat ve müzayede satışları gibi kanunda sayılan işlemlerdir; arızi işlemler vergilenmez.
+- Geri verilmesi mutat kap ve ambalaj teslim edilmiş sayılmaz; yurt dışı turda yurt dışında verilen hizmetler vergilenmez.
+- Mükellef işlemi yapandır; md. 9/1 ile işleme taraf olanlar sorumlu tutulabilir.
+- Vergiyi doğuran olay kural olarak teslim veya hizmet anıdır; önceden fatura, kısmi teslim ve ithalat için özel anlar vardır.
+- Satıcı lehine kur farkında satıcı, alıcı lehine kur farkında alıcı fatura düzenler; KDV'ye ait kur farkı matraha girmez.
+- Altın ziynette külçe altın bedeli, ikinci el araçta alış bedeli düşülür; müzayedede kesin satış bedeli matrahtır.
+- 2026'da oranlar %1, %10 ve %20'dir; kanuni oran %10'dur.

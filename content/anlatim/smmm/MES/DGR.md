@@ -67,7 +67,7 @@ Oda organları **Genel Kurul, Yönetim Kurulu, Disiplin Kurulu ve Denetleme Kuru
 
 **Gelirler (md. 16):** Giriş (kayıt) ücreti memur maaşı taban aylığı katsayısının **300** katı; maktu yıllık aidat aynı katsayının **200 ile 400** katı arasıdır (nispi aidat Danıştay kararıyla iptal edilmiştir). Mesleki kimlik belgesi bedeli katsayının 200 katıdır; oda aracılığıyla sağlanan tahkim ve bilirkişilik ücretlerinin **yüzde 4**'ü oda gelirdir. Kamuda çalışanlar ve mesleği fiilen icra etmeyenler giriş ücreti ve aidatı **yüzde 50 indirimli** öder. Bütçe Nisan ayında hazırlanır ve yüzde 10 yedek ödenek ayrılır.
 
-*Örnek:* Katsayı 15 varsayılırsa giriş ücreti 15 × 300 = 4.500 TL, maktu aidat 3.000-6.000 TL aralığında olur; kamuda çalışan bir üye giriş ücretini 2.250 TL öder.
+*Örnek:* Katsayı 15 varsayılırsa giriş ücreti 15 × 300 = 4.500 ₺, maktu aidat 3.000-6.000 ₺ aralığında olur; kamuda çalışan bir üye giriş ücretini 2.250 ₺ öder.
 
 ## 2. TÜRMOB (Birlik) Yönetmeliği
 

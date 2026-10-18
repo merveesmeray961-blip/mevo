@@ -30,7 +30,7 @@ kaynaklar:
 
 **Kârlılık oranları**, işletmenin ne ölçüde kâr ürettiğini bir **ölçek büyüklüğüne** göre ifade eder:
 
-1. **Satışlara göre kârlılık (marjlar):** Her 100 TL net satıştan kaç TL kâr kaldığını gösterir. Pay ve payda gelir tablosundandır.
+1. **Satışlara göre kârlılık (marjlar):** Her 100 ₺ net satıştan kaç ₺ kâr kaldığını gösterir. Pay ve payda gelir tablosundandır.
 2. **Yatırıma göre kârlılık (rantabilite):** Kullanılan varlıkların veya ortakların koyduğu özkaynağın ne kadar kâr getirdiğini gösterir. Pay gelir tablosundan (dönem boyunca oluşan akım), payda bilançodandır (belli bir tarihteki stok).
 
 Pay bir yıl boyunca oluşurken payda tek bir günün bakiyesi olduğundan, soruda dönem başı ve dönem sonu verilip **ortalama** istenmişse payda (dönem başı + dönem sonu) / 2 alınır. Tek bilanço verilmişse dönem sonu tutarı kullanılır.
@@ -56,10 +56,10 @@ Her basamağın **net satışlara** oranı ilgili marjı verir. Marj oranlarınd
 
 İşletmenin satış fiyatı ile ürün/mal maliyeti arasındaki makası ölçer. Düşüşü; satış fiyatının baskılanmasını, maliyet artışını veya düşük marjlı ürünlere kaymayı gösterebilir.
 
-Örnek: Brüt satışlar 1.200.000 TL, satış indirimleri 100.000 TL, satışların maliyeti 770.000 TL.
+Örnek: Brüt satışlar 1.200.000 ₺, satış indirimleri 100.000 ₺, satışların maliyeti 770.000 ₺.
 
-1. Net satışlar = 1.200.000 − 100.000 = **1.100.000 TL**
-2. Brüt satış kârı = 1.100.000 − 770.000 = **330.000 TL**
+1. Net satışlar = 1.200.000 − 100.000 = **1.100.000 ₺**
+2. Brüt satış kârı = 1.100.000 − 770.000 = **330.000 ₺**
 3. Brüt satış kârı oranı = 330.000 / 1.100.000 × 100 = **%30**
 
 > **Sık yapılan hata:** "Maliyet üzerinden kâr" ile "satış üzerinden kâr"ı karıştırmak. Maliyetin %25 fazlasına satılan mal için satış = 1,25 × maliyet; brüt kâr oranı 0,25 / 1,25 = **%20**'dir, %25 değil. Brüt satış kârı oranı daima net satışlara göre hesaplanır.
@@ -68,7 +68,7 @@ Her basamağın **net satışlara** oranı ilgili marjı verir. Marj oranlarınd
 
 **Faaliyet kârı oranı = Faaliyet kârı / Net satışlar × 100**
 
-Esas faaliyetin, finansman yapısı ve vergi etkisinden önceki başarısını gösterir. Önceki örnekte faaliyet giderleri 180.000 TL ise faaliyet kârı 330.000 − 180.000 = 150.000 TL, oran 150.000 / 1.100.000 × 100 = **%13,64**'tür. Kısa yol: Faaliyet kârı oranı = Brüt kâr oranı − Faaliyet giderleri oranı. Brüt kâr oranı %25 ve faaliyet kâr oranı %15 ise faaliyet giderleri net satışların %10'udur; iki oranın farkı **10 yüzde puandır**.
+Esas faaliyetin, finansman yapısı ve vergi etkisinden önceki başarısını gösterir. Önceki örnekte faaliyet giderleri 180.000 ₺ ise faaliyet kârı 330.000 − 180.000 = 150.000 ₺, oran 150.000 / 1.100.000 × 100 = **%13,64**'tür. Kısa yol: Faaliyet kârı oranı = Brüt kâr oranı − Faaliyet giderleri oranı. Brüt kâr oranı %25 ve faaliyet kâr oranı %15 ise faaliyet giderleri net satışların %10'udur; iki oranın farkı **10 yüzde puandır**.
 
 Diğer marjlar:
 
@@ -85,7 +85,7 @@ Toplam varlıkların, nasıl finanse edildiğinden bağımsız olarak ne kadar e
 
 **Özkaynak kârlılığı = Dönem net kârı / (Ortalama) özkaynaklar × 100**
 
-Ortakların işletmeye bağladığı her 100 TL'nin dönemde kaç TL net kâr ürettiğini gösterir; **mali rantabilite** olarak da anılır. Örnek: Özkaynak dönem başında 700, dönem sonunda 800 bin TL, net kâr 120 bin TL. Ortalama özkaynak 750; oran 120 / 750 × 100 = **%16**. Yıl sonu (120 / 800 = %15) veya yıl başı (120 / 700 = %17,14) tutarı kullanmak, ortalama istenen soruda yanlış seçeneğe götürür.
+Ortakların işletmeye bağladığı her 100 ₺'nin dönemde kaç ₺ net kâr ürettiğini gösterir; **mali rantabilite** olarak da anılır. Örnek: Özkaynak dönem başında 700, dönem sonunda 800 bin ₺, net kâr 120 bin ₺. Ortalama özkaynak 750; oran 120 / 750 × 100 = **%16**. Yıl sonu (120 / 800 = %15) veya yıl başı (120 / 700 = %17,14) tutarı kullanmak, ortalama istenen soruda yanlış seçeneğe götürür.
 
 Borç kullanımı, varlıkların getirisi borcun maliyetini aştığı sürece özkaynak kârlılığını varlık kârlılığının üzerine çıkarır (**pozitif finansal kaldıraç**). Aksi durumda kaldıraç ters çalışır ve özkaynak kârlılığını düşürür. Yüksek özkaynak kârlılığı bu yüzden tek başına "düşük risk" anlamına gelmez.
 
@@ -107,7 +107,7 @@ Ara terimler (net satışlar, toplam aktif) sadeleşir; bu nedenle üç çarpand
 
 ## 8. Çözümlü kapsamlı örnek
 
-MN A.Ş.'nin 2026 verileri (bin TL): Brüt satışlar 2.100, satış indirimleri 100, satışların maliyeti 1.400, faaliyet giderleri 360, diğer faaliyetlerden olağan gelir ve kârlar 40, diğer faaliyetlerden olağan gider ve zararlar 20, finansman giderleri 60; olağandışı kalem yok; vergi oranı %25. Toplam aktif dönem başı 1.400, dönem sonu 1.800; özkaynak dönem başı 560, dönem sonu 720. Ortalamalar kullanılacaktır.
+MN A.Ş.'nin 2026 verileri (bin ₺): Brüt satışlar 2.100, satış indirimleri 100, satışların maliyeti 1.400, faaliyet giderleri 360, diğer faaliyetlerden olağan gelir ve kârlar 40, diğer faaliyetlerden olağan gider ve zararlar 20, finansman giderleri 60; olağandışı kalem yok; vergi oranı %25. Toplam aktif dönem başı 1.400, dönem sonu 1.800; özkaynak dönem başı 560, dönem sonu 720. Ortalamalar kullanılacaktır.
 
 1. Net satışlar = 2.100 − 100 = **2.000**
 2. Brüt satış kârı = 2.000 − 1.400 = 600 → oran **%30**
@@ -125,10 +125,10 @@ Yorum: Özkaynak kârlılığının varlık kârlılığının 2,5 katı olması
 
 Formülü yaz, bilinmeyeni yalnız bırak, yüzdeyi ondalığa çevir (%15 = 0,15).
 
-1. **Satışların maliyeti biliniyor, hedef brüt kâr oranı veriliyor:** SMM 600.000 TL, hedef brüt kâr oranı %25. SMM net satışların %75'i olmalıdır: Net satışlar = 600.000 / (1 − 0,25) = **800.000 TL**; brüt kâr 200.000 TL.
-2. **Hedef faaliyet kârı oranı:** Net satışlar 2.000.000 TL, brüt kâr oranı %30, hedef faaliyet kârı oranı %18 ise faaliyet giderleri en çok 2.000.000 × (0,30 − 0,18) = **240.000 TL** olabilir.
-3. **Hedef özkaynak kârlılığı:** Ortalama özkaynak 1.400.000 TL, hedef %15 → gerekli net kâr **210.000 TL**. Vergi oranı %25 ise gerekli vergi öncesi kâr 210.000 / 0,75 = **280.000 TL**.
-4. **Hedef varlık kârlılığı:** Net kâr marjı %6, hedef varlık kârlılığı %9 ise gerekli aktif devir hızı 9 / 6 = **1,5**; ortalama aktif 3.000.000 TL için gerekli net satış 4.500.000 TL'dir.
+1. **Satışların maliyeti biliniyor, hedef brüt kâr oranı veriliyor:** SMM 600.000 ₺, hedef brüt kâr oranı %25. SMM net satışların %75'i olmalıdır: Net satışlar = 600.000 / (1 − 0,25) = **800.000 ₺**; brüt kâr 200.000 ₺.
+2. **Hedef faaliyet kârı oranı:** Net satışlar 2.000.000 ₺, brüt kâr oranı %30, hedef faaliyet kârı oranı %18 ise faaliyet giderleri en çok 2.000.000 × (0,30 − 0,18) = **240.000 ₺** olabilir.
+3. **Hedef özkaynak kârlılığı:** Ortalama özkaynak 1.400.000 ₺, hedef %15 → gerekli net kâr **210.000 ₺**. Vergi oranı %25 ise gerekli vergi öncesi kâr 210.000 / 0,75 = **280.000 ₺**.
+4. **Hedef varlık kârlılığı:** Net kâr marjı %6, hedef varlık kârlılığı %9 ise gerekli aktif devir hızı 9 / 6 = **1,5**; ortalama aktif 3.000.000 ₺ için gerekli net satış 4.500.000 ₺'dir.
 
 ## Özet
 

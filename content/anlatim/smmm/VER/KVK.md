@@ -115,34 +115,34 @@ KVK md. 12'ye göre kurumun **ortaklarından veya ortakla ilişkili kişilerden*
 - Ortağın verdiği gayrinakdi teminatla üçüncü kişiden alınan krediler ve bankaların borçlanmaları örtülü sermaye sayılmaz.
 - **Sonuç:** Örtülü sermayeye isabet eden faiz ve kur farkları KKEG olur; kur farkı hariç faiz, dönemin son günü itibarıyla **dağıtılmış kâr payı** (dar mükellefte ana merkeze aktarılan tutar) sayılır.
 
-**Örnek:** Dönem başı VUK öz sermayesi 2.000.000 TL olan kurum, yıl içinde ortağından en yüksek 9.000.000 TL borç kullanmış ve 1.800.000 TL faiz ödemiştir.
+**Örnek:** Dönem başı VUK öz sermayesi 2.000.000 ₺ olan kurum, yıl içinde ortağından en yüksek 9.000.000 ₺ borç kullanmış ve 1.800.000 ₺ faiz ödemiştir.
 
-1. Sınır: 2.000.000 × 3 = 6.000.000 TL
-2. Örtülü sermaye: 9.000.000 − 6.000.000 = **3.000.000 TL**
-3. KKEG faiz: 1.800.000 × 3.000.000 / 9.000.000 = **600.000 TL**; bu tutar ayrıca kâr payı dağıtımı sayılır.
+1. Sınır: 2.000.000 × 3 = 6.000.000 ₺
+2. Örtülü sermaye: 9.000.000 − 6.000.000 = **3.000.000 ₺**
+3. KKEG faiz: 1.800.000 × 3.000.000 / 9.000.000 = **600.000 ₺**; bu tutar ayrıca kâr payı dağıtımı sayılır.
 
 ## 6. Finansman gider kısıtlaması
 
 KVK md. 11/1-i'ye göre kredi ve finans kuruluşları dışındaki işletmelerde **yabancı kaynaklar öz kaynakları aşıyorsa**, aşan kısma isabet eden faiz, komisyon, vade farkı, kâr payı, kur farkı gibi finansman giderlerinin Cumhurbaşkanınca belirlenen kısmı indirilemez. 3490 sayılı Kararla oran **%10**'dur. **Yatırımın maliyetine eklenen** finansman giderleri kapsam dışıdır.
 
-**Örnek:** Yabancı kaynak 10.000.000 TL, öz kaynak 6.000.000 TL, gider yazılan finansman gideri 1.500.000 TL.
+**Örnek:** Yabancı kaynak 10.000.000 ₺, öz kaynak 6.000.000 ₺, gider yazılan finansman gideri 1.500.000 ₺.
 
-1. Aşan kısım: 10.000.000 − 6.000.000 = 4.000.000 TL; oranı 4.000.000 / 10.000.000 = %40
-2. Aşan kısma isabet eden gider: 1.500.000 × %40 = 600.000 TL
-3. KKEG: 600.000 × %10 = **60.000 TL**
+1. Aşan kısım: 10.000.000 − 6.000.000 = 4.000.000 ₺; oranı 4.000.000 / 10.000.000 = %40
+2. Aşan kısma isabet eden gider: 1.500.000 × %40 = 600.000 ₺
+3. KKEG: 600.000 × %10 = **60.000 ₺**
 
 > **Sınav ipucu:** Örtülü sermaye **ortak ve ilişkili kişi borçlarına** ve **öz sermayenin üç katına** bakar, sonucu KKEG artı örtülü kâr dağıtımıdır. Finansman gider kısıtlaması **tüm yabancı kaynakların öz kaynağı aşmasına** bakar ve yalnız %10'luk KKEG doğurur.
 
 ## 7. Yurt içi asgari kurumlar vergisi
 
-KVK md. 32/C'ye göre hesaplanan kurumlar vergisi, **indirim ve istisnalar düşülmeden önceki kurum kazancının %10'undan** az olamaz. Bu kazanç, **ticari bilanço kârı + KKEG** toplamıdır. Bu tutardan yalnız kanunda sayılan istisna ve indirimler düşülebilir: yurt içi iştirak kazancı (md. 5/1-a), emisyon primi (5/1-ç), taşınmaz kazançları dışında fon ve ortaklık kazançları (5/1-d), 5/1-i, j, k bentleri, 10. maddedeki bazı indirimler, serbest bölge ve Türk Uluslararası Gemi Sicili kazançları, teknoloji geliştirme bölgesi kazançları ile Ar-Ge ve tasarım indirimleri. **Geçmiş yıl zararları düşülemez.** Hüküm geçici vergide de uygulanır; ilk kez faaliyete başlayanlara **üç hesap dönemi** uygulanmaz.
+KVK md. 32/C'ye göre hesaplanan kurumlar vergisi, **indirim ve istisnalar düşülmeden önceki kurum kazancının %10'undan** az olamaz. Bu kazanç, **ticari bilanço kârı + KKEG** toplamıdır. Bu tutardan yalnız kanunda sayılan istisna ve indirimler düşülebilir: yurt içi iştirak kazancı (md. 5/1-a), emisyon primi (5/1-ç), taşınmaz kazançları dışında fon ve ortaklık kazançları (5/1-d), 5/1-i, j, k bentleri, 10. maddedeki bazı indirimler, serbest bölge ve Türk Uluslararası Gemi Sicili kazançları, teknoloji geliştirme bölgesi kazançları ile Ar-Ge ve tasarım indirimleri. **Geçmiş yıl zararları düşülemez.** Hesaplanan asgari vergiden, md. 32'deki indirimli oranlar (halka arz, ihracat, üretim) nedeniyle alınmayan vergi ile 32/C'nin yürürlüğünden önce alınmış teşvik belgelerindeki yatırıma katkı nedeniyle alınmayan vergi ayrıca indirilir (md. 32/C-3). Hüküm geçici vergide de uygulanır; ilk kez faaliyete başlayanlara **üç hesap dönemi** uygulanmaz.
 
-**Çözümlü örnek:** A AŞ 2026'da 1.200.000 TL ticari kâr elde etmiştir; KKEG 80.000 TL, yurt içi iştirak kazancı 150.000 TL, süresi geçmemiş 2023 zararı 900.000 TL'dir. Kurum beş yıldır faaliyettedir.
+**Çözümlü örnek:** A AŞ 2026'da 1.200.000 ₺ ticari kâr elde etmiştir; KKEG 80.000 ₺, yurt içi iştirak kazancı 150.000 ₺, süresi geçmemiş 2023 zararı 900.000 ₺'dir. Kurum beş yıldır faaliyettedir.
 
-1. İstisna öncesi kazanç: 1.200.000 + 80.000 = 1.280.000 TL
-2. Normal matrah: 1.280.000 − 150.000 − 900.000 = 230.000 TL; vergi 230.000 × %25 = **57.500 TL**
-3. Asgari vergi matrahı: 1.280.000 − 150.000 = 1.130.000 TL (zarar düşülmez); asgari vergi 1.130.000 × %10 = **113.000 TL**
-4. 57.500 TL, 113.000 TL'den az olduğu için ödenecek kurumlar vergisi **113.000 TL**'dir.
+1. İstisna öncesi kazanç: 1.200.000 + 80.000 = 1.280.000 ₺
+2. Normal matrah: 1.280.000 − 150.000 − 900.000 = 230.000 ₺; vergi 230.000 × %25 = **57.500 ₺**
+3. Asgari vergi matrahı: 1.280.000 − 150.000 = 1.130.000 ₺ (zarar düşülmez); asgari vergi 1.130.000 × %10 = **113.000 ₺**
+4. 57.500 ₺, 113.000 ₺'den az olduğu için ödenecek kurumlar vergisi **113.000 ₺**'dir.
 
 ## 8. Tasfiye
 
@@ -154,7 +154,9 @@ KVK md. 32/B, sermayeye eklenmiş öz sermaye kalemlerinin azaltımda vergilenme
 
 - Sermayeye eklenmesinden itibaren **beş tam yıl dolmadan** azaltım yapılırsa azaltımın sırasıyla **(a), (b), (c)** unsurlarından yapıldığı kabul edilir ve önce beş yılı dolmamış kalemlerin çekildiği varsayılır.
 - **Beş tam yıl geçtikten sonra** azaltılan tutar, unsurların toplam sermayedeki payları oranında dağıtılır.
-- (a) unsurları kurumlar vergisine ve stopaja, (b) unsurları yalnız stopaja tabidir. Geçmiş yıl zararlarının mahsubu için yapılan azaltımda stopaj yapılmaz.
+- (a) unsurları kurumlar vergisine ve stopaja, (b) unsurları yalnız stopaja tabidir. Stopaj matrahı, hesaplanan kurumlar vergisi düşüldükten sonra kalan tutardır. Geçmiş yıl zararlarının mahsubu için yapılan azaltımda unsurlar aynı şekilde tespit edilir, ancak stopaj yapılmaz.
+
+**Örnek:** Sermayesi 10.000.000 ₺ olan şirketin sermayesi; 6.000.000 ₺ nakdi sermaye (c), 4.000.000 ₺ de üç yıl önce sermayeye eklenen olağanüstü yedek (b) unsurundan oluşur. 2.000.000 ₺ azaltım yapılırsa beş tam yıl dolmadığı için azaltım önce (b) unsurundan yapılmış sayılır: 2.000.000 ₺ kâr dağıtımı stopajına tabidir. Aynı azaltım beş yıl dolduktan sonra yapılsaydı oranlama uygulanır: 2.000.000 × 4/10 = 800.000 ₺ stopaja tabi, 1.200.000 ₺ vergisiz sermaye iadesi olurdu.
 
 ## Özet
 

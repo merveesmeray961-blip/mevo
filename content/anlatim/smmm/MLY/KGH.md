@@ -70,7 +70,7 @@ kaynaklar:
 - **Meslek kuruluşlarına ödenen zorunlu aidatlar:** 3568 sayılı Kanun md. 16'ya göre SMMM odalarının gelirleri arasında giriş ücreti ve yıllık üye aidatları vardır; baro ve ticaret odası aidatları da örnektir.
 - **Fon kesintileri:** Belirli işlemlerden kesilip özel amaçlı fonlara aktarılan zorunlu paylar.
 
-**Sayısal örnek:** Prime esas kazancı 50.000 TL olan sigortalı için malullük, yaşlılık ve ölüm sigortası primi = 50.000 × %21 = 10.500 TL. Bunun 50.000 × %9 = 4.500 TL'si sigortalıdan, 50.000 × %12 = 6.000 TL'si işverenden alınır. Bu tutar genel bütçeye değil, SGK'nın bütçesine girer ve sigortalıların emeklilik, malullük ve ölüm risklerini karşılamaya ayrılır.
+**Sayısal örnek:** Prime esas kazancı 50.000 ₺ olan sigortalı için malullük, yaşlılık ve ölüm sigortası primi = 50.000 × %21 = 10.500 ₺. Bunun 50.000 × %9 = 4.500 ₺'si sigortalıdan, 50.000 × %12 = 6.000 ₺'si işverenden alınır. Bu tutar genel bütçeye değil, SGK'nın bütçesine girer ve sigortalıların emeklilik, malullük ve ölüm risklerini karşılamaya ayrılır.
 
 > **Sınav ipucu:** "Kanuna dayanan, zorunlu, belirli bir mesleki/sosyal gruptan alınan, o grubun hizmetine tahsis edilen ve genel bütçe dışında kalan gelir" tarifi parafiskal gelirdir. Vergiden farkı tahsis ve grup sınırlamasıdır; aidattan farkı zorunluluktur.
 

@@ -2,165 +2,135 @@
 ders: DTK
 konu: KMB
 baslik: Kambiyo mevzuatı
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
-  - mevzuat: Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar
-    madde: md. 1
+  - mevzuat: "Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar"
+    madde: "md. 1"
     alinti: "Kıymetini Koruma Hakkında Kanun ile ek ve tadillerine muhalefet sayılır."
-  - mevzuat: Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar
-    madde: md. 4/f
+  - mevzuat: "Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar"
+    madde: "md. 4/f"
     alinti: "efektifin yurt dışına çıkarılması Bakanlıkça belirlenecek esaslar dahilinde yapılır."
-  - mevzuat: Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar
-    madde: md. 8/1
+  - mevzuat: "Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar"
+    madde: "md. 8/1"
     alinti: "İhracat bedellerinin tasarrufu serbesttir."
-  - mevzuat: Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar
-    madde: md. 4/g
+  - mevzuat: "32 Sayılı Karara İlişkin Tebliğ (İhracat Bedelleri Hakkında) No: 2018-32/48"
+    madde: "md. 3"
+    alinti: "Bedellerin yurda getirilme süresi fiili ihraç tarihinden itibaren 180 günü geçemez."
+  - mevzuat: "32 Sayılı Karara İlişkin Tebliğ No: 2018-32/45"
+    madde: "md. 6"
+    alinti: "B grubu yetkili müesseselerin ödenmiş sermayelerinin ise"
+  - mevzuat: "Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar"
+    madde: "md. 4/g"
     alinti: "yükümlülükleri döviz cinsinden veya dövize endeksli olarak kararlaştırılamaz."
-  - mevzuat: Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar
-    madde: md. 12/2
-    alinti: "temettü, satış, tasfiye ve tazminat bedelleri, lisans, yönetim ve benzeri anlaşmalar karşılığında"
-  - mevzuat: Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar
-    madde: md. 17/6
-    alinti: "Türkiye'de yerleşik gerçek kişilerce yurt dışından döviz kredisi kullanılamaz."
+  - mevzuat: "Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar"
+    madde: "md. 17/A"
+    alinti: "Döviz geliri olmayan Türkiye'de yerleşik kişiler yurt içinden döviz kredisi temin edemezler."
+  - mevzuat: "Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar"
+    madde: "md. 18"
+    alinti: "yurt dışından gayri nakdi kredi, garanti ve kefalet sağlamaları"
 ---
 ## Bu konuda neler öğreneceksin
 
-- 32 sayılı Karar genel esaslar: amaç, dayanak, temel tanımlar, kur ve süre kuralları
-- Döviz ve kıymet ithali ve ihracı: Türk parası, döviz, efektif, kıymetli maden ve menkul kıymetlerin giriş ve çıkışı
-- İhracat bedellerinin yurda getirilmesi ve Bakanlığın düzenleme yetkisi
-- Döviz cinsinden sözleşme yasağı ve istisnaları
-- Sermaye hareketleri: yabancı ve yerli sermaye, krediler, teminatlar ve döviz hesapları
+- 32 sayılı Karar genel esaslar: dayanak, tanımlar, dövize ilişkin işlemler
+- Döviz ve kıymet ithali ve ihracı; kıymetli madenlerin ithali ve yurt içi alım satımı
+- İhracat bedellerinin yurda getirilmesi: 2018-32/48 sayılı Tebliğdeki süreler
+- Yetkili müesseseler ve kıymetli maden kuruluşları: faaliyet konuları ve kuruluş şartları
+- Döviz cinsinden sözleşme yasağı ve istisnaları; sermaye hareketleri ve krediler
+
+Bu ders sınavda çoğunlukla "maddeyi bent bent yazınız" biçiminde sorulur; Karar kadar Bakanlık tebliğleri de istenir.
 
 ## 1. 32 sayılı Karar genel esaslar
 
-### Tanım ve dayanak
+**Kambiyo mevzuatı**, Türk parasının kıymetini korumak için döviz, Türk parası, kıymetli maden ve sermaye hareketlerini düzenler. Temel metin, 1567 sayılı Kanuna dayanan **Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar**'dır (Karar); uygulayıcısı Hazine ve Maliye Bakanlığıdır. Karara ve tebliğlere aykırılık 1567 sayılı Kanuna muhalefettir (md. 1).
 
-**Kambiyo mevzuatı**, Türk parasının kıymetini korumak amacıyla döviz, Türk parası, kıymetli maden ve sermaye hareketlerine ilişkin işlemleri düzenleyen kurallar bütünüdür. Temel düzenleme, 1567 sayılı Türk Parasının Kıymetini Koruma Hakkında Kanun'a dayanılarak çıkarılan **Türk Parası Kıymetini Koruma Hakkında 32 Sayılı Karar**'dır (Karar). Karar; dövize ilişkin işlemleri, Türk parası ve kıymetli maden işlemlerini, ihracat, ithalat, görünmeyen işlemler ve sermaye hareketlerine ilişkin kambiyo esaslarını belirler (md. 1). Karara ve uygulama düzenlemelerine muhalefet, 1567 sayılı Kanun'a muhalefet sayılır.
-
-### Temel tanımlar (md. 2)
-
-| Terim | Anlamı |
+| Terim (md. 2) | Anlamı |
 |---|---|
-| Bakanlık | Hazine ve Maliye Bakanlığı |
-| Türkiye'de yerleşik kişi | Yurt dışında işçi, serbest meslek ve müstakil iş sahibi Türk vatandaşları dahil Türkiye'de kanuni yerleşim yeri bulunan gerçek ve tüzel kişiler |
-| Dışarıda yerleşik kişi | Türkiye'de yerleşik sayılmayan gerçek ve tüzel kişiler |
-| Efektif | Banknot şeklindeki bütün yabancı ülke paraları |
-| Döviz | Efektif dahil yabancı parayla ödemeyi sağlayan her nevi hesap, belge ve vasıta |
-| Döviz geliri | İhracat, transit ticaret, ihracat sayılan satış ve teslimler ile döviz kazandırıcı hizmet ve faaliyetlerden elde edilen gelir |
+| Türkiye'de yerleşik kişi | Türkiye'de kanuni yerleşim yeri bulunan gerçek ve tüzel kişiler (yurt dışında çalışan Türk vatandaşları dahil) |
+| Efektif | Banknot şeklindeki yabancı paralar |
+| Döviz | Efektif dahil yabancı parayla ödemeyi sağlayan her türlü hesap, belge ve vasıta |
+| Döviz geliri | İhracat, transit ticaret, ihracat sayılan satış ve teslimler ile döviz kazandırıcı hizmetlerden elde edilen gelir |
 
-### Kurallar
+**Dövize ilişkin işlemler (md. 6):** Merkez Bankası, bankalar ve Bakanlıkça uygun görülen kuruluşlar yapar. PTT, yetkili müesseseler ve Borsa İstanbul'da kıymetli maden aracı kuruluşları efektif alım satımı yapabilir. Aracı kurumlar yalnız sermaye piyasası faaliyetiyle sınırlı olarak hesap sahibi müşterileriyle döviz alım satımı yapar. Bu kuruluşlar döviz mevcutlarını Bakanlıkça belirlenen oranda Merkez Bankasına devreder. Dövize dayalı vadeli işlem ve türev araçlar Sermaye Piyasası Kurulunca yetkilendirilmiş banka ve aracı kurumlarca yapılır.
 
-- Yabancı paraların değeri Merkez Bankasınca tespit edilen usuller çerçevesinde belirlenir; alım satımlar işlem tarihindeki kurdan yapılır (md. 5).
-- Dövize ilişkin işlemleri Merkez Bankası, bankalar ve Bakanlıkça uygun görülen kuruluşlar yapar (md. 6/1).
-- Bakanlık, haklı ve mücbir sebeplerin varlığı halinde döviz getirme sürelerini uzatmaya, döviz getirme zorunluluğunu kaldırmaya ve Kararda öngörülen miktarları değiştirmeye yetkilidir (md. 20/1).
-- Aykırılık tespit edilen bankaların, yetkili müesseselerin ve diğer aracıların dövize ilişkin işlemlere aracılık yetkisi kısmen veya tamamen kaldırılabilir (md. 21).
-
-### Örnek ve istisna: Süre hesabı (md. 22)
-
-Karardaki sürelerde işlemin yapıldığı gün hesaba katılmaz. Bir bildirim süresi 30 gün ise ve işlem 2 Mart'ta yapılmışsa süre 3 Mart'tan başlar, 1 Nisan'da biter. İstisna: son gün resmi tatile rastlarsa süre, tatili izleyen ilk iş gününün çalışma saati sonunda biter.
+Bakanlık, haklı ve mücbir sebeplerde döviz getirme sürelerini uzatmaya ve zorunluluğu kaldırmaya yetkilidir (md. 20). Sürelerde işlemin yapıldığı gün sayılmaz (md. 22).
 
 ## 2. Döviz ve kıymet ithali ve ihracı
 
-### Kurallar
-
 | Değer | Kural | Madde |
 |---|---|---|
-| Türk parası | Yurttan ihracı ve yurda ithali serbest; 185.000 TL'yi aşan Türk parasının yurt dışına çıkarılması Bakanlıkça belirlenecek esaslar dahilinde yapılır | md. 3/a, 3/d |
-| Döviz | Yurda ithali ve yurttan ihracı serbest | md. 4/a |
-| Efektif | 10.000 Avro veya eşitini aşan efektifin yurt dışına çıkarılması Bakanlıkça belirlenecek esaslar dahilinde yapılır | md. 4/f |
-| Kıymetli maden, taş ve eşya | Dış Ticaret Rejimi esasları dahilinde ihracı serbest | md. 7/1 |
-| Menkul kıymetler | Yurda girişi ve çıkışı serbest | md. 15/1 |
+| Türk parası | İthali ve ihracı serbest; 185.000 TL'yi aşanın yurt dışına çıkarılması Bakanlık esaslarına bağlı | md. 3 |
+| Döviz | İthali ve ihracı serbest; 10.000 Avro veya eşitini aşan efektifin çıkarılması Bakanlık esaslarına bağlı | md. 4 |
+| Menkul kıymet | Yurda giriş ve çıkış serbest | md. 15 |
+| Ziynet eşyası | Ticari amaçsız ve 15.000 ABD dolarını aşmayan ziynet yolcu beraberinde serbest; aşan kısmın çıkışı girişte beyana veya Türkiye'de alındığının tevsikine bağlı | md. 7/5 |
 
-185.000 TL tutarı, 15/3/2025 tarihli Resmî Gazete'de yayımlanan 9595 sayılı Cumhurbaşkanı Kararı ile "25.000 TL" yerine getirilmiştir. Bankalar; ithalat, ihracat ve görünmeyen işlemler dışında yurt dışına yapılan 50.000 ABD Doları karşılığını aşan Türk Lirası transferlerini ve 50.000 ABD Doları ve eşitini aşan döviz transferlerini 30 gün içinde Bakanlıkça belirlenecek mercilere bildirir (md. 3/c, 4/e).
+185.000 TL tutarı 9595 sayılı Cumhurbaşkanı Kararıyla (RG 15/3/2025) 25.000 TL yerine konmuştur.
 
-### Kıymetli madenler
+### Kıymetli madenler (md. 7)
 
-**Standart ve standart dışı işlenmemiş kıymetli madenlerin** ithali, Merkez Bankası ile kendi mevzuatlarındaki hükümler saklı kalmak kaydıyla yalnız kıymetli madenler aracı kuruluşlarınca yapılır; bunlar ithal ettikleri madenleri üç iş günü içinde Borsa İstanbul A.Ş.'ye teslim etmek zorundadır (md. 7/2-b). İşlenmiş kıymetli madenler, kıymetli taşlar ve eşyaların Dış Ticaret Rejimi esasları dahilinde Türkiye'ye ithali serbesttir (md. 7/3).
-
-### Örnek: Yolcu beraberinde çıkış
-
-Bir yolcu yurt dışına 12.000 Avro efektif ve değeri 18.000 ABD Doları olan ziynet eşyası çıkarmak istemektedir.
-
-1. Efektif 10.000 Avro sınırını aştığından çıkış Bakanlıkça belirlenecek esaslar dahilinde yapılır (md. 4/f).
-2. Ziynet eşyası 15.000 ABD Doları sınırını aştığından çıkarılması, girişte beyan edilmiş olmasına veya Türkiye'de satın alındığının tevsikine bağlıdır (md. 7/5).
-
-### İstisna
-
-Ticari amaç taşımayan ve değeri 15.000 ABD dolarını aşmayan ziynet eşyası yolcu beraberinde serbestçe getirilip götürülebilir (md. 7/5).
+- İhracı Dış Ticaret Rejimi esaslarına göre serbesttir. Standart ve standart dışı **işlenmemiş** kıymetli madenlerin ithal ve ihracında gümrüğe beyan yeterlidir.
+- İşlenmemiş kıymetli maden ithalini yalnız **kıymetli madenler aracı kuruluşları** yapar ve ithal edileni **üç iş günü** içinde Borsa İstanbul'a teslim eder. Dahilde işleme kapsamında standart dışı işlenmemiş maden ithali serbesttir; aracı kuruluşun dahilde işleme ithalinde teslim yerine üç iş günü içinde yazılı bilgi verilir.
+- **Yurt içi alım satım (md. 7/4):** Yalnız Darphane, izinli rafineriler ve Borsa listesindeki yabancı rafinerilerin ürettiği standart işlenmemiş madenler alınıp satılabilir. Bunların ve basılı madenlerin alım satımını bankalar, rafineriler, aracı kuruluşlar, yetkili müesseseler ve yetkilendirilmiş kuyum işletmeleri yapar. Kuyumcular dışındaki yerleşik gerçek kişilere standart dışı işlenmemiş maden satılamaz. Basılı ve çekili madenler dışındaki işlenmiş maden, taş ve eşyanın yurt içi alım satımı serbesttir.
 
 ## 3. İhracat bedellerinin yurda getirilmesi
 
-### Tanım ve kural
+Karar, ihracat bedellerinin tasarrufunu serbest bırakır ve düzenleme yetkisini Bakanlığa verir (md. 8/1). Süreler **Tebliğ 2018-32/48**'dedir:
 
-**İhracat bedeli**, ihraç edilen mal karşılığında yurt dışındaki alıcıdan elde edilen dövizdir. Karara göre ihracat bedellerinin tasarrufu serbesttir; Bakanlık ihtiyaç duyulması halinde ihracat bedellerinin yurda getirilmesine ilişkin düzenleme yapmaya yetkilidir (md. 8/1).
+- **Genel kural (md. 3):** Bedel, ithalatçının ödemesinden sonra doğrudan ve gecikmeksizin aracı bankaya getirilir; süre fiili ihraç tarihinden itibaren **180 günü** geçemez. Ödeme şekilleri: akreditifli, vesaik mukabili, mal mukabili, kabul kredili (akreditifli, vesaik mukabili, mal mukabili) ve peşin ödeme.
+- **Peşin döviz (md. 4):** Karşılığında ihracat **24 ay** içinde yapılır; dahilde işleme ve VRHİ belgelerinde süre belge süresi kadardır.
+- **Özelliği olan ihracat (md. 5):** yurt dışı müteahhit ihracatı **365 gün**; konsinye ihracatta kesin satıştan, fuar ve sergilerde fuar bitiminden itibaren **180 gün**; geçici ihracatta süre bitiminden veya kesin satıştan itibaren **90 gün**; kredili veya kiralama yoluyla ihracatta vade tarihlerinden itibaren **90 gün**; sözleşmede 180 günden uzun vade varsa vade bitiminden itibaren **90 gün**.
+- **Sorumluluk ve ihbar (md. 6, 8):** Bedelin süresinde getirilmesinden ihracatçı sorumludur. Süresinde kapatılmayan hesaplar banka tarafından **5 iş günü** içinde vergi dairesine ihbar edilir. Vergi dairesi **10 iş günü** içinde **90 gün** süreli ihtarname gönderir; mücbir sebepte altışar aylık ek süre verilir.
 
-Döviz kazandırıcı hizmetlerin karşılığı dövizler de serbestçe tasarruf edilebilir (md. 11). Döviz getirme süresi ve zorunluluğu Bakanlık düzenlemelerine bırakılmış olup Bakanlık haklı ve mücbir sebeplerde süreyi uzatabilir ya da zorunluluğu kaldırabilir (md. 20/1).
+### Örnek: Süre hesabı
 
-### Örnek: İhracat bedelinin tahsilinde kur farkı kaydı
+Fiili ihraç 2 Şubat 2026, peşin ödeme yok.
 
-İhracat 10.000 ABD Doları, fatura günü kuru 40,00 TL, tahsil günü kuru 41,00 TL (kurlar varsayımsaldır).
+1. Normal ihracat: 2 Şubat 2026 + 180 gün = en geç 1 Ağustos 2026 (işlemin yapıldığı gün sayılmaz).
+2. Aynı mal konsinye gönderilip 10 Mayıs 2026'da kesin satılırsa süre satıştan başlar: 10 Mayıs 2026 + 180 gün = 6 Kasım 2026.
+3. Sözleşmede 240 gün vade varsa vade bitimi 30 Eylül 2026'dır; bedel bundan itibaren 90 gün içinde, en geç 29 Aralık 2026'da getirilir.
 
-1. Satış: 120 Alıcılar (borç) 400.000 TL / 601 Yurt Dışı Satışlar (alacak) 400.000 TL.
-2. Tahsil: 102 Bankalar (borç) 410.000 TL / 120 Alıcılar (alacak) 400.000 TL ve 646 Kambiyo Kârları (alacak) 10.000 TL.
-3. Kontrol: borç 410.000 TL = alacak 400.000 + 10.000 TL.
+> **Sık yapılan hata:** İhracat bedeli süresini 32 sayılı Kararda aramak ya da "süre yoktur" demek. Karar tasarrufu serbest bırakır; süreler Tebliğ 2018-32/48'dedir.
 
-### İstisna
+## 4. Yetkili müesseseler ve kıymetli maden kuruluşları
 
-Ödeme süresi, bedelin yurda getirilme zorunluluğu ve belgelendirme gibi ayrıntılar Karar metninde değil, Bakanlık düzenlemelerinde yer alır; bu nedenle Karar düzeyinde kural "tasarruf serbestliği"dir.
+**Yetkili müessese**, Bakanlık izniyle döviz alım satımı yapan anonim şirkettir (Tebliğ 2018-32/45). **B grubu faaliyet konuları (md. 4/1):** a) kaydi para hariç yabancı para alım satımı, b) küpür ve cins değiştirme, c) dövizi natık çek satın alma, ç) Darphane üretimi ziynet ve sikke altın alım satımı, d) 1 kilogramın altındaki 24 ayar ve üstü bar altın alım satımı, e) aynı gün transfer veya teslim şartıyla banka aracılığıyla yabancı para işlemleri. **A grubu** bunlara ek olarak aracı kuruluş olarak kıymetli maden ithal ve ihracı, 1 kg ve üstü külçe altın alım satımı, ödeme kuruluşu temsilciliği, para makinesi, kartla işlem ve izinli banknot sevkiyatı yapabilir. Yetkili müesseseler vadeli işlem, kredi kartıyla işlem ve taksit yapamaz, emanet kabul edemez (md. 4/4–5).
 
-> **Sık yapılan hata:** İhracat bedeli için süre ve oranı doğrudan 32 sayılı Karar'da aramak. Karar yalnız yetki verir; süreyi Bakanlık belirler.
+**Kuruluş şartları (md. 6):** a) anonim şirket, b) unvanda A grubu için "Yetkili Müessese", B grubu için "Sınırlı Yetkili Müessese" ibaresi, c) münhasıran bu faaliyet, ç) ödenmiş sermaye A grubunda **10 milyon TL**, B grubunda **5 milyon TL**'den az olmamak, d) kurucu ve yöneticilerde iflas, yüz kızartıcı ve kaçakçılık suçları, son beş yılda izni iptal edilmiş müessesede görev ve vergi borcu bulunmamak, e) payların nama yazılı ve nakit karşılığı çıkarılması, f) ana sözleşmenin mevzuata uygunluğu.
 
-## 4. Döviz cinsinden sözleşme yasağı ve istisnaları
+**Rafineriler** (Kıymetli Maden Standartları ve Rafinerileri Tebliği 2023/1 md. 7; metni bu klasörde yok, TÜRMOB 2026/1 cevabına göre): anonim şirket, unvanda "rafineri" ibaresi, ödenmiş sermaye en az **35 milyon TL**, nama yazılı ve nakit paylar, tebliğe uygun esas sözleşme ve ortaklarda benzer itibar şartları. **Kıymetli madenler aracı kuruluşları** (yönetmelik md. 13, 2022/1 cevabına göre) menkul kıymet çıkaramaz, mevduat toplayamaz, gelir taahhüdünde bulunamaz, yanıltıcı reklam yapamaz, Borsa kasası dışında emanet maden kabul edemez ve yapay fiyat oluşturan işlem yapamaz.
 
-### Kural
+## 5. Döviz cinsinden sözleşme yasağı ve istisnaları
 
-Türkiye'de yerleşik kişiler, Bakanlıkça belirlenen haller dışında, **kendi aralarındaki** menkul ve gayrimenkul alım satımı, taşıt ve finansal kiralama dahil her türlü kiralama, leasing ile iş, hizmet ve eser sözleşmelerinde sözleşme bedelini ve bu sözleşmelerden doğan diğer ödeme yükümlülüklerini döviz cinsinden veya dövize endeksli olarak kararlaştıramaz (md. 4/g). Daha önce akdedilmiş yürürlükteki sözleşmelerdeki döviz cinsinden bedeller, Bakanlıkça belirlenen haller dışında, bendin yürürlüğünden itibaren otuz gün içinde taraflarca Türk parası olarak yeniden belirlenir (Geçici md. 8).
+Türkiye'de yerleşik kişiler **kendi aralarındaki** menkul ve gayrimenkul alım satımı, kiralama, iş, hizmet ve eser sözleşmelerinde bedeli döviz cinsinden veya dövize endeksli belirleyemez; Bakanlıkça belirlenen haller saklıdır (md. 4/g).
 
-### Örnek
+İstisnalar Tebliğ 2008-32/34 md. 8'dedir: T.C. vatandaşı olmayan yerleşiklerin alıcı veya kiracı olduğu gayrimenkul sözleşmeleri; belgeli konaklama tesisi ve gümrüksüz mağaza kiraları; yurt dışında ifa edilen iş sözleşmeleri; ihracat ve döviz kazandırıcı faaliyetler kapsamındaki hizmet sözleşmeleri; döviz maliyetli eser sözleşmeleri; taşıt dışındaki menkul satış ve kiralamaları; yurt dışında üretilen yazılım ve lisans sözleşmeleri.
 
-İstanbul'da yerleşik iki şirket arasında aylık 5.000 ABD Doları bedelli bir işyeri kira sözleşmesi, Bakanlıkça belirlenen hallerden birine girmiyorsa yapılamaz; bedel Türk parası olarak belirlenmelidir.
+Örnek: İstanbul'da yerleşik iki şirket arasında aylık 5.000 USD bedelli işyeri kirası yapılamaz (md. 8/2); kiracı T.C. vatandaşı olmayan yerleşik kişiyse yapılabilir (md. 8/3).
 
-### İstisnalar
+> **Sınav ipucu:** Önce tarafların yerleşik olup olmadığını belirle; yasak yalnız yerleşikler arası sözleşmeleri kapsar. Sonra sözleşme türünü ve Tebliğ md. 8'deki istisnayı kontrol et.
 
-- Kapsam sınırı: md. 4/g lafzen Türkiye'de yerleşik kişilerin "kendi aralarındaki" sözleşmelerini düzenler. Taraflardan birinin dışarıda yerleşik olduğu sözleşme bu bendin lafzı dışında kalır; Bakanlık düzenlemelerindeki ayrıntılar bu konunun kaynaklarında yer almaz.
-- Bakanlıkça belirlenen haller yasak dışındadır; bu hallerin listesi Karar metninde değil, Bakanlık düzenlemelerindedir.
-- Türkiye'de yerleşik finansal kiralama şirketlerinin, md. 17/A hükümlerine aykırı olmamak şartıyla, Türkiye'de yerleşik tüzel kişilerle yapacakları finansal kiralama bedelleri döviz üzerinden belirlenebilir (md. 17/A-10).
+## 6. Sermaye hareketleri ve krediler
 
-> **Sınav ipucu:** Sözleşmenin tarafları yerleşik mi? Soru çözümünde önce bunu belirle; md. 4/g'nin lafzı "yerleşik ile yerleşik" sözleşmelerini hedefler. Ardından sözleşme türünün bentte sayılanlardan olup olmadığına ve Bakanlıkça belirlenen bir istisnaya girip girmediğine bak.
+- **Yabancı ve yerli sermaye:** Doğrudan yabancı yatırım 4875 sayılı Kanuna göre yapılır; kâr, temettü, satış ve tasfiye bedelleri serbestçe transfer edilir (md. 12). Yurt dışında şirket kurma ve şube açma serbesttir; işlem 30 gün içinde bildirilir (md. 13). Kişisel sermaye hareketleri ve menkul kıymet transferleri bankalar aracılığıyla serbesttir (md. 14, 15).
+- **Yurt dışından kredi (md. 17):** TL kredi serbesttir. Döviz geliri olmayan yerleşik kişiler istisnalar dışında döviz kredisi temin edemez; yerleşik gerçek kişiler döviz kredisi, hiçbir yerleşik dövize endeksli kredi kullanamaz.
+- **Yurt içinden döviz kredisi (md. 17/A-3):** Döviz geliri olmayanlar temin edemez. Döviz geliri şartı aranmayan haller: a) kamu kuruluşları, bankalar, finansal kiralama, faktoring ve finansman şirketleri, b) kredi bakiyesi **15 milyon ABD doları** veya üzerinde olanlar, c) yatırım teşvik belgesi kapsamı ve KDV listesindeki makine finansmanı, ç) uluslararası ihaleyi kazananlar ve savunma sanayii projeleri, d) bankadaki döviz veya OECD devlet menkul kıymeti teminatını aşmayan krediler, e) kamu özel işbirliği projeleri, f) tevsik edilen muhtemel döviz gelirini aşmayan krediler, g) makine finansal kiralaması, ğ) Bakanlıkça belirlenen haller.
+- **Sınır (md. 17/A-4):** Döviz geliri olup bakiyesi 15 milyon ABD dolarının altında olanın yeni kredi ile bakiyesi toplamı son üç mali yılın döviz gelirini aşamaz; aşım sonradan anlaşılırsa kredi geri çağrılır veya TL'ye çevrilir.
+- **Gayrinakdi krediler (md. 18):** Yurt dışından gayrinakdi kredi, garanti ve kefalet sağlamak ile yurt dışındakileri muhatap teminat mektubu vermek serbesttir. Döviz kredileri için yabancı para taşınmaz rehni kurulabilir. Yurt dışına ödenen teminat mektubu bedelleri ve verilen garantiler 30 gün içinde Bakanlığa bildirilir.
 
-## 5. Sermaye hareketleri
+### Örnek: Kredi sınırı
 
-### Kurallar
-
-- **Yabancı sermaye:** Doğrudan yatırımlar 4875 sayılı Doğrudan Yabancı Yatırımlar Kanunu çerçevesinde yapılır; net kâr, temettü, satış, tasfiye ve tazminat bedelleri bankalar aracılığıyla serbestçe transfer edilir (md. 12).
-- **Yerli sermaye:** Yurt dışında şirket kurmak ve şube açmak için nakdi sermaye bankalar aracılığıyla, ayni sermaye gümrük mevzuatına göre ihraç edilebilir; bankalar ve gümrük idareleri işlemi 30 gün içinde Bakanlığa ve Ticaret Bakanlığına bildirir (md. 13).
-- **Kişisel sermaye hareketleri, menkul ve gayrimenkul kıymetler:** Bankalar aracılığıyla transferler serbesttir (md. 14, 15, 16).
-- **Yurt dışından kredi:** Türk lirası kredi serbesttir; döviz geliri olmayan yerleşik kişiler, md. 17/3'teki haller (ör. kredi bakiyesi 15 milyon ABD doları veya üzerinde olanlar) dışında döviz kredisi temin edemez. Yerleşik gerçek kişiler döviz kredisi ve yerleşik kişiler dövize endeksli kredi kullanamaz (md. 17/6, 17/7).
-- **Döviz tevdiat hesapları:** Bankalar yerleşik ve dışarıda yerleşik kişiler adına açabilir, sahipleri serbestçe tasarruf eder (md. 19/1).
-
-### Örnek: Döviz geliri olan şirketin kredi sınırı (md. 17/4)
-
-Şirketin son üç mali yıldaki döviz gelirleri 2,4 + 3,1 + 2,5 milyon ABD Doları, mevcut kredi bakiyesi 5,5 milyon ABD Doları, talep edilen yeni kredi 3,0 milyon ABD Dolarıdır.
-
-1. Kredi bakiyesi 15 milyon ABD dolarının altında olduğundan sınır uygulanır.
-2. Döviz gelirleri toplamı: 2,4 + 3,1 + 2,5 = 8,0 milyon ABD Doları.
-3. Kredi + bakiye: 3,0 + 5,5 = 8,5 milyon ABD Doları > 8,0; talep sınırı aşar.
-4. Kullanılabilecek en yüksek tutar: 8,0 − 5,5 = 2,5 milyon ABD Doları. Aracı banka bu uygunluğu kontrol eder.
-
-### İstisna
-
-Döviz geliri olan kişilerin md. 17/3'te sayılan haller kapsamında kullandığı kredilerde bu sınır uygulanmaz (md. 17/5).
+Son üç yılın döviz geliri 2,4 + 3,1 + 2,5 = 8,0 milyon USD, bakiye 5,5 milyon USD, talep 3,0 milyon USD. Bakiye 15 milyonun altında olduğundan sınır uygulanır: 5,5 + 3,0 = 8,5 > 8,0. Kullanılabilecek en fazla tutar 8,0 − 5,5 = 2,5 milyon USD'dir; uygunluğu banka kontrol eder.
 
 ### Tasdik uygulama notu
 
-Tam tasdikte YMM, döviz kredisi kullanan müşterinin kredi tarihindeki bakiyesini ve son üç mali yılın döviz gelirlerini karşılaştırır; sınırı aşan kredilerin md. 17/3 istisnalarına dayanıp dayanmadığını kontrol eder. Kira, hizmet ve eser sözleşmeleri döviz cinsinden bedel yönünden incelenir. İhracat bedellerinin tahsilinde kullanılan kurlar ve 646/656 kur farkı kayıtları banka dekontlarıyla eşleştirilir.
+Tam tasdikte YMM, ihracat hesaplarının 180 gün içinde kapatıldığını İhracat Bedeli Kabul Belgeleriyle; döviz kredilerinin md. 17/A-4 sınırını kredi tarihi bakiyesi ve son üç yıl döviz geliriyle kontrol eder. Kira ve hizmet sözleşmeleri döviz bedeli yönünden incelenir; aykırılık 1567 sayılı Kanun yaptırımı riskidir.
 
 ## Özet
 
-- 32 sayılı Karar, 1567 sayılı Kanun'a dayanır; uygulayıcı Hazine ve Maliye Bakanlığıdır, Karara muhalefet 1567 sayılı Kanun'a muhalefettir.
-- Türk parası, döviz ve menkul kıymetlerin giriş ve çıkışı serbesttir; 185.000 TL'yi aşan Türk parası ve 10.000 Avro'yu aşan efektifin çıkarılması Bakanlık esaslarına bağlıdır.
-- İşlenmemiş kıymetli maden ithali kural olarak yalnız aracı kuruluşlarca yapılır ve üç iş günü içinde Borsa İstanbul'a teslim edilir; dahilde işleme rejimi için ayrı kurallar vardır.
-- İhracat bedellerinin tasarrufu serbesttir; yurda getirmeye ilişkin düzenleme yetkisi Bakanlıktadır.
-- Yerleşikler arası sözleşmelerde döviz cinsinden veya dövize endeksli bedel yasaktır; istisnalar Bakanlıkça belirlenen haller ve Karardaki özel hükümlerdir.
-- Döviz geliri olmayan yerleşik kişiler istisnalar dışında döviz kredisi kullanamaz; gerçek kişiler hiç kullanamaz.
+- Karar 1567 sayılı Kanuna dayanır; dövize ilişkin işlemleri Merkez Bankası, bankalar ve yetkili kuruluşlar yapar.
+- 185.000 TL'yi aşan Türk parası ve 10.000 Avro'yu aşan efektifin çıkışı Bakanlık esaslarına bağlıdır.
+- İşlenmemiş kıymetli maden ithalini aracı kuruluşlar yapar ve üç iş günü içinde Borsaya teslim eder.
+- İhracat bedeli 180 gün; müteahhitte 365 gün; geçici ihracat ve kredili ihracatta 90 gün; peşin dövizde ihracat 24 ay.
+- Yetkili müessese sermayesi A grubunda 10, B grubunda 5 milyon TL; rafineride 35 milyon TL.
+- Yerleşikler arası döviz cinsinden sözleşme yasaktır; istisnalar Tebliğ 2008-32/34 md. 8'dedir.
+- Döviz geliri olmayan yurt içinden döviz kredisi alamaz; 17/A-3'te sekiz istisna sayılır.

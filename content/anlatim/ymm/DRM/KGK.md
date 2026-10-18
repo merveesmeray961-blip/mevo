@@ -2,7 +2,7 @@
 ders: DRM
 konu: KGK
 baslik: KGK ve kamu gözetimi
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 660 sayılı Kamu Gözetimi, Muhasebe ve Denetim Standartları Kurumunun Teşkilat ve Görevleri Hakkında Kanun Hükmünde Kararname
@@ -116,7 +116,7 @@ Denetim kuruluşu ve denetçiler, denetlenen işletmeye 3568 sayılı Kanun çer
 
 ### İnceleme uygulama notu
 
-Yönetmelik md.22/5, 3568 sayılı Kanun çerçevesindeki tasdiki yasaklanan denetim dışı hizmetlerin dışında tutar; bu nedenle denetlenen işletmeye tasdik hizmeti verilmesi bu hüküm uyarınca yasak değildir, ancak bağımsızlık tehditleri ayrıca değerlendirilir. Kurum incelemesinde ise denetim dosyasında bağımsızlık tehditlerinin ve alınan önlemlerin yazılı kaydı (md.22/4), yıllık taahhütler (md.21) ve rotasyon hesabı aranır.
+Yönetmelik md.22/5, denetlenen işletmeye verilemeyecek hizmetlerden 3568 sayılı Kanun çerçevesindeki tasdik, vergi danışmanlığı ve vergi denetimini hariç tutar; bu nedenle aynı işletmeye bağımsız denetimle birlikte YMM tam tasdik hizmeti verilmesi bu hüküm uyarınca yasak değildir, ancak bağımsızlık tehditleri ayrıca değerlendirilip belgelenir. Kurum incelemesinde ise denetim dosyasında bağımsızlık tehditlerinin ve alınan önlemlerin yazılı kaydı (md.22/4), yıllık taahhütler (md.21) ve rotasyon hesabı aranır.
 
 ## Özet
 

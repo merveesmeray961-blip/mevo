@@ -1,139 +1,152 @@
 ---
 ders: DRM
 konu: MHK
-baslik: Meslek hukuku ve disiplin
-durum: taslak
+baslik: 3568 sayılı Kanun, odalar ve TÜRMOB
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
-  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
-    madde: md. 2
+  - mevzuat: "3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu"
+    madde: "md. 2"
     alinti: "Yeminli mali müşavirler muhasebe ile ilgili defter tutamazlar, muhasebe bürosu"
-  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
-    madde: md. 48
-    alinti: "d) Yeminli sıfatını kaldırma; yeminli mali müşavirin yeminli sıfatının kaldırılmasıdır."
-  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
-    madde: md. 45
-    alinti: "Meslek mensupları, iş elde etmek için reklâm"
-  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
-    madde: md. 46
+  - mevzuat: "3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu"
+    madde: "md. 3"
+    alinti: "Odalar, yukarıdaki fıkraya aykırı davranışları öğrendiklerinde Cumhuriyet Savcılığına bildirmek mecburiyetindedirler."
+  - mevzuat: "3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu"
+    madde: "md. 10"
+    alinti: "biri Yükseköğretim Kurulunca önerilecek iki aday arasından, ikisi ise Birlikçe önerilecek dört aday arasından"
+  - mevzuat: "3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu"
+    madde: "md. 16"
+    alinti: "odaya giriş ücreti ve yıllık üye aidatlarını yüzde elli indirimli olarak öderler."
+  - mevzuat: "3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu"
+    madde: "md. 30"
+    alinti: "birliğe ait mal varlığından sağlanan gelirler, ruhsatname ücretleri"
+  - mevzuat: "3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu"
+    madde: "md. 43"
+    alinti: "işleri dolayısıyla öğrendikleri bilgi ve sırları ifşa edemezler"
+  - mevzuat: "3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu"
+    madde: "md. 46"
     alinti: "Tarifedeki asgari miktar altında ücret karşılığında iş kabulü yasak olup, aksine hareket"
-  - mevzuat: Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Mesleklerine İlişkin Haksız Rekabet ve Reklam Yasağı Yönetmeliği
-    madde: md. 7
-    alinti: "a) Asgari ücret tarifesinin altında ücret talep etmek veya ücretsiz hizmet"
+  - mevzuat: "Yeminli Mali Müşavirler Odaları Yönetmeliği"
+    madde: "md. 34"
+    alinti: "Odaya kaydını yaptırmayanlardan ruhsatı geri alınır."
 ---
 ## Bu konuda neler öğreneceksin
 
-- 3568 sayılı Kanun YMM şartları ve yasaklar
-- YMM odaları ve TÜRMOB: kuruluş, organlar ve görevler
-- Disiplin cezaları, uygulanma halleri ve itiraz yolu
-- Haksız rekabet ve reklam yasağı kapsamındaki davranışlar
-- Ücret tarifesi: hazırlanışı, 2026 YMM tasdik ücreti hesabı
+- 3568 sayılı Kanun YMM şartları ve yasaklar, sınav komisyonu ve yemin
+- Meslek unvanının korunması ve ruhsat verilmesi, itiraz yolu
+- YMM odaları ve TÜRMOB: kuruluş ve görevler
+- Oda ve Birlik organları ve görevleri, oda ve Birlik gelirleri
+- Meslek sırları ve ücret tarifesinin belirlenme süreci
+
+Sorularda sayılan her bent ayrı puanlanır. Disiplin ve haksız rekabet DSP konusundadır.
 
 ## 1. 3568 sayılı Kanun YMM şartları ve yasaklar
 
-**Yeminli mali müşavir (YMM)**, 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu'na göre müşavirlik, inceleme ve denetim işlerinin yanında yönetmelik çerçevesinde tasdik işlerini yapan meslek mensubudur (md.2/B).
+**Kanunun amacı** (md. 1): işletmelerde faaliyetlerin sağlıklı ve güvenilir işleyişini sağlamak, gerçek durumu ilgililerin ve resmi mercilerin istifadesine tarafsız sunmak ve yüksek mesleki standartları gerçekleştirmek üzere meslekleri, odaları ve Birliği düzenlemektir.
+
+**Yeminli mali müşavir (YMM)**, md. 2/A-(b) ve (c)'deki müşavirlik ve denetim işlerinin yanında tasdik yapan meslek mensubudur (md. 2/B).
 
 ### Şartlar
 
-- Genel şartlar (md.4): T.C. vatandaşı olmak, medeni hakları kullanma ehliyeti, kamu haklarından mahrum olmamak, sayılan suçlardan mahkûm olmamak, memuriyetten çıkarılmamış olmak, meslek şeref ve haysiyetine uymayan durumu bulunmamak.
-- Özel şartlar (md.9): en az 10 yıl serbest muhasebeci mali müşavirlik yapmış olmak, YMM sınavını vermiş olmak ve YMM ruhsatını almış olmak.
-- Vergi inceleme yetkisi almış olanların bu yetkiden sonraki kamu hizmet süreleri, öğretim üyeliği süreleri gibi bazı süreler serbest muhasebeci mali müşavirlikte geçmiş sayılır (md.9).
-- YMM sınavını Birlik yazılı olarak yapar; komisyonun yedi üyesinden dördü Maliye Bakanlığı vergi denetim elemanları, biri Yükseköğretim Kurulunun, ikisi Birliğin önerdiği adaylar arasından seçilir (md.10).
-- Mesleğe kabul edilen YMM, fiilen başlamadan önce Asliye Ticaret Mahkemesinde yemin eder (md.11).
+- **Genel şartlar (md. 4):** a) T.C. vatandaşı olmak, b) medeni hakları kullanma ehliyeti, c) kamu haklarından mahrum olmamak, d) kasten işlenen suçtan bir yıl veya daha fazla hapis ya da sayılan suçlardan (zimmet, rüşvet, dolandırıcılık, sahtecilik, kaçakçılık vb.) mahkûm olmamak, e) memuriyetten çıkarılmamış olmak, f) meslek şeref ve haysiyetine uymayan durumu bulunmamak.
+- **Özel şartlar (md. 9):** a) en az 10 yıl SMMM'lik, b) YMM sınavını vermiş olmak, c) YMM ruhsatını almış olmak. Vergi inceleme yetkisi sonrası kamu hizmeti, birinci derece imza yetkili muhasebe sorumluluğu ve öğretim üyeliği gibi süreler SMMM'likte geçmiş sayılır.
+- **Sınav (md. 10):** Birlik yazılı yapar. Komisyon yedi üyedir; dördü Bakanlık vergi denetim elemanlarından, biri YÖK'ün önerdiği iki aday arasından, ikisi Birliğin önerdiği dört aday arasından Bakan tarafından seçilir. Adaylarda ilgili dalda lisans ve en az on beş yıl çalışma aranır. Sınav davasında komisyonda görev almamış bir vergi denetim elemanı, bir meslek mensubu ve bir öğretim üyesinden oluşan üç kişilik bilirkişi heyeti atanır.
+- **Yemin (md. 11):** Fiilen başlamadan önce Asliye Ticaret Mahkemesinde edilir.
 
 ### Yasaklar
 
-- YMM muhasebe ile ilgili defter tutamaz, muhasebe bürosu açamaz ve bu bürolara ortak olamaz (md.2/B).
-- Unvan ve tasdik yetkisiyle hizmet akdine bağlı çalışamaz, ticari faaliyette bulunamaz, meslekle bağdaşmayan işlerle uğraşamaz (md.45).
-- Eşinin (boşanmış dahi olsa), usul ve füruunun, 3 üncü dereceye kadar kan ve sıhri hısımlarının veya bunların ortak olduğu firmaların işlerine bakamaz (md.45).
-- İşleri dolayısıyla öğrendiği sırları ifşa edemez; ancak suç teşkil eden hallerin yetkili mercilere duyurulması mecburidir, tanıklık sırrın ifşası sayılmaz (md.43).
+- Muhasebe defteri tutamaz, muhasebe bürosu açamaz, bu bürolara ortak olamaz (md. 2/B).
+- Unvan ve tasdik yetkisiyle hizmet akdine bağlı çalışamaz, ticari faaliyette bulunamaz, meslekle bağdaşmayan işle uğraşamaz (md. 45/1).
+- Eşinin (boşanmış dahi olsa), usul ve füruunun, 3. dereceye kadar kan ve sıhri hısımlarının veya bunların ortak olduğu firmaların işlerine bakamaz; bu yakınlıktaki SMMM'lerin baktığı işleri tasdik edemez (md. 45/2).
+- Mesleği yapması yasaklananları çalıştıramaz, onlarla işbirliği yapamaz (md. 13); reklam sayılabilecek faaliyette bulunamaz, ruhsattaki unvan dışında sıfat kullanamaz (md. 45/5).
 
-### İstisna
+İstisna: Hayri ve ilmi kuruluşlar ile md. 45/3'teki kamu kuruluşlarında yönetim kurulu üyeliği, denetçilik, bilirkişilik ve tasfiye memurluğu yasak değildir. Ortaklık bürosu ve şirket faaliyeti ticari faaliyet sayılmaz (md. 45/4).
 
-Hayri ve ilmi kuruluşlar ile md.45/3'te sayılan kamu kuruluşlarında, bu kuruluşların 3568 sayılı Kanun kapsamındaki faaliyetlerini yürütmemesi şartıyla, yönetim kurulu başkanlığı ve üyeliği, denetçilik, bilirkişilik ve tasfiye memurluğu meslekle bağdaşmayan iş sayılmaz. Çalışma Usul ve Esasları Hakkında Yönetmelik md.43'e göre limited şirket müdürlüğü ve anonim şirket yönetim kurulu üyeliği yasaktır; ancak anonim şirketlerde bağımsız yönetim kurulu üyeliği ticari faaliyet sayılmaz. Bu durumda meslek mensubu o şirkete ve doğrudan veya dolaylı hissedarı ya da iştiraki olduğu şirketlere Kanunun 2 nci maddesi kapsamında hizmet veremez.
+> **Sık yapılan hata:** "YMM limited şirkette ortak olamaz" demek. Sermaye şirketinde ortaklık ve komanditer ortaklık meslekle bağdaşır (Çalışma Usul ve Esasları Yönetmeliği md. 47); yasak olan limited şirket müdürlüğü ve anonim şirket yönetim kurulu üyeliğidir (md. 43).
 
-> **Sık yapılan hata:** "YMM limited şirkette ortak olamaz" sanmak. Limited ve anonim şirketlerde ortaklık ile komandit şirketlerde komanditer ortaklık meslekle bağdaşan işlerdendir (Çalışma Usul ve Esasları Hakkında Yönetmelik md.47); yasak olan müdürlük ve yönetim kurulu üyeliğidir.
+## 2. Meslek unvanının korunması ve ruhsat
 
-## 2. YMM odaları ve TÜRMOB
+**Unvanın korunması (md. 3):** Yetkisi olmayanların SMMM ve YMM unvanlarını ya da bunlara karışacak benzer unvan, ibare ve remizleri kullanması yasaktır. Odalar aykırılığı Cumhuriyet Savcılığına bildirmek zorundadır. Yaptırım altı aydan bir yıla kadar hapis ve adli para cezasıdır (md. 49/1). md. 13, 15/4, 41/2, 43/1, 43/2 ve 45/1 ile 45/5'e aykırılıkta, fiil daha ağır suç değilse, yüz güne kadar adli para cezası verilir (md. 49/2).
 
-**Oda**, meslek mensuplarının ihtiyaçlarını karşılamak, meslek disiplini ve ahlakını korumak amacıyla kurulan, tüzelkişiliğe sahip, kamu kurumu niteliğinde meslek kuruluşudur. SMMM ve YMM odaları ayrı ayrı kurulur (md.14).
+**Ruhsat:** Mesleki ruhsatları Birlik Yönetim Kurulu verir (md. 36/h). Başvurular Hakkında Yönetmelik bu klasörde yoktur; aşağıdaki süreç TÜRMOB sınav komisyonunun 2024/3 cevabına dayanır:
 
-- Bölgesinde en az 250 meslek mensubu bulunan il merkezlerinde oda kurulur; büyükşehir belediyesi sınırları dışındaki ilçede oda için 250 meslek mensubu ve en az 100 meslek mensubunun yazılı başvurusu aranır (md.15).
-- Odaya üye olmayan meslek mensubu mesleki faaliyette bulunamaz (md.15); odaya kaydını yaptırmayan YMM'nin ruhsatı geri alınır (Yeminli Mali Müşavirler Odaları Yönetmeliği md.34).
-- Oda organları: Genel Kurul, Yönetim Kurulu, Disiplin Kurulu, Denetleme Kurulu (md.17). Oda Genel Kurulu üç yılda bir Mayıs ayında toplanır (md.20).
+1. Başvuru, Birliğe gönderilmek üzere il odasına yapılır; oda dosyayı tamamlar ve Birliğe iletir.
+2. Ruhsat verilemeyeceği kararını Birlik Yönetim Kurulu alır; karar odaya ve müracaat sahibine en geç altmış gün içinde tebliğ edilir.
+3. İtiraz mercii Hazine ve Maliye Bakanıdır; süre tebliğden itibaren otuz gündür. Dilekçe Bakanlığa iletilmek üzere Birliğe verilir.
+4. Birlik dilekçeyi ve dosyayı görüşüyle birlikte en geç on beş gün içinde Bakanlığa gönderir; Bakanın kararı nihaidir, sonra idari yargı yolu açıktır.
 
-**TÜRMOB**, Türkiye Serbest Muhasebeci Mali Müşavirler ve Yeminli Mali Müşavirler Odaları Birliğinin kısa adıdır (md.1). Merkezi Ankara'dadır, kamu kurumu niteliğinde meslek kuruluşudur (md.28).
+Ruhsat alan YMM odaya kaydolmak zorundadır; kaydolmayanın ruhsatı geri alınır (YMM Odaları Yönetmeliği md. 34). Ayrılma talebi veya ölüm, verilmemesini gerektiren sebebin sonradan anlaşılması ya da şartların kaybında ruhsat Birlik Yönetim Kurulu kararıyla iptal edilir (Çalışma Usul ve Esasları Yönetmeliği md. 63/A).
 
-- Birlik Genel Kurulu üç yılda bir Eylül ayında toplanır (md.34).
-- Birlik Yönetim Kurulu dokuz asıl ve dokuz yedek üyeden oluşur; beşinin YMM olması zorunludur. Başkan en az beş yıl YMM'lik yapmış olanlar arasından seçilir (md.35).
-- Birlik Disiplin Kurulu beş asıl üyeden oluşur; üçünün YMM olması mecburidir (md.38).
-- Birlik Yönetim Kurulu asgari ücret tarifelerini Bakanlık tasdikine sunar, sınavları yapar ve ruhsatları verir (md.36).
+## 3. YMM odaları ve TÜRMOB
 
-## 3. Disiplin cezaları
+**Oda**, meslek mensuplarının ihtiyaçlarını karşılamak, faaliyetlerini kolaylaştırmak, mesleğin genel menfaate uygun gelişmesini sağlamak ve meslek disiplini ile ahlakını korumak için kurulan, tüzelkişiliğe sahip kamu kurumu niteliğinde meslek kuruluşudur; SMMM ve YMM odaları ayrı kurulur (md. 14).
 
-**Disiplin cezası**, mesleğin vakar ve onuruna aykırı davranan, görevini yapmayan veya kusurlu yapan meslek mensubuna verilen yaptırımdır (md.48).
+- Bölgesinde en az 250 meslek mensubu bulunan il merkezlerinde ve 250 meslek mensubu bulunan ilçelerde (büyükşehir ilçeleri hariç) oda kurulur; ilçede ayrıca en az 100 meslek mensubunun yazılı başvurusu aranır (md. 15/1).
+- Oda, kuruluşunu Birlik Yönetim Kurulu aracılığıyla Bakanlığa bildirince tüzelkişilik kazanır. Odaya üye olmayan mesleki faaliyette bulunamaz (md. 15/4).
 
-| Ceza | İçerik (md.48) |
-|---|---|
-| Uyarma | Daha dikkatli davranması gerektiğinin yazıyla bildirilmesi |
-| Kınama | Kusurlu sayıldığının yazıyla bildirilmesi |
-| Geçici olarak mesleki faaliyetten alıkoyma | Altı aydan az, bir yıldan çok olmamak üzere |
-| Yeminli sıfatını kaldırma | Yalnız YMM'ye uygulanır |
-| Meslekten çıkarma | Ruhsatnamenin geri alınması |
+**TÜRMOB** (Birlik), bütün odaların katıldığı, merkezi Ankara'da, tüzelkişiliğe sahip kamu kurumu niteliğinde meslek kuruluşudur (md. 28). **Birliğin görevleri (md. 29):** a) mesleği geliştirme çalışmaları, b) meslek mensuplarının menfaatlerini, ahlak, düzen ve geleneklerini korumak, c) odaları ilgilendiren konularda görüş bildirmek, d) odalar arası anlaşmazlıkları kesin çözmek ve uyulması zorunlu meslek kurallarını belirlemek, e) yönetmelikleri hazırlamak, f) milli ve milletlerarası kuruluşlara üye olmak, g) Bakanlıkça verilen görevler, h) kanunlarla verilen diğer görevler ve istenen görüşleri vermek.
 
-### Uygulama kuralları
+## 4. Oda ve Birlik organları ve görevleri
 
-- Meslek kurallarına aykırılıkta ilk defasında uyarma, tekrarında kınama uygulanır.
-- Görevini bağımsızlık, tarafsızlık ve dürüstlükle yapmayana geçici alıkoyma uygulanır.
-- Tasdik yetkisini gerçeğe aykırı kullandığı Maliye Bakanlığınca ilk defa tespit edilip rapora bağlanan YMM'ye geçici alıkoyma; tekerrür edip mahkeme kararıyla kesinleşirse yeminli sıfatını kaldırma verilir.
-- Mükellefle birlikte kasten vergi ziyaına sebebiyet verdiği mahkeme kararıyla kesinleşen, ruhsatını başkasına kullandıran meslek mensubuna meslekten çıkarma verilir.
-- Beş yıllık dönemde iki defa alıkoyma cezası aldıktan sonra alıkoyma cezasını gerektiren bir fiili yeniden işleyen meslekten çıkarılır.
-- Savunma alınmadan ceza verilemez; disiplin kurulunun 10 günden az olmamak üzere verdiği sürede savunma yapmayan bu haktan vazgeçmiş sayılır.
+Odanın da Birliğin de dört organı vardır: **Genel Kurul, Yönetim Kurulu, Disiplin Kurulu, Denetleme Kurulu** (md. 17, md. 31). Seçilenlerde kural olarak üç yıl kıdem ve fiilen meslek icrası aranır; görev süresi üç yıldır.
 
-### İtiraz ve istisna
+| Organ | Oda | Birlik |
+|---|---|---|
+| Genel Kurul | Odaya kayıtlı bütün üyeler (md. 18); üç yılda bir Mayıs ayında (md. 20) | Her odanın üç temsilcisi ile üye sayısının yetmiş beşte biri oranında temsilci (md. 32); üç yılda bir Eylül ayında (md. 34) |
+| Yönetim Kurulu | Üye sayısı binin altında 5, bin–beşbin arası 7, beşbin üstü 9 asıl ve aynı sayıda yedek (md. 21) | 9 asıl, 9 yedek; beşi YMM; başkan en az beş yıl YMM'lik yapmış olmalı (md. 35) |
+| Disiplin Kurulu | Üye sayısı 50'ye kadar 3 asıl ve 1 yedek, 50'den fazla 5 asıl ve 3 yedek (md. 25) | 5 asıl, 5 yedek; asıl üyelerden üçü YMM (md. 38) |
+| Denetleme Kurulu | 3 asıl, 1 yedek; işlem ve hesapları denetler (md. 27) | 3 asıl, 3 yedek; en az biri YMM (md. 39) |
 
-Oda Disiplin Kurulu kararlarına tebliğden itibaren otuz gün içinde Birlik Disiplin Kuruluna itiraz edilebilir (md.25). Birlik Disiplin Kurulunun itirazları reddeden kararları Maliye Bakanlığının tasdiki ile kesinleşir (md.38). Disiplin kurulları bir derece ağır veya hafif ceza verebilir; ancak uyarma cezası bir derece hafif ceza takdiriyle kaldırılamaz (Disiplin Yönetmeliği md.11). Disiplin Yönetmeliği md.7, mükellefiyeti VUK md.153/A uyarınca terkin edilenlerin fiillerine iştirak ettiği inceleme raporuyla tespit edilip kesinleşen meslek mensubuna üç yıl süreyle alıkoyma öngörür; Kanun md.48'deki "bir yıldan çok olmamak" sınırıyla birlikte değerlendir.
+### Görevler
 
-> **Sınav ipucu:** "Yeminli sıfatını kaldırma" için iki unsur birlikte aranır: tasdik yetkisinin gerçeğe aykırı kullanılmasının tekerrürü ve bunun mahkeme kararıyla kesinleşmesi.
+- **Oda Genel Kurulu (md. 19):** karar ve tedbir almak; kurulları ve Birlik temsilcilerini seçmek; taşınmaz yetkisi vermek; Yönetim Kurulu tekliflerini karara bağlamak; zorunlu mesleki kararlar için Birliğe teklif; bütçe ve kesinhesabı tasdik; ibra ve disiplin soruşturması kararı; giriş ücreti ve aidatı belirlemek; çalışma raporunu kabul.
+- **Oda Yönetim Kurulu (md. 23):** bütçe teklifini düzenlemek; Genel Kurula rapor vermek ve kararlarını uygulamak; taşınır ve taşınmaz işlemlerinde yetki vermek; kanunlarla verilen işler. YMM Odaları Yönetmeliği md. 12 disipline sevk, bilirkişi listeleri ve tarife önerisini ekler.
+- **Oda Disiplin Kurulu (md. 26):** Yönetim Kurulunun soruşturma açma kararı üzerine soruşturma yapıp disiplin kararlarını ve cezalarını vermek. En az üç kişiyle toplanır, üye tam sayısının salt çoğunluğuyla karar verir; kararlarına tebliğden itibaren otuz gün içinde Birlik Disiplin Kuruluna itiraz edilir (md. 25).
+- **Birlik Genel Kurulu (md. 33):** kurul üyelerini seçmek; yönetmelik ve raporları onaylamak; odalar arası işbirliği tedbirleri; bütçe, kesinhesap ve oda paylarını belirlemek; taşınmaz yetkisi; uyulması mecburi mesleki kararları almak; ibra ve disiplin soruşturması kararı; diğer görevler.
+- **Birlik Yönetim Kurulu (md. 36):** Genel Kurul kararlarını uygulamak; iktisap ve yüklenmeler; taşınır ve taşınmaz işlemleri; bütçeyi yapmak ve uygulamak; giriş ücreti, aidat, kurs ve staj ücretlerini ve asgari ücret tarifelerini Bakanlık tasdikine sunmak; sınavları yapmak; ruhsat vermek.
+- **Birlik Disiplin Kurulu (md. 38):** oda disiplin kurulu kararlarına itirazları incelemek; itirazın reddi kararları Bakanlığın tasdikiyle kesinleşir.
 
-## 4. Haksız rekabet ve reklam yasağı
+> **Sınav ipucu:** "Organları sayınız" sorusunda dört organı adlarıyla yaz (her biri ayrı puan). "Oluşum" sorulursa asıl ve yedek sayılarını, YMM kotasını ve üç yıl kıdemi ayrı ayrı belirt.
 
-**Haksız rekabet**, meslek mensuplarının birbirleriyle ve iş sahibiyle ilişkilerini etkileyen aldatıcı veya dürüstlük kurallarına aykırı davranışlar ve uygulamalardır (Haksız Rekabet ve Reklam Yasağı Yönetmeliği md.4).
+## 5. Oda ve Birlik gelirleri
 
-- Başka meslek mensubuyla sözleşmesi olan iş sahibini sözleşmeyi feshetmeye yöneltmek, ruhsat kiralamak, gerçeğe aykırı belge düzenlemek haksız rekabettir (md.6).
-- Asgari ücret tarifesinin altında ücret talep etmek veya ücretsiz hizmet vermek, ücret borcunu ödemeyen iş sahibine hizmet vermek, menfaat vaadiyle iş almak haksız rekabettir (md.7).
-- Meslek mensupları iş elde etmek için reklam sayılabilecek faaliyette bulunamaz; tabela ve basılı kâğıtlarda ruhsatnamedeki unvan dışında sıfat kullanamaz (Kanun md.45).
+**Odanın gelirleri (md. 16):** a) giriş ücreti, b) yıllık üye aidatları, c) yardım ve bağışlar, d) mesleki eğitime yönelik kurs ve staj ücretleri ile diğer çeşitli gelirler. Kamu kurum ve kuruluşlarında çalışanlar ile mesleği fiilen icra etmeyenler giriş ücreti ve yıllık aidatı **yüzde elli indirimli** öder.
 
-### İstisna
+YMM Odaları Yönetmeliğine göre giriş ücreti memur maaş katsayısı × 300, maktu aidat katsayı × 200–400'dür; oda aracılığıyla alınan tahkim ve bilirkişilik ücretlerinin %4'ü de gelirdir (md. 16). Bütçe Nisan ayında hazırlanır, %10 yedek ödenek ayrılır (md. 15).
 
-Tabela, kartvizit ve raporlarda meslek ve akademik unvan, iletişim numaraları, açık adres, internet ve e-posta adresi yazılması reklam sayılmaz. Tanıtıcı broşür bastırılabilir; ancak broşürde müşteriler açıklanamaz (Çalışma Usul ve Esasları Hakkında Yönetmelik md.45). Oda bünyesindeki Haksız Rekabetle Mücadele Kurulu en az üç, Birlik bünyesindeki en az beş üyeden oluşur (Haksız Rekabet Yönetmeliği md.25, md.28).
+**Birliğin gelirleri (md. 30):** odaların gelirlerinden alınacak paylar, Birliğe ait mal varlığı gelirleri, ruhsatname ücretleri, bağış ve yardımlar.
 
-## 5. Ücret tarifesi
+## 6. Meslek sırları
 
-**Ücret**, meslek mensubunun hizmetine karşılık olan meblağdır; asgari miktarı tarife ile belirlenir (md.46). Oda yönetim kurulları tarife hazırlayıp Birliğe gönderir, Birlik grupları tespit edip Maliye Bakanlığına gönderir, Bakanlık tasdik eder ve tarife Resmî Gazete'de yayımlanarak yürürlüğe girer. 2026 tarifesi 1/1/2026 tarihinde yürürlüğe girmiştir.
+Meslek mensupları ve yanlarında çalışanlar işleri dolayısıyla öğrendikleri bilgi ve sırları ifşa edemez, kanunlarla muhbirlere tanınan hak ve menfaatlerden yararlanamaz (md. 43/1). İstisnalar: suç teşkil eden hallerin yetkili mercilere duyurulması mecburidir; adli veya idari inceleme ve soruşturma bu yasağın dışındadır; tanıklık sırrın ifşası sayılmaz. Hüküm oda ve Birlik personeline de uygulanır. Aykırılık yüz güne kadar adli para cezası (md. 49/2) ve ayrıca disiplin yaptırımı doğurur.
 
-### Örnek: 2026 kurumlar vergisi beyannamesi tasdik ücreti
+Örnek: Vergi müfettişine çalışma kâğıdı vermek idari inceleme olduğundan ifşa sayılmaz; aynı bilgiyi rakip firmaya vermek md. 43/1'e aykırıdır.
 
-Bir kurumlar vergisi mükellefinin önceki yıl gelir tablosundaki C-Net Satışlar tutarı 400.000.000 TL'dir. Tarifede net satış, önceki yıl net satışlarıdır; ücretler KDV dahildir. İndirimler dikkate alınmamış, tutarlar TL'ye yuvarlanmıştır. Tarifede "%02", "%01,75", "%01,25" biçiminde yazılan oranlar, tarife ekindeki karşılık listesine göre binde 2, binde 1,75 ve binde 1,25'tir.
+## 7. Ücret tarifesi
 
-1. İlk 143.103.449 TL için binde 2: 143.103.449 x 0,002 = 286.207 TL.
-2. Sonraki 143.103.449 TL için binde 1,75: 143.103.449 x 0,00175 = 250.431 TL.
-3. Kalan 400.000.000 − 286.206.898 = 113.793.102 TL için binde 1,25: 113.793.102 x 0,00125 = 142.241 TL.
-4. Toplam: 286.207 + 250.431 + 142.241 = 678.879 TL.
-5. Asgari sınır kontrolü: kurumlar vergisi mükellefi için ücret 186.036 TL'den az olamaz; 678.879 TL bu sınırın üzerindedir.
-6. Karşılaştırma: net satışı 50.000.000 TL olan aynı mükellefte 50.000.000 x 0,002 = 100.000 TL bulunur; asgari sınır nedeniyle ücret 186.036 TL olur.
+**Ücret**, meslek mensubunun hizmetine karşılık olan meblağdır; asgari miktarı tarifeyle belirlenir ve tarifenin altında iş kabulü yasaktır, aksi disiplin cezası gerektirir (md. 46). Süreç sırasıyla şöyledir:
 
-Tarife, asgari tutarları gösteren cümlenin hemen ardından inşaat ve sanayi işletmelerinde "bu rakamlar"ın yüzde 20 artırılarak uygulanacağını belirtir; gelir vergisi beyanname tasdiklerinde nispi ücretlere yüzde 10 indirim uygulanır.
+1. Her odanın yönetim kurulu, her yıl Ocak ayından geçerli olmak üzere tarife hazırlayıp Birliğe gönderir.
+2. Birlik Yönetim Kurulu, odaların tekliflerini dikkate alarak grupları tespit eder, tarifeleri hazırlayıp Bakanlığa gönderir.
+3. Bakanlık tarifeyi aynen veya değiştirerek tasdik eder; tarife Resmi Gazete'de yayımlanarak yürürlüğe girer.
+4. Yeni tarife tasdik edilinceye kadar mevcut tarife uygulanır.
+
+2026 tarifesi 17/12/2025 tarihli Resmi Gazete'de yayımlanmış, 1/1/2026'da yürürlüğe girmiştir.
+
+**Yönetmeliklerle düzenlenecek hususlar (md. 50):** çalışma usul ve esasları; sınav komisyonu ve staj; tasdik işleri; müracaat usulleri; ruhsat ve unvan kullanımı; üye kayıt defteri, meslek kütüğü ve sicil numarası; üye aidatları; taşınmaz edinme; ücret esasları; defter, kayıt ve bildirim mecburiyeti; disiplin; oda ve Birlik personeli; diğer hususlar; değerlendirme ve sınav komisyonları.
 
 ### Tasdik uygulama notu
 
-Tam tasdik sözleşmesini kabul etmeden önce YMM, md.45'teki akrabalık yasağını ve ücretin tarifenin altında kalmadığını kontrol eder. Odalara bildirilen sözleşmelerin ekinde ücret soru belgesi bulunmalıdır; belgesiz bildirim verilmemiş sayılır (2026 YMM tarifesi notları).
+Tam tasdik sözleşmesini imzalamadan önce YMM, md. 45/2'deki akrabalık yasağını (ortaklar dahil) ve ücretin tarifenin altında kalmadığını kontrol eder. Çalışma kâğıtları md. 43 kapsamında saklanır; yalnız adli ve idari incelemede ibraz edilir.
+
+> **Sınav ipucu:** md. 16 sorusunda dört gelir kalemini ve yüzde elli indirimi ayrı ayrı yaz; indirimden yararlananlar "kamuda çalışanlar" ve "mesleği fiilen icra etmeyenler"dir.
 
 ## Özet
 
-- YMM olmak için en az 10 yıl SMMM'lik, YMM sınavı ve ruhsat gerekir; yemin Asliye Ticaret Mahkemesinde edilir.
-- YMM defter tutamaz, muhasebe bürosu açamaz, ticari faaliyette bulunamaz, yakınlarının işlerine bakamaz.
-- Oda için ilde en az 250 meslek mensubu gerekir; TÜRMOB Yönetim Kurulunun beş üyesi YMM olmalıdır.
-- Disiplin cezaları: uyarma, kınama, geçici alıkoyma, yeminli sıfatını kaldırma, meslekten çıkarma; itiraz süresi otuz gün.
-- Asgari tarife altında ücret hem disiplin cezası sebebidir hem de haksız rekabettir.
-- 2026 KV beyanname tasdikinde ilk 143.103.449 TL için binde 2 uygulanır; asgari ücret 186.036 TL'dir.
+- YMM için md. 4'teki altı genel şart ile en az 10 yıl SMMM'lik, YMM sınavı ve ruhsat gerekir; yemin Asliye Ticaret Mahkemesinde edilir.
+- Unvanın haksız kullanımı altı aydan bir yıla kadar hapis ve adli para cezası gerektirir.
+- Ruhsatı Birlik Yönetim Kurulu verir; ret kararına tebliğden itibaren otuz gün içinde Bakana itiraz edilir.
+- Oda ve Birliğin dört organı vardır: Genel Kurul, Yönetim, Disiplin ve Denetleme Kurulu; oda Genel Kurulu Mayıs, Birlik Genel Kurulu Eylül ayında üç yılda bir toplanır.
+- Oda gelirleri dört kalemdir; kamuda çalışan ve fiilen meslek icra etmeyen yüzde elli indirimli öder.
+- Sır saklama yükümlülüğünün istisnaları suç duyurusu, adli ve idari inceleme ile tanıklıktır.
+- Tarife: oda yönetim kurulu, Birlik Yönetim Kurulu, Bakanlık tasdiki, Resmi Gazete.

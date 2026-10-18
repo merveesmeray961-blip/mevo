@@ -2,7 +2,7 @@
 ders: REV
 konu: MTR
 baslik: Matrah ve beyan teknikleri
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
@@ -86,7 +86,8 @@ GVK mükerrer md. 120'ye göre:
 
 Hesaplama kuralları:
 
-- Bu matrahtan yalnız md. 32/C/2'de sayılanlar düşülür; başlıcaları: iştirak kazançları istisnası (md. 5/1-a), md. 10/1-g, h, i ve j indirimleri (i ve j, 7582 sayılı Kanunla 2026 döneminden itibaren eklendi), serbest bölge ve teknoloji geliştirme bölgesi kazançları, Ar-Ge ve tasarım indirimleri.
+- Bu matrahtan yalnız md. 32/C/2'de sayılanlar düşülür: md. 5/1-a (iştirak kazançları), ç, i, j, k bentleri ile taşınmaz kazançları dışındaki 5/1-d istisnaları; md. 10/1-g, h, i ve j indirimleri ((i) ve (j) bentleri 21/5/2026 tarihli 7582 sayılı Kanunla eklendi); Türk Uluslararası Gemi Sicili ve serbest bölge kazançları; teknoloji geliştirme bölgesi kazanç istisnası ile Ar-Ge ve tasarım indirimleri; 7412 sayılı İstanbul Finans Merkezi Kanunu md. 6/1-a indirimi.
+- Hesaplanan asgari vergiden, indirimli oran (md. 32/6-8) ve yatırıma katkı tutarı (md. 32/A) nedeniyle alınmayan vergi düşülür (md. 32/C/3).
 - Geçmiş yıl zararları asgari vergi matrahından düşülmez (Tebliğ, bölüm 32.5.4).
 - Bağış (md. 10/1-c) ve hizmet ihracatı (md. 10/1-ğ) indirimleri düşülemez (Tebliğ, bölüm 32.5.6).
 - Madde geçici vergi dönemlerinde de uygulanır (md. 32/C/4).
@@ -111,14 +112,16 @@ Kayıt (yıl sonu):
 |---|---|---|
 | 691 Dönem Kârı Vergi ve Diğer Yasal Yükümlülük Karşılıkları | 487.500 | |
 | 370 Dönem Kârı Vergi ve Diğer Yasal Yükümlülük Karşılıkları | | 487.500 |
-| 370 Dönem Kârı Vergi ve Diğer Yasal Yükümlülük Karşılıkları | 360.000 | |
+| 371 Dönem Kârının Peşin Ödenen Vergi ve Diğer Yükümlülükleri (-) | 360.000 | |
 | 193 Peşin Ödenen Vergiler ve Fonlar | | 360.000 |
+
+Bilançoda 370 ile 371 netleştirilerek 127.500 TL ödenecek vergi gösterilir; ödeme yapılınca 370 borç, 371 alacak ve 102 alacak kaydı ile hesaplar kapatılır.
 
 Varyant: Devreden zarar 2.000.000 TL olsaydı bağış sınırı (3.000.000 − 2.500.000) x %5 = 25.000 TL'ye düşer; matrah 725.000 TL, kurumlar vergisi 181.250 TL olurdu. Asgari vergi yine 275.000 TL olduğundan aradaki 93.750 TL fark kadar asgari vergi hesaplanırdı.
 
 ### Tasdik uygulama notu
 
-Tam tasdikte yeminli mali müşavir (YMM) önce ticari bilanço kârını yevmiye ve kebir kayıtlarıyla uzlaştırır, KKEG listesini 6 ve 7 grubu hesapların dökümünden tek tek oluşturur. Geçmiş yıl zararlarının her birinin ilgili yıl beyannamesinde yer aldığını ve beş yıllık süreyi aşmadığını kontrol eder. Asgari vergi tablosunda geçmiş yıl zararı ve bağış gibi düşülemeyen kalemlerin matrahtan indirilmediğini ayrıca doğrular. Ödenen geçici vergiler tahakkuk fişleriyle 193 hesabına mutabık kılınır.
+Tam tasdikte yeminli mali müşavir (YMM) önce ticari bilanço kârını yevmiye ve kebir kayıtlarıyla uzlaştırır, KKEG listesini 6 ve 7 grubu hesapların dökümünden tek tek oluşturur. Geçmiş yıl zararlarının her birinin ilgili yıl beyannamesinde yer aldığını ve beş yıllık süreyi aşmadığını kontrol eder. Asgari vergi tablosunda geçmiş yıl zararı ve bağış gibi düşülemeyen kalemlerin matrahtan indirilmediğini ayrıca doğrular. Ödenen geçici vergiler tahakkuk fişleriyle 193 ve 371 hesaplarına mutabık kılınır.
 
 ## Özet
 

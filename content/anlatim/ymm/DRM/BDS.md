@@ -2,7 +2,7 @@
 ders: DRM
 konu: BDS
 baslik: Bağımsız denetim standartları
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "BDS 200 Bağımsız Denetçinin Genel Amaçları ve Bağımsız Denetimin Bağımsız Denetim Standartlarına Uygun Olarak Yürütülmesi"

@@ -110,8 +110,8 @@ SPKn md. 5 ve 33/3, Kurula ihracın büyüklüğü, yöneldiği yatırımcı, sa
 
 **A) İzahname hazırlama yükümlülüğünden muaf olanlar (md. 6/1):**
 
-- Her halka arz için **yatırımcı başına en az 250.000 TL** değerinde araç alanlara yönelik halka arzlar
-- **Birim nominal değeri en az 250.000 TL** olan araçların halka arzı
+- Her halka arz için **yatırımcı başına en az 250.000 ₺** değerinde araç alanlara yönelik halka arzlar
+- **Birim nominal değeri en az 250.000 ₺** olan araçların halka arzı
 - Nitelikli yatırımcılara satılmak üzere ihraç edilen araçların borsada **yalnız nitelikli yatırımcılar arasında** işlem görmesi
 - Birleşme, bölünme, pay değişimi gibi işlemlerde **duyuru metni** ilanı şartıyla çıkarılan araçların borsada işlem görmesi
 
@@ -124,9 +124,9 @@ SPKn md. 5 ve 33/3, Kurula ihracın büyüklüğü, yöneldiği yatırımcı, sa
 - Pay alım teklifinde bedelin sermaye piyasası aracıyla ödenmesi
 - Dönüştürülebilir araçların dönüştürülmesi veya değiştirilmesi suretiyle pay ihracı (şartlarıyla)
 
-**C) Küçük tutarlı ihraç (md. 6/3):** Payların **ilk halka arzı hariç**, on iki ayda toplam satış bedeli **5.000.000 TL'nin altında** kalan halka arzlarda, standart duyuru metni ilanı şartıyla, ihraççının talebi üzerine Kurul muafiyet verebilir. Bedelsiz paylar hesaba katılmaz.
+**C) Küçük tutarlı ihraç (md. 6/3):** Payların **ilk halka arzı hariç**, on iki ayda toplam satış bedeli **5.000.000 ₺'nin altında** kalan halka arzlarda, standart duyuru metni ilanı şartıyla, ihraççının talebi üzerine Kurul muafiyet verebilir. Bedelsiz paylar hesaba katılmaz.
 
-Muaf olarak çıkarılan araçlar sonradan **halka arz edilerek yeniden satışa sunulursa izahname zorunludur** (birim nominali 250.000 TL olanlar hariç). Tebliğdeki tutarlar her yıl yeniden değerleme oranı dikkate alınarak Kurulca güncellenebilir (md. 32).
+Muaf olarak çıkarılan araçlar sonradan **halka arz edilerek yeniden satışa sunulursa izahname zorunludur** (birim nominali 250.000 ₺ olanlar hariç). Tebliğdeki tutarlar her yıl yeniden değerleme oranı dikkate alınarak Kurulca güncellenebilir (md. 32).
 
 ## 5. Satış şekilleri ve yöntemleri
 
@@ -159,7 +159,7 @@ Bireysel gruba 100.000 lot ayrılmış, sabit fiyatla talep toplanmıştır. Tal
 
 Kontrol: 10.000 + 15.000 + 22.000 + 26.500 + 26.500 = 100.000 lot. İzahnamede öngörülürse **oransal dağıtım** da kullanılabilir: karşılama oranı 100.000 / 152.000 ≈ %65,79 olur ve örneğin D, 40.000 × 0,6579 ≈ 26.316 lot alır. Bir yatırımcı birden fazla talepte bulunmuşsa yalnızca **en yüksek miktarlı talebi** dikkate alınır.
 
-Fiyat aralığı örneği: taban fiyat 40 TL ise tavan fiyat en fazla 40 × 1,20 = **48 TL** olabilir.
+Fiyat aralığı örneği: taban fiyat 40 ₺ ise tavan fiyat en fazla 40 × 1,20 = **48 ₺** olabilir.
 
 ## 6. Talebin geri alınması
 
@@ -179,6 +179,6 @@ Ayrıca fiyat veya fiyat aralığı özel durum açıklamasıyla **aşağı yön
 - Halka arz veya borsada işlem görme için onaylı izahname; halka arz edilmeksizin ihraçta onaylı ihraç belgesi gerekir.
 - Onay: 10 iş günü (ilk halka arzda 20); eksiklik bildirimi 10 iş günü içinde; değişiklik onayı 7 iş günü; izahname 12 ay geçerli; onay tekeffül değildir.
 - Sorumluluk: önce ihraççı; tazmin edilemezse halka arz eden, lider aracı kurum, garantör, YK üyeleri kusurları ölçüsünde; rapor hazırlayanlar kendi raporlarından. Md. 32'de imzalayanlar müteselsil sorumlu, zamanaşımı 6 ay, sorumluluğu kaldıran anlaşma geçersiz.
-- Muafiyetler: yatırımcı başına 250.000 TL, birim nominal 250.000 TL, nitelikli yatırımcı, birleşme/bölünme; izahname gerekmeyenler: nitelikli yatırımcıya ve tahsisli satış, bedelsiz pay vb.; ilk halka arz hariç 12 ayda 5 milyon TL altı için talep üzerine muafiyet.
+- Muafiyetler: yatırımcı başına 250.000 ₺, birim nominal 250.000 ₺, nitelikli yatırımcı, birleşme/bölünme; izahname gerekmeyenler: nitelikli yatırımcıya ve tahsisli satış, bedelsiz pay vb.; ilk halka arz hariç 12 ayda 5 milyon ₺ altı için talep üzerine muafiyet.
 - Satış: halka arz veya halka arz edilmeksizin (tahsisli en fazla 150 kişi; nitelikli yatırımcıda sınır yok). Yöntemler: talep toplama (sabit, fiyat teklifi, fiyat aralığı; tavan en fazla tabanın %20 fazlası), talep toplanmaksızın, borsada satış. Süre 2-20 iş günü; tahsisat %10 bireysel, %10 kurumsal.
 - Talebi geri alma: izahname değişikliğinde yayımdan itibaren 2 iş günü; talep toplama yönteminde süre içinde serbestçe.

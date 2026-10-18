@@ -2,7 +2,7 @@
 ders: YNM
 konu: FDM
 baslik: Faaliyete dayalı ve stratejik maliyetleme
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "Genel bilgi — Faaliyete dayalı maliyetleme"

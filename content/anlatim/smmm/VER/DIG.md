@@ -72,14 +72,14 @@ kaynaklar:
 1. **İhracat istisnası (md. 5):** Teslim yurt dışındaki bir müşteriye yapılmalı ve mal Türkiye Gümrük Bölgesinden çıkmalıdır. Yurt içinden **serbest bölgelere yapılan teslimler ihracat sayılmaz**. (III) ve (IV) sayılı listedeki malların gümrüksüz satış mağazalarına teslimi de istisnadır. Alışta ödenen ÖTV ihracatçıya iade edilir.
 2. **İhraç kaydıyla teslim (md. 8):** İhracatçıya teslim edilen malın vergisi tarh edilip tecil olunur. Mal, teslimi izleyen aybaşından itibaren **üç ay** içinde ihraç edilirse vergi terkin edilir. Mücbir sebepte üç aya kadar ek süre verilebilir.
 3. **Diplomatik istisna (md. 6):** Karşılıklılık şartıyla, (I), (II) ve (III) sayılı listedeki malların elçilik, konsolosluk ve uluslararası kuruluşlarca ilk iktisabı, ithali veya bunlara teslimi istisnadır. (IV) sayılı liste kapsam dışıdır.
-4. **Engelli istisnası (md. 7/2):** (II) sayılı listedeki yerli katkı oranı kanunda en az %20 olarak öngörülen (Cumhurbaşkanı Kararıyla %40) araçlar kapsamdadır. Bunların engellilik oranı %90 veya daha fazla olanlarca ya da özel tertibatlı araç kullanan engellilerce ilk iktisabı, **on yılda bir defaya mahsus** olmak üzere istisnadır. 87.03 pozisyonundaki otomobillerde bedel sınırı vardır. (c) alt bendi için bu sınır 2026'da 2.873.900 TL'dir. İstisnadan yararlanılarak alınan araç **beş yıl dolmadan** başkasına satılırsa, alıcı adına tescil tarihinde ÖTV alınır (md. 15/2-a).
-5. **Diğer istisnalar (md. 7):** Örnekler şunlardır: (I) sayılı listedeki malların Millî Savunma Bakanlığı ve güvenlik birimlerine teslimi, petrol arama faaliyetinde kullanılmak üzere teslimi; uçak ve helikopterlerin Türk Hava Kurumunca ilk iktisabı; (IV) sayılı listedeki malların kamu idarelerine bedelsiz teslimi; transit, antrepo, dahilde işleme rejimleri ile serbest bölge hükümlerinin uygulandığı mallar.
+4. **Engelli istisnası (md. 7/2):** (II) sayılı listedeki yerli katkı oranı kanunda en az %20 olarak öngörülen (Cumhurbaşkanı Kararıyla %40) araçlar kapsamdadır. Bunların engellilik oranı %90 veya daha fazla olanlarca ya da özel tertibatlı araç kullanan engellilerce ilk iktisabı, **on yılda bir defaya mahsus** olmak üzere istisnadır. 87.03 pozisyonundaki otomobillerde vergiler dahil bedel sınırı vardır; (a) ve (c) alt bentleri için bu sınır 2026'da 2.873.900 ₺'dir. (c) alt bendi 7577 sayılı Kanunla (2.4.2026) yeniden düzenlenmiştir: özel tertibat yaptıran engelliler ile ortopedik engelliliği %40 ve üzeri olup sürücü belgesi alamayanlar kapsamdadır. İstisnadan yararlanılarak alınan araç **beş yıl dolmadan** başkasına satılırsa, alıcı adına tescil tarihinde ÖTV alınır (md. 15/2-a).
+5. **Diğer istisnalar (md. 7):** (I) sayılı listedeki malların Millî Savunma Bakanlığı ve güvenlik birimlerine ve petrol arama faaliyetinde kullanılmak üzere teslimi; uçak ve helikopterlerin Türk Hava Kurumunca ilk iktisabı gibi.
 
 > **Sık yapılan hata:** Diplomatik istisnanın dört listenin tamamına uygulandığını sanmak. Kanun (I), (II) ve (III) sayılı listeleri sayar; (IV) sayılı liste kapsam dışıdır.
 
 ## 3. Damga vergisinin genel hükümleri
 
-**Konu (md. 1):** Kanuna ekli (1) sayılı tabloda yazılı **kâğıtlar** vergiye tabidir. Kâğıt, yazılıp imzalanan veya imza yerine geçen işaret konularak düzenlenen ve bir hususu ispat veya belli etmek için ibraz edilebilecek belgedir. Elektronik imzayla oluşturulan belgeler de kapsamdadır. Yabancı ülkede düzenlenen kâğıtlar, Türkiye'de resmî dairelere ibraz edildiğinde veya hükmünden yararlanıldığında vergiye tabi olur.
+**Konu (md. 1):** Kanuna ekli (1) sayılı tabloda yazılı **kâğıtlar** vergiye tabidir. Kâğıt, yazılıp imzalanan veya imza yerine geçen işaret konularak düzenlenen ve bir hususu ispat veya belli etmek için ibraz edilebilecek belgedir; elektronik imzalı belgeler de kâğıttır. Yabancı ülkede düzenlenen kâğıtlar, Türkiye'de resmî dairelere ibraz edildiğinde veya hükmünden yararlanıldığında vergiye tabi olur.
 
 **Mükellef (md. 3):** Kâğıdı **imza edenler** mükelleftir. Resmî dairelerle kişiler arasındaki işlemlere ait kâğıtların vergisini **kişiler** öder. Resmî daire (md. 8): genel ve özel bütçeli idareler, il özel idareleri, yatırım izleme ve koordinasyon başkanlıkları, belediyeler ve köylerdir. Bunlara bağlı ayrı tüzel kişiliği olan iktisadi işletmeler resmî daire sayılmaz.
 
@@ -89,7 +89,7 @@ kaynaklar:
 - **Nüsha (md. 5):** Maktu vergiye tabi kâğıtların her nüshası ayrı ayrı vergilenir. Nispi vergiye tabi kâğıtlarda yalnız bir nüsha vergiye tabidir.
 - **Birden fazla akit (md. 6):** Birbirinden tamamen ayrı akitlerin her biri ayrı vergilenir. Birbirine bağlı ve bir asıldan doğan akitlerde en yüksek vergiyi gerektiren akit üzerinden vergi alınır. Cezai şart, cayma tazminatı gibi müeyyide niteliğindeki taahhütlerden ayrıca vergi alınmaz.
 - **İmza sayısı (md. 7):** Birden fazla imza, kural olarak verginin tekrarını gerektirmez.
-- **Nispi ve maktu vergi (md. 10):** Nispi vergide kâğıtta yazılı **belli para**, maktu vergide kâğıdın mahiyeti esastır. 2026 tarifesinde belli parayı içeren sözleşmeler ve taahhütnameler **binde 9,48**, kira sözleşmeleri **binde 1,89**, maaş ve ücret makbuzları **binde 7,59** oranındadır. Kanun, kâğıt başına hesaplanacak vergiye azami tutar getirmiştir ve bu tutar her yıl yeniden değerleme oranında artırılır (md. 14).
+- **Nispi ve maktu vergi (md. 10):** Nispi vergide kâğıtta yazılı **belli para**, maktu vergide kâğıdın mahiyeti esastır. (1) sayılı tabloda belli parayı içeren sözleşmeler ve taahhütnameler **binde 9,48**, kira sözleşmeleri **binde 1,89**, maaş ve ücret makbuzları **binde 7,59** oranındadır. Nispi oranlar her yıl değişmez; her yıl yeniden değerleme oranında artırılan, maktu vergiler ile kâğıt başına hesaplanacak vergi için konan **azami tutardır** (md. 14).
 
 **Ödeme (md. 15, 22):** Vergi makbuz karşılığı, istihkaktan kesinti veya basılı damga yoluyla ödenir. Makbuz karşılığı ödemede, Maliye Bakanlığınca belirlenen mükellefler bir ay içinde düzenlenen kâğıtların vergisini **ertesi ayın 20'sine** kadar beyan eder, **26'sına** kadar öder. Diğer hallerde kâğıdın düzenlendiği tarihi izleyen **15 gün** içinde beyan edilip ödenir.
 
@@ -97,11 +97,11 @@ kaynaklar:
 
 **İstisnalar (md. 9):** (2) sayılı tablodaki kâğıtlar istisnadır. Örnekler: sigorta ve bireysel emeklilik sözleşmeleri; anonim ve limited şirketlerin kuruluş, pay devri ve sermaye artırımı kâğıtları; KVK'ya göre birleşme ve bölünme kâğıtları; bankalarca kullandırılan kredilere ilişkin kâğıtlar.
 
-**Çözümlü örnek:** A ve B, bedeli 2.000.000 TL olan bir hizmet sözleşmesini üç nüsha olarak imzalıyor.
+**Çözümlü örnek:** A ve B, bedeli 2.000.000 ₺ olan bir hizmet sözleşmesini üç nüsha olarak imzalıyor.
 
 1. Belli para içerdiği için vergi nispidir. Üç nüsha olsa da yalnız bir nüsha vergilenir.
-2. Vergi: 2.000.000 × 9,48 / 1.000 = **18.960 TL**.
-3. Mükellef A ve B'dir; 18.960 TL'nin tamamından müteselsilen sorumludurlar.
+2. Vergi: 2.000.000 × 9,48 / 1.000 = **18.960 ₺**.
+3. Mükellef A ve B'dir; 18.960 ₺'nin tamamından müteselsilen sorumludurlar.
 
 ## 4. Veraset ve intikal vergisi: beyan süreleri
 
@@ -122,14 +122,14 @@ kaynaklar:
 
 Beyanname ölen veya bağışlayanın ikametgâhındaki vergi dairesine verilir; mirasçılar ayrı ayrı veya müştereken beyan edebilir (md. 6, 8).
 
-**2026 istisna tutarları (md. 4):** Füruğ (evlatlık dahil) ve eşten her birine düşen miras hissesinin 2.907.136 TL'si istisnadır. Füruğ yoksa eşe düşen hissenin 5.817.845 TL'si istisnadır. İvazsız intikallerde ve yarışma ikramiyelerinde istisna 66.935 TL'dir.
+**2026 istisna tutarları (md. 4):** Füruğ (evlatlık dahil) ve eşten her birine düşen miras hissesinin 2.907.136 ₺'si istisnadır. Füruğ yoksa eşe düşen hissenin 5.817.845 ₺'si istisnadır. İvazsız intikallerde ve yarışma ikramiyelerinde istisna 66.935 ₺'dir.
 
-**Tarife ve ödeme (md. 16, 19):** Tarife artan oranlıdır. Veraset yoluyla intikalde oranlar %1'den %10'a, ivazsız intikalde %10'dan %30'a çıkar. 2026'da ilk dilim 3.000.000 TL'dir. Ana, baba, eş ve çocuklardan yapılan ivazsız intikallerde ivazsız tarifenin **yarısı** uygulanır. Vergi, tahakkuktan itibaren **üç yılda**, her yıl mayıs ve kasım aylarında iki eşit taksitle (toplam altı taksit) ödenir.
+**Tarife ve ödeme (md. 16, 19):** Tarife artan oranlıdır. Veraset yoluyla intikalde oranlar %1'den %10'a, ivazsız intikalde %10'dan %30'a çıkar. 2026'da ilk dilim 3.000.000 ₺'dir. Ana, baba, eş ve çocuklardan yapılan ivazsız intikallerde ivazsız tarifenin **yarısı** uygulanır. Şans oyunları, yarışma ve çekiliş ikramiyelerinde tarife değil, düz **%20** oranı uygulanır. Vergi, tahakkuktan itibaren **üç yılda**, her yıl mayıs ve kasım aylarında iki eşit taksitle (toplam altı taksit) ödenir.
 
 **Çözümlü örnek:**
 
-1. Mirasçı çocuğa 5.000.000 TL'lik hisse kalıyor. Matrah: 5.000.000 − 2.907.136 = 2.092.864 TL. Bu tutar ilk dilimde kaldığı için vergi %1'dir: **20.928,64 TL**. Ölüm Türkiye'de ve çocuk da Türkiye'de olduğundan beyan süresi ölümü izleyen 4 aydır.
-2. Baba, oğluna 1.066.935 TL nakit bağışlıyor. Matrah: 1.066.935 − 66.935 = 1.000.000 TL. İvazsız tarifenin ilk dilim oranı %10'dur, babadan intikal olduğu için yarısı uygulanır (%5). Vergi **50.000 TL**'dir ve bağışı izleyen 1 ay içinde beyan edilir.
+1. Mirasçı çocuğa 5.000.000 ₺'lik hisse kalıyor. Matrah: 5.000.000 − 2.907.136 = 2.092.864 ₺. Bu tutar ilk dilimde kaldığı için vergi %1'dir: **20.928,64 ₺**. Ölüm Türkiye'de ve çocuk da Türkiye'de olduğundan beyan süresi ölümü izleyen 4 aydır.
+2. Baba, oğluna 1.066.935 ₺ nakit bağışlıyor. Matrah: 1.066.935 − 66.935 = 1.000.000 ₺. İvazsız tarifenin ilk dilim oranı %10'dur, babadan intikal olduğu için yarısı uygulanır (%5). Vergi **50.000 ₺**'dir ve bağışı izleyen 1 ay içinde beyan edilir.
 
 ## 5. Motorlu taşıtlar vergisi istisnaları
 
@@ -137,7 +137,7 @@ Beyanname ölen veya bağışlayanın ikametgâhındaki vergi dairesine verilir;
 
 **İstisnalar (md. 4):**
 
-1. Genel ve özel bütçeli idareler, sosyal güvenlik kurumları, il özel idareleri, yatırım izleme ve koordinasyon başkanlıkları, belediyeler, köyler, mahalli idare birlikleri ve Türkiye Kızılay Derneği adına kayıtlı taşıtlar. Bu idarelere bağlı ayrı tüzel kişiliği olan işletmelerin taşıtları istisnadan yararlanamaz.
+1. Genel ve özel bütçeli idareler, sosyal güvenlik kurumları, il özel idareleri, belediyeler, köyler ve Türkiye Kızılay Derneği gibi kuruluşlar adına kayıtlı taşıtlar (bunlara bağlı, ayrı tüzel kişiliği olan işletmelerin taşıtları hariç).
 2. Karşılıklılık şartıyla elçilik, konsolosluk ve uluslararası kuruluşlara ait taşıtlar (fahri konsoloslar hariç).
 3. Engellilik oranı **%90 veya daha fazla** olanların adına kayıtlı taşıtlar ile diğer engellilerin durumlarına uygun hale getirilmiş **özel tertibatlı** taşıtlar.
 4. TMSF'ye devredilen bankalar ile müflis bankaların iflas idarelerine ait taşıtlar.
@@ -150,7 +150,7 @@ MTV'de de istisna ve muaflıklar yalnız bu Kanunla düzenlenir; diğer kanunlar
 
 ## 6. Bina vergisi mükellefiyeti
 
-**Konu (md. 1-2):** Türkiye sınırları içindeki binalar bina vergisine tabidir. Karada veya su üzerindeki sabit inşaatın tamamı bina sayılır. Yüzer havuzlar, çadırlar ve çekilebilen seyyar evler bina sayılmaz.
+**Konu (md. 1-2):** Türkiye sınırları içindeki binalar vergiye tabidir. Karada veya su üzerindeki sabit inşaat bina sayılır; çadır ve çekilebilen seyyar evler sayılmaz.
 
 **Mükellef (md. 3):** Bina vergisini sırasıyla şu kişiler öder:
 
@@ -174,13 +174,13 @@ Paylı mülkiyette malikler hisseleri oranında mükelleftir. Elbirliği mülkiy
 - Bildirim, olayın gerçekleştiği bütçe yılı içinde belediyeye verilir. Olay yılın son üç ayında gerçekleşmişse bildirim süresi olaydan itibaren üç aydır (md. 23).
 - Bina yanar, yıkılır veya kullanılmaz hale gelirse mükellefiyet olayı izleyen **taksitten** itibaren sona erer.
 - Vergi, birinci taksit **Mart-Mayıs**, ikinci taksit **Kasım** ayında olmak üzere iki eşit taksitle ödenir (md. 30).
-- Emlak vergisi borcu bulunan binanın devri, miras ve cebri icra gibi haller dışında tapuda yapılmaz.
+- 2026 yılı için hesaplanan bina vergi değeri, 2025 yılına ait vergi değerinin iki kat fazlasını geçemez (Geçici md. 23, 7566 sayılı Kanunla).
 
-**Çözümlü örnek:** Büyükşehir sınırında, vergi değeri 3.000.000 TL olan bir konutun yıllık bina vergisini hesaplayalım.
+**Çözümlü örnek:** Büyükşehir sınırında, vergi değeri 3.000.000 ₺ olan bir konutun yıllık bina vergisini hesaplayalım.
 
 1. Mesken oranı binde 1'dir; büyükşehirde %100 artırımla binde 2 olur.
-2. Yıllık vergi: 3.000.000 × 2 / 1.000 = **6.000 TL**.
-3. Taksitler: Mart-Mayıs döneminde 3.000 TL, Kasım ayında 3.000 TL.
+2. Yıllık vergi: 3.000.000 × 2 / 1.000 = **6.000 ₺**.
+3. Taksitler: Mart-Mayıs döneminde 3.000 ₺, Kasım ayında 3.000 ₺.
 
 > **Sık yapılan hata:** İntifa hakkı kurulmuş binada vergiyi malikin ödediğini sanmak. Md. 3'teki sıralamaya göre intifa hakkı varsa vergiyi intifa hakkı sahibi öder; malik ancak intifa hakkı yoksa mükelleftir.
 
@@ -188,7 +188,7 @@ Paylı mülkiyette malikler hisseleri oranında mükelleftir. Elbirliği mülkiy
 
 - ÖTV dört listedeki mallardan bir defa alınır; (II) sayılı listede kayıt ve tescile tabi araçlarda ilk iktisap, diğerlerinde ithalat veya imalatçı teslimi vergilenir.
 - ÖTV istisnaları yalnız ÖTV Kanunuyla düzenlenir. Serbest bölgeye teslim ihracat sayılmaz. Diplomatik istisna (IV) sayılı listeyi kapsamaz. Engelli araç istisnası on yılda bir kullanılır.
-- Damga vergisinde mükellef kâğıdı imzalayandır; nispi vergide tek nüsha vergilenir; 2026'da sözleşmelerde oran binde 9,48'dir.
+- Damga vergisinde mükellef kâğıdı imzalayandır; nispi vergide tek nüsha vergilenir; belli para içeren sözleşmelerde oran binde 9,48'dir.
 - VİV beyan süreleri: Türkiye'deki ölümde 4 ay, yurt dışı unsurlu hallerde 4, 6 veya 8 ay, ivazsız intikalde 1 ay. Vergi 3 yılda 6 taksitle ödenir.
 - MTV istisnaları: kamu idareleri, diplomatik taşıtlar, %90 ve üzeri engelli adına kayıtlı veya özel tertibatlı taşıtlar; ödeme Ocak ve Temmuz'da.
 - Bina vergisinde mükellef sırası malik, intifa hakkı sahibi, malik gibi tasarruf edendir; oran meskende binde 1, diğerlerinde binde 2'dir (büyükşehirde iki kat).

@@ -56,7 +56,7 @@ MSUGT Ek 4, net işletme (çalışma) sermayesini açıkça dönen varlıklar il
 
 Pozitif NİS, dönen varlıkların bir kısmının uzun vadeli kaynaklarla finanse edildiğini, yani kısa vadeli borçlara karşı bir **güvenlik payı** bulunduğunu gösterir. Negatif NİS ise duran varlıkların bir kısmının kısa vadeli borçla finanse edildiğine işaret eder ve likidite riski demektir.
 
-Örnek: Dönen varlıklar 900.000 TL, KVYK 600.000 TL ise brüt işletme sermayesi 900.000 TL, NİS 300.000 TL'dir.
+Örnek: Dönen varlıklar 900.000 ₺, KVYK 600.000 ₺ ise brüt işletme sermayesi 900.000 ₺, NİS 300.000 ₺'dir.
 
 > **Sık yapılan hata:** NİS'i "dönen varlıklar + KVYK" diye toplamak ya da brüt işletme sermayesinden KVYK'yı düşmeyi unutmak. Brüt = yalnız dönen varlıklar; net = fark.
 
@@ -64,7 +64,7 @@ Pozitif NİS, dönen varlıkların bir kısmının uzun vadeli kaynaklarla finan
 
 **Cari oran** = Dönen varlıklar / Kısa vadeli yabancı kaynaklar
 
-Her 1 TL kısa vadeli borca kaç TL dönen varlık düştüğünü gösterir. Geleneksel ölçü olarak sanayi işletmelerinde 2 civarı yeterli kabul edilir; ama tek başına yeterlilik kanıtı değildir, çünkü yavaş dönen stok veya şüpheli alacak artışı da oranı yükseltir. Cari oran 1'in üzerindeyse NİS pozitif, 1 ise NİS sıfır, 1'in altındaysa NİS negatiftir.
+Her 1 ₺ kısa vadeli borca kaç ₺ dönen varlık düştüğünü gösterir. Geleneksel ölçü olarak sanayi işletmelerinde 2 civarı yeterli kabul edilir; ama tek başına yeterlilik kanıtı değildir, çünkü yavaş dönen stok veya şüpheli alacak artışı da oranı yükseltir. Cari oran 1'in üzerindeyse NİS pozitif, 1 ise NİS sıfır, 1'in altındaysa NİS negatiftir.
 
 ## 4. Likidite (asit-test) oranı
 
@@ -113,7 +113,7 @@ Kaldıraç oranı ile özkaynak oranının toplamı her zaman 1'dir (yüzde 100)
 
 ## 8. Çözümlü kapsamlı örnek
 
-AB A.Ş.'nin 31.12.2026 bilançosu (bin TL):
+AB A.Ş.'nin 31.12.2026 bilançosu (bin ₺):
 
 | Aktif | Tutar | Pasif | Tutar |
 |---|---:|---|---:|
@@ -155,11 +155,11 @@ Sınavda "aşağıdaki işlemlerden hangisi cari oranı artırır?" türü sorul
 
 Formülü yaz, bilinmeyeni x de, eşitliği çöz. Yüzdeleri ondalığa çevir (yüzde 50 = 0,50).
 
-1. **Dönen varlık artışıyla hedef:** KVYK 300.000 TL, dönen varlıklar 450.000 TL, hedef cari oran 2. Gereken dönen varlık 2 × 300.000 = 600.000 TL; uzun vadeli kaynakla sağlanacak **ek tutar 150.000 TL**'dir (600.000 değil).
-2. **Borcu nakitle ödeyerek hedef:** DV 600.000, KVYK 400.000 (oran 1,5), hedef 2. (600.000 − x) / (400.000 − x) = 2 → 600.000 − x = 800.000 − 2x → **x = 200.000 TL**. Kontrol: 400.000 / 200.000 = 2.
-3. **Kısa vadeli krediyle stok alarak:** DV 900.000, KVYK 400.000 (oran 2,25). Oran 2'ye düşmeden alınabilecek azami stok: (900.000 + x) / (400.000 + x) = 2 → **x = 100.000 TL**.
-4. **Asit-test hedefi:** KVYK 500.000, hedef 1,2 ise stok dışı dönen varlık 600.000 TL olmalıdır; 250.000 TL stok da varsa dönen varlık toplamı 850.000 TL olur.
-5. **Kaldıraç hedefi:** Aktif 2.000, yabancı kaynak 1.200 (yüzde 60). Nakit sermaye artırımıyla yüzde 50'ye inmek için 1.200 / (2.000 + x) = 0,50 → **x = 400** bin TL.
+1. **Dönen varlık artışıyla hedef:** KVYK 300.000 ₺, dönen varlıklar 450.000 ₺, hedef cari oran 2. Gereken dönen varlık 2 × 300.000 = 600.000 ₺; uzun vadeli kaynakla sağlanacak **ek tutar 150.000 ₺**'dir (600.000 değil).
+2. **Borcu nakitle ödeyerek hedef:** DV 600.000, KVYK 400.000 (oran 1,5), hedef 2. (600.000 − x) / (400.000 − x) = 2 → 600.000 − x = 800.000 − 2x → **x = 200.000 ₺**. Kontrol: 400.000 / 200.000 = 2.
+3. **Kısa vadeli krediyle stok alarak:** DV 900.000, KVYK 400.000 (oran 2,25). Oran 2'ye düşmeden alınabilecek azami stok: (900.000 + x) / (400.000 + x) = 2 → **x = 100.000 ₺**.
+4. **Asit-test hedefi:** KVYK 500.000, hedef 1,2 ise stok dışı dönen varlık 600.000 ₺ olmalıdır; 250.000 ₺ stok da varsa dönen varlık toplamı 850.000 ₺ olur.
+5. **Kaldıraç hedefi:** Aktif 2.000, yabancı kaynak 1.200 (yüzde 60). Nakit sermaye artırımıyla yüzde 50'ye inmek için 1.200 / (2.000 + x) = 0,50 → **x = 400** bin ₺.
 
 ## Özet
 

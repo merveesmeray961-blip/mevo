@@ -89,11 +89,11 @@ Ek kurallar:
 - Bölüm başlıkları değişir: "Sınırlı Olumlu Görüş" ve "Sınırlı Olumlu Görüşün Dayanağı" gibi (705.16, 20). Sınırlı olumlu görüşte "... hususunun etkileri hariç olmak üzere" (kanıt eksikliğinde "muhtemel etkileri hariç") ifadesi kullanılır.
 - Görüş vermekten kaçınmada, mevzuatla aksi öngörülmedikçe, raporda KDK bölümüne ve Diğer Bilgiler bölümüne yer verilmez; TTK denetiminde denetçi yıllık faaliyet raporuna ilişkin de görüş vermekten kaçınır (705.29T).
 
-**Çözümlü örnek:** Planlama önemliliği 2.000.000 TL olsun.
+**Çözümlü örnek:** Planlama önemliliği 2.000.000 ₺ olsun.
 
-1. Stoklar 6.000.000 TL fazla değerlenmiş, etkisi stok, satışların maliyeti ve kârla sınırlı; özkaynak ve toplam varlıklar içinde küçük bir paya sahip. Yanlışlık kanıtlanmış, önemli (6.000.000, önemliliğin 3 katı) fakat yaygın değil: **sınırlı olumlu görüş**.
+1. Stoklar 6.000.000 ₺ fazla değerlenmiş, etkisi stok, satışların maliyeti ve kârla sınırlı; özkaynak ve toplam varlıklar içinde küçük bir paya sahip. Yanlışlık kanıtlanmış, önemli (6.000.000, önemliliğin 3 katı) fakat yaygın değil: **sınırlı olumlu görüş**.
 2. Aynı işletmede yurt dışı bağlı ortaklığa ait kayıtlar el konulduğu için incelenemedi; bağlı ortaklık konsolide varlıkların yaklaşık yarısı. Kanıt yok, muhtemel etki önemli ve yaygın: **görüş vermekten kaçınma**.
-3. Gelirler 40.000.000 TL fazla gösterilmiş ve hemen her tabloyu etkiliyor; yanlışlık kanıtlanmış, önemli ve yaygın: **olumsuz görüş**.
+3. Gelirler 40.000.000 ₺ fazla gösterilmiş ve hemen her tabloyu etkiliyor; yanlışlık kanıtlanmış, önemli ve yaygın: **olumsuz görüş**.
 
 > **Sık yapılan hata:** Kanıt elde edilememesini olumsuz görüş nedeni saymak. Olumsuz görüş **kanıtlanmış** önemli ve yaygın yanlışlığa dayanır; kanıt yoksa seçenekler sınırlı olumlu görüş veya görüş vermekten kaçınmadır.
 

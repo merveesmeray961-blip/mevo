@@ -108,7 +108,7 @@ md. 102'ye göre amme alacağı, **vadesinin rastladığı takvim yılını taki
 10. İki amme idaresi arasındaki borç için alacaklı idarenin borçlu idareye yazıyla başvurması
 11. Özel kanunlara göre ödemek için başvurulması veya ödeme planına bağlanma
 
-Kesilmenin rastladığı takvim yılını takip eden yılın başından itibaren zamanaşımı **yeniden** (baştan 5 yıl) işler. Bozma kararında başlangıç yeni vade gününün rastladığı yılı; teminata bağlama ve icranın durdurulmasında ise teminatın kalktığı veya durma süresinin bittiği yılı takip eden yılın ilk günüdür.
+Kesilmenin rastladığı takvim yılını takip eden yılın başından itibaren zamanaşımı **yeniden** (baştan 5 yıl) işler; kesilmeden önce geçen süre hesaba katılmaz. Bozma kararında başlangıç yeni vade gününün rastladığı yılı; teminata bağlama ve icranın durdurulmasında ise teminatın kalktığı veya durma süresinin bittiği yılı takip eden yılın ilk günüdür.
 
 **Zamanaşımının işlemediği haller (md. 104):** Borçlunun **yabancı memlekette bulunması**, **hileli iflas** etmesi veya **terekesinin tasfiyesi** nedeniyle takip yapılamıyorsa bu haller devam ettikçe zamanaşımı işlemez. Sebep kalkınca zamanaşımı başlar veya kaldığı yerden devam eder. Kesilmede süre baştan başlar, durmada kaldığı yerden devam eder.
 
@@ -119,7 +119,9 @@ Vadesi 26 Nisan 2021 olan bir vergi borcu:
 1. Vade yılı 2021'dir; zamanaşımı **1.1.2022**'de başlar ve kesilmezse **31.12.2026** akşamı dolar.
 2. Borçluya **10 Mart 2024**'te ödeme emri tebliğ edilir. Zamanaşımı kesilir; **1.1.2025**'ten itibaren yeniden 5 yıl işler, son gün **31.12.2029** olur.
 3. **2027** yılında borçlunun banka hesabına haciz uygulanır. Zamanaşımı yine kesilir; **1.1.2028**'den başlayarak **31.12.2032**'de dolar.
-4. Borçlu 2030 başından 2031 başına kadar yurt dışında olduğu için takip yapılamamışsa, bu bir yıllık süre işlemez ve son gün buna göre ileri kayar.
+4. Borçlu 2030 başından 2031 başına kadar yurt dışında olduğu için hakkında takip yapılamamışsa, bu bir yıllık süre işlemez (md. 104). Süre baştan başlamaz, kaldığı yerden devam eder; son gün bir yıl kayarak **31.12.2033** olur.
+
+> **Sınav ipucu:** Seçeneklerde "kesilme" ile "işlememe" karıştırılır. Ödeme emri, haciz, ödeme, mal bildirimi, teminata bağlama ve ödeme planı zamanaşımını **keser** (süre izleyen yıl başından baştan 5 yıl). Yurt dışında bulunma, hileli iflas ve terekenin tasfiyesi ise zamanaşımını **durdurur** (süre kaldığı yerden devam eder). Tarhiyat ihbarnamesinin tebliği, uzlaşma talebi veya dava açılması md. 103'te sayılmaz.
 
 Dikkat: VUK md. 114'teki **tarh zamanaşımı** verginin tarh ve tebliğini; 6183 md. 102'deki **tahsil zamanaşımı** ise tahakkuk etmiş ve vadesi gelmiş alacağın tahsilini sınırlar. Her ikisi de 5 yıldır ama başlangıç noktaları farklıdır: biri vergi alacağının doğduğu, diğeri vadenin rastladığı yılı takip eden yıl başıdır.
 

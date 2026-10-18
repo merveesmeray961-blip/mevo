@@ -2,7 +2,7 @@
 ders: REV
 konu: TFR
 baslik: Transfer fiyatlandırması ve örtülü sermaye
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu

@@ -2,7 +2,7 @@
 ders: SPM
 konu: YKF
 baslik: Yatırım kuruluşları ve kolektif yatırım
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
@@ -26,9 +26,9 @@ kaynaklar:
 ---
 ## Bu konuda neler öğreneceksin
 
-- Yatırım hizmetleri ve faaliyetleri ile yan hizmetlerin ayrımı, faaliyet izni ve aracı kurum grupları
+- Yatırım hizmetleri ve faaliyetleri ile yan hizmetlerin ayrımı, faaliyet izni, aracı kurum grupları ve yatırım kuruluşlarının kuruluş şartları
 - Yatırım fonlarının hukuki niteliği, şemsiye fon türleri ve portföy sınırlamaları
-- Gayrimenkul yatırım ortaklıklarında halka arz zorunluluğu ve portföy oranları
+- Gayrimenkul yatırım ortaklıklarında halka arz zorunluluğu, portföy oranları, yapamayacağı işler ve borçlanma sınırı
 - Kitle fonlamasının izahname rejimi dışında kalan yapısı
 - Kripto varlık hizmet sağlayıcılarının izin, saklama ve müşteri varlıklarının korunması kuralları
 
@@ -47,6 +47,8 @@ Tebliğ md. 8'e göre aracı kurum grupları:
 | Dar yetkili | Emir iletimine aracılık, yatırım danışmanlığı |
 | Kısmi yetkili | İşlem aracılığı, en iyi gayret aracılığı, sınırlı saklama, portföy yöneticiliği |
 | Geniş yetkili | Portföy aracılığı, genel saklama, aracılık yüklenimi |
+
+**Kuruluş şartları (Tebliğ III-39.1 md. 5):** Aracı kurumun kuruluşuna izin için şirketin **anonim ortaklık** olması, **paylarının tamamının nama yazılı** ve **nakit karşılığı** çıkarılması, kuruluş sermayesinin Kurulca belirlenen tutardan (geniş yetkili aracı kurum için aranan asgari özsermayenin altında olmamak üzere) az olmaması, esas sözleşmenin mevzuata uygun olması, kurucuların md. 6'daki şartları taşıması ve ortaklık yapısının şeffaf olması gerekir. Kurucularda iflas etmemiş olmak, sayılan suçlardan mahkûm olmamak, mali güç ve dürüstlük gibi şartlar aranır (md. 6). Sınavda şartlar madde madde sayılıp olaydaki eksik şart gösterilmelidir.
 
 Bankalar md. 37'nin (a), (b), (c), (ğ) ve (h) bentlerindeki hizmetleri yürütebilir; yatırım ve kalkınma bankaları ayrıca (ç), (d), (e) ve (f) bentlerindekileri sunabilir (md. 39/9).
 
@@ -67,15 +69,7 @@ Kurallar:
 - Katılma paylarının itibari değeri yoktur; birim pay değeri, fon toplam değerinin pay sayısına bölünmesiyle bulunur (md. 14).
 - Tek bir ihraççının araçlarına fon toplam değerinin %10'undan fazlası yatırılamaz; %5'ten fazla yatırım yapılan ihraççıların toplamı %40'ı aşamaz (md. 17/1-a, b).
 
-### Örnek: Fon portföy sınırlamasının kontrolü
-
-Bir fonun toplam değeri 200.000.000 TL'dir. Portföyde A 19.000.000 TL, B 18.000.000 TL, C 16.000.000 TL, D 14.000.000 TL ve E 12.000.000 TL tutarında pay bulunmaktadır. Yönetici F ihraççısından 12.000.000 TL pay almak istiyor.
-
-1. Tek ihraççı sınırı: 200.000.000 × %10 = 20.000.000 TL. En büyük pozisyon A (19.000.000 TL, %9,5) olduğundan sınıra uyulmuştur.
-2. %5 eşiği: 200.000.000 × %5 = 10.000.000 TL. A'dan E'ye kadar beş ihraççının her biri bu eşiği aşar.
-3. Bu ihraççıların toplamı: 19 + 18 + 16 + 14 + 12 = 79.000.000 TL, yani %39,5. Sınır 200.000.000 × %40 = 80.000.000 TL'dir.
-4. F'den 12.000.000 TL (%6) alınırsa F de eşiği aşan gruba girer ve toplam 91.000.000 TL (%45,5) olur; md. 17/1-b ihlal edilir.
-5. Çözüm: F pozisyonu 10.000.000 TL'de (tam %5) tutulursa F "%5'ten fazla" grubuna girmez.
+Örnek: 200.000.000 TL'lik fonda %5'i (10.000.000 TL) aşan beş ihraççının toplamı 79.000.000 TL'dir (%39,5). Yeni bir ihraççıdan 12.000.000 TL (%6) pay alınırsa toplam 91.000.000 TL'ye (%45,5) çıkar ve md. 17/1-b'deki %40 sınırı aşılır; pozisyon 10.000.000 TL'de tutulursa ihraççı "%5'ten fazla" grubuna girmez.
 
 ## 3. Gayrimenkul yatırım ortaklıkları
 
@@ -87,6 +81,12 @@ Gayrimenkul Yatırım Ortaklıklarına İlişkin Esaslar Tebliği (III-48.1) kur
 - Aktif toplamın en az %51'i gayrimenkullere, gayrimenkul projelerine, gayrimenkule dayalı haklara ve benzeri varlıklara yatırılır (md. 24/1-a).
 - Para ve sermaye piyasası araçları ile iştiraklere en fazla %49, bunlar içinde mevduat ve katılma hesabına en fazla %10 yatırılabilir (md. 24/1-b).
 - Alımından itibaren beş yıl geçtiği hâlde proje geliştirilmeyen arsa ve arazilerin oranı aktif toplamın %20'sini aşamaz (md. 24/1-c).
+
+**Yatırım sınırlamaları ve yapamayacağı işler (md. 22):** GYO hiçbir şirkette sermaye veya oy haklarının %5'inden fazlasına sahip olamaz; tek ihraççının araçlarına aktif toplamın %10'undan fazlasını yatıramaz; altın, kıymetli maden ve emtiaya ve bunlara dayalı vadeli sözleşmelere yatırım yapamaz; araçları açığa satamaz, kredili işlem yapamaz ve ödünç alamaz; türevlerle korunma amacını aşan işlem yapamaz; devri sınırlı varlıklara yatırım yapamaz; alım satımda varlık değerinin %3'ünü aşan komisyon ödeyemez; portföy varlıkları üzerinde, %100 bağlı ortaklıkları lehine olanlar dışında, üçüncü kişiler lehine ipotek ve rehin tesis ettiremez.
+
+**Borçlanma sınırı (md. 31):** GYO, dönem sonunda kamuya açıkladığı bireysel (konsolide olmayan) tablolarındaki **özsermayesinin beş katı** kadar kredi kullanabilir; hesapta finansal kiralama borçları ve gayrinakdi krediler de dikkate alınır. Borçlanma aracı ihraç limitinden bu krediler düşülür.
+
+Örnek: Özsermaye 400.000.000 TL; mevcut banka kredisi 1.200.000.000, finansal kiralama borcu 300.000.000, gayrinakdi kredi 250.000.000 TL. Sınır 400.000.000 × 5 = 2.000.000.000 TL; kullanılan 1.750.000.000 TL. Ek kredi kapasitesi 250.000.000 TL'dir.
 
 İstisna: %51 oranı yıl sonunda sağlanamazsa ortaklığın talebi ve Kurulun uygun görmesiyle bir yıl süre verilebilir; süre sonunda da sağlanamazsa üç ay içinde GYO faaliyetini kapsamayacak esas sözleşme değişikliği için başvurulur (md. 24/1-ç). Münhasıran altyapı yatırımı yapan ortaklıklarda asgari oran %75'tir (md. 24/1-a).
 
@@ -130,6 +130,7 @@ GYO müşterisinde YMM, bireysel finansal tablolardaki "Portföy Sınırlamalar�
 - Yatırım hizmetleri izne, yan hizmetler yalnız bildirime tabidir.
 - Aracı kurumlar dar, kısmi ve geniş yetkili olarak gruplandırılır.
 - Yatırım fonu tüzel kişiliği olmayan mal varlığıdır; şemsiye fon şeklinde kurulur, tek ihraççı sınırı %10, %5'i aşanların toplamı %40'tır.
-- GYO'da asgari %25 halka arz, aktifin en az %51'i gayrimenkul ve benzeri varlık, en fazla %49 finansal varlık kuralı vardır.
+- GYO'da asgari %25 halka arz, aktifin en az %51'i gayrimenkul, en fazla %49 finansal varlık kuralı vardır; kredi sınırı özsermayenin beş katıdır (finansal kiralama ve gayrinakdi krediler dahil).
+- Aracı kurum anonim ortaklık, nama yazılı ve nakit karşılığı çıkarılmış paylarla kurulur (III-39.1 md. 5).
 - Kitle fonlaması izahname rejimi ve yatırımcı tazmini dışındadır; bilgi formunu imzalayanlar müteselsilen sorumludur.
 - Kripto varlık hizmet sağlayıcıları Kurul iznine tabidir; müşteri varlıkları ayrıdır, haczedilemez ve yatırımcı tazmini kapsamında değildir.

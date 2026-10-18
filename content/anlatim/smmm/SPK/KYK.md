@@ -115,12 +115,12 @@ DSYO'larda TTK'nın esas sermaye, asgari sermaye, esas sözleşmenin asgari içe
 
 ### 3.5 Çözümlü örnek: DSYO'da itfa
 
-Bir DSYO'nun varlıkları 80.000.000 TL, borçları 5.000.000 TL; dolaşımdaki toplam pay sayısı 1.500.000'dir.
+Bir DSYO'nun varlıkları 80.000.000 ₺, borçları 5.000.000 ₺; dolaşımdaki toplam pay sayısı 1.500.000'dir.
 
-1. NAD = 80.000.000 − 5.000.000 = **75.000.000 TL**. DSYO'da sermaye = NAD olduğundan sermaye de 75.000.000 TL'dir.
-2. Birim pay değeri = 75.000.000 / 1.500.000 = **50 TL**.
-3. Bir yatırımcı 10.000 payının itfasını talep eder: ödenecek tutar = 10.000 × 50 = **500.000 TL**.
-4. İtfa sonrası varlıklar 79.500.000 TL, borçlar 5.000.000 TL; NAD ve sermaye **74.500.000 TL**'ye, pay sayısı 1.490.000'e iner. Birim değer değişmez: 74.500.000 / 1.490.000 = 50 TL.
+1. NAD = 80.000.000 − 5.000.000 = **75.000.000 ₺**. DSYO'da sermaye = NAD olduğundan sermaye de 75.000.000 ₺'dir.
+2. Birim pay değeri = 75.000.000 / 1.500.000 = **50 ₺**.
+3. Bir yatırımcı 10.000 payının itfasını talep eder: ödenecek tutar = 10.000 × 50 = **500.000 ₺**.
+4. İtfa sonrası varlıklar 79.500.000 ₺, borçlar 5.000.000 ₺; NAD ve sermaye **74.500.000 ₺**'ye, pay sayısı 1.490.000'e iner. Birim değer değişmez: 74.500.000 / 1.490.000 = 50 ₺.
 
 Sermaye azaltımı için TTK'daki usul (genel kurul kararı, alacaklılara çağrı) işletilmez; çünkü md. 51 bu hükümleri DSYO'ya uygulamaz.
 
@@ -153,12 +153,12 @@ PYŞ, ana faaliyet konusu yatırım fonlarının kurulması ve yönetimi olan **
 
 ### 4.5 Çözümlü örnek: Birim pay değeri
 
-Bir hisse senedi fonunun portföy değeri 12.450.000 TL, mevduat ve nakdi 150.000 TL, tahakkuk etmiş yönetim ücreti borcu 100.000 TL'dir. Dolaşımdaki katılma payı 5.000.000 adettir.
+Bir hisse senedi fonunun portföy değeri 12.450.000 ₺, mevduat ve nakdi 150.000 ₺, tahakkuk etmiş yönetim ücreti borcu 100.000 ₺'dir. Dolaşımdaki katılma payı 5.000.000 adettir.
 
-1. Fon toplam değeri = 12.450.000 + 150.000 − 100.000 = **12.500.000 TL**
-2. Birim pay değeri = 12.500.000 / 5.000.000 = **2,50 TL**
-3. Ertesi gün 2,50 TL üzerinden hesaplanan fiyatla 50.000 TL'lik alım emri: 50.000 / 2,50 = **20.000 katılma payı**
-4. Tek ihraççı sınırı: 12.500.000 × %10 = en fazla **1.250.000 TL** tek bir şirketin araçlarına yatırılabilir.
+1. Fon toplam değeri = 12.450.000 + 150.000 − 100.000 = **12.500.000 ₺**
+2. Birim pay değeri = 12.500.000 / 5.000.000 = **2,50 ₺**
+3. Ertesi gün 2,50 ₺ üzerinden hesaplanan fiyatla 50.000 ₺'lik alım emri: 50.000 / 2,50 = **20.000 katılma payı**
+4. Tek ihraççı sınırı: 12.500.000 × %10 = en fazla **1.250.000 ₺** tek bir şirketin araçlarına yatırılabilir.
 
 ## 5. Portföy saklama hizmeti (md. 56)
 

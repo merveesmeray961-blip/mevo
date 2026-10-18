@@ -99,7 +99,7 @@ Modern ilkeler: makroekonomik istikrar ve sürdürülebilir kalkınma (a), göre
 
 ### Çözümlü örnek
 
-Dönem başı borç stoku 1.000 milyar TL, nominal faiz oranı %30, enflasyon %25, faiz dışı giderler 820, gelirler 800 milyar TL.
+Dönem başı borç stoku 1.000 milyar ₺, nominal faiz oranı %30, enflasyon %25, faiz dışı giderler 820, gelirler 800 milyar ₺.
 
 1. Faiz dışı denge = 800 − 820 = **−20** (faiz dışı açık 20).
 2. Faiz ödemesi = 1.000 × %30 = 300. Nominal (toplam) açık = 20 + 300 = **320**.

@@ -2,7 +2,7 @@
 ders: YNM
 konu: DEG
 baslik: Değişken ve tam maliyetleme
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "Genel bilgi — Değişken ve tam maliyetleme"

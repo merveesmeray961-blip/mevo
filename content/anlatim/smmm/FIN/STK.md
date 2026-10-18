@@ -97,7 +97,7 @@ Ardından tek kayıtla 621 Satılan Ticari Mallar Maliyeti borç, 153 Ticari Mal
 | Satılan malın maliyeti | Her satışta bulunur | Dönem sonunda formülle bulunur |
 | Sayım farkının tespiti | Kayıtlı stok ile sayım karşılaştırılır | Fark, satılan malın maliyetinin içinde kalır |
 
-Sürekli envanterde %20 KDV'li 10.000 TL'lik veresiye alış ve maliyeti 6.000 TL olan malın 9.000 TL'ye veresiye satışı:
+Sürekli envanterde %20 KDV'li 10.000 ₺'lik veresiye alış ve maliyeti 6.000 ₺ olan malın 9.000 ₺'ye veresiye satışı:
 
 - Alış: 153 Ticari Mallar 10.000 ve 191 İndirilecek KDV 2.000 borç; 320 Satıcılar 12.000 alacak
 - Satış: 120 Alıcılar 10.800 borç; 600 Yurt İçi Satışlar 9.000 ve 391 Hesaplanan KDV 1.800 alacak
@@ -111,29 +111,29 @@ TMS 2 paragraf 25'e göre stok maliyeti **FIFO (ilk giren ilk çıkar)** veya **
 
 Mart ayı hareketleri:
 
-- 1 Mart dönem başı stok: 100 adet x 40 TL = 4.000 TL
-- 5 Mart alış: 100 adet x 42 TL = 4.200 TL
+- 1 Mart dönem başı stok: 100 adet x 40 ₺ = 4.000 ₺
+- 5 Mart alış: 100 adet x 42 ₺ = 4.200 ₺
 - 12 Mart satış: 120 adet
-- 20 Mart alış: 100 adet x 50 TL = 5.000 TL
+- 20 Mart alış: 100 adet x 50 ₺ = 5.000 ₺
 - 28 Mart satış: 100 adet
 
-Satışa hazır mal: 300 adet, 13.200 TL. Satılan 220 adet, dönem sonu stok 80 adettir.
+Satışa hazır mal: 300 adet, 13.200 ₺. Satılan 220 adet, dönem sonu stok 80 adettir.
 
 **FIFO:**
 
-1. 12 Mart: (100 x 40) + (20 x 42) = 4.840 TL
-2. 28 Mart: (80 x 42) + (20 x 50) = 4.360 TL
-3. Satılan malın maliyeti = 9.200 TL; dönem sonu stok = 80 x 50 = 4.000 TL
+1. 12 Mart: (100 x 40) + (20 x 42) = 4.840 ₺
+2. 28 Mart: (80 x 42) + (20 x 50) = 4.360 ₺
+3. Satılan malın maliyeti = 9.200 ₺; dönem sonu stok = 80 x 50 = 4.000 ₺
 
-**Dönemsel ağırlıklı ortalama:** Birim maliyet = 13.200 / 300 = 44 TL. Satılan malın maliyeti = 220 x 44 = 9.680 TL; dönem sonu stok = 80 x 44 = 3.520 TL.
+**Dönemsel ağırlıklı ortalama:** Birim maliyet = 13.200 / 300 = 44 ₺. Satılan malın maliyeti = 220 x 44 = 9.680 ₺; dönem sonu stok = 80 x 44 = 3.520 ₺.
 
 **Hareketli ortalama:**
 
-1. 5 Mart sonrası: 8.200 / 200 = 41 TL; 12 Mart satışı 120 x 41 = 4.920 TL; kalan 80 adet = 3.280 TL
-2. 20 Mart sonrası: (3.280 + 5.000) / 180 = 46 TL; 28 Mart satışı 100 x 46 = 4.600 TL
-3. Satılan malın maliyeti = 9.520 TL; dönem sonu stok = 80 x 46 = 3.680 TL
+1. 5 Mart sonrası: 8.200 / 200 = 41 ₺; 12 Mart satışı 120 x 41 = 4.920 ₺; kalan 80 adet = 3.280 ₺
+2. 20 Mart sonrası: (3.280 + 5.000) / 180 = 46 ₺; 28 Mart satışı 100 x 46 = 4.600 ₺
+3. Satılan malın maliyeti = 9.520 ₺; dönem sonu stok = 80 x 46 = 3.680 ₺
 
-Her yöntemde satılan malın maliyeti ile dönem sonu stok toplamı 13.200 TL'dir. Fiyatların yükseldiği dönemde FIFO en düşük satış maliyetini ve en yüksek dönem sonu stoğunu verir.
+Her yöntemde satılan malın maliyeti ile dönem sonu stok toplamı 13.200 ₺'dir. Fiyatların yükseldiği dönemde FIFO en düşük satış maliyetini ve en yüksek dönem sonu stoğunu verir.
 
 > **Sık yapılan hata:** Ortalama hesaplarken dönem başı stoğu unutmak veya hareketli ortalamada her satıştan sonra kalan miktarı güncellememek. Kontrol kuralı: satılan malın maliyeti + dönem sonu stok = satışa hazır malın maliyeti.
 
@@ -163,12 +163,12 @@ Yıl sonunda nedeni bulunamayan noksanlar fazlaları aşıyorsa fark için 199 D
 
 **Normal fire**, buharlaşma, kırılma, dökülme gibi işin niteliğinden doğan kaçınılmaz kayıptır ve stok maliyetinin parçasıdır. **Normal üstü (anormal) fire** ise TMS 2 paragraf 16 gereği maliyete girmez, dönem gideri yazılır.
 
-**Örnek:** Kayıtta 500 adet (birim maliyet 50 TL) görünen ticari maldan sayımda 480 adet çıktı. Noksan 20 adet = 1.000 TL.
+**Örnek:** Kayıtta 500 adet (birim maliyet 50 ₺) görünen ticari maldan sayımda 480 adet çıktı. Noksan 20 adet = 1.000 ₺.
 
 1. Tespit: 197 borç 1.000; 153 alacak 1.000
-2. 6 adet normal fire (300 TL): 621 borç 300; 197 alacak 300
-3. 10 adedi depo görevlisi ödeyecek (500 TL): 135 borç 500; 197 alacak 500
-4. 4 adedin nedeni belirsiz ve olağandışı (200 TL): 689 borç 200; 197 alacak 200
+2. 6 adet normal fire (300 ₺): 621 borç 300; 197 alacak 300
+3. 10 adedi depo görevlisi ödeyecek (500 ₺): 135 borç 500; 197 alacak 500
+4. 4 adedin nedeni belirsiz ve olağandışı (200 ₺): 689 borç 200; 197 alacak 200
 
 > **Sık yapılan hata:** Sayım noksanını doğrudan gidere yazmak. Önce 197'ye alınır, neden belli olunca kapatılır. Fazlada geçici hesap 397'dir. Ayrıca KDVK md. 30/c gereği deprem, sel ve mücbir sebep ilan edilen yerlerdeki yangın dışındaki nedenlerle zayi olan mallara ait KDV indirilemez; daha önce indirilen KDV düzeltilir.
 
@@ -189,19 +189,19 @@ NGD = Tahmini satış fiyatı - Tahmini tamamlanma maliyeti - Tahmini satış ma
 | A | 50.000 | 46.000 | 2.000 | 44.000 | 6.000 |
 | B | 30.000 | 40.000 | 1.000 | 39.000 | 0 |
 
-Toplam maliyet 80.000 TL, toplam NGD 83.000 TL olduğu için toplu karşılaştırmada düşüklük çıkmaz; ancak kalem bazında A için 6.000 TL karşılık gerekir:
+Toplam maliyet 80.000 ₺, toplam NGD 83.000 ₺ olduğu için toplu karşılaştırmada düşüklük çıkmaz; ancak kalem bazında A için 6.000 ₺ karşılık gerekir:
 
 - 654 Karşılık Giderleri borç 6.000; 158 Stok Değer Düşüklüğü Karşılığı alacak 6.000
 
-İzleyen dönemde A, 46.000 TL + %20 KDV'ye satılırsa: 120 borç 55.200; 600 alacak 46.000, 391 alacak 9.200. Maliyet: 621 borç 50.000; 153 alacak 50.000. Karşılığın kapatılması: 158 borç 6.000; 644 Konusu Kalmayan Karşılıklar alacak 6.000.
+İzleyen dönemde A, 46.000 ₺ + %20 KDV'ye satılırsa: 120 borç 55.200; 600 alacak 46.000, 391 alacak 9.200. Maliyet: 621 borç 50.000; 153 alacak 50.000. Karşılığın kapatılması: 158 borç 6.000; 644 Konusu Kalmayan Karşılıklar alacak 6.000.
 
 ### Normal kapasite
 
 TMS 2 paragraf 13'e göre **sabit genel üretim giderleri normal kapasiteye göre** dağıtılır. Normal kapasite, planlı bakım kayıpları da dikkate alınarak normal koşullarda birkaç dönemde ulaşılması beklenen ortalama üretimdir. Düşük üretim veya atıl kapasite birim maliyeti artırmaz; dağıtılmayan pay dönem gideridir. Anormal yüksek üretimde birime düşen sabit gider azaltılır. Değişken genel üretim giderleri fiili üretime göre dağıtılır.
 
-**Örnek:** Sabit genel üretim gideri 600.000 TL, normal kapasite 10.000 birim, fiili üretim 8.000 birim. Birime yüklenecek sabit gider 600.000 / 10.000 = 60 TL'dir. Mamullere 8.000 x 60 = 480.000 TL yüklenir; kalan 120.000 TL atıl kapasite maliyetidir ve gider yazılır (TDHP uygulamasında 680 Çalışmayan Kısım Gider ve Zararları). 8.000 birime bölerek 75 TL yüklemek yanlıştır.
+**Örnek:** Sabit genel üretim gideri 600.000 ₺, normal kapasite 10.000 birim, fiili üretim 8.000 birim. Birime yüklenecek sabit gider 600.000 / 10.000 = 60 ₺'dir. Mamullere 8.000 x 60 = 480.000 ₺ yüklenir; kalan 120.000 ₺ atıl kapasite maliyetidir ve gider yazılır (TDHP uygulamasında 680 Çalışmayan Kısım Gider ve Zararları). 8.000 birime bölerek 75 ₺ yüklemek yanlıştır.
 
-> **Sınav ipucu:** VUK'taki "%10 düşüklük" ölçüsü ile TMS 2'deki "maliyet ile NGD'den düşük olanı" kuralını karıştırma. TMS 2'de eşik yoktur; NGD maliyetin 1 TL bile altındaysa indirgeme yapılır.
+> **Sınav ipucu:** VUK'taki "%10 düşüklük" ölçüsü ile TMS 2'deki "maliyet ile NGD'den düşük olanı" kuralını karıştırma. TMS 2'de eşik yoktur; NGD maliyetin 1 ₺ bile altındaysa indirgeme yapılır.
 
 ## Özet
 

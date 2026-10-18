@@ -40,7 +40,7 @@ kaynaklar:
 
 ## 1. Standart maliyetin mantığı
 
-**Standart maliyet**, bir birim mamulün üretimi için normal koşullarda katlanılması gereken, bilimsel ve teknik incelemelerle **önceden saptanmış** maliyettir. Her maliyet unsuru için iki standart belirlenir: **miktar standardı** (kg, saat) ve **fiyat standardı** (TL/kg, TL/saat). TMS 2 paragraf 21'e göre standart maliyetler, sonuçlar maliyete yakın olduğu sürece stok ölçümünde kullanılabilir ve malzeme, işçilik, etkinlik ve kapasite kullanımının **normal** düzeylerini dikkate alır; düzenli olarak gözden geçirilir.
+**Standart maliyet**, bir birim mamulün üretimi için normal koşullarda katlanılması gereken, bilimsel ve teknik incelemelerle **önceden saptanmış** maliyettir. Her maliyet unsuru için iki standart belirlenir: **miktar standardı** (kg, saat) ve **fiyat standardı** (₺/kg, ₺/saat). TMS 2 paragraf 21'e göre standart maliyetler, sonuçlar maliyete yakın olduğu sürece stok ölçümünde kullanılabilir ve malzeme, işçilik, etkinlik ve kapasite kullanımının **normal** düzeylerini dikkate alır; düzenli olarak gözden geçirilir.
 
 Standartlar ideal (hiç kayıp ve beklemenin olmadığı) düzeyde değil, ulaşılabilir normal düzeyde belirlenmelidir. Amaç, fiili sonuçları standartla karşılaştırıp **sapmaların (farkların)** nedenini ve sorumlusunu bulmaktır: fiyat sapması genellikle satın alma, miktar ve zaman sapmaları üretim, kapasite sapması yönetim sorumluluğundadır.
 
@@ -58,14 +58,14 @@ Kısaltmalar: FM fiili miktar, SM standart miktar, FF fiili fiyat, SF standart f
 
 ### Çözümlü örnek
 
-Birim mamul için standart: 2 kg × 10 TL. Fiili üretim 5.000 birim; fiilen 10.400 kg malzeme kg'ı 9,50 TL'den kullanılmıştır.
+Birim mamul için standart: 2 kg × 10 ₺. Fiili üretim 5.000 birim; fiilen 10.400 kg malzeme kg'ı 9,50 ₺'den kullanılmıştır.
 
 1. SM = 5.000 × 2 = **10.000 kg**
-2. Fiili maliyet = 10.400 × 9,50 = **98.800 TL**
-3. Standart maliyet = 10.000 × 10 = **100.000 TL**
-4. Toplam sapma = 98.800 − 100.000 = **1.200 TL olumlu**
-5. Fiyat sapması = (9,50 − 10) × 10.400 = **5.200 TL olumlu**
-6. Miktar sapması = (10.400 − 10.000) × 10 = **4.000 TL olumsuz**
+2. Fiili maliyet = 10.400 × 9,50 = **98.800 ₺**
+3. Standart maliyet = 10.000 × 10 = **100.000 ₺**
+4. Toplam sapma = 98.800 − 100.000 = **1.200 ₺ olumlu**
+5. Fiyat sapması = (9,50 − 10) × 10.400 = **5.200 ₺ olumlu**
+6. Miktar sapması = (10.400 − 10.000) × 10 = **4.000 ₺ olumsuz**
 7. Kontrol: −5.200 + 4.000 = −1.200 (olumlu)
 
 Toplam sapmanın olumlu olması her şeyin iyi gittiğini göstermez: ucuz alım (olumlu fiyat) belki düşük kaliteli malzeme nedeniyle fazla tüketime (olumsuz miktar) yol açmıştır.
@@ -90,13 +90,13 @@ Fiyat sapması satın alma anında ayrılıyorsa (stok standart fiyatla kaydedil
 
 ### Çözümlü örnek
 
-Birim mamul için standart: 1,5 saat × 40 TL. Fiili üretim 5.000 birim; fiilen 7.200 saat, saati 42 TL'den çalışılmıştır.
+Birim mamul için standart: 1,5 saat × 40 ₺. Fiili üretim 5.000 birim; fiilen 7.200 saat, saati 42 ₺'den çalışılmıştır.
 
 1. SS = 5.000 × 1,5 = **7.500 saat**
-2. Fiili işçilik = 7.200 × 42 = **302.400 TL**; standart işçilik = 7.500 × 40 = **300.000 TL**
-3. Toplam sapma = **2.400 TL olumsuz**
-4. Ücret sapması = (42 − 40) × 7.200 = **14.400 TL olumsuz**
-5. Zaman sapması = (7.200 − 7.500) × 40 = **12.000 TL olumlu**
+2. Fiili işçilik = 7.200 × 42 = **302.400 ₺**; standart işçilik = 7.500 × 40 = **300.000 ₺**
+3. Toplam sapma = **2.400 ₺ olumsuz**
+4. Ücret sapması = (42 − 40) × 7.200 = **14.400 ₺ olumsuz**
+5. Zaman sapması = (7.200 − 7.500) × 40 = **12.000 ₺ olumlu**
 6. Kontrol: 14.400 − 12.000 = 2.400 (olumsuz)
 
 **Kayıtlar:** Fiili işçilik **720** borç 302.400; standart yükleme **151** borç / **721** alacak 300.000; dönem sonu **721** borç 300.000, **722** borç 14.400 / **720** alacak 302.400, **723** alacak 12.000.
@@ -124,15 +124,15 @@ Bütçe farkı, fiili gideri **fiili saate göre ayarlanmış (esnek) bütçe** 
 
 ### Çözümlü örnek
 
-Normal kapasite 8.000 DİŞ saati; bütçelenen sabit GÜG 160.000 TL (sabit oran 20 TL/saat); değişken GÜG oranı 12 TL/saat; standart GÜG yükleme oranı 32 TL/saat. Yukarıdaki işçilik verileri geçerlidir: FS 7.200, SS 7.500. Fiili GÜG 250.000 TL'dir.
+Normal kapasite 8.000 DİŞ saati; bütçelenen sabit GÜG 160.000 ₺ (sabit oran 20 ₺/saat); değişken GÜG oranı 12 ₺/saat; standart GÜG yükleme oranı 32 ₺/saat. Yukarıdaki işçilik verileri geçerlidir: FS 7.200, SS 7.500. Fiili GÜG 250.000 ₺'dir.
 
-1. Yüklenen GÜG = 7.500 × 32 = **240.000 TL**
-2. Toplam sapma = 250.000 − 240.000 = **10.000 TL olumsuz**
-3. Fiili saate göre bütçe = 160.000 + 12 × 7.200 = **246.400 TL**
-4. Bütçe farkı = 250.000 − 246.400 = **3.600 TL olumsuz** (732)
-5. Kapasite farkı = (8.000 − 7.200) × 20 = **16.000 TL olumsuz** (734)
-6. Verimlilik farkı = (7.200 − 7.500) × 32 = **9.600 TL olumlu** (733)
-7. Kontrol: 3.600 + 16.000 − 9.600 = **10.000 TL olumsuz**
+1. Yüklenen GÜG = 7.500 × 32 = **240.000 ₺**
+2. Toplam sapma = 250.000 − 240.000 = **10.000 ₺ olumsuz**
+3. Fiili saate göre bütçe = 160.000 + 12 × 7.200 = **246.400 ₺**
+4. Bütçe farkı = 250.000 − 246.400 = **3.600 ₺ olumsuz** (732)
+5. Kapasite farkı = (8.000 − 7.200) × 20 = **16.000 ₺ olumsuz** (734)
+6. Verimlilik farkı = (7.200 − 7.500) × 32 = **9.600 ₺ olumlu** (733)
+7. Kontrol: 3.600 + 16.000 − 9.600 = **10.000 ₺ olumsuz**
 
 Kapasite farkı ayrıca şöyle de bulunur: Fiili saate göre bütçe − FS × standart oran = 246.400 − 230.400 = 16.000.
 

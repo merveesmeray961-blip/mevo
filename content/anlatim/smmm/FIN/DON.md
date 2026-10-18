@@ -77,19 +77,19 @@ Bir yıldan uzun süreye ilişkin tutarlar 280/480'de izlenir; bilanço tarihind
 
 ## 2. Gelecek aylara ait giderler (180) ve gelirler (380)
 
-**Örnek (peşin gider):** 1 Eylül 2026'da 12 aylık işyeri sigortası için 36.000 TL peşin ödendi. Aylık gider 3.000 TL; 2026'ya ait kısım 4 ay = 12.000 TL, 2027'ye ait kısım 24.000 TL'dir.
+**Örnek (peşin gider):** 1 Eylül 2026'da 12 aylık işyeri sigortası için 36.000 ₺ peşin ödendi. Aylık gider 3.000 ₺; 2026'ya ait kısım 4 ay = 12.000 ₺, 2027'ye ait kısım 24.000 ₺'dir.
 
 1. Ödemede: 180 Gelecek Aylara Ait Giderler borç 36.000; 102 Bankalar alacak 36.000
 2. Her ay (Eylül-Aralık): 770 Genel Yönetim Giderleri borç 3.000; 180 alacak 3.000
-3. 31 Aralık'ta 180'in bakiyesi 24.000 TL'dir ve bilançoda aktifte görünür.
+3. 31 Aralık'ta 180'in bakiyesi 24.000 ₺'dir ve bilançoda aktifte görünür.
 
 Ödeme anında tamamı gidere yazılmışsa (770 borç 36.000), yıl sonunda gelecek döneme ait kısım düzeltilir: 180 borç 24.000; 770 alacak 24.000. İki yolun sonucu aynıdır.
 
-**Örnek (peşin gelir):** Ana faaliyeti kiralama olmayan işletme 1 Kasım 2026'da 6 aylık kira bedeli olarak 60.000 TL tahsil etti. Aylık 10.000 TL; 2026'ya ait 2 ay = 20.000 TL.
+**Örnek (peşin gelir):** Ana faaliyeti kiralama olmayan işletme 1 Kasım 2026'da 6 aylık kira bedeli olarak 60.000 ₺ tahsil etti. Aylık 10.000 ₺; 2026'ya ait 2 ay = 20.000 ₺.
 
 1. Tahsilatta: 102 borç 60.000; 380 Gelecek Aylara Ait Gelirler alacak 60.000
 2. Yıl sonunda döneme ait kısım: 380 borç 20.000; 649 Diğer Olağan Gelir ve Kârlar alacak 20.000
-3. 380'in 40.000 TL bakiyesi 2027'de gelire aktarılır.
+3. 380'in 40.000 ₺ bakiyesi 2027'de gelire aktarılır.
 
 > **Sık yapılan hata:** 180 ile 181'i karıştırmak. 180'de para **önceden ödenmiştir** ve gider gelecek döneme aittir; 181'de gelir **bu döneme aittir** ama para henüz gelmemiştir. Aynı ayrım pasifte 380 (peşin tahsil) ile 381 (ödenmemiş gider) arasındadır.
 
@@ -97,15 +97,15 @@ Bir yıldan uzun süreye ilişkin tutarlar 280/480'de izlenir; bilanço tarihind
 
 **181 Gelir Tahakkukları**, cari döneme ait olup tahsili veya kesin alacak kaydı sonraki döneme kalan gelirleri izler. VUK md. 281'e göre mevduat ve kredi sözleşmelerine dayanan alacaklar değerleme gününe kadar hesaplanan faizleriyle birlikte dikkate alınır.
 
-**Örnek:** 1 Kasım 2026'da 600.000 TL, yıllık %40 faizli, 3 ay vadeli mevduat açıldı. 31 Aralık'a kadar işleyen 2 aylık faiz: 600.000 x 0,40 x 2/12 = 40.000 TL.
+**Örnek:** 1 Kasım 2026'da 600.000 ₺, yıllık %40 faizli, 3 ay vadeli mevduat açıldı. 31 Aralık'a kadar işleyen 2 aylık faiz: 600.000 x 0,40 x 2/12 = 40.000 ₺.
 
 - 181 Gelir Tahakkukları borç 40.000; 642 Faiz Gelirleri alacak 40.000
 
-Vade gelince tahsil edilen faizin 40.000 TL'si 181'i kapatır, kalan (yeni yıla ait) kısım 642'ye gelir yazılır; kesilen stopaj 193 Peşin Ödenen Vergiler ve Fonlar hesabına borçlandırılır.
+Vade gelince tahsil edilen faizin 40.000 ₺'si 181'i kapatır, kalan (yeni yıla ait) kısım 642'ye gelir yazılır; kesilen stopaj 193 Peşin Ödenen Vergiler ve Fonlar hesabına borçlandırılır.
 
 **381 Gider Tahakkukları**, döneme ait olup ödemesi gelecek aylarda yapılacak ve **kesinlikle belgeye dayalı** giderleri izler.
 
-**Örnek:** 1 Kasım 2026'da kullanılan 1.000.000 TL, %48 faizli, faizi vadede ödenecek kısa vadeli kredi için 2 aylık faiz: 1.000.000 x 0,48 x 2/12 = 80.000 TL.
+**Örnek:** 1 Kasım 2026'da kullanılan 1.000.000 ₺, %48 faizli, faizi vadede ödenecek kısa vadeli kredi için 2 aylık faiz: 1.000.000 x 0,48 x 2/12 = 80.000 ₺.
 
 - 780 Finansman Giderleri borç 80.000; 381 Gider Tahakkukları alacak 80.000
 
@@ -128,11 +128,11 @@ Soruda hangi yöntemin ve 360/365 gün esasının istendiğine bakılır.
 
 **Çözümlü örnek:** 31 Aralık itibarıyla:
 
-- Alacak senedi: nominal 110.000 TL, vadeye 72 gün, oran %50
-  - Dış iskonto: 110.000 x 50 x 72 / 36.000 = 11.000 TL
-  - İç iskonto: 110.000 x 3.600 / 39.600 = 10.000 TL
-- Borç senedi: nominal 75.600 TL, vadeye 60 gün, oran %30
-  - İç iskonto: 75.600 x 1.800 / 37.800 = 3.600 TL
+- Alacak senedi: nominal 110.000 ₺, vadeye 72 gün, oran %50
+  - Dış iskonto: 110.000 x 50 x 72 / 36.000 = 11.000 ₺
+  - İç iskonto: 110.000 x 3.600 / 39.600 = 10.000 ₺
+- Borç senedi: nominal 75.600 ₺, vadeye 60 gün, oran %30
+  - İç iskonto: 75.600 x 1.800 / 37.800 = 3.600 ₺
 
 İç iskontoyla kayıtlar:
 
@@ -154,20 +154,20 @@ Soruda hangi yöntemin ve 360/365 gün esasının istendiğine bakılır.
 
 **373 Maliyet Giderleri Karşılığı**, aylık maliyetlere pay verilmesi için kesin tutarı sonradan belli olacak tamir-bakım, ikramiye, finansman gibi giderlere ayrılan tahminî karşılıkları izler.
 
-**Örnek:** Haziran ve Aralık'ta ödenecek yıllık ikramiye tahmini 120.000 TL'dir. Her ay 10.000 TL maliyete yüklenir: 730 Genel Üretim Giderleri borç 10.000; 373 alacak 10.000. Haziran'da ödenen 62.000 TL için 373 borç 60.000 (yüklenen kısım) ve 730 borç 2.000 (fark); 102 ve ilgili kesinti hesapları alacak. Yıl sonunda 373'te kalan fark ilgili gider hesabıyla düzeltilir; tahmin, kesin tutara getirilir.
+**Örnek:** Haziran ve Aralık'ta ödenecek yıllık ikramiye tahmini 120.000 ₺'dir. Her ay 10.000 ₺ maliyete yüklenir: 730 Genel Üretim Giderleri borç 10.000; 373 alacak 10.000. Haziran'da ödenen 62.000 ₺ için 373 borç 60.000 (yüklenen kısım) ve 730 borç 2.000 (fark); 102 ve ilgili kesinti hesapları alacak. Yıl sonunda 373'te kalan fark ilgili gider hesabıyla düzeltilir; tahmin, kesin tutara getirilir.
 
 **379 Diğer Borç ve Gider Karşılıkları**, diğer kısa vadeli karşılıkları izler. **372 Kıdem Tazminatı Karşılığı** bir yıl içinde ödenecek kıdem tazminatları içindir (uzun vadelisi 472).
 
 ## 6. Kurumlar vergisi karşılığı
 
-KVK md. 32'ye göre kurumlar vergisi oranı **%25**'tir (bankalar, finansal kiralama ve sigorta şirketleri gibi bazı kurumlarda %30). Yıl içinde ödenen geçici vergiler 193'te birikir.
+KVK md. 32'ye göre kurumlar vergisi oranı **%25**'tir (bankalar, finansal kiralama, faktoring ve finansman şirketleri, sigorta ve emeklilik şirketleri gibi finans sektörü kurumlarında %30). 2025'ten itibaren KVK md. 32/C ile **yurt içi asgari kurumlar vergisi** de uygulanır: hesaplanan vergi, indirim ve istisnalar düşülmeden önceki kurum kazancının %10'undan az olamaz (sınav sorularında aksi belirtilmedikçe bu sınırın aşılmadığı varsayılır). Yıl içinde ödenen geçici vergiler 193'te birikir.
 
-**Çözümlü örnek:** Dönem sonunda 690 Dönem Kârı veya Zararı hesabının alacak bakiyesi (vergi öncesi ticari kâr) 1.000.000 TL'dir. Kanunen kabul edilmeyen giderler 80.000 TL, iştirak kazancı istisnası 50.000 TL, yıl içinde ödenen geçici vergi 180.000 TL'dir.
+**Çözümlü örnek:** Dönem sonunda 690 Dönem Kârı veya Zararı hesabının alacak bakiyesi (vergi öncesi ticari kâr) 1.000.000 ₺'dir. Kanunen kabul edilmeyen giderler 80.000 ₺, iştirak kazancı istisnası 50.000 ₺, yıl içinde ödenen geçici vergi 180.000 ₺'dir.
 
-- Kurum kazancı = 1.000.000 + 80.000 - 50.000 = 1.030.000 TL
-- Kurumlar vergisi = 1.030.000 x %25 = 257.500 TL
-- Ödenecek vergi = 257.500 - 180.000 = 77.500 TL
-- Dönem net kârı = 1.000.000 - 257.500 = 742.500 TL
+- Kurum kazancı = 1.000.000 + 80.000 - 50.000 = 1.030.000 ₺
+- Kurumlar vergisi = 1.030.000 x %25 = 257.500 ₺
+- Ödenecek vergi = 257.500 - 180.000 = 77.500 ₺
+- Dönem net kârı = 1.000.000 - 257.500 = 742.500 ₺
 
 Kayıtlar:
 
@@ -185,7 +185,7 @@ Beyanname verilip vergi kesinleşince: 370 borç 257.500; 371 alacak 180.000; 36
 
 1. **Envanter ve değerleme kayıtları:** sayım farkları, amortisman, reeskont, şüpheli alacak ve değer düşüklüğü karşılıkları, kur farkları, 180/380 ve 181/381 düzeltmeleri, 373'ün kesinleştirilmesi.
 2. **7 grubunun kapatılması (7/A):** gider hesapları yansıtma hesaplarıyla 6 grubuna ve üretim maliyetine aktarılır (örneğin 770 Genel Yönetim Giderleri, 771 yansıtma hesabı aracılığıyla 632'ye; 780 Finansman Giderleri, 781 aracılığıyla 660'a). 7 grubu doğrudan 690'a kapatılmaz.
-3. **Satılan malın maliyetinin belirlenmesi** (aralıklı envanterde 621/620 kaydı).
+3. **Satılan malın maliyetinin belirlenmesi** (aralıklı envanterde dönem sonu stoku sayılarak 621 borç / 153 alacak kaydı).
 4. **6 grubu sonuç hesaplarının 690'a devri:** gelir hesapları 690'ın alacağına, gider ve indirim hesapları borcuna.
 5. **Vergi karşılığı:** 691 borç / 370 alacak; 193'ten 371'e aktarım.
 6. **690 ve 691'in 692'ye devri.**

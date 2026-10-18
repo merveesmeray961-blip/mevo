@@ -153,19 +153,20 @@ Zorunlu sigortalılık sona erdikten sonra GSS **10 gün** daha devam eder. Son 
 - Ölüm, doğum ve evlenme yardımları
 - Görev yollukları
 - Seyyar görev, kıdem, ihbar ve kasa tazminatı
+- İş sonu tazminatı veya kıdem tazminatı niteliğindeki toplu ödemeler
 - Keşif ücreti
 - Kurumca belirlenen tutarlarda çocuk ve aile zamları
 - İşverenin ödediği özel sağlık sigortası ve BES katkılarının asgari ücretin **%30**'unu aşmayan kısmı
-- Yemek verilmeyen hallerde çalışılan her gün için yemek bedelinin **300 TL**'ye kadar olan kısmı (tutar her yıl yeniden değerleme oranında artırılır)
+- Yemek verilmeyen hallerde çalışılan her gün için yemek bedelinin **300 ₺**'ye kadar olan kısmı (tutar her yıl yeniden değerleme oranında artırılır)
 
 Ayni yardım yerine geçen nakdi ödemeler PEK'e dahildir. Ücretler hak edildiği aya mal edilir. İkramiye gibi diğer ödemeler ödendiği aya mal edilir; üst sınırı aşan kısım izleyen en çok iki aya aktarılır.
 
-**Çözümlü örnek:** 4/a sigortalının aylık brüt ücreti 50.000 TL'dir. İşyerinde yemek verilmediği için 22 gün boyunca günlük 400 TL nakit yemek bedeli ödeniyor (teşvikler dikkate alınmayacak).
+**Çözümlü örnek:** 4/a sigortalının aylık brüt ücreti 50.000 ₺'dir. İşyerinde yemek verilmediği için 22 gün boyunca günlük 400 ₺ nakit yemek bedeli ödeniyor (teşvikler dikkate alınmayacak).
 
-1. İstisna: 22 × 300 = 6.600 TL. Prime tabi yemek bedeli: 22 × 100 = **2.200 TL**.
-2. PEK: 50.000 + 2.200 = **52.200 TL**.
-3. Sigortalı payı (%9 + %5 + %1 = %15): 52.200 × 0,15 = **7.830 TL**.
-4. İşveren payı (%12 + %2,25 + %7,5 + %2 = %23,75): 52.200 × 0,2375 = **12.397,50 TL**.
+1. İstisna: 22 × 300 = 6.600 ₺. Prime tabi yemek bedeli: 22 × 100 = **2.200 ₺**.
+2. PEK: 50.000 + 2.200 = **52.200 ₺**.
+3. Sigortalı payı (%9 + %5 + %1 = %15): 52.200 × 0,15 = **7.830 ₺**.
+4. İşveren payı (%12 + %2,25 + %7,5 + %2 = %23,75): 52.200 × 0,2375 = **12.397,50 ₺**.
 
 ## 7. İdari para cezaları (md. 102)
 
@@ -192,5 +193,5 @@ Ayni yardım yerine geçen nakdi ödemeler PEK'e dahildir. Ücretler hak edildi�
 - İşe giriş bildirimi çalışmadan önce yapılır; inşaat, tarım ve balıkçılıkta en geç başlama günü. İşten ayrılış 10 gün içinde bildirilir.
 - İş kazası Kuruma 3 işgünü içinde bildirilir. Hastalık ödeneği 90 gün prim ve üçüncü günden başlar. Analık ödeneği doğumdan önce 8, sonra 16 haftadır.
 - GSS'de kural son bir yılda 30 gün primdir; çocuk, acil hal ve iş kazası istisnadır.
-- PEK ücretten geniştir. Yemek bedelinin 300 TL'lik kısmı ve %30 sınırındaki ÖSS/BES katkısı istisnadır.
+- PEK ücretten geniştir. Yemek bedelinin 300 ₺'lik kısmı ve %30 sınırındaki ÖSS/BES katkısı istisnadır.
 - İşe giriş bildirgesi cezaları 1, 2 ve 5 asgari ücrettir. Kendiliğinden bildirimde dörtte bir, peşin ödemede dörtte üç uygulanır.

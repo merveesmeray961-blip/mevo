@@ -50,14 +50,14 @@ Faaliyet ölçüsü; makine saati, direkt işçilik saati, direkt işçilik tuta
 
 ### Çözümlü örnek
 
-Bütçelenen GÜG 600.000 TL, bütçelenen makine saati (MS) 30.000'dir. Yükleme oranı = 600.000 / 30.000 = **20 TL/MS**.
+Bütçelenen GÜG 600.000 ₺, bütçelenen makine saati (MS) 30.000'dir. Yükleme oranı = 600.000 / 30.000 = **20 ₺/MS**.
 
 | Sipariş | DİMM | DİŞ | Makine saati | Yüklenen GÜG | Sipariş maliyeti |
 |---|---:|---:|---:|---:|---:|
 | A | 40.000 | 24.000 | 800 | 16.000 | 80.000 |
 | B | 65.000 | 30.000 | 1.200 | 24.000 | 119.000 |
 
-A siparişi 400 adetse birim maliyeti 80.000 / 400 = **200 TL**'dir.
+A siparişi 400 adetse birim maliyeti 80.000 / 400 = **200 ₺**'dir.
 
 ## 3. Fazla ve eksik yükleme
 
@@ -66,7 +66,7 @@ Dönem sonunda fiili GÜG ile siparişlere yüklenen GÜG karşılaştırılır:
 - **Eksik yükleme (olumsuz fark):** Fiili GÜG, yüklenen GÜG'den büyüktür.
 - **Fazla yükleme (olumlu fark):** Yüklenen GÜG, fiili GÜG'den büyüktür.
 
-Örnek: Dönemde fiilen 29.000 MS çalışılmış, fiili GÜG 610.000 TL gerçekleşmiştir. Yüklenen GÜG = 29.000 × 20 = 580.000 TL. Fark = 610.000 − 580.000 = **30.000 TL eksik yükleme**.
+Örnek: Dönemde fiilen 29.000 MS çalışılmış, fiili GÜG 610.000 ₺ gerçekleşmiştir. Yüklenen GÜG = 29.000 × 20 = 580.000 ₺. Fark = 610.000 − 580.000 = **30.000 ₺ eksik yükleme**.
 
 7/A seçeneğinde kayıtlar:
 
@@ -76,7 +76,7 @@ Dönem sonunda fiili GÜG ile siparişlere yüklenen GÜG karşılaştırılır:
 
 THP'ye göre 732'de olumsuz farklar borca, olumlu farklar alacağa yazılır; hesap dönem sonunda ilgili stok (151, 152) ve satış maliyeti hesaplarına aktarılarak kapatılır. Fark önemsizse uygulamada tamamı satılan mamuller maliyetine verilir. Fazla yüklemede fark 732'nin alacağına yazılır ve maliyetler azaltılır.
 
-**Geri hesap örneği:** Fiili GÜG 450.000 TL, fazla yükleme 30.000 TL, fiili DİŞ saati 24.000 ise yüklenen GÜG = 450.000 + 30.000 = 480.000 TL; yükleme oranı = 480.000 / 24.000 = **20 TL/saat**.
+**Geri hesap örneği:** Fiili GÜG 450.000 ₺, fazla yükleme 30.000 ₺, fiili DİŞ saati 24.000 ise yüklenen GÜG = 450.000 + 30.000 = 480.000 ₺; yükleme oranı = 480.000 / 24.000 = **20 ₺/saat**.
 
 > **Sık yapılan hata:** Fazla yüklemeyi "fiili GÜG fazla" diye okumak. Fazla/eksik kelimesi **yüklenen** tutarı niteler: yüklenen fiiliden fazlaysa fazla yükleme, azsa eksik yüklemedir.
 
@@ -96,7 +96,7 @@ II. dağıtımda üç yöntem vardır:
 
 ### Çözümlü örnek
 
-I. dağıtım sonrası: Bakım (Y1) 42.000 TL, Enerji (Y2) 30.000 TL, Kesim (E1) 128.000 TL, Montaj (E2) 88.000 TL.
+I. dağıtım sonrası: Bakım (Y1) 42.000 ₺, Enerji (Y2) 30.000 ₺, Kesim (E1) 128.000 ₺, Montaj (E2) 88.000 ₺.
 
 | Hizmet veren | Y1 | Y2 | E1 | E2 |
 |---|---:|---:|---:|---:|
@@ -117,7 +117,7 @@ I. dağıtım sonrası: Bakım (Y1) 42.000 TL, Enerji (Y2) 30.000 TL, Kesim (E1)
 4. E1 payı = 50.000 × %40 + 40.000 × %50 = 20.000 + 20.000 = 40.000 → E1 = **168.000**
 5. E2 payı = 50.000 × %40 + 40.000 × %30 = 20.000 + 12.000 = 32.000 → E2 = **120.000**
 
-Kontrol: Her iki yöntemde esas gider yerlerine geçen toplam 72.000 TL'dir (42.000 + 30.000). Matematiksel yöntemde bulunan 50.000 ve 40.000, gider yerlerinin "karşılıklı hizmet dahil" toplamlarıdır; dağıtılan net tutar yine 72.000'dir.
+Kontrol: Her iki yöntemde esas gider yerlerine geçen toplam 72.000 ₺'dir (42.000 + 30.000). Matematiksel yöntemde bulunan 50.000 ve 40.000, gider yerlerinin "karşılıklı hizmet dahil" toplamlarıdır; dağıtılan net tutar yine 72.000'dir.
 
 > **Sınav ipucu:** Kademeli yöntemde dağıtım sırası sonucu değiştirir; soru sırayı vermiyorsa genellikle diğer yardımcı yerlere en çok hizmet veren ilk sıraya konur. Matematiksel yöntemde iki bilinmeyenli denklemi kurduktan sonra yalnızca esas gider yerlerine düşen payları topla.
 
@@ -129,10 +129,10 @@ Katsayı II. dağıtımda yardımcı gider yerinin birim hizmet maliyetini (örn
 
 Örneğe devam (matematiksel sonuçlarla): Kesim'de 8.400 makine saati, Montaj'da 4.800 DİŞ saati çalışılmıştır.
 
-- Kesim katsayısı = 168.000 / 8.400 = **20 TL/MS**
-- Montaj katsayısı = 120.000 / 4.800 = **25 TL/DİŞ saati**
+- Kesim katsayısı = 168.000 / 8.400 = **20 ₺/MS**
+- Montaj katsayısı = 120.000 / 4.800 = **25 ₺/DİŞ saati**
 
-C siparişi Kesim'de 300 MS, Montaj'da 200 DİŞ saati kullanmışsa yüklenen GÜG = 300 × 20 + 200 × 25 = 6.000 + 5.000 = **11.000 TL**. Gider yeri bazında katsayı kullanmak, tek fabrika oranına göre daha doğru sonuç verir; çünkü her bölümün maliyet yapısı farklıdır.
+C siparişi Kesim'de 300 MS, Montaj'da 200 DİŞ saati kullanmışsa yüklenen GÜG = 300 × 20 + 200 × 25 = 6.000 + 5.000 = **11.000 ₺**. Gider yeri bazında katsayı kullanmak, tek fabrika oranına göre daha doğru sonuç verir; çünkü her bölümün maliyet yapısı farklıdır.
 
 ## 6. Faaliyet tabanlı maliyetleme (FTM)
 
@@ -145,11 +145,11 @@ C siparişi Kesim'de 300 MS, Montaj'da 200 DİŞ saati kullanmışsa yüklenen G
 
 | Faaliyet | Maliyet | Toplam sürücü | Faaliyet oranı |
 |---|---:|---:|---:|
-| Kurulum | 120.000 TL | 600 kurulum | 200 TL |
-| Kalite kontrol | 90.000 TL | 300 kontrol | 300 TL |
-| Taşıma | 60.000 TL | 1.200 taşıma | 50 TL |
+| Kurulum | 120.000 ₺ | 600 kurulum | 200 ₺ |
+| Kalite kontrol | 90.000 ₺ | 300 kontrol | 300 ₺ |
+| Taşıma | 60.000 ₺ | 1.200 taşıma | 50 ₺ |
 
-D siparişi 8 kurulum, 5 kontrol, 20 taşıma ve 100 MS kullanmıştır. FTM ile GÜG = 8 × 200 + 5 × 300 + 20 × 50 = 1.600 + 1.500 + 1.000 = **4.100 TL**. Toplam 270.000 TL GÜG fabrika genelinde 9.000 MS ile tek orandan (30 TL/MS) yüklenseydi D'ye 3.000 TL düşerdi. Küçük partili, karmaşık siparişler geleneksel yöntemde **eksik**, büyük hacimli basit siparişler **fazla** maliyetlenir; FTM bu çapraz sübvansiyonu giderir.
+D siparişi 8 kurulum, 5 kontrol, 20 taşıma ve 100 MS kullanmıştır. FTM ile GÜG = 8 × 200 + 5 × 300 + 20 × 50 = 1.600 + 1.500 + 1.000 = **4.100 ₺**. Toplam 270.000 ₺ GÜG fabrika genelinde 9.000 MS ile tek orandan (30 ₺/MS) yüklenseydi D'ye 3.000 ₺ düşerdi. Küçük partili, karmaşık siparişler geleneksel yöntemde **eksik**, büyük hacimli basit siparişler **fazla** maliyetlenir; FTM bu çapraz sübvansiyonu giderir.
 
 > **Sık yapılan hata:** FTM'de bütün GÜG'yi tek bir sürücüye bölmek ya da havuz maliyetini toplam sürücü miktarı yerine siparişin sürücü miktarına bölmek. Her havuzun kendi oranı vardır.
 

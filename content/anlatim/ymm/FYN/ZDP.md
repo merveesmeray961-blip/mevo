@@ -2,130 +2,133 @@
 ders: FYN
 konu: ZDP
 baslik: Paranın zaman değeri ve değerleme
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
-  - mevzuat: "Genel bilgi — Paranın zaman değeri: bugünkü ve gelecek değer"
+  - mevzuat: "Genel bilgi — Paranın zaman değeri: bugünkü ve gelecek değer, reel faiz"
     madde: "-"
-  - mevzuat: "Genel bilgi — Anüite ve sürekli anüite"
+  - mevzuat: "Genel bilgi — Anüite: ertelenmiş, büyüyen ve sürekli anüite"
     madde: "-"
-  - mevzuat: "Genel bilgi — Tahvil değerlemesi"
+  - mevzuat: "Genel bilgi — Tahvil değerlemesi ve durasyon"
     madde: "-"
-  - mevzuat: "Genel bilgi — Hisse senedi değerlemesi ve Gordon modeli"
+  - mevzuat: "Genel bilgi — İskonto ve senet hesapları"
+    madde: "-"
+  - mevzuat: "Genel bilgi — Hisse senedi değerlemesi, Gordon modeli ve göreli değerleme"
     madde: "-"
 ---
 ## Bu konuda neler öğreneceksin
 
-- Bileşik faizle gelecek değer ve iskontolamayla bugünkü değer hesabı
-- Normal anüite, peşin anüite ve sürekli anüitenin bugünkü ve gelecek değeri
-- Kuponlu tahvilin fiyatı ile piyasa faizi arasındaki ters ilişki
-- Sabit büyüme varsayımıyla hisse senedi değerlemesi (Gordon modeli)
-- Bu araçların YMM değerleme ve tasdik çalışmalarındaki yeri
+- Bugünkü ve gelecek değer, efektif faiz ve Fisher eşitliğiyle reel faiz
+- Normal, peşin, ertelenmiş, büyüyen ve sürekli anüite; eşit taksitli kredi
+- Tahvil fiyatı, Macaulay ve düzeltilmiş durasyon, konveksite
+- Senet iskontosu (dış ve iç iskonto), senet değişimi ve hazine bonosu fiyatı
+- Gordon modeli, değişken büyüme ve F/K, PD/DD ile göreli değerleme
 
 ## 1. Bugünkü ve gelecek değer
 
-**Paranın zaman değeri**, bugün elde edilen bir liranın ileride elde edilecek bir liradan daha değerli olduğunu anlatır; çünkü bugünkü para yatırılarak faiz kazanabilir. Finansal yönetimdeki bütün değerleme yöntemleri bu ilkeye dayanır.
+**Paranın zaman değeri**, bugünkü bir liranın faiz kazanabileceği için gelecekteki bir liradan değerli olmasıdır.
 
-**Gelecek değer (GD)**, bugünkü bir tutarın bileşik faizle n dönem sonra ulaşacağı tutardır. **Bugünkü değer (BD)** ise gelecekte elde edilecek bir tutarın, uygun bir iskonto oranıyla bugüne indirgenmiş karşılığıdır. Bu iki işlem birbirinin tersidir:
+- **Gelecek değer:** GD = BD × (1 + r)^n
+- **Bugünkü değer:** BD = GD / (1 + r)^n
+- Yılda m kez faiz işletilirse GD = BD × (1 + r/m)^(n×m)
+- **Efektif yıllık faiz** = (1 + r/m)^m − 1; farklı vadeli getiriyi yıllıklandırmak için (1 + dönem getirisi)^(365/gün) − 1
 
-- GD = BD × (1 + r)^n
-- BD = GD / (1 + r)^n
+Örnek: 100.000 TL %10 ile 3 yıl: GD = 133.100 TL. Yıllık %48 nominal, aylık bileşik faizin efektif oranı (1,04)^12 − 1 = %60,10'dur.
 
-Burada r dönemsel faiz (iskonto) oranı, n dönem sayısıdır. (1 + r)^n ifadesine **bileşik faiz faktörü**, 1 / (1 + r)^n ifadesine **iskonto faktörü** denir. Bugünkü ve gelecek değer hesabının sınavdaki temel kuralı, oran ile dönemin aynı birimde olmasıdır: faiz yıllık, ödeme aylıksa önce dönemsel orana geçilir.
+**Fisher eşitliği:** (1 + nominal faiz) = (1 + reel faiz) × (1 + enflasyon). Nominal %50, enflasyon %40 ise reel faiz 1,50 / 1,40 − 1 = %7,14'tür. Ters çözüm: reel %5, nominal %47 ise enflasyon 1,47 / 1,05 − 1 = %40'tır. Yaklaşık formül (nominal ≈ reel + enflasyon) yüksek enflasyonda büyük hata verir.
 
-Kısa bir uygulama: 100.000 TL yıllık yüzde 10 bileşik faizle 3 yıl yatırılırsa GD = 100.000 × 1,1^3 = 133.100 TL olur. Tersinden, 3 yıl sonra alınacak 133.100 TL'nin yüzde 10 iskonto oranıyla bugünkü değeri 100.000 TL'dir.
-
-Yıl içinde m kez faiz işletiliyorsa formül GD = BD × (1 + r / m)^(n × m) biçimini alır. Faiz işletme sıklığı arttıkça, aynı nominal oranla ulaşılan gelecek değer de artar.
-
-> **Sık yapılan hata:** Yıllık nominal oranı aylık dönem sayısıyla doğrudan kullanmak. Aylık işleyen faizde oran r / 12, dönem sayısı n × 12 alınır.
+> **Sık yapılan hata:** Yıllık nominal oranı aylık dönem sayısıyla doğrudan kullanmak. Aylık işleyen faizde oran r/12, dönem sayısı n × 12 alınır.
 
 ## 2. Anüite
 
-**Anüite**, belirli sayıda dönem boyunca eşit aralıklarla ödenen ya da tahsil edilen eşit tutarlı nakit akışları dizisidir. Kira, kredi taksiti ve tahvil kuponları tipik örneklerdir.
+**Anüite**, eşit aralıklarla ödenen eşit tutarlı nakit akışlarıdır.
 
-### Normal ve peşin anüite
+- Normal (dönem sonu) anüite: BD = C × [1 − (1 + r)^(−n)] / r; GD = C × [(1 + r)^n − 1] / r
+- Peşin (dönem başı) anüite: normal anüite sonucu × (1 + r)
+- Eşit taksitli kredi: C = Kredi × r / [1 − (1 + r)^(−n)]
+- **Sürekli anüite:** BD = C / r
+- **Büyüyen anüite** (ilk ödeme C, büyüme g): BD = C / (r − g) × [1 − ((1 + g)/(1 + r))^n]; sonsuz büyüyen anüitede BD = C / (r − g)
+- **Ertelenmiş anüite:** Ödemeler k dönem sonra başlıyorsa anüite değeri bulunur, sonra (1 + r)^k ile bugüne indirgenir.
 
-Ödemeler her dönemin sonunda yapılıyorsa **normal (dönem sonu) anüite**, her dönemin başında yapılıyorsa **peşin (dönem başı) anüite** söz konusudur. Normal anüitede formüller şunlardır:
+### Örnek 1: Normal ve peşin anüite
 
-- BD = C × [1 − (1 + r)^(−n)] / r
-- GD = C × [(1 + r)^n − 1] / r
+5 yıl boyunca yıllık 20.000 TL kira, iskonto oranı %12.
 
-C dönemsel eşit ödemedir. Peşin anüitede her ödeme bir dönem erken yapıldığından normal anüite sonucu (1 + r) ile çarpılır.
+1. BD faktörü [1 − 1,12^(−5)] / 0,12 = 3,604776; BD = 72.095,52 TL.
+2. GD faktörü (1,12^5 − 1) / 0,12 = 6,352847; GD = 127.056,95 TL.
+3. Kiralar yıl başında alınsaydı: BD = 80.746,99 TL; GD = 142.303,78 TL.
+4. Sonsuza kadar sürseydi BD = 20.000 / 0,12 = 166.666,67 TL.
 
-### Örnek: Normal ve peşin anüitenin değeri
+### Örnek 2: Ertelenmiş taksit
 
-Bir işletme 5 yıl boyunca her yıl 20.000 TL kira geliri elde edecektir. İskonto oranı yıllık yüzde 12'dir. Hesaplar yuvarlanmamış faktörlerle yapılmış, sonuçlar kuruşa yuvarlanmıştır.
+500.000 TL kredi, aylık %3, ilk 3 ay ödemesiz, sonra 12 eşit taksit.
 
-1. Bugünkü değer faktörü: [1 − 1,12^(−5)] / 0,12 ≈ 3,6048.
-2. Normal anüitenin bugünkü değeri: 20.000 × 3,604776 = 72.095,52 TL.
-3. Gelecek değer faktörü: (1,12^5 − 1) / 0,12 ≈ 6,3528.
-4. Normal anüitenin gelecek değeri: 20.000 × 6,352847 = 127.056,95 TL.
-5. Kiralar her yılın başında tahsil edilseydi (peşin anüite): BD = 20.000 × 3,604776 × 1,12 = 80.746,99 TL; GD = 20.000 × 6,352847 × 1,12 = 142.303,78 TL.
+1. Borcun 3. ay sonundaki değeri: 500.000 × 1,03³ = 546.363,50 TL.
+2. Anüite faktörü: [1 − 1,03^(−12)] / 0,03 = 9,954004.
+3. Taksit = 546.363,50 / 9,954004 = 54.888,82 TL (ilk taksit 4. ay sonunda).
 
-### Sürekli anüite
+### Örnek 3: Büyüyen anüite
 
-Sonsuza kadar süren eşit ödemelere **sürekli anüite (perpetüite)** denir. Bugünkü değeri BD = C / r'dir. Aynı örnekte kira sonsuza kadar sürseydi BD = 20.000 / 0,12 = 166.666,67 TL olurdu. Sürekli anüitenin gelecek değeri tanımlı değildir; bu nedenle yalnız bugünkü değeri hesaplanır.
+İlk yıl sonunda 100.000 TL alınacak, ödeme her yıl %5 artacak, 10 yıl sürecek; r = %10. BD = 100.000 / 0,05 × [1 − (1,05/1,10)^10] = 743.981,21 TL.
 
-> **Sınav ipucu:** Soruda "her dönemin başında", "peşin" ya da "kira başta ödenir" ifadesi varsa normal anüite sonucunu (1 + r) ile çarpmayı unutma.
+> **Sınav ipucu:** "Her dönemin başında" veya "peşin" ifadesi peşin anüitedir; "ödemesiz dönem" ifadesi ertelenmiş anüitedir.
 
-## 3. Tahvil değerlemesi
+## 3. Tahvil değerlemesi ve durasyon
 
-**Tahvil**, ihraççının belirli vadede anaparayı (nominal değer) geri ödemeyi ve dönemsel faiz (kupon) ödemeyi taahhüt ettiği borçlanma senedidir. Tahvil değerlemesi, bu nakit akışlarının yatırımcının istediği getiriyle (piyasa faizi) bugüne indirgenmesidir:
+Tahvil fiyatı, kuponların ve nominal değerin **piyasa getirisiyle** (k) iskonto edilmiş toplamıdır: P = Kupon × [1 − (1 + k)^(−n)] / k + Nominal / (1 + k)^n.
 
-- Tahvil fiyatı = Kupon × [1 − (1 + k)^(−n)] / k + Nominal değer / (1 + k)^n
+### Örnek 4: Fiyat ve durasyon
 
-Formülün ilk kısmı kuponların anüite olarak bugünkü değeri, ikinci kısmı vadedeki anaparanın bugünkü değeridir. k piyasa getirisi, n vadeye kalan dönem sayısıdır. Kuponların yıl sonunda ödendiği kabul edilir.
+Nominal 1.000 TL, kupon %10 (yıllık), vade 3 yıl, k = %12.
 
-### Örnek: Kuponlu tahvilin fiyatı
+1. Nakit akışlarının BD'si: 89,29 + 79,72 + 782,96 ≈ 951,96 TL (iskontolu; ara değerler yuvarlanmadan toplanmıştır). k = %10'da fiyat 1.000 TL, %8'de 1.051,54 TL (primli) olur.
+2. **Macaulay durasyonu** = Σ(t × BD_t) / P = (1 × 89,29 + 2 × 79,72 + 3 × 782,96) / 951,96 ≈ 2.597,60 / 951,96 = 2,7287 yıl.
+3. **Düzeltilmiş durasyon** = 2,7287 / 1,12 = 2,4363.
+4. k bir puan artarsa tahmini fiyat değişimi ≈ −2,4363 × %1 × 951,96 = −23,19 TL. Gerçek fiyat (k = %13) 929,17 TL'dir; değişim −22,80 TL.
 
-Nominal değeri 1.000 TL, yıllık kupon oranı yüzde 10, vadesine 3 yıl kalmış bir tahvil için piyasa getirisi yüzde 12'dir. Tutarlar kuruşa yuvarlanmıştır.
+Tahmin ile gerçek arasındaki fark **konveksite** etkisidir: fiyat-getiri eğrisi dışbükey olduğundan faiz artışında fiyat tahminden az düşer, faiz düşüşünde tahminden çok artar. Durasyon vade arttıkça artar; kupon oranı ve piyasa getirisi arttıkça azalır. Sıfır kuponlu tahvilin durasyonu vadesine eşittir.
 
-1. Yıllık kupon: 1.000 × 0,10 = 100 TL.
-2. Kuponların bugünkü değeri: 100 × [1 − 1,12^(−3)] / 0,12 = 240,18 TL.
-3. Anaparanın bugünkü değeri: 1.000 / 1,12^3 = 711,78 TL.
-4. Tahvil fiyatı: 240,18 + 711,78 = 951,96 TL.
+> **Sık yapılan hata:** Tahvili kupon oranıyla iskonto etmek. İskonto oranı piyasa getirisidir; kupon yalnız nakit akışını belirler.
 
-Piyasa getirisi kupon oranından yüksek olduğu için tahvil **iskontolu** (nominal değerin altında) işlem görür. Aynı tahvilin fiyatı piyasa getirisi yüzde 10 iken 1.000 TL (nominal değerden), yüzde 8 iken yaklaşık 1.051,54 TL (**primli**) olur.
+## 4. İskonto ve senet hesapları
 
-Bu sonuç temel bir kuralı gösterir: tahvil fiyatı ile piyasa faizi ters yönde hareket eder. Kupon ödemeyen **sıfır kuponlu tahvilde** fiyat yalnız nominal değerin bugünkü değeridir. Kupon yılda iki kez ödeniyorsa kupon ikiye, k ikiye bölünür, n iki katına çıkarılır.
+Senet hesaplarında ticari teamülle yıl 360 gün alınır (soruda farklı gün verilmedikçe). N nominal, t yıllık faiz (%), n gündür.
 
-> **Sık yapılan hata:** Tahvili kupon oranıyla iskonto etmek. İskonto oranı her zaman piyasa getirisidir; kupon oranı yalnız nakit akışının tutarını belirler.
+- **Dış (ticari) iskonto:** İ = N × t × n / 36.000
+- **İç (gerçek) iskonto:** İ = N × t × n / (36.000 + t × n); peşin değer = N / (1 + t × n / 36.000)
 
-## 4. Hisse senedi değerlemesi (Gordon modeli)
+**Örnek 5:** 100.000 TL, 90 gün, %40. Dış iskonto 10.000 TL (peşin değer 90.000 TL); iç iskonto 9.090,91 TL (peşin değer 90.909,09 TL). Dış iskonto her zaman daha büyüktür.
 
-Hisse senedinin içsel değeri, gelecekte beklenen kâr paylarının (temettülerin) yatırımcının istediği getiriyle bugüne indirgenmiş toplamıdır. Bu yaklaşıma **temettü indirgeme modeli** denir.
+**Örnek 6 (senet değişimi):** 60 gün vadeli 50.000 TL ile 120 gün vadeli 80.000 TL'lik senet, iç iskontoyla %36 faizden 90 gün vadeli tek senede çevrilecektir.
 
-**Gordon modeli (sabit büyüme modeli)**, kâr payının her yıl sabit g oranında sonsuza kadar büyüyeceğini varsayar:
+1. BD'ler: 50.000 / 1,06 = 47.169,81 TL; 80.000 / 1,12 = 71.428,57 TL; toplam 118.598,38 TL.
+2. Yeni senedin nominali: 118.598,38 × (1 + 0,36 × 90 / 360) = 129.272,24 TL.
 
-- P0 = D1 / (ke − g)
-- D1 = D0 × (1 + g)
+**Hazine bonosu** (kuponsuz, basit faizle): P = N / (1 + r × n / 365). 182 gün vadeli 100 TL nominal bono %36 getiride 84,78 TL'dir.
 
-P0 bugünkü hisse değeri, D0 son ödenmiş kâr payı, D1 gelecek yıl beklenen kâr payı, ke özkaynak maliyeti (istenen getiri), g sabit büyüme oranıdır. Model, literatürdeki yaygın kabulle **D1** (bir sonraki dönemin kâr payı) ile kurulur; bu anlatımda da bu yöntem kullanılmıştır. Modelin geçerlilik şartı ke > g'dir; aksi halde payda sıfır ya da negatif olur ve sonuç anlamsızlaşır.
+## 5. Hisse senedi değerlemesi
 
-### Örnek: Gordon modeliyle hisse değeri
+**Gordon modeli:** P0 = D1 / (ke − g); D1 = D0 × (1 + g); şart ke > g.
 
-Bir şirket geçen yıl hisse başına 2,00 TL kâr payı dağıtmıştır (D0). Kâr payının her yıl yüzde 5 büyümesi, yatırımcıların ise yüzde 15 getiri istemesi beklenmektedir.
+**Örnek 7:** D0 = 2,00 TL, g = %5, ke = %15. D1 = 2,10 TL; P0 = 2,10 / 0,10 = 21,00 TL. Ters çözüm: ke = D1 / P0 + g. g = 0 ise P0 = D / ke.
 
-1. Gelecek yılın kâr payı: D1 = 2,00 × 1,05 = 2,10 TL.
-2. Payda: ke − g = 0,15 − 0,05 = 0,10.
-3. Hisse değeri: P0 = 2,10 / 0,10 = 21,00 TL.
+**Değişken büyüme:** Yüksek büyüme dönemindeki kâr payları tek tek iskonto edilir; sabit büyümenin başladığı yılda Gordon ile uç değer bulunup bugüne indirgenir.
 
-Formül yeniden düzenlenirse ke = D1 / P0 + g elde edilir: piyasa fiyatı biliniyorsa özkaynak maliyeti bu yolla tahmin edilir (2,10 / 21 + 0,05 = yüzde 15). Kâr payı hiç büyümüyorsa (g = 0) model sürekli anüite formülüne dönüşür: P0 = D / ke.
+**Tek dönem getirisi:** k = (D1 + P1 − P0) / P0. Ters çözüm: istenen getiri %20, P0 = 50 TL, D1 = 4 TL ise satış fiyatı P1 = 50 × 1,20 − 4 = 56 TL olmalıdır.
 
-İstisna olarak, ilk yıllarda yüksek, sonra sabit büyüme bekleniyorsa **çok aşamalı (değişken büyüme) model** kullanılır: yüksek büyüme dönemi kâr payları tek tek iskonto edilir, sabit büyüme başladığı noktada Gordon modeliyle bir uç değer bulunur ve bu da bugüne indirgenir.
+**Göreli değerleme:** Hisse, benzer şirketlerin çarpanlarıyla değerlenir: P = sektör F/K × HBK; P = sektör PD/DD × hisse başı özkaynak; firma değeri = sektör FD/FAVÖK × FAVÖK (borç düşülerek özkaynak değerine geçilir). Örnek: HBK 4 TL ve sektör F/K 8 ise 32 TL; hisse başı özkaynak 20 TL ve PD/DD 1,5 ise 30 TL; iki yöntemin ortalaması 31 TL.
 
-> **Sınav ipucu:** Soruda "son dağıtılan" ya da "bu yıl ödenen" kâr payı verilmişse bu D0'dır; önce (1 + g) ile çarpıp D1'i bul. D0'ı doğrudan paya (formülün payına) yazmak örnekte 21,00 TL yerine 20,00 TL gibi yanlış bir sonuç verir.
+> **Sınav ipucu:** "Son dağıtılan" kâr payı D0'dır; önce (1 + g) ile çarp. D0'ı paya yazmak 21 TL yerine 20 TL sonucunu verir.
 
 ### Tasdik uygulama notu
 
-YMM'ler bu araçlarla en çok değerleme ve tespit raporlarında karşılaşır. İştirak payı ya da işletme değerinin raporlandığı çalışmalarda indirgenmiş nakit akışı ve temettü indirgeme yöntemlerinin varsayımları (iskonto oranı, büyüme oranı, uç değer) incelenir. Kontrolde şunlara bakılır: iskonto oranının nakit akışıyla aynı birimde (nominal ya da reel, vergi öncesi ya da sonrası) olması, g'nin ke'den küçük ve uzun vadeli ekonomik büyümeyle tutarlı olması, tahvil ve senet değerlemesinde piyasa getirisinin belgelendirilmesi. Varsayımlar ve hesap tabloları çalışma kâğıtlarında yeniden hesaplanarak doğrulanır.
+YMM'ler bu araçlarla değerleme ve tespit raporlarında, senet ve alacak reeskontunda karşılaşır. İskonto oranının nakit akışıyla aynı birimde (nominal veya reel) olduğu, g'nin ke'den küçük ve uzun vadeli büyümeyle tutarlı olduğu, reeskont hesabında iç iskonto formülünün ve doğru gün sayısının kullanıldığı çalışma kâğıtlarında yeniden hesaplanarak doğrulanır.
 
 ## Özet
 
-- GD = BD × (1 + r)^n; BD = GD / (1 + r)^n. Oran ve dönem aynı birimde olmalıdır.
-- Normal anüitede BD = C × [1 − (1 + r)^(−n)] / r; peşin anüitede sonuç (1 + r) ile çarpılır.
-- Sürekli anüitenin bugünkü değeri C / r'dir; gelecek değeri tanımlı değildir.
-- Tahvil fiyatı, kuponların ve anaparanın piyasa getirisiyle iskonto edilmiş toplamıdır.
-- Piyasa getirisi kupon oranından yüksekse tahvil iskontolu, düşükse primli işlem görür.
-- Gordon modeli: P0 = D1 / (ke − g), şart ke > g; D0 verilmişse önce D1'e geçilir.
-- Değerleme raporlarında iskonto ve büyüme varsayımları yeniden hesaplanarak kontrol edilir.
+- GD = BD × (1 + r)^n; efektif faiz (1 + r/m)^m − 1; Fisher: (1 + i) = (1 + reel)(1 + enflasyon).
+- Peşin anüite × (1 + r); ertelenmiş anüitede ödemesiz dönem ayrıca iskonto edilir; büyüyen anüitede payda r − g'dir.
+- Tahvil fiyatı piyasa getirisiyle bulunur; faiz ile fiyat ters yönlüdür.
+- Düzeltilmiş durasyon = Macaulay / (1 + k); fiyat değişimi ≈ −düzeltilmiş durasyon × Δk × P; farkı konveksite açıklar.
+- Dış iskonto N×t×n/36.000, iç iskonto N×t×n/(36.000 + t×n); senet değişiminde eski senetlerin BD'si yeni vadeye taşınır.
+- Gordon: P0 = D1/(ke − g); göreli değerlemede F/K, PD/DD ve FD/FAVÖK çarpanları kullanılır.

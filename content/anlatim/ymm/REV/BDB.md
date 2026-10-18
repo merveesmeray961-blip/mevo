@@ -2,7 +2,7 @@
 ders: REV
 konu: BDB
 baslik: Birleşme devir bölünme ve tür değişikliği
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu

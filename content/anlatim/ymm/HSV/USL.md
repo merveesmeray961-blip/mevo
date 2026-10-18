@@ -52,7 +52,9 @@ KDV'de vergilendirme dönemi kanunda takvim yılının üçer aylık dönemlerid
 | Damga vergisi (diğer haller) | Kağıdın düzenlendiği tarihi izleyen 15 gün | Aynı süre içinde | DVK md. 22/b |
 | Harçlar | Ayrı beyan yok; işlemden önce | Peşin | Harçlar Kanunu md. 127 |
 
-İşi bırakan mükellefin KDV beyannamesi, işin bırakıldığı tarihi izleyen ayın 24'üncü günü akşamına kadar verilir (KDVK md. 41).
+İşi bırakan mükellefin KDV beyannamesi, işin bırakıldığı tarihi izleyen ayın 24'üncü günü akşamına kadar verilir (KDVK md. 41). Tabloda kanun metnindeki süreler yer alır. Bakanlık VUK'taki yetkisiyle elektronik beyannamelerde süreleri uzatabilir; uygulamada KDV beyan ve ödeme günü izleyen ayın 28'idir. Soru kanun hükmünü soruyorsa kanun süresini yaz.
+
+**Tecil edilen vergide gecikme:** İhraç kaydıyla teslimde süresinde ihraç edilmeyen malın tecil edilen KDV ve ÖTV'si 6183 sayılı Kanun md. 51'e göre gecikme zammıyla, mücbir sebepte md. 48'e göre tecil faiziyle tahsil edilir.
 
 ### Örnek: Aylık KDV ve damga vergisi takvimi
 
@@ -73,7 +75,7 @@ Aylık KDV mükellefi olan ve damga vergisini beyanname ile ödeyen bir şirketi
 
 ### Tanım
 
-**Vergi sorumlusu**, verginin ödenmesi bakımından alacaklı vergi dairesine karşı muhatap olan kişidir. Mükellef ile sorumlu farklıdır: mükellef vergi borcu doğan kişi, sorumlu ise vergiyi beyan edip ödemesi istenen kişidir.
+**Vergi sorumlusu**, verginin ödenmesi bakımından vergi dairesine muhatap olan kişidir; mükellef ise vergi borcunun doğduğu kişidir.
 
 ### Kural
 
@@ -111,12 +113,18 @@ Bir belgenin sahte olduğu; yoklama, karşıt inceleme, ödeme ve nakliye kanıt
 
 Olumsuz rapor veya tespit bulunan mükelleflerin iade talepleri vergi inceleme raporu sonucuna göre yerine getirilir; aşağıdaki katlarda teminat gösterilirse iade yapılır, teminat rapor sonucuna göre çözülür (KDV GUT IV/A2-6 ve 7):
 
-| Olumsuzluk | Sahte belge | Muhteviyatı itibarıyla yanıltıcı belge |
-|---|---|---|
-| Düzenleme raporu | 5 kat | 4 kat |
-| Kullanma raporu | 4 kat | 3 kat |
-| Düzenleme tespiti | 4 kat | 3 kat |
-| Kullanma tespiti (ilgili belgelerdeki KDV için) | 3 kat | 2 kat |
+| Olumsuzluk | Sahte belge | Muhteviyatı itibarıyla yanıltıcı belge | Genel esaslara dönüş süresi (sahte / yanıltıcı) |
+|---|---|---|---|
+| Düzenleme raporu | 5 kat | 4 kat | 5 yıl / 4 yıl |
+| Kullanma raporu | 4 kat | 3 kat | 4 yıl / 3 yıl |
+| Düzenleme tespiti | 4 kat | 3 kat | 4 yıl / 3 yıl |
+| Kullanma tespiti (ilgili belgelerdeki KDV için) | 3 kat | 2 kat | 3 yıl / 2 yıl |
+
+Süreler, inceleme raporuyla iade alınmaya başlanan dönemi izleyen dönemden itibaren başka olumsuzluk çıkmaması şartıyla işler. Olumlu raporun intikali, yargı kararıyla iptal ve kullanma raporunda tarhiyatın (ceza ve faiz dahil) ödenmesi veya teminatlandırılması da genel esaslara dönüşü sağlar.
+
+**VUK md. 153/A:** Münhasıran sahte belge düzenlemek için mükellefiyet tesis ettirdiği raporla tespit edilip kaydı terkin edilenler ve ilgilileri yeniden işe başlarsa, sahte belgelerdeki toplam tutarın %10'u kadar, 2026 için 1.200.000 TL'den az ve 17.000.000 TL'den fazla olmamak üzere teminat aranır (588 Sıra No.lu VUK Genel Tebliği).
+
+**Cezalar:** Vergi ziyaında bir kat vergi ziyaı cezası kesilir; ziya VUK md. 359'daki fiillerle (sahte veya yanıltıcı belge, kayıt dışı satış) yapılmışsa ceza **üç kattır** (VUK md. 344). Akaryakıtın kayıt dışı satışında ÖTV ve KDV bu esasla tarh edilir; fiil ayrıca kaçakçılık suçu olarak değerlendirilir.
 
 ### Örnek: Sahte faturanın KDV beyanına etkisi
 
@@ -132,8 +140,7 @@ Bir şirketin Nisan 2026 döneminde hesaplanan KDV'si 500.000 TL, indirilecek KD
 
 ### İstisnai durum
 
-Sahte belgeye dayalı indirim, inceleme raporu veya mükellefin düzeltme beyanı ile indirilecek KDV'den düşülmüşse, mükellefin sonraki iade talepleri normal usul ve esaslara göre yerine getirilir. Sipariş mektubu veya proforma fatura gibi iadeye esas olmayan belgelerin gerçeğe aykırılığı tek başına olumsuz tespit sayılmaz. Fiilin VUK'taki cezai sonuçları vergi usul hukuku kapsamında ayrıca değerlendirilir.
-
+Sahte belgeye dayalı indirim, inceleme raporu veya mükellefin düzeltme beyanı ile indirilecek KDV'den düşülmüşse, mükellefin sonraki iade talepleri normal usul ve esaslara göre yerine getirilir.
 ### İnceleme uygulama notu
 
 KDV iade tasdikinde YMM, indirilecek KDV listesindeki satıcıları olumsuz rapor ve tespit kayıtlarına göre tarar; olumsuzluk bulunan satıcıdan alımlarda ödeme dekontu, sevk ve nakliye belgesi, stok giriş kaydı gibi delillerle işlemin gerçekliğini belgeler. YMM raporları KDV GUT'a göre "olumsuz rapor" ya da "olumlu rapor" sayılmaz. Tam tasdikte ise sahte alımların toplam alıma oranı izlenir ve %5 sınırı ile tam tasdik sözleşmesinin süresinde düzenlendiği kontrol edilir.

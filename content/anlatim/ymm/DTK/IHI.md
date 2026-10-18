@@ -2,7 +2,7 @@
 ders: DTK
 konu: IHI
 baslik: İhracat ve ithalat işlemleri
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 4458 sayılı Gümrük Kanunu
@@ -84,13 +84,7 @@ Türkiye Gümrük Bölgesine gelen eşyanın **serbest dolaşıma girişi**; tic
 
 İthal eşyasının **gümrük kıymeti** satış bedelidir; yani gerekli düzeltmeler yapılmış, fiilen ödenen veya ödenecek fiyattır (GK md. 24/1). Gümrük vergileri Türk Lirası olarak ödenir (GK md. 200/1). İthalat bedelinin yurt dışına transferi bankalarca yapılır (32 Sayılı Karar md. 9).
 
-### Kayıt örneği
-
-İthalat maliyeti uygulamada önce **159 Verilen Sipariş Avansları** hesabında toplanır, mal girişinde ticari mal hesabına aktarılır:
-
-- Mal bedeli, navlun ve gümrük vergisi ödemeleri: 159 Verilen Sipariş Avansları (borç) / 102 Bankalar (alacak)
-- İthalde ödenen KDV: 191 İndirilecek KDV (borç) / 102 Bankalar (alacak); bu vergi KDVK md. 29/1-b uyarınca indirilebilir
-- Mal girişi: 153 Ticari Mallar (borç) / 159 Verilen Sipariş Avansları (alacak)
+İthalat maliyeti uygulamada önce 159 Verilen Sipariş Avansları hesabında toplanır, mal girişinde 153 Ticari Mallar hesabına aktarılır; ithalde ödenen KDV 191 İndirilecek KDV hesabına alınır (KDVK md. 29/1-b).
 
 ### İstisna
 
@@ -129,6 +123,8 @@ Bir ithalatçı FOB 40.000 ABD Doları bedelle mal almış; deniz navlunu 3.000 
 - **Vesaik mukabili ödeme:** Belgeler bankalar aracılığıyla gönderilir; alıcı bedeli ödeyince belgeleri teslim alır.
 - **Kabul kredili ödeme:** Belgeler, alıcının vadeli poliçeyi kabul etmesi karşılığında teslim edilir.
 - **Akreditifli ödeme:** Bankanın ödeme taahhüdüne dayanır.
+
+Mevzuattaki sayım sınavda doğrudan soruldu (2025/3). **İthalatta** ödeme şekilleri (İthalat Genelgesi 2020/1 md. 2; metni bu klasörde yok, TÜRMOB cevabına göre): akreditifli, vadeli akreditifli, vesaik mukabili, mal mukabili, kabul kredili akreditifli, kabul kredili vesaik mukabili, kabul kredili mal mukabili, bedelsiz ve peşin ödeme. İşlenmemiş kıymetli madenler yalnız peşin, mal mukabili ve bedelsiz ithal edilebilir. **İhracatta** bedel akreditifli, vesaik mukabili, mal mukabili, üç tür kabul kredili ve peşin ödemeyle getirilir; süre fiili ihraçtan itibaren 180 gündür (Tebliğ 2018-32/48 md. 3, ayrıntı KMB konusunda).
 
 ### İstisna
 

@@ -117,11 +117,11 @@ Adam çalıştıran, ödediği tazminat için çalışana ancak onun **bizzat so
 
 Tazminat istemi, zarar görenin **zararı ve tazminat yükümlüsünü öğrendiği** tarihten itibaren **2 yıl** ve her hâlde **fiilin işlendiği** tarihten itibaren **10 yıl** geçmekle zamanaşımına uğrar. Fiil, ceza kanunlarında **daha uzun zamanaşımı** öngörülen bir suç oluşturuyorsa o süre uygulanır.
 
-**Çözümlü örnek:** A ve B'nin birlikte sebep olduğu bir kazada C'nin zararı 200.000 TL'dir. C de kazanın oluşumunda **%25** oranında kusurludur. A'nın kusuru B'ninkinin üç katıdır (iç ilişkide A %75, B %25).
+**Çözümlü örnek:** A ve B'nin birlikte sebep olduğu bir kazada C'nin zararı 200.000 ₺'dir. C de kazanın oluşumunda **%25** oranında kusurludur. A'nın kusuru B'ninkinin üç katıdır (iç ilişkide A %75, B %25).
 
-1. Müterafik kusur indirimi (md. 52): 200.000 × %75 = **150.000 TL** tazminat.
-2. Dış ilişki (md. 61): C, 150.000 TL'nin tamamını A'dan da B'den de isteyebilir.
-3. B tamamını öderse iç ilişkide kendi payı 150.000 × %25 = 37.500 TL'dir; fazlası olan **112.500 TL** için A'ya **rücu** eder ve C'nin haklarına halef olur (md. 62).
+1. Müterafik kusur indirimi (md. 52): 200.000 × %75 = **150.000 ₺** tazminat.
+2. Dış ilişki (md. 61): C, 150.000 ₺'nin tamamını A'dan da B'den de isteyebilir.
+3. B tamamını öderse iç ilişkide kendi payı 150.000 × %25 = 37.500 ₺'dir; fazlası olan **112.500 ₺** için A'ya **rücu** eder ve C'nin haklarına halef olur (md. 62).
 4. Kaza 1 Mart 2024'te oldu; C, zararı ve sorumluları 1 Haziran 2024'te öğrendi. Zamanaşımı **1 Haziran 2026**'da dolar (10 yıllık üst sınır 1 Mart 2034'tür; daha uzun ceza zamanaşımı varsa o uygulanır).
 
 > **Sınav ipucu:** Haksız fiilde borçlu, **fiilin işlendiği tarihte** ihtara gerek olmadan temerrüde düşer (md. 117/2); faiz o tarihten işler. "Haksız fiilde temerrüt için ihtar gerekir" şıkkı yanlıştır.

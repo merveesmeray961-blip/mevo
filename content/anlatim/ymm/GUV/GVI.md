@@ -9,6 +9,9 @@ kaynaklar:
     madde: md. 21
     alinti: "edilmemesi veya eksik beyan edilmesi halinde, bu istisnadan yararlanılamaz."
   - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 22/4
+    alinti: "ödenmiş sermayesinin en az %50’sine sahip olunması ve kâr payının elde edildiği takvim"
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
     madde: md. 88
     alinti: "müteakip yılların gelirinden indirilir. Arka arkaya beş yıl içinde mahsup edilmeyen zarar"
   - mevzuat: Gelir Vergisi Genel Tebliği (Seri No 332)
@@ -18,66 +21,65 @@ kaynaklar:
     madde: md. 92
     alinti: "izleyen yılın Mart ayının başından yirmibeşinci günü akşamına kadar"
   - mevzuat: 193 sayılı Gelir Vergisi Kanunu
-    madde: md. 117
-    alinti: "üzerinden tahakkuk ettirilen gelir vergisi, Mart ve Temmuz aylarında olmak üzere iki eşit"
-  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
     madde: md. 94
     alinti: "sırada, istihkak sahiplerinin gelir vergilerine mahsuben tevkifat yapmaya mecburdurlar."
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: mükerrer md. 120
+    alinti: "Hesaplanan geçici vergi, üç aylık dönemi izleyen ikinci ayın ondördüncü günü"
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 121
+    alinti: "Kanuna göre kesilmiş bulunan vergiler, beyanname üzerinden hesaplanan Gelir Vergisine"
 ---
 ## Bu konuda neler öğreneceksin
 
 - Muafiyet ile istisnayı ayırmayı ve 2026 yılı istisna tutarlarını
 - Gelirin toplanmasını, beyan dışı kalan gelirleri, zarar mahsubunu ve beyandan yapılan indirimleri
-- 2026 yılı gelir vergisi tarifesini uygulamayı
-- Yıllık beyanname ve ödeme sürelerini
-- Vergi tevkifatının kapsamını ve muhtasar beyan sürelerini
+- 2026 gelir vergisi tarifesini uygulamayı, beyan ve ödeme sürelerini
+- Vergi tevkifatının (GVK md.94) kapsamını ve uygulamadaki oranları
+- Geçici vergiyi hesaplamayı ve yıllık vergiden mahsup ile iadeyi
 
 ## 1. Muafiyet ve istisnalar
 
-**Muafiyet** kişiye bağlıdır: şartları taşıyan kişi vergi mükellefiyeti dışında kalır. **İstisna** ise belirli bir gelire bağlıdır: mükellefiyet devam eder, yalnız o gelir veya gelirin bir kısmı vergilendirilmez.
+**Muafiyet** kişiye bağlıdır: şartları taşıyan kişi mükellefiyet dışında kalır. **İstisna** gelire bağlıdır: mükellefiyet sürer, yalnız o gelir vergilenmez. 193 sayılı Gelir Vergisi Kanunu (GVK) md. 9'daki **esnaf muaflığı** tipik muafiyettir; evde üretilen malların internetten satışında hasılat sınırı 2026 için 1.900.000 TL'dir.
 
-193 sayılı Gelir Vergisi Kanunu (GVK) md. 9'daki **esnaf muaflığı** bunun tipik örneğidir: motorlu araç kullanmadan gezici perakende ticaret yapanlar, bir işyeri açmaksızın gezici çalışan küçük sanat erbabı ve evde imal ettikleri malları internet üzerinden satanlar muaftır. Md. 9/10 kapsamında internet ve benzeri elektronik ortamlardan yapılan satış hasılatı sınırı 2026 yılı için 1.900.000 TL'dir (332 Seri No.lu GV Genel Tebliği). Gerçek usulde gelir vergisine tabi olanlar ve bu işleri gelir ve kurumlar vergisi mükelleflerine bağlı olarak yapanlar muaflıktan yararlanamaz; muaflık için Esnaf Muaflığı Belgesi alınır.
-
-Sınavda en çok sorulan istisnalar ve 2026 tutarları:
-
-| İstisna | Dayanak | 2026 |
+| İstisna (2026) | Dayanak | Tutar |
 |---|---|---|
 | Mesken kira hasılatı | md. 21 | 58.000 TL |
-| İşyerinde yemek verilmeyen günlerde günlük yemek bedeli | md. 23/8 | 300 TL |
-| Toplu taşıma kartı ile sağlanan günlük ulaşım bedeli | md. 23/10 | 158 TL |
+| Yemek verilmeyen günlerde günlük yemek bedeli | md. 23/8 | 300 TL |
+| Toplu taşıma için günlük ulaşım bedeli | md. 23/10 | 158 TL |
 | Değer artışı kazançları | mükerrer md. 80 | 150.000 TL |
 | Arızi kazançlar | md. 82 | 350.000 TL |
 
 Kaynak: 332 Seri No.lu GV Genel Tebliği md. 3.
 
-**Telif kazançları istisnası** (md. 18), müellif, ressam, bilgisayar programcısı ve mucitlerin eserlerinden elde ettiği hasılatı kapsar. Bu kazançların toplamı tarifenin dördüncü gelir dilimindeki tutarı aşanlar istisnadan yararlanamaz; istisnanın md. 94'e göre yapılacak tevkifata şümulü yoktur. Ücretlilerde ayrıca **engellilik indirimi** (md. 31) uygulanır; 2026 yılı için aylık tutarlar birinci derece 12.000 TL, ikinci derece 7.000 TL, üçüncü derece 3.000 TL'dir.
+**Kâr payında yarı istisna**: tam mükellef kurumlardan alınan kâr paylarının yarısı istisnadır; kesinti istisna kısım dahil brüt üzerinden yapılır ve tamamı yıllık beyannamede mahsup edilir (md. 22/3). Yurt dışı anonim ve limited şirketlerden alınan kâr payının yarısı, ödenmiş sermayenin en az %50'sine sahip olunması ve beyanname tarihine kadar Türkiye'ye transfer şartıyla istisnadır (md. 22/4); 11257 sayılı Cumhurbaşkanı Kararı (CBK) 2026'dan itibaren sahiplik oranını **%20**'ye indirmiştir.
 
-İstisnanın da istisnası vardır: mesken istisnası, istisna haddinin üzerinde hasılat elde edilip beyan edilmemesi veya eksik beyan edilmesi halinde kaybedilir. Ticari, zirai veya mesleki kazancını yıllık beyanname ile bildirmek zorunda olanlar ile istisna haddinin üzerinde hasılat elde edip ücret, menkul ve gayrimenkul sermaye iradı ve diğer kazanç ve iratlarının gayrisafi toplamı tarifenin üçüncü diliminde ücret gelirleri için yer alan tutarı (2026 tarifesinden okunan tutar 1.500.000 TL) aşanlar da mesken istisnasından yararlanamaz (md. 21).
+**Telif kazançları istisnası** (md. 18) müellif, ressam, bestekâr, programcı ve mucitlerin eserlerinden doğan hasılatı kapsar; bu kazançları tarifenin dördüncü gelir dilimindeki tutarı (2026: 5.300.000 TL) aşanlar yararlanamaz ve istisna md. 94 tevkifatını kaldırmaz. 7582 sayılı Kanunla eklenen mükerrer md. 20/D'ye göre, 1/1/2026'dan itibaren Türkiye'ye yerleşmiş sayılan ve öncesindeki son üç takvim yılında Türkiye'de ikametgâhı ve mükellefiyeti bulunmayan kişilerin yurt dışı kazançları yirmi yıl boyunca istisnadır.
 
-> **Sık yapılan hata:** Ticari kazancı için beyanname veren bir tacirin konut kira gelirinden 58.000 TL istisna düşmek. Md. 21'in ikinci fıkrası bu kişileri istisnanın dışında tutar.
+**Mesken istisnasının istisnası** (md. 21): istisna haddi üzerinde hasılat beyan edilmez veya eksik beyan edilirse istisna kaybedilir. Ticari, zirai veya mesleki kazancını yıllık beyanla bildirmek zorunda olanlar ile ücret, menkul ve gayrimenkul sermaye iradı ve diğer kazançlarının gayrisafi toplamı tarifenin üçüncü diliminde ücretler için yer alan tutarı (2026 tarifesinden 1.500.000 TL) aşanlar yararlanamaz.
+
+> **Sık yapılan hata:** Ticari kazancı için beyanname veren tacirin konut kirasından 58.000 TL istisna düşmek. Md. 21'in ikinci fıkrası bu kişileri dışarıda tutar.
 
 ## 2. Gelirin toplanması ve indirimler
 
-Mükellefler md. 2'deki kaynaklardan bir takvim yılında elde ettikleri kazanç ve iratlar için yıllık beyanname verir ve beyanı gereken gelirleri bu beyannamede toplar (md. 85). Tacirler, çiftçiler ve serbest meslek erbabı kazanç elde etmeseler bile beyanname verir.
+Beyanı gereken gelirler yıllık beyannamede toplanır (md. 85). Md. 86'ya göre şunlar beyana girmez:
 
-Md. 86 toplamaya girmeyen gelirleri sayar. Başlıcaları:
+- Gerçek usulde vergilenmeyen zirai kazançlar ve istisna hadleri içinde kalan kazançlar,
+- Tek işverenden alınan, tevkif edilmiş ve tarifenin dördüncü dilim tutarını (2026: 5.300.000 TL) aşmayan ücretler; birden fazla işverende ikinci ve sonraki işverenlerden alınanlar toplamı ikinci dilim tutarını (400.000 TL) ve toplam ücret dördüncü dilim tutarını aşmıyorsa bütün ücretler,
+- Vergiye tabi gelir toplamı ikinci dilim tutarını (400.000 TL) aşmamak şartıyla tevkif edilmiş birden fazla işverenden ücret, menkul ve gayrimenkul sermaye iratları,
+- Tevkifata ve istisnaya konu olmayan, toplamı 2026 için 22.000 TL'yi aşmayan menkul ve gayrimenkul sermaye iratları.
 
-- Gerçek usulde vergilendirilmeyen zirai kazançlar ve istisna hadleri içinde kalan kazançlar,
-- Tek işverenden alınan, tevkif yoluyla vergilendirilmiş ve tarifenin dördüncü gelir diliminde yer alan tutarı (2026 tarifesinde 5.300.000 TL) aşmayan ücretler; birden fazla işverenden ücret alınıyorsa, ikinci ve sonraki işverenlerden alınanların toplamı ikinci dilim tutarını, birinci işveren dahil toplam ücret dördüncü dilim tutarını aşmıyorsa ücretlerin tamamı beyana girmez,
-- Vergiye tabi gelir toplamı (a ve b bentlerindekiler hariç) tarifenin ikinci gelir diliminde yer alan tutarı (2026 tarifesinde 400.000 TL) aşmamak koşuluyla Türkiye'de tevkifata tabi tutulmuş birden fazla işverenden ücretler, menkul ve gayrimenkul sermaye iratları,
-- Tevkifata ve istisnaya konu olmayan ve toplamı 2026 yılı için 22.000 TL'yi aşmayan menkul ve gayrimenkul sermaye iratları.
+Kanun (b) ve (c) bentlerinde rakam değil dilim tutarına atıf yapar; parantezdeki tutarlar 2026 tarifesinden okunmuştur.
 
-Dikkat: Kanun (b) ve (c) bentlerinde rakam vermez, "tarifenin dördüncü/ikinci gelir diliminde yer alan tutar" ifadesini kullanır. Parantezdeki 5.300.000 TL ve 400.000 TL, 332 Seri No.lu Tebliğdeki 2026 tarifesinde ilgili dilimin üst sınırı esas alınarak yapılan bir okumadır; Tebliğ bu sınırları ayrıca rakamla ilan etmez. Yalnız (d) bendindeki 22.000 TL Tebliğde doğrudan yazılıdır.
+**Zarar mahsubu** (md. 88): bir kaynağın zararı diğer kaynakların kazancından düşülür; diğer kazanç ve iratlardan doğan zararlar mahsup edilemez. Kapatılmayan zarar en çok beş yıl taşınır.
 
-**Zarar mahsubu** (md. 88): Bir gelir kaynağından doğan zarar diğer kaynakların kazancına mahsup edilir; ancak diğer kazanç ve iratlardan (md. 80) doğan zararlar mahsup edilemez. Kapatılmayan zarar sonraki yıllara devreder; arka arkaya beş yıl içinde mahsup edilmeyen zarar bakiyesi sonraki yıllara nakledilemez.
-
-**Beyan edilen gelirden indirimler** (md. 89) şunlardır: beyan edilen gelirin %15'i ve asgari ücretin yıllık tutarı ile sınırlı şahıs sigorta primleri (hayat sigortasında primin %50'si); beyan edilen gelirin %10'unu aşmayan eğitim ve sağlık harcamaları; gelirin %5'ini (kalkınmada öncelikli yörelerde %10'unu) aşmayan bağışlar; amatör spor dallarında tamamı, profesyonel spor dallarında %50'si indirilecek sponsorluk harcamaları. Buna karşılık gelir vergisi, vergi cezaları, gecikme zamları ve gecikme faizleri matrahtan indirilmez (md. 90).
+**Beyan edilen gelirden indirimler** (md. 89): beyan edilen gelirin %15'i ve asgari ücretin yıllık tutarıyla sınırlı şahıs sigorta primleri (hayat sigortasında primin %50'si); gelirin %10'unu aşmayan eğitim ve sağlık harcamaları; %5'ini (kalkınmada öncelikli yörede %10) aşmayan bağışlar; sponsorluk harcamaları; yurt dışına verilen mimarlık, mühendislik, yazılım gibi hizmetlerden doğan kazancın Kanun metnine göre %80'i (md. 89/13; 11257 sayılı CBK ile 2026'dan itibaren %100). Gelir vergisi, vergi cezaları, gecikme zammı ve faizi indirilemez (md. 90).
 
 ## 3. Vergi tarifesi
 
-GVK md. 103'teki artan oranlı tarifenin gelir dilimleri her yıl yeniden değerleme oranında güncellenir. 2026 takvim yılı gelirlerine uygulanacak tarife 332 Seri No.lu GV Genel Tebliği ile şöyle belirlenmiştir:
+2026 takvim yılı gelirlerine uygulanacak tarife (332 Seri No.lu Tebliğ):
 
-| Gelir dilimi (ücret dışı) | Vergi | Ücret gelirlerinde fark |
+| Gelir dilimi (ücret dışı) | Oran | Ücret gelirlerinde fark |
 |---|---|---|
 | 190.000 TL'ye kadar | %15 | Aynı |
 | 400.000 TL'nin 190.000 TL'si için 28.500 TL, fazlası | %20 | Aynı |
@@ -85,55 +87,63 @@ GVK md. 103'teki artan oranlı tarifenin gelir dilimleri her yıl yeniden değer
 | 5.300.000 TL'nin 1.000.000 TL'si için 232.500 TL, fazlası | %35 | 1.500.000 TL'si için 367.500 TL |
 | 5.300.000 TL'den fazlasının 5.300.000 TL'si için 1.737.500 TL, fazlası | %40 | 5.300.000 TL'si için 1.697.500 TL |
 
-Yıllık vergi, gelirlerin yıllık toplamından md. 31'deki indirimler düşüldükten sonra bu nispetler uygulanarak hesaplanır; ücretlerde aylık vergi, yıllık verginin 12'ye bölünmesiyle bulunur (md. 104).
+### Örnek: Konut kira geliri
 
-### Örnek: Konut kira geliri ve tarife
+Bay (B)'nin 2026'daki tek geliri 400.000 TL konut kirasıdır; götürü gider seçmiş, 20.000 TL belgeli sağlık harcaması yapmıştır.
 
-Bay (B)'nin 2026 yılında tek geliri konut kirasıdır; tahsil ettiği hasılat 400.000 TL'dir. Götürü gider usulünü seçmiştir ve 20.000 TL belgeli sağlık harcaması yapmıştır.
-
-1. Mesken istisnası: 400.000 − 58.000 = 342.000 TL vergiye tabi hasılat.
-2. Götürü gider (md. 74 istisnaya isabet eden gideri dışarıda bıraktığı için istisna sonrası hasılata uygulanır): 342.000 × %15 = 51.300 TL.
-3. Safi irat: 342.000 − 51.300 = 290.700 TL.
-4. Sağlık harcaması sınırı: 290.700 × %10 = 29.070 TL; harcamanın tamamı (20.000 TL) indirilir. Matrah: 290.700 − 20.000 = 270.700 TL.
-5. Vergi: 28.500 + (270.700 − 190.000) × %20 = 28.500 + 16.140 = 44.640 TL.
-6. Ödeme: 44.640 / 2 = 22.320 TL Mart'ta, 22.320 TL Temmuz'da.
-
-> **Sınav ipucu:** Ücret dilimleri yalnız üçüncü dilimden itibaren ayrışır; ilk iki dilimde ücret ile diğer gelirler aynı tutar ve oranla vergilendirilir.
+1. Vergiye tabi hasılat: 400.000 − 58.000 = 342.000 TL (gayrisafi toplam 1.500.000 TL'nin altında olduğundan istisna uygulanır).
+2. Götürü gider istisna sonrası hasılata uygulanır (md. 74): 342.000 × %15 = 51.300 TL; safi irat 290.700 TL.
+3. Sağlık harcaması sınırı 29.070 TL; 20.000 TL'nin tamamı indirilir. Matrah 270.700 TL.
+4. Vergi: 28.500 + 80.700 × %20 = 44.640 TL; Mart ve Temmuz'da 22.320'şer TL ödenir.
 
 ## 4. Beyan ve ödeme
 
-Gelir vergisi, aksine hüküm olmadıkça mükellefin veya vergi sorumlusunun **beyanı** üzerine tarh edilir (md. 83). Beyanname türleri yıllık, muhtasar ve münferittir (md. 84).
-
 | Durum | Beyan süresi | Ödeme |
 |---|---|---|
-| Yıllık beyanname (md. 92, 117) | İzleyen yılın Mart ayının başından 25'inci günü akşamına kadar | Mart ve Temmuz aylarında iki eşit taksit |
-| Memleketi terk (md. 92) | Terkten önceki 15 gün içinde | |
-| Ölüm (md. 92) | Ölüm tarihinden itibaren 4 ay içinde | |
-| Münferit beyanname (md. 101, 120) | Serbest meslekte faaliyetin sona erdiği, diğerlerinde kazancın iktisap edildiği tarihten itibaren 15 gün içinde | Beyanname verme süresi içinde |
+| Yıllık beyanname (md. 92, 117) | İzleyen yılın Mart ayının 1–25'i | Mart ve Temmuz'da iki eşit taksit |
+| Memleketi terk (md. 92) | Terkten önceki 15 gün | Beyan süresi içinde |
+| Ölüm (md. 92) | Ölümden itibaren 4 ay | |
+| Münferit beyanname (md. 101, 120) | Kazancın elde edildiği tarihten itibaren 15 gün | Beyan süresi içinde |
 
-Münferit beyanname, dar mükelleflerin yıllık beyanname ile bildirmeye mecbur olmadıkları ve vergisi tevkif yoluyla alınmamış kazançları için verilir.
+Münferit beyanname, dar mükelleflerin yıllık beyana girmeyen ve vergisi kesilmemiş kazançları için verilir.
 
 ## 5. Tevkifat (GVK md.94)
 
-**Vergi tevkifatı**, gelir vergisinin geliri ödeyen tarafından kesilip istihkak sahibi adına vergi dairesine yatırılmasıdır. Kamu idare ve müesseseleri, sair kurumlar, ticaret şirketleri, iş ortaklıkları, dernek ve vakıflar ile bunların iktisadi işletmeleri, kooperatifler, yatırım fonu yönetenler, gerçek gelirini beyan eden ticaret ve serbest meslek erbabı ile zirai kazancını bilanço veya zirai işletme hesabı esasına göre tespit eden çiftçiler md. 94'te sayılan ödemeleri (avans dahil) nakden veya hesaben yaptıkları sırada tevkifat yapmak zorundadır. Kapsamdaki başlıca ödemeler ücretler, serbest meslek ödemeleri, yıllara yaygın inşaat istihkakları, kira ödemeleri, kâr payları, faizler ve çiftçilerden alınan zirai mahsul bedelleridir.
+**Vergi tevkifatı**, verginin ödemeyi yapan tarafından kesilip istihkak sahibi adına yatırılmasıdır. Kamu idareleri, ticaret şirketleri, iş ortaklıkları, dernek ve vakıflar, kooperatifler, gerçek usulde ticaret ve serbest meslek erbabı ile bilanço veya zirai işletme hesabı esasındaki çiftçiler, md. 94'teki ödemeleri avans dahil **nakden veya hesaben** yaptıkları sırada kesinti yapar. Tüccar, serbest meslek erbabı ve çiftçinin yükümlülüğü yalnız işleriyle ilgili ödemelerle sınırlıdır.
 
-Ücretlerde tevkifat md. 103 ve 104'e göre tarifeyle yapılır. Kanun metni diğer bentler için %25 oranını öngörür; ancak Cumhurbaşkanı bu oranı her ödeme ve gelir için ayrı ayrı sıfıra kadar indirmeye veya bir katına kadar artırmaya yetkilidir ve uygulanan oranlar Cumhurbaşkanı kararlarıyla belirlenir. Cumhurbaşkanınca ilan edilen ülkelerde yerleşik veya faaliyette bulunanlara yapılan ödemelerde kanuni kesinti oranı %30'dur; Cumhurbaşkanı bu oranı da ödeme türü, faaliyet konusu veya sektör itibarıyla sıfıra kadar indirebilir.
+Ücretlerde kesinti tarifeyle yapılır. Diğer oranları Cumhurbaşkanı belirler; uygulamada sınavda en çok karşılaşılanlar: serbest meslek ödemeleri %20, md. 18 kapsamındaki telif ödemeleri %17, gayrimenkul kirası %20 (2009/14592 sayılı BKK), kâr payı dağıtımı %15 (9286 sayılı CBK, 22/12/2024'ten itibaren), yıllara yaygın inşaat hakedişi %5, raylı sistem ve gemi inşaatında %1 (9707 sayılı CBK). İlan edilen ülkelerdeki kişilere ödemelerde kanuni oran %30'dur.
 
-Tevkifat, ücretler dışında **gayrisafi tutar** üzerinden yapılır; vergi ödeyen tarafından üstlenilirse matrah, net ödeme ile üstlenilen verginin toplamıdır (md. 96). Hesaben ödeme, ödeyeni istihkak sahibine borçlu gösteren her türlü kayıttır. Serbest meslek ödemesinde kayıt: **770 Genel Yönetim Giderleri** brüt tutarla borç; **360 Ödenecek Vergi ve Fonlar** kesilen vergiyle alacak; **102 Bankalar** net ödemeyle alacak.
+Kesinti **gayrisafi tutar** üzerinden yapılır; vergiyi ödeyen üstlenirse matrah net ödeme ile verginin toplamıdır (md. 96): brüt = net / (1 − oran). Serbest meslek ödemesinin kaydı: **770 Genel Yönetim Giderleri** brüt borç; **360 Ödenecek Vergi ve Fonlar** kesinti alacak; **102 Bankalar** net alacak. Kesintiler ertesi ayın 23'üne kadar muhtasarla bildirilir (md. 98) ve beyan ayının 26'sına kadar ödenir (md. 119); muhtasar ve prim hizmet beyannamesinin zamanını belirlemeye Bakanlık yetkilidir (md. 98/A), uygulamada beyan da 26'ya kadar yapılır.
 
-Kesilen vergiler ertesi ayın 23'üncü günü akşamına kadar muhtasar beyannameyle bildirilir (md. 98) ve aynı ayın 26'ncı günü akşamına kadar ödenir (md. 119). Zirai ürün bedelleri üzerinden tevkifat yapanlar hariç, 10 veya daha az hizmet erbabı çalıştıranlar vergi dairesine önceden bildirerek beyannamelerini Ocak, Nisan, Temmuz ve Ekim aylarında verebilir.
+## 6. Geçici vergi ve mahsup
 
-Muhtasar ve prim hizmet beyannamesinin verilme zamanını belirlemeye Bakanlık yetkilidir (md. 98/A). Tüccar, serbest meslek erbabı ve çiftçilerin tevkifat yükümlülüğü ise yalnız ticari, mesleki ve zirai işleriyle ilgili ödemeleriyle sınırlıdır.
+Ticari kazanç sahipleri ile serbest meslek erbabı, cari yılın vergisine mahsup edilmek üzere **üçer aylık** dönem kazançları üzerinden tarifenin ilk dilim oranında (%15) **geçici vergi** öder (mükerrer md. 120). Yıllara yaygın inşaat kazançları ve noterlik kazançları matraha girmez; VUK değerleme hükümleri ve GVK indirim ve istisnaları dikkate alınır. 7566 sayılı Kanunla "ilk dokuz ayı için belirlenen" ibaresi çıkarılmıştır (değişiklik cetveline göre 1/1/2025'ten itibaren başlayan dönemlere ilişkin beyannamelere uygulanır); böylece dördüncü dönem için de geçici vergi hesaplanır.
+
+- Beyan: dönemi izleyen ikinci ayın 14'ü; ödeme: aynı ayın 17'si. Aynı dönemde tevkif edilen vergiler (md. 42 kazançlarından kesilenler hariç) geçici vergiden mahsup edilir.
+- İncelemede geçici verginin %10'u aşan tutarda eksik beyan edildiği tespit edilirse ikmalen veya re'sen tarhiyat yapılır; mahsup süresi geçince geçici vergi terkin edilir, gecikme faizi ve ceza alınır.
+- Geçici vergi yıllık beyanname üzerinden hesaplanan vergiden mahsup edilir; kalan diğer vergi borçlarına mahsup edilir; yine kalırsa o yılın sonuna kadar yazılı talep hâlinde iade edilir.
+- Yıllık beyandaki gelire dahil kazançlardan kesilen vergiler de mahsup edilir; fazlası, bildirim tarihinden itibaren bir yıl içinde başvurulursa iade edilir (md. 121).
+
+### Örnek: Geçici vergi ve yıllık mahsup
+
+Tacir (T)'nin 2026 kümülatif kazançları: 1. dönem 400.000; 2. dönem 900.000; 3. dönem 1.300.000; 4. dönem 1.800.000 TL. Yıllık kazanç 1.800.000 TL'dir, başka geliri yoktur.
+
+1. Geçici vergiler kümülatif hesaplanır, önceki ödemeler düşülür: 60.000; 135.000 − 60.000 = 75.000; 195.000 − 135.000 = 60.000; 270.000 − 195.000 = 75.000 TL. Toplam 270.000 TL.
+2. Yıllık vergi: 232.500 + 800.000 × %35 = 512.500 TL.
+3. Mahsup: 512.500 − 270.000 = 242.500 TL ödenir; geçici vergi yıllık vergiyi aşsaydı fark diğer borçlara mahsup edilir, kalanı yıl sonuna kadar istenirse iade edilirdi.
+
+> **Sınav ipucu:** Matrah tablosunda tevkifat ve geçici vergi mahsubunu ayrı satırlarda göster. İstisnalı kâr payında kesinti brüt kâr payının tamamından yapılır ve tamamı mahsup edilir; ödenecek vergi negatifse iade yolunu yaz.
 
 ### Tasdik uygulama notu
 
-Tam tasdikte yeminli mali müşavir (YMM), muhtasar beyannamelerdeki matrahları yevmiye kayıtlarındaki gider hesaplarıyla karşılaştırır. Kira, serbest meslek ve ücret giderlerinde hesaben ödeme tarihinde tevkifat yapılıp yapılmadığı, 360 hesabının bakiyesinin izleyen ay tahakkuk ve ödemeleriyle uyumu kontrol edilir. Gerçek kişi mükellefin yıllık beyannamesinde ise istisna hadleri, md. 86 kapsamında beyan dışı bırakılan gelirler ve md. 89 indirimlerinin yasal sınırları belge üzerinden doğrulanır.
+Tam tasdikte yeminli mali müşavir (YMM), muhtasar beyannamelerdeki matrahları gider hesaplarıyla karşılaştırır; kira, serbest meslek ve ücret giderlerinde hesaben ödeme tarihinde kesinti yapılıp yapılmadığını ve 360 hesabının izleyen ay ödemeleriyle uyumunu kontrol eder. Geçici vergi beyannamelerinin dönem matrahlarını mizanlarla, yıllık beyandaki mahsup ve iade tutarlarını tahakkuk ve ödeme belgeleriyle doğrular; iade talebinde YMM raporu aranabilir (md. 121).
 
 ## Özet
 
-- Muafiyet kişiye, istisna gelire bağlıdır; 2026 yılı için mesken 58.000 TL, değer artışı 150.000 TL, arızi kazanç 350.000 TL istisnası uygulanır.
-- Beyanı gereken gelirler yıllık beyannamede toplanır; md. 86'daki ücret ve sermaye iratları belirli dilim tutarlarını aşmadıkça beyana girmez.
-- Gelir kaynakları arasında zarar mahsubu yapılır; mahsup edilemeyen zarar en çok beş yıl taşınır.
-- 2026 tarifesi %15'ten %40'a kadar beş dilimlidir; ücret dilimleri üçüncü dilimden itibaren farklılaşır.
-- Yıllık beyanname Mart'ın 1–25'i arasında verilir, vergi Mart ve Temmuz'da iki eşit taksitte ödenir.
-- Md. 94 tevkifatı gayrisafi tutar üzerinden yapılır; muhtasar ertesi ayın 23'ünde verilir, vergi 26'sında ödenir.
+- Muafiyet kişiye, istisna gelire bağlıdır; 2026 için mesken 58.000 TL, değer artışı 150.000 TL, arızi kazanç 350.000 TL istisnası vardır.
+- Yurt içi kâr payının yarısı istisnadır; yurt dışı kâr payında 2026'dan itibaren %20 pay ve transfer şartıyla yarı istisna uygulanır.
+- Md. 86'daki ücret ve sermaye iratları dilim tutarlarını aşmadıkça beyana girmez; zarar en çok beş yıl taşınır.
+- 2026 tarifesi %15–%40 arası beş dilimlidir; ücret dilimleri üçüncü dilimden itibaren ayrışır.
+- Yıllık beyanname Mart'ın 1–25'inde verilir, vergi Mart ve Temmuz'da ödenir.
+- Tevkifat brüt tutar üzerinden yapılır; kira ve serbest meslekte %20, kâr payında %15 uygulanır.
+- Geçici vergi üçer aylık kümülatif kazancın %15'idir; ikinci ayın 14'ünde beyan, 17'sinde ödenir ve yıllık vergiden mahsup edilir.

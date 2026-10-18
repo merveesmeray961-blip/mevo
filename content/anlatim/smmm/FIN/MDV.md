@@ -54,7 +54,7 @@ kaynaklar:
 ## Bu konuda neler öğreneceksin
 
 - 25 ve 26 gruplarındaki hesaplar ve aktifleştirme ile gider ayrımı
-- 2026 için doğrudan gider yazma sınırı (12.000 TL), özel maliyetler ve yapılmakta olan yatırımlar
+- 2026 için doğrudan gider yazma sınırı (12.000 ₺), özel maliyetler ve yapılmakta olan yatırımlar
 - Eşit tutar, azalan bakiyeler ve üretim miktarı yöntemleriyle amortisman
 - Duran varlık satışı, takası, yenileme fonu (549) ve sigorta hasarı
 - Haklar, şerefiye, kuruluş giderleri ve Ar-Ge (TMS 38)
@@ -92,7 +92,7 @@ VUK md. 272'ye göre normal bakım, tamir ve temizlik dışında, gayrimenkulü 
 | Periyodik yağ değişimi, boya, küçük tamir | Gider |
 | Kamyonun motorunun yenisiyle değiştirilmesi | Maliyete eklenir |
 
-**Doğrudan gider yazma sınırı:** VUK md. 313'e göre 2026 yılında değeri **12.000 TL'yi** aşmayan alet, edevat, mefruşat, demirbaş ve peştemallıklar amortismana tabi tutulmadan doğrudan gider yazılabilir. İktisadi ve teknik bütünlük arz edenlerde (örneğin aynı takımı oluşturan sandalyeler) sınır topluca dikkate alınır.
+**Doğrudan gider yazma sınırı:** VUK md. 313'e göre 2026 yılında değeri **12.000 ₺'yi** aşmayan alet, edevat, mefruşat, demirbaş ve peştemallıklar amortismana tabi tutulmadan doğrudan gider yazılabilir. İktisadi ve teknik bütünlük arz edenlerde (örneğin aynı takımı oluşturan sandalyeler) sınır topluca dikkate alınır.
 
 ### Özel maliyetler (264)
 
@@ -102,7 +102,7 @@ Kiralanan gayrimenkulün değerini sürekli artırmak için kiracının yaptığ
 
 İnşası veya montajı süren yatırımların malzeme, işçilik ve genel giderleri 258'e borç yazılır. Yatırım tamamlanınca ilgili hesaba aktarılır: 252 Binalar borç, 258 alacak. 258'deki tutarlar için **amortisman ayrılmaz**; amortisman, varlık aktife girince başlar.
 
-> **Sınav ipucu:** "12.000 TL" sınırı 2026 tutarıdır ve tek tek bakılmaz; iktisadi ve teknik bütünlük varsa toplam değere bakılır. Yıl verilmeyen eski soru kalıplarında farklı tutarlar geçebilir; soruda hangi yılın sorulduğuna dikkat et.
+> **Sınav ipucu:** "12.000 ₺" sınırı 2026 tutarıdır ve tek tek bakılmaz; iktisadi ve teknik bütünlük varsa toplam değere bakılır. Yıl verilmeyen eski soru kalıplarında farklı tutarlar geçebilir; soruda hangi yılın sorulduğuna dikkat et.
 
 ## 3. Amortisman yöntemleri
 
@@ -114,13 +114,13 @@ VUK md. 315'e göre Hazine ve Maliye Bakanlığının faydalı ömürlere göre 
 
 ### Azalan bakiyeler
 
-VUK mükerrer md. 315'e göre yalnız **bilanço esasına göre defter tutanlar** seçebilir. Oran, normal oranın **iki katıdır ama %50'yi geçemez**. Her yıl net değer (maliyet - birikmiş amortisman) üzerinden hesaplanır; süre normal amortisman süresidir ve son yıla devreden bakiye o yıl tamamen yok edilir.
+VUK mükerrer md. 315'e göre yalnız **bilanço esasına göre defter tutanlar** seçebilir. Oran, normal oranın **iki katıdır ama %50'yi geçemez**. Her yıl net değer (maliyet - birikmiş amortisman) üzerinden hesaplanır; süre normal amortisman süresidir ve son yıla devreden bakiye o yıl tamamen yok edilir. VUK mükerrer md. 320'ye göre azalan bakiyelerden normal amortismana geçilebilir, ancak normal amortismana başlanmış bir varlıkta azalan bakiyelere dönülemez.
 
 ### Üretim miktarı
 
 Yıllık amortisman = (Amortismana tabi tutar / Tahmini toplam üretim) x Dönem üretimi. TMS 16 paragraf 62 doğrusal, azalan bakiyeler ve üretim miktarı yöntemlerini sayar ve gelecekteki yararın tüketim biçimini en iyi yansıtan yöntemin seçilmesini ister. VUK'ta üretim miktarı yöntemi genel bir amortisman usulü olarak düzenlenmemiştir.
 
-**Çözümlü örnek:** Makine maliyeti 200.000 TL, faydalı ömür 5 yıl (normal oran %20, azalan bakiyeler oranı %40).
+**Çözümlü örnek:** Makine maliyeti 200.000 ₺, faydalı ömür 5 yıl (normal oran %20, azalan bakiyeler oranı %40).
 
 | Yıl | Eşit tutar | Azalan bakiyeler | Yıl sonu net değer (azalan) |
 |---|---|---|---|
@@ -130,7 +130,7 @@ Yıllık amortisman = (Amortismana tabi tutar / Tahmini toplam üretim) x Dönem
 | 4 | 40.000 | 43.200 x %40 = 17.280 | 25.920 |
 | 5 | 40.000 | Kalan tamamı = 25.920 | 0 |
 
-Üretim miktarı yönteminde makinenin toplam 100.000 birim üretmesi bekleniyor ve ilk yıl 15.000 birim üretilmişse: 200.000 / 100.000 = 2 TL; amortisman = 15.000 x 2 = 30.000 TL.
+Üretim miktarı yönteminde makinenin toplam 100.000 birim üretmesi bekleniyor ve ilk yıl 15.000 birim üretilmişse: 200.000 / 100.000 = 2 ₺; amortisman = 15.000 x 2 = 30.000 ₺.
 
 Kayıt (7/A seçeneği): ilgili maliyet veya gider hesabı (730 Genel Üretim Giderleri, 770 Genel Yönetim Giderleri vb.) borç; 257 Birikmiş Amortismanlar alacak. Maddi olmayan varlıklarda alacak hesabı 268'dir.
 
@@ -142,7 +142,7 @@ Kayıt (7/A seçeneği): ilgili maliyet veya gider hesabı (730 Genel Üretim Gi
 
 VUK md. 328'e göre satış bedeli ile varlığın kayıtlı değeri (maliyet - birikmiş amortisman) arasındaki fark kâr veya zarardır. **Devir ve trampa (takas) da satış hükmündedir**; takasta elden çıkan varlık satılmış, alınan varlık satın alınmış gibi kaydedilir.
 
-**Örnek:** Maliyeti 200.000 TL, birikmiş amortismanı 120.000 TL olan taşıt 110.000 TL + %20 KDV'ye banka aracılığıyla satılıyor. Net değer 80.000 TL, kâr 30.000 TL.
+**Örnek:** Maliyeti 200.000 ₺, birikmiş amortismanı 120.000 ₺ olan taşıt 110.000 ₺ + %20 KDV'ye banka aracılığıyla satılıyor. Net değer 80.000 ₺, kâr 30.000 ₺.
 
 - 102 Bankalar borç 132.000
 - 257 Birikmiş Amortismanlar borç 120.000
@@ -154,7 +154,7 @@ Satış zararla sonuçlansaydı fark 689 Diğer Olağandışı Gider ve Zararlar
 
 ### Yenileme fonu (549)
 
-Bilanço esasına göre defter tutanlarda, satılan varlığın yenilenmesi işin niteliği gereği zorunluysa veya yönetimce karar verilip teşebbüse geçilmişse satış kârı, **satış tarihini takip eden üçüncü takvim yılının sonuna kadar** pasifte geçici bir hesapta tutulabilir. Uygulamada bu hesap **549 Özel Fonlar**dır. Yukarıdaki örnekte şartlar varsa 30.000 TL kâr 679 yerine 549'a alacak yazılır.
+Bilanço esasına göre defter tutanlarda, satılan varlığın yenilenmesi işin niteliği gereği zorunluysa veya yönetimce karar verilip teşebbüse geçilmişse satış kârı, **satış tarihini takip eden üçüncü takvim yılının sonuna kadar** pasifte geçici bir hesapta tutulabilir. Uygulamada bu hesap **549 Özel Fonlar**dır. Yukarıdaki örnekte şartlar varsa 30.000 ₺ kâr 679 yerine 549'a alacak yazılır.
 
 - Yeni varlık alınırsa fon, yeni varlığın ayrılacak amortismanlarına mahsup edilir: 549 borç, 257 alacak. Bu tutar için gider kaydı yapılmaz.
 - Süre içinde yenileme yapılmazsa fon, satış yılını takip eden üçüncü yılın kâr ve zarar hesabına eklenir.
@@ -165,7 +165,7 @@ Bilanço esasına göre defter tutanlarda, satılan varlığın yenilenmesi işi
 
 VUK md. 329'a göre afet nedeniyle zarar gören amortismana tabi varlık için alınan tazminat, varlığın net değerinden fazla veya eksikse fark kâr veya zarar yazılır. Tazminat fazlası da yenileme şartlarıyla, **tazminatın alındığı tarihi** takip eden üçüncü takvim yılı sonuna kadar 549'da tutulabilir. Emtiada ise (VUK md. 330) tazminat fazlası doğrudan kâra alınır, fon ayrılamaz.
 
-**Örnek:** Maliyeti 150.000 TL, birikmiş amortismanı 100.000 TL olan makine yangında tamamen yandı; sigorta şirketi 70.000 TL ödeyecek: 136 Diğer Çeşitli Alacaklar borç 70.000; 257 borç 100.000; 253 alacak 150.000; 679 alacak 20.000.
+**Örnek:** Maliyeti 150.000 ₺, birikmiş amortismanı 100.000 ₺ olan makine yangında tamamen yandı; sigorta şirketi 70.000 ₺ ödeyecek: 136 Diğer Çeşitli Alacaklar borç 70.000; 257 borç 100.000; 253 alacak 150.000; 679 alacak 20.000.
 
 ## 5. Haklar, şerefiye ve Ar-Ge
 
@@ -188,7 +188,7 @@ VUK md. 329'a göre afet nedeniyle zarar gören amortismana tabi varlık için a
 - **Artış:** Diğer kapsamlı gelire, özkaynakta yeniden değerleme artışına (TDHP'de 522 M.D.V. Yeniden Değerleme Artışları) yazılır. Daha önce gidere yazılmış bir azalışı tersine çeviriyorsa o ölçüde gelirdir (paragraf 39).
 - **Azalış:** Gider yazılır; ancak aynı varlık için özkaynakta artış bakiyesi varsa önce bu bakiyeden düşülür (paragraf 40).
 
-**Örnek:** Bina maliyeti 1.000.000 TL, birikmiş amortismanı 200.000 TL (net 800.000 TL), gerçeğe uygun değeri 950.000 TL. 150.000 TL değer artışı özkaynağa alınır. İki yıl sonra net değer 700.000 TL iken gerçeğe uygun değer 600.000 TL'ye düşerse 100.000 TL azalış önce özkaynaktaki artıştan düşülür; artış bakiyesi yeterli olduğundan gider oluşmaz.
+**Örnek:** Bina maliyeti 1.000.000 ₺, birikmiş amortismanı 200.000 ₺ (net 800.000 ₺), gerçeğe uygun değeri 950.000 ₺. 150.000 ₺ değer artışı özkaynağa alınır. İki yıl sonra net değer 700.000 ₺ iken gerçeğe uygun değer 600.000 ₺'ye düşerse 100.000 ₺ azalış önce özkaynaktaki artıştan düşülür; artış bakiyesi yeterli olduğundan gider oluşmaz.
 
 **Bileşen yaklaşımı:** Toplam maliyete göre önemli maliyeti olan her parça **ayrı ayrı** amortismana tabi tutulur (paragraf 43). Örneğin uçağın gövdesi ve motoru farklı ömürlerle amortismana tabi tutulur. Bu bir tercih değil, standardın gereğidir.
 
@@ -204,7 +204,7 @@ VUK md. 329'a göre afet nedeniyle zarar gören amortismana tabi varlık için a
 
 - 25 grubu maddi, 26 grubu maddi olmayan duran varlıklardır; 257 ve 268 birikmiş amortisman hesaplarıdır.
 - Varlığı kullanıma hazırlayan ve değerini devamlı artıran giderler aktifleştirilir; günlük bakım giderdir.
-- 2026'da 12.000 TL'yi aşmayan demirbaşlar doğrudan gider yazılabilir.
+- 2026'da 12.000 ₺'yi aşmayan demirbaşlar doğrudan gider yazılabilir.
 - Özel maliyetler VUK'a göre kira süresinde itfa edilir; 258'deki yatırıma amortisman ayrılmaz.
 - Azalan bakiyelerde oran normalin iki katıdır, %50'yi geçemez; son yılda kalan tamamen yok edilir.
 - Satış kârı 679, zararı 689'a; yenileme şartları varsa kâr üçüncü takvim yılı sonuna kadar 549'da tutulabilir.

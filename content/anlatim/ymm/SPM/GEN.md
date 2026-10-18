@@ -2,7 +2,7 @@
 ders: SPM
 konu: GEN
 baslik: SPKn genel hükümler ve Kurul
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
@@ -28,6 +28,7 @@ kaynaklar:
 - 6362 sayılı Sermaye Piyasası Kanunu (SPKn) md. 3'teki temel tanımlar
 - Sermaye piyasası kurumları listesi ve ortak hükümler
 - Kurul ücretinin adım adım hesaplanması
+- Kanun kapsamına girme (halka arz edilmiş sayılma) ve kapsamdan çıkma yollarını
 
 ## 1. Kurulun görev ve yetkileri
 
@@ -62,8 +63,6 @@ Md. 128/1'de sayılan görev ve yetkilerden başlıcaları (bent harfleriyle):
 - (a) Kanunla verilen görevler ile Kanunun emrettiği uygulamaların yerine getirilmesini ve öngörülen neticelerin sağlanmasını teminen gerekli iş ve işlemleri yapmak,
 - (b) Kamunun zamanında, yeterli ve doğru olarak aydınlatılmasını sağlamak amacıyla genel ve özel nitelikte kararlar almak,
 - (c) Kanun kapsamındaki kurum ve ortaklıkların bağımsız denetim, derecelendirme, değerleme ve bilgi sistemleri denetimi faaliyetine ilişkin şartları ve çalışma esaslarını belirlemek ve bu şartları taşıyanları listeler hâlinde ilan etmek,
-- (d) Muadili yabancı kurumlarla karşılıklı bilgi alışverişi ve iş birliği için ikili veya çok taraflı mutabakat zabıtları imzalamak,
-- (e) Sermaye piyasasının gelişmesini teminen yeni sermaye piyasası kurumlarına ve araçlarına ilişkin usul ve esasları düzenlemek ve bunları denetlemek,
 - (ğ) **Kamuyu Aydınlatma Platformunun (KAP)** işletim ve çalışma esasları ile Kurula yapılacak bildirim ve başvuruların usul ve esaslarını belirlemek,
 - (k) Yönetim kurulu toplantı yeter sayısının sağlanamadığı ve genel kurulun 30 gün içinde yeni üye seçemediği halka açık ortaklıklarda, bağımsızlık kriterlerini sağlayan üyeleri resen atamak.
 
@@ -94,8 +93,6 @@ SPKn md. 3, Kanunun uygulanmasında kullanılan kavramları tanımlar. Sınavda 
 | Başlangıç sermayesi | Kayıtlı sermayeli ortaklığın sahip olması zorunlu asgari çıkarılmış sermaye |
 | Kolektif yatırım kuruluşları | Yatırım fonları ve yatırım ortaklıkları |
 | Yatırım kuruluşu | Aracı kurumlar ile yatırım hizmeti ve faaliyetinde bulunmak üzere kuruluş ve faaliyet esasları Kurulca belirlenen diğer sermaye piyasası kurumları ve bankalar |
-
-**Halka arz edilmiş sayılma:** Payları borsada işlem gören ortaklıklar ile kitle fonlamasıyla para toplayanlar hariç, pay sahibi sayısı **beş yüzü aşan** anonim ortaklıkların payları halka arz olunmuş sayılır (md. 16/1). Bu ayrıntı halka açık ortaklıklar konusunda işlenir.
 
 > **Sık yapılan hata:** Para, çek, poliçe ve bonoyu "menkul kıymet" saymak. Kanun bu araçları menkul kıymet tanımının açıkça dışında bırakır.
 
@@ -133,6 +130,28 @@ Kitle fonlaması ve kitle fonlama platformları, md. 37 ve 38 kapsamında değer
 
 Kurul Karar Organı bu oranları aşmamak kaydıyla, aracın niteliği, vadesi veya ihraççısını dikkate alarak farklı oranlar belirleyebilir; Cumhurbaşkanı ücretleri kanuni oranların iki katını aşmamak üzere artırmaya veya kanuni oranlarına indirmeye yetkilidir. Bu nedenle sınavda soru kanuni oranı sormuyorsa, Kurulca belirlenen oranı kontrol et.
 
+## 4. Kanun kapsamına girme ve çıkma
+
+### Halka arz edilmiş sayılma (SPKn md. 16)
+
+- Payları borsada işlem gören ortaklıklar ile kitle fonlamasıyla para toplayanlar hariç, pay sahibi sayısı **beş yüzü aşan** anonim ortaklıkların payları halka arz olunmuş sayılır ve bu ortaklıklar halka açık ortaklık hükümlerine tabi olur (md. 16/1).
+- Pay sahibi en az beş yüz olan kooperatiflerin (veya birliklerinin) yönetim kontrolündeki ve yıllık en az elli milyon TL satış hasılatı olan anonim ortaklıklar da halka arz olunmuş sayılır (md. 16/3).
+- Payları borsada işlem görmeyen ortaklık, statüyü kazandıktan sonra **en geç iki yıl** içinde borsaya başvurmak zorundadır; başvurmazsa Kurul, talep aramaksızın payların borsada işlem görmesi veya kapsamdan çıkarma kararı alır (md. 16/2).
+
+### Kapsamdan çıkma (Tebliğ II-16.1)
+
+| Yol | Şart | Madde |
+|---|---|---|
+| Genel kurul kararı | Pay sahibi tam sayısının üçte ikisinin olumlu oyu veya toplam oyların dörtte üçü; olumlu oy vermeyenlere şartsız ayrılma hakkı (değerleme raporuyla fiyat, süre en az iki yıl) | md. 5 |
+| Ortaklık yapısı | Sermayenin %95'inden fazlası en fazla elli pay sahibine ya da %50'den fazlası kamu kurumlarına ait | md. 6 |
+| Ortak sayısı | Pay sahibi sayısının beş yüzün altında olduğunun bilirkişi raporuyla tespiti | md. 7 |
+| Finansal büyüklük | Son iki yılda aktif toplamı veya hasılat ve diğer gelirlerin Tebliğdeki tutarın altında kalması ya da sermaye ve kanuni yedeklerin tamamen karşılıksız kalması (tutarlar her yıl yeniden değerleme katsayısıyla güncellenir, md. 14) | md. 8 |
+| Faaliyetin devamlılığı | Münfesih sayılma, tasfiye veya iflas | md. 9 |
+
+Kurul, bu şartlardan birinin varlığını tespit ederse ortaklığı **resen** de kapsamdan çıkarabilir (md. 10).
+
+> **Sınav ipucu:** Olay sorusunda önce statüyü belirle (pay sahibi sayısı 500'ü aştı mı, borsada işlem görüyor mu), sonra iki yıllık başvuru süresini, en son çıkış yolunu ve ayrılma hakkını yaz.
+
 ### Tasdik uygulama notu
 
 Tam tasdikte müşterinin halka açık ortaklık ya da sermaye piyasası kurumu olup olmadığı ilk kontrol noktasıdır. Bu statüdeki bir müşteride yeminli mali müşavir (YMM); izahname veya ihraç belgesi onayına ilişkin Kurul kararını, Kurul ücretinin ödendiğini gösteren dekontu ve ilgili özel durum açıklamalarını sürekli denetim dosyasına alır. Kurulca md. 89 çerçevesinde kendilerinden bilgi istenen gerçek ve tüzel kişiler, gizlilik ve sır saklama hükümlerini ileri sürerek bilgi vermekten kaçınamaz (md. 90/1); bu nedenle YMM'nin dosyasındaki belgeler de Kurul talebine konu olabilir.
@@ -146,3 +165,4 @@ Tam tasdikte müşterinin halka açık ortaklık ya da sermaye piyasası kurumu 
 - Menkul kıymet tanımı para, çek, poliçe ve bonoyu kapsamaz; borsada işlem görmeyen ve kitle fonlamasıyla para toplamamış anonim ortaklıkta pay sahibi sayısı beş yüzü aşarsa paylar halka arz olunmuş sayılır.
 - Sermaye piyasası kurumları md. 35'te sayılır; kitle fonlama platformları ve kripto varlık hizmet sağlayıcıları Kurul iznine tabidir.
 - Kanuni Kurul ücreti ihraçta ihraç değerinin binde üçü, fonlarda çeyrek dönem net varlık değerinin yüz binde beşidir.
+- Pay sahibi 500'ü aşan ortaklık halka açık sayılır ve iki yıl içinde borsaya başvurur; kapsamdan çıkma genel kurul kararı, ortaklık yapısı, ortak sayısı, finansal büyüklük veya faaliyetin sona ermesiyle olur.

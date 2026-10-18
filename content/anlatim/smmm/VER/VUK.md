@@ -79,8 +79,8 @@ Yargı mercilerinin re'sen biçtiği değerler de emsal bedeli yerine geçer. Ü
 
 Bir işletme Eylül 2026'da 200 adet malı bedelsiz olarak bağlı şirketine vermiştir; emsal bedeli bulunacaktır.
 
-1. Birinci sıra: Eylül'de aynı maldan 40 adet satılmış (toplam 360.000 TL). 40 / 200 = %20; %25 şartı sağlanmaz. Ağustos'ta 60 adet (toplam 570.000 TL) satılmıştır: 60 / 200 = %30, şart sağlanır. Emsal bedeli: 570.000 / 60 = 9.500 TL/adet → 200 × 9.500 = **1.900.000 TL**.
-2. Hiç satış olmasaydı ikinci sıraya geçilirdi. Birim maliyet 8.000 TL ise toptan satışta 8.000 × 1,05 = 8.400 TL, perakendede 8.000 × 1,10 = 8.800 TL; 200 adet için sırasıyla 1.680.000 TL ve 1.760.000 TL.
+1. Birinci sıra: Eylül'de aynı maldan 40 adet satılmış (toplam 360.000 ₺). 40 / 200 = %20; %25 şartı sağlanmaz. Ağustos'ta 60 adet (toplam 570.000 ₺) satılmıştır: 60 / 200 = %30, şart sağlanır. Emsal bedeli: 570.000 / 60 = 9.500 ₺/adet → 200 × 9.500 = **1.900.000 ₺**.
+2. Hiç satış olmasaydı ikinci sıraya geçilirdi. Birim maliyet 8.000 ₺ ise toptan satışta 8.000 × 1,05 = 8.400 ₺, perakendede 8.000 × 1,10 = 8.800 ₺; 200 adet için sırasıyla 1.680.000 ₺ ve 1.760.000 ₺.
 
 > **Sınav ipucu:** "Emsal bedelini hangi sıra ile tespit edersiniz?" sorusunda cevap ortalama fiyat → maliyet bedeli (+%5 / +%10) → takdir'dir. Emtiada satış fiyatı %10 düştüğünde emsal bedeli uygulanırken **maliyet bedeli esası (ikinci sıra) kullanılamaz**; çünkü amaç maliyetin altına inmektir.
 
@@ -129,16 +129,16 @@ Vergi incelemesine başlanmadan veya takdir komisyonuna sevk edilmeden önce, ye
 3. İzah yeterli bulunmazsa, değerlendirme yazısının tebliğinden itibaren **30 gün** içinde beyanname verilir veya düzeltilir, vergi gecikme zammı oranında zamla ödenirse vergi ziyaı cezası **%20** oranında kesilir.
 4. İzaha davet yazısı tebliğ edilen mükellef, **davet konusu tespitle sınırlı olarak** pişmanlıktan yararlanamaz.
 
-Ön tespit md. 359 fiillerine ilişkinse mükellef izaha davet edilmez. İstisna: sahte veya yanıltıcı belge kullanımına ilişkin tespitlerde, belge tutarı bir takvim yılında **870.000 TL'yi** (2026) veya bu tutarı aşsa bile yıllık mal ve hizmet alışlarının **%5'ini** aşmıyorsa mükellefe ön tespit yazısı tebliğ edilebilir ve aynı %20'lik ceza sonucu uygulanabilir. md. 370/b kapsamında kesilen bu ceza uzlaşmaya konu edilemez.
+Ön tespit md. 359 fiillerine ilişkinse mükellef izaha davet edilmez. İstisna: sahte veya yanıltıcı belge kullanımına ilişkin tespitlerde, belge tutarı bir takvim yılında **870.000 ₺'yi** (2026) veya bu tutarı aşsa bile yıllık mal ve hizmet alışlarının **%5'ini** aşmıyorsa mükellefe ön tespit yazısı tebliğ edilebilir ve aynı %20'lik ceza sonucu uygulanabilir. md. 370/b kapsamında kesilen bu ceza uzlaşmaya konu edilemez.
 
 ### Çözümlü örnek: aynı eksikliğin dört farklı sonucu
 
-Mükellef bir dönem KDV'sini 100.000 TL eksik beyan etmiş, vergi vadesinden itibaren 4 ay geçmiştir (aylık oran %3,7).
+Mükellef bir dönem KDV'sini 100.000 ₺ eksik beyan etmiş, vergi vadesinden itibaren 4 ay geçmiştir (aylık oran %3,7).
 
-1. **Pişmanlıkla:** 100.000 + (100.000 × %3,7 × 4 = 14.800) = **114.800 TL**; ceza yok.
-2. **İzaha davet, izah yetersiz, 30 günde ödeme:** 100.000 + 14.800 + (100.000 × %20 = 20.000) = **134.800 TL**.
-3. **İnceleme sonucu tarhiyat:** Vergi 100.000 TL + gecikme faizi + 1 kat ceza 100.000 TL. md. 376 ile süresinde ödenirse ceza 50.000 TL'ye iner.
-4. **Eksiklik sahte faturayla yapılmışsa:** Ceza 3 kat = 300.000 TL; ayrıca md. 359/b gereği 3–8 yıl hapis istemi.
+1. **Pişmanlıkla:** 100.000 + (100.000 × %3,7 × 4 = 14.800) = **114.800 ₺**; ceza yok.
+2. **İzaha davet, izah yetersiz, 30 günde ödeme:** 100.000 + 14.800 + (100.000 × %20 = 20.000) = **134.800 ₺**.
+3. **İnceleme sonucu tarhiyat:** Vergi 100.000 ₺ + gecikme faizi + 1 kat ceza 100.000 ₺. md. 376 ile süresinde ödenirse ceza 50.000 ₺'ye iner.
+4. **Eksiklik sahte faturayla yapılmışsa:** Ceza 3 kat = 300.000 ₺; ayrıca md. 359/b gereği 3–8 yıl hapis istemi.
 
 > **Sık yapılan hata:** İzaha davetle pişmanlığı aynı sanmak. Pişmanlık mükellefin **kendiliğinden** bildirimidir ve ceza kesilmez; izaha davet **idarenin ön tespiti** üzerine başlar ve izah yetersizse %20 ceza kesilir.
 

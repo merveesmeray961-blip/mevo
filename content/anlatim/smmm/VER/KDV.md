@@ -107,11 +107,11 @@ md. 9/1'e göre mükellefin Türkiye'de ikametgâhı, işyeri, kanuni ve iş mer
 | İşgücü temini, özel güvenlik, temizlik, çevre ve bahçe bakımı, yapı denetimi | 9/10 |
 | Makine ve teçhizat bakım-onarımı, baskı-basım, fason tekstil | 7/10 |
 | Yemek servisi ve organizasyon, servis taşımacılığı | 5/10 |
-| Yapım işleri (belirlenmiş alıcılara; KDV mükelleflerine 5 milyon TL ve üzeri işlerde) | 4/10 |
+| Yapım işleri (belirlenmiş alıcılara; KDV mükelleflerine 5 milyon ₺ ve üzeri işlerde) | 4/10 |
 | Ticari reklam hizmetleri | 3/10 |
 | Yük taşımacılığı | 2/10 |
 
-İşlemin KDV dahil bedeli VUK md. 232'deki fatura düzenleme sınırını (2026: **12.000 TL**) aşmıyorsa kısmi tevkifat uygulanmaz; bedel parçalara bölünerek sınırdan kaçınılamaz. Kısmi tevkifata tabi işlem yapan satıcı, tevkifat nedeniyle indiremediği KDV'yi iade olarak talep edebilir.
+İşlemin KDV dahil bedeli VUK md. 232'deki fatura düzenleme sınırını (2026: **12.000 ₺**) aşmıyorsa kısmi tevkifat uygulanmaz; bedel parçalara bölünerek sınırdan kaçınılamaz. Kısmi tevkifata tabi işlem yapan satıcı, tevkifat nedeniyle indiremediği KDV'yi iade olarak talep edebilir.
 
 **Tevkif edilen KDV'nin indirimi (md. 29/1-ç):** 2024'ten itibaren alıcı, sorumlu sıfatıyla beyan edip **ödediği** KDV'yi ödendiği dönemin 1 No.lu beyannamesinde indirir. 2 No.lu beyanname aynı döneme ait 1 No.lu beyannameden önce verilip süresinde ödenmişse, tevkifatın yapıldığı dönemde indirilebilir. Satıcıya ödenen (tevkif edilmeyen) kısım genel kurallarla indirilir.
 
@@ -141,18 +141,18 @@ Tek Düzen Hesap Planı'nda alış KDV'si **191 İndirilecek KDV** hesabına bor
 
 (A) A.Ş.'nin Mart 2026 verileri (2 No.lu beyanname 1 No.lu beyannameden önce verilip süresinde ödenecek):
 
-- Önceki dönemden devreden KDV: 180.000 TL (190 hesabının borç bakiyesi)
-- Yurt içi satışlar: 2.000.000 TL, hesaplanan KDV %20 = 400.000 TL
-- Önceki dönem satışından iade alınan mal: 50.000 TL, KDV'si 10.000 TL
-- Ticari mal alışları: 1.200.000 TL, KDV 240.000 TL
-- Yönetim için binek otomobil alışı: 1.500.000 TL, KDV 300.000 TL
-- Temizlik hizmeti alımı: 100.000 TL, KDV 20.000 TL (tevkifat 9/10)
+- Önceki dönemden devreden KDV: 180.000 ₺ (190 hesabının borç bakiyesi)
+- Yurt içi satışlar: 2.000.000 ₺, hesaplanan KDV %20 = 400.000 ₺
+- Önceki dönem satışından iade alınan mal: 50.000 ₺, KDV'si 10.000 ₺
+- Ticari mal alışları: 1.200.000 ₺, KDV 240.000 ₺
+- Yönetim için binek otomobil alışı: 1.500.000 ₺, KDV 300.000 ₺
+- Temizlik hizmeti alımı: 100.000 ₺, KDV 20.000 ₺ (tevkifat 9/10)
 
-1. Binek otomobil KDV'si md. 30/b gereği indirilemez; 300.000 TL maliyete eklenir.
-2. Temizlik: alıcı 20.000 × 9/10 = **18.000 TL**'yi 2 No.lu beyannameyle beyan edip öder, satıcıya 2.000 TL KDV öder. İndirilecek tutar 2.000 + 18.000 = 20.000 TL.
-3. Net hesaplanan KDV (391): 400.000 − 10.000 (iade düzeltmesi) = 390.000 TL.
-4. İndirilecek KDV (191): 240.000 + 20.000 = 260.000 TL.
-5. Toplam indirim: 260.000 + 180.000 = 440.000 TL. 440.000 − 390.000 = **50.000 TL sonraki döneme devreder**; 1 No.lu beyannamede ödenecek KDV yoktur, 2 No.lu beyannamede 18.000 TL ödenir.
+1. Binek otomobil KDV'si md. 30/b gereği indirilemez; 300.000 ₺ maliyete eklenir.
+2. Temizlik: alıcı 20.000 × 9/10 = **18.000 ₺**'yi 2 No.lu beyannameyle beyan edip öder, satıcıya 2.000 ₺ KDV öder. İndirilecek tutar 2.000 + 18.000 = 20.000 ₺.
+3. Net hesaplanan KDV (391): 400.000 − 10.000 (iade düzeltmesi) = 390.000 ₺.
+4. İndirilecek KDV (191): 240.000 + 20.000 = 260.000 ₺.
+5. Toplam indirim: 260.000 + 180.000 = 440.000 ₺. 440.000 − 390.000 = **50.000 ₺ sonraki döneme devreder**; 1 No.lu beyannamede ödenecek KDV yoktur, 2 No.lu beyannamede 18.000 ₺ ödenir.
 
 Dönem sonu kaydı:
 
@@ -162,7 +162,7 @@ Dönem sonu kaydı:
 | 191 İndirilecek KDV | | 260.000 |
 | 190 Devreden KDV | | 130.000 |
 
-190 hesabında 180.000 − 130.000 = 50.000 TL borç bakiyesi kalır. Satışlar 3.000.000 TL olsaydı net hesaplanan KDV 590.000 TL olur; 191 (260.000) ve 190 (180.000) tamamen kapanır, kalan **150.000 TL** 360 hesabına alacak yazılarak ödenirdi.
+190 hesabında 180.000 − 130.000 = 50.000 ₺ borç bakiyesi kalır. Satışlar 3.000.000 ₺ olsaydı net hesaplanan KDV 590.000 ₺ olur; 191 (260.000) ve 190 (180.000) tamamen kapanır, kalan **150.000 ₺** 360 hesabına alacak yazılarak ödenirdi.
 
 > **Sınav ipucu:** Devreden KDV ne gider ne de nakit iade alacağıdır; bilançoda 190 hesabında dönen varlık olarak izlenir. Kısmi tevkifata tabi satış yapan satıcının bu nedenle indiremediği KDV ise iade hakkı doğurur; iade talebine konu edilebilir.
 

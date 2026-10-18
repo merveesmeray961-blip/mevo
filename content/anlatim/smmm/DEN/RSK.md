@@ -112,11 +112,11 @@ Yanlışlıklar, tek başına veya toplu olarak kullanıcıların ekonomik karar
 
 **BDS 450**: Denetçi **bariz biçimde önemsiz** olanlar dışındaki yanlışlıkları **biriktirir**. Biriken toplam önemliliğe yaklaşıyorsa veya yanlışlığın niteliği başka yanlışlıklara işaret ediyorsa strateji ve plan revize edilir. Tüm biriken yanlışlıklar yönetimin uygun kademesine bildirilip **düzeltilmesi istenir**; düzeltilmezse gerekçesi değerlendirilir. Düzeltilmemiş yanlışlıklar değerlendirilmeden önce önemlilik fiili sonuçlara göre yeniden gözden geçirilir; yanlışlıkların tek başına ve toplu etkisi, nitelikleri ve önceki dönem etkileri dikkate alınır. Üst yönetime bildirilir ve yönetimden düzeltilmemiş yanlışlıkların önemsiz olduğuna dair **yazılı beyan** alınır.
 
-**Çözümlü örnek:** Vergi öncesi kâr 8.000.000 TL. Önemlilik = 8.000.000 × %5 = **400.000 TL**. Denetçi performans önemliliğini önemliliğin %75'i (mesleki muhakeme) olarak **300.000 TL**, bariz önemsiz eşiğini **20.000 TL** belirlemiş olsun. Bulgular: stok fazla değerlemesi 180.000 TL, dönemsellik hatası 15.000 TL, satış örnekleminden öngörülen yanlışlık 120.000 TL (bkz. bölüm 7).
+**Çözümlü örnek:** Vergi öncesi kâr 8.000.000 ₺. Önemlilik = 8.000.000 × %5 = **400.000 ₺**. Denetçi performans önemliliğini önemliliğin %75'i (mesleki muhakeme) olarak **300.000 ₺**, bariz önemsiz eşiğini **20.000 ₺** belirlemiş olsun. Bulgular: stok fazla değerlemesi 180.000 ₺, dönemsellik hatası 15.000 ₺, satış örnekleminden öngörülen yanlışlık 120.000 ₺ (bkz. bölüm 7).
 
-1. 15.000 TL eşiğin altında: biriktirilmez.
-2. Biriken toplam = 180.000 + 120.000 = **300.000 TL**; önemliliğe yaklaştığından plan ve kapsam gözden geçirilir.
-3. Yönetim 180.000 TL'yi düzeltirse kalan 120.000 TL, 400.000 TL'nin altındadır; denetçi nitelik açısından da (ör. kredi sözleşmesindeki bir şartı ihlal ettirip ettirmediği) değerlendirir. Sadece tutara bakılarak karar verilmez.
+1. 15.000 ₺ eşiğin altında: biriktirilmez.
+2. Biriken toplam = 180.000 + 120.000 = **300.000 ₺**; önemliliğe yaklaştığından plan ve kapsam gözden geçirilir.
+3. Yönetim 180.000 ₺'yi düzeltirse kalan 120.000 ₺, 400.000 ₺'nin altındadır; denetçi nitelik açısından da (ör. kredi sözleşmesindeki bir şartı ihlal ettirip ettirmediği) değerlendirir. Sadece tutara bakılarak karar verilmez.
 
 ## 7. BDS 530: Denetim örneklemesi
 
@@ -128,7 +128,7 @@ Yanlışlıklar, tek başına veya toplu olarak kullanıcıların ekonomik karar
 
 Süreç: amaç ve anakitle özellikleri dikkate alınarak tasarım; örnekleme riskini kabul edilebilir düşük seviyeye indirecek **örneklem büyüklüğü**; her birimin seçilme şansı olan seçim. Prosedür uygulanamayan kalem, kontrol testinde **sapma**, detay testinde **yanlışlık** sayılır. Her yanlışlığın nitelik ve sebebi araştırılır. Bir yanlışlığı **anomali** (anakitleyi temsil etmeyen) saymak çok ender olmalı ve ek prosedürlerle desteklenen yüksek kesinlikte bir kanaat gerektirir. Detay testlerinde yanlışlıklar anakitleye **öngörülür** (530.14).
 
-**Çözümlü örnek:** 10.000.000 TL'lik 2.000 satış faturasından toplam 500.000 TL'lik 100 fatura seçildi; 6.000 TL yanlışlık bulundu. Yanlışlık oranı = 6.000 / 500.000 = %1,2. Öngörülen yanlışlık = 10.000.000 × %1,2 = **120.000 TL**. Kabul edilebilir yanlışlık 300.000 TL olduğundan sonuç kabul edilebilir görünür; ancak öngörülen yanlışlık sınıra yaklaşsaydı denetçi örneklemi genişletir veya ek prosedür uygular.
+**Çözümlü örnek:** 10.000.000 ₺'lik 2.000 satış faturasından toplam 500.000 ₺'lik 100 fatura seçildi; 6.000 ₺ yanlışlık bulundu. Yanlışlık oranı = 6.000 / 500.000 = %1,2. Öngörülen yanlışlık = 10.000.000 × %1,2 = **120.000 ₺**. Kabul edilebilir yanlışlık 300.000 ₺ olduğundan sonuç kabul edilebilir görünür; ancak öngörülen yanlışlık sınıra yaklaşsaydı denetçi örneklemi genişletir veya ek prosedür uygular.
 
 ## Özet
 

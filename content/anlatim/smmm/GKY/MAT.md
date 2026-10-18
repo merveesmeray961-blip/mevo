@@ -101,11 +101,11 @@ Sonlu ondalık sayı, virgülden sonraki basamak sayısı kadar sıfırlı payda
 
 ### Orantılı paylaştırma
 
-1.200 TL, üç ortak arasında 2, 3 ve 5 sayılarıyla doğru orantılı paylaştırılacak.
+1.200 ₺, üç ortak arasında 2, 3 ve 5 sayılarıyla doğru orantılı paylaştırılacak.
 
 1. Toplam pay: 2 + 3 + 5 = 10
-2. Bir pay: 1.200 ÷ 10 = 120 TL
-3. Paylar: 2 × 120 = 240 TL; 3 × 120 = 360 TL; 5 × 120 = 600 TL. Kontrol: 240 + 360 + 600 = 1.200.
+2. Bir pay: 1.200 ÷ 10 = 120 ₺
+3. Paylar: 2 × 120 = 240 ₺; 3 × 120 = 360 ₺; 5 × 120 = 600 ₺. Kontrol: 240 + 360 + 600 = 1.200.
 
 > **Sık yapılan hata:** Her orantı sorusunu doğru orantı kabul etmek. "Daha çok kişi, daha kısa süre" ya da "daha yüksek hız, daha kısa zaman" gibi ters yönlü değişim varsa çarpım sabittir.
 
@@ -117,17 +117,17 @@ Sonlu ondalık sayı, virgülden sonraki basamak sayısı kadar sıfırlı payda
 
 - %p artış: sayı × (1 + p/100); %p azalış: sayı × (1 - p/100).
 - "Bir sayının %20 fazlası 96" ise 1,2 × x = 96, x = 80.
-- **Ardışık yüzdeler toplanmaz, çarpılır.** 100 TL'ye önce %10 indirim, sonra %10 zam: 100 × 0,9 × 1,1 = 99 TL. Sonuç başlangıca dönmez; net %1 azalış vardır.
+- **Ardışık yüzdeler toplanmaz, çarpılır.** 100 ₺'ye önce %10 indirim, sonra %10 zam: 100 × 0,9 × 1,1 = 99 ₺. Sonuç başlangıca dönmez; net %1 azalış vardır.
 
 ### Kâr-zarar
 
 Kâr = satış fiyatı - maliyet; zarar = maliyet - satış fiyatı. Aksi söylenmedikçe **kâr ve zarar yüzdesi maliyet üzerinden** hesaplanır.
 
-Çözümlü örnek: Maliyeti 500 TL olan ürünün etiket fiyatı %20 kârla belirleniyor, sonra etiket fiyatı üzerinden %10 indirimle satılıyor.
+Çözümlü örnek: Maliyeti 500 ₺ olan ürünün etiket fiyatı %20 kârla belirleniyor, sonra etiket fiyatı üzerinden %10 indirimle satılıyor.
 
-1. Etiket fiyatı: 500 × 1,20 = 600 TL
-2. İndirimli satış fiyatı: 600 × 0,90 = 540 TL
-3. Kâr: 540 - 500 = 40 TL
+1. Etiket fiyatı: 500 × 1,20 = 600 ₺
+2. İndirimli satış fiyatı: 600 × 0,90 = 540 ₺
+3. Kâr: 540 - 500 = 40 ₺
 4. Maliyete göre kâr oranı: 40 ÷ 500 = 0,08 → **%8**
 
 Satış fiyatı üzerinden kâr oranı istenseydi payda 540 olurdu (40 ÷ 540 ≈ %7,4). Soru kökünde "maliyet" ya da "satış fiyatı" kelimesini mutlaka işaretle.
@@ -136,11 +136,11 @@ Satış fiyatı üzerinden kâr oranı istenseydi payda 540 olurdu (40 ÷ 540 �
 
 **Basit faiz**, yalnız anapara üzerinden hesaplanır: F = A × (r/100) × t (t yıl cinsinden). Süre ay ise t = ay ÷ 12; gün ise genellikle t = gün ÷ 360 alınır (soru farklı bir yıl esası verirse onu kullan).
 
-Örnek: 10.000 TL, yıllık %12 basit faizle 6 ay: F = 10.000 × 0,12 × 6/12 = **600 TL**; toplam (anapara + faiz) 10.600 TL.
+Örnek: 10.000 ₺, yıllık %12 basit faizle 6 ay: F = 10.000 × 0,12 × 6/12 = **600 ₺**; toplam (anapara + faiz) 10.600 ₺.
 
 **Bileşik faizde** her dönemin faizi anaparaya eklenir ve sonraki dönem faiz de faize işler: Toplam = A × (1 + r/100)ⁿ.
 
-Örnek: 10.000 TL, yıllık %10 bileşik faizle 2 yıl: 10.000 × 1,1 × 1,1 = **12.100 TL**. Basit faizle aynı sürede toplam 12.000 TL olurdu; aradaki 100 TL, ilk yılın 1.000 TL faizinin ikinci yılda kazandığı faizdir.
+Örnek: 10.000 ₺, yıllık %10 bileşik faizle 2 yıl: 10.000 × 1,1 × 1,1 = **12.100 ₺**. Basit faizle aynı sürede toplam 12.000 ₺ olurdu; aradaki 100 ₺, ilk yılın 1.000 ₺ faizinin ikinci yılda kazandığı faizdir.
 
 > **Sınav ipucu:** Faiz sorularında önce oranın yıllık mı aylık mı olduğunu, sürenin hangi birimde verildiğini ve faizin basit mi bileşik mi olduğunu belirle. Birim uyumsuzluğu en sık puan kaybettiren hatadır.
 

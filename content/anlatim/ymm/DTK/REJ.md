@@ -2,7 +2,7 @@
 ders: DTK
 konu: REJ
 baslik: Gümrük rejimleri
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 4458 sayılı Gümrük Kanunu
@@ -98,9 +98,11 @@ Antrepodaki eşya için verilen beyannamede işlemler tescil tarihinden itibaren
 
 İstisna olarak, örneğin ithalat miktar kısıtlamasına ya da kota kapsamında tarife önlemine tabi eşyaya geri ödeme sistemi uygulanmaz (md. 117/1).
 
+**Gümrük kontrolü altında işleme** (md. 123–126), serbest dolaşımda olmayan eşyanın vergi ve ticaret politikası önlemine tabi tutulmadan Türkiye'de işlenmesi ve **işlenmiş ürünün** kendi vergisi üzerinden serbest dolaşıma girmesidir. İzin yalnız Türkiye'de yerleşik kişilere; ithal eşyasının üründe teşhis edilebildiği, eski haline dönüştürmenin ekonomik olmadığı, menşe ve miktar kısıtlamalarını saptırmadığı ve yerli üreticinin temel çıkarlarını zedelemediği hallerde verilir (md. 124). Değişmemiş eşyada yükümlülük doğarsa vergi, rejim beyannamesinin tescilindeki unsurlarla hesaplanır (md. 126).
+
 ### Hariçte işleme
 
-**Hariçte işleme rejimi**, serbest dolaşımdaki eşyanın işlenmek üzere geçici ihracı ve elde edilen ürünlerin tam veya kısmi muafiyetle yeniden serbest dolaşıma girmesidir (md. 135/1). Yeniden ithal süresi izinde belirtilir (md. 139/1).
+**Hariçte işleme rejimi**, serbest dolaşımdaki eşyanın işlenmek üzere geçici ihracı ve elde edilen ürünlerin tam veya kısmi muafiyetle yeniden serbest dolaşıma girmesidir (md. 135/1). İhracı vergi geri vermesine yol açan, nihai kullanım nedeniyle tam muafiyetle girmiş veya ihracat iadesi gerektiren eşyaya uygulanmaz (md. 136). İzin, işlemi yaptıracak kişiye (md. 137) şu şartlarla verilir (md. 138): a) Türkiye'de yerleşik olmak, b) işlem görmüş ürünün geçici ihracat eşyasından elde edildiğinin tespit edilebilmesi, c) Türkiye'deki üreticilerin temel ekonomik çıkarlarına ciddi zarar vermemesi. Yeniden ithal süresi izinde belirtilir, talep üzerine uzatılabilir (md. 139/1).
 
 - **Vergi hesabı (fark yöntemi):** İşlem görmüş ürünün ithalat vergilerinden, geçici ihracat eşyası en son işlem gördüğü ülkeden aynı tarihte ithal edilseydi ödenecek vergi düşülür (md. 141/1).
 - **Bedelsiz tamir:** Garanti, kanuni yükümlülük ya da imalat hatası nedeniyle bedelsiz yapıldığı kanıtlanırsa tam muafiyet uygulanır (md. 142).
@@ -126,8 +128,7 @@ Bir üretici, yurt dışındaki firmaya ait makineyi kiralayıp kısmi muafiyetl
 2. Aylık vergi: 120.000 × %3 = 3.600 TL.
 3. Toplam vergi: 3.600 × 8 = 28.800 TL.
 4. Tavan kontrolü: 28.800 TL, 120.000 TL'yi aşmadığından tamamı alınır (md. 133/2).
-5. Kayıt: **730 Genel Üretim Giderleri** borç 28.800 TL; **102 Bankalar** alacak 28.800 TL.
-6. Makine yeniden ihraç edilmeyip serbest dolaşıma sokulsaydı, hesaplanan vergiden 28.800 TL düşülürdü (md. 134/2).
+5. Makine yeniden ihraç edilmeyip serbest dolaşıma sokulsaydı, hesaplanan vergiden 28.800 TL düşülürdü (md. 134/2).
 
 ## 6. İhracat rejimi
 

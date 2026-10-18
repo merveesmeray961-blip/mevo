@@ -2,7 +2,7 @@
 ders: GUV
 konu: ASG
 baslik: Asgari ve küresel asgari kurumlar vergisi
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
@@ -48,7 +48,7 @@ Bu tutardan yalnız md.32/C/2'de sayılanlar düşülür:
 - 4691 sayılı Kanun kapsamındaki kazanç istisnası ile Ar-Ge ve tasarım indirimleri,
 - 7412 sayılı Kanunun 6 ncı maddesinin birinci fıkrasının (a) bendindeki kazanç indirimi (7582 sayılı Kanunla eklenmiştir).
 
-Tebliğ bölüm 32.5.6'ya göre yurt dışı iştirak kazancı (md.5/1-b), iştirak hissesi satış kazancı (md.5/1-e), yurt dışı şube kazancı (md.5/1-g), bağış ve sponsorluk indirimleri ve nakdi sermaye artışı faiz indirimi düşülmez. Ancak aynı Tebliğin bölüm 32.5.6'daki Örnek 8'ine göre %10 ve üzeri vergi yükü taşıyan yurt dışı kaynaklı istisna kazançlar düşülür; daha düşük vergi yükünde yalnız ödenen vergi / 0,1 tutarındaki kısım düşülür. Liste ile örnek arasındaki bu gerilim Tebliğde giderilmemiştir; ikisini birlikte bil. Çifte vergilendirmeyi önleme anlaşmaları gereği Türkiye'nin vergileme hakkı bulunmayan tutarlar da kapsam dışıdır.
+Tebliğ bölüm 32.5.6 düşülmeyenleri sayar: yurt dışı iştirak kazancı (md.5/1-b), yurt dışı iştirak hissesi satışı (5/1-c), iştirak hissesi ve taşınmaz satış kazancı (5/1-e), borç karşılığı devir (5/1-f), yurt dışı şube (5/1-g), yurt dışı inşaat, onarım, montaj (5/1-h), sınai mülkiyet hakları (5/B) istisnaları ile sponsorluk, bağış, yurt dışı hizmet (10/1-ğ) ve nakdi sermaye artışı (10/1-ı) indirimleri. Yurt dışı kaynaklı istisnalarda Tebliğin Örnek 8'i bu kuralı yumuşatır: kazanç yurt dışında en az %10 vergi yükü taşıyorsa tamamı, daha düşük yük taşıyorsa ödenen vergi / 0,10 kadar kısmı asgari matrahtan düşülür. Çifte vergilendirmeyi önleme anlaşmaları gereği Türkiye'nin vergileme hakkı bulunmayan tutarlar da kapsam dışıdır.
 
 ### Asgari vergiden yapılan indirimler ve mahsup
 
@@ -63,6 +63,19 @@ Hesaplanan asgari vergiden md.32/6, 7 ve 8 kapsamındaki indirimli oranlar neden
 3. Asgari vergi matrahı: 6.400.000 − (1.000.000 + 300.000) = 5.100.000 TL. Hisse satış istisnası ve geçmiş yıl zararı düşülmez.
 4. Asgari vergi: 5.100.000 x %10 = 510.000 TL.
 5. Sonuç: 510.000 > 400.000 olduğundan hesaplanan kurumlar vergisi 510.000 TL olur; fark 110.000 TL'dir.
+
+| Satır | Kurumlar vergisi | Asgari kurumlar vergisi |
+|---|---|---|
+| Ticari bilanço kârı + KKEG | 6.400.000 | 6.400.000 |
+| İştirak kazancı (5/1-a) | (1.000.000) | (1.000.000) |
+| Hisse satış istisnası (5/1-e) | (2.000.000) | Düşülmez |
+| Ar-Ge indirimi | (300.000) | (300.000) |
+| Geçmiş yıl zararı | (1.500.000) | Düşülmez |
+| Matrah | 1.600.000 | 5.100.000 |
+| Vergi | %25 = 400.000 | %10 = 510.000 |
+| Beyan edilecek vergi | 510.000 | |
+
+Sınav bu karşılaştırmalı tabloyu ister; geçici vergi ve tevkifatlar bu 510.000 TL'den mahsup edilir.
 
 > **Sık yapılan hata:** Geçmiş yıl zararlarını asgari vergi matrahından düşmek. Zarar mahsubu yalnız kurumlar vergisi matrahında yapılır.
 

@@ -166,10 +166,10 @@ Ticaret şirketleri **kollektif, komandit, anonim, limited ve kooperatif** şirk
 |---|---|---|---|
 | Kollektif (md. 211) | Yalnız gerçek kişiler | Hiçbir ortağın sorumluluğu sınırlı değil | Yok |
 | Komandit (md. 304) | Komandite: yalnız gerçek kişi; komanditer: gerçek veya tüzel | Komandite sınırsız, komanditer koyduğu sermaye ile sınırlı | Yok |
-| Anonim (md. 329, 332) | Bir veya daha fazla | Şirket yalnız malvarlığıyla; pay sahibi yalnız şirkete karşı ve taahhüdüyle | 250.000 TL; kayıtlı sermayede başlangıç sermayesi 500.000 TL |
-| Limited (md. 573, 574, 580) | 1–50 ortak, gerçek veya tüzel | Ortak şirket borçlarından sorumlu değil; taahhüt ettiği payı ödemekle yükümlü | 50.000 TL |
+| Anonim (md. 329, 332) | Bir veya daha fazla | Şirket yalnız malvarlığıyla; pay sahibi yalnız şirkete karşı ve taahhüdüyle | 250.000 ₺; kayıtlı sermayede başlangıç sermayesi 500.000 ₺ |
+| Limited (md. 573, 574, 580) | 1–50 ortak, gerçek veya tüzel | Ortak şirket borçlarından sorumlu değil; taahhüt ettiği payı ödemekle yükümlü | 50.000 ₺ |
 
-Kanun metnindeki 50.000 TL (AŞ), 100.000 TL (kayıtlı sermaye) ve 10.000 TL (Ltd) tutarları, 7887 sayılı Cumhurbaşkanı Kararı ile tablodaki tutarlara yükseltilmiştir.
+Kanun metnindeki 50.000 ₺ (AŞ), 100.000 ₺ (kayıtlı sermaye) ve 10.000 ₺ (Ltd) tutarları, 7887 sayılı Cumhurbaşkanı Kararı ile tablodaki tutarlara yükseltilmiştir.
 
 Kollektif şirkette ortakların sorumluluğu **ikincildir**: şirket aleyhine alınan karar, şirkete karşı takip sonuçsuz kalmadıkça veya şirket sona ermedikçe ortaklara icra edilemez (md. 238).
 
@@ -221,5 +221,5 @@ Kollektif şirkette ortakların sorumluluğu **ikincildir**: şirket aleyhine al
 - Sicil: 15 günde tescil, TTSG'de ilan, ilanı izleyen iş günü sonuç doğurur.
 - Defterler: TTK'da 10 yıl, VUK'ta 5 yıl saklama; kapanış onayı yalnız yevmiye (6. ay sonu) ve YK karar defteri (1. ay sonu) için.
 - Ticari temsilci kambiyo taahhüdü yapabilir, taşınmaz devri için açık yetki gerekir; yetki şube veya birlikte imza ile sınırlanır. Ticari vekil ödünç, kambiyo ve dava için açık yetki ister.
-- Şirketler: kollektif ve komandit şahıs; AŞ (250.000 TL) ve Ltd (50.000 TL, en çok 50 ortak) sermaye şirketi; tescille tüzel kişilik.
+- Şirketler: kollektif ve komandit şahıs; AŞ (250.000 ₺) ve Ltd (50.000 ₺, en çok 50 ortak) sermaye şirketi; tescille tüzel kişilik.
 - Kıymetli evrak: çekte ibraz 10 gün / 1 ay / 3 ay, başvurma zamanaşımı 3 yıl; poliçede kabul edene 3 yıl, hamilin başvurusunda 1 yıl, cirantalar arasında 6 ay.

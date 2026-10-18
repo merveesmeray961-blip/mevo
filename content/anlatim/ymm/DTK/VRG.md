@@ -2,7 +2,7 @@
 ders: DTK
 konu: VRG
 baslik: Dış ticaretin vergisel boyutu
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
@@ -55,12 +55,12 @@ Her türlü mal ve hizmet ithalatı KDV'ye tabidir (3065 sayılı Katma Değer V
 
 ### Örnek: İthalde KDV matrahı ve kaydı
 
-Veriler: CIF kıymet 1.000.000 TL, gümrük vergisi 50.000 TL, ithalde ödenen ÖTV 105.000 TL, tescilden önce yapılan ve KDV'ye tabi tutulmamış ardiye gideri 20.000 TL. KDV oranı **x** ile gösterilmiştir. KDVK md. 28 oranı her işlem için %10 olarak koyar, ancak Cumhurbaşkanını bu oranı dört katına kadar artırmaya, %1'e kadar indirmeye ve mal ve hizmetler itibarıyla farklı oranlar belirlemeye yetkili kılar; bu nedenle ithal edilen mala uygulanacak oran, işlem tarihinde yürürlükte olan Cumhurbaşkanı kararından bulunur.
+Veriler: CIF kıymet 1.000.000 TL, gümrük vergisi 50.000 TL, ithalde ödenen ÖTV 105.000 TL, tescilden önce yapılan ve KDV'ye tabi tutulmamış ardiye gideri 20.000 TL. Mal genel orana tabidir. KDVK md. 28 Cumhurbaşkanına oranı belirleme yetkisi verir; 2007/13033 sayılı Kararın 7346 sayılı Kararla değişik md. 1'ine göre genel oran 2026'da %20'dir.
 
 1. Matrah: 1.000.000 + 50.000 + 105.000 + 20.000 = 1.175.000 TL.
-2. KDV: 1.175.000 TL × x.
-3. Kayıt: 153 Ticari Mallar (borç) 1.175.000 TL ve 191 İndirilecek KDV (borç) 1.175.000 TL × x / 102 Bankalar (alacak) 1.175.000 TL × (1 + x).
-4. Kontrol: borç toplamı 1.175.000 + 1.175.000 × x = 1.175.000 × (1 + x) = alacak toplamı.
+2. KDV: 1.175.000 × %20 = 235.000 TL.
+3. Kayıt: 153 Ticari Mallar (borç) 1.175.000 TL ve 191 İndirilecek KDV (borç) 235.000 TL / 102 Bankalar (alacak) 1.410.000 TL.
+4. Kontrol: 1.175.000 + 235.000 = 1.410.000 TL.
 
 ### İstisna
 
@@ -132,6 +132,8 @@ Fiil 5607 sayılı Kanun'daki kaçakçılık suçlarıyla ilişkiliyse uzlaşma 
 ### Tanım ve kural
 
 **Serbest bölgeler**, Türkiye Gümrük Bölgesinin parçaları olmakla beraber, serbest dolaşımda olmayan eşyanın ithalat vergileri ve ticaret politikası önlemleri bakımından gümrük bölgesi dışında kabul edildiği; serbest dolaşımdaki eşyanın ise bölgeye konulmasıyla ihracata bağlı olanaklardan yararlandığı yerlerdir (GK md. 152). Her türlü eşya bölgeye konulabilir ve kalış süresi sınırsızdır (md. 154, 156).
+
+3218 sayılı Serbest Bölgeler Kanunu'na göre bölge ile Türkiye'nin diğer yerleri arasındaki ticaret dış ticaret rejimine tabidir; bölge ile yabancı ülkeler ve diğer serbest bölgeler arasında dış ticaret rejimi uygulanmaz. Bedeli 5.000 ABD dolarını geçmeyen Türkiye mahreçli mallar isteğe bağlı olarak ihracat işlemine tabi tutulmayabilir (md. 8). Bölgedeki faaliyetlere ilişkin ödemeler dövizle yapılır; Cumhurbaşkanı Türk lirası ödemeye karar verebilir (md. 9).
 
 Bölgede faaliyet gösterenler envanter kaydı tutar; eşya kişiye ait yere konulmasından sonra kırksekiz saat içinde kayda geçirilir (md. 159/1). Bölgeden Türkiye Gümrük Bölgesinin başka bir yerine getirilen serbest dolaşımda olmayan eşya, 50 nci madde dışında Kanunun gümrük bölgesine getirilen eşyaya ilişkin Üçüncü Kısım hükümlerine tabidir (md. 160/2).
 

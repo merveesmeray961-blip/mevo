@@ -161,15 +161,15 @@ Süreçteki yasal ve muhasebe noktaları:
 
 ### Çözümlü örnek
 
-İşletme 12 Mart'ta müşterisine birim satış fiyatı 400 TL olan 200 adet ticari malı vadeli satıyor. KDV oranı %20, malın birim maliyeti 250 TL'dir; sürekli envanter yöntemi kullanılmaktadır. 10 Nisan'da müşteri 60.000 TL'yi havale ediyor, kalan tutar için çek veriyor.
+İşletme 12 Mart'ta müşterisine birim satış fiyatı 400 ₺ olan 200 adet ticari malı vadeli satıyor. KDV oranı %20, malın birim maliyeti 250 ₺'dir; sürekli envanter yöntemi kullanılmaktadır. 10 Nisan'da müşteri 60.000 ₺'yi havale ediyor, kalan tutar için çek veriyor.
 
-- Satış tutarı: 200 × 400 = 80.000 TL
-- KDV: 80.000 × %20 = 16.000 TL
-- Alacak: 80.000 + 16.000 = 96.000 TL
-- Satılan malın maliyeti: 200 × 250 = 50.000 TL; brüt satış kârı: 80.000 − 50.000 = 30.000 TL
-- Çek tutarı: 96.000 − 60.000 = 36.000 TL
+- Satış tutarı: 200 × 400 = 80.000 ₺
+- KDV: 80.000 × %20 = 16.000 ₺
+- Alacak: 80.000 + 16.000 = 96.000 ₺
+- Satılan malın maliyeti: 200 × 250 = 50.000 ₺; brüt satış kârı: 80.000 − 50.000 = 30.000 ₺
+- Çek tutarı: 96.000 − 60.000 = 36.000 ₺
 
-| Tarih | Hesap | Borç (TL) | Alacak (TL) |
+| Tarih | Hesap | Borç (₺) | Alacak (₺) |
 |---|---|---:|---:|
 | 12 Mart | 120 Alıcılar | 96.000 | |
 | | 600 Yurtiçi Satışlar | | 80.000 |

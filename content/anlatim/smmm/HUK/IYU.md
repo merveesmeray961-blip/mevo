@@ -187,15 +187,15 @@ Danıştay kararı hukuka uygun bulursa **onar**; görev ve yetki dışında iş
 
 ### Parasal sınırların güncellenmesi (Ek md. 1)
 
-Kanundaki **31.000 TL** (istinaf) ve **920.000 TL** (temyiz) sınırları 2024 tutarlarıdır. Her yıl bir önceki yılın **yeniden değerleme oranında** artırılır, **bin TL'yi aşmayan kısımlar dikkate alınmaz** ve kanun yoluna gidilip gidilemeyeceği **davanın açıldığı tarihteki** sınıra göre belirlenir.
+Kanundaki **31.000 ₺** (istinaf) ve **920.000 ₺** (temyiz) sınırları 2024 tutarlarıdır. Her yıl bir önceki yılın **yeniden değerleme oranında** artırılır, **bin TL'yi aşmayan kısımlar dikkate alınmaz** ve kanun yoluna gidilip gidilemeyeceği **davanın açıldığı tarihteki** sınıra göre belirlenir.
 
 | Yıl | Oran | İstinaf sınırı | Temyiz sınırı |
 |---|---|---|---|
-| 2024 | Kanun metni | 31.000 TL | 920.000 TL |
-| 2025 | %43,93 | 31.000 × 1,4393 = 44.618 → **44.000 TL** | 920.000 × 1,4393 = 1.324.156 → **1.324.000 TL** |
-| 2026 | %25,49 | 44.000 × 1,2549 = 55.215 → **55.000 TL** | 1.324.000 × 1,2549 = 1.661.487 → **1.661.000 TL** |
+| 2024 | Kanun metni | 31.000 ₺ | 920.000 ₺ |
+| 2025 | %43,93 | 31.000 × 1,4393 = 44.618 → **44.000 ₺** | 920.000 × 1,4393 = 1.324.156 → **1.324.000 ₺** |
+| 2026 | %25,49 | 44.000 × 1,2549 = 55.215 → **55.000 ₺** | 1.324.000 × 1,2549 = 1.661.487 → **1.661.000 ₺** |
 
-Örneğin 2026'da açılan ve konusu 50.000 TL olan bir tam yargı davasında idare mahkemesi kararı **kesindir**; 60.000 TL olsaydı istinafa gidilebilirdi.
+Örneğin 2026'da açılan ve konusu 50.000 ₺ olan bir tam yargı davasında idare mahkemesi kararı **kesindir**; 60.000 ₺ olsaydı istinafa gidilebilirdi.
 
 ### Olağanüstü kanun yolları
 
@@ -228,5 +228,5 @@ Diğer önemli özel süreler: cevap ve savunma süresi **30 gün** (bir kez 30 
 - İlk inceleme sırası: görev-yetki, merci tecavüzü, ehliyet, kesin işlem, süre, husumet, dilekçe şekli; aynı şekil hatası tekrarlanırsa **dava reddedilir**.
 - Yürütmenin durdurulması iki şartın **birlikte** varlığını ister; itiraz **7 gün**, bir kez.
 - Kararlar **gecikmeksizin**, en geç idareye tebliğden itibaren **30 gün** içinde uygulanır; tazminat davası **idare aleyhine** açılır.
-- İstinaf ve temyiz süresi **30 gün**dür; 2026 sınırları istinafta **55.000 TL**, temyizde **1.661.000 TL**'dir ve davanın açıldığı tarihteki sınır esas alınır.
+- İstinaf ve temyiz süresi **30 gün**dür; 2026 sınırları istinafta **55.000 ₺**, temyizde **1.661.000 ₺**'dir ve davanın açıldığı tarihteki sınır esas alınır.
 - İvedi yargılamada dava süresi **30 gün**, temyiz **15 gün**, istinaf yoktur; merkezî sınav davalarında dava süresi **10 gün**, temyiz **5 gün**dür.

@@ -1,140 +1,119 @@
 ---
 ders: FYN
 konu: FPA
-baslik: Finansal planlama analiz ve kâr dağıtımı
-durum: taslak
+baslik: Finansal analiz planlama ve kâr dağıtımı
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
-  - mevzuat: "Genel bilgi — Oran analizi ve DuPont"
+  - mevzuat: "Genel bilgi — Oran analizi ve oranlardan finansal tablo türetme"
     madde: "-"
-  - mevzuat: "Genel bilgi — Nakit bütçesi"
+  - mevzuat: "Genel bilgi — Başabaş analizi ve kaldıraç dereceleri"
     madde: "-"
-  - mevzuat: "Genel bilgi — Kaldıraç dereceleri"
+  - mevzuat: "Genel bilgi — Proforma tablolar, dış finansman ihtiyacı ve büyüme oranları"
+    madde: "-"
+  - mevzuat: "Genel bilgi — Nakit akım tablosu, fon akım tablosu ve Altman Z"
     madde: "-"
   - mevzuat: "Genel bilgi — Kâr payı politikası"
-    madde: "-"
-  - mevzuat: "Genel bilgi — Birleşme ve satın alma değerlemesi"
     madde: "-"
 ---
 ## Bu konuda neler öğreneceksin
 
-- Oran analizi ve DuPont: temel oran grupları ve özkaynak kârlılığının ayrıştırılması
-- Nakit bütçesi hazırlama ve finansman ihtiyacının belirlenmesi
-- Kaldıraç dereceleri (faaliyet; finansal; birleşik) ve satış değişiminin kâra etkisi
-- Kâr payı politikası teorileri ve artık kâr payı yaklaşımı
-- Birleşme ve satın alma değerlemesi: sinerji, prim ve indirgenmiş nakit akışı
+- Oran analizi yapmak ve verilen oranlardan bilanço türetmek
+- Faiz dahil ve çok ürünlü başabaş noktasını, kaldıraç derecelerini hesaplamak
+- Satış yüzdesi yöntemiyle proforma tablo ve dış finansman ihtiyacını, içsel ve sürdürülebilir büyüme oranını bulmak
+- Dolaysız nakit akım tablosu ile fon akım tablosunu kurmak, Altman Z ile iflas riskini ölçmek
+- Kâr payı politikası teorilerini, artık kâr yaklaşımını, bedelsiz hisse ve hisse geri alımını uygulamak
 
-## 1. Oran analizi ve DuPont
+## 1. Oran analizi
 
-**Oran analizi**, finansal tablo kalemleri arasındaki anlamlı ilişkilerin oranlarla ölçülüp geçmiş dönemler ve sektörle karşılaştırılmasıdır. Dört ana grup vardır:
+**Oran analizi**, tablo kalemleri arasındaki ilişkilerin oranlarla ölçülüp geçmiş ve sektörle karşılaştırılmasıdır. KVYK kısa vadeli, UVYK uzun vadeli yabancı kaynaktır; aksi söylenmedikçe yıl 360 gün alınır.
 
-| Grup | Başlıca oranlar |
+| Grup | Oran |
 |---|---|
-| Likidite | Cari oran = Dönen varlıklar / KVYK; asit-test oranı = (Dönen varlıklar − Stoklar) / KVYK; nakit oran |
-| Faaliyet | Stok, alacak ve aktif devir hızları |
-| Finansal yapı | Borç oranı = Toplam borç / Toplam aktif; borç / özkaynak |
-| Kârlılık | Net kâr marjı, aktif kârlılığı (ROA), özkaynak kârlılığı (ROE) |
+| Likidite | Cari oran = Dönen varlık / KVYK; asit-test = (Dönen varlık − Stok) / KVYK; nakit oranı = (Hazır değerler + Menkul kıymetler) / KVYK; stoklara bağımlılık = [KVYK − (Hazır değerler + Menkul kıymetler + Kısa vadeli alacaklar)] / Stok |
+| Faaliyet | Stok devir hızı = SMM / Ortalama stok; alacak devir hızı = Kredili satış / Ortalama alacak; tahsil süresi = 360 / Alacak devir hızı; aktif, özkaynak ve net işletme sermayesi (NİS) devir hızı = Satış / ilgili tutar |
+| Finansal yapı | Borç (kaldıraç) oranı = Toplam borç / Aktif; Özkaynak / Aktif; KVYK / Aktif; Duran varlık / Devamlı sermaye (Özkaynak + UVYK); faiz karşılama = FVÖK / Faiz |
+| Kârlılık | Net kâr marjı; aktif kârlılığı (ROA) = Net kâr / Aktif; özkaynak kârlılığı (ROE) = Net kâr / Özkaynak = ROA × Aktif / Özkaynak |
 
-KVYK, kısa vadeli yabancı kaynakları ifade eder. **DuPont analizi**, kârlılığı bileşenlerine ayırır:
+### Örnek: Oranlardan bilanço türetme
 
-- ROA = Net kâr marjı × Aktif devir hızı = (Net kâr / Satışlar) × (Satışlar / Toplam aktif)
-- ROE = Net kâr marjı × Aktif devir hızı × Özkaynak çarpanı; özkaynak çarpanı = Toplam aktif / Özkaynak = 1 / (1 − Borç oranı)
+Satışlar 6.000.000 TL; aktif devir hızı 2; özkaynak / aktif 0,40; KVYK / aktif 0,30; cari oran 2; asit-test oranı 1,2; nakit oranı 0,4 (menkul kıymet yok).
 
-Bu anlatımda dönem sonu bakiyeler kullanılmıştır; bazı kaynaklar aktif ve özkaynak için dönem başı ve sonu ortalamasını alır.
+1. Aktif = 6.000.000 / 2 = 3.000.000 TL; özkaynak 1.200.000; KVYK 900.000; UVYK 3.000.000 − 1.200.000 − 900.000 = 900.000 TL.
+2. Dönen varlık = 2 × 900.000 = 1.800.000; duran varlık 1.200.000 TL.
+3. Dönen varlık − Stok = 1,2 × 900.000 = 1.080.000; stok 720.000 TL.
+4. Hazır değerler = 0,4 × 900.000 = 360.000; alacaklar 1.080.000 − 360.000 = 720.000 TL.
+5. Kontrol oranları: DV / devamlı sermaye = 1.200.000 / 2.100.000 ≈ 0,57; tahsil süresi = 720.000 / (6.000.000 / 360) = 43,2 gün; stoklara bağımlılık = (900.000 − 1.080.000) / 720.000 = −0,25 (negatif: KVYK stok satılmadan ödenebilir).
 
-### Örnek: DuPont ayrıştırması
+> **Sınav ipucu:** Tersine oran sorusunda hep "toplamdan parçaya" git: önce satış ve devir hızından aktifi, sonra yapı oranlarından pasifi, en son likidite oranlarından dönen varlık kalemlerini bul.
 
-Satışlar 10.000.000 TL, net kâr 800.000 TL, toplam aktif 8.000.000 TL, özkaynak 3.200.000 TL'dir.
+## 2. Başabaş analizi ve kaldıraç dereceleri
 
-1. Net kâr marjı = 800.000 / 10.000.000 = %8.
-2. Aktif devir hızı = 10.000.000 / 8.000.000 = 1,25.
-3. Özkaynak çarpanı = 8.000.000 / 3.200.000 = 2,5 (borç oranı %60).
-4. ROA = %8 × 1,25 = %10; ROE = %10 × 2,5 = %25. Kontrol: 800.000 / 3.200.000 = %25.
+Katkı payı (KP) = Satış − Değişken gider; p birim fiyat, v birim değişken gider, SM sabit faaliyet gideri, F faiz, t vergi oranıdır.
 
-> **Sınav ipucu:** ROE = ROA × Özkaynak çarpanı olduğundan, ROE'si yüksek ama ROA'sı düşük işletmede yüksek ROE'nin kaynağı borçlanmadır (yüksek özkaynak çarpanı). DuPont, kârlılığın marjdan mı, verimlilikten mi, kaldıraçtan mı geldiğini gösterir.
+- Faaliyet başabaşı Q = SM / (p − v); faiz dahil başabaş Q = (SM + F) / (p − v)
+- Hedef net kârı sağlayan miktar Q = [SM + F + Hedef net kâr / (1 − t)] / (p − v)
+- Çok ürünlü başabaş tutarı = SM / Ağırlıklı katkı payı oranı (KPO); ağırlıklar satış karmasıdır
+- FAKD = KP / FVÖK; FİKD = FVÖK / (FVÖK − F); BKD = FAKD × FİKD = KP / (FVÖK − F)
 
-İstisna: Oranlar tek başına yorumlanmaz; enflasyon, farklı muhasebe politikaları ve mevsimsellik karşılaştırmayı bozabilir.
+### Örnek: Başabaş ve kaldıraç
 
-## 2. Nakit bütçesi
+p = 100 TL, v = 60 TL, SM = 500.000 TL, F = 100.000 TL, satış 20.000 adet, t = %25.
 
-**Nakit bütçesi**, gelecek dönemlerin nakit giriş ve çıkışlarının dönemler itibarıyla tahminidir. Kuruluş sırası: dönem başı nakit + nakit girişleri (tahsilatlar) − nakit çıkışları = finansman öncesi nakit; bu tutar **asgari nakit** düzeyinin altındaysa kredi kullanılır, üstündeyse fazla ile önce kredi geri ödenir. Amortisman nakit çıkışı değildir, bütçeye girmez.
+1. Faaliyet başabaşı 500.000 / 40 = 12.500 adet; faiz dahil 600.000 / 40 = 15.000 adet.
+2. 210.000 TL net kâr için: [600.000 + 210.000 / 0,75] / 40 = 880.000 / 40 = 22.000 adet.
+3. 20.000 adette KP 800.000; FVÖK 300.000; VÖK 200.000 TL. FAKD ≈ 2,67; FİKD = 1,5; BKD = 4. Satış %10 artarsa FVÖK %26,67, hisse başına kâr %40 artar.
 
-### Örnek: Üç aylık nakit bütçesi
+Çok ürünlü örnek: A'nın KPO'su %40, B'nin %60; satış karması tutar olarak %60 A, %40 B; SM 960.000 TL. Ağırlıklı KPO = 0,6 × 0,4 + 0,4 × 0,6 = 0,48; başabaş satış 960.000 / 0,48 = 2.000.000 TL (A 1.200.000, B 800.000 TL). Karma KPO'su yüksek ürüne kayarsa başabaş düşer.
 
-Satışlar: Aralık 900.000, Ocak 1.000.000, Şubat 1.200.000, Mart 1.500.000 TL. Satışların %40'ı peşin, %60'ı bir ay sonra tahsil edilir. Ödemeler: Ocak 1.100.000, Şubat 1.000.000, Mart 1.300.000 TL. Ocak başı nakit 150.000 TL, asgari nakit 100.000 TL; kredi faizi basitlik için ihmal edilmiştir.
+> **Sık yapılan hata:** Faizi faaliyet kaldıracına katmak. Faiz yalnız FİKD, BKD ve faiz dahil başabaşı etkiler.
 
-| Kalem | Ocak | Şubat | Mart |
-|---|---|---|---|
-| Dönem başı nakit | 150.000 | 100.000 | 100.000 |
-| Tahsilat | 940.000 | 1.080.000 | 1.320.000 |
-| Ödemeler | 1.100.000 | 1.000.000 | 1.300.000 |
-| Finansman öncesi nakit | −10.000 | 180.000 | 120.000 |
-| Kredi kullanımı (+) / geri ödeme (−) | 110.000 | −80.000 | −20.000 |
-| Dönem sonu nakit | 100.000 | 100.000 | 100.000 |
-| Kredi bakiyesi | 110.000 | 30.000 | 10.000 |
+## 3. Proforma tablolar, dış finansman ihtiyacı ve büyüme
 
-1. Ocak tahsilatı = 0,40 × 1.000.000 + 0,60 × 900.000 = 940.000 TL.
-2. Ocak sonu 150.000 + 940.000 − 1.100.000 = −10.000 TL; asgari düzey için 110.000 TL kredi gerekir.
-3. Şubat tahsilatı = 480.000 + 600.000 = 1.080.000 TL; 180.000 TL'nin 80.000 TL'si krediyi öder.
-4. Mart tahsilatı = 600.000 + 720.000 = 1.320.000 TL; 20.000 TL geri ödenir, 10.000 TL kredi kalır.
+**Satış yüzdesi yönteminde** satışla orantılı değişen aktif ve kendiliğinden artan borçlar (ticari borç, tahakkuklar) gelecek satışa göre büyütülür; banka kredisi, sermaye gibi kararla değişen kalemler sabit tutulur. Aradaki açık **dış finansman ihtiyacıdır (DFİ)**:
 
-## 3. Kaldıraç dereceleri (faaliyet; finansal; birleşik)
+- DFİ = (A / S0) × ΔS − (L / S0) × ΔS − m × S1 × (1 − d)
 
-Kaldıraç, sabit maliyetlerin kârdaki değişimi büyütmesidir. Bu anlatımda katkı payı (KP) = Satışlar − Değişken giderler, FVÖK = faiz ve vergi öncesi kâr, VÖK = vergi öncesi kâr olarak alınmıştır:
+m net kâr marjı, d dağıtım oranıdır. Örnek: S0 = 10.000.000, S1 = 12.000.000 TL; satışa bağlı aktif 6.000.000, kendiliğinden artan borç 1.500.000 TL; m = %5; d = %40. DFİ = 0,60 × 2.000.000 − 0,15 × 2.000.000 − 0,05 × 12.000.000 × 0,60 = 1.200.000 − 300.000 − 360.000 = 540.000 TL. Soruda borç/özkaynak gibi oran kısıtı varsa açık bu orana göre kredi ve sermaye arasında bölünür.
 
-- **Faaliyet kaldıracı derecesi (FAKD)** = % değişim FVÖK / % değişim satış = KP / FVÖK
-- **Finansal kaldıraç derecesi (FİKD)** = % değişim hisse başına kâr / % değişim FVÖK = FVÖK / (FVÖK − Faiz)
-- **Birleşik kaldıraç derecesi (BKD)** = FAKD × FİKD = KP / (FVÖK − Faiz)
+Dış kaynak kullanmadan ulaşılabilecek **içsel büyüme oranı** = ROA × b / (1 − ROA × b); borç/özkaynak oranını sabit tutarak yeni hisse çıkarmadan ulaşılan **sürdürülebilir büyüme oranı** = ROE × b / (1 − ROE × b); b = 1 − d. ROA %10, ROE %20, b = 0,6 ise içsel büyüme 0,06 / 0,94 ≈ %6,38; sürdürülebilir büyüme 0,12 / 0,88 ≈ %13,64. Ters çözümde her oran için g / (1 + g) = ROA × b (ya da ROE × b) yazılır; ROE × b'nin ROA × b'ye bölümü özkaynak çarpanını (Aktif / Özkaynak; örnekte 0,12 / 0,06 = 2) verir.
 
-İmtiyazlı hisse varsa FİKD paydasından ayrıca imtiyazlı kâr payının vergi öncesi karşılığı, yani İmtiyazlı kâr payı / (1 − vergi oranı) düşülür. Formüller belirli bir satış düzeyine göre hesaplanır; satış düzeyi değişince dereceler de değişir.
+## 4. Nakit akım tablosu, fon akım tablosu ve Altman Z
 
-### Örnek: Kaldıraç dereceleri
+**Dolaysız yöntemde** faaliyet nakit akışı tahsilat ve ödemelerden kurulur:
 
-20.000 adet, birim fiyat 100 TL, birim değişken gider 60 TL, sabit faaliyet gideri 500.000 TL, faiz 100.000 TL.
+- Müşterilerden tahsilat = Satışlar − Ticari alacak artışı
+- Satıcılara ödeme = SMM + Stok artışı − Ticari borç artışı
+- Faaliyet gideri ödemesi = Faaliyet giderleri − Amortisman (± peşin gider ve tahakkuk değişimi)
+- Vergi ödemesi = Vergi gideri − Ödenecek vergi artışı
 
-1. KP = 20.000 × 40 = 800.000 TL; FVÖK = 300.000 TL; VÖK = 200.000 TL.
-2. FAKD = 800.000 / 300.000 ≈ 2,67; FİKD = 300.000 / 200.000 = 1,5; BKD = 800.000 / 200.000 = 4 (FAKD × FİKD ile aynı sonuç).
-3. Satışlar %10 artarsa FVÖK %26,67 (380.000 TL), VÖK ve hisse başına kâr %40 (280.000 TL) artar.
+Örnek: satış 5.000.000, alacak artışı 400.000; SMM 3.000.000, stok artışı 200.000, ticari borç artışı 300.000; faaliyet giderleri 800.000 (150.000 amortisman dahil); vergi gideri 250.000, ödenecek vergi artışı 50.000 TL. Tahsilat 4.600.000; satıcılara 2.900.000; giderlere 650.000; vergiye 200.000 TL; faaliyet nakit akışı 850.000 TL. Dolaylı kontrol: net kâr 950.000 + 150.000 − 400.000 − 200.000 + 300.000 + 50.000 = 850.000 TL. Yatırım (duran varlık alım-satımı) ve finansman (kredi, sermaye, kâr payı) akışları ayrı bölümlerde gösterilir.
 
-> **Sık yapılan hata:** Faizi FAKD hesabına katmak. Faiz finansman giderdir; yalnız FİKD ve BKD'yi etkiler. Başabaş noktasına (burada 12.500 adet) yaklaştıkça FAKD sınırsız büyür.
+**Fon akım tablosu** iki bilanço arasındaki değişimi kaynak ve kullanım olarak gösterir. Kaynaklar: faaliyetlerden sağlanan fon (net kâr + amortisman), aktif azalışları, borç ve sermaye artışları. Kullanımlar: aktif artışları, borç azalışları, kâr dağıtımı. Kaynak ve kullanım toplamları eşittir.
 
-## 4. Kâr payı politikası
+**Altman Z** (halka açık imalat işletmesi): Z = 1,2 X1 + 1,4 X2 + 3,3 X3 + 0,6 X4 + 1,0 X5. X1 = NİS / Aktif, X2 = Dağıtılmamış kârlar / Aktif, X3 = FVÖK / Aktif, X4 = Özkaynak piyasa değeri / Toplam borç, X5 = Satışlar / Aktif. Z > 2,99 güvenli, 1,81–2,99 gri bölge, Z < 1,81 yüksek iflas riski. Oranlar 0,20; 0,30; 0,15; 1,0 ve 1,5 ise Z = 0,24 + 0,42 + 0,495 + 0,60 + 1,50 = 3,255; işletme güvenli bölgededir.
 
-**Kâr payı politikası**, net kârın ne kadarının dağıtılıp ne kadarının işletmede tutulacağına ilişkin karardır. Başlıca görüşler:
+## 5. Kâr payı politikası
 
-- **İlgisizlik görüşü (Modigliani-Miller)**: Vergisiz ve kusursuz piyasada, yatırım politikası veri iken kâr payı politikası firma değerini etkilemez.
-- **Eldeki kuş görüşü (Gordon, Lintner)**: Yatırımcı belirsiz sermaye kazancı yerine kesin kâr payını tercih eder.
-- **Vergi farkı görüşü**: Kâr payı sermaye kazancından ağır vergileniyorsa düşük dağıtım tercih edilir.
-- **Sinyal ve müşteri (yatırımcı kitlesi) etkisi**: Kâr payı değişikliği yönetimin beklentisini duyurur; her politika kendi yatırımcı kitlesini çeker.
+- **İlgisizlik (Modigliani-Miller)**: kusursuz piyasada kâr payı politikası değeri etkilemez.
+- **Eldeki kuş (Gordon, Lintner)**: yatırımcı belirsiz sermaye kazancı yerine kesin kâr payını tercih eder.
+- **Vergi farkı**, **sinyal** ve **yatırımcı kitlesi** görüşleri dağıtım tercihini vergi yüküne, bilgi etkisine ve ortak yapısına bağlar.
 
-Uygulamada istikrarlı kâr payı, sabit dağıtım oranı, düşük düzenli artı ek kâr payı ve **artık kâr payı** politikaları görülür. Artık politikada önce kârlı yatırımların hedef sermaye yapısına göre özkaynak payı ayrılır, kalan dağıtılır. Ör. net kâr 5.000.000 TL, yatırım bütçesi 4.000.000 TL, hedef yapı %40 borç, %60 özkaynak ise özkaynak ihtiyacı 2.400.000 TL, dağıtılabilir tutar 2.600.000 TL'dir (dağıtım oranı %52). Hisse geri alımı nakit dağıtımın alternatifidir; bedelsiz hisse ve hisse bölünmesi ise özkaynak toplamını değiştirmez.
+**Artık kâr payı** yaklaşımında kâr önce kârlı yatırımlara ayrılır, kalan dağıtılır. Hedef yapı varyantı: net kâr 5.000.000 TL, yatırım 4.000.000 TL, hedef özkaynak payı %60 ise dağıtım 5.000.000 − 2.400.000 = 2.600.000 TL. Sınav varyantı: projeler getirisine göre sıralanır; getirisi ortakların alternatif getirisini aşan proje iç kaynakla finanse edilir, eşit olanda eldeki kuş kuralıyla dağıtım seçilir. Net kâr 1.000.000 TL; A (%30, 500.000 TL), B (%22, 300.000 TL), C (%20, 400.000 TL); ortakların alternatif getirisi %20 ise A ve B için 800.000 TL tutulur, 200.000 TL dağıtılır (dağıtım oranı %20).
 
-## 5. Birleşme ve satın alma değerlemesi
-
-Birleşme yatay (aynı sektör), dikey (tedarik zinciri) ya da karma olabilir. Temel gerekçe **sinerjidir**: Sinerji = V(AB) − (V(A) + V(B)). Ödenen bedelin hedefin bağımsız değerini aşan kısmı **primdir**; alıcı açısından NBD = Sinerji − Prim. Hedefin değeri genellikle **indirgenmiş nakit akışları** (serbest nakit akışının AOSM ile indirgenmesi; sabit büyümede değer = gelecek yılın serbest nakit akışı / (AOSM − g)), **çarpanlar** (F/K, FD/FAVÖK) ve **net aktif değeri** yöntemleriyle bulunur. AOSM, ağırlıklı ortalama sermaye maliyetidir; FD firma değeri, FAVÖK faiz, amortisman ve vergi öncesi kârdır.
-
-### Örnek: Satın alma değerlemesi
-
-Hedef firmanın gelecek yıl serbest nakit akışı 10.000.000 TL, AOSM %12, sürekli büyüme %4, net borcu 25.000.000 TL, 10.000.000 hissesi vardır. Sinerjinin bugünkü değeri 20.000.000 TL, teklif 115.000.000 TL'dir.
-
-1. Firma değeri = 10.000.000 / (0,12 − 0,04) = 125.000.000 TL.
-2. Özkaynak değeri = 125.000.000 − 25.000.000 = 100.000.000 TL; hisse başına 10 TL.
-3. Prim = 115.000.000 − 100.000.000 = 15.000.000 TL.
-4. Alıcı NBD = 20.000.000 − 15.000.000 = 5.000.000 TL; teklif kabul edilebilir.
-5. Ödeme hisseyle yapılacak ve alıcının hisse fiyatı 25 TL ise teklif hisse başına 115.000.000 / 10.000.000 = 11,5 TL; değişim oranı = 11,5 / 25 = 0,46 (hedefin her hissesine 0,46 alıcı hissesi).
-
-İstisna: Ödeme hisseyle yapılırsa sinerjinin bir bölümü hedef ortaklarına geçer; prim nakit ödemedeki gibi sabit kalmaz.
+**Bedelsiz hisse** özkaynak toplamını değiştirmez, yalnız özkaynak kalemleri arasında aktarım yapar; %20 bedelsizde hisse sayısı 1,2 katına çıkar, teorik fiyat P / 1,2 olur (24 TL → 20 TL). **Hisse geri alımı** nakit kâr payının alternatifidir: 1.000.000 hisse, net kâr 5.000.000 TL (hisse başına 5 TL), F/K 8 (fiyat 40 TL) iken dağıtılacak 2.000.000 TL ile hisse başına 2 TL ödenecekse geri alım fiyatı 40 + 2 = 42 TL'dir. 2.000.000 / 42 ≈ 47.619 hisse alınır; kalan 952.381 hissede hisse başına kâr 5,25 TL, fiyat 8 × 5,25 = 42 TL olur ve ortak iki yolda aynı servete ulaşır.
 
 ### Tasdik uygulama notu
 
-Tam tasdikte YMM oran analizini analitik inceleme aracı olarak kullanır: brüt kâr marjı ve devir hızlarındaki olağandışı sapmalar ayrıntılı incelemeyi yönlendirir. Kâr dağıtımında yedek akçe ayrımı, genel kurul kararı ve kâr payı ödemelerine ilişkin vergi kesintisi yükümlülükleri belgelerle kontrol edilir. Birleşme ve devirlerde ilgili ticaret ve vergi mevzuatındaki şartlar, değerleme dayanakları ve devredilen değerlerin kayıtlara aktarımı incelenir.
+Tam tasdikte YMM oran analizini analitik inceleme aracı olarak kullanır: brüt kâr marjı, tahsil süresi ve stok devir hızındaki olağandışı sapmalar ayrıntılı incelemeyi yönlendirir. Nakit akım tablosundaki tahsilat ve ödemeler mizan değişimleriyle mutabık kılınır; kâr dağıtımında genel kurul kararı, yedek akçe ayrımı, bedelsiz sermaye artırımının kaynağı ve kâr payı ödemelerindeki vergi kesintisi belgelerle kontrol edilir.
 
 ## Özet
 
-- DuPont: ROE = Net kâr marjı × Aktif devir hızı × Özkaynak çarpanı.
-- Nakit bütçesi: dönem başı nakit + tahsilat − ödemeler; asgari nakit altına düşülürse kredi, fazla varsa geri ödeme.
-- FAKD = KP / FVÖK; FİKD = FVÖK / (FVÖK − Faiz); BKD = FAKD × FİKD.
-- Faiz yalnız finansal kaldıracı etkiler; başabaş noktasına yaklaştıkça FAKD büyür.
-- MM'ye göre kâr payı politikası ilgisizdir; eldeki kuş, vergi farkı ve sinyal görüşleri farklı sonuç verir.
-- Artık politikada dağıtılabilir kâr = Net kâr − Yatırım × Hedef özkaynak oranı.
-- Satın almada alıcı NBD = Sinerji − Prim; değer indirgenmiş nakit akışı, çarpanlar veya net aktif değeriyle bulunur.
+- Oranlardan tablo türetmede satış ve devir hızından aktife, yapı oranlarından pasife, likidite oranlarından dönen varlık kalemlerine gidilir.
+- Başabaş = SM / (p − v); faiz dahil (SM + F) / (p − v); çok ürünlüde SM / ağırlıklı KPO.
+- FAKD = KP / FVÖK; FİKD = FVÖK / (FVÖK − F); BKD = FAKD × FİKD.
+- DFİ = (A / S0) ΔS − (L / S0) ΔS − m S1 (1 − d).
+- İçsel büyüme ROA × b / (1 − ROA × b); sürdürülebilir büyüme ROE × b / (1 − ROE × b).
+- Dolaysız nakit akışı tahsilat ve ödemelerden kurulur; dolaylı yöntemle aynı sonucu verir.
+- Altman Z 1,81'in altında yüksek, 2,99'un üstünde düşük iflas riski gösterir.
+- Artık kâr payında kârlı yatırımlar önce finanse edilir; geri alım fiyatı = fiyat + hisse başına kâr payı.

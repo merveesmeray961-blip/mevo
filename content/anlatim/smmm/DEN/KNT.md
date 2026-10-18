@@ -123,14 +123,14 @@ Analitik maddi doğrulama tasarlanırken denetçi (520.5):
 
 Ciddi sapmalarda denetçi **yönetimi sorgular, yanıtlarını kanıtla doğrular** ve gerekli diğer prosedürleri uygular (520.7). Yönetimin açıklamasını kanıtsız kabul etmek yeterli değildir.
 
-**Çözümlü örnek:** Bir işletmenin 40 kiralık dairesi var. Aylık kira 15.000 TL, yıllık ortalama doluluk oranı (bağımsız emlak kayıtlarından doğrulanmış) %90. Denetçinin kabul edilebilir fark eşiği 150.000 TL.
+**Çözümlü örnek:** Bir işletmenin 40 kiralık dairesi var. Aylık kira 15.000 ₺, yıllık ortalama doluluk oranı (bağımsız emlak kayıtlarından doğrulanmış) %90. Denetçinin kabul edilebilir fark eşiği 150.000 ₺.
 
-1. Tam doluluk yıllık kira = 40 × 12 × 15.000 = 7.200.000 TL
-2. Beklenen kira geliri = 7.200.000 × 0,90 = **6.480.000 TL**
-3. Kayıtlı kira geliri = 6.900.000 TL
-4. Fark = 6.900.000 − 6.480.000 = **420.000 TL**; eşik olan 150.000 TL'yi aşıyor.
+1. Tam doluluk yıllık kira = 40 × 12 × 15.000 = 7.200.000 ₺
+2. Beklenen kira geliri = 7.200.000 × 0,90 = **6.480.000 ₺**
+3. Kayıtlı kira geliri = 6.900.000 ₺
+4. Fark = 6.900.000 − 6.480.000 = **420.000 ₺**; eşik olan 150.000 ₺'yi aşıyor.
 
-Denetçi farkı araştırır: yönetim "yıl içinde kira artışı yapıldı" derse kira sözleşmeleri ve banka tahsilatları incelenir. Örneğin sözleşmelere göre 10 dairede son 6 ayda kira 21.000 TL'ye çıkmışsa açıklanan tutar 10 × 6 × 6.000 × 0,90 = 324.000 TL olur. Kalan 420.000 − 324.000 = 96.000 TL, 150.000 TL'lik eşiğin altındadır; açıklama kanıtla doğrulandığı için ek araştırma gerekmez. Sözleşmeler artışı doğrulamasaydı fark açıklanamamış sayılır ve detay testleriyle (ör. sonraki dönem gelirinin bu döneme kaydedilmesi gibi dönemsellik hataları) araştırılırdı.
+Denetçi farkı araştırır: yönetim "yıl içinde kira artışı yapıldı" derse kira sözleşmeleri ve banka tahsilatları incelenir. Örneğin sözleşmelere göre 10 dairede son 6 ayda kira 21.000 ₺'ye çıkmışsa açıklanan tutar 10 × 6 × 6.000 × 0,90 = 324.000 ₺ olur. Kalan 420.000 − 324.000 = 96.000 ₺, 150.000 ₺'lik eşiğin altındadır; açıklama kanıtla doğrulandığı için ek araştırma gerekmez. Sözleşmeler artışı doğrulamasaydı fark açıklanamamış sayılır ve detay testleriyle (ör. sonraki dönem gelirinin bu döneme kaydedilmesi gibi dönemsellik hataları) araştırılırdı.
 
 ## 5. BDS 580: Yazılı beyanlar
 

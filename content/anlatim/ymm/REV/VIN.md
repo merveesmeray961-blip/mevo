@@ -2,7 +2,7 @@
 ders: REV
 konu: VIN
 baslik: Vergi incelemesi ve hile tespiti
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu

@@ -61,14 +61,14 @@ Hazır değerler aktif (varlık) hesaplarıdır: **artış borç, azalış alaca
 - Kasa hiçbir şekilde **alacak bakiyesi vermez**; vermişse ya kayıt hatası ya da kayda geçmemiş tahsilat vardır.
 - Yabancı paralar kasaya TL karşılığıyla girer; VUK md. 284'e göre kasa mevcutları itibari kıymetle, yabancı paralar md. 280'e göre değerlenir. Döviz kasasındaki kur artışı 100 (B) / 646 Kambiyo Kârları (A), azalışı 656 Kambiyo Zararları (B) / 100 (A) kaydedilir.
 
-**Kasa sayım farkları:** Sayımda eksik çıkan tutar önce **197 Sayım ve Tesellüm Noksanları**'na borç, kasaya alacak yazılır. Sorumlusu belli olursa 135 Personelden Alacaklar'a, olmazsa 689 Diğer Olağandışı Gider ve Zararlar'a aktarılır. Fazla çıkan tutar 100 (B) / **397 Sayım ve Tesellüm Fazlaları** (A) ile kaydedilir ve nedeni araştırılır.
+**Kasa sayım farkları:** Sayımda eksik çıkan tutar önce **197 Sayım ve Tesellüm Noksanları**'na borç, kasaya alacak yazılır. Sorumlusu belli olursa 135 Personelden Alacaklar'a, olmazsa 689 Diğer Olağandışı Gider ve Zararlar'a aktarılır. Fazla çıkan tutar 100 (B) / **397 Sayım ve Tesellüm Fazlaları** (A) ile kaydedilir ve nedeni araştırılır. THP'ye göre üçüncü kişilere ödenmesi gerektiği belgelenen kasa fazlası 397'nin borcuna yazılarak ödenir; bekleme süresini dolduran kalıntı ise **671 Önceki Dönem Gelir ve Kârları** hesabına aktarılır.
 
 ### Bankalar
 
 - Bankaya para yatırma: 102 (B) / 100 (A). Bankadan çekme: 100 (B) / 102 (A).
 - Havale ile tahsilat: 102 (B) / 120 (A). EFT ile ödeme: 320 (B) / 102 (A); masraf 653 Komisyon Giderleri'ne.
 
-**Mevduat faizi ve stopaj:** Banka, mevduat faizinden stopaj keser ve kalan net tutarı hesaba yatırır. Kesilen vergi işletmenin kurumlar (gelir) vergisinden mahsup edilebileceği için 193 Peşin Ödenen Vergiler ve Fonlar'a yazılır. Örnek: brüt faiz 40.000 TL, soruda verilen stopaj oranı %15 ise:
+**Mevduat faizi ve stopaj:** Banka, mevduat faizinden stopaj keser ve kalan net tutarı hesaba yatırır. Kesilen vergi işletmenin kurumlar (gelir) vergisinden mahsup edilebileceği için 193 Peşin Ödenen Vergiler ve Fonlar'a yazılır. Örnek: brüt faiz 40.000 ₺, soruda verilen stopaj oranı %15 ise:
 
 - 102 Bankalar (B) 34.000
 - 193 Peşin Ödenen Vergiler ve Fonlar (B) 6.000
@@ -86,7 +86,7 @@ Hazır değerler aktif (varlık) hesaplarıdır: **artış borç, azalış alaca
 | Satıcıya işletme çeki verildi | 320 (B) / 103 (A) |
 | Verilen çek bankadan ödendi | 103 (B) / 102 (A) |
 
-103, 102'yi düzenler: banka bakiyesi 500.000 TL, ödenmemiş verilen çekler 80.000 TL ise bilançoda kullanılabilir banka değeri 420.000 TL olarak sunulur.
+103, 102'yi düzenler: banka bakiyesi 500.000 ₺, ödenmemiş verilen çekler 80.000 ₺ ise bilançoda kullanılabilir banka değeri 420.000 ₺ olarak sunulur.
 
 > **Sınav ipucu:** Alınan çeki satıcıya ciro etmek 101'i alacaklandırır, 103'ü değil. 103 yalnızca işletmenin **kendi** bankası üzerine keşide ettiği çekler içindir.
 
@@ -101,19 +101,19 @@ KDVK md. 29'a göre mükellefler, vergiye tabi işlemleri üzerinden hesaplanan 
 
 **Çözümlü örnek (KDV %20):**
 
-Ocak: 900.000 TL + KDV mal alındı, 600.000 TL + KDV satış yapıldı.
+Ocak: 900.000 ₺ + KDV mal alındı, 600.000 ₺ + KDV satış yapıldı.
 
-- 191 bakiyesi 180.000; 391 bakiyesi 120.000 → 191 büyük, fark 60.000 TL devreder.
+- 191 bakiyesi 180.000; 391 bakiyesi 120.000 → 191 büyük, fark 60.000 ₺ devreder.
 - Kayıt: 391 (B) 120.000, 190 (B) 60.000 / 191 (A) 180.000
 
-Şubat: 400.000 TL + KDV alış, 1.000.000 TL + KDV satış.
+Şubat: 400.000 ₺ + KDV alış, 1.000.000 ₺ + KDV satış.
 
 - 191: 80.000; 391: 200.000; indirimler toplamı 80.000 + 60.000 (190) = 140.000.
-- Ödenecek KDV: 200.000 − 140.000 = **60.000 TL**
+- Ödenecek KDV: 200.000 − 140.000 = **60.000 ₺**
 - Kayıt: 391 (B) 200.000 / 191 (A) 80.000, 190 (A) 60.000, 360 (A) 60.000
 - Ödeme: 360 (B) 60.000 / 102 (A) 60.000
 
-> **Sık yapılan hata:** Önceki aydan devreden KDV'yi unutup 200.000 − 80.000 = 120.000 TL ödenecek bulmak. Devreden KDV (190) indirim toplamına eklenir.
+> **Sık yapılan hata:** Önceki aydan devreden KDV'yi unutup 200.000 − 80.000 = 120.000 ₺ ödenecek bulmak. Devreden KDV (190) indirim toplamına eklenir.
 
 ## 4. Muhasebenin temel kavramları
 
@@ -142,7 +142,7 @@ MSUGT Ek 1'de 12 temel kavram sayılır:
 - Pasifi düzenleyenler (borç bakiyeli): 302, 308, 322, 337, 371, 408, 501, 580.
 - Gelir tablosunda: 610 Satıştan İadeler, 611 Satış İskontoları, 612 Diğer İndirimler brüt satışları azaltır.
 
-Örneğin 253 Tesis, Makine ve Cihazlar 600.000 TL, 257 Birikmiş Amortismanlar 240.000 TL ise makinenin net defter değeri 360.000 TL'dir.
+Örneğin 253 Tesis, Makine ve Cihazlar 600.000 ₺, 257 Birikmiş Amortismanlar 240.000 ₺ ise makinenin net defter değeri 360.000 ₺'dir.
 
 ## 6. Mizan
 
@@ -175,14 +175,14 @@ Kapanış sırası:
 5. 692, **590 Dönem Net Kârı** (zarar ise 591) hesabına devredilir.
 6. Yıl içinde ödenen geçici vergiler (193), 371 Dönem Kârının Peşin Ödenen Vergi ve Diğer Yükümlülükleri hesabına aktarılır: 371 (B) / 193 (A).
 
-**Çözümlü örnek:** Dönem sonu bakiyeleri: 600 Yurtiçi Satışlar 1.500.000; 610 Satıştan İadeler 50.000; 621 Satılan Ticari Mallar Maliyeti 800.000; 632 Genel Yönetim Giderleri 150.000; 642 Faiz Gelirleri 30.000; 660 Kısa Vadeli Borçlanma Giderleri 60.000; 689 Diğer Olağandışı Gider ve Zararlar 20.000. Kurumlar vergisi %25 (KVK md. 32); kanunen kabul edilmeyen gider ve istisna yok; yıl içinde ödenen geçici vergi 80.000 TL.
+**Çözümlü örnek:** Dönem sonu bakiyeleri: 600 Yurtiçi Satışlar 1.500.000; 610 Satıştan İadeler 50.000; 621 Satılan Ticari Mallar Maliyeti 800.000; 632 Genel Yönetim Giderleri 150.000; 642 Faiz Gelirleri 30.000; 660 Kısa Vadeli Borçlanma Giderleri 60.000; 689 Diğer Olağandışı Gider ve Zararlar 20.000. Kurumlar vergisi %25 (KVK md. 32); kanunen kabul edilmeyen gider ve istisna yok; yıl içinde ödenen geçici vergi 80.000 ₺.
 
 1. 600 (B) 1.500.000, 642 (B) 30.000 / 690 (A) 1.530.000
 2. 690 (B) 1.080.000 / 610 (A) 50.000, 621 (A) 800.000, 632 (A) 150.000, 660 (A) 60.000, 689 (A) 20.000
-3. Vergi öncesi kâr: 1.530.000 − 1.080.000 = **450.000 TL**; vergi 450.000 × %25 = 112.500 → 691 (B) 112.500 / 370 (A) 112.500
-4. 690 (B) 450.000 / 692 (A) 450.000 ve 692 (B) 112.500 / 691 (A) 112.500 → net kâr **337.500 TL**
+3. Vergi öncesi kâr: 1.530.000 − 1.080.000 = **450.000 ₺**; vergi 450.000 × %25 = 112.500 → 691 (B) 112.500 / 370 (A) 112.500
+4. 690 (B) 450.000 / 692 (A) 450.000 ve 692 (B) 112.500 / 691 (A) 112.500 → net kâr **337.500 ₺**
 5. 692 (B) 337.500 / 590 (A) 337.500
-6. 371 (B) 80.000 / 193 (A) 80.000 → bilançoda ödenecek kurumlar vergisi 112.500 − 80.000 = 32.500 TL
+6. 371 (B) 80.000 / 193 (A) 80.000 → bilançoda ödenecek kurumlar vergisi 112.500 − 80.000 = 32.500 ₺
 
 > **Sık yapılan hata:** 690'ı "net kâr" sanmak. 690 vergiden **önceki** kârı, 692 vergiden **sonraki** net kârı gösterir; bilançoya geçen tutar 590'daki net kârdır.
 

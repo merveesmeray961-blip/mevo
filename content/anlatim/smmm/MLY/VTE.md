@@ -59,23 +59,23 @@ Sınıflandırma **ortalama oranın matrahla nasıl değiştiğine** göre yapı
 
 ### 2.1 Artan oranlılığın türleri
 
-1. **Sınıf (basit) artan oranlılık:** Matrah hangi sınıfa girerse **matrahın tamamına** o sınıfın oranı uygulanır. Sınır geçişlerinde adaletsizlik doğar. Örnek: 100.000 TL'ye kadar %10, 100.000 TL'yi aşan matrahların tamamına %20 uygulansın. 100.000 TL gelir: vergi 10.000, net 90.000 TL. 105.000 TL gelir: vergi 21.000, net 84.000 TL. Kişi 5.000 TL fazla kazanıp 6.000 TL daha az net gelir elde etmiştir; marjinal oran %100'ü aşar.
+1. **Sınıf (basit) artan oranlılık:** Matrah hangi sınıfa girerse **matrahın tamamına** o sınıfın oranı uygulanır. Sınır geçişlerinde adaletsizlik doğar. Örnek: 100.000 ₺'ye kadar %10, 100.000 ₺'yi aşan matrahların tamamına %20 uygulansın. 100.000 ₺ gelir: vergi 10.000, net 90.000 ₺. 105.000 ₺ gelir: vergi 21.000, net 84.000 ₺. Kişi 5.000 ₺ fazla kazanıp 6.000 ₺ daha az net gelir elde etmiştir; marjinal oran %100'ü aşar.
 2. **Dilim artan oranlılık:** Matrah dilimlere bölünür, her dilime **yalnız kendi oranı** uygulanır. Sınıf usulünün sakıncasını giderir. Türkiye'de GVK md. 103 tarifesi bu yapıdadır.
-3. **Gizli (dolaylı) artan oranlılık:** Düz oranlı vergide matrahtan sabit bir indirim (en az geçim indirimi gibi) yapılınca ortalama oran artar. Örnek: %20 düz oran, 50.000 TL indirim. 100.000 TL gelirde vergi 10.000 TL (ortalama %10); 200.000 TL'de 30.000 TL (%15); 1.000.000 TL'de 190.000 TL (%19).
+3. **Gizli (dolaylı) artan oranlılık:** Düz oranlı vergide matrahtan sabit bir indirim (en az geçim indirimi gibi) yapılınca ortalama oran artar. Örnek: %20 düz oran, 50.000 ₺ indirim. 100.000 ₺ gelirde vergi 10.000 ₺ (ortalama %10); 200.000 ₺'de 30.000 ₺ (%15); 1.000.000 ₺'de 190.000 ₺ (%19).
 4. **Degresif (azalan hızla artan) oranlılık:** Oran matrahla artar ama artış hızı giderek azalır ve belirli bir düzeyden sonra sabitlenir.
 
 ### 2.2 Çözümlü örnek: 2026 gelir vergisi tarifesi
 
-2026 tarifesi (ücret dışı gelirler): 190.000 TL'ye kadar %15; 400.000 TL'nin 190.000 TL'si için 28.500 TL, fazlası %20; 1.000.000 TL'nin 400.000 TL'si için 70.500 TL, fazlası %27; 5.300.000 TL'nin 1.000.000 TL'si için 232.500 TL, fazlası %35; daha fazlası %40. Ücret gelirlerinde %27'lik dilim 1.500.000 TL'ye kadar uzanır.
+2026 tarifesi (ücret dışı gelirler): 190.000 ₺'ye kadar %15; 400.000 ₺'nin 190.000 ₺'si için 28.500 ₺, fazlası %20; 1.000.000 ₺'nin 400.000 ₺'si için 70.500 ₺, fazlası %27; 5.300.000 ₺'nin 1.000.000 ₺'si için 232.500 ₺, fazlası %35; daha fazlası %40. Ücret gelirlerinde %27'lik dilim 1.500.000 ₺'ye kadar uzanır.
 
-Matrah 500.000 TL (ücret dışı):
+Matrah 500.000 ₺ (ücret dışı):
 
-1. İlk 190.000 TL × %15 = 28.500 TL
-2. Sonraki 210.000 TL × %20 = 42.000 TL (ilk iki dilim toplamı 70.500 TL)
-3. Kalan 100.000 TL × %27 = 27.000 TL
-4. Toplam vergi = 97.500 TL; ortalama oran = 97.500 / 500.000 = **%19,5**; marjinal oran = **%27**.
+1. İlk 190.000 ₺ × %15 = 28.500 ₺
+2. Sonraki 210.000 ₺ × %20 = 42.000 ₺ (ilk iki dilim toplamı 70.500 ₺)
+3. Kalan 100.000 ₺ × %27 = 27.000 ₺
+4. Toplam vergi = 97.500 ₺; ortalama oran = 97.500 / 500.000 = **%19,5**; marjinal oran = **%27**.
 
-> **Sınav ipucu:** Dilimli tarifede marjinal oran, matrahın girdiği en üst dilimin oranıdır; matrah ilk dilimi aştığında ortalama oran her zaman ondan düşüktür. Şıklarda "500.000 TL'nin tamamına %27" uygulanmışsa sınıf usulüyle dilim usulü karıştırılmıştır.
+> **Sınav ipucu:** Dilimli tarifede marjinal oran, matrahın girdiği en üst dilimin oranıdır; matrah ilk dilimi aştığında ortalama oran her zaman ondan düşüktür. Şıklarda "500.000 ₺'nin tamamına %27" uygulanmışsa sınıf usulüyle dilim usulü karıştırılmıştır.
 
 ### 2.3 Artan oranlılığın gerekçeleri
 
@@ -124,12 +124,12 @@ Oran %60'tan %50'ye inince gelir 240'tan 250'ye **artar** (yasak bölge); %30'da
 
 Önlemler **tek taraflı** (iç mevzuat), **iki taraflı** (çifte vergilendirmeyi önleme anlaşmaları) veya **çok taraflı** olabilir. Türkiye iç mevzuatta **sınırlı mahsup** uygular: GVK md. 123 ve KVK md. 33. Ekonomik çifte vergilendirmeye karşı ise KVK md. 5/1-a'daki **iştirak kazançları istisnası** (tam mükellef kurumdan kuruma kâr payı) ve GVK md. 22/3 (tam mükellef kurumlardan alınan kâr paylarının **yarısının** istisnası) vardır; ikincisi sorunu kısmen giderir.
 
-**Sayısal örnek (GVK md. 123):** Tam mükellef bir kişinin 2026 toplam geliri 1.000.000 TL, bunun 200.000 TL'si yurt dışında elde edilmiş ve orada 60.000 TL vergi ödenmiştir (ücret dışı gelir).
+**Sayısal örnek (GVK md. 123):** Tam mükellef bir kişinin 2026 toplam geliri 1.000.000 ₺, bunun 200.000 ₺'si yurt dışında elde edilmiş ve orada 60.000 ₺ vergi ödenmiştir (ücret dışı gelir).
 
-1. Türkiye'de hesaplanan vergi = 232.500 TL (1.000.000 TL'ye kadar dilimlerin toplamı).
-2. Yabancı gelire isabet eden kısım = 232.500 × 200.000 / 1.000.000 = 46.500 TL.
-3. Yurt dışında ödenen 60.000 TL bu sınırı aştığından en fazla 46.500 TL mahsup edilir; 13.500 TL dikkate alınmaz.
-4. Türkiye'de ödenecek vergi = 232.500 − 46.500 = 186.000 TL.
+1. Türkiye'de hesaplanan vergi = 232.500 ₺ (1.000.000 ₺'ye kadar dilimlerin toplamı).
+2. Yabancı gelire isabet eden kısım = 232.500 × 200.000 / 1.000.000 = 46.500 ₺.
+3. Yurt dışında ödenen 60.000 ₺ bu sınırı aştığından en fazla 46.500 ₺ mahsup edilir; 13.500 ₺ dikkate alınmaz.
+4. Türkiye'de ödenecek vergi = 232.500 − 46.500 = 186.000 ₺.
 
 > **Sınav ipucu:** "Yurt dışında ödenen verginin tamamı her durumda mahsup edilir" ifadesi yanlıştır; Türkiye'de mahsup, Türk vergisinin yabancı gelire düşen kısmıyla sınırlıdır.
 
@@ -163,7 +163,7 @@ Servet vergileri dolaysız vergilerdir; konuları servetin kendisi veya transfer
 
 Bileşenler: **garanti gelir (G)**, hiç geliri olmayana yapılan ödeme; **negatif vergi oranı (t)**, kişi kazandıkça ödemenin azalma oranı; **başabaş geliri** = G / t, ödemenin sıfırlandığı gelir.
 
-**Sayısal örnek:** G = 10.000 TL, t = %50 olsun. Başabaş geliri = 10.000 / 0,5 = 20.000 TL.
+**Sayısal örnek:** G = 10.000 ₺, t = %50 olsun. Başabaş geliri = 10.000 / 0,5 = 20.000 ₺.
 
 | Kazanılan gelir | Devletin ödemesi (G − t × gelir) | Harcanabilir gelir |
 |---|---|---|
@@ -179,7 +179,7 @@ Kişi her ek lirada ödemenin 50 kuruşunu kaybetse de harcanabilir geliri her z
 ## Özet
 
 - Sınıflandırma ortalama orana göre yapılır: artan oranlıda yükselir, düzde sabit kalır, azalanda düşer; maktu vergi regresif etkilidir.
-- Artan oranlılık sınıf, dilim, gizli ve degresif biçimde olabilir; GVK md. 103 dilimlidir. 2026'da 500.000 TL ücret dışı gelirde vergi 97.500 TL, ortalama oran %19,5, marjinal oran %27'dir.
+- Artan oranlılık sınıf, dilim, gizli ve degresif biçimde olabilir; GVK md. 103 dilimlidir. 2026'da 500.000 ₺ ücret dışı gelirde vergi 97.500 ₺, ortalama oran %19,5, marjinal oran %27'dir.
 - Laffer eğrisi %0 ve %100 oranlarda sıfır gelir öngörür; yalnız yasak bölgede oran indirimi geliri artırır.
 - Hukuki çifte vergilendirmede aynı mükellef, ekonomik çifte vergilendirmede aynı kazanç iki kez vergilenir; Türkiye sınırlı mahsup (GVK 123, KVK 33) ve istisna (KVK 5/1-a, GVK 22/3) kullanır.
 - Dolaylı vergiler yansıtılabilir, verimli ama regresif etkilidir; servet vergileri genel, kısmi (emlak, MTV) ve transfer (VİV) olarak ayrılır.

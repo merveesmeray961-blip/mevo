@@ -134,10 +134,10 @@ Kurulca belirlenen sermaye piyasası araçları (örneğin teminatlı borçlanma
 
 ### Çözümlü örnek: Teminatın paraya çevrilmesi
 
-Bir şirket nominali toplam 80.000.000 TL olan teminatlı borçlanma aracı ihraç etmiş, teminat olarak bir gayrimenkulün mülkiyetini teminat yöneticisine devretmiştir. Vadede ödeme yapılmaz.
+Bir şirket nominali toplam 80.000.000 ₺ olan teminatlı borçlanma aracı ihraç etmiş, teminat olarak bir gayrimenkulün mülkiyetini teminat yöneticisine devretmiştir. Vadede ödeme yapılmaz.
 
-- **Senaryo 1:** Gayrimenkul 95.000.000 TL'ye satılır. Yatırımcılara 80.000.000 TL ödenir; kalan 95.000.000 − 80.000.000 = **15.000.000 TL teminat verene iade edilir**.
-- **Senaryo 2:** Gayrimenkul 60.000.000 TL'ye satılır. Karşılama oranı 60 / 80 = **%75**'tir. Nominali 400.000 TL olan bir yatırımcı 400.000 × 0,75 = **300.000 TL** alır; kalan 100.000 TL alacağı için ihraççıya karşı genel hükümlere göre takip hakkı devam eder.
+- **Senaryo 1:** Gayrimenkul 95.000.000 ₺'ye satılır. Yatırımcılara 80.000.000 ₺ ödenir; kalan 95.000.000 − 80.000.000 = **15.000.000 ₺ teminat verene iade edilir**.
+- **Senaryo 2:** Gayrimenkul 60.000.000 ₺'ye satılır. Karşılama oranı 60 / 80 = **%75**'tir. Nominali 400.000 ₺ olan bir yatırımcı 400.000 × 0,75 = **300.000 ₺** alır; kalan 100.000 ₺ alacağı için ihraççıya karşı genel hükümlere göre takip hakkı devam eder.
 
 Her iki senaryoda da yönetici satış için ihtar çekmek veya mahkemeden izin almak zorunda değildir.
 

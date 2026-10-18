@@ -77,11 +77,11 @@ Temel varsayım **işletmenin sürekliliğidir** (3.9). **Varlık**, geçmiş ol
 
 ### Çözümlü örnek (tahmin değişikliği)
 
-Makine maliyeti 600.000 TL, kalıntı değeri 60.000 TL, ömrü 6 yıl; doğrusal amortisman (600.000 − 60.000) / 6 = **90.000 TL**. İkinci yıl sonunda kalan ömrün 3 yıl, kalıntı değerin 30.000 TL olduğu anlaşılıyor.
+Makine maliyeti 600.000 ₺, kalıntı değeri 60.000 ₺, ömrü 6 yıl; doğrusal amortisman (600.000 − 60.000) / 6 = **90.000 ₺**. İkinci yıl sonunda kalan ömrün 3 yıl, kalıntı değerin 30.000 ₺ olduğu anlaşılıyor.
 
-1. 2. yıl sonu defter değeri: 600.000 − 2 × 90.000 = 420.000 TL.
-2. Yeni amortismana tabi tutar: 420.000 − 30.000 = 390.000 TL.
-3. Yeni yıllık amortisman: 390.000 / 3 = **130.000 TL**. Geçmiş iki yıl düzeltilmez.
+1. 2. yıl sonu defter değeri: 600.000 − 2 × 90.000 = 420.000 ₺.
+2. Yeni amortismana tabi tutar: 420.000 − 30.000 = 390.000 ₺.
+3. Yeni yıllık amortisman: 390.000 / 3 = **130.000 ₺**. Geçmiş iki yıl düzeltilmez.
 
 ## 3. TMS 16 Maddi Duran Varlıklar
 
@@ -105,10 +105,10 @@ Makine maliyeti 600.000 TL, kalıntı değeri 60.000 TL, ömrü 6 yıl; doğrusa
 
 ### Çözümlü örnek
 
-Defter değeri 500.000 TL; satış maliyetleri düşülmüş gerçeğe uygun değer 410.000 TL; kullanım değeri 440.000 TL.
+Defter değeri 500.000 ₺; satış maliyetleri düşülmüş gerçeğe uygun değer 410.000 ₺; kullanım değeri 440.000 ₺.
 
-1. Geri kazanılabilir tutar = max (410.000; 440.000) = 440.000 TL.
-2. Değer düşüklüğü zararı = 500.000 − 440.000 = **60.000 TL** (kâr veya zarara gider).
+1. Geri kazanılabilir tutar = max (410.000; 440.000) = 440.000 ₺.
+2. Değer düşüklüğü zararı = 500.000 − 440.000 = **60.000 ₺** (kâr veya zarara gider).
 
 ## 5. TMS 23 Borçlanma Maliyetleri
 
@@ -118,7 +118,7 @@ Defter değeri 500.000 TL; satış maliyetleri düşülmüş gerçeğe uygun de�
 - **Genel borçlanma:** harcamalara **aktifleştirme oranı** (genel borçların ağırlıklı ortalama maliyeti) uygulanır; aktifleştirilen tutar dönemde katlanılan borçlanma maliyetini aşamaz (par. 14).
 - **Başlama:** harcama yapılması, borçlanma maliyetinin oluşması ve hazırlık faaliyetlerinin başlaması koşullarının **üçü birden** (par. 17). **Ara verme:** faaliyetlere uzun süre ara verilen dönemler (par. 20); olağan teknik ve idari gecikmeler ara verme sayılmaz. **Sona erme:** gerekli işlemler esas itibarıyla tamamlandığında (par. 22).
 
-*Örnek:* Bir fabrika inşası için 1 Ocak'ta yıllık yüzde 20 faizle 1.000.000 TL özel kredi alınmış, kullanılmayan kısım geçici yatırımla yıl içinde 15.000 TL gelir sağlamıştır. Aktifleştirilecek tutar: 1.000.000 × 0,20 − 15.000 = **185.000 TL**.
+*Örnek:* Bir fabrika inşası için 1 Ocak'ta yıllık yüzde 20 faizle 1.000.000 ₺ özel kredi alınmış, kullanılmayan kısım geçici yatırımla yıl içinde 15.000 ₺ gelir sağlamıştır. Aktifleştirilecek tutar: 1.000.000 × 0,20 − 15.000 = **185.000 ₺**.
 
 ## 6. TFRS 3 İşletme Birleşmeleri
 
@@ -130,7 +130,7 @@ Tüm birleşmelere **satın alma yöntemi** uygulanır: edinen işletme belirlen
 - Aracılık, danışmanlık, hukuk gibi **satın almaya ilişkin maliyetler gider** yazılır; borç ve hisse ihraç maliyetleri TMS 32 ve TFRS 9'a göre işlenir (par. 53).
 - Geçici tutarlar **ölçme dönemi** içinde düzeltilir; bu dönem birleşme tarihinden itibaren **1 yılı** aşamaz (par. 45).
 
-*Örnek:* A, B'nin yüzde 80'ini 900.000 TL'ye alıyor; B'nin net tanımlanabilir varlıklarının gerçeğe uygun değeri 1.000.000 TL. Kontrol gücü olmayan pay orantılı ölçülürse 200.000 TL ve şerefiye 900.000 + 200.000 − 1.000.000 = **100.000 TL** olur. Kontrol gücü olmayan pay gerçeğe uygun değeriyle 230.000 TL ölçülürse şerefiye **130.000 TL** olur.
+*Örnek:* A, B'nin yüzde 80'ini 900.000 ₺'ye alıyor; B'nin net tanımlanabilir varlıklarının gerçeğe uygun değeri 1.000.000 ₺. Kontrol gücü olmayan pay orantılı ölçülürse 200.000 ₺ ve şerefiye 900.000 + 200.000 − 1.000.000 = **100.000 ₺** olur. Kontrol gücü olmayan pay gerçeğe uygun değeriyle 230.000 ₺ ölçülürse şerefiye **130.000 ₺** olur.
 
 ## 7. TFRS 5 Satış Amaçlı Duran Varlıklar
 
@@ -140,7 +140,7 @@ Defter değeri sürdürülen kullanımdan çok **satışla** geri kazanılacak d
 - **Amortisman ayrılmaz** (par. 25); finansal durum tablosunda ayrı sunulur.
 - **Durdurulan faaliyet**, elden çıkarılan veya satış amaçlı sınıflandırılan ve ayrı bir ana iş kolunu veya faaliyetlerin coğrafi bölgesini ifade eden (ya da bunların elden çıkarılmasına yönelik planın parçası olan veya yalnızca yeniden satmak amacıyla edinilmiş bağlı ortaklık olan) kısımdır (par. 32).
 
-*Örnek:* Defter değeri 300.000 TL, gerçeğe uygun değer 280.000 TL, satış maliyeti 10.000 TL olan bina satış amaçlı sınıflandırılırsa 270.000 TL ile ölçülür ve **30.000 TL** değer düşüklüğü zararı tanınır.
+*Örnek:* Defter değeri 300.000 ₺, gerçeğe uygun değer 280.000 ₺, satış maliyeti 10.000 ₺ olan bina satış amaçlı sınıflandırılırsa 270.000 ₺ ile ölçülür ve **30.000 ₺** değer düşüklüğü zararı tanınır.
 
 ## 8. TFRS 15 Müşteri Sözleşmelerinden Hasılat
 
@@ -152,7 +152,7 @@ Temel ilke: hasılat, devredilen mal veya hizmet karşılığında **hak kazanı
 4. Bedeli **nispi tek başına satış fiyatlarına** göre dağıt (par. 74).
 5. Kontrol devredildiğinde veya devredildikçe hasılatı tanı (par. 31). Müşterinin faydayı aynı anda alıp tüketmesi, kontrolü müşteride olan varlığın geliştirilmesi ya da alternatif kullanımı olmayan varlık ve tahsil hakkı varsa hasılat **zamana yayılır** (par. 35); yoksa belirli bir anda tanınır.
 
-*Örnek:* Makine ve 2 yıllık bakım 120.000 TL'ye satılıyor; tek başına satış fiyatları 110.000 ve 22.000 TL (toplam 132.000). Makineye 120.000 × 110/132 = **100.000 TL** teslimde, bakıma 120.000 × 22/132 = **20.000 TL** ayrılır ve yılda 10.000 TL tanınır.
+*Örnek:* Makine ve 2 yıllık bakım 120.000 ₺'ye satılıyor; tek başına satış fiyatları 110.000 ve 22.000 ₺ (toplam 132.000). Makineye 120.000 × 110/132 = **100.000 ₺** teslimde, bakıma 120.000 × 22/132 = **20.000 ₺** ayrılır ve yılda 10.000 ₺ tanınır.
 
 > **Sık yapılan hata:** Hasılatı fatura veya tahsilat tarihinde tanımak. TFRS 15'te belirleyici olan **kontrolün devridir**.
 

@@ -70,12 +70,12 @@ kaynaklar:
 - Limited şirkette %25'in tescilden önce ödenmesi şartı uygulanmaz (md. 585).
 - Nakdi ödemeler bankada şirket adına açılan özel hesaba yatırılır (md. 345).
 
-**Örnek:** X AŞ 2.000.000 TL sermaye ile kuruluyor; ortaklar tamamını nakden taahhüt ediyor ve tescilden önce %25'ini ödüyor.
+**Örnek:** X AŞ 2.000.000 ₺ sermaye ile kuruluyor; ortaklar tamamını nakden taahhüt ediyor ve tescilden önce %25'ini ödüyor.
 
 1. Taahhüt: 501 (B) 2.000.000 / 500 (A) 2.000.000
 2. Ödeme (bloke hesaba): 102 (B) 500.000 / 501 (A) 500.000
-3. Bilançoda 500 hesabı 2.000.000 TL, 501 hesabı 1.500.000 TL bakiye verir; ödenmiş sermaye 2.000.000 − 1.500.000 = **500.000 TL**'dir.
-4. Kalan 1.500.000 TL, tescili izleyen 24 ay içinde ödendikçe 102 (B) / 501 (A) kaydedilir.
+3. Bilançoda 500 hesabı 2.000.000 ₺, 501 hesabı 1.500.000 ₺ bakiye verir; ödenmiş sermaye 2.000.000 − 1.500.000 = **500.000 ₺**'dir.
+4. Kalan 1.500.000 ₺, tescili izleyen 24 ay içinde ödendikçe 102 (B) / 501 (A) kaydedilir.
 
 Ayni sermayede (taşıt, bina vb.) 501'in alacağı karşılığında ilgili varlık hesabı borçlandırılır. Kuruluş için yapılan noter, tescil, ilan giderleri doğrudan gider yazılabileceği gibi aktifleştirilip 262 Kuruluş ve Örgütlenme Giderleri'nde izlenebilir; THP'ye göre bu hesap genelde beş yılda eşit taksitlerle itfa edilir.
 
@@ -87,9 +87,9 @@ Ayni sermayede (taşıt, bina vb.) 501'in alacağı karşılığında ilgili var
 
 Sermaye artırımı için iç kaynaklardan artırım dışında, mevcut payların nakdi bedelleri tamamen ödenmiş olmalıdır (TTK md. 456). Primin tamamı tescilden önce ödenir.
 
-**Örnek:** Nominal değeri 1 TL olan 400.000 pay, pay başına 1,60 TL'den nakden satılıyor.
+**Örnek:** Nominal değeri 1 ₺ olan 400.000 pay, pay başına 1,60 ₺'den nakden satılıyor.
 
-- Nominal: 400.000 × 1 = 400.000 TL; prim: 400.000 × 0,60 = 240.000 TL
+- Nominal: 400.000 × 1 = 400.000 ₺; prim: 400.000 × 0,60 = 240.000 ₺
 - Taahhüt: 501 (B) 400.000 / 500 (A) 400.000
 - Tahsilat: 102 (B) 640.000 / 501 (A) 400.000, 520 (A) 240.000
 
@@ -98,7 +98,7 @@ Sermaye artırımı için iç kaynaklardan artırım dışında, mevcut payları
 - Anonim şirketlerin kuruluşta veya artırımda çıkardıkları payların itibari değeri aşan bedeli kurumlar vergisinden **istisnadır** (KVK md. 5/1-ç). Prim gelir tablosuna değil doğrudan özkaynağa yazıldığı için ticari kâra da girmez.
 - TTK md. 519/2-a'ya göre primin, çıkarma giderleri, itfa karşılıkları ve hayır amaçlı ödemeler için kullanılmamış kısmı **genel kanuni yedek akçeye eklenir**.
 
-> **Sık yapılan hata:** 640.000 TL'nin tamamını 500'e yazmak ya da primi 649 gibi bir gelir hesabına almak. Prim ne sermayedir ne gelirdir; 52 Sermaye Yedekleri grubundadır.
+> **Sık yapılan hata:** 640.000 ₺'nin tamamını 500'e yazmak ya da primi 649 gibi bir gelir hesabına almak. Prim ne sermayedir ne gelirdir; 52 Sermaye Yedekleri grubundadır.
 
 ## 4. İç kaynaklardan sermaye artırımı
 
@@ -106,7 +106,7 @@ TTK md. 462'ye göre esas sözleşme veya genel kurul kararıyla ayrılmış ve 
 
 Kullanılabilecek başlıca kaynaklar: 542 Olağanüstü Yedekler, 570 Geçmiş Yıllar Kârları, 520 İhraç Primleri, 521 İptal Kârları, 522 Yeniden Değerleme Artışları, 549 Özel Fonlar, 502 Sermaye Düzeltmesi Olumlu Farkları.
 
-**Örnek:** 300.000 TL olağanüstü yedek ve 200.000 TL geçmiş yıl kârı sermayeye ekleniyor: 542 (B) 300.000, 570 (B) 200.000 / 500 (A) 500.000.
+**Örnek:** 300.000 ₺ olağanüstü yedek ve 200.000 ₺ geçmiş yıl kârı sermayeye ekleniyor: 542 (B) 300.000, 570 (B) 200.000 / 500 (A) 500.000.
 
 Önemli sınırlar:
 
@@ -120,14 +120,14 @@ Sermaye koyma borcunu süresinde ödemeyen pay sahibi ihtara gerek olmaksızın 
 
 **521 Hisse Senedi İptal Kârları**: İptal edilen payların bedeline mahsuben eski ortağın yaptığı ödemelerden, bu payların yerine çıkarılan paylardan elde edilen hasılat noksanı kapatıldıktan sonra artan kısımdır. TTK md. 519/2-b'ye göre bu tutar, yeni senetlerin çıkarılma giderleri düşüldükten sonra genel kanuni yedek akçeye eklenir.
 
-**Örnek:** Ortak A, 100.000 TL nominal pay taahhüt etmiş, 25.000 TL ödemiş ve kalan 75.000 TL'yi ödemediği için ıskat edilmiştir. Pay, yeni ortak B'ye 90.000 TL'ye satılıyor.
+**Örnek:** Ortak A, 100.000 ₺ nominal pay taahhüt etmiş, 25.000 ₺ ödemiş ve kalan 75.000 ₺'yi ödemediği için ıskat edilmiştir. Pay, yeni ortak B'ye 90.000 ₺'ye satılıyor.
 
-1. Pay için şirkete giren toplam: 25.000 (A) + 90.000 (B) = 115.000 TL
-2. Nominal değer 100.000 TL; hasılat noksanı: 100.000 − 90.000 = 10.000 TL, A'nın ödemesinden kapatılır
-3. İptal kârı: 25.000 − 10.000 = **15.000 TL**
+1. Pay için şirkete giren toplam: 25.000 (A) + 90.000 (B) = 115.000 ₺
+2. Nominal değer 100.000 ₺; hasılat noksanı: 100.000 − 90.000 = 10.000 ₺, A'nın ödemesinden kapatılır
+3. İptal kârı: 25.000 − 10.000 = **15.000 ₺**
 4. Kayıt: 102 (B) 90.000 / 501 (A) 75.000, 521 (A) 15.000
 
-B yalnız 60.000 TL ödeseydi: toplam 85.000 TL ile nominal karşılanamaz; 15.000 TL açık için A sorumludur. Kayıt: 102 (B) 60.000, 131 Ortaklardan Alacaklar (B) 15.000 / 501 (A) 75.000. Bu durumda iptal kârı doğmaz.
+B yalnız 60.000 ₺ ödeseydi: toplam 85.000 ₺ ile nominal karşılanamaz; 15.000 ₺ açık için A sorumludur. Kayıt: 102 (B) 60.000, 131 Ortaklardan Alacaklar (B) 15.000 / 501 (A) 75.000. Bu durumda iptal kârı doğmaz.
 
 ## 6. Kâr dağıtımı ve yedekler
 
@@ -148,16 +148,16 @@ Yasal yedeğe yıllık kârın %5'inden fazlasının ayrılacağı ve yedeğin %
 
 ### Çözümlü örnek
 
-Ödenmiş sermaye 1.000.000 TL; mevcut genel kanuni yedek akçe 150.000 TL; vergi sonrası dönem net kârı 400.000 TL. Genel kurul ortaklara toplam 250.000 TL kâr payı dağıtılmasına, kalanın olağanüstü yedeğe ayrılmasına karar veriyor.
+Ödenmiş sermaye 1.000.000 ₺; mevcut genel kanuni yedek akçe 150.000 ₺; vergi sonrası dönem net kârı 400.000 ₺. Genel kurul ortaklara toplam 250.000 ₺ kâr payı dağıtılmasına, kalanın olağanüstü yedeğe ayrılmasına karar veriyor.
 
-1. I. tertip yasal yedek: 400.000 × %5 = 20.000 TL. Sınır: 1.000.000 × %20 = 200.000; eksik 50.000 TL olduğundan **20.000 TL** ayrılır.
-2. Birinci kâr payı: 1.000.000 × %5 = 50.000 TL (250.000 TL'nin içindedir).
-3. II. tertip yasal yedek: (250.000 − 50.000) × %10 = **20.000 TL**.
-4. Olağanüstü yedek: 400.000 − 20.000 − 250.000 − 20.000 = **110.000 TL**.
+1. I. tertip yasal yedek: 400.000 × %5 = 20.000 ₺. Sınır: 1.000.000 × %20 = 200.000; eksik 50.000 ₺ olduğundan **20.000 ₺** ayrılır.
+2. Birinci kâr payı: 1.000.000 × %5 = 50.000 ₺ (250.000 ₺'nin içindedir).
+3. II. tertip yasal yedek: (250.000 − 50.000) × %10 = **20.000 ₺**.
+4. Olağanüstü yedek: 400.000 − 20.000 − 250.000 − 20.000 = **110.000 ₺**.
 
 Kayıt: 590 (B) 400.000 / 540 (A) 40.000, 542 (A) 110.000, 331 Ortaklara Borçlar (A) 250.000. Kâr payı ödendiğinde 331 (B) / 102 (A); gerçek kişi ortaklara yapılan dağıtımda kesilen stopaj 360'ın alacağına yazılır (GVK md. 94/6-b).
 
-> **Sık yapılan hata:** II. tertip yasal yedeği dağıtılan kâr payının tamamı (250.000) üzerinden hesaplamak. Önce %5'lik birinci kâr payı düşülür, %10 kalan 200.000 TL'ye uygulanır. Ayrıca %20 sınırı yalnız I. tertip için geçerlidir.
+> **Sık yapılan hata:** II. tertip yasal yedeği dağıtılan kâr payının tamamı (250.000) üzerinden hesaplamak. Önce %5'lik birinci kâr payı düşülür, %10 kalan 200.000 ₺'ye uygulanır. Ayrıca %20 sınırı yalnız I. tertip için geçerlidir.
 
 > **Sınav ipucu:** "Kârın sermayeye eklenmesi kâr dağıtımı sayılmaz" (GVK md. 94/6-b); bu nedenle iç kaynaklardan sermaye artırımında kâr payı stopajı yapılmaz.
 

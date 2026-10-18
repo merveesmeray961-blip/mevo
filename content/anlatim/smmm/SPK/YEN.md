@@ -118,21 +118,21 @@ Kitle fonlaması, bir projenin veya girişim şirketinin ihtiyaç duyduğu fonun
 
 ### 3.2 Platform ve kampanya (III-35/A.2)
 
-Platform **anonim ortaklık** olmalı; sermayesi asgari **1.000.000 TL** ve tamamı nakden ödenmiş, payları **nama yazılı**, unvanında "Kitle Fonlama Platformu" ibaresi bulunmalı, yönetim kurulu en az **üç** kişiden oluşmalıdır. Faaliyet için ayrıca Kurulca **listeye alınması** gerekir.
+Platform **anonim ortaklık** olmalı; sermayesi asgari **1.000.000 ₺** ve tamamı nakden ödenmiş, payları **nama yazılı**, unvanında "Kitle Fonlama Platformu" ibaresi bulunmalı, yönetim kurulu en az **üç** kişiden oluşmalıdır. Faaliyet için ayrıca Kurulca **listeye alınması** gerekir.
 
 Kampanya süresi bilgi formunun yayımıyla başlar ve **60 günü geçemez**. Toplanan fonu, şirkete aktarılana veya iade edilene kadar **emanet yetkilisi** (Takasbank veya yetkili portföy saklayıcısı) bloke eder. Yatırımcı ödeme emrinden itibaren **48 saat içinde** gerekçe göstermeden **cayma hakkını** kullanabilir. Girişimci tarafından yürütülen paya dayalı kampanyada süre bitiminden itibaren **90 gün içinde** anonim şirket kurulması zorunludur.
 
 ### 3.3 Yatırım sınırları ve çözümlü örnek
 
-Nitelikli yatırımcı olmayan gerçek kişi, bir takvim yılında paya dayalı ve ayrıca borçlanmaya dayalı kitle fonlamasında **azami 50.000 TL** yatırım yapabilir; bu sınır, **200.000 TL'yi aşmamak** kaydıyla beyan edilen yıllık net gelirin **%10'u** olarak uygulanabilir. Borçlanmaya dayalı kitle fonlamasında **bir projeye** en fazla **20.000 TL** yatırılabilir. Tebliğdeki tutarlar her yıl yeniden değerleme oranıyla güncellenebilir.
+Nitelikli yatırımcı olmayan gerçek kişi, bir takvim yılında paya dayalı ve ayrıca borçlanmaya dayalı kitle fonlamasında **azami 50.000 ₺** yatırım yapabilir; bu sınır, **200.000 ₺'yi aşmamak** kaydıyla beyan edilen yıllık net gelirin **%10'u** olarak uygulanabilir. Borçlanmaya dayalı kitle fonlamasında **bir projeye** en fazla **20.000 ₺** yatırılabilir. Tebliğdeki tutarlar her yıl yeniden değerleme oranıyla güncellenebilir.
 
 | Yatırımcı | Beyan edilen yıllık net gelir | Gelirin %10'u | Paya dayalı yıllık sınır |
 |---|---|---|---|
-| Ayşe | 300.000 TL | 30.000 TL | 50.000 TL (genel sınır daha yüksek) |
-| Burak | 1.500.000 TL | 150.000 TL | 150.000 TL |
-| Ceren | 4.000.000 TL | 400.000 TL | 200.000 TL (tavan) |
+| Ayşe | 300.000 ₺ | 30.000 ₺ | 50.000 ₺ (genel sınır daha yüksek) |
+| Burak | 1.500.000 ₺ | 150.000 ₺ | 150.000 ₺ |
+| Ceren | 4.000.000 ₺ | 400.000 ₺ | 200.000 ₺ (tavan) |
 
-Ceren borçlanmaya dayalı kampanyalara yıllık 200.000 TL'ye kadar yatırım yapabilir; ancak tek bir projeye en fazla 20.000 TL yatırabilir, yani bu sınırı doldurmak için en az 10 farklı projeye yatırım yapması gerekir. Sınırları MKK kontrol eder.
+Ceren borçlanmaya dayalı kampanyalara yıllık 200.000 ₺'ye kadar yatırım yapabilir; ancak tek bir projeye en fazla 20.000 ₺ yatırabilir, yani bu sınırı doldurmak için en az 10 farklı projeye yatırım yapması gerekir. Sınırları MKK kontrol eder.
 
 ## 4. Kira sertifikası (md. 61)
 
@@ -143,7 +143,7 @@ Ceren borçlanmaya dayalı kampanyalara yıllık 200.000 TL'ye kadar yatırım y
 - İhraççı temerrüde düşer, iflas eder veya faaliyet izni kaldırılırsa portföy gelirleri **öncelikle kira sertifikası sahiplerine** ödenir.
 - Katılım bankalarının ilave ana sermaye ve katkı sermaye niteliğindeki ihraçlarında haciz yasağı ve öncelik kuralı uygulanmaz.
 
-**Örnek:** Bir VKŞ 1.000.000 adet kira sertifikası ihraç etmiş, dönemde dağıtılacak net kira geliri 12.000.000 TL'dir. Sertifika başına ödeme = 12.000.000 / 1.000.000 = **12 TL**; 5.000 sertifikası olan yatırımcı 60.000 TL alır.
+**Örnek:** Bir VKŞ 1.000.000 adet kira sertifikası ihraç etmiş, dönemde dağıtılacak net kira geliri 12.000.000 ₺'dir. Sertifika başına ödeme = 12.000.000 / 1.000.000 = **12 ₺**; 5.000 sertifikası olan yatırımcı 60.000 ₺ alır.
 
 > **Sınav ipucu:** Kira sertifikasını **gayrimenkul sertifikasıyla** (md. 61/A) karıştırmayın. Gayrimenkul sertifikası, inşa edilecek projenin belirli bağımsız bölümlerini veya alan birimini temsil eden, **nominal değeri eşit** bir araçtır ve ihraççısı VKŞ olmak zorunda değildir.
 
@@ -153,5 +153,5 @@ Ceren borçlanmaya dayalı kampanyalara yıllık 200.000 TL'ye kadar yatırım y
 - KVHS: kuruluş, faaliyet ve pay devirleri Kurul iznine tabi; TÜBİTAK kriterleri; %10 ve üzeri ortaklar şartları kaybederse 6 ay içinde devir.
 - Kripto varlıklarda esas müşterinin kendi cüzdanıdır; saklama yetkili banka veya saklama kuruluşunda, nakit bankada; YTM ve mevduat sigortası yok; müşteri varlıkları ayrı ve haczedilemez.
 - Yurt dışı platformun Türkiye'ye yönelik faaliyeti izinsiz KVHS'dir; izinsiz KVHS 3-5 yıl hapis; zimmet 8-14 yıl.
-- Kitle fonlaması: izahname yok, YTM yok, halka açık ortaklık sayılmaz; platform AŞ, 1.000.000 TL nakit sermaye, Kurul listesi; kampanya en fazla 60 gün, cayma 48 saat; bireysel sınır 50.000 TL, gelirin %10'u ile en fazla 200.000 TL; borçlanmada proje başı 20.000 TL.
+- Kitle fonlaması: izahname yok, YTM yok, halka açık ortaklık sayılmaz; platform AŞ, 1.000.000 ₺ nakit sermaye, Kurul listesi; kampanya en fazla 60 gün, cayma 48 saat; bireysel sınır 50.000 ₺, gelirin %10'u ile en fazla 200.000 ₺; borçlanmada proje başı 20.000 ₺.
 - Kira sertifikası: VKŞ ihraç eder; gelirden pay oranında hak; portföy varlıkları haczedilemez, öncelik sertifika sahiplerinde.

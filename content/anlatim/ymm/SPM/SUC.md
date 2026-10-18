@@ -2,7 +2,7 @@
 ders: SPM
 konu: SUC
 baslik: Suçlar ve yaptırımlar
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
@@ -56,7 +56,7 @@ Fail A işlem bazlı piyasa dolandırıcılığıyla 200.000 TL, fail B 400.000 
 
 **Suç sayılmayan hâller (md. 108):** Merkez Bankası veya yetkili resmî kurumların para, kur, borç yönetimi ve finansal istikrar amaçlı işlemleri; Kurul düzenlemelerine uygun geri alım ve çalışanlara pay edindirme programları; fiyat istikrarını sağlayıcı işlemler ve piyasa yapıcılığı.
 
-İstisna niteliğinde not: Suç oluşturmayan ama piyasanın güven ve istikrarını bozan eylemler **piyasa bozucu eylem** olarak idari yaptırıma bağlanır (md. 104).
+İstisna niteliğinde not: Suç oluşturmayan ama piyasanın güven ve istikrarını bozan eylemler **piyasa bozucu eylem** olarak idari yaptırıma bağlanır (md. 104). Olayda ayrımı şöyle yap: fiyat veya izlenim üzerinde **amaçlı** yanıltma ve menfaat varsa md. 107 suçu, amaç unsuru ispatlanamayan ama Kurulca belirlenen bozucu nitelikteki işlemler varsa md. 104 idari para cezası söz konusudur. Aynı olay için önce suç unsurlarını incele.
 
 ## 2. Bilgi suistimali
 
@@ -66,7 +66,15 @@ Failler: ihraççının veya bağlı ya da hâkim ortaklığının yöneticileri
 
 Ceza: üç yıldan beş yıla kadar hapis veya adli para cezası; adli para cezasına hükmedilirse ceza elde edilen menfaatin iki katından az olamaz (md. 106/1).
 
-İlgili idari kural (md. 103/4): Bilginin varlığı aranmaksızın, ihraççının yönetim kurulu üyeleri ve yöneticileri Kurulca belirlenen zaman diliminde alım satımdan elde ettikleri net kazancı ihraççıya vermek zorundadır. Bunu otuz gün içinde yapmayanlara menfaatin iki katı idari para cezası verilir.
+### Yöneticilerin net alım satım kazancı (md. 103/4; Tebliğ VI-103.1)
+
+İçsel bilginin varlığı aranmaksızın, ihraççının yöneticileri (yönetim kurulu ve komite üyeleri, idari sorumluluğu olanlar, ihraççıyı nüfuzu altında bulunduranlar) **herhangi bir altı aylık dönemde** ihraççının araçlarında yaptıkları alım-satımdan elde ettikleri net kazancı, elde edildiği tarihten itibaren **30 gün** içinde ihraççıya öder. Kazanç **son giren ilk çıkar** varsayımıyla hesaplanır; aracılık komisyonu ve işlem vergileri düşülür. Ödemeyenlere menfaatin **iki katı** idari para cezası verilir (Tebliğ md. 5). İstisnalar: bedelli sermaye artırımına katılmak için satılan paylar, çalışanlara pay edindirme, veraset ve altı ay elde tutulan araçların temettü ve kuponları (md. 6).
+
+Örnek: Yönetici 1 Şubat'ta 5.000 payı 20 TL'den, 1 Nisan'da 5.000 payı 26 TL'den alır; 15 Mayıs'ta 6.000 payı 30 TL'den satar; komisyon ve vergiler 1.000 TL.
+
+1. Son giren ilk çıkar: önce 26 TL'lik 5.000 pay, sonra 20 TL'lik 1.000 pay satılmış sayılır.
+2. Kazanç = 5.000 × (30 − 26) + 1.000 × (30 − 20) = 20.000 + 10.000 = 30.000 TL; net kazanç 30.000 − 1.000 = 29.000 TL.
+3. 29.000 TL, 14 Haziran'a kadar ihraççıya ödenir; ödenmezse 58.000 TL idari para cezası verilir.
 
 Yatırım kuruluşları ve Kurulca belirlenen kurumlar, bir işlemin md. 106 veya 107 suçunu oluşturduğuna dair şüpheyi Kurula bildirir; bildirimi mahkeme, savcılık ve Mali Suçları Araştırma Kurulu Başkanlığı (MASAK) dışında işlemin tarafları dâhil kimseye açıklayamaz (md. 102).
 
@@ -92,7 +100,7 @@ Kripto varlıklarda özel suç: **Zimmet** (md. 110/A) sekiz yıldan on dört y�
 
 ### İdari para cezaları
 
-- Genel hüküm (md. 103/1): Düzenlemelere ve Kurul kararlarına aykırılıkta yirmi bin TL'den iki yüz elli bin TL'ye kadar ceza verilir. Menfaat temin edilmişse ceza menfaatin iki katından az olamaz.
+- Genel hüküm (md. 103/1): Düzenlemelere ve Kurul kararlarına aykırılıkta kanunda yirmi bin TL'den iki yüz elli bin TL'ye kadar ceza öngörülür. Maktu sınırlar Kabahatler Kanunu md. 17/7 gereği her yıl yeniden değerleme oranında artırılır; 2026'da uygulanan güncel sınırı Kurulun ilanından kontrol et. Menfaat temin edilmişse ceza menfaatin iki katından az olamaz.
 - Tüzel kişilere, aykırılık tarihinden önceki son bağımsız denetimden geçmiş yıllık tablolardaki brüt satış hasılatının %1'i ile vergi öncesi kârının %20'sinden yüksek olanına kadar ceza verilebilir (md. 103/1).
 - Organ veya temsilcinin aykırılığında tüzel kişiye de ceza verilir; aykırılık tüzel kişinin zararına sonuç doğurmuşsa verilmez (md. 103/2).
 - Pay alım teklifi zorunluluğuna uymayanlara teklife konu payların toplam bedeline kadar ceza verilir (md. 103/3).
@@ -103,12 +111,12 @@ Usul (md. 105): Cezadan önce savunma alınır; tebliğden itibaren otuz gün i�
 
 ### Tedbirler
 
-- Md. 101: Makul şüphe hâlinde borsada işlem yasağı, takas yöntemi değişikliği, teminat, işlem veya pozisyon limiti; internet yayınlarında erişimin engellenmesi.
-- Md. 96: Hukuka aykırı faaliyette sürenin verilmesi, faaliyetin sınırlandırılması veya durdurulması, yetkilerin iptali, lisans iptali.
+- Md. 101: Makul şüphe hâlinde işlem yasağı, teminat, işlem veya pozisyon limiti; erişimin engellenmesi.
+- Md. 96: Hukuka aykırı faaliyette süre verilmesi, faaliyetin sınırlandırılması veya durdurulması, lisans iptali.
 - Md. 97: Mali durumun bozulmasında üç ayı geçmemek üzere süre verilmesi, faaliyetin durdurulması, tedricî tasfiye veya iflas istenmesi.
 - Md. 99: İzinsiz faaliyetin sonuçlarının iptali için tespitten itibaren bir yıl ve her hâlde vukudan itibaren beş yıl içinde dava; md. 99/A kripto varlık hizmet sağlayıcılarına uyarlanır.
 
-Diğer cezalar: Onaylı izahname olmadan halka arz ve izinsiz faaliyet iki yıldan beş yıla kadar hapis ve beş bin günden on bin güne kadar adli para cezası (md. 109); izinsiz kripto varlık hizmet sağlayıcılığı üç yıldan beş yıla kadar hapis ve aynı gün aralığında adli para cezası (md. 109/A); istenen bilgi ve belgeyi vermemek bir yıldan üç yıla kadar hapis (md. 111/1) gerektirir.
+Diğer cezalar: Onaylı izahname olmadan halka arz ve izinsiz faaliyet iki yıldan beş yıla kadar hapis ve beş bin günden on bin güne kadar adli para cezası (md. 109); izinsiz kripto varlık hizmet sağlayıcılığı üç yıldan beş yıla kadar hapis ve aynı gün aralığında adli para cezası (md. 109/A); istenen bilgi ve belgeyi vermemek bir yıldan üç yıla kadar hapis (md. 111/1), Kurul görevlilerini engellemek altı aydan iki yıla kadar hapis (md. 111/2) gerektirir. Defter ve kayıtları kasten usulüne uygun tutmamak veya saklamamak altı aydan iki yıla kadar hapis ve adli para cezası; finansal tabloları gerçeğe aykırı düzenlemek, yanlış bağımsız denetim veya değerleme raporu düzenlemek TCK'ya göre cezalandırılır (md. 112). Kurul incelemesinde istenen bilgileri başkalarına açıklamak bir yıldan üç yıla kadar hapis gerektirir (md. 113).
 
 Muhakeme: Kanundaki suçlarda soruşturma, Kurulun Cumhuriyet başsavcılığına yazılı başvurusuna bağlıdır ve bu başvuru muhakeme şartıdır (md. 115/1).
 
@@ -129,4 +137,5 @@ Kurul denetiminde istenen bilgi ve belgeyi süresinde vermemek md. 103/7 uyarın
 - Bilgi suistimali kamuya açıklanmamış bilgiyle işlem ve menfaat temini ister; md. 108 hâlleri suç değildir.
 - Sermaye piyasasına özgü güveni kötüye kullanmada ceza üç yıldan az olamaz; örtülü kazanç aktarımı bu kapsamdadır.
 - İdari para cezası menfaatin iki katından, tekrarlanan kabahatte üç katından az olamaz; savunma süresi otuz gündür.
+- Yönetici, altı aylık dönemdeki net alım satım kazancını (son giren ilk çıkar, komisyon düşülerek) 30 günde ihraççıya öder; ödemezse iki katı ceza.
 - Soruşturma için Kurulun yazılı başvurusu muhakeme şartıdır; görevli mahkeme ihtisas asliye ceza mahkemesidir (kripto zimmette ağır ceza).

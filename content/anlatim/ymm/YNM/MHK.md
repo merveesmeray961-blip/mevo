@@ -2,7 +2,7 @@
 ders: YNM
 konu: MHK
 baslik: Maliyet hacim kâr analizi
-durum: taslak
+durum: "kontrolde"
 yazar: Claude
 kaynaklar:
   - mevzuat: "Genel bilgi — Maliyet hacim kâr analizi"
@@ -95,6 +95,8 @@ Bir işletmenin birim satış fiyatı 200 TL, birim değişken maliyeti 120 TL, 
 5. Faaliyet kârı = 6.500 × 80 − 400.000 = 120.000 TL. Kontrol: 300.000 × 0,40 = 120.000 TL.
 6. Faaliyet kaldıracı = 520.000 / 120.000 = yaklaşık 4,33; bu değer 1 / 0,2308 ile aynıdır.
 7. Vergi öncesi 160.000 TL hedef kâr için gereken miktar = (400.000 + 160.000) / 80 = 7.000 birim.
+8. Senaryo (sınavın "değişiklik olursa" şıkkı): Fiyat 190 TL'ye düşer ve yeni makine sabit maliyeti 420.000 TL'ye çıkarırsa birim katkı 70 TL, başabaş 420.000 / 70 = 6.000 birim olur; 6.500 birimlik planda güvenlik marjı 500 birime, kâr 35.000 TL'ye iner, kaldıraç 455.000 / 35.000 = 13'e yükselir. Risk artmıştır.
+9. Ters çözüm: 6.500 birimde 120.000 TL kârı koruyacak fiyat p ise 6.500 × (p − 120) − 420.000 = 120.000; p = 120 + 540.000 / 6.500 ≈ 203,08 TL.
 
 > **Sınav ipucu:** Güvenlik marjı oranı ile faaliyet kaldıracı birbirinin tersidir. Şıklarda biri verilmişse diğerini tek bölme ile bulursun.
 

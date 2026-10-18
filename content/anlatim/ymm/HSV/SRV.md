@@ -18,142 +18,149 @@ kaynaklar:
     madde: md. 5
     alinti: "Veraset ve İntikal Vergisinin mükellefi, veraset tarikiyle veya ivazsız bir"
   - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
+    madde: md. 13
+    alinti: "Şukadar ki, bu tecil her ne suretle olursa olsun, hiçbir zaman on seneden fazla devam edemez."
+  - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
     madde: md. 16
     alinti: "Bir şahsa ana, baba, eş ve çocuklarından (evlatlıktan evlat edinenlere yapılan ivazsız"
+  - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
+    madde: md. 17
+    alinti: "veraset yoluyla intikallerde %5, ivazsız intikallerde %15 oranında vergi"
   - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
     madde: md. 9
     alinti: "Motorlu taşıtlar vergisi her yıl Ocak ve Temmuz aylarında iki eşit taksitte ödenir."
 ---
 ## Bu konuda neler öğreneceksin
 
-- Emlak vergisi matrah ve oranları: bina ve arazi vergisi, vergi değeri, büyükşehir artırımı, ödeme taksitleri
-- Değerli konut vergisinin 2026 yılı sınırı ve oranları
-- Veraset ve intikal vergisi: konu, mükellef, beyan süreleri, 2026 istisna tutarları ve tarife
-- Motorlu taşıtlar vergisi: mükellefiyetin başlaması, tarifeler, ödeme ve gider kabul edilmeme kuralı
+- Emlak vergisinin konusu, mükellefi, matrahı, oranları ve mükellefiyetin bitişi
+- Değerli konut vergisinin 2026 sınırı, tarifesi ve muafiyetleri
+- Veraset ve intikal vergisinin konusu, istisnaları, beyan süreleri ve 2026 tarifesi
+- VİV'de borç ve masrafların indirimi, ihtilaflı borçlar, teminat ve tevkifat, gaibin zuhuru
+- Motorlu taşıtlar vergisinde mükellefiyet, ödeme, istisna ve gider kabul edilmeme kuralı
 
 ## 1. Emlak vergisi matrah ve oranları
 
-### Tanım
+**Emlak vergisi**, binalardan alınan **bina vergisi** ile arazi ve arsalardan alınan **arazi vergisinin** ortak adıdır (1319 sayılı Emlak Vergisi Kanunu, EVK md. 1 ve 12). Mükellef malik, varsa intifa hakkı sahibi, ikisi de yoksa malik gibi tasarruf edendir (md. 3 ve 13).
 
-**Emlak vergisi**, Türkiye sınırları içindeki binalar üzerinden alınan **bina vergisi** ile arazi ve arsalar üzerinden alınan **arazi vergisinin** ortak adıdır (1319 sayılı Emlak Vergisi Kanunu, EVK md. 1 ve 12). Bina tabiri karada veya su üzerindeki sabit inşaatın hepsini kapsar; seyyar evler ve çadırlar bina sayılmaz (md. 2). Belediye sınırları içinde belediyece parsellenmiş arazi arsa sayılır (md. 12).
+**Matrah**, vergi değeridir (md. 7 ve 17). Önceki yıl vergi değeri her yıl yeniden değerleme oranında artırılır (md. 29). 2026 için hesaplanan bina ve arazi vergi değerleri, 2025 vergi değerlerinin iki kat fazlasını geçemez (geçici md. 23). Vergiyi belediye tarh eder; Mart-Mayıs ve Kasım aylarında iki eşit taksitte ödenir (md. 30).
 
-### Kural
-
-- **Mükellef**: Malik, varsa intifa hakkı sahibi, ikisi de yoksa malik gibi tasarruf eden. Paylı mülkiyette hisse oranında mükellefiyet, elbirliği mülkiyette müteselsil sorumluluk vardır (md. 3 ve 13).
-- **Matrah**: Bina ve arazinin **vergi değeridir** (md. 7 ve 17). Vergi değeri arsa ve arazide takdir komisyonlarınca belirlenen birim değerlere, binada bina metrekare normal inşaat maliyetleri ile arsa payı değerine göre hesaplanır. Sonraki yıllarda bir önceki yıl vergi değeri, aynı yıl için tespit edilen yeniden değerleme oranında artırılır (md. 29). Sabit istihsal tesisatı bina matrahına girmez (md. 7).
-- **2026 geçiş hükmü**: 2026 yılı için hesaplanan bina ve arazi vergi değerleri, 2025 yılına ait vergi değerlerinin iki kat fazlasını geçemez (geçici md. 23).
-- **Tarh ve ödeme**: Vergiyi ilgili belediye yıllık olarak tarh eder (md. 11 ve 21). Vergi, birinci taksit Mart, Nisan ve Mayıs aylarında, ikinci taksit Kasım ayında olmak üzere iki eşit taksitte ödenir (md. 30).
-
-### Oranlar
-
-| Emlak türü | Kanuni oran | Büyükşehir belediye sınırları ve mücavir alanlarda |
+| Emlak türü | Kanuni oran | Büyükşehir belediye sınırları ve mücavir alanlar |
 |---|---|---|
 | Mesken | Binde 1 | Binde 2 |
-| Diğer binalar (işyeri vb.) | Binde 2 | Binde 4 |
+| Diğer binalar | Binde 2 | Binde 4 |
 | Arazi | Binde 1 | Binde 2 |
 | Arsa | Binde 3 | Binde 6 |
 
-Büyükşehir sütunu, oranların 5216 sayılı Kanunun uygulandığı yerlerde yüzde 100 artırımlı uygulanmasının sonucudur (md. 8 ve 18). Cumhurbaşkanı oranları yarısına kadar indirmeye veya üç katına kadar artırmaya yetkilidir.
+Büyükşehir sütunu, 5216 sayılı Kanunun uygulandığı yerlerde oranların %100 artırımlı uygulanmasının sonucudur (md. 8 ve 18).
 
-### Örnek: Büyükşehirdeki işletmenin emlak vergisi
+**Örnek:** Büyükşehirde vergi değeri 4.000.000 TL olan işyeri: 4.000.000 × binde 4 = 16.000 TL. Vergi değeri 1.500.000 TL olan arsa: 1.500.000 × binde 6 = 9.000 TL. Toplam 25.000 TL; her taksit 12.500 TL. Kayıt: 770 Genel Yönetim Giderleri borç / 360 Ödenecek Vergi ve Fonlar alacak 25.000 TL.
 
-Bir şirketin büyükşehir belediye sınırları içinde, vergi değeri 4.000.000 TL olan işyeri binası ile vergi değeri 1.500.000 TL olan boş arsası vardır.
+**Mükellefiyetin başlaması ve bitişi:** Vergi değerini değiştiren olay (yeni inşaat, kullanış tarzı değişikliği, mükellef değişmesi vb., md. 33) olayı takip eden bütçe yılından itibaren hüküm doğurur (md. 9). Yanan, yıkılan (ör. depremde), tamamen kullanılmaz hale gelen binada mükellefiyet olayı izleyen **taksitten** itibaren sona erer. Malik bu durumu emlak vergisi bildirimiyle belediyeye bildirir (md. 23).
 
-1. İşyeri binası oranı: binde 2 × 2 = binde 4.
-2. Bina vergisi: 4.000.000 × binde 4 = 16.000 TL.
-3. Arsa oranı: binde 3 × 2 = binde 6.
-4. Arazi vergisi: 1.500.000 × binde 6 = 9.000 TL.
-5. Yıllık toplam: 16.000 + 9.000 = 25.000 TL; her taksit 12.500 TL.
-6. Tahakkukta kayıt: **770 Genel Yönetim Giderleri** 25.000 TL borç; **360 Ödenecek Vergi ve Fonlar** 25.000 TL alacak.
-
-### İstisnai durumlar
-
-- Cumhurbaşkanı; geliri olmadığını belgeleyenler, geliri yalnız sosyal güvenlik kurumu aylığından ibaret olanlar, gaziler, engelliler, şehitlerin dul ve yetimlerinin Türkiye'de brüt 200 m²'yi geçmeyen tek meskenine ait oranı sıfıra kadar indirmeye yetkilidir (md. 8).
-- Yeni inşa edilen binanın vergisi, inşaatın bittiği yılı takip eden bütçe yılından itibaren dört yıl boyunca arsasının vergisinden az olamaz (md. 8).
-- Kanunlarla tasarrufu kısıtlanan emlakin vergisi kısıtlama süresince 1/10 oranında tahsil edilir (md. 30).
-- Tapu müdürlükleri, miras, mahkeme kararı ve cebri icra gibi haller dışında emlak vergisi borcu bulunan bina ve arazinin devir ve ferağını yapmaz (md. 30).
+İstisnai durumlar: Geliri olmayan, yalnız aylığı olan, gazi, engelli, şehit dul ve yetimlerinin brüt 200 m²'yi geçmeyen tek meskeninde oran sıfıra indirilebilir (md. 8). Emlak vergisi borcu olan taşınmazın devri, miras ve cebri icra gibi haller dışında yapılmaz (md. 30).
 
 ### Değerli konut vergisi
 
-Bina vergi değeri belirli tutarın üzerindeki mesken nitelikli taşınmazlar ayrıca **değerli konut vergisine** tabidir. 2026 yılı için bu sınır 17.711.000 TL'dir (EVK md. 42; Emlak Vergisi Kanunu Genel Tebliği Seri No: 88). Matrah, değerin sınırı aşan kısmıdır; tarife binde 3, binde 6 ve binde 10 oranlı artan oranlıdır (md. 44).
+Bina vergi değeri 2026 için **17.711.000 TL**'nin üzerinde olan mesken nitelikli taşınmazlar **değerli konut vergisine** tabidir (EVK md. 42; Emlak Vergisi Kanunu Genel Tebliği Seri No: 88). Matrah, değerin sınırı aşan kısmıdır (md. 44):
 
-Türkiye'de mesken nitelikli tek taşınmazı olanlar ile birden fazla taşınmazı olanların vergi konusuna giren en düşük değerli tek taşınmazı muaftır (md. 46). Beyanname, değerin sınırı aştığı yılı takip eden yılın şubat ayının 20'nci günü sonuna kadar verilir; vergi şubat ve ağustos aylarının sonuna kadar iki eşit taksitte ödenir (md. 47).
+| Bina vergi değeri (2026) | Vergi |
+|---|---|
+| 17.711.000 – 26.567.000 TL | Aşan kısmın binde 3'ü |
+| 26.567.000 – 35.425.000 TL | 26.567.000 TL için 26.568 TL, fazlası binde 6 |
+| 35.425.000 TL üzeri | 35.425.000 TL için 79.716 TL, fazlası binde 10 |
 
-> **Sık yapılan hata:** Büyükşehirde işyeri binası için binde 2 uygulamak. Yüzde 100 artırım nedeniyle oran binde 4 olur; mesken için ise binde 2.
+Muaf olanlar (md. 46): kamu idareleri ve TOKİ; Türkiye'de tek meskeni olanlar ile birden fazla meskeni olanların vergi konusuna giren **en düşük değerli** tek meskeni; esas faaliyeti bina inşası olanların henüz satılmamış yeni konutları (arsa karşılığı inşaatta müteahhide kalanlar dahil; kiraya verilmedikçe). Beyanname değerin sınırı aştığı yılı izleyen yılın şubat ayının 20'nci günü sonuna kadar verilir; vergi şubat ve ağustos sonuna kadar iki taksitte ödenir (md. 47).
 
 ## 2. Veraset ve intikal vergisi
 
-### Tanım
+### Konu, mükellef, tarh yeri
 
-Türkiye Cumhuriyeti tabiiyetindeki kişilere ait mallar ile Türkiye'de bulunan malların veraset yoluyla veya herhangi bir şekilde **ivazsız** (karşılıksız) olarak bir kişiden diğerine intikali **veraset ve intikal vergisine** tabidir (7338 sayılı Veraset ve İntikal Vergisi Kanunu, VİVK md. 1). Maddi ve manevi zarar karşılığı verilen tazminatlar ivazsız sayılmaz (md. 2). Mükellef, mal iktisap eden kişidir (md. 5).
+Türk vatandaşlarına ait mallar ile Türkiye'de bulunan malların veraset yoluyla ya da **ivazsız** (karşılıksız) intikali **veraset ve intikal vergisine** (VİV) tabidir (7338 sayılı Kanun, VİVK md. 1). Maddi ve manevi tazminatlar ivazsız intikal sayılmaz (md. 2). Mükellef malı iktisap edendir (md. 5). Vergi, murisin (ivazsız intikalde tasarruf edenin) ikametgâhının bulunduğu yerin vergi dairesince tarh edilir (md. 6). Değerleme günü mirasın açıldığı, diğer intikallerde malın hukuken iktisap edildiği gündür (md. 11).
 
-### Kural
+### İstisnalar (md. 4) ve 2026 tutarları
 
-- **Beyan süresi**: Ölüm Türkiye'de olmuş ve mükellefler Türkiye'deyse ölüm tarihini takip eden dört ay, mükellefler yabancı memlekette ise altı ay içinde; diğer suretle intikallerde malların hukuken iktisap edildiği tarihi takip eden bir ay içinde beyanname verilir (md. 9).
-- **Matrah**: İntikal eden malların VUK'a göre bulunan değeridir; gayrimenkuller emlak vergisi değeriyle değerlenir. Murisin belgeli borçları, vergi borçları ve cenaze masrafları indirilir (md. 10 ve 12).
-- **Ödeme**: Vergi, tahakkuktan itibaren üç yılda ve her yıl mayıs ve kasım aylarında olmak üzere iki eşit taksitte ödenir (md. 19).
+57 Seri No.lu VİV Genel Tebliği ile 1/1/2026'dan geçerli tutarlar:
 
-### 2026 yılı istisna tutarları ve tarife
+- Füruğ ve eşten her birine isabet eden miras hissesinin 2.907.136 TL'si; füruğ yoksa eşe isabet eden hissenin 5.817.845 TL'si.
+- İvazsız intikallerin ve yarışma, çekiliş, şans oyunu ikramiyelerinin 66.935 TL'si.
+- Ev eşyası ve murisin zati eşyası; örf ve adete göre hediyeler (gayrimenkul hariç); sadakalar; tescilli taşınmaz kültür varlıkları.
+- **Md. 4/g:** Kamu idareleri ve emekli sandıklarınca dul ve yetimlere bağlanan aylıklar, **emekli ikramiyeleri**, dul ve yetim evlenme ikramiyeleri.
 
-57 Seri No.lu Veraset ve İntikal Vergisi Kanunu Genel Tebliği ile 1/1/2026'dan geçerli tutarlar (md. 4 ve 16):
+### Beyan süreleri (md. 9)
 
-- Füruğ ve eşten her birine isabet eden miras hissesinin 2.907.136 TL'si; füruğ yoksa eşe isabet eden hissenin 5.817.845 TL'si istisnadır.
-- İvazsız intikallerin ve yarışma, çekiliş ve şans oyunu ikramiyelerinin 66.935 TL'si istisnadır.
+| Durum | Süre |
+|---|---|
+| Ölüm Türkiye'de, mükellef Türkiye'de | Ölümü izleyen 4 ay |
+| Ölüm Türkiye'de, mükellef yurt dışında | 6 ay |
+| Ölüm yurt dışında, mükellef Türkiye'de | 6 ay |
+| Ölüm yurt dışında, mükellef murisin bulunduğu ülkede | 4 ay |
+| Ölüm yurt dışında, mükellef başka bir yabancı ülkede | 8 ay |
+| Gaiplik | Gaiplik kararının ölüm siciline kaydını izleyen 1 ay |
+| Diğer ivazsız intikaller | Hukuken iktisabı izleyen 1 ay |
+| Yarışma, çekiliş, şans oyunları | İzleyen ayın 20'nci günü akşamı |
 
-| Matrah dilimi (2026) | Veraset yoluyla | İvazsız intikal |
+### Matrah, borç ve masraf indirimi (md. 10, 12)
+
+Matrah, malların VUK'a göre değeridir. Gayrimenkul emlak vergisi değeriyle, menkul mal rayiç bedelle, ticari sermaye bilanço esasında ölümden önceki yıl bilançosundaki öz sermayeyle değerlenir. Beyannamede gösterilmek şartıyla indirilir:
+
+- Veraset yoluyla intikalde murisin **belgeye dayanan borçları** ve vergi borçları
+- Diğer iktisaplarda malın aynına ait borçlar (bağışlayan borcu üstlenmişse indirilmez)
+- Yurt dışındaki mallara ait borçlar ve orada ödenen VİV (bu malların değerini aşamaz)
+- **Cenazenin techiz ve tedfini** masrafları
+
+### Tarife (md. 16, 2026)
+
+| Matrah dilimi | Veraset | İvazsız |
 |---|---|---|
 | İlk 3.000.000 TL | %1 | %10 |
 | Sonraki 7.000.000 TL | %3 | %15 |
 | Sonraki 15.000.000 TL | %5 | %20 |
 | Sonraki 30.000.000 TL | %7 | %25 |
-| 55.000.000 TL'yi aşan kısım | %10 | %30 |
+| 55.000.000 TL'yi aşan | %10 | %30 |
 
-Ana, baba, eş ve çocuklardan yapılan ivazsız intikallerde (evlatlıktan evlat edinenlere yapılanlar hariç) ivazsız tarife oranlarının yarısı uygulanır. Şans oyunu, yarışma ve çekiliş ikramiyelerinde oran %20'dir (md. 16).
+Ana, baba, eş ve çocuklardan ivazsız intikalde ivazsız oranların yarısı uygulanır. Şans oyunu ve çekiliş ikramiyelerinde oran %20'dir. 7582 sayılı Kanunla (2026) GVK mükerrer md. 20/D istisnasından yararlananlara istisna süresi içinde veraset yoluyla intikalde oran %1'dir.
 
-### Örnek: Oğula kalan miras payı
+### Çözümlü örnek
 
-Ölen babadan oğluna 10.000.000 TL değerinde miras hissesi kalmıştır.
+Muris 2026'da İstanbul'da ölmüştür; mirasçılar eşi ve iki çocuğudur (eş 1/4, çocuklar 3/8'er). Terekede emlak vergi değeri 6.000.000 TL konut, 2.500.000 TL mevduat ve rayiç değeri 1.500.000 TL otomobil vardır. Belgeli banka borcu 800.000 TL, vergi borcu 50.000 TL, cenaze masrafı 150.000 TL'dir.
 
-1. İstisna düşülür: 10.000.000 − 2.907.136 = 7.092.864 TL matrah.
-2. İlk dilim: 3.000.000 × %1 = 30.000 TL.
-3. Kalan: 4.092.864 × %3 = 122.785,92 TL.
-4. Toplam vergi: 152.785,92 TL; altı taksidin her biri 25.464,32 TL.
+1. Tereke: 6.000.000 + 2.500.000 + 1.500.000 = 10.000.000 TL.
+2. İndirim: 800.000 + 50.000 + 150.000 = 1.000.000 TL; net 9.000.000 TL.
+3. Eşin payı 2.250.000 TL; istisna 2.907.136 TL'nin altında, vergi çıkmaz.
+4. Her çocuğun payı 3.375.000 TL; matrah 3.375.000 − 2.907.136 = 467.864 TL; vergi %1 = 4.678,64 TL.
+5. Beyan süresi ölümü izleyen 4 aydır; vergi üç yılda, mayıs ve kasımda altı eşit taksitte ödenir (md. 19).
 
-### İstisnai durumlar
+### İhtilaflı borçlar, teminat, gaip
 
-Ev eşyası ve murisin zati eşyası, örf ve adete göre verilen hediyeler (gayrimenkuller hariç), sadakalar ve tescilli taşınmaz kültür varlıklarının intikali vergiden istisnadır (md. 4). Kamu idareleri ve kamu yararına çalışan dernekler gibi kurumlar muaftır (md. 3).
+- **İhtilaflı borçlar (md. 13):** Murisin sağlığında icra veya mahkemeye intikal etmiş alacak ve borçları beyannamede açıkça gösterilir. Vergisi tahakkuk ettirilip kesin karara kadar tecil edilir; tecil **on yılı** geçemez. Mükellef her **altı ayda** bir durumu dilekçeyle bildirir; bildirmezse vergi derhal tahsil edilir.
+- **Teminat ve tevkifat (md. 17):** Bankalar, sigorta şirketleri, kamu idareleri, mahkemeler ve icra daireleri, verginin ödendiğine dair tasdikname olmadan ödeme yapacaklarsa veraset yoluyla intikalde **%5**, ivazsız intikalde **%15** keser ve bir hafta içinde yatırır. Kesmeyen veya yatırmayandan tutar gecikme zammıyla, ayrıca **%10** ceza alınır.
+- **Gaibin zuhuru (md. 21):** Gaip mirasçı ortaya çıkarsa vergi onun beyanı veya idari tahkikata göre düzeltilir. Gaip muris ortaya çıkarsa ölüm kaydının terkininden sonra alınan vergiler talep üzerine geri verilir.
+- Mirasla gelen gayrimenkul vergi ödenmeden tescil edilebilir; ama vergi tamamen ödenmeden devir ve ferağı yapılamaz (md. 19).
 
-> **Sınav ipucu:** Babadan oğula bağışta ivazsız tarife yarı oranla uygulanır (%5, %7,5…); veraset tarifesi uygulanmaz. İstisna tutarı da veraset istisnası değil, ivazsız intikal istisnasıdır.
+> **Sınav ipucu:** Babadan oğula bağışta veraset tarifesi değil, yarı oranlı ivazsız tarife (%5, %7,5…) ve 66.935 TL ivazsız istisnası uygulanır.
 
 ## 3. Motorlu taşıtlar vergisi
 
-### Tanım ve kural
+Trafik siciline kayıtlı taşıtlar ile sivil hava vasıtaları siciline kayıtlı uçak ve helikopterler **motorlu taşıtlar vergisine** (MTV) tabidir; mükellef sicilde adına kayıtlı kişidir (197 sayılı Kanun md. 1, 3). Otomobil ve motosikletler (I), 31/12/2017'den önce tescilli otomobiller (I/A), kamyonet ve otobüs gibi taşıtlar (II), hava taşıtları (IV) sayılı tarifeye tabidir. 2026 için yeniden değerleme oranı 10783 sayılı Cumhurbaşkanı Kararıyla %18,95'tir.
 
-Trafik siciline kayıtlı motorlu kara taşıtları ile sivil hava vasıtaları siciline kayıtlı uçak ve helikopterler **motorlu taşıtlar vergisine** (MTV) tabidir (197 sayılı Kanun md. 1). Mükellef, sicilde adına taşıt kayıtlı olan gerçek ve tüzel kişilerdir (md. 3).
+- **Başlama (md. 7):** Yılın ilk altı ayında tescilde yıl başından, son altı ayında tescilde ikinci dönemin başından. Devir ve temlikte (mirasçılara intikal dahil) değişiklik ilk altı ayda ise izleyen altı aylık dönemden, son altı ayda ise izleyen yıl başından yeni malik mükellef olur.
+- **Sona erme (md. 8):** Sicil kaydı ilk altı ayda silinirse ikinci dönemin başından, ikinci dönemde silinirse izleyen yıl başından.
+- **Ödeme (md. 9):** Ocak başında tahakkuk etmiş sayılır, tebliğ edilmez; Ocak ve Temmuz'da iki eşit taksitte ödenir. Yıl içinde ilk tescilde süresi geçmiş taksit tescilden itibaren bir ay içinde ödenir. Ocak ve Temmuz'da yapılan devirde vergi devirden önce ödenir.
+- **İstisna (md. 4):** Kamu idareleri, karşılıklılık şartıyla elçilikler, %90 ve üzeri engelliler adına kayıtlı taşıtlar.
+- **Gider yasağı (md. 14):** (I), (I/A) ve (IV) sayılı tarifelerdeki taşıtların vergi, ceza ve gecikme zamları GV ve KV matrahında gider kabul edilmez; kiralama işletmelerinin kiraya verdiği taşıtlar ve ticari hava taşıtları hariç.
 
-- **Tarifeler**: Otomobil, kaptıkaçtı, arazi taşıtları ve motosikletler (I) sayılı tarifeye tabidir; otomobillerde vergi motor silindir hacmi, taşıt değeri ve yaşa göre belirlenir (md. 5); 31/12/2017'den önce tescil edilen otomobiller (I/A) sayılı tarifeye tabidir (geçici md. 8). Minibüs, panel van, otobüs, kamyonet, kamyon ve çekici gibi taşıtlar (II), uçak ve helikopterler (IV) sayılı tarifeye tabidir (md. 6). Yalnız elektrik motorlu otomobillerde vergi, motor gücüne isabet eden satırdaki tutarın %25'idir (md. 5).
-- **Güncelleme**: Vergi tutarları her yıl yeniden değerleme oranında artırılır (md. 10). 2026 yılında uygulanmak üzere bu oran (I), (I/A), (II) ve (IV) sayılı tarifelerdeki taşıtlar için 10783 sayılı Cumhurbaşkanı Kararı ile %18,95 olarak belirlenmiştir. 2026 yılı tarife tutarları için Seri No: 58 Motorlu Taşıtlar Vergisi Genel Tebliğine bakılır.
-- **Mükellefiyetin başlaması**: Yılın ilk altı ayında tescil edilen taşıtta yıl başından, son altı ayında tescil edilende son altı aylık dönemin başından itibaren (md. 7).
-- **Ödeme**: Ocak ve Temmuz aylarında iki eşit taksit (md. 9).
-
-### Hesap ve kayıt örneği
-
-Bir şirket 10 Mart'ta binek otomobil tescil ettirmiştir. Tescil ilk altı ayda olduğundan şirket yıl başından itibaren yıllık vergiyle mükelleftir; taksit süresi geçmiş Ocak taksiti tescilden itibaren bir ay içinde ödenir (md. 9). Tahakkuk eden vergi 770 Genel Yönetim Giderleri borç, 360 Ödenecek Vergi ve Fonlar alacak kaydedilir; ancak beyanda kanunen kabul edilmeyen gider olarak matraha eklenir.
-
-### İstisnai durumlar
-
-Kamu idarelerine, karşılıklılık şartıyla yabancı elçiliklere ait taşıtlar ile engellilik oranı %90 ve üzeri olanlar adına kayıtlı taşıtlar istisnadır (md. 4). (I), (I/A) ve (IV) sayılı tarifelerdeki taşıtlardan alınan vergi, ceza ve gecikme zamları gelir ve kurumlar vergisi matrahının tespitinde gider kabul edilmez; ticari amaçlı uçak ve helikopterler ile kiralama işletmelerinin kiraya verdiği taşıtlar bu kuralın dışındadır (md. 14).
+> **Sık yapılan hata:** (II) sayılı tarifedeki kamyonetin MTV'sini kanunen kabul edilmeyen gider saymak. Gider yasağı yalnız (I), (I/A) ve (IV) sayılı tarifeler içindir.
 
 ### Tasdik uygulama notu
 
-Tam tasdikte YMM, maddi duran varlık listesindeki taşıtları trafik kayıtlarıyla eşleştirir ve (I) ile (I/A) tarifesindeki taşıtlara ait MTV'nin kanunen kabul edilmeyen gider olarak beyana eklendiğini kontrol eder. Bina ve arsalar için emlak vergisi tahakkukları belediye kayıtlarıyla, büyükşehir oranının doğru uygulanıp uygulanmadığı açısından karşılaştırılır.
+Tam tasdikte YMM, taşıt listesini trafik kayıtlarıyla eşleştirir ve (I), (I/A) tarifesindeki taşıtların MTV'sinin KKEG olarak beyana eklendiğini kontrol eder. Emlak vergisinde büyükşehir oranı ve depremde yıkılan binada mükellefiyetin bitişi belediye kayıtlarıyla karşılaştırılır. Vefat eden ortaktan kalan payların ödemesinde VİV tasdiknamesi veya md. 17 tevkifatı aranır.
 
 ## Özet
 
-- Bina vergisi meskende binde 1, diğer binalarda binde 2; arazide binde 1, arsada binde 3; büyükşehirde oranlar yüzde 100 artırımlıdır.
-- Emlak vergisinin matrahı vergi değeridir, her yıl yeniden değerleme oranında artar; Mart-Mayıs ve Kasım aylarında iki taksitte ödenir.
-- 2026'da değerli konut vergisi sınırı 17.711.000 TL'dir; tek konut muaftır.
-- VİV'de 2026 istisnası füruğ ve eş için 2.907.136 TL, ivazsız intikalde 66.935 TL'dir; veraset tarifesi %1–%10, ivazsız tarife %10–%30'dur.
-- Ana, baba, eş ve çocuklardan ivazsız intikalde ivazsız tarife yarı oranla uygulanır; vergi üç yılda altı taksitte ödenir.
-- MTV'de mükellef sicil kaydındaki kişidir; ilk altı ayda tescilde yıl başından mükellefiyet doğar, vergi Ocak ve Temmuz'da ödenir.
-- (I), (I/A) ve (IV) sayılı tarifelerdeki taşıtların MTV'si, kiralama ve ticari hava taşıtları hariç, kanunen kabul edilmeyen giderdir.
+- Bina vergisi meskende binde 1, diğer binada binde 2; arazide binde 1, arsada binde 3; büyükşehirde oranlar %100 artırımlıdır.
+- Yıkılan binada emlak vergisi mükellefiyeti olayı izleyen taksitten itibaren biter.
+- 2026'da değerli konut vergisi sınırı 17.711.000 TL'dir; en düşük değerli tek konut ve müteahhidin satılmamış konutu muaftır.
+- 2026'da VİV istisnası füruğ ve eş için 2.907.136 TL, ivazsız intikalde 66.935 TL'dir; veraset tarifesi %1–%10, ivazsız tarife %10–%30'dur.
+- Murisin belgeli borçları, vergi borçları ve cenaze masrafları indirilir; ihtilaflı borçların vergisi en çok on yıl tecil edilir.
+- Tasdikname olmadan ödeme yapanlar verasette %5, ivazsız intikalde %15 keser; kesmeyene %10 ceza uygulanır.
+- MTV Ocak ve Temmuz'da ödenir; (I), (I/A) ve (IV) sayılı tarifelerdeki taşıtların MTV'si gider yazılamaz.
