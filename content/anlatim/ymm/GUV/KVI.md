@@ -91,7 +91,7 @@ Enflasyon düzeltmesi yapılan dönemlerde satış kazancı, hissenin düzeltilm
 
 ### Borç karşılığı devir (md.5/1-f)
 
-Bankalara, finansal kiralama veya finansman şirketlerine borcu nedeniyle kanuni takibe alınmış ya da TMSF'ye borçlu kurumlar ile kefil ve ipotek verenlerin taşınmaz, iştirak hissesi, kurucu ve intifa senedi ile rüçhan haklarını bu borçlara karşılık devrinden doğan kazancın, hasılatın borç tasfiyesinde kullanılan kısmına isabet eden bölümü istisnadır. Kanun metnine göre taşınmazlarda %50, diğer kıymetlerde %75 uygulanır; bankanın sonradan yaptığı satışta da aynı oranlar geçerlidir. Bu istisnada 5/1-e'deki iki yıl ve özel fon şartı yer almaz.
+Bankalara, finansal kiralama veya finansman şirketlerine borcu nedeniyle kanuni takibe alınmış ya da TMSF'ye borçlu kurumlar ile kefil ve ipotek verenlerin taşınmaz, iştirak hissesi, kurucu ve intifa senedi ile rüçhan haklarını bu borçlara karşılık devrinden sağlanan hasılatın borç tasfiyesinde kullanılan kısmına isabet eden kazancın **tamamı** istisnadır. Bankaların, finansal kiralama veya finansman şirketlerinin bu yolla edindikleri kıymetleri sonradan satmasından doğan kazançta ise taşınmazlarda %50'lik, diğer kıymetlerde %75'lik kısım istisnadır. Bu istisnada 5/1-e'deki iki yıl ve özel fon şartı yer almaz.
 
 ## 4. Yurt dışı inşaat onarım montaj kazançları ve diğer istisnalar
 
