@@ -1,0 +1,539 @@
+- id: SMMM-MAL-ORT-0012
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: satış değeri yöntemi
+  tip: hesaplama
+  zorluk: 3
+  kok: 'KDV dikkate alınmayacaktır. DR İşletmesi ortak bir süreçte A ve B ana ürünlerini ve Z yan ürününü elde etmektedir.
+    Dönemde ayrılma noktasına kadar 830.000 ₺ ortak üretim maliyetine ve 50.000 ₺ genel yönetim giderine katlanılmıştır.
+    Üretim miktarları ve ayrılma noktasındaki satış fiyatları şöyledir: A 4.000 kg, 150 ₺/kg; B 8.000 kg, 50 ₺/kg;
+    Z 1.000 kg, 40 ₺/kg. Z''nin satışı için kilogram başına 10 ₺ satış gideri gerekmektedir. İşletme yan ürünün
+    net gerçekleşebilir değerini ortak maliyetten düşmekte, kalan tutarı ana ürünlere satış değerleri oranında dağıtmaktadır.
+    Genel yönetim giderleri maliyete katılmamaktadır.
+
+
+    Buna göre A ürününün birim maliyeti kaç TL''dir?'
+  secenekler:
+    A: 66,67
+    B: 117,00
+    C: 118,50
+    D: 120,00
+    E: 124,50
+  dogru: D
+  aciklama:
+    dogru_neden: 'Z''nin net gerçekleşebilir değeri 1.000 × (40 − 10) = 30.000 ₺''dir. Ana ürünlere dağıtılacak
+      tutar 830.000 − 30.000 = 800.000 ₺''dir. Satış değerleri A 600.000, B 400.000 ₺ olduğundan A''nın payı %60,
+      yani 480.000 ₺; birim maliyeti 480.000 / 4.000 = 120 ₺''dir. Püf noktaları: Önce yan ürün değeri düşülür,
+      sonra kalan ortak ürünlere dağıtılır; sıra ters çevrilemez. Yan üründen düşülen tutar brüt satış değeri değil,
+      satış gideri indirilmiş net değerdir. 50.000 ₺ genel yönetim gideri soruda yalnız dikkat ölçmek için verilmiştir.'
+    celdiriciler:
+      A: '66,67: Kalan 800.000 ₺ satış değeri yerine fiziki miktara göre dağıtılmıştır (800.000 × 4/12).'
+      B: '117,00: Satış gideri düşüleceği yerde eklenmiş, yan ürün değeri 50.000 alınmıştır (780.000 × %60).'
+      C: '118,50: Yan ürünün brüt satış değeri (40.000) düşülmüştür (790.000 × %60).'
+      E: '124,50: Yan ürün değeri hiç düşülmeden 830.000 ₺ dağıtılmıştır.'
+    hesap_adimlari:
+    - Z net gerçekleşebilir değeri = 1.000 × (40 − 10) = 30.000 ₺
+    - Dağıtılacak ortak maliyet = 830.000 − 30.000 = 800.000 ₺
+    - 'Satış değerleri: A 600.000, B 400.000; A oranı %60'
+    - A payı = 480.000 ₺; birim = 480.000 / 4.000 = 120 ₺
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 14
+    alinti: üretimin tamamlandığı andaki nispi satış değerine göre yapılabilir
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 14
+    alinti: yan ürünler genellikle net gerçekleşebilir değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden
+      düşülür
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ngd = 1000 * (40 - 10)
+
+      kalan = 830000 - ngd
+
+      a_sd = 4000 * 150
+
+      b_sd = 8000 * 50
+
+      sonuc = kalan * a_sd / (a_sd + b_sd) / 4000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2.yaml, satır 4
+- id: SMMM-MAL-ORT-0013
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: satış değeri yöntemi
+  tip: hesaplama
+  zorluk: 2
+  kok: 'KDV dikkate alınmayacaktır. SN İşletmesi ortak bir süreçte 450.000 ₺ ortak maliyetle 3.000 kg A ve 6.000
+    kg B ürünü elde etmiştir. Ayrılma noktasındaki satış fiyatları A için 80 ₺/kg, B için 60 ₺/kg''dır. Ortak maliyet
+    satış değeri yöntemiyle dağıtılmaktadır. Dönemde A''dan 2.000 kg, B''den 5.400 kg ayrılma noktasındaki fiyatlarla
+    satılmıştır; dönem başında stok yoktur.
+
+
+    Buna göre dönemin brüt satış kârı kaç TL''dir?'
+  secenekler:
+    A: '34.000'
+    B: '114.000'
+    C: '121.000'
+    D: '142.000'
+    E: '150.000'
+  dogru: C
+  aciklama:
+    dogru_neden: Satış değerleri A 240.000, B 360.000 ₺; toplam 600.000 ₺. Ortak maliyet / satış değeri = 450.000
+      / 600.000 = %75 olduğundan birim maliyetler A 60 ₺, B 45 ₺'dir. Satışlar 2.000 × 80 + 5.400 × 60 = 484.000
+      ₺; satılan mamul maliyeti 2.000 × 60 + 5.400 × 45 = 363.000 ₺; brüt kâr 121.000 ₺'dir (her iki üründe %25).
+    celdiriciler:
+      A: '34.000: Ortak maliyetin tamamı, stokta kalan kısım ayrılmadan satılanların maliyeti sayılmıştır (484.000
+        − 450.000).'
+      B: '114.000: Ortak maliyet fiziki miktara göre dağıtılmış, birim maliyet her iki ürün için 50 ₺ alınmıştır.'
+      D: '142.000: Dağıtım oranları ters uygulanmış (A''ya %60, B''ye %40), birim maliyetler A 90 ₺, B 30 ₺ bulunmuştur.'
+      E: '150.000: Üretimin tamamı satılmış gibi toplam satış değerinden ortak maliyet düşülmüştür.'
+    hesap_adimlari:
+    - 'Satış değerleri: A 240.000, B 360.000; maliyet oranı 450.000 / 600.000 = %75'
+    - 'Birim maliyet: A 80 × 0,75 = 60 ₺; B 60 × 0,75 = 45 ₺'
+    - Satışlar = 160.000 + 324.000 = 484.000 ₺
+    - SMM = 120.000 + 243.000 = 363.000 ₺; brüt kâr = 121.000 ₺
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 14
+    alinti: her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı
+      andaki nispi satış değerine göre yapılabilir
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'oran = 450000 / (3000 * 80 + 6000 * 60)
+
+      satis = 2000 * 80 + 5400 * 60
+
+      smm = 2000 * 80 * oran + 5400 * 60 * oran
+
+      sonuc = satis - smm'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2.yaml, satır 5
+- id: SMMM-MAL-ORT-0014
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: katsayılı bölme
+  tip: hesaplama
+  zorluk: 3
+  kok: 'KDV dikkate alınmayacaktır. KT İşletmesi tek bir ortak süreçte A, B ve C ürünlerini elde etmekte ve 330.000
+    ₺ tutarındaki ortak maliyeti katsayılı bölme (eşdeğer katsayılar) yöntemiyle dağıtmaktadır. Dönemde A ürününden
+    3.000 adet (katsayı 1), B ürününden 4.000 adet ve C ürününden 1.000 adet (katsayı 2) üretilmiştir. B ürününün
+    katsayısı kayıtlarda bulunamamış; ancak A ürününün birim maliyetinin 30 ₺ olarak hesaplandığı bilinmektedir.
+    Ürünlerin birim satış fiyatları A için 45 ₺, B için 60 ₺, C için 80 ₺''dir.
+
+
+    Buna göre B ürününe dağıtılan ortak maliyet kaç TL''dir?'
+  secenekler:
+    A: '120.000'
+    B: '165.000'
+    C: '180.000'
+    D: '210.000'
+    E: '240.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Katsayısı 1 olan A ürününün birim maliyeti eşdeğer birim maliyete eşittir: 30 ₺. Toplam eşdeğer
+      miktar = 330.000 / 30 = 11.000''dir. A''nın eşdeğer miktarı 3.000, C''ninki 1.000 × 2 = 2.000 olduğundan B''nin
+      eşdeğer miktarı 11.000 − 3.000 − 2.000 = 6.000''dir (katsayı 6.000 / 4.000 = 1,5). B''ye düşen pay 6.000 ×
+      30 = 180.000 ₺''dir. Püf noktaları: Ölçü ürünün (katsayısı 1) birim maliyeti, eşdeğer birim maliyetin ta kendisidir;
+      geri hesap buradan başlar. C''nin fiziki adedini değil eşdeğer miktarını (1.000 × 2) düşmeyi unutma. Satış
+      fiyatları bu yöntemde kullanılmaz.'
+    celdiriciler:
+      A: '120.000: B''nin katsayısı 1 kabul edilerek 4.000 × 30 hesaplanmıştır; katsayı geri hesaplanmamıştır.'
+      B: '165.000: Ortak maliyet fiziki miktarlara göre dağıtılmıştır (330.000 × 4.000 / 8.000); katsayılar dikkate
+        alınmamıştır.'
+      D: '210.000: C''nin eşdeğer miktarı fiziki adediyle (1.000) alınmış, katsayısı 2 ile çarpılmamıştır (7.000
+        × 30).'
+      E: '240.000: C ürünü hesaba katılmadan, ortak maliyetten yalnız A''nın payı (90.000) düşülmüştür.'
+    hesap_adimlari:
+    - Eşdeğer birim maliyet = A'nın birim maliyeti (katsayı 1) = 30 ₺
+    - Toplam eşdeğer miktar = 330.000 / 30 = 11.000
+    - B'nin eşdeğer miktarı = 11.000 − 3.000 − (1.000 × 2) = 6.000 (katsayı 1,5)
+    - B'nin payı = 6.000 × 30 = 180.000 ₺
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 14
+    alinti: Her bir ürünün dönüştürme maliyetlerinin ayrı olarak belirlenemediği durumlarda, bu maliyetler ürünler
+      arasında mantıklı ve tutarlı bir biçimde dağıtılır.
+  - mevzuat: Hakemli konu anlatımı — MAL/ORT (Ortak ve yan ürün)
+    madde: §4 Katsayılı bölme yöntemi
+    alinti: ''
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'esdeger_bm = 30
+
+      toplam_esd = 330000 / esdeger_bm
+
+      b_esd = toplam_esd - 3000 * 1 - 1000 * 2
+
+      sonuc = b_esd * esdeger_bm'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 1
+- id: SMMM-MAL-ORT-0015
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: net satış değeri yöntemi
+  tip: hesaplama
+  zorluk: 2
+  kok: 'KDV dikkate alınmayacaktır. NP İşletmesi ortak bir süreçten X ve Y ürünlerini elde etmektedir. Ayrılma noktasına
+    kadar katlanılan ortak maliyet 360.000 ₺''dır. X ürününden 5.000 kg elde edilmiş ve ayrılma noktasında kilogramı
+    34 ₺''den satılmaktadır. Y ürününden 4.000 litre elde edilmiş; Y, ayrılma noktasından sonra 50.000 ₺ ek işlem
+    maliyetine katlanılarak litresi 60 ₺''den satılmakta ve bu satışlar için ayrıca 20.000 ₺ satış komisyonu ödenmektedir.
+    Ortak maliyet net satış değerleri oranında dağıtılmaktadır.
+
+
+    Buna göre Y ürününün birim stok maliyeti kaç TL''dir?'
+  secenekler:
+    A: 40,00
+    B: 45,00
+    C: 52,50
+    D: 57,50
+    E: 60,00
+  dogru: D
+  aciklama:
+    dogru_neden: 'X''in ayrılma noktasındaki satış değeri 5.000 × 34 = 170.000 ₺''dir. Y''nin net satış değeri 4.000
+      × 60 − 50.000 − 20.000 = 170.000 ₺''dir. Toplam 340.000 ₺ olduğundan Y''ye ortak maliyetin yarısı, 180.000
+      ₺ düşer. Y''nin stok maliyeti ortak maliyet payı ile ek işlem maliyetinin toplamıdır: 180.000 + 50.000 = 230.000
+      ₺; birim maliyet 230.000 / 4.000 = 57,50 ₺. Satış komisyonu net satış değerinin bulunmasında düşülür, ancak
+      TMS 2 par. 16(d) gereği stok maliyetine eklenmez.'
+    celdiriciler:
+      A: '40,00: Ortak maliyet fiziki miktara göre dağıtılmış (360.000 × 4/9 = 160.000) ve ek işlem maliyeti eklenmemiştir.'
+      B: '45,00: Ortak maliyet payı doğru bulunmuş, ancak ayrılma sonrası 50.000 ₺ ek işlem maliyeti Y''nin maliyetine
+        eklenmemiştir.'
+      C: '52,50: Ortak maliyet fiziki miktara göre dağıtılmıştır (160.000 + 50.000 = 210.000).'
+      E: '60,00: Satış komisyonu net satış değerinden düşülmemiş (Y için 190.000), pay 360.000 × 190/360 = 190.000
+        bulunmuştur.'
+    hesap_adimlari:
+    - X satış değeri = 5.000 × 34 = 170.000 ₺
+    - Y net satış değeri = 240.000 − 50.000 − 20.000 = 170.000 ₺
+    - Y'nin ortak maliyet payı = 360.000 × 170.000 / 340.000 = 180.000 ₺
+    - Y stok maliyeti = 180.000 + 50.000 = 230.000 ₺; birim = 57,50 ₺
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16(d)
+    alinti: (d) Satış maliyetleri.
+  - mevzuat: Hakemli konu anlatımı — MAL/ORT (Ortak ve yan ürün)
+    madde: §3 Net satış değeri yöntemi
+    alinti: ''
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'x = 5000 * 34
+
+      y_nsd = 4000 * 60 - 50000 - 20000
+
+      pay = 360000 * y_nsd / (x + y_nsd)
+
+      sonuc = (pay + 50000) / 4000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 2
+- id: SMMM-MAL-ORT-0016
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: yan ürün geri hesap
+  tip: hesaplama
+  zorluk: 2
+  kok: 'KDV dikkate alınmayacaktır. YR İşletmesi ortak bir süreçte 20.000 kg ana ürün ve 2.000 kg yan ürün elde
+    etmiştir. Ayrılma noktasına kadar katlanılan ortak maliyet 500.000 ₺''dır. Yan ürün, ayrılma noktasından sonra
+    6.000 ₺ ek işlem maliyetine katlanılarak kilogramı 30 ₺''den satılabilecektir; satış için 4.000 ₺ satış gideri
+    yapılacaktır. İşletme yan ürün için satış tutarının %10''u oranında normal kâr öngörmekte ve yan ürünün değerini
+    geri hesap yöntemiyle bulup ortak maliyetten düşmektedir.
+
+
+    Buna göre ana ürünün birim maliyeti kaç TL''dir?'
+  secenekler:
+    A: 22,00
+    B: 22,30
+    C: 22,50
+    D: 22,60
+    E: 22,80
+  dogru: E
+  aciklama:
+    dogru_neden: Yan ürün satış değeri 2.000 × 30 = 60.000 ₺, normal kâr 60.000 × %10 = 6.000 ₺'dir. Ayrılma noktasındaki
+      değer = 60.000 − 6.000 (normal kâr) − 6.000 (ek işlem) − 4.000 (satış gideri) = 44.000 ₺. Ana ürüne kalan
+      maliyet 500.000 − 44.000 = 456.000 ₺; birim maliyet 456.000 / 20.000 = 22,80 ₺'dir.
+    celdiriciler:
+      A: '22,00: Yan ürünün brüt satış tutarının (60.000) tamamı ortak maliyetten düşülmüştür.'
+      B: '22,30: Yalnız ek işlem maliyeti düşülmüş; satış gideri ve normal kâr düşülmemiştir (60.000 − 6.000 = 54.000).'
+      C: '22,50: Normal kâr düşülmeden net gerçekleşebilir değer (50.000) kullanılmıştır.'
+      D: '22,60: Satış gideri unutulmuştur (60.000 − 6.000 − 6.000 = 48.000).'
+    hesap_adimlari:
+    - Satış değeri = 2.000 × 30 = 60.000 ₺; normal kâr = 6.000 ₺
+    - Ayrılma noktasındaki değer = 60.000 − 6.000 − 6.000 − 4.000 = 44.000 ₺
+    - Ana ürün maliyeti = 500.000 − 44.000 = 456.000 ₺
+    - Birim maliyet = 456.000 / 20.000 = 22,80 ₺
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 14
+    alinti: yan ürünler genellikle net gerçekleşebilir değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden
+      düşülür
+  - mevzuat: Hakemli konu anlatımı — MAL/ORT (Ortak ve yan ürün)
+    madde: §5 Yan ürün ve geri hesap
+    alinti: ''
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'sd = 2000 * 30
+
+      deger = sd - sd * 0.10 - 6000 - 4000
+
+      sonuc = (500000 - deger) / 20000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 3
+- id: SMMM-MAL-ORT-0017
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: net satış değeri yöntemi
+  tip: hesaplama
+  zorluk: 3
+  kok: 'KDV dikkate alınmayacaktır. MK İşletmesi ortak bir süreçten elde ettiği X ve Y ürünlerini ayrılma noktasından
+    sonra ek işleme tabi tutmakta ve ortak maliyeti net satış değerleri oranında dağıtmaktadır. X''in nihai satış
+    değeri 400.000 ₺, ek işlem maliyeti 100.000 ₺; Y''nin nihai satış değeri 240.000 ₺, ek işlem maliyeti 40.000
+    ₺''dir. Ortak maliyetin tutarı kayıtlardan çıkarılamamış, ancak X''e 240.000 ₺ ortak maliyet dağıtıldığı bilinmektedir.
+
+
+    Buna göre Y ürününün toplam maliyeti kaç TL''dir?'
+  secenekler:
+    A: '120.000'
+    B: '160.000'
+    C: '184.000'
+    D: '200.000'
+    E: '216.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Net satış değerleri X 400.000 − 100.000 = 300.000 ₺, Y 240.000 − 40.000 = 200.000 ₺; toplam 500.000
+      ₺. X''in payı 240.000 ₺ ve oranı 300/500 olduğundan ortak maliyet 240.000 × 500 / 300 = 400.000 ₺''dir. Y''nin
+      payı 400.000 − 240.000 = 160.000 ₺; toplam maliyeti 160.000 + 40.000 = 200.000 ₺''dir. Püf noktaları: Geri
+      hesapta da oran nihai satış değerinden değil net satış değerinden kurulur. Ürünün toplam maliyeti, ortak maliyet
+      payına kendi ek işlem maliyeti eklenerek bulunur; ek işlem maliyeti dağıtıma sokulmaz.'
+    celdiriciler:
+      A: '120.000: Ek işlem maliyeti eklenmesi gerekirken ortak maliyet payından düşülmüştür (160.000 − 40.000).'
+      B: '160.000: Yalnız ortak maliyet payı bulunmuş, Y''nin 40.000 ₺ ek işlem maliyeti eklenmemiştir.'
+      C: '184.000: Oran nihai satış değerleriyle kurulmuştur (ortak maliyet 240.000 × 640/400 = 384.000; Y payı
+        144.000 + 40.000).'
+      E: '216.000: Ek işlem maliyetleri (140.000) ortak maliyete katılıp net satış değeri oranında dağıtılmıştır
+        (540.000 × 2/5).'
+    hesap_adimlari:
+    - 'NSD: X 300.000, Y 200.000; toplam 500.000 ₺'
+    - Ortak maliyet = 240.000 × 500.000 / 300.000 = 400.000 ₺
+    - Y payı = 400.000 − 240.000 = 160.000 ₺
+    - Y toplam maliyeti = 160.000 + 40.000 = 200.000 ₺
+  kaynaklar:
+  - mevzuat: Hakemli konu anlatımı — MAL/ORT (Ortak ve yan ürün)
+    madde: §3 Net satış değeri yöntemi
+    alinti: ''
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 14
+    alinti: Her bir ürünün dönüştürme maliyetlerinin ayrı olarak belirlenemediği durumlarda, bu maliyetler ürünler
+      arasında mantıklı ve tutarlı bir biçimde dağıtılır.
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'x_nsd = 400000 - 100000
+
+      y_nsd = 240000 - 40000
+
+      ortak = 240000 * (x_nsd + y_nsd) / x_nsd
+
+      sonuc = ortak * y_nsd / (x_nsd + y_nsd) + 40000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 6

@@ -1,0 +1,443 @@
+- id: SMMM-MAL-SAF-0011
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 3
+  kok: 'KDV dikkate alınmayacaktır. İki safhalı üretim yapan TS İşletmesi ağırlıklı ortalama yöntemini uygulamaktadır.
+    II. safhada dönem başında 1.000 birim yarı mamul vardır; maliyeti devralınan maliyet 30.000 ₺, dönüştürme maliyeti
+    8.000 ₺''dır. Dönemde I. safhadan 9.000 birim 300.000 ₺ maliyetle devralınmıştır. II. safhada ambalaj malzemesi
+    safhanın sonunda konulmakta olup dönemde 40.000 ₺ ambalaj malzemesi kullanılmıştır; dönemin dönüştürme maliyeti
+    154.000 ₺''dır. Dönemde 8.000 birim tamamlanarak mamul ambarına gönderilmiş, 2.000 birim dönüştürme bakımından
+    %50 tamamlanmış hâlde dönem sonu yarı mamul olarak kalmıştır.
+
+
+    Buna göre II. safhanın dönem sonu yarı mamul maliyeti kaç TL''dir?'
+  secenekler:
+    A: '18.000'
+    B: '66.000'
+    C: '84.000'
+    D: '92.000'
+    E: '112.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Eşdeğer birimler (ortalama): devralınan maliyet 8.000 + 2.000 × %100 = 10.000; ambalaj (safha
+      sonunda) 8.000 + 2.000 × %0 = 8.000; dönüştürme 8.000 + 2.000 × %50 = 9.000. Birim maliyetler: devralınan
+      (30.000 + 300.000) / 10.000 = 33 ₺; ambalaj 40.000 / 8.000 = 5 ₺; dönüştürme (8.000 + 154.000) / 9.000 = 18
+      ₺. Dönem sonu yarı mamul = 2.000 × 33 + 0 + 1.000 × 18 = 84.000 ₺. Püf noktaları: Önceki safhadan devralınan
+      unsur yarı mamul için daima %100 tamamdır; safha sonunda konulan malzemeden yarı mamule pay düşmez. Üç unsuru
+      ayrı ayrı ele almadan tek derece uygulamak sonucu bozar. Kontrol: tamamlananlar 8.000 × 56 = 448.000 ₺ + 84.000
+      = 532.000 ₺ toplam maliyet.'
+    celdiriciler:
+      A: '18.000: Devralınan maliyet ayrı bir unsur olarak dikkate alınmamış, yalnız dönüştürme payı hesaplanmıştır.'
+      B: '66.000: Yalnız devralınan maliyet payı alınmış, dönüştürme payı unutulmuştur.'
+      D: '92.000: Safha sonunda konulan ambalaj malzemesi yarı mamuller için %100 kabul edilmiştir (ambalaj birim
+        maliyeti 4 ₺; 66.000 + 8.000 + 18.000).'
+      E: '112.000: Yarı mamullerin fiziki adedi eşdeğer birim kabul edilip tam birim maliyetle çarpılmıştır (2.000
+        × 56).'
+    hesap_adimlari:
+    - 'EB: devralınan 10.000; ambalaj 8.000; dönüştürme 9.000'
+    - 'Birim maliyet: devralınan 33 ₺; ambalaj 5 ₺; dönüştürme 18 ₺'
+    - DSYM = 2.000 × 33 + 1.000 × 18 = 84.000 ₺
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 25
+    alinti: ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemi kullanılarak belirlenir
+  - mevzuat: Hakemli konu anlatımı — MAL/SAF (Safha maliyeti ve eşdeğer birim)
+    madde: §2 Eşdeğer birim
+    alinti: ''
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'dev = (30000 + 300000) / (8000 + 2000)
+
+      amb = 40000 / 8000
+
+      don = (8000 + 154000) / (8000 + 2000 * 0.5)
+
+      sonuc = 2000 * dev + 0 * amb + 2000 * 0.5 * don'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 13
+- id: SMMM-MAL-SAF-0012
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: tamamlanma derecesi geri hesap
+  tip: hesaplama
+  zorluk: 3
+  kok: 'KDV dikkate alınmayacaktır. Tek safhalı üretim yapan EV İşletmesi''nin dönem verileri hem ağırlıklı ortalama
+    hem FIFO yöntemiyle hesaplanmıştır. Dönüştürme maliyetleri için eşdeğer birim ağırlıklı ortalama yönteminde
+    9.200, FIFO yönteminde 8.300 bulunmuştur. Dönem başında 1.500 birim yarı mamul vardır. Dönem sonunda 2.000 birim
+    yarı mamul dönüştürme bakımından %40 tamamlanmış durumdadır.
+
+
+    Buna göre dönemde tamamlanan birim sayısı ve dönem başı yarı mamullerin dönem başındaki dönüştürme tamamlanma
+    derecesi aşağıdakilerden hangisidir?'
+  secenekler:
+    A: 7.200 birim; %60
+    B: 7.500 birim; %60
+    C: 8.300 birim; %60
+    D: 8.400 birim; %40
+    E: 8.400 birim; %60
+  dogru: E
+  aciklama:
+    dogru_neden: 'Ortalama yöntemde eşdeğer birim = tamamlanan + DSYM eşdeğeri olduğundan tamamlanan = 9.200 − 2.000
+      × %40 = 8.400 birimdir. İki yöntemin eşdeğer birim farkı DBYM''nin geçen dönemde ulaştığı eşdeğere eşittir:
+      9.200 − 8.300 = 900 = 1.500 × derece → %60. Kontrol (FIFO): 1.500 × %40 + (8.400 − 1.500) + 800 = 600 + 6.900
+      + 800 = 8.300. Püf noktaları: Fark, DBYM''nin bu dönem tamamlanan kısmını (%40) değil, dönem başında zaten
+      sahip olduğu kısmı (%60) verir. Tamamlananı FIFO eşdeğerinden değil ortalama eşdeğerinden bulmalısın.'
+    celdiriciler:
+      A: '7.200 birim; %60: Tamamlanan bulunurken DSYM''nin eşdeğeri yerine fiziki adedi (2.000) düşülmüştür.'
+      B: '7.500 birim; %60: Tamamlanan, FIFO eşdeğer biriminden DSYM eşdeğeri düşülerek bulunmuştur; FIFO formülünde
+        DBYM''nin geçen dönem payı da düşülmüş olduğundan sonuç eksik kalır.'
+      C: '8.300 birim; %60: FIFO eşdeğer birimi doğrudan tamamlanan birim sayısı sanılmıştır.'
+      D: '8.400 birim; %40: Fark 900''ün DBYM''ye oranı (%60) dönem başındaki derecedir; %40 bu dönemde tamamlanan
+        kısımdır.'
+    hesap_adimlari:
+    - Tamamlanan = 9.200 − 2.000 × 0,40 = 8.400 birim
+    - Fark = 9.200 − 8.300 = 900 = 1.500 × derece
+    - Derece = 900 / 1.500 = %60
+  kaynaklar:
+  - mevzuat: Hakemli konu anlatımı — MAL/SAF (Safha maliyeti ve eşdeğer birim)
+    madde: §6 İki yöntemin karşılaştırılması
+    alinti: ''
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 25
+    alinti: ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemi kullanılarak belirlenir
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'tamamlanan = 9200 - 2000 * 0.40
+
+      derece = (9200 - 8300) / 1500
+
+      sonuc = tamamlanan'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 14
+- id: SMMM-MAL-SAF-0013
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 2
+  kok: 'KDV dikkate alınmayacaktır. Tek safhalı üretim yapan FL İşletmesi FIFO yöntemini uygulamaktadır. İlk madde
+    ve malzeme safhanın sonunda, kalite kontrolden hemen önce eklenmektedir. Dönem başında dönüştürme bakımından
+    %30 tamamlanmış 2.000 birim yarı mamul vardır. Dönemde 12.000 birim üretime alınmış, 11.000 birim tamamlanmış,
+    3.000 birim dönüştürme bakımından %50 tamamlanmış hâlde dönem sonu yarı mamul olarak kalmıştır.
+
+
+    Buna göre ilk madde ve malzeme için FIFO eşdeğer birim sayısı kaçtır?'
+  secenekler:
+    A: '9.000'
+    B: '11.000'
+    C: '12.000'
+    D: '12.500'
+    E: '14.000'
+  dogru: B
+  aciklama:
+    dogru_neden: İlk madde safha sonunda eklendiği için dönem başı ve dönem sonu yarı mamullerin ilk madde tamamlanma
+      derecesi %0'dır. FIFO eşdeğer birim = DBYM × (1 − 0) + başlanıp bitirilen (11.000 − 2.000 = 9.000) + DSYM
+      × %0 = 2.000 + 9.000 + 0 = 11.000. Dönem başı yarı mamuller ilk maddelerini bu dönem almıştır; dönem sonu
+      yarı mamuller henüz hiç ilk madde almamıştır.
+    celdiriciler:
+      A: '9.000: Dönem başı yarı mamullerin ilk maddesi geçen dönemde konulmuş sanılarak yalnız başlanıp bitirilenler
+        sayılmıştır.'
+      C: '12.000: Dönemde üretime alınan fiziki miktar eşdeğer birim sanılmıştır.'
+      D: '12.500: Dönem sonu yarı mamullere dönüştürme derecesi (%50) ilk madde için de uygulanmıştır (11.000 +
+        1.500).'
+      E: '14.000: İlk madde başta konuluyormuş gibi dönem sonu yarı mamuller %100 sayılmıştır (11.000 + 3.000).'
+    hesap_adimlari:
+    - DBYM'nin bu dönem aldığı ilk madde = 2.000 × %100 = 2.000
+    - Başlanıp bitirilen = 11.000 − 2.000 = 9.000
+    - DSYM ilk madde eşdeğeri = 3.000 × %0 = 0
+    - FIFO EB = 2.000 + 9.000 + 0 = 11.000
+  kaynaklar:
+  - mevzuat: Hakemli konu anlatımı — MAL/SAF (Safha maliyeti ve eşdeğer birim)
+    madde: §2 Eşdeğer birim
+    alinti: ''
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'dbym, tamam, dsym = 2000, 11000, 3000
+
+      sonuc = dbym * (1 - 0) + (tamam - dbym) + dsym * 0'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 15
+- id: SMMM-MAL-SAF-0014
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: tamamlanma derecesi geri hesap
+  tip: hesaplama
+  zorluk: 3
+  kok: 'KDV dikkate alınmayacaktır. Tek safhalı üretim yapan ZT İşletmesi ağırlıklı ortalama yöntemini uygulamakta,
+    ilk madde ve malzemeyi üretimin başında koymaktadır. Dönem başında 1.000 birim yarı mamul vardır; maliyeti ilk
+    madde 24.000 ₺, dönüştürme 9.000 ₺''dır. Dönemde 7.000 birim üretime alınmış ve 176.000 ₺ ilk madde kullanılmıştır.
+    Dönemde 6.500 birim tamamlanmış, 1.500 birim dönüştürme bakımından %40 tamamlanmış hâlde kalmıştır. Tamamlanan
+    mamullerin maliyeti 357.500 ₺ olarak hesaplanmış, ancak dönemin dönüştürme maliyeti kayıtlardan silinmiştir.
+
+
+    Buna göre dönem içinde katlanılan dönüştürme maliyeti kaç TL''dir?'
+  secenekler:
+    A: '195.000'
+    B: '204.000'
+    C: '213.000'
+    D: '231.000'
+    E: '240.000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'İlk madde birim maliyeti = (24.000 + 176.000) / (6.500 + 1.500) = 25 ₺. Tamamlanan birim maliyeti
+      357.500 / 6.500 = 55 ₺ olduğundan dönüştürme birim maliyeti 55 − 25 = 30 ₺''dir. Dönüştürme eşdeğer birimi
+      6.500 + 1.500 × %40 = 7.100; toplam dönüştürme maliyeti 7.100 × 30 = 213.000 ₺. Ortalama yönteminde bu toplam
+      DBYM''nin dönüştürme maliyetini de içerdiğinden dönem içi tutar 213.000 − 9.000 = 204.000 ₺''dir. Püf noktaları:
+      Ağırlıklı ortalamada birim maliyet (DBYM + dönem maliyeti) havuzundan çıkar; geri hesapta bulduğun havuzdan
+      DBYM payını düşmeyi unutma. İlk madde başta konulduğu için yarı mamuller ilk madde bakımından %100 sayılır.'
+    celdiriciler:
+      A: '195.000: Dönüştürme maliyeti yalnız tamamlananlar için hesaplanmıştır (6.500 × 30); yarı mamul eşdeğeri
+        unutulmuştur.'
+      C: '213.000: Toplam dönüştürme havuzu bulunmuş, DBYM''nin 9.000 ₺ dönüştürme maliyeti düşülmemiştir.'
+      D: '231.000: Yarı mamuller dönüştürme bakımından tam kabul edilmiş (8.000 × 30), sonra DBYM payı düşülmüştür.'
+      E: '240.000: Yarı mamuller tam kabul edilmiş ve DBYM payı da düşülmemiştir (8.000 × 30).'
+    hesap_adimlari:
+    - İlk madde birim maliyeti = 200.000 / 8.000 = 25 ₺
+    - Dönüştürme birim maliyeti = 357.500 / 6.500 − 25 = 30 ₺
+    - Dönüştürme EB = 6.500 + 600 = 7.100; havuz = 213.000 ₺
+    - Dönem içi dönüştürme = 213.000 − 9.000 = 204.000 ₺
+  kaynaklar:
+  - mevzuat: Hakemli konu anlatımı — MAL/SAF (Safha maliyeti ve eşdeğer birim)
+    madde: §4 Ağırlıklı ortalama yöntemi
+    alinti: ''
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 27
+    alinti: dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin
+      maliyetlerinin ağırlıklı ortalaması alınarak belirlenir
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ilk = (24000 + 176000) / (6500 + 1500)
+
+      don_bm = 357500 / 6500 - ilk
+
+      havuz = (6500 + 1500 * 0.4) * don_bm
+
+      sonuc = havuz - 9000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 16
+- id: SMMM-MAL-SAF-0015
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: kavrama
+  zorluk: 2
+  kok: 'Çok safhalı üretim yapan ve 7/A seçeneğini uygulayan bir işletmede safha maliyetlerinin hesaplara aktarılmasıyla
+    ilgili aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. Son safhada üretimi tamamlanan mamullerin maliyeti, 152 Mamuller hesabının borcuna ve 151 Yarı Mamuller -
+    Üretim hesabının alacağına kaydedilir.
+
+    II. Dönem sonu yarı mamullerin maliyeti dönem sonunda 152 Mamuller hesabına aktarılarak 151 Yarı Mamuller -
+    Üretim hesabı kapatılır.
+
+    III. İkinci safhanın dönem sonu yarı mamulleri için önceki safhadan devralınan maliyet unsurunun tamamlanma
+    derecesi, ikinci safhanın dönüştürme tamamlanma derecesine eşit kabul edilir.'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız II
+    C: I ve II
+    D: I ve III
+    E: II ve III
+  dogru: A
+  aciklama:
+    dogru_neden: 'I doğrudur: 151 hesabında üretimi tamamlananların maliyeti hesabın alacağı karşılığında stok hesaplarına
+      aktarılır; 152 hesabı üretimi tamamlanan mamullerin ambara alınmasıyla borçlandırılır. II yanlıştır: Dönem
+      sonu yarı mamul maliyeti 151 hesabında borç kalanı olarak kalır ve gelecek dönemin dönem başı yarı mamulünü
+      oluşturur; henüz mamul hâline gelmediği için 152''ye aktarılmaz. III yanlıştır: Önceki safhadan devralınan
+      birimler devralınan maliyet unsuru bakımından %100 tamamdır.'
+    celdiriciler:
+      B: II yanlıştır; yarı mamuller 151'de kalır, 152'ye ancak üretimi tamamlanan mamuller alınır.
+      C: II yanlıştır; dönem sonu yarı mamul maliyeti 151 hesabının borç kalanını oluşturur.
+      D: III yanlıştır; devralınan maliyet unsuru yarı mamuller için %100 tamam kabul edilir.
+      E: II ve III'ün ikisi de yanlıştır; doğru olan yalnız I'dir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 151 Yarı Mamuller - Üretim
+    alinti: Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 152 Mamuller
+    alinti: Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır.
+  - mevzuat: Hakemli konu anlatımı — MAL/SAF (Safha maliyeti ve eşdeğer birim)
+    madde: §7 Birden fazla safhalı üretim
+    alinti: ''
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 17

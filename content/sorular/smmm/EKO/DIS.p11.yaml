@@ -1,0 +1,76 @@
+- id: SMMM-EKO-DIS-0020
+  sinav: smmm
+  bolum:
+  - SGS
+  ders: EKO
+  unite: Dış ekonomi
+  konu: DIS
+  kazanim: ödemeler dengesi
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Açık bir ekonomide bir yıla ait veriler (milyar dolar) şöyledir: özel tasarruf 180, toplam yatırım 220,
+    vergi gelirleri 300, kamu harcamaları 330, mal ihracatı 250. Ulusal tasarruf, özel tasarruf ile kamu tasarrufunun
+    toplamıdır ve cari işlemler dengesi, ulusal tasarruf ile yatırım arasındaki farka eşittir (Cari denge = S −
+    I).
+
+
+    Buna göre bu ekonominin cari işlemler dengesi kaç milyar dolardır?'
+  secenekler:
+    A: −100
+    B: −70
+    C: −40
+    D: −10
+    E: '+70'
+  dogru: B
+  aciklama:
+    dogru_neden: Kamu tasarrufu T − G = 300 − 330 = −30'dur. Ulusal tasarruf = 180 + (−30) = 150; cari denge = 150
+      − 220 = −70 milyar dolardır (cari açık). Mal ihracatı bu özdeşlikle hesapta kullanılmaz.
+    celdiriciler:
+      A: '−100: Kamu açığı hem ulusal tasarruftan düşülmüş hem de yatırıma eklenmiş, iki kez hesaba katılmıştır.'
+      C: '−40: Kamu tasarrufu ihmal edilmiş, yalnız özel tasarruf ile yatırım karşılaştırılmıştır.'
+      D: '−10: Kamu tasarrufu ters işaretle (+30) alınmıştır.'
+      E: '+70: Tutar doğru, işaret ters kurulmuştur; yatırım tasarruftan büyük olduğu için denge açıktır.'
+    hesap_adimlari:
+    - Kamu tasarrufu = 300 − 330 = −30
+    - Ulusal tasarruf = 180 − 30 = 150
+    - Cari denge = 150 − 220 = −70
+  kaynaklar:
+  - mevzuat: Hakemli konu anlatımı — EKO/DIS (Dış ekonomi)
+    madde: §1.6 Cari denge ve makro özdeşlikler
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ulusal = 180 + (300 - 330)
+
+      sonuc = ulusal - 220'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 21

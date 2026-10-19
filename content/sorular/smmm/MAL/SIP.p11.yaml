@@ -1,0 +1,516 @@
+- id: SMMM-MAL-SIP-0011
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: fazla/eksik yükleme
+  tip: hesaplama
+  zorluk: 2
+  kok: 'KDV dikkate alınmayacaktır. 7/A seçeneğini ve önceden belirlenmiş GÜG yükleme oranını kullanan BF İşletmesi''nde
+    dönem sonunda 732 Genel Üretim Giderleri Bütçe Farkları hesabında 36.000 ₺ eksik yükleme farkı bulunmaktadır.
+    İşletme bu farkı, dönem içinde yüklenen GÜG tutarları oranında ilgili stok ve satış maliyeti hesaplarına aktarmaktadır.
+    Dönemde yüklenen GÜG''nin 40.000 ₺''si 151 Yarı Mamuller - Üretim, 60.000 ₺''si 152 Mamuller, 200.000 ₺''si
+    620 Satılan Mamuller Maliyeti hesabında yer alan mamullere aittir. Bu hesapların dönem sonu bakiyeleri sırasıyla
+    200.000 ₺, 300.000 ₺ ve 700.000 ₺''dir.
+
+
+    Buna göre 732 hesabının kapatılması kaydında 620 Satılan Mamuller Maliyeti hesabına yapılacak kayıt aşağıdakilerden
+    hangisidir?'
+  secenekler:
+    A: 21.000 ₺ borç
+    B: 24.000 ₺ borç
+    C: 24.000 ₺ alacak
+    D: 36.000 ₺ borç
+    E: 36.000 ₺ alacak
+  dogru: B
+  aciklama:
+    dogru_neden: Eksik yükleme olumsuz farktır ve 732'nin borcunda birikir; kapatılırken 732 alacaklandırılır, fark
+      maliyetleri artıracak biçimde ilgili hesapların borcuna aktarılır. 620'nin payı 36.000 × 200.000 / 300.000
+      = 24.000 ₺'dir; 620 hesabına 24.000 ₺ borç yazılır (151'e 4.800, 152'ye 7.200 ₺ borç).
+    celdiriciler:
+      A: '21.000 ₺ borç: Dağıtım hesap bakiyelerine göre yapılmıştır (36.000 × 700/1.200); işletme yüklenen GÜG
+        oranını esas almaktadır.'
+      C: '24.000 ₺ alacak: Tutar doğru, yön yanlıştır; alacak kaydı fazla yükleme (olumlu fark) durumunda maliyetleri
+        azaltmak için yapılır.'
+      D: '36.000 ₺ borç: Farkın tamamı satılan mamuller maliyetine verilmiştir; işletme farkı stok hesaplarına da
+        dağıtmaktadır.'
+      E: '36.000 ₺ alacak: Hem farkın tamamı 620''ye verilmiş hem de yön ters kurulmuştur.'
+    hesap_adimlari:
+    - Toplam yüklenen GÜG = 40.000 + 60.000 + 200.000 = 300.000 ₺
+    - 620 payı = 36.000 × 200.000 / 300.000 = 24.000 ₺
+    - 'Eksik yükleme maliyeti artırır: 620 borç 24.000 ₺'
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 732 Genel Üretim Giderleri Bütçe Farkları
+    alinti: Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 732 Genel Üretim Giderleri Bütçe Farkları
+    alinti: bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 36000 * 200000 / (40000 + 60000 + 200000)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2.yaml, satır 11
+- id: SMMM-MAL-SIP-0012
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: I. ve II. dağıtım (matematiksel; kademeli)
+  tip: hesaplama
+  zorluk: 3
+  kok: 'KDV dikkate alınmayacaktır. MT İşletmesi''nde I. dağıtım sonrasında yardımcı gider yerlerinde Bakım (Y1)
+    44.000 ₺, Enerji (Y2) 20.000 ₺ gider toplanmıştır. Hizmet oranları şöyledir: Bakım; Enerji''ye %20, Kesim (E1)
+    esas gider yerine %40, Montaj (E2) esas gider yerine %40 hizmet vermektedir. Enerji; Bakım''a %20, Kesim''e
+    %50, Montaj''a %30 hizmet vermektedir. İşletme II. dağıtımda matematiksel (karşılıklı) dağıtım yöntemini uygulamaktadır.
+
+
+    Buna göre II. dağıtımla Montaj gider yerine aktarılan toplam tutar kaç TL''dir?'
+  secenekler:
+    A: '23.600'
+    B: '28.400'
+    C: '29.000'
+    D: '29.500'
+    E: '30.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Denklemler: Y1 = 44.000 + 0,20 Y2 ve Y2 = 20.000 + 0,20 Y1. Yerine koyarsak Y1 = 44.000 + 4.000
+      + 0,04 Y1 → 0,96 Y1 = 48.000 → Y1 = 50.000; Y2 = 20.000 + 10.000 = 30.000. Montaj''a aktarılan = 50.000 ×
+      %40 + 30.000 × %30 = 20.000 + 9.000 = 29.000 ₺. Püf noktaları: Yüzdeler I. dağıtım tutarlarına değil, karşılıklı
+      hizmet dahil bulunan Y1 ve Y2 toplamlarına uygulanır. Seçeneklerdeki yakın sayılar diğer yöntemlerin sonuçlarıdır;
+      kontrol için esas yerlere geçen toplamın 64.000 ₺ (Kesim 35.000 + Montaj 29.000) olduğunu doğrula.'
+    celdiriciler:
+      A: '23.600: Yardımcı yerlerin karşılıklı hizmeti yok sayılmış, oranlar yeniden ölçeklenmeden I. dağıtım tutarlarına
+        uygulanmıştır (44.000 × %40 + 20.000 × %30); 16.000 ₺ dağıtılmadan kalır.'
+      B: '28.400: Kademeli yöntem, önce Bakım dağıtılarak uygulanmıştır (17.600 + 28.800 × 3/8).'
+      D: '29.500: Doğrudan dağıtım yöntemi uygulanmıştır (44.000 × 40/80 + 20.000 × 30/80).'
+      E: '30.000: Kademeli yöntem, önce Enerji dağıtılarak uygulanmıştır (6.000 + 48.000 × 40/80).'
+    hesap_adimlari:
+    - Y1 = 44.000 + 0,20 Y2; Y2 = 20.000 + 0,20 Y1
+    - 0,96 Y1 = 48.000 → Y1 = 50.000; Y2 = 30.000
+    - Montaj = 50.000 × 0,40 + 30.000 × 0,30 = 29.000 ₺
+  kaynaklar:
+  - mevzuat: Hakemli konu anlatımı — MAL/SIP (Sipariş maliyeti ve GÜG yükleme/dağıtım)
+    madde: '§4 Gider dağıtımı: I., II. ve III. dağıtım'
+    alinti: ''
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 10-99 Gider Yerleri
+    alinti: Gider yerlerinin saptanmasında genellikle kuruluşların organizasyon şeması esas alınır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'y1 = (44000 + 0.2 * 20000) / (1 - 0.2 * 0.2)
+
+      y2 = 20000 + 0.2 * y1
+
+      sonuc = 0.4 * y1 + 0.3 * y2'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 7
+- id: SMMM-MAL-SIP-0013
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: gider yeri katsayıları
+  tip: hesaplama
+  zorluk: 2
+  kok: 'KDV dikkate alınmayacaktır. Sipariş maliyeti yöntemini uygulayan GN İşletmesi''nde II. dağıtım sonrasında
+    Kesim gider yerinde 240.000 ₺, Montaj gider yerinde 180.000 ₺ genel üretim gideri toplanmıştır. Kesim''de 12.000
+    makine saati, Montaj''da 6.000 direkt işçilik saati çalışılmış olup GÜG bu ölçülerle siparişlere yüklenmektedir.
+    S-14 siparişi için 18.000 ₺ direkt ilk madde ve malzeme, 12.000 ₺ direkt işçilik gideri kullanılmış; sipariş
+    Kesim''de 250 makine saati, Montaj''da 150 direkt işçilik saati çalışmıştır. Siparişin teslimi için 2.000 ₺
+    pazarlama gideri yapılmış, siparişe 3.000 ₺ genel yönetim gideri payı hesaplanmıştır. İşletme genel yönetim
+    giderlerinden mamullere pay vermemektedir.
+
+
+    Buna göre S-14 siparişinin maliyeti kaç TL''dir?'
+  secenekler:
+    A: '39.500'
+    B: '40.500'
+    C: '41.500'
+    D: '42.500'
+    E: '44.500'
+  dogru: A
+  aciklama:
+    dogru_neden: 'Gider yeri katsayıları: Kesim 240.000 / 12.000 = 20 ₺/makine saati; Montaj 180.000 / 6.000 = 30
+      ₺/DİŞ saati. Yüklenen GÜG = 250 × 20 + 150 × 30 = 5.000 + 4.500 = 9.500 ₺. Sipariş maliyeti = 18.000 + 12.000
+      + 9.500 = 39.500 ₺. VUK md. 275''e göre genel idare giderinden pay vermek ihtiyaridir ve işletme bu yolu seçmemiştir;
+      pazarlama gideri ise TMS 2 par. 16(d) gereği stok maliyetine girmez.'
+    celdiriciler:
+      B: '40.500: Katsayılar ters uygulanmıştır (Kesim için 30, Montaj için 20 ₺).'
+      C: '41.500: Pazarlama gideri (2.000 ₺) sipariş maliyetine eklenmiştir.'
+      D: '42.500: İşletme pay vermediği hâlde 3.000 ₺ genel yönetim gideri payı maliyete katılmıştır.'
+      E: '44.500: Hem pazarlama gideri hem genel yönetim gideri payı maliyete eklenmiştir.'
+    hesap_adimlari:
+    - Kesim katsayısı = 240.000 / 12.000 = 20 ₺; Montaj katsayısı = 180.000 / 6.000 = 30 ₺
+    - Yüklenen GÜG = 250 × 20 + 150 × 30 = 9.500 ₺
+    - Sipariş maliyeti = 18.000 + 12.000 + 9.500 = 39.500 ₺
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 275
+    alinti: Genel idare giderlerinden mamule düşen hisse; (Bu hissenin mamulün maliyetine katılması ihtiyaridir.)
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16(d)
+    alinti: (d) Satış maliyetleri.
+  - mevzuat: Hakemli konu anlatımı — MAL/SIP (Sipariş maliyeti ve GÜG yükleme/dağıtım)
+    madde: §5 Gider yeri katsayısı
+    alinti: ''
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kesim = 240000 / 12000
+
+      montaj = 180000 / 6000
+
+      sonuc = 18000 + 12000 + 250 * kesim + 150 * montaj'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 8
+- id: SMMM-MAL-SIP-0014
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: faaliyet tabanlı maliyet
+  tip: hesaplama
+  zorluk: 2
+  kok: 'KDV dikkate alınmayacaktır. FT İşletmesi genel üretim giderlerini faaliyet tabanlı maliyetleme ile siparişlere
+    yüklemektedir. Dönemin faaliyet havuzları ve maliyet sürücüleri şöyledir: Makine kurulumu 180.000 ₺ (300 kurulum),
+    Malzeme taşıma 72.000 ₺ (1.800 taşıma), Kalite kontrol 48.000 ₺ (400 kontrol). Toplam 300.000 ₺ GÜG daha önce
+    fabrika genelinde 12.000 makine saati üzerinden tek oranla yüklenmekteydi. K-7 siparişi 5 kurulum, 30 taşıma,
+    10 kontrol ve 160 makine saati kullanmıştır; siparişin direkt ilk madde ve malzeme gideri 14.000 ₺''dır.
+
+
+    Buna göre faaliyet tabanlı maliyetlemeyle K-7 siparişine yüklenen GÜG kaç TL''dir?'
+  secenekler:
+    A: '2.400'
+    B: '4.000'
+    C: '4.200'
+    D: '5.000'
+    E: '5.400'
+  dogru: E
+  aciklama:
+    dogru_neden: 'Faaliyet oranları: kurulum 180.000 / 300 = 600 ₺, taşıma 72.000 / 1.800 = 40 ₺, kontrol 48.000
+      / 400 = 120 ₺. K-7''ye yüklenen GÜG = 5 × 600 + 30 × 40 + 10 × 120 = 3.000 + 1.200 + 1.200 = 5.400 ₺. Direkt
+      ilk madde ve malzeme gideri GÜG yüklemesini etkilemez.'
+    celdiriciler:
+      A: '2.400: Kurulum havuzu hesaba katılmamış, yalnız taşıma ve kontrol payları toplanmıştır.'
+      B: '4.000: Geleneksel tek oran uygulanmıştır (300.000 / 12.000 = 25 ₺ × 160 makine saati).'
+      C: '4.200: Havuzlardan biri (taşıma veya kontrol) unutulmuştur (3.000 + 1.200).'
+      D: '5.000: Toplam GÜG tek bir sürücüye, kurulum sayısına bölünmüştür (300.000 / 300 × 5).'
+    hesap_adimlari:
+    - Kurulum oranı = 600 ₺; taşıma oranı = 40 ₺; kontrol oranı = 120 ₺
+    - K-7 GÜG = 5 × 600 + 30 × 40 + 10 × 120 = 5.400 ₺
+  kaynaklar:
+  - mevzuat: Hakemli konu anlatımı — MAL/SIP (Sipariş maliyeti ve GÜG yükleme/dağıtım)
+    madde: §6 Faaliyet tabanlı maliyetleme (FTM)
+    alinti: ''
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 730 Genel Üretim Giderleri
+    alinti: Çeşit ve değer yönü ile doğrudan doğruya değil ancak dağıtım yoluyla üretim ve hizmet
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 5 * 180000 / 300 + 30 * 72000 / 1800 + 10 * 48000 / 400
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 9
+- id: SMMM-MAL-SIP-0015
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: fazla/eksik yükleme
+  tip: hesaplama
+  zorluk: 3
+  kok: 'KDV dikkate alınmayacaktır. Sipariş maliyeti yöntemini uygulayan PL İşletmesi, GÜG''yi dönem başında belirlediği
+    oranla direkt işçilik saati üzerinden siparişlere yüklemektedir. Yükleme oranı, bütçelenen GÜG''nin bütçelenen
+    25.000 direkt işçilik saatine bölünmesiyle bulunmuştur. Dönemde 24.000 direkt işçilik saati çalışılmış, fiili
+    GÜG 510.000 ₺ olarak gerçekleşmiş ve dönem sonunda 30.000 ₺ eksik yükleme tespit edilmiştir.
+
+
+    Buna göre dönem başında bütçelenen GÜG kaç TL''dir?'
+  secenekler:
+    A: '500.000'
+    B: '510.000'
+    C: '531.250'
+    D: '540.000'
+    E: '562.500'
+  dogru: A
+  aciklama:
+    dogru_neden: 'Eksik yüklemede fiili GÜG yüklenen tutardan büyüktür: yüklenen GÜG = 510.000 − 30.000 = 480.000
+      ₺. Yükleme oranı = 480.000 / 24.000 fiili saat = 20 ₺. Oran bütçelenen GÜG / 25.000 saat olduğundan bütçelenen
+      GÜG = 20 × 25.000 = 500.000 ₺''dir. Püf noktaları: Siparişlere oran, fiili saat üzerinden uygulanır; oranı
+      bulmak için yüklenen tutarı fiili saate, bütçeyi bulmak için oranı bütçelenen saate taşı. ''Eksik'' sözcüğü
+      yüklenen tutarı niteler; farkı fiili tutardan düşmen gerekir, eklemen değil.'
+    celdiriciler:
+      B: '510.000: Fiili GÜG bütçelenen GÜG ile aynı sanılmıştır.'
+      C: '531.250: Oran fiili GÜG''nin fiili saate bölünmesiyle bulunmuştur (510.000 / 24.000 = 21,25 × 25.000).'
+      D: '540.000: Eksik yükleme fiili GÜG''ye eklenerek bütçe tutarı sanılmıştır.'
+      E: '562.500: Fark fazla yükleme gibi yorumlanmış, yüklenen GÜG 540.000 alınmıştır (540.000 / 24.000 = 22,5
+        × 25.000).'
+    hesap_adimlari:
+    - Yüklenen GÜG = 510.000 − 30.000 = 480.000 ₺
+    - Yükleme oranı = 480.000 / 24.000 = 20 ₺/saat
+    - Bütçelenen GÜG = 20 × 25.000 = 500.000 ₺
+  kaynaklar:
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 732 Genel Üretim Giderleri Bütçe Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki
+  - mevzuat: Hakemli konu anlatımı — MAL/SIP (Sipariş maliyeti ve GÜG yükleme/dağıtım)
+    madde: §2 GÜG yükleme oranı
+    alinti: ''
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'yuklenen = 510000 - 30000
+
+      oran = yuklenen / 24000
+
+      sonuc = oran * 25000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 10
+- id: SMMM-MAL-SIP-0016
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: I. ve II. dağıtım (matematiksel; kademeli)
+  tip: hesaplama
+  zorluk: 2
+  kok: 'KDV dikkate alınmayacaktır. KD İşletmesi''nde I. dağıtım sonrasında Bakım yardımcı gider yerinde 40.000
+    ₺, Ambar yardımcı gider yerinde 20.000 ₺, Dökümhane esas gider yerinde 104.000 ₺ gider toplanmıştır. Bakım;
+    Ambar''a %20, Dökümhane''ye %50, Tesviye esas gider yerine %30 hizmet vermektedir. Ambar; Bakım''a %20, Dökümhane''ye
+    %60, Tesviye''ye %20 hizmet vermektedir. II. dağıtım kademeli yöntemle, önce Bakım dağıtılarak yapılmaktadır.
+    Dökümhane''de 5.000 makine saati ve 4.000 direkt işçilik saati çalışılmış olup GÜG mamullere makine saati üzerinden
+    yüklenmektedir.
+
+
+    Buna göre Dökümhane gider yerinin III. dağıtımda kullanılacak yükleme oranı (makine saati başına) kaç TL''dir?'
+  secenekler:
+    A: 28,16
+    B: 28,70
+    C: 28,80
+    D: 29,00
+    E: 36,25
+  dogru: D
+  aciklama:
+    dogru_neden: 'Bakım 40.000 ₺: Ambar''a 8.000, Dökümhane''ye 20.000, Tesviye''ye 12.000 ₺. Ambar''ın yeni toplamı
+      20.000 + 8.000 = 28.000 ₺''dir; dağıtımı yapılmış Bakım''a pay verilmez, kalan oranlar 60:20 olarak yeniden
+      ölçeklenir: Dökümhane''ye 28.000 × 3/4 = 21.000 ₺. Dökümhane toplamı 104.000 + 20.000 + 21.000 = 145.000 ₺;
+      yükleme oranı 145.000 / 5.000 = 29 ₺/makine saati.'
+    celdiriciler:
+      A: '28,16: Ambar''ın Bakım''a ayırdığı %20 yeniden ölçeklenmeden bırakılmış, Dökümhane''ye 28.000 × %60 =
+        16.800 ₺ verilmiştir.'
+      B: '28,70: Dağıtım sırası ters çevrilmiş, önce Ambar dağıtılmıştır (12.000 + 44.000 × 5/8 = 39.500).'
+      C: '28,80: Yardımcı yerler arası hizmet yok sayılarak doğrudan dağıtım yapılmıştır (25.000 + 15.000).'
+      E: '36,25: Toplam doğru bulunmuş, ancak yükleme ölçüsü olarak makine saati yerine direkt işçilik saati kullanılmıştır.'
+    hesap_adimlari:
+    - 'Bakım: Ambar 8.000, Dökümhane 20.000, Tesviye 12.000'
+    - Ambar = 28.000; Dökümhane payı = 28.000 × 60/80 = 21.000
+    - Dökümhane = 104.000 + 20.000 + 21.000 = 145.000 ₺
+    - Yükleme oranı = 145.000 / 5.000 = 29 ₺
+  kaynaklar:
+  - mevzuat: Hakemli konu anlatımı — MAL/SIP (Sipariş maliyeti ve GÜG yükleme/dağıtım)
+    madde: '§4 Gider dağıtımı: I., II. ve III. dağıtım'
+    alinti: ''
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 10-99 Gider Yerleri
+    alinti: Gider yerlerinin saptanmasında genellikle kuruluşların organizasyon şeması esas alınır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'bakim = 40000
+
+      ambar = 20000 + 0.2 * bakim
+
+      dokum = 104000 + 0.5 * bakim + ambar * 0.6 / 0.8
+
+      sonuc = dokum / 5000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 12

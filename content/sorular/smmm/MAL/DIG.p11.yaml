@@ -1,0 +1,250 @@
+- id: SMMM-MAL-DIG-0014
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: değişken, tam ve normal maliyet
+  tip: hesaplama
+  zorluk: 2
+  kok: 'KDV dikkate alınmayacaktır. Tek ürün üreten NK İşletmesi''nin teorik (azami) kapasitesi 50.000 birim, normal
+    kapasitesi 40.000 birimdir. Dönemde 32.000 birim üretilmiştir. Birim başına değişken üretim maliyeti 35 ₺, değişken
+    pazarlama gideri 6 ₺''dır. Dönemin sabit genel üretim giderleri 800.000 ₺''dır. İşletme stoklarını TMS 2''ye
+    uygun olarak değerlemektedir.
+
+
+    Buna göre dönemde üretilen mamullerin birim maliyeti kaç TL''dir?'
+  secenekler:
+    A: 51,00
+    B: 55,00
+    C: 60,00
+    D: 61,00
+    E: 66,00
+  dogru: B
+  aciklama:
+    dogru_neden: TMS 2 par. 13'e göre sabit GÜG normal kapasite esas alınarak dağıtılır ve birim başına sabit gider
+      düşük üretim nedeniyle artırılmaz. Birim sabit GÜG = 800.000 / 40.000 = 20 ₺; birim maliyet = 35 + 20 = 55
+      ₺. Dağıtılmayan (32.000 − 40.000) × 20 = 160.000 ₺ atıl kapasite payı dönem gideri olarak 680 hesabına alınır.
+      Değişken pazarlama gideri stok maliyetine girmez.
+    celdiriciler:
+      A: '51,00: Sabit GÜG teorik kapasiteye bölünmüştür (800.000 / 50.000 = 16); standart normal kapasiteyi esas
+        alır.'
+      C: '60,00: Sabit GÜG''nin tamamı fiili üretime yüklenmiştir (800.000 / 32.000 = 25); düşük üretim nedeniyle
+        birim sabit gider artırılamaz.'
+      D: '61,00: Normal kapasite doğru kullanılmış, ancak değişken pazarlama gideri mamul maliyetine eklenmiştir.'
+      E: '66,00: Hem sabit GÜG fiili üretime yüklenmiş hem de pazarlama gideri maliyete eklenmiştir.'
+    hesap_adimlari:
+    - Birim sabit GÜG = 800.000 / 40.000 = 20 ₺
+    - Birim maliyet = 35 + 20 = 55 ₺
+    - Atıl kapasite payı = 8.000 × 20 = 160.000 ₺ → 680
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Her bir üretim birimine dağıtılan sabit genel gider miktarı, düşük üretim düzeyi veya atıl kapasite
+      nedeniyle arttırılmaz.
+  - mevzuat: Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No:1) — Ek-5 Tekdüzen Hesap Planı Açıklamaları
+    madde: 680 Çalışmayan Kısım Gider ve Zararları
+    alinti: Üretimle ilgili giderlerden çalışılmayan döneme ve çalışmayan kısımlara ait giderleri içerir.
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 35 + 800000 / 40000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2.yaml, satır 19
+- id: SMMM-MAL-DIG-0015
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: üretim kayıpları
+  tip: hesaplama
+  zorluk: 3
+  kok: 'KDV dikkate alınmayacaktır. KY İşletmesi''nde bir safhada dönem başı ve dönem sonu yarı mamul yoktur. Dönemde
+    20.000 kg üretime başlanmış, 18.600 kg sağlam ürün tamamlanmıştır. Kayıplar safhanın sonunda kontrolde tespit
+    edilmektedir. Üretim sürecinin niteliği gereği üretime başlanan miktarın %5''i normal kayıp kabul edilmektedir.
+    Dönemin toplam üretim maliyeti 600.000 ₺, genel yönetim giderleri 45.000 ₺''dır. Kayıp birimlerin hurda değeri
+    yoktur.
+
+
+    Buna göre anormal kayıp tutarı ve muhasebeleştirilmesi aşağıdakilerden hangisidir?'
+  secenekler:
+    A: 12.000 ₺; dönem gideri yazılır
+    B: 12.000 ₺; sağlam ürünlerin maliyetine eklenir
+    C: 14.100 ₺; dönem gideri yazılır
+    D: 30.000 ₺; sağlam ürünlerin maliyetine eklenir
+    E: 42.000 ₺; dönem gideri yazılır
+  dogru: A
+  aciklama:
+    dogru_neden: 'Toplam kayıp 20.000 − 18.600 = 1.400 kg; normal kayıp 20.000 × %5 = 1.000 kg; anormal kayıp 400
+      kg''dır. Birim maliyet 600.000 / 20.000 = 30 ₺ olduğundan anormal kayıp tutarı 400 × 30 = 12.000 ₺''dir. TMS
+      2 par. 16(a)''ya göre normalin üstündeki fire ve kayıplar stok maliyetine girmez, gerçekleştiği dönemde gider
+      yazılır. Normal kayıp (30.000 ₺) ise sağlam ürünlerin maliyetine yüklenir. Püf noktaları: Normal kayıp oranı
+      tamamlanan sağlam miktara değil, kökte söylendiği gibi üretime başlanan miktara uygulanır. Tutarı doğru bulmak
+      yetmez; anormal kaybın nereye gittiğini de ayırmalısın. Genel yönetim gideri hesaba girmez.'
+    celdiriciler:
+      B: Tutar doğru, işlem yanlıştır; sağlam ürünlere yalnız normal kayıp maliyeti yüklenir, anormal kayıp dönem
+        gideridir.
+      C: '14.100 ₺: Normal kayıp oranı sağlam ürün miktarına uygulanmıştır (18.600 × %5 = 930; anormal 470 kg ×
+        30).'
+      D: 30.000 ₺ normal kaybın maliyetidir (1.000 kg × 30); soru anormal kaybı sormaktadır.
+      E: '42.000 ₺: Kaybın tamamı (1.400 kg) anormal sayılmış, normal kayıp ayrılmamıştır.'
+    hesap_adimlari:
+    - Toplam kayıp = 1.400 kg; normal kayıp = 1.000 kg; anormal kayıp = 400 kg
+    - Birim maliyet = 600.000 / 20.000 = 30 ₺
+    - Anormal kayıp = 400 × 30 = 12.000 ₺ → dönem gideri
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16(a)
+    alinti: Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri
+  - mevzuat: Hakemli konu anlatımı — MAL/DIG (Değişken/tam maliyet)
+    madde: §5 Üretim kayıpları
+    alinti: ''
+  gecerlilik:
+    baslangic: '2018-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'normal = 20000 * 0.05
+
+      anormal = (20000 - 18600) - normal
+
+      sonuc = anormal * 600000 / 20000'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 18
+- id: SMMM-MAL-DIG-0016
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: maliyet-hacim-kâr
+  tip: hesaplama
+  zorluk: 2
+  kok: 'KDV dikkate alınmayacaktır. Tek ürün satan HM İşletmesi''nin birim satış fiyatı 120 ₺, birim değişken gideri
+    72 ₺, dönemlik toplam sabit giderleri 384.000 ₺''dır. Kurumlar vergisi oranı %20''dir. İşletme dönemde vergi
+    sonrası 96.000 ₺ kâr elde etmeyi hedeflemektedir.
+
+
+    Buna göre hedef kâra ulaşmak için satılması gereken miktar kaç birimdir?'
+  secenekler:
+    A: '4.200'
+    B: '8.000'
+    C: '10.000'
+    D: '10.400'
+    E: '10.500'
+  dogru: E
+  aciklama:
+    dogru_neden: 'Birim katkı payı 120 − 72 = 48 ₺''dir. Vergi sonrası hedef kâr önce vergi öncesine çevrilir: 96.000
+      / (1 − 0,20) = 120.000 ₺. Gerekli miktar = (384.000 + 120.000) / 48 = 10.500 birimdir.'
+    celdiriciler:
+      A: '4.200: Bölen olarak birim katkı payı yerine satış fiyatı kullanılmıştır (504.000 / 120).'
+      B: '8.000: Hedef kâr dikkate alınmadan başabaş miktarı bulunmuştur (384.000 / 48).'
+      C: '10.000: Vergi sonrası kâr vergi öncesine çevrilmeden formüle konmuştur ((384.000 + 96.000) / 48).'
+      D: '10.400: Vergi öncesi kâr, vergi sonrası kâra %20 eklenerek bulunmuştur (96.000 × 1,20 = 115.200).'
+    hesap_adimlari:
+    - Birim KP = 120 − 72 = 48 ₺
+    - Vergi öncesi kâr = 96.000 / 0,80 = 120.000 ₺
+    - Miktar = (384.000 + 120.000) / 48 = 10.500 birim
+  kaynaklar:
+  - mevzuat: Hakemli konu anlatımı — MAL/DIG (Değişken/tam maliyet)
+    madde: §4 Maliyet-hacim-kâr analizi
+    alinti: ''
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kp = 120 - 72
+
+      vok = 96000 / (1 - 0.20)
+
+      sonuc = (384000 + vok) / kp'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M2
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M2b.yaml, satır 20
