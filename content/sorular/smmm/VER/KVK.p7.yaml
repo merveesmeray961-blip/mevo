@@ -89,7 +89,8 @@
     %60'ına 2026 yılında sahip olmuştur. A.Ş., iştirak payını yalnızca 4 ay elde tutmuş, yabancı iştirakin vergi
     yükü %8 olmuş ve 300.000 ₺ kâr payı kazancını, ilgili hesap dönemine ilişkin kurumlar vergisi beyannamesinin
     verilmesi gereken tarihe kadar Türkiye'ye transfer etmiştir. Diğer şartların sağlanmadığı varsayımıyla, KVK
-    md. 5/1-b uyarınca istisna edilecek kâr payı kaç TL'dir?
+    md. 5/1-b uyarınca istisna edilecek kâr payı kaç TL'dir? (2026 yılı için 11257 sayılı Cumhurbaşkanı Kararı dikkate
+    alınacaktır.)
   secenekler:
     A: '0'
     B: '30.000'
@@ -135,7 +136,7 @@
     yil: 2026
   dogrulama:
     python: sonuc = 300000 * 0.80
-  durum: taslak
+  durum: kontrolde
   surum: 2
   uretim:
     kaynak_turu: yapay_zeka
@@ -153,7 +154,10 @@
         not: yalnız banka içi; külliyat verilmedi
         tarih: '2026-10-07'
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'c1: C (güven 4); c2: C (güven 4) | baş hakem: iki çözücü eski %50 oranını (7491) uyguladı; 11257 sayılı
+          CBK md. 2-3 ile 2026''dan itibaren %20+ payda %80 — köke CBK atfı eklendi'
       G5:
         sonuc: gecti
         tarih: '2026-10-19'
@@ -171,6 +175,11 @@
     kim: hakem
     ne: G5 düzeltmesi
     neden: baş hakem denetimi
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: G3 baş hakem kararıyla geçti
+    neden: 'baş hakem: iki çözücü eski %50 oranını (7491) uyguladı; 11257 sayılı CBK md. 2-3 ile 2026''dan itibaren
+      %20+ payda %80 — köke CBK atfı eklendi'
 - id: SMMM-VER-KVK-0007
   sinav: smmm
   bolum:

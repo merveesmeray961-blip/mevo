@@ -9,8 +9,7 @@ Tamamlananlar: 20 yeni YMM konusunun anlatımı ve soruları; YMM'de 15 sorunun 
 
 1. **YMM klasik vaka soruları:** 100 `kontrolde` (DRM 30, IFM 12, REV 12, FYN/GUV/SPM/YNM 7, DTK/HSV/VTK 6); hedef ders başına ~30.
 2. **Taslakta kalan 2 YMM anlatımı:** HSV/SRV (VİV sirküler vakaları), REV/AKT (konkordato) — uzman teyidi bekliyor.
-3. **SMMM sorusu 15'in altındaki konular:** STD/MBS 1, STD/KRL 1, TAB/KAR 8, MAL/ORT 9, MAL/SIP 9, MAL/SAF 10, MAL/DIG 12, EKO/DIS 13.
-4. **SMMM 72 taslak soru** hakemden geçmedi (en çok GKY/TUR 11, VER/GVK 9, DEN/BDY 5).
+3. ~~SMMM sorusu 15'in altındaki konular~~ ve ~~72 taslak soru~~: tamamlandı (2026-10-19). 72 taslaktan 54'ü düzeltilerek veya doğrudan kontrolde'ye geçti, 36'sı gerekçesiyle geri çekildi; 8 ince konuya 60 yeni soru eklendi; MAL/DIG'deki 5 vergi sorusu VER/DIG'e taşındı. SMMM: 3223 kontrolde, taslak yok, her konu ≥15.
 5. **Kaynağı olmayan kazanımlar:** matrah artırımı (7143/7326/7440), TFRS 1, TFRS 13; konaklama vergisi 2026 oranı ve YTM 2026 azami tazmin tutarı.
 6. **Uzman teyidi:** anlatım denetim raporlarındaki "emin olunamayan" maddeler (`docs/denetim/2026-10-18_anlatim/grup*.md`).
 7. **Son adım:** paketin yeniden derlenmesi, sürüm artırma, imzalı AAB.
