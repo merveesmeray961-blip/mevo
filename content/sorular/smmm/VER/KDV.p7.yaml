@@ -3014,18 +3014,19 @@
     C: Danışmanlık Türkiye’de yapılmış, makine teslimi Türkiye’de yapılmamıştır.
     D: Danışmanlık Türkiye’de yapılmamış, makine teslimi Türkiye’de yapılmıştır.
     E: Danışmanlık hizmeti ve makine teslimi, alıcının yurt dışında olması nedeniyle Türkiye dışında kabul edilir.
-  dogru: D
+  dogru: A
   aciklama:
-    dogru_neden: Mal tesliminde malın teslim anında Türkiye’de bulunması, hizmette ise hizmetin Türkiye’de yapılması
-      veya Türkiye’de faydalanılması ölçütü vardır. Bu nedenle makine teslimi Türkiye’de yapılmış sayılır; yalnız
-      Almanya’da yararlanılan danışmanlık hizmeti Türkiye’de yapılmış sayılmaz.
+    dogru_neden: KDVK md. 6'ya göre mal tesliminde malın teslim anında Türkiye'de bulunması, hizmette ise hizmetin
+      Türkiye'de yapılması veya hizmetten Türkiye'de faydalanılması ölçüttür. Danışmanlık Türkiye'de yapıldığından,
+      makine de teslim anında Türkiye'de bulunduğundan iki işlem de Türkiye'de yapılmış sayılır; ihracat istisnası
+      ayrı bir konudur.
     celdiriciler:
-      A: Hizmet bakımından yalnız Türkiye’de yapılma veya Türkiye’de faydalanılma ölçütü dikkate alınmazsa yanlış
-        sonuca ulaşılır.
       B: Makine tesliminde teslim anında malın Türkiye’de bulunması açık ölçüttür.
       C: Danışmanlıkta hizmetten Türkiye’de yararlanılmadığı için Türkiye’de yapılmış sayılmaz; makine teslimi ise
         Türkiye’dedir.
       E: Alıcının yurt dışında olması, malın teslim anında Türkiye’de bulunması ölçütünü ortadan kaldırmaz.
+      D: Danışmanlık hizmeti Türkiye'de yapıldığından Türkiye'de yapılmış sayılır; yalnız yurt dışında faydalanılması
+        bunu değiştirmez.
     hesap_adimlari: []
   kaynaklar:
   - mevzuat: 3065 sayılı Katma Değer Vergisi Kanunu
@@ -3037,7 +3038,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: taslak
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3056,15 +3057,22 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: baş hakem düzeltmesiyle; yeniden kör çözüme
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
   - tarih: '2026-10-07'
     kim: uretici
     ne: 'harici teslim aday_VER.yaml, satır ristaycraft_VER-2026-10-06-G07 #4'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: G5 düzeltmesi
+    neden: baş hakem denetimi
 - id: SMMM-VER-KDV-0040
   sinav: smmm
   bolum:

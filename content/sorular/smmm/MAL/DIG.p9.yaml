@@ -274,8 +274,8 @@
   zorluk: 1
   kok: 'KDV dikkate alınmayacaktır. Üretim işletmesi KL, değişken maliyet yöntemini uygulamaktadır. Dönem içinde
     toplam üretim maliyeti 800.000 ₺ olarak hesaplanmış olup bunun 320.000 ₺''sı sabit genel üretim gideridir. Dönem
-    içinde üretilen 4.000 birim mamulün tamamı satılmıştır. Değişken maliyet yöntemine göre dönem stok maliyetine
-    yüklenecek tutar kaç TL’dir?
+    içinde üretilen 4.000 birim mamulün tamamı satılmıştır. Değişken maliyet yöntemine göre dönem sonunda mamul
+    stoklarında kalan maliyet kaç TL’dir?
 
     '
   secenekler:
@@ -310,7 +310,7 @@
   dogrulama:
     python: sonuc = 0
   durum: taslak
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -320,7 +320,8 @@
         sonuc: gecti
         tarih: '2026-10-09'
       G4:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       G7:
         sonuc: gecti
         not: yalnız banka içi; külliyat verilmedi
@@ -328,15 +329,22 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: baş hakem düzeltmesiyle; yeniden kör çözüme
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
   - tarih: '2026-10-09'
     kim: uretici
     ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-08v2-G09 #1'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: G5 düzeltmesi
+    neden: baş hakem denetimi
 - id: SMMM-MAL-DIG-0009
   sinav: smmm
   bolum:

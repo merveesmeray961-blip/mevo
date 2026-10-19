@@ -18,8 +18,8 @@
   secenekler:
     A: Alacak 10 yıllık zamanaşımına tabidir ve süre dolmuştur.
     B: Alacak 5 yıllık zamanaşımına tabidir; süre dolmuştur.
-    C: Alacak 5 yıllık zamanaşımına tabidir; ancak ağır kusur nedeniyle 10 yıllık süre uygulanır ve süre dolmamıştır.
-    D: Alacak 10 yıllık zamanaşımına tabidir; süre dolmamıştır.
+    C: Ağır kusur nedeniyle 5 yıllık süre değil 10 yıllık genel süre uygulanır; süre dolmamıştır.
+    D: Alacak 10 yıllık zamanaşımına tabidir; süre dolmuştur.
     E: Eser sözleşmelerinden doğan alacaklar her durumda 5 yıllık zamanaşımına tabidir.
   dogru: C
   aciklama:
@@ -36,7 +36,7 @@
       A: Genel süre 10 yıldır ancak eser sözleşmesinde kural 5 yıldır; ağır kusur istisnası nedeniyle 10 yıl uygulanır
         ve dolmamıştır.
       B: Ağır kusur nedeniyle 5 yıllık süre uygulanmaz.
-      D: Kural 5 yıldır; ağır kusur olmasa 5 yıl uygulanırdı.
+      D: 2018'den 2024'e altı yıl geçmiştir; on yıllık süre dolmamıştır.
       E: Ağır kusur istisnası vardır; her durumda 5 yıl değildir.
   kaynaklar:
   - mevzuat: 6098 sayılı Türk Borçlar Kanunu
@@ -54,7 +54,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: taslak
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -73,15 +73,22 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: baş hakem düzeltmesiyle; yeniden kör çözüme
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
   - tarih: '2026-10-07'
     kim: uretici
     ne: 'harici teslim aday_HUK.yaml, satır GrokYazar_HUK-2026-10-06-G04 #2'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: C ve D şıkları yeniden yazıldı
+    neden: iki kör çözücü D (C ile aynı sonuç)
 - id: SMMM-HUK-BRC-0011
   sinav: smmm
   bolum:
@@ -1671,7 +1678,7 @@
     baslangic: '2012-07-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1691,7 +1698,10 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-19'
+        not: 'baş hakem: TBK 167: 500.000 ₺ aşan kısım payları oranında (250.000 ₺) rücu edilir; doğru tutar şıklarda
+          yok, anahtar açıklamayla çelişiyor'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1700,6 +1710,11 @@
   - tarih: '2026-10-07'
     kim: uretici
     ne: 'harici teslim aday_HUK.yaml, satır Mevo_HUK-2026-10-06-G02 #4'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'TBK 167: 500.000 ₺ aşan kısım payları oranında (250.000 ₺) rücu edilir; doğru tutar şıklarda yok, anahtar
+      açıklamayla çelişiyor'
 - id: SMMM-HUK-BRC-0030
   sinav: smmm
   bolum:

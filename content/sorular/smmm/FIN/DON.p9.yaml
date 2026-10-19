@@ -888,7 +888,7 @@
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -906,17 +906,28 @@
         not: yalnız banka içi; külliyat verilmedi
         tarih: '2026-10-09'
       G3:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-19'
+        not: 'baş hakem: THP 122 metni 642''yi gösterirken uygulama 647''yi kullanıyor (metin ayrıca eski 652 numarasını
+          anıyor); iki kör çözücü A'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: itiraz yok'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
   - tarih: '2026-10-09'
     kim: uretici
     ne: 'harici teslim aday_FIN.yaml, satır ChatGPT_FIN-2026-10-08v2-G10 #3'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: THP 122 metni 642'yi gösterirken uygulama 647'yi kullanıyor (metin ayrıca eski 652 numarasını anıyor);
+      iki kör çözücü A
 - id: SMMM-FIN-DON-0036
   sinav: smmm
   bolum:
@@ -1248,14 +1259,15 @@
     doğrudur?
   secenekler:
     A: 690 alacaklandırılır, 692 borçlandırılır; sonra 692 alacaklandırılarak 590'a aktarılır.
-    B: 690 borçlandırılır, 692 alacaklandırılır; sonra 692 borçlandırılarak 591'e aktarılır.
+    B: 690 alacaklandırılır, 692 borçlandırılır; sonra 692 alacaklandırılarak 591'e aktarılır.
     C: 690 alacaklandırılır, 691 borçlandırılır; sonra 692 alacaklandırılarak 591'e aktarılır.
     D: 690 borçlandırılır, 590 alacaklandırılır; 692 kullanılmaz.
     E: 690 alacaklandırılır, 591 alacaklandırılır; 692 kullanılmaz.
   dogru: B
   aciklama:
-    dogru_neden: '690''ın borç bakiyesi zarar gösterir; net zarar 692''nin borcuna, dönem sonunda da 591''in borcuna
-      devredilir. Püf noktaları: Kârda 590, zararda 591 kullanılır.'
+    dogru_neden: '690''ın borç bakiyesi zarar gösterir; 690 alacaklandırılıp 692 borçlandırılarak kapatılır, ardından
+      692 alacaklandırılarak net zarar 591 Dönem Net Zararı hesabının borcuna aktarılır. Püf noktaları: Kârda 590,
+      zararda 591 kullanılır.'
     celdiriciler:
       A: Zarar halinde 692 borçlandırılır ve 591'e devredilir.
       C: 691'de vergi karşılığı bulunmadığından bu kayıt köke uymaz.
@@ -1275,7 +1287,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: taslak
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -1294,15 +1306,22 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: baş hakem düzeltmesiyle; yeniden kör çözüme
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
   - tarih: '2026-10-09'
     kim: uretici
     ne: 'harici teslim aday_FIN.yaml, satır GPT_FIN-2026-10-08v2-G02 #10'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: G5 düzeltmesi
+    neden: baş hakem denetimi
 - id: SMMM-FIN-DON-0041
   sinav: smmm
   bolum:

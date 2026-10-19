@@ -96,7 +96,7 @@
     A: Evet; istisna 100.000 ₺'ya kadar uygulanır.
     B: Evet; 60.000 ₺'nın tamamı istisna kapsamındadır.
     C: Evet; istisna yalnız ticari kazancı olanlara uygulanır.
-    D: Hayır; mesken kira hasılatının tamamı her durumda vergilidir.
+    D: Hayır; mesken kira hasılatı istisnaya konu edilemez.
     E: Hayır; 2026 yılı için 58.000 ₺'lık istisna haddinin üzerinde hasılat elde edilmiştir.
   dogru: E
   aciklama:
@@ -123,7 +123,7 @@
     yila_bagli_tutar: true
     yil: 2026
   durum: taslak
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -142,15 +142,22 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: baş hakem düzeltmesiyle; yeniden kör çözüme
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
   - tarih: '2026-10-07'
     kim: uretici
     ne: 'harici teslim aday_VER.yaml, satır ChatGPT_VER-2026-10-06-G01 #8'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: G5 düzeltmesi
+    neden: baş hakem denetimi
 - id: SMMM-VER-GVK-0007
   sinav: smmm
   bolum:
@@ -208,7 +215,7 @@
     bitis: null
     yila_bagli_tutar: true
     yil: 2026
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -226,11 +233,16 @@
         not: yalnız banka içi; külliyat verilmedi
         tarih: '2026-10-07'
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        not: 'c1: E (güven 4); c2: E (güven 4)'
+        tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: itiraz yok'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
@@ -1026,7 +1038,7 @@
     bitis: null
     yila_bagli_tutar: true
     yil: 2026
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1046,7 +1058,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-19'
+        not: 'baş hakem: ücret toplamı 1.500.000 ₺''yı aştığından md. 21 istisnası uygulanmaz; anahtar yanlış'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1055,6 +1069,10 @@
   - tarih: '2026-10-07'
     kim: uretici
     ne: 'harici teslim aday_VER.yaml, satır ChatGPT_VER-2026-10-06-G03 #3'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: ücret toplamı 1.500.000 ₺'yı aştığından md. 21 istisnası uygulanmaz; anahtar yanlış
 - id: SMMM-VER-GVK-0017
   sinav: smmm
   bolum:
@@ -2441,7 +2459,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 40000 * 0.50
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2452,17 +2470,23 @@
         sonuc: gecti
         tarih: '2026-10-07'
       G4:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       G7:
         sonuc: gecti
         not: yalnız banka içi; külliyat verilmedi
         tarih: '2026-10-07'
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        not: 'c1: B (güven 4); c2: B (güven 4)'
+        tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: itiraz yok'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
@@ -3051,7 +3075,7 @@
     bitis: null
     yila_bagli_tutar: true
     yil: 2026
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3071,7 +3095,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-19'
+        not: 'baş hakem: ücret 1.600.000 ₺ > 1.500.000 ₺; istisna uygulanmaz, C yanlış'
       G6:
         sonuc: bekliyor
       GZ:
@@ -3080,6 +3106,10 @@
   - tarih: '2026-10-07'
     kim: uretici
     ne: 'harici teslim aday_VER.yaml, satır ristaycraft_VER-2026-10-06-G06 #8'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: ücret 1.600.000 ₺ > 1.500.000 ₺; istisna uygulanmaz, C yanlış
 - id: SMMM-VER-GVK-0040
   sinav: smmm
   bolum:
@@ -3215,7 +3245,7 @@
     baslangic: '2004-12-30'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3235,7 +3265,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-19'
+        not: 'baş hakem: B ve D ikisi de doğru'
       G6:
         sonuc: bekliyor
       GZ:
@@ -3244,6 +3276,10 @@
   - tarih: '2026-10-07'
     kim: uretici
     ne: 'harici teslim aday_VER.yaml, satır ristaycraft_VER-2026-10-06-G06 #19'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: B ve D ikisi de doğru
 - id: SMMM-VER-GVK-0042
   sinav: smmm
   bolum:
@@ -3708,7 +3744,7 @@
     A: Evet; çünkü kira geliri 100.000 ₺'nın altındadır.
     B: Evet; çünkü yalnızca mesken kira tutarına bakılır.
     C: Hayır; 2026’da mesken istisna tutarı 58.000 ₺ olduğundan kira tutarı istisnayı aşmıştır.
-    D: Hayır; ancak yalnızca toplam gelir 1.500.000 ₺'yı aşması nedeniyle.
+    D: Hayır; md. 21'deki gelir toplamı 1.500.000 ₺'yı aştığından istisna uygulanmaz.
     E: Evet; toplam gelir 1.600.000 ₺ olsa da mesken istisnası her durumda uygulanır.
   dogru: D
   aciklama:
@@ -3750,7 +3786,7 @@
     yila_bagli_tutar: true
     yil: 2026
   durum: taslak
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -3769,15 +3805,22 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: baş hakem düzeltmesiyle; yeniden kör çözüme
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
   - tarih: '2026-10-07'
     kim: uretici
     ne: 'harici teslim aday_VER.yaml, satır ristaycraft_VER-2026-10-06-G07 #20'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: G5 düzeltmesi
+    neden: baş hakem denetimi
 - id: SMMM-VER-GVK-0048
   sinav: smmm
   bolum:

@@ -93,22 +93,20 @@
   secenekler:
     A: '0'
     B: '30.000'
-    C: '60.000'
-    D: '150.000'
+    C: '150.000'
+    D: '240.000'
     E: '300.000'
   dogru: D
   aciklama:
-    dogru_neden: 'KVK md. 5/1-b''nin özel paragrafında, yabancı anonim veya limited şirketin ödenmiş sermayesinin
-      en az %50''sine sahip olunması ve kâr payının beyanname verme tarihine kadar Türkiye''ye transfer edilmesi
-      halinde diğer şartlar aranmaksızın istisna oranının %50 uygulanacağı düzenlenmiştir. 300.000 ₺''nın %50''si
-      150.000 ₺''dır. Püf noktaları: Olağan yurt dışı iştirak şartları ile %50 özel istisna kuralı birbirine karıştırılmamalı;
-      burada %60 iştirak ve zamanında transfer, diğer şartların yerine aranabilecek özel kuralı tetikler.'
+    dogru_neden: 'KVK md. 5/1-b''nin üçüncü paragrafı, yabancı iştirakin sermayesine sahip olunması ve kâr payının
+      beyanname verme tarihine kadar Türkiye''ye transferi şartıyla diğer şartları aramadan kısmi istisna öngörür.
+      11257 sayılı CBK ile 1/1/2026''dan başlayan dönemlerde en az %20 pay sahipliğinde oran %80''dir: 300.000 ×
+      %80 = 240.000 ₺. Püf noktaları: 2026''da %50 değil CBK ile belirlenen %80 oranı uygulanır.'
     celdiriciler:
-      A: 0 ₺, genel şartların sağlanmadığı varsayımından hareket eder; ancak %50 iştirak ve zamanında transfer özel
-        kural için yeterlidir.
-      B: 30.000 ₺, %10 istisna gibi bir oran uygulanmasıyla bulunur; özel kuraldaki oran %50'dir.
-      C: 60.000 ₺, %20 istisna gibi bir oran uygulanmasıyla bulunur; özel kuraldaki oran %50'dir.
-      E: 300.000 ₺'nın tamamı istisna değildir; özel paragraf yalnızca %50 istisna oranı tanır.
+      A: Kısmi istisna şartları sağlanmıştır.
+      B: Oran %10 alınmıştır.
+      C: Kanundaki eski %50 oranı uygulanmıştır.
+      E: Vergi yükü ve süre şartı sağlanmadığından tam istisna uygulanmaz.
     hesap_adimlari:
     - 300.000 × 0,50 = 150.000 ₺
   kaynaklar:
@@ -127,14 +125,18 @@
       verilmesi gereken tarihe kadar Türkiye’ye transfer edilmesi şartıyla, bu bentte belirtilen diğer
 
       şartların sağlanması koşulu aranmaksızın %50 olarak uygulanır.'
+  - mevzuat: 11257 sayılı Cumhurbaşkanı Kararı
+    madde: md. 2/1
+    alinti: '%80 olarak belirlenmiştir.'
   gecerlilik:
     baslangic: '2024-01-01'
     bitis: null
-    yila_bagli_tutar: false
+    yila_bagli_tutar: true
+    yil: 2026
   dogrulama:
-    python: sonuc = 300000 * 0.50
+    python: sonuc = 300000 * 0.80
   durum: taslak
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -144,7 +146,8 @@
         sonuc: gecti
         tarih: '2026-10-07'
       G4:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       G7:
         sonuc: gecti
         not: yalnız banka içi; külliyat verilmedi
@@ -152,15 +155,22 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: baş hakem düzeltmesiyle; yeniden kör çözüme
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
   - tarih: '2026-10-07'
     kim: uretici
     ne: 'harici teslim aday_VER.yaml, satır ChatGPT_VER-2026-10-06-G01 #7'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: G5 düzeltmesi
+    neden: baş hakem denetimi
 - id: SMMM-VER-KVK-0007
   sinav: smmm
   bolum:
@@ -415,7 +425,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = (900000 - 600000) / 900000 * 90000 * 0.10
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -426,17 +436,23 @@
         sonuc: gecti
         tarih: '2026-10-07'
       G4:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       G7:
         sonuc: gecti
         not: yalnız banka içi; külliyat verilmedi
         tarih: '2026-10-07'
       G3:
-        sonuc: bekliyor
+        sonuc: gecti
+        not: 'c1: D (güven 4); c2: D (güven 4)'
+        tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: itiraz yok'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:

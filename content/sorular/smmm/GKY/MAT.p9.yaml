@@ -6629,15 +6629,15 @@
     C: I ve II
     D: I ve III
     E: I, II ve III
-  dogru: D
+  dogru: E
   aciklama:
-    dogru_neden: Toplam 80+120+100=300'dür. Salı kontrolü 120×%25=30, Çarşamba kontrolü 100×%30=30 olduğundan iki
-      günün toplamı 60'tır. Bu nedenle I ve III doğrudur.
+    dogru_neden: Toplam 80+120+100 = 300 (I). Salı kontrolü 120 × %25 = 30 (II). Çarşamba kontrolü 100 × %30 = 30;
+      iki günün toplamı 60 (III). Üç öncül de doğrudur.
     celdiriciler:
       A: I doğru olmakla birlikte III de doğrudur.
       B: II tek başına doğru değildir; I ve III de kontrol edilmelidir.
       C: I doğru, II doğru olsa da III de doğrudur; bu yüzden eksiktir.
-      E: II 30, III 60 olduğundan I, II ve III'ün tümü doğru değildir; ancak I de doğrudur.
+      D: 'II. öncül de doğrudur: Salı kontrolü 120 × %25 = 30''dur.'
     hesap_adimlari:
     - Toplam paket = 80+120+100 = 300.
     - Salı kontrolü = 120×0,25 = 30.
@@ -6654,7 +6654,7 @@
   dogrulama:
     python: sonuc = 80+120+100
   durum: taslak
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -6664,7 +6664,8 @@
         sonuc: gecti
         tarih: '2026-10-09'
       G4:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       G7:
         sonuc: gecti
         not: yalnız banka içi; külliyat verilmedi
@@ -6672,15 +6673,22 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: baş hakem düzeltmesiyle; yeniden kör çözüme
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
   - tarih: '2026-10-09'
     kim: uretici
     ne: 'harici teslim aday_GKY.yaml, satır ChatGPT_GKY-2026-10-08v2-G13 #24'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: G5 düzeltmesi
+    neden: baş hakem denetimi
 - id: SMMM-GKY-MAT-0173
   sinav: smmm
   bolum:

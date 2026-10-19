@@ -885,7 +885,8 @@
   zorluk: 3
   kok: 'KDV dikkate alınmayacaktır. LD İşletmesi’nde dönem başı mamul stoku 120.000 ₺, dönem sonu mamul stoku 80.000
     ₺''dır. Dönem içinde DİMM 350.000 ₺, direkt işçilik 220.000 ₺, GÜG 130.000 ₺, dönem başı yarı mamul 40.000 ₺,
-    dönem sonu yarı mamul 30.000 ₺''dır. Satılan mamul maliyeti kaç TL’dir?
+    dönem sonu yarı mamul 30.000 ₺''dır. Satılan mamul maliyetinin hesaplanmasına ilişkin aşağıdaki öncüllerden
+    hangileri doğrudur?
 
     I. Üretim maliyeti = DİMM + Dİ + GÜG + dönem başı yarı mamul − dönem sonu yarı mamul
 
@@ -926,7 +927,7 @@
   dogrulama:
     python: uretim = 350000 + 220000 + 130000 + 40000 - 30000; sonuc = uretim + 120000 - 80000
   durum: taslak
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: coklu'
@@ -936,7 +937,8 @@
         sonuc: gecti
         tarih: '2026-10-09'
       G4:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       G7:
         sonuc: gecti
         not: yalnız banka içi; külliyat verilmedi
@@ -944,15 +946,22 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: baş hakem düzeltmesiyle; yeniden kör çözüme
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
   - tarih: '2026-10-09'
     kim: uretici
     ne: 'harici teslim aday_MAL.yaml, satır Grok_MAL-2026-10-08v2-G09 #22'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: G5 düzeltmesi
+    neden: baş hakem denetimi
 - id: SMMM-MAL-TBL-0051
   sinav: smmm
   bolum:
@@ -1769,7 +1778,7 @@
     baslangic: '1994-01-01'
     bitis: null
     yila_bagli_tutar: false
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1789,7 +1798,9 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-10-19'
+        not: 'baş hakem: kök ve şıklar tutarsız; eşleştirme anlamsız'
       G6:
         sonuc: bekliyor
       GZ:
@@ -1798,6 +1809,10 @@
   - tarih: '2026-10-09'
     kim: uretici
     ne: 'harici teslim aday_MAL.yaml, satır Merve_MAL-2026-10-08v2-G05 #11'
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: kök ve şıklar tutarsız; eşleştirme anlamsız
 - id: SMMM-MAL-TBL-0061
   sinav: smmm
   bolum:
