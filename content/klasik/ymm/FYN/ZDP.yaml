@@ -188,3 +188,786 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+- id: YMM-FYN-ZDP-K002
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - tahvil değerlemesi ve durasyon
+  - bugünkü ve gelecek değer
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Bir emeklilik fonunun portföy yöneticisi faiz riskini ölçmek için iki tahvili incelemektedir:
+
+
+    - **Tahvil K:** Nominal değeri 1.000 TL, yıllık kupon oranı %30 (kuponlar yıl sonunda ödenir), vadesine tam 3 yıl kalmıştır.
+
+    - **Tahvil S:** Nominal değeri 1.000 TL, sıfır kuponlu, vadesine tam 3 yıl kalmıştır.
+
+
+    Her iki tahvil için piyasa getirisi (vadeye kadar getiri) bugün %20''dir. İskonto faktörleri:
+
+
+    | n | (1,20)^−n | (1,21)^−n |
+
+    |---|---|---|
+
+    | 1 | 0,833333 | 0,826446 |
+
+    | 2 | 0,694444 | 0,683013 |
+
+    | 3 | 0,578704 | 0,564474 |
+
+
+    **İstenenler:**
+
+
+    (a) Tahvil K''nin bugünkü değerini hesaplayınız; tahvilin primli mi iskontolu mu işlem gördüğünü gerekçesiyle belirtiniz.
+    (6 puan)
+
+
+    (b) Tahvil K''nin Macaulay durasyonunu ve düzeltilmiş durasyonunu hesaplayınız. (8 puan)
+
+
+    (c) Piyasa getirisi 1 puan artarak %21''e çıkarsa Tahvil K''nin fiyatındaki değişimi düzeltilmiş durasyonla tahmin ediniz;
+    %21''deki gerçek fiyatı hesaplayarak tahmin ile gerçek değişim arasındaki farkı konveksite kavramıyla açıklayınız. (6
+    puan)
+
+
+    (d) Tahvil S''nin fiyatını, Macaulay ve düzeltilmiş durasyonunu bulunuz; getiri %21''e çıktığında tahmini ve gerçek fiyat
+    değişimini hesaplayınız. İki tahvilden hangisinin faiz değişimine oransal olarak daha duyarlı olduğunu ve nedenini açıklayınız.
+    (5 puan)
+
+    '
+  cozum: '**(a) Tahvil K''nin değeri**
+
+
+    P = Σ Kupon / (1 + k)^t + Nominal / (1 + k)^n
+
+
+    | t | Nakit akışı | Faktör (%20) | BD |
+
+    |---|---|---|---|
+
+    | 1 | 300 | 0,833333 | 250,000 |
+
+    | 2 | 300 | 0,694444 | 208,333 |
+
+    | 3 | 1.300 | 0,578704 | 752,315 |
+
+    | | | **P** | **1.210,648** |
+
+
+    Kupon oranı (%30) piyasa getirisinden (%20) yüksek olduğundan tahvil nominalin üstünde, **primli** işlem görür (1.210,65
+    TL > 1.000 TL).
+
+
+    **(b) Durasyon**
+
+
+    | t | BD | t × BD |
+
+    |---|---|---|
+
+    | 1 | 250,000 | 250,000 |
+
+    | 2 | 208,333 | 416,667 |
+
+    | 3 | 752,315 | 2.256,944 |
+
+    | Toplam | 1.210,648 | 2.923,611 |
+
+
+    - Macaulay durasyonu D = Σ(t × BD_t) / P = 2.923,611 / 1.210,648 = **2,4149 yıl**
+
+    - Düzeltilmiş durasyon DD = D / (1 + k) = 2,4149 / 1,20 = **2,0124**
+
+
+    **(c) Fiyat duyarlılığı**
+
+
+    - Tahmini değişim: ΔP ≈ −DD × Δk × P = −2,0124 × 0,01 × 1.210,648 = **−24,36 TL** (tahmini fiyat 1.186,29 TL)
+
+    - Gerçek fiyat (%21): 300 × 0,826446 + 300 × 0,683013 + 1.300 × 0,564474 = 247,934 + 204,904 + 733,816 = **1.186,654 TL**;
+    gerçek değişim **−23,99 TL**
+
+    - Fiyat tahminden 0,37 TL daha az düşmüştür. Fiyat-getiri ilişkisi doğrusal değil **dışbükeydir (konveksite)**; durasyon
+    bu eğriye teğet doğru ile yaklaşım yapar. Bu nedenle getiri artışında gerçek fiyat düşüşü tahminden küçük, getiri düşüşünde
+    gerçek fiyat artışı tahminden büyük olur. Konveksite yatırımcı lehine bir özelliktir; değişim büyüdükçe durasyon tahmininin
+    hatası artar.
+
+
+    **(d) Sıfır kuponlu tahvil**
+
+
+    - P = 1.000 × 0,578704 = **578,70 TL**; tek nakit akışı vadede olduğundan **D = 3 yıl**; DD = 3 / 1,20 = **2,5**
+
+    - Tahmini değişim = −2,5 × 0,01 × 578,70 = **−14,47 TL** (−%2,5); gerçek fiyat 1.000 × 0,564474 = 564,47 TL → gerçek değişim
+    **−14,23 TL** (−%2,46)
+
+    - Tahvil K''de oransal değişim −23,99 / 1.210,65 = −%1,98''dir. Tahvil S daha duyarlıdır: aynı vadede kupon ödemesi olmadığı
+    için nakit akışının tamamı en uzak tarihte toplanır, durasyonu vadesine eşittir ve kuponlu tahvilinkinden büyüktür. Kupon
+    oranı arttıkça durasyon ve faiz riski azalır.
+
+    '
+  puanlama:
+  - olcut: (a) Nakit akışlarının BD'leri ve P = 1.210,65 TL
+    puan: 4
+  - olcut: (a) Primli işlem görme gerekçesi
+    puan: 2
+  - olcut: (b) t × BD toplamı 2.923,61
+    puan: 3
+  - olcut: (b) Macaulay durasyonu 2,4149
+    puan: 3
+  - olcut: (b) Düzeltilmiş durasyon 2,0124
+    puan: 2
+  - olcut: (c) Tahmini değişim −24,36 TL
+    puan: 2
+  - olcut: (c) Gerçek fiyat 1.186,65 TL ve değişim −23,99 TL
+    puan: 2
+  - olcut: (c) Konveksite açıklaması
+    puan: 2
+  - olcut: (d) Tahvil S fiyatı, D = 3 ve DD = 2,5
+    puan: 2
+  - olcut: (d) Tahmini (−14,47) ve gerçek (−14,23) değişim
+    puan: 2
+  - olcut: (d) Duyarlılık karşılaştırması ve kuponun etkisi
+    puan: 1
+  kaynaklar:
+  - mevzuat: Genel bilgi — Tahvil değerlemesi ve durasyon
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+  dogrulama:
+    python: "cf = [300, 300, 1300]\nf20 = [1 / 1.2 ** t for t in (1, 2, 3)]\nf21 = [1 / 1.21 ** t for t in (1, 2, 3)]\nbd\
+      \ = [c * f for c, f in zip(cf, f20)]\nP = sum(bd)\ntbd = sum((i + 1) * b for i, b in enumerate(bd))\nD = tbd / P\nDD\
+      \ = D / 1.2\nP21 = sum(c * f for c, f in zip(cf, f21))\nPS = 1000 * f20[2]\nPS21 = 1000 * f21[2]\nsonuc = {\"P\": round(P,\
+      \ 2), \"tbd\": round(tbd, 2), \"D\": round(D, 4), \"DD\": round(DD, 4),\n         \"tahmin\": round(-DD * 0.01 * P,\
+      \ 2), \"P21\": round(P21, 2), \"gercek\": round(P21 - P, 2),\n         \"PS\": round(PS, 2), \"DD_S\": 2.5, \"tahmin_S\"\
+      : round(-2.5 * 0.01 * PS, 2), \"gercek_S\": round(PS21 - PS, 2)}\n"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi K_FYN
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_K_FYN.yaml, klasik 9
+- id: YMM-FYN-ZDP-K003
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - iskonto ve senet hesapları
+  zorluk: 2
+  puan: 25
+  sure_dk: 25
+  soru: 'Ticaret A.Ş.''nin portföyünde 01.03.2026 tarihi itibarıyla aşağıdaki alacak senetleri bulunmaktadır:
+
+
+    | Senet | Nominal değer (TL) | Vadeye kalan gün |
+
+    |---|---|---|
+
+    | 1 | 50.000 | 30 |
+
+    | 2 | 100.000 | 60 |
+
+    | 3 | 150.000 | 120 |
+
+
+    Banka ve borçlu ile yapılan görüşmelerde yıllık **%36** basit faiz oranı kullanılacaktır. Yıl 360 gün kabul edilecek;
+    komisyon ve masraf dikkate alınmayacaktır. Tutarlar kuruşa yuvarlanacaktır.
+
+
+    **İstenenler:**
+
+
+    (a) Senetler bugün bankaya dış (ticari) iskonto yöntemiyle kırdırılırsa her senet için iskonto tutarını ve şirketin eline
+    geçecek toplam tutarı hesaplayınız. (6 puan)
+
+
+    (b) Senetlerin iç (gerçek) iskonto yöntemine göre peşin değerlerini ve toplam iç iskonto tutarını hesaplayınız; iki yöntem
+    arasındaki farkın nedenini açıklayınız. (7 puan)
+
+
+    (c) Borçlu, üç senedin geri alınarak bugünden itibaren 90 gün vadeli tek bir senet düzenlenmesini istemektedir. İç iskonto
+    esasına göre yeni senedin nominal değerini hesaplayınız. (6 puan)
+
+
+    (d) Borçlu bunun yerine nominal değeri üç senedin toplamına (300.000 TL) eşit tek bir senet vermeyi önermektedir. Dış
+    iskonto esasına göre bu senedin vadesini (ortalama vade) hesaplayınız ve sonucu iskonto tutarı üzerinden doğrulayınız.
+    (6 puan)
+
+    '
+  cozum: '**(a) Dış iskonto:** İ = N × t × n / 36.000
+
+
+    | Senet | Hesap | İskonto (TL) |
+
+    |---|---|---|
+
+    | 1 | 50.000 × 36 × 30 / 36.000 | 1.500,00 |
+
+    | 2 | 100.000 × 36 × 60 / 36.000 | 6.000,00 |
+
+    | 3 | 150.000 × 36 × 120 / 36.000 | 18.000,00 |
+
+    | Toplam | | **25.500,00** |
+
+
+    Eline geçen tutar = 300.000 − 25.500 = **274.500,00 TL**
+
+
+    **(b) İç iskonto:** Peşin değer = N / (1 + t × n / 36.000); İ = N × t × n / (36.000 + t × n)
+
+
+    | Senet | Peşin değer | İç iskonto |
+
+    |---|---|---|
+
+    | 1 | 50.000 / 1,03 = 48.543,69 | 1.456,31 |
+
+    | 2 | 100.000 / 1,06 = 94.339,62 | 5.660,38 |
+
+    | 3 | 150.000 / 1,12 = 133.928,57 | 16.071,43 |
+
+    | Toplam | **276.811,88** | **23.188,12** |
+
+
+    Dış iskonto 2.311,88 TL daha büyüktür. Dış iskontoda faiz senedin **nominal değeri** (vade değeri) üzerinden, iç iskontoda
+    ise **peşin değer** üzerinden hesaplanır. Nominal değer peşin değerden büyük olduğundan dış iskonto her zaman iç iskontodan
+    büyüktür; iç iskonto gerçek faiz maliyetini yansıtır.
+
+
+    **(c) 90 gün vadeli tek senet**
+
+
+    Eski senetlerin bugünkü (peşin) değerleri toplamı yeni senedin peşin değerine eşit olmalıdır:
+
+    N_yeni = 276.811,88 × (1 + 36 × 90 / 36.000) = 276.811,88 × 1,09 = **301.724,95 TL**
+
+
+    **(d) Ortalama vade (dış iskonto)**
+
+
+    Nominaller toplamı korunduğunda dış iskonto tutarlarının eşitliği: 300.000 × 36 × n / 36.000 = Σ N_i × 36 × n_i / 36.000
+    → n = Σ(N_i × n_i) / ΣN_i
+
+    n = (50.000 × 30 + 100.000 × 60 + 150.000 × 120) / 300.000 = (1.500.000 + 6.000.000 + 18.000.000) / 300.000 = **85 gün**
+
+
+    Doğrulama: 300.000 × 36 × 85 / 36.000 = 25.500 TL = (a)''daki toplam dış iskonto. Yeni senedin vadesi 01.03.2026''dan
+    85 gün sonradır.
+
+    '
+  puanlama:
+  - olcut: (a) Dış iskonto formülü ve senet bazında tutarlar
+    puan: 4
+  - olcut: (a) Toplam 25.500 ve net 274.500 TL
+    puan: 2
+  - olcut: (b) İç iskonto formülü ve peşin değerler
+    puan: 4
+  - olcut: (b) Toplam 276.811,88 / 23.188,12 TL
+    puan: 1
+  - olcut: (b) Farkın nedeni (nominal ve peşin değer üzerinden faiz)
+    puan: 2
+  - olcut: (c) Peşin değer eşitliği ilkesi
+    puan: 3
+  - olcut: (c) Yeni nominal 301.724,95 TL
+    puan: 3
+  - olcut: (d) Ortalama vade formülü ve 85 gün
+    puan: 4
+  - olcut: (d) İskonto tutarıyla doğrulama
+    puan: 2
+  kaynaklar:
+  - mevzuat: Genel bilgi — İskonto ve senet hesapları
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+  dogrulama:
+    python: "s = [(50000, 30), (100000, 60), (150000, 120)]\ndis = sum(N * 36 * n / 36000 for N, n in s)\npesin = sum(N /\
+      \ (1 + 36 * n / 36000) for N, n in s)\nyeni = pesin * (1 + 36 * 90 / 36000)\nvade = sum(N * n for N, n in s) / 300000\n\
+      sonuc = {\"dis_iskonto\": dis, \"net\": 300000 - dis, \"pesin\": round(pesin, 2), \"ic_iskonto\": round(300000 - pesin,\
+      \ 2),\n         \"yeni_senet\": round(yeni, 2), \"ortalama_vade\": vade, \"kontrol\": 300000 * 36 * vade / 36000}\n"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi K_FYN
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_K_FYN.yaml, klasik 10
+- id: YMM-FYN-ZDP-K004
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - anüite (ertelenmiş ve büyüyen)
+  - reel faiz (Fisher)
+  - bugünkü ve gelecek değer
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Yıldız Tarım A.Ş. bir bankadan 2.000.000 TL yatırım kredisi kullanmıştır. Kredi koşulları:
+
+
+    - Yıllık nominal faiz oranı %40''tır; faiz üç ayda bir bileşik olarak işletilir (üç aylık dönem faizi %10).
+
+    - İlk iki dönem (6 ay) ödemesizdir; bu dönemlerde ödeme yapılmaz, işleyen faiz anaparaya eklenir.
+
+    - Ödemesiz dönemin ardından borç, 3., 4., 5. ve 6. dönem sonlarında ödenecek 4 eşit taksitle kapatılacaktır.
+
+
+    Faktörler: (1,10)² = 1,21; (1,10)^−4 = 0,683013; (1,10)⁴ = 1,4641; 4 dönemlik %10 anüite (bugünkü değer) faktörü = 3,169865.
+    Tutarlar kuruşa yuvarlanacaktır.
+
+
+    **İstenenler:**
+
+
+    (a) Ödemesiz dönem sonundaki borç tutarını ve eşit taksit tutarını hesaplayınız. (6 puan)
+
+
+    (b) Ödeme planını (dönem, taksit, faiz, anapara ödemesi, kalan borç) tablo hâlinde düzenleyiniz. (8 puan)
+
+
+    (c) Kredinin efektif yıllık faiz oranını hesaplayınız. Önümüzdeki yıl için beklenen enflasyon oranı %30 ise kredinin efektif
+    reel maliyetini Fisher eşitliğiyle bulunuz; yaklaşık formülün (nominal − enflasyon) neden yanıltıcı olduğunu belirtiniz.
+    (6 puan)
+
+
+    (d) Banka alternatif olarak, ödemesiz dönemde her dönem sonunda yalnız işleyen faizin ödenmesini, anaparanın ise aynı
+    tarihlerde 4 eşit taksitle kapatılmasını önermektedir. Bu seçenekteki taksiti ve toplam ödemeyi hesaplayınız; iki seçeneği
+    toplam ödeme ve bugünkü değer yönünden karşılaştırınız. (5 puan)
+
+    '
+  cozum: '**(a) Ertelenmiş anüite**
+
+
+    - Ödemesiz dönem sonu borç = 2.000.000 × (1,10)² = **2.420.000 TL**
+
+    - Eşit taksit = Borç / anüite faktörü = 2.420.000 / 3,169865 = **763.439,34 TL** [C = PV × r / (1 − (1 + r)^−n)]
+
+
+    **(b) Ödeme planı**
+
+
+    | Dönem | Taksit | Faiz (%10) | Anapara | Kalan borç |
+
+    |---|---|---|---|---|
+
+    | 1 | – | 200.000,00 (eklenir) | – | 2.200.000,00 |
+
+    | 2 | – | 220.000,00 (eklenir) | – | 2.420.000,00 |
+
+    | 3 | 763.439,34 | 242.000,00 | 521.439,34 | 1.898.560,66 |
+
+    | 4 | 763.439,34 | 189.856,07 | 573.583,27 | 1.324.977,39 |
+
+    | 5 | 763.439,34 | 132.497,74 | 630.941,60 | 694.035,79 |
+
+    | 6 | 763.439,34 | 69.403,58 | 694.035,76 | ≈ 0 |
+
+
+    (Son dönemdeki 0,03 TL''lik fark yuvarlamadan kaynaklanır.) Toplam ödeme = 4 × 763.439,34 = 3.053.757,36 TL; toplam faiz
+    1.053.757,36 TL.
+
+
+    **(c) Efektif ve reel faiz**
+
+
+    - Efektif yıllık faiz = (1 + 0,40 / 4)⁴ − 1 = 1,4641 − 1 = **%46,41**
+
+    - Fisher: (1 + nominal) = (1 + reel) × (1 + enflasyon) → reel = 1,4641 / 1,30 − 1 = **%12,62**
+
+    - Yaklaşık formül 46,41 − 30 = %16,41 verir; enflasyonun reel faiz üzerindeki etkisini (reel × enflasyon çarpım terimini)
+    ihmal ettiğinden yüksek enflasyonda reel maliyeti olduğundan büyük gösterir.
+
+
+    **(d) Faizi ödemeli seçenek**
+
+
+    - 1. ve 2. dönem sonlarında faiz ödemesi: 2.000.000 × 0,10 = 200.000 TL (her biri)
+
+    - Anapara 2.000.000 TL olarak kalır; taksit = 2.000.000 / 3,169865 = **630.941,61 TL**
+
+    - Toplam ödeme = 2 × 200.000 + 4 × 630.941,61 = **2.923.766,44 TL**
+
+
+    Toplam ödeme ilk seçenekten 129.990,92 TL azdır; ancak bu fark ödemesiz dönemde faize faiz işlemesinden doğar ve paranın
+    zaman değerini yansıtmaz. Her iki seçeneğin %10 dönem faiziyle bugünkü değeri **2.000.000 TL**''dir (aynı faiz oranıyla
+    kurulmuşlardır); maliyetleri eşittir. Seçim işletmenin ilk 6 aydaki nakit durumuna göre yapılır: nakit sıkışıklığı varsa
+    ödemesiz seçenek uygundur.
+
+    '
+  puanlama:
+  - olcut: (a) Ödemesiz dönem sonu borç 2.420.000
+    puan: 3
+  - olcut: (a) Taksit 763.439,34 TL
+    puan: 3
+  - olcut: (b) Ödemesiz dönemlerde faizin anaparaya eklenmesi
+    puan: 2
+  - olcut: (b) Taksitli dönemlerde faiz, anapara ve kalan borç sütunlarının doğruluğu
+    puan: 6
+  - olcut: (c) Efektif faiz %46,41
+    puan: 2
+  - olcut: (c) Fisher ile reel %12,62
+    puan: 3
+  - olcut: (c) Yaklaşık formülün yanıltıcılığı
+    puan: 1
+  - olcut: (d) Taksit 630.941,61 ve toplam ödeme 2.923.766,44
+    puan: 3
+  - olcut: (d) Bugünkü değerlerin eşitliği ve karar
+    puan: 2
+  kaynaklar:
+  - mevzuat: 'Genel bilgi — Anüite: ertelenmiş, büyüyen ve sürekli anüite'
+    madde: '-'
+  - mevzuat: 'Genel bilgi — Paranın zaman değeri: bugünkü ve gelecek değer, reel faiz'
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+  dogrulama:
+    python: "r = 0.10\naf = (1 - (1 + r) ** -4) / r\nborc = 2000000 * 1.1 ** 2\ntaksit = borc / af\nkalan = borc\nplan = []\n\
+      for i in range(4):\n    faiz = kalan * r\n    kalan = kalan - (taksit - faiz)\n    plan.append(round(faiz, 2))\nefektif\
+      \ = (1 + 0.40 / 4) ** 4 - 1\nreel = (1 + efektif) / 1.30 - 1\ntaksit2 = 2000000 / af\nbd2 = 200000 / 1.1 + 200000 /\
+      \ 1.21 + taksit2 * af / 1.21\nsonuc = {\"borc\": round(borc, 2), \"taksit\": round(taksit, 2), \"faizler\": plan, \"\
+      efektif\": round(efektif, 4),\n         \"reel\": round(reel, 4), \"taksit2\": round(taksit2, 2), \"toplam1\": round(4\
+      \ * round(taksit, 2), 2),\n         \"toplam2\": round(400000 + 4 * round(taksit2, 2), 2), \"bd2\": round(bd2, 2)}\n"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi K_FYN
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_K_FYN.yaml, klasik 11
+- id: YMM-FYN-ZDP-K005
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - anüite (ertelenmiş ve büyüyen)
+  - reel faiz (Fisher)
+  - bugünkü ve gelecek değer
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Serbest meslek erbabı Bay Emre bugünden 3 yıl sonra emekli olmayı planlamaktadır. Emekliliğinde 10 yıl boyunca, her
+    yılın sonunda gelir elde etmek istemektedir: ilk gelir emeklilikten bir yıl sonra (bugünden 4 yıl sonra) 300.000 TL olacak,
+    sonraki gelirler enflasyona karşı korunmak için her yıl %10 artacaktır.
+
+
+    - Bay Emre''nin birikimleri her yıl %21 bileşik getiri sağlayacaktır (emeklilik öncesi ve sonrası aynı).
+
+    - Önümüzdeki yıllarda beklenen yıllık enflasyon oranı %10''dur.
+
+    - Bay Emre''nin bugün 500.000 TL birikimi vardır.
+
+    - Vergi ve işlem maliyeti yoktur.
+
+
+    Faktörler: (1,10/1,21)^10 = (1,10)^−10 = 0,385543; (1,21)³ = 1,771561; 10 yıllık %10 anüite (bugünkü değer) faktörü =
+    6,144567; 3 yıllık %21 anüite (gelecek değer) faktörü = 3,6741.
+
+
+    **İstenenler:**
+
+
+    (a) Emeklilik tarihinde (bugünden 3 yıl sonra) hesapta bulunması gereken tutarı büyüyen anüite formülüyle hesaplayınız.
+    (8 puan)
+
+
+    (b) Reel getiri oranını Fisher eşitliğiyle bulunuz. Gelirleri emeklilik tarihindeki satın alma gücüyle ifade ederek (a)''daki
+    sonucu reel anüite yaklaşımıyla doğrulayınız. (6 puan)
+
+
+    (c) Mevcut birikimine ek olarak hedefe ulaşması için önümüzdeki üç yılın her birinin sonunda yatırması gereken eşit tutarı
+    hesaplayınız. (6 puan)
+
+
+    (d) Emeklilik gelirlerinin bugünkü değerini hesaplayınız. Gelirler 10 yıl yerine süresiz olarak her yıl %10 artarak devam
+    etseydi emeklilik tarihinde gerekli tutar ne olurdu? (5 puan)
+
+    '
+  cozum: '**(a) Büyüyen anüite** (C = 300.000 TL, g = %10, r = %21, n = 10)
+
+
+    BD = C / (r − g) × [1 − ((1 + g) / (1 + r))^n]
+
+    = 300.000 / 0,11 × (1 − 0,385543)
+
+    = 2.727.272,73 × 0,614457 = **1.675.791,03 TL** (emeklilik tarihi itibarıyla)
+
+
+    **(b) Reel yaklaşım**
+
+
+    - Fisher: 1 + reel = 1,21 / 1,10 = 1,10 → **reel getiri %10**
+
+    - k. gelirin nominal tutarı 300.000 × 1,10^(k−1), ödendiği tarih emeklilikten k yıl sonradır. Emeklilik tarihi fiyatlarıyla
+    değeri 300.000 × 1,10^(k−1) / 1,10^k = 300.000 / 1,10 = **272.727,27 TL** (her yıl sabit).
+
+    - Reel anüite: 272.727,27 × 6,144567 = **1.675.791,03 TL** → (a) ile aynı. Gelirlerin büyüme hızı enflasyona eşit olduğundan
+    gelirler reel olarak sabittir; nominal akış nominal oranla, reel akış reel oranla iskonto edildiğinde aynı sonuç bulunur.
+
+
+    **(c) Gerekli yıllık yatırım**
+
+
+    - Mevcut birikimin 3 yıl sonraki değeri = 500.000 × 1,771561 = 885.780,50 TL
+
+    - Eksik tutar = 1.675.791,03 − 885.780,50 = 790.010,53 TL
+
+    - Yıllık yatırım (yıl sonu, normal anüite) = 790.010,53 / 3,6741 = **215.021,51 TL**
+
+
+    **(d) Bugünkü değer ve süresiz durum**
+
+
+    - Bugünkü değer = 1.675.791,03 / 1,771561 = **945.940,35 TL** (ertelenmiş büyüyen anüite)
+
+    - Süresiz büyüyen anüite: BD = C / (r − g) = 300.000 / 0,11 = **2.727.272,73 TL** (emeklilik tarihi itibarıyla). r > g
+    olduğu için formül tanımlıdır.
+
+    '
+  puanlama:
+  - olcut: (a) Büyüyen anüite formülünün doğru kurulması
+    puan: 4
+  - olcut: (a) 1.675.791,03 TL ve değerleme tarihinin emeklilik tarihi olması
+    puan: 4
+  - olcut: (b) Fisher ile reel getiri %10
+    puan: 2
+  - olcut: (b) Reel sabit gelir 272.727,27 ve reel anüiteyle doğrulama
+    puan: 4
+  - olcut: (c) Mevcut birikimin gelecek değeri ve eksik tutar
+    puan: 3
+  - olcut: (c) Yıllık yatırım 215.021,51 TL
+    puan: 3
+  - olcut: (d) Bugünkü değer 945.940,35 TL
+    puan: 3
+  - olcut: (d) Süresiz büyüyen anüite 2.727.272,73 TL
+    puan: 2
+  kaynaklar:
+  - mevzuat: 'Genel bilgi — Anüite: ertelenmiş, büyüyen ve sürekli anüite'
+    madde: '-'
+  - mevzuat: 'Genel bilgi — Paranın zaman değeri: bugünkü ve gelecek değer, reel faiz'
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+  dogrulama:
+    python: "C, g, r, n = 300000, 0.10, 0.21, 10\nbd = C / (r - g) * (1 - ((1 + g) / (1 + r)) ** n)\nreel = (1 + r) / (1 +\
+      \ g) - 1\naf = (1 - (1 + reel) ** -n) / reel\nbd_reel = C / (1 + g) * af\nfv = 500000 * (1 + r) ** 3\nyat = (bd - fv)\
+      \ / (((1 + r) ** 3 - 1) / r)\nsonuc = {\"bd_emeklilik\": round(bd, 2), \"reel\": round(reel, 4), \"bd_reel\": round(bd_reel,\
+      \ 2),\n         \"eksik\": round(bd - fv, 2), \"yillik_yatirim\": round(yat, 2), \"bugun\": round(bd / (1 + r) ** 3,\
+      \ 2),\n         \"suresiz\": round(C / (r - g), 2)}\n"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi K_FYN
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_K_FYN.yaml, klasik 12
+- id: YMM-FYN-ZDP-K006
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - hisse senedi değerlemesi (Gordon modeli) ve göreli değerleme
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Kayra Yazılım A.Ş. paylarını halka arz etmeye hazırlanmaktadır. Değerleme raporu için derlenen veriler:
+
+
+    | Veri | Değer |
+
+    |---|---|
+
+    | Pay sayısı | 10.000.000 adet |
+
+    | 2025 hisse başına kâr (HBK) | 5 TL |
+
+    | Az önce dağıtılan pay başına kâr payı (D0) | 2 TL |
+
+    | Özkaynak defter değeri | 80.000.000 TL |
+
+    | 2025 FAVÖK | 100.000.000 TL |
+
+    | Net borç (finansal borçlar − nakit) | 100.000.000 TL |
+
+    | Risksiz getiri | %24 |
+
+    | Pay betası | 1,2 |
+
+    | Piyasa risk primi (rm − rf) | %5 |
+
+
+    Benzer halka açık şirketlerin ortalama çarpanları: F/K 3; PD/DD 1,5; FD/FAVÖK 2. Faktörler: (1,30)^−1 = 0,769231; (1,30)^−2
+    = 0,591716.
+
+
+    **İstenenler:**
+
+
+    (a) Özkaynak maliyetini CAPM ile hesaplayınız. Kâr paylarının süresiz olarak her yıl %10 büyüyeceği varsayımıyla payın
+    içsel değerini Gordon modeliyle bulunuz. (6 puan)
+
+
+    (b) Kâr paylarının önümüzdeki iki yıl her yıl %25, sonrasında süresiz olarak %10 büyüyeceği varsayımıyla payın içsel değerini
+    hesaplayınız. (7 puan)
+
+
+    (c) Benzer şirket çarpanlarıyla (F/K, PD/DD ve FD/FAVÖK) pay başına değeri ayrı ayrı hesaplayınız ve üç yöntemin basit
+    ortalamasını bulunuz. FD/FAVÖK yönteminde firma değerinden özkaynak değerine geçişi gösteriniz. (8 puan)
+
+
+    (d) Halka arzdan sonra pay borsada 14 TL''den işlem görürse, D0 = 2 TL ve özkaynak maliyeti (a)''daki gibiyken sabit büyüme
+    modelinin ima ettiği büyüme oranını bulunuz ve yorumlayınız. (4 puan)
+
+    '
+  cozum: '**(a) CAPM ve Gordon**
+
+
+    - ke = rf + β × (rm − rf) = 24 + 1,2 × 5 = **%30**
+
+    - D1 = D0 × (1 + g) = 2 × 1,10 = 2,20 TL
+
+    - P0 = D1 / (ke − g) = 2,20 / (0,30 − 0,10) = **11,00 TL**
+
+
+    **(b) İki aşamalı büyüme**
+
+
+    | Yıl | Kâr payı | Hesap |
+
+    |---|---|---|
+
+    | 1 | D1 = 2 × 1,25 = 2,50 | BD = 2,50 × 0,769231 = 1,9231 |
+
+    | 2 | D2 = 2,50 × 1,25 = 3,125 | |
+
+    | 3 | D3 = 3,125 × 1,10 = 3,4375 | |
+
+
+    - 2. yıl sonundaki uç değer: P2 = D3 / (ke − g) = 3,4375 / 0,20 = 17,1875 TL
+
+    - BD(D2 + P2) = (3,125 + 17,1875) × 0,591716 = 20,3125 × 0,591716 = 12,0192
+
+    - **P0 = 1,9231 + 12,0192 = 13,94 TL**
+
+
+    **(c) Göreli değerleme**
+
+
+    - F/K: 3 × 5 = **15,00 TL**
+
+    - PD/DD: hisse başı özkaynak = 80.000.000 / 10.000.000 = 8 TL → 1,5 × 8 = **12,00 TL**
+
+    - FD/FAVÖK: firma değeri = 2 × 100.000.000 = 200.000.000 TL; özkaynak değeri = firma değeri − net borç = 200.000.000 −
+    100.000.000 = 100.000.000 TL; pay başına **10,00 TL**
+
+    - Basit ortalama = (15 + 12 + 10) / 3 = **12,33 TL**
+
+
+    FD/FAVÖK çarpanı borç ve özkaynak sahiplerinin toplam değerini verdiği için net borç düşülmeden pay değerine geçilemez.
+
+
+    **(d) İma edilen büyüme oranı**
+
+
+    14 = 2 × (1 + g) / (0,30 − g) → 4,2 − 14g = 2 + 2g → 16g = 2,2 → **g = %13,75**
+
+
+    Yorum: Piyasa, (a)''daki %10 sabit büyüme varsayımından daha yüksek bir sürekli büyüme fiyatlamaktadır. Fiyat ayrıca (b)''deki
+    iki aşamalı değerin (13,94 TL) de üzerindedir; yatırımcı bu fiyattan aldığında ancak %13,75''lik süresiz büyüme gerçekleşirse
+    %30 getiri elde eder. Büyüme beklentisi gerçekçi değilse pay aşırı değerlenmiştir.
+
+    '
+  puanlama:
+  - olcut: (a) CAPM ile ke = %30
+    puan: 2
+  - olcut: (a) D1 = 2,20 ve Gordon ile 11,00 TL
+    puan: 4
+  - olcut: (b) D1, D2, D3 kâr payları
+    puan: 2
+  - olcut: (b) Uç değer 17,1875 TL
+    puan: 2
+  - olcut: (b) İskonto ve P0 = 13,94 TL
+    puan: 3
+  - olcut: (c) F/K ile 15 TL ve PD/DD ile 12 TL
+    puan: 3
+  - olcut: (c) FD/FAVÖK'te net borcun düşülmesi ve 10 TL
+    puan: 4
+  - olcut: (c) Ortalama 12,33 TL
+    puan: 1
+  - olcut: (d) İma edilen g = %13,75
+    puan: 3
+  - olcut: (d) Yorum
+    puan: 1
+  kaynaklar:
+  - mevzuat: Genel bilgi — Hisse senedi değerlemesi, Gordon modeli ve göreli değerleme
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+  dogrulama:
+    python: "ke = 0.24 + 1.2 * 0.05\np_gordon = 2 * 1.10 / (ke - 0.10)\nd1 = 2 * 1.25; d2 = d1 * 1.25; d3 = d2 * 1.10\np2\
+      \ = d3 / (ke - 0.10)\np0 = d1 / 1.3 + (d2 + p2) / 1.3 ** 2\nfk = 3 * 5\npddd = 1.5 * 80000000 / 10000000\nfd = (2 *\
+      \ 100000000 - 100000000) / 10000000\ng = (14 * ke - 2) / (14 + 2)\nsonuc = {\"ke\": round(ke, 4), \"p_gordon\": round(p_gordon,\
+      \ 2), \"p2\": p2, \"p0\": round(p0, 2),\n         \"fk\": fk, \"pddd\": pddd, \"fd_favok\": fd, \"ortalama\": round((fk\
+      \ + pddd + fd) / 3, 2), \"g\": round(g, 4)}\n"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi K_FYN
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_K_FYN.yaml, klasik 13
