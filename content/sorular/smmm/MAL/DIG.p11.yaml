@@ -64,7 +64,8 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G4:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       G7:
         sonuc: gecti
         not: yalnız banka içi; külliyat verilmedi
@@ -72,9 +73,13 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: tek tek okundu, hesaplar doğrulandı'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: alıntılar mevzuat metninde doğrulandı; yöntem sorularında formül kökte/açıklamada
       GZ:
         sonuc: bekliyor
   gecmis:
@@ -142,6 +147,7 @@
       anormal = (20000 - 18600) - normal
 
       sonuc = anormal * 600000 / 20000'
+    secenek_sayisi_bekleniyor: false
   durum: taslak
   surum: 1
   uretim:
@@ -153,7 +159,9 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G4:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: şıklar sayı + nitelik içeriyor; sonuç hakemce doğrulandı
       G7:
         sonuc: gecti
         not: yalnız banka içi; külliyat verilmedi
@@ -161,9 +169,12 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: tek tek okundu, hesaplar doğrulandı'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       GZ:
         sonuc: bekliyor
   gecmis:
@@ -231,7 +242,8 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G4:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
       G7:
         sonuc: gecti
         not: yalnız banka içi; külliyat verilmedi
@@ -239,12 +251,330 @@
       G3:
         sonuc: bekliyor
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: tek tek okundu, hesaplar doğrulandı'
       G6:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: alıntılar mevzuat metninde doğrulandı; yöntem sorularında formül kökte/açıklamada
       GZ:
         sonuc: bekliyor
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_M2b.yaml, satır 20
+- id: SMMM-MAL-DIG-0017
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: değişken, tam ve normal maliyet
+  tip: hesap
+  zorluk: 3
+  kok: KDV dikkate alınmayacaktır. Dönem başı stoku bulunmayan TR İşletmesi dönemde 10.000 birim üretmiş, 8.000
+    birim satmıştır. Birim değişken üretim maliyeti 30 ₺, dönemin sabit genel üretim giderleri 200.000 ₺, sabit
+    pazarlama ve yönetim giderleri 90.000 ₺'dır. Üretim normal kapasitede gerçekleşmiştir. Tam maliyet yöntemiyle
+    hesaplanan dönem kârı ile değişken maliyet yöntemiyle hesaplanan dönem kârı arasındaki fark ve yönü aşağıdakilerden
+    hangisidir?
+  secenekler:
+    A: Fark yoktur; iki yöntemde kâr aynıdır.
+    B: Tam maliyette kâr 40.000 ₺ daha düşüktür.
+    C: Tam maliyette kâr 40.000 ₺ daha yüksektir.
+    D: Tam maliyette kâr 58.000 ₺ daha yüksektir.
+    E: Tam maliyette kâr 160.000 ₺ daha yüksektir.
+  dogru: C
+  aciklama:
+    dogru_neden: 'Tam maliyette sabit GÜG birimlere yüklenir: 200.000 / 10.000 = 20 ₺. Satılmayan 2.000 birimin
+      stokta taşıdığı sabit GÜG 2.000 × 20 = 40.000 ₺''dir; bu tutar değişken maliyette dönem gideri yazılır. Üretim
+      satıştan fazla olduğundan tam maliyet kârı 40.000 ₺ daha yüksektir. Püf noktaları: Fark yalnız stoktaki sabit
+      GÜG''den doğar; sabit pazarlama ve yönetim giderleri iki yöntemde de dönem gideridir.'
+    celdiriciler:
+      A: Üretim ve satış miktarı farklı olduğunda kârlar ayrışır.
+      B: Üretim satıştan fazla olduğunda tam maliyet kârı daha yüksektir; yön terstir.
+      D: Sabit pazarlama ve yönetim giderleri de stoka yüklenmiş gibi hesaplanmıştır (2.000 × 29).
+      E: Satılan birimlerin sabit GÜG'ü (8.000 × 20) fark sanılmıştır.
+    hesap_adimlari:
+    - Birim sabit GÜG = 200.000 / 10.000 = 20 ₺
+    - Stoktaki sabit GÜG = 2.000 × 20 = 40.000 ₺
+    - Tam maliyet kârı 40.000 ₺ yüksek
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: ''
+  - mevzuat: Hakemli konu anlatımı — MAL/DIG
+    madde: §2 Tam ve değişken maliyetle kâr hesabı
+    alinti: ''
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (10000 - 8000) * 200000 / 10000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M3-DIG
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: tek tek okundu, hesaplar doğrulandı'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: alıntılar mevzuat metninde doğrulandı; yöntem sorularında formül kökte/açıklamada
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M3_DIG.yaml, satır 1
+- id: SMMM-MAL-DIG-0018
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: maliyet-hacim-kâr
+  tip: hesap
+  zorluk: 2
+  kok: KDV dikkate alınmayacaktır. Tek ürün satan BS İşletmesi'nin birim satış fiyatı 50 ₺, birim değişken gideri
+    30 ₺, dönemlik sabit giderleri 120.000 ₺'dır. İşletme dönemde 8.000 birim satmayı beklemektedir. Güvenlik payı
+    oranı, beklenen satışın başabaş satışını aşan kısmının beklenen satışa oranıdır. Buna göre başabaş noktası (birim)
+    ve güvenlik payı oranı aşağıdakilerden hangisidir?
+  secenekler:
+    A: 4.000 birim; %50
+    B: 6.000 birim; %20
+    C: 2.400 birim; %70
+    D: 6.000 birim; %33
+    E: 6.000 birim; %25
+  dogru: E
+  aciklama:
+    dogru_neden: Birim katkı payı 50 − 30 = 20 ₺; başabaş noktası 120.000 / 20 = 6.000 birimdir. Güvenlik payı (8.000
+      − 6.000) / 8.000 = %25'tir.
+    celdiriciler:
+      A: Başabaş satış fiyatına (120.000 / 30) bölünerek bulunmuştur.
+      B: Güvenlik payı yanlış bazla hesaplanmıştır.
+      C: Sabit gider satış fiyatına bölünmüştür.
+      D: Güvenlik payı beklenen satış yerine başabaş satışına bölünmüştür (2.000 / 6.000).
+    hesap_adimlari:
+    - Katkı payı = 20 ₺
+    - BEP = 120.000 / 20 = 6.000
+    - Güvenlik payı = 2.000 / 8.000 = %25
+  kaynaklar:
+  - mevzuat: Hakemli konu anlatımı — MAL/DIG
+    madde: §4 Maliyet-hacim-kâr analizi
+    alinti: ''
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 120000 / (50 - 30)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M3-DIG
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: tek tek okundu, hesaplar doğrulandı'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: alıntılar mevzuat metninde doğrulandı; yöntem sorularında formül kökte/açıklamada
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M3_DIG.yaml, satır 2
+- id: SMMM-MAL-DIG-0019
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: maliyet-hacim-kâr
+  tip: hesap
+  zorluk: 2
+  kok: KDV dikkate alınmayacaktır. FK İşletmesi dönemde 8.000 birim satmıştır; birim katkı payı 20 ₺, dönemlik sabit
+    giderleri 120.000 ₺'dır. Faaliyet kaldıracı derecesi, toplam katkı payının faaliyet kârına oranıdır. Buna göre
+    işletmenin faaliyet kaldıracı derecesi kaçtır?
+  secenekler:
+    A: 1,33
+    B: 2,00
+    C: 3,00
+    D: 4,00
+    E: 5,00
+  dogru: D
+  aciklama:
+    dogru_neden: Toplam katkı payı 8.000 × 20 = 160.000 ₺; faaliyet kârı 160.000 − 120.000 = 40.000 ₺. Faaliyet
+      kaldıracı derecesi 160.000 / 40.000 = 4'tür; satışlardaki %1'lik değişim faaliyet kârını %4 değiştirir.
+    celdiriciler:
+      A: Katkı payı sabit gidere bölünmüştür (160.000 / 120.000).
+      B: Hesap hatasıdır.
+      C: Sabit gider faaliyet kârına bölünmüştür (120.000 / 40.000).
+      E: Katkı payına sabit gider eklenmiştir.
+    hesap_adimlari:
+    - Katkı payı = 160.000 ₺
+    - Faaliyet kârı = 40.000 ₺
+    - FKD = 160.000 / 40.000 = 4
+  kaynaklar:
+  - mevzuat: Hakemli konu anlatımı — MAL/DIG
+    madde: §4 Maliyet-hacim-kâr analizi
+    alinti: ''
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (8000 * 20) / (8000 * 20 - 120000)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M3-DIG
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: tek tek okundu, hesaplar doğrulandı'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: alıntılar mevzuat metninde doğrulandı; yöntem sorularında formül kökte/açıklamada
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M3_DIG.yaml, satır 3
+- id: SMMM-MAL-DIG-0020
+  sinav: smmm
+  bolum:
+  - YET
+  - SGS
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: maliyet-hacim-kâr
+  tip: hesap
+  zorluk: 3
+  kok: KDV dikkate alınmayacaktır. KR İşletmesi A ve B ürünlerini, satış miktarları bakımından sabit 2:1 oranında
+    (her 2 birim A'ya 1 birim B) satmaktadır. A'nın birim satış fiyatı 40 ₺ ve birim değişken gideri 25 ₺; B'nin
+    birim satış fiyatı 60 ₺ ve birim değişken gideri 30 ₺'dır. Dönemlik ortak sabit giderler 360.000 ₺'dır. Buna
+    göre başabaş noktasında satılması gereken A ürünü miktarı kaç birimdir?
+  secenekler:
+    A: '6.000'
+    B: '8.000'
+    C: '12.000'
+    D: '16.000'
+    E: '18.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Ağırlıklı ortalama birim katkı payı (2 × 15 + 1 × 30) / 3 = 20 ₺''dir. Toplam başabaş miktarı
+      360.000 / 20 = 18.000 birim; bunun 2/3''ü A''dır: 12.000 birim (B 6.000 birim). Püf noktaları: Katkı payları
+      satış karması oranında ağırlıklandırılır; karma 2:1 olduğundan basit ortalama (22,5 ₺) kullanılamaz.'
+    celdiriciler:
+      A: B ürününün başabaş miktarıdır.
+      B: Katkı payının basit ortalaması (22,5 ₺) alınıp toplamın yarısı A'ya verilmiştir.
+      D: Toplam 16.000 birim (basit ortalama katkı payıyla) A sanılmıştır.
+      E: Toplam başabaş miktarıdır, A'nın payı ayrılmamıştır.
+    hesap_adimlari:
+    - Ağırlıklı KP = (2×15 + 1×30)/3 = 20 ₺
+    - Toplam BEP = 360.000 / 20 = 18.000
+    - A = 18.000 × 2/3 = 12.000
+  kaynaklar:
+  - mevzuat: Hakemli konu anlatımı — MAL/DIG
+    madde: §4 Maliyet-hacim-kâr analizi
+    alinti: ''
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 360000 / ((2*15 + 1*30) / 3) * 2 / 3
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: ic-hat'
+    istem_surumu: uretici paketi M3-DIG
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G4:
+        sonuc: gecti
+        tarih: '2026-10-19'
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-10-19'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: 'baş hakem: tek tek okundu, hesaplar doğrulandı'
+      G6:
+        sonuc: gecti
+        tarih: '2026-10-19'
+        not: alıntılar mevzuat metninde doğrulandı; yöntem sorularında formül kökte/açıklamada
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-10-19'
+    kim: uretici
+    ne: harici teslim t_M3_DIG.yaml, satır 4
