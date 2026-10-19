@@ -586,23 +586,24 @@
   kazanim: teminat ve tecil
   tip: hesaplama
   zorluk: 2
-  kok: Zor durumdaki bir borçlu, aynı tahsil dairesine olan 1.600.000 TL amme borcunun tecilini istemektedir. 6183 md. 48'deki
-    kanuni tutar (1.000.000 TL) geçerliyse gösterilmesi gereken asgari teminat kaç TL'dir?
+  kok: Zor durumdaki bir borçlu, Temmuz 2026'da aynı tahsil dairesine olan 16.000.000 TL amme borcunun tecilini istemektedir.
+    6183 md. 48 ve 11414 sayılı Cumhurbaşkanı Kararı dikkate alındığında gösterilmesi gereken asgari teminat kaç TL'dir?
   secenekler:
     A: '0'
-    B: '300.000'
-    C: '600.000'
-    D: '800.000'
-    E: 1.600.000
+    B: 3.000.000
+    C: 6.000.000
+    D: 8.000.000
+    E: 16.000.000
   dogru: B
   aciklama:
-    dogru_neden: 'Tecil edilen borçlar toplamı 1.000.000 TL''yi aşmıyorsa teminat aranmaz; aşan kısımda gösterilecek teminat
-      aşan tutarın yarısıdır: (1.600.000 − 1.000.000) / 2 = 300.000 TL.'
+    dogru_neden: '11414 sayılı CBK ile 13/6/2026''dan itibaren tecil edilen borçlar toplamı 10.000.000 TL''yi aşmıyorsa teminat
+      aranmaz; aşan kısımda gösterilecek teminat aşan tutarın yarısıdır: (16.000.000 − 10.000.000) / 2 = 3.000.000 TL. Püf
+      noktaları: kanundaki 1.000.000 TL''lik tutar CBK ile on katına çıkarılmıştır.'
     celdiriciler:
-      A: Borç 1.000.000 TL'yi aştığından teminat gerekir.
-      C: Aşan tutarın tamamı teminat sayılmıştır; kanun yarısını arar.
-      D: Borcun yarısı alınmıştır; hesap yalnız aşan kısım üzerinden yapılır.
-      E: Borcun tamamı teminata bağlanmıştır.
+      A: Borç 10.000.000 TL'yi aştığından teminat gerekir.
+      C: Aşan tutarın tamamı alınmıştır; teminat yarısıdır.
+      D: Borcun yarısı alınmıştır; sınır düşülmemiştir.
+      E: Borcun tamamı teminat sanılmıştır.
     hesap_adimlari:
     - 'Aşan kısım: 1.600.000 − 1.000.000 = 600.000'
     - 'Teminat: 600.000 / 2 = 300.000'
@@ -611,13 +612,13 @@
     madde: md. 48
     alinti: amme alacağı 72 ayı geçmemek üzere ve faiz alınarak tecil olunabilir.
   gecerlilik:
-    baslangic: '2008-06-26'
+    baslangic: '2026-06-13'
     bitis: null
-    yila_bagli_tutar: false
+    yila_bagli_tutar: true
   dogrulama:
-    python: sonuc=(1600000-1000000)/2
+    python: sonuc=(16000000-10000000)/2
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: ic-hat'
@@ -650,6 +651,10 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-19'
+    kim: hakem
+    ne: '2026 tutarına göre yeniden ölçeklendi (anahtar aynı: B)'
+    neden: '11414 sayılı CBK: 10.000.000 TL'
 - id: YMM-VTK-THS-0010
   sinav: ymm
   bolum:

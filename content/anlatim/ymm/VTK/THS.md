@@ -67,7 +67,7 @@ Vergi dairesi müdürünün yazılı talebiyle defterdar veya vergi dairesi baş
 
 ### Tecil (md. 48)
 
-Borcun vadesinde ödenmesi veya haczin uygulanması borçluyu **çok zor duruma** düşürecekse; borçlunun yazılı talebi ve teminat göstermesi şartıyla alacak **72 ayı geçmemek üzere ve faiz alınarak** tecil edilebilir. Tahsil daireleri itibarıyla tecil edilen borç toplamı **1.000.000 TL'yi** (dahil) aşmıyorsa teminat aranmaz; aşan kısımda gösterilecek teminat, **aşan tutarın yarısıdır**. Cumhurbaşkanı bu tutarı on katına kadar artırabilir veya yarısına kadar indirebilir.
+Borcun vadesinde ödenmesi veya haczin uygulanması borçluyu **çok zor duruma** düşürecekse; borçlunun yazılı talebi ve teminat göstermesi şartıyla alacak **72 ayı geçmemek üzere ve faiz alınarak** tecil edilebilir. Tahsil daireleri itibarıyla tecil edilen borç toplamı kanuni tutarı (**1.000.000 TL**, dahil) aşmıyorsa teminat aranmaz; aşan kısımda gösterilecek teminat, **aşan tutarın yarısıdır**. Cumhurbaşkanı bu tutarı on katına kadar artırabilir veya yarısına kadar indirebilir; 11414 sayılı Cumhurbaşkanı Kararı ile 13/6/2026'dan itibaren tutar **10.000.000 TL** olarak uygulanır.
 
 ### Ret ve mahsup (md. 23)
 
@@ -118,7 +118,7 @@ Amme alacağı, vadesinin rastladığı takvim yılını izleyen yıl başından
 ## Özet
 
 - İhtiyati haciz yedi sebepten biriyle ve süreye bağlı olmaksızın derhal uygulanır; ihtiyati tahakkuk eden vergi vadesinden önce tahsil edilmez, yalnız ihtiyati haciz uygulanır.
-- Tecil zorluk hâlinde, yazılı talep ve teminatla, 72 ayı geçmemek üzere faizli yapılır; 1.000.000 TL'ye kadar teminat aranmaz.
+- Tecil zorluk hâlinde, yazılı talep ve teminatla, 72 ayı geçmemek üzere faizli yapılır; 13/6/2026'dan itibaren 10.000.000 TL'ye kadar (11414 sayılı CBK; kanuni tutar 1.000.000 TL) teminat aranmaz.
 - Gecikme zammı 2026'da aylık %3,7'dir, ay kesri günlük hesaplanır, vergi ziyaı cezasına da uygulanır.
 - Ödeme emrinde ödeme, mal bildirimi ve itiraz için süre 15 gündür; itiraz vergi itiraz komisyonuna yapılır ve 7 günde kesin karara bağlanır.
 - İstihkak iddiasında idarenin red, üçüncü kişinin itiraz ve dava açma süreleri 7'şer gündür.
