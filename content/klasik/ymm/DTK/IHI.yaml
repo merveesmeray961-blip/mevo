@@ -282,7 +282,7 @@
       cif = 106_500\nkiymet_tl = cif * 46\nsonuc = {\"exw\": exw, \"fob\": fob, \"cif\": cif, \"kiymet_tl\": kiymet_tl, \"\
       kdv\": kiymet_tl * 20 // 100,\n         \"son_gun_210\": str(date(2026, 3, 5) + td(days=210) + td(days=90)),\n     \
       \    \"son_gun_150\": str(date(2026, 3, 5) + td(days=180))}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -293,8 +293,14 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 24
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü

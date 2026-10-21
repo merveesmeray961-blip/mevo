@@ -359,7 +359,7 @@
       ilave = 480000+300000+60000+150000+20000+120000\ntk = 3000000+ilave\na = tk*0.60; b = tk*0.40\ngmsi = 360000*0.85\n\
       sonuc = {\"ilave\": ilave, \"ticari_kazanc\": tk, \"ahmet_pay\": a, \"ahmet_vergi\": gv(a),\n         \"burak_pay\"\
       : b, \"burak_gelir\": b+gmsi, \"burak_vergi\": gv(b+gmsi),\n         \"burak_odenecek\": gv(b+gmsi)-360000*0.20}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -370,11 +370,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_GUV.yaml, klasik 1
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-GUV-GVM-K003
   sinav: ymm
   ders: GUV
@@ -476,7 +482,7 @@
       kesilen = 682500 + 102900 + 50500\nsonuc = {\"A_ucret\": a, \"diger_isverenler\": diger, \"toplam_ucret\": toplam,\n\
       \         \"hesaplanan\": gvu(toplam), \"kesilen\": kesilen, \"odenecek\": gvu(toplam)-kesilen,\n         \"taksit\"\
       : (gvu(toplam)-kesilen)/2}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -487,11 +493,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_GUV.yaml, klasik 2
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-GUV-GVM-K004
   sinav: ymm
   ders: GUV
@@ -673,7 +685,7 @@
       \ + 30000 + 40000\nsmk = hasilat - gider\nvergi = gv(smk)\nstopaj = brut*0.20\nkalan = vergi - stopaj\nsonuc = {\"brut\"\
       : brut, \"hasilat\": hasilat, \"gider\": gider, \"smk\": smk, \"vergi\": vergi,\n         \"stopaj\": stopaj, \"iade_mahsup_gecici\"\
       : 150000 - kalan}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -684,11 +696,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_GUV.yaml, klasik 3
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-GUV-GVM-K005
   sinav: ymm
   ders: GUV
@@ -866,7 +884,7 @@
       dukkan = emsal - 6000\ntest_yari = has_a + emsal + 600000 + 400000\ngelir = konut + dukkan + 1200000/2 + 800000/2\n\
       sonuc = {\"konut_hasilat\": has_a, \"konut_gider\": gider_a, \"konut_safi\": konut, \"dukkan_safi\": dukkan,\n     \
       \    \"md21_test_min\": test_yari, \"gelir\": gelir, \"vergi\": gv(gelir), \"odenecek\": gv(gelir)-1200000*0.15}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -877,11 +895,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_GUV.yaml, klasik 4
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-GUV-GVM-K006
   sinav: ymm
   ders: GUV
@@ -988,7 +1012,7 @@
       daire = 4000000 - 750000*1.90 - 80000 - 60000\nq = 60000*42.00 - 50000*35.00\ndak = (daire - 150000) + q\narizi = (300000\
       \ + 150000 - 350000) + 200000\ngelir = dak + arizi\nsonuc = {\"daire\": daire, \"q_hisse\": q, \"dak\": dak, \"arizi\"\
       : arizi, \"gelir\": gelir, \"vergi\": gv(gelir)}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -999,11 +1023,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 4, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_GUV.yaml, klasik 5
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-GUV-GVM-K007
   sinav: ymm
   ders: GUV
@@ -1205,7 +1235,7 @@
       zirai = hasilat - gider\nticari = 600000 - 250000\ngelir = zirai + ticari\nsonuc = {\"hasilat\": hasilat, \"gider\"\
       : gider, \"zirai\": zirai, \"ticari\": ticari, \"gelir\": gelir,\n         \"vergi\": gv(gelir), \"odenecek\": gv(gelir)\
       \ - 3000000*0.04 - 40000}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1216,11 +1246,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_GUV.yaml, klasik 6
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-GUV-GVM-K008
   sinav: ymm
   ders: GUV
@@ -1391,7 +1427,7 @@
       arsa = 2800000 - 1000000*1.80 - 42000\narsa_matrah = arsa - 150000\nerol = 900000*0.85\nsonuc = {\"arsa_kazanc\": arsa,\
       \ \"arsa_matrah\": arsa_matrah, \"arsa_vergi\": gv(arsa_matrah),\n         \"erol_safi\": erol, \"erol_vergi\": gv(erol),\
       \ \"erol_odenecek\": gv(erol) - min(135000, gv(erol))}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1402,8 +1438,14 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_GUV.yaml, klasik 7
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü

@@ -364,7 +364,7 @@
       telif = 50000*0.17\nsonuc = {\"avukat_brut\": 80000/0.80, \"avukat\": avukat, \"kira\": kira, \"kar_payi\": kar_payi,\n\
       \         \"insaat\": insaat, \"telif\": telif, \"toplam\": avukat + kira + kar_payi + insaat + telif,\n         \"\
       kar_payi_net_odeme\": 3500000 - kar_payi}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -375,11 +375,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_GUV.yaml, klasik 17
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-GUV-GVI-K003
   sinav: ymm
   ders: GUV
@@ -544,7 +550,7 @@
       \ gelir*0.10) + min(200000, gelir*0.05)\nmatrah = gelir - indirim\nvergi = gv(matrah)\nodenecek = vergi - 200000 - sum(odenen)\n\
       sonuc = {\"gecici\": odenen, \"gecici_toplam\": sum(odenen), \"indirim\": indirim, \"matrah\": matrah,\n         \"\
       vergi\": vergi, \"odenecek\": odenecek, \"taksit\": odenecek/2}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -555,11 +561,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_GUV.yaml, klasik 18
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-GUV-GVI-K004
   sinav: ymm
   ders: GUV
@@ -720,7 +732,7 @@
       sonuc = {\"z_banka_tevkifat\": 1700000*0.04, \"z_safi\": z_safi, \"z_vergi\": gv(z_safi),\n         \"o_gelir\": o_gelir,\
       \ \"o_matrah\": o_matrah, \"o_vergi\": gv(o_matrah), \"o_odenecek\": gv(o_matrah) - 100000,\n         \"a_telif_tevkifat\"\
       : 900000*0.17, \"a_gelir\": a_gelir, \"a_vergi\": gv(a_gelir)}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -731,8 +743,14 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_GUV.yaml, klasik 19
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü

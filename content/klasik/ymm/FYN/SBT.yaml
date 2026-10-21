@@ -309,7 +309,7 @@
       yil = 400000 * (1 - t) + (300000 - 100000) * t\nson = 150000 * (1 - t) + 50000\nbd = yil * an + son * f[3]\nnbd = bd\
       \ + bas\nS_esik = (1200000 + 50000 - 400000 * t - bd) / (1 - t)\nsonuc = {\"baslangic\": bas, \"yillik\": yil, \"son_yil\"\
       : son, \"bd\": round(bd, 2), \"nbd\": round(nbd, 2),\n         \"S_esik\": round(S_esik, 2)}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -320,11 +320,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_FYN.yaml, klasik 20
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-SBT-K003
   sinav: ymm
   ders: FYN
@@ -502,7 +508,7 @@
       \ / 1.6e6, 4), \"ivoA\": round(ivoA, 2), \"ivoB\": round(ivoB, 2),\n         \"mirrA\": round((fvA / 1e6) ** (1 / 3)\
       \ - 1, 4), \"mirrB\": round((fvB / 1.6e6) ** (1 / 6) - 1, 4),\n         \"yeA\": round(nA / an(0.20, 3), 2), \"yeB\"\
       : round(nB / an(0.20, 6), 2),\n         \"zincirA\": round(nA * (1 + 1.2 ** -3), 2)}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -513,8 +519,14 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_FYN.yaml, klasik 21
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü

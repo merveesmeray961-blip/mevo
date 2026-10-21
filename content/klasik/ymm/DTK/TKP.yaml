@@ -243,7 +243,7 @@
   dogrulama:
     python: "from datetime import date\nsonuc = {\"C_iki_kat\": 9000 * 2, \"E_sure_icinde\": date(2026, 4, 10) <= date(2026,\
       \ 6, 20),\n         \"G_sure_icinde\": date(2026, 5, 20) <= date(2025, 3, 15), \"E_kdv_odeme_teminat\": 300000}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -254,11 +254,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 19
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-TKP-K003
   sinav: ymm
   ders: DTK
@@ -360,7 +366,7 @@
       \ {\"destek_orani\": 32 / 50 * 100, \"toplam_uretim_orani\": 32,\n         \"X_marj_orani\": round(3 / 9 * 100, 2),\
       \ \"Y_marj_orani\": round(0.15 / 9.85 * 100, 2),\n         \"WVU_toplam\": 2 + 2.5 + 1.5, \"kdv\": kdv, \"indirilemeyen\"\
       : adv * 20 / 100,\n         \"indirilebilir\": kdv - adv * 20 / 100}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -371,11 +377,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 4, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 20
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-TKP-K004
   sinav: ymm
   ders: DTK
@@ -521,7 +533,7 @@
       \         \"yuzde1_eur\": 50_000 * 1 // 100, \"yuzde3_eur\": 50_000 * 3 // 100, \"yuzde10_eur\": 50_000 * 10 // 100,\n\
       \         \"akaryakit_asgari\": 30_000 * 18, \"gv\": gv, \"kdv\": kdv, \"indirilemez\": indirilemez,\n         \"indirilebilir\"\
       : kdv - indirilemez}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -532,8 +544,14 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 21
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü

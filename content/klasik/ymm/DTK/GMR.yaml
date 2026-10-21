@@ -747,7 +747,7 @@
       \ 3, 2) + timedelta(days=30)\nitiraz_son = date(2026, 4, 20) + timedelta(days=15)\nsonuc = {\"parti1_gv\": p1, \"parti2_gv\"\
       : p2, \"toplam_gv\": p1 + p2, \"usulsuzluk\": 1494 * 2,\n         \"btb_kullanim_son\": \"2026-07-15\", \"karar_son\"\
       : str(karar_son), \"itiraz_son\": str(itiraz_son)}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -758,11 +758,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 1
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-GMR-K007
   sinav: ymm
   ders: DTK
@@ -914,7 +920,7 @@
       \ - fiyat * 0.20 - 60) / 1.10, 2)\nkiymet = birim * 1000\ngv = kiymet * 0.10\nbeyan_gv = 2_250_000 * 0.10\nfark = gv\
       \ - beyan_gv\nsonuc = {\"birim_kiymet\": birim, \"toplam_kiymet\": kiymet, \"gv\": gv, \"gv_farki\": fark,\n       \
       \  \"ceza_234\": fark * 3, \"usulsuzluk_241_3b\": 1494 * 2}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -925,11 +931,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 2
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-GMR-K008
   sinav: ymm
   ders: DTK
@@ -1048,7 +1060,7 @@
     python: "a_gv = 1_200_000 * 8 // 100\na_igv = 1_200_000 * 30 // 100\nb_gv = 800_000 * 8 // 100\nb_igv = 800_000 * 30 //\
       \ 100\nsonuc = {\"A_gv\": a_gv, \"A_igv_teminat\": a_igv, \"B_toplam\": b_gv + b_igv,\n         \"sure_son\": \"2026-09-16\"\
       , \"uzatilmis_son\": \"2026-10-16\"}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1059,11 +1071,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 3
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-GMR-K009
   sinav: ymm
   ders: DTK
@@ -1157,7 +1175,7 @@
     python: "olay1 = 20 * 10_000 * 20 // 100\nodenen = 975 * 10_000 * 25 // 100\nnoksan = 975 * 400 * 25 // 100\nceza = noksan\
       \ * 3\nfaiz = round(noksan * 0.037 * 8, 2)\nsonuc = {\"olay1_gv\": olay1, \"odenen_gv\": odenen, \"noksan_gv\": noksan,\
       \ \"ceza\": ceza, \"faiz\": faiz,\n         \"kesinlesme\": \"2026-10-20\"}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1168,11 +1186,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 4
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-GMR-K010
   sinav: ymm
   ders: DTK
@@ -1259,7 +1283,7 @@
     python: "from datetime import date\ngeri = 1_000_000 * (12 - 6) // 100\ngun = (date(2026, 8, 15) - date(2026, 3, 2)).days\n\
       faiz = round(geri * 0.24 * gun / 365, 2)\nsonuc = {\"geri_verme\": geri, \"gun\": gun, \"faiz\": faiz, \"kusurlu_geri\"\
       : 80000, \"iptal_geri\": 45000,\n         \"hatali_odeme_son\": \"2026-10-16\"}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1270,11 +1294,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 5
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-GMR-K011
   sinav: ymm
   ders: DTK
@@ -1395,7 +1425,7 @@
     python: "from datetime import date, timedelta\ntebl = date(2026, 9, 15)\nb1_son = date(2026, 8, 12)\nb2_son = date(2026,\
       \ 11, 5)\nsonuc = {\"B1_zamanasimi\": tebl > b1_son, \"B2_suresinde\": tebl <= b2_son, \"B2_ceza\": 50000 * 3,\n   \
       \      \"kesinlesme\": str(tebl + timedelta(days=15)), \"B3_suresinde\": tebl <= date(2030, 6, 20)}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1406,11 +1436,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 6
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-GMR-K012
   sinav: ymm
   ders: DTK
@@ -1503,7 +1539,7 @@
     python: "k1 = 10_400 * 200 * 8 // 100\nk2 = 4_800 * 150 * 5 // 100\nk3 = 21_000 * 2 // 100\nfark1 = k1 - 10_000 * 200\
       \ * 8 // 100\nsonuc = {\"kalem1\": k1, \"kalem2\": k2, \"kalem3\": k3, \"toplam\": k1 + k2 + k3,\n         \"miktar_farki_yuzde\"\
       : 400 / 10_000 * 100, \"ceza_234_1c\": fark1 / 2, \"ceza_241_6d\": 1494 * 8}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1514,11 +1550,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 7
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-GMR-K013
   sinav: ymm
   ders: DTK
@@ -1616,7 +1658,7 @@
       sonuc = {"gumruklenmis_deger": gd, "ceza_235_1a": ceza, "ceza_bildirimli": ceza * 10 // 100, "ceza_241_4a": 1494 * 4}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1627,11 +1669,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 8
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-GMR-K014
   sinav: ymm
   ders: DTK
@@ -1728,7 +1776,7 @@
       \ + timedelta(days=10)\nwhile son.weekday() >= 5:\n    son += timedelta(days=1)\nsonuc = {\"usd\": usd, \"kiymet\":\
       \ kiymet, \"gv\": gv, \"kdv_matrahi\": matrah, \"kdv\": kdv,\n         \"ikinci_tezgah_son\": str(son), \"ucuncu_islem_son\"\
       : \"2026-03-02\"}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1739,8 +1787,14 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 9
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü

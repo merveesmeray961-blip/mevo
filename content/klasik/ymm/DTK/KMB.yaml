@@ -157,7 +157,7 @@
       \ + td(days=365)),\n    \"gecici_son\": str(date(2026, 6, 16) + td(days=90)),\n    \"ceza_yuzde5\": 200_000 * 42 * 5\
       \ // 100,\n    \"ust_sinir_yuzde2_5\": 200_000 * 42 * 25 // 1000,\n    \"T2_oran\": round(35_000 / 400_000 * 100, 2),\n\
       \    \"T3_oran\": round(140_000 / 1_500_000 * 100, 2),\n}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -168,11 +168,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 14
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-KMB-K002
   sinav: ymm
   ders: DTK
@@ -265,7 +271,7 @@
   gecerlilik:
     baslangic: '2025-07-20'
     bitis: null
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -276,11 +282,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 15
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-KMB-K003
   sinav: ymm
   ders: DTK
@@ -348,7 +360,7 @@
   gecerlilik:
     baslangic: '2025-03-06'
     bitis: null
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -359,11 +371,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 16
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-KMB-K004
   sinav: ymm
   ders: DTK
@@ -454,7 +472,7 @@
   dogrulama:
     python: "gelir = 1.8 + 2.2 + 2.0\nazami = round(gelir - 4.5, 2)\nsonuc = {\"son_uc_yil_gelir_milyon_usd\": round(gelir,\
       \ 2), \"azami_kredi_milyon_usd\": azami,\n         \"bakiye16_kullanilabilir_milyon_usd\": 3.0}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -465,11 +483,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 17
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-KMB-K005
   sinav: ymm
   ders: DTK
@@ -487,18 +511,18 @@
     \ satın aldığı ve faturasıyla tevsik ettiği 18.000 USD değerindeki ziynet eşyasını çıkarmak istemektedir.\n   Bay (D)\
     \ ise girişte beyan etmediği ve Türkiye'de satın alındığını tevsik edemediği 16.000 USD değerindeki ziynet eşyasını\n\
     \   çıkarmak istemektedir.\n3. **(E) Kuyum A.Ş.** (kıymetli madenler aracı kuruluşu değildir) yurt dışından 10 kg standart\
-    \ işlenmemiş altını **akreditifli\n   ödeme** şekliyle ithal etmek istemektedir. Şirket, dahilde işleme izni alması hâlinde\
-    \ durumun değişip değişmeyeceğini de\n   sormaktadır.\n4. **(F) Kıymetli Madenler Aracı Kuruluşu A.Ş.**, 14.04.2026 (Salı)\
-    \ tarihinde gümrük beyannamesiyle (dahilde işleme kapsamı\n   dışında) standart işlenmemiş altın ithal etmiştir.\n5. (F),\
-    \ kuyum işletmesi olmayan ve vergi levhasında kıymetli maden ticareti yazmayan yerleşik gerçek kişi (G)'ye standart dışı\n\
-    \   işlenmemiş altın satmak istemektedir. Gerçek kişi (H), bir yetkili müesseseden Darphane üretimi çeyrek altın almak;\n\
-    \   gerçek kişi (I) ise bir kuyumcudan pırlanta taşlı altın yüzük almak istemektedir.\n6. Yerleşik yatırımcı (J), New\
-    \ York borsasında işlem gören hisse senetlerini Sermaye Piyasası Kurulunca yetkilendirilmiş bir aracı\n   kurum vasıtasıyla\
-    \ satın almak ve alış bedelini yurt dışına transfer etmek istemektedir.\n\n**İstenenler:**\n\n(a) 1 ve 2 numaralı olayları\
-    \ değerlendiriniz; 1 numaralı olayda gümrük idaresince yapılacak işlemleri açıklayınız. (9 puan)\n\n(b) 3 ve 4 numaralı\
-    \ olayları değerlendiriniz; 4 numaralı olayda yükümlülüğün yerine getirilmesi gereken son günü belirleyiniz ve\nithalat\
-    \ dahilde işleme kapsamında yapılsaydı ne değişeceğini açıklayınız. (9 puan)\n\n(c) 5 ve 6 numaralı olayları değerlendiriniz.\
-    \ (7 puan)\n"
+    \ dışı işlenmemiş altını **akreditifli\n   ödeme** şekliyle ithal etmek istemektedir. Şirket, dahilde işleme izni alması\
+    \ hâlinde durumun değişip değişmeyeceğini de\n   sormaktadır.\n4. **(F) Kıymetli Madenler Aracı Kuruluşu A.Ş.**, 14.04.2026\
+    \ (Salı) tarihinde gümrük beyannamesiyle (dahilde işleme kapsamı\n   dışında) standart işlenmemiş altın ithal etmiştir.\n\
+    5. (F), kuyum işletmesi olmayan ve vergi levhasında kıymetli maden ticareti yazmayan yerleşik gerçek kişi (G)'ye standart\
+    \ dışı\n   işlenmemiş altın satmak istemektedir. Gerçek kişi (H), bir yetkili müesseseden Darphane üretimi çeyrek altın\
+    \ almak;\n   gerçek kişi (I) ise bir kuyumcudan pırlanta taşlı altın yüzük almak istemektedir.\n6. Yerleşik yatırımcı\
+    \ (J), New York borsasında işlem gören hisse senetlerini Sermaye Piyasası Kurulunca yetkilendirilmiş bir aracı\n   kurum\
+    \ vasıtasıyla satın almak ve alış bedelini yurt dışına transfer etmek istemektedir.\n\n**İstenenler:**\n\n(a) 1 ve 2 numaralı\
+    \ olayları değerlendiriniz; 1 numaralı olayda gümrük idaresince yapılacak işlemleri açıklayınız. (9 puan)\n\n(b) 3 ve\
+    \ 4 numaralı olayları değerlendiriniz; 4 numaralı olayda yükümlülüğün yerine getirilmesi gereken son günü belirleyiniz\
+    \ ve\nithalat dahilde işleme kapsamında yapılsaydı ne değişeceğini açıklayınız. (9 puan)\n\n(c) 5 ve 6 numaralı olayları\
+    \ değerlendiriniz. (7 puan)\n"
   cozum: "**(a) Türk parası, döviz ve ziynet eşyası**\n\n- Türk parasının yurttan ihracı serbesttir; ancak **185.000 TL'yi\
     \ aşan** Türk parasının yurt dışına çıkarılması Bakanlıkça\n  belirlenen esaslara bağlıdır (Karar md. 3/a, 3/d). Döviz\
     \ ihracı serbesttir; **10.000 Avro veya eşitini aşan** efektifin\n  çıkarılması Bakanlık esaslarına bağlıdır (md. 4/a,\
@@ -514,23 +538,24 @@
     \ aşar, iki şartı da sağlamaz → **serbestçe çıkaramaz**.\n\n**(b) İşlenmemiş kıymetli maden ithali**\n\n- Standart ve\
     \ standart dışı işlenmemiş kıymetli madenlerin ithali, Merkez Bankası saklı kalmak üzere **yalnız kıymetli madenler\n\
     \  aracı kuruluşlarınca** yapılır (Karar md. 7/2-b) → (E) dahilde işleme dışında ithalat **yapamaz**.\n- Dahilde İşleme\
-    \ Rejimi Kararı kapsamında standart dışı işlenmemiş kıymetli maden ithali serbesttir (md. 7/2-ç). Standart işlenmemiş\n\
-    \  altında ise, aracı kuruluş olmayan yerleşik kişilerce **her bir ithalat işleminde 40 kg'ı aşmamak üzere** ithalat mümkündür\n\
-    \  (Tebliğ md. 6/8) → dahilde işleme izniyle 10 kg ithal edilebilir.\n- İşlenmemiş kıymetli madenler yalnız **peşin, mal\
-    \ mukabili ve bedelsiz** ödeme şekilleriyle ithal edilebilir (Tebliğ md. 6/6) →\n  **akreditifli ödeme mümkün değildir**.\n\
-    - (F): Aracı kuruluşlar ithal ettikleri standart ve standart dışı işlenmemiş kıymetli madenleri **üç iş günü** içinde\
-    \ **Borsa\n  İstanbul A.Ş.'ye teslim** etmek zorundadır (md. 7/2-b): 15, 16, 17 Nisan → son gün **17.04.2026 (Cuma)**.\
-    \ İthal edilen\n  işlenmemiş madenlerin yurt içindeki ilk satışı Borsa İstanbul'da yapılır (md. 7/6).\n- İthalat dahilde\
-    \ işleme kapsamında yapılsaydı Borsa'ya **teslim şartı aranmaz**; ancak üç iş günü içinde Borsa'ya **yazılı bilgi**\n\
-    \  verilmesi zorunludur (md. 7/2-d).\n\n**(c) Yurt içi alım satım ve menkul kıymet**\n\n- (G): Ticaret Bakanlığınca yetkilendirilmiş\
-    \ kuyum işletmeleri dışındaki yerleşik gerçek kişilere **standart dışı işlenmemiş\n  kıymetli maden satılamaz** (md. 7/4-c)\
-    \ → satış yapılamaz.\n- (H): Yerleşik kişilerin Darphane üretimi basılı kıymetli madenleri **yetkili müesseselerden**\
-    \ almaları serbesttir (md. 7/4-f);\n  B grubu yetkili müesseseler de Darphane üretimi ziynet ve sikke altın alım satımı\
-    \ yapabilir (Tebliğ 2018-32/45 md. 4/1-ç).\n- (I): Basılı ve çekili kıymetli madenler dışındaki işlenmiş kıymetli madenler,\
-    \ taşlar ve eşyaların yurt içinde alım satımı\n  **serbesttir** (md. 7/4-g).\n- (J): Menkul kıymetlerin yurda giriş ve\
-    \ çıkışı serbesttir (md. 15/1). Yerleşik kişilerin bankalar ve sermaye piyasası mevzuatına\n  göre yetkili aracı kurumlar\
-    \ vasıtasıyla yurt dışı piyasalarda işlem gören menkul kıymetleri satın almaları ve alış bedellerini\n  **bankalar aracılığıyla**\
-    \ yurt dışına transfer ettirmeleri serbesttir (md. 15/4-ii; Tebliğ 2008-32/34 md. 9/1).\n"
+    \ Rejimi Kararı kapsamında **standart dışı** işlenmemiş kıymetli maden ithali **serbesttir** (Karar md. 7/2-ç)\n  → (E)\
+    \ dahilde işleme izniyle bu 10 kg standart dışı altını kendisi ithal edebilir. Standart işlenmemiş altın söz konusu\n\
+    \  olsaydı dahilde işleme kapsamında da ithalat yalnız kıymetli madenler aracı kuruluşlarınca yapılabilirdi (md. 7/2-c).\n\
+    - İşlenmemiş kıymetli madenler yalnız **peşin, mal mukabili ve bedelsiz** ödeme şekilleriyle ithal edilebilir (Tebliğ\
+    \ md. 6/6) →\n  **akreditifli ödeme mümkün değildir**.\n- (F): Aracı kuruluşlar ithal ettikleri standart ve standart dışı\
+    \ işlenmemiş kıymetli madenleri **üç iş günü** içinde **Borsa\n  İstanbul A.Ş.'ye teslim** etmek zorundadır (md. 7/2-b):\
+    \ 15, 16, 17 Nisan → son gün **17.04.2026 (Cuma)**. İthal edilen\n  işlenmemiş madenlerin yurt içindeki ilk satışı Borsa\
+    \ İstanbul'da yapılır (md. 7/6).\n- İthalat dahilde işleme kapsamında yapılsaydı Borsa'ya **teslim şartı aranmaz**; ancak\
+    \ üç iş günü içinde Borsa'ya **yazılı bilgi**\n  verilmesi zorunludur (md. 7/2-d).\n\n**(c) Yurt içi alım satım ve menkul\
+    \ kıymet**\n\n- (G): Ticaret Bakanlığınca yetkilendirilmiş kuyum işletmeleri dışındaki yerleşik gerçek kişilere **standart\
+    \ dışı işlenmemiş\n  kıymetli maden satılamaz** (md. 7/4-c) → satış yapılamaz.\n- (H): Yerleşik kişilerin Darphane üretimi\
+    \ basılı kıymetli madenleri **yetkili müesseselerden** almaları serbesttir (md. 7/4-f);\n  B grubu yetkili müesseseler\
+    \ de Darphane üretimi ziynet ve sikke altın alım satımı yapabilir (Tebliğ 2018-32/45 md. 4/1-ç).\n- (I): Basılı ve çekili\
+    \ kıymetli madenler dışındaki işlenmiş kıymetli madenler, taşlar ve eşyaların yurt içinde alım satımı\n  **serbesttir**\
+    \ (md. 7/4-g).\n- (J): Menkul kıymetlerin yurda giriş ve çıkışı serbesttir (md. 15/1). Yerleşik kişilerin bankalar ve\
+    \ sermaye piyasası mevzuatına\n  göre yetkili aracı kurumlar vasıtasıyla yurt dışı piyasalarda işlem gören menkul kıymetleri\
+    \ satın almaları ve alış bedellerini\n  **bankalar aracılığıyla** yurt dışına transfer ettirmeleri serbesttir (md. 15/4-ii;\
+    \ Tebliğ 2008-32/34 md. 9/1).\n"
   puanlama:
   - olcut: (a) Türk parası ve döviz ihracına ilişkin kurallar ve sınırlar (Karar md. 3, 4)
     puan: 3
@@ -538,7 +563,8 @@
     puan: 3
   - olcut: (a) Ziynet eşyası kuralının (B), (C), (D)'ye uygulanması (Karar md. 7/5)
     puan: 3
-  - olcut: (b) İşlenmemiş kıymetli maden ithalini yalnız aracı kuruluşların yapması ve dahilde işlemede 40 kg istisnası
+  - olcut: (b) İşlenmemiş kıymetli maden ithalini yalnız aracı kuruluşların yapması ve dahilde işlemede standart dışı madenin
+      serbest, standart madenin yine aracı kuruluşa bağlı olması (md. 7/2-b, c, ç)
     puan: 4
   - olcut: (b) Akreditifli ödemenin mümkün olmaması (Tebliğ md. 6/6)
     puan: 2
@@ -564,7 +590,7 @@
     python: "from datetime import date, timedelta\nd = date(2026, 4, 14)\nn = 0\nwhile n < 3:\n    d += timedelta(days=1)\n\
       \    if d.weekday() < 5:\n        n += 1\nsonuc = {\"borsa_teslim_son\": str(d), \"A_TL_asim\": 250_000 > 185_000, \"\
       D_ziynet_sinir_asimi\": 16_000 > 15_000}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -575,8 +601,18 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 4, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 18
+  - tarih: '2026-10-21'
+    kim: bas_hakem
+    ne: Altın ithali dahilde işleme cevabı Karar md. 7/2-c/ç ile uyumlu hâle getirildi (Tebliğ 6/8 40 kg çelişkisi giderildi);
+      vaka standart dışı altına çevrildi.
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü

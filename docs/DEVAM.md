@@ -92,6 +92,15 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
   girdisi `scratchpad/ymm_hakem4/kor_*.md`, terfi ymm_terfi.py mantığıyla (G5 notu + gecmis).
 - Kalan: YMM klasikleri DRM dışında ders başına 6–12 (hedef ~30); SMMM 72 taslak ve ince konular; paket + sürüm + imzalı derleme.
 
+## 2026-10-21 — YMM klasik hakemliği (GUV, DTK, HSV, VTK, FYN)
+
+- Ajan izni olmadığından 118 taslak klasiği (GUV 23, DTK 24, HSV 24, VTK 24, FYN 23) baş hakem tek tek okudu; oran, tutar,
+  süre ve madde atıfları `content/kaynaklar/mevzuat/*.txt` ile doğrulandı (KVK, 11257/9160 CBK, Gümrük K. ve Yön., 32 sayılı
+  Karar ve tebliğleri, KDV GUT, ÖTVK, VİVK, EVK, MTVK, VUK, 6183, 5604). Kararlar `scratchpad/ymm_hakem4/hk_self.json`.
+- Sonuç: 118 kabul, `klasik.terfi` ile `kontrolde`. Tek düzeltme: DTK/KMB-K005 (dahilde işlemede altın ithali Karar 7/2-c/ç
+  ile uyumlu hâle getirildi; vaka standart dışı altına çevrildi). YMM klasik: 218 `kontrolde`; beş ders 30'ar.
+- Kalan: YNM, SPM, IFM, REV klasik üretimi (kullanıcı kararı); 2 taslak anlatım; paket + sürüm + imzalı derleme.
+
 ## Bekleyen işler (öncelik sırası)
 
 1. **YMM soruları (kullanıcı onayladı: kendi hattımızda + klasik soru türü):** Yazar talimatı `docs/devir/YMM_YAZAR_TALIMATI.md`

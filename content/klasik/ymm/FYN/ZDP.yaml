@@ -347,7 +347,7 @@
       \ 2), \"tbd\": round(tbd, 2), \"D\": round(D, 4), \"DD\": round(DD, 4),\n         \"tahmin\": round(-DD * 0.01 * P,\
       \ 2), \"P21\": round(P21, 2), \"gercek\": round(P21 - P, 2),\n         \"PS\": round(PS, 2), \"DD_S\": 2.5, \"tahmin_S\"\
       : round(-2.5 * 0.01 * PS, 2), \"gercek_S\": round(PS21 - PS, 2)}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -358,11 +358,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_FYN.yaml, klasik 9
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-ZDP-K003
   sinav: ymm
   ders: FYN
@@ -501,7 +507,7 @@
       \ (1 + 36 * n / 36000) for N, n in s)\nyeni = pesin * (1 + 36 * 90 / 36000)\nvade = sum(N * n for N, n in s) / 300000\n\
       sonuc = {\"dis_iskonto\": dis, \"net\": 300000 - dis, \"pesin\": round(pesin, 2), \"ic_iskonto\": round(300000 - pesin,\
       \ 2),\n         \"yeni_senet\": round(yeni, 2), \"ortalama_vade\": vade, \"kontrol\": 300000 * 36 * vade / 36000}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -512,11 +518,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_FYN.yaml, klasik 10
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-ZDP-K004
   sinav: ymm
   ders: FYN
@@ -654,7 +666,7 @@
       \ 1.21 + taksit2 * af / 1.21\nsonuc = {\"borc\": round(borc, 2), \"taksit\": round(taksit, 2), \"faizler\": plan, \"\
       efektif\": round(efektif, 4),\n         \"reel\": round(reel, 4), \"taksit2\": round(taksit2, 2), \"toplam1\": round(4\
       \ * round(taksit, 2), 2),\n         \"toplam2\": round(400000 + 4 * round(taksit2, 2), 2), \"bd2\": round(bd2, 2)}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -665,11 +677,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_FYN.yaml, klasik 11
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-ZDP-K005
   sinav: ymm
   ders: FYN
@@ -790,7 +808,7 @@
       \ / (((1 + r) ** 3 - 1) / r)\nsonuc = {\"bd_emeklilik\": round(bd, 2), \"reel\": round(reel, 4), \"bd_reel\": round(bd_reel,\
       \ 2),\n         \"eksik\": round(bd - fv, 2), \"yillik_yatirim\": round(yat, 2), \"bugun\": round(bd / (1 + r) ** 3,\
       \ 2),\n         \"suresiz\": round(C / (r - g), 2)}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -801,11 +819,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 4, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_FYN.yaml, klasik 12
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-FYN-ZDP-K006
   sinav: ymm
   ders: FYN
@@ -955,7 +979,7 @@
       \ 100000000 - 100000000) / 10000000\ng = (14 * ke - 2) / (14 + 2)\nsonuc = {\"ke\": round(ke, 4), \"p_gordon\": round(p_gordon,\
       \ 2), \"p2\": p2, \"p0\": round(p0, 2),\n         \"fk\": fk, \"pddd\": pddd, \"fd_favok\": fd, \"ortalama\": round((fk\
       \ + pddd + fd) / 3, 2), \"g\": round(g, 4)}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -966,8 +990,14 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_FYN.yaml, klasik 13
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü

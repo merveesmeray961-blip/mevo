@@ -296,7 +296,7 @@
       \ + 200_000 + 300_000\nazami = istisna_bedel * 20 // 100\niade = min(420_000, giderilemeyen, azami)\nsonuc = {\"hesaplanan\"\
       : hesaplanan, \"giderilemeyen\": giderilemeyen, \"azami_iade\": azami, \"iade\": iade,\n         \"devreden\": giderilemeyen\
       \ - iade, \"nakden\": iade - 100_000}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -307,11 +307,17 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 3
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 22
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
 - id: YMM-DTK-VRG-K003
   sinav: ymm
   ders: DTK
@@ -406,7 +412,7 @@
       \ = otv_matrah + otv\nkdv = round(kdv_matrah * 20 / 100, 2)\nsonuc = {\"kiymet\": kiymet, \"gv\": gv, \"otv_matrahi\"\
       : otv_matrah, \"otv\": otv, \"kdv_matrahi\": kdv_matrah,\n         \"kdv\": kdv, \"demirbas\": kiymet + gv + otv, \"\
       banka\": kdv_matrah + kdv, \"usulsuzluk\": 1494 * 2}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -417,8 +423,14 @@
         sonuc: gecti
         tarih: '2026-10-19'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-10-21'
+        not: güven 5, seviye 2
   gecmis:
   - tarih: '2026-10-19'
     kim: uretici
     ne: harici teslim t_K_DTK.yaml, klasik 23
+  - tarih: '2026-10-21'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: kitap düzeyi hakem kabulü
