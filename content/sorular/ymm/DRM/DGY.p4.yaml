@@ -76,22 +76,23 @@
   unite: Meslek mensubunun diğer yükümlülükleri
   konu: DGY
   kazanim: sürekli mesleki geliştirme eğitimi
-  tip: hesap
+  tip: hesaplama
   zorluk: 2
-  kok: YMM (P), üç yıllık dönemin ilk iki yılında sırasıyla 32 ve 38 kredi almıştır. Üç yıllık asgari toplamı sağlamak için
-    üçüncü yılda en az kaç kredi alması gerekir?
+  kok: YMM (P), üç yıllık dönemin ilk iki yılında sırasıyla 32 ve 38 kredi almıştır. Üç yıllık asgari toplamı sağlamak
+    için üçüncü yılda en az kaç kredi alması gerekir?
   secenekler:
-    A: '50'
-    B: '30'
-    C: '40'
+    A: '30'
+    B: '40'
+    C: '50'
     D: '60'
     E: '120'
-  dogru: A
+  dogru: C
   aciklama:
-    dogru_neden: 'Üç yılda en az 120 kredi gerekir: 120 − (32 + 38) = 50. Bu tutar yıllık 30 kredilik alt sınırı da karşılar.'
+    dogru_neden: 'Üç yılda en az 120 kredi gerekir: 120 − (32 + 38) = 50. Bu tutar yıllık 30 kredilik alt sınırı
+      da karşılar.'
     celdiriciler:
-      B: Yalnız yıllık alt sınır dikkate alınmıştır.
-      C: Hesap hatasıdır.
+      A: Yalnız yıllık alt sınır dikkate alınmıştır.
+      B: Hesap hatasıdır.
       D: Üç yıllık doğrulanabilir eğitim alt sınırıdır.
       E: Önceki yıllarda alınan krediler düşülmemiştir.
     hesap_adimlari:
@@ -142,6 +143,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-24'
+    kim: bas-hakem
+    ne: sayısal şıklar küçükten büyüğe sıralandı; doğru şık A → C.
 - id: YMM-DRM-DGY-0003
   sinav: ymm
   bolum:
@@ -291,24 +295,24 @@
   unite: Meslek mensubunun diğer yükümlülükleri
   konu: DGY
   kazanim: sürekli mesleki geliştirme eğitimi
-  tip: hesap
+  tip: hesaplama
   zorluk: 3
   kok: Üç yıllık dönemin son yılında (K)'nın doğrulanabilir eğitimden 25 kredi daha alması gerekmektedir. SMGE Yönetmeliğindeki
     günlük kredi sınırına göre (K)'nın en az kaç gün yüz yüze veya uzaktan eğitime katılması gerekir?
   secenekler:
-    A: '3'
-    B: '5'
-    C: '2'
-    D: '4'
+    A: '2'
+    B: '3'
+    C: '4'
+    D: '5'
     E: '6'
-  dogru: D
+  dogru: C
   aciklama:
-    dogru_neden: 'Yüz yüze ve uzaktan eğitimde bir günde en fazla 7 kredi alınabilir. 3 gün × 7 = 21 kredi yetmez; en az 4
-      gün gerekir. Püf noktaları: bölme sonucu yukarı yuvarlanır.'
+    dogru_neden: 'Yüz yüze ve uzaktan eğitimde bir günde en fazla 7 kredi alınabilir. 3 gün × 7 = 21 kredi yetmez;
+      en az 4 gün gerekir. Püf noktaları: bölme sonucu yukarı yuvarlanır.'
     celdiriciler:
-      A: 3 günde en çok 21 kredi alınabilir.
-      B: Asgari değil, gereğinden fazla gün sayısıdır.
-      C: 2 günde en çok 14 kredi alınabilir.
+      A: 2 günde en çok 14 kredi alınabilir.
+      B: 3 günde en çok 21 kredi alınabilir.
+      D: Asgari değil, gereğinden fazla gün sayısıdır.
       E: Günlük sınır 5 krediymiş gibi hesaplanmıştır.
     hesap_adimlari:
     - 25 / 7 = 3,57
@@ -322,9 +326,7 @@
     bitis: null
     yila_bagli_tutar: false
   dogrulama:
-    python: 'import math
-
-      sonuc=math.ceil(25/7)'
+    python: sonuc = -(-25 // 7)
   durum: kontrolde
   surum: 1
   uretim:
@@ -359,6 +361,12 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-24'
+    kim: bas-hakem
+    ne: doğrulama kodu import'suz yazıldı (yukarı yuvarlama).
+  - tarih: '2026-10-24'
+    kim: bas-hakem
+    ne: sayısal şıklar küçükten büyüğe sıralandı; doğru şık D → C.
 - id: YMM-DRM-DGY-0006
   sinav: ymm
   bolum:

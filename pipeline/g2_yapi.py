@@ -80,7 +80,9 @@ def soru_denetle(soru: dict, dosya: str = "") -> Sonuc:
         sonuc.hatalar.append(f"çeldirici açıklamaları uyumsuz (eksik: {eksik}, fazla: {fazla})")
 
     # Olumsuz kök vurgulanmalı (yalnız soru cümlesinde; olay anlatımındaki "değildir" sayılmaz)
-    if OLUMSUZ.search(re.split(r"(?<=[.!])\s+", soru["kok"].strip())[-1]):
+    # Satır başındaki öncüller (I., II., …) soru cümlesi değildir; önce onlar çıkarılır.
+    soru_metni = "\n".join(s for s in soru["kok"].splitlines() if not re.match(r"\s*[IVX]+\.\s", s)).strip()
+    if OLUMSUZ.search(re.split(r"(?<=[.!])\s+", soru_metni or soru["kok"].strip())[-1]):
         sonuc.hatalar.append("olumsuz kök ifadesi **kalın** yazılmamış")
 
     # Hesaplama soruları adım adım çözüm içermeli

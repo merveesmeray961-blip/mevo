@@ -76,6 +76,16 @@ def test_olumsuz_kok_kalinsa_gecer():
     assert soru_denetle(soru).gecti
 
 
+def test_onculdeki_olumsuz_ifade_kok_sayilmaz():
+    kok = "Aşağıdaki ifadelerden hangileri doğrudur?\n\nI. Birinci ifade.\n\nII. Takibat soruşturmaya engel değildir."
+    assert not any("olumsuz" in h for h in soru_denetle(ornek(kok=kok)).hatalar)
+
+
+def test_oncullu_kokte_olumsuz_soru_cumlesi_yakalanir():
+    kok = "Aşağıdaki ifadelerden hangileri yanlıştır?\n\nI. Birinci ifade.\n\nII. İkinci ifade."
+    assert any("olumsuz" in h for h in soru_denetle(ornek(kok=kok)).hatalar)
+
+
 def test_hesaplama_adimsiz_hata():
     assert any("hesap_adimlari" in h for h in soru_denetle(ornek(tip="hesaplama")).hatalar)
 
