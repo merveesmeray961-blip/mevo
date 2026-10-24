@@ -112,7 +112,10 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
   hakediş stopajı %5 (9707 CBK), geçici vergide dört dönem (7566 s. K.), 32/A %60 ve on dönem (7555 s. K.), KVK geçici 19
   varlık barışı (7582 s. K.), 2026 binek ve VUK 313 tutarları (332 GVK, 588 VUK tebliğleri). 7582 ile değişen md. 32/8 (%12,5)
   2027'den itibaren uygulanacağı için sorulara alınmadı.
-- Kalan: 2 taslak anlatım (HSV/SRV, REV/AKT); uzman teyidi; paket yeniden üretimi + sürüm + imzalı AAB.
+- Anlatımlar: HSV/SRV ve REV/AKT tutar ve oranları evk/vivk/mtvk/vuk/kdvk ve 588 tebliğiyle doğrulandı; SRV'de EVK md. 30
+  ifadesi düzeltildi, AKT'de konkordato (alacaklı) idare görüşü olarak yazıldı; ikisi `kontrolde` (YMM anlatım: 79/79).
+  REV/AKT-K010 klasiğinde azalan bakiyeler dayanağı "mükerrer md. 315" yapıldı.
+- Kalan: uzman teyidi; paket yeniden üretimi + sürüm + imzalı AAB.
 
 ## Bekleyen işler (öncelik sırası)
 

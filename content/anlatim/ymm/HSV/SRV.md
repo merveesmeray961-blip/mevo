@@ -2,8 +2,8 @@
 ders: HSV
 konu: SRV
 baslik: Servet vergileri
-durum: taslak
-yazar: Claude
+durum: "kontrolde"
+yazar: mevo-editor
 kaynaklar:
   - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
     madde: md. 8
@@ -57,7 +57,7 @@ Büyükşehir sütunu, 5216 sayılı Kanunun uygulandığı yerlerde oranların 
 
 **Mükellefiyetin başlaması ve bitişi:** Vergi değerini değiştiren olay (yeni inşaat, kullanış tarzı değişikliği, mükellef değişmesi vb., md. 33) olayı takip eden bütçe yılından itibaren hüküm doğurur (md. 9). Yanan, yıkılan (ör. depremde), tamamen kullanılmaz hale gelen binada mükellefiyet olayı izleyen **taksitten** itibaren sona erer. Malik bu durumu emlak vergisi bildirimiyle belediyeye bildirir (md. 23).
 
-İstisnai durumlar: Geliri olmayan, yalnız aylığı olan, gazi, engelli, şehit dul ve yetimlerinin brüt 200 m²'yi geçmeyen tek meskeninde oran sıfıra indirilebilir (md. 8). Emlak vergisi borcu olan taşınmazın devri, miras ve cebri icra gibi haller dışında yapılmaz (md. 30).
+İstisnai durumlar: Geliri olmayan, yalnız aylığı olan, gazi, engelli, şehit dul ve yetimlerinin brüt 200 m²'yi geçmeyen tek meskeninde oran sıfıra indirilebilir (md. 8). Kanunla getirilen kısıtlamalar nedeniyle tecil edilen verginin 9/10'u, taşınmazın satılması, kamulaştırılması veya hibe yoluyla devri hâlinde, zamanaşımına uğramamış olanlar için muaccel hâle gelir (md. 30).
 
 ### Değerli konut vergisi
 

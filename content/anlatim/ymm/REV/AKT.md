@@ -2,8 +2,8 @@
 ders: REV
 konu: AKT
 baslik: Aktif hesapların revizyonu ve değerleme
-durum: taslak
-yazar: Claude
+durum: "kontrolde"
+yazar: mevo-editor
 kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
     madde: md. 323
@@ -50,7 +50,7 @@ Karşılık değerleme gününün tasarruf değerine göre ayrılabilir; teminat
 
 ### Değersiz alacak (VUK md. 322) ve KDV
 
-Kazai bir hükme veya kanaat verici bir vesikaya göre tahsiline imkân kalmayan alacak **değersiz alacaktır**; bu niteliği kazandığı tarihte mukayyet değeriyle zarara yazılır. Konkordatonun mahkemece tasdikiyle alacaklının vazgeçtiği kısım, kazai hükme bağlandığından bu kapsamda değerlendirilir. Borçlu tarafta ise konkordato veya sulh yoluyla vazgeçilen alacak özel bir karşılık hesabına alınır; üç yıl içinde zararla itfa edilmezse kâra aktarılır (VUK md. 324).
+Kazai bir hükme veya kanaat verici bir vesikaya göre tahsiline imkân kalmayan alacak **değersiz alacaktır**; bu niteliği kazandığı tarihte mukayyet değeriyle zarara yazılır. Kanunda alacaklı taraf için konkordatoya özel bir hüküm yoktur. İdarenin özelgelerdeki görüşüne göre mahkemece tasdik edilen konkordato projesi uyarınca tahsil edilemeyecek kısım, tasdik kararı kazai hüküm niteliğinde olduğundan değersiz alacak olarak zarara yazılabilir. Tasdik kararı ve proje tasdik raporuna eklenmelidir. Borçlu tarafta ise konkordato veya sulh yoluyla vazgeçilen alacak özel bir karşılık hesabına alınır. Bu hesap, alacaktan vazgeçilen yılın sonundan başlayarak üç yıl içinde zararla itfa edilmezse kâra aktarılır (VUK md. 324).
 
 **KDV sonucu:** Değersiz hale gelen alacağa ait hesaplanan ve beyan edilen KDV, alacağın zarar yazıldığı dönemde indirim konusu yapılabilir (KDVK md. 29/4). Bu KDV daha önce VUK md. 323'e göre karşılık yoluyla gider yazılmışsa, indirim için aynı tutarın gelir yazılması şarttır. Alıcı tarafında ödenmeyen KDV ise indirilemez (KDVK md. 30/e).
 
