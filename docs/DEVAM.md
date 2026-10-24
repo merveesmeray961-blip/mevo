@@ -101,6 +101,19 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
   ile uyumlu hâle getirildi; vaka standart dışı altına çevrildi). YMM klasik: 218 `kontrolde`; beş ders 30'ar.
 - Kalan: YNM, SPM, IFM, REV klasik üretimi (kullanıcı kararı); 2 taslak anlatım; paket + sürüm + imzalı derleme.
 
+## 2026-10-24 — YMM klasik üretimi (YNM, SPM, IFM, REV)
+
+- Ajan kullanılmadan dört dersin eksik klasikleri baş hakemce yazıldı ve denetlendi: YNM 23 (d23985b), SPM 23 (003befb),
+  IFM 18 (d45288e), REV 18. Her klasik `kk.py` ile şema, müfredat, alıntı ve doğrulama kodu açısından geçti; `al` bir kez
+  çalıştırıldı, `klasik.terfi` ile `kontrolde`. YMM klasik toplamı: 300 `kontrolde` (her ders 30).
+- IFM: VUK→TFRS dönüşümü, TMS 12/19/37, TMS 16/36/38/40, TFRS 15/16, TFRS 5, TMS 7, TMS 2/41/20, TFRS 9, TMS 29 (VUK geçici
+  37 ile birlikte), TMS 21. TFRS 18'in 1.1.2027'den uygulanacağı esas alındı.
+- REV: 2026 mevzuatı esas alındı — KVK 5/1-b %80 (11257 CBK), 5/1-e %50 (9160 CBK) ve geçici 16 (%25), 10/1-ğ %100 (11257 CBK),
+  hakediş stopajı %5 (9707 CBK), geçici vergide dört dönem (7566 s. K.), 32/A %60 ve on dönem (7555 s. K.), KVK geçici 19
+  varlık barışı (7582 s. K.), 2026 binek ve VUK 313 tutarları (332 GVK, 588 VUK tebliğleri). 7582 ile değişen md. 32/8 (%12,5)
+  2027'den itibaren uygulanacağı için sorulara alınmadı.
+- Kalan: 2 taslak anlatım (HSV/SRV, REV/AKT); uzman teyidi; paket yeniden üretimi + sürüm + imzalı AAB.
+
 ## Bekleyen işler (öncelik sırası)
 
 1. **YMM soruları (kullanıcı onayladı: kendi hattımızda + klasik soru türü):** Yazar talimatı `docs/devir/YMM_YAZAR_TALIMATI.md`
