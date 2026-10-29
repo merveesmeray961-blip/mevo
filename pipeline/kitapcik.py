@@ -3,6 +3,7 @@
 Varsayılan seçim: tüm zor (3) sorular + ÖZEL listesindeki uzmanın bakması istenen sorular.
 
     python -m pipeline.kitapcik docs/SMMM_Uzman_Kitapcik.pdf
+    python -m pipeline.kitapcik docs/YMM_Uzman_Kitapcik.pdf --urun ymm   # YMM: zor test soruları + klasik vakalar
 """
 
 from __future__ import annotations
@@ -20,7 +21,17 @@ import yaml
 from pipeline import g2_yapi
 from pipeline.disa_aktar import yeniden_denetim_bekleyen
 
-CHROMIUM = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
+def _tarayici() -> str:
+    """PDF üretimi için Chromium/Chrome: Linux sandbox yolu, yoksa Windows Chrome/Edge, yoksa PATH."""
+    for yol in ("/opt/pw-browsers/chromium-1194/chrome-linux/chrome",
+                r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+                r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"):
+        if Path(yol).exists():
+            return yol
+    return "chrome"
+
+
+CHROMIUM = _tarayici()
 OZEL = ["SMMM-TAB-TMS-0001", "SMMM-FIN-MKY-0002", "SMMM-VER-VUK-0001", "SMMM-MES-ETK-0001",
         "SMMM-MAL-SIP-0001", "SMMM-FIN-BOR-0001"]
 
