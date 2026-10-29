@@ -63,7 +63,7 @@ Yeni oturumda ilk mesaj: **"docs/DEVAM.md dosyasını oku ve kaldığın yerden 
 
 ## Proje ve çalışma kuralları
 
-- Türkiye SMMM sınavına (Yeterlilik + SGS) hazırlık için çevrimdışı Android uygulaması (`app.mevo.smmm`), sahibi Merve.
+- Türkiye SMMM sınavına (Yeterlilik + SGS) hazırlık için çevrimdışı Android uygulaması (artık `app.mizan.smmm`), sahibi Merve.
   Ek hedef: YMM sınavı. Biz **denetleyiciyiz**: dış üreticilerden (ChatGPT, Grok, Gemini…) gelen soru/anlatımı eler,
   hakemden geçirir, uygulamaya alırız.
 - Dal: oturumun verdiği dal (son: `claude/ymm-cikmis-analiz`); push öncesi `git pull --rebase`. PR açma (istenmedikçe).
