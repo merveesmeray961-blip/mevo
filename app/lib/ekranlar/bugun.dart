@@ -40,10 +40,12 @@ class BugunEkrani extends StatelessWidget {
               ),
             ],
           ),
+          // Dar ekranda tek sütun; geniş tablette (≥ {ikiSutunEsigi} dp) sol sütun durum ve başlat, sağ sütun listeler.
           body: Govde(
-            child: ListView(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-              children: [
+            enGenis: tabletGenisligi,
+            child: LayoutBuilder(
+              builder: (context, kisit) {
+                final ustKartlar = <Widget>[
                 _Karsilama(urunAdi: durum.urun.sinav, seri: il.seri, bugunCozulen: il.bugunCozulen),
                 const SizedBox(height: 12),
                 _GeriSayim(sinav: sinav, bugun: il.simdi),
@@ -100,6 +102,8 @@ class BugunEkrani extends StatelessWidget {
                     ),
                   ),
                 ],
+                ];
+                final altKartlar = <Widget>[
                 const SizedBox(height: 16),
                 // Yeni kullanıcı devre dışı gri kartlar yerine ne yapacağını söyleyen tek bir kart görür;
                 // listeler yalnızca içlerinde soru olduğunda gösterilir.
@@ -160,7 +164,27 @@ class BugunEkrani extends StatelessWidget {
                   style: t.bodySmall?.copyWith(color: r.onSurfaceVariant),
                   textAlign: TextAlign.center,
                 ),
-              ],
+                ];
+                if (kisit.maxWidth < ikiSutunEsigi) {
+                  return ListView(
+                    padding: kisit.maxWidth > okumaGenisligi
+                        ? EdgeInsets.symmetric(horizontal: (kisit.maxWidth - okumaGenisligi) / 2 + 16, vertical: 8)
+                        : const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                    children: [...ustKartlar, ...altKartlar],
+                  );
+                }
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(child: ListView(children: ustKartlar)),
+                      const SizedBox(width: 24),
+                      Expanded(child: ListView(children: altKartlar)),
+                    ],
+                  ),
+                );
+              },
             ),
           ),
         );

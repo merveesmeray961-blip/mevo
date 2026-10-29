@@ -5,6 +5,9 @@ Girdi : app/tool/goldens/<urun>_<ekran>.png   (flutter test tool/magaza_gorsel_t
         1080×1920, dikey gradyan zemin, üstte başlık, ortada telefon çerçevesi içinde ekran.
 
     python docs/devir/araclar/magaza_gorsel.py [smmm|ymm]
+
+Tablet (Play Console "7 inç" ve "10 inç" bölümleri): girdi app/tool/goldens/<urun>_tab7_<ekran>.png ve
+<urun>_tab10_<ekran>.png; çıktı docs/magaza/gorseller[_ymm]/tablet7_N.png (1200×1920) ve tablet10_N.png (1600×2560).
 """
 
 from __future__ import annotations
@@ -58,16 +61,16 @@ def gradyan(ust: tuple, alt: tuple) -> Image.Image:
     return g
 
 
-def telefon(ekran: Image.Image, genislik: int = 700) -> Image.Image:
+def telefon(ekran: Image.Image, genislik: int = 700, dis_kose: int = 54, ic_kose: int = 42) -> Image.Image:
     """Ekranı yuvarlatılmış köşeli, koyu çerçeveli bir telefon görseline yerleştirir."""
     oran = ekran.height / ekran.width
     yukseklik = round(genislik * oran)
     ekran = ekran.resize((genislik, yukseklik), Image.LANCZOS).convert("RGB")
     pay = 14
     kaplama = Image.new("RGBA", (genislik + 2 * pay, yukseklik + 2 * pay), (0, 0, 0, 0))
-    ImageDraw.Draw(kaplama).rounded_rectangle([0, 0, kaplama.width - 1, kaplama.height - 1], 54, fill=(18, 24, 24, 255))
+    ImageDraw.Draw(kaplama).rounded_rectangle([0, 0, kaplama.width - 1, kaplama.height - 1], dis_kose, fill=(18, 24, 24, 255))
     maske = Image.new("L", ekran.size, 0)
-    ImageDraw.Draw(maske).rounded_rectangle([0, 0, ekran.width - 1, ekran.height - 1], 42, fill=255)
+    ImageDraw.Draw(maske).rounded_rectangle([0, 0, ekran.width - 1, ekran.height - 1], ic_kose, fill=255)
     kaplama.paste(ekran, (pay, pay), maske)
     return kaplama
 
@@ -91,6 +94,37 @@ def uret(urun: str) -> None:
         print("yazıldı:", hedef.relative_to(KOK))
 
 
+TABLETLER = {
+    # ad: (tuval, ekran genişliği, başlık yazısı, başlık y, ekran y)
+    "tablet7": ((1200, 1920), 940, 64, 190, 340),
+    "tablet10": ((1600, 2560), 1260, 84, 250, 450),
+}
+TABLET_EKRANLAR = ["dersler", "ders", "soru", "anlatim"]
+
+
+def uret_tablet(urun: str) -> None:
+    ayar = URUNLER[urun]
+    basliklar = dict(ayar["ekranlar"])
+    for ad, (boy, genislik, punto, bas_y, ekran_y) in TABLETLER.items():
+        kisa = ad.replace("tablet", "tab")
+        font = ImageFont.truetype(str(FONT), punto)
+        for no, ekran_adi in enumerate(TABLET_EKRANLAR, 1):
+            yol = GIRDI / f"{urun}_{kisa}_{ekran_adi}.png"
+            if not yol.exists():
+                raise FileNotFoundError(f"{yol} yok; flutter test tool/magaza_gorsel_test.dart --update-goldens")
+            tuval = gradyan(ayar["ust"], ayar["alt"]).resize(boy, Image.LANCZOS)
+            ImageDraw.Draw(tuval).multiline_text(
+                (boy[0] / 2, bas_y), basliklar[ekran_adi], font=font, fill="white", anchor="mm", align="center", spacing=12
+            )
+            # Tablet ekranında içerik kenara yakın olduğundan köşeler küçük tutulur (yazı kırpılmasın).
+            tel = telefon(Image.open(yol), genislik, dis_kose=22, ic_kose=12)
+            tuval.paste(tel, ((boy[0] - tel.width) // 2, ekran_y), tel)
+            hedef = ayar["cikti"] / f"{ad}_{no}.png"
+            tuval.save(hedef, optimize=True)
+            print("yazıldı:", hedef.relative_to(KOK), tuval.size)
+
+
 if __name__ == "__main__":
     for u in sys.argv[1:] or list(URUNLER):
         uret(u)
+        uret_tablet(u)

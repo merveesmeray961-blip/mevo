@@ -47,9 +47,23 @@ Future<UygulamaDurumu> hazirDurum(Urun urun) async {
   return durum;
 }
 
-Future<void> cek(WidgetTester tester, Urun urun, String ad, Widget Function(UygulamaDurumu) ekran) async {
-  tester.view.physicalSize = const Size(1080, 2340);
-  tester.view.devicePixelRatio = 3;
+/// Cihaz sınıfları: telefon 1080×2340, 7" tablet 1200×1920, 10" tablet 1600×2560 (dikey, piksel).
+const cihazlar = {
+  'tel': (Size(1080, 2340), 3.0),
+  'tab7': (Size(1200, 1920), 2.0),
+  'tab10': (Size(1600, 2560), 2.0),
+};
+
+Future<void> cek(
+  WidgetTester tester,
+  Urun urun,
+  String ad,
+  Widget Function(UygulamaDurumu) ekran, {
+  String cihaz = 'tel',
+}) async {
+  final (boyut, oran) = cihazlar[cihaz]!;
+  tester.view.physicalSize = boyut;
+  tester.view.devicePixelRatio = oran;
   addTearDown(tester.view.reset);
   final durum = await hazirDurum(urun);
   await tester.pumpWidget(
@@ -64,7 +78,7 @@ Future<void> cek(WidgetTester tester, Urun urun, String ad, Widget Function(Uygu
     ),
   );
   await tester.pumpAndSettle();
-  await expectLater(find.byKey(const ValueKey('cekim')), matchesGoldenFile('goldens/${urun.kod}_$ad.png'));
+  await expectLater(find.byKey(const ValueKey('cekim')), matchesGoldenFile('goldens/${urun.kod}_${cihaz == 'tel' ? '' : '${cihaz}_'}$ad.png'));
 }
 
 void main() {
@@ -72,33 +86,41 @@ void main() {
   for (final urun in Urun.values) {
     final ders = urun == Urun.ymm ? 'IFM' : 'FIN';
     final konu = urun == Urun.ymm ? 'KCV' : 'ALC';
-    testWidgets('${urun.kod} bugun', (t) => cek(t, urun, 'bugun', (_) => const BugunEkrani()));
-    testWidgets('${urun.kod} dersler', (t) => cek(t, urun, 'dersler', (_) => const DerslerEkrani()));
-    testWidgets('${urun.kod} istatistik', (t) => cek(t, urun, 'istatistik', (_) => const IstatistikEkrani()));
-    testWidgets(
-      '${urun.kod} ders detay',
-      (t) => cek(t, urun, 'ders', (d) => DersDetay(ders: d.banka.dersler[ders]!)),
-    );
-    testWidgets(
-      '${urun.kod} soru',
-      (t) => cek(
-        t,
-        urun,
-        'soru',
-        (d) => CalismaEkrani(
-          baslik: 'Hızlı çalışma',
-          sorular: d.banka.dersSorulari(d.bolum, ders, konu: konu).take(5).toList(),
+    for (final cihaz in cihazlar.keys) {
+      final on = '${urun.kod} $cihaz';
+      testWidgets('$on bugun', (t) => cek(t, urun, 'bugun', (_) => const BugunEkrani(), cihaz: cihaz));
+      testWidgets('$on dersler', (t) => cek(t, urun, 'dersler', (_) => const DerslerEkrani(), cihaz: cihaz));
+      testWidgets('$on istatistik', (t) => cek(t, urun, 'istatistik', (_) => const IstatistikEkrani(), cihaz: cihaz));
+      testWidgets(
+        '$on ders detay',
+        (t) => cek(t, urun, 'ders', (d) => DersDetay(ders: d.banka.dersler[ders]!), cihaz: cihaz),
+      );
+      testWidgets(
+        '$on soru',
+        (t) => cek(
+          t,
+          urun,
+          'soru',
+          (d) => CalismaEkrani(
+            baslik: 'Hızlı çalışma',
+            sorular: d.banka.dersSorulari(d.bolum, ders, konu: konu).take(5).toList(),
+          ),
+          cihaz: cihaz,
         ),
-      ),
-    );
-    testWidgets(
-      '${urun.kod} anlatim',
-      (t) => cek(
-        t,
-        urun,
-        'anlatim',
-        (d) => AnlatimEkrani(ders: d.banka.dersler[ders]!, anlatim: d.banka.anlatimlar.values.firstWhere((a) => a.ders == ders)),
-      ),
-    );
+      );
+      testWidgets(
+        '$on anlatim',
+        (t) => cek(
+          t,
+          urun,
+          'anlatim',
+          (d) => AnlatimEkrani(
+            ders: d.banka.dersler[ders]!,
+            anlatim: d.banka.anlatimlar.values.firstWhere((a) => a.ders == ders),
+          ),
+          cihaz: cihaz,
+        ),
+      );
+    }
   }
 }

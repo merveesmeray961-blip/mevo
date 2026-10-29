@@ -21,19 +21,46 @@ class DerslerEkrani extends StatelessWidget {
         final dersler = durum.banka.bolumDersleri(bolum);
         return Scaffold(
           appBar: AppBar(title: const Text('Dersler')),
+          // Geniş tablette (yatay 10") kartlar iki sütuna dizilir; dar ekranlarda tek sütun ve okuma genişliği korunur.
           body: Govde(
-            child: ListView.separated(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-              itemCount: dersler.length,
-              separatorBuilder: (_, _) => const SizedBox(height: 8),
-              itemBuilder: (context, i) {
-                final d = dersler[i];
-                final ist = durum.ilerleme.istatistik(durum.banka.dersSorulari(bolum, d.kod));
-                return _DersKarti(
-                  ders: d,
-                  bolum: bolum,
-                  ist: ist,
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => DersDetay(ders: d))),
+            enGenis: tabletGenisligi,
+            child: LayoutBuilder(
+              builder: (context, kisit) {
+                final kartlar = [
+                  for (final d in dersler)
+                    _DersKarti(
+                      ders: d,
+                      bolum: bolum,
+                      ist: durum.ilerleme.istatistik(durum.banka.dersSorulari(bolum, d.kod)),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => DersDetay(ders: d))),
+                    ),
+                ];
+                const bosluk = EdgeInsets.fromLTRB(16, 8, 16, 24);
+                if (kisit.maxWidth < ikiSutunEsigi) {
+                  return ListView.separated(
+                    padding: kisit.maxWidth > okumaGenisligi
+                        ? EdgeInsets.symmetric(horizontal: (kisit.maxWidth - okumaGenisligi) / 2 + 16, vertical: 8)
+                        : bosluk,
+                    itemCount: kartlar.length,
+                    separatorBuilder: (_, _) => const SizedBox(height: 8),
+                    itemBuilder: (_, i) => kartlar[i],
+                  );
+                }
+                // İki sütun: satır başına iki kart, aynı yükseklikte (yazı büyük olsa da taşmaz).
+                return ListView.separated(
+                  padding: bosluk,
+                  itemCount: (kartlar.length + 1) ~/ 2,
+                  separatorBuilder: (_, _) => const SizedBox(height: 8),
+                  itemBuilder: (_, i) => IntrinsicHeight(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(child: kartlar[2 * i]),
+                        const SizedBox(width: 8),
+                        Expanded(child: 2 * i + 1 < kartlar.length ? kartlar[2 * i + 1] : const SizedBox()),
+                      ],
+                    ),
+                  ),
                 );
               },
             ),

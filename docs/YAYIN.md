@@ -50,7 +50,7 @@ Hazır metinler: `docs/magaza/MAGAZA_METNI.md` (açıklamalar, anahtar kelimeler
 > (1024×500) ve 512×512 simge var; doğrudan Play Console'a yükleyebilirsin. Aşağıdaki adımlar yenilemek istersen içindir.
 
 - Telefonda uygulamayı aç, 5–8 ekran görüntüsü al (Bugün, Dersler, soru + çözüm, deneme sonucu, İstatistik, tam erişim ekranı).
-- Tablet görüntüsü (7" ve 10") eklersen tabletlerde daha iyi görünür; iPad için Apple **zorunlu** tutar.
+- Tablet görüntüleri **hazır**: her uygulama için `tablet7_1..4.png` (1200×1920) ve `tablet10_1..4.png` (1600×2560); Play Console > Mağaza varlıkları > "7 inç tablet" ve "10 inç tablet" bölümlerine yükle. iPad için Apple **zorunlu** tutar (iOS ayrı iş).
 - Simge: `app/assets/ikon/ikon.png` (1024×1024). Play için 512×512'ye küçült; Apple 1024×1024'ü uygulamanın içinden alır.
 - Play "öne çıkan görsel" 1024×500: Canva ile teal (#0F6B5C) zemin üzerine "Mizan SMMM" yazman yeterli.
 

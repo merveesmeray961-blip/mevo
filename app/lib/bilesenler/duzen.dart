@@ -6,6 +6,13 @@ const okumaGenisligi = 720.0;
 /// Kenar çubuğu (NavigationRail) kullanılan en küçük ekran genişliği (dp).
 const genisEkranEsigi = 840.0;
 
+/// İki sütunlu düzene geçilen en küçük içerik genişliği (dp). 10" tabletin yatay hali ve daha geniş ekranlar;
+/// dikey tabletlerde ve telefonlarda tek sütun kalır (büyük yazı boyutlarında taşma olmasın).
+const ikiSutunEsigi = 900.0;
+
+/// İki sütunlu düzende içeriğin en geniş hali (dp).
+const tabletGenisligi = 1180.0;
+
 /// İçeriği [okumaGenisligi] ile sınırlayıp ortalar.
 class OrtalaGenislik extends StatelessWidget {
   final Widget child;
@@ -13,14 +20,22 @@ class OrtalaGenislik extends StatelessWidget {
   /// Alt çubuk gibi yalnızca içeriği kadar yer kaplaması gereken yerlerde true.
   final bool icerikYuksekligi;
 
-  const OrtalaGenislik({super.key, required this.child, this.icerikYuksekligi = false});
+  /// İçeriğin en geniş hali (dp); iki sütunlu tablet düzenlerinde [tabletGenisligi] verilir.
+  final double enGenis;
+
+  const OrtalaGenislik({
+    super.key,
+    required this.child,
+    this.icerikYuksekligi = false,
+    this.enGenis = okumaGenisligi,
+  });
 
   @override
   Widget build(BuildContext context) => Align(
     alignment: Alignment.topCenter,
     heightFactor: icerikYuksekligi ? 1 : null,
     child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: okumaGenisligi),
+      constraints: BoxConstraints(maxWidth: enGenis),
       child: child,
     ),
   );
@@ -99,9 +114,11 @@ class _YukariCikListeState extends State<YukariCikListe> {
 /// Ekran gövdesi: çentik/kenar boşluklarına (yatay ve alt) saygı gösterir ve içeriği ortalar. Üst boşluğu AppBar karşılar.
 class Govde extends StatelessWidget {
   final Widget child;
+  final double enGenis;
 
-  const Govde({super.key, required this.child});
+  const Govde({super.key, required this.child, this.enGenis = okumaGenisligi});
 
   @override
-  Widget build(BuildContext context) => SafeArea(top: false, child: OrtalaGenislik(child: child));
+  Widget build(BuildContext context) =>
+      SafeArea(top: false, child: OrtalaGenislik(enGenis: enGenis, child: child));
 }

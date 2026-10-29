@@ -45,4 +45,5 @@ analiz temiz, Flutter 355 ve Python 100 test geçiyor. Aşağıdakiler **kalan i
 - Dart paket adı (`mevo`) ve Kotlin namespace değişmedi (kullanıcıya görünmez).
 - Depoda `YMM_konu_anlatimlari_TUMU.zip` izlenmiyor (commit edilmedi); kök dizindeki eski APK/AAB'ler `.gitignore`'da.
 - `docs/magaza/VERI_GUVENLIGI_VE_DERECELENDIRME.md` iki uygulama için ortaktır; reklam eklenirse yenilenmeli.
-- Play Console ekran görüntüleri **telefon** boyutunda; 7"/10" tablet görüntüleri yok (isteğe bağlı).
+- Tablet: 7" (600×960 dp) ve 10" (800×1280 dp) ekran görüntüleri her uygulama için 4'er adet üretildi (`docs/magaza/gorseller[_ymm]/tablet7_N.png`, `tablet10_N.png`). Yatay 10" tablette (≥900 dp) Dersler ve Bugün iki sütunlu; dikey tabletlerde tek sütun ve okuma genişliği. Üretim: `app/tool/magaza_gorsel_test.dart` + `docs/devir/araclar/magaza_gorsel.py`. Gerçek tablette denenmedi; yalnız Flutter test ekranında (×1 ve ×2 yazı, açık/koyu) taşma olmadığı doğrulandı.
+- Şık sırası: yalnız sayı/tarih/yüzde içeren şıklar artık artık sırada (`pipeline/sik_sirala.py`; SMMM 12, YMM 48 soru düzeltildi, anlam değişmedi: yedekle karşılaştırıldı). Kalan karmaşık sıralılar harf gönderen sorulardır; elle bakılmalı.
