@@ -7,7 +7,7 @@ analiz temiz, Flutter 355 ve Python 100 test geçiyor. Aşağıdakiler **kalan i
 
 | # | İş | Not |
 |---|---|---|
-| A1 | **Destek e-postası ve veri sorumlusu adı** | `app/lib/uygulama.dart` `destekEposta`, `app/lib/ekranlar/yasal.dart` (2 yer), `docs/magaza/gizlilik.html` (2 yer) boş. E-posta açılınca verilecek. |
+| A1 | ~~Destek e-postası ve veri sorumlusu adı~~ **Yapıldı (2026-10-29)** | E-posta `ristaycraft@gmail.com`, veri sorumlusu Merve Er; 5 yere (`uygulama.dart`, `yasal.dart` x2, `gizlilik.html` x2) yazıldı, her iki uygulama yeniden derlendi. Değişirse aynı 5 yer güncellenir; uygulamadaki iki yer yeni sürüm ister, `gizlilik.html` ise sitede anında güncellenir. |
 | A2 | **Yükleme anahtarı yedeği** | `C:\Users\erene\dev\mevo_gizli\` (jks + parola) USB + şifreli buluta. Kaybolursa güncelleme çıkarılamaz. |
 | A3 | **Google Play geliştirici hesabı** (25 $) | İki uygulama + her birinde `tam_erisim` ürünü ve fiyatı. |
 | A4 | **Gizlilik sayfasını internete koymak** | `docs/magaza/gizlilik.html` (Netlify Drop / GitHub Pages; bkz. `YAYIN.md` 0.2). Önce A1 doldurulmalı. |

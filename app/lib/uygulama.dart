@@ -76,7 +76,7 @@ const anaRenk = Color(0xFF0F6B5C);
 
 /// Hata bildirimlerinin ve destek taleplerinin gittiği adres (gizlilik metnindeki iletişim adresiyle aynı).
 /// Boşsa bildirim yalnız cihaza kaydedilir; yayından önce doldurulmalıdır.
-const destekEposta = '';
+const destekEposta = 'ristaycraft@gmail.com';
 
 ThemeData tema(Brightness parlaklik, [Color renk = anaRenk]) {
   // Koyu temada "canlı" şema: ana düğmeler soluk nane rengine dönmeden belirgin kalır. Açık temada varsayılan

@@ -9,7 +9,7 @@ class YasalMetin {
   const YasalMetin(this.baslik, this.metin);
 }
 
-// TASLAK — yayından önce veri sorumlusu bilgileri eklenecek ve hukuki gözden geçirme yapılacak.
+// TASLAK — veri sorumlusu bilgileri eklendi; yayından önce hukuki gözden geçirme yapılacak.
 // Uygulama hesap açmaz, sunucuya veri göndermez; yalnızca satın alma Google Play / App Store üzerinden yapılır.
 // Bu metinlerin web karşılığı docs/magaza/gizlilik.html dosyasıdır; biri değişirse diğeri de güncellenmelidir.
 // İki uygulama (Mizan SMMM, Tasdik YMM) aynı metni kullanır; yalnız sınav adı ürüne göre değişir.
@@ -33,7 +33,7 @@ Saklama ve silme: Cihazındaki verileri Ayarlar > İlerlememi sıfırla ile ya d
 
 Haklar: 6698 sayılı Kanun'un 11. maddesi uyarınca; kişisel verinin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, aktarıldığı üçüncü kişileri bilme, eksik veya yanlış işlenmişse düzeltilmesini isteme, silinmesini veya yok edilmesini isteme, bu işlemlerin üçüncü kişilere bildirilmesini isteme, otomatik sistemlerle aleyhine bir sonuç çıkmasına itiraz etme ve kanuna aykırı işlenmesi nedeniyle zarara uğraman hâlinde zararın giderilmesini talep etme haklarına sahipsin. Başvurularını aşağıdaki iletişim adresine yazılı olarak iletebilirsin; en geç otuz gün içinde yanıtlanır.
 
-Veri sorumlusu: [yayın öncesi eklenecek]
+Veri sorumlusu: Merve Er (iletişim: ristaycraft@gmail.com)
 '''),
   const YasalMetin('Gizlilik politikası', '''
 Uygulama reklam göstermez, seni izleyen bir reklam kimliği veya analiz aracı kullanmaz ve herhangi bir sunucuya veri göndermez.
@@ -42,7 +42,7 @@ Tüm çalışma verilerin (cevaplar, deneme sonuçları, ayarlar) yalnızca ciha
 
 Tek seferlik "Tam erişim" satın alımı Google Play veya App Store üzerinden yapılır. Ödeme bilgilerin bize iletilmez; mağaza, satın aldığını uygulamaya bildirir ve uygulama bunu cihazında saklar. "Satın alımı geri yükle" dediğinde uygulama mağazaya yeniden sorar.
 
-Gizlilikle ilgili sorular için: [yayın öncesi eklenecek]
+Gizlilikle ilgili sorular için: ristaycraft@gmail.com
 '''),
   YasalMetin('Kullanım koşulları', '''
 Sorular, ${urun.sinavCumlesi} hazırlık amacıyla özgün olarak hazırlanmıştır ve resmî sınav soruları değildir.

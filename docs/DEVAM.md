@@ -15,7 +15,7 @@
   eklenirse gizlilik/KVKK/Data safety belgeleri yeniden yazılmalı).
 - **Mevzuat/anlatım sayfalarına "başa dön" düğmesi** (`YukariCikListe`).
 - **Yasal metinler genişletildi** (hata bildirimi e-postası, hukuki sebep, saklama süresi, md. 11 hakları). Avukat onayı yok;
-  veri sorumlusu adı ve destek e-postası hâlâ boş (`gizlilik.html`, `yasal.dart`, `destekEposta`).
+  veri sorumlusu (Merve Er) ve destek e-postası (ristaycraft@gmail.com) 2026-10-29'da 5 yere yazıldı (`gizlilik.html`, `yasal.dart`, `destekEposta`).
 - **Henüz yapılmayanlar:** sesli okuma, arayüz yenilemesi, soru artırımı (SMMM 3.223 → 5.000+, YMM 1.887 → 3.000+),
   kalite yeniden ölçümü, mağaza ekran görüntüleri/tanıtım videosu, videolu anlatım, uzman teyidi.
 
