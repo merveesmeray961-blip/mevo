@@ -784,19 +784,19 @@
 
     '
   secenekler:
-    A: FOB
+    A: DAP
     B: CIF
-    C: DAP
+    C: FOB
     D: FCA
     E: EXW
-  dogru: C
+  dogru: A
   aciklama:
     dogru_neden: DAP (Delivered at Place); satıcının malı belirlenen varış yerine kadar tüm nakliye riskini üstlenerek
       taşıdığı, ancak ithalat gümrüğünü alıcıya bıraktığı teslim şeklidir. Tüm taşıma modlarına uygundur.
     celdiriciler:
-      A: FOB yalnızca deniz ve iç su taşımacılığına özgüdür; satıcı risk gemiye yüklemede biter.
       B: CIF yalnızca deniz taşımacılığına uygulanır; sigorta ve navlun satıcıya aittir ancak varışta gümrük alıcıya
         aittir.
+      C: FOB yalnızca deniz ve iç su taşımacılığına özgüdür; satıcı risk gemiye yüklemede biter.
       D: FCA'da satıcı malı taşıyıcıya teslim eder, varışa kadar taşımaz.
       E: EXW en minimal teslim şeklidir; satıcı yalnızca malı fabrikada hazır eder.
   kaynaklar:
@@ -841,6 +841,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → A (metinler yer değiştirdi).'
 - id: YMM-DTK-IHI-0027
   sinav: ymm
   bolum:
@@ -1008,17 +1011,17 @@
 
     '
   secenekler:
-    A: rezerv bildirimi
-    B: tadilat (amendment)
+    A: tadilat (amendment)
+    B: rezerv bildirimi
     C: teyit mektubu
     D: ödeme taahhütnamesi
     E: kısmi devir belgesi
-  dogru: B
+  dogru: A
   aciklama:
     dogru_neden: Akreditif koşullarında değişiklik yapılması (süre uzatımı, tutar artışı vb.) için akreditife eklenen
       belge "tadilat" (amendment) olarak adlandırılır. Tadilat için tüm tarafların onayı gerekir.
     celdiriciler:
-      A: Rezerv bildirimi; bankanın belgelerde uyumsuzluk bulduğunda yaptığı bildirimdir.
+      B: Rezerv bildirimi; bankanın belgelerde uyumsuzluk bulduğunda yaptığı bildirimdir.
       C: Teyit mektubu teyitli akreditife özgü olup değişiklik belgesi değildir.
       D: Ödeme taahhütnamesi akreditifin temel belgesidir; değişiklik belgesi değildir.
       E: Kısmi devir belgesi devredilebilir akreditife özgüdür; tadilat değildir.
@@ -1064,6 +1067,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
 - id: YMM-DTK-IHI-0030
   sinav: ymm
   bolum:
@@ -1080,18 +1086,18 @@
   secenekler:
     A: Satıcıya ödenen komisyon ve aracılık ücretleri
     B: Ambalaj maliyetleri
-    C: Türkiye içindeki nakliye masrafları
+    C: Eşyanın Türkiye'ye taşınması için ödenen navlun
     D: Eşyayı gümrük bölgesine getiren sigorta masrafları
-    E: Eşyanın Türkiye'ye taşınması için ödenen navlun
-  dogru: C
+    E: Türkiye içindeki nakliye masrafları
+  dogru: E
   aciklama:
     dogru_neden: Türkiye içindeki nakliye masrafları gümrük kıymetine dahil edilmez; gümrük kıymeti yalnızca Türkiye
       Gümrük Bölgesi'ne girişe kadar olan masrafları kapsar.
     celdiriciler:
       A: Alıcı tarafından ödenen komisyon ve aracılık ücretleri gümrük kıymetine eklenir.
       B: Ambalaj ve konteyner masrafları gümrük kıymetine dahildir.
+      C: Türkiye'ye getirilmek için ödenen navlun gümrük kıymetine dahildir.
       D: Gümrük sınırına kadar olan sigorta masrafları gümrük kıymetine eklenir.
-      E: Türkiye'ye getirilmek için ödenen navlun gümrük kıymetine dahildir.
   kaynaklar:
   - mevzuat: 4458 sayılı Gümrük Kanunu
     madde: Madde 27-28
@@ -1134,6 +1140,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
 - id: YMM-DTK-IHI-0031
   sinav: ymm
   bolum:
@@ -1600,17 +1609,17 @@
   secenekler:
     A: gümrük tescili
     B: belge kontrolü
-    C: muayene
-    D: çıkış onayı
+    C: çıkış onayı
+    D: muayene
     E: antrepo yerleştirme
-  dogru: C
+  dogru: D
   aciklama:
     dogru_neden: Gümrükte eşyanın fiziksel olarak incelenmesine "muayene" denir. Muayene; eşyanın beyanname bilgileriyle
       örtüşüp örtüşmediğini ve eşyayla ilgili yasal gerekliliklere uygunluğu doğrulamak amacıyla yapılır.
     celdiriciler:
       A: Gümrük tescili beyanname kaydı aşamasıdır; fiziksel inceleme değildir.
       B: Belge kontrolü kağıt bazlı incelemedir; fiziksel muayeneyi kapsamaz.
-      D: Çıkış onayı ihracat rejiminde verilir; ithalat işlemiyle ilgili değildir.
+      C: Çıkış onayı ihracat rejiminde verilir; ithalat işlemiyle ilgili değildir.
       E: Antrepo yerleştirme eşyanın depoya alınma işlemidir.
   kaynaklar:
   - mevzuat: 4458 sayılı Gümrük Kanunu
@@ -1654,6 +1663,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → D (metinler yer değiştirdi).'
 - id: YMM-DTK-IHI-0038
   sinav: ymm
   bolum:
@@ -1670,18 +1682,18 @@
   secenekler:
     A: Standby akreditif, ticari akreditiften farklı olarak garanti aracı işlevi görür.
     B: Standby akreditif; borçlunun yükümlülüğünü yerine getirmemesi durumunda ödeme güvencesi sağlar.
-    C: Standby akreditifler mal ticaretinde akreditif gibi belge karşılığı ödeme için kullanılır.
+    C: Standby akreditif, banka teminat mektubuna benzer işlev görür.
     D: ISP98 standby akreditiflere ilişkin uluslararası kurallardır.
-    E: Standby akreditif, banka teminat mektubuna benzer işlev görür.
-  dogru: C
+    E: Standby akreditifler mal ticaretinde akreditif gibi belge karşılığı ödeme için kullanılır.
+  dogru: E
   aciklama:
     dogru_neden: Standby akreditif, ticari bir akreditif gibi belge karşılığı rutin ödeme aracı olarak değil, bir
       güvence/garanti aracı olarak kullanılır. Borçlunun taahhüdünü yerine getirememesi durumunda devreye girer.
     celdiriciler:
       A: Standby akreditif garanti aracı işlevi görür, bu doğrudur.
       B: Yükümlülük ihlali durumunda ödeme güvencesi sağlar, bu doğrudur.
+      C: Standby akreditif banka teminat mektubuna fonksiyonel olarak benzer, bu doğrudur.
       D: ISP98, standby akreditifler için ayrı bir kurallar setidir, bu doğrudur.
-      E: Standby akreditif banka teminat mektubuna fonksiyonel olarak benzer, bu doğrudur.
   kaynaklar:
   - mevzuat: ISP98 (Uluslararası Standby Uygulamaları)
     madde: Genel ilkeler
@@ -1724,6 +1736,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
 - id: YMM-DTK-IHI-0039
   sinav: ymm
   bolum:
@@ -1893,17 +1908,17 @@
 
     '
   secenekler:
-    A: Malın tamamı tek bir sevkiyatta gönderilmelidir.
-    B: Mallar birden fazla taşıma aracıyla gönderilebilir.
+    A: Mallar birden fazla taşıma aracıyla gönderilebilir.
+    B: Malın tamamı tek bir sevkiyatta gönderilmelidir.
     C: Mallar belirlenen süre içinde istenen varış noktasına ulaştırılmalıdır.
     D: Akreditif tutarının belirli bir kısmı kullanılabilir, kalanı iptal edilir.
     E: Malların tamamı aynı anda ibraz edilmelidir.
-  dogru: A
+  dogru: B
   aciklama:
     dogru_neden: Akreditifte kısmi yükleme yasağı, malların tamamının tek bir sevkiyatta gönderilmesi gerektiği
       anlamına gelir. Aksi belirtilmemişse kısmi yüklemelere izin vardır.
     celdiriciler:
-      B: Bu kısmi yüklemeye izin durumunu tanımlar; yasağı değil.
+      A: Bu kısmi yüklemeye izin durumunu tanımlar; yasağı değil.
       C: Bu taşıma süresine ilişkin bir koşuldur; kısmi yükleme yasağı değildir.
       D: Bu kısmi kullanım (partial drawing) konusudur; kısmi yüklemeyle karıştırılmamalıdır.
       E: Belge ibrazı ayrı bir akreditif koşuludur.
@@ -1953,6 +1968,9 @@
     kim: hakem
     ne: düzeltildi
     neden: R6
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık A → B (metinler yer değiştirdi).'
 - id: YMM-DTK-IHI-0042
   sinav: ymm
   bolum:
@@ -2190,19 +2208,19 @@
     '
   secenekler:
     A: İthalat beyannamesi gümrük idaresine elektronik ortamda verilir.
-    B: Menşe ülkesinden doğrudan sevkiyat zorunluluğu her ürün için geçerlidir.
+    B: Bazı ürünlerin ithalatı ön izin veya lisansa tabidir.
     C: İthalatta gümrük vergisi matrahı CIF bedel üzerinden hesaplanır.
     D: İthal eşyasının serbest dolaşıma girişi için gümrük vergisinin ödenmesi gerekir.
-    E: Bazı ürünlerin ithalatı ön izin veya lisansa tabidir.
-  dogru: B
+    E: Menşe ülkesinden doğrudan sevkiyat zorunluluğu her ürün için geçerlidir.
+  dogru: E
   aciklama:
     dogru_neden: Menşe ülkesinden doğrudan sevkiyat zorunluluğu her ürün için geçerli değildir; transit ülkeler
       üzerinden ithalat mümkündür.
     celdiriciler:
       A: İthalat beyannamesi gümrükte elektronik sistemle verilir; doğru bir ifadedir.
+      B: Bazı ürünler için ön izin veya lisans gerekmektedir.
       C: Gümrük vergisi CIF bedel üzerinden hesaplanır; doğrudur.
       D: Serbest dolaşıma giriş için gümrük vergisi ödenmesi zorunludur.
-      E: Bazı ürünler için ön izin veya lisans gerekmektedir.
   kaynaklar:
   - mevzuat: 4458 sayılı Gümrük Kanunu
     madde: 60-76
@@ -2245,6 +2263,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → E (metinler yer değiştirdi).'
 - id: YMM-DTK-IHI-0046
   sinav: ymm
   bolum:

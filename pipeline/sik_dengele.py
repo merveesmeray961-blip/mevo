@@ -1,7 +1,7 @@
 """Doğru şık dağılımını dengeler: doğru cevabın A–E harflerine eşit dağılması için, şık sırası anlam taşımayan
 sorularda doğru şık ile fazla kullanılmayan bir harfin metni yer değiştirir (çeldirici açıklamaları da taşınır).
 
-    python -m pipeline.sik_dengele [--dene]     # --dene: dosyaya yazmadan ne değişeceğini gösterir
+    python -m pipeline.sik_dengele [--dene] [--urun smmm|ymm]   # --dene: dosyaya yazmadan ne değişeceğini gösterir
 
 Dokunulmayan sorular (şık sırası anlamlı ya da harf metinde geçiyor):
   - sayısal şıklar (gerçek sınavda küçükten büyüğe sıralıdır, G4 bunu denetler),
@@ -76,9 +76,10 @@ def takas(s: dict, hedef: str) -> None:
     })
 
 
-def dengele(yaz: bool = True, tohum: int = 20261009) -> Counter:
+def dengele(yaz: bool = True, tohum: int = 20261009, urun: str = "smmm") -> Counter:
+    klasor = g2_yapi.KOK / "content" / "sorular" / urun
     kayitlar: list[tuple[str, list | dict, list[dict]]] = []
-    for yol in sorted(KLASOR.glob("*/*.yaml")):
+    for yol in sorted(klasor.glob("*/*.yaml")):
         icerik = yaml.safe_load(yol.read_text(encoding="utf-8"))
         liste = icerik if isinstance(icerik, list) else [icerik]
         kayitlar.append((str(yol), icerik, liste))
@@ -109,7 +110,8 @@ def dengele(yaz: bool = True, tohum: int = 20261009) -> Counter:
 
 
 def main(argv: list[str]) -> int:
-    sayac = dengele(yaz="--dene" not in argv)
+    urun = argv[argv.index("--urun") + 1] if "--urun" in argv else "smmm"
+    sayac = dengele(yaz="--dene" not in argv, urun=urun)
     print("dağılım:", dict(sorted(sayac.items())))
     return 0
 

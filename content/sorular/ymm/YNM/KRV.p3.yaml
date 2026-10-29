@@ -580,10 +580,10 @@
   secenekler:
     A: toplam kâr / toplam maliyet
     B: birim satış fiyatı / birim değişken maliyet
-    C: katkı payı / kıt kaynak tüketimi
+    C: net kâr / sabit maliyet
     D: brüt kâr / üretim süresi
-    E: net kâr / sabit maliyet
-  dogru: C
+    E: katkı payı / kıt kaynak tüketimi
+  dogru: E
   aciklama:
     dogru_neden: Kıt kaynağın en verimli kullanılması için her ürünün birim kıt kaynak başına katkı payı hesaplanır;
       bu oran en yüksek olan ürün öncelik alır.
@@ -592,10 +592,10 @@
         farklı bir verimlilik göstergesidir.
       B: Fiyat/değişken maliyet oranı katkı payı marjına yakın görünse de bölende kıt kaynak tüketimi yer almadığından
         yanlış sonuç verir.
+      C: Sabit maliyetler kısa vadeli karar verme süreçlerinde ilgisiz maliyetler grubundadır; bu nedenle bu oran
+        kullanılmaz.
       D: Brüt kâr/üretim süresi oranı kıt kaynağın makineler dışı olduğu durumlarda geçersizdir ve genel geçer bir
         kural değildir.
-      E: Sabit maliyetler kısa vadeli karar verme süreçlerinde ilgisiz maliyetler grubundadır; bu nedenle bu oran
-        kullanılmaz.
   kaynaklar:
   - mevzuat: Genel bilgi — Karar verme ve ilgili maliyetler
     madde: '-'
@@ -637,6 +637,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
 - id: YMM-YNM-KRV-0075
   sinav: ymm
   bolum:
@@ -1242,21 +1245,21 @@
   zorluk: 2
   kok: Bir ürün hattının kapatılmasında 'kaçınılabilir sabit maliyet' kavramı ne anlama gelir?
   secenekler:
-    A: Hat kapatıldığında ortadan kalkacak sabit maliyet
-    B: Tüm ürün hatlarına ortak yüklenen genel gider
+    A: Tüm ürün hatlarına ortak yüklenen genel gider
+    B: Hat kapatıldığında ortadan kalkacak sabit maliyet
     C: Geçmiş dönemde fiilen ödenen maliyet
     D: Amortisman gibi nakit çıkışı olmayan maliyet
     E: Üretim hacmine bağlı olarak değişen maliyet
-  dogru: A
+  dogru: B
   aciklama:
     dogru_neden: Kaçınılabilir sabit maliyet, ilgili kararın alınmasıyla birlikte gerçekleşmeyecek olan maliyettir.
       Ürün hattı kapatılınca bu maliyetler sona erer ve tasarruf sağlanır.
     celdiriciler:
-      E: Üretim hacmine göre değişen maliyet, değişken maliyet tanımıdır; sabit maliyet değildir.
-      B: Ortak genel giderler genellikle kaçınılabilir değildir; hat kapatılsa da devam eder.
+      A: Ortak genel giderler genellikle kaçınılabilir değildir; hat kapatılsa da devam eder.
       C: Geçmişte ödenen maliyet batık (sunk) maliyet kategorisindedir; karar analizinde ilgisizdir.
       D: Nakit çıkışı olmayan maliyetler (amortisman) da kaçınılabilir olabilir ya da olmayabilir; bu ayrım farklı
         bir kavramdır.
+      E: Üretim hacmine göre değişen maliyet, değişken maliyet tanımıdır; sabit maliyet değildir.
   kaynaklar:
   - mevzuat: Genel bilgi — Karar verme ve ilgili maliyetler
     madde: '-'
@@ -1298,6 +1301,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık A → B (metinler yer değiştirdi).'
 - id: YMM-YNM-KRV-0084
   sinav: ymm
   bolum:
@@ -1673,18 +1679,18 @@
   zorluk: 2
   kok: Ürün hattı kapatma kararı değerlendirilirken aşağıdakilerden hangisi niteliksel (sayısal olmayan) bir faktördür?
   secenekler:
-    A: Ürün hattının toplam katkı payı
+    A: Ürünün müşteri sadakatine katkısı ve marka algısı
     B: Kaçınılabilir sabit maliyetin tutarı
-    C: Ürünün müşteri sadakatine katkısı ve marka algısı
+    C: Ürün hattının toplam katkı payı
     D: Hat kapatıldığında gerçekleşecek tasarruf miktarı
     E: Diğer ürün hatlarına aktarılacak sabit maliyet tutarı
-  dogru: C
+  dogru: A
   aciklama:
     dogru_neden: Müşteri sadakati ve marka algısı parasal değerle ölçülemeyen niteliksel faktörlerdir. Bu tür etkiler
       sayısal analize dahil edilemez; yönetim değerlendirmesine bırakılır.
     celdiriciler:
-      A: Katkı payı tutarı sayısal, ölçülebilir bir finansal göstergedir.
       B: Kaçınılabilir sabit maliyet rakamsal olarak hesaplanabilir.
+      C: Katkı payı tutarı sayısal, ölçülebilir bir finansal göstergedir.
       D: Tasarruf miktarı belirli bir para birimi cinsinden ifade edilebilir; niteliksel değildir.
       E: Diğer hatlara aktarılacak maliyet tutarı da sayısal bir hesaplama sonucudur.
   kaynaklar:
@@ -1728,6 +1734,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → A (metinler yer değiştirdi).'
 - id: YMM-YNM-KRV-0090
   sinav: ymm
   bolum:
@@ -1878,18 +1887,18 @@
   zorluk: 2
   kok: Üret veya satın al kararında aşağıdakilerden hangisi kesinlikle YANLIŞ bir yaklaşımdır?
   secenekler:
-    A: Değişken maliyetlerle yetinmek (sabit maliyetler kaçınılabilir değilse)
+    A: Geçmişte yapılan AR-GE harcamasını karar maliyeti olarak kullanmak
     B: Boş kapasitenin kira geliri fırsatını analize katmak
-    C: Geçmişte yapılan AR-GE harcamasını karar maliyeti olarak kullanmak
+    C: Değişken maliyetlerle yetinmek (sabit maliyetler kaçınılabilir değilse)
     D: Kaçınılabilir sabit maliyeti satın alma fiyatıyla karşılaştırmak
     E: Tedarikçi güvenilirliğini niteliksel faktör olarak değerlendirmek
-  dogru: C
+  dogru: A
   aciklama:
     dogru_neden: Geçmişte yapılan AR-GE harcaması batık maliyettir; gelecekteki alternatifler arasında farklılık
       yaratmaz. Bu harcamayı üret/satın al kararına dahil etmek yanıltıcıdır ve yanlış sonuçlara yol açar.
     celdiriciler:
-      A: Sabit maliyetler kaçınılabilir değilse yalnızca değişken maliyetlerle kıyaslamak doğru yaklaşımdır.
       B: Kira geliri fırsatı bir fırsat maliyetidir ve doğru biçimde analize katılmalıdır.
+      C: Sabit maliyetler kaçınılabilir değilse yalnızca değişken maliyetlerle kıyaslamak doğru yaklaşımdır.
       D: Kaçınılabilir sabit maliyetin satın alma fiyatıyla karşılaştırılması doğru analiz yöntemidir.
       E: Niteliksel faktörler kararın bütünlüğü için değerlendirilmesi gereken unsurlardır.
   kaynaklar:
@@ -1937,6 +1946,9 @@
     kim: hakem
     ne: düzeltildi
     neden: R6
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → A (metinler yer değiştirdi).'
 - id: YMM-YNM-KRV-0093
   sinav: ymm
   bolum:

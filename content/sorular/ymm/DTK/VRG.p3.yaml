@@ -390,11 +390,11 @@
     '
   secenekler:
     A: Tek başına ihracat faturası
-    B: İhracat faturası ve gümrük çıkış beyannamesi
+    B: İhracat faturası ve tahsilat makbuzu
     C: Gümrük çıkış beyannamesi ve navlun faturası
-    D: İhracat faturası ve tahsilat makbuzu
+    D: İhracat faturası ve gümrük çıkış beyannamesi
     E: Tek başına gümrük çıkış beyannamesi
-  dogru: B
+  dogru: D
   aciklama:
     dogru_neden: 'KDV iadesi talebinde fatura ve gümrük çıkış beyannamesi temel belge olarak aranır. Gümrük çıkış
       beyannamesi üzerindeki "çıkış" tescili, malın fiilen yurt dışına çıktığını kanıtlar.
@@ -402,8 +402,8 @@
       '
     celdiriciler:
       A: Yalnız ihracat faturası yeterli değildir; gümrük çıkış beyannamesi de gereklidir.
+      B: Tahsilat makbuzu bazı durumlarda istenebilir ancak temel belge değildir.
       C: Navlun faturası ihracat KDV iadesi için zorunlu temel belge değildir.
-      D: Tahsilat makbuzu bazı durumlarda istenebilir ancak temel belge değildir.
       E: Yalnızca gümrük çıkış beyannamesi yeterli değildir; fatura da gereklidir.
   kaynaklar:
   - mevzuat: KDV Genel Uygulama Tebliği
@@ -451,6 +451,9 @@
     kim: hakem
     ne: düzeltildi
     neden: R6
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → D (metinler yer değiştirdi).'
 - id: YMM-DTK-VRG-0042
   sinav: ymm
   bolum:
@@ -916,11 +919,11 @@
     '
   secenekler:
     A: İhracat işleminde KDV hesaplanmaması
-    B: İhracatçının yüklendiği KDV'yi iade olarak geri alabilmesi
+    B: İhracatçının KDV mükellefi olma zorunluluğunun bulunmaması
     C: İhracatın gümrük vergisinden de muaf tutulması
-    D: İhracatçının KDV mükellefi olma zorunluluğunun bulunmaması
+    D: İhracatçının yüklendiği KDV'yi iade olarak geri alabilmesi
     E: İhracat bedelinin döviz cinsinden tahsil edilmesi
-  dogru: B
+  dogru: D
   aciklama:
     dogru_neden: 'Tam istisnada mükellef hem teslim üzerinden vergi hesaplamaz hem de yüklendiği KDV''yi iade olarak
       geri alabilir. Kısmi istisnada ise yüklenilen KDV iade edilmez, gider yazılır.
@@ -928,8 +931,8 @@
       '
     celdiriciler:
       A: KDV hesaplanmaması tek başına tam istisna olmayı açıklamaz; kısmi istisnada da KDV hesaplanmaz.
+      B: İhracatçılar KDV mükellefiyetine tabidir; istisna mükellefiyet ortadan kaldırmaz.
       C: Gümrük vergisi muafiyeti KDV istisnasından bağımsız bir konudur.
-      D: İhracatçılar KDV mükellefiyetine tabidir; istisna mükellefiyet ortadan kaldırmaz.
       E: Dövizle tahsilat hizmet ihracatının koşuludur; tam istisnanın tanımı değildir.
   kaynaklar:
   - mevzuat: 3065 sayılı KDV Kanunu
@@ -977,6 +980,9 @@
     kim: hakem
     ne: düzeltildi
     neden: R6
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → D (metinler yer değiştirdi).'
 - id: YMM-DTK-VRG-0049
   sinav: ymm
   bolum:
@@ -2136,11 +2142,11 @@
     '
   secenekler:
     A: Serbest bölge kullanıcıları Türkiye'deki tüm vergilerden muaftır
-    B: Serbest bölge içinde yapılan işlemlere Türk vergi mevzuatı uygulanmaz
-    C: Serbest bölgeden Türkiye'ye mal satışı ithalat hükümlerine tabidir ve KDV ödenir
+    B: Serbest bölgeden Türkiye'ye mal satışı ithalat hükümlerine tabidir ve KDV ödenir
+    C: Serbest bölge içinde yapılan işlemlere Türk vergi mevzuatı uygulanmaz
     D: Serbest bölge kullanıcılarının Türkiye'deki işlemlerinde çifte vergileme engellenmektedir
     E: Serbest bölge faaliyetleri Türk ticaret hukukuna tabi değildir
-  dogru: C
+  dogru: B
   aciklama:
     dogru_neden: 'Serbest bölgeden Türkiye''ye yapılan mal satışı ithalat sayılır; gümrük vergisi ve KDV ödenir.
       Serbest bölgeler Türkiye Gümrük Bölgesi''nin dışında sayılsa da Türkiye''ye girişte vergi doğar.
@@ -2149,7 +2155,7 @@
     celdiriciler:
       A: Serbest bölge kullanıcıları yalnızca bölge içi işlemlerde çeşitli istisnalardan yararlanır; her vergiden
         muaf değildir.
-      B: Türkiye'ye girişte Türk vergi mevzuatı uygulanır.
+      C: Türkiye'ye girişte Türk vergi mevzuatı uygulanır.
       D: Çifte vergileme önlemi serbest bölge için ayrıca düzenlenmemiştir.
       E: Serbest bölge kullanıcıları Türk ticaret hukukuna tabidir.
   kaynaklar:
@@ -2194,6 +2200,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → B (metinler yer değiştirdi).'
 - id: YMM-DTK-VRG-0065
   sinav: ymm
   bolum:

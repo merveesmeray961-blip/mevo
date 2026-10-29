@@ -582,11 +582,11 @@
     '
   secenekler:
     A: Üretim bütçesi
-    B: Nakit bütçesi
-    C: Satış bütçesi
+    B: Satış bütçesi
+    C: Nakit bütçesi
     D: Genel üretim giderleri bütçesi
     E: Sermaye harcamaları bütçesi
-  dogru: C
+  dogru: B
   aciklama:
     dogru_neden: 'Ana bütçe hazırlık süreci satış tahminiyle başlar. Satış bütçesi, üretim miktarını, dolayısıyla
       malzeme, işçilik ve genel gider bütçelerini belirleyen temel girdidir.
@@ -594,7 +594,7 @@
       '
     celdiriciler:
       A: Üretim bütçesi satış bütçesinden türetilir; önce gelmez.
-      B: Nakit bütçesi tüm operasyonel bütçeler tamamlandıktan sonra hazırlanır.
+      C: Nakit bütçesi tüm operasyonel bütçeler tamamlandıktan sonra hazırlanır.
       D: Genel üretim giderleri bütçesi üretim bütçesine bağlıdır.
       E: Sermaye harcamaları bütçesi ayrı bir karar sürecidir; satış öncesinde yapılmaz.
   kaynaklar:
@@ -638,6 +638,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → B (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0078
   sinav: ymm
   bolum:
@@ -725,19 +728,19 @@
 
     '
   secenekler:
-    A: Fiili GÜG ile esnek bütçe GÜG arasındaki fark
-    B: Esnek bütçe GÜG ile uygulanan (emilen) GÜG arasındaki fark
+    A: Esnek bütçe GÜG ile uygulanan (emilen) GÜG arasındaki fark
+    B: Fiili GÜG ile esnek bütçe GÜG arasındaki fark
     C: Uygulanan GÜG ile statik bütçe GÜG arasındaki fark
     D: Fiili GÜG ile statik bütçe GÜG arasındaki fark
     E: Standart maliyet ile fiili maliyet arasındaki toplam fark
-  dogru: A
+  dogru: B
   aciklama:
     dogru_neden: 'Harcama sapması (spending variance), fiili genel üretim giderleriyle aynı faaliyet hacmi için
       hazırlanan esnek bütçe tutarı arasındaki farktır. Fiyat/verimlilik kaynaklı sapmaları ölçer.
 
       '
     celdiriciler:
-      B: Bu tanım verimlilik sapmasını değil, GÜG emilim sapmasını (volume variance) ifade eder.
+      A: Bu tanım verimlilik sapmasını değil, GÜG emilim sapmasını (volume variance) ifade eder.
       C: Bu fark hacim sapmasına (volume/capacity variance) karşılık gelir.
       D: Statik bütçe karşılaştırması toplam sapma analizinde kullanılır.
       E: Bu genel toplam sapmayı tanımlar; harcama sapmasına özgü değildir.
@@ -782,6 +785,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık A → B (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0080
   sinav: ymm
   bolum:
@@ -796,20 +802,20 @@
 
     '
   secenekler:
-    A: Satış bütçesi
+    A: Nakit bütçesi
     B: Üretim bütçesi
-    C: Nakit bütçesi
+    C: Satış bütçesi
     D: Direkt malzeme bütçesi
     E: Genel yönetim giderleri bütçesi
-  dogru: C
+  dogru: A
   aciklama:
     dogru_neden: 'Finansal bütçe; proforma gelir tablosu, proforma bilanço ve nakit bütçesinden oluşur. Nakit bütçesi,
       dönem içi nakit akışlarını yönetmek için kritik öneme sahiptir.
 
       '
     celdiriciler:
-      A: Satış bütçesi operasyonel bütçenin başlangıç noktasıdır; finansal bütçede yer almaz.
       B: Üretim bütçesi operasyonel bütçe kapsamındadır.
+      C: Satış bütçesi operasyonel bütçenin başlangıç noktasıdır; finansal bütçede yer almaz.
       D: Direkt malzeme bütçesi operasyonel bütçe bileşenidir.
       E: Genel yönetim giderleri bütçesi operasyonel bütçededir.
   kaynaklar:
@@ -853,6 +859,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → A (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0081
   sinav: ymm
   bolum:
@@ -1013,11 +1022,11 @@
     '
   secenekler:
     A: Tahmini satış miktarı + Dönem başı stok − Dönem sonu stok hedefi
-    B: Tahmini satış miktarı − Dönem başı stok + Dönem sonu stok hedefi
+    B: Tahmini satış miktarı − Dönem sonu stok hedefi + Dönem başı stok
     C: Tahmini satış miktarı + Dönem sonu stok hedefi
-    D: Tahmini satış miktarı − Dönem sonu stok hedefi + Dönem başı stok
+    D: Tahmini satış miktarı − Dönem başı stok + Dönem sonu stok hedefi
     E: Tahmini satış miktarı × Standart üretim hızı
-  dogru: B
+  dogru: D
   aciklama:
     dogru_neden: 'Hedef üretim = Tahmini satış + İstenen dönem sonu stok − Mevcut dönem başı stok. Dönem sonunda
       istenen stoku elde etmek için satışın üzerine bu stok eklenir; başlangıçta mevcut stok üretim ihtiyacını azaltır.
@@ -1025,8 +1034,8 @@
       '
     celdiriciler:
       A: İşaretler yer değiştirmiştir; dönem başı stok düşülmeli, dönem sonu eklenmeli.
+      B: Dönem sonu stok düşülmüş, dönem başı eklenmiştir; formül tersine çevrilmiştir.
       C: Dönem başı stok düşülmemiştir.
-      D: Dönem sonu stok düşülmüş, dönem başı eklenmiştir; formül tersine çevrilmiştir.
       E: Üretim hızı, bütçeleme formülüyle ilgili değildir.
   kaynaklar:
   - mevzuat: Genel bilgi — Bütçeleme ve standart maliyet
@@ -1069,6 +1078,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → D (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0084
   sinav: ymm
   bolum:
@@ -1159,19 +1171,19 @@
 
     '
   secenekler:
-    A: (Fiili fiyat − Standart fiyat) × Fiili miktar
-    B: (Standart miktar − Fiili miktar) × Standart fiyat
+    A: (Standart miktar − Fiili miktar) × Standart fiyat
+    B: (Fiili fiyat − Standart fiyat) × Fiili miktar
     C: (Standart miktar − Fiili miktar) × Fiili fiyat
     D: (Fiili fiyat − Standart fiyat) × Standart miktar
     E: Fiili maliyet − Standart maliyet
-  dogru: B
+  dogru: A
   aciklama:
     dogru_neden: 'Malzeme miktar (kullanım) sapması = (Standart miktar − Fiili miktar) × Standart fiyat. Standart
       fiyat kullanılır çünkü fiyat etkisi zaten fiyat sapmasında ayrıştırılmıştır.
 
       '
     celdiriciler:
-      A: Bu malzeme fiyat sapması formülüdür.
+      B: Bu malzeme fiyat sapması formülüdür.
       C: Miktar sapmasında fiili fiyat değil standart fiyat kullanılır.
       D: Bu da fiyat sapmasına ait bir varyasyondur.
       E: Bu toplam sapmayı verir; bileşenlere ayrılmamıştır.
@@ -1216,6 +1228,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0086
   sinav: ymm
   bolum:
@@ -1665,20 +1680,20 @@
 
     '
   secenekler:
-    A: standart değişken GÜG oranı ile fiili faaliyet hacmi
+    A: sabit GÜG oranı ile fiili üretim miktarı
     B: bütçelenen değişken GÜG oranı ile standart faaliyet hacmi
-    C: sabit GÜG oranı ile fiili üretim miktarı
+    C: standart değişken GÜG oranı ile fiili faaliyet hacmi
     D: standart değişken GÜG oranı ile bütçelenen üretim miktarı
     E: fiili sabit GÜG ile fiili değişken GÜG toplamı
-  dogru: A
+  dogru: C
   aciklama:
     dogru_neden: 'Değişken GÜG harcama sapması = Fiili değişken GÜG − (Standart değişken GÜG oranı × Fiili faaliyet
       hacmi). Böylece fiyat/oran etkisi izole edilir.
 
       '
     celdiriciler:
+      A: Sabit GÜG oranı değişken GÜG sapmasında kullanılmaz.
       B: Standart hacim kullanılması bu sapmanın tanımına uymaz; fiili hacim esas alınır.
-      C: Sabit GÜG oranı değişken GÜG sapmasında kullanılmaz.
       D: Bütçelenen üretim miktarı bu formülde yer almaz.
       E: Bu toplam GÜG'ü verir, sapma hesabı değildir.
   kaynaklar:
@@ -1722,6 +1737,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık A → C (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0093
   sinav: ymm
   bolum:
@@ -1738,10 +1756,10 @@
   secenekler:
     A: Satış bütçesi
     B: Direkt işçilik bütçesi
-    C: Nakit bütçesi
-    D: Genel üretim giderleri bütçesi
+    C: Genel üretim giderleri bütçesi
+    D: Nakit bütçesi
     E: Satış ve pazarlama giderleri bütçesi
-  dogru: C
+  dogru: D
   aciklama:
     dogru_neden: 'Nakit bütçesi, finansal bütçenin bir parçasıdır. Operasyonel bütçe; satış, üretim, malzeme, işçilik,
       genel üretim giderleri ve faaliyet giderleri bütçelerini kapsar.
@@ -1750,7 +1768,7 @@
     celdiriciler:
       A: Satış bütçesi operasyonel bütçenin başlangıcıdır.
       B: Direkt işçilik bütçesi üretim sürecinin parçasıdır.
-      D: GÜG bütçesi operasyonel kapsamdadır.
+      C: GÜG bütçesi operasyonel kapsamdadır.
       E: Pazarlama giderleri de operasyonel bütçede yer alır.
   kaynaklar:
   - mevzuat: Genel bilgi — Bütçeleme ve standart maliyet
@@ -1793,6 +1811,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → D (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0094
   sinav: ymm
   bolum:
@@ -1882,10 +1903,10 @@
   secenekler:
     A: Fiili sabit GÜG, bütçelenen sabit GÜG'den yüksek olduğunda
     B: Fiili üretim, bütçelenen üretimden düşük olduğunda
-    C: Fiili üretim, bütçelenen üretimden yüksek olduğunda
+    C: Fiili makine saati, standart makine saatinin altında kaldığında
     D: Değişken GÜG oranı düştüğünde
-    E: Fiili makine saati, standart makine saatinin altında kaldığında
-  dogru: C
+    E: Fiili üretim, bütçelenen üretimden yüksek olduğunda
+  dogru: E
   aciklama:
     dogru_neden: 'Uygulanan sabit GÜG = Standart oran × Fiili üretim. Fiili üretim bütçelenen üretimin üzerinde
       ise uygulanan GÜG > bütçelenen sabit GÜG olur; hacim sapması olumlu çıkar.
@@ -1894,8 +1915,8 @@
     celdiriciler:
       A: Bu bütçe (harcama) sapmasının olumsuz olduğunu gösterir.
       B: Fiili üretim düşükse uygulanan GÜG düşer; hacim sapması olumsuz olur.
+      C: Makine saati farkı değişken GÜG verimliliği sapmasını etkiler.
       D: Değişken GÜG oranı sabit GÜG hacim sapmasını doğrudan etkilemez.
-      E: Makine saati farkı değişken GÜG verimliliği sapmasını etkiler.
   kaynaklar:
   - mevzuat: Genel bilgi — Bütçeleme ve standart maliyet
     madde: '-'
@@ -1937,6 +1958,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0096
   sinav: ymm
   bolum:
@@ -2171,19 +2195,19 @@
 
     '
   secenekler:
-    A: Sabit gider yükleme oranı
-    B: Bütçelenmiş değişken maliyet oranı
+    A: Bütçelenmiş değişken maliyet oranı
+    B: Sabit gider yükleme oranı
     C: Standart hacim katsayısı
     D: Kapasite kullanım oranı
     E: Üretim verimliliği katsayısı
-  dogru: B
+  dogru: A
   aciklama:
     dogru_neden: 'Esnek bütçede her değişken gider kalemi için birim başına bütçelenmiş değişken maliyet oranı belirlenir;
       bu oran fiili hacimle çarpılarak esnek bütçe değerine ulaşılır.
 
       '
     celdiriciler:
-      A: Sabit gider yükleme oranı genel üretim gideri yükleme hesabında kullanılır.
+      B: Sabit gider yükleme oranı genel üretim gideri yükleme hesabında kullanılır.
       C: Standart hacim katsayısı standart maliyet terminolojisinde yer almaz.
       D: Kapasite kullanım oranı üretim planlamasında kullanılır.
       E: Üretim verimliliği katsayısı işçilik sapmalarıyla ilişkilidir.
@@ -2229,6 +2253,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0100
   sinav: ymm
   bolum:
@@ -2464,19 +2491,19 @@
 
     '
   secenekler:
-    A: Fiili sabit GÜG – Bütçelenen sabit GÜG
-    B: Standart yüklenen GÜG – Fiili sabit GÜG
+    A: Standart yüklenen GÜG – Fiili sabit GÜG
+    B: Fiili sabit GÜG – Bütçelenen sabit GÜG
     C: Fiili sabit GÜG – Standart yüklenen GÜG
     D: Bütçelenen GÜG – Standart yüklenen GÜG
     E: Fiili değişken GÜG – Bütçelenen değişken GÜG
-  dogru: A
+  dogru: B
   aciklama:
     dogru_neden: 'Sabit GÜG harcama sapması = Fiili sabit GÜG – Bütçelenen sabit GÜG. Bütçelenen sabit GÜG genellikle
       sabit olduğundan bu sapma harcamaların bütçeden sapıp sapmadığını gösterir.
 
       '
     celdiriciler:
-      B: Bu formül toplam sabit GÜG varyansına yakındır.
+      A: Bu formül toplam sabit GÜG varyansına yakındır.
       C: Bu, toplam sabit GÜG sapmasının formülüdür.
       D: Bütçelenen ile standart yüklenen farkı hacim sapmasıdır.
       E: Bu değişken GÜG harcama sapmasıdır.
@@ -2522,6 +2549,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık A → B (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0104
   sinav: ymm
   bolum:
@@ -2608,20 +2638,20 @@
 
     '
   secenekler:
-    A: Fiili maliyet ile esnek bütçe tutarı arasındaki farkı
+    A: Standart maliyet ile ana bütçe arasındaki farkı
     B: Planlanan hacim ile fiili hacim arasındaki farkın maliyet etkisini
-    C: Standart maliyet ile ana bütçe arasındaki farkı
+    C: Fiili maliyet ile esnek bütçe tutarı arasındaki farkı
     D: Sabit giderlerin toplam maliyet içindeki payını
     E: Fiili satışlar ile bütçelenen satışlar arasındaki gelir farkını
-  dogru: A
+  dogru: C
   aciklama:
     dogru_neden: 'Esnek bütçe sapması = Fiili maliyet – Esnek bütçe tutarı. Bu fark, fiyat/etkinlik nedenli sapmaları
       (hacim etkisinden arındırılmış) gösterir.
 
       '
     celdiriciler:
+      A: Standart maliyet ile ana bütçe ayrı kavramlardır.
       B: Bu, hacim sapmasının tanımıdır.
-      C: Standart maliyet ile ana bütçe ayrı kavramlardır.
       D: Sabit gider payı bir oran analizidir, sapma değil.
       E: Gelir farkı satış hacmi sapmasıdır.
   kaynaklar:
@@ -2666,6 +2696,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık A → C (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0106
   sinav: ymm
   bolum:
@@ -2680,12 +2713,12 @@
 
     '
   secenekler:
-    A: Fiili ücret standart ücretten yüksektir.
-    B: Fiili çalışılan saat standart saatten azdır.
+    A: Fiili çalışılan saat standart saatten azdır.
+    B: Fiili ücret standart ücretten yüksektir.
     C: Üretilen miktar planlananın altında kalmıştır.
     D: Standart işçilik maliyeti fiiliden yüksektir.
     E: Vardiya sayısı artırılmıştır.
-  dogru: B
+  dogru: A
   aciklama:
     dogru_neden: 'İşçilik etkinlik sapması = (Standart saat – Fiili saat) × Standart ücret. Fiili saat < Standart
       saat olduğunda parantez pozitif, sapma olumludur. Bu, işgücünün standarttan daha verimli çalıştığı anlamına
@@ -2693,7 +2726,7 @@
 
       '
     celdiriciler:
-      A: Bu ücret sapmasının olumsuz çıkması durumudur.
+      B: Bu ücret sapmasının olumsuz çıkması durumudur.
       C: Düşük üretim miktarı standart saati de azaltır; etkinlik sapmasını doğrudan açıklamaz.
       D: Standart işçilik > fiili işçilik ise maliyet avantajı vardır ama etkinlik saattir.
       E: Vardiya sayısı bu sapmanın belirleyicisi değildir.
@@ -2739,6 +2772,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0107
   sinav: ymm
   bolum:
@@ -2756,10 +2792,10 @@
   secenekler:
     A: Bütçelenen sabit genel üretim gideri
     B: Standart yüklenen toplam genel üretim gideri
-    C: Fiili saat × Bütçelenmiş değişken GÜG oranı
+    C: Bütçelenen toplam genel üretim gideri
     D: Fiili üretim × Standart değişken GÜG
-    E: Bütçelenen toplam genel üretim gideri
-  dogru: C
+    E: Fiili saat × Bütçelenmiş değişken GÜG oranı
+  dogru: E
   aciklama:
     dogru_neden: 'Değişken GÜG harcama sapması = Fiili değişken GÜG – (Fiili saat × Bütçelenmiş değişken GÜG oranı).
       Bu, fiili saate göre beklenen ile fiili harcama arasındaki farkı ölçer.
@@ -2768,8 +2804,8 @@
     celdiriciler:
       A: Sabit GÜG bu sapmanın bileşeni değildir.
       B: Standart yüklenen GÜG toplam GÜG sapmasında kullanılır.
+      C: Bütçelenen toplam GÜG sabit ve değişkeni birlikte kapsar.
       D: Fiili üretim × Standart değişken GÜG, standart yüklenen değişken GÜG'ü verir.
-      E: Bütçelenen toplam GÜG sabit ve değişkeni birlikte kapsar.
   kaynaklar:
   - mevzuat: Genel bilgi — Bütçeleme ve standart maliyet
     madde: '-'
@@ -2812,6 +2848,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
 - id: YMM-YNM-BTC-0108
   sinav: ymm
   bolum:

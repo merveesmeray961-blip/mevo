@@ -15,19 +15,19 @@
   secenekler:
     A: Alım-satım amacıyla elde tutulan hisse senetleri
     B: Gerçeğe uygun değer farkı kâr veya zarara yansıtılan borçlanma araçları
-    C: Sözleşme koşulları yalnızca anapara ve faiz ödemelerini içeren ve işletmenin tahsil amacıyla elde tuttuğu
-      borçlanma araçları
+    C: Türev finansal araçlar
     D: İşletmenin gerçeğe uygun değer farkını diğer kapsamlı gelire yansıtma seçeneğini kullandığı öz kaynak araçları
-    E: Türev finansal araçlar
-  dogru: C
+    E: Sözleşme koşulları yalnızca anapara ve faiz ödemelerini içeren ve işletmenin tahsil amacıyla elde tuttuğu
+      borçlanma araçları
+  dogru: E
   aciklama:
     dogru_neden: 'İtfa edilmiş maliyet ölçümü için iki koşul gereklidir: (1) iş modeli tahsilat amacıyla elde tutma,
       (2) SPPI testi: sözleşme nakit akışları yalnızca anapara ve faiz ödemelerinden oluşmalı.'
     celdiriciler:
       A: Alım-satım amacıyla tutulan araçlar GUFKZ grubundadır.
       B: GUFKZ seçeneği kullanılmış araçlar GUD ile ölçülür.
+      C: Türevler GUFKZ olarak sınıflandırılır.
       D: GUFDOG seçeneğindeki öz kaynak araçları GUD ile ölçülür.
-      E: Türevler GUFKZ olarak sınıflandırılır.
   kaynaklar:
   - mevzuat: TFRS 9
     madde: md. 4.1.2
@@ -69,6 +69,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
 - id: YMM-IFM-FAR-0026
   sinav: ymm
   bolum:
@@ -306,17 +309,17 @@
 
     '
   secenekler:
-    A: İtfa edilmiş maliyet / gerçeğe uygun değer
-    B: GUFDOG / gerçeğe uygun değer
+    A: GUFDOG / gerçeğe uygun değer
+    B: İtfa edilmiş maliyet / gerçeğe uygun değer
     C: GUFKZ / gerçeğe uygun değer
     D: İtfa edilmiş maliyet / itfa edilmiş maliyet
     E: GUFDOG / itfa edilmiş maliyet
-  dogru: B
+  dogru: A
   aciklama:
     dogru_neden: Hem tahsilat hem satış iş modeli ve SPPI testini geçen borçlanma araçları GUD farkı diğer kapsamlı
       gelire yansıtılan (GUFDOG) grupta sınıflandırılır ve gerçeğe uygun değerle ölçülür.
     celdiriciler:
-      A: Yalnızca tahsilat amaçlı iş modelinde itfa edilmiş maliyet uygulanır.
+      B: Yalnızca tahsilat amaçlı iş modelinde itfa edilmiş maliyet uygulanır.
       C: GUFKZ, SPPI testini geçemeyen veya alım-satım amaçlı araçlar içindir.
       D: Karma iş modeli için itfa edilmiş maliyet kullanılmaz.
       E: GUFDOG grubu gerçeğe uygun değerle ölçülür.
@@ -361,6 +364,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
 - id: YMM-IFM-FAR-0030
   sinav: ymm
   bolum:
@@ -599,18 +605,18 @@
   secenekler:
     A: Bu seçenek sonradan geri alınabilir.
     B: Bu seçenek alım-satım amaçlı tutulan hisse senetleri için de uygulanabilir.
-    C: Bu seçenek geri alınamaz; ancak yalnızca alım-satım amacıyla tutulmayan araçlar için geçerlidir.
+    C: Bu seçenekte temettü geliri DKG'ye yansıtılır.
     D: Bu seçenek yalnızca kotasyonlu şirketler için geçerlidir.
-    E: Bu seçenekte temettü geliri DKG'ye yansıtılır.
-  dogru: C
+    E: Bu seçenek geri alınamaz; ancak yalnızca alım-satım amacıyla tutulmayan araçlar için geçerlidir.
+  dogru: E
   aciklama:
     dogru_neden: TFRS 9 kapsamında öz kaynak araçları için GUFDOG seçeneği başlangıçta irrevocable (geri alınamaz)
       olarak seçilir ve yalnızca alım-satım amaçlı olmayan araçlar için kullanılabilir.
     celdiriciler:
       A: Geri alınamaz bir seçimdir.
       B: Alım-satım amaçlı araçlar bu seçenekten faydalanamaz.
+      C: Temettü geliri DKG'ye değil kâr veya zarara yansıtılır.
       D: Kotasyon koşulu aranmaz.
-      E: Temettü geliri DKG'ye değil kâr veya zarara yansıtılır.
   kaynaklar:
   - mevzuat: TFRS 9
     madde: md. 4.1.4
@@ -652,6 +658,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık C → E (metinler yer değiştirdi).'
 - id: YMM-IFM-FAR-0034
   sinav: ymm
   bolum:
@@ -817,18 +826,18 @@
     '
   secenekler:
     A: Diğer kapsamlı gelire
-    B: Kâr veya zarara
+    B: Ertelenmiş gelire
     C: Öz kaynak rezervine
-    D: Ertelenmiş gelire
+    D: Kâr veya zarara
     E: Korunan kalemin defter değerine eklenir, kâr/zarara yansıtılmaz
-  dogru: B
+  dogru: D
   aciklama:
     dogru_neden: GUD riskten korunmasında hem korunma aracı hem de korunan kalemin GUD değişimleri kâr veya zarara
       yansıtılır; iki etki büyük ölçüde birbirini netler.
     celdiriciler:
       A: DKG nakit akış riskten korunmasında kullanılır.
+      B: Ertelenmiş gelir bu kapsamda kullanılmaz.
       C: Öz kaynak rezervi nakit akış korunmasına özgüdür.
-      D: Ertelenmiş gelir bu kapsamda kullanılmaz.
       E: GUD değişimi kâr/zarara yansıtılır; yalnızca defter değeri düzeltmesi yapılmaz.
   kaynaklar:
   - mevzuat: TFRS 9
@@ -871,6 +880,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → D (metinler yer değiştirdi).'
 - id: YMM-IFM-FAR-0037
   sinav: ymm
   bolum:
@@ -1824,17 +1836,17 @@
 
     '
   secenekler:
-    A: İşletmenin tahsilat amacıyla tuttuğu devlet tahvili
-    B: Alım-satım amacıyla tutulan hisse senedi
+    A: Alım-satım amacıyla tutulan hisse senedi
+    B: İşletmenin tahsilat amacıyla tuttuğu devlet tahvili
     C: GUFDOG seçeneği kullanılan öz kaynak aracı
     D: SPPI testini geçen ve tahsilat iş modeliyle tutulan bono
     E: Hem tahsilat hem satış amacıyla tutulan ve SPPI testini geçen tahvil
-  dogru: B
+  dogru: A
   aciklama:
     dogru_neden: Alım-satım amacıyla tutulan hisse senetleri zorunlu olarak GUFKZ grubunda sınıflandırılır; GUFDOG
       seçeneği kullanılamaz.
     celdiriciler:
-      A: Tahsilat amacıyla tutulan devlet tahvili itfa edilmiş maliyetle ölçülür.
+      B: Tahsilat amacıyla tutulan devlet tahvili itfa edilmiş maliyetle ölçülür.
       C: GUFDOG seçeneği kullanılan araç GUD ile ölçülür ama GUFKZ değildir.
       D: SPPI + tahsilat modeli = itfa edilmiş maliyet.
       E: SPPI + karma model = GUFDOG.
@@ -1879,6 +1891,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-10-09'
+    kim: otomatik
+    ne: 'şık dengeleme: doğru şık B → A (metinler yer değiştirdi).'
 - id: YMM-IFM-FAR-0051
   sinav: ymm
   bolum:
