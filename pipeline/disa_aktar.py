@@ -3,9 +3,14 @@
 Yalnızca G2 ve G4'ten geçen ve `durum` değeri taslak/geri_cekildi olmayan sorular aktarılır.
 Müfredattan ders ve konu adları, sınav ayarlarından format bilgisi eklenir.
 
+İki ayrı uygulama vardır (`--urun`): `smmm` (Staja Giriş + Yeterlilik; varsayılan) ve `ymm` (Yeminli Mali Müşavirlik).
+Her paket yalnız kendi sınavının sorularını, dersleri, anlatımlarını ve sınav kurallarını taşır; YMM içeriği SMMM
+paketine girmez (ve tersi).
+
 Kullanım:
     python -m pipeline.disa_aktar web/onizleme/sorular.json                 (uzman önizlemesi, açıklama olduğu gibi)
-    python -m pipeline.disa_aktar app/assets/sorular/smmm.json --uygulama  (mobil uygulama paketi)
+    python -m pipeline.disa_aktar app/assets/sorular/smmm.json --uygulama  (SMMM mobil uygulama paketi)
+    python -m pipeline.disa_aktar app/assets/sorular/ymm.json --uygulama --urun ymm   (YMM mobil uygulama paketi)
 """
 
 from __future__ import annotations
@@ -22,6 +27,7 @@ from pipeline import anlatim, g2_yapi, g4_hesap, klasik, mevzuat_paketi, paket_s
 
 KOK = g2_yapi.KOK
 AKTARILAN_DURUMLAR = {"kontrolde", "onayli", "yayinda"}
+URUNLER = ("smmm", "ymm")
 
 # Zor sorularda dogru_neden'e eklenen teknik/tuzak notu uygulamada ayrı bir "püf noktaları" bölümünde gösterilir.
 # Üretimde kullanılmış etiket yazılışları; yenileri eklenirse tests/test_g4_g7.py'deki örneklere de eklenmeli.
@@ -69,10 +75,12 @@ def aciklama_ayir(aciklama: dict) -> dict:
     return {**aciklama, "dogru_neden": once.strip(), "puf_noktalari": puf.strip()}
 
 
-def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool = False) -> dict:
-    mufredat = yaml.safe_load((KOK / "content/mufredat/smmm.yaml").read_text(encoding="utf-8"))
-    sinav = yaml.safe_load((KOK / "content/sinavlar/smmm.yaml").read_text(encoding="utf-8"))
-    kayitlar = g2_yapi.dosyalari_yukle(KOK / "content/sorular/smmm")
+def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool = False, urun: str = "smmm") -> dict:
+    if urun not in URUNLER:
+        raise ValueError(f"bilinmeyen ürün: {urun!r} (geçerli: {', '.join(URUNLER)})")
+    mufredat = yaml.safe_load((KOK / f"content/mufredat/{urun}.yaml").read_text(encoding="utf-8"))
+    sinav = yaml.safe_load((KOK / f"content/sinavlar/{urun}.yaml").read_text(encoding="utf-8"))
+    kayitlar = g2_yapi.dosyalari_yukle(KOK / f"content/sorular/{urun}")
 
     dersler = {
         d["kod"]: {
@@ -84,18 +92,6 @@ def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool =
         }
         for d in mufredat["dersler"]
     }
-
-    # YMM bölümü: `content/sinavlar/ymm.yaml` içinde `yayinda: true` olduğunda pakete girer (test + klasik sorular).
-    ymm_sinav = yaml.safe_load((KOK / "content/sinavlar/ymm.yaml").read_text(encoding="utf-8"))
-    ymm = bool(ymm_sinav.get("yayinda"))
-    if ymm:
-        ymm_mufredat = yaml.safe_load((KOK / "content/mufredat/ymm.yaml").read_text(encoding="utf-8"))
-        dersler.update({
-            d["kod"]: {"ad": d["ad"], "sgs_ad": d["ad"], "soru": d["soru"], "notlar": d.get("notlar", []),
-                       "konular": {k["kod"]: k["ad"] for k in d["konular"]}}
-            for d in ymm_mufredat["dersler"]
-        })
-        kayitlar = kayitlar + g2_yapi.dosyalari_yukle(KOK / "content/sorular/ymm")
 
     sorular, elenen = [], []
     for _, soru in kayitlar:
@@ -123,9 +119,11 @@ def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool =
         })
 
     paket = {
+        # Uygulama açılışta paketin kendi ürününe ait olduğunu bu alandan doğrular (yanlış pakete karşı güvence).
+        "urun": urun,
         "olusturma": str(date.today()),
         "uyari": sinav["resmi_baglanti_yok_ibaresi"],
-        "formatlar": {b["kod"]: b for b in sinav["bolumler"] + (ymm_sinav["bolumler"] if ymm else [])},
+        "formatlar": {b["kod"]: b for b in sinav["bolumler"]},
         "takvim": {yil.removeprefix("takvim_"): t for yil, t in sinav.items() if yil.startswith("takvim_") and t},
         "dersler": dersler,
         "sorular": sorular,
@@ -133,16 +131,12 @@ def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool =
     if puf_ayir:  # uygulama paketi: "Mevzuat" bölümü (yalnız sorularda atıf yapılan maddeler)
         paket["mevzuat_tarihi"] = mevzuat_paketi.MEVZUAT_TARIHI
         paket["mevzuat"] = mevzuat_paketi.kaynaklari_derle(sorular)
-        # Konu anlatımları: denetimden geçen ve yayına aday olanlar.
-        paket["anlatimlar"], anlatim_elenen = anlatim.paket_icin()
+        # Konu anlatımları: denetimden geçen ve yayına aday olanlar (her ürün kendi klasöründen).
+        paket["anlatimlar"], anlatim_elenen = anlatim.paket_icin(anlatim.klasor(urun), urun)
         elenen += [{"id": e["dosya"], "hatalar": e["hatalar"]} for e in anlatim_elenen]
-    if ymm:
+    if urun == "ymm":  # YMM sınavı klasik (yazılı) olduğundan klasik sorular yalnız YMM paketine girer
         paket["klasik"], klasik_elenen = klasik.paket_icin("ymm")
         elenen += klasik_elenen
-        if puf_ayir:  # YMM konu anlatımları (dış üreticiden gelip denetimden geçenler)
-            ymm_anlatim, ymm_anlatim_elenen = anlatim.paket_icin(anlatim.klasor("ymm"), "ymm")
-            paket["anlatimlar"] += ymm_anlatim
-            elenen += [{"id": e["dosya"], "hatalar": e["hatalar"]} for e in ymm_anlatim_elenen]
     hedef.parent.mkdir(parents=True, exist_ok=True)
     metin = json.dumps(paket, ensure_ascii=False, separators=(",", ":"))
     hedef.write_text(metin, encoding="utf-8")
@@ -153,11 +147,25 @@ def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool =
             "mevzuat": paket.get("mevzuat", [])}
 
 
-def main(argv: list[str]) -> int:
-    puf_ayir = "--uygulama" in argv
-    yollar = [a for a in argv[1:] if not a.startswith("--")]
+def argumanlari_coz(argv: list[str]) -> tuple[Path, bool, str]:
+    """(hedef dosya, uygulama paketi mi, ürün). `--urun` değeri hedef yol sayılmaz."""
+    args = list(argv[1:])
+    urun = "smmm"
+    if "--urun" in args:
+        i = args.index("--urun")
+        if i + 1 >= len(args):
+            raise ValueError("--urun bir değer ister (smmm | ymm)")
+        urun = args[i + 1]
+        del args[i : i + 2]
+    puf_ayir = "--uygulama" in args
+    yollar = [a for a in args if not a.startswith("--")]
     hedef = Path(yollar[0]) if yollar else KOK / "web/onizleme/sorular.json"
-    sonuc = aktar(hedef, puf_ayir=puf_ayir)
+    return hedef, puf_ayir, urun
+
+
+def main(argv: list[str]) -> int:
+    hedef, puf_ayir, urun = argumanlari_coz(argv)
+    sonuc = aktar(hedef, puf_ayir=puf_ayir, urun=urun)
     print(f"{sonuc['aktarilan']} soru" + (f" + {sonuc['klasik']} klasik soru" if sonuc["klasik"] else "")
           + f" aktarıldı → {hedef}" + (f" (+ {hedef.with_suffix('.paket').name})" if puf_ayir else ""))
     if sonuc["mevzuat"]:

@@ -1,9 +1,9 @@
-# Yayın rehberi (Mevo SMMM)
+# Yayın rehberi (Mizan SMMM)
 
 Bu rehber yazılımcı olmayan biri için yazıldı. Önce **"0. Başlamadan önce"** bölümünü oku; sonra Android (Google Play)
 için **A**, iPhone/iPad için **B**, yeni soru eklemek ve güncelleme çıkarmak için **C** bölümüne geç.
 
-Uygulama bilgileri: ad **Mevo SMMM**, paket/bundle kimliği **`app.mevo.smmm`**, satın alma ürünü **`tam_erisim`**
+Uygulama bilgileri: ad **Mizan SMMM**, paket/bundle kimliği **`app.mizan.smmm`**, satın alma ürünü **`tam_erisim`**
 (tek seferlik, tüketilemez). Fiyatı mağazada sen belirlersin; uygulamada fiyat yazmaz, mağazadan okunur.
 
 ---
@@ -52,7 +52,7 @@ Hazır metinler: `docs/magaza/MAGAZA_METNI.md` (açıklamalar, anahtar kelimeler
 - Telefonda uygulamayı aç, 5–8 ekran görüntüsü al (Bugün, Dersler, soru + çözüm, deneme sonucu, İstatistik, tam erişim ekranı).
 - Tablet görüntüsü (7" ve 10") eklersen tabletlerde daha iyi görünür; iPad için Apple **zorunlu** tutar.
 - Simge: `app/assets/ikon/ikon.png` (1024×1024). Play için 512×512'ye küçült; Apple 1024×1024'ü uygulamanın içinden alır.
-- Play "öne çıkan görsel" 1024×500: Canva ile teal (#0F6B5C) zemin üzerine "Mevo SMMM" yazman yeterli.
+- Play "öne çıkan görsel" 1024×500: Canva ile teal (#0F6B5C) zemin üzerine "Mizan SMMM" yazman yeterli.
 
 ---
 
@@ -72,7 +72,7 @@ Maliyet: Geliştirici hesabı **25 $ (tek sefer)**.
 ### A2. Uygulamayı oluştur
 
 1. Play Console → **Uygulama oluştur**.
-2. Ad: **Mevo SMMM** · Varsayılan dil: **Türkçe** · Uygulama (oyun değil) · **Ücretsiz** (uygulama içi satın alma var).
+2. Ad: **Mizan SMMM** · Varsayılan dil: **Türkçe** · Uygulama (oyun değil) · **Ücretsiz** (uygulama içi satın alma var).
 3. Beyanları işaretle (geliştirici ilkeleri, ABD ihracat yasaları) → Oluştur.
 
 ### A3. İlk AAB'yi yükle (kapalı test yoluyla)
@@ -128,7 +128,7 @@ Hepsini `docs/magaza/VERI_GUVENLIGI_VE_DERECELENDIRME.md` dosyasından cevapla:
 
 1. Başvuruyu doldur (test sürecini anlat; kısa cevaplar yeterli). Google yaklaşık 1 hafta içinde cevap verir.
 2. Onaylanınca **Üretim → Yeni sürüm** → AAB'yi (kapalı testte kullandığın ya da yeni sürüm) yükle → **Yayınla**.
-3. İlk inceleme birkaç saat – birkaç gün sürer. Sonra uygulama Play Store'da "Mevo SMMM" adıyla görünür.
+3. İlk inceleme birkaç saat – birkaç gün sürer. Sonra uygulama Play Store'da "Mizan SMMM" adıyla görünür.
 
 ---
 
@@ -149,14 +149,14 @@ karşılaşırsan Claude'a hata mesajını gönder.
 3. Depoyu Mac'e indir (`git clone ...`), `app` klasöründe: `flutter pub get` ve `cd ios && pod install`.
 4. Xcode'da `app/ios/Runner.xcworkspace` dosyasını aç (`.xcodeproj` değil!). Sol üstte **Runner** → **Signing & Capabilities**:
    - Team: Apple Developer hesabını seç; "Automatically manage signing" açık.
-   - Bundle Identifier: **`app.mevo.smmm`** (hazır gelir).
+   - Bundle Identifier: **`app.mizan.smmm`** (hazır gelir).
    - **+ Capability → In-App Purchase** ekle.
 5. Deployment target 15.0 (hazır). Cihaz: iPhone ve iPad (hazır).
 
 ### B3. App Store Connect'te uygulamayı ve ürünü oluştur
 
-1. https://appstoreconnect.apple.com → **Uygulamalarım → +  → Yeni Uygulama**: Platform iOS, Ad **Mevo SMMM**,
-   Birincil dil Türkçe, Bundle ID `app.mevo.smmm`, SKU `mevo-smmm-1`.
+1. https://appstoreconnect.apple.com → **Uygulamalarım → +  → Yeni Uygulama**: Platform iOS, Ad **Mizan SMMM**,
+   Birincil dil Türkçe, Bundle ID `app.mizan.smmm`, SKU `mizan-smmm-1`.
 2. **Uygulama içi satın alımlar → +**: Tür **Tüketilmeyen**, Referans adı `Tam erişim`, **Ürün kimliği `tam_erisim`**,
    fiyat seç, Türkçe görünen ad/açıklama gir (`VERI_GUVENLIGI_VE_DERECELENDIRME.md` içinde hazır), inceleme ekran görüntüsü ekle.
 3. Uygulama bilgileri: gizlilik politikası adresi (0.2), kategori **Eğitim**, yaş derecelendirmesi anketi, **Uygulama
@@ -239,10 +239,51 @@ Küçük kontrol listesi: soru sayısı arttı mı (Bugün/Dersler ekranları) �
 | Belirti | Çözüm |
 |---|---|
 | Ödeme ekranında "Mağazaya şu anda ulaşılamıyor" | Cihazda Play Store/App Store hesabı açık mı, internet var mı bak. Uygulama Play'den (test bağlantısıyla) kurulmuş olmalı; elle kurulan APK'da satın alma çalışmaz. |
-| "Tam erişim ürünü mağazada bulunamadı" | Ürün kimliği birebir `tam_erisim` mi, **Etkin** mi; paket adı `app.mevo.smmm` mi; Play'de AAB yüklendi ve test kanalında yayında mı; ürün oluştuktan sonra birkaç saat beklemek gerekebilir. iOS'ta: ürün "Gönderilmeye hazır" ve Anlaşmalar kabul edilmiş mi. |
+| "Tam erişim ürünü mağazada bulunamadı" | Ürün kimliği birebir `tam_erisim` mi, **Etkin** mi; paket adı `app.mizan.smmm` mi; Play'de AAB yüklendi ve test kanalında yayında mı; ürün oluştuktan sonra birkaç saat beklemek gerekebilir. iOS'ta: ürün "Gönderilmeye hazır" ve Anlaşmalar kabul edilmiş mi. |
 | Play yüklemeyi "debug anahtarıyla imzalı" diye reddediyor | `key.properties` bulunamadı; C3'teki açıklamaya bak. |
 | Play "sürüm kodu daha önce kullanıldı" diyor | `pubspec.yaml`'da `+N` numarasını artır (C2). |
 | Anahtar parolası kayboldu | `.gizli/ANAHTAR_BILGISI.txt`; yoksa Play Console'dan yükleme anahtarı sıfırlama talebi aç. |
+
+## F) İki uygulama: Mizan SMMM ve Tasdik YMM
+
+Aynı kod tabanından iki ayrı mağaza uygulaması çıkar (Android "flavor"): her biri kendi kimliğine, adına, simgesine ve
+**yalnız kendi** soru paketine sahiptir. SMMM'de YMM içeriği, YMM'de SMMM içeriği bulunmaz.
+
+| | Mizan SMMM | Tasdik YMM |
+|---|---|---|
+| Uygulama kimliği | `app.mizan.smmm` | `app.tasdik.ymm` |
+| Bölümler | Staja Giriş + Yeterlilik | YMM (klasik) |
+| Soru paketi | `app/assets/sorular/smmm.paket` | `app/assets/sorular/ymm.paket` |
+| Mağaza metni | `MAGAZA_METNI.md` | `MAGAZA_METNI_YMM.md` |
+| Mağaza görselleri | `gorseller/` | `gorseller_ymm/` |
+| Satın alma ürünü | `tam_erisim` (kendi kaydında) | `tam_erisim` (kendi kaydında) |
+
+**Paketleri üret (her içerik değişikliğinde):**
+
+```
+python -m pipeline.disa_aktar app/assets/sorular/smmm.json --uygulama --urun smmm
+python -m pipeline.disa_aktar app/assets/sorular/ymm.json --uygulama --urun ymm
+```
+
+**Derle** (Windows'ta ASCII yoldaki kopyada, bkz. `DEVAM.md`; ikisi de aynı yükleme anahtarıyla imzalanır):
+
+```
+cd app
+flutter build appbundle --release --flavor smmm --obfuscate --split-debug-info=build/hata-ayiklama-smmm
+flutter build appbundle --release --flavor ymm  --obfuscate --split-debug-info=build/hata-ayiklama-ymm
+flutter build apk --release --flavor smmm --split-per-abi --obfuscate --split-debug-info=build/hata-ayiklama-smmm
+flutter build apk --release --flavor ymm  --split-per-abi --obfuscate --split-debug-info=build/hata-ayiklama-ymm
+```
+
+Çıktılar: `build/app/outputs/bundle/<flavor>Release/app-<flavor>-release.aab` ve
+`build/app/outputs/flutter-apk/app-arm64-v8a-<flavor>-release.apk`.
+
+**Çalıştırma:** `flutter run --flavor ymm` (bayrak verilmezse SMMM). Chrome'da denemek için
+`flutter run -d chrome --flavor ymm`: Flutter web için bir uyarı yazar ama çalıştırır. (`FLUTTER_APP_FLAVOR`
+Flutter'a ayrılmış bir addır, `--dart-define` ile verilemez.) `flutter build web --flavor ...` desteklenmez.
+
+**Play Console:** her uygulama ayrı "Uygulama oluştur" kaydıdır; kendi `tam_erisim` ürünü, fiyatı, gizlilik adresi ve
+kapalı test süreci vardır. Aynı yükleme anahtarı iki uygulamada da kullanılabilir.
 
 ## E) Mevzuat takibi
 

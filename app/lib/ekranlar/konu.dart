@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../bilesenler/anlatim_gorunumu.dart';
 import '../bilesenler/duzen.dart';
+import '../bilesenler/sesli_okuma.dart';
+import '../mantik/sesli_okuma.dart';
 import '../uygulama.dart';
 import '../veri/modeller.dart';
 import 'calisma.dart';
 import 'dersler.dart';
 import 'klasik.dart';
+import 'odeme.dart';
 
 /// Bir konunun sayfası: önce konu anlatımı, ardından o konudan soru çözme.
 class KonuEkrani extends StatelessWidget {
@@ -30,6 +33,7 @@ class KonuEkrani extends StatelessWidget {
         final sorular = durum.banka.dersSorulari(bolum, ders.kod, konu: konu);
         final ist = il.istatistik(sorular);
         final okundu = anlatim != null && il.okundu(anlatim.anahtar);
+        final acik = durum.anlatimAcik(ders, konu);
         final klasikler = bolum == 'YMM' ? durum.banka.klasikSorulari(ders.kod, konu: konu) : const <KlasikSoru>[];
         return Scaffold(
           appBar: AppBar(title: Text(ad)),
@@ -49,9 +53,13 @@ class KonuEkrani extends StatelessWidget {
                   dugme: anlatim == null
                       ? null
                       : (okundu ? OutlinedButton.icon : FilledButton.icon)(
-                          icon: const Icon(Icons.menu_book_rounded),
-                          label: Text(okundu ? 'Tekrar oku' : 'Anlatımı aç'),
+                          icon: Icon(acik ? Icons.menu_book_rounded : Icons.lock_outline_rounded),
+                          label: Text(okundu ? 'Tekrar oku' : (acik ? 'Anlatımı aç' : 'Anlatımı aç · tam erişim')),
                           onPressed: () async {
+                            if (!acik) {
+                              await odemeEkraniAc(context, neden: 'Bu konunun anlatımı tam erişimde.');
+                              if (!context.mounted || !durum.anlatimAcik(ders, konu)) return;
+                            }
                             // Anlatım "Okudum, soru çöz" ile kapanırsa sorular bu ekrandan başlatılır.
                             final coz = await Navigator.of(context).push<bool>(
                               MaterialPageRoute(
@@ -174,9 +182,19 @@ class AnlatimEkrani extends StatelessWidget {
     final r = Theme.of(context).colorScheme;
     final sorular = durum.banka.dersSorulari(durum.bolum, ders.kod, konu: anlatim.konu);
     return Scaffold(
-      appBar: AppBar(title: Text(anlatim.baslik, maxLines: 1, overflow: TextOverflow.ellipsis)),
+      appBar: AppBar(
+        title: Text(anlatim.baslik, maxLines: 1, overflow: TextOverflow.ellipsis),
+        actions: [
+          // Konu anlatımının tamamını cihazın Türkçe sesiyle okur (ücretsiz ve çevrimdışı).
+          SesDugmesi(
+            motor: durum.ses,
+            metin: () => anlatimOkumaMetni(anlatim),
+            ipucu: 'Konuyu sesli dinle',
+          ),
+        ],
+      ),
       body: Govde(
-        child: ListView(
+        child: YukariCikListe(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           children: [
             Text(anlatim.baslik, style: t.headlineSmall),

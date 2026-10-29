@@ -8,6 +8,25 @@ import 'odeme.dart';
 import 'yasal.dart';
 import '../bilesenler/duzen.dart';
 
+/// Ayarlar listesinde bir grubun başlığı.
+class _GrupBasligi extends StatelessWidget {
+  final String ad;
+
+  const _GrupBasligi(this.ad);
+
+  @override
+  Widget build(BuildContext context) {
+    final r = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 20, 16, 4),
+      child: Text(
+        ad,
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(color: r.primary, fontWeight: FontWeight.w700),
+      ),
+    );
+  }
+}
+
 class AyarlarEkrani extends StatelessWidget {
   const AyarlarEkrani({super.key});
 
@@ -24,13 +43,18 @@ class AyarlarEkrani extends StatelessWidget {
           body: Govde(
             child: ListView(
               children: [
+                const _GrupBasligi('Çalışma'),
+                // Tek sınavlı uygulamada (Tasdik YMM) seçilecek bir şey yoktur; sınav adı yalnız bilgi olarak görünür.
                 ListTile(
                   leading: const Icon(Icons.school_outlined),
                   title: const Text('Hazırlandığım sınav'),
                   subtitle: Text(bolumAdi[durum.bolum]!),
-                  trailing: const Icon(Icons.chevron_right),
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const BolumSecimi())),
+                  trailing: durum.urun.bolumSecimiVar ? const Icon(Icons.chevron_right) : null,
+                  onTap: durum.urun.bolumSecimiVar
+                      ? () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const BolumSecimi()))
+                      : null,
                 ),
+                const _GrupBasligi('Görünüm ve okuma'),
                 ListTile(
                   leading: const Icon(Icons.format_size),
                   title: const Text('Yazı boyutu'),
@@ -58,6 +82,25 @@ class AyarlarEkrani extends StatelessWidget {
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.45),
                         ),
                       ],
+                    ),
+                  ),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.record_voice_over_outlined),
+                  title: const Text('Sesli okuma hızı'),
+                  subtitle: Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: SegmentedButton<double>(
+                      segments: [
+                        for (final e in sesHizlari.entries)
+                          ButtonSegment(value: e.value, label: Text(e.key, maxLines: 1, softWrap: false)),
+                      ],
+                      selected: {ay.sesHizi},
+                      onSelectionChanged: (s) {
+                        ay.sesHiziSec(s.first);
+                        durum.ses.hizSec(s.first);
+                      },
+                      showSelectedIcon: false,
                     ),
                   ),
                 ),
@@ -90,6 +133,7 @@ class AyarlarEkrani extends StatelessWidget {
                   ),
                 ),
                 const Divider(),
+                const _GrupBasligi('Tam erişim'),
                 ListTile(
                   leading: const Icon(Icons.workspace_premium_outlined),
                   title: Text(durum.abonelik.premium ? 'Tam erişim açık' : 'Ücretsiz sürüm'),
@@ -108,6 +152,8 @@ class AyarlarEkrani extends StatelessWidget {
                     subtitle: const Text('Ücretsiz sürümü denemek için'),
                     onTap: o.iptal,
                   ),
+                const Divider(),
+                const _GrupBasligi('Verilerim'),
                 ListTile(
                   leading: const Icon(Icons.restart_alt),
                   title: const Text('İlerlememi sıfırla'),
@@ -149,7 +195,8 @@ class AyarlarEkrani extends StatelessWidget {
                   },
                 ),
                 const Divider(),
-                for (final m in yasalMetinler)
+                const _GrupBasligi('Yasal'),
+                for (final m in yasalMetinler(durum.urun))
                   ListTile(
                     leading: const Icon(Icons.description_outlined),
                     title: Text(m.baslik),

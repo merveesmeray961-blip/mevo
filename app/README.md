@@ -1,4 +1,4 @@
-# Mevo SMMM — mobil uygulama
+# Mizan SMMM — mobil uygulama
 
 Flutter ile yazılmış, internetsiz çalışan SMMM (Staja Giriş ve Yeterlilik) hazırlık uygulaması.
 

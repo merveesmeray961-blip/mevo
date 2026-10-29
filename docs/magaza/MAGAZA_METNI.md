@@ -7,9 +7,10 @@
 
 | Alan | Değer |
 |---|---|
-| Uygulama adı (Play ≤30, Apple ≤30) | **Mevo SMMM** |
-| Apple alt başlık (≤30) | **SMMM Sınav Hazırlık** |
-| Paket / bundle kimliği | `app.mevo.smmm` |
+| Uygulama adı (Play ≤30, Apple ≤30) | **Mizan: SMMM Sınav Hazırlık** (26 karakter; marka + arama anahtar kelimesi) |
+| Cihazdaki kısa ad (ana ekran simgesi altı) | **Mizan SMMM** |
+| Apple alt başlık (≤30) | **SGS ve Yeterlilik Soru Bankası** |
+| Paket / bundle kimliği | `app.mizan.smmm` |
 | Kategori | Eğitim (Play: Eğitim · Apple: Eğitim) |
 | Dil | Türkçe |
 | Fiyat | Mağazada belirlenir (tek seferlik ürün `tam_erisim`) |
@@ -30,7 +31,7 @@ SMMM adayları için internetsiz çalışan soru bankası: gerçek sınav kurall
 ## Uzun açıklama (Google Play ≤4000 · Apple açıklama ≤4000)
 
 ```
-Mevo SMMM, Serbest Muhasebeci Mali Müşavirlik (SMMM) Staja Giriş Sınavı ve Yeterlilik Sınavı'na hazırlanan adaylar için hazırlandı. Hesap açmak yok, internet gerekmez: soruların hepsi telefonunda.
+Mizan SMMM, Serbest Muhasebeci Mali Müşavirlik (SMMM) Staja Giriş Sınavı ve Yeterlilik Sınavı'na hazırlanan adaylar için hazırlandı. Hesap açmak yok, internet gerekmez: soruların hepsi telefonunda.
 
 NELER VAR?
 

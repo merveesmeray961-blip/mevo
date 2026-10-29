@@ -137,7 +137,9 @@ class _OdemeEkraniState extends State<OdemeEkrani> {
                   for (final (ozellik, ucretsiz, tam) in [
                     ('Günlük soru', '$ucretsizGunlukSoru', 'Sınırsız'),
                     ('Deneme sınavı', '$ucretsizDeneme', 'Sınırsız'),
+                    ('Konu anlatımları', 'Her dersten 1', 'Tümü'),
                     ('Yanlış defteri ve aralıklı tekrar', '✓', '✓'),
+                    ('Mevzuat sekmesi', '✓', '✓'),
                     ('Kanun maddeli açıklamalar', '✓', '✓'),
                     ('Güncellemelerle gelen yeni sorular', '✓', '✓'),
                   ])

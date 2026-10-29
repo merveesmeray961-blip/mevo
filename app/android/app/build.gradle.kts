@@ -14,6 +14,7 @@ val anahtarBilgisi = Properties().apply {
 }
 
 android {
+    // Kod paketi (Kotlin sınıfı) iki uygulamada da aynıdır; mağazada görünen uygulama kimliği flavor'a göre değişir.
     namespace = "app.mevo.smmm"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
@@ -24,12 +25,25 @@ android {
     }
 
     defaultConfig {
-        applicationId = "app.mevo.smmm"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         // versionCode ve versionName pubspec.yaml'daki `version: 1.0.0+1` satırından gelir.
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+    }
+
+    // İki ayrı mağaza uygulaması, tek kod tabanı: `flutter build ... --flavor smmm` veya `--flavor ymm`.
+    // Kaynaklar src/smmm ve src/ymm klasörlerinden gelir (simge, açılış görseli, uygulama adı, soru paketi).
+    flavorDimensions += "uygulama"
+    productFlavors {
+        create("smmm") {
+            dimension = "uygulama"
+            applicationId = "app.mizan.smmm"
+        }
+        create("ymm") {
+            dimension = "uygulama"
+            applicationId = "app.tasdik.ymm"
+        }
     }
 
     signingConfigs {

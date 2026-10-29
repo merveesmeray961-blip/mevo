@@ -40,7 +40,7 @@ class _MevzuatEkraniState extends State<MevzuatEkrani> {
             ? const Center(
                 child: Padding(padding: EdgeInsets.all(24), child: Text('Bu pakette mevzuat bölümü yok.')),
               )
-            : ListView(
+            : YukariCikListe(
                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
                 keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                 children: [
@@ -169,7 +169,7 @@ class MevzuatMaddeEkrani extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(madde.madde)),
       body: Govde(
-        child: ListView(
+        child: YukariCikListe(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
           children: [
             Text(madde.kaynak, style: t.titleMedium?.copyWith(fontWeight: FontWeight.w600)),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'abonelik/abonelik.dart';
+import 'bilesenler/sesli_okuma.dart';
+import 'urun.dart';
 import 'veri/ayarlar.dart';
 import 'veri/ilerleme.dart';
 import 'veri/modeller.dart';
@@ -14,15 +16,30 @@ class UygulamaDurumu {
   final AbonelikServisi abonelik;
   final Notlar notlar;
 
+  /// Çalışan uygulama (Mizan SMMM veya Tasdik YMM).
+  final Urun urun;
+
+  /// Sesli okuma motoru (mobilde cihazın Türkçe sesi; testlerde ve webde sessiz).
+  final SesMotoru ses;
+
   UygulamaDurumu({
     required this.banka,
     required this.ilerleme,
     required this.ayarlar,
     required this.abonelik,
     required this.notlar,
-  });
+    this.urun = Urun.smmm,
+    SesMotoru? ses,
+  }) : ses = ses ?? SessizSes();
 
-  String get bolum => ayarlar.bolum ?? 'YET';
+  /// Kullanıcının seçtiği bölüm bu uygulamaya ait mi? (Tek bölümlü uygulamada seçim gerekmez; eski sürümden kalma
+  /// başka uygulamaya ait bir değer geçersiz sayılır ve bölüm yeniden sorulur.)
+  bool get bolumSecildi => !urun.bolumSecimiVar || urun.bolumler.contains(ayarlar.bolum);
+
+  /// Çalışılan bölüm: tek bölümlü uygulamada hep o bölüm; aksi hâlde seçilen, seçilmemişse Yeterlilik.
+  String get bolum => !urun.bolumSecimiVar
+      ? urun.bolumler.single
+      : (urun.bolumler.contains(ayarlar.bolum) ? ayarlar.bolum! : 'YET');
 
   /// Ücretsiz kullanıcı günlük soru sınırına ulaştıysa false.
   bool get soruHakkiVar => abonelik.premium || ilerleme.bugunCozulen < ucretsizGunlukSoru;
@@ -30,6 +47,16 @@ class UygulamaDurumu {
   int get kalanUcretsizSoru => (ucretsizGunlukSoru - ilerleme.bugunCozulen).clamp(0, ucretsizGunlukSoru);
 
   bool get denemeHakkiVar => abonelik.premium || ilerleme.denemeler.length < ucretsizDeneme;
+
+  /// Ücretsiz kullanıcıya açık konu anlatımı: her dersin anlatımı bulunan ilk konusu (müfredat sırasıyla).
+  /// Tam erişimde hepsi açıktır. Böylece kullanıcı anlatımın kalitesini görür, devamı için tam erişim ister.
+  bool anlatimAcik(Ders ders, String konu) {
+    if (abonelik.premium) return true;
+    for (final k in ders.konular.keys) {
+      if (banka.anlatim(ders.kod, k) != null) return k == konu;
+    }
+    return true;
+  }
 
   Listenable get degisim => Listenable.merge([ilerleme, ayarlar, abonelik, notlar]);
 }
@@ -51,11 +78,11 @@ const anaRenk = Color(0xFF0F6B5C);
 /// Boşsa bildirim yalnız cihaza kaydedilir; yayından önce doldurulmalıdır.
 const destekEposta = '';
 
-ThemeData tema(Brightness parlaklik) {
+ThemeData tema(Brightness parlaklik, [Color renk = anaRenk]) {
   // Koyu temada "canlı" şema: ana düğmeler soluk nane rengine dönmeden belirgin kalır. Açık temada varsayılan
   // (yumuşak tonlu) şema, canlı şemanın neon tonlarından daha dinlendiricidir.
   final renkler = ColorScheme.fromSeed(
-    seedColor: anaRenk,
+    seedColor: renk,
     brightness: parlaklik,
     dynamicSchemeVariant: parlaklik == Brightness.dark ? DynamicSchemeVariant.vibrant : DynamicSchemeVariant.tonalSpot,
   );
@@ -95,7 +122,11 @@ ThemeData tema(Brightness parlaklik) {
       margin: EdgeInsets.zero,
     ),
     filledButtonTheme: FilledButtonThemeData(
-      style: FilledButton.styleFrom(minimumSize: const Size(64, 48), textStyle: const TextStyle(fontSize: 16)),
+      // Yazı tipi açıkça verilir: düğme yazısı, gömülü Roboto'dan başka bir yazı tipine düşmesin.
+      style: FilledButton.styleFrom(
+        minimumSize: const Size(64, 48),
+        textStyle: const TextStyle(fontSize: 16, fontFamily: 'Roboto'),
+      ),
     ),
   );
 }

@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mevo/ekranlar/bolum_secimi.dart';
 import 'package:mevo/ekranlar/klasik.dart';
 import 'package:mevo/mantik/klasik.dart';
+import 'package:mevo/urun.dart';
 import 'package:mevo/uygulama.dart';
 import 'package:mevo/veri/modeller.dart';
 
@@ -96,8 +97,8 @@ void main() {
   });
 
   group('YMM ekranları', () {
-    testWidgets('bölüm seçiminde YMM kartı çıkar', (tester) async {
-      final durum = durumOlustur(banka: ymmBanka());
+    testWidgets('YMM uygulamasında bölüm seçimi yalnız YMM kartını gösterir', (tester) async {
+      final durum = durumOlustur(banka: ymmBanka(), urun: Urun.ymm);
       await tester.pumpWidget(
         Kapsam(
           durum: durum,
@@ -105,11 +106,26 @@ void main() {
         ),
       );
       expect(find.text('Yeminli Mali Müşavirlik'), findsOneWidget);
+      expect(find.text('Staja Giriş Sınavı'), findsNothing);
+      expect(find.text('Yeterlilik Sınavı'), findsNothing);
+    });
+
+    testWidgets('SMMM uygulamasında YMM kartı çıkmaz', (tester) async {
+      final durum = durumOlustur(banka: ymmBanka());
+      await tester.pumpWidget(
+        Kapsam(
+          durum: durum,
+          child: const MaterialApp(home: BolumSecimi(ilkAcilis: true)),
+        ),
+      );
+      expect(find.text('Yeminli Mali Müşavirlik'), findsNothing);
+      expect(find.text('Staja Giriş Sınavı'), findsOneWidget);
+      expect(find.text('Yeterlilik Sınavı'), findsOneWidget);
     });
 
     testWidgets('öz puanlama ölçüt işaretleyince puanı günceller ve kaydeder', (tester) async {
       final banka = ymmBanka();
-      final durum = durumOlustur(banka: banka, bolum: 'YMM');
+      final durum = durumOlustur(banka: banka, bolum: 'YMM', urun: Urun.ymm);
       final plan = KlasikDenemePlani(ders: 'IFM', baslik: 'IFM denemesi', sorular: [banka.klasik('YMM-IFM-ENF-K001')!]);
       await tester.pumpWidget(
         Kapsam(

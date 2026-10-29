@@ -13,8 +13,10 @@ class BolumSecimi extends StatelessWidget {
   Widget build(BuildContext context) {
     final durum = Kapsam.of(context);
     final t = Theme.of(context).textTheme;
-    final yet = durum.banka.formatlar['YET']!;
-    final sgs = durum.banka.formatlar['SGS']!;
+    // Her uygulama yalnız kendi bölümlerini sunar: Mizan SMMM → SGS + Yeterlilik, Tasdik YMM → YMM (seçim gerekmez).
+    final bolumler = durum.urun.bolumler;
+    final yet = durum.banka.formatlar['YET'];
+    final sgs = durum.banka.formatlar['SGS'];
     final ymm = durum.banka.formatlar['YMM'];
 
     Future<void> sec(String b) async {
@@ -39,33 +41,35 @@ class BolumSecimi extends StatelessWidget {
                 Text('Hoş geldin', style: t.headlineMedium?.copyWith(fontWeight: FontWeight.w700)),
                 const SizedBox(height: 8),
                 Text(
-                  ymm == null
-                      ? 'Hangi SMMM sınavına hazırlanıyorsun? Daha sonra ayarlardan değiştirebilirsin.'
-                      : 'Hangi sınava hazırlanıyorsun? Daha sonra ayarlardan değiştirebilirsin.',
+                  'Hangi ${durum.urun.sinav} sınavına hazırlanıyorsun? Daha sonra ayarlardan değiştirebilirsin.',
                   style: t.bodyLarge,
                 ),
                 const SizedBox(height: 24),
               ],
-              _BolumKarti(
-                baslik: 'Staja Giriş Sınavı',
-                kisa: 'SGS',
-                aciklama:
-                    '${sgs.toplamSoru} soru · ${sgs.toplamSureDk} dakika · yanlış doğruyu götürmez · bağıl değerlendirme',
-                secili: durum.ayarlar.bolum == 'SGS',
-                onTap: () => sec('SGS'),
-              ),
-              const SizedBox(height: 12),
-              _BolumKarti(
-                baslik: 'Yeterlilik Sınavı',
-                kisa: 'YET',
-                aciklama:
-                    '8 ders × ${yet.dersBasinaSoru} soru · ders başına ${yet.dersBasinaSureDk} dakika · '
-                    '4 yanlış 1 doğruyu götürür · ders ≥${yet.dersMin}, ortalama ≥${yet.ortalamaMin}',
-                secili: durum.ayarlar.bolum == 'YET',
-                onTap: () => sec('YET'),
-              ),
-              if (ymm != null) ...[
+              if (bolumler.contains('SGS') && sgs != null) ...[
+                _BolumKarti(
+                  baslik: 'Staja Giriş Sınavı',
+                  kisa: 'SGS',
+                  aciklama:
+                      '${sgs.toplamSoru} soru · ${sgs.toplamSureDk} dakika · yanlış doğruyu götürmez · bağıl değerlendirme',
+                  secili: durum.ayarlar.bolum == 'SGS',
+                  onTap: () => sec('SGS'),
+                ),
                 const SizedBox(height: 12),
+              ],
+              if (bolumler.contains('YET') && yet != null) ...[
+                _BolumKarti(
+                  baslik: 'Yeterlilik Sınavı',
+                  kisa: 'YET',
+                  aciklama:
+                      '8 ders × ${yet.dersBasinaSoru} soru · ders başına ${yet.dersBasinaSureDk} dakika · '
+                      '4 yanlış 1 doğruyu götürür · ders ≥${yet.dersMin}, ortalama ≥${yet.ortalamaMin}',
+                  secili: durum.ayarlar.bolum == 'YET',
+                  onTap: () => sec('YET'),
+                ),
+                const SizedBox(height: 12),
+              ],
+              if (bolumler.contains('YMM') && ymm != null) ...[
                 _BolumKarti(
                   baslik: 'Yeminli Mali Müşavirlik',
                   kisa: 'YMM',
@@ -75,6 +79,7 @@ class BolumSecimi extends StatelessWidget {
                   secili: durum.ayarlar.bolum == 'YMM',
                   onTap: () => sec('YMM'),
                 ),
+                const SizedBox(height: 12),
               ],
               const SizedBox(height: 32),
               Text(durum.banka.uyari, style: t.bodySmall, textAlign: TextAlign.center),

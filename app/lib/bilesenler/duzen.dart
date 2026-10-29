@@ -26,6 +26,76 @@ class OrtalaGenislik extends StatelessWidget {
   );
 }
 
+/// Uzun sayfalar için ListView: aşağı inildikçe sağ altta "başa dön" düğmesi belirir (mevzuat, anlatım gibi).
+class YukariCikListe extends StatefulWidget {
+  final List<Widget> children;
+  final EdgeInsetsGeometry? padding;
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
+
+  const YukariCikListe({
+    super.key,
+    required this.children,
+    this.padding,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
+  });
+
+  /// Düğme, bu kadar dp aşağı inildikten sonra görünür.
+  static const gorunmeEsigi = 600.0;
+
+  @override
+  State<YukariCikListe> createState() => _YukariCikListeState();
+}
+
+class _YukariCikListeState extends State<YukariCikListe> {
+  final _kaydirma = ScrollController();
+  bool _goster = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _kaydirma.addListener(_dinle);
+  }
+
+  void _dinle() {
+    final goster = _kaydirma.hasClients && _kaydirma.offset > YukariCikListe.gorunmeEsigi;
+    if (goster != _goster) setState(() => _goster = goster);
+  }
+
+  @override
+  void dispose() {
+    _kaydirma.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        ListView(
+          controller: _kaydirma,
+          padding: widget.padding,
+          keyboardDismissBehavior: widget.keyboardDismissBehavior,
+          children: widget.children,
+        ),
+        if (_goster)
+          Positioned(
+            right: 16,
+            bottom: 16,
+            // heroTag: sekmelerde birden fazla düğme aynı ağaçta bulunabildiği için paylaşılan etiket kullanılmaz.
+            child: FloatingActionButton.small(
+              heroTag: null,
+              tooltip: 'Başa dön',
+              onPressed: () =>
+                  _kaydirma.animateTo(0, duration: const Duration(milliseconds: 400), curve: Curves.easeOut),
+              child: const Icon(Icons.keyboard_arrow_up),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
 /// Ekran gövdesi: çentik/kenar boşluklarına (yatay ve alt) saygı gösterir ve içeriği ortalar. Üst boşluğu AppBar karşılar.
 class Govde extends StatelessWidget {
   final Widget child;

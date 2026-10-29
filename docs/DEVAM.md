@@ -1,5 +1,24 @@
 # Yeni oturum için devir notu (2026-10-18)
 
+## 2026-10-29 oturumu — iki uygulama, yeni ad, ücretsiz katman
+
+- **İki ayrı uygulama (Android flavor):** `smmm` (Staja Giriş + Yeterlilik) ve `ymm`. Kimlikler `app.mizan.smmm` ve
+  `app.tasdik.ymm`; cihazdaki adlar **Mizan SMMM** ve **Tasdik YMM**; mağaza başlıkları "Mizan: SMMM Sınav Hazırlık" ve
+  "Tasdik: YMM Sınav Hazırlık". Paket: `python -m pipeline.disa_aktar app/assets/sorular/<urun>.json --uygulama --urun <urun>`.
+  Derleme/çalıştırma ayrıntısı `YAYIN.md` F bölümü. Dart paket adı (`mevo`) ve Kotlin namespace bilerek değişmedi
+  (kullanıcıya görünmez, değişirse tüm import'lar kırılır).
+- **Yükleme anahtarı bu bilgisayarda yeniden üretildi:** `C:\Users\erene\dev\mevo_gizli\` (jks + parola). Yedeklenmeli.
+  Derleme kopyası `C:\Users\erene\dev\mevo_insa\app` (içinde `android/key.properties`; depoya girmez).
+- **Ücretsiz katman:** günde 20 soru, 1 deneme, **her dersin yalnız ilk anlatımlı konusu** açık (`UygulamaDurumu.anlatimAcik`);
+  diğer anlatımlar kilitli (kilit simgesi, dokununca ödeme ekranı). Satış çağrısı hak ≤5 olunca görünür. Hedef halkası
+  ücretsizde 20, tam erişimde 30. Fiyat önerisi: SMMM tek seferlik 450–500 TL; YMM ücretsiz + reklam düşünülüyor (reklam
+  eklenirse gizlilik/KVKK/Data safety belgeleri yeniden yazılmalı).
+- **Mevzuat/anlatım sayfalarına "başa dön" düğmesi** (`YukariCikListe`).
+- **Yasal metinler genişletildi** (hata bildirimi e-postası, hukuki sebep, saklama süresi, md. 11 hakları). Avukat onayı yok;
+  veri sorumlusu adı ve destek e-postası hâlâ boş (`gizlilik.html`, `yasal.dart`, `destekEposta`).
+- **Henüz yapılmayanlar:** sesli okuma, arayüz yenilemesi, soru artırımı (SMMM 3.223 → 5.000+, YMM 1.887 → 3.000+),
+  kalite yeniden ölçümü, mağaza ekran görüntüleri/tanıtım videosu, videolu anlatım, uzman teyidi.
+
 ## 2026-10-18 oturumu (aynı dal) — soru bankası düzeltme turları tamamlandı
 
 - **Ağır + hafif tur bitti:** `guncellik_denetimi.py` bulgulu soru 828 → **0**. Tekrar eden hükümler çekildi, mutlak

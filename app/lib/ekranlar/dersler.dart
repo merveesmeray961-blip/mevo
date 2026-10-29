@@ -214,18 +214,21 @@ class DersDetay extends StatelessWidget {
                       final ist = il.istatistik(konuSorulari[k.key]!);
                       final anlatim = durum.banka.anlatim(ders.kod, k.key);
                       final okundu = anlatim != null && il.okundu(anlatim.anahtar);
+                      final kilitli = anlatim != null && !durum.anlatimAcik(ders, k.key);
                       return Card(
                         margin: const EdgeInsets.only(bottom: 8),
                         child: ListTile(
                           leading: Icon(
-                            okundu ? Icons.menu_book_rounded : Icons.menu_book_outlined,
+                            kilitli
+                                ? Icons.lock_outline_rounded
+                                : (okundu ? Icons.menu_book_rounded : Icons.menu_book_outlined),
                             color: anlatim == null
                                 ? Theme.of(context).disabledColor
                                 : Theme.of(context).colorScheme.primary,
                           ),
                           title: Text(k.value),
                           subtitle: Text(
-                            '${anlatim == null ? '' : (okundu ? 'Anlatım okundu · ' : 'Anlatım var · ')}'
+                            '${anlatim == null ? '' : (kilitli ? 'Anlatım tam erişimde · ' : (okundu ? 'Anlatım okundu · ' : 'Anlatım var · '))}'
                             '${ist.cozulen}/${ist.toplam} soru görüldü',
                           ),
                           trailing: ist.basari == null

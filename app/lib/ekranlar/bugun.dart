@@ -44,6 +44,8 @@ class BugunEkrani extends StatelessWidget {
             child: ListView(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
               children: [
+                _Karsilama(urunAdi: durum.urun.sinav, seri: il.seri, bugunCozulen: il.bugunCozulen),
+                const SizedBox(height: 12),
                 _GeriSayim(sinav: sinav, bugun: il.simdi),
                 const SizedBox(height: 12),
                 Card(
@@ -51,7 +53,11 @@ class BugunEkrani extends StatelessWidget {
                     padding: const EdgeInsets.all(16),
                     child: Row(
                       children: [
-                        _GunlukHedef(cozulen: il.bugunCozulen),
+                        // Ücretsiz kullanıcının günlük hakkı 20 soru olduğundan hedef, hakkı aşmayacak şekilde seçilir.
+                        _GunlukHedef(
+                          cozulen: il.bugunCozulen,
+                          hedef: durum.abonelik.premium ? _GunlukHedef.tamHedef : ucretsizGunlukSoru,
+                        ),
                         _Sayac(
                           deger: '${il.seri}',
                           etiket: 'gün üst üste',
@@ -79,9 +85,16 @@ class BugunEkrani extends StatelessWidget {
                     onTap: () => odemeEkraniAc(context),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6),
+                      // Hak bol iken yalnız bilgi verilir; çağrı, hak azalınca (≤5) belirir. Böylece ücretsiz kullanım
+                      // rahatsız edilmeden değer gösterir, tam erişim doğal bir sonraki adım olur.
                       child: Text(
-                        'Ücretsiz sürüm: bugün ${durum.kalanUcretsizSoru}/$ucretsizGunlukSoru soru hakkın kaldı · Sınırsız çalış ›',
-                        style: t.bodySmall?.copyWith(color: r.primary),
+                        durum.kalanUcretsizSoru <= 5
+                            ? 'Bugün ${durum.kalanUcretsizSoru} ücretsiz soru hakkın kaldı · Sınırsız çalış ›'
+                            : 'Bugün ${durum.kalanUcretsizSoru}/$ucretsizGunlukSoru ücretsiz soru hakkın var',
+                        style: t.bodySmall?.copyWith(
+                          color: durum.kalanUcretsizSoru <= 5 ? r.primary : r.onSurfaceVariant,
+                          fontWeight: durum.kalanUcretsizSoru <= 5 ? FontWeight.w600 : null,
+                        ),
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -156,6 +169,52 @@ class BugunEkrani extends StatelessWidget {
   }
 }
 
+/// Günün saatine göre selamlayan ve kullanıcıyı çalışmaya yönlendiren kısa başlık.
+class _Karsilama extends StatelessWidget {
+  final String urunAdi;
+  final int seri;
+  final int bugunCozulen;
+
+  const _Karsilama({required this.urunAdi, required this.seri, required this.bugunCozulen});
+
+  /// Saat → selam (saf işlev; test edilebilir).
+  static String selam(int saat) => saat < 5
+      ? 'İyi geceler'
+      : saat < 12
+      ? 'Günaydın'
+      : saat < 18
+      ? 'İyi günler'
+      : 'İyi akşamlar';
+
+  /// Duruma göre tek cümlelik motive edici not.
+  static String not(int seri, int bugunCozulen) {
+    if (bugunCozulen == 0 && seri > 0) return '$seri günlük serini bugün de sürdür.';
+    if (bugunCozulen == 0) return 'Bugün ilk sorunu çözerek başla.';
+    if (bugunCozulen < 10) return 'İyi gidiyorsun, birkaç soru daha.';
+    return 'Bugünkü çalışman harika, böyle devam.';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = Theme.of(context).textTheme;
+    final r = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '${selam(DateTime.now().hour)}!',
+            style: t.headlineSmall?.copyWith(fontWeight: FontWeight.w800),
+          ),
+          const SizedBox(height: 2),
+          Text(not(seri, bugunCozulen), style: t.bodyMedium?.copyWith(color: r.onSurfaceVariant)),
+        ],
+      ),
+    );
+  }
+}
+
 class _GeriSayim extends StatelessWidget {
   final DateTime? sinav;
   final DateTime bugun;
@@ -167,8 +226,11 @@ class _GeriSayim extends StatelessWidget {
     final r = Theme.of(context).colorScheme;
     final t = Theme.of(context).textTheme;
     final gun = sinav?.difference(DateTime(bugun.year, bugun.month, bugun.day)).inDays;
+    final yakin = gun != null && gun >= 0 && gun <= 30;
+    final yazi = yakin ? r.onTertiaryContainer : r.onPrimaryContainer;
     return Card(
-      color: r.primaryContainer,
+      // Sınav tarihine yaklaştıkça kart renk değiştirir: 30 günden azsa dikkat çekici (turuncu), yoksa sakin.
+      color: yakin ? r.tertiaryContainer : r.primaryContainer,
       child: Padding(
         padding: const EdgeInsets.all(18),
         child: Row(
@@ -177,16 +239,16 @@ class _GeriSayim extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Sıradaki sınav', style: t.labelLarge?.copyWith(color: r.onPrimaryContainer)),
+                  Text('Sıradaki sınav', style: t.labelLarge?.copyWith(color: yazi)),
                   const SizedBox(height: 4),
                   Text(
                     sinav == null ? 'Takvim henüz açıklanmadı' : tarihYaz(sinav!),
-                    style: t.titleLarge?.copyWith(color: r.onPrimaryContainer, fontWeight: FontWeight.w700),
+                    style: t.titleLarge?.copyWith(color: yazi, fontWeight: FontWeight.w700),
                   ),
                   if (sinav == null)
                     Text(
                       'TÜRMOB yeni yılın takvimini Aralık ayında açıklar.',
-                      style: t.bodySmall?.copyWith(color: r.onPrimaryContainer),
+                      style: t.bodySmall?.copyWith(color: yazi),
                     ),
                 ],
               ),
@@ -196,9 +258,9 @@ class _GeriSayim extends StatelessWidget {
                 children: [
                   Text(
                     gun == 0 ? 'Bugün' : '$gun',
-                    style: t.displaySmall?.copyWith(color: r.onPrimaryContainer, fontWeight: FontWeight.w800),
+                    style: t.displaySmall?.copyWith(color: yazi, fontWeight: FontWeight.w800),
                   ),
-                  if (gun > 0) Text('gün kaldı', style: t.labelMedium?.copyWith(color: r.onPrimaryContainer)),
+                  if (gun > 0) Text('gün kaldı', style: t.labelMedium?.copyWith(color: yazi)),
                 ],
               ),
           ],
@@ -243,10 +305,12 @@ class _Sayac extends StatelessWidget {
 
 /// Günlük hedef halkası: bugün çözülen soru sayısı ve hedefe ne kadar kaldığı.
 class _GunlukHedef extends StatelessWidget {
-  static const hedef = 30;
+  /// Tam erişimli kullanıcının günlük hedefi.
+  static const tamHedef = 30;
   final int cozulen;
+  final int hedef;
 
-  const _GunlukHedef({required this.cozulen});
+  const _GunlukHedef({required this.cozulen, this.hedef = tamHedef});
 
   @override
   Widget build(BuildContext context) {

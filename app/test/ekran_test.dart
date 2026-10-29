@@ -76,8 +76,26 @@ void main() {
     expect(find.textContaining(' / '), findsWidgets);
   });
 
-  testWidgets('konu: önce anlatım, okununca o konudan soru çözülür', (tester) async {
+  testWidgets('ücretsiz kullanıcı kilitli konunun anlatımına basınca ödeme ekranı çıkar', (tester) async {
     final durum = durumOlustur(bolum: 'YET');
+    final ders = durum.banka.dersler['FIN']!;
+    expect(durum.anlatimAcik(ders, 'ALC'), isFalse, reason: 'ALC, FIN dersinin ilk anlatımlı konusu değil');
+    await tester.pumpWidget(
+      Kapsam(
+        durum: durum,
+        child: MaterialApp(home: KonuEkrani(ders: ders, konu: 'ALC')),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.textContaining('Anlatımı aç'));
+    await tester.pumpAndSettle();
+    expect(find.text('Bu konunun anlatımı tam erişimde.'), findsOneWidget);
+    expect(find.text('Bu konuda neler öğreneceksin'), findsNothing);
+  });
+
+  testWidgets('konu: önce anlatım, okununca o konudan soru çözülür (tam erişim)', (tester) async {
+    final durum = durumOlustur(bolum: 'YET');
+    await durum.abonelik.satinAl(durum.abonelik.paketler.first);
     final ders = durum.banka.dersler['FIN']!;
     final anlatim = durum.banka.anlatim('FIN', 'ALC');
     expect(anlatim, isNotNull);

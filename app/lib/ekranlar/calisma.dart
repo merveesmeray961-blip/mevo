@@ -3,7 +3,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../bilesenler/sesli_okuma.dart';
 import '../bilesenler/soru_gorunumu.dart';
+import '../mantik/sesli_okuma.dart';
 import '../uygulama.dart';
 import '../veri/modeller.dart';
 import 'hesap_makinesi.dart';
@@ -138,6 +140,13 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
           ],
         ),
         actions: [
+          // Soruyu ve şıkları okur; cevaplandıysa doğru cevabı ve gerekçeyi de okur.
+          SesDugmesi(
+            key: ValueKey('ses-${_soru.id}-$_cevaplandi'),
+            motor: durum.ses,
+            metin: () => soruOkumaMetni(_soru, cevapGoster: _cevaplandi),
+            ipucu: _cevaplandi ? 'Çözümü sesli dinle' : 'Soruyu sesli dinle',
+          ),
           IconButton(
             tooltip: 'Hesap makinesi',
             icon: const Icon(Icons.calculate_outlined),
@@ -387,7 +396,7 @@ Future<void> hataBildir(BuildContext context, Soru soru) async {
         scheme: 'mailto',
         path: destekEposta,
         query: _sorguKodla({
-          'subject': 'Mevo SMMM hata bildirimi: ${soru.id}',
+          'subject': '${durum.urun.ad} hata bildirimi: ${soru.id}',
           'body': 'Soru: ${soru.id} (sürüm ${soru.surum})\nTür: $tur\nAçıklama: ${aciklama.isEmpty ? '-' : aciklama}\n',
         }),
       );

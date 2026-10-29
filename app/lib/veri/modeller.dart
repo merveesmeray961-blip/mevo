@@ -337,6 +337,8 @@ class SinavFormati {
 }
 
 class SoruBankasi {
+  /// Paketin ait olduğu uygulama ('smmm' | 'ymm'); eski paketlerde yoktur (null).
+  final String? urun;
   final String olusturma;
   final String uyari;
   final Map<String, SinavFormati> formatlar;
@@ -359,6 +361,7 @@ class SoruBankasi {
   final Map<String, KlasikSoru> _klasikIdIle;
 
   SoruBankasi({
+    this.urun,
     required this.olusturma,
     required this.uyari,
     required this.formatlar,
@@ -385,6 +388,7 @@ class SoruBankasi {
       l.sort();
     }
     return SoruBankasi(
+      urun: j['urun'] as String?,
       olusturma: j['olusturma'] as String,
       uyari: j['uyari'] as String,
       formatlar: {
