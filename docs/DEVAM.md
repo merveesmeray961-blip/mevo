@@ -16,8 +16,15 @@
 - **Mevzuat/anlatım sayfalarına "başa dön" düğmesi** (`YukariCikListe`).
 - **Yasal metinler genişletildi** (hata bildirimi e-postası, hukuki sebep, saklama süresi, md. 11 hakları). Avukat onayı yok;
   veri sorumlusu (Merve Er) ve destek e-postası (ristaycraft@gmail.com) 2026-10-29'da 5 yere yazıldı (`gizlilik.html`, `yasal.dart`, `destekEposta`).
-- **Henüz yapılmayanlar:** sesli okuma, arayüz yenilemesi, soru artırımı (SMMM 3.223 → 5.000+, YMM 1.887 → 3.000+),
+- **Henüz yapılmayanlar:** arayüz yenilemesi, soru artırımı (SMMM 3.223 → 5.000+, YMM 1.887 → 3.000+),
   kalite yeniden ölçümü, mağaza ekran görüntüleri/tanıtım videosu, videolu anlatım, uzman teyidi.
+
+- **2026-10-31 düzeltmesi:** 29 Ekim derlemelerinde sesli okuma (`flutter_tts`) Android tarafına girmemişti: derleme kopyasındaki
+  `GeneratedPluginRegistrant.java` 18 Ekim'den kalmıştı. Kopya eşitlenip iki uygulama yeniden derlendi; çıktılar `teslimat/`
+  klasöründe. **Kural:** pubspec'e eklenti eklendiğinde/çıkarıldığında kopyayı `robocopy ... /MIR /XD build .dart_tool .gradle
+  .kotlin /XF key.properties local.properties` ile eşitle, `flutter pub get` çalıştır; derlemeden sonra AAB'de
+  `TextToSpeech` izini kontrol et. Flutter, flavor derlemesinde çıktı yolunu yanlış (`bundle/release/`) yazar; gerçek dosyalar
+  `bundle/<flavor>Release/` altındadır.
 
 ## 2026-10-18 oturumu (aynı dal) — soru bankası düzeltme turları tamamlandı
 

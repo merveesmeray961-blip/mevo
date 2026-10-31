@@ -1,7 +1,8 @@
-# Yayın öncesi eksik listesi (güncel: 2026-10-29)
+# Yayın öncesi eksik listesi (güncel: 2026-10-31)
 
-Durum: iki uygulama (**Mizan SMMM**, **Tasdik YMM**) derlendi, imzalı AAB/APK hazır (`C:\Users\erene\dev\teslim\`),
-analiz temiz, Flutter 355 ve Python 100 test geçiyor. Aşağıdakiler **kalan işlerdir**; sıra öncelik sırasıdır.
+Durum: iki uygulama (**Mizan SMMM**, **Tasdik YMM**) 2026-10-31'de yeniden derlendi; imzalı AAB/APK `teslimat/mizan-smmm/` ve
+`teslimat/tasdik-ymm/` klasörlerinde (git'e girmez). Sesli okuma eklentisi pakette doğrulandı (29 Ekim derlemelerinde eksikti).
+Flutter 365 ve Python 100 test geçiyor. Aşağıdakiler **kalan işlerdir**; sıra öncelik sırasıdır.
 
 ## A. Yayını engelleyenler (kullanıcı)
 
