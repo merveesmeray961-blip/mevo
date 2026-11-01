@@ -19,7 +19,7 @@
 ## Kısa açıklama (Google Play, en çok 80 karakter)
 
 ```
-YMM sınavına internetsiz çalışın: test soruları, klasik vakalar, öz puanlamalı deneme.
+YMM sınavına internetsiz çalış: test, klasik vaka, öz puanlamalı deneme.
 ```
 
 ## Uzun açıklama (Google Play ≤4000)

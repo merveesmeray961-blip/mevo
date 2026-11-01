@@ -7,6 +7,9 @@ import 'dersler.dart';
 import 'istatistik.dart';
 import 'mevzuat.dart';
 
+/// Açık sekme; başka ekranlar (ör. ana sayfadaki "Deneme sınavı" kutucuğu) sekme değiştirmek için kullanır.
+final anaSekme = ValueNotifier<int>(0);
+
 class AnaKabuk extends StatefulWidget {
   const AnaKabuk({super.key});
 
@@ -15,7 +18,22 @@ class AnaKabuk extends StatefulWidget {
 }
 
 class _AnaKabukState extends State<AnaKabuk> {
-  int _sekme = 0;
+  int get _sekme => anaSekme.value;
+
+  void _sekmeDegisti() => setState(() {});
+
+  @override
+  void initState() {
+    super.initState();
+    anaSekme.value = 0;
+    anaSekme.addListener(_sekmeDegisti);
+  }
+
+  @override
+  void dispose() {
+    anaSekme.removeListener(_sekmeDegisti);
+    super.dispose();
+  }
 
   static const _sekmeler = [
     (Icons.today_outlined, Icons.today, 'Bugün'),
@@ -47,7 +65,7 @@ class _AnaKabukState extends State<AnaKabuk> {
                         child: IntrinsicHeight(
                           child: NavigationRail(
                             selectedIndex: _sekme,
-                            onDestinationSelected: (i) => setState(() => _sekme = i),
+                            onDestinationSelected: (i) => anaSekme.value = i,
                             labelType: NavigationRailLabelType.all,
                             destinations: [
                               for (final (ikon, secili, ad) in _sekmeler)
@@ -74,7 +92,7 @@ class _AnaKabukState extends State<AnaKabuk> {
           ? null
           : NavigationBar(
               selectedIndex: _sekme,
-              onDestinationSelected: (i) => setState(() => _sekme = i),
+              onDestinationSelected: (i) => anaSekme.value = i,
               destinations: [
                 for (final (ikon, secili, ad) in _sekmeler)
                   NavigationDestination(icon: Icon(ikon), selectedIcon: Icon(secili), label: ad),

@@ -13,7 +13,7 @@ enum Urun {
     sinav: 'SMMM',
     sinavCumlesi: 'SMMM sınavlarına',
     paketYolu: 'assets/sorular/smmm.paket',
-    anaRenk: Color(0xFF0F6B5C),
+    anaRenk: Color(0xFF4B3FE0),
     bolumler: ['SGS', 'YET'],
   ),
   ymm(
@@ -22,7 +22,7 @@ enum Urun {
     sinav: 'YMM',
     sinavCumlesi: 'YMM sınavına',
     paketYolu: 'assets/sorular/ymm.paket',
-    anaRenk: Color(0xFF1F4E8C),
+    anaRenk: Color(0xFF111827),
     bolumler: ['YMM'],
   );
 

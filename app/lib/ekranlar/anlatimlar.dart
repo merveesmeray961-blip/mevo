@@ -48,7 +48,13 @@ DersAnlatimi? sonrakiAnlatim(UygulamaDurumu durum, Ders ders, KonuAnlatimi a) {
 
 /// Anlatımı açar: kilitliyse önce ödeme ekranı; okunup "soru çöz" denirse o konunun soruları başlar.
 /// [yerine] true ise açık ekranın (önceki anlatımın) yerine geçer.
-Future<void> anlatimAc(BuildContext context, Ders ders, KonuAnlatimi anlatim, {bool yerine = false}) async {
+Future<void> anlatimAc(
+  BuildContext context,
+  Ders ders,
+  KonuAnlatimi anlatim, {
+  bool yerine = false,
+  bool dinle = false,
+}) async {
   final durum = Kapsam.of(context);
   if (!durum.anlatimAcik(ders, anlatim.konu)) {
     await odemeEkraniAc(context, neden: 'Bu konunun anlatımı tam erişimde.');
@@ -56,7 +62,7 @@ Future<void> anlatimAc(BuildContext context, Ders ders, KonuAnlatimi anlatim, {b
   }
   await durum.ilerleme.sonAnlatimKaydet(anlatim.anahtar);
   if (!context.mounted) return;
-  final rota = MaterialPageRoute<bool>(builder: (_) => AnlatimEkrani(ders: ders, anlatim: anlatim));
+  final rota = MaterialPageRoute<bool>(builder: (_) => AnlatimEkrani(ders: ders, anlatim: anlatim, otomatikDinle: dinle));
   final nav = Navigator.of(context);
   final coz = await (yerine ? nav.pushReplacement<bool, bool>(rota) : nav.push<bool>(rota));
   // Yerine açılan ekranda ilk bağlam artık ağaçta değildir; soruları gezgin başlatır.

@@ -178,6 +178,8 @@ void main() {
       await tester.pageBack();
       await tester.pumpAndSettle();
       await tester.scrollUntilVisible(find.text('Notlarım'), 200);
+      await tester.ensureVisible(find.text('Notlarım'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Notlarım'));
       await tester.pumpAndSettle();
       expect(find.text('Bunu tekrar et'), findsOneWidget);
@@ -207,12 +209,17 @@ void main() {
       await durum.notlar.kaydet(sorular[1].id, 'ikinci not');
       await ac(tester, durum);
       await tester.scrollUntilVisible(find.text('Notlarım'), 200);
+      await tester.ensureVisible(find.text('Notlarım'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Notlarım'));
       await tester.pumpAndSettle();
       await tester.drag(find.text('ilk not'), const Offset(-800, 0));
       await tester.pumpAndSettle();
       expect(durum.notlar.sayi, 1);
       await tester.pageBack();
+      await tester.pumpAndSettle();
+      // Ayarlar düğmesi renkli başlıkta; liste aşağı kaydırıldığı için önce başa dönülür.
+      await tester.drag(find.text('Notlarım'), const Offset(0, 3000));
       await tester.pumpAndSettle();
       await tester.tap(find.byTooltip('Ayarlar'));
       await tester.pumpAndSettle();

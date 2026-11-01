@@ -162,7 +162,9 @@ class CihazSesi extends SesMotoru {
         // iOS: "Enhanced/Premium" sesler daha doğaldır.
         final ios = (v['quality'] ?? '').toLowerCase();
         final iosPuan = ios.contains('premium') ? 500 : (ios.contains('enhanced') ? 400 : 0);
-        return (internet ? 0 : 1000) + kalite + iosPuan + (ad.contains('local') ? 50 : 0);
+        // Google'ın internetli (nöral) sesleri çok daha doğaldır ve ücretsizdir; önce onlar seçilir. İnternet yoksa
+        // Android motoru kendiliğinden aynı sesin cihazdaki sürümüne düşer.
+        return (internet ? 1000 : 0) + kalite + iosPuan;
       }
 
       turkce.sort((a, b) => puan(b).compareTo(puan(a)));
@@ -180,7 +182,7 @@ class CihazSesi extends SesMotoru {
         liste.add(
           SesSecenegi(
             ad: ad,
-            etiket: 'Ses ${liste.length + 1}$cinsiyet${internet ? ' · internetle' : ''}${liste.isEmpty ? ' (önerilen)' : ''}',
+            etiket: 'Ses ${liste.length + 1}$cinsiyet${internet ? ' · doğal (internetle)' : ' · çevrimdışı'}${liste.isEmpty ? ' · önerilen' : ''}',
             internet: internet,
             ham: v,
           ),

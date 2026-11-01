@@ -29,6 +29,12 @@ Future<void> yaziTipleriniYukle() async {
     yukleyici.addFont(Future.value(ByteData.sublistView(File('assets/fonts/Roboto-$a.ttf').readAsBytesSync())));
   }
   await yukleyici.load();
+  // Başlık ve düğmeler Sora ile çizilir (tasarım C); o da gömülü dosyadan yüklenir.
+  final sora = FontLoader('Sora');
+  for (final a in ['400', '500', '600', '700', '800']) {
+    sora.addFont(Future.value(ByteData.sublistView(File('assets/fonts/Sora-$a.ttf').readAsBytesSync())));
+  }
+  await sora.load();
   // Simgeler (Material Icons) Flutter SDK'nın önbelleğinden yüklenir; yoksa simgeler kutu çıkar.
   final sdk = Platform.environment['FLUTTER_ROOT'] ?? r'C:\Users\erene\dev\flutter';
   final simge = File('$sdk/bin/cache/artifacts/material_fonts/materialicons-regular.otf');

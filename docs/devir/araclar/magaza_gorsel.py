@@ -19,14 +19,15 @@ from PIL import Image, ImageDraw, ImageFont
 
 KOK = Path(__file__).resolve().parents[3]
 GIRDI = KOK / "app/tool/goldens"
-FONT = KOK / "app/assets/fonts/Roboto-800.ttf"
+FONT = KOK / "app/assets/fonts/Sora-700.ttf"
 BOY = (1080, 1920)
+LIMON = (200, 240, 74)
 
 URUNLER = {
     "smmm": {
         "cikti": KOK / "docs/magaza/gorseller",
-        "ust": (18, 120, 104),
-        "alt": (8, 70, 60),
+        "ust": (91, 79, 240),
+        "alt": (40, 30, 140),
         "ekranlar": [
             ("bugun", "Sınava kaç gün kaldı,\nbugün ne çalışmalısın"),
             ("dersler", "SGS ve Yeterlilik,\nbinlerce özgün soru"),
@@ -39,8 +40,8 @@ URUNLER = {
     },
     "ymm": {
         "cikti": KOK / "docs/magaza/gorseller_ymm",
-        "ust": (40, 92, 160),
-        "alt": (20, 52, 104),
+        "ust": (31, 41, 55),
+        "alt": (8, 11, 20),
         "ekranlar": [
             ("bugun", "YMM sınavına\nplanlı hazırlan"),
             ("dersler", "10 ders, test ve\nklasik vaka soruları"),
@@ -80,14 +81,16 @@ def telefon(ekran: Image.Image, genislik: int = 700, dis_kose: int = 54, ic_kose
 def uret(urun: str) -> None:
     ayar = URUNLER[urun]
     ayar["cikti"].mkdir(parents=True, exist_ok=True)
-    baslik_font = ImageFont.truetype(str(FONT), 76)
+    baslik_font = ImageFont.truetype(str(FONT), 72)
     for no, (ekran_adi, baslik) in enumerate(ayar["ekranlar"], 1):
         yol = GIRDI / f"{urun}_{ekran_adi}.png"
         if not yol.exists():
             raise FileNotFoundError(f"{yol} yok; önce ekran görüntülerini üretin (flutter test tool/magaza_gorsel_test.dart)")
         tuval = gradyan(ayar["ust"], ayar["alt"])
         cizim = ImageDraw.Draw(tuval)
-        cizim.multiline_text((BOY[0] / 2, 235), baslik, font=baslik_font, fill="white", anchor="mm", align="center", spacing=14)
+        cizim.multiline_text((BOY[0] / 2, 225), baslik, font=baslik_font, fill="white", anchor="mm", align="center", spacing=14)
+        # Marka vurgusu: başlığın altında limon çizgi.
+        cizim.rounded_rectangle([BOY[0] / 2 - 60, 345, BOY[0] / 2 + 60, 357], 6, fill=LIMON)
         tel = telefon(Image.open(yol))
         # Telefon alttan taşar: ekranın üst kısmı görünür, sınır tuvalde kesilir.
         tuval.paste(tel, ((BOY[0] - tel.width) // 2, 430), tel)

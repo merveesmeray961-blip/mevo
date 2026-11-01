@@ -163,7 +163,10 @@ class AnlatimEkrani extends StatefulWidget {
   final Ders ders;
   final KonuAnlatimi anlatim;
 
-  const AnlatimEkrani({super.key, required this.ders, required this.anlatim});
+  /// Ekran açılır açılmaz sesli okuma başlasın mı (ana sayfadaki kulaklık düğmesi).
+  final bool otomatikDinle;
+
+  const AnlatimEkrani({super.key, required this.ders, required this.anlatim, this.otomatikDinle = false});
 
   @override
   State<AnlatimEkrani> createState() => _AnlatimEkraniState();
@@ -181,6 +184,16 @@ class _AnlatimEkraniState extends State<AnlatimEkrani> {
       return _ses.duraklatildi ? _ses.devam() : _ses.duraklat();
     }
     await sesliOkumayaBasla(context, _ses, anlatimOkumaMetni(widget.anlatim), kaynak: _kaynak);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.otomatikDinle) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _dinle();
+      });
+    }
   }
 
   @override
@@ -233,21 +246,20 @@ class _AnlatimEkraniState extends State<AnlatimEkrani> {
               style: t.bodyMedium?.copyWith(color: r.onSurfaceVariant),
             ),
             const SizedBox(height: 12),
-            // Büyük, görünür dinleme düğmesi: kullanıcı ses özelliğini üst çubukta aramak zorunda kalmaz.
+            // Büyük, görünür dinleme düğmesi: kullanıcı ses özelliğini üst çubukta aramak zorunda kalmaz. Okuma başlayınca
+            // denetim alttaki oynatıcıya geçer; aynı işi yapan ikinci bir düğme kalmasın diye bu düğme gizlenir.
             ListenableBuilder(
               listenable: _ses,
-              builder: (context, _) => Align(
-                alignment: Alignment.centerLeft,
-                child: FilledButton.tonalIcon(
-                  icon: Icon(_okunuyor && !_ses.duraklatildi ? Icons.pause_rounded : Icons.headphones_rounded),
-                  label: Text(
-                    !_okunuyor
-                        ? 'Sesli dinle'
-                        : (_ses.duraklatildi ? 'Dinlemeye devam et' : 'Dinleniyor · duraklat'),
-                  ),
-                  onPressed: _dinle,
-                ),
-              ),
+              builder: (context, _) => _okunuyor
+                  ? const SizedBox.shrink()
+                  : Align(
+                      alignment: Alignment.centerLeft,
+                      child: FilledButton.tonalIcon(
+                        icon: const Icon(Icons.headphones_rounded),
+                        label: const Text('Sesli dinle'),
+                        onPressed: _dinle,
+                      ),
+                    ),
             ),
             const SizedBox(height: 16),
             AnlatimGorunumu(anlatim.metin),
