@@ -36,8 +36,8 @@ void main() {
     await tester.pumpAndSettle();
     expect(durum.ayarlar.bolum, 'YET');
     expect(find.textContaining('Hızlı çalış'), findsOneWidget);
-    expect(find.text('28 Kasım 2026'), findsOneWidget);
-    expect(find.text('54'), findsOneWidget, reason: '5 Ekim → 28 Kasım 2026');
+    // Sınava kalan gün başlıkta rozet olarak hep görünür (ayrıntılı kart aşağıda).
+    expect(find.text('54 gün kaldı'), findsOneWidget, reason: '5 Ekim → 28 Kasım 2026');
   });
 
   testWidgets('çalışma oturumu: cevap, açıklama, özet ve yanlış defteri', (tester) async {
@@ -176,7 +176,8 @@ void main() {
       }
       await tester.tap(find.text('Dersler').last);
       await tester.pumpAndSettle();
-      await tester.tap(find.byType(Card).first);
+      // İlk kart "Konu anlatımları" kısayoludur; ikincisi ilk ders.
+      await tester.tap(find.byType(Card).at(1));
       await tester.pumpAndSettle();
       expect(find.text('Konular'), findsOneWidget);
       await tester.pageBack();

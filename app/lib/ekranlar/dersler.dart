@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../uygulama.dart';
 import '../veri/ilerleme.dart';
 import '../veri/modeller.dart';
+import 'anlatimlar.dart';
 import 'calisma.dart';
 import 'klasik.dart';
 import 'konu.dart';
@@ -35,23 +36,56 @@ class DerslerEkrani extends StatelessWidget {
                       onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => DersDetay(ders: d))),
                     ),
                 ];
+                final anlatimSayisi = tumAnlatimlar(durum).length;
+                final ust = anlatimSayisi == 0
+                    ? null
+                    : Card(
+                      color: Theme.of(context).colorScheme.primaryContainer,
+                      child: ListTile(
+                        contentPadding: const EdgeInsets.fromLTRB(16, 6, 12, 6),
+                        leading: Icon(
+                          Icons.auto_stories_rounded,
+                          color: Theme.of(context).colorScheme.onPrimaryContainer,
+                          size: 30,
+                        ),
+                        title: Text(
+                          'Konu anlatımları',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            color: Theme.of(context).colorScheme.onPrimaryContainer,
+                          ),
+                        ),
+                        subtitle: Text(
+                          '$anlatimSayisi konu · ara, oku, sesli dinle',
+                          style: TextStyle(color: Theme.of(context).colorScheme.onPrimaryContainer),
+                        ),
+                        trailing: Icon(Icons.chevron_right, color: Theme.of(context).colorScheme.onPrimaryContainer),
+                        onTap: () =>
+                            Navigator.of(context).push(MaterialPageRoute(builder: (_) => const AnlatimlarEkrani())),
+                      ),
+                    );
+                // Kısayol kartı ders kartlarının üstünde tam genişlikte durur.
+                final Widget? ustKart = ust;
                 const bosluk = EdgeInsets.fromLTRB(16, 8, 16, 24);
                 if (kisit.maxWidth < ikiSutunEsigi) {
                   return ListView.separated(
                     padding: kisit.maxWidth > okumaGenisligi
                         ? EdgeInsets.symmetric(horizontal: (kisit.maxWidth - okumaGenisligi) / 2 + 16, vertical: 8)
                         : bosluk,
-                    itemCount: kartlar.length,
+                    itemCount: kartlar.length + (ustKart == null ? 0 : 1),
                     separatorBuilder: (_, _) => const SizedBox(height: 8),
-                    itemBuilder: (_, i) => kartlar[i],
+                    itemBuilder: (_, i) => ustKart == null ? kartlar[i] : (i == 0 ? ustKart : kartlar[i - 1]),
                   );
                 }
                 // İki sütun: satır başına iki kart, aynı yükseklikte (yazı büyük olsa da taşmaz).
                 return ListView.separated(
                   padding: bosluk,
-                  itemCount: (kartlar.length + 1) ~/ 2,
+                  itemCount: (kartlar.length + 1) ~/ 2 + (ustKart == null ? 0 : 1),
                   separatorBuilder: (_, _) => const SizedBox(height: 8),
-                  itemBuilder: (_, i) => IntrinsicHeight(
+                  itemBuilder: (_, j) {
+                    if (ustKart != null && j == 0) return ustKart;
+                    final i = ustKart == null ? j : j - 1;
+                    return IntrinsicHeight(
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -60,7 +94,8 @@ class DerslerEkrani extends StatelessWidget {
                         Expanded(child: 2 * i + 1 < kartlar.length ? kartlar[2 * i + 1] : const SizedBox()),
                       ],
                     ),
-                  ),
+                  );
+                  },
                 );
               },
             ),
@@ -213,7 +248,7 @@ class DersDetay extends StatelessWidget {
                     Expanded(
                       child: OutlinedButton.icon(
                         icon: const Icon(Icons.local_fire_department_outlined),
-                        label: Text('Zor sorular (${zorlar.length})'),
+                        label: Text('Zorlar (${zorlar.length})', maxLines: 1),
                         onPressed: zorlar.isEmpty
                             ? null
                             : () =>
@@ -245,22 +280,33 @@ class DersDetay extends StatelessWidget {
                       return Card(
                         margin: const EdgeInsets.only(bottom: 8),
                         child: ListTile(
-                          leading: Icon(
-                            kilitli
-                                ? Icons.lock_outline_rounded
-                                : (okundu ? Icons.menu_book_rounded : Icons.menu_book_outlined),
-                            color: anlatim == null
-                                ? Theme.of(context).disabledColor
-                                : Theme.of(context).colorScheme.primary,
-                          ),
+                          // Sol simge yok: başlığa yer kalsın; anlatım durumu alt satırda, anlatım düğmesi sağda.
+                          contentPadding: const EdgeInsets.fromLTRB(16, 4, 4, 4),
                           title: Text(k.value),
                           subtitle: Text(
-                            '${anlatim == null ? '' : (kilitli ? 'Anlatım tam erişimde · ' : (okundu ? 'Anlatım okundu · ' : 'Anlatım var · '))}'
-                            '${ist.cozulen}/${ist.toplam} soru görüldü',
+                            '${anlatim == null ? '' : (kilitli ? 'Anlatım tam erişimde · ' : (okundu ? 'Okundu · ' : ''))}'
+                            '${ist.cozulen}/${ist.toplam} soru',
                           ),
-                          trailing: ist.basari == null
-                              ? const Icon(Icons.chevron_right)
-                              : BasariRozeti(oran: ist.basari!),
+                          // Anlatımı olan konuda kitap düğmesi doğrudan anlatımı açar (konu sayfasına uğramadan).
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              if (ist.basari != null) BasariRozeti(oran: ist.basari!),
+                              if (anlatim != null)
+                                IconButton(
+                                  tooltip: 'Anlatımı oku',
+                                  icon: Icon(
+                                    kilitli
+                                        ? Icons.lock_outline_rounded
+                                        : (okundu ? Icons.auto_stories_rounded : Icons.auto_stories_outlined),
+                                    color: Theme.of(context).colorScheme.primary,
+                                  ),
+                                  onPressed: () => anlatimAc(context, ders, anlatim),
+                                )
+                              else
+                                const Icon(Icons.chevron_right),
+                            ],
+                          ),
                           onTap: () => Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (_) => KonuEkrani(ders: ders, konu: k.key),

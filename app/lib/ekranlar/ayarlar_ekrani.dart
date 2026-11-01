@@ -7,6 +7,7 @@ import 'bolum_secimi.dart';
 import 'odeme.dart';
 import 'yasal.dart';
 import '../bilesenler/duzen.dart';
+import '../bilesenler/sesli_okuma.dart';
 
 /// Ayarlar listesinde bir grubun başlığı.
 class _GrupBasligi extends StatelessWidget {
@@ -85,25 +86,8 @@ class AyarlarEkrani extends StatelessWidget {
                     ),
                   ),
                 ),
-                ListTile(
-                  leading: const Icon(Icons.record_voice_over_outlined),
-                  title: const Text('Sesli okuma hızı'),
-                  subtitle: Padding(
-                    padding: const EdgeInsets.only(top: 8),
-                    child: SegmentedButton<double>(
-                      segments: [
-                        for (final e in sesHizlari.entries)
-                          ButtonSegment(value: e.value, label: Text(e.key, maxLines: 1, softWrap: false)),
-                      ],
-                      selected: {ay.sesHizi},
-                      onSelectionChanged: (s) {
-                        ay.sesHiziSec(s.first);
-                        durum.ses.hizSec(s.first);
-                      },
-                      showSelectedIcon: false,
-                    ),
-                  ),
-                ),
+                const _GrupBasligi('Sesli okuma'),
+                const _SesAyarlari(),
                 ListTile(
                   leading: const Icon(Icons.format_list_numbered),
                   title: const Text('Çalışma oturumu'),
@@ -222,3 +206,115 @@ class AyarlarEkrani extends StatelessWidget {
     );
   }
 }
+
+/// Sesli okuma ayarları: hız, cihazdaki Türkçe seslerden seçim ve örnek dinleme.
+class _SesAyarlari extends StatefulWidget {
+  const _SesAyarlari();
+
+  @override
+  State<_SesAyarlari> createState() => _SesAyarlariState();
+}
+
+class _SesAyarlariState extends State<_SesAyarlari> {
+  static const _ornek =
+      'Merhaba. Amortisman, iktisadi kıymetin değerindeki azalmanın giderleştirilmesidir. '
+      'Vergi Usul Kanunu madde 313 uyarınca, 2026 yılı için sınır 12.000 liradır.';
+  Future<void>? _hazirlik;
+
+  @override
+  void dispose() {
+    final ses = _ses;
+    if (ses != null && ses.kaynak == 'ayarlar/ornek') scheduleMicrotaskSafe(ses.durdur);
+    super.dispose();
+  }
+
+  SesMotoru? _ses;
+
+  @override
+  Widget build(BuildContext context) {
+    final durum = Kapsam.of(context);
+    final ses = _ses = durum.ses;
+    final ay = durum.ayarlar;
+    _hazirlik ??= ses.hazirla();
+    return FutureBuilder<void>(
+      future: _hazirlik,
+      builder: (context, _) => ListenableBuilder(
+        listenable: ses,
+        builder: (context, _) {
+          final sesler = ses.sesler;
+          final secili = sesler.any((s) => s.ad == ay.sesAdi) ? ay.sesAdi : (sesler.isEmpty ? null : sesler.first.ad);
+          final ornekCaliyor = ses.okuyor && ses.kaynak == 'ayarlar/ornek';
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ListTile(
+                leading: const Icon(Icons.speed_rounded),
+                title: const Text('Okuma hızı'),
+                subtitle: Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: SegmentedButton<double>(
+                    segments: [
+                      for (final e in sesHizlari.entries)
+                        ButtonSegment(
+                          value: e.value,
+                          label: Text(e.key, maxLines: 1, softWrap: false, overflow: TextOverflow.fade),
+                        ),
+                    ],
+                    selected: {ay.sesHizi},
+                    onSelectionChanged: (s) {
+                      ay.sesHiziSec(s.first);
+                      ses.hizSec(s.first);
+                    },
+                    showSelectedIcon: false,
+                  ),
+                ),
+              ),
+              if (!ses.turkceVar)
+                const ListTile(
+                  leading: Icon(Icons.info_outline),
+                  title: Text('Türkçe ses bulunamadı'),
+                  subtitle: Text(
+                    'Telefon Ayarları › Metin okuma çıkışı bölümünden "Google Konuşma Hizmetleri"ni seçip '
+                    'Türkçe ses verisini yükle; ardından uygulamayı yeniden aç.',
+                  ),
+                )
+              else if (sesler.length > 1)
+                ListTile(
+                  leading: const Icon(Icons.record_voice_over_outlined),
+                  title: const Text('Ses'),
+                  subtitle: const Text('Cihazdaki Türkçe sesler; en doğal olanı seç'),
+                  trailing: DropdownButton<String>(
+                    value: secili,
+                    underline: const SizedBox(),
+                    onChanged: (ad) async {
+                      await ay.sesAdiSec(ad);
+                      await ses.sesSec(ad);
+                      if (context.mounted) await ses.oku(_ornek, kaynak: 'ayarlar/ornek');
+                    },
+                    items: [
+                      for (final s in sesler)
+                        DropdownMenuItem(value: s.ad, child: Text(s.etiket, overflow: TextOverflow.ellipsis)),
+                    ],
+                  ),
+                ),
+              if (ses.turkceVar)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: OutlinedButton.icon(
+                      icon: Icon(ornekCaliyor ? Icons.stop_rounded : Icons.play_arrow_rounded),
+                      label: Text(ornekCaliyor ? 'Durdur' : 'Örnek dinle'),
+                      onPressed: () => ornekCaliyor ? ses.durdur() : ses.oku(_ornek, kaynak: 'ayarlar/ornek'),
+                    ),
+                  ),
+                ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+void scheduleMicrotaskSafe(Future<void> Function() f) => Future.microtask(f);

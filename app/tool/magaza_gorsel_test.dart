@@ -9,6 +9,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mevo/ekranlar/anlatimlar.dart';
 import 'package:mevo/ekranlar/bugun.dart';
 import 'package:mevo/ekranlar/calisma.dart';
 import 'package:mevo/ekranlar/dersler.dart';
@@ -16,7 +17,9 @@ import 'package:mevo/ekranlar/istatistik.dart';
 import 'package:mevo/ekranlar/konu.dart';
 import 'package:mevo/urun.dart';
 import 'package:mevo/uygulama.dart';
+import 'package:mevo/veri/modeller.dart';
 
+import '../test/sahte_ses.dart';
 import '../test/yardimci.dart';
 
 /// Flutter testleri yazıyı kutu olarak çizen "Ahem" yazı tipiyle çalışır; gerçek görünüm için uygulamaya gömülü Roboto yüklenir.
@@ -35,15 +38,21 @@ Future<void> yaziTipleriniYukle() async {
   }
 }
 
-Future<UygulamaDurumu> hazirDurum(Urun urun) async {
+Future<UygulamaDurumu> hazirDurum(Urun urun, {SahteSes? ses}) async {
   final bolum = urun == Urun.ymm ? 'YMM' : 'YET';
-  final durum = durumOlustur(urun: urun, bolum: bolum);
+  final durum = durumOlustur(urun: urun, bolum: bolum, ses: ses);
   final sorular = durum.banka.bolumSorulari(bolum);
   for (var i = 0; i < 96; i++) {
     final s = sorular[(i * 7) % sorular.length];
     await durum.ilerleme.cevapla(s, i % 4 == 0 ? (s.dogru == 'A' ? 'B' : 'A') : s.dogru, gunlugeSay: i < 14);
   }
   await durum.abonelik.satinAl(durum.abonelik.paketler.first); // tam erişim: kilit simgesi görüntüde olmasın
+  // Birkaç anlatım okunmuş, biri yarıda: "kaldığın yerden devam et" ve okundu işaretleri görünsün.
+  final anlatimlar = tumAnlatimlar(durum);
+  for (final e in anlatimlar.take(3)) {
+    await durum.ilerleme.okunduIsaretle(e.anlatim.anahtar);
+  }
+  if (anlatimlar.length > 3) await durum.ilerleme.sonAnlatimKaydet(anlatimlar[3].anlatim.anahtar);
   return durum;
 }
 
@@ -60,12 +69,15 @@ Future<void> cek(
   String ad,
   Widget Function(UygulamaDurumu) ekran, {
   String cihaz = 'tel',
+  SahteSes? ses,
+  Future<void> Function(UygulamaDurumu)? once,
 }) async {
   final (boyut, oran) = cihazlar[cihaz]!;
   tester.view.physicalSize = boyut;
   tester.view.devicePixelRatio = oran;
   addTearDown(tester.view.reset);
-  final durum = await hazirDurum(urun);
+  final durum = await hazirDurum(urun, ses: ses);
+  if (once != null) await once(durum);
   await tester.pumpWidget(
     Kapsam(
       durum: durum,
@@ -108,19 +120,24 @@ void main() {
           cihaz: cihaz,
         ),
       );
-      testWidgets(
-        '$on anlatim',
-        (t) => cek(
+      testWidgets('$on anlatimlar', (t) => cek(t, urun, 'anlatimlar', (_) => const AnlatimlarEkrani(), cihaz: cihaz));
+      testWidgets('$on anlatim', (t) {
+        // Sesli dinleme açık: alttaki oynatıcı çubuğu görüntüde görünsün.
+        final ses = SahteSes();
+        KonuAnlatimi sec(UygulamaDurumu d) => d.banka.anlatimlar.values.firstWhere((a) => a.ders == ders);
+        return cek(
           t,
           urun,
           'anlatim',
-          (d) => AnlatimEkrani(
-            ders: d.banka.dersler[ders]!,
-            anlatim: d.banka.anlatimlar.values.firstWhere((a) => a.ders == ders),
-          ),
+          (d) => AnlatimEkrani(ders: d.banka.dersler[ders]!, anlatim: sec(d)),
           cihaz: cihaz,
-        ),
-      );
+          ses: ses,
+          once: (d) => ses.oku(
+            'Bu konuda neler öğreneceksin.\n${sec(d).baslik} konusunun temel kavramları ve sınavda sık sorulan noktalar.',
+            kaynak: 'anlatim/${sec(d).anahtar}',
+          ),
+        );
+      });
     }
   }
 }

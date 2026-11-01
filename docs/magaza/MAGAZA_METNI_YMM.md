@@ -34,7 +34,7 @@ NELER VAR?
 • 10 ders, konu konu çalışma: Her cevaptan sonra çözüm, "diğer şıklar neden yanlış" açıklaması ve püf noktaları.
 • Klasik vaka soruları: Örnek çözüm ve puanlama ölçütleriyle. Cevabını kendin yazar, ölçütleri işaretleyerek kendini puanlarsın.
 • Klasik ders denemeleri: Her ders 100 üzerinden değerlendirilir; geçme koşulu (ders ve ortalama barajı) gösterilir.
-• Konu anlatımları: Soru çözmeden önce konunun özetini oku.
+• Konu anlatımları ve sesli dinleme: Konu özetlerini ana ekrandan tek dokunuşla aç, kaldığın yerden devam et; istersen telefonun Türkçe sesiyle dinle (duraklat, cümle atla, hız ayarı).
 • Mevzuat sekmesi: Soruların dayandığı maddeler; arama ve "bu maddeden soru çöz".
 • Yanlış defteri, aralıklı tekrar ve istatistik: Zayıf konularını gör, unutmadan önce tekrar et.
 • Açık ve koyu tema, telefon ve tablet desteği, büyük yazı boyutlarıyla uyumlu.
@@ -55,7 +55,7 @@ Sorular, YMM sınavına hazırlık amacıyla özgün olarak hazırlanmıştır; 
 ## Yeni sürüm notu (ilk sürüm)
 
 ```
-İlk sürüm: 10 ders, test ve klasik vaka soruları, öz puanlamalı klasik deneme, konu anlatımları, mevzuat ve yanlış defteri.
+İlk sürüm: 10 ders, test ve klasik vaka soruları, öz puanlamalı klasik deneme, konu anlatımları ve sesli dinleme, mevzuat ve yanlış defteri.
 ```
 
 ## Zorunlu sorumluluk reddi

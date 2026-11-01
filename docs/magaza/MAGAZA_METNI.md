@@ -36,6 +36,7 @@ Mizan SMMM, Serbest Muhasebeci Mali Müşavirlik (SMMM) Staja Giriş Sınavı ve
 NELER VAR?
 
 • Konu konu çalışma: Dersleri ve konuları seç, soruları çöz. Her cevaptan sonra çözüm, "diğer şıklar neden yanlış" açıklaması ve püf noktaları karşına çıkar.
+• Konu anlatımları ve sesli dinleme: Her dersin konu özetlerini ana ekrandan tek dokunuşla aç, kaldığın yerden devam et. İstersen telefonun Türkçe sesiyle dinle; duraklat, cümle atla, hızı ayarla.
 • Dayanağı gösterilen açıklamalar: Soruların açıklamaları ilgili mevzuat maddesine dayanır; kısa alıntıyla birlikte görürsün.
 • Gerçek sınav kurallarıyla deneme: Süre, soru sayısı, yanlışın doğruyu götürmesi ve geçme koşulları sınavdaki gibi uygulanır. Sonunda ders ders puanını ve geçip geçmediğini görürsün.
 • Yanlış defteri: Yanlış yaptığın soruları otomatik toplar, istediğin zaman yeniden çözdürür.
@@ -68,7 +69,7 @@ smmm,yeterlilik,staja giriş,muhasebe,mali müşavir,sınav,deneme,soru bankası
 ## Yeni sürüm notu (ilk sürüm)
 
 ```
-İlk sürüm: konu konu çalışma, gerçek kurallarla deneme, yanlış defteri, aralıklı tekrar ve istatistik.
+İlk sürüm: konu konu çalışma, konu anlatımları ve sesli dinleme, gerçek kurallarla deneme, yanlış defteri, aralıklı tekrar ve istatistik.
 ```
 
 ## Zorunlu sorumluluk reddi (uygulamada ve mağaza sayfasında bulunmalı)

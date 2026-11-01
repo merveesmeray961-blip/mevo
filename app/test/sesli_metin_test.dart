@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mevo/urun.dart';
 import 'package:mevo/mantik/sesli_okuma.dart';
 
 import 'yardimci.dart';
@@ -31,6 +34,46 @@ void main() {
       expect(s, contains('madde 26, fıkra 1, bent ç'));
       expect(s, isNot(contains('₺')));
       expect(s, isNot(contains('%')));
+    });
+
+    test('kısaltmalar Türkçe harf adlarıyla, tarihler ve para doğal okunur', () {
+      expect(konusmaMetni("KDV'nin oranı"), contains("kadeve'nin"));
+      expect(konusmaMetni('VUK ve TTK hükümleri'), contains('veuka ve teteka'));
+      expect(konusmaMetni('TÜRMOB ve TESMER'), contains('türmob ve tesmer'));
+      expect(konusmaMetni('Son gün 31.12.2026 tarihidir'), contains('31 Aralık 2026'));
+      expect(konusmaMetni("Tutar 1.000 TL'ye ulaşır"), contains('1.000 liraya'));
+      expect(konusmaMetni("Tutar 5.000 TL'den azdır"), contains('5.000 liradan'));
+      expect(konusmaMetni('Bedel ₺1.000 olur'), contains('1.000 lira'));
+      expect(konusmaMetni("Bedel 2.500 ₺'dır"), contains('2.500 liradır'));
+      expect(konusmaMetni('GVK md. 32/C kapsamında'), contains('madde 32 C'));
+      expect(konusmaMetni('A = B + C'), contains('eşittir'));
+      expect(konusmaMetni('vb. giderler (örn. kira)'), allOf(contains('ve benzeri'), contains('örneğin kira')));
+      expect(konusmaMetni('2024–2026 döneminde'), contains('2024 ile 2026'));
+      expect(konusmaMetni('II. Tertip'), contains('ikinci Tertip'));
+    });
+
+    test('cümle cümle bölmede sayılardaki noktalar cümle sonu sayılmaz', () {
+      final c = okumaCumleleri('Sermaye 1.000.000 liradır. Kâr 250.000 liradır.\nBaşlık.');
+      expect(c, ['Sermaye 1.000.000 liradır.', 'Kâr 250.000 liradır.', 'Başlık.']);
+      final uzun = List.filled(60, 'uzun bir madde,').join(' ');
+      for (final p in okumaCumleleri(uzun)) {
+        expect(p.length, lessThanOrEqualTo(cumleSiniri));
+      }
+    });
+
+    test('örnek okuma metinleri (inceleme için build/ses_ornek_*.txt)', () {
+      for (final u in Urun.values) {
+        final banka = gercekBanka(u);
+        final b = StringBuffer();
+        for (final a in banka.anlatimlar.values.take(3)) {
+          b.writeln('=== ${a.anahtar}');
+          for (final c in okumaCumleleri(anlatimOkumaMetni(a)).take(80)) {
+            b.writeln(c);
+          }
+        }
+        Directory('build').createSync(recursive: true);
+        File('build/ses_ornek_${u.kod}.txt').writeAsStringSync(b.toString());
+      }
     });
 
     test('boş metin boş kalır', () {
@@ -84,10 +127,10 @@ void main() {
     test('soru, şıklar ve (cevaplandıysa) doğru cevap okunur', () {
       final soru = gercekBanka().sorular.first;
       final once = soruOkumaMetni(soru);
-      expect(once, contains('A şıkkı.'));
-      expect(once, contains('E şıkkı.'));
+      expect(once, contains('A şıkkı:'));
+      expect(once, contains('E şıkkı:'));
       expect(once, isNot(contains('Doğru cevap')));
-      expect(soruOkumaMetni(soru, cevapGoster: true), contains('Doğru cevap ${soru.dogru}.'));
+      expect(soruOkumaMetni(soru, cevapGoster: true), contains('Doğru cevap ${soru.dogru} şıkkı.'));
     });
 
     test('bütün soruların okuma metni işaretsiz ve doludur', () {

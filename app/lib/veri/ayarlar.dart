@@ -10,7 +10,7 @@ const yaziSecenekleri = {'Küçük': 0.92, 'Normal': 1.0, 'Büyük': 1.15, 'En b
 const yaziVarsayilan = 1.0;
 
 /// Sesli okuma hızı seçenekleri (flutter_tts ölçeğinde 0.5 ≈ normal konuşma hızı).
-const sesHizlari = {'Yavaş': 0.4, 'Normal': 0.5, 'Hızlı': 0.6};
+const sesHizlari = {'Yavaş': 0.4, 'Normal': 0.5, 'Hızlı': 0.6, 'Çok hızlı': 0.7};
 const sesHiziVarsayilan = 0.5;
 
 class Ayarlar extends ChangeNotifier {
@@ -22,6 +22,7 @@ class Ayarlar extends ChangeNotifier {
   int _oturumBoyu = 10;
   double _yazi = yaziVarsayilan;
   double _sesHizi = sesHiziVarsayilan;
+  String? _sesAdi;
 
   Ayarlar(this._depo) {
     final s = _depo.oku(_anahtar);
@@ -33,6 +34,7 @@ class Ayarlar extends ChangeNotifier {
     _yazi = ((j['yazi'] ?? yaziVarsayilan) as num).toDouble();
     _sesHizi = ((j['sesHizi'] ?? sesHiziVarsayilan) as num).toDouble();
     if (!sesHizlari.containsValue(_sesHizi)) _sesHizi = sesHiziVarsayilan;
+    _sesAdi = j['sesAdi'] as String?;
     // Eski sürümün ölçeği (0.84/0.92/1.0) yeni ölçeğe taşınır; eski varsayılan 0.92 artık Normal'dir.
     if (j['yaziSurum'] != 2) {
       _yazi = switch (_yazi) {
@@ -62,6 +64,10 @@ class Ayarlar extends ChangeNotifier {
   double get sesHizi => _sesHizi;
   Future<void> sesHiziSec(double x) => _guncelle(() => _sesHizi = x);
 
+  /// Seçilen cihaz sesinin adı; null ise en kaliteli Türkçe ses otomatik seçilir.
+  String? get sesAdi => _sesAdi;
+  Future<void> sesAdiSec(String? ad) => _guncelle(() => _sesAdi = ad);
+
   Future<void> _guncelle(void Function() f) async {
     f();
     notifyListeners();
@@ -74,6 +80,7 @@ class Ayarlar extends ChangeNotifier {
         'yazi': _yazi,
         'yaziSurum': 2,
         'sesHizi': _sesHizi,
+        'sesAdi': _sesAdi,
       }),
     );
   }

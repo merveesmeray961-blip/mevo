@@ -1,5 +1,28 @@
 # Yeni oturum için devir notu (2026-10-18)
 
+## 2026-11-01 oturumu — sesli okuma yeniden kuruldu, konu anlatımına kolay erişim, sürüm 1.0.10+11
+
+- **Sesli okuma (cihaz TTS) yeniden yazıldı** (`lib/bilesenler/sesli_okuma.dart`, `lib/mantik/sesli_okuma.dart`):
+  Android'de Google konuşma motoru varsa seçilir; Türkçe sesler arasından internetsiz en kaliteli ses otomatik seçilir,
+  Ayarlar › Sesli okuma'dan ses seçilip "Örnek dinle" ile denenir (`Ayarlar.sesAdi`). Metin cümle cümle okunur
+  (cümle arası doğal duraklama); anlatım ekranında alt **oynatıcı çubuğu**: duraklat/devam, önceki/sonraki cümle,
+  hız (0,8×–1,4×), okunan cümle ve ilerleme. Metin düzeltme: kısaltmalar Türkçe harf adlarıyla (KDV → kadeve,
+  VUK → veuka, SMMM → semememe; TÜRMOB/TESMER/FIFO sözcük gibi), tarih (31.12.2026 → 31 Aralık 2026), para
+  (₺1.000 / 1.000 TL'ye → 1.000 lira / liraya), md. 32/C, a) bentleri, matematik işaretleri (= + − × > <), aralıklar
+  (2024–2026 → 2024 ile 2026), noktalı kısaltmalar (vb., örn., par., mük., A.Ş.), parantezler duraklamaya dönüşür.
+  Örnek çıktılar: `flutter test test/sesli_metin_test.dart` → `build/ses_ornek_<urun>.txt`.
+- **Konu anlatımına erişim:** Bugün ekranında "Konu anlatımları" kartı (sıradaki / kaldığın konu, tek dokunuşla aç;
+  `Ilerleme.sonAnlatim`), "Tüm konu anlatımları" listesi (`ekranlar/anlatimlar.dart`: arama, ders ders gruplama,
+  okundu/kilit), Dersler sekmesinin en üstünde kısayol kartı, ders detayında her konunun yanında doğrudan "Anlatımı oku"
+  düğmesi, anlatım sonunda "Sonraki konu" düğmesi. Bugün ekranında sıra: selam + sınava kalan gün rozeti → Hızlı çalış →
+  Konu anlatımları → günlük hedef → geri sayım kartı.
+- **Testler:** `test/anlatim_erisim_test.dart` yeni; tüm paket geçiyor. Mağaza görsellerine "anlatimlar" ekranı ve
+  oynatıcılı anlatım ekranı eklendi (`tool/magaza_gorsel_test.dart`, `magaza_gorsel.py`).
+- **Derleme betikleri:** `_xfer/kontrol.cmd` (eşitle + analyze + test), `_xfer/derle.cmd` (iki AAB + iki APK →
+  `C:\Users\erene\dev\mevo_insa\cikti_1.0.10`), `_xfer/hepsi.cmd` (ikisi + mağaza görüntüleri). `_xfer/` git'e girmez.
+- **Google Play:** kişisel hesapta her uygulama için ayrı ayrı **12 test kullanıcısı × 14 gün kapalı test** zorunlu;
+  üretime ancak sonra geçilir (kurumsal hesapta bu şart yok). Ayrıntı: kök klasördeki `00_DURUM_NOTU_2026-11-01.md`.
+
 ## 2026-10-29 oturumu — iki uygulama, yeni ad, ücretsiz katman
 
 - **İki ayrı uygulama (Android flavor):** `smmm` (Staja Giriş + Yeterlilik) ve `ymm`. Kimlikler `app.mizan.smmm` ve

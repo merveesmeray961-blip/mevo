@@ -150,6 +150,7 @@ class Ilerleme extends ChangeNotifier {
   static const _anahtarGunluk = 'ilerleme.gunluk.v1';
   static const _anahtarBildirimler = 'ilerleme.bildirimler.v1';
   static const _anahtarAnlatimlar = 'ilerleme.anlatimlar.v1';
+  static const _anahtarSonAnlatim = 'ilerleme.son_anlatim.v1';
 
   final Depo _depo;
   final DateTime Function() _simdi;
@@ -176,6 +177,19 @@ class Ilerleme extends ChangeNotifier {
     if (b != null) _bildirimler.addAll([for (final j in jsonDecode(b) as List) Map<String, dynamic>.from(j as Map)]);
     final a = _depo.oku(_anahtarAnlatimlar);
     if (a != null) _okunanlar.addAll(List<String>.from(jsonDecode(a) as List));
+    _sonAnlatim = _depo.oku(_anahtarSonAnlatim);
+  }
+
+  String? _sonAnlatim;
+
+  /// En son açılan konu anlatımı ("DERS/KONU"); ana ekrandaki "kaldığın yerden devam et" için.
+  String? get sonAnlatim => _sonAnlatim;
+
+  Future<void> sonAnlatimKaydet(String anahtar) async {
+    if (_sonAnlatim == anahtar) return;
+    _sonAnlatim = anahtar;
+    notifyListeners();
+    await _depo.yaz(_anahtarSonAnlatim, anahtar);
   }
 
   /// Konu anlatımı okundu mu? Anahtar "DERS/KONU".
@@ -270,8 +284,10 @@ class Ilerleme extends ChangeNotifier {
     _denemeler.clear();
     _gunluk.clear();
     _okunanlar.clear();
+    _sonAnlatim = null;
     notifyListeners();
     await _depo.sil(_anahtarAnlatimlar);
+    await _depo.sil(_anahtarSonAnlatim);
     await _depo.sil(_anahtarSorular);
     await _depo.sil(_anahtarDenemeler);
     await _depo.sil(_anahtarGunluk);

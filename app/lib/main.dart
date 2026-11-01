@@ -39,6 +39,7 @@ Future<void> main() async {
   final ayarlar = Ayarlar(depo);
   final ses = varsayilanSesMotoru();
   unawaited(ses.hizSec(ayarlar.sesHizi));
+  unawaited(ses.sesSec(ayarlar.sesAdi));
   runApp(
     MevoUygulamasi(
       durum: UygulamaDurumu(

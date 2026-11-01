@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../abonelik/abonelik.dart';
 import '../uygulama.dart';
+import 'anlatimlar.dart';
 import 'ayarlar_ekrani.dart';
 import 'calisma.dart';
 import 'notlar.dart';
@@ -46,32 +47,13 @@ class BugunEkrani extends StatelessWidget {
             child: LayoutBuilder(
               builder: (context, kisit) {
                 final ustKartlar = <Widget>[
-                _Karsilama(urunAdi: durum.urun.sinav, seri: il.seri, bugunCozulen: il.bugunCozulen),
-                const SizedBox(height: 12),
-                _GeriSayim(sinav: sinav, bugun: il.simdi),
-                const SizedBox(height: 12),
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        // Ücretsiz kullanıcının günlük hakkı 20 soru olduğundan hedef, hakkı aşmayacak şekilde seçilir.
-                        _GunlukHedef(
-                          cozulen: il.bugunCozulen,
-                          hedef: durum.abonelik.premium ? _GunlukHedef.tamHedef : ucretsizGunlukSoru,
-                        ),
-                        _Sayac(
-                          deger: '${il.seri}',
-                          etiket: 'gün üst üste',
-                          ikon: Icons.local_fire_department_rounded,
-                          ikonRengi: il.seri > 0 ? const Color(0xFFF26B1D) : null,
-                        ),
-                        _Sayac(deger: '${ist.cozulen}/${ist.toplam}', etiket: 'soru görüldü'),
-                      ],
-                    ),
-                  ),
+                _Karsilama(
+                  urunAdi: durum.urun.sinav,
+                  seri: il.seri,
+                  bugunCozulen: il.bugunCozulen,
+                  kalanGun: sinav?.difference(DateTime(il.simdi.year, il.simdi.month, il.simdi.day)).inDays,
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 12),
                 FilledButton.icon(
                   icon: const Icon(Icons.play_arrow_rounded),
                   label: Text('Hızlı çalış · ${durum.ayarlar.oturumBoyu} soru'),
@@ -102,6 +84,33 @@ class BugunEkrani extends StatelessWidget {
                     ),
                   ),
                 ],
+                const SizedBox(height: 12),
+                const _AnlatimKarti(),
+                const SizedBox(height: 12),
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      children: [
+                        // Ücretsiz kullanıcının günlük hakkı 20 soru olduğundan hedef, hakkı aşmayacak şekilde seçilir.
+                        _GunlukHedef(
+                          cozulen: il.bugunCozulen,
+                          hedef: durum.abonelik.premium ? _GunlukHedef.tamHedef : ucretsizGunlukSoru,
+                        ),
+                        _Sayac(
+                          deger: '${il.seri}',
+                          etiket: 'gün üst üste',
+                          ikon: Icons.local_fire_department_rounded,
+                          ikonRengi: il.seri > 0 ? const Color(0xFFF26B1D) : null,
+                        ),
+                        _Sayac(deger: '${ist.cozulen}/${ist.toplam}', etiket: 'soru görüldü'),
+                      ],
+                    ),
+                  ),
+                ),
+                // Geri sayım bilgi amaçlıdır; günlük işler (çalış, konu oku) ekranın üstünde, kaydırmadan görünür kalır.
+                const SizedBox(height: 12),
+                _GeriSayim(sinav: sinav, bugun: il.simdi),
                 ];
                 final altKartlar = <Widget>[
                 const SizedBox(height: 16),
@@ -199,7 +208,10 @@ class _Karsilama extends StatelessWidget {
   final int seri;
   final int bugunCozulen;
 
-  const _Karsilama({required this.urunAdi, required this.seri, required this.bugunCozulen});
+  /// Sıradaki sınava kalan gün (takvim yoksa null); başlıkta küçük bir rozet olarak hep görünür.
+  final int? kalanGun;
+
+  const _Karsilama({required this.urunAdi, required this.seri, required this.bugunCozulen, this.kalanGun});
 
   /// Saat → selam (saf işlev; test edilebilir).
   static String selam(int saat) => saat < 5
@@ -222,17 +234,43 @@ class _Karsilama extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = Theme.of(context).textTheme;
     final r = Theme.of(context).colorScheme;
+    final gun = kalanGun;
     return Padding(
       padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      // Wrap: büyük yazıda ya da dar ekranda rozet alt satıra iner, taşma olmaz.
+      child: Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        spacing: 8,
+        runSpacing: 8,
         children: [
-          Text(
-            '${selam(DateTime.now().hour)}!',
-            style: t.headlineSmall?.copyWith(fontWeight: FontWeight.w800),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${selam(DateTime.now().hour)}!',
+                style: t.headlineSmall?.copyWith(fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: 2),
+              Text(not(seri, bugunCozulen), style: t.bodyMedium?.copyWith(color: r.onSurfaceVariant)),
+            ],
           ),
-          const SizedBox(height: 2),
-          Text(not(seri, bugunCozulen), style: t.bodyMedium?.copyWith(color: r.onSurfaceVariant)),
+          if (gun != null && gun >= 0)
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              decoration: BoxDecoration(
+                color: gun <= 30 ? r.tertiaryContainer : r.primaryContainer,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                gun == 0 ? 'Sınav bugün' : '$gun gün kaldı',
+                style: t.labelLarge?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: gun <= 30 ? r.onTertiaryContainer : r.onPrimaryContainer,
+                ),
+              ),
+            ),
         ],
       ),
     );
@@ -413,6 +451,85 @@ class _ListeKarti extends StatelessWidget {
           ],
         ),
         onTap: onTap,
+      ),
+    );
+  }
+}
+
+/// Ana ekrandan konu anlatımına tek dokunuşla erişim: sıradaki (ya da kaldığın) konu ve tüm anlatımlar listesi.
+class _AnlatimKarti extends StatelessWidget {
+  const _AnlatimKarti();
+
+  @override
+  Widget build(BuildContext context) {
+    final durum = Kapsam.of(context);
+    // Sabit (const) olduğu için üst ekranla birlikte yeniden çizilmez; ilerlemeyi kendisi dinler.
+    return ListenableBuilder(listenable: durum.degisim, builder: (context, _) => _ciz(context, durum));
+  }
+
+  Widget _ciz(BuildContext context, UygulamaDurumu durum) {
+    final t = Theme.of(context).textTheme;
+    final r = Theme.of(context).colorScheme;
+    final hepsi = tumAnlatimlar(durum);
+    if (hepsi.isEmpty) return const SizedBox.shrink();
+    final siradaki = siradakiAnlatim(durum)!;
+    final il = durum.ilerleme;
+    final okunan = hepsi.where((e) => il.okundu(e.anlatim.anahtar)).length;
+    final devam = il.sonAnlatim == siradaki.anlatim.anahtar && !il.okundu(siradaki.anlatim.anahtar);
+    final acik = durum.anlatimAcik(siradaki.ders, siradaki.anlatim.konu);
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 14, 16, 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 8,
+              runSpacing: 4,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.auto_stories_rounded, color: r.primary),
+                    const SizedBox(width: 8),
+                    Flexible(
+                      child: Text('Konu anlatımları', style: t.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+                    ),
+                  ],
+                ),
+                Text('$okunan/${hepsi.length} okundu', style: t.labelMedium?.copyWith(color: r.onSurfaceVariant)),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Text(
+              devam ? 'Kaldığın yer' : 'Sıradaki konu',
+              style: t.labelMedium?.copyWith(color: r.onSurfaceVariant),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              siradaki.ders.konular[siradaki.anlatim.konu] ?? siradaki.anlatim.baslik,
+              style: t.titleSmall?.copyWith(fontWeight: FontWeight.w600),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            Text(
+              '${siradaki.ders.gorunenAd(durum.bolum)} · ${siradaki.anlatim.okumaDk} dk · sesli dinlenebilir',
+              style: t.bodySmall?.copyWith(color: r.onSurfaceVariant),
+            ),
+            const SizedBox(height: 10),
+            FilledButton.tonalIcon(
+              icon: Icon(acik ? Icons.menu_book_rounded : Icons.lock_outline_rounded),
+              label: Text(devam ? 'Okumaya devam et' : 'Konuyu aç'),
+              onPressed: () => anlatimAc(context, siradaki.ders, siradaki.anlatim),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const AnlatimlarEkrani())),
+              child: Text('Tüm konu anlatımları (${hepsi.length}) ›'),
+            ),
+          ],
+        ),
       ),
     );
   }

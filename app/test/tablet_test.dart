@@ -51,7 +51,7 @@ void main() {
     Future<(Offset, Offset)> kartlar(Size b) async {
       await _ac(tester, const DerslerEkrani(), b);
       final k = find.byType(Card);
-      return (tester.getTopLeft(k.at(0)), tester.getTopLeft(k.at(1)));
+      return (tester.getTopLeft(k.at(1)), tester.getTopLeft(k.at(2))); // 0: "Konu anlatımları" kısayolu
     }
 
     final dikey = await kartlar(const Size(800, 1280));

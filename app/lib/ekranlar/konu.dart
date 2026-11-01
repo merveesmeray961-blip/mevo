@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../bilesenler/anlatim_gorunumu.dart';
@@ -9,7 +11,8 @@ import '../veri/modeller.dart';
 import 'calisma.dart';
 import 'dersler.dart';
 import 'klasik.dart';
-import 'odeme.dart';
+import '../veri/ayarlar.dart';
+import 'anlatimlar.dart';
 
 /// Bir konunun sayfası: önce konu anlatımı, ardından o konudan soru çözme.
 class KonuEkrani extends StatelessWidget {
@@ -55,21 +58,7 @@ class KonuEkrani extends StatelessWidget {
                       : (okundu ? OutlinedButton.icon : FilledButton.icon)(
                           icon: Icon(acik ? Icons.menu_book_rounded : Icons.lock_outline_rounded),
                           label: Text(okundu ? 'Tekrar oku' : (acik ? 'Anlatımı aç' : 'Anlatımı aç · tam erişim')),
-                          onPressed: () async {
-                            if (!acik) {
-                              await odemeEkraniAc(context, neden: 'Bu konunun anlatımı tam erişimde.');
-                              if (!context.mounted || !durum.anlatimAcik(ders, konu)) return;
-                            }
-                            // Anlatım "Okudum, soru çöz" ile kapanırsa sorular bu ekrandan başlatılır.
-                            final coz = await Navigator.of(context).push<bool>(
-                              MaterialPageRoute(
-                                builder: (_) => AnlatimEkrani(ders: ders, anlatim: anlatim),
-                              ),
-                            );
-                            if (coz == true && context.mounted && sorular.isNotEmpty) {
-                              await calismayaBasla(context, baslik: ad, sorular: il.calismaSirasi(sorular, 50));
-                            }
-                          },
+                          onPressed: () => anlatimAc(context, ders, anlatim),
                         ),
                 ),
                 const SizedBox(height: 12),
@@ -168,30 +157,70 @@ class _Adim extends StatelessWidget {
   }
 }
 
-/// Konu anlatımını okuma ekranı; sonunda "okudum, soruya geç" adımı vardır.
-class AnlatimEkrani extends StatelessWidget {
+/// Konu anlatımını okuma ekranı: üstte "sesli dinle", altta oynatıcı çubuğu; sonunda "okudum, soruya geç" ve
+/// "sonraki konu" adımları vardır.
+class AnlatimEkrani extends StatefulWidget {
   final Ders ders;
   final KonuAnlatimi anlatim;
 
   const AnlatimEkrani({super.key, required this.ders, required this.anlatim});
 
   @override
+  State<AnlatimEkrani> createState() => _AnlatimEkraniState();
+}
+
+class _AnlatimEkraniState extends State<AnlatimEkrani> {
+  late final SesMotoru _ses = Kapsam.of(context).ses;
+
+  String get _kaynak => 'anlatim/${widget.anlatim.anahtar}';
+
+  bool get _okunuyor => _ses.okuyor && _ses.kaynak == _kaynak;
+
+  Future<void> _dinle() async {
+    if (_okunuyor) {
+      return _ses.duraklatildi ? _ses.devam() : _ses.duraklat();
+    }
+    await sesliOkumayaBasla(context, _ses, anlatimOkumaMetni(widget.anlatim), kaynak: _kaynak);
+  }
+
+  @override
+  void dispose() {
+    // Anlatımdan çıkınca okuma da durur (ses arka planda sahipsiz kalmasın).
+    if (_okunuyor) scheduleMicrotask(_ses.durdur);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final durum = Kapsam.of(context);
     final t = Theme.of(context).textTheme;
     final r = Theme.of(context).colorScheme;
+    final anlatim = widget.anlatim;
+    final ders = widget.ders;
     final sorular = durum.banka.dersSorulari(durum.bolum, ders.kod, konu: anlatim.konu);
+    final sonraki = sonrakiAnlatim(durum, ders, anlatim);
     return Scaffold(
       appBar: AppBar(
         title: Text(anlatim.baslik, maxLines: 1, overflow: TextOverflow.ellipsis),
         actions: [
           // Konu anlatımının tamamını cihazın Türkçe sesiyle okur (ücretsiz ve çevrimdışı).
-          SesDugmesi(
-            motor: durum.ses,
-            metin: () => anlatimOkumaMetni(anlatim),
-            ipucu: 'Konuyu sesli dinle',
+          ListenableBuilder(
+            listenable: _ses,
+            builder: (context, _) => IconButton(
+              tooltip: _okunuyor ? (_ses.duraklatildi ? 'Dinlemeye devam et' : 'Duraklat') : 'Konuyu sesli dinle',
+              icon: Icon(
+                _okunuyor && !_ses.duraklatildi ? Icons.pause_circle_outline_rounded : Icons.headphones_rounded,
+              ),
+              onPressed: _dinle,
+            ),
           ),
         ],
+      ),
+      bottomNavigationBar: SesOynatici(
+        motor: _ses,
+        kaynak: _kaynak,
+        hizlar: sesHizlari.values.toList(),
+        hizDegisti: durum.ayarlar.sesHiziSec,
       ),
       body: Govde(
         child: YukariCikListe(
@@ -202,6 +231,23 @@ class AnlatimEkrani extends StatelessWidget {
             Text(
               '${ders.gorunenAd(durum.bolum)} · ${anlatim.okumaDk} dk okuma',
               style: t.bodyMedium?.copyWith(color: r.onSurfaceVariant),
+            ),
+            const SizedBox(height: 12),
+            // Büyük, görünür dinleme düğmesi: kullanıcı ses özelliğini üst çubukta aramak zorunda kalmaz.
+            ListenableBuilder(
+              listenable: _ses,
+              builder: (context, _) => Align(
+                alignment: Alignment.centerLeft,
+                child: FilledButton.tonalIcon(
+                  icon: Icon(_okunuyor && !_ses.duraklatildi ? Icons.pause_rounded : Icons.headphones_rounded),
+                  label: Text(
+                    !_okunuyor
+                        ? 'Sesli dinle'
+                        : (_ses.duraklatildi ? 'Dinlemeye devam et' : 'Dinleniyor · duraklat'),
+                  ),
+                  onPressed: _dinle,
+                ),
+              ),
             ),
             const SizedBox(height: 16),
             AnlatimGorunumu(anlatim.metin),
@@ -220,6 +266,25 @@ class AnlatimEkrani extends StatelessWidget {
                 if (context.mounted) Navigator.of(context).pop(sorular.isNotEmpty);
               },
             ),
+            if (sonraki != null) ...[
+              const SizedBox(height: 10),
+              OutlinedButton.icon(
+                icon: Icon(
+                  durum.anlatimAcik(ders, sonraki.anlatim.konu) ? Icons.arrow_forward_rounded : Icons.lock_outline_rounded,
+                ),
+                label: Text(
+                  'Sonraki konu: ${ders.konular[sonraki.anlatim.konu] ?? sonraki.anlatim.baslik}',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                ),
+                style: OutlinedButton.styleFrom(minimumSize: const Size(64, 48)),
+                onPressed: () async {
+                  await durum.ilerleme.okunduIsaretle(anlatim.anahtar);
+                  if (context.mounted) await anlatimAc(context, ders, sonraki.anlatim, yerine: true);
+                },
+              ),
+            ],
           ],
         ),
       ),
