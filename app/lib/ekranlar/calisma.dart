@@ -32,7 +32,14 @@ class CalismaEkrani extends StatefulWidget {
   final String baslik;
   final List<Soru> sorular;
 
-  const CalismaEkrani({super.key, required this.baslik, required this.sorular});
+  /// Çıkmış sorular gibi ücretsiz bölümler: günlük hak düşmez, ilerlemeye/yanlış defterine yazılmaz,
+  /// not, işaret ve hata bildirimi (banka dışı sorular olduğu için) gösterilmez.
+  final bool ucretsiz;
+
+  /// Soru üstündeki küçük bilgi satırı (verilmezse ders · konu · zorluk).
+  final String Function(Soru)? ustBilgi;
+
+  const CalismaEkrani({super.key, required this.baslik, required this.sorular, this.ucretsiz = false, this.ustBilgi});
 
   @override
   State<CalismaEkrani> createState() => _CalismaEkraniState();
@@ -57,7 +64,7 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
   Future<void> _sec(String h) async {
     if (_cevaplandi) return;
     final durum = Kapsam.of(context);
-    if (!durum.soruHakkiVar) {
+    if (!widget.ucretsiz && !durum.soruHakkiVar) {
       await odemeEkraniAc(context, neden: 'Bugünkü ücretsiz soru hakkını kullandın.');
       if (!mounted || !durum.soruHakkiVar) return;
     }
@@ -85,14 +92,20 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
         );
       }
     });
-    await durum.ilerleme.cevapla(_soru, h);
+    if (!widget.ucretsiz) await durum.ilerleme.cevapla(_soru, h);
   }
 
   void _sonraki() {
     if (_sira + 1 >= widget.sorular.length) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (_) => CalismaOzeti(baslik: widget.baslik, sorular: widget.sorular, cevaplar: _cevaplar),
+          builder: (_) => CalismaOzeti(
+            baslik: widget.baslik,
+            sorular: widget.sorular,
+            cevaplar: _cevaplar,
+            ucretsiz: widget.ucretsiz,
+            ustBilgi: widget.ustBilgi,
+          ),
         ),
       );
       return;
@@ -152,8 +165,8 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
             icon: const Icon(Icons.calculate_outlined),
             onPressed: () => hesapMakinesiAc(context),
           ),
-          NotDugmesi(soru: _soru),
-          ListenableBuilder(
+          if (!widget.ucretsiz) NotDugmesi(soru: _soru),
+          if (!widget.ucretsiz) ListenableBuilder(
             listenable: durum.ilerleme,
             builder: (context, _) {
               final isaretli = durum.ilerleme.durum(_soru.id)?.isaretli ?? false;
@@ -164,7 +177,7 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
               );
             },
           ),
-          IconButton(
+          if (!widget.ucretsiz) IconButton(
             tooltip: 'Hata bildir',
             icon: const Icon(Icons.flag_outlined),
             onPressed: () => hataBildir(context, _soru),
@@ -187,13 +200,14 @@ class _CalismaEkraniState extends State<CalismaEkrani> {
                 secilen: _secilen,
                 cevapGoster: _cevaplandi,
                 onSec: _cevaplandi ? null : _sec,
-                ustBilgi: '${ders?.gorunenAd(durum.bolum) ?? _soru.ders} · $konu · ${zorlukAdi[_soru.zorluk]}',
+                ustBilgi: widget.ustBilgi?.call(_soru) ??
+                    '${ders?.gorunenAd(durum.bolum) ?? _soru.ders} · $konu · ${zorlukAdi[_soru.zorluk]}',
               ),
               if (_cevaplandi) ...[
                 const SizedBox(height: 8),
                 // Açıklamanın üst kısmı (sonuç satırı) görünür olsun diye anahtar kartın başına konur.
                 AciklamaKarti(key: _aciklamaAnahtari, soru: _soru, secilen: _cevaplar[_soru.id]),
-                NotKarti(soru: _soru),
+                if (!widget.ucretsiz) NotKarti(soru: _soru),
               ],
             ],
           ),
@@ -236,8 +250,17 @@ class CalismaOzeti extends StatelessWidget {
   final String baslik;
   final List<Soru> sorular;
   final Map<String, String> cevaplar;
+  final bool ucretsiz;
+  final String Function(Soru)? ustBilgi;
 
-  const CalismaOzeti({super.key, required this.baslik, required this.sorular, required this.cevaplar});
+  const CalismaOzeti({
+    super.key,
+    required this.baslik,
+    required this.sorular,
+    required this.cevaplar,
+    this.ucretsiz = false,
+    this.ustBilgi,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -295,9 +318,13 @@ class CalismaOzeti extends StatelessWidget {
             Text('$dogru doğru · ${yanlislar.length} yanlış', style: t.titleLarge, textAlign: TextAlign.center),
             const SizedBox(height: 6),
             Text(
-              yanlislar.isEmpty
-                  ? 'Harika! Bu sorular birkaç gün sonra tekrar karşına çıkacak.'
-                  : 'Yanlış yaptığın sorular yanlış defterine eklendi ve kısa süre sonra tekrar sorulacak.',
+              ucretsiz
+                  ? (yanlislar.isEmpty
+                      ? 'Bu oturumun tamamını doğru çözdün.'
+                      : 'Yanlışlarını aşağıdan hemen tekrar çözebilirsin.')
+                  : (yanlislar.isEmpty
+                      ? 'Harika! Bu sorular birkaç gün sonra tekrar karşına çıkacak.'
+                      : 'Yanlış yaptığın sorular yanlış defterine eklendi ve kısa süre sonra tekrar sorulacak.'),
               style: t.bodyMedium,
               textAlign: TextAlign.center,
             ),
@@ -308,7 +335,12 @@ class CalismaOzeti extends StatelessWidget {
                 label: const Text('Yanlışları hemen tekrar çöz'),
                 onPressed: () => Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (_) => CalismaEkrani(baslik: 'Yanlışlar', sorular: yanlislar),
+                    builder: (_) => CalismaEkrani(
+                      baslik: 'Yanlışlar',
+                      sorular: yanlislar,
+                      ucretsiz: ucretsiz,
+                      ustBilgi: ustBilgi,
+                    ),
                   ),
                 ),
               ),

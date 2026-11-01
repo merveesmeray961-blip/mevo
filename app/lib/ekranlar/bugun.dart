@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../abonelik/abonelik.dart';
 import '../bilesenler/duzen.dart';
+import '../urun.dart';
 import '../uygulama.dart';
 import 'ana_kabuk.dart';
 import 'anlatimlar.dart';
 import 'ayarlar_ekrani.dart';
 import 'calisma.dart';
+import 'cikmis.dart';
 import 'notlar.dart';
 import 'odeme.dart';
 
@@ -108,6 +110,10 @@ class BugunEkrani extends StatelessWidget {
               ),
             ],
           ),
+          if (durum.urun == Urun.smmm) ...[
+            const SizedBox(height: 12),
+            const _CikmisKarti(),
+          ],
         ];
         final altKartlar = <Widget>[
           const SizedBox(height: 16),
@@ -411,6 +417,59 @@ class _GunlukHedef extends StatelessWidget {
 }
 
 /// Ana sayfadaki kare kısayol kartı.
+/// Ücretsiz çıkmış sorular bölümüne giriş (yalnız SMMM uygulamasında).
+class _CikmisKarti extends StatelessWidget {
+  const _CikmisKarti();
+
+  @override
+  Widget build(BuildContext context) {
+    final t = Theme.of(context).textTheme;
+    final r = Theme.of(context).colorScheme;
+    return Card(
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: () => cikmisAc(context),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 14, 12, 14),
+          child: Row(
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(color: r.primaryContainer, borderRadius: BorderRadius.circular(14)),
+                child: Icon(Icons.history_edu_rounded, color: r.onPrimaryContainer),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Wrap(
+                      spacing: 8,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        Text('Çıkmış sorular', style: t.titleSmall),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                          decoration: BoxDecoration(color: limon, borderRadius: BorderRadius.circular(8)),
+                          child: Text('ÜCRETSİZ', style: t.labelSmall?.copyWith(color: limonYazi, fontWeight: FontWeight.w800)),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    Text('TESMER 2014–2026 · resmî cevaplarıyla', style: t.bodySmall?.copyWith(color: r.onSurfaceVariant)),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right_rounded),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _Kutucuk extends StatelessWidget {
   final IconData ikon;
   final String baslik;

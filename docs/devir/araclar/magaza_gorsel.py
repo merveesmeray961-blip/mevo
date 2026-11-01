@@ -36,6 +36,7 @@ URUNLER = {
             ("anlatimlar", "Tüm konu anlatımları\nana sayfadan tek dokunuş"),
             ("anlatim", "Konuyu oku ya da\nsesli dinle"),
             ("istatistik", "Zayıf konunu gör,\nonu çalış"),
+            ("cikmis", "TESMER çıkmış soruları\nücretsiz, resmî cevaplı"),
         ],
     },
     "ymm": {

@@ -19,7 +19,7 @@
 ## Kısa açıklama (Google Play, en çok 80 karakter)
 
 ```
-SMMM Staja Giriş ve Yeterlilik sınavına internetsiz soru çözün, deneme çözün.
+SMMM SGS ve Yeterlilik: çıkmış sorular ücretsiz, konu anlatımı, deneme sınavı.
 ```
 
 ## Tanıtım metni (Apple, en çok 170 karakter)
@@ -35,6 +35,7 @@ Mizan SMMM, Serbest Muhasebeci Mali Müşavirlik (SMMM) Staja Giriş Sınavı ve
 
 NELER VAR?
 
+• Çıkmış sorular (ücretsiz): TESMER'in yayımladığı 2014–2026 SGS ve 2026 Yeterlilik sorularından 3.500'den fazlası, resmî cevap anahtarıyla. Yıla, döneme ve derse göre çöz; günlük soru hakkından düşmez.
 • Konu konu çalışma: Dersleri ve konuları seç, soruları çöz. Her cevaptan sonra çözüm, "diğer şıklar neden yanlış" açıklaması ve püf noktaları karşına çıkar.
 • Konu anlatımları ve sesli dinleme: Her dersin konu özetlerini ana ekrandan tek dokunuşla aç, kaldığın yerden devam et. İstersen telefonun Türkçe sesiyle dinle; duraklat, cümle atla, hızı ayarla.
 • Dayanağı gösterilen açıklamalar: Soruların açıklamaları ilgili mevzuat maddesine dayanır; kısa alıntıyla birlikte görürsün.
@@ -47,7 +48,7 @@ NELER VAR?
 
 ÜCRETSİZ Mİ?
 
-Ücretsiz sürümde her gün 20 soru çözebilir ve 1 deneme sınavına girebilirsin. Sınırsız çalışmak için tek seferlik "Tam erişim" satın alımı vardır: abonelik değildir, otomatik yenilenmez, süre sınırı yoktur. Satın alımı yeni telefonunda "Satın alımı geri yükle" ile geri getirebilirsin.
+Ücretsiz sürümde her gün 20 soru çözebilir ve 1 deneme sınavına girebilirsin; çıkmış sorular bölümü tamamen ücretsizdir. Sınırsız çalışmak için tek seferlik "Tam erişim" satın alımı vardır: abonelik değildir, otomatik yenilenmez, süre sınırı yoktur. Satın alımı yeni telefonunda "Satın alımı geri yükle" ile geri getirebilirsin.
 
 GİZLİLİK
 
@@ -55,7 +56,7 @@ Uygulama hesap istemez, reklam göstermez, seni izlemez. Çalışma verilerin ya
 
 ÖNEMLİ NOT
 
-Sorular, SMMM sınavlarına hazırlık amacıyla özgün olarak hazırlanmıştır; resmî sınav soruları değildir. Bu uygulamanın TÜRMOB veya TESMER ile resmî bir bağlantısı yoktur. Sınav kuralları kamuya açık yönerge ve duyurulara dayanır; kesin bilgi için resmî duyuruları takip et. Sorular mevzuatın yayın tarihindeki hâline göre hazırlanmıştır; mevzuat değişebilir.
+Soru bankasındaki sorular SMMM sınavlarına hazırlık amacıyla özgün olarak hazırlanmıştır; "Çıkmış sorular" bölümündeki sorular ise TESMER'in kamuya açık olarak yayımladığı geçmiş sınav sorularıdır. Bu uygulamanın TÜRMOB veya TESMER ile resmî bir bağlantısı yoktur. Sınav kuralları kamuya açık yönerge ve duyurulara dayanır; kesin bilgi için resmî duyuruları takip et. Sorular mevzuatın yayın tarihindeki hâline göre hazırlanmıştır; mevzuat değişebilir.
 ```
 
 ## Anahtar kelimeler (Apple, en çok 100 karakter, virgülle; marka adı içermez)
@@ -69,13 +70,13 @@ smmm,yeterlilik,staja giriş,muhasebe,mali müşavir,sınav,deneme,soru bankası
 ## Yeni sürüm notu (ilk sürüm)
 
 ```
-İlk sürüm: konu konu çalışma, konu anlatımları ve sesli dinleme, gerçek kurallarla deneme, yanlış defteri, aralıklı tekrar ve istatistik.
+Yeni tasarım; ücretsiz çıkmış sorular (TESMER 2014–2026, resmî cevaplarıyla); ana ekrandan tek dokunuşla konu anlatımı ve daha doğal sesli dinleme; konu konu çalışma, gerçek kurallarla deneme, yanlış defteri, aralıklı tekrar ve istatistik.
 ```
 
 ## Zorunlu sorumluluk reddi (uygulamada ve mağaza sayfasında bulunmalı)
 
-> Bu uygulamanın TÜRMOB veya TESMER ile resmî bir bağlantısı yoktur. Sorular resmî sınav soruları değildir; hazırlık
-> amacıyla özgün olarak hazırlanmıştır. Uygulama içinde: Ayarlar > Resmî bağlantı.
+> Bu uygulamanın TÜRMOB veya TESMER ile resmî bir bağlantısı yoktur. Soru bankası özgündür; "Çıkmış sorular" bölümü
+> TESMER'in yayımladığı geçmiş sınav sorularıdır (ücretsiz). Uygulama içinde: Ayarlar > Kullanım koşulları / Resmî bağlantı.
 
 Mağaza görsellerinde TÜRMOB/TESMER logosu, resmî sınav belgesi veya onlara ait görsel **kullanma**.
 

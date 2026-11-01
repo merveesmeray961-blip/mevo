@@ -5,18 +5,22 @@
 // Çıktı: app/tool/goldens/<urun>_<ekran>.png (1080x2340). `docs/devir/araclar/magaza_gorsel.py` bunları başlıklı
 // mağaza görsellerine çevirir. Gerçek soru paketi ve gerçek ekranlar kullanılır; yalnız ilerleme verisi örnektir.
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mevo/ekranlar/anlatimlar.dart';
 import 'package:mevo/ekranlar/bugun.dart';
 import 'package:mevo/ekranlar/calisma.dart';
+import 'package:mevo/ekranlar/cikmis.dart';
 import 'package:mevo/ekranlar/dersler.dart';
 import 'package:mevo/ekranlar/istatistik.dart';
 import 'package:mevo/ekranlar/konu.dart';
 import 'package:mevo/urun.dart';
 import 'package:mevo/uygulama.dart';
+import 'package:mevo/veri/cikmis.dart';
 import 'package:mevo/veri/modeller.dart';
 
 import '../test/sahte_ses.dart';
@@ -97,6 +101,17 @@ Future<void> cek(
   );
   await tester.pumpAndSettle();
   await expectLater(find.byKey(const ValueKey('cekim')), matchesGoldenFile('goldens/${urun.kod}_${cihaz == 'tel' ? '' : '${cihaz}_'}$ad.png'));
+  // Tanıtım videosu için telefon ekranları 3× çözünürlükte ayrıca kaydedilir.
+  if (cihaz == 'tel') {
+    final sinir = tester.renderObject<RenderRepaintBoundary>(find.byKey(const ValueKey('cekim')));
+    await tester.runAsync(() async {
+      final resim = await sinir.toImage(pixelRatio: 3);
+      final veri = await resim.toByteData(format: ui.ImageByteFormat.png);
+      File('tool/video_kare/${urun.kod}_$ad.png')
+        ..createSync(recursive: true)
+        ..writeAsBytesSync(veri!.buffer.asUint8List());
+    });
+  }
 }
 
 void main() {
@@ -126,6 +141,12 @@ void main() {
           cihaz: cihaz,
         ),
       );
+      if (urun == Urun.smmm) {
+        testWidgets('$on cikmis', (t) {
+          cikmisOnbellegeKoy(cikmisCoz(File(cikmisPaketYolu).readAsBytesSync()));
+          return cek(t, urun, 'cikmis', (_) => const CikmisEkrani(baslangicSinav: 'SGS'), cihaz: cihaz);
+        });
+      }
       testWidgets('$on anlatimlar', (t) => cek(t, urun, 'anlatimlar', (_) => const AnlatimlarEkrani(), cihaz: cihaz));
       testWidgets('$on anlatim', (t) {
         // Sesli dinleme açık: alttaki oynatıcı çubuğu görüntüde görünsün.

@@ -46,7 +46,9 @@ Gizlilikle ilgili sorular için: ristaycraft@gmail.com
 '''),
   YasalMetin('Kullanım koşulları', '''
 Sorular, ${urun.sinavCumlesi} hazırlık amacıyla özgün olarak hazırlanmıştır ve resmî sınav soruları değildir.
-
+${urun == Urun.smmm ? '''
+"Çıkmış sorular" bölümü bunun istisnasıdır: oradaki sorular TESMER'in kamuya açık olarak yayımladığı geçmiş sınav sorularıdır; yayımlandıkları biçimde ve resmî cevap anahtarıyla, ücretsiz olarak sunulur. Sınav tarihindeki mevzuata göredir.
+''' : ''}
 Sorular ilgili mevzuata dayanır ve yayından önce çok aşamalı kontrolden geçer; yine de hata içerebilir. Hata gördüğünde soru ekranındaki bayrak simgesiyle bildirebilirsin.
 
 Mevzuat değişebilir; güncel hükümler için resmî kaynaklar esas alınmalıdır.
