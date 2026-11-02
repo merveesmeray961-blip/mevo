@@ -31,7 +31,9 @@ Hazırlanış: 2 Kasım 2026 · Dağılım betiği: `docs/uretim_talimati/dagili
 | GKY | Genel Kültür, Yetenek ve Yabancı Dil (SGS) | 553 | 62 | 615 | 95 |
 | **Toplam** | | **3223** | **1777** | **5000** | **2630** |
 
-**Öncelik sırası:** 1) SHK (4 konu) → 2) TAB → 3) SPK → 4) MAL → 5) FIN → 6) DEN → 7) STD → 8) MES → 9) EKO, GKY → 10) diğerleri.
+**Durum (2 Kasım):** SHK/TCR ilk parti 12/12 kabul edildi → TCR'de kalan net ihtiyaç ≈ 104.
+
+**Öncelik sırası:** 1) SHK (4 konu; önce TCR'yi bitir: ticari temsilci, kıymetli evrak — poliçe, bono, çek) → 2) TAB → 3) SPK → 4) MAL → 5) FIN → 6) DEN → 7) STD → 8) MES → 9) EKO, GKY → 10) diğerleri.
 
 
 ## 3. Kesin kurallar (çiğnenen soru otomatik elenir)
@@ -44,7 +46,8 @@ Hazırlanış: 2 Kasım 2026 · Dağılım betiği: `docs/uretim_talimati/dagili
    `gecerlilik.yila_bagli_tutar: true`, `gecerlilik.yil: 2026` yaz.
 3. **Kopya yasak.** TESMER çıkmış sorularını, ders kitaplarını, rakip uygulamaları **kopyalama, taklit etme, cümle
    yapısını alma.** Senaryo, sayılar, işletme/kişi adları ve şıklar senin olmalı. Kök cümlesi bilinen bir sorunun
-   cümlesine benziyorsa (benzerlik ≥ %55) soru elenir. Bankadaki sorularla da benzerlik ölçülür.
+   özgün kısmına benziyorsa ya da şık seti büyük ölçüde aynıysa soru elenir ("6102 sayılı Kanun'a göre aşağıdakilerden
+   hangisi…" gibi kalıp ifadeler sayılmaz). Bankadaki sorularla da benzerlik ölçülür.
 4. **Tek ve kesin doğru cevap.** Yoruma açık, "en uygun" tartışmalı, iki şıkkı birden savunulabilir soru yazma.
    Aynı kaydın satır sırası değişmiş hâli ayrı şık olamaz. İmkânsız/çelişkili varsayım (ör. "kooperatif niteliğinde A.Ş.")
    kurma.
@@ -63,6 +66,11 @@ Hazırlanış: 2 Kasım 2026 · Dağılım betiği: `docs/uretim_talimati/dagili
 11. **Emin değilsen yazma.** Bir maddeden kesin, tek doğrulu soru çıkmıyorsa o kazanımı atla ve teslim notunda belirt.
     Az ama doğru soru, çok ama hatalı sorudan iyidir.
 12. **Dil:** resmî, sade, yazım kılavuzuna uygun Türkçe; kök tek başına anlaşılır.
+13. **Çeldiriciler gerçekçi olsun:** aynı hükmün adayların gerçekten karıştırdığı yanlış okumaları (yakın süre, komşu
+    dilim, istisnayı unutma, benzer kurum). Başka bir maddeye ait alakasız bilgi ("sekiz gün" fatura süresini sözleşme
+    cezası sorusuna koymak gibi) ya da saçma şık ("mahkeme kararı gerekir") yazma.
+14. **Kendi doğrulamanı yap:** teslimden önce şema, birebir alıntı, şık dengesi ve çeldirici açıklamalarını kendin
+    kontrol et (ilk parti böyle geldi ve 12/12 kabul edildi).
 
 ## 4. Konu konu dağılım
 
@@ -156,18 +164,17 @@ döndür; aynı kazanımdan arka arkaya soru yazma.
 
 ## 6. Teslim
 
-- Her parti **en çok 25 soru**, tek konu: dosya adı `<DERS>_<KONU>_<tarih>_<n>.yaml` (ör. `SHK_TCR_20261105_1.yaml`).
+- **Toplu üretim:** tüm üretimi ara onay beklemeden yap; kontrol toplu yapılacak. Dosyalar yine **en çok 25 soru** ve tek konu: dosya adı `<DERS>_<KONU>_<tarih>_<n>.yaml` (ör. `SHK_TCR_20261105_1.yaml`).
 - Dosyaları `content/teslim/smmm/` klasörüne koy (yoksa oluştur). Başka klasöre yazma; bankadaki dosyalara dokunma.
 - `id` alanına `TASLAK` yaz; kalıcı kimliği alım sırasında asistan verir. `durum: taslak`, `surum: 1`,
   `uretim.kaynak_turu: yapay_zeka`, `uretim.model: <kullanılan model>`.
-- Her partinin sonuna (dosya dışında, sohbette) kısa not: kaç soru, atlanan kazanımlar ve nedeni.
+- Üretim bitince tek bir `OZET.md` (aynı klasöre): dosya listesi, konu başına soru sayısı, atlanan kazanımlar ve nedeni.
 
 ## 7. Kabul süreci (asistan yapar)
 
 Teslim edilen her soru sırayla: şema (G2) → hesap kodu (G4) → alıntının resmî metinde birebir aranması (G6) →
 özgünlük/kopya (G7) → kör çözücü + hakem denetiminden geçer. Geçemeyen soru bankaya girmez; ret nedeni partiye yazılır.
-Tablodaki "Üretilecek" sütunu bu kayıplar için **%40 fazlası** olarak hesaplandı; kabul oranı daha yüksek çıkarsa
-"Net ihtiyaç" dolunca üretim durdurulur (fazla üretme).
+Tablodaki "Üretilecek" sütunu bu kayıplar için **%40 fazlası** olarak hesaplandı; tablodaki sayılara uy, fazlasını üretme.
 
 ## 8. Örnek soru (biçim)
 
