@@ -1,0 +1,1313 @@
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "trend yüzdeleri"
+  tip: "hesaplama"
+  zorluk: 2
+  soru_bicimi: "standart"
+  kok: "Finans müdürünün hazırladığı sunumda aşağıdaki veriler esas alınmıştır. Baz yılı 2024 olan bir trend analizinde Hilal Ayakkabı Ltd. Şti.'nin ticari borçlar kalemi için 2026 trend yüzdesi 150'dir. Kalemin 2026 tutarı 900.000 ₺ ise 2024 tutarı aşağıdakilerden hangisidir?"
+  secenekler:
+    A: "60.000 ₺"
+    B: "600.000 ₺"
+    C: "899.850 ₺"
+    D: "1.350.000 ₺"
+    E: "6.000.000 ₺"
+  dogru: "B"
+  aciklama:
+    dogru_neden: "Trend yüzdesi = ilgili yıl / baz yıl × 100 olduğundan baz yıl = ilgili yıl × 100 / endeks'tir. 900.000 × 100 / 150 = 600.000 ₺."
+    celdiriciler:
+      A: "Sonuç bir basamak eksik (10 kat küçük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+      C: "Tutardan endeks sayısı çıkarılmıştır; endeks bir tutar değil orandır."
+      D: "Cari tutar endeksle çarpılmıştır; baz yıl tutarına ulaşmak için bölme gerekir."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "Baz yıl tutarı = 900.000 × 100 / 150 = 600.000 ₺"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 2"
+    madde: "II-6"
+    alinti: "Mali tablolar, dönemler itibariyle karşılaştırılabilir nitelikte olmalıdır."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      cari = 900000
+      endeks = 150
+      sonuc = cari * 100 / endeks
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "trend yüzdeleri"
+  tip: "hesaplama"
+  zorluk: 2
+  soru_bicimi: "standart"
+  kok: "Mali tablo okuma eğitiminde incelemeye konu rakamlar yazılmıştır. Baz yılı 2024 olan trend analizinde Oba Hazır Beton A.Ş.'nin net satışlar kalemi için endeksler 2025 yılında 140, 2026 yılında 154'dır. Kalemin 2026 yılında önceki yıla göre yüzde artışı aşağıdakilerden hangisidir?"
+  secenekler:
+    A: "%1"
+    B: "%9,09"
+    C: "%10"
+    D: "%40"
+    E: "%110"
+  dogru: "C"
+  aciklama:
+    dogru_neden: "İki endeks arasındaki yıllık değişim, önceki yıl endeksine göre hesaplanır: (154 - 140) / 140 × 100 = %10."
+    celdiriciler:
+      A: "Sonuç bir basamak eksik (10 kat küçük) bulunmuştur; hesapta virgül hatası yapılmıştır."
+      B: "Fark cari yıl endeksine bölünmüştür; baz bir önceki yıl endeksidir."
+      D: "Bu değer 2025'in baz yıla göre artışıdır; 2026'daki yıllık artış değildir."
+      E: "İki endeksin oranı yüzde olarak verilmiştir; 100 çıkarılmadığından artış değil, oranın kendisidir."
+    hesap_adimlari:
+    - "Fark = 154 - 140 = 14 puan"
+    - "Yıllık artış = 14 / 140 × 100 = %10"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 2"
+    madde: "II-6"
+    alinti: "Mali tablolar, dönemler itibariyle karşılaştırılabilir nitelikte olmalıdır."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      e25 = 140
+      e26 = 154
+      sonuc = (e26 - e25) / e25 * 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "karşılaştırmalı (yatay) analiz"
+  tip: "hesaplama"
+  zorluk: 3
+  soru_bicimi: "standart"
+  kok: "Sektör karşılaştırması amacıyla yapılan çalışmada çalışmanın dayanağı bilgiler aşağıdadır. Fidan Peyzaj A.Ş.'nin stoklar kalemi 2024 sonunda 2.000.000 ₺'dir. Kalem 2025'te önceki yıla göre %50 artmış, 2026'da ise önceki yıla göre %30 azalmıştır. Kalemin 2026 sonundaki tutarı kaç TL'dir?"
+  secenekler:
+    A: "210.000 ₺"
+    B: "1.400.000 ₺"
+    C: "2.000.000 ₺"
+    D: "2.100.000 ₺"
+    E: "21.000.000 ₺"
+  dogru: "D"
+  aciklama:
+    dogru_neden: "2025 tutarı 3.000.000 ₺'dir. 2026'daki azalış bu tutar üzerinden uygulanır: 3.000.000 × 0,7 = 2.100.000 ₺. Püf noktaları: Her yılın değişimi bir önceki yılın tutarına uygulanır; artış ve azalış yüzdeleri aynı bile olsa birbirini götürmez."
+    celdiriciler:
+      A: "Sonuç bir basamak eksik (10 kat küçük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+      B: "Yalnızca azalış uygulanmıştır; 2025'teki artış atlanmıştır."
+      C: "Artış ve azalışın birbirini götürdüğü varsayılmıştır; azalış, artmış tutar üzerinden hesaplandığı için tutar başlangıca dönmez."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "2025 = 2.000.000 × 1,5 = 3.000.000 ₺"
+    - "2026 = 3.000.000 × 0,7 = 2.100.000 ₺"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 2"
+    madde: "II-6"
+    alinti: "Mali tablolar, dönemler itibariyle karşılaştırılabilir nitelikte olmalıdır."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      b0 = 2000000
+      sonuc = b0 * (100 + 50) / 100 * (100 - 30) / 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "karşılaştırmalı (yatay) analiz"
+  tip: "hesaplama"
+  zorluk: 3
+  soru_bicimi: "standart"
+  kok: |-
+    Bağımsız mali müşavirin hazırladığı raporda çalışmanın dayanağı bilgiler aşağıdadır. Aşağıda Fırat Metal Ltd. Şti.'nin net satışları ile brüt satış kârı dikey yüzdeleri verilmiştir.
+
+    | Kalem | 2025 | 2026 |
+    |---|---:|---:|
+    | Net satışlar (₺) | 1.500.000 | 2.100.000 |
+    | Brüt satış kârının dikey yüzdesi | %35 | %28 |
+
+    Yatay analiz yapıldığında brüt satış kârındaki yüzde artış aşağıdakilerden hangisidir?
+  secenekler:
+    A: "%7"
+    B: "%12"
+    C: "%33"
+    D: "%40"
+    E: "%112"
+  dogru: "B"
+  aciklama:
+    dogru_neden: "Brüt satış kârı 2025'te 525.000 ₺, 2026'da 588.000 ₺'dir. Yatay analizde değişim önceki dönem bazlıdır: (588.000 - 525.000) / 525.000 × 100 = %12. Püf noktaları: Dikey yüzdeyi önce TL'ye çevir; sonra iki yılın kâr tutarlarını yatay analizle karşılaştır. Satış artışı ya da marj farkı tek başına kâr artışını vermez."
+    celdiriciler:
+      A: "Dikey yüzdeler arasındaki puan farkı alınmıştır; brüt kârın TL cinsinden yüzde artışı sorulmaktadır."
+      C: "Satış artışı ile marj farkı toplanmıştır; kâr tutarları bulunup oranlanmalıdır."
+      D: "Bu oran net satışlardaki artıştır; brüt satış kârı yüzdesindeki değişim de etkili olduğundan kâr artışı farklıdır."
+      E: "Cari kâr önceki kâra oranlanmış, 100 çıkarılmamıştır; bu değer artış yüzdesi değil, oranın kendisidir."
+    hesap_adimlari:
+    - "2025 brüt satış kârı = 1.500.000 × %35 = 525.000 ₺"
+    - "2026 brüt satış kârı = 2.100.000 × %28 = 588.000 ₺"
+    - "Yüzde değişim = (588.000 - 525.000) / 525.000 × 100 = %12"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Gelir tablosu kalemleri (C)"
+    alinti: "NET SATIŞLAR C _ SATIŞLARIN MALİYETİ (-) 1. SATILAN MAMULLER MALİYETİ (-) 2. SATILAN TİCARİ MALLAR MALİYETİ (-) 3. SATILAN HİZMET MALİYETİ (-) 4. DİĞER SATIŞLARIN MALİYETİ (-) BRÜT SATIŞ KÂRI VEYA ZARARI"
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      n0 = 1500000
+      n1 = 2100000
+      k0 = n0 * 35 / 100
+      k1 = n1 * 28 / 100
+      sonuc = (k1 - k0) / k0 * 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "karşılaştırmalı (yatay) analiz"
+  tip: "hesaplama"
+  zorluk: 3
+  soru_bicimi: "standart"
+  kok: |-
+    Finans müdürünün hazırladığı sunumda incelemeye konu rakamlar yazılmıştır. Mavi Deniz Su Ürünleri A.Ş.'nin karşılaştırmalı bilanço verileri aşağıdadır.
+
+    | Tutarlar (₺) | 2025 | 2026 |
+    |---|---:|---:|
+    | Ticari alacaklar | 500.000 | 800.000 |
+    | Toplam aktif | 2.400.000 | 3.400.000 |
+
+    Yatay analizde ticari alacaklar kalemindeki artışın, toplam aktifteki artışın yüzde kaçını oluşturduğu hesaplanmak istenmektedir. Sonuç kaçtır?
+  secenekler:
+    A: "%3"
+    B: "%8,82"
+    C: "%30"
+    D: "%41,67"
+    E: "%300"
+  dogru: "C"
+  aciklama:
+    dogru_neden: "Kalem artışı 300.000 ₺, toplam aktif artışı 1.000.000 ₺'dir. Kalem artışının toplam artıştaki payı 300.000 / 1.000.000 × 100 = %30. Püf noktaları: İki mutlak değişimi ayrı ayrı bul ve birbirine oranla. Kalemin kendi yüzde artışı ya da toplam aktifin yüzde artışı sorulan oranlar değildir."
+    celdiriciler:
+      A: "Sonuç bir basamak eksik (10 kat küçük) bulunmuştur; hesapta virgül hatası yapılmıştır."
+      B: "Kalem artışı cari dönem toplam aktifine bölünmüştür; payda toplam aktifteki artış tutarı olmalıdır."
+      D: "Bu oran toplam aktifteki yüzde artıştır; kalemin payını göstermez."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "Kalem artışı = 800.000 - 500.000 = 300.000 ₺"
+    - "Toplam aktif artışı = 3.400.000 - 2.400.000 = 1.000.000 ₺"
+    - "Pay = 300.000 / 1.000.000 × 100 = %30"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Bilanço tanımı"
+    alinti: "Bilanço, bir işletmenin belli bir tarihte sahip olduğu varlıklar ile bu varlıkların sağladığı kaynakları gösteren mali tablodur."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      a0 = 500000
+      a1 = 800000
+      t0 = 2400000
+      t1 = 3400000
+      sonuc = (a1 - a0) / (t1 - t0) * 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "dikey yüzdeler"
+  tip: "hesaplama"
+  zorluk: 1
+  soru_bicimi: "standart"
+  kok: |-
+    Vergi dönemi sonu değerlendirmesinde sorulan hususla ilgili veriler sunulmuştur. Ege Mermer A.Ş., 2026 yılı bilançosunu dikey analize tabi tutmak istemektedir. Aktif tarafın özeti şöyledir:
+
+    | Kalem | Tutar (₺) |
+    |---|---:|
+    | Hazır değerler | 100.000 |
+    | Ticari alacaklar | 200.000 |
+    | Stoklar | 175.000 |
+    | Dönen varlıklar toplamı | 475.000 |
+    | Maddi duran varlıklar | 325.000 |
+    | Maddi olmayan duran varlıklar | 200.000 |
+    | Duran varlıklar toplamı | 525.000 |
+    | **TOPLAM AKTİF** | **1.000.000** |
+
+    Maddi olmayan duran varlıklar kaleminin dikey yüzdesi aşağıdakilerden hangisidir?
+  secenekler:
+    A: "%2"
+    B: "%20"
+    C: "%25"
+    D: "%38,1"
+    E: "%80"
+  dogru: "B"
+  aciklama:
+    dogru_neden: "Bilançoda dikey yüzde, kalemin toplam aktife oranıdır. Maddi olmayan duran varlıklar: 200.000 / 1.000.000 × 100 = %20."
+    celdiriciler:
+      A: "Sonuç bir basamak eksik (10 kat küçük) bulunmuştur; hesapta virgül hatası yapılmıştır."
+      C: "Kalem, kendisi dışındaki kalemlerin toplamına bölünmüştür; baz toplam aktif olmalıdır."
+      D: "Kalem toplam aktife değil kendi grubunun toplamına bölünmüştür; bu, grup içi yüzdedir, dikey yüzde değildir."
+      E: "Doğru yüzdenin tümleyeni (100 - yüzde) bulunmuştur; kalemin kendi payı değil, diğer kalemlerin payıdır."
+    hesap_adimlari:
+    - "Baz = toplam aktif = 1.000.000 ₺"
+    - "Dikey yüzde = 200.000 / 1.000.000 × 100 = %20"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Bilanço tanımı"
+    alinti: "Bilanço, bir işletmenin belli bir tarihte sahip olduğu varlıklar ile bu varlıkların sağladığı kaynakları gösteren mali tablodur."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      toplam_aktif = 1000000
+      kalem = 200000
+      sonuc = kalem / toplam_aktif * 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "dikey yüzdeler"
+  tip: "hesaplama"
+  zorluk: 2
+  soru_bicimi: "standart"
+  kok: "Ege Mermer A.Ş.'nin bilançosunda stoklar kalemi 720.000 ₺ olup dikey yüzdesi %30'dir. Aynı bilançoda ticari borçlar kaleminin dikey yüzdesi %18 olduğuna göre ticari borçlar kaç TL'dir?"
+  secenekler:
+    A: "43.200 ₺"
+    B: "129.600 ₺"
+    C: "432.000 ₺"
+    D: "633.600 ₺"
+    E: "4.320.000 ₺"
+  dogru: "C"
+  aciklama:
+    dogru_neden: "Önce toplam bulunur: 720.000 × 100 / 30 = 2.400.000 ₺. Sonra aranan kaleme kendi yüzdesi uygulanır: 2.400.000 × %18 = 432.000 ₺."
+    celdiriciler:
+      A: "Sonuç bir basamak eksik (10 kat küçük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+      B: "Bilinen kalemin tutarı aranan kalemin yüzdesiyle çarpılmıştır; yüzde toplam tutara uygulanmalıdır."
+      D: "Yüzdeler arasındaki fark bilinen tutara uygulanmış, kalemler arasında toplamsal ilişki varmış gibi davranılmıştır."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "Toplam = 720.000 × 100 / 30 = 2.400.000 ₺"
+    - "Ticari borçlar = 2.400.000 × %18 = 432.000 ₺"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Bilanço tanımı"
+    alinti: "Bilanço, bir işletmenin belli bir tarihte sahip olduğu varlıklar ile bu varlıkların sağladığı kaynakları gösteren mali tablodur."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      kalem1 = 720000
+      yuzde1 = 30
+      yuzde2 = 18
+      toplam = kalem1 * 100 / yuzde1
+      sonuc = toplam * yuzde2 / 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "trend yüzdeleri"
+  tip: "hesaplama"
+  zorluk: 1
+  soru_bicimi: "standart"
+  kok: |-
+    Faaliyet raporu hazırlığında sorulan hususla ilgili veriler sunulmuştur. Toprak Gübre A.Ş.'nin üç yıllık verileri aşağıdadır.
+
+    | Kalem (₺) | 2024 | 2025 | 2026 |
+    |---|---:|---:|---:|
+    | Stoklar | 2.000.000 | 2.600.000 | 3.500.000 |
+
+    Trend analizinde baz yıl 2024 alındığında stoklar kaleminin 2026 yılı trend yüzdesi (endeksi) kaçtır?
+  secenekler:
+    A: "57,14"
+    B: "75"
+    C: "130"
+    D: "134,62"
+    E: "175"
+  dogru: "E"
+  aciklama:
+    dogru_neden: "Trend yüzdesi = ilgili yıl tutarı / baz yıl tutarı × 100'dür. 2026: 3.500.000 / 2.000.000 × 100 = 175."
+    celdiriciler:
+      A: "Oran ters kurulmuştur; trend yüzdesinde ilgili yıl tutarı baz yıl tutarına bölünür."
+      B: "Baz yıla göre artış yüzdesi bulunmuştur; trend yüzdesi artış değil, baz yılın 100 kabul edildiği endekstir."
+      C: "Bu değer 2025 yılının trend yüzdesidir; sorulan 2026'dır."
+      D: "Cari yıl, baz yıl yerine bir önceki yıla bölünmüştür; trend analizinde tüm yıllar aynı baz yıla bölünür."
+    hesap_adimlari:
+    - "Trend yüzdesi = 3.500.000 / 2.000.000 × 100 = 175"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 2"
+    madde: "II-6"
+    alinti: "Mali tablolar, dönemler itibariyle karşılaştırılabilir nitelikte olmalıdır."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      baz = 2000000
+      yil = 3500000
+      sonuc = yil / baz * 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "karşılaştırmalı (yatay) analiz"
+  tip: "kavrama"
+  zorluk: 2
+  soru_bicimi: "standart"
+  kok: "Tebliğ'e göre aşağıdaki ifadelerden hangisi gelir tablosunun tanımına uygundur?"
+  secenekler:
+    A: "İşletmenin dönem içindeki fon kaynaklarını ve kullanım yerlerini özetler."
+    B: "Yalnızca satışların maliyetinin hesaplandığı yardımcı tablodur."
+    C: "Belli bir tarihte sahip olunan varlıkları ve bu varlıkların sağladığı kaynakları gösterir."
+    D: "Kâr dağıtımına ilişkin kararları gösteren tablodur."
+    E: "Belli bir dönemin gelir ve giderleri ile dönem net kâr veya zararını gösterir."
+  dogru: "E"
+  aciklama:
+    dogru_neden: "Tebliğ Ek 4'e göre gelir tablosu, işletmenin belli bir dönemde elde ettiği tüm gelirler ile aynı dönemde katlandığı bütün maliyet ve giderleri ve bunların sonucunda elde ettiği dönem net kârını veya zararını kapsar."
+    celdiriciler:
+      A: "Bu ifade fon akım tablosunu anlatır."
+      B: "Satışların maliyeti tablosu gelir tablosunun ekidir; gelir tablosunun tanımı değildir."
+      C: "Bu ifade bilançonun tanımıdır; gelir tablosu belli bir dönemin sonucunu gösterir."
+      D: "Bu tanım kâr dağıtım tablosuna aittir."
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Gelir tablosu tanımı"
+    alinti: "Gelir tablosu, işletmenin belli bir dönemde elde ettiği tüm gelirler ile aynı dönemde katlandığı bütün maliyet ve giderleri ve bunların sonucunda işletmenin elde ettiği dönem net kârını veya dönem net zararını kapsar."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "trend yüzdeleri"
+  tip: "uygulama"
+  zorluk: 2
+  soru_bicimi: "standart"
+  kok: |-
+    Üç aylık izleme toplantısında sorulan hususla ilgili veriler sunulmuştur. Aşağıdaki tabloda Mercan Turizm A.Ş.'nin iki farklı yıla ait kalemleri verilmiştir.
+
+    | Kalem (₺) | 2024 (baz) | 2026 |
+    |---|---:|---:|
+    | Ticari borçlar | 250.000 | 375.000 |
+    | Stoklar | 250.000 | 300.000 |
+    | Diğer dönen varlıklar | 250.000 | 275.000 |
+    | Maddi duran varlıklar | 250.000 | 275.000 |
+    | Ticari alacaklar | 1.000.000 | 1.300.000 |
+
+    2024 = 100 kabul edildiğinde 2026'da endeksi en büyük çıkan kalem hangisidir?
+  secenekler:
+    A: "Diğer dönen varlıklar"
+    B: "Stoklar"
+    C: "Maddi duran varlıklar"
+    D: "Ticari alacaklar"
+    E: "Ticari borçlar"
+  dogru: "E"
+  aciklama:
+    dogru_neden: "Trend yüzdesi = 2026 tutarı / 2024 tutarı × 100'dür. Ticari borçlar 150 ile en yüksek endekse sahiptir."
+    celdiriciler:
+      A: "Trend yüzdesi 110'dir; en yüksek endeks değildir."
+      B: "Trend yüzdesi 120'dir; en yüksek endeks değildir."
+      C: "Trend yüzdesi 110'dir; en yüksek endeks değildir."
+      D: "Trend yüzdesi 130'dir; en yüksek endeks değildir. Bu kalem TL olarak en çok artmıştır; trend yüzdesi ise tutara değil baz yıla oranlamaya dayanır."
+    hesap_adimlari:
+    - "Ticari borçlar: 375.000 / 250.000 × 100 = 150"
+    - "Stoklar: 300.000 / 250.000 × 100 = 120"
+    - "Diğer dönen varlıklar: 275.000 / 250.000 × 100 = 110"
+    - "Maddi duran varlıklar: 275.000 / 250.000 × 100 = 110"
+    - "Ticari alacaklar: 1.300.000 / 1.000.000 × 100 = 130"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 2"
+    madde: "II-6"
+    alinti: "Mali tablolar, dönemler itibariyle karşılaştırılabilir nitelikte olmalıdır."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "karşılaştırmalı (yatay) analiz"
+  tip: "hesaplama"
+  zorluk: 2
+  soru_bicimi: "standart"
+  kok: "Bankaya sunulacak dosya için yapılan incelemede çalışmanın dayanağı bilgiler aşağıdadır. Kaya Seramik A.Ş.'nin brüt satış kâr oranı 2025'te %48, 2026'da %24 olmuştur. Brüt satış kâr oranının kendisi, önceki yıla göre yüzde kaç azalmıştır?"
+  secenekler:
+    A: "%5"
+    B: "%24"
+    C: "%48"
+    D: "%50"
+    E: "%100"
+  dogru: "D"
+  aciklama:
+    dogru_neden: "Oranın kendi yüzde değişimi = (önceki - cari) / önceki × 100 = 24 / 48 × 100 = %50. Puan farkı ise 24'dir."
+    celdiriciler:
+      A: "Sonuç bir basamak eksik (10 kat küçük) bulunmuştur; hesapta virgül hatası yapılmıştır."
+      B: "Oranlar arasındaki yüzde puan farkı alınmıştır; sorulan, oranın kendi yüzde değişimidir."
+      C: "Puan farkı iki katına çıkarılmıştır; yüzde değişim fark / önceki oran × 100 ile bulunur."
+      E: "Fark cari dönem oranına bölünmüştür; yüzde değişimde baz önceki dönemdir."
+    hesap_adimlari:
+    - "Puan farkı = 48 - 24 = 24"
+    - "Yüzde azalış = 24 / 48 × 100 = %50"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Gelir tablosu kalemleri (C)"
+    alinti: "NET SATIŞLAR C _ SATIŞLARIN MALİYETİ (-) 1. SATILAN MAMULLER MALİYETİ (-) 2. SATILAN TİCARİ MALLAR MALİYETİ (-) 3. SATILAN HİZMET MALİYETİ (-) 4. DİĞER SATIŞLARIN MALİYETİ (-) BRÜT SATIŞ KÂRI VEYA ZARARI"
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: "sonuc = (48 - 24) / 48 * 100"
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "karşılaştırmalı (yatay) analiz"
+  tip: "hesaplama"
+  zorluk: 3
+  soru_bicimi: "standart"
+  kok: |-
+    Toprak Gübre A.Ş.'nin gelir tablosu analizinden elde edilen bilgiler aşağıdadır.
+
+    | Kalem | 2025 | 2026 |
+    |---|---:|---:|
+    | Net satışlar (₺) | 1.000.000 | 1.300.000 |
+    | Brüt satış kârının dikey yüzdesi | %32 | %40 |
+
+    Bu bilgilere göre brüt satış kârı 2026'da 2025'e göre yüzde kaç artmıştır?
+  secenekler:
+    A: "%8"
+    B: "%25"
+    C: "%38"
+    D: "%62,5"
+    E: "%162,5"
+  dogru: "D"
+  aciklama:
+    dogru_neden: "Brüt satış kârı 2025'te 320.000 ₺, 2026'da 520.000 ₺'dir. Yatay analizde değişim önceki dönem bazlıdır: (520.000 - 320.000) / 320.000 × 100 = %62,5. Püf noktaları: Dikey yüzdeyi önce TL'ye çevir; sonra iki yılın kâr tutarlarını yatay analizle karşılaştır. Satış artışı ya da marj farkı tek başına kâr artışını vermez."
+    celdiriciler:
+      A: "Dikey yüzdeler arasındaki puan farkı alınmıştır; brüt kârın TL cinsinden yüzde artışı sorulmaktadır."
+      B: "Yalnızca brüt kâr yüzdesinin kendi değişimi hesaplanmıştır; satış artışı hesaba katılmamıştır."
+      C: "Satış artışı ile marj farkı toplanmıştır; kâr tutarları bulunup oranlanmalıdır."
+      E: "Cari kâr önceki kâra oranlanmış, 100 çıkarılmamıştır; bu değer artış yüzdesi değil, oranın kendisidir."
+    hesap_adimlari:
+    - "2025 brüt satış kârı = 1.000.000 × %32 = 320.000 ₺"
+    - "2026 brüt satış kârı = 1.300.000 × %40 = 520.000 ₺"
+    - "Yüzde değişim = (520.000 - 320.000) / 320.000 × 100 = %62,5"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Gelir tablosu kalemleri (C)"
+    alinti: "NET SATIŞLAR C _ SATIŞLARIN MALİYETİ (-) 1. SATILAN MAMULLER MALİYETİ (-) 2. SATILAN TİCARİ MALLAR MALİYETİ (-) 3. SATILAN HİZMET MALİYETİ (-) 4. DİĞER SATIŞLARIN MALİYETİ (-) BRÜT SATIŞ KÂRI VEYA ZARARI"
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      n0 = 1000000
+      n1 = 1300000
+      k0 = n0 * 32 / 100
+      k1 = n1 * 40 / 100
+      sonuc = (k1 - k0) / k0 * 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "trend yüzdeleri"
+  tip: "hesaplama"
+  zorluk: 3
+  soru_bicimi: "standart"
+  kok: |-
+    Ortaklık değerleme çalışmasında çalışmanın dayanağı bilgiler aşağıdadır. Canan Konfeksiyon A.Ş.'nin üç yıllık gelir tablosu özeti aşağıdadır.
+
+    | Kalem (₺) | 2024 | 2025 | 2026 |
+    |---|---:|---:|---:|
+    | Brüt satışlar | 1.560.000 | 1.683.000 | 2.677.500 |
+    | Satış indirimleri (-) | 60.000 | 33.000 | 127.500 |
+    | Satışların maliyeti (-) | 937.500 | 990.000 | 1.593.750 |
+    | Faaliyet giderleri (-) | 180.000 | 132.000 | 255.000 |
+
+    Baz yılı 2024 alınan trend analizinde brüt satış kârının 2026 yılı trend yüzdesi kaçtır?
+  secenekler:
+    A: "17"
+    B: "70"
+    C: "170"
+    D: "174,1"
+    E: "1700"
+  dogru: "C"
+  aciklama:
+    dogru_neden: "Brüt satış kârı = net satışlar - satışların maliyeti'dir. 2024'te 562.500 ₺, 2026'da 956.250 ₺ bulunur. Trend yüzdesi = 956.250 / 562.500 × 100 = 170. Püf noktaları: Önce her yıl için net satışlara, sonra brüt satış kârına ulaş. 2025 sütunu ve faaliyet giderleri bu soruda gereksizdir; endeks baz yıla (2024) göre hesaplanır."
+    celdiriciler:
+      A: "Sonuç bir basamak eksik (10 kat küçük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+      B: "Baz yıla göre artış yüzdesi bulunmuştur; endeks için 100 eklenmelidir."
+      D: "Satış indirimleri dikkate alınmadan brüt satışlardan maliyet düşülerek kâr bulunmuştur; brüt satış kârı net satışlardan hesaplanır."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "2024 net satışlar = 1.560.000 - 60.000 = 1.500.000; brüt satış kârı = 1.500.000 - 937.500 = 562.500 ₺"
+    - "2026 net satışlar = 2.677.500 - 127.500 = 2.550.000; brüt satış kârı = 2.550.000 - 1.593.750 = 956.250 ₺"
+    - "Trend yüzdesi = 956.250 / 562.500 × 100 = 170"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Gelir tablosu kalemleri (A-B)"
+    alinti: "A _ BRÜT SATIŞLAR 1. YURTİÇİ SATIŞLAR 2. YURTDIŞI SATIŞLAR 3. DİĞER GELİRLER B _ SATIŞ İNDİRİMLERİ (-) 1. SATIŞTAN İADELER (-) 2. SATIŞ İSKONTOLARI (-) 3. DİĞER İNDİRİMLER (-) NET SATIŞLAR"
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Gelir tablosu kalemleri (C)"
+    alinti: "NET SATIŞLAR C _ SATIŞLARIN MALİYETİ (-) 1. SATILAN MAMULLER MALİYETİ (-) 2. SATILAN TİCARİ MALLAR MALİYETİ (-) 3. SATILAN HİZMET MALİYETİ (-) 4. DİĞER SATIŞLARIN MALİYETİ (-) BRÜT SATIŞ KÂRI VEYA ZARARI"
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      n = [1560000 - 60000, 2677500 - 127500]
+      kar0 = n[0] - 937500
+      kar2 = n[1] - 1593750
+      sonuc = kar2 / kar0 * 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "dikey yüzdeler"
+  tip: "hesaplama"
+  zorluk: 3
+  soru_bicimi: "standart"
+  kok: |-
+    Ortaklık değerleme çalışmasında ilgili tutarlar ve oranlar aktarılmıştır. Aşağıda Meltem Mutfak Gereçleri Ltd. Şti.'nin 2026 gelir tablosu dikey yüzdeleri verilmiştir; 2026 net satışları 2.500.000 ₺'dir.
+
+    | Kalem (2026) | Dikey yüzde |
+    |---|---:|
+    | Net satışlar | %100 |
+    | Satışların maliyeti | %70 |
+    | Faaliyet giderleri | %14 |
+
+    2027'de net satışların %30 artması ve bu yüzdelerin değişmemesi halinde 2027 faaliyet kârı aşağıdakilerden hangisidir?
+  secenekler:
+    A: "52.000 ₺"
+    B: "120.000 ₺"
+    C: "455.000 ₺"
+    D: "520.000 ₺"
+    E: "5.200.000 ₺"
+  dogru: "D"
+  aciklama:
+    dogru_neden: "Dikey yüzdeler sabit kalacağından faaliyet kâr yüzdesi %16'dir. 2027 net satışları 3.250.000 ₺ olduğundan faaliyet kârı 3.250.000 × %16 = 520.000 ₺ olur. Püf noktaları: Önce yeni dönemin net satışlarını bul, sonra faaliyet kâr yüzdesini (100 - maliyet - gider) tüm yeni satış tutarına uygula. Artış tutarına uygulamak ya da eski satışlarla hesaplamak tipik hatadır."
+    celdiriciler:
+      A: "Sonuç bir basamak eksik (10 kat küçük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+      B: "Faaliyet kâr yüzdesi yalnızca satışlardaki artış tutarına uygulanmıştır; yüzdeler 2027 net satışlarının tamamına uygulanır."
+      C: "Bu tutar 2027 faaliyet giderleridir; faaliyet kârı değildir."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "2027 net satışları = 2.500.000 × 1,3 = 3.250.000 ₺"
+    - "Faaliyet kâr yüzdesi = 100 - 70 - 14 = %16"
+    - "2027 faaliyet kârı = 3.250.000 × %16 = 520.000 ₺"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Gelir tablosu kalemleri (C)"
+    alinti: "NET SATIŞLAR C _ SATIŞLARIN MALİYETİ (-) 1. SATILAN MAMULLER MALİYETİ (-) 2. SATILAN TİCARİ MALLAR MALİYETİ (-) 3. SATILAN HİZMET MALİYETİ (-) 4. DİĞER SATIŞLARIN MALİYETİ (-) BRÜT SATIŞ KÂRI VEYA ZARARI"
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Gelir tablosu kalemleri (D)"
+    alinti: "BRÜT SATIŞ KÂRI VEYA ZARARI D. FAALİYET GİDERLERİ (-) 1. ARAŞTIRMA VE GELİŞTİRME GİDERLERİ (-) 2. PAZARLAMA, SATIŞ VE DAĞITIM GİDERLERİ (-) 3. GENEL YÖNETİM GİDERLERİ (-) FAALİYET KÂRI VEYA ZARARI"
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      net_2026 = 2500000
+      artis = 30
+      maliyet = 70
+      gider = 14
+      net_2027 = net_2026 * (100 + artis) / 100
+      sonuc = net_2027 * (100 - maliyet - gider) / 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "karşılaştırmalı (yatay) analiz"
+  tip: "hesaplama"
+  zorluk: 1
+  soru_bicimi: "standart"
+  kok: |-
+    Yönetim kurulu toplantısı öncesi hazırlanan notta dikkate alınacak bilgiler yer almaktadır. Aşağıdaki tabloda ilgili işletmenin iki yıllık verileri yer almaktadır.
+
+    | Kalem (₺) | 2024 | 2025 |
+    |---|---:|---:|
+    | Faaliyet giderleri | 400.000 | 350.000 |
+
+    Hilal Ayakkabı Ltd. Şti.'nin karşılaştırmalı (yatay) analizinde faaliyet giderleri kaleminin 2025 yılındaki azalışı bir önceki yıla göre yüzde kaçtır?
+  secenekler:
+    A: "%12,5"
+    B: "%13,33"
+    C: "%14,29"
+    D: "%114,29"
+    E: "%125"
+  dogru: "A"
+  aciklama:
+    dogru_neden: "Yatay analizde yüzde değişim = mutlak değişim / önceki dönem tutarı × 100'dür. 50.000 / 400.000 × 100 = %12,5 azalış."
+    celdiriciler:
+      B: "Mutlak değişim iki dönemin ortalamasına bölünmüştür; payda önceki dönem tutarı olmalıdır."
+      C: "Mutlak değişim cari dönem tutarına bölünmüştür; yatay analizde baz önceki dönemdir."
+      D: "Önceki dönem cari döneme bölünmüştür; oran ters kurulmuştur."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "Mutlak değişim = 50.000 ₺"
+    - "Yüzde azalış = 50.000 / 400.000 × 100 = %12,5"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 2"
+    madde: "II-6"
+    alinti: "Mali tablolar, dönemler itibariyle karşılaştırılabilir nitelikte olmalıdır."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      onceki = 400000
+      cari = 350000
+      sonuc = (onceki - cari) / onceki * 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "trend yüzdeleri"
+  tip: "hesaplama"
+  zorluk: 3
+  soru_bicimi: "standart"
+  kok: |-
+    Ortaklara sunulacak değerlendirmede çalışmanın dayanağı bilgiler aşağıdadır. Aşağıda Niyazi Kereste A.Ş.'nin 2024 tutarları ile 2026 trend yüzdeleri verilmiştir.
+
+    | Kalem | 2024 (₺) | 2026 trend yüzdesi (2024 = 100) |
+    |---|---:|---:|
+    | Net satışlar | 1.000.000 | 150 |
+    | Satışların maliyeti | 750.000 | 170 |
+
+    2026 gelir tablosunda brüt satış kârının dikey yüzdesi aşağıdakilerden hangisidir?
+  secenekler:
+    A: "%5"
+    B: "%15"
+    C: "%22,5"
+    D: "%25"
+    E: "%85"
+  dogru: "B"
+  aciklama:
+    dogru_neden: "Endekslerden 2026 tutarları bulunur: net satışlar 1.500.000 ₺, maliyet 1.275.000 ₺. Brüt satış kârı 225.000 ₺ olup dikey yüzde 225.000 / 1.500.000 × 100 = %15. Püf noktaları: Önce endeksleri tutara çevir, sonra dikey yüzdeyi 2026'nın kendi net satışlarına göre hesapla. Trend yüzdeleri (iki farklı endeks) doğrudan marj olarak kullanılamaz."
+    celdiriciler:
+      A: "Endeks farkı (puan) doğrudan marja yansıtılmıştır; marj tutarlar üzerinden hesaplanmalıdır."
+      C: "2026 brüt kârı 2024 net satışlarına bölünmüştür; her yılın oranı kendi net satışlarına göre bulunur."
+      D: "2024 yılının brüt kâr yüzdesi alınmıştır; trend yüzdeleri iki kalemi farklı hızlarda değiştirdiğinden oran değişmiştir."
+      E: "Bu oran 2026 satışların maliyetinin dikey yüzdesidir; brüt kâr yüzdesi bunun tümleyenidir."
+    hesap_adimlari:
+    - "2026 net satışlar = 1.000.000 × 1,5 = 1.500.000 ₺"
+    - "2026 satışların maliyeti = 750.000 × 1,7 = 1.275.000 ₺"
+    - "Brüt satış kârı = 225.000 ₺; dikey yüzde = 225.000 / 1.500.000 × 100 = %15"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Gelir tablosu kalemleri (C)"
+    alinti: "NET SATIŞLAR C _ SATIŞLARIN MALİYETİ (-) 1. SATILAN MAMULLER MALİYETİ (-) 2. SATILAN TİCARİ MALLAR MALİYETİ (-) 3. SATILAN HİZMET MALİYETİ (-) 4. DİĞER SATIŞLARIN MALİYETİ (-) BRÜT SATIŞ KÂRI VEYA ZARARI"
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Gelir tablosu kalemleri (A-B)"
+    alinti: "A _ BRÜT SATIŞLAR 1. YURTİÇİ SATIŞLAR 2. YURTDIŞI SATIŞLAR 3. DİĞER GELİRLER B _ SATIŞ İNDİRİMLERİ (-) 1. SATIŞTAN İADELER (-) 2. SATIŞ İSKONTOLARI (-) 3. DİĞER İNDİRİMLER (-) NET SATIŞLAR"
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      n24 = 1000000
+      c24 = 750000
+      n26 = n24 * 150 / 100
+      c26 = c24 * 170 / 100
+      sonuc = (n26 - c26) / n26 * 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "dikey yüzdeler"
+  tip: "hesaplama"
+  zorluk: 2
+  soru_bicimi: "standart"
+  kok: |-
+    Finansal tablo analizi çalışması kapsamında incelemeye konu rakamlar yazılmıştır. Aşağıda Orkide Kozmetik A.Ş.'nin pasif kalemleri gösterilmiştir.
+
+    | Pasif kalemi | Tutar (₺) |
+    |---|---:|
+    | Kısa vadeli yabancı kaynaklar | 600.000 |
+    | Uzun vadeli yabancı kaynaklar | 200.000 |
+    | Özkaynaklar | 1.200.000 |
+    | **TOPLAM PASİF** | **2.000.000** |
+
+    Yabancı kaynakların toplam pasife oranı (dikey yüzdesi) aşağıdakilerden hangisidir?
+  secenekler:
+    A: "%4"
+    B: "%40"
+    C: "%60"
+    D: "%66,67"
+    E: "%400"
+  dogru: "B"
+  aciklama:
+    dogru_neden: "Kaynaklar, kısa ve uzun vadeli yabancı kaynaklarla özkaynaklardan oluşur. Yabancı kaynaklar 800.000 ₺; pasif tarafta baz toplam pasiftir: 800.000 / 2.000.000 × 100 = %40."
+    celdiriciler:
+      A: "Sonuç bir basamak eksik (10 kat küçük) bulunmuştur; hesapta virgül hatası yapılmıştır."
+      C: "Bu değer özkaynakların dikey yüzdesidir; yabancı kaynaklar özkaynakların dışındaki borçlardır."
+      D: "Yabancı kaynaklar özkaynaklara bölünmüştür; bu bir kaldıraç oranıdır, dikey yüzdede baz toplam pasiftir."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "Yabancı kaynaklar = 600.000 + 200.000 = 800.000 ₺"
+    - "Dikey yüzde = 800.000 / 2.000.000 × 100 = %40"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Bilançonun biçimsel yapısı"
+    alinti: "Kaynaklar, kısa ve uzun vadeli yabancı kaynaklarla özkaynaklardan oluşur. Kısa vadeli yabancı kaynaklar bir yıl içinde ödenmesi gereken; uzun vadeli yabancı kaynaklar ise bir yıldan sonra ödenecek olan borçlardan oluşur."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      toplam_pasif = 2000000
+      kv = 600000
+      uv = 200000
+      sonuc = (kv + uv) / toplam_pasif * 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "trend yüzdeleri"
+  tip: "hesaplama"
+  zorluk: 2
+  soru_bicimi: "standart"
+  kok: "Rota Kargo A.Ş.'nin ticari borçlar kaleminin 2026 yılı tutarı 750.000 ₺'dir ve baz yılı 2024 olan trend analizinde 2026 trend yüzdesi 150 bulunmuştur. Kalemin baz yıl (2024) tutarı kaç TL'dir?"
+  secenekler:
+    A: "50.000 ₺"
+    B: "375.000 ₺"
+    C: "500.000 ₺"
+    D: "1.500.000 ₺"
+    E: "5.000.000 ₺"
+  dogru: "C"
+  aciklama:
+    dogru_neden: "Trend yüzdesi = ilgili yıl / baz yıl × 100 olduğundan baz yıl = ilgili yıl × 100 / endeks'tir. 750.000 × 100 / 150 = 500.000 ₺."
+    celdiriciler:
+      A: "Sonuç bir basamak eksik (10 kat küçük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+      B: "Endeks artışı doğrudan cari tutardan düşülmüş gibi işlem yapılmıştır; artış baz yıl tutarı üzerinden oluşmuştur."
+      D: "Cari tutar yalnızca artış yüzdesine bölünmüştür; endeksin tamamı (baz yıl dahil) kullanılmalıdır."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "Baz yıl tutarı = 750.000 × 100 / 150 = 500.000 ₺"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 2"
+    madde: "II-6"
+    alinti: "Mali tablolar, dönemler itibariyle karşılaştırılabilir nitelikte olmalıdır."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      cari = 750000
+      endeks = 150
+      sonuc = cari * 100 / endeks
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "karşılaştırmalı (yatay) analiz"
+  tip: "hesaplama"
+  zorluk: 3
+  soru_bicimi: "standart"
+  kok: "Güneş Tekstil A.Ş.'nin satışların maliyeti kalemi 2025'te 2024'e göre %40, 2026'da ise 2025'e göre %10 artmıştır. Bu kalemin 2026 yılı tutarı 2024 yılına göre yüzde kaç artmıştır?"
+  secenekler:
+    A: "%4"
+    B: "%10"
+    C: "%50"
+    D: "%54"
+    E: "%540"
+  dogru: "D"
+  aciklama:
+    dogru_neden: "Ardışık artışlarda çarpanlar çarpılır: 1,4 × 1,1 = 1,54. Toplam artış %54'dir. Püf noktaları: Yüzdeleri toplamak tipik hatadır; ikinci yılın artışı birinci yılın artmış tutarı üzerinden hesaplanır. Çarpanları çarpıp 1 çıkar."
+    celdiriciler:
+      A: "Oranlar yalnızca birbiriyle çarpılmıştır; bileşik artış çarpanların çarpımından 1 çıkarılarak bulunur."
+      B: "Yalnızca son yılın artışı dikkate alınmıştır; iki yıllık toplam artış sorulmaktadır."
+      C: "Yıllık artış oranları toplanmıştır; ikinci yılın artışı artmış bazın üzerine uygulandığından bileşik etki göz ardı edilmiştir."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "Çarpanlar: 1,4 ve 1,1"
+    - "Toplam çarpan = 1,54"
+    - "Toplam artış = %54"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 2"
+    madde: "II-6"
+    alinti: "Mali tablolar, dönemler itibariyle karşılaştırılabilir nitelikte olmalıdır."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      g1 = 40
+      g2 = 10
+      sonuc = ((100 + g1) * (100 + g2) / 100) - 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "karşılaştırmalı (yatay) analiz"
+  tip: "hesaplama"
+  zorluk: 2
+  soru_bicimi: "standart"
+  kok: "Ortaklara sunulacak değerlendirmede incelemeye konu rakamlar yazılmıştır. Canan Konfeksiyon A.Ş.'nin brüt satış kâr oranı 2025'te %32, 2026'da %20 olmuştur. Brüt satış kâr oranının kendisi, önceki yıla göre yüzde kaç azalmıştır?"
+  secenekler:
+    A: "%12"
+    B: "%24"
+    C: "%37,5"
+    D: "%46,15"
+    E: "%62,5"
+  dogru: "C"
+  aciklama:
+    dogru_neden: "Oranın kendi yüzde değişimi = (önceki - cari) / önceki × 100 = 12 / 32 × 100 = %37,5. Puan farkı ise 12'dir."
+    celdiriciler:
+      A: "Oranlar arasındaki yüzde puan farkı alınmıştır; sorulan, oranın kendi yüzde değişimidir."
+      B: "Puan farkı iki katına çıkarılmıştır; yüzde değişim fark / önceki oran × 100 ile bulunur."
+      D: "Fark iki oranın ortalamasına bölünmüştür; baz önceki dönem oranı olmalıdır."
+      E: "Cari oran önceki orana bölünmüştür; bu, oranın korunan kısmıdır, azalış değildir."
+    hesap_adimlari:
+    - "Puan farkı = 32 - 20 = 12"
+    - "Yüzde azalış = 12 / 32 × 100 = %37,5"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Gelir tablosu kalemleri (C)"
+    alinti: "NET SATIŞLAR C _ SATIŞLARIN MALİYETİ (-) 1. SATILAN MAMULLER MALİYETİ (-) 2. SATILAN TİCARİ MALLAR MALİYETİ (-) 3. SATILAN HİZMET MALİYETİ (-) 4. DİĞER SATIŞLARIN MALİYETİ (-) BRÜT SATIŞ KÂRI VEYA ZARARI"
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: "sonuc = (32 - 20) / 32 * 100"
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "dikey yüzdeler"
+  tip: "uygulama"
+  zorluk: 3
+  soru_bicimi: "standart"
+  kok: "Normal faaliyet döngüsü 18 ay olan bir işletme, ticari alacaklarını raporlama döneminden sonraki 15 ay içinde tahsil etmeyi beklemektedir. TMS 1'e göre bu alacaklar bilançonun dikey analizinde hangi grupta gösterilir?"
+  secenekler:
+    A: "Dönen varlıklar; çünkü faaliyet döngüsü içinde realize edilmesi beklenmektedir."
+    B: "Önce duran varlık olarak izlenir, tahsil tarihine üç ay kala dönen varlığa aktarılır."
+    C: "Duran varlıklar; çünkü döngü bir yıldan uzundur."
+    D: "Dönen varlıklar; ancak yalnızca tahsil süresi on iki ayı aşmıyorsa."
+    E: "Duran varlıklar; çünkü tahsil süresi on iki ayı aşmaktadır."
+  dogru: "A"
+  aciklama:
+    dogru_neden: "TMS 1 par. 66(a) uyarınca işletmenin varlığı normal faaliyet döngüsü içinde realize etmeyi beklemesi hâlinde varlık dönen varlık olarak sınıflandırılır. Döngü 18 ay olduğundan 15 ay sonra tahsil edilecek alacak dönendir. Püf noktaları: On iki ay kuralı, (c) bendine ait ayrı bir kıstastır. (a) bendi döngüye bakar; döngü uzunsa dönen varlık sınıfı da genişler."
+    celdiriciler:
+      B: "Döngü içinde realize edilmesi beklenen alacak baştan dönen varlık olarak sınıflandırılır."
+      C: "Döngünün bir yıldan uzun olması varlığı duran yapmaz; kıstas döngü içinde realize edilmesidir."
+      D: "Normal faaliyet döngüsü kıstası on iki aylık sınırdan bağımsızdır."
+      E: "Normal faaliyet döngüsü içinde realize edilmesi beklenen varlık, on iki ayı aşsa bile dönen sayılır (par. 66(a))."
+  kaynaklar:
+  - mevzuat: "TMS 1 Finansal Tabloların Sunuluşu"
+    madde: "paragraf 66"
+    alinti: "(a) İşletmenin varlığı normal faaliyet döngüsü içinde realize etmeyi beklemesi ya da satmayı veya tüketmeyi amaçlaması,"
+  gecerlilik:
+    baslangic: "2024-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "karşılaştırmalı (yatay) analiz"
+  tip: "hesaplama"
+  zorluk: 1
+  soru_bicimi: "standart"
+  kok: "Kredi değerlendirme sürecinde hazırlanan tabloda tespit edilen durum aşağıdaki gibidir. Oba Hazır Beton A.Ş.'nin net satışlar kalemi 2025 sonunda 600.000 ₺'dir. Karşılaştırmalı analizde bu kalem 2026'da bir önceki yıla göre %5 artmıştır. 2026 sonundaki tutar kaç TL'dir?"
+  secenekler:
+    A: "30.000 ₺"
+    B: "570.000 ₺"
+    C: "571.429 ₺"
+    D: "630.000 ₺"
+    E: "6.300.000 ₺"
+  dogru: "D"
+  aciklama:
+    dogru_neden: "Yüzde değişim önceki dönem tutarına uygulanır: 600.000 × 1,05 = 630.000 ₺."
+    celdiriciler:
+      A: "Yalnızca değişim tutarı bulunmuştur; cari dönem tutarı için bunun önceki dönem tutarına eklenmesi (ya da çıkarılması) gerekir."
+      B: "Değişim ters yönde uygulanmıştır; artış varsa eklenmeli, azalış varsa çıkarılmalıdır."
+      C: "Önceki dönem tutarı çarpan yerine bölünmüştür; cari tutar önceki tutarla çarpanın çarpımıdır."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "Çarpan = 1 + 0,05 = 1,05"
+    - "Cari dönem = 600.000 × 1,05 = 630.000 ₺"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 2"
+    madde: "II-6"
+    alinti: "Mali tablolar, dönemler itibariyle karşılaştırılabilir nitelikte olmalıdır."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      onceki = 600000
+      yuzde = 5
+      sonuc = onceki * (100 + yuzde) / 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "dikey yüzdeler"
+  tip: "kavrama"
+  zorluk: 2
+  soru_bicimi: "standart"
+  kok: "Tebliğ'e göre bilanço, dikey analize konu edilmeden önce nasıl tanımlanan bir mali tablodur?"
+  secenekler:
+    A: "Belli tarihte varlık ve kaynakları gösteren tablo"
+    B: "Dönem içinde fon kaynaklarını özetleyen tablo"
+    C: "Belli bir dönemin gelir ve giderlerini gösteren tablo"
+    D: "Yalnızca satışların maliyetini hesaplayan tablo"
+    E: "Kârın ortaklara dağıtımını gösteren tablo"
+  dogru: "A"
+  aciklama:
+    dogru_neden: "Tebliğ Ek 4'e göre bilanço, bir işletmenin belli bir tarihte sahip olduğu varlıklar ile bu varlıkların sağladığı kaynakları gösteren mali tablodur."
+    celdiriciler:
+      B: "Bu tanım fon akım tablosuna aittir; bilanço varlık ve kaynakları gösterir."
+      C: "Bu tanım gelir tablosuna aittir; bilanço bir dönemi değil belli bir tarihi gösterir."
+      D: "Satışların maliyeti tablosu gelir tablosunun ekidir; bilançonun tanımı değildir."
+      E: "Bu tanım kâr dağıtım tablosuna aittir."
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Bilanço tanımı"
+    alinti: "Bilanço, bir işletmenin belli bir tarihte sahip olduğu varlıklar ile bu varlıkların sağladığı kaynakları gösteren mali tablodur."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "dikey yüzdeler"
+  tip: "hesaplama"
+  zorluk: 2
+  soru_bicimi: "standart"
+  kok: |-
+    Aşağıda Sürmeli Deri A.Ş.'nin pasif kalemleri gösterilmiştir.
+
+    | Pasif kalemi | Tutar (₺) |
+    |---|---:|
+    | Kısa vadeli yabancı kaynaklar | 640.000 |
+    | Uzun vadeli yabancı kaynaklar | 320.000 |
+    | Özkaynaklar | 2.240.000 |
+    | **TOPLAM PASİF** | **3.200.000** |
+
+    Yabancı kaynakların toplam pasife oranı (dikey yüzdesi) aşağıdakilerden hangisidir?
+  secenekler:
+    A: "%3"
+    B: "%30"
+    C: "%33,33"
+    D: "%70"
+    E: "%300"
+  dogru: "B"
+  aciklama:
+    dogru_neden: "Kaynaklar, kısa ve uzun vadeli yabancı kaynaklarla özkaynaklardan oluşur. Yabancı kaynaklar 960.000 ₺; pasif tarafta baz toplam pasiftir: 960.000 / 3.200.000 × 100 = %30."
+    celdiriciler:
+      A: "Sonuç bir basamak eksik (10 kat küçük) bulunmuştur; hesapta virgül hatası yapılmıştır."
+      C: "Uzun vadeli yabancı kaynaklar yabancı kaynak toplamına bölünmüştür; bu grup içi paydır."
+      D: "Bu değer özkaynakların dikey yüzdesidir; yabancı kaynaklar özkaynakların dışındaki borçlardır."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "Yabancı kaynaklar = 640.000 + 320.000 = 960.000 ₺"
+    - "Dikey yüzde = 960.000 / 3.200.000 × 100 = %30"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 4"
+    madde: "Bilançonun biçimsel yapısı"
+    alinti: "Kaynaklar, kısa ve uzun vadeli yabancı kaynaklarla özkaynaklardan oluşur. Kısa vadeli yabancı kaynaklar bir yıl içinde ödenmesi gereken; uzun vadeli yabancı kaynaklar ise bir yıldan sonra ödenecek olan borçlardan oluşur."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      toplam_pasif = 3200000
+      kv = 640000
+      uv = 320000
+      sonuc = (kv + uv) / toplam_pasif * 100
+- id: "TASLAK"
+  sinav: "smmm"
+  bolum:
+  - "SGS"
+  - "YET"
+  ders: "TAB"
+  unite: "Dikey, yatay ve trend analizi"
+  konu: "DIK"
+  kazanim: "karşılaştırmalı (yatay) analiz"
+  tip: "hesaplama"
+  zorluk: 1
+  soru_bicimi: "standart"
+  kok: |-
+    Ortaklara sunulacak değerlendirmede aşağıdaki veriler esas alınmıştır. Aşağıdaki tabloda ilgili işletmenin iki yıllık verileri yer almaktadır.
+
+    | Kalem (₺) | 2025 | 2026 |
+    |---|---:|---:|
+    | Hazır değerler | 800.000 | 700.000 |
+
+    Yaylı Peynircilik A.Ş.'nin karşılaştırmalı (yatay) analizinde hazır değerler kaleminin 2026 yılındaki azalışı bir önceki yıla göre yüzde kaçtır?
+  secenekler:
+    A: "%12,5"
+    B: "%13,33"
+    C: "%112,5"
+    D: "%114,29"
+    E: "%125"
+  dogru: "A"
+  aciklama:
+    dogru_neden: "Yatay analizde yüzde değişim = mutlak değişim / önceki dönem tutarı × 100'dür. 100.000 / 800.000 × 100 = %12,5 azalış."
+    celdiriciler:
+      B: "Mutlak değişim iki dönemin ortalamasına bölünmüştür; payda önceki dönem tutarı olmalıdır."
+      C: "Azalış yüzdesine 100 eklenmiştir; azalış doğrudan değişim oranıdır."
+      D: "Önceki dönem cari döneme bölünmüştür; oran ters kurulmuştur."
+      E: "Sonuç bir basamak fazla (10 kat büyük) bulunmuştur; hesapta virgül veya sıfır hatası yapılmıştır."
+    hesap_adimlari:
+    - "Mutlak değişim = 100.000 ₺"
+    - "Yüzde azalış = 100.000 / 800.000 × 100 = %12,5"
+  kaynaklar:
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) - Ek 2"
+    madde: "II-6"
+    alinti: "Mali tablolar, dönemler itibariyle karşılaştırılabilir nitelikte olmalıdır."
+  gecerlilik:
+    baslangic: "1994-01-01"
+    bitis: null
+    yila_bagli_tutar: false
+  durum: "taslak"
+  surum: 1
+  uretim:
+    kaynak_turu: "yapay_zeka"
+    model: "claude-sonnet-5-5"
+  dogrulama:
+    python: |-
+      onceki = 800000
+      cari = 700000
+      sonuc = (onceki - cari) / onceki * 100

@@ -1,0 +1,1257 @@
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: ilk madde devir süresi
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: Kaya Boya Sanayi A.Ş. yıl içinde 360.000 ₺ tutarında ilk madde ve malzemeyi üretime vermiştir. Bu malzemelerin stoku yıl başında 70.000 ₺, yıl sonunda 105.000 ₺ olduğuna göre ilk madde ve malzeme devir süresi kaç gündür? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 4,11 gün
+    B: 70 gün
+    C: 78,75 gün
+    D: 87,5 gün
+    E: 105 gün
+  dogru: D
+  aciklama:
+    dogru_neden: 150 İlk Madde ve Malzeme hesabı üretimde kullanılan malzemelerin izlendiği hesaptır; hızın payı üretime verilen ilk madde maliyetidir. Ortalama bakiye = (70.000+105.000)/2 = 87.500; devir hızı = 360.000/87.500 = 4,11 kez; devir süresi = 360/4,11 = 87,5 gündür.
+    celdiriciler:
+      A: Bulunan değer devir hızıdır (kez); süre için gün sayısının hıza bölünmesi gerekir.
+      B: Ortalama bakiye yerine yalnızca dönem başı bakiyesi kullanılmış.
+      C: Pay olarak üretime verilen ilk madde yerine dönem içi alışlar alınmış.
+      E: Ortalama bakiye yerine yalnızca dönem sonu bakiyesi kullanılmış.
+    hesap_adimlari:
+    - Ortalama bakiye = (70.000 + 105.000) / 2 = 87.500
+    - Devir hızı = 360.000 / 87.500 = 4,11
+    - Devir süresi = 360 / 4,11 = 87,5 gün
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 150 - İlk Madde ve Malzeme
+    alinti: Üretimde veya diğer faaliyetlerde kullanılmak üzere işletmede bulundurulan hammadde, yardımcı madde, işletme malzemesi, ambalaj malzemesi ve diğer malzemelerin izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'f=360000; a=70000; b=105000; alis=400000
+
+      sonuc = round((360/((f)/(((a)+(b))/2))), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: alacak devir hızı
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: Mavi Kuyumculuk Ltd. Şti.'nin net satışları 1.350.000 ₺, satışların maliyeti 1.000.000 ₺'dir. Ticari alacakları yıl başında 120.000 ₺, yıl sonunda 150.000 ₺ olan şirketin alacak devir hızı kaç kezdir?
+  secenekler:
+    A: 5 kez
+    B: 7,41 kez
+    C: 9 kez
+    D: 10 kez
+    E: 11,25 kez
+  dogru: D
+  aciklama:
+    dogru_neden: Alacak devir hızının payı net satışlardır (120 Alıcılar ve 121 Alacak Senetleri satıştan doğan alacaklardır). Ortalama bakiye = (120.000+150.000)/2 = 135.000; devir hızı = 1.350.000/135.000 = 10 kezdir.
+    celdiriciler:
+      A: Dönem başı ve sonu bakiye toplamı ikiye bölünmeden payda yapılmış.
+      B: Pay olarak net satışlar yerine satışların maliyeti alınmış; alacaklar satış fiyatıyla doğar.
+      C: Ortalama bakiye yerine yalnızca dönem sonu bakiyesi kullanılmış.
+      E: Ortalama bakiye yerine yalnızca dönem başı bakiyesi kullanılmış.
+    hesap_adimlari:
+    - Ortalama bakiye = (120.000 + 150.000) / 2 = 135.000
+    - Devir hızı = 1.350.000 / 135.000 = 10
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 121 - Alacak Senetleri
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senede bağlanmış alacaklarını kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ns=1350000; smm=1000000; a=120000; b=150000
+
+      sonuc = round(((ns)/(((a)+(b))/2)), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: borç ödeme süresi
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: Uzay Elektronik Ltd. Şti.'nin yıllık satışların maliyeti 720.000 ₺, net satışları 900.000 ₺'dir. Yalnızca dönem sonu bilançosu verilmiş olup bu bilançoda ticari borçlar (320 Satıcılar ve 321 Borç Senetleri toplamı) 75.000 ₺'dir. Dönem sonu tutarı esas alınarak borç ödeme süresi kaç gündür? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 9,6 gün
+    B: 18,75 gün
+    C: 30 gün
+    D: 37,5 gün
+    E: 75 gün
+  dogru: D
+  aciklama:
+    dogru_neden: Yalnız dönem sonu bakiyesi verildiğinde ortalama alınmaz. Borç devir hızı 720.000/75.000 = 9,6 kez; ödeme süresi 360×75.000/720.000 = 37,5 gündür. Ticari borçlarda pay satışların maliyetidir (320 Satıcılar, 321 Borç Senetleri).
+    celdiriciler:
+      A: Bulunan değer borç devir hızıdır (kez); süre değildir.
+      B: Tek bakiye verildiği hâlde ortalama almak için ikiye bölünmüş.
+      C: Pay olarak satışların maliyeti yerine net satışlar alınmış.
+      E: Tek bakiye gereksiz yere iki katına çıkarılmış.
+    hesap_adimlari:
+    - Devir hızı = 720.000 / 75.000 = 9,6
+    - Ödeme süresi = 360 × 75.000 / 720.000 = 37,5 gün
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 320 - Satıcılar
+    alinti: İşletmenin faaliyet konusu ile ilgili her türlü mal ve hizmet alımlarından kaynaklanan senetsiz borçların izlendiği hesaptır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 321 - Borç Senetleri
+    alinti: İşletmenin faaliyet konusu ile ilgili her türlü mal ve hizmet alımlarından kaynaklanan senede bağlanmış ticari borçlarının izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'smm=720000; ns=900000; b=75000
+
+      sonuc = round(360*b/smm, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: faaliyet dönemi
+  tip: bilgi
+  zorluk: 1
+  soru_bicimi: standart
+  kok: Finansal tablo analizinde işletmenin faaliyet dönemi (işletme devresi) aşağıdakilerden hangisiyle bulunur?
+  secenekler:
+    A: Stok devir süresi ile alacak tahsil süresinin toplamıyla
+    B: Stok devir süresi ile alacak tahsil süresinin toplamından borç ödeme süresinin çıkarılmasıyla
+    C: Alacak tahsil süresi ile borç ödeme süresinin toplamıyla
+    D: Stok devir süresinden borç ödeme süresinin çıkarılmasıyla
+    E: Yalnızca stok devir süresiyle
+  dogru: A
+  aciklama:
+    dogru_neden: Faaliyet dönemi, malın stoka girişinden satış bedelinin tahsiline kadar geçen süredir; stok devir süresi (153 Ticari Mallar) ile alacak tahsil süresinin (120 Alıcılar) toplamıyla bulunur. Borç ödeme süresi çıkarılırsa nakit dönüşüm süresine ulaşılır.
+    celdiriciler:
+      B: Bu işlem faaliyet dönemini değil, nakit dönüşüm süresini verir.
+      C: Faaliyet döneminde stokun satılana kadar geçen süresi de yer alır; borç ödeme süresi bu toplama girmez.
+      D: Bu fark, alacak tahsil süresini içermediği için faaliyet dönemini göstermez.
+      E: Malın satışından sonra bedelin tahsil edilmesine kadar geçen süre de faaliyet dönemine dahildir.
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 153 - Ticari Mallar
+    alinti: Herhangi bir değişikliğe tabi tutulmadan satmak amacı ile işletmeye alınan ticari mallar (emtia) ve benzeri kalemler bu hesapta yer alır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: ticari mal devir hızı ve satış maliyeti
+  tip: uygulama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: Ortalama ticari mal stoku 150.000 ₺ ve ticari mal devir hızı 5 kez olan bir işletmenin yıllık satışların maliyeti kaç ₺'dir?
+  secenekler:
+    A: 30.000 ₺
+    B: 375.000 ₺
+    C: 750.000 ₺
+    D: 1.500.000 ₺
+    E: 10.800.000 ₺
+  dogru: C
+  aciklama:
+    dogru_neden: Devir hızı = satışların maliyeti / ortalama stok olduğundan satışların maliyeti = ortalama stok × devir hızı = 150.000 × 5 = 750.000 ₺'dir (621 Satılan Ticari Mallar Maliyeti).
+    celdiriciler:
+      A: Devir hızı formülü ters çevrilmiş; ortalama stok hıza bölünmüş.
+      B: Hızla çarpılan tutar gereksiz yere ikiye bölünmüş (yarım yıllık akış sanılmış).
+      D: Ortalama stok yerine dönem başı ve sonu toplamı kullanılmış gibi iki katı alınmış.
+      E: Devir hızı süre gibi düşünülerek ortalama stok 360 ile çarpılıp hıza bölünmüş.
+    hesap_adimlari:
+    - Satışların maliyeti = 150.000 × 5 = 750.000
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 621 - Satılan Ticari Mallar Maliyeti
+    alinti: Herhangi bir değişikliğe tabi olmadan satılmak amacıyla alınan ticari mallar (emtia) ve benzeri kalemlerin maliyetini kapsar.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 153 - Ticari Mallar
+    alinti: Herhangi bir değişikliğe tabi tutulmadan satmak amacı ile işletmeye alınan ticari mallar (emtia) ve benzeri kalemler bu hesapta yer alır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'o=150000; hz=5
+
+      sonuc = round(o*hz, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: mamul devir süresi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Demirci Makine A.Ş.'nde mamul stoku yıl başında 100.000 ₺, yıl sonunda 140.000 ₺'dir. Yıl içinde tamamlanan mamul üretiminin maliyeti 520.000 ₺ olduğuna göre mamul devir süresi kaç gündür? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 4 gün
+    B: 75 gün
+    C: 83,08 gün
+    D: 90 gün
+    E: 105 gün
+  dogru: D
+  aciklama:
+    dogru_neden: Satılan mamul maliyeti = 100.000+520.000−140.000 = 480.000 ₺'dir (152 Mamuller). Ortalama bakiye = (100.000+140.000)/2 = 120.000; devir hızı = 480.000/120.000 = 4 kez; devir süresi = 360/4 = 90 gündür.
+    celdiriciler:
+      A: Bulunan değer devir hızıdır (kez); süre için gün sayısının hıza bölünmesi gerekir.
+      B: Ortalama bakiye yerine yalnızca dönem başı bakiyesi kullanılmış.
+      C: Pay olarak satılan mamul maliyeti yerine üretilen mamul maliyeti alınmış.
+      E: Ortalama bakiye yerine yalnızca dönem sonu bakiyesi kullanılmış.
+    hesap_adimlari:
+    - Ortalama bakiye = (100.000 + 140.000) / 2 = 120.000
+    - Devir hızı = 480.000 / 120.000 = 4
+    - Devir süresi = 360 / 4 = 90 gün
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 152 - Mamuller
+    alinti: Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'm1=100000; m2=140000; um=520000
+
+      sonuc = round((360/((m1+um-m2)/(((m1)+(m2))/2))), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: yarı mamul devir hızı
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Bir tekstil işletmesinde dönem içinde 330.000 ₺ direkt ilk madde, 110.000 ₺ direkt işçilik ve 60.000 ₺ genel üretim gideri oluşmuştur. Yarı mamul stoku dönem başında 80.000 ₺, dönem sonunda 120.000 ₺'dir. Yarı mamul devir hızı kaç kezdir?
+  secenekler:
+    A: 2,3 kez
+    B: 3,83 kez
+    C: 4,6 kez
+    D: 5 kez
+    E: 5,75 kez
+  dogru: C
+  aciklama:
+    dogru_neden: Tamamlanan üretim maliyeti = 80.000+(330.000+110.000+60.000)−120.000 = 460.000 ₺'dir; bu tutar 151 Yarı Mamuller hesabının alacağı karşılığında stok hesaplarına aktarılır. Ortalama bakiye = (80.000+120.000)/2 = 100.000; devir hızı = 460.000/100.000 = 4,6 kezdir.
+    celdiriciler:
+      A: Dönem başı ve sonu bakiye toplamı ikiye bölünmeden payda yapılmış.
+      B: Ortalama bakiye yerine yalnızca dönem sonu bakiyesi kullanılmış.
+      D: Pay olarak tamamlanan üretim maliyeti yerine dönemin üretim giderleri alınmış.
+      E: Ortalama bakiye yerine yalnızca dönem başı bakiyesi kullanılmış.
+    hesap_adimlari:
+    - Ortalama bakiye = (80.000 + 120.000) / 2 = 100.000
+    - Devir hızı = 460.000 / 100.000 = 4,6
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 151 - Yarı Mamuller-Üretim
+    alinti: Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 151 - İşleyişi
+    alinti: Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'dim=330000; di=110000; gug=60000; yb=80000; ys=120000
+
+      sonuc = round(((yb+dim+di+gug-ys)/(((yb)+(ys))/2)), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: alacak tahsil süresi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Orhan Tekstil San. Ltd. Şti.'nin yıllık net satışları 1.600.000 ₺'dir; bu satışların %60'i vadeli, kalanı peşin yapılmıştır. Ticari alacaklar yıl başında 110.000 ₺, yıl sonunda 170.000 ₺ olduğuna göre vadeli satışlara göre alacak tahsil süresi kaç gündür? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 6,86 gün
+    B: 31,5 gün
+    C: 41,25 gün
+    D: 52,5 gün
+    E: 105 gün
+  dogru: D
+  aciklama:
+    dogru_neden: Vadeli satışlar = 1.600.000×%60 = 960.000 ₺'dir; alacak yalnız vadeli satışlardan doğar (120 Alıcılar). Ortalama bakiye = (110.000+170.000)/2 = 140.000; devir hızı = 960.000/140.000 = 6,86 kez; devir süresi = 360/6,86 = 52,5 gündür.
+    celdiriciler:
+      A: Bulunan değer devir hızıdır (kez); süre için gün sayısının hıza bölünmesi gerekir.
+      B: Pay olarak yalnız vadeli satışlar yerine peşin satışları da içeren tüm net satışlar alınmış.
+      C: Ortalama bakiye yerine yalnızca dönem başı bakiyesi kullanılmış.
+      E: Dönem başı ve sonu bakiye toplamı ikiye bölünmeden payda yapılmış.
+    hesap_adimlari:
+    - Ortalama bakiye = (110.000 + 170.000) / 2 = 140.000
+    - Devir hızı = 960.000 / 140.000 = 6,86
+    - Devir süresi = 360 / 6,86 = 52,5 gün
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ns=1600000; kr=60; a=110000; b=170000
+
+      sonuc = round((360/((ns*kr/100)/(((a)+(b))/2))), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: borç ödeme süresi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Bir toptan satış işletmesinde ticari mal stoku dönem başında 100.000 ₺, dönem sonunda 80.000 ₺'dir. Dönem içinde 460.000 ₺'lik mal satın alınmıştır. Ticari borçlar dönem başında 60.000 ₺, dönem sonunda 80.000 ₺ olduğuna göre borç ödeme süresi kaç gündür? Borç devir hızının payı olarak satışların maliyeti esas alınacaktır. Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 45 gün
+    B: 52,5 gün
+    C: 54,78 gün
+    D: 60 gün
+    E: 105 gün
+  dogru: B
+  aciklama:
+    dogru_neden: Satışların maliyeti = 100.000+460.000−80.000 = 480.000 ₺'dir. Ortalama bakiye = (60.000+80.000)/2 = 70.000; devir hızı = 480.000/70.000 = 6,86 kez; devir süresi = 360/6,86 = 52,5 gündür.
+    celdiriciler:
+      A: Ortalama bakiye yerine yalnızca dönem başı bakiyesi kullanılmış.
+      C: Pay olarak satışların maliyeti yerine dönem içi alışlar alınmış.
+      D: Ortalama bakiye yerine yalnızca dönem sonu bakiyesi kullanılmış.
+      E: Dönem başı ve sonu bakiye toplamı ikiye bölünmeden payda yapılmış.
+    hesap_adimlari:
+    - Ortalama bakiye = (60.000 + 80.000) / 2 = 70.000
+    - Devir hızı = 480.000 / 70.000 = 6,86
+    - Devir süresi = 360 / 6,86 = 52,5 gün
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 320 - Satıcılar
+    alinti: İşletmenin faaliyet konusu ile ilgili her türlü mal ve hizmet alımlarından kaynaklanan senetsiz borçların izlendiği hesaptır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 321 - Borç Senetleri
+    alinti: İşletmenin faaliyet konusu ile ilgili her türlü mal ve hizmet alımlarından kaynaklanan senede bağlanmış ticari borçlarının izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 's1=100000; s2=80000; alis=460000; a=60000; b=80000
+
+      sonuc = round((360/((s1+alis-s2)/(((a)+(b))/2))), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: faaliyet dönemi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: 'Net satışları 1.080.000 ₺, satışların maliyeti 720.000 ₺ olan bir işletmenin yalnızca dönem sonu bilançosu bulunmaktadır: ticari mallar 125.000 ₺, ticari alacaklar 90.000 ₺. Dönem sonu tutarları esas alınarak faaliyet dönemi (stok devir süresi + alacak tahsil süresi) kaç gündür? Ortalama değer; yıl 360, ay 30 gün alınacaktır.'
+  secenekler:
+    A: 5,76 gün
+    B: 30 gün
+    C: 62,5 gün
+    D: 71,67 gün
+    E: 92,5 gün
+  dogru: E
+  aciklama:
+    dogru_neden: Stok devir süresi 360×125.000/720.000 = 62,5 gün; alacak tahsil süresi 360×90.000/1.080.000 = 30 gündür. Tek bakiye verildiğinden ortalama alınmaz; faaliyet dönemi 92,5 gündür.
+    celdiriciler:
+      A: Stok devir hızı (kez) süre sanılmış.
+      B: Yalnızca alacak tahsil süresi bulunmuş; stok devir süresi eklenmemiş.
+      C: Yalnızca stok devir süresi bulunmuş; alacak tahsil süresi eklenmemiş.
+      D: Stok devir süresinde pay olarak satışların maliyeti yerine net satışlar alınmış.
+    hesap_adimlari:
+    - Stok süresi = 360 × 125.000 / 720.000 = 62,5
+    - Tahsil süresi = 360 × 90.000 / 1.080.000 = 30
+    - Faaliyet dönemi = 62,5 + 30 = 92,5
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 153 - Ticari Mallar
+    alinti: Herhangi bir değişikliğe tabi tutulmadan satmak amacı ile işletmeye alınan ticari mallar (emtia) ve benzeri kalemler bu hesapta yer alır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ns=1080000; smm=720000; s=125000; r=90000
+
+      sonuc = round(360*s/smm+360*r/ns, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: hedef süreden geri hesap
+  tip: uygulama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Satışların maliyeti yıllık 840.000 ₺ olan bir ticari işletme, ticari mal devir süresini 45 güne indirmeyi hedeflemektedir. Bu hedefe ulaşmak için yıl boyunca bağlanan ortalama ticari mal stoku en fazla kaç ₺ olmalıdır? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 18.666,67 ₺
+    B: 52.500 ₺
+    C: 105.000 ₺
+    D: 210.000 ₺
+    E: 6.720.000 ₺
+  dogru: C
+  aciklama:
+    dogru_neden: Hedef süre 45 gün ise gerekli hız 360/45 = 8 olur. Gerekli ortalama stok = 840.000/8 = 105.000 ₺'dir. Başka bir ifadeyle ortalama stok = satışların maliyeti × süre / 360'tır.
+    celdiriciler:
+      A: Gün sayısı kullanılmadan satışların maliyeti doğrudan hedef süreye bölünmüş.
+      B: 360 yerine 720 gün esas alınmış.
+      D: Ortalama stok yerine dönem başı ve sonu toplamı bulunmuş.
+      E: Süre ile hız karıştırılarak formül ters uygulanmış.
+    hesap_adimlari:
+    - Gerekli hız = 360 / 45 = 8
+    - Ortalama stok = 840.000 / 8 = 105.000
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 153 - Ticari Mallar
+    alinti: Herhangi bir değişikliğe tabi tutulmadan satmak amacı ile işletmeye alınan ticari mallar (emtia) ve benzeri kalemler bu hesapta yer alır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'smm=840000; h=45
+
+      sonuc = round(smm*h/360, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: alacak tahsil süresi yorumu
+  tip: kavrama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Bir işletmenin alacak tahsil süresi bir yıl içinde 40 günden 55 güne çıkmış, işletmenin vade politikası ise değişmemiştir. Bu gelişmenin tek başına yorumu aşağıdakilerden hangisidir?
+  secenekler:
+    A: Alacaklar geç tahsil edilmekte; işletme sermayesi ihtiyacı ve şüpheli alacak riski artmaktadır.
+    B: Alacak devir hızı yükselmiş, tahsilat hızlanmıştır.
+    C: Nakit dönüşüm süresi, diğer kalemler sabitken kısalmıştır.
+    D: Vade politikası değişmediğinden müşterilerin tamamının vadesinde ödeme yaptığı anlaşılmakta, dolayısıyla alacak riski azalmaktadır.
+    E: Ortalama alacak tutarı azalmıştır.
+  dogru: A
+  aciklama:
+    dogru_neden: Alacak tahsil süresi 360 × ortalama alacak / net satışlar olduğundan sürenin 40 günden 55 güne çıkması, alacakların daha geç tahsil edildiğini gösterir. Bu durum işletme sermayesi ihtiyacını ve şüpheli alacak (128/129) riskini artırır.
+    celdiriciler:
+      B: Tahsil süresinin uzaması devir hızının düştüğünü gösterir; hız ile süre ters orantılıdır.
+      C: Alacak süresinin uzaması, diğer kalemler sabitken nakit dönüşüm süresini uzatır.
+      D: Vade politikası sabitken süre uzamışsa alacaklar vadesinden sonra tahsil ediliyor demektir.
+      E: Net satışlar sabitken süre uzamışsa ortalama alacak tutarı artmıştır; süre ortalama alacakla doğru orantılıdır.
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 121 - Alacak Senetleri
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senede bağlanmış alacaklarını kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: alacak tahsil süresi karşılaştırma
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Bir işletmenin 2025 yılı net satışları 1.200.000 ₺, ortalama ticari alacakları 100.000 ₺; 2026 yılı net satışları 1.440.000 ₺, ortalama ticari alacakları 180.000 ₺'dir. Alacak tahsil süresi 2025'e göre kaç gün uzamıştır? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 4 gün
+    B: 8,18 gün
+    C: 15 gün
+    D: 30 gün
+    E: 54 gün
+  dogru: C
+  aciklama:
+    dogru_neden: 2025 süresi 360×100.000/1.200.000 = 30 gün; 2026 süresi 360×180.000/1.440.000 = 45 gündür. Süre 15 gün uzamıştır.
+    celdiriciler:
+      A: Devir hızlarındaki azalış (kez) gün farkı sanılmış.
+      B: İki yılın ortalamaları alınarak 2026 süresi yerine karma bir süre bulunmuş.
+      D: Yalnızca 2025 yılı süresi bulunmuş.
+      E: 2026 ortalama alacağı 2025 net satışlarına oranlanmış; dönemler karıştırılmış.
+    hesap_adimlari:
+    - 2025 süresi = 360 × 100.000 / 1.200.000 = 30
+    - 2026 süresi = 360 × 180.000 / 1.440.000 = 45
+    - Fark = 45 − 30 = 15
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'n1=1200000; o1=100000; n2=1440000; o2=180000
+
+      sonuc = round(360*o2/n2-360*o1/n1, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: alacak tahsil süresi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Bir ticari işletmenin altı aylık (180 gün) net satışları 720.000 ₺'dir. Ticari alacakları dönem başında 130.000 ₺, dönem sonunda 170.000 ₺ olduğuna göre alacak tahsil süresi kaç gündür? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 4,8 gün
+    B: 37,5 gün
+    C: 42,5 gün
+    D: 48,21 gün
+    E: 75 gün
+  dogru: B
+  aciklama:
+    dogru_neden: Akış altı aylık olduğundan süre 180 gün esas alınarak bulunur. Ortalama bakiye = (130.000+170.000)/2 = 150.000; devir hızı = 720.000/150.000 = 4,8 kez; devir süresi = 180/4,8 = 37,5 gündür.
+    celdiriciler:
+      A: Bulunan değer devir hızıdır (kez); süre için gün sayısının hıza bölünmesi gerekir.
+      C: Ortalama bakiye yerine yalnızca dönem sonu bakiyesi kullanılmış.
+      D: Pay olarak net satışlar yerine satışların maliyeti alınmış.
+      E: Dönem başı ve sonu bakiye toplamı ikiye bölünmeden payda yapılmış.
+    hesap_adimlari:
+    - Ortalama bakiye = (130.000 + 170.000) / 2 = 150.000
+    - Devir hızı = 720.000 / 150.000 = 4,8
+    - Devir süresi = 180 / 4,8 = 37,5 gün
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 121 - Alacak Senetleri
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senede bağlanmış alacaklarını kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ns=720000; smm=560000; a=130000; b=170000
+
+      sonuc = round((180/((ns)/(((a)+(b))/2))), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: ticari mal devir süresi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Bir mağaza zincirinin çeyrek dönem (90 gün) satışların maliyeti 270.000 ₺'dir. Ticari mal stoku çeyreğin başında 80.000 ₺, sonunda 100.000 ₺ olduğuna göre ticari mal devir süresi kaç gündür? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 3 gün
+    B: 7,5 gün
+    C: 26,67 gün
+    D: 30 gün
+    E: 33,33 gün
+  dogru: D
+  aciklama:
+    dogru_neden: Akış üç aylık olduğundan süre 90 gün esas alınarak bulunur. Ortalama bakiye = (80.000+100.000)/2 = 90.000; devir hızı = 270.000/90.000 = 3 kez; devir süresi = 90/3 = 30 gündür.
+    celdiriciler:
+      A: Bulunan değer devir hızıdır (kez); süre için gün sayısının hıza bölünmesi gerekir.
+      B: Çeyrek akış yıllıklaştırılarak (4 ile çarpılarak) pay büyütülmüş; süre de bu durumda 360 gün ile bulunmalıydı.
+      C: Ortalama bakiye yerine yalnızca dönem başı bakiyesi kullanılmış.
+      E: Ortalama bakiye yerine yalnızca dönem sonu bakiyesi kullanılmış.
+    hesap_adimlari:
+    - Ortalama bakiye = (80.000 + 100.000) / 2 = 90.000
+    - Devir hızı = 270.000 / 90.000 = 3
+    - Devir süresi = 90 / 3 = 30 gün
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 153 - Ticari Mallar
+    alinti: Herhangi bir değişikliğe tabi tutulmadan satmak amacı ile işletmeye alınan ticari mallar (emtia) ve benzeri kalemler bu hesapta yer alır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'smm=270000; a=80000; b=100000
+
+      sonuc = round((90/((smm)/(((a)+(b))/2))), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: stok devir hızı değişkenleri
+  tip: kavrama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Satışların maliyeti sabit kalmak koşuluyla aşağıdakilerden hangisi ticari mal devir hızını **düşürür**?
+  secenekler:
+    A: Ortalama ticari mal stokunun artması
+    B: Ortalama ticari mal stokunun azalması
+    C: Dönem sonu stokunun dönem başı stokuna göre azalması
+    D: Satılamayan ve eskiyen malların stoktan çıkarılması
+    E: Stok devir süresinin kısalması
+  dogru: A
+  aciklama:
+    dogru_neden: Devir hızı = satışların maliyeti / ortalama stok olduğundan pay sabitken ortalama stokun artması hızı düşürür. Diğer şıklarda ortalama stok azaldığı ya da süre kısaldığı için hız yükselir.
+    celdiriciler:
+      B: Payda küçüldüğünde devir hızı artar.
+      C: Ortalama stok küçüleceğinden devir hızı artar.
+      D: Ortalama stok azalacağından devir hızı artar.
+      E: Süre kısalması, hızın arttığını gösterir.
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 153 - Ticari Mallar
+    alinti: Herhangi bir değişikliğe tabi tutulmadan satmak amacı ile işletmeye alınan ticari mallar (emtia) ve benzeri kalemler bu hesapta yer alır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: ticari mal devir süresi ve satışların maliyeti
+  tip: uygulama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Ortalama ticari mal stoku 120.000 ₺ ve ticari mal devir süresi 45 gün olan bir işletmenin yıllık satışların maliyeti kaç ₺'dir? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 2.666,67 ₺
+    B: 15.000 ₺
+    C: 960.000 ₺
+    D: 5.400.000 ₺
+    E: 43.200.000 ₺
+  dogru: C
+  aciklama:
+    dogru_neden: Devir süresi = 360 × ortalama stok / satışların maliyeti olduğundan satışların maliyeti = 360 × 120.000 / 45 = 960.000 ₺'dir. Eşdeğer olarak hız 360/45 = 8 olup satışların maliyeti 120.000×8 = 960.000 ₺'dir.
+    celdiriciler:
+      A: Ortalama stok doğrudan süreye bölünmüş; gün sayısı kullanılmamış.
+      B: Süre ile hız karıştırılarak formül ters uygulanmış.
+      D: Ortalama stok doğrudan süreyle çarpılmış; gün sayısı kullanılmamış.
+      E: Ortalama stok 360 ile çarpılmış ancak süreye bölünmemiş.
+    hesap_adimlari:
+    - Devir hızı = 360 / 45 = 8
+    - Satışların maliyeti = 120.000 × 8 = 960.000
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 621 - Satılan Ticari Mallar Maliyeti
+    alinti: Herhangi bir değişikliğe tabi olmadan satılmak amacıyla alınan ticari mallar (emtia) ve benzeri kalemlerin maliyetini kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'o=120000; s=45
+
+      sonuc = round(o*360/s, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: stok devir süreleri toplamı
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: 'Bir imalat işletmesinin dönem verileri aşağıdaki tabloda verilmiştir.
+
+
+    | Kalem | Dönem başı (₺) | Dönem sonu (₺) | Dönem akışı (₺) |
+
+    |---|---|---|---|
+
+    | İlk madde ve malzeme | 40.000 | 60.000 | Kullanılan: 300.000 |
+
+    | Yarı mamul | 50.000 | 70.000 | Tamamlanan üretim maliyeti: 480.000 |
+
+    | Mamul | 90.000 | 110.000 | Satılan mamul maliyeti: 600.000 |
+
+
+    Dönemin üretim giderleri 500.000 ₺''dir. İlk madde, yarı mamul ve mamul devir sürelerinin toplamı (üretimden satışa çevrim süresi) kaç gündür? Ortalama değer; yıl 360, ay 30 gün alınacaktır.'
+  secenekler:
+    A: 45 gün
+    B: 105 gün
+    C: 120 gün
+    D: 163,2 gün
+    E: 165 gün
+  dogru: E
+  aciklama:
+    dogru_neden: 'İlk madde süresi 360×50.000/300.000 = 60 gün; yarı mamul süresi 360×60.000/480.000 = 45 gün; mamul süresi 360×100.000/600.000 = 60 gündür. Toplam 165 gündür. Yarı mamulde pay tamamlanan üretim maliyeti, mamulde satılan mamul maliyetidir. Püf noktaları: Üç ayrı pay, üç ayrı ortalama kullanılır. Dönemin üretim giderleri (500.000) tabloda hazır durduğu için yarı mamulde pay sanılabilir; oysa pay tamamlanan üretim maliyetidir.'
+    celdiriciler:
+      A: Yalnızca yarı mamul devir süresi bulunmuş.
+      B: Mamul devir süresi toplama eklenmemiş.
+      C: Yarı mamul devir süresi toplama eklenmemiş.
+      D: Yarı mamul süresinde pay olarak tamamlanan üretim maliyeti yerine dönemin üretim giderleri alınmış.
+    hesap_adimlari:
+    - İlk madde süresi = 360 × 50.000 / 300.000 = 60
+    - Yarı mamul süresi = 360 × 60.000 / 480.000 = 45
+    - Mamul süresi = 360 × 100.000 / 600.000 = 60
+    - Toplam = 165
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 150 - İlk Madde ve Malzeme
+    alinti: Üretimde veya diğer faaliyetlerde kullanılmak üzere işletmede bulundurulan hammadde, yardımcı madde, işletme malzemesi, ambalaj malzemesi ve diğer malzemelerin izlendiği hesaptır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 151 - İşleyişi
+    alinti: Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 152 - Mamuller
+    alinti: Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'i1=40000; i2=60000; fi=300000; y1=50000; y2=70000; fy=480000; m1=90000; m2=110000; fm=600000; ug=500000
+
+      sonuc = round(360*((i1+i2)/2)/fi+360*((y1+y2)/2)/fy+360*((m1+m2)/2)/fm, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: hedef süreden geri hesap
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: Bir işletmenin yıllık net satışları 960.000 ₺ olup bunun %75'i vadelidir. Alacak tahsil süresi yalnızca vadeli satışlara göre hesaplanmaktadır. Ticari alacaklar dönem başında 64.000 ₺'dir. Yönetim tahsil süresini 30 güne indirmek istemektedir. Satışlar değişmeyeceğine göre dönem sonu ticari alacaklar en fazla kaç ₺ olmalıdır? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 8.000 ₺
+    B: 56.000 ₺
+    C: 60.000 ₺
+    D: 96.000 ₺
+    E: 184.000 ₺
+  dogru: B
+  aciklama:
+    dogru_neden: 'Vadeli satışlar 960.000×%75 = 720.000 ₺; hedef hız 360/30 = 12; gerekli ortalama alacak 720.000/12 = 60.000 ₺''dir. Dönem sonu alacak 2×60.000−64.000 = 56.000 ₺''dir. Püf noktaları: Pay yalnızca vadeli satışlardır; tüm net satışı kullanmak ortalamayı şişirir. Ortalamayı bulduktan sonra 2 ile çarpıp dönem başı bakiyeyi çıkarmayı unutma.'
+    celdiriciler:
+      A: Bulunan tutar dönem başı ile hedef dönem sonu arasındaki azalıştır; sorulan bakiyedir.
+      C: Bulunan tutar gerekli ortalama alacaktır; dönem sonu için 2 × ortalama − dönem başı hesaplanmalıdır.
+      D: Pay olarak yalnız vadeli satışlar yerine tüm net satışlar alınmış.
+      E: Dönem başı alacak çıkarılmak yerine eklenmiş.
+    hesap_adimlari:
+    - Vadeli satışlar = 960.000 × %75 = 720.000
+    - Gerekli hız = 360 / 30 = 12; ortalama alacak = 60.000
+    - Dönem sonu alacak = 2 × 60.000 − 64.000 = 56.000
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 121 - Alacak Senetleri
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senede bağlanmış alacaklarını kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ns=960000; kr=75; a=64000; h=30
+
+      sonuc = round(2*(ns*kr/100/(360/h))-a, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: nakit dönüşüm süresi
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: Bir işletmenin stok devir hızı 6 kez, alacak devir hızı 9 kez ve borç devir hızı 12 kez olup tüm hızlar yıllık verilerle hesaplanmıştır. Yönetim, tedarikçilerle yeniden müzakere ederek borç ödeme süresini 45 güne çıkarmayı başarırsa nakit dönüşüm süresi kaç gün olur? Stok ve alacak süreleri değişmeyecektir. Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 3 gün
+    B: 55 gün
+    C: 70 gün
+    D: 100 gün
+    E: 145 gün
+  dogru: B
+  aciklama:
+    dogru_neden: 'Stok devir süresi 360/6 = 60 gün; alacak tahsil süresi 360/9 = 40 gündür. Yeni borç ödeme süresi 45 gün olduğundan nakit dönüşüm süresi 60+40−45 = 55 gündür. Püf noktaları: Hızlar önce süreye çevrilir. Eski borç hızı (12) gereksiz veridir; yeni ödeme süresi 45 gün kullanılır ve borç süresi toplanmaz, çıkarılır.'
+    celdiriciler:
+      A: Devir hızları doğrudan toplanıp çıkarılmış; süreye çevrilmemiş.
+      C: Eski borç ödeme süresi (360/12 = 30 gün) kullanılmış; müzakere sonucu yansıtılmamış.
+      D: Borç ödeme süresi çıkarılmamış; bu değer faaliyet dönemidir.
+      E: Borç ödeme süresi çıkarılmak yerine eklenmiş.
+    hesap_adimlari:
+    - Stok süresi = 360 / 6 = 60
+    - Tahsil süresi = 360 / 9 = 40
+    - Nakit dönüşüm süresi = 60 + 40 − 45 = 55
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 153 - Ticari Mallar
+    alinti: Herhangi bir değişikliğe tabi tutulmadan satmak amacı ile işletmeye alınan ticari mallar (emtia) ve benzeri kalemler bu hesapta yer alır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 320 - Satıcılar
+    alinti: İşletmenin faaliyet konusu ile ilgili her türlü mal ve hizmet alımlarından kaynaklanan senetsiz borçların izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'h1=6; h2=9; h3=12; yeni=45
+
+      sonuc = round(360/h1+360/h2-yeni, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: alacak tahsil süresi ve ortalama alacak
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: Bir işletmenin alacak tahsil süresi 40 gün olup net satışları 1.440.000 ₺'dir. Tahsil süresi 32 güne indirildiğinde ortalama ticari alacaklar, önceki duruma göre yüzde kaç azalır? Net satışlar değişmeyecektir. Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: '%8'
+    B: '%20'
+    C: '%25'
+    D: '%80'
+    E: '%125'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Ortalama alacak = net satışlar × süre / 360 olduğundan, satışlar sabitken ortalama alacak süreyle orantılıdır. Alacak 1.440.000×40/360 = 160.000 ₺''den 1.440.000×32/360 = 128.000 ₺''ye düşer. Azalış oranı (40−32)/40 = %20''dir. Püf noktaları: Net satışlar sabit olduğundan tutarlar hesaplanmadan süre oranlarıyla da sonuca gidilir. Azalış, eski değere göre hesaplanır; yeni değere bölmek artış oranını verir.'
+    celdiriciler:
+      A: Gün farkı yüzde sanılmış.
+      C: Azalış, yeni süreye değil önceki süreye göre hesaplanmalıdır; bu oran artış yüzdesidir.
+      D: Yeni sürenin eskiye oranı bulunmuş; azalış oranı bunun 100'den farkıdır.
+      E: Eski sürenin yeniye oranı bulunmuş; azalış yüzdesi değildir.
+    hesap_adimlari:
+    - Önceki ortalama alacak = 1.440.000 × 40 / 360 = 160.000
+    - Yeni ortalama alacak = 1.440.000 × 32 / 360 = 128.000
+    - Azalış oranı = (160.000 − 128.000) / 160.000 = %20
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 's1=40; s2=32; ns=1440000
+
+      sonuc = round((s1-s2)/s1*100, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: alacak tahsil süresi
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: Bir işletmenin üç aylık (90 gün) dönemdeki brüt satışları 800.000 ₺, satış iskontoları ve iadeleri toplamı 80.000 ₺'dir. Ticari alacaklar dönem başında 100.000 ₺, dönem sonunda 180.000 ₺ olduğuna göre alacak tahsil süresi kaç gündür? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 12,5 gün
+    B: 15,75 gün
+    C: 17,5 gün
+    D: 22,5 gün
+    E: 35 gün
+  dogru: C
+  aciklama:
+    dogru_neden: 'Net satışlar = brüt satışlar − satış indirimleri = 800.000−80.000 = 720.000 ₺''dir (61 Satış İndirimleri). Ortalama bakiye = (100.000+180.000)/2 = 140.000; devir hızı = 720.000/140.000 = 5,14 kez; devir süresi = 90/5,14 = 17,5 gündür. Püf noktaları: Dönem üç aylık olduğu için gün sayısı 90''dır. Brüt satışlar yerine net satışlar kullanılır; ortalama alacak dönem başı ve sonunun ortalamasıdır.'
+    celdiriciler:
+      A: Ortalama bakiye yerine yalnızca dönem başı bakiyesi kullanılmış.
+      B: Pay olarak net satışlar yerine brüt satışlar alınmış; iskonto ve iadeler düşülmemiş.
+      D: Ortalama bakiye yerine yalnızca dönem sonu bakiyesi kullanılmış.
+      E: Dönem başı ve sonu bakiye toplamı ikiye bölünmeden payda yapılmış.
+    hesap_adimlari:
+    - Ortalama bakiye = (100.000 + 180.000) / 2 = 140.000
+    - Devir hızı = 720.000 / 140.000 = 5,14
+    - Devir süresi = 90 / 5,14 = 17,5 gün
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap grubu 61 - Satış İndirimleri
+    alinti: Net satış hasılatına ulaşabilmek için brüt satışlardan indirilmesi gereken değerleri kapsar.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'bs=800000; isk=80000; a=100000; b=180000
+
+      sonuc = round((90/((bs-isk)/(((a)+(b))/2))), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: alacak tahsil süresi ve satış indirimleri
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: Bir işletmenin alacak tahsil süresi 36 gün, ortalama ticari alacakları 144.000 ₺'dir. Satış indirimleri (iade ve iskontolar) brüt satışların %10'u olduğuna göre yıllık satış indirimleri toplamı kaç ₺'dir? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 14.400 ₺
+    B: 144.000 ₺
+    C: 160.000 ₺
+    D: 1.440.000 ₺
+    E: 1.600.000 ₺
+  dogru: C
+  aciklama:
+    dogru_neden: 'Net satışlar = 144.000×360/36 = 1.440.000 ₺''dir. İndirimler brüt satışların %10''u olduğundan net satışlar brüt satışların %90''idir; brüt satışlar 1.440.000/0,90 = 1.600.000 ₺ ve indirimler 1.600.000−1.440.000 = 160.000 ₺''dir. Püf noktaları: Alacak süresi net satışlarla ilişkilidir; indirim oranı ise brüt satışa göre verilmiştir. İndirimi net satış üzerinden hesaplamak (144.000 gibi) tipik hatadır.'
+    celdiriciler:
+      A: İndirim oranı ortalama alacağa uygulanmış.
+      B: Ortalama alacak tutarı indirim sanılmış.
+      D: Bulunan tutar net satışlardır; indirim tutarı değildir.
+      E: Bulunan tutar brüt satışlardır; sorulan indirim tutarıdır.
+    hesap_adimlari:
+    - Net satışlar = 144.000 × 360 / 36 = 1.440.000
+    - Brüt satışlar = 1.440.000 / (1 − 0,1) = 1.600.000
+    - İndirimler = 1.600.000 − 1.440.000 = 160.000
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap grubu 60 - Brüt Satışlar
+    alinti: İşletmenin esas faaliyetleri çerçevesinde satılan mal yada hizmetler karşılığında alınan yada tahakkuk ettirilen toplam değerleri kapsar.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap grubu 61 - Satış İndirimleri
+    alinti: Net satış hasılatına ulaşabilmek için brüt satışlardan indirilmesi gereken değerleri kapsar.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 's=36; o=144000; p=10
+
+      sonuc = round((o*360/s)/(1-p/100)-o*360/s, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: mamul devir süresi (geri hesap)
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: Bir işletmede yarı mamul devir süresi 36 gün, ortalama yarı mamul stoku 64.000 ₺'dir. Mamul stoku dönem başında 120.000 ₺, dönem sonunda 40.000 ₺'dir. Tamamlanan üretim maliyeti yarı mamul devir süresinden geri hesaplanacağına göre mamul devir süresi kaç gündür? Ortalama değer; yıl 360, ay 30 gün alınacaktır.
+  secenekler:
+    A: 9 gün
+    B: 20 gün
+    C: 37,89 gün
+    D: 40 gün
+    E: 45 gün
+  dogru: D
+  aciklama:
+    dogru_neden: 'Yarı mamul hızı 360/36 = 10; tamamlanan üretim maliyeti 64.000×10 = 640.000 ₺. Satılan mamul maliyeti 120.000+640.000−40.000 = 720.000 ₺; ortalama mamul 80.000 ₺; mamul hızı 9 kez ve süresi 40 gündür. Püf noktaları: Önce yarı mamul süresinden üretim maliyetini geri bul; sonra mamul stok hareketiyle satılan mamul maliyetine geç. Tamamlanan üretimi doğrudan pay yapmak, şıklardaki 45 gibi çeldirici değerlere götürür.'
+    celdiriciler:
+      A: Bulunan değer mamul devir hızıdır (kez); süre değildir.
+      B: Ortalama mamul yerine yalnızca dönem sonu mamul stoku kullanılmış.
+      C: Dönem sonu mamul stoku düşülmeden satılan mamul maliyeti bulunmuş.
+      E: Pay olarak satılan mamul maliyeti yerine tamamlanan üretim maliyeti alınmış.
+    hesap_adimlari:
+    - Tamamlanan üretim = 64.000 × 360 / 36 = 640.000
+    - Satılan mamul maliyeti = 120.000 + 640.000 − 40.000 = 720.000
+    - Mamul süresi = 360 × 80.000 / 720.000 = 40 gün
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 151 - İşleyişi
+    alinti: Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 152 - Mamuller
+    alinti: Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ys=36; oy=64000; m1=120000; m2=40000
+
+      sonuc = round(360/((oy*360/ys+m1-m2)/((m1+m2)/2)), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Devir hızları ve süreleri
+  konu: DVR
+  kazanim: alacak ve borç süreleri karşılaştırması
+  tip: uygulama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: Bir işletmede alacak tahsil süresi 60 gün, borç ödeme süresi 30 gündür. Stok devir süresi bir yana bırakıldığında, bu iki süreye ilişkin aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Tedarikçi kredisi, alacakları fazlasıyla karşıladığından işletmenin ek finansman ihtiyacı doğmaz ve nakit dönüşüm süresi negatif olur.
+    B: İşletme tedarikçilerinden müşterilere tanıdığı vadeden 30 gün daha uzun vade kullanmaktadır.
+    C: Alacak tahsil süresi borç ödeme süresinden uzun olduğu için işletme faaliyet dönemini kısaltmış olur.
+    D: Her iki süre de yıl içinde ortalama bakiyeden değil dönem sonu bakiyesinden hesaplanır.
+    E: İşletme tedarikçilerine ödeme yaptıktan 30 gün sonra tahsilat yapmakta, bu aralığı kendi kaynaklarıyla finanse etmektedir.
+  dogru: E
+  aciklama:
+    dogru_neden: 'Alacak tahsil süresi 60 gün, borç ödeme süresi 30 gündür; işletme tedarikçilerine alacaklarından 30 gün önce ödeme yaptığı için bu fark kendi kaynaklarıyla finanse edilir. Nakit dönüşüm süresi bu iki sürede 60−30 = 30 gün artı stok süresi kadardır. Alacaklar 120/121, borçlar 320/321 hesaplarında izlenir. Püf noktaları: Süreleri yan yana koyup hangisinin hangi yönde finansman yarattığını düşün: tahsil uzunsa ve ödeme kısaysa fark işletmeye yüktür. Faaliyet dönemi ile nakit dönüşüm süresini ayırt et.'
+    celdiriciler:
+      A: Ödeme süresi tahsil süresinden kısa olduğundan tedarikçi kredisi alacakları karşılamaz; fark finansman ihtiyacı yaratır.
+      B: Tedarikçilere ödeme süresi (30 gün) müşterilere tanınan süreden (60 gün) kısadır; durum tersidir.
+      C: Faaliyet dönemi stok ve alacak sürelerinin toplamıdır; alacak süresinin uzun olması bu süreyi uzatır.
+      D: Süreler, soruda aksi belirtilmedikçe ortalama bakiyelerle hesaplanır.
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 120 - Alıcılar
+    alinti: Bu hesap, işletmenin faaliyet konusunu oluşturan mal ve hizmet satışlarından kaynaklanan senetsiz alacaklarının izlenmesi için kullanılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 320 - Satıcılar
+    alinti: İşletmenin faaliyet konusu ile ilgili her türlü mal ve hizmet alımlarından kaynaklanan senetsiz borçların izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

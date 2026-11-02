@@ -1,0 +1,2970 @@
+- id: SMMM-MAL-SAF-0016
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 1
+  kok: KB İşletmesi'nin safha maliyet raporunda dönem sonu yarı mamul 1.000 birim olup bu birimler dönüşüm bakımından %50
+    tamamlanmıştır. Bu yarı mamullerin dönüşüm bakımından eşdeğer birim sayısı kaçtır?
+  secenekler:
+    A: 50 birim
+    B: 500 birim
+    C: 1.000 birim
+    D: 1.500 birim
+    E: 2.000 birim
+  dogru: B
+  aciklama:
+    dogru_neden: 'Eşdeğer birim, kısmen tamamlanmış birimlerin tam mamul cinsinden karşılığıdır: fiziki miktar × tamamlanma
+      derecesi = 1.000 × %50 = 500 birimdir. Yarı mamullerin izlendiği 151 Yarı Mamuller-Üretim hesabı, henüz tam mamul haline
+      gelmemiş üretim aşamasındaki mamulleri kapsar.'
+    celdiriciler:
+      A: Tamamlanma yüzdesi (50) eşdeğer birim sayısı olarak alınmıştır; fiziki miktarla çarpılmamıştır.
+      C: Fiziki yarı mamul miktarıdır; tamamlanma derecesi uygulanmamıştır.
+      D: Fiziki miktara eşdeğer birimin eklenmesiyle bulunmuştur; eşdeğer birim yalnızca miktar × derecedir.
+      E: Fiziki miktar tamamlanma oranına bölünmüş (1.000 / 0,5) gibi işlem yapılmıştır.
+    hesap_adimlari:
+    - Eşdeğer birim = 1.000 × 0,50 = 500
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 1000 * 0.5
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0017
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: kavrama
+  zorluk: 1
+  kok: TMS 2 Stoklar standardına göre, normal şartlarda birbiriyle ikame edilebilen stokların maliyeti hangi yöntemlerle belirlenir?
+  secenekler:
+    A: İlk giren ilk çıkar veya ağırlıklı ortalama maliyet yöntemiyle
+    B: Son giren ilk çıkar (LIFO) veya ağırlıklı ortalama maliyet yöntemiyle
+    C: Yalnızca ilk giren ilk çıkar (FIFO) yöntemiyle
+    D: Yalnızca son giren ilk çıkar (LIFO) yöntemiyle
+    E: İlk giren ilk çıkar (FIFO) veya son giren ilk çıkar (LIFO) yöntemiyle
+  dogru: A
+  aciklama:
+    dogru_neden: TMS 2 paragraf 25'e göre özel projeler için ayrılanlar dışında kalan stokların maliyeti ilk giren ilk çıkar
+      (FIFO) veya ağırlıklı ortalama maliyet yöntemi kullanılarak belirlenir. Safha maliyetinde de bu iki yöntem kullanılır.
+    celdiriciler:
+      B: Paragraf 25 yalnızca FIFO veya ağırlıklı ortalama maliyet yöntemini sayar; LIFO yer almaz.
+      C: Paragraf 25 FIFO'nun yanında ağırlıklı ortalama maliyet yöntemini de kabul eder.
+      D: LIFO paragraf 25'te sayılan yöntemler arasında değildir.
+      E: Paragraf 25'e göre iki yöntem FIFO ve ağırlıklı ortalamadır; LIFO değildir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 25
+    alinti: 23’üncü paragrafta belirtilenler dışında kalan stokların maliyeti, ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama
+      maliyet yöntemi kullanılarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0018
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 1
+  kok: AB İşletmesi safha maliyet sistemini uygulamaktadır. İlk madde safhanın başında tamamen verilmekte, dönüşüm giderleri
+    (işçilik ve genel üretim giderleri) üretim boyunca düzenli oluşmaktadır. Dönem başında 2.000 birim yarı mamul (dönüşüm
+    bakımından %25 tamamlanmış) bulunmakta, dönem içinde 8.000 birim üretime başlanmış, 7.000 birim tamamlanmış ve 3.000 birim
+    yarı mamul (dönüşüm bakımından %40 tamamlanmış) dönem sonunda kalmıştır. Ağırlıklı ortalama yöntemine göre dönüşüm bakımından
+    toplam eşdeğer birim sayısı kaçtır?
+  secenekler:
+    A: 500 birim
+    B: 7.000 birim
+    C: 7.700 birim
+    D: 8.200 birim
+    E: 10.000 birim
+  dogru: D
+  aciklama:
+    dogru_neden: Ağırlıklı ortalamada dönem başı yarı mamul ve dönem maliyeti tek havuzda birleştirilir (TMS 2 paragraf 27).
+      Eşdeğer birim = tamamlanan + DSYM × derece = 7.000 + 3.000 × %40 = 8.200 birimdir.
+    celdiriciler:
+      A: DBYM'nin geçen dönemde işlenmiş eşdeğer birimidir (2.000 × %25); ortalama yöntemde bu birimler çıkarılmaz.
+      B: Yalnızca tamamlanan birimlerdir; dönem sonu yarı mamulün eşdeğeri eklenmemiştir.
+      C: FIFO yöntemine göre eşdeğer birimdir; DBYM'nin geçen dönemdeki eşdeğeri düşülmüştür.
+      E: İlk madde eşdeğer birimidir (7.000 + 3.000 × %100); dönüşüm için derece %40'tır.
+    hesap_adimlari:
+    - DSYM = 2.000 + 8.000 − 7.000 = 3.000 birim
+    - Eşdeğer birim = 7.000 + 3.000 × 0,40 = 8.200
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 7000 + 3000 * 0.4
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0019
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: kavrama
+  zorluk: 1
+  kok: TMS 2 Stoklar standardına göre FIFO yöntemi için aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: En son üretilen kalemlerin ilk satıldığı, dönem sonu stokunun ilk üretilen kalemlerden oluştuğu varsayılır.
+    B: Dönem başı ve dönem içi maliyetlerin ağırlıklı ortalaması alınarak her kalemin maliyeti belirlenir.
+    C: Stok kalemleri satış fiyatı en yüksekten başlayarak satılmış sayılır.
+    D: Her bir kalemin maliyeti, kalem bazında özel olarak belirlenir.
+    E: İlk üretilen kalemlerin ilk satıldığı, stokta kalanların en son üretilenler olduğu varsayılır.
+  dogru: E
+  aciklama:
+    dogru_neden: 'TMS 2 paragraf 27: FIFO yöntemi, ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını
+      ve dönem sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar.'
+    celdiriciler:
+      A: Bu varsayım LIFO'ya aittir; FIFO tersini varsayar.
+      B: Bu tanım ağırlıklı ortalama maliyet yöntemine aittir.
+      C: Standartta böyle bir varsayım yoktur.
+      D: Kalem bazında özel maliyet, ikame edilemeyen stoklar için paragraf 23-24'teki yöntemdir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0020
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 1
+  kok: AX İşletmesi safha maliyet sistemini uygulamaktadır. İlk madde safhanın başında tamamen verilmekte, dönüşüm giderleri
+    (işçilik ve genel üretim giderleri) üretim boyunca düzenli oluşmaktadır. Dönem başında 1.600 birim yarı mamul (dönüşüm
+    bakımından %50 tamamlanmış) bulunmakta, dönem içinde 8.400 birim üretime başlanmış, 7.600 birim tamamlanmış ve 2.400 birim
+    yarı mamul (dönüşüm bakımından %25 tamamlanmış) dönem sonunda kalmıştır. FIFO yöntemine göre ilk madde bakımından eşdeğer
+    birim sayısı kaçtır?
+  secenekler:
+    A: 800 birim
+    B: 7.400 birim
+    C: 7.600 birim
+    D: 8.400 birim
+    E: 10.000 birim
+  dogru: D
+  aciklama:
+    dogru_neden: İlk madde başta verildiğinden DBYM ilk madde bakımından %100 tamamdır; FIFO'da bu dönemde yapılan iş yoktur.
+      Eşdeğer birim = 7.600 − 1.600 × %100 + 2.400 × %100 = 8.400 birimdir; bu, dönemde üretime başlanan miktara eşittir (TMS
+      2 paragraf 27).
+    celdiriciler:
+      A: DBYM'nin dönüşüm bakımından geçen dönemde işlenmiş eşdeğer birimidir.
+      B: FIFO dönüşüm eşdeğer birimidir; ilk madde için derece %100'dür.
+      C: Yalnızca tamamlanan birimlerdir; DSYM'nin ilk madde eşdeğeri eklenmiş, DBYM düşülmemiştir.
+      E: Ağırlıklı ortalama yönteminin ilk madde eşdeğer birimidir (7.600 + 2.400).
+    hesap_adimlari:
+    - FIFO ilk madde eşdeğer birimi = 7.600 − 1.600 + 2.400 = 8.400
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 7600 - 1600 * 1.0 + 2400 * 1.0
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0021
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: AZ İşletmesi safha maliyet sistemini uygulamaktadır. İlk madde safhanın başında tamamen verilmekte, dönüşüm giderleri
+    (işçilik ve genel üretim giderleri) üretim boyunca düzenli oluşmaktadır. Dönem başında 2.000 birim yarı mamul (dönüşüm
+    bakımından %25 tamamlanmış) bulunmakta, dönem içinde 8.000 birim üretime başlanmış, 6.000 birim tamamlanmış ve 4.000 birim
+    yarı mamul (dönüşüm bakımından %50 tamamlanmış) dönem sonunda kalmıştır. Dönem başı yarı mamulün dönüşüm maliyeti 20.000
+    TL, dönem içinde katlanılan dönüşüm maliyeti 80.000 TL'dir. Ağırlıklı ortalama yöntemine göre dönüşüm maliyetinin birim
+    maliyeti kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 10 TL
+    B: 12,5 TL
+    C: 13,33 TL
+    D: 16,67 TL
+    E: 100.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: Ağırlıklı ortalamada DBYM maliyeti ve dönem maliyeti birlikte değerlendirilir (TMS 2 paragraf 27). Eşdeğer
+      birim = 6.000 + 4.000 × %50 = 8.000; birim maliyet = (20.000 + 80.000) / 8.000 = 12,5 TL'dir.
+    celdiriciler:
+      A: Toplam dönüşüm maliyeti fiziki toplama (10.000) bölünmüştür; eşdeğer birim kullanılmamıştır.
+      C: FIFO eşdeğer birimiyle (7.500) bölünmüştür; ortalama yöntemde DBYM'nin eşdeğeri çıkarılmaz.
+      D: Yalnızca tamamlanan birimlere (6.000) bölünmüştür; DSYM'nin eşdeğeri unutulmuştur.
+      E: Toplam dönüşüm maliyetidir; birim maliyete ulaşmak için eşdeğer birime bölünmemiştir.
+    hesap_adimlari:
+    - DSYM = 2.000 + 8.000 − 6.000 = 4.000
+    - Eşdeğer birim = 6.000 + 2.000 = 8.000
+    - Birim maliyet = 100.000 / 8.000 = 12,5 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (20000 + 80000) / (6000 + 4000 * 0.5)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0022
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 2
+  kok: AX İşletmesi safha maliyet sistemini uygulamaktadır. İlk madde safhanın başında tamamen verilmekte, dönüşüm giderleri
+    (işçilik ve genel üretim giderleri) üretim boyunca düzenli oluşmaktadır. Dönem başında 2.400 birim yarı mamul (dönüşüm
+    bakımından %25 tamamlanmış) bulunmakta, dönem içinde 7.600 birim üretime başlanmış, 6.800 birim tamamlanmış ve 3.200 birim
+    yarı mamul (dönüşüm bakımından %50 tamamlanmış) dönem sonunda kalmıştır. FIFO yöntemine göre dönüşüm bakımından eşdeğer
+    birim sayısı kaçtır?
+  secenekler:
+    A: 600 birim
+    B: 6.800 birim
+    C: 7.800 birim
+    D: 8.400 birim
+    E: 10.000 birim
+  dogru: C
+  aciklama:
+    dogru_neden: FIFO eşdeğer birimi = tamamlanan − DBYM × geçen dönemdeki derece + DSYM × derece = 6.800 − 600 + 1.600 =
+      7.800'dür. Bu, o dönemde yapılan işi gösterir (TMS 2 paragraf 27).
+    celdiriciler:
+      A: DBYM'nin geçen dönemdeki eşdeğeridir; bu dönemin eşdeğer iş miktarı sorulmaktadır.
+      B: Yalnızca tamamlanan birimlerdir.
+      D: Ağırlıklı ortalama eşdeğer birimidir; FIFO'da DBYM'nin geçen dönemdeki eşdeğeri çıkarılır.
+      E: İlk madde eşdeğer birimidir (DSYM %100).
+    hesap_adimlari:
+    - DSYM = 2.400 + 7.600 − 6.800 = 3.200
+    - 6.800 − 2.400 × 0,25 + 3.200 × 0,5 = 7.800
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 6800 - 2400 * 0.25 + 3200 * 0.5
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0023
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: AY İşletmesi safha maliyet sistemini uygulamaktadır. İlk madde safhanın başında tamamen verilmekte, dönüşüm giderleri
+    (işçilik ve genel üretim giderleri) üretim boyunca düzenli oluşmaktadır. Dönem başında 3.000 birim yarı mamul (dönüşüm
+    bakımından %40 tamamlanmış) bulunmakta, dönem içinde 7.000 birim üretime başlanmış, 6.000 birim tamamlanmış ve 4.000 birim
+    yarı mamul (dönüşüm bakımından %20 tamamlanmış) dönem sonunda kalmıştır. Dönem içinde katlanılan dönüşüm maliyeti 70.000
+    TL'dir. FIFO yöntemine göre dönüşüm maliyetinin birim maliyeti kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 7 TL
+    B: 10,29 TL
+    C: 11,67 TL
+    D: 12,5 TL
+    E: 23,33 TL
+  dogru: D
+  aciklama:
+    dogru_neden: FIFO'da birim maliyet yalnızca bu dönemin maliyeti ile bu dönemde yapılan işin eşdeğer birimi arasındaki
+      orandır. DBYM dönüşüm bakımından %40 tamam olduğundan bu dönemde 3.000 × %60 = 1.800 eşdeğer iş yapılır. Eşdeğer birim
+      = 6.000 − 1.200 + 800 = 5.600; birim maliyet 70.000 / 5.600 = 12,5 TL'dir.
+    celdiriciler:
+      A: Dönem maliyeti fiziki toplama (10.000) bölünmüştür; eşdeğer birim kullanılmamıştır.
+      B: Ağırlıklı ortalama eşdeğer birimiyle (6.800) bölünmüştür; FIFO'da DBYM'nin geçen dönem eşdeğeri düşülür.
+      C: Yalnızca tamamlanan birimlere (6.000) bölünmüştür; DSYM'nin eşdeğeri unutulmuş, DBYM düşülmemiştir.
+      E: Dönem maliyeti DSYM ve DBYM'nin farkına değil, yalnızca bu dönemde başlanıp tamamlananlara (3.000) bölünmüştür.
+    hesap_adimlari:
+    - DSYM = 3.000 + 7.000 − 6.000 = 4.000
+    - FIFO eşdeğer birim = 6.000 − 3.000 × 0,4 + 4.000 × 0,2 = 5.600
+    - Birim maliyet = 70.000 / 5.600 = 12,5 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 70000 / (6000 - 3000 * 0.4 + 4000 * 0.2)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0024
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 2
+  kok: AZ İşletmesi'nin safhasında ilk madde, safhanın sonunda üretime verilmektedir; dönüşüm giderleri üretim boyunca düzenli
+    oluşmaktadır. Dönem başında 1.600 birim yarı mamul (dönüşüm bakımından %50), dönem içinde 8.400 birim üretime başlanmış,
+    7.600 birim tamamlanmış ve 2.400 birim yarı mamul (dönüşüm bakımından %25) dönem sonunda kalmıştır. Ağırlıklı ortalama
+    yöntemine göre ilk madde bakımından eşdeğer birim sayısı kaçtır?
+  secenekler:
+    A: 800 birim
+    B: 7.600 birim
+    C: 8.200 birim
+    D: 8.400 birim
+    E: 10.000 birim
+  dogru: B
+  aciklama:
+    dogru_neden: İlk madde safhanın sonunda ekleniyorsa yarı mamullerin ilk madde derecesi %0'dır. Ağırlıklı ortalama eşdeğer
+      birimi = tamamlanan + DSYM × %0 = 7.600 birimdir. Dönüşüm giderleri için ise dereceler %25 ve %50 olarak kullanılır
+      (TMS 2 paragraf 27).
+    celdiriciler:
+      A: DBYM'nin dönüşüm bakımından geçen dönemdeki eşdeğeridir (1.600 × %50); ilk madde için sorulmaktadır.
+      C: Dönüşüm eşdeğer birimidir (7.600 + 2.400 × %25).
+      D: Dönemde başlanan miktardır; ağırlıklı ortalamada tamamlanan ve DSYM eşdeğeri esas alınır.
+      E: İlk madde başta verilseydi bulunacak eşdeğer birimdir (7.600 + 2.400); burada ilk madde sonda verilmektedir.
+    hesap_adimlari:
+    - İlk madde derecesi DSYM için %0
+    - Eşdeğer birim = 7.600 + 2.400 × 0 = 7.600
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'sonuc = 7600 + 2400 * 0 '
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0025
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: AB İşletmesi safha maliyet sistemini uygulamaktadır. İlk madde safhanın başında tamamen verilmekte, dönüşüm giderleri
+    (işçilik ve genel üretim giderleri) üretim boyunca düzenli oluşmaktadır. Dönem başında 1.600 birim yarı mamul (dönüşüm
+    bakımından %50 tamamlanmış) bulunmakta, dönem içinde 8.400 birim üretime başlanmış, 7.600 birim tamamlanmış ve 2.400 birim
+    yarı mamul (dönüşüm bakımından %25 tamamlanmış) dönem sonunda kalmıştır. Dönem başı yarı mamulün maliyeti ilk madde 13.000
+    TL, dönüşüm 11.100 TL; dönem içinde katlanılan maliyet ilk madde 117.000 TL, dönüşüm 116.000 TL'dir. Ağırlıklı ortalama
+    yöntemine göre bir birim tam mamulün maliyeti kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 13 TL
+    B: 15,5 TL
+    C: 25,71 TL
+    D: 28,5 TL
+    E: 257.100 TL
+  dogru: D
+  aciklama:
+    dogru_neden: İlk madde eşdeğer birimi 7.600 + 2.400 = 10.000, birim maliyeti 130.000 / 10.000 = 13 TL; dönüşüm eşdeğer
+      birimi 7.600 + 600 = 8.200, birim maliyeti 127.100 / 8.200 = 15,5 TL. Tam birim maliyet 13 + 15,5 = 28,5 TL'dir. Ağırlıklı
+      ortalama, TMS 2 paragraf 27'ye göre dönem başı ve dönem içi maliyetlerin birlikte değerlendirilmesidir.
+    celdiriciler:
+      A: Yalnızca ilk madde birim maliyetidir; dönüşüm maliyeti eklenmemiştir.
+      B: Yalnızca dönüşüm birim maliyetidir; ilk madde maliyeti eklenmemiştir.
+      C: Dönüşüm maliyeti de ilk madde gibi fiziki toplama (10.000) bölünmüştür; dönüşüm için eşdeğer birim 8.200 alınmalıdır.
+      E: Toplam maliyettir; birim maliyete ulaşmak için eşdeğer birimlere bölünmemiştir.
+    hesap_adimlari:
+    - 'İlk madde: 130.000 / 10.000 = 13 TL'
+    - 'Dönüşüm: 127.100 / 8.200 = 15,5 TL'
+    - Toplam = 28,5 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (13000 + 117000) / (7600 + 2400) + (11100 + 116000) / (7600 + 2400 * 0.25)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0026
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 2
+  kok: AY İşletmesi'nin safha maliyet raporunda dönem başı yarı mamul 1.600 birim, dönemde üretime başlanan miktar 8.400 birim
+    ve dönem içinde tamamlanıp sonraki safhaya devredilen miktar 7.600 birimdir. Kayıp bulunmamaktadır. Dönem sonu yarı mamul
+    kaç birimdir?
+  secenekler:
+    A: 800 birim
+    B: 2.400 birim
+    C: 7.600 birim
+    D: 8.400 birim
+    E: 10.000 birim
+  dogru: B
+  aciklama:
+    dogru_neden: 'Fiziki akış: dönem başı yarı mamul + dönemde başlanan = tamamlanan + dönem sonu yarı mamul. 1.600 + 8.400
+      = 10.000; 10.000 − 7.600 = 2.400 birimdir.'
+    celdiriciler:
+      A: Tamamlananla dönem başı toplanıp başlanandan çıkarılmıştır (7.600 + 1.600 − 8.400); fiziki akış ters kurulmuştur.
+      C: Tamamlanan miktardır.
+      D: Dönemde başlanan miktardır; dönem başı miktar eklenmemiştir.
+      E: Dönem başı ve dönemde başlanan miktarın toplamıdır; tamamlananlar düşülmemiştir.
+    hesap_adimlari:
+    - 1.600 + 8.400 = 10.000
+    - DSYM = 10.000 − 7.600 = 2.400
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 1600 + 8400 - 7600
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0027
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: AB İşletmesi safha maliyet sistemini uygulamaktadır. İlk madde safhanın başında tamamen verilmekte, dönüşüm giderleri
+    (işçilik ve genel üretim giderleri) üretim boyunca düzenli oluşmaktadır. Dönem başında 2.000 birim yarı mamul (dönüşüm
+    bakımından %25 tamamlanmış) bulunmakta, dönem içinde 8.000 birim üretime başlanmış, 7.000 birim tamamlanmış ve 3.000 birim
+    yarı mamul (dönüşüm bakımından %40 tamamlanmış) dönem sonunda kalmıştır. FIFO yöntemi uygulanmakta olup dönem içinde katlanılan
+    maliyetler ilk madde 100.000 TL, dönüşüm 77.000 TL'dir. Bu dönemin bir birim tam mamul için birim maliyeti (ilk madde
+    + dönüşüm) kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 10 TL
+    B: 12,5 TL
+    C: 17,7 TL
+    D: 22,5 TL
+    E: 177.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: FIFO'da yalnızca dönem maliyeti kullanılır. İlk madde eşdeğer birimi 7.000 − 2.000 + 3.000 = 8.000, birim
+      maliyeti 12,5 TL. Dönüşüm eşdeğer birimi 7.000 − 500 + 1.200 = 7.700, birim maliyeti 10 TL. Toplam 22,5 TL'dir (TMS
+      2 paragraf 27).
+    celdiriciler:
+      A: Yalnızca dönüşüm birim maliyetidir (77.000 / 7.700); ilk madde eklenmemiştir.
+      B: Yalnızca ilk madde birim maliyetidir (100.000 / 8.000); dönüşüm eklenmemiştir.
+      C: Her iki maliyet de fiziki toplama (10.000) bölünmüştür; eşdeğer birim kullanılmamıştır.
+      E: Toplam dönem maliyetidir; birim maliyete ulaşmak için eşdeğer birimlere bölünmemiştir.
+    hesap_adimlari:
+    - 'İlk madde: 100.000 / 8.000 = 12,5'
+    - 'Dönüşüm: 77.000 / 7.700 = 10'
+    - Toplam = 22,5 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 100000 / (7000 - 2000 + 3000) + 77000 / (7000 - 2000 * 0.25 + 3000 * 0.4)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0028
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: tamamlanma derecesi geri hesap
+  tip: hesaplama
+  zorluk: 3
+  kok: AX İşletmesi'nin safhasında ilk madde başta verilmektedir. Dönem sonunda yapılan hesaplamada dönüşüm eşdeğer birimi
+    ağırlıklı ortalama yöntemine göre 8.200, FIFO yöntemine göre 7.700 bulunmuştur. Tamamlanan miktar 7.000 birim, dönem sonu
+    yarı mamul 3.000 birimdir. Dönem sonu yarı mamullerin dönüşüm bakımından eşdeğer birim sayısı kaçtır?
+  secenekler:
+    A: 500 birim
+    B: 700 birim
+    C: 1.200 birim
+    D: 3.000 birim
+    E: 15.900 birim
+  dogru: C
+  aciklama:
+    dogru_neden: 'Ağırlıklı ortalama eşdeğer birimi = tamamlanan + DSYM eşdeğeri olduğundan DSYM eşdeğeri 8.200 − 7.000 =
+      1.200 birimdir (derece 1.200 / 3.000 = %40). İki yöntem arasındaki 500 birimlik fark ise DBYM''nin geçen dönemdeki eşdeğeridir
+      (TMS 2 paragraf 27). Püf noktaları: İki yöntemin farkı DBYM''ye aittir, DSYM''ye değil. DSYM eşdeğerini bulmak için
+      ortalama yöntemin eşdeğer biriminden tamamlananı çıkar.'
+    celdiriciler:
+      A: Ortalama ile FIFO eşdeğer birimleri arasındaki farktır; bu fark DBYM'nin geçen dönemdeki eşdeğeridir, DSYM'nin değil.
+      B: FIFO eşdeğer birimi (7.700) ile tamamlananın (7.000) farkıdır; DBYM'nin düşülen eşdeğeri dikkate alınmamıştır.
+      D: DSYM'nin fiziki miktarıdır; tamamlanma derecesi uygulanmamıştır.
+      E: İki yöntemin eşdeğer birimlerinin toplamıdır (8.200 + 7.700).
+    hesap_adimlari:
+    - Ortalama eşdeğer = tamamlanan + DSYM eşdeğeri
+    - DSYM eşdeğeri = 8.200 − 7.000 = 1.200
+    - (Derece = 1.200 / 3.000 = %40)
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 8200 - 7000
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0029
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: AX İşletmesi safha maliyet sistemini uygulamaktadır. İlk madde safhanın başında tamamen verilmekte, dönüşüm giderleri
+    (işçilik ve genel üretim giderleri) üretim boyunca düzenli oluşmaktadır. Dönem başında 400 birim yarı mamul (dönüşüm bakımından
+    %50 tamamlanmış) bulunmakta, dönem içinde 5.600 birim üretime başlanmış, 5.400 birim tamamlanmış ve 600 birim yarı mamul
+    (dönüşüm bakımından %50 tamamlanmış) dönem sonunda kalmıştır. Ağırlıklı ortalama yöntemine göre ilk madde birim maliyeti
+    20 TL, dönüşüm birim maliyeti 30 TL olarak bulunmuştur. Dönem sonu yarı mamullerin maliyeti kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 9.000 TL
+    B: 12.000 TL
+    C: 21.000 TL
+    D: 30.000 TL
+    E: 270.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: Dönem sonu yarı mamul 400 + 5.600 − 5.400 = 600 birimdir. İlk madde bakımından %100 olduğundan 600 × 20 =
+      12.000 TL, dönüşüm bakımından %50 olduğundan 300 × 30 = 9.000 TL. Toplam 21.000 TL'dir. Üretimi tamamlananlar dışında
+      kalan maliyet 151 Yarı Mamuller-Üretim hesabında borç kalanı olarak kalır.
+    celdiriciler:
+      A: Yalnızca dönüşüm maliyetidir; yarı mamullerin ilk madde maliyeti eklenmemiştir.
+      B: Yalnızca ilk madde maliyetidir; dönüşüm maliyeti eklenmemiştir.
+      D: Yarı mamullerin tamamı iki unsur bakımından da %100 tamamlanmış gibi değerlenmiştir (600 × 50).
+      E: Tamamlanan 5.400 birimin maliyetidir (5.400 × 50); dönem sonu yarı mamul sorulmaktadır.
+    hesap_adimlari:
+    - DSYM = 400 + 5.600 − 5.400 = 600 birim
+    - İlk madde = 600 × 20 = 12.000
+    - Dönüşüm = 300 × 30 = 9.000
+    - Toplam = 21.000 TL
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 600 * 20 + 600 * 0.5 * 30
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0030
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 3
+  kok: AB İşletmesi'nin safhasında ilk madde başta verilmekte, dönüşüm giderleri düzenli oluşmaktadır. Dönem başında 1.200
+    birim yarı mamul (dönüşüm bakımından %25 tamamlanmış) vardır, dönemde 8.800 birim üretime başlanmıştır. Dönem sonunda
+    2.200 birim yarı mamul (dönüşüm bakımından %50 tamamlanmış) kalmıştır. Kayıp yoktur. FIFO yöntemine göre dönüşüm bakımından
+    eşdeğer birim sayısı kaçtır?
+  secenekler:
+    A: 300 birim
+    B: 7.800 birim
+    C: 8.600 birim
+    D: 8.900 birim
+    E: 10.000 birim
+  dogru: C
+  aciklama:
+    dogru_neden: 'Fiziki akıştan tamamlanan = 1.200 + 8.800 − 2.200 = 7.800 birimdir. FIFO eşdeğer birimi = 7.800 − 1.200
+      × %25 + 2.200 × %50 = 7.800 − 300 + 1.100 = 8.600''dür (TMS 2 paragraf 27). Püf noktaları: Önce fiziki akıştan tamamlanan
+      miktarı bul; soruda doğrudan verilmemiştir. Sonra FIFO''da DBYM''nin geçen dönemdeki eşdeğerini çıkar, DSYM eşdeğerini
+      ekle.'
+    celdiriciler:
+      A: DBYM'nin geçen dönemdeki eşdeğeridir (1.200 × %25); dönemin toplam eşdeğer işi sorulmaktadır.
+      B: Tamamlanan birimlerdir; DBYM düşülmemiş, DSYM eşdeğeri eklenmemiştir.
+      D: Ağırlıklı ortalama eşdeğer birimidir (7.800 + 1.100); FIFO'da DBYM'nin geçen dönem eşdeğeri çıkarılır.
+      E: Dönem başı yarı mamul ile dönemde başlananın toplamıdır; tamamlanan bulunmamış, eşdeğer birim hesaplanmamıştır.
+    hesap_adimlari:
+    - Tamamlanan = 1.200 + 8.800 − 2.200 = 7.800
+    - FIFO eşdeğer birim = 7.800 − 300 + 1.100 = 8.600
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (1200 + 8800 - 2200) - 1200 * 0.25 + 2200 * 0.5
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0031
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: uygulama
+  zorluk: 2
+  kok: AB İşletmesi'nin son safhasında tamamlanan ve ambara alınan mamullerin maliyeti 250.000 TL olarak belirlenmiştir. Tek
+    Düzen Hesap Planı'na göre bu aktarıma ilişkin kayıt aşağıdakilerden hangisidir?
+  secenekler:
+    A: 152 Mamuller hesabı 250.000 TL borç; 151 Yarı Mamuller-Üretim 250.000 TL alacak
+    B: 151 Yarı Mamuller-Üretim 250.000 TL borç; 152 Mamuller 250.000 TL alacak
+    C: 153 Ticari Mallar 250.000 TL borç; 151 Yarı Mamuller-Üretim hesabı 250.000 TL alacak
+    D: 157 Diğer Stoklar 250.000 TL borç; 151 Yarı Mamuller-Üretim hesabı 250.000 TL alacak
+    E: 152 Mamuller 250.000 TL borç; 730 Genel Üretim Giderleri hesabı 250.000 TL alacak
+  dogru: A
+  aciklama:
+    dogru_neden: Tek Düzen Hesap Planı'na göre 152 Mamuller hesabı, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır;
+      üretimi tamamlananların maliyet tutarı 151 Yarı Mamuller-Üretim hesabının alacağı karşılığında ilgili stok hesaplarına
+      aktarılır.
+    celdiriciler:
+      B: Taraflar ters yazılmıştır; tamamlanan mamullerin ambara alınmasıyla 152 borçlanır, 151 alacaklandırılır.
+      C: 153 değiştirilmeden satılmak üzere alınan ticari mallar içindir; üretilen mamuller bu hesapta izlenmez.
+      D: 157 yan ürün, artık ve hurda gibi kalemler içindir; tamamlanan ana mamuller 152'de izlenir.
+      E: Tamamlananların maliyeti 151'in alacağı karşılığında aktarılır; 730 genel üretim giderlerinin toplandığı hesaptır.
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 152 Mamuller
+    alinti: 'Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır. İşleyişi
+      : Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle
+      ambardan çekilmesi ile alacaklandırılır.'
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0032
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: kavrama
+  zorluk: 2
+  kok: TMS 2 Stoklar standardına göre ağırlıklı ortalama maliyet yönteminde her bir stok kaleminin maliyeti nasıl belirlenir?
+  secenekler:
+    A: Yalnızca dönem içinde üretilen kalemlerin maliyetlerinin ortalaması alınır; dönem başı kalemler ayrı izlenir.
+    B: Dönem sonunda stokta kalan kalemler en son üretilen kalemlerin maliyetiyle değerlenir.
+    C: Her kalem, üretildiği günkü maliyetiyle ayrı ayrı izlenir.
+    D: Dönem başı kalemlerin maliyeti dönem giderine yazılır ve ortalamaya katılmaz.
+    E: Dönem başı ve dönem içi üretilenlerin maliyetlerinin ağırlıklı ortalaması alınır.
+  dogru: E
+  aciklama:
+    dogru_neden: 'TMS 2 paragraf 27: ağırlıklı ortalama maliyet yönteminde her bir stok kaleminin maliyeti, dönem başındaki
+      benzer kalemlerin maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı
+      ortalaması alınarak belirlenir.'
+    celdiriciler:
+      A: Bu yaklaşım FIFO'ya yakındır; ağırlıklı ortalamada dönem başı maliyetler de ortalamaya katılır.
+      B: Bu varsayım FIFO'nun sonucudur; ağırlıklı ortalama yöntemini tanımlamaz.
+      C: Kalem bazında özel maliyet belirleme ikame edilemeyen stoklar içindir.
+      D: Dönem başı kalemlerin maliyeti stok maliyetidir; ortalamaya dahildir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0033
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: bilgi
+  zorluk: 2
+  kok: 213 sayılı Vergi Usul Kanunu'na göre mükellefler imal ettikleri emtianın maliyet bedelini hangi şartla diledikleri
+    usulde tayin edebilirler?
+  secenekler:
+    A: Maddede yazılı maliyet unsurlarını içermek şartıyla
+    B: Yalnızca ilk madde ve işçilik bedelini içermek şartıyla
+    C: Vergi idaresinden önceden izin almak şartıyla
+    D: Bütün genel idare giderlerini maliyete katmak şartıyla
+    E: Her dönem aynı usulü uygulamak ve fiili maliyetle çalışmak şartıyla
+  dogru: A
+  aciklama:
+    dogru_neden: VUK md. 275'e göre mükellefler, imal ettikleri emtianın maliyet bedellerini maddede yazılı unsurları ihtiva
+      etmek şartıyla diledikleri usulde tayin edebilirler.
+    celdiriciler:
+      B: Madde 275 genel imal giderlerinden hisseyi de zorunlu unsur sayar; yalnızca iki unsurla yetinilemez.
+      C: Madde 275'te önceden izin şartı yoktur; şart unsurların içerilmesidir.
+      D: Genel idare giderlerinden hissenin maliyete katılması ihtiyaridir, zorunlu değildir.
+      E: Madde 275'te fiili maliyet zorunluluğu yoktur; usul seçimi unsurları içermek şartına bağlıdır.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 275
+    alinti: Mükellefler, imal ettikleri emtianın maliyet bedellerini yukarıki unsurları ihtiva etmek şartiyle diledikleri
+      usulde tayin edebilirler.
+  gecerlilik:
+    baslangic: '1961-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0034
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 3
+  kok: AY İşletmesi'nin ikinci safhasında dönem başı yarı mamul yoktur. I. safhadan 400.000 TL maliyetle 8.000 birim devralınmıştır.
+    II. safhada 6.000 birim tamamlanmış, 2.000 birim yarı mamul (dönüşüm bakımından %50 tamamlanmış) kalmıştır. II. safhanın
+    dönem içi dönüşüm maliyeti 73.500 TL'dir. Devralınan birimler bakımından yarı mamuller %100 tamamdır. Tamamlanan mamulün
+    birim maliyeti kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 50 TL
+    B: 60,5 TL
+    C: 62,25 TL
+    D: 77,17 TL
+    E: 400.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Devralınan birimlerin birim maliyeti 400.000 / 8.000 = 50 TL''dir (DSYM dahil hepsi %100 tamam). Dönüşüm
+      eşdeğer birimi 6.000 + 2.000 × %50 = 7.000; birim dönüşüm maliyeti 73.500 / 7.000 = 10,5 TL. Tamamlanan mamulün birim
+      maliyeti 60,5 TL''dir. Tamamlananların maliyeti 151''in alacağı karşılığında aktarılır. Püf noktaları: Devralınan maliyet
+      ayrı bir unsurdur ve yarı mamullerde %100 tamdır; tamamlanma derecesi yalnızca II. safhanın dönüşümüne uygulanır.'
+    celdiriciler:
+      A: Yalnızca devralınan maliyetin birim maliyetidir; II. safhanın dönüşüm maliyeti eklenmemiştir.
+      C: Dönüşüm maliyeti yalnızca tamamlanan birimlere (6.000) bölünmüştür; DSYM'nin eşdeğeri unutulmuştur.
+      D: Devralınan maliyet tamamlanan birimlere (6.000) bölünmüş, DSYM'nin devralınan maliyetteki payı atlanmıştır.
+      E: Devralınan toplam maliyettir; birim maliyet değildir.
+    hesap_adimlari:
+    - Devralınan birim maliyet = 400.000 / 8.000 = 50
+    - Dönüşüm eşdeğer birimi = 6.000 + 1.000 = 7.000
+    - Dönüşüm birim maliyeti = 73.500 / 7.000 = 10,5
+    - Toplam = 60,5 TL
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 400000 / 8000 + 73500 / (6000 + 2000 * 0.5)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0035
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 3
+  kok: AB İşletmesi safha maliyet sistemini uygulamaktadır. İlk madde safhanın başında tamamen verilmekte, dönüşüm giderleri
+    (işçilik ve genel üretim giderleri) üretim boyunca düzenli oluşmaktadır. Dönem başında 400 birim yarı mamul (dönüşüm bakımından
+    %50 tamamlanmış) bulunmakta, dönem içinde 5.600 birim üretime başlanmış, 5.400 birim tamamlanmış ve 600 birim yarı mamul
+    (dönüşüm bakımından %50 tamamlanmış) dönem sonunda kalmıştır. FIFO yöntemi uygulanmaktadır; dönem içinde katlanılan dönüşüm
+    maliyeti 159.500 TL'dir. Dönem başı yarı mamullerin tamamlanması için bu dönemde dönüşüm bakımından katlanılan maliyet
+    kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 200 TL
+    B: 5.500 TL
+    C: 5.800 TL
+    D: 11.600 TL
+    E: 19.800 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'FIFO dönüşüm eşdeğer birimi = 5.400 − 200 + 300 = 5.500; birim maliyet 159.500 / 5.500 = 29 TL''dir. DBYM
+      dönüşüm bakımından %50 tamam olduğundan bu dönemde 200 eşdeğer birimlik iş yapılır: 200 × 29 = 5.800 TL. Püf noktaları:
+      Bu dönemde yapılan iş, DBYM''nin geçen dönemde tamamlanan kısmı çıkarıldıktan sonra kalan %50''dir. Geçen dönem maliyeti
+      bu hesaba girmez; yalnız toplam maliyet sorulsaydı eklenirdi.'
+    celdiriciler:
+      A: DBYM'nin bu dönemde tamamlanan eşdeğer birim sayısıdır (400 × %50); birim maliyetle çarpılmamıştır.
+      B: FIFO dönüşüm eşdeğer birim sayısıdır; maliyet değildir.
+      D: DBYM'nin tamamı (400 birim) bu dönemde işlenmiş gibi birim maliyetle çarpılmıştır; geçen dönemdeki %50 düşülmemiştir.
+      E: DBYM'nin geçen dönem maliyeti (14.000 TL) ile bu dönemde katlanılan 5.800 TL'nin toplamıdır; yalnızca bu dönem katlanılan
+        sorulmaktadır.
+    hesap_adimlari:
+    - FIFO eşdeğer birim = 5.400 − 200 + 300 = 5.500
+    - Birim dönüşüm maliyeti = 159.500 / 5.500 = 29 TL
+    - DBYM tamamlama = 200 × 29 = 5.800 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 400 * (1 - 0.5) * 159500 / (5400 - 400 * 0.5 + 600 * 0.5)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0036
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 3
+  kok: AZ İşletmesi safha maliyet sistemini uygulamaktadır. İlk madde safhanın başında tamamen verilmekte, dönüşüm giderleri
+    (işçilik ve genel üretim giderleri) üretim boyunca düzenli oluşmaktadır. Dönem başında 400 birim yarı mamul (dönüşüm bakımından
+    %50 tamamlanmış) bulunmakta, dönem içinde 5.600 birim üretime başlanmış, 5.400 birim tamamlanmış ve 600 birim yarı mamul
+    (dönüşüm bakımından %50 tamamlanmış) dönem sonunda kalmıştır. FIFO yöntemi uygulanmaktadır; dönem içinde katlanılan maliyetler
+    ilk madde 112.000 TL, dönüşüm 159.500 TL'dir. Dönem sonu yarı mamullerin FIFO yöntemine göre maliyeti kaç TL'dir? KDV
+    dikkate alınmayacaktır.
+  secenekler:
+    A: 8.700 TL
+    B: 12.000 TL
+    C: 20.700 TL
+    D: 21.000 TL
+    E: 264.600 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'İlk madde eşdeğer birimi 5.400 − 400 + 600 = 5.600; birim maliyeti 112.000 / 5.600 = 20 TL. Dönüşüm eşdeğer
+      birimi 5.500; birim maliyeti 159.500 / 5.500 = 29 TL. DSYM = 600 × 20 + 300 × 29 = 12.000 + 8.700 = 20.700 TL''dir.
+      FIFO''da DSYM cari dönem birim maliyetleriyle değerlenir. Püf noktaları: FIFO''da DSYM''nin ilk madde derecesi %100,
+      dönüşüm derecesi %50''dir; eşdeğer birimlerde DBYM''nin geçen dönem payı düşülür. Ortalama yöntem birim maliyetlerini
+      kullanmak tipik hatadır.'
+    celdiriciler:
+      A: Yalnızca dönüşüm maliyetidir (300 × 29); ilk madde maliyeti eklenmemiştir.
+      B: Yalnızca ilk madde maliyetidir (600 × 20); dönüşüm eklenmemiştir.
+      D: Ağırlıklı ortalama birim maliyetlerinin (20 + 30) kullanıldığı değerdir; FIFO'da dönem birim maliyetleri (20 ve 29)
+        kullanılır.
+      E: Tamamlanan 5.400 birimin dönem birim maliyetiyle (49 TL) çarpımıdır; dönem sonu yarı mamul sorulmaktadır.
+    hesap_adimlari:
+    - İlk madde birim = 112.000 / 5.600 = 20
+    - Dönüşüm birim = 159.500 / 5.500 = 29
+    - DSYM = 600 × 20 + 300 × 29 = 20.700 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 600 * 112000 / (5400 - 400 + 600) + 600 * 0.5 * 159500 / (5400 - 400 * 0.5 + 600 * 0.5)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0037
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: kavrama
+  zorluk: 3
+  kok: Bir işletmede dönem başı yarı mamul bulunmamaktadır; ilk madde başta verilmekte, dönem sonu yarı mamul vardır. İşletme
+    safha maliyetini hem FIFO hem ağırlıklı ortalama yöntemiyle hesaplamıştır. Bu iki hesaplamanın sonuçları ve dönem maliyeti
+    dağıtımı için aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: FIFO'da birim maliyet her zaman ortalama yöntemden yüksek çıkar.
+    B: Ağırlıklı ortalamada dönem sonu yarı mamul değerlenmez, tamamı tamamlananlara yüklenir.
+    C: FIFO'da dönem sonu yarı mamul eski dönem birim maliyetiyle değerlenir.
+    D: Ağırlıklı ortalamada eşdeğer birimden DBYM'nin geçen dönem eşdeğeri düşülür.
+    E: DBYM olmadığından iki yöntemde eşdeğer birimler ve birim maliyetler aynıdır.
+  dogru: E
+  aciklama:
+    dogru_neden: 'TMS 2 paragraf 27''ye göre ağırlıklı ortalama, dönem başı ve dönem içi maliyetlerin ortalamasını alır; FIFO
+      ilk giren kalemlerin ilk çıktığını varsayar. Dönem başı yarı mamul bulunmadığında havuza katılacak geçen dönem maliyeti
+      ve düşülecek eşdeğer birim olmadığından iki yöntemin sonucu aynıdır. Püf noktaları: Yöntem farkı yalnızca DBYM''den
+      doğar. DBYM yoksa eşdeğer birim, birim maliyet, tamamlanan ve DSYM maliyetleri her iki yöntemde birebir aynıdır.'
+    celdiriciler:
+      A: Dönem başı yarı mamul yoksa iki yöntem aynı sonucu verir; birinin her zaman yüksek olması söz konusu değildir.
+      B: Her iki yöntemde de dönem sonu yarı mamul eşdeğer birim üzerinden değerlenir.
+      C: FIFO'da dönem sonu yarı mamul cari dönem birim maliyetiyle değerlenir.
+      D: Bu düzeltme FIFO'ya özgüdür; ağırlıklı ortalamada yapılmaz.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0038
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: uygulama
+  zorluk: 3
+  kok: AZ İşletmesi'nde I. safhada tamamlanan 8.000 birimin maliyeti 400.000 TL olup II. safhaya devredilmiştir. II. safhada
+    bu birimlerin 6.000'i tamamlanarak 372.000 TL maliyetle son safhadan ambara alınmış, 2.000'i yarı mamul olarak kalmıştır.
+    Son safhadan ambara giriş kaydı aşağıdakilerden hangisidir?
+  secenekler:
+    A: 152 Mamuller 372.000 TL borç; 151 Yarı Mamuller-Üretim 372.000 TL alacak
+    B: 152 Mamuller 400.000 TL borç; 151 Yarı Mamuller-Üretim 400.000 TL alacak
+    C: 152 Mamuller 28.000 TL borç; 151 Yarı Mamuller-Üretim 28.000 TL alacak
+    D: 151 Yarı Mamuller-Üretim 372.000 TL borç; 152 Mamuller 372.000 TL alacak
+    E: 157 Diğer Stoklar 372.000 TL borç; 151 Yarı Mamuller-Üretim 372.000 TL alacak
+  dogru: A
+  aciklama:
+    dogru_neden: 'Tek Düzen Hesap Planı''na göre üretimi tamamlananların maliyet tutarı 151 Yarı Mamuller-Üretim hesabının
+      alacağı karşılığında ilgili stok hesaplarına aktarılır; 152 Mamuller hesabı üretimi tamamlanan mamullerin ambarlara
+      alınmasıyla borçlanır. Aktarılan tutar yalnızca son safhadan çıkan tamamlanmış mamullerin maliyetidir (372.000 TL).
+      Püf noktaları: Devralınan toplam maliyet, ambara giren maliyet ve dönem sonunda 151''de kalan maliyet farklı kavramlardır;
+      2.000 birimlik yarı mamul 151''de borç kalanı olarak kalır.'
+    celdiriciler:
+      B: 400.000 TL I. safhadan devralınan toplam maliyettir; ambara giren 6.000 birimin maliyeti 372.000 TL'dir.
+      C: Ambara giren mamulün maliyeti, dönem sonunda kalan yarı mamul farkı değil, tamamlananların maliyetidir.
+      D: Taraflar ters yazılmıştır; mamullerin ambara alınmasıyla 152 borçlanır.
+      E: 157 yan ürün, artık ve hurda için kullanılır; ana mamuller 152'dedir.
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 152 Mamuller
+    alinti: 'Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır. İşleyişi
+      : Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle
+      ambardan çekilmesi ile alacaklandırılır.'
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0039
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: kavrama
+  zorluk: 3
+  kok: Safha maliyeti hesaplarında TMS 2 Stoklar standardının 25 inci ve 27 nci paragraflarına göre aşağıdakilerden hangisi
+    **yanlıştır**?
+  secenekler:
+    A: Birbirinin yerine geçebilen stokların maliyeti FIFO veya ağırlıklı ortalama yöntemiyle belirlenebilir.
+    B: FIFO yönteminde dönem sonunda stokta kalan kalemlerin en son üretilen kalemler olduğu varsayılır.
+    C: Ağırlıklı ortalamada dönem başındaki benzer kalemlerin maliyetleri ortalamaya katılır.
+    D: Ağırlıklı ortalama dönemsel olarak veya stok girişi oldukça hesaplanabilir.
+    E: Ağırlıklı ortalamada birim maliyet yalnızca dönem maliyetinden bulunur, DBYM maliyeti katılmaz.
+  dogru: E
+  aciklama:
+    dogru_neden: 'TMS 2 paragraf 27''ye göre ağırlıklı ortalamada her kalemin maliyeti dönem başındaki kalemlerin maliyetleri
+      ile dönem içinde üretilenlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir; dönem başı maliyet ayrı tutulmaz.
+      Dönem başı maliyeti ayrı tutan yaklaşım FIFO''ya aittir. Püf noktaları: ''Yanlış'' soruda dört doğru ifadeyi ele; ağırlıklı
+      ortalama ile FIFO''nun DBYM''yi farklı işlediğini hatırla.'
+    celdiriciler:
+      A: Paragraf 25'in hükmüdür; doğrudur.
+      B: Paragraf 27'nin FIFO tanımıdır; doğrudur.
+      C: Paragraf 27'nin ağırlıklı ortalama tanımıdır; doğrudur.
+      D: Paragraf 27 bu seçeneği açıkça belirtir; doğrudur.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 25
+    alinti: 23’üncü paragrafta belirtilenler dışında kalan stokların maliyeti, ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama
+      maliyet yöntemi kullanılarak belirlenir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0040
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: kavrama
+  zorluk: 3
+  kok: AB İşletmesi, safha maliyetini hesaplarken mamul maliyetine hangi giderlerin katılacağını belirlemektedir. 213 sayılı
+    Vergi Usul Kanunu md. 275 ve TMS 2 paragraf 16 birlikte düşünüldüğünde aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Satış maliyetleri stok maliyetine girmez; genel idare hissesi VUK'a göre ihtiyaridir.
+    B: Satış maliyetleri ve genel idare giderlerinin tamamı mamul maliyetine katılmak zorundadır.
+    C: Genel imal giderlerinden mamule düşen hisse mamul maliyetine katılmaz.
+    D: Zaruri ambalaj bedeli ve işçilik mamul maliyetinin ihtiyari unsurlarıdır.
+    E: Normalin üstünde gerçekleşen hammadde fireleri stok maliyetine katılır.
+  dogru: A
+  aciklama:
+    dogru_neden: 'VUK md. 275''e göre genel idare giderlerinden mamule düşen hissenin maliyete katılması ihtiyaridir. TMS
+      2 paragraf 16(d)''ye göre satış maliyetleri stokların maliyetine dahil edilmeyip gerçekleştikleri dönemde gider olarak
+      yansıtılır. Püf noktaları: İki metnin ölçütleri farklıdır: VUK ihtiyari unsuru sayar, TMS 2 dönem gideri sayılacak kalemleri
+      sayar. Seçeneklerde zorunlu ve ihtiyari unsurları ters yazan ifadelere dikkat et.'
+    celdiriciler:
+      B: Satış maliyetleri TMS 2'ye göre stok maliyeti dışındadır; genel idare hissesi VUK'a göre ihtiyaridir.
+      C: Genel imal giderlerinden hisse VUK md. 275'in zorunlu unsurudur; TMS 2 de dağıtılan genel üretim giderlerini dahil
+        eder.
+      D: İşçilik ve zaruri ambalaj bedeli VUK'a göre maliyet bedelinin unsurlarıdır, ihtiyari olan genel idare hissesidir.
+      E: TMS 2 paragraf 16(a)'ya göre normalin üstündeki fire ve kayıplar dönem giderine yazılır.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 275
+    alinti: 'İmal edilen emtianın (Tam ve yarı mamul mallar) maliyet bedeli aşağıda yazılı unsurları ihtiva eder: 1. Mamulün
+      vücuda getirilmesinde sarf olunan iptidai ve ham maddelerin bedeli; 2. Mamule isabet eden işçilik; 3. Genel imal giderlerinden
+      mamule düşen hisse; 4. Genel idare giderlerinden mamule düşen hisse; (Bu hissenin mamulün maliyetine katılması ihtiyaridir.)'
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 16
+    alinti: 'Aşağıdakiler, stokların maliyetine dâhil edilmeyen ve gerçekleştikleri dönemde gider olarak finansal tablolara
+      yansıtılan maliyetlere örnek olarak verilebilir: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik
+      ve diğer üretim maliyetleri, (b) Üretim sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan
+      depolama maliyetleri, (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri,
+      (d) Satış maliyetleri.'
+  gecerlilik:
+    baslangic: '1961-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0041
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 1
+  kok: ZP İşletmesi'nde FIFO yöntemi uygulanmaktadır. Safhaya devredilen dönem başı yarı mamul 800 birim olup bunlar geçen
+    dönemde dönüşüm bakımından %50 tamamlanmıştır. Bu yarı mamullerin tamamlanması için cari dönemde yapılması gereken dönüşüm
+    işi kaç eşdeğer birimdir?
+  secenekler:
+    A: 50 birim
+    B: 400 birim
+    C: 800 birim
+    D: 1.200 birim
+    E: 1.600 birim
+  dogru: B
+  aciklama:
+    dogru_neden: 'FIFO''da dönem başı yarı mamul önce tamamlanır; bu dönemde yapılacak iş, tamamlanmamış kısımdır: 800 × (1
+      − %50) = 400 eşdeğer birimdir (TMS 2 paragraf 27: ilk üretilenler ilk çıkar).'
+    celdiriciler:
+      A: Tamamlanma yüzdesi (50) eşdeğer birim sayısı olarak alınmıştır.
+      C: Fiziki yarı mamul miktarıdır; geçen dönemde tamamlanan kısım düşülmemiştir.
+      D: Fiziki miktara geçen dönemde işlenen kısmın eşdeğeri (400) eklenmiştir (800 + 400).
+      E: Fiziki miktar derece ile çarpılmak yerine bölünmüştür (800 / 0,5).
+    hesap_adimlari:
+    - Cari dönem işi = 800 × (1 − 0,50) = 400 eşdeğer birim
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 800 * (1 - 0.5)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0042
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 2
+  kok: 'CK İşletmesi''nde safhaya ilişkin veriler şöyledir: dönem başı yarı mamul 2.500 birim (dönüşüm bakımından geçen dönemde
+    %40), dönemde başlanan 7.500 birim, tamamlanan 6.000 birim ve dönem sonu yarı mamul 4.000 birim (dönüşüm bakımından %50).
+    İlk madde başta verilmektedir. Dönem başı yarı mamulün dönüşüm maliyeti 22.500 TL, dönem içinde katlanılan dönüşüm maliyeti
+    77.500 TL''dir. Ağırlıklı ortalama yöntemine göre dönüşüm maliyetinin birim maliyeti kaç TL''dir? KDV dikkate alınmayacaktır.'
+  secenekler:
+    A: 8 TL
+    B: 10 TL
+    C: 12,5 TL
+    D: 14,29 TL
+    E: 16,67 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Ağırlıklı ortalamada DBYM maliyeti ile dönem maliyeti toplanır: 22.500 + 77.500 = 100.000 TL. Eşdeğer birim
+      6.000 + 4.000 × %50 = 8.000''dir. Birim maliyet 100.000 / 8.000 = 12,5 TL''dir (TMS 2 paragraf 27).'
+    celdiriciler:
+      A: Yalnızca dönem maliyeti (80.000 TL) toplam fiziki akışa bölünmüştür; DBYM maliyeti havuza alınmamıştır.
+      B: Toplam dönüşüm maliyeti fiziki toplama (10.000) bölünmüştür; eşdeğer birim kullanılmamıştır.
+      D: FIFO eşdeğer birimi (7.000) kullanılmıştır; ortalama yöntemde DBYM'nin eşdeğeri çıkarılmaz.
+      E: Yalnızca tamamlanan birimlere (6.000) bölünmüştür.
+    hesap_adimlari:
+    - Toplam dönüşüm maliyeti = 100.000 TL
+    - Eşdeğer birim = 6.000 + 2.000 = 8.000
+    - Birim maliyet = 12,5 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (22500 + 77500) / (6000 + 4000 * 0.5)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0043
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: bilgi
+  zorluk: 1
+  kok: Bir safhanın dönem sonunda tamamlanmamış olarak kalan ürünleri, maliyet unsurlarından kısmen pay almış üretim aşamasındaki
+    mamul niteliğindedir. Tek Düzen Hesap Planı'nda bu ürünlerin maliyeti hangi hesapta izlenir?
+  secenekler:
+    A: 152 Mamuller
+    B: 730 Genel Üretim Giderleri
+    C: 157 Diğer Stoklar
+    D: 153 Ticari Mallar
+    E: 151 Yarı Mamuller-Üretim
+  dogru: E
+  aciklama:
+    dogru_neden: 151 Yarı Mamuller-Üretim hesabı, henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt
+      işçilik ve genel üretim giderlerinden belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır.
+    celdiriciler:
+      A: 152, üretimi tamamlanıp satışa hazır hale gelmiş mamullerin hesabıdır.
+      B: 730, dolaylı üretim giderlerinin toplandığı gider hesabıdır; yarı mamul stoku izlemez.
+      C: 157, diğer stok kalemlerinin kapsamına girmeyen ürün, artık ve hurda içindir.
+      D: 153, değiştirilmeden satılmak üzere alınan malların hesabıdır.
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0044
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: tamamlanma derecesi geri hesap
+  tip: hesaplama
+  zorluk: 2
+  kok: DM İşletmesi'nin safha raporunda ağırlıklı ortalama yöntemine göre dönüşüm eşdeğer birimi 9.100, FIFO yöntemine göre
+    8.500 bulunmuştur. Dönem içinde tamamlanan miktar 8.000 birimdir. Dönem sonu yarı mamullerin dönüşüm bakımından eşdeğer
+    birim sayısı kaçtır?
+  secenekler:
+    A: 500 birim
+    B: 600 birim
+    C: 1.100 birim
+    D: 2.200 birim
+    E: 17.600 birim
+  dogru: C
+  aciklama:
+    dogru_neden: Ağırlıklı ortalama eşdeğer birimi tamamlanan + DSYM eşdeğeridir (TMS 2 paragraf 27). DSYM eşdeğeri 9.100
+      − 8.000 = 1.100 birimdir. İki yöntemin farkı olan 600 birim DBYM'nin geçen dönemdeki eşdeğeridir.
+    celdiriciler:
+      A: FIFO eşdeğer birimi ile tamamlananın farkıdır (8.500 − 8.000); bu fark DSYM eşdeğerini değil, DSYM eşdeğeri ile DBYM'nin
+        geçen dönem eşdeğerinin farkını verir.
+      B: İki yöntemin eşdeğer birimleri arasındaki farktır; bu fark DBYM'nin geçen dönemdeki eşdeğeridir.
+      D: DSYM'nin fiziki miktarı gibi bir değerdir; tamamlanma derecesi uygulanmamıştır.
+      E: İki yöntemin eşdeğer birimlerinin toplamıdır.
+    hesap_adimlari:
+    - DSYM eşdeğeri = 9.100 − 8.000 = 1.100
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 9100 - 8000
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0045
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 2
+  kok: BD İşletmesi'nin safha raporunda ilk madde üretimin başında tamamen verilmekte, dönüşüm giderleri düzenli oluşmaktadır.
+    Dönem başı yarı mamul 1.500 birim (geçen dönemde dönüşüm bakımından %40), dönemde üretime başlanan 8.500 birim, tamamlanan
+    7.500 birim ve dönem sonu yarı mamul 2.500 birimdir (dönüşüm bakımından %60). Ağırlıklı ortalama yöntemine göre dönüşüm
+    eşdeğer birim sayısı kaçtır?
+  secenekler:
+    A: 600 birim
+    B: 7.500 birim
+    C: 8.400 birim
+    D: 9.000 birim
+    E: 10.000 birim
+  dogru: D
+  aciklama:
+    dogru_neden: Ağırlıklı ortalamada dönem başı yarı mamul ve dönem birlikte değerlendirilir (TMS 2 paragraf 27). Eşdeğer
+      birim = 7.500 + 2.500 × %60 = 9.000'dir.
+    celdiriciler:
+      A: DBYM'nin geçen dönemde işlenmiş eşdeğeridir (1.500 × %40).
+      B: Yalnızca tamamlanan birimlerdir; dönem sonu yarı mamulün eşdeğeri eklenmemiştir.
+      C: FIFO eşdeğer birimidir (7.500 − 600 + 1.500); ortalama yöntemde DBYM'nin eşdeğeri düşülmez.
+      E: İlk madde eşdeğer birimidir (7.500 + 2.500 × %100); dönüşüm derecesi %60'tır.
+    hesap_adimlari:
+    - DSYM eşdeğeri = 2.500 × 0,6 = 1.500
+    - Toplam = 7.500 + 1.500 = 9.000
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 7500 + 2500 * 0.6
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0046
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: kavrama
+  zorluk: 2
+  kok: TMS 2 paragraf 27'deki FIFO varsayımı çerçevesinde safha maliyetinde dönem sonu yarı mamullerin değerlemesine ilişkin
+    aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Dönem sonu yarı mamuller cari dönem birim maliyetleriyle değerlenir.
+    B: Dönem sonu yarı mamuller dönem başı yarı mamulün birim maliyetiyle değerlenir.
+    C: Dönem sonu yarı mamuller ağırlıklı ortalama birim maliyetle değerlenir.
+    D: Dönem sonu yarı mamuller değerlenmez; maliyetin tamamı tamamlananlara yüklenir.
+    E: Dönem sonu yarı mamuller satış fiyatı üzerinden değerlenir.
+  dogru: A
+  aciklama:
+    dogru_neden: TMS 2 paragraf 27'ye göre FIFO, ilk üretilen kalemlerin ilk çıktığını ve dönem sonunda kalan kalemlerin en
+      son üretilenler olduğunu varsayar; bu nedenle dönem sonu yarı mamul cari dönemin birim maliyetiyle değerlenir.
+    celdiriciler:
+      B: FIFO'da dönem başı yarı mamul önce tamamlanır; dönem sonu yarı mamul cari dönem üretiminden oluşur.
+      C: Ortalama birim maliyet ağırlıklı ortalama yöntemine aittir.
+      D: Dönem sonu yarı mamul eşdeğer birim üzerinden değerlenir ve 151 hesabında borç kalanı olarak kalır.
+      E: Stoklar maliyetle değerlenir; satış fiyatı ölçü değildir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0047
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: uygulama
+  zorluk: 2
+  kok: EK İşletmesi'nin safhasında dönem sonunda 2.000 birim yarı mamul kalmıştır; tamamlanan mamullerin maliyeti 152 Mamuller
+    hesabına aktarılmıştır. Tek Düzen Hesap Planı'na göre dönem sonu yarı mamullerin maliyeti hangi hesapta nasıl kalır?
+  secenekler:
+    A: 152 Mamuller hesabında borç kalanı olarak izlenir.
+    B: 151 Yarı Mamuller-Üretim hesabında alacak kalanı olarak kalır.
+    C: 730 Genel Üretim Giderleri hesabında izlenir.
+    D: Dönem gideri sayılarak doğrudan kapatılır.
+    E: 151 Yarı Mamuller-Üretim hesabında borç kalanı olarak kalır.
+  dogru: E
+  aciklama:
+    dogru_neden: 151 Yarı Mamuller-Üretim hesabı dönem sonunda ilk madde, işçilik ve genel üretim giderleri kadar borçlandırılır;
+      üretimi tamamlananların maliyeti bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır. Tamamlanmayanların
+      maliyeti 151'de borç kalanı olarak kalır.
+    celdiriciler:
+      A: 152, üretimi tamamlanan mamuller içindir; yarı mamuller tamamlanmamıştır.
+      B: 151 maliyetlerle borçlandırılır; tamamlananlar alacak yazılır, kalan borç kalanıdır.
+      C: 730 gider toplama hesabıdır; yarı mamul stok değildir.
+      D: Yarı mamuller stoktur; dönem giderine aktarılmaz.
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0048
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 3
+  kok: FK İşletmesi'nin II. safhasında dönem başı yarı mamul yoktur. I. safhadan 5.000 birim 150.000 TL maliyetle devralınmış;
+    II. safhada 4.000 birim tamamlanmış, 1.000 birim yarı mamul (dönüşüm bakımından %60) kalmıştır. II. safhanın dönüşüm maliyeti
+    66.700 TL'dir. Devralınan birimler yarı mamullerde de %100 tamamdır. Tamamlanan mamulün birim maliyeti kaç TL'dir? KDV
+    dikkate alınmayacaktır.
+  secenekler:
+    A: 30 TL
+    B: 43,34 TL
+    C: 44,5 TL
+    D: 46,68 TL
+    E: 52 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Devralınan birim maliyet 150.000 / 5.000 = 30 TL''dir (yarı mamuller dahil %100). Dönüşüm eşdeğer birimi
+      4.000 + 1.000 × %60 = 4.600; birim dönüşüm maliyeti 66.700 / 4.600 = 14,5 TL. Toplam 44,5 TL''dir. Tamamlananların maliyeti
+      151''in alacağı karşılığında aktarılır. Püf noktaları: Devralınan maliyet ayrı bir unsur olup tüm birimler için %100
+      tamamdır; tamamlanma derecesi yalnızca II. safhanın dönüşüm maliyetine uygulanır.'
+    celdiriciler:
+      A: Yalnızca devralınan maliyettir; II. safhanın dönüşüm maliyeti eklenmemiştir.
+      B: Dönüşüm maliyeti fiziki toplama (5.000) bölünmüştür; eşdeğer birim 4.600 alınmalıdır.
+      D: Dönüşüm maliyeti yalnızca tamamlanan birimlere (4.000) bölünmüştür.
+      E: Devralınan maliyet yalnızca tamamlanan birimlere (4.000) bölünmüştür; yarı mamuller de devralınan maliyeti taşır.
+    hesap_adimlari:
+    - Devralınan birim = 150.000 / 5.000 = 30
+    - Dönüşüm eşdeğeri = 4.000 + 600 = 4.600
+    - Dönüşüm birim = 66.700 / 4.600 = 14,5
+    - Toplam = 44,5 TL
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 150000 / 5000 + 66700 / (4000 + 1000 * 0.6)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0049
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: tamamlanma derecesi geri hesap
+  tip: hesaplama
+  zorluk: 3
+  kok: GL İşletmesi'nde ağırlıklı ortalama yöntemine göre ilk madde birim maliyeti 20 TL, dönüşüm birim maliyeti 40 TL bulunmuştur.
+    Dönem sonu yarı mamullerin dönüşüm maliyeti 48.000 TL'dir. İlk madde başta verilmektedir. Dönem sonu yarı mamullerin dönüşüm
+    bakımından eşdeğer birim sayısı kaçtır? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 800 birim
+    B: 1.200 birim
+    C: 1.600 birim
+    D: 2.400 birim
+    E: 48.000 birim
+  dogru: B
+  aciklama:
+    dogru_neden: 'Dönem sonu yarı mamullerin dönüşüm maliyeti = dönüşüm eşdeğer birimi × dönüşüm birim maliyeti olduğundan
+      eşdeğer birim 48.000 / 40 = 1.200''dür. İlk madde birim maliyeti bu hesapta kullanılmaz. Püf noktaları: İlk madde maliyeti
+      gereksiz veridir; geri hesapta yalnızca ilgili unsurun (dönüşüm) maliyeti ve birim maliyeti kullanılır. Tam birim maliyetle
+      (60 TL) bölmek tipik hatadır.'
+    celdiriciler:
+      A: Dönüşüm maliyeti ilk madde ve dönüşüm birim maliyetleri toplamına (60 TL) bölünmüştür; dönüşüm tutarı yalnızca dönüşüm
+        birim maliyetine bölünür.
+      C: Dönüşüm maliyeti iki birim maliyetin aritmetik ortalamasına (30 TL) bölünmüştür.
+      D: Dönüşüm maliyeti ilk madde birim maliyetine (20 TL) bölünmüştür.
+      E: Dönüşüm maliyetinin kendisidir; eşdeğer birim sayısına ulaşmak için birim maliyete bölünmemiştir.
+    hesap_adimlari:
+    - Eşdeğer birim = 48.000 / 40 = 1.200
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 48000 / 40
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-SAF-0050
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: kavrama
+  zorluk: 3
+  kok: Bir işletmede ilk madde safhanın başında, dönüşüm giderleri ise üretim boyunca eşit olarak oluşmaktadır. Dönem başı
+    yarı mamul bulunmamaktadır. Dönem sonu yarı mamullerin dönüşüm bakımından %40 tamamlandığı bilinmektedir. Aşağıdakilerden
+    hangisi doğrudur?
+  secenekler:
+    A: Dönem sonu yarı mamullerin hem ilk madde hem dönüşüm eşdeğer birimi fiziki miktarın %40'ına eşittir.
+    B: Dönem sonu yarı mamullerin ilk madde eşdeğer birimi fiziki miktarın %40'ına, dönüşüm eşdeğer birimi fiziki miktara
+      eşittir.
+    C: Dönem sonu yarı mamuller eşdeğer birim hesabına katılmaz; yalnızca tamamlananlar esas alınır.
+    D: İlk madde eşdeğer birimi fiziki miktara, dönüşüm eşdeğer birimi fiziki miktarın %40'ına eşittir.
+    E: Ağırlıklı ortalama ile FIFO yöntemlerinin eşdeğer birimleri bu durumda farklı çıkar.
+  dogru: D
+  aciklama:
+    dogru_neden: 'Tek Düzen Hesap Planı''na göre 151 Yarı Mamuller-Üretim hesabı ilk madde, işçilik ve genel üretim giderleri
+      kadar borçlandırılır. İlk madde başta verildiğinden yarı mamul ilk madde bakımından tamdır; dönüşüm bakımından derecesi
+      kadar eşdeğerdir. DBYM bulunmadığından FIFO ve ağırlıklı ortalama aynı sonucu verir (TMS 2 par. 27). Püf noktaları:
+      Unsur bazında düşün: ilk madde derecesi %100, dönüşüm derecesi soruda verilen orandır. DBYM yoksa yöntem farkı da kalmaz.'
+    celdiriciler:
+      A: İlk madde başta verildiğinden yarı mamuller ilk madde bakımından %100 tamamdır.
+      B: Dereceler ters yazılmıştır; dönüşüm %40, ilk madde %100'dür.
+      C: Yarı mamuller eşdeğer birim hesabına derecelerine göre katılır; aksi halde maliyetleri dağıtılamaz.
+      E: DBYM olmadığından iki yöntemin eşdeğer birimleri aynıdır.
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet
+      yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın
+      alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_SAF_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde

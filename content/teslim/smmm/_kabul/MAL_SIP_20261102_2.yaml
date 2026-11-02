@@ -1,0 +1,496 @@
+yazar: harici üretici (claude-sonnet-5-5)
+gorev: SMMM talimatı 2026-11-02
+sorular:
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: GÜG yükleme oranı
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: ZK İşletmesi, siparişlere GÜG'yi direkt işçilik saatine göre yüklemektedir. Yıl başında tahmini GÜG 270.000 TL, tahmini
+    direkt işçilik saati 21.600, tahmini makine saati 27.000 olarak belirlenmiş; yıl sonunda fiili direkt işçilik saati 20.000,
+    fiili GÜG 280.000 TL gerçekleşmiştir. Yıl başında belirlenen GÜG yükleme oranı kaç TL/direkt işçilik saatidir? KDV dikkate
+    alınmayacaktır.
+  secenekler:
+    A: 10 TL
+    B: 12,5 TL
+    C: 12,96 TL
+    D: 13,5 TL
+    E: 270.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: Yükleme oranı = tahmini GÜG / tahmini faaliyet ölçüsüdür. Ölçü direkt işçilik saati olduğundan 270.000 /
+      21.600 = 12,5 TL/saattir. Tek Düzen Hesap Planı'na göre 730 hesabındaki giderler dağıtım yoluyla üretim maliyetlerine
+      yansıtılabilir.
+    celdiriciler:
+      A: Tahmini GÜG makine saatine (27.000) bölünmüştür; yükleme ölçüsü direkt işçilik saatidir.
+      C: Fiili GÜG tahmini direkt işçilik saatine bölünmüştür; oran tahmini GÜG üzerinden hesaplanır.
+      D: Tahmini GÜG fiili direkt işçilik saatine (20.000) bölünmüştür; oran dönem başında tahmini ölçüyle belirlenir.
+      E: Tahmini toplam GÜG'dür; orana ulaşmak için ölçüye bölünmemiştir.
+    hesap_adimlari:
+    - Oran = 270.000 / 21.600 = 12,5 TL/saat
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 730 Genel Üretim Giderleri
+    alinti: Çeşit ve değer yönü ile doğrudan doğruya değil ancak dağıtım yoluyla üretim ve hizmet maliyetlerine yansıtılabilir
+      nitelikte olması
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 270000 / 21600
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: gider yeri katsayıları
+  tip: bilgi
+  zorluk: 1
+  soru_bicimi: standart
+  kok: Tek Düzen Hesap Planı'na göre gider yeri aşağıdakilerden hangisidir?
+  secenekler:
+    A: Yalnızca fabrika binasının bulunduğu arsa
+    B: Mamullerin satışa hazır halde bekletildiği depo
+    C: Giderlerin vergi açısından indirilebildiği hesap grubu
+    D: Yalnızca genel yönetimin çalıştığı büro
+    E: Maliyetlerin oluştuğu örgütün bir birimi ya da yeri
+  dogru: E
+  aciklama:
+    dogru_neden: Tek Düzen Hesap Planı'na göre gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu, örgütün
+      bir birimini ya da birim içindeki bir yeri ifade eder.
+    celdiriciler:
+      A: Gider yeri fiziki bir arsa değil, örgütün bir birimi ya da birim içindeki bir yerdir.
+      B: Depo bir gider yeri olabilir ancak tanım depoyla sınırlı değildir; gider yeri maliyetlerin oluştuğu birimdir.
+      C: Gider yeri bir hesap grubu değil, maliyetlerin oluştuğu örgüt birimidir.
+      D: Gider yerleri esas üretim, yardımcı hizmet gibi birçok birimi kapsar; yalnızca genel yönetim değildir.
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 10-99 Gider Yerleri
+    alinti: Gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu, örgütün bir birimini ya da birim içindeki
+      bir yeri ifade eder.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: fazla/eksik yükleme
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: AY İşletmesi'nde GÜG direkt işçilik saatine göre 16 TL/saat oranıyla yüklenmektedir. Dönem başında tahmini direkt işçilik
+    saati 26.000 idi. Dönem sonunda fiili direkt işçilik saati 25.000, fiili GÜG 412.000 TL olarak gerçekleşmiştir. Dönem
+    sonunda oluşan eksik veya fazla yükleme tutarı kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 1.000 TL
+    B: 4.000 TL
+    C: 12.000 TL
+    D: 16.000 TL
+    E: 400.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: Yüklenen GÜG = 16 × 25.000 = 400.000 TL'dir. Fiili GÜG 412.000 TL olduğundan 12.000 TL eksik (olumsuz) yükleme
+      vardır; fark 732 hesabının borcuna yazılır.
+    celdiriciler:
+      A: Tahmini ile fiili saat arasındaki farktır; TL tutarı değildir.
+      B: Fiili GÜG ile tahmini ölçüye göre bulunan yüklenen GÜG (416.000) arasındaki farktır; yükleme fiili ölçüyle yapılır.
+      D: Saat farkının oranla çarpımıdır (1.000 × 16); fiili GÜG ile yüklenen GÜG arasındaki fark değildir.
+      E: Siparişlere yüklenen GÜG tutarıdır; fark değildir.
+    hesap_adimlari:
+    - Yüklenen = 16 × 25.000 = 400.000
+    - Fark = 412.000 − 400.000 = 12.000 TL eksik yükleme
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 732 Genel Üretim Giderleri Bütçe Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz
+      bütçe farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem
+      sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 412000 - 16 * 25000
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: I. ve II. dağıtım (matematiksel; kademeli)
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: BK İşletmesi'nde aylık yemek gideri 144.000 TL olup çalışan sayısı esasına göre gider yerlerine dağıtılacaktır. Kesim
+    gider yerinde 40, Montaj gider yerinde 6, Bakım gider yerinde 2 kişi çalışmaktadır. I. dağıtımda Montaj gider yerine düşen
+    yemek gideri kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 6.000 TL
+    B: 18.000 TL
+    C: 48.000 TL
+    D: 120.000 TL
+    E: 144.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: I. dağıtımda gider çeşitleri uygun anahtarla gider yerlerine dağıtılır; yemek için anahtar personel sayısıdır.
+      Toplam 48 kişi; Montaj payı 144.000 × 6 / 48 = 18.000 TL'dir. Gider yeri, maliyetlerin oluştuğu örgüt birimidir.
+    celdiriciler:
+      A: Bakım gider yerine düşen paydır.
+      C: Gider üç gider yerine eşit (144.000 / 3) bölünmüştür; personel anahtarı kullanılmamıştır.
+      D: Kesim gider yerine düşen paydır.
+      E: Toplam yemek giderinin tamamıdır; dağıtım yapılmamıştır.
+    hesap_adimlari:
+    - Toplam personel = 48
+    - Montaj payı = 144.000 × 6 / 48 = 18.000 TL
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 10-99 Gider Yerleri
+    alinti: Gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu, örgütün bir birimini ya da birim içindeki
+      bir yeri ifade eder.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 144000 * 6 / (40 + 6 + 2)
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: gider yeri katsayıları
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: CM İşletmesi'nde Montaj gider yerinin II. dağıtım sonrası toplam gideri 126.000 TL'dir. Montaj'da dönem içinde 5.600
+    direkt işçilik saati kullanılmış, 6.000 makine saati çalışılmıştır. Kesim gider yerinin toplam gideri 154.000 TL'dir.
+    Montaj'da faaliyet ölçüsü direkt işçilik saatidir. Montaj gider yerinin yükleme katsayısı kaç TL/direkt işçilik saatidir?
+    KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 15 TL
+    B: 21 TL
+    C: 22,5 TL
+    D: 50 TL
+    E: 126.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Gider yeri katsayısı = gider yerinin toplam gideri / faaliyet ölçüsüdür: 126.000 / 5.600 = 22,5 TL/direkt
+      işçilik saatidir.'
+    celdiriciler:
+      A: I. dağıtım sonrası gider (84.000 TL) dikkate alınmış, II. dağıtımdan gelen paylar eklenmemiştir.
+      B: Gider yeri gideri makine saatine (6.000) bölünmüştür; ölçü direkt işçilik saatidir.
+      D: Kesim ve Montaj gider yerlerinin toplam gideri (280.000 TL) Montaj'ın saatine bölünmüştür.
+      E: Gider yerinin toplam giderinin kendisidir; ölçüye bölünmemiştir.
+    hesap_adimlari:
+    - Katsayı = 126.000 / 5.600 = 22,5 TL/saat
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 10-99 Gider Yerleri
+    alinti: Gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu, örgütün bir birimini ya da birim içindeki
+      bir yeri ifade eder.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 126000 / 5600
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: GÜG yükleme oranı
+  tip: kavrama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: TMS 2 Stoklar standardına göre her bir kalemin maliyetinin özel olarak belirlenmesi yöntemi hangi stok kalemleri için
+    uygundur?
+  secenekler:
+    A: Belirli bir proje için ayrılmış olan stok kalemleri
+    B: Birbirinin yerine geçebilen çok sayıda kalemden oluşan stoklar
+    C: Yalnızca satın alınmış olan stoklar
+    D: Yalnızca işletmede üretilmiş olan stoklar
+    E: Aynı hatta seri olarak üretilen benzer mamuller
+  dogru: A
+  aciklama:
+    dogru_neden: 'TMS 2 paragraf 24: Bu yöntem, satın alınmış veya üretilmiş olmasına bakılmaksızın, belirli bir proje için
+      ayrılmış olan stok kalemleri için uygun yöntemdir. Sipariş maliyeti bu mantığa dayanır.'
+    celdiriciler:
+      B: Standart bu yöntemin, birbirinin yerine geçebilen çok sayıda kalemden oluşan stoklar için uygun olmadığını belirtir.
+      C: Yöntem satın alınmış veya üretilmiş olmasına bakılmaksızın uygulanır.
+      D: Yöntem satın alınmış veya üretilmiş olmasına bakılmaksızın uygulanır.
+      E: Seri üretilen benzer kalemler için FIFO veya ağırlıklı ortalama kullanılır.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 24
+    alinti: Bu yöntem, satın alınmış veya üretilmiş olmasına bakılmaksızın, belirli bir proje için ayrılmış olan stok kalemleri
+      için uygun yöntemdir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: I. ve II. dağıtım (matematiksel; kademeli)
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: DN İşletmesi'nde I. dağıtım sonrası Enerji 4.000 TL, Bakım 3.000 TL (yardımcı hizmet), Kesim 100.000 TL, Montaj 60.000
+    TL (esas üretim) gider toplamına sahiptir. Enerji hizmetlerinin %25'ini Bakım'a, %45'ini Kesim'e, %30'unu Montaj'a; Bakım
+    hizmetlerinin %20'sini Enerji'ye, %50'sini Kesim'e, %30'unu Montaj'a vermektedir. II. dağıtım kademeli yöntemle, önce
+    Enerji dağıtılacak ve dağıtımı yapılmış Enerji'ye geri pay verilmeyecek biçimde yapılacaktır. Montaj gider yerinin II.
+    dağıtım sonrası toplam gideri kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 4.000 TL
+    B: 60.000 TL
+    C: 61.200 TL
+    D: 62.700 TL
+    E: 104.300 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Önce Enerji dağıtılır: Bakım''a 1.000, Kesim''e 1.800, Montaj''a 1.200 TL. Bakım''ın yeni gideri 3.000 +
+      1.000 = 4.000 TL olur; Enerji''ye geri pay verilmediğinden %50:%30 oranı 5/8 ve 3/8 olarak ölçeklenir: Kesim''e 2.500,
+      Montaj''a 1.500 TL. Montaj = 60.000 + 1.200 + 1.500 = 62.700 TL''dir. Püf noktaları: Sıra Enerji''den başlar. Bakım''ın
+      Enerji''ye verdiği %20 yok sayılır; kalan %80 üzerinden ölçekleme yapılır. Önce Enerji''nin Bakım''a verdiği pay Bakım''ın
+      giderine eklenmelidir.'
+    celdiriciler:
+      A: Enerji gider yerinin I. dağıtım sonrası giderleridir.
+      B: Montaj'ın I. dağıtım sonrası giderleridir; II. dağıtım payları eklenmemiştir.
+      C: Yalnızca Enerji'nin payı eklenmiştir; Bakım'ın Montaj'a payı unutulmuştur.
+      E: Kesim gider yerinin kademeli dağıtım sonrası toplamıdır.
+    hesap_adimlari:
+    - 'Enerji: Bakım 1.000; Kesim 1.800; Montaj 1.200'
+    - Bakım = 3.000 + 1.000 = 4.000
+    - Montaj payı = 4.000 × 30/80 = 1.500
+    - Montaj = 60.000 + 1.200 + 1.500 = 62.700 TL
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 10-99 Gider Yerleri
+    alinti: Gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu, örgütün bir birimini ya da birim içindeki
+      bir yeri ifade eder.
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 10-99 Gider Yerleri
+    alinti: Gider yerleri aşağıdaki gibi bölümlenir. - Esas üretim gider yerleri - Yardımcı üretim gider yerleri - Yardımcı
+      hizmet gider yerleri - Yatırım gider yerleri
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 60000 + 4000 * 0.3 + (3000 + 4000 * 0.25) * 30 / 80
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: GÜG yükleme oranı
+  tip: kavrama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Bir işletme sipariş maliyetini hesaplarken siparişe ait bazı giderleri stok maliyeti dışında bırakmak istemektedir.
+    TMS 2'ye göre stokların maliyetine dahil edilmeyip dönem gideri olarak yansıtılan kalem aşağıdakilerden hangisidir?
+  secenekler:
+    A: Siparişe doğrudan yüklenen işçilik
+    B: Sistematik dağıtılan değişken genel üretim giderleri
+    C: Normal kapasiteye göre dağıtılan sabit genel üretim giderleri
+    D: Üretimle doğrudan ilişkili diğer maliyetler
+    E: Mamul satışına ilişkin katlanılan satış maliyetleri
+  dogru: E
+  aciklama:
+    dogru_neden: TMS 2 paragraf 16(d)'ye göre satış maliyetleri stokların maliyetine dahil edilmeyen ve gerçekleştikleri dönemde
+      gider olarak finansal tablolara yansıtılan maliyetlerdendir. Dönüştürme maliyetleri ise paragraf 12'ye göre stok maliyetine
+      girer.
+    celdiriciler:
+      A: Dönüştürme maliyetidir; stok maliyetine dahildir.
+      B: Dönüştürme maliyetinin parçasıdır; stok maliyetine dahildir.
+      C: Dönüştürme maliyetinin parçasıdır; stok maliyetine dahildir.
+      D: Stokların dönüştürme maliyeti kapsamındadır; dahil edilir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 16
+    alinti: 'Aşağıdakiler, stokların maliyetine dâhil edilmeyen ve gerçekleştikleri dönemde gider olarak finansal tablolara
+      yansıtılan maliyetlere örnek olarak verilebilir: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik
+      ve diğer üretim maliyetleri, (b) Üretim sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan
+      depolama maliyetleri, (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri,
+      (d) Satış maliyetleri.'
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Stokların dönüştürme maliyetleri; direkt işçilik giderleri gibi, üretimle doğrudan ilişkili maliyetleri kapsar.
+      Bu maliyetler ayrıca ilk madde ve malzemenin mamule dönüştürülmesinde katlanılan sabit ve değişken genel üretim giderlerinden
+      sistematik bir şekilde dağıtılan tutarları da içerir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: faaliyet tabanlı maliyetleme
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: EP İşletmesi'nde faaliyet oranları kurulum için 150 TL, kalite kontrol için 250 TL, taşıma için 40 TL'dir. F siparişi
+    25 adetlik bir partidir; 6 kurulum, 4 kalite kontrol ve 30 taşıma kullanmış, ayrıca 100 makine saati çalışmıştır. Toplam
+    GÜG 220.000 TL, toplam makine saati 8.800'dür (geleneksel oran 25 TL/saat). Faaliyet tabanlı maliyetlemeye göre F siparişinde
+    bir adet mamule yüklenen GÜG kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 40 TL
+    B: 48 TL
+    C: 100 TL
+    D: 124 TL
+    E: 3.100 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'FTM''de siparişe yüklenen GÜG, faaliyet oranı × kullanılan sürücü miktarlarının toplamıdır: 6 × 150 + 4
+      × 250 + 30 × 40 = 900 + 1.000 + 1.200 = 3.100 TL. Adet başına 3.100 / 25 = 124 TL''dir. Püf noktaları: Makine saati
+      ve toplam GÜG geleneksel yöntem verileridir ve burada gereksizdir. Her faaliyetin kendi oranı vardır; son adımda parti
+      miktarına bölmeyi unutma.'
+    celdiriciler:
+      A: Yalnızca kalite kontrol faaliyetinin (1.000 TL) birim payıdır.
+      B: Yalnızca taşıma faaliyetinin (1.200 TL) birim payıdır.
+      C: Geleneksel oranla bulunan GÜG'nin (100 × 25 = 2.500 TL) birim payıdır.
+      E: Siparişe yüklenen toplam GÜG'dür; adet sayısına bölünmemiştir.
+    hesap_adimlari:
+    - GÜG = 900 + 1.000 + 1.200 = 3.100 TL
+    - Adet başına = 3.100 / 25 = 124 TL
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 730 Genel Üretim Giderleri
+    alinti: Çeşit ve değer yönü ile doğrudan doğruya değil ancak dağıtım yoluyla üretim ve hizmet maliyetlerine yansıtılabilir
+      nitelikte olması
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = (6 * 150 + 4 * 250 + 30 * 40) / 25
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Sipariş maliyeti ve GÜG yükleme/dağıtım
+  konu: SIP
+  kazanim: fazla/eksik yükleme
+  tip: kavrama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: AB İşletmesi'nde dönem sonunda fiili GÜG ile siparişlere yüklenen GÜG karşılaştırılmış ve yüklenen tutarın fiili GÜG'den
+    20.000 TL fazla olduğu görülmüştür. Tek Düzen Hesap Planı'na göre bu farkın muhasebeleştirilmesine ilişkin aşağıdakilerden
+    hangisi doğrudur?
+  secenekler:
+    A: 732 alacağına yazılır; hesap dönem sonunda stok ve satış maliyetine aktarılarak kapatılır.
+    B: 732 hesabının borcuna yazılır; hesap dönem sonunda stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+    C: 732 hesabının alacağına yazılır; hesap kapatılmaz, bakiye yıllar boyu taşınır.
+    D: 730 hesabının borcuna yazılır; 732 hesabı kullanılmaz.
+    E: 731 hesabının alacağına yazılır; fark satış maliyetine hiç yansıtılmaz.
+  dogru: A
+  aciklama:
+    dogru_neden: 'Fazla yükleme olumlu bir farktır. Tek Düzen Hesap Planı''na göre 732 hesabında olumlu farklar alacağa kaydedilir
+      ve dönem sonlarında hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır. Püf noktaları: Fazla yükleme
+      = olumlu fark = alacak; eksik yükleme = olumsuz fark = borç. Ayrıca 732 hesabı kapanışta kalıcı bakiye vermez.'
+    celdiriciler:
+      B: Fazla yükleme olumlu farktır; olumlu farklar 732'nin alacağına yazılır.
+      C: 732 hesabı dönem sonlarında ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+      D: Fiili ile yüklenen GÜG arasındaki bütçe farkları 732 hesabında izlenir; 730 tahakkuk eden giderleri toplar.
+      E: Fark 731'de değil 732'de izlenir ve dönem sonunda stok ve satış maliyetine aktarılır.
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 732 Genel Üretim Giderleri Bütçe Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz
+      bütçe farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem
+      sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

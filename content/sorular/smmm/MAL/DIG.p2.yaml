@@ -1,0 +1,3036 @@
+- id: SMMM-MAL-DIG-0021
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: değişken maliyet ve tam maliyet
+  tip: hesaplama
+  zorluk: 1
+  kok: AB İşletmesi bir mamulün üretiminde birim başına 14 ₺ direkt ilk madde, 10 ₺ direkt işçilik ve 6 ₺ değişken GÜG kullanmaktadır.
+    Dönemde 10.000 birim mamul üretilmiş, sabit GÜG 120.000 ₺ olmuştur; ayrıca birim başına 4 ₺ değişken satış gideri vardır.
+    Tam maliyet yöntemine (fiili üretim üzerinden) göre mamulün birim maliyeti aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 24 ₺ (14 + 10)
+    B: 30 ₺ (14 + 10 + 6)
+    C: 42 ₺ (14 + 10 + 6 + 12)
+    D: 46 ₺ (14 + 10 + 6 + 12 + 4)
+    E: 34 ₺ (14 + 10 + 6 + 4)
+  dogru: C
+  aciklama:
+    dogru_neden: Tam maliyette direkt ilk madde, direkt işçilik, değişken GÜG ve sabit GÜG'nin tamamı mamule yüklenir (TMS
+      2 paragraf 12); satış maliyetleri stok maliyetine girmez (paragraf 16(d)). Birim sabit GÜG 120.000 / 10.000 = 12 ₺,
+      birim maliyet 14 + 10 + 6 + 12 = 42 ₺'dir.
+    celdiriciler:
+      A: 24 ₺ yalnızca direkt ilk madde ve direkt işçiliği kapsar; değişken ve sabit GÜG de eklenmelidir.
+      B: 30 ₺ sabit GÜG'yi dışlayan değişken maliyettir; tam maliyette sabit GÜG de mamule yüklenir.
+      D: Satış maliyetleri TMS 2 paragraf 16(d) uyarınca stok maliyetine dâhil edilmez; 4 ₺ eklenmemelidir.
+      E: 34 ₺ (14 + 10 + 6 + 4) doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 42 ₺ (14 + 10 + 6 + 12)
+        olarak bulunur.
+    hesap_adimlari:
+    - 'Birim sabit GÜG: 120.000 / 10.000 = 12 ₺'
+    - 'Birim tam maliyet: 14 + 10 + 6 + 12 = 42 ₺ (satış gideri hariç)'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Stokların dönüştürme maliyetleri; direkt işçilik giderleri gibi, üretimle doğrudan ilişkili maliyetleri kapsar.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 16
+    alinti: (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 14 + 10 + 6 + 120000 / 10000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+- id: SMMM-MAL-DIG-0022
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: tam ve normal maliyet
+  tip: hesaplama
+  zorluk: 1
+  kok: AB İşletmesinin normal kapasitesi 15.000 birim, fiili üretimi 12.000 birimdir. Dönem sabit GÜG'si 150.000 ₺'dir. TMS
+    2 uyarınca sabit GÜG'nin normal kapasiteye göre dağıtılması halinde birim başına sabit GÜG yükleme oranı aşağıdakilerden
+    hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 2,5 ₺/birim
+    B: 8 ₺/birim
+    C: 10 ₺/birim
+    D: 12,5 ₺/birim
+    E: 50 ₺/birim
+  dogru: C
+  aciklama:
+    dogru_neden: TMS 2 paragraf 13'e göre sabit genel üretim giderleri normal kapasite esas alınarak dağıtılır. Yükleme oranı
+      = 150.000 / 15.000 = 10 ₺/birimdir.
+    celdiriciler:
+      B: 8 ₺/birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 10 ₺/birim (150.000 / 15.000) olarak
+        bulunur.
+      D: 12,5 ₺/birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 10 ₺/birim olarak bulunur.
+      A: 2,5 ₺/birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 10 ₺/birim olarak bulunur.
+      E: 50 ₺/birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 10 ₺/birim olarak bulunur.
+    hesap_adimlari:
+    - 'Sabit GÜG yükleme oranı: 150.000 / 15.000 = 10 ₺/birim'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Sabit genel üretim giderleri, üretim tesislerinin normal kapasitesi esas alınarak dönüştürme maliyetlerine dağıtılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Normal kapasite, planlanan bakım-onarım çalışmalarından kaynaklanan kapasite düşüklüğü de dikkate alınarak, normal
+      koşullarda birkaç dönem veya sezonda elde edilmesi beklenen ortalama üretim miktarıdır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 150000 / 15000
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0023
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: maliyet-hacim-kâr
+  tip: hesaplama
+  zorluk: 1
+  kok: AB İşletmesi bir mamulü 60 ₺'ye satmakta, birim değişken maliyeti 36 ₺ olmaktadır. Dönem sabit giderleri 72.000 ₺'dir.
+    Başabaş noktasındaki satış miktarı aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 1.200 birim
+    B: 2.000 birim
+    C: 3.000 birim
+    D: 4.500 birim
+    E: 7.200 birim
+  dogru: C
+  aciklama:
+    dogru_neden: Başabaş miktarı sabit giderlerin birim katkı payına bölünmesiyle bulunur. Birim katkı payı 60 − 36 = 24 ₺;
+      başabaş miktarı 72.000 / 24 = 3.000 birimdir. Sabit ve değişken gider ayrımı TMS 2 paragraf 12 tanımlarına dayanır.
+    celdiriciler:
+      A: 1.200 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.000 birim (72.000 / 24) olarak bulunur.
+      B: 2.000 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.000 birim (72.000 / 24) olarak bulunur.
+      D: 4.500 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.000 birim olarak bulunur.
+      E: 7.200 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.000 birim olarak bulunur.
+    hesap_adimlari:
+    - 'Birim katkı payı: 60 - 36 = 24 ₺'
+    - 'Başabaş miktarı: 72.000 / 24 = 3.000 birim'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 72000 / (60 - 36)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0024
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: üretim kayıpları
+  tip: hesaplama
+  zorluk: 1
+  kok: M İşletmesinde bir safhada 20.000 kg ilk madde işlenmeye başlanmıştır. Normal kayıp başlanan miktarın %4'ü olarak belirlenmiştir;
+    dönemde toplam kayıp 1.100 kg olmuştur. Bu safhada normal kayıp miktarı aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 80 kg
+    B: 300 kg
+    C: 768 kg
+    D: 800 kg
+    E: 1.100 kg
+  dogru: D
+  aciklama:
+    dogru_neden: Normal kayıp 20.000 × 0,04 = 800 kg'dır. Toplam kaybın normal kısmı stok maliyetine girerken normalin üstündeki
+      300 kg dönem gideri olur (TMS 2 paragraf 16(a)).
+    celdiriciler:
+      A: 80 kg doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 800 kg (20.000 × %4) olarak bulunur.
+      B: 300 kg doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 800 kg (20.000 × %4) olarak bulunur.
+      C: 768 kg doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 800 kg (20.000 × %4) olarak bulunur.
+      E: 1.100 kg doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 800 kg olarak bulunur.
+    hesap_adimlari:
+    - 'Normal kayıp: 20.000 × 0,04 = 800 kg'
+    - 'Anormal kayıp: 1.100 - 800 = 300 kg'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 16(a)
+    alinti: Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri,
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 20000 * 0.04
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0025
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: FIFO ve hareketli ortalama
+  tip: hesaplama
+  zorluk: 1
+  kok: 'AX İşletmesinin ilk madde stoku şöyledir: dönem başında 1.000 kg × 10 ₺; ardından 2.000 kg × 12 ₺ alış yapılmıştır.
+    Üretime 1.500 kg ilk madde çıkarılmıştır. FIFO yöntemine göre çıkışın maliyeti aşağıdakilerden hangisidir? (KDV dikkate
+    alınmayacaktır.)'
+  secenekler:
+    A: 10.000 ₺
+    B: 15.000 ₺
+    C: 16.000 ₺
+    D: 17.000 ₺
+    E: 18.000 ₺
+  dogru: C
+  aciklama:
+    dogru_neden: TMS 2 paragraf 27'ye göre FIFO, ilk satın alınan kalemlerin ilk olarak kullanıldığını varsayar. Çıkış 1.000
+      × 10 + 500 × 12 = 16.000 ₺'dir.
+    celdiriciler:
+      A: 10.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 16.000 ₺ (10.000 + 6.000) olarak bulunur.
+      B: 15.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 16.000 ₺ (10.000 + 6.000) olarak bulunur.
+      D: 17.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 16.000 ₺ olarak bulunur.
+      E: 18.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 16.000 ₺ olarak bulunur.
+    hesap_adimlari:
+    - 'Önce ilk parti: 1.000 × 10 = 10.000 ₺'
+    - 'Kalan 500 kg ikinci partiden: 500 × 12 = 6.000 ₺'
+    - 'Toplam: 16.000 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 25
+    alinti: ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemi kullanılarak belirlenir. Benzer niteliklere
+      ve işletme açısından benzer kullanıma sahip bütün stoklar için, aynı maliyet hesaplama yöntemi kullanılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 1000 * 10 + 500 * 12
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0026
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: değişken maliyet ve tam maliyet
+  tip: hesaplama
+  zorluk: 1
+  kok: AX İşletmesi bir mamulün üretiminde birim başına 18 ₺ direkt ilk madde, 12 ₺ direkt işçilik ve 5 ₺ değişken GÜG kullanmaktadır.
+    Dönemde 9.000 birim mamul üretilmiş, sabit GÜG 90.000 ₺ olmuştur; birim başına 3 ₺ değişken satış gideri bulunmaktadır.
+    Değişken maliyet yöntemine göre mamulün birim maliyeti aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 30 ₺ (18 + 12)
+    B: 35 ₺ (18 + 12 + 5)
+    C: 38 ₺ (18 + 12 + 5 + 3)
+    D: 45 ₺ (18 + 12 + 5 + 10)
+    E: 48 ₺ (18 + 12 + 5 + 10 + 3)
+  dogru: B
+  aciklama:
+    dogru_neden: Değişken maliyet yönteminde yalnızca üretim miktarıyla değişen maliyetler (direkt ilk madde, direkt işçilik,
+      değişken GÜG) mamule yüklenir; sabit GÜG üretim miktarından bağımsız olduğundan mamule yüklenmez (TMS 2 paragraf 12
+      tanımları). Birim maliyet 18 + 12 + 5 = 35 ₺'dir.
+    celdiriciler:
+      A: 30 ₺ değişken GÜG'nin (5 ₺) unutulmasıyla bulunur.
+      C: Satış gideri stok maliyetine girmez; 3 ₺ eklenmemelidir.
+      D: 45 ₺ sabit GÜG'nin (10 ₺) mamule yüklendiği tam maliyettir; değişken maliyette sabit GÜG dönem giderdir.
+      E: 48 ₺ (18 + 12 + 5 + 10 + 3) doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 35 ₺ (18 + 12 + 5)
+        olarak bulunur.
+    hesap_adimlari:
+    - 'Mamule yüklenen: 18 + 12 + 5'
+    - 'Birim değişken maliyet: 35 ₺ (sabit GÜG ve satış gideri hariç)'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 18 + 12 + 5
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+- id: SMMM-MAL-DIG-0027
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: tam ve normal maliyet
+  tip: hesaplama
+  zorluk: 2
+  kok: M İşletmesinin normal kapasitesi 20.000 birim, fiili üretimi 16.000 birimdir; dönem sabit GÜG'si 160.000 ₺'dir. Sabit
+    GÜG normal kapasite esas alınarak mamullere yüklenmektedir. Atıl kapasiteye isabet eden ve mamul maliyetine yüklenmeyen
+    sabit GÜG tutarı aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 8.000 ₺
+    B: 24.000 ₺
+    C: 32.000 ₺
+    D: 40.000 ₺
+    E: 128.000 ₺
+  dogru: C
+  aciklama:
+    dogru_neden: Normal kapasiteye göre oran 160.000 / 20.000 = 8 ₺'dir. Mamullere 16.000 × 8 = 128.000 ₺ yüklenir. Dağıtılmayan
+      32.000 ₺ (4.000 birimlik atıl kapasite) TMS 2 paragraf 13 uyarınca gerçekleştiği dönemde gider yazılır; THP 680 çalışmayan
+      kısım giderlerini kapsar.
+    celdiriciler:
+      A: 8.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 32.000 ₺ (atıl kapasite payı) olarak bulunur.
+      B: 24.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 32.000 ₺ (atıl kapasite payı) olarak bulunur.
+      D: 40.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 32.000 ₺ olarak bulunur.
+      E: 128.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 32.000 ₺ olarak bulunur.
+    hesap_adimlari:
+    - 'Sabit GÜG oranı: 160.000 / 20.000 = 8 ₺'
+    - 'Yüklenen: 16.000 × 8 = 128.000 ₺'
+    - 'Atıl kapasite payı: 160.000 - 128.000 = 32.000 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Her bir üretim birimine dağıtılan sabit genel gider miktarı, düşük üretim düzeyi veya atıl kapasite nedeniyle
+      arttırılmaz. Dağıtılmayan genel giderler, gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 680 Çalışmayan Kısım Gider ve Zararları
+    alinti: Üretimle ilgili giderlerden çalışılmayan döneme ve çalışmayan kısımlara ait giderleri içerir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 160000 - 16000 * (160000 / 20000)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0028
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: maliyet-hacim-kâr
+  tip: hesaplama
+  zorluk: 1
+  kok: AX İşletmesi bir mamulü 40 ₺'ye satmakta, birim değişken maliyeti 30 ₺ olmaktadır. Dönem sabit giderleri 60.000 ₺'dir.
+    Başabaş noktasındaki satış tutarı aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 60.000 ₺
+    B: 80.000 ₺
+    C: 180.000 ₺
+    D: 240.000 ₺
+    E: 300.000 ₺
+  dogru: D
+  aciklama:
+    dogru_neden: Başabaş satış tutarı sabit giderlerin katkı payı oranına bölünmesiyle bulunur. Katkı payı oranı (40 − 30)
+      / 40 = %25; başabaş tutarı 60.000 / 0,25 = 240.000 ₺'dir.
+    celdiriciler:
+      A: 60.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 240.000 ₺ (60.000 / 0,25) olarak bulunur.
+      B: 80.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 240.000 ₺ (60.000 / 0,25) olarak bulunur.
+      C: 180.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 240.000 ₺ (60.000 / 0,25) olarak bulunur.
+      E: 300.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 240.000 ₺ olarak bulunur.
+    hesap_adimlari:
+    - 'Katkı payı oranı: (40 - 30) / 40 = %25'
+    - 'Başabaş tutarı: 60.000 / 0,25 = 240.000 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 60000 / ((40 - 30) / 40)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0029
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: üretim kayıpları
+  tip: hesaplama
+  zorluk: 2
+  kok: AB İşletmesinde bir safhada 8.000 kg ilk madde işlenmeye başlanmış, 7.450 kg sağlam ürün elde edilmiştir. Normal kayıp
+    başlanan miktarın %5'idir. Safhanın toplam maliyeti 200.000 ₺'dir; kayıplar safha sonunda tespit edilmiştir. Anormal kaybın
+    maliyeti ve dönem gideri olarak yazılacak tutar aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 3.000 ₺
+    B: 3.750 ₺
+    C: 5.000 ₺
+    D: 10.000 ₺
+    E: 13.750 ₺
+  dogru: B
+  aciklama:
+    dogru_neden: Toplam kayıp 8.000 − 7.450 = 550 kg, normal kayıp 8.000 × %5 = 400 kg, anormal kayıp 150 kg'dır. Birim maliyet
+      200.000 / 8.000 = 25 ₺; anormal kayıp 150 × 25 = 3.750 ₺ olup normalin üstündeki kayıp olarak TMS 2 paragraf 16(a) gereği
+      gider yazılır.
+    celdiriciler:
+      A: 3.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.750 ₺ (150 kg × 25 ₺) olarak bulunur.
+      D: 10.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.750 ₺ olarak bulunur.
+      E: 13.750 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.750 ₺ olarak bulunur.
+      C: 5.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.750 ₺ olarak bulunur.
+    hesap_adimlari:
+    - 'Toplam kayıp: 550 kg; normal kayıp: 400 kg; anormal: 150 kg'
+    - 'Birim maliyet: 200.000 / 8.000 = 25 ₺'
+    - 'Anormal kayıp maliyeti: 150 × 25 = 3.750 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 16(a)
+    alinti: Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri,
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (8000 - 7450 - 8000 * 0.05) * (200000 / 8000)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0030
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: FIFO ve hareketli ortalama
+  tip: hesaplama
+  zorluk: 2
+  kok: 'M İşletmesinin ilk madde hareketleri: dönem başı 2.000 kg × 8 ₺; alış 3.000 kg × 9 ₺; alış 2.000 kg × 10 ₺. Dönem
+    içinde toplam 4.500 kg ilk madde çıkışı yapılmıştır. FIFO yöntemine göre dönem sonu stokun değeri aşağıdakilerden hangisidir?
+    (KDV dikkate alınmayacaktır.)'
+  secenekler:
+    A: 20.500 ₺
+    B: 22.500 ₺
+    C: 24.500 ₺
+    D: 25.000 ₺
+    E: 38.500 ₺
+  dogru: C
+  aciklama:
+    dogru_neden: 'Toplam 7.000 kg, 63.000 ₺''dir. FIFO''da çıkış 2.000 × 8 + 2.500 × 9 = 38.500 ₺; kalan stok 500 × 9 + 2.000
+      × 10 = 24.500 ₺''dir (TMS 2 paragraf 27: dönem sonunda stokta kalanlar en son alınan kalemlerdir).'
+    celdiriciler:
+      A: 20.500 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 24.500 ₺ (4.500 + 20.000) olarak bulunur.
+      B: 22.500 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 24.500 ₺ (4.500 + 20.000) olarak bulunur.
+      D: 25.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 24.500 ₺ olarak bulunur.
+      E: 38.500 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 24.500 ₺ olarak bulunur.
+    hesap_adimlari:
+    - 'Toplam maliyet: 16.000 + 27.000 + 20.000 = 63.000 ₺'
+    - 'FIFO çıkış: 16.000 + 22.500 = 38.500 ₺'
+    - 'Dönem sonu stok: 63.000 - 38.500 = 24.500 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 25
+    alinti: ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemi kullanılarak belirlenir. Benzer niteliklere
+      ve işletme açısından benzer kullanıma sahip bütün stoklar için, aynı maliyet hesaplama yöntemi kullanılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 500 * 9 + 2000 * 10
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0031
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: değişken maliyet ve tam maliyet
+  tip: hesaplama
+  zorluk: 2
+  kok: M İşletmesi dönem başında stoksuzdur. Dönemde 8.000 birim üretmiş, 6.500 birim satmıştır. Sabit GÜG 96.000 ₺'dir ve
+    dönem sonu stoka tam maliyet yönteminde fiili üretim üzerinden pay verilir. Tam maliyet yöntemine göre bulunan dönem kârı,
+    değişken maliyet yöntemine göre bulunan kârdan ne kadar farklıdır? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 12.000 ₺ fazla
+    B: 18.000 ₺ fazla
+    C: 18.000 ₺ az
+    D: 78.000 ₺ fazla
+    E: 96.000 ₺ fazla
+  dogru: B
+  aciklama:
+    dogru_neden: Üretim satıştan fazla olduğunda stoka giren birimlerin sabit GÜG payı tam maliyette dönem giderine yansımaz.
+      Birim sabit GÜG 96.000 / 8.000 = 12 ₺, stok artışı 1.500 birimdir; tam maliyet kârı 1.500 × 12 = 18.000 ₺ fazladır (TMS
+      2 paragraf 12, 13).
+    celdiriciler:
+      A: 12.000 ₺ fazla doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 18.000 ₺ fazla olarak bulunur.
+      C: Stok arttığı için tam maliyet kârı daha yüksektir; az değildir.
+      D: 78.000 ₺ fazla doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 18.000 ₺ fazla olarak bulunur.
+      E: 96.000 ₺ fazla doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 18.000 ₺ fazla olarak bulunur.
+    hesap_adimlari:
+    - 'Birim sabit GÜG: 96.000 / 8.000 = 12 ₺'
+    - 'Stok artışı: 8.000 - 6.500 = 1.500 birim'
+    - 'Kâr farkı: 1.500 × 12 = 18.000 ₺ (tam maliyet kârı fazla)'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Sabit genel üretim giderleri, üretim tesislerinin normal kapasitesi esas alınarak dönüştürme maliyetlerine dağıtılır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (8000 - 6500) * (96000 / 8000)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: 'otomatik kapı: çeldirici C de hesaplanan değere eşit (18000)'
+- id: SMMM-MAL-DIG-0032
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: tam ve normal maliyet
+  tip: hesaplama
+  zorluk: 2
+  kok: AX İşletmesi bir mamul için birim başına 30 ₺ değişken üretim maliyetine katlanmaktadır. Sabit GÜG 180.000 ₺, normal
+    kapasite 12.000 birim, fiili üretim 9.000 birimdir. Normal maliyet yöntemine göre mamulün birim maliyeti aşağıdakilerden
+    hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 15 ₺
+    B: 20 ₺ (fiili üretime göre sabit pay)
+    C: 30 ₺ (yalnızca değişken)
+    D: 45 ₺ (30 + 15)
+    E: 50 ₺ (30 + 20)
+  dogru: D
+  aciklama:
+    dogru_neden: 'Normal maliyette sabit GÜG normal kapasiteye göre dağıtılır (TMS 2 paragraf 13): 180.000 / 12.000 = 15 ₺.
+      Birim maliyet 30 + 15 = 45 ₺''dir.'
+    celdiriciler:
+      A: 15 ₺ yalnızca birim sabit GÜG payıdır; değişken maliyet de eklenmelidir.
+      B: 20 ₺ sabit GÜG'nin fiili üretime bölünmesiyle (180.000 / 9.000) bulunan birim paydır; normal kapasite esas alınmalıdır.
+      C: 30 ₺ yalnızca değişken maliyettir; normal maliyette sabit GÜG payı da mamule yüklenir.
+      E: 50 ₺ sabit GÜG'nin fiili üretime bölünmesiyle (20 ₺) bulunan tam maliyettir; normal kapasite esas alınmalıdır.
+    hesap_adimlari:
+    - 'Sabit GÜG oranı: 180.000 / 12.000 = 15 ₺'
+    - 'Birim maliyet: 30 + 15 = 45 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Sabit genel üretim giderleri, üretim tesislerinin normal kapasitesi esas alınarak dönüştürme maliyetlerine dağıtılır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 30 + 180000 / 12000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+- id: SMMM-MAL-DIG-0033
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: maliyet-hacim-kâr
+  tip: hesaplama
+  zorluk: 2
+  kok: M İşletmesi bir mamulü 70 ₺'ye satmakta, birim değişken maliyeti 40 ₺ olmaktadır. Sabit giderler 90.000 ₺'dir. İşletme
+    30.000 ₺ vergi öncesi kâr elde etmek istemektedir. Bu hedef için satılması gereken miktar aşağıdakilerden hangisidir?
+    (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 1.000 birim
+    B: 1.714 birim
+    C: 3.000 birim
+    D: 4.000 birim
+    E: 5.000 birim
+  dogru: D
+  aciklama:
+    dogru_neden: Hedef kâr için miktar = (sabit giderler + hedef kâr) / birim katkı payı. Birim katkı payı 70 − 40 = 30 ₺;
+      (90.000 + 30.000) / 30 = 4.000 birimdir.
+    celdiriciler:
+      A: 1.000 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 4.000 birim (120.000 / 30) olarak bulunur.
+      C: 3.000 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 4.000 birim (120.000 / 30) olarak bulunur.
+      E: 5.000 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 4.000 birim olarak bulunur.
+      B: 1.714 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 4.000 birim olarak bulunur.
+    hesap_adimlari:
+    - 'Birim katkı payı: 70 - 40 = 30 ₺'
+    - 'Miktar: (90.000 + 30.000) / 30 = 4.000 birim'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (90000 + 30000) / (70 - 40)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0034
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: üretim kayıpları
+  tip: hesaplama
+  zorluk: 2
+  kok: AX İşletmesinde bir safhada 6.000 kg ilk madde işlenmeye başlanmış, 5.550 kg sağlam ürün elde edilmiştir. Normal kayıp
+    başlanan miktarın %5'idir. Safhanın toplam maliyeti 180.000 ₺'dir; kayıplar safha sonunda tespit edilmiştir. Sağlam ürünlerin
+    toplam maliyeti (normal kayıp dahil) aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 4.500 ₺
+    B: 166.500 ₺
+    C: 171.000 ₺
+    D: 175.500 ₺
+    E: 180.000 ₺
+  dogru: D
+  aciklama:
+    dogru_neden: 'Toplam kayıp 450 kg, normal kayıp 300 kg, anormal kayıp 150 kg''dır. Birim maliyet 30 ₺; anormal kayıp 4.500
+      ₺ dönem gideri olur (TMS 2 paragraf 16(a)). Normal kayıp maliyeti sağlam ürüne yüklenir: 180.000 − 4.500 = 175.500 ₺.'
+    celdiriciler:
+      A: 4.500 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 175.500 ₺ (sağlam ürün) olarak bulunur.
+      B: 166.500 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 175.500 ₺ (sağlam ürün) olarak bulunur.
+      C: 171.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 175.500 ₺ (sağlam ürün) olarak bulunur.
+      E: 180.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 175.500 ₺ olarak bulunur.
+    hesap_adimlari:
+    - 'Anormal kayıp: 450 - 300 = 150 kg; 150 × 30 = 4.500 ₺'
+    - 'Sağlam ürün maliyeti: 180.000 - 4.500 = 175.500 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 16(a)
+    alinti: Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri,
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 180000 - (6000 - 5550 - 6000 * 0.05) * (180000 / 6000)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0035
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: FIFO ve hareketli ortalama
+  tip: hesaplama
+  zorluk: 2
+  kok: 'AB İşletmesinin ilk madde hareketleri: dönem başı 1.000 kg × 10 ₺; 5 Mart''ta 2.000 kg × 13 ₺ alış; 10 Mart''ta 1.800
+    kg üretime çıkış. İşletme hareketli (her girişte hesaplanan) ağırlıklı ortalama yöntemini uygulamaktadır. 10 Mart çıkışının
+    maliyeti aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)'
+  secenekler:
+    A: 18.000 ₺
+    B: 20.400 ₺
+    C: 20.700 ₺
+    D: 21.600 ₺
+    E: 23.400 ₺
+  dogru: D
+  aciklama:
+    dogru_neden: TMS 2 paragraf 27'ye göre ağırlıklı ortalama stok girişi oldukça hesaplanabilir. 5 Mart sonrası ortalama
+      (10.000 + 26.000) / 3.000 = 12 ₺; çıkış 1.800 × 12 = 21.600 ₺'dir.
+    celdiriciler:
+      A: 18.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 21.600 ₺ (1.800 × 12) olarak bulunur.
+      B: 20.400 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 21.600 ₺ (1.800 × 12) olarak bulunur.
+      C: 20.700 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 21.600 ₺ (1.800 × 12) olarak bulunur.
+      E: 23.400 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 21.600 ₺ olarak bulunur.
+    hesap_adimlari:
+    - 'Ortalama: (1.000 × 10 + 2.000 × 13) / 3.000 = 12 ₺'
+    - 'Çıkış: 1.800 × 12 = 21.600 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: Ağırlıklı ortalama maliyet yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin
+      maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak
+      belirlenir. Ağırlıklı ortalama, işletmenin koşullarına bağlı olarak, dönemsel olarak veya işletmeye stok girişi oldukça
+      hesaplanabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 1800 * (1000 * 10 + 2000 * 13) / 3000
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0036
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: değişken maliyet ve tam maliyet
+  tip: hesaplama
+  zorluk: 2
+  kok: AB İşletmesinin dönem başında 1.500 birimlik mamul stoku bulunmaktadır. Dönemde 6.000 birim üretmiş, 7.500 birim satmıştır.
+    Sabit GÜG her iki dönemde de birim başına 12 ₺ olarak yüklenmiştir. Değişken maliyet yöntemine göre bulunan dönem kârı,
+    tam maliyet yöntemine göre bulunan kârdan ne kadar farklıdır? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 12.000 ₺ fazla
+    B: 18.000 ₺ fazla
+    C: 18.000 ₺ az
+    D: 72.000 ₺ fazla
+    E: 90.000 ₺ fazla
+  dogru: B
+  aciklama:
+    dogru_neden: Dönem içinde stok azaldığında tam maliyette önceki dönemlerden gelen sabit GÜG payı da giderleşir; bu yüzden
+      tam maliyet kârı değişken maliyet kârından düşüktür. Stok azalışı 1.500 birim, birim sabit GÜG 12 ₺; fark 1.500 × 12
+      = 18.000 ₺ olup değişken maliyet kârı bu kadar fazladır.
+    celdiriciler:
+      A: 12.000 ₺ fazla doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 18.000 ₺ fazla olarak bulunur.
+      C: Stok azaldığı için dönem başı stokla gider olan sabit GÜG nedeniyle tam maliyet kârı daha düşüktür; değişken maliyet
+        kârı daha yüksektir.
+      D: 72.000 ₺ fazla doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 18.000 ₺ fazla olarak bulunur.
+      E: 90.000 ₺ fazla doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 18.000 ₺ fazla olarak bulunur.
+    hesap_adimlari:
+    - 'Stok azalışı: 7.500 - 6.000 = 1.500 birim'
+    - 'Kâr farkı: 1.500 × 12 = 18.000 ₺ (değişken maliyet kârı fazla)'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Her bir üretim birimine dağıtılan sabit genel gider miktarı, düşük üretim düzeyi veya atıl kapasite nedeniyle
+      arttırılmaz. Dağıtılmayan genel giderler, gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (7500 - 6000) * 12
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: 'otomatik kapı: çeldirici C de hesaplanan değere eşit (18000)'
+- id: SMMM-MAL-DIG-0037
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: tam ve normal maliyet
+  tip: hesaplama
+  zorluk: 3
+  kok: M İşletmesinin normal kapasitesi 10.000 birimdir. Dönemde anormal derecede yüksek üretim yapılarak 12.500 birim mamul
+    üretilmiştir. Birim başına değişken üretim maliyeti 24 ₺, sabit GÜG 200.000 ₺'dir. Stokların maliyet değerini aşan bir
+    tutarla ölçülmemesi esasına göre mamulün birim maliyeti aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 16 ₺
+    B: 20 ₺ (normal kapasiteye göre sabit pay)
+    C: 24 ₺ (yalnızca değişken)
+    D: 40 ₺ (24 + 16)
+    E: 44 ₺ (24 + 20)
+  dogru: D
+  aciklama:
+    dogru_neden: 'TMS 2 paragraf 13''e göre anormal derecede yüksek üretimde her birime dağıtılan sabit genel gider düşer
+      ve stoklar maliyet değerini aşan değerle ölçülmez. Bu nedenle sabit GÜG fiili üretime bölünür: 200.000 / 12.500 = 16
+      ₺; birim maliyet 24 + 16 = 40 ₺''dir. Püf noktaları: Fiili üretim normal kapasiteyi aştığında normal kapasite esas alınmaz;
+      düşük üretimde ise tam tersi geçerlidir ve birim gider artırılmaz. Püf noktaları: Normal kapasite ile fiili üretimin
+      karıştırılması ve anormal yüksek üretim istisnasının bilinmesi gerekir.'
+    celdiriciler:
+      A: 16 ₺ yalnızca sabit GÜG payıdır; değişken maliyet de eklenmelidir.
+      B: 20 ₺, sabit GÜG'nin normal kapasiteye (10.000) bölünmesiyle bulunan paydır; anormal yüksek üretimde fiili üretim
+        esas alınır.
+      C: 24 ₺ yalnızca değişken maliyettir; sabit GÜG payı da yüklenmelidir.
+      E: 44 ₺, sabit GÜG'nin normal kapasiteye bölünmesiyle (20 ₺) bulunur; anormal yüksek üretimde birim sabit gider fiili
+        üretime göre düşer ve stoklar maliyet değerini aşmaz.
+    hesap_adimlari:
+    - 'Fiili üretim normal kapasiteyi aşıyor: oran = 200.000 / 12.500 = 16 ₺'
+    - 'Birim maliyet: 24 + 16 = 40 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Sabit genel üretim giderleri, üretim tesislerinin normal kapasitesi esas alınarak dönüştürme maliyetlerine dağıtılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Anormal bir şekilde yüksek üretimin gerçekleştiği dönemlerde, her bir üretim birimine dağıtılan sabit genel gider
+      miktarı düşer ve böylece stoklar maliyet değerini aşan bir değer üzerinden ölçülmemiş olur.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 24 + 200000 / 12500
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+- id: SMMM-MAL-DIG-0038
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: maliyet-hacim-kâr
+  tip: hesaplama
+  zorluk: 2
+  kok: AB İşletmesi bir mamulü 80 ₺'ye satmakta, birim değişken maliyeti 44 ₺ olmaktadır. Sabit giderler 120.000 ₺'dir. İşletme
+    %20 vergi oranı varsayımıyla 48.000 ₺ vergi sonrası kâr elde etmek istemektedir. Bu hedef için satılması gereken miktar
+    aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 1.667 birim
+    B: 3.333 birim
+    C: 4.667 birim (168.000 / 36)
+    D: 5.000 birim (180.000 / 36)
+    E: 10.000 birim (vergi oranına bölünerek bulunan hedef kâr ile)
+  dogru: D
+  aciklama:
+    dogru_neden: 'Vergi sonrası hedef kâr önce vergi öncesine çevrilir: 48.000 / (1 − 0,20) = 60.000 ₺. Birim katkı payı 80
+      − 44 = 36 ₺; miktar (120.000 + 60.000) / 36 = 5.000 birimdir. Püf noktaları: Vergi sonrası kârı doğrudan formüle koymak
+      ve 1 − vergi oranı yerine vergi oranına bölmek sık yapılan hatalardır.'
+    celdiriciler:
+      A: Yaklaşık 1.667 birim yalnızca vergi öncesi hedef kârın katkı payına bölünmesidir; sabit gider de eklenmelidir.
+      B: Yaklaşık 3.333 birim hedef kârı dikkate almayan başabaş miktarıdır.
+      C: Yaklaşık 4.667 birim vergi sonrası kârın vergi öncesine çevrilmeden formüle konulmasıyla bulunur.
+      E: 10.000 birim hedef kârın yanlış (vergi oranına) bölünmesiyle bulunur; vergi öncesi kâr 48.000 / 0,80 = 60.000 ₺'dir.
+    hesap_adimlari:
+    - 'Vergi öncesi kâr: 48.000 / 0,80 = 60.000 ₺'
+    - 'Birim katkı payı: 80 - 44 = 36 ₺'
+    - 'Miktar: (120.000 + 60.000) / 36 = 5.000 birim'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (120000 + 48000 / 0.8) / (80 - 44)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+- id: SMMM-MAL-DIG-0039
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: üretim kayıpları
+  tip: hesaplama
+  zorluk: 2
+  kok: M İşletmesinde bir safhada 12.000 kg ilk madde işlenmeye başlanmış, 11.400 kg sağlam ürün elde edilmiştir. Normal kayıp
+    başlanan miktarın %5'idir. Safhanın toplam maliyeti 342.000 ₺'dir. Sağlam ürünün birim maliyeti aşağıdakilerden hangisidir?
+    (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 28,5 ₺ (342.000 / 12.000)
+    B: 30 ₺ (342.000 / 11.400)
+    C: 34,2 ₺
+    D: 36 ₺ (342.000 / 9.500)
+    E: 31,5 ₺ (30 × 1,05)
+  dogru: B
+  aciklama:
+    dogru_neden: Toplam kayıp 600 kg, normal kayıp 12.000 × %5 = 600 kg olduğundan kaybın tamamı normaldir ve TMS 2 paragraf
+      16(a) gereği gider yazılmaz; maliyeti sağlam ürüne yüklenir. Birim maliyet 342.000 / 11.400 = 30 ₺'dir.
+    celdiriciler:
+      A: 28,5 ₺ toplam maliyetin başlanan miktara bölünmesidir; kayıp normal olduğundan sağlam ürüne yüklenir.
+      C: 34,2 ₺ yanlış bir paydayla (10.000) bulunur.
+      D: 36 ₺ yanlış bir paydayla (9.500) bulunur.
+      E: 31,5 ₺ (30 × 1,05) doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 30 ₺ (342.000 / 11.400) olarak
+        bulunur.
+    hesap_adimlari:
+    - 'Toplam kayıp: 600 kg = normal kayıp (600 kg)'
+    - 'Birim maliyet: 342.000 / 11.400 = 30 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 16(a)
+    alinti: Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri,
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 342000 / 11400
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+- id: SMMM-MAL-DIG-0040
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: FIFO ve hareketli ortalama
+  tip: hesaplama
+  zorluk: 2
+  kok: 'AX İşletmesinin ilk madde hareketleri: dönem başı 1.000 kg × 20 ₺; alış 2.000 kg × 22 ₺; alış 1.000 kg × 26 ₺. Dönem
+    içinde 2.400 kg çıkış yapılmıştır. İşletme dönemsel ağırlıklı ortalama yöntemini uygulamaktadır. Çıkışın maliyeti aşağıdakilerden
+    hangisidir? (KDV dikkate alınmayacaktır.)'
+  secenekler:
+    A: 45.000 ₺ (2.000 × 22,5)
+    B: 48.000 ₺
+    C: 54.000 ₺ (2.400 × 22,5)
+    D: 54.400 ₺ (basit ortalama)
+    E: 56.800 ₺ (LIFO)
+  dogru: C
+  aciklama:
+    dogru_neden: 'Dönemsel ağırlıklı ortalama birim maliyet toplam maliyetin toplam miktara bölünmesiyle bulunur (TMS 2 paragraf
+      27): 90.000 / 4.000 = 22,5 ₺. Çıkış 2.400 × 22,5 = 54.000 ₺''dir.'
+    celdiriciler:
+      A: 45.000 ₺ çıkış miktarının hatalı (2.000 kg) alınmasıyla bulunur.
+      B: 48.000 ₺ çıkışın dönem başı fiyatıyla (20 ₺) değerlenmesidir.
+      D: 54.400 ₺ üç fiyatın basit ortalamasıyla (22,67 ₺) bulunur; ağırlıklı ortalama miktarları dikkate alır.
+      E: 56.800 ₺ en son giren partilerin çıktığı varsayımıyla (LIFO) bulunur; TMS 2'de LIFO yoktur.
+    hesap_adimlari:
+    - 'Toplam maliyet: 20.000 + 44.000 + 26.000 = 90.000 ₺'
+    - 'Birim maliyet: 90.000 / 4.000 = 22,5 ₺'
+    - 'Çıkış: 2.400 × 22,5 = 54.000 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: Ağırlıklı ortalama maliyet yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin
+      maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak
+      belirlenir. Ağırlıklı ortalama, işletmenin koşullarına bağlı olarak, dönemsel olarak veya işletmeye stok girişi oldukça
+      hesaplanabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 2400 * 90000 / 4000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+- id: SMMM-MAL-DIG-0041
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: değişken maliyet ve tam maliyet
+  tip: hesaplama
+  zorluk: 3
+  kok: AX İşletmesi dönem başında stoksuzdur. Dönemde 12.000 birim üretmiş ve 10.500 birim satmıştır. Birim satış fiyatı 90
+    ₺, sabit GÜG 84.000 ₺'dir. Tam maliyet yöntemine göre dönem kârı 140.000 ₺ bulunmuştur. Aynı verilerle değişken maliyet
+    yöntemine göre dönem kârı aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 10.500 ₺ (stoktaki sabit GÜG payı)
+    B: 56.000 ₺
+    C: 129.500 ₺
+    D: 140.000 ₺
+    E: 150.500 ₺
+  dogru: C
+  aciklama:
+    dogru_neden: 'Üretim satıştan 1.500 birim fazladır; birim sabit GÜG 84.000 / 12.000 = 7 ₺ olduğundan stoka giren sabit
+      GÜG 10.500 ₺''dir. Tam maliyette bu tutar gider yazılmaz, değişken maliyette gider yazılır. Değişken maliyet kârı 140.000
+      − 10.500 = 129.500 ₺''dir. Püf noktaları: Satış fiyatı gereksiz veridir; farkı yalnızca stok değişimi ile birim sabit
+      GÜG belirler ve tüm sabit GÜG''yi (84.000 ₺) çıkarmak yaygın hatadır. Püf noktaları: Geri hesap ve gereksiz veri (satış
+      fiyatı); tüm sabit GÜG''nin değil yalnızca stoktaki payının çıkarılması gerekir.'
+    celdiriciler:
+      A: 10.500 ₺ yalnızca stoktaki sabit GÜG payıdır (kâr farkı); değişken maliyet kârı için tam maliyet kârından çıkarılmalıdır.
+      B: 56.000 ₺, tam maliyet kârından tüm sabit GÜG'nin (84.000 ₺) çıkarılmasıyla bulunur; yalnızca stoktaki pay (10.500
+        ₺) çıkarılmalıdır.
+      D: Stok arttığı için iki yöntemin kârı aynı değildir; değişken maliyet kârı daha düşüktür.
+      E: Stok artışı nedeniyle değişken maliyet kârı tam maliyet kârından düşüktür; fark eklenmemelidir.
+    hesap_adimlari:
+    - 'Birim sabit GÜG: 84.000 / 12.000 = 7 ₺'
+    - 'Stok artışı: 12.000 - 10.500 = 1.500 birim'
+    - 'Kâr farkı: 1.500 × 7 = 10.500 ₺'
+    - 'Değişken maliyet kârı: 140.000 - 10.500 = 129.500 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Her bir üretim birimine dağıtılan sabit genel gider miktarı, düşük üretim düzeyi veya atıl kapasite nedeniyle
+      arttırılmaz. Dağıtılmayan genel giderler, gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 140000 - (12000 - 10500) * (84000 / 12000)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0042
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: maliyet-hacim-kâr
+  tip: hesaplama
+  zorluk: 3
+  kok: M İşletmesi bir mamulü 40 ₺'ye satmakta, birim değişken maliyeti 24 ₺ olmaktadır; sabit giderleri 64.000 ₺'dir. Gelecek
+    dönemde satış fiyatı %10 artırılacak, sabit giderler 8.000 ₺ artacak, birim değişken maliyet değişmeyecektir. Yeni koşullarda
+    başabaş satış miktarı aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 1.800 birim
+    B: 3.200 birim
+    C: 3.600 birim
+    D: 4.000 birim
+    E: 4.500 birim
+  dogru: C
+  aciklama:
+    dogru_neden: 'Yeni satış fiyatı 40 × 1,10 = 44 ₺, birim katkı payı 44 − 24 = 20 ₺, yeni sabit gider 64.000 + 8.000 = 72.000
+      ₺''dir. Başabaş miktarı 72.000 / 20 = 3.600 birimdir. Püf noktaları: Hem fiyat artışı hem sabit gider artışı birlikte
+      hesaba katılmalıdır; eski veya yarım güncellenmiş veriyle yapılan hesap yanlış sonuç verir. Püf noktaları: İki değişkenin
+      birlikte güncellenmesi ve eski başabaş değerinin çeldirici olması.'
+    celdiriciler:
+      B: 3.200 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.600 birim (72.000 / 20) olarak bulunur.
+      D: 4.000 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.600 birim olarak bulunur.
+      E: 4.500 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.600 birim olarak bulunur.
+      A: 1.800 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.600 birim olarak bulunur.
+    hesap_adimlari:
+    - 'Yeni fiyat: 40 × 1,10 = 44 ₺'
+    - 'Yeni birim katkı payı: 44 - 24 = 20 ₺'
+    - 'Yeni sabit gider: 72.000 ₺'
+    - 'Başabaş miktarı: 72.000 / 20 = 3.600 birim'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (64000 + 8000) / (40 * 1.1 - 24)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0043
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: maliyet-hacim-kâr
+  tip: hesaplama
+  zorluk: 2
+  kok: AX İşletmesinin dönem satışı 4.800 birimdir. Birim satış fiyatı, birim değişken maliyet ve sabit giderlerle yapılan
+    hesaplamada başabaş satış miktarı 3.000 birim bulunmuştur. Bu işletmenin güvenlik marjı yüzde kaçtır? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: '%37,5'
+    B: '%60'
+    C: '%62,5'
+    D: '%160'
+    E: '%266,67'
+  dogru: A
+  aciklama:
+    dogru_neden: Güvenlik marjı = (fiili satış − başabaş satışı) / fiili satış = (4.800 − 3.000) / 4.800 = %37,5'tir. Başabaş
+      analizi sabit ve değişken gider ayrımına dayanır (TMS 2 paragraf 12).
+    celdiriciler:
+      B: '%60 doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç %37,5 olarak bulunur.'
+      C: '%62,5 doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç %37,5 olarak bulunur.'
+      D: '%160 doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç %37,5 olarak bulunur.'
+      E: '%266,67 doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç %37,5 olarak bulunur.'
+    hesap_adimlari:
+    - 'Fark: 4.800 - 3.000 = 1.800 birim'
+    - 'Güvenlik marjı: 1.800 / 4.800 = %37,5'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (4800 - 3000) / 4800 * 100
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0044
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: üretim kayıpları
+  tip: kavrama
+  zorluk: 2
+  kok: TMS 2 Stoklar standardına göre aşağıdakilerden hangisi, stokların maliyetine dâhil edilmeyen ve gerçekleştikleri dönemde
+    gider olarak yansıtılan maliyetlerden **biri değildir**?
+  secenekler:
+    A: Normalin üstünde gerçekleşen hammadde fire ve kayıpları
+    B: Stokların mevcut konumuna getirilmesinde katkısı olmayan genel yönetim giderleri
+    C: Satış maliyetleri
+    D: Bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri
+    E: Üretimle doğrudan ilişkilendirilen direkt işçilik giderleri
+  dogru: E
+  aciklama:
+    dogru_neden: TMS 2 paragraf 16 stok maliyetine dâhil edilmeyen maliyetleri sayar. Direkt işçilik giderleri ise paragraf
+      12'ye göre üretimle doğrudan ilişkili dönüştürme maliyetidir ve stok maliyetine dâhildir.
+    celdiriciler:
+      A: 'TMS 2 paragraf 16(a): normalin üstündeki fire ve kayıplar stok maliyetine dâhil edilmez.'
+      B: 'Paragraf 16(c): stok maliyetine dâhil edilmez.'
+      C: 'Paragraf 16(d): stok maliyetine dâhil edilmez.'
+      D: 'Paragraf 16(b): stok maliyetine dâhil edilmez.'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 16
+    alinti: 'Aşağıdakiler, stokların maliyetine dâhil edilmeyen ve gerçekleştikleri dönemde gider olarak finansal tablolara
+      yansıtılan maliyetlere örnek olarak verilebilir: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik
+      ve diğer üretim maliyetleri, (b) Üretim sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan
+      depolama maliyetleri, (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri,
+      (d) Satış maliyetleri.'
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Stokların dönüştürme maliyetleri; direkt işçilik giderleri gibi, üretimle doğrudan ilişkili maliyetleri kapsar.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0045
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: FIFO ve hareketli ortalama
+  tip: hesaplama
+  zorluk: 3
+  kok: 'M İşletmesinin ilk madde hareketleri: 1 Nisan dönem başı 800 kg × 10 ₺; 6 Nisan alış 1.200 kg × 15 ₺; 12 Nisan çıkış
+    1.000 kg; 20 Nisan alış 1.000 kg × 18 ₺; 28 Nisan çıkış 1.500 kg. İşletme hareketli ağırlıklı ortalama yöntemini uygulamaktadır.
+    Dönem sonu stokun değeri aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)'
+  secenekler:
+    A: 7.333 ₺
+    B: 7.750 ₺
+    C: 8.250 ₺
+    D: 9.000 ₺
+    E: 9.500 ₺
+  dogru: B
+  aciklama:
+    dogru_neden: 'TMS 2 paragraf 27: Ağırlıklı ortalama stok girişi oldukça hesaplanabilir. 6 Nisan: 26.000 / 2.000 = 13 ₺;
+      12 Nisan çıkışı 13.000 ₺; kalan 1.000 kg, 13.000 ₺. 20 Nisan: (13.000 + 18.000) / 2.000 = 15,5 ₺; 28 Nisan çıkışı 23.250
+      ₺; kalan 500 kg × 15,5 = 7.750 ₺''dir. Püf noktaları: Her girişte ortalama yeniden hesaplanır, çıkış ortalamayı değiştirmez;
+      FIFO veya dönemsel ortalama sonuçları farklıdır. Püf noktaları: Her girişte ortalamanın yeniden hesaplanması ve çıkışların
+      ortalamayı değiştirmemesi; FIFO ve dönemsel ortalama sonuçlarıyla karıştırma tuzağı.'
+    celdiriciler:
+      A: 7.333 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 7.750 ₺ (500 × 15,5) olarak bulunur.
+      D: 9.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 7.750 ₺ olarak bulunur.
+      E: 9.500 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 7.750 ₺ olarak bulunur.
+      C: 8.250 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 7.750 ₺ olarak bulunur.
+    hesap_adimlari:
+    - '6 Nisan ortalama: 26.000 / 2.000 = 13 ₺; çıkış 13.000 ₺; kalan 1.000 kg, 13.000 ₺'
+    - '20 Nisan ortalama: (13.000 + 18.000) / 2.000 = 15,5 ₺'
+    - 'Kalan: 2.000 - 1.500 = 500 kg × 15,5 = 7.750 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: Ağırlıklı ortalama maliyet yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin
+      maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak
+      belirlenir. Ağırlıklı ortalama, işletmenin koşullarına bağlı olarak, dönemsel olarak veya işletmeye stok girişi oldukça
+      hesaplanabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 500 * (13000 + 18000) / 2000
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_1.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0046
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: değişken maliyet ve tam maliyet
+  tip: kavrama
+  zorluk: 2
+  kok: Değişken maliyet yönteminde mamul maliyetine yüklenen unsurlar dikkate alındığında, aşağıdakilerden hangisi mamul maliyetine
+    **yüklenmez**?
+  secenekler:
+    A: Fabrika binasının amortismanı
+    B: Direkt ilk madde ve malzeme giderleri
+    C: Direkt işçilik giderleri
+    D: Üretim miktarıyla orantılı değişen endirekt işçilik
+    E: Üretim miktarıyla birlikte değişen endirekt malzeme
+  dogru: A
+  aciklama:
+    dogru_neden: TMS 2 paragraf 12'ye göre amortisman ve fabrika binasının bakım onarımı gibi üretim miktarından bağımsız
+      olarak nispeten sabit kalan giderler sabit GÜG'dir. Değişken maliyet yönteminde sabit GÜG mamule yüklenmez, dönem gideri
+      yazılır.
+    celdiriciler:
+      B: Direkt ilk madde, üretimle doğrudan ilişkilidir ve değişken maliyete girer.
+      C: Direkt işçilik, TMS 2 paragraf 12'ye göre üretimle doğrudan ilişkili dönüştürme maliyetidir; değişken maliyete girer.
+      D: Endirekt işçilik, paragraf 12'ye göre üretimle doğru orantılı değişen değişken GÜG'dir; mamule yüklenir.
+      E: Endirekt malzeme, paragraf 12'ye göre değişken GÜG'dir; mamule yüklenir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0047
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: tam ve normal maliyet
+  tip: kavrama
+  zorluk: 2
+  kok: TMS 2 Stoklar standardının sabit genel üretim giderlerinin dağıtımına ilişkin hükümleri dikkate alındığında aşağıdakilerden
+    hangisi doğrudur?
+  secenekler:
+    A: Düşük üretim düzeyi nedeniyle her birime dağıtılan sabit genel gider tutarı artırılır.
+    B: Sabit genel üretim giderleri her koşulda fiili üretim düzeyine göre dağıtılır.
+    C: Normal kapasite, en yüksek üretim miktarı olarak tanımlanır.
+    D: Dağıtılmayan sabit genel giderler, gerçekleştiği dönemde gider yazılır.
+    E: Atıl kapasite payı stokların maliyetine eklenerek ertelenir.
+  dogru: D
+  aciklama:
+    dogru_neden: 'TMS 2 paragraf 13: Sabit genel üretim giderleri normal kapasite esas alınarak dağıtılır; düşük üretim veya
+      atıl kapasite nedeniyle birim gider artırılmaz ve dağıtılmayan giderler gerçekleştiği dönemde gider yazılır.'
+    celdiriciler:
+      A: TMS 2 paragraf 13'e göre birim sabit gider düşük üretim veya atıl kapasite nedeniyle artırılmaz.
+      B: Sabit GÜG normal kapasite esas alınarak dağıtılır; fiili üretim ancak normal kapasiteye yakınsa kullanılabilir.
+      C: Normal kapasite birkaç dönem veya sezonda elde edilmesi beklenen ortalama üretim miktarıdır.
+      E: Dağıtılmayan genel giderler gerçekleştiği dönemde gider yazılır; stok maliyetine eklenmez.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Sabit genel üretim giderleri, üretim tesislerinin normal kapasitesi esas alınarak dönüştürme maliyetlerine dağıtılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Normal kapasite, planlanan bakım-onarım çalışmalarından kaynaklanan kapasite düşüklüğü de dikkate alınarak, normal
+      koşullarda birkaç dönem veya sezonda elde edilmesi beklenen ortalama üretim miktarıdır.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Her bir üretim birimine dağıtılan sabit genel gider miktarı, düşük üretim düzeyi veya atıl kapasite nedeniyle
+      arttırılmaz. Dağıtılmayan genel giderler, gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0048
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: tam ve normal maliyet
+  tip: hesaplama
+  zorluk: 3
+  kok: AB İşletmesinin normal kapasitesi 10.000 birim, fiili üretimi 8.000 birimdir. Birim başına değişken üretim maliyeti
+    30 ₺, dönem sabit GÜG'si 120.000 ₺'dir. Dönemde 6.000 birim satılmış, dönem başı stok yoktur. Normal maliyet yöntemine
+    göre dönem sonu mamul stokunun değeri aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 24.000 ₺
+    B: 42.000 ₺ (1.000 × 42)
+    C: 84.000 ₺ (2.000 × 42)
+    D: 90.000 ₺ (2.000 × 45)
+    E: 252.000 ₺ (6.000 × 42)
+  dogru: C
+  aciklama:
+    dogru_neden: 'Sabit GÜG oranı normal kapasiteye göre 120.000 / 10.000 = 12 ₺''dir; birim maliyet 30 + 12 = 42 ₺. Dönem
+      sonu stok 8.000 − 6.000 = 2.000 birimdir; değeri 2.000 × 42 = 84.000 ₺''dir (TMS 2 paragraf 13). Atıl kapasite payı
+      20.000 ₺ stoka yüklenmez. Püf noktaları: Fiili üretimdeki düşüklük birim maliyeti artırmaz; satılan birim sayısı ise
+      stok sorusunda yalnızca kalan miktarı bulmak için kullanılır. Püf noktaları: Düşük üretimde birim sabit gider artırılmaz;
+      stok miktarı üretim ve satıştan hesaplanır.'
+    celdiriciler:
+      A: 24.000 ₺ stoktaki sabit GÜG payının (2.000 × 12) tek başına alınmasıdır; değişken maliyet de eklenmelidir.
+      B: 42.000 ₺ stoktaki 1.000 birimin değeridir; stok 2.000 birimdir.
+      D: 90.000 ₺ sabit GÜG fiili üretime bölünerek (15 ₺) bulunan tam maliyet değeridir; normal kapasite esas alınmalıdır.
+      E: 252.000 ₺ satılan 6.000 birimin maliyetidir; sorulan dönem sonu stok değildir.
+    hesap_adimlari:
+    - 'Sabit GÜG oranı: 120.000 / 10.000 = 12 ₺'
+    - 'Birim maliyet: 30 + 12 = 42 ₺'
+    - 'Stok miktarı: 8.000 - 6.000 = 2.000 birim; değeri 84.000 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Sabit genel üretim giderleri, üretim tesislerinin normal kapasitesi esas alınarak dönüştürme maliyetlerine dağıtılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Her bir üretim birimine dağıtılan sabit genel gider miktarı, düşük üretim düzeyi veya atıl kapasite nedeniyle
+      arttırılmaz. Dağıtılmayan genel giderler, gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (8000 - 6000) * (30 + 120000 / 10000)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+- id: SMMM-MAL-DIG-0049
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: üretim kayıpları
+  tip: hesaplama
+  zorluk: 3
+  kok: AB İşletmesinde bir safhada 8.500 kg ilk madde işlenmeye başlanmış, 8.000 kg sağlam ürün elde edilmiştir. Normal kayıp,
+    elde edilen sağlam ürün miktarının %5'idir. Safhanın toplam maliyeti 255.000 ₺'dir; kayıplar safha sonunda tespit edilmiştir.
+    Dönem gideri olarak yazılacak anormal kayıp maliyeti aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 2.250 ₺
+    B: 3.000 ₺
+    C: 4.000 ₺
+    D: 12.000 ₺
+    E: 15.000 ₺
+  dogru: B
+  aciklama:
+    dogru_neden: 'Toplam kayıp 500 kg, normal kayıp 8.000 × %5 = 400 kg, anormal kayıp 100 kg''dır. Birim maliyet 255.000
+      / 8.500 = 30 ₺; anormal kayıp 3.000 ₺ olup TMS 2 paragraf 16(a) gereği dönem gideri yazılır. Püf noktaları: Normal kayıp
+      oranının hangi tabana (sağlam ürün) uygulandığına dikkat etmeli, birim maliyeti başlanan miktar üzerinden bulmalısın.
+      Püf noktaları: Oranın uygulandığı tabanın değişmesi ve birim maliyetin başlanan miktara bölünmesi.'
+    celdiriciler:
+      A: 2.250 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.000 ₺ (100 kg × 30 ₺) olarak bulunur.
+      D: 12.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.000 ₺ olarak bulunur.
+      E: 15.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.000 ₺ olarak bulunur.
+      C: 4.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.000 ₺ olarak bulunur.
+    hesap_adimlari:
+    - 'Normal kayıp: 8.000 × 0,05 = 400 kg; toplam kayıp 500 kg; anormal 100 kg'
+    - 'Birim maliyet: 255.000 / 8.500 = 30 ₺'
+    - 'Anormal kayıp maliyeti: 100 × 30 = 3.000 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 16(a)
+    alinti: Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri,
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = (8500 - 8000 - 8000 * 0.05) * (255000 / 8500)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0050
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: FIFO ve hareketli ortalama
+  tip: hesaplama
+  zorluk: 3
+  kok: 'AB İşletmesinin ilk madde hareketleri: dönem başı 1.000 kg × 40 ₺; alış 1.000 kg × 44 ₺; alış 2.000 kg × 48 ₺. Dönem
+    içinde 2.000 kg çıkış yapılmıştır; çıkış maliyeti dönem satış maliyetine yansıtılmaktadır. İşletme dönemsel ağırlıklı
+    ortalama yerine FIFO yöntemini uygulasaydı dönem kârı ne kadar değişirdi? (KDV dikkate alınmayacaktır.)'
+  secenekler:
+    A: 3.000 ₺ artardı
+    B: 6.000 ₺ artardı
+    C: 6.000 ₺ azalırdı
+    D: 12.000 ₺ artardı
+    E: 12.000 ₺ azalırdı
+  dogru: B
+  aciklama:
+    dogru_neden: 'Dönemsel ortalama birim maliyet (40.000 + 44.000 + 96.000) / 4.000 = 45 ₺; çıkış 2.000 × 45 = 90.000 ₺.
+      FIFO''da çıkış 1.000 × 40 + 1.000 × 44 = 84.000 ₺. Satış maliyeti 6.000 ₺ düşeceğinden dönem kârı 6.000 ₺ artardı (TMS
+      2 paragraf 25, 27). Püf noktaları: Kâr farkı, iki yöntemin çıkış maliyetleri arasındaki farktır; fiyatlar yükselirken
+      FIFO daha yüksek kâr verir. Püf noktaları: İki yöntemin çıkış maliyetlerinin farkı alınır ve fiyat artışı döneminde
+      FIFO''nun kârı yükselttiği bilinmelidir.'
+    celdiriciler:
+      A: 3.000 ₺ artardı doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 6.000 ₺ artardı olarak bulunur.
+      C: Fiyatlar yükselirken FIFO daha düşük maliyet verir; kâr azalmaz, artar.
+      D: 12.000 ₺ artardı doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 6.000 ₺ artardı olarak bulunur.
+      E: 12.000 ₺ azalırdı doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 6.000 ₺ artardı olarak bulunur.
+    hesap_adimlari:
+    - 'Ortalama: 180.000 / 4.000 = 45 ₺; çıkış 90.000 ₺'
+    - 'FIFO çıkış: 40.000 + 44.000 = 84.000 ₺'
+    - 'Fark: 90.000 - 84.000 = 6.000 ₺ (kâr artar)'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 25
+    alinti: ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemi kullanılarak belirlenir. Benzer niteliklere
+      ve işletme açısından benzer kullanıma sahip bütün stoklar için, aynı maliyet hesaplama yöntemi kullanılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem
+      sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: Ağırlıklı ortalama maliyet yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin
+      maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak
+      belirlenir. Ağırlıklı ortalama, işletmenin koşullarına bağlı olarak, dönemsel olarak veya işletmeye stok girişi oldukça
+      hesaplanabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 2000 * 45 - (1000 * 40 + 1000 * 44)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: 'otomatik kapı: çeldirici C de hesaplanan değere eşit (6000)'
+- id: SMMM-MAL-DIG-0051
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: değişken maliyet ve tam maliyet
+  tip: kavrama
+  zorluk: 2
+  kok: Dönem başında stoku bulunmayan bir işletmede üretim miktarı, dönemdeki satış miktarına eşittir; birim satış fiyatı
+    ve maliyetler iki yöntemde de aynıdır. Tam maliyet ve değişken maliyet yöntemleri karşılaştırıldığında aşağıdakilerden
+    hangisi doğrudur?
+  secenekler:
+    A: Tam maliyet yöntemi, üretimi artırarak her zaman kârı yükseltmeyi engeller.
+    B: Değişken maliyet kârı, üretim miktarındaki artışla birlikte artar.
+    C: Stok artışı varken değişken maliyet kârı, tam maliyet kârından her zaman daha yüksek olur.
+    D: Üretim satışa eşit olduğundan iki yöntemin dönem kârı aynı çıkar.
+    E: Sabit GÜG iki yöntemde de mamule yüklenir.
+  dogru: D
+  aciklama:
+    dogru_neden: Üretim satışa eşit olduğunda stokta sabit GÜG kalmaz; tüm sabit GÜG iki yöntemde de dönem giderine yansır
+      ve dönem kârı eşit çıkar (TMS 2 paragraf 12 ve 13).
+    celdiriciler:
+      A: Tam maliyette üretim artışı stoka sabit GÜG taşıyacağından kârı yükseltebilir; ifade yanlıştır.
+      B: Değişken maliyette kâr satış miktarına bağlıdır; üretim artışı kârı artırmaz.
+      C: Stok artışında sabit GÜG tam maliyette stokta kalır; kâr yüksek olan tam maliyettir.
+      E: Değişken maliyette sabit GÜG mamule yüklenmez; yöntemlerin temel farkı budur.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 13
+    alinti: Sabit genel üretim giderleri, üretim tesislerinin normal kapasitesi esas alınarak dönüştürme maliyetlerine dağıtılır.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0052
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: maliyet-hacim-kâr
+  tip: hesaplama
+  zorluk: 3
+  kok: AB İşletmesi bir mamulü 50 ₺'ye satmakta, birim değişken maliyeti 30 ₺ olmaktadır. Dönemde 4.000 birim satılmış, sabit
+    giderler 40.000 ₺ olmuştur. Gelecek dönemde sabit giderler ve birim değişken maliyet sabit kalmak şartıyla satış miktarının
+    %20 artması beklenmektedir. Gelecek dönem beklenen faaliyet kârı aşağıdakilerden hangisidir? (KDV dikkate alınmayacaktır.)
+  secenekler:
+    A: 40.000 ₺
+    B: 48.000 ₺
+    C: 56.000 ₺
+    D: 88.000 ₺
+    E: 96.000 ₺
+  dogru: C
+  aciklama:
+    dogru_neden: 'Mevcut kâr 4.000 × 20 − 40.000 = 40.000 ₺''dir. Faaliyet kaldıracı 80.000 / 40.000 = 2''dir; satışlar %20
+      artınca kâr %40 artar: 56.000 ₺. Doğrudan: 4.800 × 20 − 40.000 = 56.000 ₺. Püf noktaları: Sabit giderler sabit kaldığı
+      için kâr, satıştan daha hızlı artar; kârı %20 artırmak yaygın hatadır. Püf noktaları: Faaliyet kaldıracı etkisi ve sabit
+      giderin değişmemesi birlikte değerlendirilir.'
+    celdiriciler:
+      A: 40.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 56.000 ₺ (96.000 − 40.000) olarak bulunur.
+      B: 48.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 56.000 ₺ olarak bulunur.
+      D: 88.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 56.000 ₺ olarak bulunur.
+      E: 96.000 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 56.000 ₺ olarak bulunur.
+    hesap_adimlari:
+    - 'Birim katkı payı: 50 - 30 = 20 ₺'
+    - 'Yeni satış: 4.000 × 1,2 = 4.800 birim'
+    - 'Kâr: 4.800 × 20 - 40.000 = 56.000 ₺'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 4000 * 1.2 * (50 - 30) - 40000
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0053
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: üretim kayıpları
+  tip: kavrama
+  zorluk: 1
+  kok: Üretim sürecinin doğası gereği ortaya çıkan, verimli çalışmada da önlenemeyen normal kayıpların maliyeti TMS 2 Stoklar
+    standardı çerçevesinde nasıl işlem görür?
+  secenekler:
+    A: Gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+    B: Satış maliyetleri arasında izlenerek stok dışında bırakılır.
+    C: Sağlam ürünlerin maliyetine eklenerek stok maliyetinde kalır.
+    D: Stok maliyetine dâhil edilmez ve genel yönetim gideri sayılır.
+    E: Depolama maliyeti sayılarak üretim dışında tutulur.
+  dogru: C
+  aciklama:
+    dogru_neden: TMS 2 paragraf 16(a) yalnızca normalin üstünde gerçekleşen fire ve kayıpları stok maliyeti dışında bırakır;
+      normal kayıplar stok maliyetinde kalır ve sağlam ürünlerin maliyetine yüklenir.
+    celdiriciler:
+      A: Gider yazılan kayıp, normalin üstündeki (anormal) kayıptır (TMS 2 paragraf 16(a)).
+      B: Satış maliyetleri paragraf 16(d)'de ayrıca sayılmıştır; normal kayıp bunlardan değildir.
+      D: Genel yönetim giderleri paragraf 16(c) ile ilgilidir; normal kayıp bunlardan değildir.
+      E: Depolama maliyetleri paragraf 16(b) ile ilgilidir; normal kayıp bunlardan değildir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 16(a)
+    alinti: Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri,
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0054
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: FIFO ve hareketli ortalama
+  tip: kavrama
+  zorluk: 1
+  kok: TMS 2 Stoklar standardında yer alan maliyet hesaplama yöntemlerinden biri **değildir**?
+  secenekler:
+    A: Son giren ilk çıkar (LIFO) maliyet yöntemi
+    B: İlk giren ilk çıkar (FIFO) yöntemi
+    C: Dönemsel olarak hesaplanan ağırlıklı ortalama maliyet yöntemi
+    D: Stok girişi oldukça hesaplanan ağırlıklı ortalama maliyet yöntemi
+    E: Her bir kalemin maliyetinin özel olarak belirlenmesi
+  dogru: A
+  aciklama:
+    dogru_neden: TMS 2 paragraf 25 ve 27 birbirinin yerine geçebilen stoklar için FIFO ve ağırlıklı ortalama yöntemlerini
+      öngörür; paragraf 24 kalem bazında özel maliyeti anlatır. LIFO standartta yer almaz.
+    celdiriciler:
+      B: TMS 2 paragraf 25'te sayılan yöntemdir.
+      C: Paragraf 27'ye göre ağırlıklı ortalama dönemsel olarak hesaplanabilir.
+      D: Paragraf 27'ye göre ağırlıklı ortalama stok girişi oldukça da hesaplanabilir.
+      E: Paragraf 24'te yer alan, ikame edilemeyen kalemler veya özel projeler için uygun yöntemdir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 25
+    alinti: ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemi kullanılarak belirlenir. Benzer niteliklere
+      ve işletme açısından benzer kullanıma sahip bütün stoklar için, aynı maliyet hesaplama yöntemi kullanılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: Ağırlıklı ortalama, işletmenin koşullarına bağlı olarak, dönemsel olarak veya işletmeye stok girişi oldukça hesaplanabilir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 24
+    alinti: Her bir kalemin maliyetinin özel olarak belirlenmesi, belirli maliyetlerin belirli stok kalemleriyle ilişkilendirilmesi
+      anlamına gelir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde
+- id: SMMM-MAL-DIG-0055
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Değişken/tam maliyet
+  konu: DIG
+  kazanim: maliyet-hacim-kâr
+  tip: hesaplama
+  zorluk: 3
+  kok: AX İşletmesi iki mamul üretmektedir. X mamulü 70 ₺'ye satılmakta, birim değişken maliyeti 50 ₺'dir; Y mamulü 40 ₺'ye
+    satılmakta, birim değişken maliyeti 30 ₺'dir. Satış karışımı her zaman 1 birim X'e karşılık 1 birim Y şeklindedir ve sabit
+    giderler 90.000 ₺'dir. Başabaş noktasında satılması gereken X mamulü miktarı aşağıdakilerden hangisidir? (KDV dikkate
+    alınmayacaktır.)
+  secenekler:
+    A: 1.500 birim
+    B: 3.000 birim
+    C: 4.500 birim
+    D: 6.000 birim
+    E: 9.000 birim
+  dogru: B
+  aciklama:
+    dogru_neden: '1 X + 1 Y''lik karışımın katkı payı (70 − 50) + (40 − 30) = 30 ₺''dir. Başabaş için 90.000 / 30 = 3.000
+      karışım gerekir; bu da 3.000 birim X ve 3.000 birim Y demektir. Püf noktaları: Karışım katkı payının bulunması ve soruda
+      yalnızca X''in sorulması; yalnız bir ürünün katkı payı kullanılırsa sonuç yanlış çıkar.'
+    celdiriciler:
+      C: 4.500 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.000 birim olarak bulunur.
+      D: 6.000 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.000 birim olarak bulunur.
+      E: 9.000 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.000 birim olarak bulunur.
+      A: 1.500 birim doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç 3.000 birim olarak bulunur.
+    hesap_adimlari:
+    - 'Karışım katkı payı: 20 + 10 = 30 ₺'
+    - 'Karışım sayısı: 90.000 / 30 = 3.000'
+    - 'X miktarı: 3.000 birim'
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 90000 / ((70 - 50) + (40 - 30))
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude-sonnet-5-5)'
+    istem_surumu: uretici paketi SMMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-02'
+      G4:
+        sonuc: gecti
+        not: dogrulama.python doğru şıkla tuttu
+        tarih: '2026-11-02'
+      G7:
+        sonuc: gecti
+        not: çıkmış (SGS 2004–2026, SMMM 2026) ve banka; kalıp hariç 4-gram + ortak şık
+        tarih: '2026-11-02'
+      G3:
+        sonuc: gecti
+        not: bağımsız denetçi kör çözüm (16 grup) + 70 soruluk kör örneklem 70/70
+        tarih: '2026-11-02'
+      G5:
+        sonuc: gecti
+        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
+        tarih: '2026-11-02'
+      G6:
+        sonuc: gecti
+        not: alıntı resmî metin/hakemli anlatımda birebir
+        tarih: '2026-11-02'
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: uretici
+    ne: harici teslim MAL_DIG_20261102_2.yaml, satır None
+  - tarih: '2026-11-02'
+    kim: asistan
+    ne: toplu kabul denetimi geçti → kontrolde

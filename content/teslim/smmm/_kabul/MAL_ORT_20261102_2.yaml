@@ -1,0 +1,1049 @@
+yazar: harici üretici (claude-sonnet-5-5)
+gorev: SMMM talimatı 2026-11-02
+sorular:
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: satış değeri yöntemi
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: KB İşletmesi'nde bir üretim sürecinden A ve B ortak ürünleri elde edilmiştir. Ortak maliyet 45.000 TL'dir. A ürününden
+    2.000 kg (kg satış fiyatı 20 TL), B ürününden 400 kg (kg satış fiyatı 25 TL) elde edilmiştir. Maliyet satış değerleri
+    oranında dağıtılırsa B ürününün kg başına maliyeti kaç TL olur? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 18 TL
+    B: 18,75 TL
+    C: 22,5 TL
+    D: 25 TL
+    E: 112,5 TL
+  dogru: C
+  aciklama:
+    dogru_neden: TMS 2 paragraf 14'e göre ortak maliyet nispi satış değerine göre dağıtılabilir. A'nın satış değeri 40.000
+      TL, B'nin 10.000 TL; toplam 50.000 TL'dir. B'nin payı 45.000 × 10.000 / 50.000 = 9.000 TL, kg maliyeti 9.000 / 400 =
+      22,5 TL'dir.
+    celdiriciler:
+      A: A ürününün kg başına maliyetidir (36.000 / 2.000); B sorulmaktadır.
+      B: Ortak maliyet fiziksel miktara (45.000 / 2.400) bölünmüştür; satış değeri oranı kullanılmamıştır.
+      D: B ürününün kg satış fiyatıdır; maliyet değildir.
+      E: Ortak maliyetin tamamı B'nin miktarına bölünmüştür; A ürünü pay almamış gibi işlem yapılmıştır.
+    hesap_adimlari:
+    - 'Satış değerleri: A 40.000; B 10.000; toplam 50.000'
+    - B payı = 45.000 × 10.000 / 50.000 = 9.000 TL
+    - Kg maliyeti = 9.000 / 400 = 22,5 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir. Ortak ürünlerin üretilmesi veya bir ana ürün ile
+      bir yan ürünün bulunması, bu duruma örnek olarak gösterilebilir. Her bir ürünün dönüştürme maliyetlerinin ayrı olarak
+      belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı
+      örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki
+      nispi satış değerine göre yapılabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 45000 * (400 * 25) / (2000 * 20 + 400 * 25) / 400
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: yan ürün geri hesap
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: AX İşletmesi'nin üretim sürecinde ana ürün (4.000 kg) ile yan ürün birlikte çıkmaktadır. Ortak maliyet 120.000 TL,
+    yan ürünün net gerçekleşebilir değeri 5.000 TL'dir ve bu değer ana ürünün maliyetinden düşülmektedir. Ana ürünün kg başına
+    maliyeti kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 1,25 TL
+    B: 28,75 TL
+    C: 30 TL
+    D: 31,25 TL
+    E: 115.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: TMS 2 paragraf 14'e göre yan ürünün net gerçekleşebilir değeri ana ürünün maliyetinden düşülür. Ana ürün
+      maliyeti 120.000 − 5.000 = 115.000 TL, kg başına maliyet 115.000 / 4.000 = 28,75 TL'dir.
+    celdiriciler:
+      A: Yan ürünün net değeri ana ürün miktarına bölünmüştür; ana ürünün maliyeti sorulmaktadır.
+      C: Yan ürün değeri düşülmeden ortak maliyet ana ürün miktarına bölünmüştür.
+      D: Yan ürün değeri ortak maliyetten düşülmek yerine ona eklenmiştir.
+      E: Ana ürünün toplam maliyetidir; kg başına maliyete ulaşmak için miktara bölünmemiştir.
+    hesap_adimlari:
+    - Ana ürün maliyeti = 120.000 − 5.000 = 115.000 TL
+    - Kg maliyeti = 115.000 / 4.000 = 28,75 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Yan ürünlerin çoğu, yapıları gereği önemsizdir. Böyle bir durumda, yan ürünler genellikle net gerçekleşebilir
+      değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden düşülür. Bunun sonucu olarak ana ürünün defter değeri, maliyet
+      değerinden önemli ölçüde farklılık göstermez.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = (120000 - 5000) / 4000
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: satış değeri yöntemi
+  tip: kavrama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: TMS 2 Stoklar standardına göre bir üretim sürecinde birden fazla ürün ortaya çıkıyor ve her ürünün dönüştürme maliyeti
+    ayrı belirlenemiyorsa bu maliyetler nasıl dağıtılır?
+  secenekler:
+    A: Tamamı ilk üretilen ürüne yüklenir, diğerlerine pay verilmez.
+    B: Dönem gideri sayılır ve hiçbir ürünün maliyetine girmez.
+    C: Yalnızca fiziksel miktarı en büyük ürüne yüklenir.
+    D: Her ürüne eşit tutarda dağıtılır; başka ölçü kullanılamaz.
+    E: Ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır.
+  dogru: E
+  aciklama:
+    dogru_neden: 'TMS 2 paragraf 14: her bir ürünün dönüştürme maliyetlerinin ayrı olarak belirlenemediği durumlarda bu maliyetler
+      ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır.'
+    celdiriciler:
+      A: Standart bir ürünün diğerlerinin maliyetini taşımasını öngörmez; dağıtım ürünler arasında yapılır.
+      B: Dönüştürme maliyetleri stok maliyetine dahildir; dönem gideri yapılamaz.
+      C: Standart tek bir ürüne yükleme öngörmez; mantıklı ve tutarlı dağıtım ister.
+      D: Eşit dağıtım zorunlu değildir; nispi satış değeri gibi ölçüler de kullanılabilir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir. Ortak ürünlerin üretilmesi veya bir ana ürün ile
+      bir yan ürünün bulunması, bu duruma örnek olarak gösterilebilir. Her bir ürünün dönüştürme maliyetlerinin ayrı olarak
+      belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı
+      örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki
+      nispi satış değerine göre yapılabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: yan ürün geri hesap
+  tip: bilgi
+  zorluk: 1
+  soru_bicimi: standart
+  kok: TMS 2 Stoklar standardına göre önemsiz yan ürünler genellikle hangi değer üzerinden ölçülür?
+  secenekler:
+    A: Gerçeğe uygun değer
+    B: Brüt satış bedeli
+    C: Ağırlıklı ortalama maliyet
+    D: Yeniden değerleme değeri
+    E: Net gerçekleşebilir değer
+  dogru: E
+  aciklama:
+    dogru_neden: 'TMS 2 paragraf 14: yan ürünlerin çoğu yapıları gereği önemsizdir; yan ürünler genellikle net gerçekleşebilir
+      değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden düşülür.'
+    celdiriciler:
+      A: Paragraf 14 yan ürünler için net gerçekleşebilir değeri öngörür; gerçeğe uygun değer ölçüsü belirtilmemiştir.
+      B: Satış bedelinden satış giderleri ve tamamlama maliyetleri düşülmeden yapılan ölçüm paragraf 14'e uygun değildir.
+      C: Ağırlıklı ortalama, birbirinin yerine geçebilen stokların maliyet formülüdür; yan ürün ölçümünde esas alınmaz.
+      D: TMS 2'de stokların yeniden değerlemesi yoktur; yan ürün için öngörülen ölçü net gerçekleşebilir değerdir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Yan ürünlerin çoğu, yapıları gereği önemsizdir. Böyle bir durumda, yan ürünler genellikle net gerçekleşebilir
+      değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden düşülür. Bunun sonucu olarak ana ürünün defter değeri, maliyet
+      değerinden önemli ölçüde farklılık göstermez.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: net satış değeri yöntemi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: AB İşletmesi'nde A ve B ortak ürünleri için ortak maliyet 140.000 TL'dir. A ürününden 8.000 birim elde edilmiş; ek
+    işlem sonrası toplam satış tutarı 120.000 TL, ayrılma sonrası ek işlem maliyeti 30.000 TL'dir. B ürününün ek işlem sonrası
+    toplam satış tutarı 100.000 TL, ek işlem maliyeti 40.000 TL'dir. Ortak maliyet net satış değerine göre dağıtılırsa A ürününün
+    birim maliyeti (kendi ek işlem maliyeti dahil) kaç TL olur? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 10,5 TL
+    B: 11,25 TL
+    C: 14,25 TL
+    D: 15 TL
+    E: 114.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: Net satış değerleri A için 120.000 − 30.000 = 90.000 TL, B için 100.000 − 40.000 = 60.000 TL; toplam 150.000
+      TL. A'nın payı 140.000 × 90.000 / 150.000 = 84.000 TL; ek işlem maliyeti eklenince 114.000 TL, birim maliyet 114.000
+      / 8.000 = 14,25 TL'dir (TMS 2 par. 14).
+    celdiriciler:
+      A: Yalnızca ortak maliyet payı (84.000 TL) birim sayısına bölünmüştür; ek işlem maliyeti eklenmemiştir.
+      B: A'nın net satış değeri (90.000 TL) birim sayısına bölünmüştür; değer maliyet değildir.
+      D: A'nın nihai satış tutarı (120.000 TL) birim sayısına bölünmüştür; bu birim satış fiyatıdır.
+      E: A'nın toplam maliyetidir; birim maliyete ulaşmak için birim sayısına bölünmemiştir.
+    hesap_adimlari:
+    - A NSD = 90.000; B NSD = 60.000
+    - A payı = 140.000 × 90.000 / 150.000 = 84.000 TL
+    - A toplam maliyet = 84.000 + 30.000 = 114.000 TL
+    - Birim = 114.000 / 8.000 = 14,25 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir. Ortak ürünlerin üretilmesi veya bir ana ürün ile
+      bir yan ürünün bulunması, bu duruma örnek olarak gösterilebilir. Her bir ürünün dönüştürme maliyetlerinin ayrı olarak
+      belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı
+      örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki
+      nispi satış değerine göre yapılabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = (140000 * (120000 - 30000) / ((120000 - 30000) + (100000 - 40000)) + 30000) / 8000
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: katsayılı bölme
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: AX İşletmesi'nde ortak maliyet 156.000 TL'dir. Aynı süreçten A ürünü 4.000 adet (katsayısı 1), B ürünü 1.500 adet (katsayısı
+    2) ve C ürünü 500 adet (katsayısı 2) elde edilmiştir. Katsayılı bölme yöntemine göre A ürününün birim maliyeti kaç TL'dir?
+    KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 9,75 TL
+    B: 19,5 TL
+    C: 26 TL
+    D: 39 TL
+    E: 78.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Eşdeğer miktarlar: A 4.000, B 3.000, C 1.000; toplam 8.000. Eşdeğer birim maliyet 156.000 / 8.000 = 19,5
+      TL; A''nın katsayısı 1 olduğundan birim maliyeti 19,5 TL''dir (TMS 2 par. 14: mantıklı ve tutarlı dağıtım).'
+    celdiriciler:
+      A: Eşdeğer birim maliyet katsayıya (2) bölünerek küçültülmüştür.
+      C: Ortak maliyet fiziksel miktara (156.000 / 6.000) bölünmüştür; katsayılar kullanılmamıştır.
+      D: B ve C ürünlerinin birim maliyetidir (eşdeğer birim maliyet × 2); A'nın katsayısı 1'dir.
+      E: A ürününe düşen toplam paydır; birim maliyete ulaşmak için A'nın adedine bölünmemiştir.
+    hesap_adimlari:
+    - Toplam eşdeğer miktar = 4.000 + 3.000 + 1.000 = 8.000
+    - Eşdeğer birim maliyet = 156.000 / 8.000 = 19,5 TL
+    - A birim maliyeti = 19,5 × 1 = 19,5 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir. Ortak ürünlerin üretilmesi veya bir ana ürün ile
+      bir yan ürünün bulunması, bu duruma örnek olarak gösterilebilir. Her bir ürünün dönüştürme maliyetlerinin ayrı olarak
+      belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı
+      örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki
+      nispi satış değerine göre yapılabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 156000 / (4000 * 1 + 1500 * 2 + 500 * 2) * 1
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: satış değeri yöntemi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: AY İşletmesi'nde ortak maliyet 200.000 TL'dir. Ayrılma noktasında A ürününden 5.000 kg (kg fiyatı 40 TL), B ürününden
+    2.000 kg (kg fiyatı 20 TL), C ürününden 500 kg (kg fiyatı 20 TL) elde edilmiştir. Ortak maliyet satış değerleri oranında
+    dağıtılırsa B ürününe düşen pay kaç TL olur? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 8.000 TL
+    B: 32.000 TL
+    C: 40.000 TL
+    D: 160.000 TL
+    E: 200.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: Satış değerleri A 200.000, B 40.000, C 10.000 TL; toplam 250.000 TL. B'nin payı 200.000 × 40.000 / 250.000
+      = 32.000 TL'dir (TMS 2 par. 14).
+    celdiriciler:
+      A: C ürününe düşen paydır.
+      C: B ürününün satış değeridir; ortak maliyet payı değildir.
+      D: A ürününe düşen paydır.
+      E: Ortak maliyetin tamamıdır; dağıtım yapılmamıştır.
+    hesap_adimlari:
+    - Toplam satış değeri = 200.000 + 40.000 + 10.000 = 250.000 TL
+    - B payı = 200.000 × 40.000 / 250.000 = 32.000 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir. Ortak ürünlerin üretilmesi veya bir ana ürün ile
+      bir yan ürünün bulunması, bu duruma örnek olarak gösterilebilir. Her bir ürünün dönüştürme maliyetlerinin ayrı olarak
+      belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı
+      örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki
+      nispi satış değerine göre yapılabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 200000 * (2000 * 20) / (5000 * 40 + 2000 * 20 + 500 * 20)
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: yan ürün geri hesap
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: AZ İşletmesi'nde yan ürün 2.500 birim olup birim satış fiyatı 12 TL'dir. Satış öncesi 2.500 TL ek işlem maliyeti ve
+    1.500 TL satış gideri oluşacak, ayrıca satış tutarının %10'u normal kâr payı olarak hesaba katılacaktır. Geri hesap yöntemine
+    göre yan ürünün ayrılma noktasındaki birim değeri kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 9,2 TL
+    B: 10,4 TL
+    C: 11 TL
+    D: 11,4 TL
+    E: 12 TL
+  dogru: A
+  aciklama:
+    dogru_neden: Satış değeri 30.000 TL, normal kâr 3.000 TL'dir. Değer 30.000 − 3.000 − 2.500 − 1.500 = 23.000 TL, birim
+      değer 23.000 / 2.500 = 9,2 TL'dir. Bu değer TMS 2 par. 14 gereği ana ürün maliyetinden düşülür.
+    celdiriciler:
+      B: Normal kâr payı düşülmemiştir.
+      C: Yalnızca ek işlem maliyeti düşülmüştür.
+      D: Yalnızca satış gideri düşülmüştür.
+      E: Yan ürünün birim satış fiyatıdır; hiçbir kalem çıkarılmamıştır.
+    hesap_adimlari:
+    - Satış değeri = 30.000 TL; normal kâr = 3.000 TL
+    - Değer = 30.000 − 3.000 − 2.500 − 1.500 = 23.000 TL
+    - Birim = 23.000 / 2.500 = 9,2 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Yan ürünlerin çoğu, yapıları gereği önemsizdir. Böyle bir durumda, yan ürünler genellikle net gerçekleşebilir
+      değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden düşülür. Bunun sonucu olarak ana ürünün defter değeri, maliyet
+      değerinden önemli ölçüde farklılık göstermez.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = (2500 * 12 * 0.9 - 2500 - 1500) / 2500
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: satış değeri yöntemi
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: AB İşletmesi'nde ortak maliyet 126.000 TL'dir. Ayrılma noktasında X ürününden 3.000 kg (kg fiyatı 30 TL), Y ürününden
+    4.000 kg (kg fiyatı 15 TL) elde edilmiş ve tamamı satılmıştır. Ortak maliyet satış değeri oranında dağıtılırsa X ürününün
+    kg başına brüt kârı kaç TL olur? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 4,8 TL
+    B: 9 TL
+    C: 12 TL
+    D: 25,2 TL
+    E: 30 TL
+  dogru: A
+  aciklama:
+    dogru_neden: Satış değerleri X 90.000, Y 60.000 TL; toplam 150.000 TL. X'in payı 126.000 × 90.000 / 150.000 = 75.600 TL,
+      kg maliyeti 25,2 TL; kg kârı 30 − 25,2 = 4,8 TL'dir (TMS 2 par. 14).
+    celdiriciler:
+      B: Ortak maliyet iki ürüne eşit paylaştırılmıştır (63.000 / 3.000 = 21 TL).
+      C: Ortak maliyet fiziksel miktara göre (126.000 / 7.000 = 18 TL) dağıtılmıştır.
+      D: X ürününün kg maliyetidir; kâr için fiyattan düşülmelidir.
+      E: X ürününün kg satış fiyatıdır; maliyet düşülmemiştir.
+    hesap_adimlari:
+    - X payı = 126.000 × 90.000 / 150.000 = 75.600 TL
+    - Kg maliyeti = 75.600 / 3.000 = 25,2 TL
+    - Kg kârı = 30 − 25,2 = 4,8 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir. Ortak ürünlerin üretilmesi veya bir ana ürün ile
+      bir yan ürünün bulunması, bu duruma örnek olarak gösterilebilir. Her bir ürünün dönüştürme maliyetlerinin ayrı olarak
+      belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı
+      örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki
+      nispi satış değerine göre yapılabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 30 - 126000 * (3000 * 30) / (3000 * 30 + 4000 * 15) / 3000
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: yan ürün geri hesap
+  tip: kavrama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Tek Düzen Hesap Planı'na göre 157 Diğer Stoklar hesabında maliyet bedeliyle izlenen yan ürün satıldığında bu hesap
+    nasıl işler?
+  secenekler:
+    A: Satış bedeli ile alacak kaydedilir.
+    B: Maliyet bedeli ile borç kaydedilir.
+    C: Satış bedeli ile borç kaydedilir.
+    D: Maliyet bedeli ile alacak kaydedilir.
+    E: Hesap satış anında kapatılmaz, yıl sonuna kadar bakiye verir.
+  dogru: D
+  aciklama:
+    dogru_neden: 157 Diğer Stoklar hesabında elde edilen stoklar maliyet bedeli ile hesaba borç, satıldığında, devredildiğinde
+      veya kullanıldığında alacak kaydedilir.
+    celdiriciler:
+      A: Stok hesabı satış bedeliyle değil, maliyet bedeliyle izlendiğinden maliyet bedeliyle kapanır.
+      B: Borç kaydı stokun elde edilmesinde yapılır; satışta stok hesabı alacaklandırılır.
+      C: Hem taraf hem tutar yanlıştır; stok satıldığında maliyet bedeliyle alacak yazılır.
+      E: Hesaba satıldığında alacak kaydı yapılır; bakiye yıl sonuna kadar taşınmaz.
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 157 Diğer Stoklar
+    alinti: 'Yukarıdaki stok kalemlerinin hiç birinin kapsamına alınmayan ürün, artık ve hurda gibi kalemler bu hesap grubunda
+      yer alır. İşleyişi : Elde edilen bu stoklar maliyet bedeli ile hesaba borç, satıldığında, devredildiğinde veya kullanıldığında
+      alacak kaydedilir.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: satış değeri yöntemi
+  tip: kavrama
+  zorluk: 2
+  soru_bicimi: olumsuz
+  kok: TMS 2 Stoklar standardının 14 üncü paragrafına göre aşağıdakilerden hangisi **söylenemez**?
+  secenekler:
+    A: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir.
+    B: Bir ana ürün ile bir yan ürünün bulunması da bu duruma örnektir.
+    C: Dağıtım, üretimin tamamlandığı andaki nispi satış değerine göre yapılabilir.
+    D: Ortak ürünlerin dönüştürme maliyeti her zaman ayrı belirlenebilir.
+    E: Yan ürünlerin çoğu, yapıları gereği önemsizdir.
+  dogru: D
+  aciklama:
+    dogru_neden: Paragraf 14, dönüştürme maliyetlerinin ayrı olarak belirlenemediği durumlarda dağıtım yapılacağını söyler;
+      bu nedenle maliyetlerin her zaman ayrı belirlenebileceği söylenemez.
+    celdiriciler:
+      A: Paragraf 14'ün ilk cümlesidir; söylenebilir.
+      B: Paragraf 14 bu durumu örnek olarak gösterir; söylenebilir.
+      C: Paragraf 14 bu ölçüyü örnek verir; söylenebilir.
+      E: Paragraf 14 bu tespiti yapar; söylenebilir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir. Ortak ürünlerin üretilmesi veya bir ana ürün ile
+      bir yan ürünün bulunması, bu duruma örnek olarak gösterilebilir. Her bir ürünün dönüştürme maliyetlerinin ayrı olarak
+      belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı
+      örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki
+      nispi satış değerine göre yapılabilir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Yan ürünlerin çoğu, yapıları gereği önemsizdir. Böyle bir durumda, yan ürünler genellikle net gerçekleşebilir
+      değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden düşülür. Bunun sonucu olarak ana ürünün defter değeri, maliyet
+      değerinden önemli ölçüde farklılık göstermez.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: net satış değeri yöntemi
+  tip: kavrama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Ortak maliyet dağıtımında ürünlerin ayrılma noktasında satış değeri bulunmuyor, satışlar ancak ek işlemden sonra yapılabiliyorsa
+    dağıtım ölçüsü olarak hangisi kullanılır?
+  secenekler:
+    A: Ürünlerin ek işlem öncesi fiziksel miktarının oranı
+    B: Yalnızca ürünlerin nihai satış fiyatlarının toplamı
+    C: Ortak maliyetin ürün sayısına eşit bölünmesi
+    D: Her ürünün ek işlem maliyeti oranı
+    E: Ek işlem maliyeti düşülmüş net satış değerleri
+  dogru: E
+  aciklama:
+    dogru_neden: TMS 2 paragraf 14, maliyetin her bir ürünün ayrı olarak belirlenebilir hale geldiği aşamadaki veya üretimin
+      tamamlandığı andaki nispi satış değerine göre dağıtılabileceğini belirtir. Ek işlem sonrası satılan ürünlerde bu değer,
+      ek işlem maliyeti düşülerek bulunur.
+    celdiriciler:
+      A: Fiziksel miktar yöntemi ayrı bir yöntemdir; soru satış değeri esaslı bir ölçü aramaktadır.
+      B: Ek işlem maliyeti düşülmeyen nihai satış fiyatları ürünler arasında yanıltıcı bir paylaşım yaratır.
+      C: Eşit bölme nispi satış değerini yansıtmaz.
+      D: Ek işlem maliyeti oranı ürünlerin kazanma gücünü değil, yalnızca işlem yoğunluğunu gösterir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir. Ortak ürünlerin üretilmesi veya bir ana ürün ile
+      bir yan ürünün bulunması, bu duruma örnek olarak gösterilebilir. Her bir ürünün dönüştürme maliyetlerinin ayrı olarak
+      belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı
+      örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki
+      nispi satış değerine göre yapılabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: satış değeri yöntemi
+  tip: uygulama
+  zorluk: 2
+  soru_bicimi: yevmiye
+  kok: AZ İşletmesi'nde ayrılma noktasında üretimi tamamlanan ortak ürünlerin maliyeti 80.000 TL olarak belirlenmiştir. Tek
+    Düzen Hesap Planı'na göre bu ürünlerin ambara alınmasına ilişkin kayıt aşağıdakilerden hangisidir?
+  secenekler:
+    A: 151 Yarı Mamuller-Üretim 80.000 TL borç; 152 Mamuller 80.000 TL alacak
+    B: 157 Diğer Stoklar 80.000 TL borç; 151 Yarı Mamuller-Üretim hesabı 80.000 TL alacak
+    C: 152 Mamuller 80.000 TL borç; 151 Yarı Mamuller-Üretim hesabı 80.000 TL alacak
+    D: 153 Ticari Mallar 80.000 TL borç; 151 Yarı Mamuller-Üretim hesabı 80.000 TL alacak
+    E: 152 Mamuller 80.000 TL borç; 730 Genel Üretim Giderleri hesabı 80.000 TL alacak
+  dogru: C
+  aciklama:
+    dogru_neden: 152 Mamuller hesabı, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır; üretimi tamamlananların
+      maliyet tutarı 151 Yarı Mamuller-Üretim hesabının alacağı karşılığında aktarılır.
+    celdiriciler:
+      A: Taraflar ters yazılmıştır; mamullerin ambara alınmasıyla 152 borçlanır.
+      B: Ortak ürünler satışa hazır mamul olduğundan 152'de izlenir; 157 yan ürün, artık ve hurda içindir.
+      D: 153 değiştirilmeden satılmak üzere alınan ticari mallar içindir; üretilen mamuller bu hesapta izlenmez.
+      E: Tamamlanan üretimin maliyeti 151'in alacağı karşılığında aktarılır; 730 gider toplama hesabıdır.
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 152 Mamuller
+    alinti: 'Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır. İşleyişi
+      : Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle
+      ambardan çekilmesi ile alacaklandırılır.'
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: net satış değeri yöntemi
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: AX İşletmesi'nde X, Y ve Z ortak ürünleri için ortak maliyet 300.000 TL'dir. Ek işlem sonrası toplam satış tutarı ve
+    ayrılma sonrası ek işlem maliyeti sırasıyla X için 240.000 TL ve 40.000 TL, Y için 180.000 TL ve 30.000 TL, Z için 60.000
+    TL ve 10.000 TL'dir. Z ürününden 400 birim üretilmiştir. Ortak maliyet net satış değerine göre dağıtılırsa Z ürününün
+    birim maliyeti (kendi ek işlem maliyeti dahil) kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 118,75 TL
+    B: 125 TL
+    C: 150 TL
+    D: 250 TL
+    E: 300.000 TL
+  dogru: A
+  aciklama:
+    dogru_neden: 'Net satış değerleri X 200.000, Y 150.000, Z 50.000 TL; toplam 400.000 TL. Z''nin payı 300.000 × 50.000 /
+      400.000 = 37.500 TL. Ek işlem maliyeti 10.000 TL eklenince 47.500 TL, birim maliyet 47.500 / 400 = 118,75 TL''dir (TMS
+      2 par. 14). Püf noktaları: Ek işlem maliyeti dağıtım ölçüsünden düşülür, ancak dağıtım sonrası ilgili ürüne yeniden
+      eklenir. Nihai satış tutarı ile net satış değerini karıştırma.'
+    celdiriciler:
+      B: Z'nin net satış değeri (50.000 TL) birim sayısına bölünmüştür; değer maliyet değildir.
+      C: Z'nin nihai satış tutarı (60.000 TL) birim sayısına bölünmüştür; bu birim satış fiyatıdır.
+      D: Ortak maliyet üç ürüne eşit paylaştırılmıştır (100.000 TL / 400).
+      E: Ortak maliyet tutarıdır; ne dağıtım ne de birim maliyet hesabı yapılmıştır.
+    hesap_adimlari:
+    - 'NSD: X 200.000; Y 150.000; Z 50.000; toplam 400.000'
+    - Z payı = 300.000 × 50.000 / 400.000 = 37.500 TL
+    - Z toplam = 37.500 + 10.000 = 47.500 TL
+    - Birim = 47.500 / 400 = 118,75 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir. Ortak ürünlerin üretilmesi veya bir ana ürün ile
+      bir yan ürünün bulunması, bu duruma örnek olarak gösterilebilir. Her bir ürünün dönüştürme maliyetlerinin ayrı olarak
+      belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı
+      örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki
+      nispi satış değerine göre yapılabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = (300000 * (60000 - 10000) / ((240000 - 40000) + (180000 - 30000) + (60000 - 10000)) + 10000) / 400
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: yan ürün geri hesap
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: KB İşletmesi'nde ortak maliyet 96.000 TL olup ana üründen 6.000 kg üretilmiş ve ana ürünün kg başına maliyeti 15,5
+    TL bulunmuştur. Ana ürünün maliyeti, yan ürünün ayrılma noktasındaki değeri ortak maliyetten düşülerek hesaplanmıştır.
+    Yan ürün 800 kg olup satış öncesi 600 TL ek işlem maliyeti ve 400 TL satış gideri oluşacak, ayrıca satış tutarının %20'si
+    normal kâr payı olarak hesaba katılacaktır. Yan ürünün kg satış fiyatı kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 3,75 TL
+    B: 5 TL
+    C: 6 TL
+    D: 6,25 TL
+    E: 5.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Yan ürünün değeri 96.000 − 6.000 × 15,5 = 3.000 TL''dir. Değer = S − 400 − 600 − 0,20 S olduğundan 0,80
+      S = 4.000 ve S = 5.000 TL; kg fiyatı 5.000 / 800 = 6,25 TL''dir (TMS 2 par. 14). Püf noktaları: Önce ana ürün maliyetinden
+      yan ürün değerini geriye doğru bul. Normal kâr satış tutarının yüzdesi olduğundan toplam 0,80''e bölünür.'
+    celdiriciler:
+      A: Yan ürünün ayrılma noktasındaki kg değeridir (3.000 / 800); satış fiyatına ulaşmak için geriye doğru eklemeler yapılmalıdır.
+      B: Normal kâr payı hesaba katılmamıştır (4.000 / 800).
+      C: Normal kâr, satış tutarı yerine maliyetin %20'si olarak (4.000 × 1,2) eklenmiştir.
+      E: Yan ürünün toplam satış tutarıdır; kg fiyatına ulaşmak için miktara bölünmemiştir.
+    hesap_adimlari:
+    - Yan ürün değeri = 96.000 − 93.000 = 3.000 TL
+    - 3.000 = S − 400 − 600 − 0,2 S → 0,8 S = 4.000 → S = 5.000 TL
+    - Kg fiyatı = 5.000 / 800 = 6,25 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Yan ürünlerin çoğu, yapıları gereği önemsizdir. Böyle bir durumda, yan ürünler genellikle net gerçekleşebilir
+      değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden düşülür. Bunun sonucu olarak ana ürünün defter değeri, maliyet
+      değerinden önemli ölçüde farklılık göstermez.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = ((96000 - 6000 * 15.5) + 600 + 400) / (1 - 0.20) / 800
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: katsayılı bölme
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: AB İşletmesi'nde ortak maliyet 216.000 TL'dir. Aynı süreçten A ürünü 4.000 adet (katsayısı 1), B ürünü 800 adet (katsayısı
+    bilinmiyor), C ürünü 2.000 adet (katsayısı 3) elde edilmiştir. Katsayılı bölme yöntemine göre C ürününün birim maliyeti
+    54 TL ise B ürününün katsayısı kaçtır? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 2,5
+    B: '3'
+    C: 7,5
+    D: '10'
+    E: 12,5
+  dogru: A
+  aciklama:
+    dogru_neden: 'Eşdeğer birim maliyet 54 / 3 = 18 TL; toplam eşdeğer miktar 216.000 / 18 = 12.000. A''nın eşdeğeri 4.000,
+      C''nin 6.000; B''nin eşdeğeri 2.000. Katsayı 2.000 / 800 = 2,5''tir (TMS 2 par. 14). Püf noktaları: 54 TL, C''nin birim
+      maliyetidir; önce katsayısına bölerek eşdeğer birim maliyeti bul. Sonra toplam eşdeğer miktardan A ve C''nin eşdeğerlerini
+      çıkar.'
+    celdiriciler:
+      B: C'nin katsayısı B'ye de verilmiştir.
+      C: Toplam eşdeğer miktardan yalnızca A'nın eşdeğeri düşülmüştür.
+      D: Toplam eşdeğer miktardan yalnızca C'nin eşdeğeri düşülmüştür.
+      E: Toplam eşdeğer miktardan yalnızca C'nin adedi (2.000) düşülmüştür.
+    hesap_adimlari:
+    - Eşdeğer birim maliyet = 54 / 3 = 18 TL
+    - Toplam eşdeğer = 216.000 / 18 = 12.000
+    - B eşdeğeri = 12.000 − 4.000 − 6.000 = 2.000
+    - Katsayı = 2.000 / 800 = 2,5
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir. Ortak ürünlerin üretilmesi veya bir ana ürün ile
+      bir yan ürünün bulunması, bu duruma örnek olarak gösterilebilir. Her bir ürünün dönüştürme maliyetlerinin ayrı olarak
+      belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı
+      örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki
+      nispi satış değerine göre yapılabilir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = (216000 / (54 / 3) - 4000 * 1 - 2000 * 3) / 800
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: satış değeri yöntemi
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: KB İşletmesi'nde bir süreçten A ve B ortak ürünleri ile bir yan ürün çıkmaktadır. Ortak maliyet 218.000 TL, yan ürünün
+    net gerçekleşebilir değeri 18.000 TL'dir ve ana ürünlerin maliyetinden düşülmektedir. Kalan maliyet satış değeri oranında
+    dağıtılacaktır. A ürününden 5.000 kg (kg fiyatı 36 TL), B ürününden 2.800 kg (kg fiyatı 25 TL) elde edilmiştir. Üretimde
+    kullanılan makinelerin amortismanı 40.000 TL olup ortak maliyete dahildir. A ürününün kg başına maliyeti kaç TL'dir? KDV
+    dikkate alınmayacaktır.
+  secenekler:
+    A: 20 TL
+    B: 28,8 TL
+    C: 36 TL
+    D: 40 TL
+    E: 144.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Dağıtılacak maliyet 218.000 − 18.000 = 200.000 TL; satış değerleri A 180.000, B 70.000 TL, toplam 250.000
+      TL. A''nın payı 200.000 × 180.000 / 250.000 = 144.000 TL, kg maliyeti 144.000 / 5.000 = 28,8 TL''dir (TMS 2 par. 14).
+      Püf noktaları: Önce yan ürün değeri düşülür, sonra dağıtım yapılır. Amortisman ortak maliyetin içinde olduğundan ayrıca
+      işleme girmez.'
+    celdiriciler:
+      A: Dağıtılacak tutarın yarısı (100.000 TL) A'ya verilmiştir.
+      C: A ürününün kg satış fiyatıdır.
+      D: Dağıtılacak 200.000 TL'nin tamamı A'nın miktarına bölünmüştür.
+      E: A'ya düşen toplam paydır; kg maliyetine ulaşmak için miktara bölünmemiştir.
+    hesap_adimlari:
+    - Dağıtılacak = 218.000 − 18.000 = 200.000 TL
+    - A payı = 200.000 × 180.000 / 250.000 = 144.000 TL
+    - Kg maliyeti = 144.000 / 5.000 = 28,8 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir. Ortak ürünlerin üretilmesi veya bir ana ürün ile
+      bir yan ürünün bulunması, bu duruma örnek olarak gösterilebilir. Her bir ürünün dönüştürme maliyetlerinin ayrı olarak
+      belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı
+      örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki
+      nispi satış değerine göre yapılabilir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Yan ürünlerin çoğu, yapıları gereği önemsizdir. Böyle bir durumda, yan ürünler genellikle net gerçekleşebilir
+      değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden düşülür. Bunun sonucu olarak ana ürünün defter değeri, maliyet
+      değerinden önemli ölçüde farklılık göstermez.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = (218000 - 18000) * (5000 * 36) / (5000 * 36 + 2800 * 25) / 5000
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: yan ürün geri hesap
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: AZ İşletmesi'nde X ve Y ortak ürünleri ile bir yan ürün elde edilmektedir. Ortak maliyet 240.000 TL'dir. Yan ürün 16.000
+    TL'ye satılabilecek; 3.000 TL ek işlem maliyeti ve 1.000 TL satış gideri oluşacaktır. Yan ürünün net değeri düşüldükten
+    sonra kalan maliyet X ve Y arasında net satış değeri oranında dağıtılacaktır. X ürününden 5.000 birim üretilmiş, ek işlem
+    sonrası toplam satış tutarı 200.000 TL ve ek işlem maliyeti 50.000 TL'dir. Y ürününün ek işlem sonrası satış tutarı 120.000
+    TL, ek işlem maliyeti 30.000 TL'dir. X ürününün birim maliyeti (kendi ek işlem maliyeti dahil) kaç TL'dir? KDV dikkate
+    alınmayacaktır.
+  secenekler:
+    A: 28,5 TL
+    B: 30 TL
+    C: 38,5 TL
+    D: 40 TL
+    E: 192.500 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Yan ürünün net değeri 16.000 − 3.000 − 1.000 = 12.000 TL; dağıtılacak 228.000 TL. Net satış değerleri X
+      150.000, Y 90.000 TL; X''in payı 228.000 × 150.000 / 240.000 = 142.500 TL. Ek işlem 50.000 TL eklenince 192.500 TL,
+      birim maliyet 38,5 TL''dir (TMS 2 par. 14). Püf noktaları: Sıra: yan ürün düş, kalanı net satış değerine göre dağıt,
+      X''in ek işlem maliyetini ekle, sonra birim sayısına böl. Yan ürünün ek işlemi ve satış gideri yalnızca kendi net değerinde
+      kullanılır.'
+    celdiriciler:
+      A: Yalnızca X'in ortak maliyet payı (142.500 TL) birim sayısına bölünmüştür.
+      B: X'in net satış değeri (150.000 TL) birim sayısına bölünmüştür; değer maliyet değildir.
+      D: X'in nihai satış tutarı (200.000 TL) birim sayısına bölünmüştür; birim satış fiyatıdır.
+      E: X'in toplam maliyetidir; birim maliyete ulaşmak için birim sayısına bölünmemiştir.
+    hesap_adimlari:
+    - Yan ürün net değeri = 12.000 TL; dağıtılacak = 228.000 TL
+    - 'NSD: X 150.000; Y 90.000'
+    - X payı = 228.000 × 150.000 / 240.000 = 142.500 TL
+    - X toplam = 192.500 TL; birim = 38,5 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Üretim sürecinde aynı anda birden fazla ürün ortaya çıkabilir. Ortak ürünlerin üretilmesi veya bir ana ürün ile
+      bir yan ürünün bulunması, bu duruma örnek olarak gösterilebilir. Her bir ürünün dönüştürme maliyetlerinin ayrı olarak
+      belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı
+      örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki
+      nispi satış değerine göre yapılabilir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Yan ürünlerin çoğu, yapıları gereği önemsizdir. Böyle bir durumda, yan ürünler genellikle net gerçekleşebilir
+      değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden düşülür. Bunun sonucu olarak ana ürünün defter değeri, maliyet
+      değerinden önemli ölçüde farklılık göstermez.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = ((240000 - (16000 - 3000 - 1000)) * (200000 - 50000) / ((200000 - 50000) + (120000 - 30000)) + 50000)
+      / 5000
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: net satış değeri yöntemi
+  tip: kavrama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: TMS 2 Stoklar standardına göre aşağıdakilerden hangisi stokların maliyetine dahil edilir?
+  secenekler:
+    A: Satış maliyetleri
+    B: Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri
+    C: Normalin üstünde gerçekleşen hammadde fire ve kayıpları
+    D: Direkt işçilik giderleri gibi üretimle doğrudan ilişkili maliyetler
+    E: Üretim sürecinde bir sonraki aşamadan önce gerekli olanlar dışında kalan depolama maliyetleri
+  dogru: D
+  aciklama:
+    dogru_neden: 'TMS 2 paragraf 12''ye göre dönüştürme maliyetleri direkt işçilik gibi üretimle doğrudan ilişkili maliyetleri
+      ve sistematik dağıtılan genel üretim giderlerini kapsar. Paragraf 16''daki kalemler ise stok maliyeti dışındadır. Püf
+      noktaları: Paragraf 16''daki dört kalem (fire, gereksiz depolama, katkısız genel yönetim, satış maliyeti) dönem giderine
+      gider. ''Gerekli olanlar dışında kalan'' ifadesi, gerekli depolamanın maliyete girdiğini gösterir.'
+    celdiriciler:
+      A: Paragraf 16(d) satış maliyetlerini stok maliyeti dışında bırakır; dönem gideridir.
+      B: Paragraf 16(c) bu giderleri stok maliyeti dışında tutar.
+      C: Paragraf 16(a) normalin üstündeki fire ve kayıpları dönem gideri sayar.
+      E: Paragraf 16(b) yalnızca bir sonraki aşamadan önce gerekli olmayan depolamayı dışlar; bu maliyetler dönem gideridir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 12
+    alinti: Stokların dönüştürme maliyetleri; direkt işçilik giderleri gibi, üretimle doğrudan ilişkili maliyetleri kapsar.
+      Bu maliyetler ayrıca ilk madde ve malzemenin mamule dönüştürülmesinde katlanılan sabit ve değişken genel üretim giderlerinden
+      sistematik bir şekilde dağıtılan tutarları da içerir.
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 16
+    alinti: 'Aşağıdakiler, stokların maliyetine dâhil edilmeyen ve gerçekleştikleri dönemde gider olarak finansal tablolara
+      yansıtılan maliyetlere örnek olarak verilebilir: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik
+      ve diğer üretim maliyetleri, (b) Üretim sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan
+      depolama maliyetleri, (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri,
+      (d) Satış maliyetleri.'
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Ortak ve yan ürün
+  konu: ORT
+  kazanim: yan ürün geri hesap
+  tip: kavrama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: AY İşletmesi'nde ana ürünle birlikte çıkan K ürününün satış değeri toplam satış değerinin yaklaşık %2'sidir, fiziksel
+    miktarı ise toplam miktarın %30'udur. K ürününe ilişkin aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Fiziksel miktarı yüksek olduğundan ortak üründür ve ortak maliyetten pay alır.
+    B: Yan ürün sayılır; net gerçekleşebilir değeri ana ürünün maliyetine eklenir.
+    C: Yan ürün sayılır ve satışa hazır mamul olarak 152 Mamuller hesabında izlenir.
+    D: Artık sayılır; hiçbir değerle ölçülmez ve maliyetten pay almaz.
+    E: Yan üründür; net değeri ana ürün maliyetinden düşülür ve 157'de izlenir.
+  dogru: E
+  aciklama:
+    dogru_neden: 'TMS 2 paragraf 14: yan ürünlerin çoğu yapıları gereği önemsizdir; net gerçekleşebilir değer üzerinden ölçülür
+      ve ana ürünün maliyetinden düşülür. Tek Düzen Hesap Planı''na göre yan ürün 157 Diğer Stoklar hesabında izlenir. Püf
+      noktaları: Fiziksel miktar yanıltıcıdır; ayrımı satış değerinin göreli önemi belirler. ''Düşülür'' ile ''eklenir'' ayrımına
+      ve 152 ile 157 farkına dikkat et.'
+    celdiriciler:
+      A: Ayrımda miktar değil satış değerinin önemi esastır; %2'lik değer yan ürün niteliğindedir.
+      B: Net gerçekleşebilir değer ana ürünün maliyetinden düşülür, eklenmez.
+      C: Yan ürün, artık ve hurda gibi kalemler 157 Diğer Stoklar hesabında izlenir.
+      D: K'nın satış değeri vardır; yan ürün olarak net gerçekleşebilir değerle ölçülür.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 14
+    alinti: Yan ürünlerin çoğu, yapıları gereği önemsizdir. Böyle bir durumda, yan ürünler genellikle net gerçekleşebilir
+      değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden düşülür. Bunun sonucu olarak ana ürünün defter değeri, maliyet
+      değerinden önemli ölçüde farklılık göstermez.
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 157 Diğer Stoklar
+    alinti: 'Yukarıdaki stok kalemlerinin hiç birinin kapsamına alınmayan ürün, artık ve hurda gibi kalemler bu hesap grubunda
+      yer alır. İşleyişi : Elde edilen bu stoklar maliyet bedeli ile hesaba borç, satıldığında, devredildiğinde veya kullanıldığında
+      alacak kaydedilir.'
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

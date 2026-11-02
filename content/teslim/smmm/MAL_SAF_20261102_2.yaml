@@ -1,0 +1,436 @@
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: ZP İşletmesi'nde FIFO yöntemi uygulanmaktadır. Safhaya devredilen dönem başı yarı mamul 800 birim olup bunlar geçen dönemde dönüşüm bakımından %50 tamamlanmıştır. Bu yarı mamullerin tamamlanması için cari dönemde yapılması gereken dönüşüm işi kaç eşdeğer birimdir?
+  secenekler:
+    A: 50 birim
+    B: 400 birim
+    C: 800 birim
+    D: 1.200 birim
+    E: 1.600 birim
+  dogru: B
+  aciklama:
+    dogru_neden: 'FIFO''da dönem başı yarı mamul önce tamamlanır; bu dönemde yapılacak iş, tamamlanmamış kısımdır: 800 × (1 − %50) = 400 eşdeğer birimdir (TMS 2 paragraf 27: ilk üretilenler ilk çıkar).'
+    celdiriciler:
+      A: Tamamlanma yüzdesi (50) eşdeğer birim sayısı olarak alınmıştır.
+      C: Fiziki yarı mamul miktarıdır; geçen dönemde tamamlanan kısım düşülmemiştir.
+      D: Fiziki miktara geçen dönemde işlenen kısmın eşdeğeri (400) eklenmiştir (800 + 400).
+      E: Fiziki miktar derece ile çarpılmak yerine bölünmüştür (800 / 0,5).
+    hesap_adimlari:
+    - Cari dönem işi = 800 × (1 − 0,50) = 400 eşdeğer birim
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 800 * (1 - 0.5)
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: 'CK İşletmesi''nde safhaya ilişkin veriler şöyledir: dönem başı yarı mamul 2.500 birim (dönüşüm bakımından geçen dönemde %40), dönemde başlanan 7.500 birim, tamamlanan 6.000 birim ve dönem sonu yarı mamul 4.000 birim (dönüşüm bakımından %50). İlk madde başta verilmektedir. Dönem başı yarı mamulün dönüşüm maliyeti 22.500 TL, dönem içinde katlanılan dönüşüm maliyeti 77.500 TL''dir. Ağırlıklı ortalama yöntemine göre dönüşüm maliyetinin birim maliyeti kaç TL''dir? KDV dikkate alınmayacaktır.'
+  secenekler:
+    A: 8 TL
+    B: 10 TL
+    C: 12,5 TL
+    D: 14,29 TL
+    E: 16,67 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Ağırlıklı ortalamada DBYM maliyeti ile dönem maliyeti toplanır: 22.500 + 77.500 = 100.000 TL. Eşdeğer birim 6.000 + 4.000 × %50 = 8.000''dir. Birim maliyet 100.000 / 8.000 = 12,5 TL''dir (TMS 2 paragraf 27).'
+    celdiriciler:
+      A: Yalnızca dönem maliyeti (80.000 TL) toplam fiziki akışa bölünmüştür; DBYM maliyeti havuza alınmamıştır.
+      B: Toplam dönüşüm maliyeti fiziki toplama (10.000) bölünmüştür; eşdeğer birim kullanılmamıştır.
+      D: FIFO eşdeğer birimi (7.000) kullanılmıştır; ortalama yöntemde DBYM'nin eşdeğeri çıkarılmaz.
+      E: Yalnızca tamamlanan birimlere (6.000) bölünmüştür.
+    hesap_adimlari:
+    - Toplam dönüşüm maliyeti = 100.000 TL
+    - Eşdeğer birim = 6.000 + 2.000 = 8.000
+    - Birim maliyet = 12,5 TL
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = (22500 + 77500) / (6000 + 4000 * 0.5)
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: bilgi
+  zorluk: 1
+  soru_bicimi: standart
+  kok: Bir safhanın dönem sonunda tamamlanmamış olarak kalan ürünleri, maliyet unsurlarından kısmen pay almış üretim aşamasındaki mamul niteliğindedir. Tek Düzen Hesap Planı'nda bu ürünlerin maliyeti hangi hesapta izlenir?
+  secenekler:
+    A: 152 Mamuller
+    B: 730 Genel Üretim Giderleri
+    C: 157 Diğer Stoklar
+    D: 153 Ticari Mallar
+    E: 151 Yarı Mamuller-Üretim
+  dogru: E
+  aciklama:
+    dogru_neden: 151 Yarı Mamuller-Üretim hesabı, henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır.
+    celdiriciler:
+      A: 152, üretimi tamamlanıp satışa hazır hale gelmiş mamullerin hesabıdır.
+      B: 730, dolaylı üretim giderlerinin toplandığı gider hesabıdır; yarı mamul stoku izlemez.
+      C: 157, diğer stok kalemlerinin kapsamına girmeyen ürün, artık ve hurda içindir.
+      D: 153, değiştirilmeden satılmak üzere alınan malların hesabıdır.
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: tamamlanma derecesi geri hesap
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: DM İşletmesi'nin safha raporunda ağırlıklı ortalama yöntemine göre dönüşüm eşdeğer birimi 9.100, FIFO yöntemine göre 8.500 bulunmuştur. Dönem içinde tamamlanan miktar 8.000 birimdir. Dönem sonu yarı mamullerin dönüşüm bakımından eşdeğer birim sayısı kaçtır?
+  secenekler:
+    A: 500 birim
+    B: 600 birim
+    C: 1.100 birim
+    D: 2.200 birim
+    E: 17.600 birim
+  dogru: C
+  aciklama:
+    dogru_neden: Ağırlıklı ortalama eşdeğer birimi tamamlanan + DSYM eşdeğeridir (TMS 2 paragraf 27). DSYM eşdeğeri 9.100 − 8.000 = 1.100 birimdir. İki yöntemin farkı olan 600 birim DBYM'nin geçen dönemdeki eşdeğeridir.
+    celdiriciler:
+      A: FIFO eşdeğer birimi ile tamamlananın farkıdır (8.500 − 8.000); bu fark DSYM eşdeğerini değil, DSYM eşdeğeri ile DBYM'nin geçen dönem eşdeğerinin farkını verir.
+      B: İki yöntemin eşdeğer birimleri arasındaki farktır; bu fark DBYM'nin geçen dönemdeki eşdeğeridir.
+      D: DSYM'nin fiziki miktarı gibi bir değerdir; tamamlanma derecesi uygulanmamıştır.
+      E: İki yöntemin eşdeğer birimlerinin toplamıdır.
+    hesap_adimlari:
+    - DSYM eşdeğeri = 9.100 − 8.000 = 1.100
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 9100 - 8000
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: BD İşletmesi'nin safha raporunda ilk madde üretimin başında tamamen verilmekte, dönüşüm giderleri düzenli oluşmaktadır. Dönem başı yarı mamul 1.500 birim (geçen dönemde dönüşüm bakımından %40), dönemde üretime başlanan 8.500 birim, tamamlanan 7.500 birim ve dönem sonu yarı mamul 2.500 birimdir (dönüşüm bakımından %60). Ağırlıklı ortalama yöntemine göre dönüşüm eşdeğer birim sayısı kaçtır?
+  secenekler:
+    A: 600 birim
+    B: 7.500 birim
+    C: 8.400 birim
+    D: 9.000 birim
+    E: 10.000 birim
+  dogru: D
+  aciklama:
+    dogru_neden: Ağırlıklı ortalamada dönem başı yarı mamul ve dönem birlikte değerlendirilir (TMS 2 paragraf 27). Eşdeğer birim = 7.500 + 2.500 × %60 = 9.000'dir.
+    celdiriciler:
+      A: DBYM'nin geçen dönemde işlenmiş eşdeğeridir (1.500 × %40).
+      B: Yalnızca tamamlanan birimlerdir; dönem sonu yarı mamulün eşdeğeri eklenmemiştir.
+      C: FIFO eşdeğer birimidir (7.500 − 600 + 1.500); ortalama yöntemde DBYM'nin eşdeğeri düşülmez.
+      E: İlk madde eşdeğer birimidir (7.500 + 2.500 × %100); dönüşüm derecesi %60'tır.
+    hesap_adimlari:
+    - DSYM eşdeğeri = 2.500 × 0,6 = 1.500
+    - Toplam = 7.500 + 1.500 = 9.000
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 7500 + 2500 * 0.6
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: kavrama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: TMS 2 paragraf 27'deki FIFO varsayımı çerçevesinde safha maliyetinde dönem sonu yarı mamullerin değerlemesine ilişkin aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Dönem sonu yarı mamuller cari dönem birim maliyetleriyle değerlenir.
+    B: Dönem sonu yarı mamuller dönem başı yarı mamulün birim maliyetiyle değerlenir.
+    C: Dönem sonu yarı mamuller ağırlıklı ortalama birim maliyetle değerlenir.
+    D: Dönem sonu yarı mamuller değerlenmez; maliyetin tamamı tamamlananlara yüklenir.
+    E: Dönem sonu yarı mamuller satış fiyatı üzerinden değerlenir.
+  dogru: A
+  aciklama:
+    dogru_neden: TMS 2 paragraf 27'ye göre FIFO, ilk üretilen kalemlerin ilk çıktığını ve dönem sonunda kalan kalemlerin en son üretilenler olduğunu varsayar; bu nedenle dönem sonu yarı mamul cari dönemin birim maliyetiyle değerlenir.
+    celdiriciler:
+      B: FIFO'da dönem başı yarı mamul önce tamamlanır; dönem sonu yarı mamul cari dönem üretiminden oluşur.
+      C: Ortalama birim maliyet ağırlıklı ortalama yöntemine aittir.
+      D: Dönem sonu yarı mamul eşdeğer birim üzerinden değerlenir ve 151 hesabında borç kalanı olarak kalır.
+      E: Stoklar maliyetle değerlenir; satış fiyatı ölçü değildir.
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '2005-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: eşdeğer birim
+  tip: uygulama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: EK İşletmesi'nin safhasında dönem sonunda 2.000 birim yarı mamul kalmıştır; tamamlanan mamullerin maliyeti 152 Mamuller hesabına aktarılmıştır. Tek Düzen Hesap Planı'na göre dönem sonu yarı mamullerin maliyeti hangi hesapta nasıl kalır?
+  secenekler:
+    A: 152 Mamuller hesabında borç kalanı olarak izlenir.
+    B: 151 Yarı Mamuller-Üretim hesabında alacak kalanı olarak kalır.
+    C: 730 Genel Üretim Giderleri hesabında izlenir.
+    D: Dönem gideri sayılarak doğrudan kapatılır.
+    E: 151 Yarı Mamuller-Üretim hesabında borç kalanı olarak kalır.
+  dogru: E
+  aciklama:
+    dogru_neden: 151 Yarı Mamuller-Üretim hesabı dönem sonunda ilk madde, işçilik ve genel üretim giderleri kadar borçlandırılır; üretimi tamamlananların maliyeti bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır. Tamamlanmayanların maliyeti 151'de borç kalanı olarak kalır.
+    celdiriciler:
+      A: 152, üretimi tamamlanan mamuller içindir; yarı mamuller tamamlanmamıştır.
+      B: 151 maliyetlerle borçlandırılır; tamamlananlar alacak yazılır, kalan borç kalanıdır.
+      C: 730 gider toplama hesabıdır; yarı mamul stok değildir.
+      D: Yarı mamuller stoktur; dönem giderine aktarılmaz.
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: FK İşletmesi'nin II. safhasında dönem başı yarı mamul yoktur. I. safhadan 5.000 birim 150.000 TL maliyetle devralınmış; II. safhada 4.000 birim tamamlanmış, 1.000 birim yarı mamul (dönüşüm bakımından %60) kalmıştır. II. safhanın dönüşüm maliyeti 66.700 TL'dir. Devralınan birimler yarı mamullerde de %100 tamamdır. Tamamlanan mamulün birim maliyeti kaç TL'dir? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 30 TL
+    B: 43,34 TL
+    C: 44,5 TL
+    D: 46,68 TL
+    E: 52 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Devralınan birim maliyet 150.000 / 5.000 = 30 TL''dir (yarı mamuller dahil %100). Dönüşüm eşdeğer birimi 4.000 + 1.000 × %60 = 4.600; birim dönüşüm maliyeti 66.700 / 4.600 = 14,5 TL. Toplam 44,5 TL''dir. Tamamlananların maliyeti 151''in alacağı karşılığında aktarılır. Püf noktaları: Devralınan maliyet ayrı bir unsur olup tüm birimler için %100 tamamdır; tamamlanma derecesi yalnızca II. safhanın dönüşüm maliyetine uygulanır.'
+    celdiriciler:
+      A: Yalnızca devralınan maliyettir; II. safhanın dönüşüm maliyeti eklenmemiştir.
+      B: Dönüşüm maliyeti fiziki toplama (5.000) bölünmüştür; eşdeğer birim 4.600 alınmalıdır.
+      D: Dönüşüm maliyeti yalnızca tamamlanan birimlere (4.000) bölünmüştür.
+      E: Devralınan maliyet yalnızca tamamlanan birimlere (4.000) bölünmüştür; yarı mamuller de devralınan maliyeti taşır.
+    hesap_adimlari:
+    - Devralınan birim = 150.000 / 5.000 = 30
+    - Dönüşüm eşdeğeri = 4.000 + 600 = 4.600
+    - Dönüşüm birim = 66.700 / 4.600 = 14,5
+    - Toplam = 44,5 TL
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 150000 / 5000 + 66700 / (4000 + 1000 * 0.6)
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: tamamlanma derecesi geri hesap
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: GL İşletmesi'nde ağırlıklı ortalama yöntemine göre ilk madde birim maliyeti 20 TL, dönüşüm birim maliyeti 40 TL bulunmuştur. Dönem sonu yarı mamullerin dönüşüm maliyeti 48.000 TL'dir. İlk madde başta verilmektedir. Dönem sonu yarı mamullerin dönüşüm bakımından eşdeğer birim sayısı kaçtır? KDV dikkate alınmayacaktır.
+  secenekler:
+    A: 800 birim
+    B: 1.200 birim
+    C: 1.600 birim
+    D: 2.400 birim
+    E: 48.000 birim
+  dogru: B
+  aciklama:
+    dogru_neden: 'Dönem sonu yarı mamullerin dönüşüm maliyeti = dönüşüm eşdeğer birimi × dönüşüm birim maliyeti olduğundan eşdeğer birim 48.000 / 40 = 1.200''dür. İlk madde birim maliyeti bu hesapta kullanılmaz. Püf noktaları: İlk madde maliyeti gereksiz veridir; geri hesapta yalnızca ilgili unsurun (dönüşüm) maliyeti ve birim maliyeti kullanılır. Tam birim maliyetle (60 TL) bölmek tipik hatadır.'
+    celdiriciler:
+      A: Dönüşüm maliyeti ilk madde ve dönüşüm birim maliyetleri toplamına (60 TL) bölünmüştür; dönüşüm tutarı yalnızca dönüşüm birim maliyetine bölünür.
+      C: Dönüşüm maliyeti iki birim maliyetin aritmetik ortalamasına (30 TL) bölünmüştür.
+      D: Dönüşüm maliyeti ilk madde birim maliyetine (20 TL) bölünmüştür.
+      E: Dönüşüm maliyetinin kendisidir; eşdeğer birim sayısına ulaşmak için birim maliyete bölünmemiştir.
+    hesap_adimlari:
+    - Eşdeğer birim = 48.000 / 40 = 1.200
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 48000 / 40
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: MAL
+  unite: Safha maliyeti ve eşdeğer birim
+  konu: SAF
+  kazanim: FIFO ve ortalama safha maliyeti
+  tip: kavrama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: Bir işletmede ilk madde safhanın başında, dönüşüm giderleri ise üretim boyunca eşit olarak oluşmaktadır. Dönem başı yarı mamul bulunmamaktadır. Dönem sonu yarı mamullerin dönüşüm bakımından %40 tamamlandığı bilinmektedir. Aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Dönem sonu yarı mamullerin hem ilk madde hem dönüşüm eşdeğer birimi fiziki miktarın %40'ına eşittir.
+    B: Dönem sonu yarı mamullerin ilk madde eşdeğer birimi fiziki miktarın %40'ına, dönüşüm eşdeğer birimi fiziki miktara eşittir.
+    C: Dönem sonu yarı mamuller eşdeğer birim hesabına katılmaz; yalnızca tamamlananlar esas alınır.
+    D: İlk madde eşdeğer birimi fiziki miktara, dönüşüm eşdeğer birimi fiziki miktarın %40'ına eşittir.
+    E: Ağırlıklı ortalama ile FIFO yöntemlerinin eşdeğer birimleri bu durumda farklı çıkar.
+  dogru: D
+  aciklama:
+    dogru_neden: 'Tek Düzen Hesap Planı''na göre 151 Yarı Mamuller-Üretim hesabı ilk madde, işçilik ve genel üretim giderleri kadar borçlandırılır. İlk madde başta verildiğinden yarı mamul ilk madde bakımından tamdır; dönüşüm bakımından derecesi kadar eşdeğerdir. DBYM bulunmadığından FIFO ve ağırlıklı ortalama aynı sonucu verir (TMS 2 par. 27). Püf noktaları: Unsur bazında düşün: ilk madde derecesi %100, dönüşüm derecesi soruda verilen orandır. DBYM yoksa yöntem farkı da kalmaz.'
+    celdiriciler:
+      A: İlk madde başta verildiğinden yarı mamuller ilk madde bakımından %100 tamamdır.
+      B: Dereceler ters yazılmıştır; dönüşüm %40, ilk madde %100'dür.
+      C: Yarı mamuller eşdeğer birim hesabına derecelerine göre katılır; aksi halde maliyetleri dağıtılamaz.
+      E: DBYM olmadığından iki yöntemin eşdeğer birimleri aynıdır.
+  kaynaklar:
+  - mevzuat: 'MSUGT Sıra No: 1, Tek Düzen Hesap Planı'
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 27
+    alinti: FIFO yöntemi; ilk satın alınan veya üretilen stok kalemlerinin ilk olarak satıldığını ve bunun sonucunda dönem sonunda stokta kalan kalemlerin en son satın alınan veya üretilen kalemler olduğunu varsayar. Ağırlıklı ortalama maliyet yönteminde ise, her bir stok kaleminin maliyeti; dönem başındaki benzer kalemlerin maliyetleri ile dönem içinde satın alınan veya üretilen benzer kalemlerin maliyetlerinin ağırlıklı ortalaması alınarak belirlenir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

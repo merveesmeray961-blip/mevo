@@ -143,6 +143,9 @@ _METIN: dict[str, str] = {}
 def _metinler() -> dict[str, str]:
     if not _METIN:
         _METIN.update({p.stem: _norm(p.read_text(encoding="utf-8", errors="ignore")) for p in MEVZUAT.glob("*.txt")})
+        # Mevzuatı olmayan dersler (İktisat vb.) hakemli konu anlatımlarına dayanır; alıntı orada aranır.
+        _METIN.update({f"anlatim:{p.parent.name}/{p.stem}": _norm(p.read_text(encoding="utf-8", errors="ignore"))
+                       for p in (KOK / "content/anlatim").glob("*/*/*.md")})
     return _METIN
 
 

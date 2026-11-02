@@ -1,0 +1,188 @@
+- id: TASLAK
+  sinav: smmm
+  bolum: [SGS, YET]
+  ders: MAL
+  unite: "Temel kavramlar ve GÜG kalemleri"
+  konu: KAV
+  kazanim: "maliyet unsurları"
+  tip: kavrama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: "Tekdüzen Hesap Planına göre 760 Pazarlama Satış ve Dağıtım Giderleri hesabına hangi giderler borç kaydedilir?"
+  secenekler:
+    A: "Mamulün stoklara verilmesinden alıcılara teslimine kadar yapılan giderler"
+    B: "Mamulün üretimi sırasında fabrikada yapılan ve dağıtım yoluyla mamullere yüklenen giderler"
+    C: "İşletmenin borçlanmasıyla ilgili faiz ve kur farkı giderleri"
+    D: "Üretime devam olunan mamullerin maliyetlerini düşürmeye yönelik araştırma giderleri"
+    E: "İşletme politikasının tayini ve büro hizmetlerine ilişkin giderler"
+  dogru: A
+  aciklama:
+    dogru_neden: "THP'ye göre 760 hesabına mamulün stoklara verildiği ve hizmetin tamamlandığı andan itibaren bu mal ve hizmetlerin alıcılara teslimine kadar yapılan giderler borç kaydedilir."
+    celdiriciler:
+      B: "Fabrikada yapılan ve dağıtım yoluyla yüklenen giderler 730 Genel Üretim Giderleridir."
+      C: "Faiz ve kur farkı giderleri 780 Finansman Giderleridir."
+      D: "Araştırma ve geliştirme giderleri 750 hesabında izlenir."
+      E: "Politika tayini ve büro hizmetleri 770 Genel Yönetim Giderleridir."
+  kaynaklar:
+  - mevzuat: "1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği, Ek 5 (Tek Düzen Hesap Planı)"
+    madde: "760 Pazarlama Satış ve Dağıtım Giderleri"
+    alinti: "Mamülün stoklara verildiği ve hizmetin tamamlandığı andan itibaren bu mal ve hizmetlerin alıcılara teslimine kadar yapılan giderler bu hesaba borç kaydedilir."
+  gecerlilik: {baslangic: '1994-01-01', bitis: null, yila_bagli_tutar: false}
+  durum: taslak
+  surum: 1
+  uretim: {kaynak_turu: yapay_zeka, model: claude-sonnet-5-5}
+
+- id: TASLAK
+  sinav: smmm
+  bolum: [SGS, YET]
+  ders: MAL
+  unite: "Temel kavramlar ve GÜG kalemleri"
+  konu: KAV
+  kazanim: "maliyet unsurları"
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: "Bir işletmede dönemin üretim giderleri 870.000 ₺, direkt işçilik 90.000 ₺ ve genel üretim giderleri 140.000 ₺'dir. Genel yönetim giderleri 60.000 ₺'dir. KDV dikkate alınmayacaktır. Direkt ilk madde ve malzeme gideri kaç ₺'dir?"
+  secenekler:
+    A: "90.000 ₺"
+    B: "640.000 ₺"
+    C: "730.000 ₺"
+    D: "780.000 ₺"
+    E: "1.100.000 ₺"
+  dogru: B
+  aciklama:
+    dogru_neden: "Dönemin üretim giderleri = DİMM + DİŞ + GÜG olduğundan DİMM = 870.000 − 90.000 − 140.000 = 640.000 ₺. Genel yönetim gideri üretim giderine girmez."
+    celdiriciler:
+      A: "Bu tutar direkt işçiliktir."
+      C: "Yalnızca genel üretim giderleri çıkarılmıştır; direkt işçilik de düşülmelidir."
+      D: "Yalnızca direkt işçilik çıkarılmıştır; genel üretim giderleri de düşülmelidir."
+      E: "Üretim giderlerine direkt işçilik ve GÜG eklenmiştir; geri hesapta bunlar çıkarılır."
+    hesap_adimlari:
+    - "DİMM = 870.000 − 90.000 − 140.000 = 640.000 ₺"
+  kaynaklar:
+  - mevzuat: "1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği, Ek 4 (Mali Tabloların Düzenlenmesi)"
+    madde: "Satışların Maliyeti Tablosu, A - Direkt İlk Madde ve Malzeme Giderleri"
+    alinti: "A _ Direkt İlk Madde ve Malzeme Giderleri : Mamülün bünyesine giren mamülün temel öğesini oluşturan ve mamülün bünyesine doğrudan yüklenebilen maddelerin kullanımı bu grupta yer alır. Üretimde kullanılmayan ve satılan ilk madde ve malzemenin maliyeti, tablonun ticari faaliyete ilişkin bölümünde dikkate alınır."
+  - mevzuat: "1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği, Ek 4 (Mali Tabloların Düzenlenmesi)"
+    madde: "Satışların Maliyeti Tablosu, C - Genel Üretim Giderleri"
+    alinti: "C _ Genel Üretim Giderleri : Üretim faaliyetleri ve bu faaliyetlerle ilgili olarak yapılan hizmetlere ilişkin direkt ilk madde ve malzeme ile direkt işçilik giderleri dışında kalan giderleri içerir."
+  dogrulama: {python: "sonuc = 870000 - 90000 - 140000"}
+  gecerlilik: {baslangic: '1994-01-01', bitis: null, yila_bagli_tutar: false}
+  durum: taslak
+  surum: 1
+  uretim: {kaynak_turu: yapay_zeka, model: claude-sonnet-5-5}
+
+- id: TASLAK
+  sinav: smmm
+  bolum: [SGS, YET]
+  ders: MAL
+  unite: "Temel kavramlar ve GÜG kalemleri"
+  konu: KAV
+  kazanim: "finansman gideri"
+  tip: uygulama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: "B İşletmesi, işletme faaliyetlerinin aksamadan yürütülebilmesi amacıyla kullandığı banka kredisine ilişkin faiz, kur farkı ve komisyon giderlerini 7/A seçeneğinde izleyecektir. THP'ye göre bu giderler hangi hesaba borç kaydedilir?"
+  secenekler:
+    A: "730 Genel Üretim Giderleri"
+    B: "770 Genel Yönetim Giderleri"
+    C: "760 Pazarlama Satış ve Dağıtım Giderleri"
+    D: "750 Araştırma ve Geliştirme Giderleri"
+    E: "780 Finansman Giderleri Hesabı"
+  dogru: E
+  aciklama:
+    dogru_neden: "THP'ye göre işletme faaliyetlerinin aksamadan yürütülebilmesi amacıyla borçlanılan tutarlarla ilgili faiz, kur farkları, komisyon ve benzeri giderler 780 Finansman Giderleri hesabına borç kaydedilir."
+    celdiriciler:
+      A: "730 hesabı üretime ilişkin dolaylı giderleri izler; borçlanma giderleri maliyete katılmaz."
+      B: "770 hesabı yönetim fonksiyonuna ilişkin giderleri izler."
+      C: "760 hesabı mamulün teslimine kadar yapılan giderleri izler."
+      D: "750 hesabı araştırma geliştirme giderlerini izler."
+  kaynaklar:
+  - mevzuat: "1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği, Ek 5 (Tek Düzen Hesap Planı)"
+    madde: "780 Finansman Giderleri Hesabı"
+    alinti: "İşletme faaliyetlerinin aksamadan yürütülebilmesi amacıyla borçlanılan tutarlarla ilgili faiz, kur farkları, komisyon ve benzeri giderler bu hesaba borç kaydedilir."
+  - mevzuat: "1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği, Ek 5 (Tek Düzen Hesap Planı)"
+    madde: "78 Finansman Giderleri"
+    alinti: "Bu grupta işletmenin borçlandığı tutarlarla ilgili olarak katlanılan ve varlıkların maliyetine eklenmemiş bulunan faiz ve benzeri giderlerle, yansıtma ve fark hesapları yer alır."
+  gecerlilik: {baslangic: '1994-01-01', bitis: null, yila_bagli_tutar: false}
+  durum: taslak
+  surum: 1
+  uretim: {kaynak_turu: yapay_zeka, model: claude-sonnet-5-5}
+
+- id: TASLAK
+  sinav: smmm
+  bolum: [SGS, YET]
+  ders: MAL
+  unite: "Temel kavramlar ve GÜG kalemleri"
+  konu: KAV
+  kazanim: "maliyet unsurları"
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: "Bir işletmede asal maliyet 880.000 ₺, dönüştürme maliyeti 200.000 ₺ ve genel üretim giderleri 110.000 ₺'dir. Genel yönetim giderleri 60.000 ₺'dir. KDV dikkate alınmayacaktır. Dönemin üretim giderleri kaç ₺'dir?"
+  secenekler:
+    A: "90.000 ₺"
+    B: "880.000 ₺"
+    C: "990.000 ₺"
+    D: "1.080.000 ₺"
+    E: "1.190.000 ₺"
+  dogru: C
+  aciklama:
+    dogru_neden: "Dönüştürme maliyeti = DİŞ + GÜG olduğundan DİŞ = 200.000 − 110.000 = 90.000 ₺'dir. Dönemin üretim giderleri = Asal maliyet + GÜG = 880.000 + 110.000 = 990.000 ₺ (ya da asal + dönüştürme − DİŞ). Püf noktaları: Direkt işçilik iki toplamın ortak unsurudur; genel yönetim gideri gereksiz veridir ve üretim giderine girmez."
+    celdiriciler:
+      A: "Bu tutar dönüştürme maliyeti ile GÜG arasındaki farktır, yani direkt işçiliktir."
+      B: "Bu tutar asal maliyettir; GÜG eklenmemiştir."
+      D: "Asal ve dönüştürme maliyeti toplanmıştır; direkt işçilik iki kez sayılmıştır."
+      E: "Asal maliyet, dönüştürme maliyeti ve GÜG birlikte toplanmıştır."
+    hesap_adimlari:
+    - "DİŞ = 200.000 − 110.000 = 90.000 ₺"
+    - "Üretim giderleri = 880.000 + 110.000 = 990.000 ₺"
+  kaynaklar:
+  - mevzuat: "TMS 2 Stoklar"
+    madde: "paragraf 12"
+    alinti: "Stokların dönüştürme maliyetleri; direkt işçilik giderleri gibi, üretimle doğrudan ilişkili maliyetleri kapsar. Bu maliyetler ayrıca ilk madde ve malzemenin mamule dönüştürülmesinde katlanılan sabit ve değişken genel üretim giderlerinden sistematik bir şekilde dağıtılan tutarları da içerir."
+  - mevzuat: "1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği, Ek 4 (Mali Tabloların Düzenlenmesi)"
+    madde: "Satışların Maliyeti Tablosu, C - Genel Üretim Giderleri"
+    alinti: "C _ Genel Üretim Giderleri : Üretim faaliyetleri ve bu faaliyetlerle ilgili olarak yapılan hizmetlere ilişkin direkt ilk madde ve malzeme ile direkt işçilik giderleri dışında kalan giderleri içerir."
+  dogrulama: {python: "sonuc = 880000 + 110000"}
+  gecerlilik: {baslangic: '2006-01-01', bitis: null, yila_bagli_tutar: false}
+  durum: taslak
+  surum: 1
+  uretim: {kaynak_turu: yapay_zeka, model: claude-sonnet-5-5}
+
+- id: TASLAK
+  sinav: smmm
+  bolum: [SGS, YET]
+  ders: MAL
+  unite: "Temel kavramlar ve GÜG kalemleri"
+  konu: KAV
+  kazanim: "GÜG kalemleri"
+  tip: kavrama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: "TMS 2 paragraf 13'e göre değişken genel üretim giderleri dönüştürme maliyetlerine nasıl dağıtılır?"
+  secenekler:
+    A: "Üretim tesislerinin normal kapasitesi esas alınarak dağıtılır."
+    B: "Düşük üretim düzeyinde birim başına tutarı artırılarak dağıtılır."
+    C: "Dağıtılmaz; tamamı gerçekleştiği dönemde gider yazılır."
+    D: "Tesislerin gerçek kullanımına bağlı olarak her birime dağıtılır."
+    E: "Yalnızca yıl sonunda satılan mamullere dağıtılır."
+  dogru: D
+  aciklama:
+    dogru_neden: "TMS 2 paragraf 13'e göre değişken genel üretim giderleri, üretim tesislerinin gerçek kullanımına bağlı olarak her bir üretim birimine dağıtılır."
+    celdiriciler:
+      A: "Normal kapasite esası sabit genel üretim giderleri için geçerlidir."
+      B: "Birim başına sabit giderin düşük üretim nedeniyle arttırılmaması kuralı da sabit giderler içindir."
+      C: "Değişken giderler dönüştürme maliyetine dağıtılır; gider yazılması dağıtılmayan sabit gider için geçerlidir."
+      E: "Standart dağıtımı satılan mamullerle sınırlamaz; üretim birimlerine yapılır."
+  kaynaklar:
+  - mevzuat: "TMS 2 Stoklar"
+    madde: "paragraf 13"
+    alinti: "Değişken genel üretim giderleri, üretim tesislerinin gerçek kullanımına bağlı olarak her bir üretim birimine dağıtılır."
+  - mevzuat: "TMS 2 Stoklar"
+    madde: "paragraf 13"
+    alinti: "Sabit genel üretim giderleri, üretim tesislerinin normal kapasitesi esas alınarak dönüştürme maliyetlerine dağıtılır."
+  gecerlilik: {baslangic: '2006-01-01', bitis: null, yila_bagli_tutar: false}
+  durum: taslak
+  surum: 1
+  uretim: {kaynak_turu: yapay_zeka, model: claude-sonnet-5-5}

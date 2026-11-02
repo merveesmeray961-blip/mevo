@@ -1,0 +1,537 @@
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: FIN
+  unite: Finansal muhasebe
+  konu: BOR
+  kazanim: banka kredileri ve faiz tahakkuku
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: AB İşletmesi 1 Kasım 2026 tarihinde bankadan 3 ay vadeli 300.000 ₺ tutarında, yıllık %48 faizli kredi kullanmıştır. Faiz vade sonunda ana para ile birlikte ödenecektir. Yıl 360 gün, ay 30 gün kabul edilerek 31 Aralık 2026 itibarıyla bu krediye ilişkin cari döneme düşen faiz tutarı aşağıdakilerden hangisidir?
+  secenekler:
+    A: 12.000 ₺ (30 gün)
+    B: 24.000 ₺ (60 günlük)
+    C: 36.000 ₺ (90 gün)
+    D: 144.000 ₺ (1 yıllık)
+    E: 324.000 ₺ (anapara + 1 yıllık faiz)
+  dogru: B
+  aciklama:
+    dogru_neden: Faiz, bir yıla kadar vadeli borçlanma gideri olarak THP 660'ta izlenir. Cari döneme düşen süre 1 Kasım - 31 Aralık = 60 gündür. Faiz = 300.000 × 0,48 × 60 / 360 = 24.000 ₺'dir.
+    celdiriciler:
+      A: 12.000 ₺ yalnızca bir ayın (30 gün) faizidir; 1 Kasım - 31 Aralık arası iki aydır.
+      C: 36.000 ₺ vadenin tamamı olan üç ayın (90 gün) faizidir; cari döneme yalnızca iki ay isabet eder.
+      D: 144.000 ₺ bir yıllık faizdir (300.000 × %48).
+      E: 324.000 ₺ anapara ile bir yıllık faizin toplamıdır.
+    hesap_adimlari:
+    - 'Cari döneme düşen süre: 60 gün'
+    - 'Faiz: 300.000 × 0,48 × 60 / 360 = 24.000 ₺'
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 660 Kısa Vadeli Borçlanma Giderleri
+    alinti: Bir yıla kadar vadeli olan borçlanmalarla ilgili olarak yüklenilen ve varlıkların maliyetine eklenmeyen faiz ve benzeri diğer giderlerin izlendiği hesaptır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 300 Banka Kredileri
+    alinti: Alınan kısa vadeli krediler bu hesaba alacak, ödenmeleri halinde borç kaydedilir.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 300000 * 0.48 * 60 / 360
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: FIN
+  unite: Finansal muhasebe
+  konu: BOR
+  kazanim: banka kredileri ve faiz tahakkuku
+  tip: uygulama
+  zorluk: 1
+  soru_bicimi: yevmiye
+  kok: AX İşletmesi, daha önce kullandığı 6 ay vadeli 200.000 ₺'lik banka kredisini vadesinde, 12.000 ₺ faiziyle birlikte bankadan havale ederek ödemiştir. Faiz için daha önce tahakkuk kaydı yapılmamıştır. Aksi belirtilmedikçe Tekdüzen Hesap Planı esas alınacak ve KDV dikkate alınmayacaktır. İşletmenin bu ödemeye ilişkin yapacağı kayıt aşağıdakilerden hangisidir?
+  secenekler:
+    A: |-
+      Borç: 300 Banka Kredileri 212.000
+      Alacak: 102 Bankalar 212.000
+    B: |-
+      Borç: 300 Banka Kredileri 200.000
+      Borç: 661 Uzun Vadeli Borçlanma Giderleri 12.000
+      Alacak: 102 Bankalar 212.000
+    C: |-
+      Borç: 300 Banka Kredileri 200.000
+      Borç: 656 Kambiyo Zararları 12.000
+      Alacak: 102 Bankalar 212.000
+    D: |-
+      Alacak: 300 Banka Kredileri 200.000
+      Borç: 660 Kısa Vadeli Borçlanma Giderleri 12.000
+      Alacak: 102 Bankalar 12.000
+    E: |-
+      Borç: 300 Banka Kredileri 200.000
+      Borç: 660 Kısa Vadeli Borçlanma Giderleri 12.000
+      Alacak: 102 Bankalar 212.000
+  dogru: E
+  aciklama:
+    dogru_neden: THP 300'e göre kısa vadeli krediler ödenmeleri halinde hesaba borç kaydedilir; THP 660'a göre bir yıla kadar vadeli borçlanmanın faizi 660 hesabında izlenir. Ödenen toplam 212.000 ₺ bankadan çıkar (102 alacak).
+    celdiriciler:
+      A: Faiz de kredi hesabına yazılmıştır; faiz 660 hesabına gider kaydedilmelidir.
+      B: Vadesi bir yıla kadar olan kredinin faizi 661 değil 660 hesabında izlenir.
+      C: Faiz kambiyo zararı değildir; borçlanma gideridir ve 660 hesabına yazılır.
+      D: Kredinin ödenmesi 300 hesabının borcuna yazılır; kayıt ters ve eksiktir.
+    hesap_adimlari:
+    - 'Anapara: 200.000 ₺ (300 borç)'
+    - 'Faiz: 12.000 ₺ (660 borç)'
+    - 'Bankadan çıkan: 212.000 ₺ (102 alacak)'
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 300 Banka Kredileri
+    alinti: Alınan kısa vadeli krediler bu hesaba alacak, ödenmeleri halinde borç kaydedilir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 660 Kısa Vadeli Borçlanma Giderleri
+    alinti: Bir yıla kadar vadeli olan borçlanmalarla ilgili olarak yüklenilen ve varlıkların maliyetine eklenmeyen faiz ve benzeri diğer giderlerin izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: FIN
+  unite: Finansal muhasebe
+  konu: BOR
+  kazanim: bono ve tahvil ihracı (305/308/405/408)
+  tip: uygulama
+  zorluk: 2
+  soru_bicimi: yevmiye
+  kok: M İşletmesi 90 gün vadeli, nominal değeri 500.000 ₺ olan finansman bonosunu ihraç ederek 485.000 ₺'ye satmış, bedel bankaya yatırılmıştır. İskonto tutarının tamamı gelecek döneme aittir. Aksi belirtilmedikçe Tekdüzen Hesap Planı esas alınacak ve KDV dikkate alınmayacaktır. İşletmenin ihraç anında yapacağı kayıt aşağıdakilerden hangisidir?
+  secenekler:
+    A: |-
+      Borç: 102 Bankalar 485.000
+      Alacak: 305 Çıkarılmış Bonolar ve Senetler 485.000
+    B: |-
+      Borç: 102 Bankalar 485.000
+      Borç: 408 Menkul Kıymetler İhraç Farkı 15.000
+      Alacak: 305 Çıkarılmış Bonolar ve Senetler 500.000
+    C: |-
+      Borç: 102 Bankalar 485.000
+      Borç: 660 Kısa Vadeli Borçlanma Giderleri (iskonto gideri) 15.000
+      Alacak: 305 Çıkarılmış Bonolar ve Senetler 500.000
+    D: |-
+      Borç: 102 Bankalar 485.000
+      Borç: 308 Menkul Kıymetler İhraç Farkları 15.000
+      Alacak: 305 Çıkarılmış Bonolar ve Senetler 500.000
+    E: |-
+      Borç: 102 Bankalar 485.000
+      Borç: 308 Menkul Kıymetler İhraç Farkları 15.000
+      Alacak: 405 Çıkarılmış Tahviller 500.000
+  dogru: D
+  aciklama:
+    dogru_neden: THP 305'e göre kısa vadeli para ve sermaye piyasası araçları ihraç edildiğinde nominal bedel üzerinden 305 hesabına alacak kaydedilir. THP 308'e göre nominal değerin altında satışta farkın gelecek döneme ait kısmı 308 hesabında izlenir (borç). Fark 500.000 − 485.000 = 15.000 ₺'dir.
+    celdiriciler:
+      A: Bono nominal bedel üzerinden 305 alacağa yazılır; iskonto farkı 308'e borç kaydedilmelidir.
+      B: 408 vadesi bir yılı aşan menkul kıymetlerin ihraç farkıdır; 90 günlük bono için 308 kullanılır.
+      C: Gelecek döneme ait iskonto ihraç anında gider yazılmaz; 308 hesabında izlenir ve vadeye yayılarak itfa edilir.
+      E: 405 vadesi bir yılı aşan tahviller içindir; kısa vadeli bono 305'te izlenir.
+    hesap_adimlari:
+    - 'İskonto: 500.000 - 485.000 = 15.000 ₺'
+    - 102 borç 485.000; 308 borç 15.000; 305 alacak 500.000 (nominal)
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 305 Çıkarılmış Bonolar ve Senetler
+    alinti: Tedavüldeki finansman bonoları ve banka bonoları gibi kısa vadeli para ve sermaye piyasası araçları karşılığında sağlanan fonlar bu hesapta izlenir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 305 Çıkarılmış Bonolar ve Senetler
+    alinti: Bu hesapta tanımlanan menkul kıymetler ihraç edildiğinde nominal bedel üzerinden bu hesaba alacak, ilgili hesaplara borç kaydedilir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 308 Menkul Kıymetler İhraç Farkları
+    alinti: Nominal değerinin altında ihraç edilen tahvil, senet vs. diğer menkul kıymetlerin nominal değeri ile satış fiyatı arasındaki farkın gelecek döneme ait olan kısmı bu hesapta izlenir.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: FIN
+  unite: Finansal muhasebe
+  konu: BOR
+  kazanim: bono ve tahvil ihracı (305/308/405/408)
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: AB İşletmesi 1 Kasım 2026 tarihinde, 1 Şubat 2027 vadeli finansman bonosunu nominal değerinin 18.000 ₺ altında satmıştır. İskonto tutarı 308 Menkul Kıymetler İhraç Farkları hesabına yansıtılmış olup vadeye paralel olarak eşit biçimde itfa edilecektir. Ay 30 gün kabul edilerek 31 Aralık 2026 itibarıyla finansman gideri olarak yazılacak itfa tutarı aşağıdakilerden hangisidir?
+  secenekler:
+    A: 6.000 ₺ (1 ay)
+    B: 9.000 ₺ (yarısı)
+    C: 12.000 ₺ (18.000 × 2 / 3)
+    D: 18.000 ₺ (iskontonun tamamı)
+    E: 36.000 ₺ (2 × iskonto)
+  dogru: C
+  aciklama:
+    dogru_neden: 'THP 308''e göre ihraç farkı, menkul kıymetin vadesine paralel olarak itfa edilir ve itfa tutarları 66 Finansman Giderleri grubundaki hesaplar karşılığında 308''e alacak yazılır. Vade 3 ay, cari dönemde geçen süre 2 aydır: 18.000 × 2 / 3 = 12.000 ₺.'
+    celdiriciler:
+      A: 6.000 ₺ yalnızca bir ayın itfa payıdır; 1 Kasım - 31 Aralık iki aydır.
+      B: 9.000 ₺ vadenin yarısına göre bulunur; vade üç ay, geçen süre iki aydır.
+      D: 18.000 ₺ iskontonun tamamıdır; bir kısmı gelecek döneme (Ocak) aittir.
+      E: 36.000 ₺ iskontonun iki katıdır; hatalı bir sonuçtur.
+    hesap_adimlari:
+    - 'Vade: 3 ay; cari dönem payı: 2 ay'
+    - 'İtfa: 18.000 × 2 / 3 = 12.000 ₺'
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 308 Menkul Kıymetler İhraç Farkları
+    alinti: Nominal değerinin altında ihraç edilen tahvil, senet vs. diğer menkul kıymetlerin nominal değeri ile satış fiyatı arasındaki farkın gelecek döneme ait olan kısmı bu hesapta izlenir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 66 Finansman Giderleri
+    alinti: İşletmenin borçlandığı tutarlarla ilgili olarak katlanılan ve varlıkların maliyetine eklenmemiş bulunan faiz, kur farkları, kredi komisyonları ve benzeri diğer giderleri kapsar.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 18000 * 2 / 3
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: FIN
+  unite: Finansal muhasebe
+  konu: BOR
+  kazanim: bono ve tahvil ihracı (305/308/405/408)
+  tip: uygulama
+  zorluk: 3
+  soru_bicimi: yevmiye
+  kok: AX İşletmesi, vadesi 3 yıl olan, yıllık %30 faizli ve nominal değeri 1.000.000 ₺ olan tahvillerini 920.000 ₺'ye satmış, bedel bankaya yatırılmıştır. Aksi belirtilmedikçe Tekdüzen Hesap Planı esas alınacak ve KDV dikkate alınmayacaktır. İşletmenin ihraç anında yapacağı kayıt aşağıdakilerden hangisidir?
+  secenekler:
+    A: |-
+      Borç: 102 Bankalar 920.000
+      Borç: 408 Menkul Kıymetler İhraç Farkı 80.000
+      Alacak: 405 Çıkarılmış Tahviller 1.000.000
+    B: |-
+      Borç: 102 Bankalar 920.000
+      Alacak: 405 Çıkarılmış Tahviller 920.000
+    C: |-
+      Borç: 102 Bankalar 920.000
+      Borç: 308 Menkul Kıymetler İhraç Farkları 80.000
+      Alacak: 405 Çıkarılmış Tahviller 1.000.000
+    D: |-
+      Borç: 102 Bankalar 920.000
+      Borç: 660 Kısa Vadeli Borçlanma Giderleri 80.000
+      Alacak: 405 Çıkarılmış Tahviller 1.000.000
+    E: |-
+      Borç: 102 Bankalar 920.000
+      Borç: 408 Menkul Kıymetler İhraç Farkı 80.000
+      Alacak: 305 Çıkarılmış Bonolar ve Senetler 1.000.000
+  dogru: A
+  aciklama:
+    dogru_neden: 'THP 405''e göre vadesi bir yılı aşan tahviller nominal bedelleriyle 405''e alacak kaydedilir; THP 408''e göre nominal değerin altında satışta fark 408''in borcuna kaydedilir. Fark 1.000.000 − 920.000 = 80.000 ₺''dir. Püf noktaları: Vade 3 yıl olduğundan 305/308 değil 405/408 kullanılır; faiz oranı gereksiz veridir ve ihraç anında faiz gideri yazılmaz.'
+    celdiriciler:
+      B: Tahviller nominal bedelleri ile 405 hesabına alacak kaydedilir; fark 408'e borç yazılmalıdır.
+      C: Vadesi 3 yıl olan tahvilde farkın gelecek yıllara ait kısmı 408'de izlenir; 308 yalnızca bir yıl içindeki kısımdır.
+      D: İskonto ihraç anında gider yazılmaz; vadeye yayılmak üzere 408'de izlenir.
+      E: 305 kısa vadeli bono ve senetler içindir; vadesi bir yılı aşan tahvil 405'te izlenir.
+    hesap_adimlari:
+    - 'İhraç farkı: 1.000.000 - 920.000 = 80.000 ₺'
+    - 102 borç 920.000; 408 borç 80.000; 405 alacak 1.000.000
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 405 Çıkarılmış Tahviller
+    alinti: İşletme tarafından çıkarılmış bulunan tahvillerden vadesi bir yılı aşanlar bu hesapta izlenir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 405 Çıkarılmış Tahviller
+    alinti: Çıkarılmış tahviller nominal bedelleri ile bu hesaba alacak kaydedilir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 408 Menkul Kıymetler İhraç Farkı
+    alinti: Nominal değerinin altında ihraç edilen tahvil, senet ve diğer menkul kıymetlerin nominal değeri ile satış fiyatı arasındaki fark bu hesabın borcuna kaydedilir.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: FIN
+  unite: Finansal muhasebe
+  konu: BOR
+  kazanim: uzun vadeli borcun kısa vadeye aktarılması
+  tip: uygulama
+  zorluk: 3
+  soru_bicimi: yevmiye
+  kok: M İşletmesinin 405 Çıkarılmış Tahviller hesabında 900.000 ₺ nominal tahvil borcu bulunmaktadır. Tahvil anaparası 15 Haziran 2027, 2028 ve 2029 tarihlerinde üç eşit taksitle ödenecektir. 31 Aralık 2026 bilanço tarihinde yapılması gereken aktarma kaydı aşağıdakilerden hangisidir? Aksi belirtilmedikçe Tekdüzen Hesap Planı esas alınacak ve KDV dikkate alınmayacaktır.
+  secenekler:
+    A: |-
+      Borç: 405 Çıkarılmış Tahviller 900.000
+      Alacak: 304 Tahvil Anapara Borç Taksit ve Faizleri 900.000
+    B: |-
+      Borç: 405 Çıkarılmış Tahviller 300.000
+      Alacak: 303 Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri 300.000
+    C: |-
+      Borç: 405 Çıkarılmış Tahviller 300.000
+      Alacak: 304 Tahvil Anapara Borç Taksit ve Faizleri 300.000
+    D: |-
+      Borç: 405 Çıkarılmış Tahviller 300.000
+      Alacak: 305 Çıkarılmış Bonolar ve Senetler 300.000
+    E: |-
+      Borç: 304 Tahvil Anapara Borç Taksit ve Faizleri 300.000
+      Alacak: 405 Çıkarılmış Tahviller 300.000
+  dogru: C
+  aciklama:
+    dogru_neden: 'THP 405''e göre bilanço tarihinden itibaren bir yıl içinde ödenecek tahvil anapara taksitleri 304 hesabına aktarılarak 405''e borç kaydedilir. 31 Aralık 2026''dan itibaren bir yıl içinde yalnızca 15 Haziran 2027 taksiti (900.000 / 3 = 300.000 ₺) vadeye girer. Püf noktaları: Yalnızca bir yıl içindeki tek taksit aktarılır; sonraki taksitler 405''te kalır.'
+    celdiriciler:
+      A: Yalnızca bilanço tarihinden itibaren bir yıl içinde ödenecek taksit (300.000 ₺) aktarılır.
+      B: 303 uzun vadeli kredi taksitleri içindir; tahvil taksitleri 304'e aktarılır.
+      D: 305 kısa vadeli bono ve senetler içindir; tahvil taksitleri 304'e aktarılır.
+      E: Kayıt ters yapılmıştır; 405 borç, 304 alacak kaydedilir.
+    hesap_adimlari:
+    - 'Taksit tutarı: 900.000 / 3 = 300.000 ₺'
+    - 'Bir yıl içinde ödenecek taksit: 15.06.2027 (1 adet)'
+    - 405 borç 300.000 / 304 alacak 300.000
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 405 Çıkarılmış Tahviller
+    alinti: İşletme tarafından çıkarılmış bulunan tahvillerden vadesi bir yılı aşanlar bu hesapta izlenir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 304 Tahvil Anapara Borç Taksit ve Faizleri
+    alinti: Bilanço tarihinden itibaren bir yıl içinde ödenecek tahvil anapara borç taksitleri ile tahvillerin tahakkuk edip de henüz ödenmeyen faizlerinin izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: FIN
+  unite: Finansal muhasebe
+  konu: BOR
+  kazanim: uzun vadeli borcun kısa vadeye aktarılması
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: AB İşletmesi 2026 yılında 5 yıl vadeli, 600.000 ₺'lik uzun vadeli banka kredisi kullanmıştır. Anapara beş eşit yıllık taksitle ödenecek olup ilk taksit 2027 yılı içinde vadeye girmektedir. 31 Aralık 2026 bilançosunda 303 Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri hesabına alacak kaydedilecek anapara tutarı aşağıdakilerden hangisidir?
+  secenekler:
+    A: 24.000 ₺
+    B: 120.000 ₺ (600.000 / 5)
+    C: 480.000 ₺ (uzun vadede kalan)
+    D: 600.000 ₺ (kredinin tamamı)
+    E: 720.000 ₺
+  dogru: B
+  aciklama:
+    dogru_neden: THP 303 vadelerine bir yıldan fazla süre bulunan kredilerin bilanço tarihinden itibaren bir yıl içinde ödenecek anapara taksitlerini kapsar. Taksit 600.000 / 5 = 120.000 ₺'dir; kalan 480.000 ₺ uzun vadeli kredi (400) hesabında kalır.
+    celdiriciler:
+      A: 24.000 ₺ bir yılın faizi gibi hatalı bir tutardır; aktarılacak tutar anapara taksitidir.
+      C: 480.000 ₺ uzun vadeli kısımda kalacak anaparadır; 303'e aktarılmaz.
+      D: 600.000 ₺ kredinin tamamıdır; yalnızca bir yıl içinde ödenecek taksit aktarılır.
+      E: 720.000 ₺ anapara ile hatalı bir tutarın toplamıdır.
+    hesap_adimlari:
+    - 'Yıllık taksit: 600.000 / 5 = 120.000 ₺'
+    - 303 alacak 120.000; 400 borç 120.000
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 303 Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri
+    alinti: Vadelerine bir yıldan fazla süre bulunmakla birlikte uzun vadeli kredilerin, bilanço tarihinden itibaren bir yıl içinde ödenecek anapara taksitleri ile vadesi bir yılın altına düşenleri ve bunların tahakkuk ettiği halde henüz ödenmeyen faizlerini kapsar.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = 600000 / 5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: FIN
+  unite: Finansal muhasebe
+  konu: BOR
+  kazanim: kur farkı
+  tip: uygulama
+  zorluk: 2
+  soru_bicimi: yevmiye
+  kok: AX İşletmesi, 15 Aralık 2026 tarihinde kur 40 ₺ iken 20.000 ABD Doları tutarında kısa vadeli banka kredisi kullanmış ve kredi 800.000 ₺ olarak kaydedilmiştir. 31 Aralık 2026 tarihinde dolar kuru 42 ₺'dir. Aksi belirtilmedikçe Tekdüzen Hesap Planı esas alınacak ve KDV dikkate alınmayacaktır. İşletmenin yıl sonunda yapacağı değerleme kaydı aşağıdakilerden hangisidir?
+  secenekler:
+    A: |-
+      Borç: 656 Kambiyo Zararları 40.000
+      Alacak: 300 Banka Kredileri 40.000
+    B: |-
+      Borç: 660 Kısa Vadeli Borçlanma Giderleri 40.000
+      Alacak: 300 Banka Kredileri 40.000
+    C: |-
+      Borç: 300 Banka Kredileri 40.000
+      Alacak: 646 Kambiyo Karları 40.000
+    D: |-
+      Borç: 660 Kısa Vadeli Borçlanma Giderleri 40.000
+      Alacak: 102 Bankalar 40.000
+    E: |-
+      Borç: 661 Uzun Vadeli Borçlanma Giderleri 40.000
+      Alacak: 300 Banka Kredileri (kur farkı) 40.000
+  dogru: B
+  aciklama:
+    dogru_neden: VUK md. 280 uyarınca yabancı para ile olan borçlar borsa rayici ile değerlenir. Borç 20.000 × 42 = 840.000 ₺ olmuş, 40.000 ₺ artmıştır. THP 656'ya göre borçlanma ile ilgili kur farkları kambiyo zararına değil finansman giderine kaydedilir; bir yıla kadar vadeli borçlanmada 660 kullanılır.
+    celdiriciler:
+      A: Borçlanma ile ilgili kur farkları 656'ya alınmaz; finansman gideri olarak 660'a yazılır.
+      C: Kur artışı borcu artırdığından zarar doğurur; kambiyo kârı yazılamaz.
+      D: Değerleme farkı için banka hesabından ödeme olmamıştır; borç artışı 300 hesabına yazılır.
+      E: Kredi kısa vadeli olduğundan kur farkı 661 değil 660 hesabına yazılır.
+    hesap_adimlari:
+    - 'Yeni değer: 20.000 × 42 = 840.000 ₺'
+    - 'Artış: 840.000 - 800.000 = 40.000 ₺'
+    - 660 borç 40.000 / 300 alacak 40.000
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 280
+    alinti: Bu madde hükmü yabancı para ile olan senetli veya senetsiz alacaklar ve borçlar hakkında da caridir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 656 Kambiyo Zararları
+    alinti: Kambiyo zararlarının izlendiği hesaptır. (Borçlanma ile ilgili kur farkları bu hesaba alınmaz, finansman gideri olarak muhasebeleştirilir.)
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 660 Kısa Vadeli Borçlanma Giderleri
+    alinti: Bir yıla kadar vadeli olan borçlanmalarla ilgili olarak yüklenilen ve varlıkların maliyetine eklenmeyen faiz ve benzeri diğer giderlerin izlendiği hesaptır.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: FIN
+  unite: Finansal muhasebe
+  konu: BOR
+  kazanim: kur farkı
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: M İşletmesi 1 Nisan 2026'da kur 46 ₺ iken 15.000 Avro tutarında kısa vadeli kredi kullanmıştır. 1 Eylül 2026'da kur 47 ₺ iken 5.000 Avro ödemiştir. 31 Aralık 2026'da Avro kuru 48,20 ₺'dir. Kredi nedeniyle 2026 yılında finansman gideri olarak muhasebeleştirilecek toplam kur farkı tutarı aşağıdakilerden hangisidir?
+  secenekler:
+    A: 5.000 ₺
+    B: 22.000 ₺ (yalnızca değerleme)
+    C: 27.000 ₺ (5.000 + 22.000)
+    D: 33.000 ₺ (15.000 × 2,20)
+    E: 48.200 ₺
+  dogru: C
+  aciklama:
+    dogru_neden: 'Ödenen 5.000 Avro için kur farkı (47 − 46) × 5.000 = 5.000 ₺ gerçekleşmiştir. Kalan 10.000 Avro yıl sonunda borsa rayici ile değerlenir (VUK md. 280): (48,20 − 46) × 10.000 = 22.000 ₺. Toplam 27.000 ₺ olup THP 66 ve 656 uyarınca finansman gideri olarak muhasebeleştirilir. Püf noktaları: Ödenen kısım ödeme günü kuruyla, kalan kısım yıl sonu kuruyla ayrı ayrı hesaplanır; tamamına yıl sonu kuru uygulamak yanlıştır.'
+    celdiriciler:
+      A: 5.000 ₺ yalnızca ödeme tarihindeki gerçekleşmiş kur farkıdır; yıl sonu değerleme farkı da eklenmelidir.
+      B: 22.000 ₺ yalnızca yıl sonunda kalan 10.000 Avro'nun değerleme farkıdır; ödeme tarihindeki fark da eklenmelidir.
+      D: 33.000 ₺ 15.000 Avro'nun tamamı için yıl sonu kuruna göre bulunur; ödenen kısım ödeme tarihindeki kurla gerçekleşmiştir.
+      E: 48.200 ₺ kur farkı değil kurun 1.000 ile çarpılmış hâlidir; anlamsızdır.
+    hesap_adimlari:
+    - 'Ödeme günü farkı: (47 - 46) × 5.000 = 5.000 ₺'
+    - 'Yıl sonu farkı: (48,20 - 46) × 10.000 = 22.000 ₺'
+    - 'Toplam: 27.000 ₺'
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 280
+    alinti: Yabancı paralar borsa rayici ile değerlenir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 66 Finansman Giderleri
+    alinti: İşletmenin borçlandığı tutarlarla ilgili olarak katlanılan ve varlıkların maliyetine eklenmemiş bulunan faiz, kur farkları, kredi komisyonları ve benzeri diğer giderleri kapsar.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: sonuc = (47 - 46) * 5000 + (48.2 - 46) * 10000
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: FIN
+  unite: Finansal muhasebe
+  konu: BOR
+  kazanim: bono ve tahvil ihracı (305/308/405/408)
+  tip: bilgi
+  zorluk: 1
+  soru_bicimi: standart
+  kok: Nominal değerinin altında ihraç edilen vadesi bir yılı aşan tahvillerde, nominal değer ile satış fiyatı arasındaki farkın gelecek yıllara ait olan kısmı Tekdüzen Hesap Planı'na göre hangi hesapta izlenir?
+  secenekler:
+    A: 308 Menkul Kıymetler İhraç Farkları
+    B: 305 Çıkarılmış Bonolar ve Senetler
+    C: 405 Çıkarılmış Tahviller
+    D: 408 Menkul Kıymetler İhraç Farkı
+    E: 409 Diğer Mali Borçlar
+  dogru: D
+  aciklama:
+    dogru_neden: THP 408'e göre nominal değerin altında ihraç edilen tahvil, senet ve diğer menkul kıymetlerin nominal değeri ile satış fiyatı arasındaki farkın gelecek yıllara ait kısmı 408 Menkul Kıymetler İhraç Farkı hesabında izlenir.
+    celdiriciler:
+      A: 308, farkın gelecek döneme (bir yıl içine) ait kısmının izlendiği hesaptır.
+      B: 305, kısa vadeli bono ve senetler karşılığı sağlanan fonların hesabıdır.
+      C: 405 tahvillerin nominal tutarının izlendiği hesaptır; ihraç farkı burada izlenmez.
+      E: 409 diğer hesapların hiçbirine girmeyen mali borçlar içindir.
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 408 Menkul Kıymetler İhraç Farkı
+    alinti: Nominal değerinin altında ihraç edilen tahvil, senet ve diğer menkul kıymetlerin nominal değerleri ile satış fiyatı arasındaki farkın gelecek yıllara ait olan kısmı bu hesapta izlenir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1), Ek V Hesap Planı Açıklamaları'
+    madde: 408 Menkul Kıymetler İhraç Farkı
+    alinti: Nominal değerinin altında ihraç edilen tahvil, senet ve diğer menkul kıymetlerin nominal değeri ile satış fiyatı arasındaki fark bu hesabın borcuna kaydedilir.
+  gecerlilik:
+    baslangic: '1992-12-26'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

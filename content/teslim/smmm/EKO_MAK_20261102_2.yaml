@@ -1,0 +1,175 @@
+- id: TASLAK
+  sinav: smmm
+  bolum: [SGS]
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: GSYH ve deflatör
+  tip: uygulama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: "Bir ülkede yabancılara yapılan net faktör ödemeleri, yurt dışından elde edilen faktör gelirlerinden fazladır. Bu ülkede GSMH ile GSYH arasındaki ilişki için aşağıdakilerden hangisi doğrudur?"
+  secenekler:
+    A: "GSMH, GSYH'den büyüktür."
+    B: "GSMH, GSYH'den daha küçüktür."
+    C: "İkisi eşittir; aradaki fark yalnızca amortismandır."
+    D: "İkisi de yalnızca vatandaşlık ölçütüne dayanır."
+    E: "GSMH, GSYH'ye ikinci el mal satışları eklenerek bulunur."
+  dogru: B
+  aciklama:
+    dogru_neden: "GSMH = GSYH + yurt dışından elde edilen net faktör gelirleridir. Net faktör geliri negatif (net ödeme) olduğundan GSMH, GSYH'den küçük çıkar."
+    celdiriciler:
+      A: "GSMH'nin GSYH'den büyük olması için yurt dışından elde edilen net faktör gelirinin pozitif olması gerekir."
+      C: "İki kavram arasındaki fark amortisman değil, net faktör gelirleridir."
+      D: "Vatandaşlık ölçütü yalnızca GSMH'ye aittir; GSYH coğrafi ölçüte dayanır."
+      E: "İkinci el mal satışları GSYH'ye girmez (yalnız aracılık komisyonu girer) ve GSMH bu yolla hesaplanmaz."
+  kaynaklar:
+  - mevzuat: "Hakemli konu anlatımı — EKO/MAK"
+    madde: "§1"
+    alinti: "**GSYH ile GSMH:** GSMH (gayrisafi milli hasıla), vatandaşlık ölçütüne dayanır: GSMH = GSYH + yurt dışından elde edilen net faktör gelirleri."
+  gecerlilik: {baslangic: '2026-11-02', bitis: null, yila_bagli_tutar: false}
+  durum: taslak
+  surum: 1
+  uretim: {kaynak_turu: yapay_zeka, model: claude-sonnet-5-5}
+
+- id: TASLAK
+  sinav: smmm
+  bolum: [SGS]
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: Keynesyen çarpan
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: "Marjinal tüketim eğilimi 0,8 olan kapalı bir ekonomide kamu harcamaları ve götürü vergi aynı anda 30 milyar ₺ artırılıyor. Denge gelir kaç milyar ₺ değişir?"
+  secenekler:
+    A: "-120"
+    B: "0"
+    C: "5"
+    D: "30"
+    E: "150"
+  dogru: D
+  aciklama:
+    dogru_neden: "Harcama çarpanı 1 / (1 - 0,8) = 5, vergi çarpanı -0,8 / 0,2 = -4'tür. Kamu harcaması artışı 30 x 5 = +150, vergi artışı 30 x (-4) = -120 etki yapar; toplam +30 milyar ₺'dir. Denk bütçe çarpanı 1'dir."
+    hesap_adimlari:
+    - "Harcama etkisi: 30 x 5 = +150"
+    - "Vergi etkisi: 30 x (-4) = -120"
+    - "Toplam: 150 - 120 = +30"
+    celdiriciler:
+      A: "-120 yalnız vergi artışının etkisidir; kamu harcaması artışı hesaba katılmamıştır."
+      B: "Denk bütçe artışının etkisiz olduğu düşünülmüştür; denk bütçe çarpanı sıfır değil 1'dir."
+      C: "5 harcama çarpanının kendisidir; tutarla çarpılmamış ve vergi etkisi eklenmemiştir."
+      E: "Yalnız kamu harcaması artışının etkisi alınmıştır (30 x 5); vergi artışının geliri azaltıcı etkisi unutulmuştur."
+  kaynaklar:
+  - mevzuat: "Hakemli konu anlatımı — EKO/MAK"
+    madde: "§3"
+    alinti: "G ve T aynı anda 20 artarsa: 100 − 80 = **+20**. **Denk bütçe çarpanı 1'dir** (Haavelmo teoremi)."
+  dogrulama:
+    python: "c = 0.8\nsonuc = 30 / (1 - c) - 30 * c / (1 - c)"
+  gecerlilik: {baslangic: '2026-11-02', bitis: null, yila_bagli_tutar: false}
+  durum: taslak
+  surum: 1
+  uretim: {kaynak_turu: yapay_zeka, model: claude-sonnet-5-5}
+
+- id: TASLAK
+  sinav: smmm
+  bolum: [SGS]
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: makro okullar ve beklentiler
+  tip: uygulama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: "Bir merkez bankası, geçmiş verilerden tahmin ettiği enflasyon-işsizlik ilişkisine dayanarak yeni bir politika uygulamaya karar vermiştir. Lucas eleştirisine göre bu yaklaşımın temel sorunu aşağıdakilerden hangisidir?"
+  secenekler:
+    A: "Politika değişince beklentiler de değiştiğinden geçmiş verilerle tahmin edilen katsayılar politika etkisini öngöremez."
+    B: "Bireyler rasyonel davranmadığından, politikanın etkisi geçmiş verilerle bile tahmin edilemez ve model çöker."
+    C: "Fiyat ve ücretler esnek olduğundan model katsayıları sürekli sabit kalır."
+    D: "Phillips eğrisi uzun dönemde de her zaman negatif eğimli olduğundan politika etkisizdir ve sonuç kalıcıdır."
+    E: "Para arzı artışı yalnızca tüketici fiyat endeksini etkiler; üretime ve istihdama hiçbir etkisi yoktur, bu yüzden tahmin gereksizdir."
+  dogru: A
+  aciklama:
+    dogru_neden: "Lucas eleştirisine göre politika değişince bireylerin beklentileri ve davranışları da değişir; bu nedenle geçmiş verilerle tahmin edilen model katsayıları politika etkisini öngörmek için güvenilir değildir. Püf noktaları: Eleştiri bireylerin akılsızlığına değil, rasyonel beklentilerin politika değişikliğine uyum sağlamasına dayanır. Bu nedenle katsayıların sabit kalacağı varsayımı çöker; Phillips eğrisiyle doğrudan bir ilgisi yoktur."
+    celdiriciler:
+      B: "Eleştiri bireylerin rasyonel olmadığını değil, rasyonel olduklarını ve beklentilerini politikaya göre değiştirdiklerini varsayar."
+      C: "Lucas eleştirisi katsayıların sabit kalmadığını savunur; sabit kalmalarının nedeni olarak esnek fiyatları göstermez."
+      D: "Phillips eğrisi uzun dönemde monetaristlere göre doğal işsizlik oranında dikeydir; eleştirinin konusu bu değildir."
+      E: "Eleştirinin konusu para arzının TÜFE'ye etkisi değil, politika değişince model katsayılarının değişmesidir."
+  kaynaklar:
+  - mevzuat: "Hakemli konu anlatımı — EKO/MAK"
+    madde: "§4"
+    alinti: "**Lucas eleştirisi:** Politika değişince bireylerin beklentileri ve davranışları da değişir; geçmiş verilerle tahmin edilen model katsayılarıyla politika etkisi öngörülemez."
+  gecerlilik: {baslangic: '2026-11-02', bitis: null, yila_bagli_tutar: false}
+  durum: taslak
+  surum: 1
+  uretim: {kaynak_turu: yapay_zeka, model: claude-sonnet-5-5}
+
+- id: TASLAK
+  sinav: smmm
+  bolum: [SGS]
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: TÜFE
+  tip: uygulama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: "Bir ülkede yurt içinde üretilen yatırım mallarının fiyatları ile hanehalklarının tükettiği ithal malların fiyatları artmış, diğer fiyatlar değişmemiştir. Bu durumda TÜFE ve GSYH deflatörü için aşağıdakilerden hangisi söylenebilir?"
+  secenekler:
+    A: "Yalnızca TÜFE yükselir; çünkü iki artış da hanehalkının tüketimiyle ilgilidir ve yatırım malı sepete girer."
+    B: "Yalnızca GSYH deflatörü yükselir; çünkü iki mal da yurt içi üretimle ilgilidir."
+    C: "İkisi de yükselir; TÜFE ithal tüketim malları, deflatör yatırım malları nedeniyle artar."
+    D: "İkisi de değişmez; çünkü ağırlıklar sabit tutulmuştur."
+    E: "TÜFE yükselir, deflatör düşer; çünkü ithal mal fiyatı deflatörü azaltır."
+  dogru: C
+  aciklama:
+    dogru_neden: "TÜFE ithal tüketim mallarını kapsar ancak yatırım ve kamu mallarını kapsamaz; GSYH deflatörü ise yurt içinde üretilen yatırım ve kamu mallarını kapsar, ithal malları kapsamaz. Bu nedenle her iki endeks de bir artıştan etkilenir. Püf noktaları: Her endeksin kapsamını ayrı ayrı sorgula; iki artıştan her biri bir endeksi yükseltir. Sabit sepet TÜFE'nin fiyat değişmelerini yansıtmasına engel değildir."
+    celdiriciler:
+      A: "Yatırım malları tüketim değildir ama deflatör yurt içinde üretilen yatırım mallarını kapsar; deflatör de yükselir."
+      B: "İthal tüketim malı TÜFE sepetinde yer aldığından TÜFE de yükselir."
+      D: "Sabit ağırlıklar fiyat artışlarının endekse yansımasını engellemez; ağırlıklar sabit kalır, fiyatlar değişir."
+      E: "İthal mal deflatörün kapsamında olmadığından deflatörü etkilemez; deflatör yatırım malı artışıyla yükselir, düşmez."
+  kaynaklar:
+  - mevzuat: "Hakemli konu anlatımı — EKO/MAK"
+    madde: "§2"
+    alinti: "| İthal tüketim malları | Kapsar | Kapsamaz | | Yatırım ve kamu malları | Kapsamaz | Kapsar |"
+  gecerlilik: {baslangic: '2026-11-02', bitis: null, yila_bagli_tutar: false}
+  durum: taslak
+  surum: 1
+  uretim: {kaynak_turu: yapay_zeka, model: claude-sonnet-5-5}
+
+- id: TASLAK
+  sinav: smmm
+  bolum: [SGS]
+  ders: EKO
+  unite: Makro iktisat
+  konu: MAK
+  kazanim: para politikası ve para çarpanı
+  tip: uygulama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: "Faizlerin çok düşük olduğu bir ekonomide para talebi faize karşı sonsuz esnek hâle gelmiş, merkez bankası para arzını artırmasına rağmen faizler daha fazla düşmemiştir. Bu durum ve Keynes'in öngördüğü politika için aşağıdakilerden hangisi doğrudur?"
+  secenekler:
+    A: "Likidite tuzağıdır; para politikası etkili kalır, maliye politikası dışlama etkisiyle işlevsizleşir."
+    B: "Klasik ikilemdir; para yansız olduğundan hiçbir politikaya gerek yoktur."
+    C: "Tasarruf paradoksudur; tasarrufları azaltan para politikası öne çıkar."
+    D: "Zorunlu karşılığın artmasının sonucudur; çarpan küçüldüğü için maliye politikası gerekmez."
+    E: "Likidite tuzağıdır; para politikası etkisizleşir, maliye politikası öne çıkar."
+  dogru: E
+  aciklama:
+    dogru_neden: "Faizler çok düşükken para talebinin sonsuz esnek hâle gelmesi likidite tuzağıdır. Para arzı artışı faizi daha fazla düşüremez ve para politikası etkisizleşir; Keynes'e göre bu durumda maliye politikası öne çıkar. Püf noktaları: Likidite tuzağında sorun paranın miktarı değil, faizin daha fazla düşememesidir. Keynes'in çözümü bu nedenle maliye politikasıdır; klasik görüşteki para yansızlığıyla karıştırma."
+    celdiriciler:
+      A: "Likidite tuzağında para politikası etkisizleşir; maliye politikasının işlevsizleşmesi söz konusu değildir, tersine öne çıkar."
+      B: "Klasik görüş esnek fiyatlarla para yansızlığını savunur; burada anlatılan durum Keynes'in likidite tuzağıdır."
+      C: "Tasarruf paradoksu herkesin aynı anda daha çok tasarruf etmesiyle ilgilidir; faiz ve para talebi esnekliği konusu değildir."
+      D: "Zorunlu karşılık değil, faizdeki daha fazla düşememe durumu söz konusudur; çarpan küçülmesi bu olayı açıklamaz."
+  kaynaklar:
+  - mevzuat: "Hakemli konu anlatımı — EKO/MAK"
+    madde: "§5"
+    alinti: "**Likidite tuzağı:** Faizler çok düşük düzeydeyken para talebi sonsuz esnek hâle gelir; para arzı artışı faizi daha fazla düşüremez ve para politikası etkisizleşir. Keynes'e göre bu durumda maliye politikası öne çıkar."
+  gecerlilik: {baslangic: '2026-11-02', bitis: null, yila_bagli_tutar: false}
+  durum: taslak
+  surum: 1
+  uretim: {kaynak_turu: yapay_zeka, model: claude-sonnet-5-5}

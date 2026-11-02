@@ -1,0 +1,545 @@
+yazar: harici üretici (claude-sonnet-5-5)
+gorev: SMMM talimatı 2026-11-02
+sorular:
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Kârlılık oranları
+  konu: KAR
+  kazanim: brüt satış kârı oranı
+  tip: hesaplama
+  zorluk: 1
+  soru_bicimi: standart
+  kok: Net satışları 800.000 ₺, satışların maliyeti 580.000 ₺ olan Bora Ticaret Ltd. Şti.'nin brüt satış kârı oranı yüzde
+    kaçtır?
+  secenekler:
+    A: '%15,94'
+    B: '%27,5'
+    C: '%37,93'
+    D: '%72,5'
+    E: '%110'
+  dogru: B
+  aciklama:
+    dogru_neden: Brüt satış kârı = 800.000−580.000 = 220.000 ₺ (62 Satışların Maliyeti net satışlardan düşülür). Oran = 220.000/800.000
+      = %27,5'dir.
+    celdiriciler:
+      A: Payda olarak net satışlar ile maliyetin toplamı alınmış.
+      C: Brüt kâr satışların maliyetine oranlanmış; marj net satışlara göre bulunur.
+      D: Satışların maliyetinin net satışlara oranı bulunmuş; brüt kâr oranı değildir.
+      E: Payda olarak kârdan küçük bir tutar alınarak yanlış oran bulunmuş.
+    hesap_adimlari:
+    - Brüt satış kârı = 800.000 − 580.000 = 220.000
+    - Oran = 220.000 / 800.000 × 100 = 27,5
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap grubu 62 - Satışların Maliyeti
+    alinti: İşletmenin dönem içindeki stok hareketleri ile satılan mamul, yarı mamul, ilk madde ve malzeme ile ticari mal
+      gibi maddelerin ve satılan hizmetlerin maliyetini kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ns=800000; smm=580000
+
+      sonuc = round((ns-smm)/ns*100, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Kârlılık oranları
+  konu: KAR
+  kazanim: dönem kârı kavramı
+  tip: bilgi
+  zorluk: 1
+  soru_bicimi: standart
+  kok: Tekdüzen Hesap Planı'na göre 690 Dönem Kârı veya Zararı hesabının bakiyesi aşağıdakilerden hangisini gösterir?
+  secenekler:
+    A: Vergiden sonraki dönem net kârını veya zararını
+    B: Yalnızca esas faaliyetlerden elde edilen kârı
+    C: Brüt satış kârını veya zararını
+    D: Dağıtılabilir dönem kârını
+    E: Vergiden önceki dönem kârını veya zararını
+  dogru: E
+  aciklama:
+    dogru_neden: 690 Dönem Kârı veya Zararı hesabına gelir hesapları alacak, gider hesapları borç kaydedilir ve hesabın kalanı
+      vergiden önceki dönem kârını veya zararını gösterir. Vergi karşılığı (691) düşülünce 692 Dönem Net Kârı oluşur.
+    celdiriciler:
+      A: Vergiden sonraki net kâr 692 Dönem Net Kârı veya Zararı hesabında izlenir.
+      B: 690, esas faaliyet kârı değil, tüm gelir ve gider hesaplarının aktarıldığı vergiden önceki sonucu gösterir.
+      C: Brüt satış kârı gelir tablosunda net satışlar ile satışların maliyeti farkıdır; 690 hesabının bakiyesi değildir.
+      D: Dağıtılabilir kâr, vergi ve yasal yükümlülükler ile yedekler düşüldükten sonra belirlenir; 690 vergi öncesi sonucu
+        gösterir.
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 690 - Dönem Kârı veya Zararı
+    alinti: Hesabın kalanı vergiden önceki dönem kârı veya zararını gösterir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 692 - Dönem Net Kârı veya Zararı
+    alinti: Vergiden sonraki Net Dönem Kârı Hesabın alacağına, Net Dönem zararı ise borcuna kaydedilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Kârlılık oranları
+  konu: KAR
+  kazanim: özkaynak kârlılığı
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Tek bir bilançosu bulunan bir işletmenin özkaynakları 480.000 ₺, toplam aktifi 1.200.000 ₺, dönem net kârı 84.000 ₺'dir.
+    Özkaynak kârlılığı yüzde kaçtır?
+  secenekler:
+    A: '%5,71'
+    B: '%7'
+    C: '%11,67'
+    D: '%17,5'
+    E: '%21,21'
+  dogru: D
+  aciklama:
+    dogru_neden: Özkaynak kârlılığı = dönem net kârı / özkaynaklar = 84.000/480.000 = %17,5'dir. Tek bilanço verildiğinden
+      ortalama alınmaz; özkaynak toplamı net kârı zaten içerir.
+    celdiriciler:
+      A: Oran ters çevrilmiş (özkaynak / net kâr).
+      B: Payda olarak özkaynaklar yerine toplam aktif alınmış; bu varlık kârlılığıdır.
+      C: Payda olarak yabancı kaynaklar alınmış.
+      E: Özkaynaktan net kâr düşülmüş; oysa özkaynak toplamı net kârı içerir.
+    hesap_adimlari:
+    - Özkaynak kârlılığı = 84.000 / 480.000 × 100 = 17,5
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap grubu 5 - Özkaynaklar
+    alinti: İşletme sahip veya ortaklarının bilanço tarihinde işletmeye yapmış oldukları sermaye yatırımlarının tutarını gösteren
+      ödenmiş sermaye ile, Sermaye Yedekleri, Kâr Yedekleri, Geçmiş Yıllar Kârları ve Geçmiş Yıllar Zararları ve Dönemin Net
+      Kâr veya Zararını kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'oz=480000; ta=1200000; nk=84000
+
+      sonuc = round(nk/oz*100, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Kârlılık oranları
+  konu: KAR
+  kazanim: faaliyet kârı oranı
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Bir işletmenin net satışları 1.600.000 ₺, satışların maliyeti 1.040.000 ₺'dir. Araştırma ve geliştirme giderleri 32.000
+    ₺, pazarlama satış ve dağıtım giderleri 90.000 ₺, genel yönetim giderleri 110.000 ₺'dir. Faaliyet kârı oranı yüzde kaçtır?
+  secenekler:
+    A: '%14,5'
+    B: '%20,5'
+    C: '%22,5'
+    D: '%35'
+    E: '%58,57'
+  dogru: B
+  aciklama:
+    dogru_neden: Brüt satış kârı 560.000 ₺; faaliyet giderleri 232.000 ₺ (63 Faaliyet Giderleri); faaliyet kârı 328.000 ₺.
+      Oran %20,5'dir.
+    celdiriciler:
+      A: Faaliyet giderlerinin net satışlara oranı bulunmuş.
+      C: Araştırma ve geliştirme giderleri atlanmış.
+      D: Faaliyet giderleri düşülmemiş; bu brüt satış kârı oranıdır.
+      E: Payda olarak net satışlar yerine brüt satış kârı alınmış.
+    hesap_adimlari:
+    - Brüt kâr = 1.600.000 − 1.040.000 = 560.000
+    - Faaliyet kârı = 560.000 − 232.000 = 328.000
+    - Oran = 328.000 / 1.600.000 × 100 = 20,5
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap grubu 63 - Faaliyet Giderleri
+    alinti: İşletmenin esas faaliyeti ile ilgili bulunan ve üretim maliyetlerine yüklenmeyen araştırma ve geliştirme giderleri;
+      pazarlama, satış ve dağıtım giderleri ve genel yönetim giderlerinden oluşan hesap grubudur.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 632 - Genel Yönetim Giderleri
+    alinti: İşletmenin genel yönetim fonksiyonu ile ilgili olarak yapılan ve üretimle ya da satılan mal maliyeti ile doğrudan
+      ilişkisi kurulamayan endirekt malzeme, endirekt işçilik, personel giderleri, dışardan sağlanan fayda ve hizmetler, çeşitli
+      giderler, vergi resim ve harçlar, amortisman giderlerinden oluşur.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ns=1600000; smm=1040000; ar=32000; pz=90000; gy=110000
+
+      sonuc = round((ns-smm-ar-pz-gy)/ns*100, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Kârlılık oranları
+  konu: KAR
+  kazanim: DuPont (varlık kârlılığı)
+  tip: uygulama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Net kâr marjı %6 ve aktif devir hızı 1,75 kez olan bir işletmenin varlık kârlılığı DuPont çözümlemesine göre yüzde
+    kaçtır?
+  secenekler:
+    A: '%3,43'
+    B: '%1,05'
+    C: '%7,75'
+    D: '%10,5'
+    E: '%29,17'
+  dogru: D
+  aciklama:
+    dogru_neden: Varlık kârlılığı = net kâr marjı × aktif devir hızı = %6 × 1,75 = %10,5'dir.
+    celdiriciler:
+      A: Sonuç yüzdeye çevrilmeden ondalık oran olarak bırakılmış.
+      B: Ondalık ayırıcı bir basamak sola kaydırılarak (10 kat az) bulunmuş.
+      C: Marj ve devir hızı toplanmış.
+      E: Devir hızı marja oranlanmış.
+    hesap_adimlari:
+    - Varlık kârlılığı = 6 × 1,75 = 10,5
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap grubu 5 - Özkaynaklar
+    alinti: İşletme sahip veya ortaklarının bilanço tarihinde işletmeye yapmış oldukları sermaye yatırımlarının tutarını gösteren
+      ödenmiş sermaye ile, Sermaye Yedekleri, Kâr Yedekleri, Geçmiş Yıllar Kârları ve Geçmiş Yıllar Zararları ve Dönemin Net
+      Kâr veya Zararını kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'm=6; d=1.75
+
+      sonuc = round(m*d, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  gecmis:
+  - tarih: '2026-11-02'
+    kim: denetçi
+    ne: 'düzeltme: Anahtar doğru (%10,5); A şıkkı ''0,1'' biçim olarak tutarsız ve %10,5''e çok yakın (0,105 yuvarlaması gibi
+      okunabilir), makul çeldiriciyle değiştirildi.'
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Kârlılık oranları
+  konu: KAR
+  kazanim: faaliyet kârı oranı değişimi
+  tip: uygulama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Bir işletmenin 2025'te net satışları 1.000.000 ₺, brüt satış kârı oranı %30, faaliyet giderleri 220.000 ₺'dir. 2026'da
+    net satışlar 1.200.000 ₺, brüt satış kârı oranı yine %30, faaliyet giderleri 276.000 ₺'dir. Faaliyet kârı oranındaki değişim
+    aşağıdakilerden hangisidir?
+  secenekler:
+    A: '%8''den %7''ye gerilemiştir; çünkü faaliyet giderleri oranı %22''den %23''e çıkmıştır.'
+    B: '%8''den %7''ye gerilemiştir; çünkü brüt satış kârı oranı düşmüştür.'
+    C: '%8''den %9''a yükselmiştir; çünkü net satışlar artmıştır.'
+    D: Değişmemiştir; çünkü brüt satış kârı oranı sabit kalmıştır.
+    E: '%22''den %23''e yükselmiştir; çünkü faaliyet kâr oranı gider oranıyla aynı yönde değişir.'
+  dogru: A
+  aciklama:
+    dogru_neden: '2025: faaliyet kârı 300.000−220.000 = 80.000 ₺, oran %8. 2026: brüt kâr 360.000, faaliyet kârı 360.000−276.000
+      = 84.000 ₺, oran %7''dir. Gider oranı %22''den %23''e çıktığı için faaliyet kâr oranı gerilemiştir.'
+    celdiriciler:
+      B: Brüt satış kârı oranı iki yılda da %30'dur; gerilemenin nedeni gider oranının artışıdır.
+      C: 2026 gider oranı %23'e çıktığı için faaliyet kâr oranı %7'ye düşmüştür; satış artışı tek başına oranı yükseltmez.
+      D: Faaliyet kâr oranı yalnız brüt kâr oranına değil, gider oranına da bağlıdır; gider oranı %22'den %23'e çıkmıştır.
+      E: '%22 ve %23 gider oranlarıdır; faaliyet kâr oranı brüt kâr oranından gider oranı çıkarılarak %8 ve %7 bulunur.'
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap grubu 63 - Faaliyet Giderleri
+    alinti: İşletmenin esas faaliyeti ile ilgili bulunan ve üretim maliyetlerine yüklenmeyen araştırma ve geliştirme giderleri;
+      pazarlama, satış ve dağıtım giderleri ve genel yönetim giderlerinden oluşan hesap grubudur.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap grubu 62 - Satışların Maliyeti
+    alinti: İşletmenin dönem içindeki stok hareketleri ile satılan mamul, yarı mamul, ilk madde ve malzeme ile ticari mal
+      gibi maddelerin ve satılan hizmetlerin maliyetini kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Kârlılık oranları
+  konu: KAR
+  kazanim: DuPont (özkaynak çarpanı)
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: Bir işletmenin özkaynak kârlılığı %30, vergi öncesi kâr marjı %10, vergi oranı %20 ve aktif devir hızı 1,5 kezdir.
+    Bu işletmenin özkaynak çarpanı kaç kattır?
+  secenekler:
+    A: 1,67 kat
+    B: 2 kat
+    C: 2,5 kat
+    D: 3,6 kat
+    E: 3,75 kat
+  dogru: C
+  aciklama:
+    dogru_neden: 'Net kâr marjı = %10 × (1 − 0,20) = %8; varlık kârlılığı = %8 × 1,5 = %12. Özkaynak çarpanı = 30/12 = 2,5
+      kattır. Püf noktaları: Önce vergi öncesi marjı vergiden arındır, sonra devir hızıyla çarp; özkaynak çarpanı özkaynak
+      kârlılığının varlık kârlılığına oranıdır.'
+    celdiriciler:
+      A: Vergi oranı çıkarılmak yerine eklenmiş.
+      B: Vergi etkisi hesaba katılmadan varlık kârlılığı bulunmuş.
+      D: Çarpan, bölme yerine çarpma ile bulunmuş.
+      E: Aktif devir hızı atlanmış; bu net kâr marjına bölünmüş değerdir.
+    hesap_adimlari:
+    - Net kâr marjı = 10 × 0,8 = 8
+    - Varlık kârlılığı = 8 × 1,5 = 12
+    - Özkaynak çarpanı = 30 / 12 = 2,5
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 691 - Dönem Kârı Vergi ve Diğer Yasal Yükümlülük Karşılıkları
+    alinti: Dönem kârı üzerinden, ilgili mevzuat hükümlerine göre hesaplanan vergi ve yasal yükümlülükler bu hesabın borcuna,
+      "370- Dönem Kârı Vergi ve Diğer Yasal Yükümlülük Karşılıkları Hesabı"nın alacağına kaydedilir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap grubu 5 - Özkaynaklar
+    alinti: İşletme sahip veya ortaklarının bilanço tarihinde işletmeye yapmış oldukları sermaye yatırımlarının tutarını gösteren
+      ödenmiş sermaye ile, Sermaye Yedekleri, Kâr Yedekleri, Geçmiş Yıllar Kârları ve Geçmiş Yıllar Zararları ve Dönemin Net
+      Kâr veya Zararını kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ok=30; vm=10; v=20; d=1.5
+
+      sonuc = round(ok/(vm*(1-v/100)*d), 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Kârlılık oranları
+  konu: KAR
+  kazanim: ekonomik rantabilite
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: Bir işletmenin vergi öncesi dönem kârı 240.000 ₺, finansman giderleri 70.000 ₺'dir. Toplam aktif dönem başında 1.700.000
+    ₺, dönem sonunda 2.300.000 ₺'dir. Faiz ve vergi öncesi kâra (dönem kârı + finansman giderleri) göre ortalama aktif üzerinden
+    ekonomik rantabilite yüzde kaçtır?
+  secenekler:
+    A: '%8,5'
+    B: '%12'
+    C: '%13,48'
+    D: '%15,5'
+    E: '%18,24'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Faiz ve vergi öncesi kâr = 240.000+70.000 = 310.000 ₺ (66 grubu finansman giderleri geri eklenir). Ortalama
+      aktif 2.000.000 ₺; rantabilite %15,5''dir. Püf noktaları: Finansman gideri kârdan düşülmüştür; geri ekle. Ortalama aktifi
+      dönem başı ve sonu toplamının yarısı olarak al.'
+    celdiriciler:
+      A: Finansman giderleri kârdan çıkarılmış; faiz öncesi kâr için eklenir.
+      B: Finansman giderleri kâra eklenmemiş.
+      C: Ortalama aktif yerine dönem sonu aktifi kullanılmış.
+      E: Ortalama aktif yerine dönem başı aktifi kullanılmış.
+    hesap_adimlari:
+    - FVÖK = 240.000 + 70.000 = 310.000
+    - Ortalama aktif = 2.000.000
+    - Oran = 310.000 / 2.000.000 × 100 = 15,5
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap grubu 66 - Finansman Giderleri
+    alinti: İşletmenin borçlandığı tutarlarla ilgili olarak katlanılan ve varlıkların maliyetine eklenmemiş bulunan faiz,
+      kur farkları, kredi komisyonları ve benzeri diğer giderleri kapsar.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 690 - Dönem Kârı veya Zararı
+    alinti: Hesabın kalanı vergiden önceki dönem kârı veya zararını gösterir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'dk=240000; fn=70000; a=1700000; b=2300000
+
+      sonuc = round((dk+fn)/((a+b)/2)*100, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Kârlılık oranları
+  konu: KAR
+  kazanim: net kâr marjı (gelir tablosu)
+  tip: hesaplama
+  zorluk: 3
+  soru_bicimi: standart
+  kok: 'Bir işletmenin yıllık gelir tablosu verileri aşağıdadır.
+
+
+    | Kalem | Tutar (₺) |
+
+    |---|---|
+
+    | Brüt satışlar | 1.650.000 |
+
+    | Satıştan iadeler (−) | 50.000 |
+
+    | Satışların maliyeti (−) | 1.040.000 |
+
+    | Faaliyet giderleri (−) | 300.000 |
+
+    | Finansman giderleri (−) | 110.000 |
+
+
+    Dönem kârı vergi karşılığı vergi öncesi kârın %20''idir. Net kâr marjı yüzde kaçtır?'
+  secenekler:
+    A: '%7,27'
+    B: '%7,5'
+    C: '%9,38'
+    D: '%13'
+    E: '%21,43'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Net satışlar 1.600.000 ₺; brüt kâr 560.000; faaliyet kârı 260.000; vergi öncesi kâr 150.000; net kâr 120.000
+      ₺. Net kâr marjı %7,5''dir. Püf noktaları: Satıştan iadeler brüt satıştan düşülür; sonra kalemleri sırayla işle, vergiyi
+      unutma. Payda net satıştır.'
+    celdiriciler:
+      A: Payda olarak net satışlar yerine brüt satışlar alınmış.
+      C: Vergi karşılığı düşülmemiş; bu vergi öncesi kâr marjıdır.
+      D: Finansman giderleri düşülmemiş.
+      E: Payda olarak net satışlar yerine brüt satış kârı alınmış.
+    hesap_adimlari:
+    - Net satışlar = 1.650.000 − 50.000 = 1.600.000
+    - Vergi öncesi kâr = 1.600.000 − 1.040.000 − 300.000 − 110.000 = 150.000
+    - Net kâr = 150.000 × 0,8 = 120.000
+    - Net kâr marjı = 7,5
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 690 - Dönem Kârı veya Zararı
+    alinti: Hesabın kalanı vergiden önceki dönem kârı veya zararını gösterir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 691 - Dönem Kârı Vergi ve Diğer Yasal Yükümlülük Karşılıkları
+    alinti: Dönem kârı üzerinden, ilgili mevzuat hükümlerine göre hesaplanan vergi ve yasal yükümlülükler bu hesabın borcuna,
+      "370- Dönem Kârı Vergi ve Diğer Yasal Yükümlülük Karşılıkları Hesabı"nın alacağına kaydedilir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap 692 - Dönem Net Kârı veya Zararı
+    alinti: Vergiden sonraki Net Dönem Kârı Hesabın alacağına, Net Dönem zararı ise borcuna kaydedilir.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'bs=1650000; isk=50000; smm=1040000; fg=300000; fn=110000; v=20
+
+      sonuc = round(((bs-isk-smm-fg-fn)*(1-v/100))/(bs-isk)*100, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: smmm
+  bolum:
+  - SGS
+  - YET
+  ders: TAB
+  unite: Kârlılık oranları
+  konu: KAR
+  kazanim: varlık kârlılığı (ortalama aktif)
+  tip: hesaplama
+  zorluk: 2
+  soru_bicimi: standart
+  kok: Dönem net kârı 105.000 ₺ olan bir işletmenin toplam aktifi dönem başında 900.000 ₺, dönem sonunda 1.500.000 ₺'dir.
+    Ortalama aktife göre varlık kârlılığı yüzde kaçtır?
+  secenekler:
+    A: '%4,38'
+    B: '%7'
+    C: '%8,75'
+    D: '%11,67'
+    E: '%17,5'
+  dogru: C
+  aciklama:
+    dogru_neden: Ortalama aktif (900.000+1.500.000)/2 = 1.200.000 ₺; varlık kârlılığı = 105.000/1.200.000 = %8,75'dir.
+    celdiriciler:
+      A: Dönem başı ve sonu toplamı ikiye bölünmeden payda yapılmış.
+      B: Ortalama aktif yerine dönem sonu aktifi kullanılmış.
+      D: Ortalama aktif yerine dönem başı aktifi kullanılmış.
+      E: Payda olarak aktifteki artış alınmış.
+    hesap_adimlari:
+    - Ortalama aktif = (900.000 + 1.500.000) / 2 = 1.200.000
+    - Varlık kârlılığı = 105.000 / 1.200.000 × 100 = 8,75
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) Ek 5 - Tekdüzen Hesap Planı'
+    madde: Hesap grubu 5 - Özkaynaklar
+    alinti: İşletme sahip veya ortaklarının bilanço tarihinde işletmeye yapmış oldukları sermaye yatırımlarının tutarını gösteren
+      ödenmiş sermaye ile, Sermaye Yedekleri, Kâr Yedekleri, Geçmiş Yıllar Kârları ve Geçmiş Yıllar Zararları ve Dönemin Net
+      Kâr veya Zararını kapsar.
+  gecerlilik:
+    baslangic: '1994-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'nk=105000; a=900000; b=1500000
+
+      sonuc = round(nk/((a+b)/2)*100, 2)'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
