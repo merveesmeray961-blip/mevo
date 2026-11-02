@@ -21,7 +21,7 @@ export const URUNLER: Record<'smmm' | 'ymm', Urun> = {
     alt: 'SGS ve Yeterlilik sınav hazırlığı',
     ust: '#5B4FF0',
     dip: '#231A86',
-    cipler: ['2.300+ özgün soru', '3.500+ çıkmış soru · ücretsiz', '52 konu anlatımı', 'Gerçek kurallarla deneme', 'İnternetsiz çalışır'],
+    cipler: ['3.200+ özgün soru', '3.500+ çıkmış soru · ücretsiz', '52 konu anlatımı', 'Gerçek kurallarla deneme', 'İnternetsiz çalışır'],
     sahneler: [
       {kare: 'bugun', ikinci: 'dersler', baslik: 'Sınava kaç gün kaldı,', vurgu: 'bugün ne çalışmalısın?', aciklama: 'Günlük hedef, seri ve tek dokunuşla hızlı çalışma.'},
       {kare: 'anlatim', ikinci: 'anlatimlar', baslik: 'Konu anlatımı', vurgu: 'oku ya da sesli dinle', aciklama: 'Tüm anlatımlar ana sayfadan tek dokunuş uzağında.'},
