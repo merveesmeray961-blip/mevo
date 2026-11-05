@@ -1,0 +1,314 @@
+yazar: harici üretici (claude, paket 2026-11-05)
+gorev: YMM paketi 2026-11-05
+klasik: []
+sorular:
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Nakit akış tablosu ve özel raporlama konuları
+  konu: TAB
+  kazanim: 'ara dönem finansal raporlama: gelir vergisi giderinin ölçülmesi'
+  tip: hesaplama
+  zorluk: 3
+  kok: Üçer aylık ara dönem finansal raporlama yapan Nehir AŞ, 2026 yılının ilk çeyreğinde 800.000 TL vergi öncesi kâr elde
+    etmiş ve yıl için beklediği ağırlıklı ortalama yıllık efektif vergi oranını %20 tahmin ederek ilk çeyrekte gelir vergisi
+    gideri muhasebeleştirmiştir. İkinci çeyrekte vergi öncesi kâr 1.200.000 TL gerçekleşmiş (ilk altı ay toplamı 2.000.000
+    TL) ve yıl için beklenen ağırlıklı ortalama yıllık efektif vergi oranı tahmini %18'e düşürülmüştür. Şirketin ikinci çeyreğin
+    ara dönem finansal tablolarında (3 aylık dönem için) muhasebeleştireceği gelir vergisi gideri kaç TL'dir?
+  secenekler:
+    A: '200.000'
+    B: '216.000'
+    C: '240.000'
+    D: '360.000'
+    E: '400.000'
+  dogru: A
+  aciklama:
+    dogru_neden: 'TMS 34 par. 30(c) uyarınca gelir vergisi gideri, yıl için beklenen yıllık vergi oranına ilişkin en iyi tahmine
+      göre muhasebeleştirilir; oran tahminindeki değişiklik izleyen ara dönemde düzeltilir. Ölçüm yıl başından ara dönem sonuna
+      kadar kümülatiftir (par. 28). 30.6.2026 itibarıyla kümülatif vergi = 2.000.000 × %18 = 360.000 TL; ilk çeyrekte yansıtılan
+      800.000 × %20 = 160.000 TL olduğundan ikinci çeyrek gideri 360.000 − 160.000 = 200.000 TL''dir.
+
+
+      Püf noktaları: Yeni oranı yalnız ikinci çeyrek kârına uygulamayın; kümülatif kâra uygulayıp önceki çeyrekte yansıtılan
+      vergiyi düşün. Oran farkının etkisi bu şekilde izleyen ara dönemde düzeltilmiş olur.'
+    celdiriciler:
+      B: '1.200.000 × %18: yeni oran yalnız ikinci çeyrek kârına uygulanmış, ilk çeyrekteki oran değişikliği düzeltilmemiştir.'
+      C: '1.200.000 × %20: eski oran ikinci çeyrek kârına uygulanmıştır; oran tahmini değişmiştir.'
+      D: '2.000.000 × %18: altı aylık kümülatif vergidir; ilk çeyrekte yansıtılan 160.000 TL düşülmemiştir.'
+      E: '2.000.000 × %20: eski oran kümülatif kâra uygulanmıştır ve önceki çeyrek vergisi düşülmemiştir.'
+    hesap_adimlari:
+    - 30.6.2026 kümülatif vergi = 2.000.000 × 0,18 = 360.000
+    - 1. çeyrekte yansıtılan = 800.000 × 0,20 = 160.000
+    - 2. çeyrek gideri = 360.000 − 160.000 = 200.000
+  kaynaklar:
+  - mevzuat: TMS 34 Ara Dönem Finansal Raporlama
+    madde: par. 30(c)
+    alinti: Her bir ara dönem için, hesap yılının tamamı için beklenen yıllık vergi oranlarının ağırlıklı ortalamasına ilişkin
+      en iyi tahmin esas alınarak gelir vergisi gideri muhasebeleştirilir. Bir ara dönemde muhasebeleştirilen vergi karşılığı;
+      yıllık vergi oranına ilişkin tahminde bir değişiklik meydana gelmesi halinde, o yılın takip eden ara döneminde düzeltilir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: 'q1 = 800000
+
+      h1 = 2000000
+
+      vergi_q1 = q1*0.2
+
+      sonuc = h1*0.18 - vergi_q1'
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Nakit akış tablosu ve özel raporlama konuları
+  konu: TAB
+  kazanim: 'hisse başına kazanç: bedelsiz ihraç ve ağırlıklı ortalama hisse sayısı'
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Borsada işlem gören Kuzey Enerji AŞ''nin 1.1.2026''da dolaşımda 1.000.000 adet adi hissesi vardır. 1.4.2026''da nakit
+    karşılığı 400.000 adet adi hisse ihraç edilmiş ve bedeli aynı gün tahsil edilmiştir. 1.9.2026''da mevcut tüm hissedarlara,
+    sahip oldukları her 100 hisseye karşılık 50 hisse bedelsiz verilmiştir (%50 bedelsiz sermaye artırımı). Ana ortaklığın
+    adi hisse sahiplerine düşen 2026 net dönem kârı 3.900.000 TL, 2025 net dönem kârı ise 2.400.000 TL''dir; şirkette imtiyazlı
+    hisse ve potansiyel adi hisse bulunmamaktadır. Aylık ağırlıklandırma kullanılacaktır.
+
+
+    Buna göre 2026 yılı adi hisse başına kazanç kaç TL''dir (iki ondalık basamağa yuvarlanmış)?'
+  secenekler:
+    A: 1,86
+    B: 2,00
+    C: 2,17
+    D: 2,54
+    E: 3,00
+  dogru: B
+  aciklama:
+    dogru_neden: 'Bedelsiz ihraç kaynaklarda değişiklik yaratmadığından hisse sayısı, sanki işlem sunulan en erken dönemin
+      başında gerçekleşmiş gibi oransal olarak düzeltilir (TMS 33 par. 26-28). Nakit ihraç, bedelin tahsil edildiği tarihten
+      (1.4.2026) itibaren 9 ay ağırlıklandırılır (par. 21(a)). Ağırlıklı ortalama = (1.000.000 + 400.000 × 9/12) × 1,5 = 1.300.000
+      × 1,5 = 1.950.000. Adi HBK = 3.900.000 / 1.950.000 = 2,00 TL.
+
+
+      Püf noktaları: Bedelsiz payı zaman ağırlığıyla azaltmayın; tüm önceki hisselere baştan uygulanır. 2025 kârı gereksiz
+      veridir. Yıl sonu hisse sayısı (2.100.000) kullanılamaz.'
+    celdiriciler:
+      A: '3.900.000 / 2.100.000: yıl sonu hisse sayısı kullanılmıştır; payda ağırlıklı ortalama olmalıdır.'
+      C: Bedelsiz ihraç yalnız dönem başı hisselere (1.000.000 × 1,5 + 300.000) uygulanmış, nakit ihraç edilen paylar düzeltmeye
+        katılmamıştır.
+      D: Bedelsiz hisseler 1.9.2026'dan itibaren 4/12 ağırlıkla hesaba katılmıştır; bedelsiz ihraçta geriye dönük düzeltme
+        gerekir.
+      E: 'Bedelsiz ihraç hiç dikkate alınmamıştır: 3.900.000 / 1.300.000.'
+    hesap_adimlari:
+    - Ağırlıklı ortalama = (1.000.000 + 400.000 × 9/12) × 1,5 = 1.950.000
+    - HBK = 3.900.000 / 1.950.000 = 2,00
+  kaynaklar:
+  - mevzuat: TMS 33 Hisse Başına Kazanç
+    madde: par. 28
+    alinti: Anılan işlem öncesinde mevcut olan adi hisse senetlerinin sayısı, anılan işlemin, sunulan en erken dönemin başında
+      gerçekleşmiş olması durumunda mevcut adi hisse senetlerinin sayısında meydana gelecek oransal değişime göre düzeltilir.
+  - mevzuat: TMS 33 Hisse Başına Kazanç
+    madde: par. 21(a)
+    alinti: Nakit karşılığı ihraç edilen adi hisse senetleri, ilgili nakit alacağının doğduğu tarihte;
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: 'wa = (1000000 + 400000*9/12)*1.5
+
+      sonuc = round(3900000/wa, 2)'
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Nakit akış tablosu ve özel raporlama konuları
+  konu: TAB
+  kazanim: 'hisse başına kazanç: birikimli imtiyazlı temettü ve ağırlıklı ortalama hisse sayısı'
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Borsada işlem gören Dere AŞ''nin 1.1.2026''da dolaşımda 600.000 adet adi hissesi vardır; 1.7.2026''da nakit karşılığı
+    400.000 adet adi hisse ihraç edilmiştir ve bedeli aynı gün tahsil edilmiştir. Ana ortaklığın 2026 net dönem kârı 2.600.000
+    TL''dir. Şirketin birikimli imtiyazlı hisseleri için 2026 dönemine ilişkin öngörülen vergi sonrası temettü 200.000 TL''dir
+    ve bu temettü 2026''da ilan edilmemiştir. Ayrıca 2025 dönemine ait olup 2026''da ödenen birikmiş imtiyazlı temettü 200.000
+    TL''dir. Aylık ağırlıklandırma kullanılacaktır.
+
+
+    Buna göre 2026 yılı adi hisse başına kazanç kaç TL''dir?'
+  secenekler:
+    A: 2,40
+    B: 2,75
+    C: 3,00
+    D: 3,25
+    E: 3,50
+  dogru: C
+  aciklama:
+    dogru_neden: Birikimli imtiyazlı hisselerde, ilan edilmiş olsun veya olmasın ilgili dönem için öngörülen vergi sonrası
+      temettü kârdan düşülür; geçmiş dönemlere ilişkin olarak cari dönemde ödenen tutar bu hesaba katılmaz (TMS 33 par. 14(b)).
+      Pay = 2.600.000 − 200.000 = 2.400.000 TL. Ağırlıklı ortalama hisse = 600.000 + 400.000 × 6/12 = 800.000 (par. 19-21).
+      HBK = 2.400.000 / 800.000 = 3,00 TL.
+    celdiriciler:
+      A: '2.400.000 / 1.000.000: payda olarak yıl sonu hisse sayısı alınmıştır; ağırlıklı ortalama kullanılmalıdır.'
+      B: '(2.600.000 − 400.000) / 800.000: geçmiş döneme ait ve cari yılda ödenen 200.000 TL de düşülmüştür; par. 14(b) bunu
+        dışarıda bırakır.'
+      D: '2.600.000 / 800.000: temettü ilan edilmediği için düşülmemiştir; birikimli hissede ilan edilmiş olması aranmaz.'
+      E: '(2.600.000 + 200.000) / 800.000: imtiyazlı temettü kâra eklenmiştir; oysa düşülür.'
+    hesap_adimlari:
+    - Pay = 2.600.000 − 200.000 = 2.400.000
+    - Payda = 600.000 + 400.000 × 6/12 = 800.000
+    - HBK = 2.400.000 / 800.000 = 3,00
+  kaynaklar:
+  - mevzuat: TMS 33 Hisse Başına Kazanç
+    madde: par. 14(b)
+    alinti: İlan edilmiş olsun veya olmasın, birikimli imtiyazlı hisse senetleri ile ilgili olarak ilgili dönem için öngörülen
+      temettülerin vergi sonrası tutarı
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: 'wa = 600000 + 400000*6/12
+
+      sonuc = (2600000 - 200000)/wa'
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Nakit akış tablosu ve özel raporlama konuları
+  konu: TAB
+  kazanim: 'faaliyet bölümleri: raporlanabilir bölümlerin sayısal alt sınırları'
+  tip: uygulama
+  zorluk: 2
+  kok: 'Borsada işlem gören bir grup, faaliyetlerine ilişkin karar almaya yetkili mercii tarafından düzenli olarak gözden
+    geçirilen beş faaliyet bölümüne sahiptir. Bölümler birleştirilmemiştir; önceki dönemde raporlanabilir bölüm olarak belirlenen
+    ve önemi devam eden bir bölüm yoktur; yönetim eşikleri karşılamayan bölümleri isteğe bağlı olarak ayrıca raporlamamaktadır.
+    Dış hasılatın toplamı 8.700, raporlanacak bölümlerin dış hasılatı bu toplamın %75''inin çok üzerindedir. Bölüm bilgileri
+    (bin TL):
+
+
+    | Bölüm | Dış hasılat | Bölümler arası hasılat | Bölüm kârı/(zararı) | Bölüm varlıkları |
+
+    |---|---|---|---|---|
+
+    | Gıda | 4.700 | 300 | 700 | 6.000 |
+
+    | Ambalaj | 2.900 | 100 | 250 | 3.500 |
+
+    | Lojistik | 400 | 800 | 20 | 900 |
+
+    | Enerji | 550 | 50 | (300) | 1.800 |
+
+    | Yazılım | 150 | 50 | 10 | 200 |
+
+
+    TFRS 8''deki sayısal alt sınırlara (hasılat, kâr veya zarar, varlık) göre aşağıdakilerden hangisi ayrı raporlanması zorunlu
+    bölümleri doğru olarak göstermektedir?'
+  secenekler:
+    A: Yalnız Gıda ve Ambalaj
+    B: Gıda, Ambalaj ve Lojistik
+    C: Gıda, Ambalaj ve Enerji
+    D: Gıda, Ambalaj, Lojistik ve Enerji
+    E: Gıda, Ambalaj, Lojistik, Enerji ve Yazılım
+  dogru: D
+  aciklama:
+    dogru_neden: 'Hasılat testinde bölümler arası hasılat da dâhil edilir (toplam 10.000; %10 = 1.000): Gıda (5.000), Ambalaj
+      (3.000) ve Lojistik (1.200) geçer. Kâr/zarar testinde kâr eden bölümlerin toplamı 980, zarar edenin 300''dür; Enerji''nin
+      zararının mutlak değeri (300) eşiklerin üstündedir. Varlık testinde toplam 12.400, %10 = 1.240: Gıda, Ambalaj ve Enerji
+      (1.800) geçer. Yazılım hiçbir testi geçemez. Raporlanması zorunlu olanlar Gıda, Ambalaj, Lojistik ve Enerji''dir. Lojistik
+      yalnız bölümler arası satışlar dâhil edildiğinde hasılat eşiğini geçer; Enerji ise zararda olmasına rağmen mutlak zararı
+      ve varlıkları nedeniyle raporlanır. (TFRS 8 par. 13)'
+    celdiriciler:
+      A: Yalnız dış hasılata ve kâra bakıldığında ulaşılan sonuçtur; hasılat testine bölümler arası hasılat da girer ve zarar
+        eden bölümler mutlak değerle değerlendirilir.
+      B: Zarar eden Enerji dışarıda bırakılmıştır; oysa mutlak zararı (300) ve varlıkları (1.800) eşiklerin üstündedir.
+      C: Lojistik dışarıda bırakılmıştır; yalnız dış hasılat (400) esas alındığında eşik altında kalır, ancak bölümler arası
+        hasılatla toplam 1.200 olup eşiğin (1.000) üstündedir.
+      E: Yazılım'ın hasılatı (200), kârı (10) ve varlıkları (200) üç eşiğin de altındadır; yönetim isteğe bağlı raporlamayı
+        da tercih etmemiştir.
+    hesap_adimlari:
+    - 'Toplam hasılat 10.000 → eşik 1.000: Gıda 5.000, Ambalaj 3.000, Lojistik 1.200 geçer'
+    - Kâr toplamı 980, zarar toplamı 300; Enerji |−300| eşiği geçer
+    - 'Varlık toplamı 12.400 → eşik 1.240: Gıda, Ambalaj, Enerji geçer'
+    - Yazılım hiçbirini geçmez
+  kaynaklar:
+  - mevzuat: TFRS 8 Faaliyet Bölümleri
+    madde: par. 13(a)
+    alinti: İşletme dışı müşterilere yapılan satışlar ve bölümler arası satışlar veya transferler de dahil olmak üzere, raporlanan
+      hasılatının, işletme içi ve dışı tüm faaliyet bölümlerinin toplam hasılatının yüzde 10'unu veya daha fazlasını oluşturması.
+  - mevzuat: TFRS 8 Faaliyet Bölümleri
+    madde: par. 13(c)
+    alinti: Varlıklarının, tüm faaliyet bölümlerinin toplam varlıklarının yüzde 10'u veya daha fazlası olması.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: "seg = [('Gıda',4700,300,700,6000),('Ambalaj',2900,100,250,3500),('Lojistik',400,800,20,900),('Enerji',550,50,-300,1800),('Yazılım',150,50,10,200)]\n\
+      rev = 0; var = 0; kar = 0; zar = 0\nfor s in seg:\n    rev += s[1] + s[2]; var += s[4]\n    if s[3] > 0:\n        kar\
+      \ += s[3]\n    else:\n        zar += -s[3]\nrep = []\nfor s in seg:\n    if (s[1]+s[2]) >= 0.1*rev or abs(s[3]) >= 0.1*max(kar,\
+      \ zar) or s[4] >= 0.1*var:\n        rep.append(s[0])\nsonuc = rep"
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Nakit akış tablosu ve özel raporlama konuları
+  konu: TAB
+  kazanim: ilişkili taraf tanımı
+  tip: kavrama
+  zorluk: 1
+  kok: TMS 24 İlişkili Taraf Açıklamaları'na göre, finansal tablolarını hazırlayan Pınar Lojistik AŞ ile aşağıdaki taraflardan
+    hangisi arasındaki ilişki, yalnızca bu ilişkiye dayanılarak ilişkili taraf ilişkisi **sayılmaz**?
+  secenekler:
+    A: Pınar Lojistik AŞ ile aynı ana ortaklığın %100 bağlı ortaklığı olan, aynı grubun diğer bir üyesi (kardeş şirket)
+    B: Pınar Lojistik AŞ'nin genel müdürünün eşinin tek başına kontrol ettiği bir anonim şirket
+    C: Pınar Lojistik AŞ'nin sermayesinde %30 paya sahip olduğu ve önemli etki uyguladığı bir iştirak
+    D: Pınar Lojistik AŞ çalışanları için işten ayrılma sonrası fayda sağlayan bir yardım vakfı
+    E: Pınar Lojistik AŞ yönetim kurulu üyesinin, kontrol veya önemli etkisi bulunmaksızın üye olduğu başka bir şirket
+  dogru: E
+  aciklama:
+    dogru_neden: TMS 24 par. 11(a) uyarınca iki işletmenin ortak bir yöneticiye ya da ortak bir kilit yönetici personele sahip
+      olması tek başına ilişkili taraf ilişkisi yaratmaz. Diğer şıklardaki taraflar par. 9 kapsamında ilişkili taraftır.
+    celdiriciler:
+      A: Aynı grubun üyeleri (ana ortaklık, bağlı ortaklıklar, diğer bağlı ortaklıklar) birbirleriyle ilişkilidir (par. 9(b)(i)).
+      B: Kilit yönetici personelin yakın aile üyesi (eş) tarafından kontrol edilen işletme ilişkili taraftır (par. 9(a)(iii),
+        (b)(vi)).
+      C: İştirak, yatırımcısı olan işletmeyle ilişkilidir (par. 9(b)(ii)).
+      D: İşten ayrılma sonrası fayda planı, raporlayan işletmeyle ilişkili taraftır (par. 9(b)(v)).
+  kaynaklar:
+  - mevzuat: TMS 24 İlişkili Taraf Açıklamaları
+    madde: par. 11(a)
+    alinti: İki işletmenin, ortak bir yöneticiye ya da ortak bir kilit yönetici personele sahip olması durumunda
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

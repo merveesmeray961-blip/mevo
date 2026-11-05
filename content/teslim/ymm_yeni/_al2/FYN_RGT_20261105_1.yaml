@@ -1,0 +1,53 @@
+yazar: harici üretici (claude, paket 2026-11-05)
+gorev: YMM paketi 2026-11-05
+klasik: []
+sorular:
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Risk, getiri ve portföy teorisi
+  konu: RGT
+  kazanim: Sharpe oranı
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir yatırım fonunun yıllık ortalama getirisi %18, standart sapması %24, betası 1,2'dir. Risksiz faiz %6 ise fonun Sharpe
+    oranı kaçtır?
+  secenekler:
+    A: 0,10
+    B: 0,12
+    C: 0,25
+    D: 0,50
+    E: 0,75
+  dogru: D
+  aciklama:
+    dogru_neden: Sharpe = (R − R_f)/σ = (%18 − %6) / %24 = 0,50. Beta bu ölçüde yer almaz (Treynor oranında kullanılır).
+    celdiriciler:
+      A: Betaya bölünmüş; bu Treynor oranıdır, Sharpe değil.
+      B: Yalnızca fazla getiridir; riske bölünmemiştir.
+      C: Risksiz faiz riske bölünmüş; pay fazla getiri olmalıdır.
+      E: Risksiz faiz çıkarılmadan getiri riske bölünmüş.
+    hesap_adimlari:
+    - (R − Rf)/σ
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — Sharpe oranı
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'r, sd, b, rf = 0.18, 0.24, 1.2, 0.06
+
+      sonuc = (r - rf) / sd
+
+      yanlis = {"a": r - rf, "b": r / sd, "c": rf / sd, "d": (r - rf) / b}
+
+      '

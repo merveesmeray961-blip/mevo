@@ -1,0 +1,104 @@
+yazar: harici üretici (claude, paket 2026-11-05)
+gorev: YMM paketi 2026-11-05
+klasik: []
+sorular:
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve borçlanma araçları
+  konu: ZDP
+  kazanim: dönem başı ödemeli annüitenin gelecek değeri
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir yatırımcı her yılın başında 1.000 TL yatırmakta ve yıllık %10 getiri elde etmektedir. 3 yıl sonunda hesaptaki tutar
+    kaç TL olur?
+  secenekler:
+    A: 2.487 TL
+    B: 3.000 TL
+    C: 3.310 TL
+    D: 3.641 TL
+    E: 4.641 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Dönem başı ödemelerde her ödeme bir dönem daha faiz kazanır: GD = A × [((1 + r)ⁿ − 1)/r] × (1 + r) = 1.000
+      × 3,31 × 1,1 = 3.641 TL.'
+    celdiriciler:
+      A: Bu, dönem sonu ödemeli annüitenin bugünkü değeridir; soruda gelecek değer istenmektedir.
+      B: Faiz hiç eklenmeden ödemeler toplanmış.
+      C: Dönem sonu ödemeli annüitenin gelecek değeridir; ödemeler dönem başında olduğundan bir dönem daha faiz işler.
+      E: Bir dönem fazla bileşikleme yapılmış (n+1 dönem); dönem başı annüite için sonuç sadece (1 + r) ile çarpılır.
+    hesap_adimlari:
+    - Dönem başı = dönem sonu × (1 + r)
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — dönem başı ödemeli annüitenin gelecek değeri
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'a, r, n = 1000, 0.10, 3
+
+      sonuc = a * ((1 + r) ** n - 1) / r * (1 + r)
+
+      yanlis = {"a": a * ((1 + r) ** n - 1) / r, "b": a * n, "c": a * ((1 + r) ** (n + 1) - 1) / r, "d": a * (1 - (1 + r)
+      ** -n) / r}
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve borçlanma araçları
+  konu: ZDP
+  kazanim: sonsuz süreli imtiyazlı pay değeri
+  tip: hesaplama
+  zorluk: 1
+  kok: Yıllık sabit 6 TL kâr payı ödeyen bir imtiyazlı payın yatırımcı için gerekli getirisi %12'dir. Payın teorik değeri
+    kaç TL'dir?
+  secenekler:
+    A: 25 TL
+    B: 50 TL
+    C: 56 TL
+    D: 72 TL
+    E: 100 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Sabit ve süresiz kâr payı bir sonsuz anüitedir: değer = D / r = 6 / %12 = 50 TL.'
+    celdiriciler:
+      A: Getiri iki ile çarpılmış (paydada 2r); bu işlemin dayanağı yoktur.
+      C: Büyüme olmayan bir sabit kâr payına büyüme faktörü eklenmiş; sonraki yıl kâr payı da aynıdır.
+      D: Kâr payı yıllık getiriyle değil 12 ile çarpılmış; sonsuz seri iskonto edilerek değerlenir.
+      E: Kâr payı verimi yerine alakasız %6'lık oran kullanılmış; gerekli getiri %12'dir.
+    hesap_adimlari:
+    - 'Sabit kâr payı: V = D/r'
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — sonsuz süreli imtiyazlı pay değeri
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'd, r = 6, 0.12
+
+      sonuc = d / r
+
+      yanlis = {"a": d / (r * 2), "b": d * (1 + r) / r, "c": d / 0.06, "d": d * 12}
+
+      '

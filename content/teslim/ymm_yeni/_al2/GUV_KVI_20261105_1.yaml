@@ -1,0 +1,492 @@
+yazar: harici üretici (claude, paket 2026-11-05)
+gorev: YMM paketi 2026-11-05
+klasik: []
+sorular:
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: gayrimenkul yatırım ortaklıklarının kazanç istisnasında kâr dağıtım şartı
+  tip: hesaplama
+  zorluk: 2
+  kok: Hesap dönemi takvim yılı olan (G) Gayrimenkul Yatırım Ortaklığı A.Ş., esas faaliyet konusu itibarıyla gayrimenkul,
+    gayrimenkul projeleri ve gayrimenkule dayalı haklardan oluşan portföyü işletmek amacıyla kurulmuştur. Ortaklığın 2026
+    hesap döneminde yalnızca taşınmazlardan elde ettiği kazanç 12.000.000 TL'dir. Sermaye piyasası mevzuatına göre belirlenen
+    net dağıtılabilir kâr 9.000.000 TL, Vergi Usul Kanunu'na göre tutulan kayıtlara göre tespit edilen kâr ise 6.000.000 TL'dir
+    (kanuni yedek akçeler ve avans kâr payları dikkate alınmayacaktır). Buna göre Ortaklığın KVK md. 5/1-(d) bendindeki istisnadan
+    yararlanabilmesi için, süresi içinde en az ne kadar tutarı kâr payı olarak dağıtması gerekir?
+  secenekler:
+    A: 3.000.000 TL
+    B: 4.500.000 TL
+    C: 6.000.000 TL
+    D: 9.000.000 TL
+    E: 12.000.000 TL
+  dogru: A
+  aciklama:
+    dogru_neden: 'Taşınmaz kazançlarının en az %50''sinin kâr payı olarak dağıtılması şarttır. Dağıtıma esas kâr, sermaye
+      piyasası mevzuatına göre belirlenen net dağıtılabilir kârdır; ancak bu tutar VUK kayıtlarına göre tespit edilen kârı
+      aşamaz. SPK''ya göre net dağıtılabilir kâr (9.000.000 TL) VUK kârından (6.000.000 TL) yüksek olduğundan 6.000.000 TL
+      esas alınır ve tamamı taşınmaz kazancı sayılarak yarısı dağıtılır: 6.000.000 × %50 = 3.000.000 TL.'
+    celdiriciler:
+      B: 9.000.000 TL'nin yarısıdır; SPK'ya göre net dağıtılabilir kâr, VUK kayıtlarındaki kârı aşamayacağı için esas alınamaz.
+      C: 6.000.000 TL, dağıtıma esas kârın kendisidir; dağıtılması gereken tutar bunun yarısıdır.
+      D: 9.000.000 TL, SPK'ya göre net dağıtılabilir kârın tamamıdır; hem sınırı aşmakta hem de %50'lik dağıtım oranını göz
+        ardı etmektedir.
+      E: 12.000.000 TL taşınmaz kazancının tamamıdır; ne VUK sınırı ne de %50 oranı dikkate alınmıştır.
+    hesap_adimlari:
+    - Dağıtıma esas kâr = min(SPK'ya göre net dağıtılabilir kâr 9.000.000; VUK'a göre kâr 6.000.000) = 6.000.000 TL
+    - Dağıtılması gereken tutar = 6.000.000 × %50 = 3.000.000 TL
+  kaynaklar:
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: bölüm 5.5.4
+    alinti: Sermaye piyasası mevzuatına göre belirlenen net dağıtılabilir kar esas alınarak kar dağıtımı yapılması gerekmektedir.
+      Ancak net dağıtılabilir karın, Vergi Usul Kanununa göre tutulan kayıtlar kapsamında tespit edilen kar tutarını aşmaması
+      gerekir. Sermaye piyasası mevzuatına göre belirlenen net dağıtılabilir karın, Vergi Usul Kanununa göre tutulan kayıtlar
+      kapsamında tespit edilen kardan daha düşük olması halinde, sermaye piyasası mevzuatına göre belirlenen net dağıtılabilir
+      karın dikkate alınacağı tabiidir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 5/1-(d) son paragraf
+    alinti: Bu istisnadan faydalanılabilmesi için fon ve ortaklıkların (emeklilik yatırım fonları hariç) sahip oldukları taşınmazlardan
+      elde ettikleri kazançların en az %50’sinin, elde edildiği hesap dönemine ilişkin kurumlar vergisi beyannamesinin verilmesi
+      gereken ayı izleyen ikinci ayın sonuna kadar kâr payı olarak dağıtılması şarttır.
+  gecerlilik:
+    baslangic: '2026-05-24'
+    bitis: null
+    yila_bagli_tutar: false
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim: &id001
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'esas = min(9000000, 6000000)
+
+      sonuc = esas * 50 / 100
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: yurt dışı iştirak kazançları istisnasında pay oranı, vergi yükü ve transfer şartları
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Tam mükellef, hesap dönemi takvim yılı olan (M) A.Ş. (imalat; bankacılık ve finans sektörü dışında faaliyet göstermektedir),
+    2026 yılında aşağıdaki yurt dışı iştiraklerinden kâr payı elde etmiştir. Üç iştirak de kanuni ve iş merkezi Türkiye''de
+    bulunmayan, imalat faaliyetinde bulunan anonim şirketlerdir; paylar kâr payının elde edildiği tarihte tabloda gösterilen
+    süredir kesintisiz elde tutulmaktadır.
+
+
+    | İştirak | Pay oranı | Süre | Kâr payı (TL) | Yurt dışı toplam vergi yükü | 2026 beyannamesinin verilmesi gereken tarihe
+    kadar Türkiye''ye transfer |
+
+    |---|---|---|---|---|---|
+
+    | (X) | %25 | 4 yıl | 5.000.000 | %10 | Yapıldı |
+
+    | (Y) | %60 | 3 yıl | 2.000.000 | %20 | Yapılmadı |
+
+    | (Z) | %12 | 2 yıl | 3.000.000 | %18 | Yapıldı |
+
+
+    Buna göre (M) A.Ş.''nin 2026 yılı kurumlar vergisi beyannamesinde yurt dışı iştirak kazançları istisnası kapsamında kurum
+    kazancından indirebileceği toplam tutar kaç TL''dir?'
+  secenekler:
+    A: 3.000.000 TL
+    B: 5.500.000 TL
+    C: 7.000.000 TL
+    D: 8.600.000 TL
+    E: 10.000.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: '(X): %10''luk vergi yükü %15''in altında olduğundan genel şartlar sağlanmaz; ancak 11257 sayılı Cumhurbaşkanı
+      Kararı (1/1/2026''dan itibaren) uyarınca ödenmiş sermayenin en az %20''sine sahip olunması ve kazancın beyanname verilme
+      tarihine kadar Türkiye''ye transferi hâlinde diğer şartlar aranmaksızın istisna oranı %80''dir: 5.000.000 × %80 = 4.000.000
+      TL. (Y): Pay oranı yüksek ve vergi yükü yeterli olsa da transfer şartı sağlanmadığından hiçbir istisna uygulanmaz. (Z):
+      %12 pay (≥ %10), 2 yıl (≥ 1 yıl), %18 vergi yükü (≥ %15) ve transfer şartları sağlandığından kâr payının tamamı (3.000.000
+      TL) istisnadır. Toplam: 4.000.000 + 3.000.000 = 7.000.000 TL. Püf noktaları: (1) 2026''dan itibaren %50 pay ve %50 oran
+      değil, %20 pay ve %80 oran uygulanır. (2) Transfer şartı her iki yolda da zorunludur; (Y)''nin pay oranı ne kadar yüksek
+      olursa olsun transfer yapılmadıkça istisna yoktur. (3) %80''lik yolda vergi yükü aranmaz; (X)''in %10 yükü bu yolda
+      engel değildir.'
+    celdiriciler:
+      A: Yalnız (Z)'nin istisnasıdır; (X)'in %20 pay ve transferle %80 istisnadan yararlanabildiği gözden kaçırılmıştır.
+      B: (X) için eski %50 oranı uygulanmıştır (2.500.000) ve (Z) eklenmiştir; 2026'dan itibaren oran %80'dir.
+      D: (Y) de %80 oranla (1.600.000) eklenmiştir; oysa transfer şartı sağlanmadığından (Y) için istisna yoktur.
+      E: Kâr paylarının tamamı istisna sayılmıştır; vergi yükü, pay oranı ve özellikle transfer şartları dikkate alınmamıştır.
+    hesap_adimlari:
+    - (X) = 5.000.000 × %80 = 4.000.000 TL (pay ≥ %20 ve süresinde transfer)
+    - (Y) = 0 TL (transfer yapılmadı)
+    - (Z) = 3.000.000 TL (genel şartların tamamı sağlandı)
+    - Toplam = 4.000.000 + 0 + 3.000.000 = 7.000.000 TL
+  kaynaklar:
+  - mevzuat: 11257 sayılı Cumhurbaşkanı Kararı
+    madde: madde 2/1
+    alinti: MADDE 2- (1) 13/6/2006 tarihli ve 5520 sayılı Kurumlar Vergisi Kanununun 5 inci maddesinin birinci fıkrasının
+      (b) bendinin üçüncü paragrafı uyarınca uygulanacak istisna oranı, yurt dışı iştirakin ödenmiş sermayesinin en az %20'sine
+      sahip olunması durumunda %80 olarak belirlenmiştir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 5/1-(b)(4)
+    alinti: 4) İştirak kazancının, elde edildiği hesap dönemine ilişkin kurumlar vergisi beyannamesinin verilmesi gereken
+      tarihe kadar Türkiye’ye transfer edilmesi.
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: bölüm 5.2.1.6
+    alinti: Türkiye’ye bu süre içinde transfer edilmeyen yurt dışı iştirak kazançları, daha sonraki yıllarda Türkiye’ye transfer
+      edilse dahi anılan istisnadan yararlanamayacaktır.
+  gecerlilik:
+    baslangic: '2026-04-30'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim: *id001
+  dogrulama:
+    python: 'x = 5000000 * 80 / 100
+
+      y = 0
+
+      z = 3000000
+
+      sonuc = x + y + z
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: sat-kirala-geri al işlemlerine ilişkin kazanç istisnası
+  tip: kavrama
+  zorluk: 2
+  kok: 5520 sayılı Kurumlar Vergisi Kanunu'nun 5/1-(j) bendi kapsamındaki sat-kirala-geri al işlemlerine ilişkin kazanç istisnası
+    bakımından aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: İstisna, kiracı nezdinde doğan satış kazancının tamamına uygulanır ve kazancın tamamı pasifte özel bir fon hesabına
+      alınır.
+    B: Hem taşınır hem de taşınmaz mallar, geri kiralama amacıyla ve sözleşme sonunda geri alınması şartıyla satıldıklarında
+      istisna kapsamına girebilir.
+    C: Satış, finansal kiralama şirketlerine, katılım bankalarına ya da kalkınma ve yatırım bankalarına yapılmalıdır.
+    D: Fon hesabında tutulan tutarın, amortisman itfası dışında olmak üzere sermayeye eklenmesi, istisna nedeniyle zamanında
+      tahakkuk ettirilmeyen vergilerin ziyaa uğramasına yol açmaz.
+    E: Sözleşmeden kaynaklanan yükümlülüklerin yerine getirilememesi nedeniyle işlem tekemmül etmezse, kiracı adına zamanında
+      tahakkuk ettirilmeyen vergiler vergi ziyaı cezası uygulanmaksızın gecikme faiziyle tahsil edilir.
+  dogru: D
+  aciklama:
+    dogru_neden: 5/1-(j) bendinde fon hesabında tutulan tutar yalnızca kiracı tarafından varlıklar için ayrılacak amortismanların
+      itfasında kullanılabilir. İstisna edilen kazançtan herhangi bir şekilde başka bir hesaba nakledilen kısım için zamanında
+      tahakkuk ettirilmeyen vergiler ziyaa uğramış sayılır. 5/1-(e) bendinden farklı olarak bu bentte sermayeye ilave istisnası
+      yoktur; dolayısıyla D şıkkındaki ifade yanlıştır.
+    celdiriciler:
+      A: 'Doğrudur: İstisna satış kazancının %100''üne uygulandığından kazancın tamamı fon hesabına alınır.'
+      B: 'Doğrudur: Bent her türlü taşınır ve taşınmaz malı kapsar.'
+      C: 'Doğrudur: Alıcılar bentte sayılan kurumlardan oluşur.'
+      E: 'Doğrudur: Bu hâlde vergi ziyaı cezası uygulanmaz, yalnızca gecikme faizi aranır.'
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 5/1-(j)
+    alinti: Her türlü taşınır ve taşınmaz malların 6361 sayılı Kanun kapsamında geri kiralama amacıyla ve sözleşme sonunda
+      geri alınması şartıyla, kurumlar tarafından finansal kiralama şirketleri, katılım bankaları ile kalkınma ve yatırım
+      bankalarına satışından doğan kazançlar ve bu kurumlarca söz konusu varlıkların devralındığı kuruma kira süresi sonunda
+      devrinden doğan kazançlar.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 5/1-(j) ikinci paragraf
+    alinti: İstisnadan yararlanan satış kazancı, kiracı tarafından pasifte özel bir fon hesabında tutulur ve özel fon hesabında
+      tutulan bu tutar sadece kiracı tarafından bu varlıklar için ayrılacak amortismanların (bu varlıkların kiralayan kurumlara
+      devrinden önce kiracıdaki net bilanço aktif değerine isabet eden amortismanlar hariç) itfasında kullanılır. İstisna
+      edilen kazançtan herhangi bir şekilde başka bir hesaba nakledilen veya işletmeden çekilen ya da dar mükellef kurumlarca
+      ana merkeze aktarılan kısım için uygulanan istisna dolayısıyla zamanında tahakkuk ettirilmeyen vergiler ziyaa uğramış
+      sayılır.
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: bölüm 5.15.3.2
+    alinti: İstisna, satış kazancının %100’üne uygulandığından, kazancın tamamı fon hesabına alınacaktır.
+  gecerlilik:
+    baslangic: '2016-07-15'
+    bitis: null
+    yila_bagli_tutar: false
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim: *id001
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: tüketim kooperatiflerinde risturn istisnası
+  tip: hesaplama
+  zorluk: 2
+  kok: Tam mükellef bir tüketim kooperatifinin 2026 yılı genel iş hacmi 12.000.000 TL'dir. Bu hacmin 6.000.000 TL'si ortaklara
+    kişisel ve ailevi gıda ve giyecek ihtiyaçları için yapılan satışlardan, 2.000.000 TL'si ortaklara satılan elektrikli ev
+    aletlerinden, 4.000.000 TL'si ise ortak olmayanlara yapılan satışlardan oluşmaktadır. Kooperatifin 2026 yılı toplam kazancı
+    1.800.000 TL'dir. Kazancın iş hacmine orantılı olarak oluştuğu kabul edildiğine göre, KVK md. 5/1-(i) risturn istisnasına
+    konu edilebilecek en fazla kazanç tutarı kaç TL'dir?
+  secenekler:
+    A: 600.000 TL
+    B: 900.000 TL
+    C: 1.200.000 TL
+    D: 1.350.000 TL
+    E: 1.800.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Tüketim kooperatiflerinde risturn istisnası, ortakların kişisel ve ailevi gıda ve giyecek ihtiyaçları için
+      satın aldıkları mallara ilişkindir. Ortaklarla yapılan işlemlerden doğan kazancın bu mallara ilişkin kısmının ayrımında,
+      bu mallara ilişkin ortaklarla yapılan iş hacminin, kooperatifin bu kapsama girmeyen işlemlerine ait iş hacmi de dahil
+      genel iş hacmine oranı esas alınır: 6.000.000 / 12.000.000 = %50. İstisnaya konu edilebilecek en fazla kazanç 1.800.000
+      × %50 = 900.000 TL''dir.'
+    celdiriciler:
+      A: 4.000.000 / 12.000.000 oranıdır; ortak olmayanlarla yapılan işlemlerin hacmi esas alınmıştır, oysa bu işlemlerden
+        doğan kazanç istisna dışıdır.
+      C: 8.000.000 / 12.000.000 oranıdır; elektrikli ev aletleri de dahil edilmiştir, oysa gıda ve giyecek dışındaki mallardan
+        sağlanan kazanç vergilendirilir.
+      D: Gıda ve giyecek hacmi, genel iş hacmi yerine yalnızca ortaklarla yapılan hacme (6.000.000 / 8.000.000) oranlanmıştır;
+        Tebliğ genel iş hacmini esas alır.
+      E: Kazancın tamamı alınmıştır; ortak olmayanlarla yapılan işlemler ve gıda-giyecek dışındaki satışlar ayrılmamıştır.
+    hesap_adimlari:
+    - Gıda ve giyecek ortak satışlarının genel iş hacmine oranı = 6.000.000 / 12.000.000 = %50
+    - İstisnaya konu en fazla kazanç = 1.800.000 × %50 = 900.000 TL
+  kaynaklar:
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: bölüm 5.11.2
+    alinti: Ortaklarla yapılan muamelelerden doğan kazancın, şahsi ve ailevi gıda ve giyecek türü mallara ilişkin olan kısmının
+      ayrımında, bu tür mallara ilişkin olarak ortaklarla yapılan iş hacminin, kooperatifin bu kapsama girmeyen işlemlere
+      ait iş hacmi de dahil olmak üzere genel iş hacmine oranı esas alınacaktır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 5/1-(i) üçüncü paragraf
+    alinti: Ortaklardan başka kimselerle yapılan işlemlerden doğan kazançlar ile ortaklarla ortaklık statüsü dışında yapılan
+      işlemlerden doğan kazançlar hakkında risturnlara ilişkin istisna hükmü uygulanmaz. Bunların genel kazançtan ayrılmasında,
+      ortaklarla yapılan iş hacminin genel iş hacmine olan oranı esas alınır.
+  gecerlilik:
+    baslangic: '2018-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim: *id001
+  dogrulama:
+    python: 'oran = 6000000 / 12000000
+
+      sonuc = 1800000 * oran
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: yurt dışında yapılan inşaat, onarım, montaj işleri ve teknik hizmet kazançları istisnası
+  tip: kavrama
+  zorluk: 3
+  kok: 'Tam mükellef kurumların KVK md. 5/1-(h) bendi kapsamındaki yurt dışı inşaat, onarım, montaj işleri ile teknik hizmet
+    kazançlarına ilişkin aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. Yurt dışında devam eden bir inşaat işi bulunan kurumun, bu işe bağlı olarak Türkiye''deki merkezinde yürüttüğü proje
+    hazırlama ve mühendislik hizmetlerinden sağladığı kazanç istisnadan yararlanabilir.
+
+    II. Yurt dışında inşaat işi, işyeri ya da daimi temsilcisi bulunmayan kurumun Türkiye''den verdiği mimarlık ve mühendislik
+    hizmetinden sağladığı kazanç istisnadan yararlanabilir.
+
+    III. Yurt dışında inşaat işi bulunmayan kurumun, yurt dışındaki işyeri aracılığıyla verdiği mimarlık ve mühendislik hizmetinden
+    sağladığı kazanç istisnadan yararlanabilir.
+
+    IV. İnşaat işinden sağlanan kazancın istisnadan yararlanabilmesi için Türkiye''ye getirilmesi zorunludur.'
+  secenekler:
+    A: Yalnız I
+    B: Yalnız III
+    C: I ve IV
+    D: I, III ve IV
+    E: I ve III
+  dogru: E
+  aciklama:
+    dogru_neden: 'Kurumun yurt dışında bir inşaat ve onarım işi varsa buna bağlı teknik hizmetlerden sağlanan kazanç, hizmet
+      ister Türkiye''de ister yurt dışında yapılsın istisnadan yararlanır (I doğru). Yurt dışında inşaat işi yoksa yalnızca
+      yurt dışında bir işyeri veya daimi temsilci aracılığıyla yapılan teknik hizmetlerden elde edilen kazanç istisnadan yararlanır
+      (III doğru); işyeri veya daimi temsilci olmadan Türkiye''den verilen hizmet ise hizmet ihracatıdır (II yanlış). Kazancın
+      Türkiye''ye getirilmesi zorunlu değildir; genel sonuç hesaplarına intikal ettirilmesi yeterlidir (IV yanlış). Püf noktaları:
+      (1) Teknik hizmetin Türkiye''de ya da yurt dışında yapılması, inşaat işi varsa fark yaratmaz. (2) İnşaat işi yoksa kural
+      değişir ve yurt dışı işyeri veya daimi temsilci aranır. (3) Bu istisnada, 5/1-(g)''den farklı olarak, Türkiye''ye transfer
+      ve vergi yükü şartı yoktur.'
+    celdiriciler:
+      A: 'III. öncül de doğrudur: inşaat işi olmasa bile yurt dışı işyeri aracılığıyla yapılan teknik hizmet kazancı istisnadan
+        yararlanır.'
+      B: 'I. öncül de doğrudur: yurt dışında inşaat işi varsa buna bağlı teknik hizmetler Türkiye''de yapılsa da istisna uygulanır.'
+      C: 'IV. öncül yanlıştır: kazancın Türkiye''ye getirilmesi şart değildir, genel sonuç hesaplarına intikal ettirilmesi
+        yeterlidir; ayrıca III. öncül de doğrudur.'
+      D: 'IV. öncül yanlıştır: Türkiye''ye getirme zorunluluğu bulunmamaktadır.'
+  kaynaklar:
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: bölüm 5.9
+    alinti: Dolayısıyla, kurumların yurt dışında bir inşaat ve onarım işi varsa, buna bağlı teknik hizmetler ister Türkiye’de
+      isterse yurt dışında yapılsın, elde edilen kazançlar istisnadan yararlanabilecektir. Kurumların yurt dışında yaptıkları
+      bir inşaat ve onarım işinin bulunmaması halinde ise ancak yurt dışında bir işyeri veya daimi temsilci aracılığıyla yaptıkları
+      teknik hizmetlerden elde edilen kazançlar istisnadan yararlanılabilecektir.
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: bölüm 5.9
+    alinti: Bu istisnanın uygulanması açısından, yurt dışında yapılan inşaat, onarım, montaj işleri ile teknik hizmetlerden
+      sağlanan kazançların Türkiye’ye getirilmesi zorunluluğu bulunmamaktadır. Söz konusu kazançların Türkiye’de genel sonuç
+      hesaplarına intikal ettirilmesi istisnadan yararlanılması için yeterlidir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 5/1-(h)
+    alinti: h) Yurt dışında yapılan inşaat, onarım, montaj işleri ile teknik hizmetlerden sağlanarak Türkiye’de genel sonuç
+      hesaplarına intikal ettirilen kazançlar.
+  gecerlilik:
+    baslangic: '2012-05-05'
+    bitis: null
+    yila_bagli_tutar: false
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim: *id001
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: iştirak hissesi satış istisnasında rüçhan hakkıyla edinilen hisselerin iktisap tarihi
+  tip: hesaplama
+  zorluk: 3
+  kok: 'İmalat faaliyetinde bulunan, menkul kıymet ticaretiyle uğraşmayan ve holding niteliği taşımayan tam mükellef (K) A.Ş.,
+    iştirak amacıyla edindiği (Y) A.Ş. paylarına ilişkin aşağıdaki işlemleri yapmıştır. (Y) A.Ş. payının itibari değeri 10
+    TL''dir.
+
+
+    - 2 Mart 2022: Bedelli olarak 10.000 adet pay, adet başına 10 TL''ye satın alınmıştır.
+
+    - Mart 2025: (K) A.Ş., sahip olduğu paylar nedeniyle rüçhan hakkını kullanarak itibari değeri üzerinden (10 TL) 2.000
+    adet yeni pay almıştır.
+
+    - Eylül 2025: (K) A.Ş., rüçhan hakkını kullanarak itibari değerinin üzerinde adet başına 30 TL ödeyerek 1.000 adet yeni
+    pay almıştır.
+
+
+    (K) A.Ş. 20 Kasım 2026''da tüm paylarını (13.000 adet) adet başına 60 TL''den peşin satmıştır. KVK md. 5/1-(e) bendi uyarınca
+    uygulanacak istisna oranı 9160 sayılı Cumhurbaşkanı Kararı ile %50''dir; satışa ilişkin diğer şartlar sağlanmıştır. Buna
+    göre (K) A.Ş.''nin 2026 yılında bu satıştan doğan kazanç için uygulayabileceği istisna tutarı kaç TL''dir?'
+  secenekler:
+    A: 250.000 TL
+    B: 300.000 TL
+    C: 315.000 TL
+    D: 450.000 TL
+    E: 630.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Rüçhan hakkı kullanılarak itibari değeri üzerinden alınan paylar için iktisap tarihi olarak eski payların
+      iktisap tarihi esas alınır; itibari değerden farklı bir bedelle alınan paylarda ise fiilen aktife girdikleri tarih esas
+      alınır. Buna göre ilk 10.000 adet (2022) ve Mart 2025''te itibari değerle alınan 2.000 adet iki tam yılı doldurmuştur;
+      Eylül 2025''te alınan 1.000 adet ise doldurmamıştır. Kazançlar: 10.000 × (60 − 10) = 500.000; 2.000 × (60 − 10) = 100.000;
+      1.000 × (60 − 30) = 30.000 TL. İstisna: (500.000 + 100.000) × %50 = 300.000 TL. Püf noktaları: (1) Rüçhan hakkıyla alınan
+      payın tarihi, alış bedeline bakılarak belirlenir: itibari değerle alınmışsa eski tarih, itibari değerin üzerindeyse
+      yeni tarih. (2) İki tam yıl şartı sağlanmayan 30.000 TL kazanç vergilendirilir. (3) Güncel istisna oranı %50''dir, %75
+      değildir.'
+    celdiriciler:
+      A: Mart 2025'te itibari değerle alınan paylar da kapsam dışı bırakılmıştır (500.000 × %50); oysa bu paylar için eski
+        payların iktisap tarihi esas alınır.
+      C: Eylül 2025'te alınan paylar da dahil edilmiştir (630.000 × %50); bu paylar iki tam yılı doldurmamıştır.
+      D: İki tam yıl şartını sağlayan kazanca (600.000) %75 oranı uygulanmıştır; 9160 sayılı Karar ile oran %50'dir.
+      E: Satış kazancının tamamı (630.000 TL) istisna sayılmıştır; istisna kazancın yalnızca belirli bir oranına uygulanır
+        ve iki tam yıl şartı aranır.
+    hesap_adimlari:
+    - '10.000 adet: 10.000 × (60 − 10) = 500.000 TL (2022 — iki tam yıl sağlandı)'
+    - '2.000 adet (itibari değerle rüçhan): 2.000 × (60 − 10) = 100.000 TL (eski payın tarihi — sağlandı)'
+    - '1.000 adet (30 TL ile rüçhan): kazanç 30.000 TL (Eylül 2025 — sağlanmadı)'
+    - İstisna = (500.000 + 100.000) × %50 = 300.000 TL
+  kaynaklar:
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: bölüm 5.6.2.3.1.1
+    alinti: Kurumların mevcut hisse senetleri dolayısıyla ellerinde bulunan rüçhan hakkı kuponları karşılığında itibari değeriyle
+      yeni hisse senedi iktisap etmeleri halinde, yeni iktisap edilen söz konusu hisse senetleri açısından iktisap tarihi
+      olarak, eski hisse senetleri ya da iştirak hissesinin iktisap tarihi esas alınacaktır.
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: bölüm 5.6.2.3.1.1
+    alinti: Bunun dışında, rüçhan hakkı dolayısıyla itibari değerinden farklı bir değerle hisse senedi iktisap edilmesi durumunda;
+      bu hisse senetlerinin iktisap tarihi olarak, eski hisse senetleriyle ilişkilendirilmeksizin, fiilen kurumun aktifine
+      girdikleri tarih esas alınacaktır.
+  - mevzuat: 9160 sayılı Cumhurbaşkanı Kararı
+    madde: madde 1
+    alinti: MADDE 1- (1) 13/6/2006 tarihli ve 5520 sayılı Kurumlar Vergisi Kanununun 5 inci maddesinin birinci fıkrasının
+      (e) bendi uyarınca uygulanacak istisna oranı %50 olarak belirlenmiştir.
+  gecerlilik:
+    baslangic: '2024-11-27'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim: *id001
+  dogrulama:
+    python: 'a = 10000 * (60 - 10)
+
+      b = 2000 * (60 - 10)
+
+      sonuc = (a + b) * 50 / 100
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: iştirak kazançları istisnasının kapsamı (md. 5/1-a)
+  tip: bilgi
+  zorluk: 1
+  kok: Aşağıdakilerden hangisi tam mükellef (A) A.Ş. açısından KVK md. 5/1-(a) kapsamında kurumlar vergisinden istisna edilen
+    kazançlardandır?
+  secenekler:
+    A: Tam mükellef bir menkul kıymetler yatırım fonunun katılma paylarından elde edilen kâr payı.
+    B: Kanuni ve iş merkezi yurt dışında bulunan bir anonim şirketten elde edilen kâr payı.
+    C: 5/1-(d) istisnasından yararlanan ve dağıtım şartını sağlamış bir gayrimenkul yatırım ortaklığından elde edilen kâr
+      payının tamamı.
+    D: Tam mükellef girişim sermayesi yatırım fonu katılma paylarının VUK md. 279 kapsamında değerlenmesinden doğan değer
+      artışı.
+    E: Sermayesine %5 oranında katıldığı tam mükellef bir anonim şirketten elde edilen kâr payı; ancak bu istisna yalnızca
+      iştirak oranı %10 ve üzerinde olduğunda uygulanır.
+  dogru: D
+  aciklama:
+    dogru_neden: 5/1-(a)(3) uyarınca tam mükellef girişim sermayesi yatırım fonu katılma paylarının VUK md. 279 kapsamında
+      değerlenmesinden kaynaklanan değer artış kazançları da iştirak kazançları istisnası kapsamındadır.
+    celdiriciler:
+      A: Diğer yatırım fonlarının katılma paylarından elde edilen kâr paylarından, 5/1-(d) istisnasından yararlanabilen fon
+        ve ortaklıklardan elde edilenler istisnadan yararlanamaz; menkul kıymetler yatırım fonu (d) kapsamındadır.
+      B: 5/1-(a) yalnızca tam mükellef kurumlardan elde edilen kazançları kapsar; yurt dışı kurumlardan elde edilen kâr paylarına
+        5/1-(b) şartları uygulanır.
+      C: Kâr payı ortaklık bünyesinde genel oranda vergilendirilmediğinden tamamı istisna edilemez; yalnızca asgari verginin
+        oranına isabet eden kısım istisna edilebilir.
+      E: 5/1-(a) istisnasında iştirak oranı ve elde tutma süresi şartı aranmaz.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 5/1-(a)(3)
+    alinti: 3) Tam mükellefiyete tabi girişim sermayesi yatırım fonu katılma payları ile girişim sermayesi yatırım ortaklıklarının
+      hisse senetlerinden elde ettikleri kâr payları ve katılma paylarının fona iadesinden doğan gelirler ile bu fonların
+      katılma paylarının 213 sayılı Vergi Usul Kanununun 279 uncu maddesi kapsamında değerlenmesinden kaynaklanan değer artış
+      kazançları,
+  - mevzuat: 1 Seri No.lu Kurumlar Vergisi Genel Tebliği
+    madde: bölüm 5.1
+    alinti: İştirak kazançları istisnası uygulaması açısından, kurumlar vergisi mükelleflerinin iştirak ettikleri tam mükellef
+      kuruma hangi oranda iştirak ettiklerinin bir önemi bulunmamaktadır. İştirak oranına bakılmaksızın tam mükellef kurumlardan
+      elde edilen kâr paylarının tamamı kurumlar vergisinden istisna edilecektir.
+  gecerlilik:
+    baslangic: '2023-07-15'
+    bitis: null
+    yila_bagli_tutar: false
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim: *id001

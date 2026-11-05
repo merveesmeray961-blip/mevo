@@ -1,0 +1,395 @@
+- id: YMM-FYN-FPA-0080
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal analiz planlama ve kâr dağıtımı
+  konu: FPA
+  kazanim: 'birleşme ve satın alma: pay başına kazanç etkisi'
+  tip: hesaplama
+  zorluk: 2
+  kok: Alıcı şirketin net kârı 16.000.000 TL, pay sayısı 4.000.000 adet ve pay fiyatı 40 TL'dir. Hedef şirketin net kârı 4.000.000
+    TL ve 2.000.000 adet payı vardır. Alıcı, hedefin payı başına 30 TL'lik bedeli kendi payları ile ödeyerek (birleşme sonrası
+    kâr toplamı değişmez, sinerji yoktur) hedefi satın almaktadır. Birleşme sonrası alıcının pay başına kazancı (PBK) kaç
+    TL olur?
+  secenekler:
+    A: 3,00
+    B: 3,33
+    C: 3,64
+    D: 4,00
+    E: 5,00
+  dogru: C
+  aciklama:
+    dogru_neden: Ödenecek toplam bedel 60.000.000 TL; alıcının payı 40 TL olduğundan ihraç edilecek yeni pay = 60.000.000
+      / 40 = 1.500.000 adettir. Birleşik net kâr 20.000.000 TL, pay sayısı 5.500.000 olduğundan PBK = 3,64 TL'dir. Alıcının
+      önceki PBK'sı 4,00 TL'dir; PBK seyrelmiştir.
+    celdiriciler:
+      A: İki şirketin PBK'ları basit ortalama ile alınmış; birleşik PBK, toplam kârın toplam pay sayısına bölünmesiyle bulunur.
+      B: Hedefin payı sayısı kadar pay ihraç edildiği varsayılmış; oysa ödeme hedefin pay sayısı değil, teklif bedelinin alıcının
+        pay fiyatına bölünmesiyle bulunan pay sayısıyla yapılır.
+      D: Birleşme öncesi PBK'dır; hedefin kârı ve yeni payların etkisi hesaba katılmamıştır.
+      E: Yeni pay ihracı hiç dikkate alınmamış; birleşik kâr eski pay sayısına bölünmüştür.
+    hesap_adimlari:
+    - Yeni pay = bedel / alıcı pay fiyatı
+    - PBK = birleşik kâr / (eski + yeni pay)
+  kaynaklar:
+  - mevzuat: 'Genel kabul görmüş finans yönetimi bilgisi — birleşme ve satın alma: pay başına kazanç etkisi'
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'nk_a, pay_a, fiyat_a = 16000000, 4000000, 40
+
+      nk_h, pay_h, teklif = 4000000, 2000000, 30
+
+      yeni = pay_h * teklif / fiyat_a
+
+      sonuc = (nk_a + nk_h) / (pay_a + yeni)
+
+      pbk_a = nk_a / pay_a
+
+      yanlis = {"a": (nk_a + nk_h) / (pay_a + pay_h), "b": (nk_a + nk_h) / pay_a, "c": pbk_a, "d": (pbk_a + nk_h / pay_h)
+      / 2}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_FPA_20261105_1.yaml, satır None
+- id: YMM-FYN-FPA-0081
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal analiz planlama ve kâr dağıtımı
+  konu: FPA
+  kazanim: pay geri alımının pay başına kazanca etkisi
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir şirketin net kârı 5.400.000 TL ve dolaşımdaki pay sayısı 3.000.000 adettir. Şirket, atıl nakdiyle payı 12 TL'den
+    300.000 adet pay geri satın almaktadır. Bu nakit, geri alım yapılmasaydı yıllık vergi öncesi %20 faiz getirisi sağlayacaktı;
+    kurumlar vergisi oranı %20'dir. Şirketin diğer faaliyetleri değişmeyecektir; şirketin banka mevduatı dışında 8.000.000
+    TL tutarında duran varlığı vardır. Geri alım sonrası pay başına kazanç (PBK) kaç TL olur?
+  secenekler:
+    A: 1,61
+    B: 1,73
+    C: 1,79
+    D: 1,80
+    E: 2,00
+  dogru: C
+  aciklama:
+    dogru_neden: 'Geri alım maliyeti = 300.000 × 12 = 3.600.000 TL. Kaybedilen faiz geliri vergi sonrası 3.600.000 × %20 ×
+      (1 − %20) = 576.000 TL; yeni net kâr = 5.400.000 − 576.000 = 4.824.000 TL. Yeni pay sayısı 2.700.000 adet. PBK = 4.824.000
+      / 2.700.000 = 1,79 TL. Eski PBK 1,80 TL olduğundan geri alım PBK''yı artırır, ancak kaybedilen faiz geliri artışı sınırlar.
+      Püf noktaları: (1) Nakdin alternatif getirisi vergi sonrası alınır; (2) duran varlık bilgisi çözüme etki etmez; (3)
+      payda yeni (azalmış) pay sayısıdır.'
+    celdiriciler:
+      A: Kaybedilen gelir düşülmüş ancak payda hâlâ eski pay sayısıdır; geri alınan paylar dolaşımdan çıkar.
+      B: Kaybedilen faiz geliri vergi öncesi düşülmüş; gelirdeki azalma vergi sonrası etkiyle (vergi tasarrufu dikkate alınarak)
+        bulunmalıdır.
+      D: Hiçbir etki hesaplanmadan eski PBK verilmiştir; pay sayısı azalmıştır.
+      E: Kaybedilen faiz geliri hiç dikkate alınmamış; nakit atıl olsa da alternatif getirisi vardır, bu yüzden net kâr düşer.
+    hesap_adimlari:
+    - geri alım bedeli
+    - vergi sonrası kaybedilen faiz
+    - yeni net kâr
+    - yeni pay sayısı
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — pay geri alımının pay başına kazanca etkisi
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'nk, pay, fiyat, geri = 5400000, 3000000, 12, 300000
+
+      faiz, t, duran = 0.20, 0.20, 8000000
+
+      maliyet = fiyat * geri
+
+      kayip = maliyet * faiz * (1 - t)
+
+      yeni_nk = nk - kayip
+
+      yeni_pay = pay - geri
+
+      sonuc = yeni_nk / yeni_pay
+
+      yanlis = {"a": nk / yeni_pay, "b": nk / pay, "c": yeni_nk / pay, "d": (nk - maliyet * faiz) / yeni_pay}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_FPA_20261105_1.yaml, satır None
+- id: YMM-FYN-FPA-0082
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal analiz planlama ve kâr dağıtımı
+  konu: FPA
+  kazanim: finansal kaldıraç derecesi (imtiyazlı pay dahil)
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir şirketin faiz ve vergi öncesi kârı (FVÖK) 1.200.000 TL, yıllık faiz gideri 300.000 TL'dir. Şirketin ayrıca vergi
+    sonrası kârdan ödenen 240.000 TL imtiyazlı pay kâr payı yükümlülüğü vardır; kurumlar vergisi oranı %20'dir. Şirketin satışları
+    6.000.000 TL ve sabit işletme giderleri 900.000 TL'dir. İmtiyazlı pay kâr payı dikkate alınarak hesaplanan finansal kaldıraç
+    derecesi (FKD) kaçtır?
+  secenekler:
+    A: 1,33
+    B: 1,50
+    C: 1,82
+    D: 2,00
+    E: 4,00
+  dogru: D
+  aciklama:
+    dogru_neden: 'İmtiyazlı pay kâr payı vergi sonrası ödendiğinden vergi öncesi karşılığı 240.000 / (1 − %20) = 300.000 TL''dir.
+      FKD = FVÖK / (FVÖK − faiz − imtiyazlı pay kâr payının vergi öncesi karşılığı) = 1.200.000 / (1.200.000 − 300.000 − 300.000)
+      = 2,00. Püf noktaları: (1) kâr payı vergiden düşülmez, bu yüzden 1/(1−t) ile brütleştirilir; (2) satış ve sabit gider
+      bilgisi FKD için gereksizdir (işletme kaldıracı için kullanılır).'
+    celdiriciler:
+      A: Yalnızca faiz dikkate alınmış; imtiyazlı pay kâr payı da sabit mali yüktür.
+      B: Paya FVÖK yerine faiz sonrası kâr konmuş; FKD'nin payı FVÖK'tür.
+      C: İmtiyazlı pay kâr payı vergi öncesine çevrilmeden düşülmüş; vergi sonrası ödenen yükümlülük 1/(1−t) ile büyütülmelidir.
+      E: İmtiyazlı pay kâr payı iki kez dikkate alınmış.
+    hesap_adimlari:
+    - Brüt imtiyazlı kâr payı = ik / (1 − t)
+    - FKD = FVÖK / (FVÖK − faiz − brüt ik)
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — finansal kaldıraç derecesi (imtiyazlı pay dahil)
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fvok, faiz, ik, t = 1200000, 300000, 240000, 0.20
+
+      satis, sg = 6000000, 900000
+
+      sonuc = fvok / (fvok - faiz - ik / (1 - t))
+
+      yanlis = {"a": fvok / (fvok - faiz), "b": (fvok - faiz) / (fvok - faiz - ik / (1 - t)), "c": fvok / (fvok - faiz - ik),
+      "d": fvok / (fvok - faiz - 2 * ik / (1 - t))}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_FPA_20261105_1.yaml, satır None
+- id: YMM-FYN-FPA-0083
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal analiz planlama ve kâr dağıtımı
+  konu: FPA
+  kazanim: bedelsiz sermaye artırımı teorik fiyatı
+  tip: hesaplama
+  zorluk: 1
+  kok: Piyasa fiyatı 50 TL olan bir paya sahip şirket, ortaklarına her 100 paya karşılık 25 adet bedelsiz pay vermektedir.
+    Başka bir bilgi yoksa bedelsiz artırım sonrası payın teorik fiyatı kaç TL'dir?
+  secenekler:
+    A: 40,00 TL
+    B: 50,00 TL
+    C: 62,50 TL
+    D: 66,67 TL
+    E: 75,00 TL
+  dogru: A
+  aciklama:
+    dogru_neden: Bedelsiz artırımda şirkete nakit girmez; toplam değer sabit kalır, pay sayısı 1 + 0,25 kat artar. Teorik
+      fiyat = 50 / 1,25 = 40,00 TL.
+    celdiriciler:
+      B: Fiyatın değişmediği varsayılmış; pay sayısı arttığı için fiyat düşer.
+      C: Fiyat artış oranıyla çarpılmış; pay sayısı artınca fiyat yükselmez, düşer.
+      D: Fiyat (1 − oran)'a bölünmüş; doğru payda 1 + oran'dır.
+      E: Oran TL olarak fiyata eklenmiş; birimler uyuşmaz, fiyat yüzde olarak ölçeklenir ve düşer.
+    hesap_adimlari:
+    - Toplam değer sabit
+    - Yeni fiyat = eski fiyat / (1 + oran)
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — bedelsiz sermaye artırımı teorik fiyatı
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fiyat, oran = 50, 25
+
+      sonuc = fiyat / (1 + oran / 100)
+
+      yanlis = {"a": fiyat, "b": fiyat / (1 - oran / 100), "c": fiyat * (1 + oran / 100), "d": fiyat + oran}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_FPA_20261105_1.yaml, satır None
+- id: YMM-FYN-FPA-0084
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal analiz planlama ve kâr dağıtımı
+  konu: FPA
+  kazanim: yatay ve dikey analiz
+  tip: kavrama
+  zorluk: 2
+  kok: Finansal tabloların **dikey (yüzde) analizi** ile ilgili aşağıdaki ifadelerden hangisi doğrudur?
+  secenekler:
+    A: Bilanço kalemleri toplam aktife, gelir tablosu kalemleri net satışa oranlanır.
+    B: Aynı kalemin farklı dönemlerdeki değerleri karşılaştırılarak büyüme hızı ölçülür.
+    C: Baz yıl 100 alınarak her yılın değeri baz yıla göre endekslenir.
+    D: Yalnızca nakit akış tablosuna uygulanabilir.
+    E: Enflasyonun etkisini tamamen ortadan kaldırarak reel karşılaştırma sağlar.
+  dogru: A
+  aciklama:
+    dogru_neden: Dikey analizde bir dönemin tablosundaki her kalem ortak bir ana kaleme (bilançoda toplam aktif, gelir tablosunda
+      net satışlar) bölünür; böylece şirketin yapısı ve zaman içinde yapı değişimleri karşılaştırılabilir hale gelir.
+    celdiriciler:
+      B: Bu, dönemler arası değişimi inceleyen yatay analizin tanımıdır; dikey analiz tek bir dönemin içindeki yapıyı gösterir.
+      C: Bu, trend (endeks) analizinin tanımıdır; dikey analiz baz yıla göre değil bir ana kaleme göre yüzde hesaplar.
+      D: Dikey analiz bilanço ve gelir tablosuna uygulanır; nakit akış tablosuyla sınırlı değildir.
+      E: Dikey analiz enflasyon etkisini ortadan kaldırmaz; yalnızca oransal yapı sunar.
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — yatay ve dikey analiz
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_FPA_20261105_1.yaml, satır None

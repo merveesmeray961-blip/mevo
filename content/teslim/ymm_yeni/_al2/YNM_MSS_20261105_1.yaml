@@ -1,0 +1,301 @@
+yazar: harici üretici (claude, paket 2026-11-05)
+gorev: YMM paketi 2026-11-05
+klasik: []
+sorular:
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Maliyet sistemleri ve maliyet akışı
+  konu: MSS
+  kazanim: fiili maliyet yöntemi, 151-152-620 akışı
+  tip: hesaplama
+  zorluk: 2
+  kok: Fiili maliyet yöntemini ve 7/A seçeneğini uygulayan Pınar Mutfak San. A.Ş.'nin Eylül ayında 710 hesabında 180.000 TL,
+    720 hesabında 90.000 TL ve 730 hesabında 70.000 TL gider toplanmıştır. Dönem sonunda maliyeti 40.000 TL olan yarı mamul
+    kalmış, 400 adet ürün tamamlanarak 152 hesaba alınmıştır; tamamlanan ürünlerden 300 adedi satılmıştır (dönem başı stok
+    yoktur). 620 Satılan Mamuller Maliyeti hesabına kaç TL borç kaydedilir?
+  secenekler:
+    A: 172.500 TL
+    B: 202.500 TL
+    C: 225.000 TL
+    D: 255.000 TL
+    E: 300.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Fiili yöntemde 710, 720 ve 730''da toplanan giderler (340.000 TL) yansıtma hesaplarının alacağı karşılığında
+      151''e borç yazılır. Üretimi tamamlananların maliyeti ilgili stok hesabına aktarılır: 340.000 − 40.000 yarı mamul =
+      300.000 TL (152). Birim maliyet 300.000/400 = 750 TL; satılan 300 adet için 620 = 300 × 750 = 225.000 TL. Püf noktaları:
+      Yarı mamulün maliyetini önce düşün; sonra yalnız satılan adet kadar 620''ye yaz, 152''nin kalanı stoktur.'
+    celdiriciler:
+      A: 'Genel üretim giderlerinin (730) maliyete katılmamasıyla bulunan sonuçtur: (180.000 + 90.000 − 40.000) × 300/400
+        = 172.500 TL. 730 hesabındaki giderler de 731 aracılığıyla 151''e yansıtılır.'
+      B: 'Genel üretim giderleri unutulmuş ve yarı mamul düşülmemiştir: (180.000 + 90.000) × 300/400 = 202.500 TL. Her iki
+        kalem de maliyet hesabına dahildir.'
+      D: 'Yarı mamulün maliyeti düşülmeden bulunan sonuçtur: 340.000 × 300/400 = 255.000 TL. Yarı mamul henüz tamamlanmadığından
+        152''ye ve dolayısıyla 620''ye aktarılmaz.'
+      E: 300.000 TL tamamlanan 400 adedin tümünün maliyetidir; yalnız 300 adet satıldığından kalan 100 adet 152 hesapta stok
+        olarak kalır.
+    hesap_adimlari:
+    - Tamamlanan mamul maliyeti = 180.000 + 90.000 + 70.000 − 40.000 = 300.000
+    - Birim maliyet = 300.000 / 400 = 750
+    - 620 = 300 × 750 = 225.000
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 151
+    alinti: Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 152
+    alinti: Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle
+      ambardan çekilmesi ile alacaklandırılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 620
+    alinti: Satılan mamullerin maliyet tutarı 152 nolu hesaba (Mamuller Hs.) alacak, bu hesaba ise borç kaydedilir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 711
+    alinti: Fiili maliyet yönteminin uygulandığı durumlarda "710- Direkt İlkmadde ve Malzeme Giderleri Hesabı"nın borcuna
+      gider çeşidi olarak kaydedilen giderler ile, önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda, önceden
+      hesaplanmış giderler, maliyet unsuru olarak bu hesabın alacağı karşılığında "151- Yarı Mamüller-Üretim Hesabı"na borç
+      kaydedilir. Dönem sonlarında "710- Direkt İlkmadde ve Malzeme Giderleri Hesabı" ile karşılaştırılarak kapatılır.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim: &id001
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: 'dm=180000; dl=90000; guq=70000; yari=40000
+
+      mamul=dm+dl+guq-yari
+
+      adet=400; satilan=300
+
+      sonuc=mamul/adet*satilan
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Maliyet sistemleri ve maliyet akışı
+  konu: MSS
+  kazanim: hizmet işletmelerinde 74 grubu hesapları
+  tip: kavrama
+  zorluk: 3
+  kok: Hizmet üretim maliyetinin izlenmesine ilişkin aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Hizmet işletmelerinde 71, 72 ve 73 gruplarındaki hesaplar kullanılmaz; bunların yerine 74 grubundaki hesaplar kullanılır.
+    B: Hizmet üretimi için yapılan giderlerin fiili tutarları 740 hesabın borcuna kaydedilir.
+    C: Önceden saptanmış hizmet maliyeti, 741 hesabın alacağı karşılığında 622 hesabın borcuna aktarılır.
+    D: Fiili hizmet üretim maliyeti ile önceden saptanmış maliyet arasındaki fark 742 hesapta izlenir ve dönem sonunda 622'ye
+      aktarılır.
+    E: Hizmet üretim maliyetinde oluşan olumsuz farklar 742 hesabın alacağına, olumlu farklar borcuna kaydedilir.
+  dogru: E
+  aciklama:
+    dogru_neden: 'Tekdüzen Hesap Planı''na göre 742 hesapta olumsuz farklar hesabın borcuna, olumlu farklar alacağına kaydedilir.
+      E şıkkındaki yön tersine çevrilmiştir, bu nedenle yanlış ifade E''dir. Püf noktaları: Tüm fark hesaplarında kural aynıdır:
+      olumsuz (maliyet artırıcı) fark borç, olumlu fark alacaktır. 741''in alacağı ile 622''nin borcunun birlikte çalıştığını
+      da unutmayın.'
+    celdiriciler:
+      A: Doğru ifadedir; Tebliğ hizmet işletmelerinde 71, 72 ve 73 gruplarının kullanılmadığını, yerine 74 grubunun kullanılacağını
+        belirtir.
+      B: Doğru ifadedir; 740 hesapta hizmet için yapılan giderlerin fiili tutarları borç kaydedilir.
+      C: Doğru ifadedir; 741 alacak, 622 borç çalışır.
+      D: Doğru ifadedir; 742 hesap farkların izlendiği hesaptır ve dönem sonunda 622'ye aktarılarak kapatılır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Grup 74
+    alinti: Hizmet işletmelerinde 71, 72 ve 73 gruplarda yer alan hesaplar kullanılmaz. Bu hesaplar yerine bu gruptaki hesaplar
+      kullanılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 740
+    alinti: Hizmet işletmelerinde üretilen hizmetler için yapılan giderlerin fiili tutarları bu hesabın horcuna kaydedilir.
+      Dönem sonlarında bu hesap "741- Hizmet Üretim Maliyeti Yansıtma" hesabı ile karşılaştırılarak kapatılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 741
+    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda, önceden saptanmış hizmet maliyetini oluşturan
+      giderler, fiili maliyet yönteminin uygulandığı durumlarda "740- Hizmet Üretim Maliyeti Hesabı"nın borcuna kaydedilen
+      tutarları hu hesabın alacağı karşılığı "622- Satılan Hizmet Maliyeti Hesabı"nın borcuna aktarılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 742
+    alinti: Hizmet üretim maliyetlerinin fiili tutarları ile önceden saptanmış hizmet üretim maliyeti arasındaki olumlu veya
+      olumsuz farkların izlendiği hesaptır. Olumsuz farklar hesabın borcuna, olumlu farklar hesabın alacağına kaydedilir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 742
+    alinti: Dönem sonlarında hu hesap "622 Satılan Hizmet Maliyeti Hesabına" aktarılarak kapatılır.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim: *id001
+  soru_bicimi: olumsuz
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Maliyet sistemleri ve maliyet akışı
+  konu: MSS
+  kazanim: '7/B seçeneği: 799 Üretim Maliyet Hesabı'
+  tip: bilgi
+  zorluk: 1
+  kok: 7/B seçeneğini uygulayan bir üretim işletmesinde, dönem sonunda 799 Üretim Maliyet Hesabı hangi hesaplara devredilerek
+    kapatılır?
+  secenekler:
+    A: 151 Yarı Mamuller-Üretim ve 152 Mamuller hesaplarına
+    B: 620 Satılan Mamuller Maliyeti ve 622 Satılan Hizmet Maliyeti hesaplarına
+    C: 630 Araştırma ve Geliştirme Giderleri ve 631 Pazarlama Satış ve Dağıtım Giderleri hesaplarına
+    D: 711 ve 721 yansıtma hesaplarına
+    E: 680 Çalışmayan Kısım Gider ve Zararları ve 690 Dönem Kârı veya Zararı hesaplarına
+  dogru: A
+  aciklama:
+    dogru_neden: Tekdüzen Hesap Planı'na göre dönem sonlarında 799 Üretim Maliyet Hesabı, üretim işletmelerinde 151 Yarı Mamuller-Üretim
+      ve 152 Mamuller hesaplarına, hizmet işletmelerinde ise 622 Satılan Hizmet Maliyeti hesabına devredilerek kapatılır.
+    celdiriciler:
+      B: 620 satılan mamullerin maliyetini taşıyan sonuç hesabıdır ve ürün satıldığında 152'den alınır; 799 doğrudan 620'ye
+        devredilmez. 622 yalnız hizmet işletmeleri için geçerlidir.
+      C: 630 ve 631, 799'a değil, doğrudan gider dağıtım tablosuyla çeşit hesaplarından aktarılan fonksiyonel sonuç hesaplarıdır.
+      D: 711 ve 721 7/A seçeneğinin yansıtma hesaplarıdır; 7/B'de kullanılmaz.
+      E: 680 çalışılmayan döneme ait giderlerin hesabıdır; 799 ona devredilmez.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 799
+    alinti: Dönem sonlarında "799- Üretim Maliyet Hesabı", üretim işletmelerinde 151- Yarı Mamüller Üretim" ve "152- Mamüller"
+      hesaplarına, hizmet işletmelerinde ise "622- Satılan Hizmet Maliyeti Hesabı"na devredilerek kapatılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 798/799
+    alinti: maliyet çıkarma dönemlerinde düzenlenen gider dağıtım tablosu sonucuna göre fonksiyonlarına ve gider yerlerine
+      göre gruplanan çeşit hesaplarının toplam tutarları, "798- Gider Çeşitleri Yansıtma Hesabı" alacağı ile "799- Üretim
+      Maliyet Hesabı"na ve "630- Araştırma ve Geliştirme Giderleri", "631- Pazarlama Satış ve Dağıtım Giderleri", "632- Genel
+      Yönetim Giderleri", "66- Finansman Giderleri" grubunun ilgili hesabına, "680- Çalışmayan Kısım Gider ve Zararları" hesaplarının
+      ilgili olanlarına veya aktifleşmesi gereken tutarlar ise ilgili aktif hesaplarının borcuna kaydedilir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim: *id001
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Maliyet sistemleri ve maliyet akışı
+  konu: MSS
+  kazanim: 'önceden saptanmış maliyet: 712 fiyat farkı'
+  tip: hesaplama
+  zorluk: 3
+  kok: Önceden saptanmış maliyet yöntemini uygulayan bir işletmede ilkmaddenin standart fiyatı kg başına 10 TL'dir. Ay içinde
+    30.000 kg ilkmadde kg başına 9,50 TL'den satın alınmış, 24.000 kg'ı üretimde kullanılmış, kalanı depoda kalmıştır. Fiyat
+    farkı üretimde kullanılan miktar üzerinden hesaplanmaktadır. 712 Direkt İlkmadde ve Malzeme Fiyat Farkı hesabına bu işlemden
+    dolayı kaç TL alacak kaydedilir?
+  secenekler:
+    A: 3.000 TL
+    B: 12.000 TL
+    C: 15.000 TL
+    D: 24.000 TL
+    E: 30.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Fiili birim fiyat (9,50) standart fiyatın (10) altında olduğundan fark olumludur. Olumlu fiyat farkları
+      712''nin alacağına kaydedilir. Fark, üretimde kullanılan miktar üzerinden hesaplandığından (10 − 9,50) × 24.000 = 12.000
+      TL''dir. Püf noktaları: Satın alınan miktarı değil kullanılan miktarı alın; depoda kalan 6.000 kg için fiyat farkı henüz
+      maliyete yansımaz. Olumlu fark = alacak.'
+    celdiriciler:
+      A: Depoda kalan 6.000 kg'ın kg başına 0,50 TL farkı olan 3.000 TL'dir; stokta kalan malzemenin fiyat farkı henüz maliyete
+        yansımaz.
+      C: 15.000 TL satın alınan 30.000 kg üzerinden hesaplanan farktır; soruda fiyat farkı kullanılan miktar üzerinden hesaplanmaktadır.
+      D: 24.000 TL kg başına 1 TL fark kabul edilerek bulunur; gerçek fark kg başına 0,50 TL'dir.
+      E: 30.000 TL, hem miktarın hem de farkın yanlış alınmasından doğan sonuçtur.
+    hesap_adimlari:
+    - Birim fiyat farkı = 10 − 9,50 = 0,50 TL olumlu
+    - Fark = 0,50 × 24.000 = 12.000 TL (712 alacak)
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 712
+    alinti: Olumsuz fiyat farkları bu hesabın borcuna, olumlu fiyat farkları ise alacağına kaydedilir. Dönem sonlarında bu
+      hesap ilgili stok ve satış maliyet hesaplarına aktarılarak kapatılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Fark hesapları
+    alinti: Bu hesaplar, önceden saptanmış maliyet yöntemlerinin uygulanması halinde fiili giderler ile önceden saptanmış
+      giderler arasındaki farkların kaydedildiği hesaplardır. Fark hesapları borç ve alacak kalıntısı verebilir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim: *id001
+  dogrulama:
+    python: 'alinan=30000; kullanilan=24000; std_fyat=10; fiili_fyat=9.5
+
+      sonuc=abs((fiili_fyat-std_fyat)*kullanilan)
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: YNM
+  unite: Maliyet sistemleri ve maliyet akışı
+  konu: MSS
+  kazanim: maliyet muhasebesi bağlantı hesapları (700, 701)
+  tip: uygulama
+  zorluk: 2
+  kok: Genel muhasebe ile maliyet muhasebesini ayrı yürüten ve 70 grubunu çalıştıran bir işletmede, genel muhasebe maliyetle
+    ilgili giderleri tahakkuk ettirerek 700 Maliyet Muhasebesi Bağlantı Hesabı'nı borçlandırmıştır. Maliyet muhasebesinde
+    bu giderlerin ilgili hesaplara aktarılması aşağıdakilerden hangisiyle yapılır?
+  secenekler:
+    A: 701 hesap borçlandırılır; 710, 720 ve 730 gibi fonksiyonel gider hesapları alacaklandırılır, 151 hesap kapanır.
+    B: 700 hesap maliyet muhasebesinde de alacaklandırılır ve 151 hesap doğrudan borçlandırılır.
+    C: 700 ve 701 hesapları aynı kayıtta birlikte borçlandırılır, 151 hesap alacaklandırılır.
+    D: 701 hesap alacaklandırılır; 710, 720, 730 gibi fonksiyonel gider hesapları borçlandırılır.
+    E: 701 hesap alacaklandırılır; 711, 721 ve 731 yansıtma hesapları borçlandırılır, 700 kapanır.
+  dogru: D
+  aciklama:
+    dogru_neden: 'Genel muhasebede 700''ün borcuna kaydedilen giderler, genel muhasebeden gelen belgeler doğrultusunda maliyet
+      muhasebesinde 701''in alacağına, fonksiyonel gider hesaplarının borcuna kaydedilir. Dönem sonunda maliyet muhasebesinden
+      genel muhasebeye aktarılan tutarlar ise 701''in borcuna, ilgili fonksiyonel gider yansıtma hesaplarının alacağına yazılır.
+      Püf noktaları: Yansıtma hesapları (711, 721, 731) gider çeşidi hesaplarını değil, giderin maliyet unsuru olarak 151''e
+      geçişini sağlar; 701 alacak çalışırken bunlar değil gider hesapları borçlanır.'
+    celdiriciler:
+      A: Yön tersine çevrilmiştir; 701 bu aşamada alacaklandırılır, gider hesapları borçlandırılır.
+      B: 700 hesap genel muhasebe tarafından tutulur; maliyet muhasebesinde 700 değil 701 kullanılır.
+      C: İki bağlantı hesabı aynı kayıtta borçlandırılamaz; 700 borcu genel muhasebede, 701 alacağı maliyet muhasebesinde
+        yer alır.
+      E: Bu aşamada borçlandırılan hesaplar gider hesaplarıdır; 711/721/731 yansıtma hesapları fiili giderlerin 151'e yansıtılması
+        aşamasında alacaklandırılır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Grup 70
+    alinti: Bu grupda yer alan hesaplar genel muhasebe ile maliyet muhasebesinin birbirinden ayrı olarak yürütülmesinin istenmesi
+      durumunda, genel muhasebe ile maliyet muhasebesi arasında bağlantıların kurulmasını sağlamak amacıyla kullanılır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 700
+    alinti: Maliyetle ilgili tüm giderler tahakkuk ettikçe hu hesaba borç, ilgili aktif ve pasif hesaplara alacak kaydedilir.
+      Maliyet dönemleri sonunda maliyet muhasebesi tarafından genel muhasebeye bildirilen veriler bu hesabın alacağına, ilgili
+      hesapların borcuna kaydedilir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği (Sıra No: 1) — Tekdüzen Hesap Planı ve Hesap Planı Açıklamaları'
+    madde: Hesap 701
+    alinti: Genel muhasebede "700- Maliyet Muhasebesi Bağlantı Hesabı"nın borcuna kaydedilen giderler genel muhasebeden gelen
+      belgeler doğrultusunda maliyet muhasebesinde bu hesabın alacağına, fonksiyonel gider hesaplarının borcuna kaydedilir.
+      Maliyet muhasebesinden genel muhasebeye aktarılan tutarlar ise bu hesabın borcuna, ilgili fonksiyonel gider yansıtma
+      hesaplarının alacağına kaydedilir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim: *id001

@@ -1,0 +1,1136 @@
+yazar: harici üretici (claude, paket 2026-11-05)
+gorev: YMM paketi 2026-11-05
+klasik:
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: SMR
+  kazanimlar:
+  - Modigliani-Miller (vergili) ve firma değeri
+  - kaldıraçlı özkaynak maliyeti ve WACC
+  - APV yöntemi ve borçla pay geri alımı
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Güneş Kâğıt A.Ş. borçsuzdur ve kalıcı (süresiz) yıllık FVÖK''ü 4.000.000 TL''dir. Kurumlar vergisi oranı %25, borçsuz
+    firmanın özkaynak maliyeti %20''dir. Kâr tamamen dağıtılmakta ve nakit akımları sabit kalmaktadır. Şirketin 1.000.000
+    adet payı vardır. Yönetim, kalıcı 4.000.000 TL borç alıp (yıllık faiz %10, borç sürekli yenilenecek) bu tutarla pay geri
+    alımı yapmayı düşünmektedir. Modigliani-Miller (vergili) varsayımları geçerlidir.
+
+
+    **İstenenler:**
+
+
+    (a) Borçsuz firmanın değerini (V_U) ve pay fiyatını hesaplayınız. (4 puan)
+
+
+    (b) Borçlanma sonrası firma değerini, özkaynak değerini, kaldıraçlı özkaynak maliyetini ve WACC''yi hesaplayınız; WACC
+    ile firma değerini kontrol ediniz. (8 puan)
+
+
+    (c) Aynı değeri APV yöntemiyle (borçsuz değer + faiz vergi kalkanının bugünkü değeri) bulunuz. (5 puan)
+
+
+    (d) Borçlanma duyurulduğunda pay fiyatının yeni değere göre ne olacağını, geri alınacak pay sayısını ve ortakların kazancını
+    bulunuz. (8 puan)
+
+    '
+  cozum: '**(a)** NOPAT = 4.000.000 × (1 − %25) = 3.000.000 TL. V_U = 3.000.000 / %20 = **15.000.000 TL**; pay fiyatı = 15.000.000
+    / 1.000.000 = **15 TL**.
+
+
+    **(b)** V_L = V_U + t × D = 15.000.000 + %25 × 4.000.000 = **16.000.000 TL**. Özkaynak değeri E = 16.000.000 − 4.000.000
+    = **12.000.000 TL**.
+
+
+    r_E = r₀ + (r₀ − r_D)(1 − t)(D/E) = %20 + (%20 − %10) × 0,75 × (4.000.000 / 12.000.000) = **%22,50**.
+
+
+    WACC = (E/V) r_E + (D/V) r_D (1 − t) = %75 × %22,50 + %25 × %10 × 0,75 = **%18,75**. Kontrol: 3.000.000 / 0,1875 = 16.000.000
+    TL = V_L ✔.
+
+
+    **(c)** Borç kalıcı olduğundan faiz vergi kalkanının bugünkü değeri = t × D = 1.000.000 TL. APV = 15.000.000 + 1.000.000
+    = **16.000.000 TL** (V_L ile aynı).
+
+
+    **(d)** Duyarlı piyasa duyurudan sonra firma değerini 16.000.000 TL olarak fiyatlar: pay fiyatı = 16.000.000 / 1.000.000
+    = **16 TL**. 4.000.000 TL ile geri alınacak pay = 4.000.000 / 16 = **250.000 adet**; kalan pay = 750.000. Geri alım sonrası
+    özkaynak 12.000.000 TL / 750.000 = 16 TL (fiyat değişmez).
+
+
+    Ortakların toplam kazancı = 16.000.000 − 15.000.000 = **1.000.000 TL** (= vergi kalkanı); pay başına 1 TL (fiyat 15 →
+    16). Kazancın tamamı mevcut ortaklara aittir; borç alacaklılarına kâr dağılmaz.
+
+    '
+  puanlama:
+  - olcut: (a) V_U ve pay fiyatı
+    puan: 4
+  - olcut: (b) V_L ve E
+    puan: 3
+  - olcut: (b) r_E
+    puan: 2
+  - olcut: (b) WACC ve kontrol
+    puan: 3
+  - olcut: (c) APV
+    puan: 5
+  - olcut: (d) Duyuru sonrası fiyat ve geri alınan pay
+    puan: 5
+  - olcut: (d) Ortak kazancı
+    puan: 3
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: 'fvok = 4000000
+
+      t = 0.25
+
+      r0 = 0.20
+
+      rd = 0.10
+
+      borc = 4000000
+
+      pay = 1000000
+
+      nopat = fvok * (1 - t)
+
+      vu = nopat / r0
+
+      p0 = vu / pay
+
+      vl = vu + t * borc
+
+      e = vl - borc
+
+      re = r0 + (r0 - rd) * (1 - t) * borc / e
+
+      wacc = e / vl * re + borc / vl * rd * (1 - t)
+
+      vl_kontrol = nopat / wacc
+
+      kalkan = t * borc
+
+      apv = vu + kalkan
+
+      p1 = vl / pay
+
+      geri = borc / p1
+
+      kalan = pay - geri
+
+      p_son = e / kalan
+
+      kazanc = vl - vu
+
+      kazanc_pay = kazanc / pay
+
+      sonuc = {"vu": vu, "p0": p0, "vl": vl, "e": e, "re": re, "wacc": wacc, "vl_kontrol": vl_kontrol, "apv": apv, "p1": p1,
+      "geri": geri, "kalan": kalan, "p_son": p_son, "kazanc": kazanc}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: SMR
+  kazanimlar:
+  - beta ayrıştırma (unlever) ve yeniden yükleme (relever)
+  - farklı faaliyet alanındaki proje için sermaye maliyeti
+  - CAPM ve WACC ile proje karar ölçütü
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Kuzey Petrokimya A.Ş. (mevcut WACC %28) biyoplastik üretimine girmeyi düşünmektedir. Bu işkolunda faaliyet gösteren
+    iki halka açık benzer şirketin verileri:
+
+
+    | Şirket | Kaldıraçlı beta | Borç/Özkaynak (piyasa) | Vergi oranı |
+
+    |---|---|---|---|
+
+    | P1 | 1,4 | 0,5 | %20 |
+
+    | P2 | 1,44 | 0,25 | %20 |
+
+
+    Proje, 0,25 borç/özkaynak oranıyla finanse edilecek (borcun vergi öncesi maliyeti %28); risksiz faiz %20, piyasa beklenen
+    getirisi %30, vergi oranı %20''dir. Proje, %30 iç verim oranı sağlamaktadır. Beta için Hamada denklemi (β_L = β_U [1 +
+    (1 − t) D/E]) kullanılacaktır.
+
+
+    **İstenenler:**
+
+
+    (a) İki benzer şirketin kaldıraçsız betasını (varlık betası) hesaplayınız. (6 puan)
+
+
+    (b) Ortalama kaldıraçsız betayı bulup projenin hedef sermaye yapısına göre kaldıraçlı betasını hesaplayınız. (5 puan)
+
+
+    (c) Proje için CAPM''e göre özkaynak maliyetini ve projenin WACC''sini hesaplayınız. (8 puan)
+
+
+    (d) İç verim oranını mevcut WACC ile ve proje WACC''si ile karşılaştırarak kararı veriniz; şirketin kendi WACC''sini kullanmasının
+    neden hatalı olduğunu açıklayınız. (6 puan)
+
+    '
+  cozum: '**(a)** β_U = β_L / [1 + (1 − t) D/E]
+
+    - P1: 1,4 / (1 + 0,8 × 0,5) = 1,4 / 1,4 = **1**
+
+    - P2: 1,44 / (1 + 0,8 × 0,25) = 1,44 / 1,2 = **1,2**
+
+
+    **(b)** Ortalama β_U = (1 + 1,2) / 2 = **1,1**. Hedef D/E = 0,25 → β_L = 1,1 × (1 + 0,8 × 0,25) = 1,1 × 1,2 = **1,32**.
+
+
+    **(c)** r_E = %20 + 1,32 × (%30 − %20) = **%33,2**. Vergi sonrası borç maliyeti = %28 × 0,8 = %22,40. Ağırlıklar: E/V
+    = 1/1,25 = %80, D/V = %20.
+
+
+    WACC (proje) = 0,80 × %33,2 + 0,20 × %22,40 = **%31,04**.
+
+
+    **(d)** İç verim oranı %30, şirketin mevcut WACC''sinden (%28) yüksek olduğu için o oranla proje kabul edilirdi; ancak
+    projenin riskine uygun WACC %31,04 olup iç verim oranı bunun altında kaldığından proje **reddedilmelidir**. Şirketin kendi
+    WACC''si mevcut faaliyetlerin riskini yansıtır; yeni işkolunun sistematik riski (beta) farklıysa gerekli getiri de farklıdır.
+    Doğru yöntem, projeyle aynı riskteki şirketlerin betasından hareket edip projenin finansman yapısına göre yeniden yüklemektir.
+
+    '
+  puanlama:
+  - olcut: (a) Her şirket için β_U
+    puan: 6
+  - olcut: (b) Ortalama β_U ve β_L
+    puan: 5
+  - olcut: (c) r_E
+    puan: 4
+  - olcut: (c) Proje WACC'si
+    puan: 4
+  - olcut: (d) Karar
+    puan: 3
+  - olcut: (d) Şirket WACC'sinin hatalı olduğunun açıklanması
+    puan: 3
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: 'wacc_f = 0.28
+
+      b1 = 1.40
+
+      de1 = 0.50
+
+      b2 = 1.44
+
+      de2 = 0.25
+
+      t = 0.20
+
+      hde = 0.25
+
+      kd = 0.28
+
+      rf = 0.20
+
+      rm = 0.30
+
+      irr = 0.30
+
+      bu1 = b1 / (1 + (1 - t) * de1)
+
+      bu2 = b2 / (1 + (1 - t) * de2)
+
+      bu = (bu1 + bu2) / 2
+
+      bl = bu * (1 + (1 - t) * hde)
+
+      re = rf + bl * (rm - rf)
+
+      w_e = 1 / (1 + hde)
+
+      w_d = hde / (1 + hde)
+
+      kd_s = kd * (1 - t)
+
+      wacc_p = w_e * re + w_d * kd_s
+
+      sonuc = {"bu1": bu1, "bu2": bu2, "bu": bu, "bl": bl, "re": re, "kd_s": kd_s, "wacc_p": wacc_p}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: SMR
+  kazanimlar:
+  - marjinal sermaye maliyeti ve kırılma noktaları
+  - ihraç (flotasyon) maliyetli yeni pay maliyeti
+  - yatırım fırsatları ile MSM karşılaştırması
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Doğu Tekstil A.Ş.''nin hedef sermaye yapısı %%40 borç, %%60 özkaynaktır (yeni finansmanın bu oranda yapılacağı varsayılır).
+    Vergi oranı %20''dir. Veriler:
+
+
+    - Bu yıl yatırımda kullanılabilecek dağılmamış (iç) kâr: 6.000.000 TL.
+
+    - Pay fiyatı 45 TL, gelecek yıl kâr payı 3,6 TL, sürekli büyüme %20. Yeni pay ihraç edilirse ihraç maliyeti ihraç bedelinin
+    %20''sidir.
+
+    - Borç: ilk 8.000.000 TL için vergi öncesi maliyet %30; bu tutarın üzerindeki borç için %36.
+
+
+    Yatırım fırsatları (bağımsız, bölünemez):
+
+
+    | Proje | Yatırım (TL) | İç verim oranı |
+
+    |---|---|---|
+
+    | P1 | 4.000.000 | %32 |
+
+    | P2 | 5.000.000 | %29 |
+
+    | P3 | 6.000.000 | %28 |
+
+    | P4 | 7.000.000 | %25 |
+
+    | P5 | 3.000.000 | %23 |
+
+
+    **İstenenler:**
+
+
+    (a) İç kârın (dağılmamış kâr) maliyetini ve yeni pay ihracının maliyetini Gordon modeliyle bulunuz; vergi sonrası iki
+    borç maliyetini hesaplayınız. (5 puan)
+
+
+    (b) Marjinal sermaye maliyeti (MSM) eğrisinin iki kırılma noktasını (toplam finansman cinsinden) bulunuz. (6 puan)
+
+
+    (c) Her finansman aralığı için MSM''yi (WACC) hesaplayınız. (6 puan)
+
+
+    (d) İç verim oranına göre sıralanan projelerden hangilerinin kabul edileceğini, MSM ile karşılaştırarak belirleyiniz;
+    toplam yatırım bütçesini bulunuz. (8 puan)
+
+    '
+  cozum: '**(a)** İç kâr maliyeti = D₁/P₀ + g = 3,6 / 45 + %20 = **%28**.
+
+
+    Yeni pay: net ihraç bedeli = 45 × (1 − %20) = 36 TL → r_yeni = 3,6 / 36 + %20 = **%30,0**.
+
+
+    Vergi sonrası borç maliyeti: ilk 8.000.000 TL için %30 × 0,8 = **%24**; sonrası için %36 × 0,8 = **%28,8**.
+
+
+    **(b)** Kırılma noktası = ilgili kaynağın tükendiği toplam finansman tutarı:
+
+    - İç kâr: 6.000.000 / %60 = **10.000.000 TL**
+
+    - Ucuz borç: 8.000.000 / %40 = **20.000.000 TL**
+
+
+    **(c)** MSM aralıkları:
+
+
+    | Toplam finansman | Özkaynak | Borç | MSM |
+
+    |---|---|---|---|
+
+    | 0 – 10.000.000 | iç kâr (%28) | %24 | 0,6 × %28 + 0,4 × %24 = **%26,4** |
+
+    | 10.000.000 – 20.000.000 | yeni pay (%30,0) | %24 | 0,6 × %30,0 + 0,4 × %24 = **%27,6** |
+
+    | 20.000.000 üzeri | yeni pay (%30,0) | %28,8 | 0,6 × %30,0 + 0,4 × %28,8 = **%29,52** |
+
+
+    **(d)** İç verim sırası: P1 (%32), P2 (%29), P3 (%28), P4 (%25), P5 (%23).
+
+    - P1 (toplam 4.000.000): %32 > %26,4 → kabul.
+
+    - P2 (toplam 9.000.000): %29 > %26,4 → kabul.
+
+    - P3 (toplam 15.000.000, 10.000.000''ın üzerine çıkan kısım %27,6''lik aralıkta): %28 > %27,6 → kabul.
+
+    - P4 (toplam 22.000.000; 20.000.000''ın üzerinde %29,52): %25 < %27,6 (kendi finansmanının büyük bölümü için bile) → ret.
+
+    - P5: %23 < MSM → ret.
+
+
+    Kabul edilen projeler P1, P2, P3; toplam yatırım bütçesi = 4.000.000 + 5.000.000 + 6.000.000 = **15.000.000 TL**. Yeni
+    pay ihraç maliyeti MSM''yi yükselttiğinden (%26,4 → %27,6) iç verim oranı bu eşiğin altındaki projeler elenir.
+
+    '
+  puanlama:
+  - olcut: (a) İç kâr ve yeni pay maliyeti
+    puan: 3
+  - olcut: (a) Vergi sonrası borç maliyetleri
+    puan: 2
+  - olcut: (b) İki kırılma noktası
+    puan: 6
+  - olcut: (c) Üç aralığın MSM'si
+    puan: 6
+  - olcut: (d) Projelerin MSM ile karşılaştırması
+    puan: 5
+  - olcut: (d) Kabul edilen projeler ve toplam bütçe
+    puan: 3
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: "wd = 0.40\nwe = 0.60\nt = 0.20\nic = 6000000\np0 = 45\nd1 = 3.6\ng = 0.20\nf = 0.20\nblim = 8000000\nkd1 = 0.30\n\
+      kd2 = 0.36\ny1, i1 = 4000000, 0.32\ny2, i2 = 5000000, 0.29\ny3, i3 = 6000000, 0.28\ny4, i4 = 7000000, 0.25\ny5, i5 =\
+      \ 3000000, 0.23\nre_ic = d1 / p0 + g\nre_yeni = d1 / (p0 * (1 - f)) + g\nkds1 = kd1 * (1 - t)\nkds2 = kd2 * (1 - t)\n\
+      bp1 = ic / we\nbp2 = blim / wd\nw1 = we * re_ic + wd * kds1\nw2 = we * re_yeni + wd * kds1\nw3 = we * re_yeni + wd *\
+      \ kds2\nprojeler = [(\"P1\", y1, i1), (\"P2\", y2, i2), (\"P3\", y3, i3), (\"P4\", y4, i4), (\"P5\", y5, i5)]\nkum =\
+      \ 0\nkabul = []\nfor ad, y, i in sorted(projeler, key=lambda x: -x[2]):\n    bas = kum\n    kum = kum + y\n    # marjinal\
+      \ maliyet: projenin bitis noktasindaki aralik\n    if kum <= bp1:\n        m = w1\n    elif kum <= bp2:\n        m =\
+      \ w2\n    else:\n        m = w3\n    if i > m:\n        kabul.append(ad)\n    else:\n        kum = bas\nbutce = kum\n\
+      sonuc = {\"re_ic\": re_ic, \"re_yeni\": re_yeni, \"kds1\": kds1, \"kds2\": kds2, \"bp1\": bp1, \"bp2\": bp2, \"w1\"\
+      : w1, \"w2\": w2, \"w3\": w3, \"butce\": butce}\n"
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: SMR
+  kazanimlar:
+  - optimal sermaye yapısı ve WACC'yi en küçükleyen borç oranı
+  - Hamada ile kaldıraçlı beta ve CAPM
+  - borç maliyeti artışının etkisi
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Marmara Cam A.Ş.''nin kalıcı yıllık FVÖK''ü 6.000.000 TL''dir; kâr tamamen dağıtılır ve nakit akımları süresizdir.
+    Vergi oranı %25, risksiz faiz %20, piyasa risk primi %8, borçsuz firma betası 1''dir. Kaldıraçlı beta, Hamada denklemine
+    göre hesaplanacaktır (β_L = β_U [1 + (1 − t) D/E]). Farklı borç oranlarında borcun vergi öncesi maliyeti (kd) aşağıdadır:
+
+
+    | Borç / Varlık (D/V) | 0% | 20% | 40% | 60% |
+
+    |---|---|---|---|---|
+
+    | Borç maliyeti (vergi öncesi) | — | %24 | %26 | %32 |
+
+
+    **İstenenler:**
+
+
+    (a) Her borç oranı için D/E, kaldıraçlı beta ve CAPM''e göre özkaynak maliyetini hesaplayınız. (6 puan)
+
+
+    (b) Her borç oranı için vergi sonrası borç maliyetini ve WACC''yi hesaplayınız. (6 puan)
+
+
+    (c) Her borç oranında firma değerini (V = FVÖK (1 − t) / WACC) hesaplayarak optimal sermaye yapısını belirleyiniz. (6
+    puan)
+
+
+    (d) %40 borç oranında borç maliyeti %30 olursa optimal yapı değişir mi? Gösteriniz. (7 puan)
+
+    '
+  cozum: 'NOPAT = 6.000.000 × (1 − %25) = 4.500.000 TL.
+
+
+    **(a) Özkaynak maliyeti**
+
+
+    | D/V | D/E | β_L = 1 + 0,75 × D/E | r_E = %20 + β_L × %8 |
+
+    |---|---|---|---|
+
+    | %0 | 0 | 1 | %28,0 |
+
+    | %20 | 0,250 | 1,1875 | %29,5 |
+
+    | %40 | 0,6667 | 1,5 | %32,0 |
+
+    | %60 | 1,5 | 2,125 | %37,0 |
+
+
+    **(b) WACC**
+
+
+    | D/V | Vergi sonrası kd | WACC |
+
+    |---|---|---|
+
+    | %0 | — | %28,00 |
+
+    | %20 | %18,0 | 0,8 × %29,5 + 0,2 × %18,0 = **%27,20** |
+
+    | %40 | %19,5 | 0,6 × %32,0 + 0,4 × %19,5 = **%27,00** |
+
+    | %60 | %24,0 | 0,4 × %37,0 + 0,6 × %24,0 = **%29,20** |
+
+
+    **(c) Firma değeri**
+
+
+    | D/V | Firma değeri (TL) |
+
+    |---|---|
+
+    | %0 | 16.071.428,57 |
+
+    | %20 | 16.544.117,65 |
+
+    | %40 | 16.666.666,67 |
+
+    | %60 | 15.410.958,90 |
+
+
+    WACC en düşük, firma değeri en yüksek olan %40 borç oranı optimal yapıdır (WACC %27,00).
+
+
+    **(d)** %40''ta borç maliyeti %30 olursa vergi sonrası kd = %22,5 ve WACC = 0,6 × %32,0 + 0,4 × %22,5 = **%28,20**. Bu
+    değer %20''deki (%27,20) ve %0''daki (%28,00) WACC''nin üzerindedir; firma değeri 15.957.446,81 TL''ye düşer. Optimal
+    yapı **%100 borç** oranına kayar. Borç maliyeti arttıkça vergi kalkanının yarattığı değer, artan finansal risk ve faiz
+    yükünün gerisinde kalır.
+
+    '
+  puanlama:
+  - olcut: (a) D/E ve kaldıraçlı beta
+    puan: 3
+  - olcut: (a) Özkaynak maliyeti
+    puan: 3
+  - olcut: (b) Vergi sonrası borç maliyeti
+    puan: 2
+  - olcut: (b) WACC değerleri
+    puan: 4
+  - olcut: (c) Firma değerleri
+    puan: 4
+  - olcut: (c) Optimal yapı
+    puan: 2
+  - olcut: (d) Yeni WACC
+    puan: 4
+  - olcut: (d) Optimal yapının değişimi ve yorum
+    puan: 3
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: "fvok = 6000000\nt = 0.25\nrf = 0.20\nrp = 0.08\nbu = 1.0\nk20, k40, k60 = 0.24, 0.26, 0.32\nk40b = 0.30\ndv =\
+      \ [0.0, 0.2, 0.4, 0.6]\nkd = [0.0, k20, k40, k60]\nnopat = fvok * (1 - t)\ndef hesap(dvv, kdd):\n    de = dvv / (1 -\
+      \ dvv)\n    bl = bu * (1 + (1 - t) * de)\n    re = rf + bl * rp\n    kds = kdd * (1 - t)\n    w = (1 - dvv) * re + dvv\
+      \ * kds\n    return de, bl, re, kds, w, nopat / w\nde = []\nbl = []\nre = []\nkds = []\nw = []\nv = []\nfor i in range(4):\n\
+      \    r = hesap(dv[i], kd[i])\n    de.append(r[0])\n    bl.append(r[1])\n    re.append(r[2])\n    kds.append(r[3])\n\
+      \    w.append(r[4])\n    v.append(r[5])\nen_iyi = w.index(min(w))\nr2 = hesap(0.4, k40b)\nw40b = r2[4]\nv40b = r2[5]\n\
+      w_ler = [w[0], w[1], w40b, w[3]]\nen_iyi2 = w_ler.index(min(w_ler))\nsonuc = {\"w0\": w[0], \"w20\": w[1], \"w40\":\
+      \ w[2], \"w60\": w[3], \"v0\": v[0], \"v20\": v[1], \"v40\": v[2], \"v60\": v[3], \"w40b\": w40b, \"v40b\": v40b,\n\
+      \         \"en_iyi\": dv[en_iyi], \"en_iyi2\": dv[en_iyi2]}\n"
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: SMR
+  kazanimlar:
+  - FVÖK-PBK (EBIT-EPS) analizi
+  - pay, borç ve imtiyazlı pay finansmanının karşılaştırılması
+  - başabaş (kayıtsızlık) FVÖK düzeyi
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Çelik Kalıp A.Ş.''nin 400.000 adet payı vardır ve mevcut yıllık faiz gideri 1.000.000 TL''dir. Vergi oranı %20''dir.
+    Şirket, 10.000.000 TL''lik yeni yatırımı üç yoldan biriyle finanse edecektir:
+
+
+    1. **Pay ihracı:** 100.000 adet yeni pay (100 TL''den).
+
+    2. **Borç:** Yıllık %%30 faizli 10.000.000 TL borç.
+
+    3. **İmtiyazlı pay:** Yıllık %22 kâr payı veren imtiyazlı pay (10.000.000 TL; kâr payı vergi sonrası ödenir ve vergiden
+    düşülemez).
+
+
+    **İstenenler:**
+
+
+    (a) FVÖK''ün 8.000.000, 16.000.000 ve 24.000.000 TL olması hâllerinde üç alternatif için pay başına kazancı (PBK) hesaplayınız.
+    (8 puan)
+
+
+    (b) Pay ihracı ile borç alternatifleri arasında kayıtsız kalınacak FVÖK düzeyini hesaplayınız ve PBK''yı bulunuz. (6 puan)
+
+
+    (c) FVÖK''ün 8.000.000 TL (%20), 16.000.000 TL (%30) ve 24.000.000 TL (%50) olasılıkla gerçekleşeceği tahmin edilmektedir.
+    Her alternatifin beklenen PBK''sını hesaplayınız ve karar veriniz. (6 puan)
+
+
+    (d) İmtiyazlı pay ile borç alternatifini karşılaştırınız; vergi sonrası maliyetleri hesaplayarak farkın nedenini açıklayınız.
+    (5 puan)
+
+    '
+  cozum: 'Yeni faiz (borç alternatifi) = 10.000.000 × %%30 = 3.000.000 TL; imtiyazlı kâr payı = 10.000.000 × %22 = 2.200.000
+    TL.
+
+
+    **(a) PBK tablosu**
+
+
+    | FVÖK | Pay ihracı: (FVÖK − 1.000.000) × 0,8 / 500.000 | Borç: (FVÖK − 4.000.000) × 0,8 / 400.000 | İmtiyazlı pay: ((FVÖK
+    − 1.000.000) × 0,8 − 2.200.000) / 400.000 |
+
+    |---|---|---|---|
+
+    | 8.000.000 | **11,20** | **8,00** | **8,50** |
+
+    | 16.000.000 | **24,00** | **24,00** | **24,50** |
+
+    | 24.000.000 | **36,80** | **40,00** | **40,50** |
+
+
+    **(b) Kayıtsızlık noktası (pay = borç)**
+
+
+    (FVÖK − 1.000.000) / 500.000 = (FVÖK − 4.000.000) / 400.000 → 400.000 FVÖK − 400.000 × 1.000.000 = 500.000 FVÖK − 500.000
+    × 4.000.000 → **FVÖK = 16.000.000 TL**; PBK = **24,00 TL**. FVÖK bu düzeyin üzerinde ise borç, altındaysa pay ihracı daha
+    yüksek PBK sağlar.
+
+
+    **(c) Beklenen PBK**
+
+
+    - Pay ihracı: 0,2 × 11,20 + 0,3 × 24,00 + 0,5 × 36,80 = **27,84**
+
+    - Borç: 0,2 × 8,00 + 0,3 × 24,00 + 0,5 × 40,00 = **28,80**
+
+    - İmtiyazlı pay: **29,30**
+
+
+    Beklenen PBK en yüksek olan imtiyazlı pay finansmanıdır; borç ikinci sıradadır. Borç, kötü senaryoda (FVÖK 8.000.000)
+    PBK''yı en çok düşüren (riskli) seçenektir (8,00); pay ihracı PBK dalgalanmasının en az olduğu alternatiftir.
+
+
+    **(d) İmtiyazlı pay – borç**
+
+
+    Borcun vergi sonrası maliyeti = %30 × (1 − 0,20) = **%24**; imtiyazlı payın maliyeti (vergi kalkanı yok) = **%22**. İmtiyazlı
+    pay vergi sonrası daha ucuz olduğundan her FVÖK düzeyinde PBK, borçtan pay başına 0,50 TL (= (%24 − %22) × 10.000.000
+    / 400.000) yüksektir. İmtiyazlı pay, ödenmediğinde temerrüt yaratmadığı için finansal risk bakımından da borçtan daha
+    esnektir; ancak bu gerekçe sayısal sonucun nedeni değildir.
+
+    '
+  puanlama:
+  - olcut: (a) Dokuz PBK değeri
+    puan: 8
+  - olcut: (b) Kayıtsızlık denklemi ve FVÖK
+    puan: 4
+  - olcut: (b) Kayıtsızlık PBK'sı
+    puan: 2
+  - olcut: (c) Beklenen PBK değerleri
+    puan: 4
+  - olcut: (c) Karar
+    puan: 2
+  - olcut: (d) Vergi sonrası maliyetler ve fark
+    puan: 3
+  - olcut: (d) Nedenin açıklanması
+    puan: 2
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: 'pay = 400000
+
+      faiz = 1000000
+
+      t = 0.20
+
+      ihtiyac = 10000000
+
+      yeni_pay = 100000
+
+      fiyat = 100
+
+      kd = 0.30
+
+      ip = 0.22
+
+      e1, e2, e3 = 8000000, 16000000, 24000000
+
+      pr = [0.2, 0.3, 0.5]
+
+      yeni_faiz = ihtiyac * kd
+
+      ipk = ihtiyac * ip
+
+      def pbk_pay(e): return (e - faiz) * (1 - t) / (pay + yeni_pay)
+
+      def pbk_borc(e): return (e - faiz - yeni_faiz) * (1 - t) / pay
+
+      def pbk_ip(e): return ((e - faiz) * (1 - t) - ipk) / pay
+
+      es = [e1, e2, e3]
+
+      P = [pbk_pay(e) for e in es]
+
+      B = [pbk_borc(e) for e in es]
+
+      I = [pbk_ip(e) for e in es]
+
+      # kayitsizlik
+
+      kay = (pay * faiz + (pay + yeni_pay) * (faiz + yeni_faiz) - 0)
+
+      kay = ((pay + yeni_pay) * (faiz + yeni_faiz) - pay * faiz) / yeni_pay
+
+      kay_pbk = pbk_pay(kay)
+
+      bek_p = sum(pr[i] * P[i] for i in range(3))
+
+      bek_b = sum(pr[i] * B[i] for i in range(3))
+
+      bek_i = sum(pr[i] * I[i] for i in range(3))
+
+      kd_s = kd * (1 - t)
+
+      ip_f = I[0] - B[0]
+
+      sonuc = {"P1": P[0], "P2": P[1], "P3": P[2], "B1": B[0], "B2": B[1], "B3": B[2], "I1": I[0], "I2": I[1], "I3": I[2],
+      "kay": kay, "kay_pbk": kay_pbk, "bek_p": bek_p, "bek_b": bek_b, "bek_i": bek_i}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: SMR
+  kazanimlar:
+  - tahvil, imtiyazlı pay ve dönüştürülebilir tahvil maliyeti
+  - taban değer, dönüşüm değeri ve dönüşüm primi
+  - ağırlıklı ortalama sermaye maliyeti
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Anadolu Gıda A.Ş.''nin finansman kaynaklarına ilişkin veriler (vergi oranı %20):
+
+
+    - **Tahvil:** Nominal 1.000 TL, yıllık kupon %20 (yıl sonunda), vadesine 2 yıl var; piyasa fiyatı 928 TL.
+
+    - **İmtiyazlı pay:** Nominal 100 TL, yıllık kâr payı %24 (24 TL); ihraç fiyatı 100 TL, ihraç maliyeti %4.
+
+    - **Dönüştürülebilir tahvil:** Nominal, kupon ve vade yukarıdaki tahvil ile aynıdır; 20 adet paya dönüştürülebilir; payın
+    piyasa fiyatı 40 TL; dönüştürülebilir tahvilin piyasa fiyatı 1.000 TL.
+
+    - Özkaynak maliyeti %30; hedef yapı: tahvil %30, imtiyazlı pay %10, adi özkaynak %60.
+
+
+    **İstenenler:**
+
+
+    (a) Tahvilin vade sonuna kadar getirisini (iç verim) ve vergi sonrası maliyetini (kd × (1 − t) yaklaşımıyla) bulunuz.
+    (5 puan)
+
+
+    (b) İmtiyazlı payın maliyetini hesaplayınız. (4 puan)
+
+
+    (c) Dönüştürülebilir tahvilin taban değerini, dönüşüm değerini, dönüşüm fiyatını, dönüşüm primini (hem dönüşüm değerine
+    göre hem pay fiyatına göre) ve opsiyon değerini hesaplayınız. (8 puan)
+
+
+    (d) Ağırlıklı ortalama sermaye maliyetini hesaplayınız. (8 puan)
+
+    '
+  cozum: '**(a)** Kupon = 200 TL. Getiri y: 928 = 200/(1+y) + 1.200/(1+y)². y = %25 için: 200/1,25 + 1.200/1,5625 = 160 +
+    768 = 928 ✔. Tahvil getirisi (vergi öncesi) **%25**; vergi sonrası maliyet = %25 × (1 − %20) = **%20**.
+
+
+    **(b)** Net ihraç geliri = 100 × (1 − %4) = 96 TL. Kâr payı vergiden düşülemez → maliyet = 24 / 96 = **%25**.
+
+
+    **(c)**
+
+    - Taban (düz tahvil) değeri = benzer tahvilin piyasa getirisiyle (%25) bugünkü değer = **928 TL**.
+
+    - Dönüşüm değeri = 20 × 40 = **800 TL**.
+
+    - Dönüşüm fiyatı = 1.000 / 20 = **50 TL**/pay.
+
+    - Piyasa fiyatı (1.000) taban ve dönüşüm değerinin büyüğünün (928) üzerindedir. Dönüşüm primi: 1.000 − 800 = **200 TL**
+    (dönüşüm değerine göre **%25**); dönüşüm fiyatının pay fiyatına göre primi = 50 / 40 − 1 = **%25**.
+
+    - Gömülü opsiyon değeri = 1.000 − 928 = **72 TL**.
+
+
+    **(d)** WACC = 0,30 × %20 + 0,10 × %25 + 0,60 × %30 = %6,0 + %2,5 + %18,0 = **%26,5**.
+
+    '
+  puanlama:
+  - olcut: (a) Tahvil getirisi
+    puan: 3
+  - olcut: (a) Vergi sonrası maliyet
+    puan: 2
+  - olcut: (b) İmtiyazlı pay maliyeti
+    puan: 4
+  - olcut: (c) Taban ve dönüşüm değeri
+    puan: 3
+  - olcut: (c) Dönüşüm fiyatı ve primler
+    puan: 3
+  - olcut: (c) Opsiyon değeri
+    puan: 2
+  - olcut: (d) WACC
+    puan: 8
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: "t = 0.20\nnom = 1000\nkup = 0.20\nfiyat_t = 928\nip_nom = 100\nipd = 0.24\nipf = 0.04\noran = 20\npay_f = 40\n\
+      ct_f = 1000\nre = 0.30\nw_t, w_i, w_e = 0.30, 0.10, 0.60\nk = kup * nom\n# YTM: ikili arama\nlo, hi = 0.0, 1.0\nfor\
+      \ _ in range(100):\n    mid = (lo + hi) / 2\n    pv = k / (1 + mid) + (k + nom) / (1 + mid) ** 2\n    if pv > fiyat_t:\n\
+      \        lo = mid\n    else:\n        hi = mid\nkd = round((lo + hi) / 2, 6)\nkd_s = kd * (1 - t)\nip_net = ip_nom *\
+      \ (1 - ipf)\nip_m = ipd * ip_nom / ip_net\ntaban = k / (1 + kd) + (k + nom) / (1 + kd) ** 2\ndonusum_degeri = oran *\
+      \ pay_f\ndonusum_fiyati = nom / oran\nprim_tl = ct_f - donusum_degeri\nprim_oran = ct_f / donusum_degeri - 1\nfiyat_primi\
+      \ = donusum_fiyati / pay_f - 1\nopsiyon = ct_f - taban\nwacc = w_t * kd_s + w_i * ip_m + w_e * re\nsonuc = {\"kd\":\
+      \ kd, \"kd_s\": kd_s, \"ip_m\": ip_m, \"taban\": taban, \"donusum_degeri\": donusum_degeri, \"donusum_fiyati\": donusum_fiyati,\
+      \ \"prim_tl\": prim_tl, \"prim_oran\": prim_oran, \"fiyat_primi\": fiyat_primi, \"opsiyon\": opsiyon, \"wacc\": wacc}\n"
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: SMR
+  kazanimlar:
+  - 'özkaynak maliyeti: CAPM, Gordon ve tahvil getirisi + risk primi'
+  - 'sürdürülebilir büyüme: g = b × ÖKK'
+  - yeni pay ihracı maliyeti ve WACC
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Kıyı Seramik A.Ş. borsada işlem görmektedir. Veriler: pay fiyatı 45 TL; geçen yıl pay başına kazanç (PBK₀) 6 TL,
+    kâr payı (D₀) 3 TL; özkaynak kârlılığı (ÖKK) %40 sabit kalacaktır; kâr dağıtım politikası aynıdır. Risksiz faiz %20, piyasa
+    risk primi %8, pay betası 1,1''dir. Şirketin benzer riskteki uzun vadeli tahvilinin getirisi %24 ve analistlerin tahvile
+    eklediği risk primi %5''dir. Yeni pay ihracında ihraç maliyeti %20''dir. Borç/varlık %40, vergi sonrası borç maliyeti
+    %21''dir.
+
+
+    **İstenenler:**
+
+
+    (a) Büyüme oranını g = b × ÖKK ile bulunuz; üç yöntemle (Gordon, CAPM, tahvil getirisi + risk primi) özkaynak maliyetini
+    hesaplayıp ortalamasını alınız. (9 puan)
+
+
+    (b) Yeni pay ihracının maliyetini Gordon modeliyle bulunuz. (4 puan)
+
+
+    (c) Özkaynak maliyeti olarak (a)''daki ortalamayı kullanarak WACC''yi; yeni pay ihraç edilirse (b)''deki maliyetle WACC''yi
+    hesaplayınız. (6 puan)
+
+
+    (d) Ödeme oranı %75''e çıkarılırsa (ÖKK sabit) büyüme oranını, D₁''i ve pay fiyatının 45 TL''de kaldığı varsayımıyla Gordon
+    maliyetini hesaplayınız; bu varsayımın neden gerçekçi olmadığını açıklayınız. (6 puan)
+
+    '
+  cozum: '**(a)** Ödeme oranı = 3 / 6 = %50; alıkoyma oranı b = %50; **g = %50 × %40 = %20**; D₁ = 3 × 1,20 = 3,6 TL.
+
+    - Gordon: 3,6 / 45 + %20 = **%28**
+
+    - CAPM: %20 + 1,1 × %8 = **%28,8**
+
+    - Tahvil getirisi + risk primi: %24 + %5 = **%29**
+
+    - Ortalama = (%28 + %28,8 + %29) / 3 = **%28,6**
+
+
+    **(b)** Net ihraç fiyatı = 45 × 0,80 = 36 TL → r_yeni = 3,6 / 36 + %20 = **%30**.
+
+
+    **(c)** WACC (iç özkaynak) = 0,60 × %28,6 + 0,40 × %20,8 = **%25,48**. WACC (yeni pay) = 0,60 × %30 + 0,40 × %20,8 = **%26,32**.
+    İhraç maliyeti marjinal sermaye maliyetini yaklaşık 0,84 puan yükseltir.
+
+
+    **(d)** b = 0,25 → g = 0,25 × %40 = **%10**; PBK₁ = 6 × 1,10; D₁ = 0,75 × PBK₁ = **4,95 TL**; r = 4,95 / 45 + %10 = **%21**.
+
+
+    Gordon maliyetinin düşmesi yanıltıcıdır: Yeni politikada büyüme oranı yarıya inmiş, yeniden yatırıma ayrılan kâr azalmıştır.
+    Pay fiyatının sabit kalması gerçekçi değildir, çünkü gelecek temettü ve büyüme beklentileri değişince fiyat da değişir;
+    Gordon modelinde fiyat ve politika birlikte belirlenir.
+
+    '
+  puanlama:
+  - olcut: (a) Büyüme oranı ve D₁
+    puan: 2
+  - olcut: (a) Üç özkaynak maliyeti
+    puan: 5
+  - olcut: (a) Ortalama
+    puan: 2
+  - olcut: (b) Yeni pay maliyeti
+    puan: 4
+  - olcut: (c) İki WACC
+    puan: 6
+  - olcut: (d) g, D₁ ve maliyet
+    puan: 4
+  - olcut: (d) Varsayımın eleştirisi
+    puan: 2
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: 'p0 = 45
+
+      pbk0 = 6
+
+      d0 = 3
+
+      roe = 0.40
+
+      rf = 0.20
+
+      rp = 0.08
+
+      beta = 1.1
+
+      kb = 0.24
+
+      ekp = 0.05
+
+      f = 0.20
+
+      wd = 0.40
+
+      kds = 0.208
+
+      odeme = d0 / pbk0
+
+      b = 1 - odeme
+
+      g = b * roe
+
+      d1 = d0 * (1 + g)
+
+      r_gordon = d1 / p0 + g
+
+      r_capm = rf + beta * rp
+
+      r_tahvil = kb + ekp
+
+      r_ort = (r_gordon + r_capm + r_tahvil) / 3
+
+      r_yeni = d1 / (p0 * (1 - f)) + g
+
+      w1 = (1 - wd) * r_ort + wd * kds
+
+      w2 = (1 - wd) * r_yeni + wd * kds
+
+      odeme2 = 0.75
+
+      b2 = 1 - odeme2
+
+      g2 = b2 * roe
+
+      pbk1 = pbk0 * (1 + g2)
+
+      d1_2 = odeme2 * pbk1
+
+      r_gordon2 = d1_2 / p0 + g2
+
+      sonuc = {"g": g, "d1": d1, "r_gordon": r_gordon, "r_capm": r_capm, "r_tahvil": r_tahvil, "r_ort": r_ort, "r_yeni": r_yeni,
+      "w1": w1, "w2": w2, "g2": g2, "d1_2": d1_2, "r_gordon2": r_gordon2}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: SMR
+  kazanimlar:
+  - 'statik denge (trade-off) teorisi: vergi kalkanı ve finansal sıkıntı maliyeti'
+  - optimal borç düzeyi ve marjinal analiz
+  - ima edilen WACC
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Borçsuz Karadeniz Madencilik A.Ş.''nin değeri 40.000.000 TL''dir (kalıcı vergi sonrası işletme kârı 6.000.000 TL,
+    borçsuz özkaynak maliyeti %15). Vergi oranı %20''dir. Kalıcı borç düzeyi arttıkça finansal sıkıntı yaşama olasılığı yükselmekte,
+    sıkıntı hâlinde firma değerinin %20''si (8.000.000 TL) kaybedilmektedir. Beklenen finansal sıkıntı maliyeti = olasılık
+    × kayıp''tır.
+
+
+    | Kalıcı borç (D) | 0 | 10.000.000 | 20.000.000 | 30.000.000 |
+
+    |---|---|---|---|---|
+
+    | Finansal sıkıntı olasılığı | %0 | %2 | %8 | %45 |
+
+
+    **İstenenler:**
+
+
+    (a) Her borç düzeyi için faiz vergi kalkanının bugünkü değerini (t × D) bulunuz. (4 puan)
+
+
+    (b) Her borç düzeyi için beklenen finansal sıkıntı maliyetini bulunuz. (4 puan)
+
+
+    (c) Kaldıraçlı firma değerini V_L = V_U + t × D − beklenen sıkıntı maliyeti formülüyle hesaplayarak optimal borç düzeyini
+    belirleyiniz. (8 puan)
+
+
+    (d) Borcun 20 milyon TL''den 30 milyon TL''ye çıkarılmasının marjinal faydasını (ek vergi kalkanı) ve marjinal maliyetini
+    (beklenen sıkıntı maliyetindeki artış) karşılaştırınız. (4 puan)
+
+
+    (e) Her borç düzeyinde ima edilen WACC''yi (WACC = NOPAT / V_L) hesaplayarak en düşük WACC''nin optimal borç düzeyiyle
+    aynı noktada olduğunu gösteriniz. (5 puan)
+
+    '
+  cozum: '**(a)** Vergi kalkanı t × D: 0, 2.000.000, 4.000.000, 6.000.000 TL.
+
+
+    **(b)** Kayıp = 40.000.000 × %20 = 8.000.000 TL. Beklenen maliyet: 0, 160.000, 640.000, 3.600.000 TL.
+
+
+    **(c)**
+
+
+    | D | V_U | + Vergi kalkanı | − Beklenen sıkıntı maliyeti | V_L |
+
+    |---|---|---|---|---|
+
+    | 0 | 40.000.000 | 0 | 0 | **40.000.000** |
+
+    | 10.000.000 | 40.000.000 | 2.000.000 | 160.000 | **41.840.000** |
+
+    | 20.000.000 | 40.000.000 | 4.000.000 | 640.000 | **43.360.000** |
+
+    | 30.000.000 | 40.000.000 | 6.000.000 | 3.600.000 | **42.400.000** |
+
+
+    Firma değeri en yüksek olan düzey **20.000.000 TL** borçtur (43.360.000 TL).
+
+
+    **(d)** 20 → 30 milyon TL: ek vergi kalkanı = **2.000.000 TL**; beklenen sıkıntı maliyetindeki artış = **2.960.000 TL**.
+    Marjinal maliyet marjinal faydayı aştığından net etki -960.000 TL''dir (değer kaybı); borç bu noktadan sonra artırılmamalıdır.
+
+
+    **(e)** NOPAT = 40.000.000 × %15 = 6.000.000 TL. WACC = NOPAT / V_L: D = 0 için **%15,00**, 10 milyon için **%14,34**,
+    20 milyon için **%13,84**, 30 milyon için **%14,15**. En düşük WACC 20 milyon TL borçta oluşur; WACC''yi en küçükleyen
+    yapı firma değerini en büyükleyen yapıdır.
+
+    '
+  puanlama:
+  - olcut: (a) Vergi kalkanları
+    puan: 4
+  - olcut: (b) Beklenen sıkıntı maliyetleri
+    puan: 4
+  - olcut: (c) V_L değerleri
+    puan: 5
+  - olcut: (c) Optimal düzey
+    puan: 3
+  - olcut: (d) Marjinal fayda ve maliyet
+    puan: 4
+  - olcut: (e) İma edilen WACC'ler ve karşılaştırma
+    puan: 5
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: 'vu = 40000000
+
+      r0 = 0.15
+
+      t = 0.20
+
+      sk = 0.20
+
+      o0, o1, o2, o3 = 0.0, 0.02, 0.08, 0.45
+
+      D = [0, 10000000, 20000000, 30000000]
+
+      o = [o0, o1, o2, o3]
+
+      kalkan = [t * d for d in D]
+
+      kayip = vu * sk
+
+      bek = [x * kayip for x in o]
+
+      vl = [vu + kalkan[i] - bek[i] for i in range(4)]
+
+      en_iyi = vl.index(max(vl))
+
+      d_kalkan = kalkan[3] - kalkan[2]
+
+      d_bek = bek[3] - bek[2]
+
+      net = d_kalkan - d_bek
+
+      nopat = vu * r0
+
+      w = [nopat / v for v in vl]
+
+      en_dusuk_w = w.index(min(w))
+
+      sonuc = {"vl0": vl[0], "vl1": vl[1], "vl2": vl[2], "vl3": vl[3], "d_kalkan": d_kalkan, "d_bek": d_bek, "net": net, "w0":
+      w[0], "w1": w[1], "w2": w[2], "w3": w[3], "optimal": D[en_iyi]}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+sorular: []

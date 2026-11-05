@@ -1,0 +1,708 @@
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: RGT
+  kazanimlar:
+  - iki varlıklı portföyün beklenen getiri ve riski
+  - korelasyonun portföy riskine etkisi ve minimum varyanslı portföy
+  - Sharpe oranı
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Bir yatırımcı A ve B hisse senetlerinden portföy oluşturacaktır. Beklenen getiriler E(R_A) = %18, E(R_B) = %10; standart
+    sapmalar σ_A = %20, σ_B = %10; kovaryans Cov(A,B) = 0,005''dir. Risksiz faiz %6''dır.
+
+
+    **İstenenler:**
+
+
+    (a) Korelasyon katsayısını bulunuz. A ve B''ye %50-%50 yatırım yapan portföyün beklenen getirisini, varyansını ve standart
+    sapmasını hesaplayınız. (7 puan)
+
+
+    (b) Minimum varyanslı portföydeki A ağırlığını, bu portföyün beklenen getirisini ve standart sapmasını bulunuz. (6 puan)
+
+
+    (c) %50-%50 portföyde korelasyon +1 ve −0,25 olsaydı standart sapma ne olurdu? Sonuçları yorumlayınız. (6 puan)
+
+
+    (d) A, B, minimum varyanslı portföy ve %50-%50 portföyün Sharpe oranlarını hesaplayarak sıralayınız. (6 puan)
+
+    '
+  cozum: '**(a)** ρ = Cov / (σ_A σ_B) = 0,005 / (0,2 × 0,1) = **0,25**.
+
+
+    E(R_p) = 0,5 × %18 + 0,5 × %10 = **%14**.
+
+
+    σ_p² = 0,25 × 0,04 + 0,25 × 0,01 + 2 × 0,25 × 0,005 = **0,0150**; σ_p = **%12,25**.
+
+
+    **(b)** w_A = (σ_B² − Cov) / (σ_A² + σ_B² − 2 Cov) = (0,01 − 0,005) / (0,04 + 0,01 − 0,01) = **%12,5**.
+
+
+    E(R) = 0,125 × %18 + 0,875 × %10 = **%11,0**; σ² = **0,009375**; σ = **%9,68**.
+
+
+    **(c)** ρ = +1: σ = 0,5 × %20 + 0,5 × %10 = **%15,0**. ρ = −0,25: σ = **%10,0**. Korelasyon azaldıkça portföy riski düşer;
+    ρ = +1''de çeşitlendirme faydası yoktur, ρ < 1 olduğunda portföy standart sapması ağırlıklı ortalama standart sapmanın
+    (%15,0) altına iner. Beklenen getiri korelasyondan etkilenmez (%14).
+
+
+    **(d)** Sharpe = (E(R) − R_f) / σ:
+
+    - A: (%18 − %6) / %20 = **0,600**
+
+    - B: **0,400**
+
+    - Minimum varyanslı portföy: (%11,0 − %6) / %9,68 = **0,516**
+
+    - %50-%50 portföy: **0,653**
+
+
+    Sıralama: %50-%50 (0,653) > A (0,600) > minimum varyans (0,516) > B (0,400). Minimum varyanslı portföy en düşük riski
+    sağlar ancak risk başına en yüksek getiriyi sağlayan portföy değildir.
+
+    '
+  puanlama:
+  - olcut: (a) Korelasyon
+    puan: 1
+  - olcut: (a) Beklenen getiri
+    puan: 2
+  - olcut: (a) Varyans ve standart sapma
+    puan: 4
+  - olcut: (b) Minimum varyans ağırlığı
+    puan: 3
+  - olcut: (b) Getiri ve standart sapma
+    puan: 3
+  - olcut: (c) İki standart sapma
+    puan: 4
+  - olcut: (c) Yorum
+    puan: 2
+  - olcut: (d) Dört Sharpe oranı
+    puan: 4
+  - olcut: (d) Sıralama
+    puan: 2
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: "ea, eb = 0.18, 0.10\nsa, sb = 0.20, 0.10\ncov = 0.005\nrf = 0.06\nrho = cov / (sa * sb)\ndef port(w, c):\n  \
+      \  e = w * ea + (1 - w) * eb\n    v = w**2 * sa**2 + (1 - w)**2 * sb**2 + 2 * w * (1 - w) * c\n    return e, v, v **\
+      \ 0.5\ne50, v50, s50 = port(0.5, cov)\nwmin = (sb**2 - cov) / (sa**2 + sb**2 - 2 * cov)\nemin, vmin, smin = port(wmin,\
+      \ cov)\ns_rho1 = port(0.5, sa * sb)[2]\ns_rho_neg = port(0.5, -0.25 * sa * sb)[2]\nsh_a = (ea - rf) / sa\nsh_b = (eb\
+      \ - rf) / sb\nsh_min = (emin - rf) / smin\nsh_50 = (e50 - rf) / s50\nsonuc = {\"rho\": rho, \"e50\": e50, \"v50\": v50,\
+      \ \"s50\": s50, \"wmin\": wmin, \"emin\": emin, \"vmin\": vmin, \"smin\": smin, \"s_rho1\": s_rho1, \"s_rho_neg\": s_rho_neg,\
+      \ \"sh_a\": sh_a, \"sh_b\": sh_b, \"sh_min\": sh_min, \"sh_50\": sh_50}\n"
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: RGT
+  kazanimlar:
+  - CAPM, menkul kıymet piyasa doğrusu (SML) ve portföy betası
+  - alfa ve değer biçme
+  - risksiz varlıkla beta ayarlama
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Risksiz faiz %18, piyasa portföyünün beklenen getirisi %28''dir. Bir yatırımcının portföyü aşağıdaki üç hisseden
+    oluşmaktadır:
+
+
+    | Hisse | Portföydeki ağırlık | Beta | Analist beklenen getirisi |
+
+    |---|---|---|---|
+
+    | A | %25 | 0,8 | %27 |
+
+    | B | %25 | 1,2 | %29 |
+
+    | C | %50 | 1,4 | %32 |
+
+
+    **İstenenler:**
+
+
+    (a) Her hissenin CAPM''e göre gerekli getirisini ve alfasını (beklenen − gerekli) hesaplayınız; her hisseyi ucuz/pahalı/dengede
+    olarak sınıflayınız. (8 puan)
+
+
+    (b) Portföyün betasını, gerekli getirisini ve beklenen getirisini hesaplayarak portföyün alfasını bulunuz. (6 puan)
+
+
+    (c) Yatırımcı portföy betasını 0,9 yapmak istemektedir. Portföyün ne kadarını risksiz varlığa yatırmalıdır? Beklenen getiri
+    ne olur? Beta 1,5 olmak istenirse işlem nasıl yapılmalıdır (borçlanma risksiz faizle yapılabilir)? (6 puan)
+
+
+    (d) Piyasa getirisinin %18 ve %8 olduğu iki senaryoda mevcut portföyün getirisini bulunuz. (5 puan)
+
+    '
+  cozum: '**(a)** Gerekli getiri = R_f + β (R_m − R_f), piyasa risk primi = %10.
+
+    - A: %18 + 0,8 × %10 = **%26**; alfa = %27 − %26 = **+1 puan** → beklenen getiri gerekli getirinin üstünde: **ucuz** (SML''nin
+    üstünde, alınmalı).
+
+    - B: **%30**; alfa = **-1 puan** → **pahalı** (SML''nin altında).
+
+    - C: **%32**; alfa = **0 puan** → **dengede**.
+
+
+    **(b)** β_p = 0,25 × 0,8 + 0,25 × 1,2 + 0,50 × 1,4 = **1,2**; gerekli getiri = %18 + 1,2 × %10 = **%30**; beklenen getiri
+    = 0,25 × %27 + 0,25 × %29 + 0,5 × %32 = **%30**; portföy alfası = **0 puan** (A''nın +1 puanı ile B''nin −1 puanı birbirini
+    götürür).
+
+
+    **(c)** β = 0,9: riskli portföye yatırılacak oran = 0,9 / 1,2 = %75; risksiz varlığa **%25**. Beklenen getiri = %18 +
+    0,9 × %10 = **%27**.
+
+    β = 1,5: riskli portföye 1,5 / 1,2 = %125; yani risksiz faizle **%25** borçlanılıp riskli portföye ekleme yapılır. Beklenen
+    getiri = **%33**.
+
+
+    **(d)** Piyasa %18 iken: %18 + 1,2 × (%18 − %18) = **%18**. Piyasa %8 iken: %18 + 1,2 × (%8 − %18) = **%6**. Beta 1''den
+    büyük olduğundan portföy piyasa düşüşünde piyasadan daha çok kaybeder.
+
+    '
+  puanlama:
+  - olcut: (a) Gerekli getiriler
+    puan: 3
+  - olcut: (a) Alfalar
+    puan: 3
+  - olcut: (a) Sınıflama
+    puan: 2
+  - olcut: (b) Portföy betası ve getiriler
+    puan: 4
+  - olcut: (b) Portföy alfası
+    puan: 2
+  - olcut: (c) β=0,9 için ağırlık ve getiri
+    puan: 3
+  - olcut: (c) β=1,5 için işlem ve getiri
+    puan: 3
+  - olcut: (d) İki senaryo getirisi
+    puan: 5
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: 'rf, rm = 0.18, 0.28
+
+      wa, wb, wc = 0.25, 0.25, 0.50
+
+      ba, bb, bc = 0.8, 1.2, 1.4
+
+      fa, fb, fc = 0.27, 0.29, 0.32
+
+      rm1, rm2 = 0.18, 0.08
+
+      gerekli = [rf + b * (rm - rf) for b in (ba, bb, bc)]
+
+      alfa = [f - g for f, g in zip((fa, fb, fc), gerekli)]
+
+      ga, gb, gc = gerekli
+
+      alfa_a, alfa_b, alfa_c = alfa
+
+      bp = wa * ba + wb * bb + wc * bc
+
+      gp = rf + bp * (rm - rf)
+
+      fp = wa * fa + wb * fb + wc * fc
+
+      alfa_p = fp - gp
+
+      x09 = 0.9 / bp
+
+      rf_w09 = 1 - x09
+
+      r09 = rf + 0.9 * (rm - rf)
+
+      x15 = 1.5 / bp
+
+      rf_w15 = 1 - x15
+
+      r15 = rf + 1.5 * (rm - rf)
+
+      r_s1 = rf + bp * (rm1 - rf)
+
+      r_s2 = rf + bp * (rm2 - rf)
+
+      sonuc = {"ga": gerekli[0], "gb": gerekli[1], "gc": gerekli[2], "alfa_a": alfa[0], "alfa_b": alfa[1], "alfa_c": alfa[2],
+      "bp": bp, "gp": gp, "fp": fp, "alfa_p": alfa_p, "x09": x09, "rf_w09": rf_w09, "r09": r09, "x15": x15, "rf_w15": rf_w15,
+      "r15": r15, "r_s1": r_s1, "r_s2": r_s2}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: RGT
+  kazanimlar:
+  - 'portföy performans ölçüleri: Sharpe, Treynor, Jensen, M²'
+  - toplam risk ve sistematik risk ayrımı
+  - belirlilik katsayısı
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Risksiz faiz %20, piyasa getirisi %30, piyasa standart sapması %20''dir. Üç yatırım fonunun yıllık verileri:
+
+
+    | Fon | Ortalama getiri | Standart sapma | Beta |
+
+    |---|---|---|---|
+
+    | F1 | %34 | %16 | 0,8 |
+
+    | F2 | %40 | %40 | 1,6 |
+
+    | F3 | %38 | %30 | 0,9 |
+
+
+    **İstenenler:**
+
+
+    (a) Her fon için Sharpe ve Treynor oranlarını hesaplayınız. (8 puan)
+
+
+    (b) Her fonun Jensen alfasını bulunuz. (5 puan)
+
+
+    (c) Her fonun betası ve standart sapmasından yararlanarak belirlilik katsayısını (R²) hesaplayınız (R² = (β σ_m / σ)²)
+    ve fonların sıralamalarının neden farklı olduğunu açıklayınız. (7 puan)
+
+
+    (d) Piyasanın Sharpe oranını hesaplayıp F1 ve F3 için M² (Modigliani) ölçüsünü bulunuz. (5 puan)
+
+    '
+  cozum: '**(a)** Sharpe = (R − R_f)/σ; Treynor = (R − R_f)/β.
+
+
+    | Fon | Sharpe | Treynor |
+
+    |---|---|---|
+
+    | F1 | (%34 − %20)/%16 = **0,875** | %14/0,8 = **%17,5** |
+
+    | F2 | %20/%40 = **0,500** | %20/1,6 = **%12,5** |
+
+    | F3 | %18/%30 = **0,600** | %18/0,9 = **%20,0** |
+
+
+    **(b)** Jensen α = R − [R_f + β (R_m − R_f)]: F1 = %34 − %28 = **+6 puan**; F2 = %40 − %36 = **+4 puan**; F3 = %38 − %29
+    = **+9 puan**.
+
+
+    **(c)** R² = (β σ_m/σ)²: F1 = **%100**, F2 = **%64**, F3 = **%36**.
+
+
+    Sharpe sıralaması F1 > F3 > F2; Treynor ve Jensen sıralaması F3 > F1 > F2''dir. Sharpe toplam riski, Treynor ve Jensen
+    yalnızca sistematik riski (beta) dikkate alır. F1''in R²''si %100 olduğundan toplam riski tamamen sistematiktir; F3''te
+    toplam riskin yalnızca %36''ü sistematiktir, geri kalanı çeşitlendirilebilir (firmaya özgü) risktir. İyi çeşitlendirilmiş
+    portföy (portföyün tamamı yatırımcının varlığı) için Treynor/Jensen; tek varlık olarak değerlendirilen portföy için Sharpe
+    uygundur. Her üç ölçüde F2 sonuncudur.
+
+
+    **(d)** Piyasa Sharpe oranı = (%30 − %20)/%20 = **0,500**. M² = (Sharpe_p − Sharpe_m) × σ_m: F1 = (0,875 − 0,500) × %20
+    = **%7,5**; F3 = (0,600 − 0,500) × %20 = **%2,0**. (F2: %0,0; piyasa ile aynı risk-getiri ilişkisi.)
+
+    '
+  puanlama:
+  - olcut: (a) Sharpe oranları
+    puan: 4
+  - olcut: (a) Treynor oranları
+    puan: 4
+  - olcut: (b) Jensen alfaları
+    puan: 5
+  - olcut: (c) R² değerleri
+    puan: 3
+  - olcut: (c) Sıralama farkının açıklaması
+    puan: 4
+  - olcut: (d) Piyasa Sharpe oranı
+    puan: 2
+  - olcut: (d) M² değerleri
+    puan: 3
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: 'rf, rm, sm = 0.20, 0.30, 0.20
+
+      r = [0.34, 0.40, 0.38]
+
+      s = [0.16, 0.40, 0.30]
+
+      b = [0.8, 1.6, 0.9]
+
+      r1, r2, r3 = r
+
+      s1, s2, s3 = s
+
+      b1, b2, b3 = b
+
+      sharpe = [(r[i] - rf) / s[i] for i in range(3)]
+
+      treynor = [(r[i] - rf) / b[i] for i in range(3)]
+
+      jensen = [r[i] - (rf + b[i] * (rm - rf)) for i in range(3)]
+
+      r2k = [(b[i] * sm / s[i]) ** 2 for i in range(3)]
+
+      sh_m = (rm - rf) / sm
+
+      m2 = [(sharpe[i] - sh_m) * sm for i in range(3)]
+
+      sonuc = {"sh1": sharpe[0], "sh2": sharpe[1], "sh3": sharpe[2], "tr1": treynor[0], "tr2": treynor[1], "tr3": treynor[2],
+      "j1": jensen[0], "j2": jensen[1], "j3": jensen[2], "r21": r2k[0], "r22": r2k[1], "r23": r2k[2], "sh_m": sh_m, "m21":
+      m2[0], "m22": m2[1], "m23": m2[2]}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: RGT
+  kazanimlar:
+  - 'tek endeks modeli: sistematik ve firmaya özgü risk'
+  - çeşitlendirme ve portföy riski
+  - CAPM'de toplam risk ve gerekli getiri
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Piyasa getirisinin standart sapması σ_m = %20''dir. X hissesinin betası 1,2 ve firmaya özgü (artık) standart sapması
+    σ_e = %14''dir. Hisseler arasında firmaya özgü risk bağımsızdır. Piyasa risk primi için risksiz faiz %20, piyasa getirisi
+    %30''dir. Y hissesinin betası 0,5, toplam standart sapması %45''dir.
+
+
+    **İstenenler:**
+
+
+    (a) X hissesinin sistematik varyansını, firmaya özgü varyansını, toplam varyansını ve standart sapmasını hesaplayınız.
+    (6 puan)
+
+
+    (b) X ile aynı beta ve aynı firmaya özgü riske sahip n hisseden oluşan eşit ağırlıklı portföyün varyansı σ²_p = β²σ_m²
+    + σ_e²/n''dir. n = 4 ve n = 49 için portföyün standart sapmasını bulunuz. (6 puan)
+
+
+    (c) Firmaya özgü riskin portföy toplam varyansındaki payının %5''in altına düşmesi için gereken en az hisse sayısını bulunuz.
+    (6 puan)
+
+
+    (d) CAPM''e göre X ve Y''nin gerekli getirilerini hesaplayınız. Y''nin toplam riski daha yüksek olduğu halde gerekli getirisinin
+    neden daha düşük olduğunu açıklayınız. (7 puan)
+
+    '
+  cozum: '**(a)** Sistematik varyans = β² σ_m² = 1,44 × 0,04 = **0,0576**; firmaya özgü varyans = %14² = **0,0196**; toplam
+    varyans = **0,0772**; σ = **%27,78**. Sistematik risk payı = %74,6.
+
+
+    **(b)** σ²_p = 0,0576 + 0,0196/n.
+
+    - n = 4: 0,0576 + 0,0049 = 0,0625 → σ = **%25,0**.
+
+    - n = 49: 0,0576 + 0,0004 = 0,0580 → σ = **%24,1**.
+
+    Hisse sayısı arttıkça standart sapma, yalnızca sistematik riskin oluşturduğu alt sınıra (%24,0) yaklaşır; bu sınır çeşitlendirmeyle
+    yok edilemez.
+
+
+    **(c)** Pay = (σ_e²/n) / (β²σ_m² + σ_e²/n) < 0,05 → σ_e²/n × 0,95 < 0,05 × β²σ_m² → n > 0,95 × 0,0196 / (0,05 × 0,0576)
+    = 6,47. Dolayısıyla **n = 7** hisse gerekir (n = 7 için pay %4,64; n = 6 için %5,37).
+
+
+    **(d)** CAPM: X için %20 + 1,2 × %10 = **%32**; Y için %20 + 0,5 × %10 = **%25**. CAPM''de yalnızca sistematik risk (beta)
+    ödüllendirilir; toplam standart sapma değil. Y''nin riskinin büyük bölümü firmaya özgüdür ve çeşitlendirilebilir olduğundan
+    piyasa bunun için risk primi ödemez.
+
+    '
+  puanlama:
+  - olcut: (a) Varyans bileşenleri
+    puan: 4
+  - olcut: (a) Toplam standart sapma
+    puan: 2
+  - olcut: (b) n=4 standart sapması
+    puan: 3
+  - olcut: (b) n=49 standart sapması
+    puan: 3
+  - olcut: (c) Eşitsizliğin kurulması
+    puan: 3
+  - olcut: (c) En az hisse sayısı
+    puan: 3
+  - olcut: (d) Gerekli getiriler
+    puan: 4
+  - olcut: (d) Açıklama
+    puan: 3
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: "sm = 0.20\nbx = 1.2\nse = 0.14\nrf, rm = 0.20, 0.30\nby, sy = 0.5, 0.45\nsis = bx**2 * sm**2\noz = se**2\ntop\
+      \ = sis + oz\nsd = top ** 0.5\ndef pv(n): return sis + oz / n\nsd4 = pv(4) ** 0.5\nsd49 = pv(49) ** 0.5\nn_min = 1\n\
+      while (oz / n_min) / pv(n_min) >= 0.05:\n    n_min += 1\npay_n = (oz / n_min) / pv(n_min)\npay_n1 = (oz / (n_min - 1))\
+      \ / pv(n_min - 1)\ngx = rf + bx * (rm - rf)\ngy = rf + by * (rm - rf)\nsonuc = {\"sis\": sis, \"oz\": oz, \"top\": top,\
+      \ \"sd\": sd, \"sd4\": sd4, \"sd49\": sd49, \"n_min\": n_min, \"pay_n\": pay_n, \"pay_n1\": pay_n1, \"gx\": gx, \"gy\"\
+      : gy}\n"
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: RGT
+  kazanimlar:
+  - 'arbitraj fiyatlama kuramı (APT): çok faktörlü gerekli getiri'
+  - arbitraj fırsatının saptanması
+  - faktör duyarlılığı eşleştirme
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Getiriler iki sistematik faktör tarafından belirlenmektedir. Risksiz faiz %20; birinci faktörün risk primi λ₁ = %5,
+    ikincisinin λ₂ = %3''dir. Üç hissenin faktör duyarlılıkları ve piyasada gözlenen beklenen getirileri:
+
+
+    | Hisse | b₁ | b₂ | Gözlenen beklenen getiri |
+
+    |---|---|---|---|
+
+    | A | 1,2 | 0,5 | %30,0 |
+
+    | B | 0,8 | 1,5 | %27,5 |
+
+    | C | 1 | 1 | %26,0 |
+
+
+    **İstenenler:**
+
+
+    (a) APT''ye göre her hissenin dengedeki beklenen getirisini bulunuz ve hisseleri değerlemesine göre (ucuz/pahalı/dengede)
+    sınıflayınız. (8 puan)
+
+
+    (b) A ve B hisselerinin %50-%50 portföyünün faktör duyarlılıklarını bulunuz; bu portföyün C ile hangi bakımdan aynı olduğunu
+    belirtiniz. (5 puan)
+
+
+    (c) Bu portföy ile C arasında arbitraj fırsatı var mıdır? Varsa, 1.000.000 TL''lik bir pozisyon için işlemi (hangisi alınır,
+    hangisi açığa satılır) ve getiriyi belirtiniz. (8 puan)
+
+
+    (d) Arbitraj işlemi piyasada yaygınlaştıkça fiyatlar ve beklenen getiriler nasıl değişir? (4 puan)
+
+    '
+  cozum: '**(a)** E(R) = R_f + b₁λ₁ + b₂λ₂:
+
+    - A: %20 + 1,2 × %5 + 0,5 × %3 = **%27,5**; gözlenen %30,0 → fark +2,5 puan → **ucuz**.
+
+    - B: **%28,5**; gözlenen %27,5 → fark -1,0 puan → **pahalı**.
+
+    - C: **%28,0**; gözlenen %26,0 → fark -2,0 puan → **pahalı**.
+
+
+    **(b)** Portföy: b₁ = 0,5 × 1,2 + 0,5 × 0,8 = **1**; b₂ = 0,5 × 0,5 + 0,5 × 1,5 = **1**. Portföyün faktör duyarlılıkları
+    C ile aynıdır (1 ve 1); dolayısıyla aynı sistematik riske sahiptir ve aynı beklenen getiriyi (%28,0) sunması gerekir.
+
+
+    **(c)** Portföyün gözlenen beklenen getirisi = 0,5 × %30,0 + 0,5 × %27,5 = **%28,75**; C''nin getirisi %26,0. Aynı risk,
+    farklı getiri → arbitraj fırsatı vardır. Yapılacak işlem: **C açığa satılır** (getirisi düşük), gelirle **A ve B %50-%50
+    alınır**. Net faktör duyarlılığı sıfırdır (sıfır sistematik risk), net yatırım sıfırdır. Getiri = %28,75 − %26,0 = **%2,75**;
+    1.000.000 TL için **27.500 TL**.
+
+
+    **(d)** A ve B''ye talep artar (fiyatları yükselir, beklenen getirileri düşer), C''nin açığa satışı fiyatını düşürür (beklenen
+    getirisi yükselir). Arbitraj fırsatı ortadan kalkıncaya kadar beklenen getiriler APT doğrusuna (A: %27,5, B: %28,5, C:
+    %28,0) yaklaşır.
+
+    '
+  puanlama:
+  - olcut: (a) Üç hissenin APT getirisi
+    puan: 5
+  - olcut: (a) Sınıflama
+    puan: 3
+  - olcut: (b) Portföy duyarlılıkları
+    puan: 3
+  - olcut: (b) C ile eşleştirme
+    puan: 2
+  - olcut: (c) Fırsatın saptanması
+    puan: 3
+  - olcut: (c) İşlem yönü
+    puan: 2
+  - olcut: (c) Getiri ve TL kazanç
+    puan: 3
+  - olcut: (d) Fiyatların dengeye dönüşü
+    puan: 4
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: 'rf, l1, l2 = 0.20, 0.05, 0.03
+
+      a1, a2 = 1.2, 0.5
+
+      bb1, bb2 = 0.8, 1.5
+
+      c1, c2 = 1.0, 1.0
+
+      ga, gb, gc = 0.30, 0.275, 0.26
+
+      def apt(x, y): return rf + x * l1 + y * l2
+
+      ra, rb, rc = apt(a1, a2), apt(bb1, bb2), apt(c1, c2)
+
+      p1 = 0.5 * a1 + 0.5 * bb1
+
+      p2 = 0.5 * a2 + 0.5 * bb2
+
+      gp = 0.5 * ga + 0.5 * gb
+
+      fark = gp - gc
+
+      kar = fark * 1000000
+
+      sonuc = {"ra": ra, "rb": rb, "rc": rc, "alfa_a": ga - ra, "alfa_b": gb - rb, "alfa_c": gc - rc, "p1": p1, "p2": p2,
+      "gp": gp, "fark": fark, "kar": kar}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Risk, getiri ve portföy teorisi
+  konu: RGT
+  kazanim: Sharpe oranı
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir yatırım fonunun yıllık ortalama getirisi %18, standart sapması %24, betası 1,2'dir. Risksiz faiz %6 ise fonun Sharpe
+    oranı kaçtır?
+  secenekler:
+    A: 0,10
+    B: 0,12
+    C: 0,25
+    D: 0,50
+    E: 0,75
+  dogru: D
+  aciklama:
+    dogru_neden: Sharpe = (R − R_f)/σ = (%18 − %6) / %24 = 0,50. Beta bu ölçüde yer almaz (Treynor oranında kullanılır).
+    celdiriciler:
+      A: Betaya bölünmüş; bu Treynor oranıdır, Sharpe değil.
+      B: Yalnızca fazla getiridir; riske bölünmemiştir.
+      C: Risksiz faiz riske bölünmüş; pay fazla getiri olmalıdır.
+      E: Risksiz faiz çıkarılmadan getiri riske bölünmüş.
+    hesap_adimlari:
+    - (R − Rf)/σ
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — Sharpe oranı
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'r, sd, b, rf = 0.18, 0.24, 1.2, 0.06
+
+      sonuc = (r - rf) / sd
+
+      yanlis = {"a": r - rf, "b": r / sd, "c": rf / sd, "d": (r - rf) / b}
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Risk, getiri ve portföy teorisi
+  konu: RGT
+  kazanim: minimum varyanslı portföy ağırlığı
+  tip: hesaplama
+  zorluk: 3
+  kok: A hissesinin standart sapması %10, B hissesinin standart sapması %20 ve iki hissenin getirileri arasındaki korelasyon
+    0'dır. A'nın beklenen getirisi %14, B'nin %22'dir. İki hisseden oluşan minimum varyanslı portföyde A'nın ağırlığı yüzde
+    kaçtır (açığa satış yoktur)?
+  secenekler:
+    A: '%33,3'
+    B: '%50,0'
+    C: '%61,1'
+    D: '%66,7'
+    E: '%80,0'
+  dogru: E
+  aciklama:
+    dogru_neden: 'w_A = (σ_B² − Cov)/(σ_A² + σ_B² − 2Cov); Cov = 0 → w_A = 0,0400 / (0,0100 + 0,0400) = %80. Püf noktaları:
+      (1) ağırlık varyanslarla (kareler) belirlenir, standart sapmalarla değil; (2) daha az riskli varlığın ağırlığı yüksektir;
+      (3) beklenen getiriler minimum varyans ağırlığını etkilemez.'
+    celdiriciler:
+      A: Daha riskli varlığa daha fazla ağırlık verecek şekilde ters kurulmuş.
+      B: Eşit ağırlık minimum varyanslı portföy değildir; riskler farklıdır.
+      C: Ağırlık beklenen getirilere göre belirlenmiş; minimum varyans getiriye değil riske ve kovaryansa dayanır.
+      D: Standart sapmalar doğrusal oranlanmış (σ_B/(σ_A+σ_B)); varyanslar kullanılmalıdır.
+    hesap_adimlari:
+    - Cov=0 → w_A = σB²/(σA²+σB²)
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — minimum varyanslı portföy ağırlığı
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'sa, sb, rho = 0.10, 0.20, 0.0
+
+      ea, eb = 0.14, 0.22
+
+      cov = rho * sa * sb
+
+      sonuc = (sb**2 - cov) / (sa**2 + sb**2 - 2 * cov)
+
+      yanlis = {"a": sb / (sa + sb), "b": sa / (sa + sb), "c": 0.5, "d": eb / (ea + eb)}
+
+      '

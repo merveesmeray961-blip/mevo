@@ -1,0 +1,623 @@
+yazar: harici üretici (claude, paket 2026-11-05)
+gorev: YMM paketi 2026-11-05
+klasik:
+- konu: THS
+  kazanimlar:
+  - haczedilemeyen mallar
+  - kısmen haczedilebilen gelirler
+  - haczedilmiş malda tasarruf yasağı
+  zorluk: 3
+  puan: 21
+  sure_dk: 25
+  soru: '**Olay:** Vergi dairesi aşağıdaki borçlulara ilişkin haciz işlemleri yapmaktadır. Varsayım olarak asgari ücret net
+    28.000 TL alınacaktır.
+
+
+    1. **Bay Ali Yurt**''un net aylık ücreti 90.000 TL''dir ve ücretinin haczi istenmektedir.
+
+    2. **Bayan Banu Er**''in net aylık ücreti 24.000 TL''dir (asgari ücreti aşmamaktadır).
+
+    3. **Bay Cemil Tarlalı** çiftçidir; kendisinin ve ailesinin geçimleri için zorunlu arazisi ve çift hayvanları ile ev eşyasından
+    pek lüzumlu mutfak takımı haczedilmek istenmektedir.
+
+    4. **Bay Deniz Tekin**, haczedilmiş bir makineyi tahsil dairesinin onayı olmadan sattığını ve alıcı **Bay Ege**''nin makineyi
+    iyi niyetle ve zilyetlik hükümlerine dayanarak satın aldığını ileri sürmektedir.
+
+
+    **İstenenler:**
+
+
+    (a) 1 numaralı olayda haczedilebilecek aylık tutarın en az ve en çok kaç TL olabileceğini hesaplayınız. (6 puan)
+
+
+    (b) 2 numaralı olayda haczedilebilecek en çok aylık tutarı hesaplayınız ve gerekçesini belirtiniz. (5 puan)
+
+
+    (c) 3 numaralı olayda haczedilebilecek mal bulunup bulunmadığını açıklayınız. (5 puan)
+
+
+    (d) 4 numaralı olayda borçlunun tasarrufunun ve Bay Ege''nin durumunun hukuki sonucunu açıklayınız. (5 puan)
+
+    '
+  cozum: '**(a)** Aylıklar, ücretler vb. gelirler kısmen haczolunabilir; haczolunacak miktar bunların üçte birinden çok, dörtte
+    birinden az olamaz (md. 71). 90.000 TL ücret asgari ücreti aştığından alt sınır 90.000 × 1/4 = **22.500 TL**, üst sınır
+    90.000 × 1/3 = **30.000 TL**''dir.
+
+
+    **(b)** Asgari ücreti aşmayan aylık gelirlerin **onda birinden fazlası** haczolunamaz (md. 71): 24.000 × 1/10 = **2.400
+    TL**. Genel üçte bir/dörtte bir aralığı bu halde uygulanmaz.
+
+
+    **(c)** Çiftçi borçlunun kendisinin ve ailesinin geçimleri için zaruri olan arazisi, çift hayvanları, taşıtları ve tarım
+    aletleri ile vazgeçilmesi kabil olmayan mutfak takımı ve pek lüzumlu ev eşyası **haczedilemez** (md. 70/3-4).
+
+
+    **(d)** Borçlu, alacaklı amme idaresinin muvafakatini almaksızın hacizli mallarda tasarrufta bulunamaz; haczi koyan tahsil
+    dairesi bu aykırılığın cezayı gerektirdiğini borçluya ihtar eder (md. 73). Haczedilmiş mal üzerinde üçüncü şahsın **zilyetlik
+    hükümlerine istinaden iyi niyetle** elde ettiği haklar mahfuzdur; iyi niyet kurallarına aykırı olarak elde edilen haklar
+    ise mahkemece butlanına hükmolunur.
+
+    '
+  puanlama:
+  - olcut: Alt ve üst sınır oranları (1/4 – 1/3)
+    puan: 2
+  - olcut: 22.500 TL ve 30.000 TL
+    puan: 4
+  - olcut: Asgari ücreti aşmayan gelirlerde onda bir kuralı
+    puan: 3
+  - olcut: 2.400 TL
+    puan: 2
+  - olcut: Çiftçinin zorunlu arazi/çift hayvanları ve mutfak takımının haczedilememesi
+    puan: 5
+  - olcut: Hacizli malda muvafakatsiz tasarruf yasağı ve ihtar
+    puan: 2
+  - olcut: İyi niyetli zilyedin hakkının mahfuz olması / kötü niyette butlan
+    puan: 3
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 71
+    alinti: Ancak haczolunacak miktar bunların üçte birinden çok dörtte birinden az olamaz.
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 71 (asgari ücret)
+    alinti: Asgari ücreti aşmayan aylık gelirlerin onda birinden fazlası haczolunamaz.
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 70/3
+    alinti: Vazgeçilmesi kabil olmıyan mutfak takımı ve pek lüzumlu ev eşyası
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 73
+    alinti: Haczedilmiş olan mal üzerinde üçüncü şahsın zilyedlik hükümlerine istinaden hüsnüniyetle elde ettiği haklar mahfuzdur.
+  gecerlilik:
+    baslangic: '1980-11-26'
+    bitis: null
+  dogrulama:
+    python: 'u1 = 90000
+
+      u2 = 24000
+
+      sonuc = {''alt'': u1 / 4, ''ust'': u1 / 3, ''asgari_alti'': u2 / 10}
+
+      '
+  id: TASLAK
+  sinav: ymm
+  ders: VTK
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- konu: THS
+  kazanimlar:
+  - tahsil zamanaşımı süresi ve başlangıcı
+  - zamanaşımının kesilmesi
+  - zamanaşımının işlememesi
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: '**Olay:** (Z) Ltd. Şti.''nin vadesi 15.02.2021 olan bir kurumlar vergisi borcu ödenmemiştir. Olaylar aşağıdaki gibi
+    gelişmiştir.
+
+
+    - 03.06.2024: Tahsil dairesi şirketin bir taşıtına haciz uygulamıştır.
+
+    - 01.02.2025 – 31.07.2025 (altı ay): Şirket yetkilisi yabancı memlekette bulunduğundan şirket hakkında takibat yapılamamıştır.
+
+    - 20.09.2027: Şirket borca karşılık rızaen ödeme yapmıştır.
+
+
+    Zamanaşımının kesilmesi veya durması dışında başka bir olay yoktur. Zamanaşımı sürelerinin sonu takvim yılı sonunda biter.
+
+
+    **İstenenler:**
+
+
+    (a) Hiçbir kesilme olmasaydı tahsil zamanaşımının hangi tarihte tamamlanacağını belirtiniz. (4 puan)
+
+
+    (b) Haciz tatbikinin zamanaşımına etkisini açıklayınız ve yeni zamanaşımının tamamlanacağı tarihi bulunuz. (6 puan)
+
+
+    (c) Yabancı memlekette bulunma halinin zamanaşımına etkisini açıklayınız; hesaplamalara göre zamanaşımının bitiş tarihini
+    bulunuz. (7 puan)
+
+
+    (d) 20.09.2027''deki ödemenin zamanaşımına etkisini açıklayınız; zamanaşımı dolduktan sonra yapılacak rızaen ödemenin
+    kabul edilip edilmeyeceğini belirtiniz. (5 puan)
+
+    '
+  cozum: '**(a)** Amme alacağı, vadesinin rastladığı takvim yılını takip eden takvim yılı başından itibaren **5 yıl** içinde
+    tahsil edilmezse zamanaşımına uğrar (md. 102). Vade 2021 olduğundan süre 01.01.2022''de başlar ve **31.12.2026**''da tamamlanır.
+
+
+    **(b)** Haciz tatbiki zamanaşımını **keser** (md. 103/2). Kesilmeden sonra yeni süre, kesildiği yılı izleyen takvim yılı
+    başından işlemeye başlar: 01.01.2025''ten itibaren 5 yıl → **31.12.2029**.
+
+
+    **(c)** Borçlunun yabancı memlekette bulunması gibi nedenlerle hakkında takibat yapılmasına imkân yoksa bu hallerin devamı
+    müddetince zamanaşımı **işlemez**; sebep kalktıktan sonra zamanaşımı kaldığı yerden işlemeye devam eder (md. 104). Altı
+    aylık dönem süreye eklenir: 31.12.2029 + 6 ay = **30.06.2030**.
+
+
+    **(d)** Ödeme zamanaşımını **keser** (md. 103/1). Zamanaşımından sonra mükellefin **rızaen yapacağı ödemeler kabul olunur**
+    (md. 102/1); yani zamanaşımı borcu ortadan kaldırmaz, cebri tahsili engeller; ödeme geri istenemez.
+
+    '
+  puanlama:
+  - olcut: Beş yıllık süre ve takip eden takvim yılı başlangıcı; 31.12.2026
+    puan: 4
+  - olcut: Haczin zamanaşımını kesmesi
+    puan: 2
+  - olcut: Yeni sürenin kesildiği yılı izleyen yılbaşından başlaması; 31.12.2029
+    puan: 4
+  - olcut: Yabancı memlekette bulunmada zamanaşımının işlememesi ve kaldığı yerden devam etmesi
+    puan: 4
+  - olcut: Altı ay ekleyerek 30.06.2030
+    puan: 3
+  - olcut: Ödemenin zamanaşımını kesmesi
+    puan: 2
+  - olcut: Zamanaşımından sonra rızaen ödemenin kabul edilmesi
+    puan: 3
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 102
+    alinti: Amme alacağı, vadesinin rasladığı takvim yılını takip eden takvim yılı başından itibaren 5 yıl içinde tahsil edilmezse
+      zamanaşımına uğrar.
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 102 (rızaen ödeme)
+    alinti: Zamanaşımından sonra mükellefin rızaen yapacağı ödemeler kabul olunur.
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 103
+    alinti: 'Aşağıdaki hallerde tahsil zamanaşımı kesilir: 1. Ödeme, 2. Haciz tatbikı,'
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 104
+    alinti: Borçlunun yabancı memlekette bulunması, hileli iflas etmesi veya terekesinin tasfiyesi dolayısiyle hakkında takibat
+      yapılmasına imkan yoksa bu hallerin devamı müddetince zamanaşımı işlemez.
+  gecerlilik:
+    baslangic: '1953-07-21'
+    bitis: null
+  dogrulama:
+    python: 'ilk_bitis = 2022 + 5 - 1
+
+      yeni_bitis = 2025 + 5 - 1
+
+      sonuc = {''ilk_bitis_yili'': ilk_bitis, ''kesilme_sonrasi_bitis_yili'': yeni_bitis, ''durma_ay'': 6}
+
+      '
+  id: TASLAK
+  sinav: ymm
+  ders: VTK
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- konu: THS
+  kazanimlar:
+  - tecil şartları
+  - tecil için teminat ve ret sonrası ödeme süresi
+  - tecil edilen alacakta haczin teminat yerine geçmesi
+  - aciz halinde tecil
+  zorluk: 3
+  puan: 21
+  sure_dk: 25
+  soru: '**Olay:** 2026 yılında aşağıdaki olaylar yaşanmıştır:
+
+
+    1. **Orta Tekstil A.Ş.**, vadesinde ödenmesi kendisini çok zor duruma düşürecek amme borcunun tecili için yazılı başvuruda
+    bulunmuştur.
+
+    2. **Berk Ltd. Şti.**''nin tecil talebi uygun görülmeyerek reddedilmiş ve ret kararı 05.10.2026 Pazartesi günü şirkete
+    tebliğ edilmiştir.
+
+    3. **Sera Ltd. Şti.**''nin 500.000 TL değerinde bir makinesi borcu karşılayacak şekilde haczedilmiş durumdadır; şirket
+    borcunu tecil ettirmiştir ve ilk taksiti ödemiştir.
+
+    4. **Fatih Metal Ltd. Şti.** hakkındaki takip sonunda haczi caiz malı bulunmamış ve aciz fişi düzenlenmiştir.
+
+
+    **İstenenler:**
+
+
+    (a) 1 numaralı olayda tecil için aranan şartları ve en uzun tecil süresini belirtiniz. (6 puan)
+
+
+    (b) 2 numaralı olayda Berk Ltd.''nin borcunu ödemesi halinde tecil faizi uygulanıp uygulanmayacağını, ödeme için verilebilecek
+    en uzun süreyi ve bu sürenin sonunu belirtiniz. (6 puan)
+
+
+    (c) 3 numaralı olayda mevcut haczin tecil açısından durumunu açıklayınız. (4 puan)
+
+
+    (d) 4 numaralı olayda aciz halinin sonuçlarını, tecil bakımından belirtiniz; tahsil dairesinin yükümlülüğünü açıklayınız.
+    (5 puan)
+
+    '
+  cozum: '**(a)** Amme borcunun vadesinde ödenmesi veya haczin tatbiki veyahut haczolunmuş malların paraya çevrilmesi amme
+    borçlusunu **çok zor duruma düşürecekse**, borçlu tarafından **yazı ile istenmiş** ve **teminat gösterilmiş** olmak şartıyla
+    alacaklı amme idaresince veya yetkili kılacağı makamlarca amme alacağı **72 ayı geçmemek** üzere ve **faiz alınarak**
+    tecil olunabilir (md. 48). Teminat şartı, kanunda ve Cumhurbaşkanı kararında belirlenen tutara kadar aranmaz.
+
+
+    **(b)** Tecil talebi uygun görülmeyerek reddedilen borçlular, borçlarını reddin tebliği tarihinden itibaren idarece **30
+    güne kadar** verilebilecek ödeme süresi içinde öderlerse bu amme alacağı ödendiği tarihe kadar **faiz alınmak suretiyle**
+    tecil olunur (md. 48). Ret 05.10.2026''da tebliğ edildiğinden en uzun ödeme süresi 04.11.2026''da sona erer (05.10 + 30
+    gün).
+
+
+    **(c)** Haciz yapılmışsa mahcuz mal, değeri tutarınca **teminat yerine geçer** (md. 48). Tecil edilen alacaklarla ilgili
+    olarak daha önce uygulanan ve borcun tamamını karşılayacak değerde olan hacizler, yapılan ödemeler nispetinde kaldırılır
+    ve buna isabet eden teminat iade edilir.
+
+
+    **(d)** Yapılan takip sonunda borçlunun haczi caiz malı olmadığı veya bulunan malların satış bedeli borcunu karşılamadığı
+    takdirde borçlu **aciz halinde sayılır** (md. 75). Aciz halindeki borçlu hakkında **teminat ve faiz aranmadan** md. 48
+    hükmü tatbik olunabilir; alacaklı tahsil dairesi aciz halindeki borçlunun mali durumunu zamanaşımı süresi içinde **devamlı
+    olarak takip eder** (md. 76).
+
+    '
+  puanlama:
+  - olcut: Çok zor duruma düşme şartı
+    puan: 2
+  - olcut: Yazılı talep ve teminat şartı
+    puan: 2
+  - olcut: Azami tecil süresi 72 ay ve faiz alınması
+    puan: 2
+  - olcut: Ret sonrası 30 güne kadar ödeme süresi içinde ödemede ödeme tarihine kadar faiz alınarak tecil
+    puan: 4
+  - olcut: 05.10.2026 + 30 gün = 04.11.2026
+    puan: 2
+  - olcut: Haczedilen malın değeri tutarınca teminat yerine geçmesi
+    puan: 2
+  - olcut: Ödemeler nispetinde haczin kaldırılması ve teminatın iadesi
+    puan: 2
+  - olcut: Aciz halinin tanımı (md. 75)
+    puan: 2
+  - olcut: Aciz halinde teminat ve faiz aranmadan tecil
+    puan: 2
+  - olcut: Mali durumun zamanaşımı süresi içinde devamlı takibi
+    puan: 1
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 48/1
+    alinti: borçlu tarafından yazı ile istenmiş ve teminat gösterilmiş olmak şartıyla, alacaklı amme idaresince veya yetkili
+      kılacağı makamlarca; amme alacağı 72 ayı geçmemek üzere ve faiz alınarak tecil olunabilir.
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 48 (ret sonrası ödeme)
+    alinti: Borcunun tecilini talep eden ancak, talepleri uygun görülmeyerek reddedilen borçlular söz konusu borçlarını reddin
+      tebliği tarihinden itibaren idarece 30 güne kadar verilebilecek ödeme süresi içinde ödedikleri takdirde bu amme alacağı
+      ödendiği tarihe kadar faiz alınmak suretiyle tecil olunur.
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 48 (haciz)
+    alinti: Haciz yapılmışsa mahcuz mal, değeri tutarınca teminat yerine geçer.
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 75
+    alinti: Yapılan takip sonunda, borçlunun haczi caiz malı olmadığı veya bulunan malların satış bedeli borcunu karşılamadığı
+      takdirde borçlu aciz halinde sayılır.
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 76
+    alinti: Aciz halindeki borçlu hakkında teminat ve faiz aranmadan 48 inci madde hükmü tatbik olunabilir.
+  gecerlilik:
+    baslangic: '2026-05-21'
+    bitis: null
+  dogrulama:
+    python: 'sonuc = {''azami_ay'': 72, ''ret_sonrasi_gun'': 30}
+
+      '
+  id: TASLAK
+  sinav: ymm
+  ders: VTK
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+sorular:
+- konu: THS
+  unite: Vergi alacağının tahsili
+  kazanim: borçlunun iflasında amme alacaklarının sırası
+  tip: bilgi
+  zorluk: 1
+  kok: 6183 sayılı Kanun md. 21'e göre borçlunun iflası halinde amme alacakları, İcra ve İflas Kanunu md. 206'ya göre kaçıncı
+    sırada imtiyazlı alacak olarak işleme tabi tutulur?
+  secenekler:
+    A: Birinci sırada
+    B: İkinci sırada
+    C: Dördüncü sırada
+    D: Üçüncü sırada
+    E: Adi alacaklar arasında, sırasız
+  dogru: D
+  aciklama:
+    dogru_neden: 'Md. 21 son fıkra: borçlunun iflası, mirasın reddi ve terekenin resmî tasfiyeye tabi tutulması hallerinde
+      amme alacakları imtiyazlı alacak olarak İİK md. 206''nın üçüncü sırasında, bu sıranın önceliğini alan alacaklar da dahil
+      tüm imtiyazlı alacaklarla birlikte işleme tabi tutulur.'
+    celdiriciler:
+      A: Birinci sıra çalışanların bazı alacaklarına ayrılmıştır; amme alacakları üçüncü sıradadır.
+      B: İkinci sıra amme alacaklarının sırası değildir.
+      C: Dördüncü sıra kanun metnine uymaz.
+      E: Amme alacakları imtiyazlı alacaktır; adi alacak değildir.
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 21 (iflas)
+    alinti: Borçlunun iflası, mirasın reddi ve terekenin resmi tasfiyeye tabi tutulması hallerinde amme alacakları imtiyazlı
+      alacak olarak 2004 sayılı İcra ve İflas Kanununun 206 ncı maddesinin üçüncü sırasında, bu sıranın önceliğini alan alacaklar
+      da dahil olmak üzere tüm imtiyazlı alacaklar ile birlikte işleme tabi tutulur.
+  gecerlilik:
+    baslangic: '2006-03-30'
+    bitis: null
+  id: TASLAK
+  sinav: ymm
+  ders: VTK
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  bolum:
+  - YMM
+- konu: THS
+  unite: Vergi alacağının tahsili
+  kazanim: limited şirket ortaklarının sorumluluğu
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir limited şirketin şirket mal varlığından tahsil edilemeyen amme borcu 840.000 TL'dir. Şirketin %25 sermaye payına
+    sahip ortağının 6183 sayılı Kanun md. 35'e göre doğrudan sorumlu olduğu tutar kaç TL'dir?
+  secenekler:
+    A: '168.000'
+    B: '210.000'
+    C: '252.000'
+    D: '420.000'
+    E: '840.000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Md. 35/1''e göre limited şirket ortakları, şirketten tahsil edilemeyen amme alacağından sermaye hisseleri
+      oranında doğrudan sorumlu olurlar: 840.000 × %25 = 210.000 TL.'
+    celdiriciler:
+      A: Tutar %20 ile hesaplanmıştır; ortağın payı %25'tir.
+      C: Tutar %30 ile hesaplanmıştır.
+      D: Borcun yarısı alınmıştır; ortaklık payı yarı değildir.
+      E: Borcun tamamı ortağa yüklenmiştir; sorumluluk sermaye payı oranındadır.
+    hesap_adimlari:
+    - 840.000 × 0,25 = 210.000
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 35/1
+    alinti: Limited şirket ortakları, şirketten tamamen veya kısmen tahsil edilemeyen veya tahsil edilemeyeceği anlaşılan
+      amme alacağından sermaye hisseleri oranında doğrudan doğruya sorumlu olurlar ve bu Kanun hükümleri gereğince takibe
+      tabi tutulurlar.
+  gecerlilik:
+    baslangic: '1998-07-22'
+    bitis: null
+  dogrulama:
+    python: sonuc = 840000 * 0.25
+  id: TASLAK
+  sinav: ymm
+  ders: VTK
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  bolum:
+  - YMM
+- konu: THS
+  unite: Vergi alacağının tahsili
+  kazanim: ücret ve maaşların haczi
+  tip: hesaplama
+  zorluk: 2
+  kok: Net aylık ücreti 60.000 TL olan bir borçlunun (asgari ücreti aştığı varsayılacaktır) ücretinden 6183 sayılı Kanun md.
+    71'e göre en çok kaç TL haczedilebilir?
+  secenekler:
+    A: '6.000'
+    B: '15.000'
+    C: '20.000'
+    D: '30.000'
+    E: '60.000'
+  dogru: C
+  aciklama:
+    dogru_neden: Md. 71'e göre ücretler kısmen haczedilebilir; haczolunacak miktar üçte birinden çok, dörtte birinden az olamaz.
+      Asgari ücreti aşan gelirde en çok haczedilebilecek tutar 60.000 × 1/3 = 20.000 TL'dir.
+    celdiriciler:
+      A: Onda bir oranı yalnız asgari ücreti aşmayan aylık gelirler için geçerlidir.
+      B: Dörtte bir alt sınırdır; azami tutar değildir.
+      D: Yarısı alınmıştır; kanunda yarı sınırı yoktur.
+      E: Ücretin tamamı haczedilemez.
+    hesap_adimlari:
+    - 60.000 × 1/3 = 20.000
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 71
+    alinti: Ancak haczolunacak miktar bunların üçte birinden çok dörtte birinden az olamaz.
+  gecerlilik:
+    baslangic: '1980-11-26'
+    bitis: null
+  dogrulama:
+    python: sonuc = 60000 / 3
+  id: TASLAK
+  sinav: ymm
+  ders: VTK
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  bolum:
+  - YMM
+- konu: THS
+  unite: Vergi alacağının tahsili
+  kazanim: üçüncü şahıslardaki alacakların haczi ve haciz bildirisine itiraz
+  tip: bilgi
+  zorluk: 1
+  kok: 6183 sayılı Kanun md. 79'a göre haciz bildirisi tebliğ edilen üçüncü şahıs, borcu olmadığı veya malın yedinde bulunmadığı
+    gibi bir iddiada ise bunu tebliğden itibaren kaç gün içinde tahsil dairesine yazılı olarak bildirmek zorundadır?
+  secenekler:
+    A: Yedi gün
+    B: On gün
+    C: On beş gün
+    D: Otuz gün
+    E: Altmış gün
+  dogru: A
+  aciklama:
+    dogru_neden: 'Md. 79: üçüncü şahıs durumu haciz bildirisinin tebliğinden itibaren yedi gün içinde tahsil dairesine yazılı
+      bildirmek zorundadır; süresinde itiraz etmezse mal elinde, borç zimmetinde sayılır.'
+    celdiriciler:
+      B: On gün, md. 79'daki itiraz süresi değildir.
+      C: On beş gün, ödeme emri süresidir; haciz bildirisi itirazı için geçerli değildir.
+      D: Otuz gün dava ve başka süreleri çağrıştırır.
+      E: Altmış gün md. 79'da yer almaz.
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 79/2
+    alinti: Haciz bildirisi tebliğ edilen üçüncü şahıs; borcu olmadığı veya malın yedinde bulunmadığı veya haczin tebliğinden
+      önce borcun ödendiği veya malın tüketildiği ya da kusuru olmaksızın telef olduğu veya alacak borçluya veya emrettiği
+      yere verilmiş olduğu gibi bir iddiada ise durumu, haciz bildirisinin kendisine tebliğinden itibaren yedi gün içinde
+      tahsil dairesine yazılı olarak bildirmek zorundadır.
+  gecerlilik:
+    baslangic: '2006-03-30'
+    bitis: null
+  id: TASLAK
+  sinav: ymm
+  ders: VTK
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  bolum:
+  - YMM
+- konu: THS
+  unite: Vergi alacağının tahsili
+  kazanim: tahsil zamanaşımını kesen haller
+  tip: kavrama
+  zorluk: 2
+  kok: Aşağıdakilerden hangisi 6183 sayılı Kanun md. 103'e göre tahsil zamanaşımını kesen hallerden biri değildir?
+  secenekler:
+    A: Ödeme
+    B: Haciz tatbiki
+    C: Ödeme emri tebliği
+    D: Mal bildirimi ve mal artmalarının bildirilmesi
+    E: Mükellefiyetin sona ermesi
+  dogru: E
+  aciklama:
+    dogru_neden: Md. 103'e göre ödeme, haciz tatbiki, cebren tahsil sonucunda yapılan tahsilat, ödeme emri tebliği ve mal
+      bildirimi zamanaşımını keser. Mükellefiyetin sona ermesi kesme sebepleri arasında sayılmamıştır.
+    celdiriciler:
+      A: Ödeme md. 103/1'e göre zamanaşımını keser.
+      B: Haciz tatbiki md. 103/2'ye göre zamanaşımını keser.
+      C: Ödeme emri tebliği md. 103/4'e göre zamanaşımını keser.
+      D: Mal bildirimi md. 103/5'e göre zamanaşımını keser.
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 103
+    alinti: 'Aşağıdaki hallerde tahsil zamanaşımı kesilir: 1. Ödeme, 2. Haciz tatbikı,'
+  gecerlilik:
+    baslangic: '1953-07-21'
+    bitis: null
+  id: TASLAK
+  sinav: ymm
+  ders: VTK
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  bolum:
+  - YMM
+- konu: THS
+  unite: Vergi alacağının tahsili
+  kazanim: tecil süresi
+  tip: bilgi
+  zorluk: 1
+  kok: 6183 sayılı Kanun md. 48'e göre amme borçlusu çok zor duruma düşecekse amme alacağı en çok kaç ay için tecil edilebilir?
+  secenekler:
+    A: 12 ay
+    B: 24 ay
+    C: 36 ay
+    D: 72 ay
+    E: 120 ay
+  dogru: D
+  aciklama:
+    dogru_neden: 'Md. 48/1: amme alacağı 72 ayı geçmemek üzere ve faiz alınarak tecil olunabilir (21/5/2026 tarihli 7582 sayılı
+      Kanunla 36 ay 72 aya çıkarılmıştır).'
+    celdiriciler:
+      A: 12 ay kanundaki üst sınır değildir.
+      B: 24 ay kanundaki üst sınır değildir.
+      C: 36 ay eski düzenlemedir; 7582 sayılı Kanunla 72 aya çıkarılmıştır.
+      E: 120 ay kanunda öngörülmemiştir.
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 48/1
+    alinti: borçlu tarafından yazı ile istenmiş ve teminat gösterilmiş olmak şartıyla, alacaklı amme idaresince veya yetkili
+      kılacağı makamlarca; amme alacağı 72 ayı geçmemek üzere ve faiz alınarak tecil olunabilir.
+  gecerlilik:
+    baslangic: '2026-05-21'
+    bitis: null
+  id: TASLAK
+  sinav: ymm
+  ders: VTK
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  bolum:
+  - YMM
+- konu: THS
+  unite: Vergi alacağının tahsili
+  kazanim: kesinti yapıp ödeme yükümlüleri
+  tip: kavrama
+  zorluk: 2
+  kok: Amme alacağını borçlusundan kesip tahsil dairesine ödemek mecburiyetinde olan bir işveren, bu görevini zamanında yerine
+    getirmemiştir. 6183 sayılı Kanun md. 22'ye göre ödenmeyen alacak kimden tahsil olunur?
+  secenekler:
+    A: Yalnızca borçlunun kendisinden; kesinti yapma yükümlülüğü bulunan kişiden değil
+    B: Kesinti yapma yükümlülüğü bulunan işverenden bu Kanun hükümlerine göre
+    C: Borçlunun mirasçılarından
+    D: Devlet bütçesinden
+    E: Borçlunun kefillerinden
+  dogru: B
+  aciklama:
+    dogru_neden: 'Md. 22: amme alacağını borçlusundan kesip tahsil dairesine ödemek mecburiyetinde olan gerçek ve tüzel kişiler
+      bu vazifeyi zamanında yapmazlarsa ödenmeyen alacak bu kişilerden bu Kanun hükümlerine göre tahsil olunur.'
+    celdiriciler:
+      A: Yükümlülüğe uymayan kesinti yapan kişi doğrudan sorumludur.
+      C: Mirasçılar yalnızca borçlunun ölümü halinde söz konusu olur.
+      D: Bütçeden tahsil söz konusu değildir.
+      E: Kefaletle ilgisi yoktur; kesinti yapan kişinin kendi sorumluluğu söz konusudur.
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 22
+    alinti: Amme alacağını borçlusundan kesip tahsil dairesine ödemek mecburiyetinde olan hakiki ve hükmi şahıslar, bu vazifelerini
+      kanunlarında veya bu kanunda belli edilen zamanlarda yerine getirmedikleri takdirde, ödenmiyen alacak bu hakiki ve hükmi
+      şahıslardan bu kanun hükümlerine göre tahsil olunur.
+  gecerlilik:
+    baslangic: '1953-07-21'
+    bitis: null
+  id: TASLAK
+  sinav: ymm
+  ders: VTK
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  bolum:
+  - YMM

@@ -2920,3 +2920,305 @@
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 17
+- id: YMM-FYN-ZDP-K024
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - 'vade yapısı: spot ve vadeli (forward) faiz oranları'
+  - kuponsuz tahvil fiyatlarından kuponlu tahvil değerleme
+  - arbitraj ve yeniden yatırım riski
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Hazine''nin nominal değeri 1.000 TL olan kuponsuz (iskontolu) tahvilleri bugün aşağıdaki fiyatlardan işlem görmektedir
+    (yıllık bileşik faiz esasıyla):
+
+
+    | Vade | Fiyat (TL) |
+
+    |---|---|
+
+    | 1 yıl | 800 |
+
+    | 2 yıl | 640 |
+
+    | 3 yıl | 500 |
+
+
+    Bir banka nominal değeri 1.000 TL, yıllık kupon oranı %30 (kuponlar yıl sonlarında ödenir) ve vadesine 3 yıl kalmış bir
+    tahvili piyasada 1.100 TL''den satışa sunmuştur.
+
+
+    **İstenenler:**
+
+
+    (a) 1 ve 2 yıllık spot faiz oranlarını, 1 yıl sonrasından başlayan 1 yıllık vadeli (forward) faiz oranını ve 2 yıl sonrasından
+    başlayan 1 yıllık vadeli faiz oranını hesaplayınız. (7 puan)
+
+
+    (b) Kuponlu tahvilin, kuponsuz tahvil fiyatları esas alınarak olması gereken fiyatını hesaplayınız. (5 puan)
+
+
+    (c) Kuponlu tahvilin piyasa fiyatı ile (b)''deki değer arasındaki farkı arbitraj açısından değerlendiriniz; kuponsuz tahvillerle
+    "kopyalama" portföyünü kurarak tahvil başına risksiz kazancı gösteriniz. (7 puan)
+
+
+    (d) 100.000 TL''lik fonunu 2 yıllığına yatırmak isteyen bir yatırımcı (i) 2 yıllık kuponsuz tahvili vadeye kadar elinde
+    tutabilir ya da (ii) 1 yıllık kuponsuz tahvili alıp vadede, o günkü 1 yıllık spot faizle (%20) yeniden yatırabilir. İki
+    stratejinin 2. yıl sonundaki değerlerini karşılaştırınız ve yeniden yatırım riskini açıklayınız. (6 puan)
+
+    '
+  cozum: '**(a) Spot ve vadeli faizler**
+
+
+    1 yıllık spot: s₁ = 1.000 / 800 − 1 = **%25**
+
+
+    2 yıllık spot: (1 + s₂)² = 1.000 / 640 = 1,5625 → s₂ = **%25**
+
+
+    1 yıl sonrasından başlayan 1 yıllık vadeli faiz: f₁,₂ = (1 + s₂)² / (1 + s₁) − 1 = 800 / 640 − 1 = **%25**
+
+
+    2 yıl sonrasından başlayan 1 yıllık vadeli faiz: f₂,₃ = 640 / 500 − 1 = **%28** (aynı sonuç (1 + s₃)³ / (1 + s₂)² − 1
+    ile de bulunur).
+
+
+    **(b) Kuponlu tahvilin değeri** (iskonto çarpanları: 1. yıl 0,8, 2. yıl 0,64, 3. yıl 0,5)
+
+
+    | Yıl | Nakit akımı | İskonto çarpanı | Bugünkü değer |
+
+    |---|---|---|---|
+
+    | 1 | 300 | 0,8 | 240 |
+
+    | 2 | 300 | 0,64 | 192 |
+
+    | 3 | 1.300 | 0,5 | 650 |
+
+    | **Toplam** | | | **1.082** |
+
+
+    **(c) Arbitraj**
+
+
+    Piyasa fiyatı 1.100 TL > olması gereken değer 1.082 TL → tahvil fazla pahalıdır. Kopyalama portföyü, kuponlu tahvilin
+    nakit akımlarını birebir üretir: 1. yıl vadeli 300 TL nominal, 2. yıl vadeli 300 TL nominal ve 3. yıl vadeli 1.300 TL
+    nominal kuponsuz tahvil.
+
+
+    Maliyet = 0,3 × 800 + 0,3 × 640 + 1,3 × 500 = 1.082 TL.
+
+
+    Strateji: kuponlu tahvili 1.100 TL''den sat (açığa sat), kopya portföyü 1.082 TL''ye al. Nakit akımları her yıl birbirini
+    götürür; bugünkü **risksiz kazanç = 1.100 − 1.082 = 18 TL** (tahvil başına). Arbitrajcıların satışı fiyatı 1.082 TL''ye
+    doğru indirir.
+
+
+    **(d) Yeniden yatırım riski**
+
+
+    (i) Vadeye kadar tutma: 100.000 / 0,64 = **156.250 TL** (= 100.000 × (1 + %25)² ; kesin ve baştan bellidir).
+
+
+    (ii) 1 yıllık yatırım ve yeniden yatırım: 100.000 / 0,8 = 125.000 TL → ×(1 + %20) = **150.000 TL**.
+
+
+    Fark = 6.250 TL. Piyasanın ima ettiği vadeli faiz %25 iken 1 yıl sonraki gerçekleşen spot faiz %20''ye düşmüştür; kısa
+    vadeli yatırım yapan yatırımcı, vade sonunda hangi oranla yeniden yatırım yapacağını bilmediği için bu riski üstlenir
+    (yeniden yatırım riski). Faiz vadeli orana eşit ya da yüksek gerçekleşirse (ör. %25) iki strateji eşitlenir ya da (ii)
+    lehine olur.
+
+    '
+  puanlama:
+  - olcut: (a) Spot faizler (%25 ve %25)
+    puan: 3
+  - olcut: (a) Vadeli faizler (%25 ve %28)
+    puan: 4
+  - olcut: (b) Kuponlu tahvil değeri
+    puan: 5
+  - olcut: (c) Fark ve strateji yönü
+    puan: 2
+  - olcut: (c) Kopya portföy maliyeti ve risksiz kazanç
+    puan: 5
+  - olcut: (d) İki stratejinin sonuç değerleri
+    puan: 3
+  - olcut: (d) Yeniden yatırım riski açıklaması
+    puan: 3
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "nom = 1000\np1 = 800\np2 = 640\np3 = 500\nkup = 0.30\npiyasa = 1100\nyat = 100000\ng1 = 0.20\ns1 = nom / p1 -\
+      \ 1\ns2 = (nom / p2) ** 0.5 - 1\nf12 = p1 / p2 - 1\nf23 = p2 / p3 - 1\nd1 = p1 / nom\nd2 = p2 / nom\nd3 = p3 / nom\n\
+      k = nom * kup\ndeger = k * d1 + k * d2 + (nom + k) * d3\nfark = piyasa - deger\nn1 = k / nom\nn2 = k / nom\nn3 = (nom\
+      \ + k) / nom\nkopya = n1 * p1 + n2 * p2 + n3 * p3\nkazanc = piyasa - kopya\na_deger = yat / d2\nb_deger = yat / d1 *\
+      \ (1 + g1)\na_deger_kontrol = yat * (1 + s2) ** 2\nfark2 = a_deger - b_deger\nsonuc = {\"s1\": s1, \"s2\": s2, \"f12\"\
+      : f12, \"f23\": f23, \"deger\": deger, \"fark\": fark, \"kopya\": kopya, \"kazanc\": kazanc,\n         \"a_deger\":\
+      \ a_deger, \"b_deger\": b_deger, \"fark2\": fark2}\n"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261105_1.yaml, klasik 1
+- id: YMM-FYN-ZDP-K025
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - 'Fisher denklemi: reel ve nominal faiz'
+  - reel ve nominal nakit akımlarının bugünkü değeri
+  - fon tükenme (amortisman) tablosu
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Bay Selim, kızının üniversite öğrenimi için bir eğitim fonu oluşturmayı planlamaktadır. Öğrenim süresi 3 yıldır ve
+    her yılın sonunda ödenecek harç, bugünkü fiyatlarla 100.000 TL''dir. Harçlar genel enflasyonla aynı oranda, yani yıllık
+    %20 artmaktadır. Fon, yıllık %50 nominal faiz (bileşik) veren bir hesapta tutulacaktır.
+
+
+    **İstenenler:**
+
+
+    (a) Fisher denklemiyle gerçek (tam) reel faiz oranını hesaplayınız; "nominal faiz − enflasyon" kestirmesiyle bulunan değerle
+    karşılaştırınız. (4 puan)
+
+
+    (b) Nominal harç tutarlarını yıl yıl hesaplayarak fonun bugünkü gerekli tutarını nominal faizle iskonto ederek bulunuz.
+    (6 puan)
+
+
+    (c) Aynı tutarı reel yaklaşımla (sabit 100.000 TL''lik 3 yıllık adi anüiteyi reel faizle iskonto ederek) bulunuz; iki
+    sonucun eşitliğini gösteriniz ve fonun yıllık tükenme tablosunu (dönem başı, faiz, ödeme, dönem sonu) hazırlayınız. (8
+    puan)
+
+
+    (d) Bir danışman, (1) reel olan sabit 100.000 TL''lik akımları nominal faizle, (2) nominal harç akımlarını reel faizle
+    iskonto etmiştir. Her iki hatalı yöntemle bulunacak tutarları hesaplayınız ve hataların yönünü açıklayınız. (7 puan)
+
+    '
+  cozum: '**(a) Fisher denklemi**
+
+
+    (1 + nominal) = (1 + reel) × (1 + enflasyon) → reel = (1 + %50) / (1 + %20) − 1 = **%25**.
+
+
+    Kestirme yöntem: %50 − %20 = %30; bu değer reel faizi **fazla** gösterir (fark, enflasyonun nominal faiz üzerindeki bileşik
+    etkisinden doğar).
+
+
+    **(b) Nominal yaklaşım**
+
+
+    | Yıl | Nominal harç | İskonto çarpanı (%50) | Bugünkü değer |
+
+    |---|---|---|---|
+
+    | 1 | 120.000 | 1 / 1,5 | 80.000 |
+
+    | 2 | 144.000 | 1 / 2,25 | 64.000 |
+
+    | 3 | 172.800 | 1 / 3,375 | 51.200 |
+
+    | **Toplam** | | | **195.200** |
+
+
+    **(c) Reel yaklaşım ve fon tablosu**
+
+
+    Reel faiz %25, n = 3 için anüite çarpanı = (1 − 1,25⁻³) / 0,25 = 1,952. Fon = 100.000 × 1,952 = **195.200 TL**; (b) ile
+    aynıdır. Çünkü reel akımları reel faizle iskonto etmek, nominal akımları nominal faizle iskonto etmeyle özdeştir.
+
+
+    | Yıl | Dönem başı | Faiz (%50) | Harç ödemesi | Dönem sonu |
+
+    |---|---|---|---|---|
+
+    | 1 | 195.200 | 97.600 | 120.000 | 172.800 |
+
+    | 2 | 172.800 | 86.400 | 144.000 | 115.200 |
+
+    | 3 | 115.200 | 57.600 | 172.800 | 0 |
+
+
+    Fon 3. yıl sonunda tam olarak tükenir (kalan = 0).
+
+
+    **(d) Yaygın hatalar**
+
+
+    (1) Reel (sabit) 100.000 TL''lik akımları nominal faizle iskonto etmek: 100.000 × (1/1,5 + 1/2,25 + 1/3,375) = **140.740,74
+    TL** → fon **eksik** hesaplanır (54.459,26 TL açık), çünkü harçların enflasyonla artacağı gözden kaçmıştır.
+
+
+    (2) Nominal akımları reel faizle iskonto etmek: 120.000/1,25 + 144.000/1,5625 + 172.800/1,953125 = **276.633,60 TL** →
+    fon **fazla** hesaplanır (81.433,60 TL fazla); nominal akımlara enflasyon eklendiği hâlde iskonto oranından enflasyon
+    arındırıldığı için enflasyon etkisi iki kez sayılmıştır.
+
+
+    Kural: Nominal akımlar nominal oranla, reel akımlar reel oranla iskonto edilir; ikisi karıştırılmaz.
+
+    '
+  puanlama:
+  - olcut: (a) Fisher ile reel faiz ve kestirmeyle karşılaştırma
+    puan: 4
+  - olcut: (b) Nominal harçlar
+    puan: 2
+  - olcut: (b) Nominal iskontoyla fon tutarı
+    puan: 4
+  - olcut: (c) Reel anüite yaklaşımıyla fon tutarı ve eşitliğin gösterilmesi
+    puan: 4
+  - olcut: (c) Fon tükenme tablosu
+    puan: 4
+  - olcut: (d) Birinci hatalı yöntem ve yönü
+    puan: 3
+  - olcut: (d) İkinci hatalı yöntem ve yönü
+    puan: 4
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "harc = 100000\nenf = 0.20\nnf = 0.50\nreel = (1 + nf) / (1 + enf) - 1\nbasit = nf - enf\nn1 = harc * (1 + enf)\n\
+      n2 = harc * (1 + enf) ** 2\nn3 = harc * (1 + enf) ** 3\npv1 = n1 / (1 + nf)\npv2 = n2 / (1 + nf) ** 2\npv3 = n3 / (1\
+      \ + nf) ** 3\nfon_nom = pv1 + pv2 + pv3\naf = (1 - (1 + reel) ** -3) / reel\nfon_reel = harc * af\nb0 = fon_nom\nf1\
+      \ = b0 * nf\ne1 = b0 + f1 - n1\nf2 = e1 * nf\ne2 = e1 + f2 - n2\nf3 = e2 * nf\ne3 = e2 + f3 - n3\nhata1 = harc * (1\
+      \ / (1 + nf) + 1 / (1 + nf) ** 2 + 1 / (1 + nf) ** 3)\nhata2 = n1 / (1 + reel) + n2 / (1 + reel) ** 2 + n3 / (1 + reel)\
+      \ ** 3\nsonuc = {\"reel\": reel, \"basit\": basit, \"n1\": n1, \"n2\": n2, \"n3\": n3, \"fon_nom\": fon_nom, \"af\"\
+      : af, \"fon_reel\": fon_reel,\n         \"e1\": e1, \"e2\": e2, \"e3\": e3, \"hata1\": hata1, \"hata2\": hata2}\n"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261105_1.yaml, klasik 2

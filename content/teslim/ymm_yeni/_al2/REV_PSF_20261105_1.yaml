@@ -1,0 +1,263 @@
+yazar: harici üretici (claude, paket 2026-11-05)
+gorev: YMM paketi 2026-11-05
+klasik: []
+sorular:
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Pasif ve özkaynak hesaplarının revizyonu
+  konu: PSF
+  kazanim: peşin tahsil edilen hasılat ve gider tahakkukları
+  tip: hesaplama
+  zorluk: 1
+  kok: Bilanço esasına göre defter tutan ve hesap dönemi takvim yılı olan (A) A.Ş., 1.9.2026'da 12 aylık bir bakım hizmeti
+    sözleşmesinin bedeli olan 480.000 TL'yi peşin tahsil etmiş ve tamamını gelir yazmıştır. Hizmet sözleşme süresince eşit
+    olarak verilmektedir. VUK md. 287'ye göre 31.12.2026 tarihli bilançoda pasifleştirilmesi gereken tutar kaç TL'dir?
+  secenekler:
+    A: '160.000'
+    B: '240.000'
+    C: '320.000'
+    D: '400.000'
+    E: '480.000'
+  dogru: C
+  aciklama:
+    dogru_neden: VUK md. 287'ye göre gelecek hesap dönemlerine ait olarak peşin tahsil olunan hasılat mukayyet değeri üzerinden
+      pasifleştirilir. Sözleşme 1.9.2026–31.8.2027 arasındadır; 2026'ya 4 ay, 2027'ye 8 ay isabet eder. Aylık hasılat 480.000
+      / 12 = 40.000 TL olduğundan 2027'ye ait tutar 8 × 40.000 = 320.000 TL'dir.
+    celdiriciler:
+      A: 160.000 TL, 2026'da geçen 4 aya isabet eden gelirdir; pasifleştirilecek tutar değil, 2026 gelirinde kalacak tutardır.
+      B: 240.000 TL, sözleşmenin 6 aylık kısmıdır; kalan süre 8 aydır.
+      D: 400.000 TL, 10 aylık tutardır; 2026'da geçen süre 4 aydır, 2 ay değil.
+      E: 480.000 TL, bedelin tamamıdır; 2026'ya ait 4 aylık kısım gelir olarak kalır.
+    hesap_adimlari:
+    - Sözleşme süresi 1.9.2026–31.8.2027; 2026'da 4 ay geçmiştir.
+    - Kalan süre 12 − 4 = 8 aydır.
+    - 480.000 × 8/12 = 320.000 TL.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 287
+    alinti: Gelecek hesap dönemlerine ait olarak peşin tahsil olunan hasılat ile cari hesap dönemine ait olup henüz ödenmemiş
+      olan giderler mukayyet değerleri üzerinden pasifleştirilmek suretiyle değerlenir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 480000 * 8 / 12
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Pasif ve özkaynak hesaplarının revizyonu
+  konu: PSF
+  kazanim: finansal kiralamada kiracı borcunun değerlemesi
+  tip: hesaplama
+  zorluk: 2
+  kok: Bilanço esasına göre defter tutan (B) A.Ş. (kiracı), 2026 yılında bir finansal kiralama sözleşmesi yapmıştır. Kiralama
+    konusu iktisadî kıymetin rayiç bedeli 2.400.000 TL, sözleşmeye göre ödenecek kira ödemelerinin toplamı 2.800.000 TL, bu
+    ödemelerin bugünkü değeri ise 2.150.000 TL'dir. VUK mükerrer md. 290'a göre kiracının kullanma hakkı ve sözleşmeden doğan
+    borcu hangi tutarla değerlenir?
+  secenekler:
+    A: '250.000'
+    B: 2.150.000
+    C: 2.275.000
+    D: 2.400.000
+    E: 2.800.000
+  dogru: B
+  aciklama:
+    dogru_neden: VUK mükerrer md. 290/1'e göre kiracı, kullanma hakkını ve sözleşmeden doğan borcu, kiralama konusu iktisadî
+      kıymetin rayiç bedeli veya kira ödemelerinin bugünkü değerinden düşük olanı ile değerler. Min(2.400.000; 2.150.000)
+      = 2.150.000 TL.
+    celdiriciler:
+      A: 250.000 TL, rayiç bedel ile bugünkü değer arasındaki farktır; değerleme tutarı değildir.
+      C: 2.275.000 TL iki tutarın ortalamasıdır; hüküm ortalama değil, düşük olanı esas alır.
+      D: 2.400.000 TL rayiç bedeldir; bugünkü değer bundan düşük olduğu için esas alınmaz.
+      E: 2.800.000 TL ödenecek kiraların nominal toplamıdır; bugünkü değere indirilmemiş tutar esas alınmaz.
+    hesap_adimlari:
+    - 'Rayiç bedel: 2.400.000 TL.'
+    - 'Kira ödemelerinin bugünkü değeri: 2.150.000 TL.'
+    - 'Düşük olan: 2.150.000 TL.'
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: mükerrer md. 290/1
+    alinti: Kiracı tarafından finansal kiralama işlemine konu iktisadî kıymeti kullanma hakkı ve sözleşmeden doğan borç, kiralama
+      konusu iktisadî kıymetin rayiç bedeli veya sözleşmeye göre yapılacak kira ödemelerinin bugünkü değerinden düşük olanı
+      ile değerlenir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = min(2400000, 2150000)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Pasif ve özkaynak hesaplarının revizyonu
+  konu: PSF
+  kazanim: pasif geçici hesaplar ve dönem kârı karşılıkları
+  tip: kavrama
+  zorluk: 3
+  kok: 'VUK md. 287 ve Tekdüzen Hesap Planı açıklamaları dikkate alındığında aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. Gelecek hesap dönemlerine ait olarak peşin tahsil olunan hasılat mukayyet değeri üzerinden pasifleştirilir.
+
+    II. Cari hesap dönemine ait olup henüz ödenmemiş giderler mukayyet değerleri üzerinden pasifleştirilir.
+
+    III. 380 Gelecek Aylara Ait Gelirler hesabında, peşin tahsil olunan gelirlerin bir yıldan uzun süreye ait kısımları izlenir.
+
+    IV. 371 Dönem Kârının Peşin Ödenen Vergi ve Diğer Yükümlülükleri hesabına, dönem kârı üzerinden yıllık beyanname ile ödenen
+    vergiler alacak kaydedilir.'
+  secenekler:
+    A: Yalnız I ve II
+    B: Yalnız I
+    C: I, II ve III
+    D: II, III ve IV
+    E: I, II, III ve IV
+  dogru: A
+  aciklama:
+    dogru_neden: 'I ve II doğrudur; bunlar VUK md. 287''nin hükmüdür: peşin tahsil olunan hasılat ile cari döneme ait ödenmemiş
+      giderler mukayyet değerleriyle pasifleştirilir. III yanlıştır: 380 hesabı bir yıldan KISA süreye ait kısımları izler;
+      uzun süreye ait kısımlar 480 hesabındadır. IV yanlıştır: 371 hesabı, dönem kârından mahsup edilmek üzere PEŞİN ödenen
+      (geçici vergi gibi) vergileri izler, yıllık beyanname ile ödenen vergiyi değil. Püf noktaları: 380 ile 480''i sürenin
+      bir yıldan kısa/uzun olmasıyla ayırın; 371''de ''peşin'' sözcüğünü arayın.'
+    celdiriciler:
+      B: 'Yalnız I: II de VUK md. 287''de yer alır; ödenmemiş giderler de pasifleştirilir.'
+      C: 'I, II ve III: III yanlıştır; 380 hesabı bir yıldan kısa süreye ait gelirleri izler, uzun süreye ait kısım 480 hesabındadır.'
+      D: 'II, III ve IV: I de doğrudur ve III ile IV yanlıştır.'
+      E: 'I, II, III ve IV: III ve IV yanlıştır; 380 kısa süreye ait gelirleri, 371 ise peşin ödenen vergileri izler.'
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 287
+    alinti: Gelecek hesap dönemlerine ait olarak peşin tahsil olunan hasılat ile cari hesap dönemine ait olup henüz ödenmemiş
+      olan giderler mukayyet değerleri üzerinden pasifleştirilmek suretiyle değerlenir.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği Sıra No: 1 — Hesap Planı Açıklamaları'
+    madde: 380 Gelecek Aylara Ait Gelirler
+    alinti: Gelecek bilanço dönemlerine ait peşin tahsil olunan gelirlerin bir yıldan kısa süreye ait kısımlarının izlendiği
+      hesaptır.
+  - mevzuat: 'Muhasebe Sistemi Uygulama Genel Tebliği Sıra No: 1 — Hesap Planı Açıklamaları'
+    madde: 371 Dönem Kârının Peşin Ödenen Vergi ve Diğer Yükümlülükleri
+    alinti: Dönem Kârı Vergi ve Diğer Yasal Yükümlülük Karşılıklarından indirilmek üzere, "193. Peşin Ödenen Vergiler ve Fonlar
+      Hesabı"ndan yapılan aktarmalar bu hesabın borcuna, 193 nolu hesabın alacağına kaydedilir. Tahakkuk eden tutarlar ve
+      gelir vergisinden mahsup edilen tutarlar ise bu hesaba alacak kaydedilir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Pasif ve özkaynak hesaplarının revizyonu
+  konu: PSF
+  kazanim: kredi borçlarında faiz tahakkuku
+  tip: hesaplama
+  zorluk: 2
+  kok: Bilanço esasına göre defter tutan ve hesap dönemi takvim yılı olan (C) A.Ş., 1.8.2026'da %48 yıllık faizle 2.000.000
+    TL kredi kullanmıştır. Anapara ve faiz 1.8.2027'de birlikte ödenecektir ve şirket yıl sonunda faiz için kayıt yapmamıştır.
+    Faizin ay esasıyla basit faiz olarak hesaplanacağı ve ağustos ayının tam ay sayılacağı bilgisi verildiğine göre, VUK md.
+    285'e göre 31.12.2026 tarihli bilançoda borçla birlikte dikkate alınması gereken faiz kaç TL'dir?
+  secenekler:
+    A: '0'
+    B: '160.000'
+    C: '240.000'
+    D: '320.000'
+    E: '400.000'
+  dogru: E
+  aciklama:
+    dogru_neden: 'VUK md. 285/1''e göre mevduat veya kredi sözleşmelerine müstenit borçlar, değerleme gününe kadar hesaplanacak
+      faizleriyle birlikte dikkate alınır. Faiz vade sonunda ödenecek olsa bile ağustos–aralık 5 ay için tahakkuk ettirilir:
+      2.000.000 × %48 × 5/12 = 400.000 TL.'
+    celdiriciler:
+      A: 0 TL, faizin vade sonunda ödenecek olması nedeniyle tahakkuk ettirilmeyeceği düşüncesidir; hüküm, değerleme gününe
+        kadar işleyen faizin dikkate alınmasını ister.
+      B: 160.000 TL, 2 aylık faizdir; kredi kullanımından yıl sonuna 5 ay geçmiştir.
+      C: 240.000 TL, 3 aylık faizdir; ağustos tam ay sayıldığından süre 5 aydır.
+      D: 320.000 TL, 4 aylık faizdir; ağustos ayı atlanmıştır.
+    hesap_adimlari:
+    - 'Ağustos–aralık: 5 ay.'
+    - 2.000.000 × 0,48 × 5/12 = 400.000 TL.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 285/1
+    alinti: Mevduat veya kredi sözleşmelerine müstenit borçlar değerleme gününe kadar hesaplanacak faizleriyle birlikte dikkate
+      alınır.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 2000000 * 0.48 * 5 / 12
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Pasif ve özkaynak hesaplarının revizyonu
+  konu: PSF
+  kazanim: tahvil borçlarının değerlemesi
+  tip: uygulama
+  zorluk: 3
+  kok: Anonim şirket olan (D) A.Ş., 1.3.2026'da 5.000.000 TL itibarî değerli tahvilleri yıllık %40 faizli olarak 4.750.000
+    TL tahsilat karşılığında ihraç etmiş, 50.000 TL ihraç masrafı ödemiştir. Tahvillerin vadesi 3 yıldır ve faizler her yıl
+    1 Mart'ta ödenecektir. Yıl sonuna kadar iskonto tutarının hiçbiri itfa edilmemiştir. VUK md. 286'ya göre 31.12.2026 tarihli
+    bilançoda tahvil borcu hangi tutarla değerlenir?
+  secenekler:
+    A: 4.700.000
+    B: 4.750.000
+    C: 4.800.000
+    D: 5.000.000
+    E: 5.150.000
+  dogru: D
+  aciklama:
+    dogru_neden: 'VUK md. 286''ya göre eshamlı şirketler çıkardıkları tahvilleri itibarî değerleriyle değerlemeye mecburdur.
+      İhraç iskontosu, ihraç masrafı ve faiz oranı değerleme tutarını değiştirmez; tahvil borcu 5.000.000 TL''dir. Püf noktaları:
+      soruda yer alan tahsilat tutarı, masraf ve faiz bilgileri gereksiz veridir; tahvilde ölçü her zaman itibarî değerdir.'
+    celdiriciler:
+      A: 4.700.000 TL, tahsilat tutarından masrafın düşülmesiyle bulunan net tutardır; hüküm itibarî değeri esas alır.
+      B: 4.750.000 TL, tahsil edilen tutardır (mukayyet değer gibi); tahvillerde itibarî değer esas alınır.
+      C: 4.800.000 TL, iskontonun bir kısmının itfa edildiği varsayımıyla bulunur; soruda iskontonun itfa edilmediği belirtilmiştir
+        ve hüküm zaten itibarî değeri esas alır.
+      E: 5.150.000 TL, itibarî değere faiz tahakkukunun eklenmesiyle bulunur; faiz tahvil borcunun değerine değil ayrıca tahakkuk
+        hesaplarına yansır.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 286
+    alinti: Eshamlı şirketlerle iktisadi kamu müesseseleri çıkardıkları tahvilleri itibari değerleriyle değerlemeye mecburdurlar.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 5000000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5

@@ -1,0 +1,588 @@
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - 'vade yapısı: spot ve vadeli (forward) faiz oranları'
+  - kuponsuz tahvil fiyatlarından kuponlu tahvil değerleme
+  - arbitraj ve yeniden yatırım riski
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Hazine''nin nominal değeri 1.000 TL olan kuponsuz (iskontolu) tahvilleri bugün aşağıdaki fiyatlardan işlem görmektedir
+    (yıllık bileşik faiz esasıyla):
+
+
+    | Vade | Fiyat (TL) |
+
+    |---|---|
+
+    | 1 yıl | 800 |
+
+    | 2 yıl | 640 |
+
+    | 3 yıl | 500 |
+
+
+    Bir banka nominal değeri 1.000 TL, yıllık kupon oranı %30 (kuponlar yıl sonlarında ödenir) ve vadesine 3 yıl kalmış bir
+    tahvili piyasada 1.100 TL''den satışa sunmuştur.
+
+
+    **İstenenler:**
+
+
+    (a) 1 ve 2 yıllık spot faiz oranlarını, 1 yıl sonrasından başlayan 1 yıllık vadeli (forward) faiz oranını ve 2 yıl sonrasından
+    başlayan 1 yıllık vadeli faiz oranını hesaplayınız. (7 puan)
+
+
+    (b) Kuponlu tahvilin, kuponsuz tahvil fiyatları esas alınarak olması gereken fiyatını hesaplayınız. (5 puan)
+
+
+    (c) Kuponlu tahvilin piyasa fiyatı ile (b)''deki değer arasındaki farkı arbitraj açısından değerlendiriniz; kuponsuz tahvillerle
+    "kopyalama" portföyünü kurarak tahvil başına risksiz kazancı gösteriniz. (7 puan)
+
+
+    (d) 100.000 TL''lik fonunu 2 yıllığına yatırmak isteyen bir yatırımcı (i) 2 yıllık kuponsuz tahvili vadeye kadar elinde
+    tutabilir ya da (ii) 1 yıllık kuponsuz tahvili alıp vadede, o günkü 1 yıllık spot faizle (%20) yeniden yatırabilir. İki
+    stratejinin 2. yıl sonundaki değerlerini karşılaştırınız ve yeniden yatırım riskini açıklayınız. (6 puan)
+
+    '
+  cozum: '**(a) Spot ve vadeli faizler**
+
+
+    1 yıllık spot: s₁ = 1.000 / 800 − 1 = **%25**
+
+
+    2 yıllık spot: (1 + s₂)² = 1.000 / 640 = 1,5625 → s₂ = **%25**
+
+
+    1 yıl sonrasından başlayan 1 yıllık vadeli faiz: f₁,₂ = (1 + s₂)² / (1 + s₁) − 1 = 800 / 640 − 1 = **%25**
+
+
+    2 yıl sonrasından başlayan 1 yıllık vadeli faiz: f₂,₃ = 640 / 500 − 1 = **%28** (aynı sonuç (1 + s₃)³ / (1 + s₂)² − 1
+    ile de bulunur).
+
+
+    **(b) Kuponlu tahvilin değeri** (iskonto çarpanları: 1. yıl 0,8, 2. yıl 0,64, 3. yıl 0,5)
+
+
+    | Yıl | Nakit akımı | İskonto çarpanı | Bugünkü değer |
+
+    |---|---|---|---|
+
+    | 1 | 300 | 0,8 | 240 |
+
+    | 2 | 300 | 0,64 | 192 |
+
+    | 3 | 1.300 | 0,5 | 650 |
+
+    | **Toplam** | | | **1.082** |
+
+
+    **(c) Arbitraj**
+
+
+    Piyasa fiyatı 1.100 TL > olması gereken değer 1.082 TL → tahvil fazla pahalıdır. Kopyalama portföyü, kuponlu tahvilin
+    nakit akımlarını birebir üretir: 1. yıl vadeli 300 TL nominal, 2. yıl vadeli 300 TL nominal ve 3. yıl vadeli 1.300 TL
+    nominal kuponsuz tahvil.
+
+
+    Maliyet = 0,3 × 800 + 0,3 × 640 + 1,3 × 500 = 1.082 TL.
+
+
+    Strateji: kuponlu tahvili 1.100 TL''den sat (açığa sat), kopya portföyü 1.082 TL''ye al. Nakit akımları her yıl birbirini
+    götürür; bugünkü **risksiz kazanç = 1.100 − 1.082 = 18 TL** (tahvil başına). Arbitrajcıların satışı fiyatı 1.082 TL''ye
+    doğru indirir.
+
+
+    **(d) Yeniden yatırım riski**
+
+
+    (i) Vadeye kadar tutma: 100.000 / 0,64 = **156.250 TL** (= 100.000 × (1 + %25)² ; kesin ve baştan bellidir).
+
+
+    (ii) 1 yıllık yatırım ve yeniden yatırım: 100.000 / 0,8 = 125.000 TL → ×(1 + %20) = **150.000 TL**.
+
+
+    Fark = 6.250 TL. Piyasanın ima ettiği vadeli faiz %25 iken 1 yıl sonraki gerçekleşen spot faiz %20''ye düşmüştür; kısa
+    vadeli yatırım yapan yatırımcı, vade sonunda hangi oranla yeniden yatırım yapacağını bilmediği için bu riski üstlenir
+    (yeniden yatırım riski). Faiz vadeli orana eşit ya da yüksek gerçekleşirse (ör. %25) iki strateji eşitlenir ya da (ii)
+    lehine olur.
+
+    '
+  puanlama:
+  - olcut: (a) Spot faizler (%25 ve %25)
+    puan: 3
+  - olcut: (a) Vadeli faizler (%25 ve %28)
+    puan: 4
+  - olcut: (b) Kuponlu tahvil değeri
+    puan: 5
+  - olcut: (c) Fark ve strateji yönü
+    puan: 2
+  - olcut: (c) Kopya portföy maliyeti ve risksiz kazanç
+    puan: 5
+  - olcut: (d) İki stratejinin sonuç değerleri
+    puan: 3
+  - olcut: (d) Yeniden yatırım riski açıklaması
+    puan: 3
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: "nom = 1000\np1 = 800\np2 = 640\np3 = 500\nkup = 0.30\npiyasa = 1100\nyat = 100000\ng1 = 0.20\ns1 = nom / p1 -\
+      \ 1\ns2 = (nom / p2) ** 0.5 - 1\nf12 = p1 / p2 - 1\nf23 = p2 / p3 - 1\nd1 = p1 / nom\nd2 = p2 / nom\nd3 = p3 / nom\n\
+      k = nom * kup\ndeger = k * d1 + k * d2 + (nom + k) * d3\nfark = piyasa - deger\nn1 = k / nom\nn2 = k / nom\nn3 = (nom\
+      \ + k) / nom\nkopya = n1 * p1 + n2 * p2 + n3 * p3\nkazanc = piyasa - kopya\na_deger = yat / d2\nb_deger = yat / d1 *\
+      \ (1 + g1)\na_deger_kontrol = yat * (1 + s2) ** 2\nfark2 = a_deger - b_deger\nsonuc = {\"s1\": s1, \"s2\": s2, \"f12\"\
+      : f12, \"f23\": f23, \"deger\": deger, \"fark\": fark, \"kopya\": kopya, \"kazanc\": kazanc,\n         \"a_deger\":\
+      \ a_deger, \"b_deger\": b_deger, \"fark2\": fark2}\n"
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - 'Fisher denklemi: reel ve nominal faiz'
+  - reel ve nominal nakit akımlarının bugünkü değeri
+  - fon tükenme (amortisman) tablosu
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Bay Selim, kızının üniversite öğrenimi için bir eğitim fonu oluşturmayı planlamaktadır. Öğrenim süresi 3 yıldır ve
+    her yılın sonunda ödenecek harç, bugünkü fiyatlarla 100.000 TL''dir. Harçlar genel enflasyonla aynı oranda, yani yıllık
+    %20 artmaktadır. Fon, yıllık %50 nominal faiz (bileşik) veren bir hesapta tutulacaktır.
+
+
+    **İstenenler:**
+
+
+    (a) Fisher denklemiyle gerçek (tam) reel faiz oranını hesaplayınız; "nominal faiz − enflasyon" kestirmesiyle bulunan değerle
+    karşılaştırınız. (4 puan)
+
+
+    (b) Nominal harç tutarlarını yıl yıl hesaplayarak fonun bugünkü gerekli tutarını nominal faizle iskonto ederek bulunuz.
+    (6 puan)
+
+
+    (c) Aynı tutarı reel yaklaşımla (sabit 100.000 TL''lik 3 yıllık adi anüiteyi reel faizle iskonto ederek) bulunuz; iki
+    sonucun eşitliğini gösteriniz ve fonun yıllık tükenme tablosunu (dönem başı, faiz, ödeme, dönem sonu) hazırlayınız. (8
+    puan)
+
+
+    (d) Bir danışman, (1) reel olan sabit 100.000 TL''lik akımları nominal faizle, (2) nominal harç akımlarını reel faizle
+    iskonto etmiştir. Her iki hatalı yöntemle bulunacak tutarları hesaplayınız ve hataların yönünü açıklayınız. (7 puan)
+
+    '
+  cozum: '**(a) Fisher denklemi**
+
+
+    (1 + nominal) = (1 + reel) × (1 + enflasyon) → reel = (1 + %50) / (1 + %20) − 1 = **%25**.
+
+
+    Kestirme yöntem: %50 − %20 = %30; bu değer reel faizi **fazla** gösterir (fark, enflasyonun nominal faiz üzerindeki bileşik
+    etkisinden doğar).
+
+
+    **(b) Nominal yaklaşım**
+
+
+    | Yıl | Nominal harç | İskonto çarpanı (%50) | Bugünkü değer |
+
+    |---|---|---|---|
+
+    | 1 | 120.000 | 1 / 1,5 | 80.000 |
+
+    | 2 | 144.000 | 1 / 2,25 | 64.000 |
+
+    | 3 | 172.800 | 1 / 3,375 | 51.200 |
+
+    | **Toplam** | | | **195.200** |
+
+
+    **(c) Reel yaklaşım ve fon tablosu**
+
+
+    Reel faiz %25, n = 3 için anüite çarpanı = (1 − 1,25⁻³) / 0,25 = 1,952. Fon = 100.000 × 1,952 = **195.200 TL**; (b) ile
+    aynıdır. Çünkü reel akımları reel faizle iskonto etmek, nominal akımları nominal faizle iskonto etmeyle özdeştir.
+
+
+    | Yıl | Dönem başı | Faiz (%50) | Harç ödemesi | Dönem sonu |
+
+    |---|---|---|---|---|
+
+    | 1 | 195.200 | 97.600 | 120.000 | 172.800 |
+
+    | 2 | 172.800 | 86.400 | 144.000 | 115.200 |
+
+    | 3 | 115.200 | 57.600 | 172.800 | 0 |
+
+
+    Fon 3. yıl sonunda tam olarak tükenir (kalan = 0).
+
+
+    **(d) Yaygın hatalar**
+
+
+    (1) Reel (sabit) 100.000 TL''lik akımları nominal faizle iskonto etmek: 100.000 × (1/1,5 + 1/2,25 + 1/3,375) = **140.740,74
+    TL** → fon **eksik** hesaplanır (54.459,26 TL açık), çünkü harçların enflasyonla artacağı gözden kaçmıştır.
+
+
+    (2) Nominal akımları reel faizle iskonto etmek: 120.000/1,25 + 144.000/1,5625 + 172.800/1,953125 = **276.633,60 TL** →
+    fon **fazla** hesaplanır (81.433,60 TL fazla); nominal akımlara enflasyon eklendiği hâlde iskonto oranından enflasyon
+    arındırıldığı için enflasyon etkisi iki kez sayılmıştır.
+
+
+    Kural: Nominal akımlar nominal oranla, reel akımlar reel oranla iskonto edilir; ikisi karıştırılmaz.
+
+    '
+  puanlama:
+  - olcut: (a) Fisher ile reel faiz ve kestirmeyle karşılaştırma
+    puan: 4
+  - olcut: (b) Nominal harçlar
+    puan: 2
+  - olcut: (b) Nominal iskontoyla fon tutarı
+    puan: 4
+  - olcut: (c) Reel anüite yaklaşımıyla fon tutarı ve eşitliğin gösterilmesi
+    puan: 4
+  - olcut: (c) Fon tükenme tablosu
+    puan: 4
+  - olcut: (d) Birinci hatalı yöntem ve yönü
+    puan: 3
+  - olcut: (d) İkinci hatalı yöntem ve yönü
+    puan: 4
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: "harc = 100000\nenf = 0.20\nnf = 0.50\nreel = (1 + nf) / (1 + enf) - 1\nbasit = nf - enf\nn1 = harc * (1 + enf)\n\
+      n2 = harc * (1 + enf) ** 2\nn3 = harc * (1 + enf) ** 3\npv1 = n1 / (1 + nf)\npv2 = n2 / (1 + nf) ** 2\npv3 = n3 / (1\
+      \ + nf) ** 3\nfon_nom = pv1 + pv2 + pv3\naf = (1 - (1 + reel) ** -3) / reel\nfon_reel = harc * af\nb0 = fon_nom\nf1\
+      \ = b0 * nf\ne1 = b0 + f1 - n1\nf2 = e1 * nf\ne2 = e1 + f2 - n2\nf3 = e2 * nf\ne3 = e2 + f3 - n3\nhata1 = harc * (1\
+      \ / (1 + nf) + 1 / (1 + nf) ** 2 + 1 / (1 + nf) ** 3)\nhata2 = n1 / (1 + reel) + n2 / (1 + reel) ** 2 + n3 / (1 + reel)\
+      \ ** 3\nsonuc = {\"reel\": reel, \"basit\": basit, \"n1\": n1, \"n2\": n2, \"n3\": n3, \"fon_nom\": fon_nom, \"af\"\
+      : af, \"fon_reel\": fon_reel,\n         \"e1\": e1, \"e2\": e2, \"e3\": e3, \"hata1\": hata1, \"hata2\": hata2}\n"
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve borçlanma araçları
+  konu: ZDP
+  kazanim: etkin faiz oranı
+  tip: hesaplama
+  zorluk: 1
+  kok: Bir banka, yıllık nominal %20 faiz oranını altı ayda bir bileşik faiz uygulayarak vermektedir. Yıllık etkin faiz oranı
+    yüzde kaçtır?
+  secenekler:
+    A: '%5,00'
+    B: '%10,00'
+    C: '%17,36'
+    D: '%20,00'
+    E: '%21,00'
+  dogru: E
+  aciklama:
+    dogru_neden: Altı aylık faiz = %20 / 2 = %10. Etkin oran = (1 + 0,1)² − 1 = %21.
+    celdiriciler:
+      A: Bu değer üç aylık orandır (nominal/4); soruda dönem altı aylıktır ve sonuç yıllığa bileşiklenmelidir.
+      B: Bu değer altı aylık orandır, yıllık etkin oran değildir.
+      C: Bu, iki dönemlik bileşik büyümenin iskonto oranı karşılığıdır (1 − 1/1,21); etkin faiz oranı büyüme oranıdır.
+      D: Nominal oran bileşikleme etkisi eklenmeden verilmiş; yılda iki kez bileşik faizde etkin oran nominalden yüksektir.
+    hesap_adimlari:
+    - Dönemsel oran = nominal / m
+    - Etkin oran = (1 + nominal/m)^m − 1
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — etkin faiz oranı
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'nom = 0.20
+
+      sonuc = (1 + nom / 2) ** 2 - 1
+
+      yanlis = {"a": nom / 2, "b": nom, "c": nom / 4, "d": 1 - 1 / (1 + nom / 2) ** 2}
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve borçlanma araçları
+  konu: ZDP
+  kazanim: sıfır kuponlu tahvilde vadeye kadar getiri
+  tip: hesaplama
+  zorluk: 2
+  kok: Nominal değeri 1.000 TL olan, vadesine 2 yıl kalmış sıfır kuponlu bir tahvil bugün 640 TL'den satılmaktadır. Tahvilin
+    vadeye kadar yıllık bileşik getirisi yüzde kaçtır?
+  secenekler:
+    A: '%12,50'
+    B: '%25,00'
+    C: '%28,12'
+    D: '%36,00'
+    E: '%56,25'
+  dogru: B
+  aciklama:
+    dogru_neden: Fiyat = Nominal / (1 + y)^n → (1 + y)² = 1.000 / 640 = 1,5625 → 1 + y = 1,25 → y = %25.
+    celdiriciler:
+      A: Doğru yıllık getiri yarıya bölünmüş; bileşik getiri dönem sayısına bölünerek bulunmaz.
+      C: Toplam getiri dönem sayısına bölünerek basit yıllık getiri bulunmuş; soruda bileşik getiri istenmektedir.
+      D: Bu oran iskonto oranıdır (nominalden indirim), getiri oranı değildir.
+      E: Bu, iki yıllık toplam getiridir; yıllığa çevrilmemiştir.
+    hesap_adimlari:
+    - (Nominal/Fiyat)^(1/n) − 1
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — sıfır kuponlu tahvilde vadeye kadar getiri
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'nom, n, fiyat = 1000, 2, 640
+
+      sonuc = (nom / fiyat) ** (1 / n) - 1
+
+      yanlis = {"a": (nom - fiyat) / fiyat / n, "b": nom / fiyat - 1, "c": (nom - fiyat) / nom, "d": (sonuc) / n}
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve borçlanma araçları
+  konu: ZDP
+  kazanim: eşit anapara ödemeli kredide toplam faiz
+  tip: hesaplama
+  zorluk: 2
+  kok: 600.000 TL tutarındaki kredi, yıllık %20 faizle ve 3 yılda eşit anapara ödemeleriyle (her yıl sonu anapara + o yılın
+    başındaki bakiyenin faizi) geri ödenecektir. Kredinin toplam faiz yükü kaç TL'dir?
+  secenekler:
+    A: 120.000 TL
+    B: 240.000 TL
+    C: 254.505 TL
+    D: 360.000 TL
+    E: 436.800 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Yıllık anapara ödemesi 200.000 TL. Faizler: 1. yıl 120.000, 2. yıl 80.000, 3. yıl 40.000 TL. Toplam faiz
+      = 240.000 TL.'
+    celdiriciler:
+      A: Yalnızca ilk yılın faizidir; bakiye azaldıkça faiz de azalır ancak üç yıl boyunca ödenir.
+      C: Eşit taksitli (anüite) kredinin toplam faizidir; soruda eşit anapara ödemesi vardır.
+      D: Faiz her yıl ilk anaparaya uygulanmış; anapara ödendikçe bakiye azalır.
+      E: Bileşik faiz birikimi hesaplanmış; kredi yıllık ödemelerle azalan bakiye üzerinden faizlendirilir.
+    hesap_adimlari:
+    - Bakiye × faiz oranı yıl yıl toplanır
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — eşit anapara ödemeli kredide toplam faiz
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'kredi, faiz, n = 600000, 0.20, 3
+
+      ap = kredi / n
+
+      sonuc = sum((kredi - ap * i) * faiz for i in range(n))
+
+      pmt = kredi * faiz / (1 - (1 + faiz) ** -n)
+
+      yanlis = {"a": kredi * faiz, "b": pmt * n - kredi, "c": kredi * faiz * n, "d": kredi * ((1 + faiz) ** n - 1)}
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve borçlanma araçları
+  konu: ZDP
+  kazanim: dönem başı ödemeli annüitenin gelecek değeri
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir yatırımcı her yılın başında 1.000 TL yatırmakta ve yıllık %10 getiri elde etmektedir. 3 yıl sonunda hesaptaki tutar
+    kaç TL olur?
+  secenekler:
+    A: 2.487 TL
+    B: 3.000 TL
+    C: 3.310 TL
+    D: 3.641 TL
+    E: 4.641 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Dönem başı ödemelerde her ödeme bir dönem daha faiz kazanır: GD = A × [((1 + r)ⁿ − 1)/r] × (1 + r) = 1.000
+      × 3,31 × 1,1 = 3.641 TL.'
+    celdiriciler:
+      A: Bu, dönem sonu ödemeli annüitenin bugünkü değeridir; soruda gelecek değer istenmektedir.
+      B: Faiz hiç eklenmeden ödemeler toplanmış.
+      C: Dönem sonu ödemeli annüitenin gelecek değeridir; ödemeler dönem başında olduğundan bir dönem daha faiz işler.
+      E: Bir dönem fazla bileşikleme yapılmış (n+1 dönem); dönem başı annüite için sonuç sadece (1 + r) ile çarpılır.
+    hesap_adimlari:
+    - Dönem başı = dönem sonu × (1 + r)
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — dönem başı ödemeli annüitenin gelecek değeri
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'a, r, n = 1000, 0.10, 3
+
+      sonuc = a * ((1 + r) ** n - 1) / r * (1 + r)
+
+      yanlis = {"a": a * ((1 + r) ** n - 1) / r, "b": a * n, "c": a * ((1 + r) ** (n + 1) - 1) / r, "d": a * (1 - (1 + r)
+      ** -n) / r}
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve borçlanma araçları
+  konu: ZDP
+  kazanim: sonsuz süreli imtiyazlı pay değeri
+  tip: hesaplama
+  zorluk: 1
+  kok: Yıllık sabit 6 TL kâr payı ödeyen bir imtiyazlı payın yatırımcı için gerekli getirisi %12'dir. Payın teorik değeri
+    kaç TL'dir?
+  secenekler:
+    A: 25 TL
+    B: 50 TL
+    C: 56 TL
+    D: 72 TL
+    E: 100 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Sabit ve süresiz kâr payı bir sonsuz anüitedir: değer = D / r = 6 / %12 = 50 TL.'
+    celdiriciler:
+      A: Getiri iki ile çarpılmış (paydada 2r); bu işlemin dayanağı yoktur.
+      C: Büyüme olmayan bir sabit kâr payına büyüme faktörü eklenmiş; sonraki yıl kâr payı da aynıdır.
+      D: Kâr payı yıllık getiriyle değil 12 ile çarpılmış; sonsuz seri iskonto edilerek değerlenir.
+      E: Kâr payı verimi yerine alakasız %6'lık oran kullanılmış; gerekli getiri %12'dir.
+    hesap_adimlari:
+    - 'Sabit kâr payı: V = D/r'
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — sonsuz süreli imtiyazlı pay değeri
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'd, r = 6, 0.12
+
+      sonuc = d / r
+
+      yanlis = {"a": d / (r * 2), "b": d * (1 + r) / r, "c": d / 0.06, "d": d * 12}
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Paranın zaman değeri ve borçlanma araçları
+  konu: ZDP
+  kazanim: vergi sonrası reel getiri (Fisher)
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir yatırımcı, 1.000.000 TL'yi yıllık %32 nominal faizle borç vermiştir. Faiz geliri %20 oranında vergilendirilmekte,
+    yıllık enflasyon %20 olmaktadır. Yatırımcının ana parasının satın alma gücü açısından vergi sonrası yıllık reel getirisi
+    yüzde kaçtır?
+  secenekler:
+    A: '%4,67'
+    B: '%5,60'
+    C: '%8,00'
+    D: '%10,00'
+    E: '%12,00'
+  dogru: A
+  aciklama:
+    dogru_neden: 'Vergi sonrası nominal getiri = %32 × (1 − %20) = %25,6. Fisher: reel = (1 + %25,6) / (1 + %20) − 1 = %4,67.
+      Püf noktaları: (1) Vergi, nominal faiz gelirine uygulanır (enflasyon kazancı da vergilenir); (2) farkı değil oranı kullanın;
+      (3) anapara tutarı sonucu etkilemez.'
+    celdiriciler:
+      B: Vergi dikkate alınmış ama reel getiri farkla bulunmuş; Fisher bağıntısı bölme gerektirir.
+      C: Vergi reel getiriye uygulanmış; vergi nominal faiz gelirine uygulanır, reel getiri vergilendirilmez.
+      D: Vergi öncesi Fisher oranıdır; faiz gelirinin vergilendirilmesi yok sayılmış.
+      E: Basit fark alınmış ve vergi hiç dikkate alınmamış.
+    hesap_adimlari:
+    - Vergi sonrası nominal getiri
+    - Fisher bölmesi
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — vergi sonrası reel getiri (Fisher)
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'kredi, nom, t, enf = 1000000, 0.32, 0.20, 0.20
+
+      vs = nom * (1 - t)
+
+      sonuc = (1 + vs) / (1 + enf) - 1
+
+      yanlis = {"a": nom - enf, "b": (1 + nom) / (1 + enf) - 1, "c": vs - enf, "d": ((1 + nom) / (1 + enf) - 1) * (1 - t)}
+
+      '

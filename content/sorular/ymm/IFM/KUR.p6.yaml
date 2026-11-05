@@ -1,0 +1,156 @@
+- id: YMM-IFM-KUR-0033
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Kur değişimi ve yabancı para işlemleri
+  konu: KUR
+  kazanim: yabancı para cinsinden yeniden değerlenen parasal olmayan kalemler
+  tip: hesaplama
+  zorluk: 2
+  kok: Geçerli ve sunum para birimi TL olan Ada Turizm AŞ, 1.4.2026'da bir arsayı 200.000 avro bedelle satın almış ve bedeli
+    aynı gün ödemiştir (1 avro = 40 TL). Şirket arsalara TMS 16'daki yeniden değerleme modelini uygulamakta olup arsanın 31.12.2026'daki
+    gerçeğe uygun değeri 215.000 avrodur (1 avro = 46 TL). Daha önce arsa için yeniden değerleme veya değer düşüklüğü yapılmamıştır;
+    vergi etkileri dikkate alınmayacaktır. Ada Turizm AŞ'nin 2026 yılında diğer kapsamlı gelirde muhasebeleştireceği yeniden
+    değerleme artışı kaç TL'dir?
+  secenekler:
+    A: 690.000 TL
+    B: 1.200.000 TL
+    C: 1.290.000 TL
+    D: 1.890.000 TL
+    E: 2.490.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: Yeniden değerlenmiş parasal olmayan kalem, değerlemenin yapıldığı tarihteki kurla çevrilir ve kurdan kaynaklanan
+      kısım da dahil olmak üzere kazanç diğer kapsamlı gelirde muhasebeleştirilir (par. 23(c), 30, 31). Yeniden değerlenmiş
+      tutar 215.000 x 46 = 9.890.000 TL; maliyet 200.000 x 40 = 8.000.000 TL; artış 1.890.000 TL ve tamamı diğer kapsamlı
+      gelirdedir (kâr veya zarara etki yoktur).
+    celdiriciler:
+      A: Yalnızca avro cinsinden artışın (15.000) kapanış kuruyla çevrilmesidir; maliyetin kurundan doğan fark unutulmuştur.
+      B: Yalnızca maliyet üzerindeki kur farkıdır (200.000 x 6); avro cinsinden değer artışı eklenmemiştir.
+      C: Yeni gerçeğe uygun değer (215.000), kur değişimiyle (6 TL) çarpılmıştır; artış tarihi maliyet kuruyla doğru ayrıştırılmamıştır.
+      E: Kur farkı bileşeni iki kez sayılmıştır.
+    hesap_adimlari:
+    - 'Yeniden değerlenmiş tutar: 215.000 x 46 = 9.890.000'
+    - 'Maliyet: 200.000 x 40 = 8.000.000'
+    - 'Artış (diğer kapsamlı gelir): 1.890.000'
+  kaynaklar:
+  - mevzuat: TMS 21 Kur Değişiminin Etkileri
+    madde: par. 31
+    alinti: Böyle bir aktifin yabancı para cinsinden olması durumunda, bu Standardın 23(c) paragrafı uyarınca, yeniden değerlenmiş
+      tutar değerlemenin yapıldığı tarihteki kurdan çevrilir ve oluşan kur farkı diğer kapsamlı gelirde muhasebeleştirilir.
+  gecerlilik:
+    baslangic: '2019-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 215000 * 46 - 200000 * 40
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim IFM_KUR_20261105_1.yaml, satır None
+- id: YMM-IFM-KUR-0034
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: IFM
+  unite: Kur değişimi ve yabancı para işlemleri
+  konu: KUR
+  kazanim: takas edilebilirlik
+  tip: kavrama
+  zorluk: 3
+  kok: TMS 21'in bir para biriminin başka bir para birimiyle takas edilebilirliğine ilişkin hükümleri bakımından aşağıdaki
+    ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Takas edilebilirlik değerlendirilirken yalnızca, takas işleminin icra edilebilir hak ve yükümlülükler doğurduğu piyasalar
+      veya takas mekanizmaları dikkate alınır.
+    B: Bir amaç için takas edilemeyen para birimi diğer tüm amaçlar için de takas edilemez sayılır; geçerli kur tahmininde
+      başka amaca ilişkin gözlemlenebilir kur kullanılamaz.
+    C: Belirlenen bir amaç için ölçüm tarihinde elde edilebilecek diğer para birimi önemsiz bir tutardaysa, ilgili para birimi
+      başka bir para birimiyle takas edilebilir nitelikte değildir.
+    D: Para biriminin ölçüm tarihinde başka bir para birimiyle takas edilebilir olmaması durumunda işletme, o tarihteki geçerli
+      kuru tahmin eder.
+    E: İşletme takas edilebilirliği ölçüm tarihinde ve belirlenen bir amaç için değerlendirir.
+  dogru: B
+  aciklama:
+    dogru_neden: 'TMS 21 Ek A, bir amaç için takas edilemeyen para biriminin başka bir amaç için takas edilebilir olabileceğini
+      ve bu durumda başka bir amaca ilişkin gözlemlenebilir kurun, geçerli kur tahmini amacını karşılaması koşuluyla tahmini
+      geçerli kur olarak kullanılabileceğini belirtir (A13). B şıkkı bu nedenle yanlıştır. Püf noktaları: (1) Takas edilebilirlik
+      amaç bazında ayrı ayrı değerlendirilir (A9). (2) Gözlemlenebilir kurun kullanılabilmesi için kurun tahmin amacını karşılaması
+      gerekir (A14); ''hiçbir koşulda'' ve ''diğer tüm amaçlar'' ifadeleri mutlaklaştırmadır. (3) Standart yürürlüğü 1.1.2025
+      ve sonrası dönemlerdir (par. 60L).'
+    celdiriciler:
+      A: Ek A par. A5'e uygun doğru ifadedir.
+      C: Par. 8B'ye uygun doğru ifadedir.
+      D: Par. 19A'ya uygun doğru ifadedir.
+      E: Par. 8A'ya uygun doğru ifadedir.
+  kaynaklar:
+  - mevzuat: TMS 21 Kur Değişiminin Etkileri
+    madde: Ek A par. A13
+    alinti: Bir amaç için başka bir para birimiyle takas edilemeyen bir para birimi, başka bir amaç için o para birimiyle
+      takas edilebilir nitelikte olabilir.
+  - mevzuat: TMS 21 Kur Değişiminin Etkileri
+    madde: par. 8B
+    alinti: İşletmenin belirlenen bir amaç için ölçüm tarihinde elde edebileceği diğer para birimi önemsiz bir tutardaysa,
+      ilgili para birimi başka bir para birimiyle takas edilebilir nitelikte değildir.
+  - mevzuat: TMS 21 Kur Değişiminin Etkileri
+    madde: Ek A par. A5
+    alinti: İşletme, bir para biriminin başka bir para birimiyle takas edilebilir olup olmadığını değerlendirirken yalnızca,
+      takas işleminin icra edilebilir hak ve yükümlülükler doğurduğu piyasaları veya takas mekanizmalarını dikkate alır.
+  gecerlilik:
+    baslangic: '2025-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim IFM_KUR_20261105_1.yaml, satır None

@@ -1890,3 +1890,332 @@
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim FYN_PIY_20261102_1.yaml, klasik 10
+- id: YMM-FYN-PIY-K015
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - 'opsiyon stratejileri: koruyucu put, kapalı call ve tünel (collar)'
+  - opsiyon getiri (payoff) tabloları ve başabaş noktaları
+  - türev ürünle portföy koruma
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Bir portföy yöneticisi, Yıldız Madencilik A.Ş.''nin 100.000 adet payını elinde tutmaktadır. Pay fiyatı bugün 100
+    TL''dir. Yönetici, 1 yıl vadeli Avrupa tipi aşağıdaki pay opsiyonlarını kullanarak portföyü korumayı düşünmektedir (opsiyon
+    başına bir pay; primler pay başına TL, vergi ve işlem maliyetleri yok sayılacaktır; faiz dikkate alınmayacaktır):
+
+
+    | Opsiyon | Kullanım fiyatı (TL) | Prim (TL) |
+
+    |---|---|---|
+
+    | Satım (put) | 90 | 4 |
+
+    | Alım (call) | 120 | 4 |
+
+
+    Vade tarihinde payın piyasa fiyatı için beş olası değer öngörülmektedir: 70, 90, 100, 120 ve 150 TL.
+
+
+    **İstenenler:**
+
+
+    (a) **Tünel (collar) stratejisi** için (payı tut, 90 TL kullanım fiyatlı put al, 120 TL kullanım fiyatlı call yaz) net
+    prim giderini ve beş fiyat için pay başına vade değerini (opsiyon sonuçları ve net prim dahil) tablo hâlinde hesaplayınız.
+    (7 puan)
+
+
+    (b) Tünelin pay başına en düşük ve en yüksek vade değerini bulunuz; hiçbir koruma yapılmaması durumundaki değerle karşılaştırarak
+    yönetici için üstlenilen fedakârlığı açıklayınız. (6 puan)
+
+
+    (c) Yalnızca put alarak (**koruyucu put**) elde edilen pay başına vade değerini beş fiyat için hesaplayınız; en düşük
+    değeri ve başabaş fiyatını (payı bugünkü değerinde tutan fiyat) bulunuz. (6 puan)
+
+
+    (d) Yalnızca call yazarak (**kapalı call**) elde edilen pay başına vade değerini beş fiyat için hesaplayınız ve bu stratejinin,
+    fiyat düşüşüne karşı koruma sağlamadığını gösteriniz. Üç stratejiyi (hiçbiri, tünel, koruyucu put) toplam portföy düzeyinde
+    (en kötü sonuç için) karşılaştırınız. (6 puan)
+
+    '
+  cozum: '**(a) Tünel stratejisi**
+
+
+    Net prim gideri = ödenen put primi − alınan call primi = 4 − 4 = **0 TL** (sıfır maliyetli tünel).
+
+
+    Vade değeri (pay başına) = Pay fiyatı + max(90 − S; 0) − max(S − 120; 0) − net prim
+
+
+    | Vade fiyatı (S) | Put getirisi | Yazılan call''un zararı | Tünel vade değeri |
+
+    |---|---|---|---|
+
+    | 70 | 20 | 0 | 90 |
+
+    | 90 | 0 | 0 | 90 |
+
+    | 100 | 0 | 0 | 100 |
+
+    | 120 | 0 | 0 | 120 |
+
+    | 150 | 0 | 30 | 120 |
+
+
+    **(b) Sınırlar**
+
+
+    Tünelde pay başına değer her koşulda 90 TL ile 120 TL arasında kalır: en düşük **90 TL** (toplam 9.000.000 TL; bugünkü
+    100 TL''ye göre değer kaybı en çok %10), en yüksek **120 TL**. Korumasız portföyde en düşük değer 70 TL''dir (toplam 7.000.000
+    TL), üst sınır yoktur. Yönetici, fiyat düşüşünde 90 TL''nin altındaki kaybı sigortalayarak karşılığında fiyatın 120 TL''nin
+    üzerindeki yükselişinden vazgeçmiştir; bu fedakârlık, put priminin call primiyle karşılanmasını sağlar.
+
+
+    **(c) Koruyucu put**
+
+
+    Vade değeri = S + max(90 − S; 0) − 4
+
+
+    | S | 70 | 90 | 100 | 120 | 150 |
+
+    |---|---|---|---|---|---|
+
+    | Değer | 86 | 86 | 96 | 116 | 146 |
+
+
+    En düşük değer = 90 − 4 = **86 TL** (toplam 8.600.000 TL). Başabaş fiyatı: S − 4 = 100 → **104 TL**; fiyat bu düzeyin
+    altındaysa strateji, payı bugünkü değerinde tutmaya göre zarar ettirir (put''un primi yüzünden).
+
+
+    **(d) Kapalı call ve karşılaştırma**
+
+
+    Vade değeri = S − max(S − 120; 0) + 4
+
+
+    | S | 70 | 90 | 100 | 120 | 150 |
+
+    |---|---|---|---|---|---|
+
+    | Değer | 74 | 94 | 104 | 124 | 124 |
+
+
+    Fiyat 70 TL''ye düştüğünde değer yalnız 4 TL''lik primle desteklenir (74 TL); kapalı call fiyat düşüşünü yalnızca prim
+    kadar yastıklar, gerçek bir koruma sağlamaz.
+
+
+    En kötü sonuç (toplam, TL): korumasız 7.000.000; kapalı call 7.400.000; koruyucu put 8.600.000; tünel 9.000.000. Koruyucu
+    put ve tünel en kötü sonucu 90 TL civarında sabitler; tünel, daha az maliyetli olduğu için yükseliş potansiyelini 120
+    TL ile sınırlar.
+
+    '
+  puanlama:
+  - olcut: (a) Net prim
+    puan: 1
+  - olcut: (a) Beş fiyat için tünel vade değerleri
+    puan: 6
+  - olcut: (b) Tünel alt ve üst sınırları
+    puan: 3
+  - olcut: (b) Korumasız durumla karşılaştırma ve fedakârlığın açıklanması
+    puan: 3
+  - olcut: (c) Koruyucu put değer tablosu
+    puan: 3
+  - olcut: (c) En düşük değer ve başabaş fiyatı
+    puan: 3
+  - olcut: (d) Kapalı call değer tablosu
+    puan: 3
+  - olcut: (d) Koruma sağlamadığının gösterilmesi ve üç strateji karşılaştırması
+    puan: 3
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "adet = 100000\ns0 = 100\nkp = 90\npp = 4\nkc = 120\npc = 4\nfiyatlar = [70, 90, 100, 120, 150]\nf0, f1, f2, f3,\
+      \ f4 = fiyatlar\nnet_prim = pp - pc\ndef put_(s): return max(kp - s, 0)\ndef call_(s): return max(s - kc, 0)\ntunel\
+      \ = [s + put_(s) - call_(s) - net_prim for s in fiyatlar]\nkoruyucu = [s + put_(s) - pp for s in fiyatlar]\nkapali =\
+      \ [s - call_(s) + pc for s in fiyatlar]\nkorumasiz = list(fiyatlar)\nt_min = min(tunel)\nt_max = max(tunel)\nk_min =\
+      \ min(koruyucu)\nkapali_min = min(kapali)\nbasabas_koruyucu = s0 + pp\ntunel_toplam_min = t_min * adet\nkor_toplam_min\
+      \ = k_min * adet\nkorumasiz_min = min(korumasiz) * adet\nkapali_toplam_min = kapali_min * adet\ntunel_kayip_enyuksek\
+      \ = (s0 - t_min) / s0\nsonuc = {\"net_prim\": net_prim, \"tunel\": tunel, \"t_min\": t_min, \"t_max\": t_max, \"koruyucu\"\
+      : koruyucu, \"k_min\": k_min,\n         \"basabas_koruyucu\": basabas_koruyucu, \"kapali\": kapali, \"kapali_min\":\
+      \ kapali_min,\n         \"tunel_toplam_min\": tunel_toplam_min, \"kor_toplam_min\": kor_toplam_min, \"korumasiz_min\"\
+      : korumasiz_min,\n         \"kapali_toplam_min\": kapali_toplam_min}\n"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_PIY_20261105_1.yaml, klasik 1
+- id: YMM-FYN-PIY-K016
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - kapalı faiz paritesi ve vadeli kur
+  - kur arbitrajı
+  - vadeli faiz sözleşmesi (FRA) ile faiz riskinden korunma
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Bir bankanın hazine masasında çalışan analist aşağıdaki piyasa verilerini incelemektedir (alış-satış farkı ve işlem
+    maliyetleri yok sayılacak, faizler basit ve yıllıktır):
+
+
+    | Veri | Değer |
+
+    |---|---|
+
+    | Spot kur (USD/TL) | 40 |
+
+    | 1 yıllık TL faiz oranı | %26 |
+
+    | 1 yıllık USD faiz oranı | %5 |
+
+    | Piyasada kote edilen 1 yıllık vadeli kur | 49 |
+
+
+    Aynı bankanın müşterisi Ege Tekstil A.Ş., 6 ay sonra başlayacak 6 aylık (180 gün; 1 yıl = 360 gün) dönem için 10.000.000
+    TL kredi kullanacaktır ve kredi faizi dönem sonunda ödenecektir. Şirket, faiz riskinden korunmak için %30 oranlı FRA (6×12)
+    sözleşmesinin alıcısı olmuştur.
+
+
+    **İstenenler:**
+
+
+    (a) Kapalı faiz paritesine göre 1 yıllık teorik vadeli kuru hesaplayınız. (4 puan)
+
+
+    (b) Kote edilen vadeli kuru dikkate alarak bir arbitraj stratejisi kurunuz: 40.000.000 TL borçlanarak (TL borç faizi yukarıdaki
+    oran) vade sonundaki TL ve USD pozisyonlarını gösterip arbitraj kazancını TL olarak hesaplayınız. (9 puan)
+
+
+    (c) FRA''nın uzlaşma gününde (6. ay sonu) 6 aylık referans faiz oranı yıllık %50 olarak gerçekleşmiştir. FRA uzlaşma tutarını
+    (vadeli faiz uzlaşmasında tutar, dönem başında iskonto edilerek ödenir) ve kimin kimden alacağını hesaplayınız; şirketin
+    kredisi için etkin faiz oranını (yıllık, basit) bulunuz. (8 puan)
+
+
+    (d) Arbitraj fırsatı sürerse piyasada spot ve vadeli kurun hangi yönde değişmesi beklenir? Kısaca açıklayınız. (4 puan)
+
+    '
+  cozum: '**(a) Teorik vadeli kur**
+
+
+    F = S × (1 + TL faizi) / (1 + USD faizi) = 40 × (1 + %26) / (1 + %5) = **48 TL/USD**.
+
+
+    **(b) Arbitraj**
+
+
+    Kote edilen vadeli kur (49) teorik değerden (48) yüksektir; yani vadeli USD pahalıdır → vadeli USD **satılır**, spot USD
+    alınır.
+
+
+    | Adım | Bugün | 1 yıl sonra |
+
+    |---|---|---|
+
+    | 1. TL borçlan | +40.000.000 TL | −50.400.000 TL (anapara + %26 faiz) |
+
+    | 2. Spot kurdan USD al (40) | −40.000.000 TL → +1.000.000 USD | — |
+
+    | 3. USD''yi %5 ile mevduata yatır | — | +1.050.000 USD |
+
+    | 4. Vadeli kurdan (49) 1 yıl sonrası için USD sat | — | −1.050.000 USD → +51.450.000 TL |
+
+
+    Net sonuç: Bugün net nakit akımı sıfır; vadede 51.450.000 − 50.400.000 = **1.050.000 TL** kesin kazanç. Kontrol: (49 −
+    48) × 1.050.000 USD = 1.050.000 TL.
+
+
+    **(c) FRA**
+
+
+    Dönem t = 180 / 360 = 0,5 yıl. Referans oran (%50) FRA oranından (%30) yüksek olduğundan FRA alıcısı (borçlanan Ege Tekstil)
+    kazanç elde eder; satıcı banka öder.
+
+
+    Uzlaşma = 10.000.000 × (%50 − %30) × 0,5 / (1 + %50 × 0,5) = 1.000.000 / 1,25 = **800.000 TL** (dönem başında, banka şirkete
+    öder).
+
+
+    Şirket bu tutarı kredi vadesine kadar referans oranla değerlendirirse vade sonunda 800.000 × 1,25 = 1.000.000 TL elde
+    eder.
+
+
+    Kredi faizi = 10.000.000 × %50 × 0,5 = 2.500.000 TL; net faiz = 2.500.000 − 1.000.000 = 1.500.000 TL → etkin faiz = 1.500.000
+    / 10.000.000 / 0,5 = **%30** (= FRA oranı; şirket faiz riskinden tamamen korunmuştur).
+
+
+    **(d) Fiyat baskısı**
+
+
+    Arbitrajcılar vadeli USD satacakları ve spot USD alacakları için vadeli kur düşer, spot kur yükselir; kote vadeli kur,
+    teorik değer olan 48 TL''ye yaklaşır ve fırsat ortadan kalkar. Ayrıca TL borçlanma talebi ile USD mevduat arzı faiz oranlarını
+    da yaklaştırır.
+
+    '
+  puanlama:
+  - olcut: (a) Teorik vadeli kur
+    puan: 4
+  - olcut: (b) Arbitraj yönünün belirlenmesi (vadeli USD sat)
+    puan: 2
+  - olcut: (b) Adımların ve pozisyonların doğru kurulması
+    puan: 4
+  - olcut: (b) Arbitraj kazancı
+    puan: 3
+  - olcut: (c) FRA uzlaşma tutarı ve tarafı
+    puan: 4
+  - olcut: (c) Etkin faiz oranı
+    puan: 4
+  - olcut: (d) Spot ve vadeli kurun yönü
+    puan: 3
+  - olcut: (d) Fırsatın ortadan kalkması
+    puan: 1
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "spot = 40\nftl = 0.26\nfusd = 0.05\nkote = 49\ntl_borc = 40000000\nana = 10000000\nfra = 0.30\nref = 0.50\ngun\
+      \ = 180\nteorik = spot * (1 + ftl) / (1 + fusd)\nusd_alinan = tl_borc / spot\nusd_vade = usd_alinan * (1 + fusd)\ntl_satis\
+      \ = usd_vade * kote\ntl_geri = tl_borc * (1 + ftl)\narbitraj = tl_satis - tl_geri\narbitraj_kontrol = (kote - teorik)\
+      \ * usd_vade\nt = gun / 360\nfark = (ref - fra) * t * ana\nuzlasma = fark / (1 + ref * t)\nkredi_faiz = ana * ref *\
+      \ t\nuzlasma_vade = uzlasma * (1 + ref * t)\nnet_faiz = kredi_faiz - uzlasma_vade\netkin = net_faiz / ana / t\nsonuc\
+      \ = {\"teorik\": teorik, \"usd_alinan\": usd_alinan, \"usd_vade\": usd_vade, \"tl_satis\": tl_satis, \"tl_geri\": tl_geri,\n\
+      \         \"arbitraj\": arbitraj, \"uzlasma\": uzlasma, \"kredi_faiz\": kredi_faiz, \"uzlasma_vade\": uzlasma_vade,\
+      \ \"net_faiz\": net_faiz, \"etkin\": etkin}\n"
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_PIY_20261105_1.yaml, klasik 2

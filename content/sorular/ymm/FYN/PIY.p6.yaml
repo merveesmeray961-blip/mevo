@@ -1,0 +1,458 @@
+- id: YMM-FYN-PIY-0016
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal piyasalar ve türev ürünler
+  konu: PIY
+  kazanim: açığa satılan alım opsiyonu sonucu
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir yatırımcı, kullanım fiyatı 80 TL olan Avrupa tipi bir alım opsiyonunu 6 TL prim alarak yazmıştır (satmıştır). Vade
+    sonunda dayanak varlığın fiyatı 95 TL olursa yatırımcının opsiyon pozisyonundan elde ettiği net kâr (+) veya zarar (−)
+    kaç TL'dir (opsiyon bir birim dayanak varlığa ilişkindir)?
+  secenekler:
+    A: '-21'
+    B: '-15'
+    C: '-9'
+    D: '6'
+    E: '9'
+  dogru: C
+  aciklama:
+    dogru_neden: Opsiyon yazan, primi tahsil eder; alıcı opsiyonu kullandığı için S − K = 15 TL öder. Net sonuç = 6 − 15 =
+      -9 TL.
+    celdiriciler:
+      A: Prim, ödenen tutara eklenmiş; prim yazan açısından gelirdir ve zararı azaltır.
+      B: Alınan prim hesaba katılmamış.
+      D: Opsiyon kullanıldığı için sadece primi cebe atma varsayılmış; alıcı fiyat kullanım fiyatının üzerindedir ve opsiyonu
+        kullanır.
+      E: İşaret ters çevrilmiş; bu, alım opsiyonunu satın alan tarafın sonucudur.
+    hesap_adimlari:
+    - 'Yazan: prim − max(S − K, 0)'
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — açığa satılan alım opsiyonu sonucu
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'k, prim, s = 80, 6, 95
+
+      sonuc = prim - max(s - k, 0)
+
+      yanlis = {"a": -(s - k + prim), "b": -(s - k), "c": prim, "d": -sonuc}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_PIY_20261105_1.yaml, satır None
+- id: YMM-FYN-PIY-0017
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal piyasalar ve türev ürünler
+  konu: PIY
+  kazanim: vadeli işlemlerde teminat tamamlama çağrısı
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir yatırımcı, her biri 100 birimlik 5 adet vadeli işlem sözleşmesi almıştır (uzun pozisyon) ve sözleşme başına 4.000
+    TL başlangıç teminatı yatırmıştır. Sözleşme başına koruma (idame) teminatı 3.000 TL'dir. Alış fiyatı birim başına 200
+    TL iken ardışık iki gün sonunda uzlaşma fiyatları 192 TL ve 188 TL olmuştur. Teminat hesabı koruma düzeyinin altına düşerse
+    başlangıç düzeyine tamamlanması istenmektedir. İkinci günün sonunda yatırılması istenen ilave teminat kaç TL'dir? (Sözleşmeler
+    hesabın tamamı üzerinden değerlenir, faiz gelirleri yoksayılır.)
+  secenekler:
+    A: '1.000'
+    B: '2.000'
+    C: '4.000'
+    D: '6.000'
+    E: '8.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Başlangıç hesabı = 4.000 × 5 = 20.000 TL; koruma düzeyi 15.000 TL. 1. gün kaybı = (200 − 192) × 100 × 5
+      = 4.000 TL → hesap 16.000 TL (koruma düzeyinin üstünde, çağrı yok). 2. gün kaybı = (192 − 188) × 100 × 5 = 2.000 TL
+      → hesap 14.000 TL < 15.000 TL → başlangıç düzeyine tamamlama: 20.000 − 14.000 = 6.000 TL. Püf noktaları: (1) çağrı eşiği
+      koruma düzeyidir, ama tamamlama başlangıç düzeyine yapılır; (2) tüm sözleşmelerin toplamı alınır; (3) ilk gün çağrı
+      olmadığı için kayıp birikir.'
+    celdiriciler:
+      A: Koruma düzeyine tamamlanmış; teminat çağrısında hesap başlangıç düzeyine getirilir.
+      B: Yalnızca ikinci günün kaybıdır; hesabın birikmiş bakiyesi dikkate alınmamıştır.
+      C: Yalnızca ilk günün kaybıdır; ilk gün çağrı yoktur ve ikinci günün kaybı hesaba katılmamıştır.
+      E: Sözleşme başına başlangıç teminatı gün sayısıyla çarpılmış; tamamlama tutarı hesap bakiyesindeki eksiklikle belirlenir.
+    hesap_adimlari:
+    - Eşik koruma, tamamlama başlangıç
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — vadeli işlemlerde teminat tamamlama çağrısı
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'b, adet, ilk, idame = 100, 5, 4000, 3000
+
+      f0, f1, f2 = 200, 192, 188
+
+      hesap0 = ilk * adet
+
+      hesap1 = hesap0 + (f1 - f0) * b * adet
+
+      cagri1 = (ilk * adet - hesap1) if hesap1 < idame * adet else 0
+
+      hesap1b = hesap1 + cagri1
+
+      hesap2 = hesap1b + (f2 - f1) * b * adet
+
+      sonuc = (ilk * adet - hesap2) if hesap2 < idame * adet else 0
+
+      yanlis = {"a": idame * adet - hesap2, "b": (f1 - f2) * b * adet, "c": (f0 - f1) * b * adet, "d": 2 * ilk * 1}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_PIY_20261105_1.yaml, satır None
+- id: YMM-FYN-PIY-0018
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal piyasalar ve türev ürünler
+  konu: PIY
+  kazanim: put-call paritesi
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Aynı dayanak varlık, kullanım fiyatı ve vadeye (1 yıl) sahip Avrupa tipi opsiyonlar için: alım opsiyonu primi 12 TL,
+    dayanak varlığın spot fiyatı 70 TL, kullanım fiyatı 100 TL ve yıllık risksiz faiz %25''dir. Dayanak varlık yıl içinde
+    temettü ödememektedir. Put-call paritesine göre satım opsiyonunun (put) primi kaç TL''dir? Dayanak varlığın yıllık oynaklığı
+    %40''dır.'
+  secenekler:
+    A: '2'
+    B: '22'
+    C: '42'
+    D: '58'
+    E: '88'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Parite: C + K/(1 + r) = P + S → P = C − S + K/(1 + r) = 12 − 70 + 100/1,25 = 22 TL. Püf noktaları: (1) kullanım
+      fiyatı iskonto edilir; (2) oynaklık verisi pariteyi etkilemez; (3) işaretlere dikkat: put = call − spot + PV(K).'
+    celdiriciler:
+      A: İşaretler ters kurulmuş (C + S − PV(K)).
+      C: Kullanım fiyatı bugünkü değere çevrilmemiş.
+      D: Basit fark; paritede iskonto edilmiş kullanım fiyatı yoktur.
+      E: Kullanım fiyatından alım primi çıkarılmış; parite bu ilişkiyi kurmaz.
+    hesap_adimlari:
+    - P = C − S + K/(1+r)
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — put-call paritesi
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'c, s, k, r, vol = 12, 70, 100, 0.25, 0.40
+
+      sonuc = c - s + k / (1 + r)
+
+      yanlis = {"a": c - s + k, "b": c + s - k / (1 + r), "c": s - c, "d": k - c}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_PIY_20261105_1.yaml, satır None
+- id: YMM-FYN-PIY-0019
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal piyasalar ve türev ürünler
+  konu: PIY
+  kazanim: repo geri ödeme tutarı
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir banka, elindeki tahvili 1.000.000 TL'ye 30 gün vadeli repo ile satmaktadır. Repo faizi yıllık basit %48 olup yıl
+    360 gün kabul edilmektedir. Vade sonunda geri ödenecek tutar kaç TL'dir?
+  secenekler:
+    A: 1.004.000
+    B: 1.039.452
+    C: 1.040.000
+    D: 1.120.000
+    E: 1.480.000
+  dogru: C
+  aciklama:
+    dogru_neden: Faiz = 1.000.000 × %48 × 30/360 = 40.000 TL; geri ödeme = 1.040.000 TL.
+    celdiriciler:
+      A: Faiz oranı yanlış ölçeklenmiş (ondalık hatası).
+      B: Yıl 365 gün alınmış; soruda 360 gün kabul edilmektedir.
+      D: Yıllık faiz üçe bölünmüş (üç aylık); vade 30 gündür.
+      E: Tam yıllık faiz uygulanmış; vade 30 gündür.
+    hesap_adimlari:
+    - Basit faiz × gün/360
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — repo geri ödeme tutarı
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'tutar, gun, faiz = 1000000, 30, 0.48
+
+      sonuc = tutar * (1 + faiz * gun / 360)
+
+      yanlis = {"a": tutar * (1 + faiz * gun / 365), "b": tutar * (1 + faiz / 4), "c": tutar * (1 + faiz / 12 * 0.1), "d":
+      tutar * (1 + faiz)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_PIY_20261105_1.yaml, satır None
+- id: YMM-FYN-PIY-0020
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal piyasalar ve türev ürünler
+  konu: PIY
+  kazanim: FRA uzlaşma tutarı
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir şirket 180 gün (3x9 FRA) vadeli sözleşmede sabit oran %30 üzerinden alıcı konumundadır. Nominal tutar 10.000.000
+    TL, yıl 360 gün kabul edilir. Uzlaşma tarihinde referans faiz %40 olarak belirlenmiş ve uzlaşma tutarı dönem başında,
+    fark iskonto edilerek ödenmektedir. Şirketin tahsil edeceği uzlaşma tutarı kaç TL'dir? (Şirketin mevcut kredisinin faizi
+    %35 olup uzlaşma tutarına etkisi yoktur.)
+  secenekler:
+    A: '416.667'
+    B: '434.783'
+    C: '500.000'
+    D: '833.333'
+    E: 1.000.000
+  dogru: A
+  aciklama:
+    dogru_neden: 'FRA alıcısı referans oran FRA oranından yüksekse alacaklıdır. Uzlaşma = N × (R_ref − R_FRA) × (gün/360)
+      / (1 + R_ref × gün/360) = 10.000.000 × 0,10 × 0,5 / (1 + 0,4 × 0,5) = 416.666,6667 TL. Püf noktaları: (1) iskonto referans
+      oranla yapılır; (2) gün sayısı 360''a bölünür; (3) mevcut kredi faizi uzlaşmayı etkilemez.'
+    celdiriciler:
+      B: İskonto FRA oranı ile yapılmış; iskonto referans oranla yapılmalıdır.
+      C: Dönem sonu faiz farkı iskonto edilmeden verilmiş; uzlaşma dönem başında yapıldığından iskonto gerekir.
+      D: Gün sayısı çarpanı unutulmuş; fark yıllık değil dönemlik faizdir.
+      E: Yıllık fark nominal tutarla çarpılmış; ne gün sayısı ne iskonto uygulanmıştır.
+    hesap_adimlari:
+    - N×(Rref−Rfra)×d/(1+Rref×d)
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — FRA uzlaşma tutarı
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'gun, fra, nt, ref, kr = 180, 0.30, 10000000, 0.40, 0.35
+
+      d = gun / 360
+
+      sonuc = nt * (ref - fra) * d / (1 + ref * d)
+
+      yanlis = {"a": nt * (ref - fra) * d, "b": nt * (ref - fra) * d / (1 + fra * d), "c": nt * (ref - fra) / (1 + ref * d),
+      "d": nt * (ref - fra)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_PIY_20261105_1.yaml, satır None
+- id: YMM-FYN-PIY-0021
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Finansal piyasalar ve türev ürünler
+  konu: PIY
+  kazanim: etkin piyasa hipotezi
+  tip: kavrama
+  zorluk: 2
+  kok: Zayıf formda etkin bir piyasa hakkında aşağıdaki ifadelerden hangisi **doğrudur**?
+  secenekler:
+    A: Fiyatlar şirket içi bilgileri hemen yansıttığı için içeriden bilgiyle sürekli aşırı getiri elde edilemez.
+    B: Kamuya açıklanan finansal tablo bilgilerinin fiyatlara yansıdığı, temel analizle aşırı getirinin sürekli olanaksız
+      olduğu anlamına gelir.
+    C: Fiyat değişimlerinin rassal olması, piyasa katılımcılarının irrasyonel olduğunu gösterir.
+    D: Etkin bir piyasada hisse getirilerinin önceden tam olarak tahmin edilebilir olması gerekir.
+    E: Geçmiş fiyat ve işlem hacmi bilgisine dayalı teknik analizle sürekli aşırı getiri elde edilemez.
+  dogru: E
+  aciklama:
+    dogru_neden: Zayıf formda etkinlikte geçmiş fiyat ve hacim bilgisi mevcut fiyatlara tamamen yansımıştır; bu yüzden grafik/teknik
+      analiz yoluyla sürekli aşırı getiri sağlanamaz. Yarı güçlü form kamuya açık bilgiyi, güçlü form özel bilgiyi de kapsar.
+    celdiriciler:
+      A: Bu, güçlü formdaki etkinliğin tanımıdır; zayıf form yalnızca geçmiş fiyat bilgisiyle ilgilidir.
+      B: Bu, yarı güçlü formdaki etkinliğin tanımıdır; zayıf formda kamuya açık bilgilerle aşırı getiri olanaklı olabilir.
+      C: Fiyatların rassal yürüyüş izlemesi yeni bilginin hızla fiyatlandığını gösterir; irrasyonellik anlamına gelmez.
+      D: Etkin piyasada yeni bilgi rassal geldiğinden getiriler önceden tahmin edilemez; tahmin edilebilirlik etkinsizlik
+        işaretidir.
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — etkin piyasa hipotezi
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_PIY_20261105_1.yaml, satır None

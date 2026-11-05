@@ -1,0 +1,605 @@
+yazar: harici üretici (claude, paket 2026-11-05)
+gorev: YMM paketi 2026-11-05
+klasik: []
+sorular:
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DRM
+  unite: 3568 sayılı Kanun odalar ve TÜRMOB
+  konu: MHK
+  kazanim: Oda Yönetim Kurulunun oluşumu (üye sayısına göre asıl-yedek üye sayısı)
+  tip: hesaplama
+  zorluk: 2
+  kok: Kayıtlı üye sayıları 999, 1.000, 5.000 ve 5.001 olan dört yeminli mali müşavirler odasının Yönetim Kurulu asıl üyelerinin
+    toplam sayısı kaçtır?
+  secenekler:
+    A: '26'
+    B: '28'
+    C: '30'
+    D: '36'
+    E: '56'
+  dogru: B
+  aciklama:
+    dogru_neden: '3568 sayılı Kanun md. 21''e göre üye sayısı binin altında olan odalarda 5, bin ilâ beşbin arasında olan
+      odalarda 7, beşbini aşan odalarda 9 asıl üye bulunur. 999 üyeli oda 5, 1.000 ve 5.000 üyeli odalar (iki sınır değer
+      de "bin ilâ beşbin arasında" kademesindedir) 7''şer, 5.001 üyeli oda 9 asıl üye seçer: 5 + 7 + 7 + 9 = 28.'
+    celdiriciler:
+      A: 1.000 üyeli odayı "binin altında" kademesine alıp 5 asıl üye saymak (5+5+7+9) hatasıdır; "bin ilâ beşbin arasında"
+        ifadesi 1.000'i kapsar.
+      C: 5.000 üyeli odayı "beşbini aşan" kademesine koymak (5+7+9+9) hatasıdır; 5.000 beşbini aşmaz, aşan ilk sayı 5.001'dir.
+      D: Dört odaya da en üst kademe olan 9 asıl üyeyi yazmak (4×9) kademeleri hiç dikkate almamaktır.
+      E: 56, asıl ve yedek üyelerin birlikte toplamıdır (10+14+14+18); soru yalnız asıl üyeleri sorar.
+    hesap_adimlari:
+    - 999 → 5
+    - 1.000 → 7
+    - 5.000 → 7
+    - 5.001 → 9
+    - Toplam = 5+7+7+9 = 28
+  kaynaklar:
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 21/1
+    alinti: Yönetim Kurulu, Genel Kurulca kendi üyeleri arasından üç yıl için seçilen, üye sayısı binin altında olan odalarda
+      beş asıl ve beş yedek, üye sayısı bin ilâ beşbin arasında olan odalarda yedi asıl ve yedi yedek, üye sayısı beşbini
+      aşan odalarda ise dokuz asıl ve dokuz yedek üyeden oluşur.
+  gecerlilik:
+    baslangic: '2023-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: "toplam = 0\nfor n in [999, 1000, 5000, 5001]:\n    if n < 1000:\n        a = 5\n    elif n <= 5000:\n       \
+      \ a = 7\n    else:\n        a = 9\n    toplam = toplam + a\nsonuc = toplam"
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DRM
+  unite: 3568 sayılı Kanun odalar ve TÜRMOB
+  konu: MHK
+  kazanim: Odaların kuruluşu (il merkezi ve ilçelerde sayı ve başvuru şartları)
+  tip: uygulama
+  zorluk: 2
+  kok: Yeminli mali müşavirler odasının kurulabilmesine ilişkin 3568 sayılı Kanun'daki sayı ve başvuru şartları dikkate alındığında
+    (başka bir engel bulunmadığı varsayılacaktır), aşağıdaki yerlerin hangisinde yeminli mali müşavirler odası kurulabilir?
+  secenekler:
+    A: Büyükşehir belediyesi sınırları içindeki bir ilçede, bölgesinde 300 yeminli mali müşavir bulunması
+    B: Büyükşehir sınırları dışındaki bir ilçede 260 yeminli mali müşavir bulunması ve bunlardan yalnızca 90'ının yazılı başvurusu
+    C: Bölgesinde 240 yeminli mali müşavir bulunan bir il merkezinde, tüm meslek mensuplarının oda kurulmasını istemesi
+    D: Büyükşehir sınırları dışındaki bir ilçede 250 yeminli mali müşavir bulunması ve bunlardan 100'ünün yazılı başvurusu
+    E: Büyükşehir sınırları dışındaki bir ilçede 400 yeminli mali müşavir bulunması, ancak yazılı başvurunun hiç yapılmamış
+      olması
+  dogru: D
+  aciklama:
+    dogru_neden: Kanun md. 15/1'e göre en az 250 meslek mensubu bulunan il merkezlerinde ve 250 meslek mensubu bulunan ilçelerde
+      (büyükşehir belediyesi sınırları içindeki ilçeler hariç) oda kurulur; ilçede oda kurulabilmesi için ayrıca o ilçedeki
+      en az 100 meslek mensubunun yazılı başvurusu aranır. D seçeneğinde hem sayı (250) hem başvuru (100) şartı karşılanmakta,
+      ilçe de büyükşehir sınırları dışındadır.
+    celdiriciler:
+      A: Büyükşehir belediyesi sınırları içindeki ilçeler, sayı ne olursa olsun ilçe odası kurulması bakımından kapsam dışı
+        bırakılmıştır.
+      B: İlçede oda için en az 100 meslek mensubunun yazılı başvurusu gerekir; 90 başvuru bu şartı sağlamaz.
+      C: İl merkezinde oda kurulabilmesi için bölgesinde en az 250 meslek mensubu bulunması gerekir; 240 yetersizdir.
+      E: Sayı şartı aşılmış olsa bile ilçede oda kurulması için en az 100 meslek mensubunun yazılı başvurusu şarttır; başvuru
+        yoksa oda kurulamaz.
+  kaynaklar:
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 15/1
+    alinti: Bölgesi içinde kendi mesleği konusunda en az 250 meslek mensubu bulunan il merkezlerinde ve bölgesi içinde 250
+      meslek mensubu bulunan ilçelerde (Büyükşehir belediyesi sınırları içindeki ilçeler hariç) bir oda kurulur. Ayrı ayrı
+      kurulan serbest muhasebeci mali müşavirler ve yeminli mali müşavirler odaları, bulundukları ilin veya ilçenin adıyla
+      anılır. Ancak, ilçelerde oda kurulabilmesi için o ilçedeki en az 100 meslek mensubunun yazılı başvurusu aranır.
+  gecerlilik:
+    baslangic: '2023-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DRM
+  unite: 3568 sayılı Kanun odalar ve TÜRMOB
+  konu: MHK
+  kazanim: Odaların faaliyetten men edilmesi (vali, hâkim onayı, süreler)
+  tip: kavrama
+  zorluk: 2
+  kok: Yeminli mali müşavirler odalarının faaliyetten men edilmesine ilişkin aşağıdaki öncüllerden hangileri doğrudur? I.
+    Milli güvenliğin ve kamu düzeninin gerektirdiği hallerde gecikmede sakınca varsa oda, vali tarafından faaliyetten men
+    edilebilir. II. Faaliyetten men kararı, yirmi dört saat içinde görevli hâkimin onayına sunulur. III. Hâkim kararını kırk
+    sekiz saat içinde açıklamazsa idari karar kendiliğinden yürürlükten kalkar. IV. Faaliyetten men kararı Bakanlığın onayı
+    ile kesinleşir.
+  secenekler:
+    A: Yalnız I
+    B: I ve II
+    C: II ve III
+    D: I, III ve IV
+    E: I, II ve III
+  dogru: E
+  aciklama:
+    dogru_neden: Yönetmelik md. 24'e (Kanun md. 15) göre kamu düzeninin gerektirdiği ve gecikmede sakınca bulunan hallerde
+      oda vali tarafından faaliyetten men edilebilir (I doğru); karar yirmi dört saat içinde görevli hâkimin onayına sunulur
+      (II doğru); hâkim kararını kırk sekiz saat içinde açıklamaz ise idari karar kendiliğinden yürürlükten kalkar (III doğru).
+      Onay mercii Bakanlık değil hâkimdir (IV yanlış).
+    celdiriciler:
+      A: Yalnız I demek, hâkim onayı ve kendiliğinden kalkma kurallarını (II ve III) dışarıda bırakır.
+      B: 'III de doğrudur: hâkim 48 saat içinde karar açıklamazsa men kararı kendiliğinden ortadan kalkar.'
+      C: 'I de doğrudur: faaliyetten men yetkisi, belirtilen şartlarda vali tarafındandır.'
+      D: 'IV yanlıştır: men kararının onay mercii Bakanlık değil, görevli hâkimdir; ayrıca II de doğru bir öncüldür ve seçenekte
+        yer almamıştır.'
+  kaynaklar:
+  - mevzuat: Yeminli Mali Müşavirler Odaları Yönetmeliği
+    madde: md. 24
+    alinti: Ancak, milli güvenliğin, kamu düzeninin, suç işlenmesine veya suçun devamını önlemenin yahut yakalamanın gerektirdiği
+      hallerde gecikmede sakınca varsa, odalar, vali tarafından faaliyetten men edilebilir. Faaliyetten men kararı yirmidört
+      saat içinde görevli hakimin onayına sunulur. Hakim, kararını kırksekiz saat içinde açıklar; aksi halde, bu idari karar
+      kendiliğinden yürürlükten kalkar.
+  gecerlilik:
+    baslangic: '2023-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DRM
+  unite: 3568 sayılı Kanun odalar ve TÜRMOB
+  konu: MHK
+  kazanim: Odaların gelirleri (giriş ücreti, şube ve indirim)
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir yeminli mali müşavirler odasına aynı gün aşağıdaki kayıt başvuruları yapılmıştır: (1) mesleğini serbest yürüten
+    YMM Ayşe; (2) kamu kurumunda çalışan YMM Berk; (3) çalışanlar listesine kaydedilecek bir YMM ortaklık şirketi ve bu şirketin
+    bir şubesi. Odanın giriş (kayıt) ücretinin hesabında memur maaşı taban aylığı katsayısı 12 TL kabul edildiğine göre, odanın
+    bu kayıtlardan tahsil edeceği toplam giriş ücreti kaç TL''dir?'
+  secenekler:
+    A: '5.400'
+    B: '9.000'
+    C: '10.800'
+    D: '12.600'
+    E: '14.400'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Yönetmelik md. 16/a''ya göre giriş ücreti, memur maaşı taban aylığı katsayısının 300 katıdır: 300 × 12 =
+      3.600 TL. Bu ücret her üyeden, ayrıca çalışanlar listesine kaydedilecek ortaklık büroları ve şirketler ile bunların
+      şubelerinden kayıt anında bir kere alınır. Kanun md. 16 ek fıkrasına göre kamu kurum ve kuruluşlarında çalışanlar yüzde
+      elli indirimli öder. Ayşe 3.600 + Berk 1.800 + şirket 3.600 + şube 3.600 = 12.600 TL. Püf noktaları: (1) Şube ayrı bir
+      kayıt ücretine tabidir. (2) İndirim yalnızca kamu kurumunda çalışan veya mesleği fiilen icra etmeyen meslek mensubuna
+      uygulanır, şirket ve şubesine uygulanmaz.'
+    celdiriciler:
+      A: Yalnızca iki gerçek kişiyi saymak (3.600 + 1.800) şirket ve şubesinin giriş ücretine tabi olduğunu gözden kaçırmaktır.
+      B: Şubeyi ayrı kayıt saymamak (3.600 + 1.800 + 3.600) hatasıdır; şubelerden de kayıt anında giriş ücreti alınır.
+      C: İndirimi şirketin şubesine de uygulamak (3.600 + 1.800 + 3.600 + 1.800) hatasıdır; yüzde elli indirim yalnızca kamuda
+        çalışan veya mesleği fiilen icra etmeyen meslek mensuplarına tanınmıştır.
+      E: Dört kaydın tamamını tam ücretle saymak (4 × 3.600) kamu kurumunda çalışan Berk'in yüzde elli indiriminden yararlanacağını
+        unutmaktır.
+    hesap_adimlari:
+    - Giriş ücreti = 300 × 12 = 3.600 TL
+    - Ayşe 3.600; Berk 3.600 × 0,5 = 1.800; şirket 3.600; şube 3.600
+    - Toplam = 12.600 TL
+  kaynaklar:
+  - mevzuat: Yeminli Mali Müşavirler Odaları Yönetmeliği
+    madde: md. 16/a
+    alinti: Odaya kaydolan her üyeden ve Oda çalışanlar listesine kaydedilecek ortaklık büroları ve şirketler ile bunların
+      şubelerinden kayıt anında bir kere alınır. Kayıt ücreti miktarı memur maaşı taban aylığı katsayısının 300 rakamı ile
+      çarpımı sonucu bulunacak tutardır.
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 16 (ek fıkra)
+    alinti: Meslek mensuplarından kamu kurum ve kuruluşlarında çalışanlar ile mesleği fiilen icra etmeyenler, odaya giriş
+      ücreti ve yıllık üye aidatlarını yüzde elli indirimli olarak öderler.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+  dogrulama:
+    python: 'katsayi = 12
+
+      ucret = 300 * katsayi
+
+      ayse = ucret
+
+      berk = ucret / 2
+
+      sirket = ucret
+
+      sube = ucret
+
+      sonuc = ayse + berk + sirket + sube'
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DRM
+  unite: 3568 sayılı Kanun odalar ve TÜRMOB
+  konu: MHK
+  kazanim: Oda Yönetim Kurulu toplantılarında gündemin üyelere iletilmesi
+  tip: uygulama
+  zorluk: 1
+  kok: Bir yeminli mali müşavirler odasının Yönetim Kurulu toplantısı 25 Haziran 2026 Perşembe günü yapılacaktır. Gündemde,
+    Genel Kurula sunulacak çalışma raporu ve bütçe tasarısı da yer almaktadır. Yönetmeliğe göre, rapor ve tasarılarla ilgili
+    gündemin üyelere en geç hangi tarihte gönderilmesi gerekir?
+  secenekler:
+    A: 20 Haziran 2026
+    B: 21 Haziran 2026
+    C: 22 Haziran 2026
+    D: 23 Haziran 2026
+    E: 24 Haziran 2026
+  dogru: C
+  aciklama:
+    dogru_neden: Yönetmelik md. 14'e göre gündemler toplantıdan bir gün önce veya en geç toplantı sabahı üyelere verilir;
+      ancak rapor ve tasarılarla ilgili gündemler en az üç gün önce gönderilir. Toplantı 25 Haziran olduğundan 25 − 3 = 22
+      Haziran 2026 son gündür.
+    celdiriciler:
+      A: 20 Haziran, rapor ve tasarılar için öngörülen en az üç günlük süreden daha erken bir tarihtir; süreye uyum için gerekli
+        değildir.
+      B: 21 Haziran, dört gün öncesidir; asgari süre üç gündür, daha erken gönderme zorunlu değildir.
+      D: 23 Haziran, toplantıdan yalnızca iki gün öncesidir; rapor ve tasarılar için bu süre yetersizdir.
+      E: 24 Haziran toplantıdan bir gün önce olup yalnızca olağan gündem için aranan süredir; rapor ve tasarılarda üç gün
+        şarttır.
+  kaynaklar:
+  - mevzuat: Yeminli Mali Müşavirler Odaları Yönetmeliği
+    madde: md. 14 (gündem)
+    alinti: Gündemi, Oda Sekreteri Başkana danışarak hazırlar. Gündemler, toplantıdan bir gün önce veya en geç toplantı sabahı
+      üyelere verilir. Rapor ve tasarılarla ilgili gündemler en az üç gün önce üyelere gönderilir.
+  gecerlilik:
+    baslangic: '2023-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DRM
+  unite: 3568 sayılı Kanun odalar ve TÜRMOB
+  konu: MHK
+  kazanim: Yönetim Kurulu üyesinin ilgili olduğu işlerin görüşülmesine katılamaması (hısımlık dereceleri)
+  tip: uygulama
+  zorluk: 3
+  kok: Yeminli Mali Müşavirler Odaları Yönetmeliği'ne göre Oda Yönetim Kurulu üyesi Sercan'ın aşağıdaki kişilerle Oda arasında
+    yapılacak kiralama sözleşmesinin görüşülmesinde, Sercan hangi durumda görüşmeye katılabilir?
+  secenekler:
+    A: Kiraya verenin Sercan'ın eşinin dayısı olması
+    B: Kiraya verenin Sercan'ın yeğeni olması
+    C: Kiraya verenin Sercan'ın eşinin kardeşi olması
+    D: Kiraya verenin Sercan'ın torunu olması
+    E: Kiraya verenin Sercan'ın eşi olması
+  dogru: A
+  aciklama:
+    dogru_neden: 'Yönetmelik md. 14''e göre Yönetim Kurulu üyeleri, üçüncü dereceye kadar (bu derece dahil) kan ve ikinci
+      dereceye kadar (bu derece dahil) kayın hısımları, eşleri ve kendileri ile ilgili işlerin görüşülmesine katılamazlar.
+      Eşin dayısı, eşin üçüncü derece kan hısmıdır; Sercan bakımından üçüncü derece kayın hısmı olur ve kayın hısımlarında
+      yasak ikinci dereceyle sınırlı olduğundan katılma yasağı doğmaz. Püf noktaları: (1) Kan hısımlarında sınır üçüncü derece,
+      kayın hısımlarında ikinci derecedir. (2) Kayın hısımlığında derece, eşin kan hısımlığındaki dereceye göre belirlenir;
+      eşin kardeşi ikinci, eşin dayısı üçüncü derecedir.'
+    celdiriciler:
+      B: Yeğen, üçüncü derece kan hısmıdır; kan hısımlarında yasak üçüncü dereceyi (dahil) kapsar, Sercan katılamaz.
+      C: Eşin kardeşi, ikinci derece kayın hısmıdır; yasak ikinci dereceye kadar (dahil) kayın hısımlarını kapsadığından Sercan
+        katılamaz.
+      D: Torun, ikinci derece kan hısmıdır; yasak kapsamındadır ve Sercan görüşmeye katılamaz.
+      E: Eş, doğrudan sayılan yasak kapsamındadır; hısımlık derecesine bakılmaksızın Sercan eşiyle ilgili işin görüşülmesine
+        katılamaz.
+  kaynaklar:
+  - mevzuat: Yeminli Mali Müşavirler Odaları Yönetmeliği
+    madde: md. 14
+    alinti: Oda yönetim kurulu başkanı ve yönetim kurulu üyeleri, üçüncü dereceye kadar (bu derece dahil) kan ve ikinci dereceye
+      kadar (bu derece dahil) kayın hısımları, eşleri ve kendileri ile ilgili işlerin görüşülmesine ve soruşturmasına katılamazlar.
+  gecerlilik:
+    baslangic: '2023-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DRM
+  unite: 3568 sayılı Kanun odalar ve TÜRMOB
+  konu: MHK
+  kazanim: Yönetim Kurulu üyesinin devamsızlık nedeniyle istifa etmiş sayılması ve itiraz
+  tip: uygulama
+  zorluk: 2
+  kok: Bir yeminli mali müşavirler odasının Yönetim Kurulu üyesi Kemal, ardı ardına üç olağan toplantıya özür bildirmeksizin
+    katılmamıştır. Yönetim Kurulunun Kemal hakkında verdiği karar kendisine 15 Haziran 2026 Pazartesi günü tebliğ edilmiştir.
+    Kanun'a göre aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Kemal, Yönetim Kurulu kararıyla istifa etmiş sayılır; karara karşı 30 Haziran 2026 Salı gününe kadar Birliğe itiraz
+      edebilir.
+    B: Kemal, üçüncü devamsızlıkla kendiliğinden istifa etmiş sayılır; bunun için Yönetim Kurulu kararı gerekmez ve itiraz
+      yolu da bulunmaz.
+    C: Kemal, Yönetim Kurulu kararıyla istifa etmiş sayılır; karara karşı 30 gün içinde Birlik Disiplin Kuruluna itiraz edebilir
+      ve süre 15 Temmuz 2026'da dolar.
+    D: Kemal'in üyeliği ancak Oda Genel Kurulunun kararıyla sona erebilir; bu karara karşı 15 gün içinde Bakanlığa itiraz
+      edilir.
+    E: Kemal, Yönetim Kurulu kararıyla istifa etmiş sayılır; karara karşı 15 gün içinde Oda Disiplin Kuruluna itiraz edebilir
+      ve süre 30 Haziran'da dolar.
+  dogru: A
+  aciklama:
+    dogru_neden: Kanun md. 24'e göre ardı ardına üç olağan toplantıya özürsüz katılmayan üye Yönetim Kurulu kararı ile istifa
+      etmiş sayılır; bu karara karşı tebliğ tarihinden itibaren on beş gün içinde Birliğe itiraz olunabilir. Süre 15 Haziran
+      + 15 gün = 30 Haziran 2026 Salı'da dolar.
+    celdiriciler:
+      B: İstifa sayılma kendiliğinden gerçekleşmez; Kanun "Yönetim Kurulu kararı ile" ifadesini kullanır ve karara karşı Birliğe
+        itiraz yolu açıktır.
+      C: Otuz günlük itiraz süresi Disiplin Kurulu kararlarına (Birlik Disiplin Kuruluna itiraz) ilişkindir; bu karar için
+        süre on beş gündür ve merci Birliktir.
+      D: Üyelik, Genel Kurul kararıyla değil Yönetim Kurulu kararıyla sona erer; itiraz mercii Bakanlık değil Birliktir.
+      E: İtiraz merci Oda Disiplin Kurulu değil Birliktir; bu karar disiplin cezası niteliğinde de değildir.
+  kaynaklar:
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 24/4-5
+    alinti: Ardı ardına üç olağan toplantıya özürsüz olarak katılmamış olan üye, Yönetim Kurulu kararı ile istifa etmiş sayılır.
+      Bu karara karşı, tebliğ tarihinden itibaren onbeş gün içinde Birliğe itiraz olunabilir.
+  gecerlilik:
+    baslangic: '2023-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DRM
+  unite: 3568 sayılı Kanun odalar ve TÜRMOB
+  konu: MHK
+  kazanim: Oda Yönetim Kurulunun iç görev dağılımı ve seçim usulü
+  tip: bilgi
+  zorluk: 1
+  kok: 3568 sayılı Kanun'a göre Oda Yönetim Kurulu kendi üyeleri arasından hangi görevlere seçim yapar ve bu seçim hangi usulle
+    yapılır?
+  secenekler:
+    A: Bir başkan, bir başkan yardımcısı, bir muhasip ve oda sekreteri; gizli oyla
+    B: Bir başkan, bir genel sekreter ve bir muhasip; gizli oyla
+    C: Bir başkan, bir başkan yardımcısı ve bir muhasip; oda sekreteri Genel Kurulca ayrıca seçilir
+    D: Bir başkan, bir başkan yardımcısı, bir muhasip ve oda sekreteri; işari oyla
+    E: Yalnızca bir başkan; diğer görevler Birlik Yönetim Kurulunca atanır
+  dogru: A
+  aciklama:
+    dogru_neden: Kanun md. 21/2'ye göre Oda Yönetim Kurulu kendi üyeleri arasında gizli oyla bir başkan, bir başkan yardımcısı,
+      bir muhasip ile oda sekreterini seçer. Odanın hukuki temsilcisi Yönetim Kurulu Başkanıdır.
+    celdiriciler:
+      B: Başkan, genel sekreter ve muhasip üçlüsü Birlik Yönetim Kurulunun iç görev dağılımıdır (md. 35); odalarda genel sekreter
+        değil başkan yardımcısı ve oda sekreteri seçilir.
+      C: Oda sekreteri Genel Kurulca değil, Yönetim Kurulunca kendi üyeleri arasından seçilir.
+      D: Yönetim Kurulunun iç görev seçimi işari oyla değil gizli oyla yapılır; işari oy Genel Kurulda başkanlık divanı seçiminin
+        kuralıdır.
+      E: Yönetim Kurulu görev dağılımını kendisi yapar; görevler Birlik Yönetim Kurulunca atanmaz ve görev sayısı yalnızca
+        başkandan ibaret değildir.
+  kaynaklar:
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 21/2
+    alinti: Yönetim Kurulu kendi üyeleri arasında gizli oyla bir başkan, bir başkan yardımcısı, bir muhasip ile oda sekreterini
+      seçer.
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 35/3 (karşılaştırma)
+    alinti: Yönetim Kurulu kendi üyeleri arasından bir başkan, bir genel sekreter ile bir muhasip seçer.
+  gecerlilik:
+    baslangic: '2023-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DRM
+  unite: 3568 sayılı Kanun odalar ve TÜRMOB
+  konu: MHK
+  kazanim: Birlik organlarının oluşumu ve yeminli mali müşavir zorunlulukları
+  tip: kavrama
+  zorluk: 2
+  kok: 3568 sayılı Kanun'a göre TÜRMOB organlarına ilişkin aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Birlik Yönetim Kurulu üyelerinden beşinin yeminli mali müşavir olması zorunludur.
+    B: Birlik Denetleme Kurulu üyeleri, Birlik Yönetim Kurulu toplantılarına katılabilir ve oy kullanabilir.
+    C: Birlik Disiplin Kurulu asıl üyelerinin üçünün yeminli mali müşavir olması mecburidir; Genel Kurulda bu sayıda yeminli
+      mali müşavir yoksa bulunanlarla yetinilir.
+    D: Birlik Denetleme Kurulu üyelerinden en az birinin yeminli mali müşavir olması zorunludur.
+    E: Birlik Yönetim Kurulu Başkanı, en az beş yıl süreyle yeminli mali müşavirlik yapmış olanlar arasından seçilir.
+  dogru: B
+  aciklama:
+    dogru_neden: Kanun md. 39/3'e göre Birlik Denetçileri Yönetim Kurulu toplantılarına katılabilirler, ancak oy kullanamazlar.
+      B seçeneği bu nedenle yanlıştır. Diğer seçenekler Kanun md. 35, 38, 39'a uygundur.
+    celdiriciler:
+      A: 'Doğru ifadedir: md. 35/1''e göre Birlik Yönetim Kurulu üyelerinden beşinin yeminli mali müşavir olması zorunludur.'
+      C: 'Doğru ifadedir: md. 38/1''e göre Disiplin Kurulu asıl üyelerinin üçünün yeminli mali müşavir olması mecburidir ve
+        yeterli sayıda yeminli mali müşavir yoksa bulunanlarla yetinilir.'
+      D: 'Doğru ifadedir: md. 39/1''e göre Denetleme Kurulu üyelerinden en az birinin yeminli mali müşavir olması zorunludur.'
+      E: 'Doğru ifadedir: md. 35/3''e göre Birlik Yönetim Kurulu Başkanı en az beş yıl yeminli mali müşavirlik yapmış olanlar
+        arasından seçilir.'
+  kaynaklar:
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 39/3
+    alinti: Denetçiler Birlik Yönetim Kurulu toplantılarına katılabilirler, ancak oy kullanamazlar.
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 35/1
+    alinti: Yönetim Kurulu üyelerinden beşinin yeminli mali müşavir olması zorunludur.
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 38/1
+    alinti: Asıl üyelerin üçünün yeminli mali müşavir olması mecburidir. Genel Kurulda bu sayıda yeminli mali müşavir yoksa
+      bulunanlarla yetinilir.
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 39/1
+    alinti: Denetleme Kurulu üyelerinden en az birinin yeminli mali müşavir olması zorunludur.
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 35/3
+    alinti: Yönetim Kurulu Başkanı en az beş yıl süreyle yeminli mali müşavirlik yapmış olanlar arasından seçilir.
+  gecerlilik:
+    baslangic: '2023-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DRM
+  unite: 3568 sayılı Kanun odalar ve TÜRMOB
+  konu: MHK
+  kazanim: Yönetim Kurulu üyeliğine seçilme yeterliği (iki dönem başkanlık sonrası bekleme)
+  tip: uygulama
+  zorluk: 3
+  kok: Bir yeminli mali müşavirler odasında Genel Kurul, her üç yılda bir Mayıs ayında toplanarak seçim yapmaktadır. Odanın
+    üye sayısı 640 olup Yönetim Kurulu üyeliği için aranan diğer tüm şartlar bakımından yeminli mali müşavir Orhan'a engel
+    bulunmamaktadır. Orhan, 2017 ve 2020 yıllarında yapılan seçimlerde art arda iki defa Yönetim Kurulu başkanlığına seçilmiştir.
+    Orhan, Yönetim Kurulu üyeliğine seçilebileceği ilk seçimi hangisidir?
+  secenekler:
+    A: 2026 seçiminde
+    B: 2029 seçiminde
+    C: 2032 seçiminde
+    D: 2035 seçiminde
+    E: Bir daha Yönetim Kurulu üyeliğine seçilemez
+  dogru: B
+  aciklama:
+    dogru_neden: 'Kanun md. 22''ye göre odalarda üst üste iki seçim döneminde iki defa Yönetim Kurulu başkanlığına seçilmiş
+      olanlar, aradan iki seçim dönemi geçmedikçe Yönetim Kurulu üyeliğine seçilemezler. Orhan''ın başkanlık dönemleri 2017–2020
+      ve 2020–2023''tür. Aradan geçmesi gereken iki seçim dönemi 2023–2026 ve 2026–2029''dur; dolayısıyla 2023 ve 2026 seçimlerinde
+      seçilemez, 2029 seçiminde seçilebilir. Püf noktaları: (1) Yasak süresiz değil, "iki seçim dönemi" kadardır. (2) Odanın
+      640 üyeli olması bu kuralı değiştirmez; "yüzden az üye" istisnası yalnızca kıdem şartı içindir. (3) Dönemleri seçim
+      yıllarıyla yan yana yazıp aradan iki dönemi çıkarın.'
+    celdiriciler:
+      A: 2026 seçimine kadar yalnızca bir dönem (2023–2026) geçmiş olur; iki dönem tamamlanmadığından seçilemez.
+      C: 2032, aradan üç dönem geçmesini gerektirir; Kanun yalnızca iki seçim dönemi bekleme öngörür.
+      D: 2035, dört dönemlik bir bekleme anlamına gelir; Kanun'da böyle bir süre yoktur.
+      E: Kanun süresiz bir yasak koymaz; aradan iki seçim dönemi geçtikten sonra Yönetim Kurulu üyeliğine seçilmek mümkündür.
+  kaynaklar:
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 22/1
+    alinti: Odalarda üst üste iki seçim döneminde iki defa Yönetim Kurulu başkanlığına seçilmiş olanlar, aradan iki seçim
+      dönemi geçmedikçe Yönetim Kurulu üyeliğine seçilemezler.
+  gecerlilik:
+    baslangic: '2023-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DRM
+  unite: 3568 sayılı Kanun odalar ve TÜRMOB
+  konu: MHK
+  kazanim: Oda ve Birlik faaliyet raporu ve mali tabloların internet sitesinde yayımlanması
+  tip: bilgi
+  zorluk: 1
+  kok: 3568 sayılı Kanun'a göre bir yeminli mali müşavirler odasının 2025 yılına ait faaliyet raporu ile mali tablolarının
+    internet sitesinde yayımlanması ve yayında kalması bakımından aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Mart 2026 sonuna kadar yayımlanır; yayında kalma süresi konusunda bir sınır yoktur.
+    B: Şubat 2026 sonuna kadar yayımlanır ve 2026 yılı sonuna kadar yayında kalır.
+    C: Ocak 2026 sonuna kadar yayımlanır ve Genel Kurul toplantısına kadar yayında kalır.
+    D: Ocak 2026 sonuna kadar yayımlanır ve Ocak 2027 sonuna kadar yayında kalır.
+    E: Ocak 2026 sonuna kadar yayımlanır ve 2026 yılı sonuna kadar yayında kalır.
+  dogru: E
+  aciklama:
+    dogru_neden: Kanun md. 41/3'e göre odalar ve Birlik her yılın faaliyet raporlarını ve mali tablolarını izleyen yılın Ocak
+      ayı sonuna kadar internet sitelerinde, yıl sonuna kadar kalmak üzere yayımlar. 2025 yılı raporları için süre 31 Ocak
+      2026, yayında kalma süresi 31 Aralık 2026'dır.
+    celdiriciler:
+      A: Yayım süresi Ocak ayı sonudur, Mart sonu değildir; ayrıca yıl sonuna kadar yayında kalma şartı vardır.
+      B: Yayım için süre Şubat değil, izleyen yılın Ocak ayı sonudur.
+      C: Yayında kalma süresi Genel Kurul toplantısına bağlı değildir; Kanun yıl sonunu esas alır.
+      D: Yayında kalma süresi, yayım yılının sonudur (31 Aralık 2026); Ocak 2027 sonu Kanun'da yer almaz.
+  kaynaklar:
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 41/3
+    alinti: Odalar ve Birlik her yılın faaliyet raporlarını ve mali tablolarını izleyen yılın Ocak ayı sonuna kadar internet
+      sitelerinde yıl sonuna kadar kalmak üzere yayımlar.
+  gecerlilik:
+    baslangic: '2023-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DRM
+  unite: 3568 sayılı Kanun odalar ve TÜRMOB
+  konu: MHK
+  kazanim: Genel kurullarda başkanlık divanına seçilemeyecek kişiler (Oda ve Birlik farkı)
+  tip: uygulama
+  zorluk: 2
+  kok: Aşağıdaki kişilerden hangisi, ilgili genel kurulda başkanlık divanına seçilebilir?
+  secenekler:
+    A: Oda Genel Kurulunda, odanın görevdeki Yönetim Kurulu Başkanı olan meslek mensubu
+    B: Oda Genel Kurulunda, odanın Denetleme Kurulu üyelerinden biri olan meslek mensubu
+    C: Birlik Genel Kurulunda, Birlik organlarında görevi olmayan Oda Yönetim Kurulu Başkanı
+    D: Birlik Genel Kurulunda, Birlik Disiplin Kurulunun asıl üyelerinden biri olan temsilci
+    E: Oda Genel Kurulunda, odanın Yönetim Kurulu muhasip üyesi olarak görevli meslek mensubu
+  dogru: C
+  aciklama:
+    dogru_neden: 'Oda Genel Kurulunda Oda Yönetim Kurulu Başkanı, yönetim ve denetleme kurulu üyeleri başkanlık divanına seçilemez
+      (Kanun md. 20/8); Birlik Genel Kurulunda ise Birlik yönetim, disiplin ve denetleme kurulu üyeleri seçilemez (Birlik
+      Yönetmeliği md. 16). Oda Yönetim Kurulu Başkanı Birlik Genel Kurulunda yalnızca temsilci sıfatıyla bulunuyorsa, Birlik
+      organı üyesi olmadığından Birlik divanına seçilebilir. Püf noktaları: Yasak, toplantının yapıldığı genel kurulun organlarına
+      göre belirlenir; Oda ve Birlik listeleri birbirinden farklıdır.'
+    celdiriciler:
+      A: Oda Yönetim Kurulu Başkanı, Oda Genel Kurulunda başkanlık divanına seçilemez.
+      B: Oda Denetleme Kurulu üyeleri Oda Genel Kurulunda başkanlık divanına seçilemez.
+      D: Birlik Disiplin Kurulu üyeleri Birlik Genel Kurulunda başkanlık divanına seçilemez.
+      E: Muhasip üye de Yönetim Kurulu üyesidir; Oda Genel Kurulunda başkanlık divanına seçilemez.
+  kaynaklar:
+  - mevzuat: 3568 sayılı Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Kanunu
+    madde: md. 20/8
+    alinti: Oda Yönetim Kurulu Başkanı, yönetim ve denetleme kurulu üyeleri başkanlık divanına seçilemezler.
+  - mevzuat: TÜRMOB (Birlik) Yönetmeliği
+    madde: md. 16
+    alinti: Birlik yönetim, disiplin ve denetleme kurulu üyeleri Başkanlık Divanına seçilemezler.
+  gecerlilik:
+    baslangic: '2023-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

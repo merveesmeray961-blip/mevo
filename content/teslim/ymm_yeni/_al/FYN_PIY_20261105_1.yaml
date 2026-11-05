@@ -1,0 +1,630 @@
+yazar: harici üretici (claude, paket 2026-11-05)
+gorev: YMM paketi 2026-11-05
+klasik:
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - 'opsiyon stratejileri: koruyucu put, kapalı call ve tünel (collar)'
+  - opsiyon getiri (payoff) tabloları ve başabaş noktaları
+  - türev ürünle portföy koruma
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Bir portföy yöneticisi, Yıldız Madencilik A.Ş.''nin 100.000 adet payını elinde tutmaktadır. Pay fiyatı bugün 100
+    TL''dir. Yönetici, 1 yıl vadeli Avrupa tipi aşağıdaki pay opsiyonlarını kullanarak portföyü korumayı düşünmektedir (opsiyon
+    başına bir pay; primler pay başına TL, vergi ve işlem maliyetleri yok sayılacaktır; faiz dikkate alınmayacaktır):
+
+
+    | Opsiyon | Kullanım fiyatı (TL) | Prim (TL) |
+
+    |---|---|---|
+
+    | Satım (put) | 90 | 4 |
+
+    | Alım (call) | 120 | 4 |
+
+
+    Vade tarihinde payın piyasa fiyatı için beş olası değer öngörülmektedir: 70, 90, 100, 120 ve 150 TL.
+
+
+    **İstenenler:**
+
+
+    (a) **Tünel (collar) stratejisi** için (payı tut, 90 TL kullanım fiyatlı put al, 120 TL kullanım fiyatlı call yaz) net
+    prim giderini ve beş fiyat için pay başına vade değerini (opsiyon sonuçları ve net prim dahil) tablo hâlinde hesaplayınız.
+    (7 puan)
+
+
+    (b) Tünelin pay başına en düşük ve en yüksek vade değerini bulunuz; hiçbir koruma yapılmaması durumundaki değerle karşılaştırarak
+    yönetici için üstlenilen fedakârlığı açıklayınız. (6 puan)
+
+
+    (c) Yalnızca put alarak (**koruyucu put**) elde edilen pay başına vade değerini beş fiyat için hesaplayınız; en düşük
+    değeri ve başabaş fiyatını (payı bugünkü değerinde tutan fiyat) bulunuz. (6 puan)
+
+
+    (d) Yalnızca call yazarak (**kapalı call**) elde edilen pay başına vade değerini beş fiyat için hesaplayınız ve bu stratejinin,
+    fiyat düşüşüne karşı koruma sağlamadığını gösteriniz. Üç stratejiyi (hiçbiri, tünel, koruyucu put) toplam portföy düzeyinde
+    (en kötü sonuç için) karşılaştırınız. (6 puan)
+
+    '
+  cozum: '**(a) Tünel stratejisi**
+
+
+    Net prim gideri = ödenen put primi − alınan call primi = 4 − 4 = **0 TL** (sıfır maliyetli tünel).
+
+
+    Vade değeri (pay başına) = Pay fiyatı + max(90 − S; 0) − max(S − 120; 0) − net prim
+
+
+    | Vade fiyatı (S) | Put getirisi | Yazılan call''un zararı | Tünel vade değeri |
+
+    |---|---|---|---|
+
+    | 70 | 20 | 0 | 90 |
+
+    | 90 | 0 | 0 | 90 |
+
+    | 100 | 0 | 0 | 100 |
+
+    | 120 | 0 | 0 | 120 |
+
+    | 150 | 0 | 30 | 120 |
+
+
+    **(b) Sınırlar**
+
+
+    Tünelde pay başına değer her koşulda 90 TL ile 120 TL arasında kalır: en düşük **90 TL** (toplam 9.000.000 TL; bugünkü
+    100 TL''ye göre değer kaybı en çok %10), en yüksek **120 TL**. Korumasız portföyde en düşük değer 70 TL''dir (toplam 7.000.000
+    TL), üst sınır yoktur. Yönetici, fiyat düşüşünde 90 TL''nin altındaki kaybı sigortalayarak karşılığında fiyatın 120 TL''nin
+    üzerindeki yükselişinden vazgeçmiştir; bu fedakârlık, put priminin call primiyle karşılanmasını sağlar.
+
+
+    **(c) Koruyucu put**
+
+
+    Vade değeri = S + max(90 − S; 0) − 4
+
+
+    | S | 70 | 90 | 100 | 120 | 150 |
+
+    |---|---|---|---|---|---|
+
+    | Değer | 86 | 86 | 96 | 116 | 146 |
+
+
+    En düşük değer = 90 − 4 = **86 TL** (toplam 8.600.000 TL). Başabaş fiyatı: S − 4 = 100 → **104 TL**; fiyat bu düzeyin
+    altındaysa strateji, payı bugünkü değerinde tutmaya göre zarar ettirir (put''un primi yüzünden).
+
+
+    **(d) Kapalı call ve karşılaştırma**
+
+
+    Vade değeri = S − max(S − 120; 0) + 4
+
+
+    | S | 70 | 90 | 100 | 120 | 150 |
+
+    |---|---|---|---|---|---|
+
+    | Değer | 74 | 94 | 104 | 124 | 124 |
+
+
+    Fiyat 70 TL''ye düştüğünde değer yalnız 4 TL''lik primle desteklenir (74 TL); kapalı call fiyat düşüşünü yalnızca prim
+    kadar yastıklar, gerçek bir koruma sağlamaz.
+
+
+    En kötü sonuç (toplam, TL): korumasız 7.000.000; kapalı call 7.400.000; koruyucu put 8.600.000; tünel 9.000.000. Koruyucu
+    put ve tünel en kötü sonucu 90 TL civarında sabitler; tünel, daha az maliyetli olduğu için yükseliş potansiyelini 120
+    TL ile sınırlar.
+
+    '
+  puanlama:
+  - olcut: (a) Net prim
+    puan: 1
+  - olcut: (a) Beş fiyat için tünel vade değerleri
+    puan: 6
+  - olcut: (b) Tünel alt ve üst sınırları
+    puan: 3
+  - olcut: (b) Korumasız durumla karşılaştırma ve fedakârlığın açıklanması
+    puan: 3
+  - olcut: (c) Koruyucu put değer tablosu
+    puan: 3
+  - olcut: (c) En düşük değer ve başabaş fiyatı
+    puan: 3
+  - olcut: (d) Kapalı call değer tablosu
+    puan: 3
+  - olcut: (d) Koruma sağlamadığının gösterilmesi ve üç strateji karşılaştırması
+    puan: 3
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: "adet = 100000\ns0 = 100\nkp = 90\npp = 4\nkc = 120\npc = 4\nfiyatlar = [70, 90, 100, 120, 150]\nf0, f1, f2, f3,\
+      \ f4 = fiyatlar\nnet_prim = pp - pc\ndef put_(s): return max(kp - s, 0)\ndef call_(s): return max(s - kc, 0)\ntunel\
+      \ = [s + put_(s) - call_(s) - net_prim for s in fiyatlar]\nkoruyucu = [s + put_(s) - pp for s in fiyatlar]\nkapali =\
+      \ [s - call_(s) + pc for s in fiyatlar]\nkorumasiz = list(fiyatlar)\nt_min = min(tunel)\nt_max = max(tunel)\nk_min =\
+      \ min(koruyucu)\nkapali_min = min(kapali)\nbasabas_koruyucu = s0 + pp\ntunel_toplam_min = t_min * adet\nkor_toplam_min\
+      \ = k_min * adet\nkorumasiz_min = min(korumasiz) * adet\nkapali_toplam_min = kapali_min * adet\ntunel_kayip_enyuksek\
+      \ = (s0 - t_min) / s0\nsonuc = {\"net_prim\": net_prim, \"tunel\": tunel, \"t_min\": t_min, \"t_max\": t_max, \"koruyucu\"\
+      : koruyucu, \"k_min\": k_min,\n         \"basabas_koruyucu\": basabas_koruyucu, \"kapali\": kapali, \"kapali_min\":\
+      \ kapali_min,\n         \"tunel_toplam_min\": tunel_toplam_min, \"kor_toplam_min\": kor_toplam_min, \"korumasiz_min\"\
+      : korumasiz_min,\n         \"kapali_toplam_min\": kapali_toplam_min}\n"
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - kapalı faiz paritesi ve vadeli kur
+  - kur arbitrajı
+  - vadeli faiz sözleşmesi (FRA) ile faiz riskinden korunma
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: 'Bir bankanın hazine masasında çalışan analist aşağıdaki piyasa verilerini incelemektedir (alış-satış farkı ve işlem
+    maliyetleri yok sayılacak, faizler basit ve yıllıktır):
+
+
+    | Veri | Değer |
+
+    |---|---|
+
+    | Spot kur (USD/TL) | 40 |
+
+    | 1 yıllık TL faiz oranı | %26 |
+
+    | 1 yıllık USD faiz oranı | %5 |
+
+    | Piyasada kote edilen 1 yıllık vadeli kur | 49 |
+
+
+    Aynı bankanın müşterisi Ege Tekstil A.Ş., 6 ay sonra başlayacak 6 aylık (180 gün; 1 yıl = 360 gün) dönem için 10.000.000
+    TL kredi kullanacaktır ve kredi faizi dönem sonunda ödenecektir. Şirket, faiz riskinden korunmak için %30 oranlı FRA (6×12)
+    sözleşmesinin alıcısı olmuştur.
+
+
+    **İstenenler:**
+
+
+    (a) Kapalı faiz paritesine göre 1 yıllık teorik vadeli kuru hesaplayınız. (4 puan)
+
+
+    (b) Kote edilen vadeli kuru dikkate alarak bir arbitraj stratejisi kurunuz: 40.000.000 TL borçlanarak (TL borç faizi yukarıdaki
+    oran) vade sonundaki TL ve USD pozisyonlarını gösterip arbitraj kazancını TL olarak hesaplayınız. (9 puan)
+
+
+    (c) FRA''nın uzlaşma gününde (6. ay sonu) 6 aylık referans faiz oranı yıllık %50 olarak gerçekleşmiştir. FRA uzlaşma tutarını
+    (vadeli faiz uzlaşmasında tutar, dönem başında iskonto edilerek ödenir) ve kimin kimden alacağını hesaplayınız; şirketin
+    kredisi için etkin faiz oranını (yıllık, basit) bulunuz. (8 puan)
+
+
+    (d) Arbitraj fırsatı sürerse piyasada spot ve vadeli kurun hangi yönde değişmesi beklenir? Kısaca açıklayınız. (4 puan)
+
+    '
+  cozum: '**(a) Teorik vadeli kur**
+
+
+    F = S × (1 + TL faizi) / (1 + USD faizi) = 40 × (1 + %26) / (1 + %5) = **48 TL/USD**.
+
+
+    **(b) Arbitraj**
+
+
+    Kote edilen vadeli kur (49) teorik değerden (48) yüksektir; yani vadeli USD pahalıdır → vadeli USD **satılır**, spot USD
+    alınır.
+
+
+    | Adım | Bugün | 1 yıl sonra |
+
+    |---|---|---|
+
+    | 1. TL borçlan | +40.000.000 TL | −50.400.000 TL (anapara + %26 faiz) |
+
+    | 2. Spot kurdan USD al (40) | −40.000.000 TL → +1.000.000 USD | — |
+
+    | 3. USD''yi %5 ile mevduata yatır | — | +1.050.000 USD |
+
+    | 4. Vadeli kurdan (49) 1 yıl sonrası için USD sat | — | −1.050.000 USD → +51.450.000 TL |
+
+
+    Net sonuç: Bugün net nakit akımı sıfır; vadede 51.450.000 − 50.400.000 = **1.050.000 TL** kesin kazanç. Kontrol: (49 −
+    48) × 1.050.000 USD = 1.050.000 TL.
+
+
+    **(c) FRA**
+
+
+    Dönem t = 180 / 360 = 0,5 yıl. Referans oran (%50) FRA oranından (%30) yüksek olduğundan FRA alıcısı (borçlanan Ege Tekstil)
+    kazanç elde eder; satıcı banka öder.
+
+
+    Uzlaşma = 10.000.000 × (%50 − %30) × 0,5 / (1 + %50 × 0,5) = 1.000.000 / 1,25 = **800.000 TL** (dönem başında, banka şirkete
+    öder).
+
+
+    Şirket bu tutarı kredi vadesine kadar referans oranla değerlendirirse vade sonunda 800.000 × 1,25 = 1.000.000 TL elde
+    eder.
+
+
+    Kredi faizi = 10.000.000 × %50 × 0,5 = 2.500.000 TL; net faiz = 2.500.000 − 1.000.000 = 1.500.000 TL → etkin faiz = 1.500.000
+    / 10.000.000 / 0,5 = **%30** (= FRA oranı; şirket faiz riskinden tamamen korunmuştur).
+
+
+    **(d) Fiyat baskısı**
+
+
+    Arbitrajcılar vadeli USD satacakları ve spot USD alacakları için vadeli kur düşer, spot kur yükselir; kote vadeli kur,
+    teorik değer olan 48 TL''ye yaklaşır ve fırsat ortadan kalkar. Ayrıca TL borçlanma talebi ile USD mevduat arzı faiz oranlarını
+    da yaklaştırır.
+
+    '
+  puanlama:
+  - olcut: (a) Teorik vadeli kur
+    puan: 4
+  - olcut: (b) Arbitraj yönünün belirlenmesi (vadeli USD sat)
+    puan: 2
+  - olcut: (b) Adımların ve pozisyonların doğru kurulması
+    puan: 4
+  - olcut: (b) Arbitraj kazancı
+    puan: 3
+  - olcut: (c) FRA uzlaşma tutarı ve tarafı
+    puan: 4
+  - olcut: (c) Etkin faiz oranı
+    puan: 4
+  - olcut: (d) Spot ve vadeli kurun yönü
+    puan: 3
+  - olcut: (d) Fırsatın ortadan kalkması
+    puan: 1
+  kaynaklar:
+  - mevzuat: Genel bilgi — finansal yönetim
+    madde: '-'
+  dogrulama:
+    python: "spot = 40\nftl = 0.26\nfusd = 0.05\nkote = 49\ntl_borc = 40000000\nana = 10000000\nfra = 0.30\nref = 0.50\ngun\
+      \ = 180\nteorik = spot * (1 + ftl) / (1 + fusd)\nusd_alinan = tl_borc / spot\nusd_vade = usd_alinan * (1 + fusd)\ntl_satis\
+      \ = usd_vade * kote\ntl_geri = tl_borc * (1 + ftl)\narbitraj = tl_satis - tl_geri\narbitraj_kontrol = (kote - teorik)\
+      \ * usd_vade\nt = gun / 360\nfark = (ref - fra) * t * ana\nuzlasma = fark / (1 + ref * t)\nkredi_faiz = ana * ref *\
+      \ t\nuzlasma_vade = uzlasma * (1 + ref * t)\nnet_faiz = kredi_faiz - uzlasma_vade\netkin = net_faiz / ana / t\nsonuc\
+      \ = {\"teorik\": teorik, \"usd_alinan\": usd_alinan, \"usd_vade\": usd_vade, \"tl_satis\": tl_satis, \"tl_geri\": tl_geri,\n\
+      \         \"arbitraj\": arbitraj, \"uzlasma\": uzlasma, \"kredi_faiz\": kredi_faiz, \"uzlasma_vade\": uzlasma_vade,\
+      \ \"net_faiz\": net_faiz, \"etkin\": etkin}\n"
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+sorular:
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Para ve sermaye piyasası işlemleri ve türev araçlar
+  konu: PIY
+  kazanim: açığa satılan alım opsiyonu sonucu
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir yatırımcı, kullanım fiyatı 80 TL olan Avrupa tipi bir alım opsiyonunu 6 TL prim alarak yazmıştır (satmıştır). Vade
+    sonunda dayanak varlığın fiyatı 95 TL olursa yatırımcının opsiyon pozisyonundan elde ettiği net kâr (+) veya zarar (−)
+    kaç TL'dir (opsiyon bir birim dayanak varlığa ilişkindir)?
+  secenekler:
+    A: '-21'
+    B: '-15'
+    C: '-9'
+    D: '6'
+    E: '9'
+  dogru: C
+  aciklama:
+    dogru_neden: Opsiyon yazan, primi tahsil eder; alıcı opsiyonu kullandığı için S − K = 15 TL öder. Net sonuç = 6 − 15 =
+      -9 TL.
+    celdiriciler:
+      A: Prim, ödenen tutara eklenmiş; prim yazan açısından gelirdir ve zararı azaltır.
+      B: Alınan prim hesaba katılmamış.
+      D: Opsiyon kullanıldığı için sadece primi cebe atma varsayılmış; alıcı fiyat kullanım fiyatının üzerindedir ve opsiyonu
+        kullanır.
+      E: İşaret ters çevrilmiş; bu, alım opsiyonunu satın alan tarafın sonucudur.
+    hesap_adimlari:
+    - 'Yazan: prim − max(S − K, 0)'
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — açığa satılan alım opsiyonu sonucu
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'k, prim, s = 80, 6, 95
+
+      sonuc = prim - max(s - k, 0)
+
+      yanlis = {"a": -(s - k + prim), "b": -(s - k), "c": prim, "d": -sonuc}
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Para ve sermaye piyasası işlemleri ve türev araçlar
+  konu: PIY
+  kazanim: vadeli işlemlerde teminat tamamlama çağrısı
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir yatırımcı, her biri 100 birimlik 5 adet vadeli işlem sözleşmesi almıştır (uzun pozisyon) ve sözleşme başına 4.000
+    TL başlangıç teminatı yatırmıştır. Sözleşme başına koruma (idame) teminatı 3.000 TL'dir. Alış fiyatı birim başına 200
+    TL iken ardışık iki gün sonunda uzlaşma fiyatları 192 TL ve 188 TL olmuştur. Teminat hesabı koruma düzeyinin altına düşerse
+    başlangıç düzeyine tamamlanması istenmektedir. İkinci günün sonunda yatırılması istenen ilave teminat kaç TL'dir? (Sözleşmeler
+    hesabın tamamı üzerinden değerlenir, faiz gelirleri yoksayılır.)
+  secenekler:
+    A: '1.000'
+    B: '2.000'
+    C: '4.000'
+    D: '6.000'
+    E: '8.000'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Başlangıç hesabı = 4.000 × 5 = 20.000 TL; koruma düzeyi 15.000 TL. 1. gün kaybı = (200 − 192) × 100 × 5
+      = 4.000 TL → hesap 16.000 TL (koruma düzeyinin üstünde, çağrı yok). 2. gün kaybı = (192 − 188) × 100 × 5 = 2.000 TL
+      → hesap 14.000 TL < 15.000 TL → başlangıç düzeyine tamamlama: 20.000 − 14.000 = 6.000 TL. Püf noktaları: (1) çağrı eşiği
+      koruma düzeyidir, ama tamamlama başlangıç düzeyine yapılır; (2) tüm sözleşmelerin toplamı alınır; (3) ilk gün çağrı
+      olmadığı için kayıp birikir.'
+    celdiriciler:
+      A: Koruma düzeyine tamamlanmış; teminat çağrısında hesap başlangıç düzeyine getirilir.
+      B: Yalnızca ikinci günün kaybıdır; hesabın birikmiş bakiyesi dikkate alınmamıştır.
+      C: Yalnızca ilk günün kaybıdır; ilk gün çağrı yoktur ve ikinci günün kaybı hesaba katılmamıştır.
+      E: Sözleşme başına başlangıç teminatı gün sayısıyla çarpılmış; tamamlama tutarı hesap bakiyesindeki eksiklikle belirlenir.
+    hesap_adimlari:
+    - Eşik koruma, tamamlama başlangıç
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — vadeli işlemlerde teminat tamamlama çağrısı
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'b, adet, ilk, idame = 100, 5, 4000, 3000
+
+      f0, f1, f2 = 200, 192, 188
+
+      hesap0 = ilk * adet
+
+      hesap1 = hesap0 + (f1 - f0) * b * adet
+
+      cagri1 = (ilk * adet - hesap1) if hesap1 < idame * adet else 0
+
+      hesap1b = hesap1 + cagri1
+
+      hesap2 = hesap1b + (f2 - f1) * b * adet
+
+      sonuc = (ilk * adet - hesap2) if hesap2 < idame * adet else 0
+
+      yanlis = {"a": idame * adet - hesap2, "b": (f1 - f2) * b * adet, "c": (f0 - f1) * b * adet, "d": 2 * ilk * 1}
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Para ve sermaye piyasası işlemleri ve türev araçlar
+  konu: PIY
+  kazanim: put-call paritesi
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Aynı dayanak varlık, kullanım fiyatı ve vadeye (1 yıl) sahip Avrupa tipi opsiyonlar için: alım opsiyonu primi 12 TL,
+    dayanak varlığın spot fiyatı 70 TL, kullanım fiyatı 100 TL ve yıllık risksiz faiz %25''dir. Dayanak varlık yıl içinde
+    temettü ödememektedir. Put-call paritesine göre satım opsiyonunun (put) primi kaç TL''dir? Dayanak varlığın yıllık oynaklığı
+    %40''dır.'
+  secenekler:
+    A: '2'
+    B: '22'
+    C: '42'
+    D: '58'
+    E: '88'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Parite: C + K/(1 + r) = P + S → P = C − S + K/(1 + r) = 12 − 70 + 100/1,25 = 22 TL. Püf noktaları: (1) kullanım
+      fiyatı iskonto edilir; (2) oynaklık verisi pariteyi etkilemez; (3) işaretlere dikkat: put = call − spot + PV(K).'
+    celdiriciler:
+      A: İşaretler ters kurulmuş (C + S − PV(K)).
+      C: Kullanım fiyatı bugünkü değere çevrilmemiş.
+      D: Basit fark; paritede iskonto edilmiş kullanım fiyatı yoktur.
+      E: Kullanım fiyatından alım primi çıkarılmış; parite bu ilişkiyi kurmaz.
+    hesap_adimlari:
+    - P = C − S + K/(1+r)
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — put-call paritesi
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'c, s, k, r, vol = 12, 70, 100, 0.25, 0.40
+
+      sonuc = c - s + k / (1 + r)
+
+      yanlis = {"a": c - s + k, "b": c + s - k / (1 + r), "c": s - c, "d": k - c}
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Para ve sermaye piyasası işlemleri ve türev araçlar
+  konu: PIY
+  kazanim: repo geri ödeme tutarı
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir banka, elindeki tahvili 1.000.000 TL'ye 30 gün vadeli repo ile satmaktadır. Repo faizi yıllık basit %48 olup yıl
+    360 gün kabul edilmektedir. Vade sonunda geri ödenecek tutar kaç TL'dir?
+  secenekler:
+    A: 1.004.000
+    B: 1.039.452
+    C: 1.040.000
+    D: 1.120.000
+    E: 1.480.000
+  dogru: C
+  aciklama:
+    dogru_neden: Faiz = 1.000.000 × %48 × 30/360 = 40.000 TL; geri ödeme = 1.040.000 TL.
+    celdiriciler:
+      A: Faiz oranı yanlış ölçeklenmiş (ondalık hatası).
+      B: Yıl 365 gün alınmış; soruda 360 gün kabul edilmektedir.
+      D: Yıllık faiz üçe bölünmüş (üç aylık); vade 30 gündür.
+      E: Tam yıllık faiz uygulanmış; vade 30 gündür.
+    hesap_adimlari:
+    - Basit faiz × gün/360
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — repo geri ödeme tutarı
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'tutar, gun, faiz = 1000000, 30, 0.48
+
+      sonuc = tutar * (1 + faiz * gun / 360)
+
+      yanlis = {"a": tutar * (1 + faiz * gun / 365), "b": tutar * (1 + faiz / 4), "c": tutar * (1 + faiz / 12 * 0.1), "d":
+      tutar * (1 + faiz)}
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Para ve sermaye piyasası işlemleri ve türev araçlar
+  konu: PIY
+  kazanim: FRA uzlaşma tutarı
+  tip: hesaplama
+  zorluk: 3
+  kok: Bir şirket 180 gün (3x9 FRA) vadeli sözleşmede sabit oran %30 üzerinden alıcı konumundadır. Nominal tutar 10.000.000
+    TL, yıl 360 gün kabul edilir. Uzlaşma tarihinde referans faiz %40 olarak belirlenmiş ve uzlaşma tutarı dönem başında,
+    fark iskonto edilerek ödenmektedir. Şirketin tahsil edeceği uzlaşma tutarı kaç TL'dir? (Şirketin mevcut kredisinin faizi
+    %35 olup uzlaşma tutarına etkisi yoktur.)
+  secenekler:
+    A: '416.667'
+    B: '434.783'
+    C: '500.000'
+    D: '833.333'
+    E: 1.000.000
+  dogru: A
+  aciklama:
+    dogru_neden: 'FRA alıcısı referans oran FRA oranından yüksekse alacaklıdır. Uzlaşma = N × (R_ref − R_FRA) × (gün/360)
+      / (1 + R_ref × gün/360) = 10.000.000 × 0,10 × 0,5 / (1 + 0,4 × 0,5) = 416.666,6667 TL. Püf noktaları: (1) iskonto referans
+      oranla yapılır; (2) gün sayısı 360''a bölünür; (3) mevcut kredi faizi uzlaşmayı etkilemez.'
+    celdiriciler:
+      B: İskonto FRA oranı ile yapılmış; iskonto referans oranla yapılmalıdır.
+      C: Dönem sonu faiz farkı iskonto edilmeden verilmiş; uzlaşma dönem başında yapıldığından iskonto gerekir.
+      D: Gün sayısı çarpanı unutulmuş; fark yıllık değil dönemlik faizdir.
+      E: Yıllık fark nominal tutarla çarpılmış; ne gün sayısı ne iskonto uygulanmıştır.
+    hesap_adimlari:
+    - N×(Rref−Rfra)×d/(1+Rref×d)
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — FRA uzlaşma tutarı
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+  dogrulama:
+    python: 'gun, fra, nt, ref, kr = 180, 0.30, 10000000, 0.40, 0.35
+
+      d = gun / 360
+
+      sonuc = nt * (ref - fra) * d / (1 + ref * d)
+
+      yanlis = {"a": nt * (ref - fra) * d, "b": nt * (ref - fra) * d / (1 + fra * d), "c": nt * (ref - fra) / (1 + ref * d),
+      "d": nt * (ref - fra)}
+
+      '
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: FYN
+  unite: Para ve sermaye piyasası işlemleri ve türev araçlar
+  konu: PIY
+  kazanim: etkin piyasa hipotezi
+  tip: kavrama
+  zorluk: 2
+  kok: Zayıf formda etkin bir piyasa hakkında aşağıdaki ifadelerden hangisi **doğrudur**?
+  secenekler:
+    A: Fiyatlar şirket içi bilgileri hemen yansıttığı için içeriden bilgiyle sürekli aşırı getiri elde edilemez.
+    B: Kamuya açıklanan finansal tablo bilgilerinin fiyatlara yansıdığı, temel analizle aşırı getirinin sürekli olanaksız
+      olduğu anlamına gelir.
+    C: Fiyat değişimlerinin rassal olması, piyasa katılımcılarının irrasyonel olduğunu gösterir.
+    D: Etkin bir piyasada hisse getirilerinin önceden tam olarak tahmin edilebilir olması gerekir.
+    E: Geçmiş fiyat ve işlem hacmi bilgisine dayalı teknik analizle sürekli aşırı getiri elde edilemez.
+  dogru: E
+  aciklama:
+    dogru_neden: Zayıf formda etkinlikte geçmiş fiyat ve hacim bilgisi mevcut fiyatlara tamamen yansımıştır; bu yüzden grafik/teknik
+      analiz yoluyla sürekli aşırı getiri sağlanamaz. Yarı güçlü form kamuya açık bilgiyi, güçlü form özel bilgiyi de kapsar.
+    celdiriciler:
+      A: Bu, güçlü formdaki etkinliğin tanımıdır; zayıf form yalnızca geçmiş fiyat bilgisiyle ilgilidir.
+      B: Bu, yarı güçlü formdaki etkinliğin tanımıdır; zayıf formda kamuya açık bilgilerle aşırı getiri olanaklı olabilir.
+      C: Fiyatların rassal yürüyüş izlemesi yeni bilginin hızla fiyatlandığını gösterir; irrasyonellik anlamına gelmez.
+      D: Etkin piyasada yeni bilgi rassal geldiğinden getiriler önceden tahmin edilemez; tahmin edilebilirlik etkinsizlik
+        işaretidir.
+  kaynaklar:
+  - mevzuat: Genel kabul görmüş finans yönetimi bilgisi — etkin piyasa hipotezi
+    madde: '-'
+    alinti: ''
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5

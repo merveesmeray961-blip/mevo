@@ -1,0 +1,293 @@
+yazar: harici üretici (claude, paket 2026-11-05)
+gorev: YMM paketi 2026-11-05
+klasik: []
+sorular:
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Teşvikler ve özel uygulamalar
+  konu: TSV
+  kazanim: yurt dışında mal alım satımı kazancında transfer şartı
+  tip: hesaplama
+  zorluk: 3
+  kok: Hesap dönemi takvim yılı olan, finans sektörü dışındaki ve endüstri bölgesi ile İstanbul Finans Merkezi dışında faaliyet
+    gösteren (K) A.Ş., 2026 yılında yurt dışından satın aldığı malları Türkiye'ye getirmeksizin yurt dışındaki müşterilerine
+    satmıştır. Bu faaliyetten hasılat 9.000.000 TL, maliyet 7.500.000 TL, ilgili giderler 300.000 TL'dir. Doğan kazancın 900.000
+    TL'si kurumlar vergisi beyannamesinin verilmesi gereken tarihe kadar, kalan kısmı ise bu tarihten sonra Türkiye'ye transfer
+    edilmiştir. Şirketin ayrıca kasadaki nakdin değerlendirilmesinden 80.000 TL faiz geliri vardır. Kurum kazancı yeterli
+    olduğuna göre, KVK md. 10/1-i uyarınca 2026 yılında kurum kazancından indirilecek tutar kaç TL'dir?
+  secenekler:
+    A: '285.000'
+    B: '855.000'
+    C: '900.000'
+    D: 1.140.000
+    E: 1.200.000
+  dogru: B
+  aciklama:
+    dogru_neden: 'Faaliyet kazancı 9.000.000 − 7.500.000 − 300.000 = 1.200.000 TL''dir. Md. 10/1-i''ye göre indirim oranı
+      bu kurum için %95''tir ve kazancın beyanname verme süresine kadar Türkiye''ye transfer edilmeyen kısmı, sonradan transfer
+      edilse dahi indirime konu olmaz. İndirim = 900.000 × %95 = 855.000 TL''dir. Faiz geliri indirime konu faaliyet dışı
+      gelirdir ve hesaba katılmaz. Püf noktaları: (1) İndirim, kazanç üzerinden hesaplanır; hasılat üzerinden değil. (2) Oran
+      uygulanmadan önce yalnızca süresinde transfer edilen kısmı seçin. (3) Faiz ve kur farkı gibi diğer gelirler soruyu şaşırtmak
+      içindir.'
+    celdiriciler:
+      A: 285.000 TL, süresinde transfer edilmeyen 300.000 TL'nin %95'idir; indirime konu olan kısım ise transfer edilen kısımdır.
+      C: 900.000 TL, süresinde transfer edilen kazancın kendisidir; oran (%95) uygulanmadan indirim bulunamaz.
+      D: 1.140.000 TL, transfer şartı dikkate alınmadan toplam kazancın %95'idir; oysa transfer edilmeyen kısım indirim dışıdır.
+      E: 1.200.000 TL, kazancın tamamıdır; hem transfer şartı hem %95 oranı göz ardı edilmiştir.
+    hesap_adimlari:
+    - 'Kazanç: 9.000.000 − 7.500.000 − 300.000 = 1.200.000 TL'
+    - 'Süresinde transfer edilen kısım: 900.000 TL'
+    - 'İndirim: 900.000 × 0,95 = 855.000 TL'
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 10/1-i
+    alinti: Bu indirimden yararlanılabilmesi için kazancın elde edildiği hesap dönemine ilişkin yıllık kurumlar vergisi beyannamesinin
+      verilmesi gereken tarihe kadar Türkiye’ye transfer edilmiş olması, aracılık faaliyetine ilişkin malların satıcısı ve
+      alıcısının Türkiye’de olmaması şarttır.
+  - mevzuat: 'Kurumlar Vergisi Genel Tebliği (Seri No: 1)'
+    madde: bölüm 10.7.1
+    alinti: bu kazançların kurumlar vergisi beyannamesinin verilme süresinin sonuna kadar Türkiye’ye transfer edilmeyen kısmı
+      için indirimden yararlanılmayacaktır.
+  - mevzuat: 'Kurumlar Vergisi Genel Tebliği (Seri No: 1)'
+    madde: bölüm 10.7.2.3
+    alinti: Söz konusu indirimden yararlanan şirketlerin indirime konu faaliyetleri dışındaki diğer gelirleri (kasadaki nakitlerin
+      değerlendirilmesi sonucu oluşan faiz gelirleri, dövizlerin değerlemesinden kaynaklanan kur farkları ve iktisadi kıymetlerin
+      elden çıkarılmasından doğan gelirler gibi) ile olağan dışı gelirlerinin indirim kapsamında değerlendirilmesi mümkün
+      değildir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'kazanc=9000000-7500000-300000
+
+      transfer=900000
+
+      sonuc=transfer*0.95'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Teşvikler ve özel uygulamalar
+  konu: TSV
+  kazanim: korumalı işyeri indirimi
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Hesap dönemi takvim yılı olan (M) A.Ş., 5378 sayılı Kanuna göre kurulan bir korumalı işyeridir. 2026 yılında zihinsel
+    veya ruhsal engelli olup iş gücü piyasasına kazandırılmaları güç olan şu çalışanlara tam yıl çalıştırarak ücret ödemiştir:
+    1 numaralı çalışana yıllık brüt 500.000 TL (indirimden ilk kez 2024''te yararlanılmıştır), 2 numaralı çalışana yıllık
+    brüt 800.000 TL (indirimden ilk kez 2025''te yararlanılmıştır), 3 numaralı çalışana yıllık brüt 450.000 TL (indirimden
+    2021-2025 yıllarında yararlanılmıştır). Kanuni indirim oranı uygulanacak olup asgari ücretin yıllık brüt tutarı 420.000
+    TL kabul edilecektir. KVK md. 10/1-h uyarınca 2026 yılında kurum kazancından indirilecek korumalı işyeri indirimi kaç
+    TL''dir?'
+  secenekler:
+    A: '630.000'
+    B: '840.000'
+    C: 1.130.000
+    D: 1.300.000
+    E: 1.750.000
+  dogru: C
+  aciklama:
+    dogru_neden: 'Md. 10/1-h''ye göre ücret ödemelerinin yıllık brüt tutarının %100''ü indirilir; indirim her çalışan için
+      azami beş yıl uygulanır ve çalışan başına yıllık indirilecek tutar asgari ücretin yıllık brüt tutarının %150''sini (420.000
+      × 1,5 = 630.000 TL) aşamaz. 1 numaralı çalışan: 500.000 TL (limit altında); 2 numaralı çalışan: 800.000 TL > 630.000
+      TL olduğundan 630.000 TL; 3 numaralı çalışan için 2026 altıncı yıl olduğundan indirim yoktur. Toplam 500.000 + 630.000
+      = 1.130.000 TL''dir. Püf noktaları: (1) Önce her çalışanı ayrı ayrı değerlendirin; limit çalışan başınadır. (2) Beş
+      yıllık süre dolmuş çalışanı (3 numara) hesaba katmayın. (3) Limit asgari ücretin %100''ü değil %150''sidir.'
+    celdiriciler:
+      A: 630.000 TL yalnızca 2 numaralı çalışana ait sınırlandırılmış tutardır; 1 numaralı çalışanın 500.000 TL'lik indirimi
+        de eklenmelidir.
+      B: 840.000 TL, sınırın asgari ücretin yıllık brüt tutarının %100'ü (420.000 TL) alınmasıyla bulunur; oysa Kanun'daki
+        sınır %150'dir.
+      D: 1.300.000 TL, 2 numaralı çalışan için %150 sınırı uygulanmadan bulunan toplamdır (500.000 + 800.000).
+      E: 1.750.000 TL, hem sınırı hem beş yıllık süre kısıtını yok sayarak tüm ücretlerin toplamıdır (500.000 + 800.000 +
+        450.000).
+    hesap_adimlari:
+    - 'Sınır: 420.000 × 1,5 = 630.000 TL'
+    - '1 no: 500.000; 2 no: min(800.000; 630.000) = 630.000; 3 no: 0 (6. yıl)'
+    - 'Toplam: 500.000 + 630.000 = 1.130.000 TL'
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 10/1-h
+    alinti: yıllık brüt tutarının % 100’ü oranında korumalı işyeri indirimi (İndirim, her bir engelli çalışan için azami beş
+      yıl süre ile uygulanır ve yıllık olarak indirilecek tutar, her bir engelli çalışan için asgari ücretin yıllık brüt tutarının
+      % 150’sini aşamaz.)
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'siniri=420000*1.5
+
+      e1=min(500000,siniri)
+
+      e2=min(800000,siniri)
+
+      e3=0
+
+      sonuc=e1+e2+e3'
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Teşvikler ve özel uygulamalar
+  konu: TSV
+  kazanim: nitelikli hizmet merkezi indiriminin uygulama süresi
+  tip: uygulama
+  zorluk: 2
+  kok: 4875 sayılı Kanun kapsamında nitelikli hizmet merkezi olarak faaliyette bulunan, hesap dönemi takvim yılı olan (N)
+    A.Ş., 3.9.2028 tarihinde faaliyete geçmiştir. KVK md. 10/1-j kapsamındaki indirimden yararlanabileceği **son** hesap dönemi
+    aşağıdakilerden hangisidir?
+  secenekler:
+    A: '2028'
+    B: '2043'
+    C: '2046'
+    D: '2047'
+    E: '2048'
+  dogru: D
+  aciklama:
+    dogru_neden: Tebliğ 10.8.2'ye göre indirim, nitelikli hizmet merkezinin faaliyete geçtiği hesap dönemi dahil yirmi hesap
+      dönemi boyunca uygulanır. Faaliyete geçilen 2028 yılı (kıst dönem de olsa) birinci dönem sayıldığından 2028-2047 dönemleri
+      indirimli olur; son dönem 2047'dir.
+    celdiriciler:
+      A: 2028 yalnızca faaliyete geçilen yıldır; indirim yirmi hesap dönemi boyunca sürer.
+      B: 2043, yirmi yerine on altı hesap dönemi sayılarak (2028-2043) bulunan hatalı sonuçtur; Tebliğ'deki süre yirmi hesap
+        dönemidir.
+      C: 2046, yirmi yerine on dokuz hesap dönemi sayılarak (2028-2046) bulunan hatalı sonuçtur.
+      E: 2048, faaliyete geçilen yıl hariç tutularak 2029'dan başlayarak yirmi dönem sayılmasıyla bulunur; oysa faaliyete
+        geçilen dönem dahildir.
+    hesap_adimlari:
+    - 'Birinci dönem: 2028 (kıst dönem de olsa bir dönem)'
+    - 'Yirminci dönem: 2028 + 19 = 2047'
+  kaynaklar:
+  - mevzuat: 'Kurumlar Vergisi Genel Tebliği (Seri No: 1)'
+    madde: bölüm 10.8.2
+    alinti: Bu indirim, nitelikli hizmet merkezinin faaliyete geçtiği hesap dönemi dahil yirmi hesap dönemi boyunca uygulanacaktır.
+  - mevzuat: 'Kurumlar Vergisi Genel Tebliği (Seri No: 1)'
+    madde: bölüm 10.8.2
+    alinti: Faaliyete geçilen hesap döneminin kıst dönem olması halinde, bu dönem bir hesap dönemi olarak dikkate alınacaktır.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc=2028+20-1
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Teşvikler ve özel uygulamalar
+  konu: TSV
+  kazanim: sponsorluk ve reklam harcaması ayrımı
+  tip: kavrama
+  zorluk: 2
+  kok: Gençlik ve Spor Genel Müdürlüğü ile Türkiye Futbol Federasyonu mevzuatı kapsamında yapılan harcamalar için KVK md.
+    10/1-b indiriminden yararlanmak isteyen (P) A.Ş., sponsor olarak adı anılmak koşuluyla çeşitli harcamalar yapmıştır. Kurumlar
+    Vergisi Genel Tebliği'ne göre aşağıdakilerden hangisi sponsorluk harcaması **sayılmaz** (reklam harcaması olarak değerlendirilir)?
+  secenekler:
+    A: Resmî spor organizasyonları için ödenen saha, salon veya tesis kira bedeli (sponsor adı anılması koşuluyla)
+    B: Sporcuların iaşe, seyahat ve ikamet giderlerinin karşılanması için yapılan harcama
+    C: Sporcuların başka kulüplerden transferini sağlamak amacıyla ödenen bonservis bedelleri
+    D: Spor müsabakaları sonucuna göre sporculara veya spor adamlarına yapılan prim niteliğindeki ödemeler
+    E: Spor sahası panolarına ve sporcu formalarına şirketin marka ve amblemi konulması için yapılan harcama
+  dogru: E
+  aciklama:
+    dogru_neden: Tebliğ 10.3.1'e göre spor alanlarına, giysilere veya araç gereçlere kurumun tanıtımını sağlayacak amblem,
+      marka, isim ve benzeri işaretler konulması doğrudan ticari fayda sağlayan ve tanıtımı amaçlayan harcamalar olup reklam
+      harcaması sayılır; md. 10/1-b indirimine konu edilemez, ticari gider olarak dikkate alınır.
+    celdiriciler:
+      A: Resmî spor organizasyonları için yapılan saha, salon veya tesis kira bedelleri, sponsor adı anılması koşuluyla sponsorluk
+        harcamasıdır.
+      B: Sporcuların iaşe, seyahat ve ikamet giderleri Tebliğ'de sponsorluk harcaması olarak sayılmıştır.
+      C: Sporcuların transferini sağlayan bonservis bedelleri Tebliğ'de sponsorluk harcaması olarak sayılmıştır.
+      D: Müsabaka sonucuna göre sporculara veya spor adamlarına yapılan prim niteliğindeki nakdî ve aynî ödemeler sponsorluk
+        harcamasıdır.
+  kaynaklar:
+  - mevzuat: 'Kurumlar Vergisi Genel Tebliği (Seri No: 1)'
+    madde: bölüm 10.3.1
+    alinti: Sponsor olan kurumun adının anılması koşuluyla,
+  - mevzuat: 'Kurumlar Vergisi Genel Tebliği (Seri No: 1)'
+    madde: bölüm 10.3.1
+    alinti: doğrudan ticari fayda sağlayan ve kurumun tanıtımını amaçlayan harcamalar ise reklam harcaması olarak değerlendirilecektir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5
+- id: TASLAK
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: REV
+  unite: Teşvikler ve özel uygulamalar
+  konu: TSV
+  kazanim: üretim faaliyetinde indirimli oran (2026 ve 2027)
+  tip: kavrama
+  zorluk: 1
+  kok: Hesap dönemi takvim yılı olan, sanayi sicil belgesini haiz ve fiilen üretim faaliyetiyle iştigal eden tam mükellef
+    (S) A.Ş.'nin 2026 yılı üretim faaliyetinden elde ettiği kazanca uygulanacak kurumlar vergisi oranıyla ilgili olarak Kurumlar
+    Vergisi Genel Tebliği'ne göre aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Oran 1 puan indirimli uygulanır; 12,5 puanlık indirim 2027'den itibaren geçerlidir
+    B: Oran 12,5 puan indirimli uygulanır ve bu indirim 1.1.2026'dan itibaren elde edilen kazançlarda geçerlidir
+    C: Sanayi sicil belgesi aranmaz, fiilen üretim yapılması yeterlidir
+    D: İndirim yalnızca üretimden elde edilen kazanç değil, kurumun tüm kazancı için uygulanır
+    E: İndirim sırasında ihracat indirimi uygulanmadan önce diğer tüm indirimler dikkate alınmaz
+  dogru: A
+  aciklama:
+    dogru_neden: Tebliğ 32.1.2.1'e göre 7582 sayılı Kanunla getirilen 12,5 puanlık indirim 2027 ve izleyen dönemlerde elde
+      edilen kazançlara uygulanacaktır; 2026 vergilendirme döneminde sanayi sicil belgeli ve fiilen üretim yapan kurumların
+      münhasıran üretim faaliyetlerinden kaynaklanan kazançlarında oran 1 puan indirimli uygulanmaya devam eder.
+    celdiriciler:
+      B: 12,5 puanlık indirim 2027 yılından itibaren geçerlidir; 2026 için 1 puan uygulanır.
+      C: Üretim indirimi için sanayi sicil belgesine sahip olma ve fiilen üretim faaliyetiyle iştigal etme şartları birlikte
+        aranır; yalnızca fiilen üretim yeterli değildir.
+      D: İndirim münhasıran üretim faaliyetlerinden elde edilen kazançla sınırlıdır; diğer faaliyet kazançlarına uygulanmaz.
+      E: Md. 32/9'a göre indirimli oranlar, maddedeki diğer indirimler uygulandıktan sonraki oran üzerine uygulanır; yani
+        diğer indirimler dikkate alınır.
+  kaynaklar:
+  - mevzuat: 'Kurumlar Vergisi Genel Tebliği (Seri No: 1)'
+    madde: bölüm 32.1.2.1
+    alinti: 2026 vergilendirme döneminde elde edilen ve sanayi sicil belgesini haiz olup fiilen üretim faaliyetiyle iştigal
+      eden kurumların münhasıran üretim faaliyetlerinden kaynaklanan kazançları bakımından, kurumlar vergisi oranının 1 puan
+      indirimli uygulanmasına devam olunacaktır.
+  - mevzuat: 'Kurumlar Vergisi Genel Tebliği (Seri No: 1)'
+    madde: bölüm 32.1.2.3
+    alinti: Sanayi sicil belgesine sahip olma ve Fiilen üretim faaliyetiyle iştigal etme,
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: Claude Sonnet 5.5

@@ -1,0 +1,628 @@
+- id: YMM-VTK-DEG-0057
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Değerleme ve enflasyon düzeltmesi
+  konu: DEG
+  kazanim: maliyet bedeline dahil edilecek giderler
+  tip: hesaplama
+  zorluk: 3
+  kok: Bilanço esasına göre defter tutan (K) A.Ş., 2026 yılında üzerinde eski bir bina bulunan arsayı 8.000.000 TL'ye satın
+    almış; binanın yıkımı için 240.000 TL, arsanın tesviyesi için 60.000 TL, tapu harcı ve noter giderleri için 160.000 TL
+    ödemiştir. Arsayla doğrudan ilgili olarak aynı yıl 350.000 TL hibe alınmış ve arsa 2026 yılında envantere alınmıştır.
+    Buna göre VUK md. 262 uyarınca arsanın maliyet bedeli kaç TL'dir?
+  secenekler:
+    A: 7.650.000
+    B: 7.870.000
+    C: 8.110.000
+    D: 8.460.000
+    E: 8.810.000
+  dogru: C
+  aciklama:
+    dogru_neden: 'VUK md. 262''ye göre iktisadi kıymetin iktisabıyla doğrudan ilgili tapu ve noter giderleri ile gayrimenkullerde
+      mevcut bir binanın satın alınarak yıkılmasından ve arsanın tesviyesinden doğan giderler maliyet bedeline dahildir; gayrimenkulle
+      doğrudan ilgili olup envantere alındığı hesap dönemi sonuna kadar alınan hibe ise maliyet bedelinden indirilir. 8.000.000
+      + 240.000 + 60.000 + 160.000 − 350.000 = 8.110.000 TL. Püf noktaları: Hibe ''gelir'' değil maliyet düzeltmesidir; hibeyi
+      çıkarmayı ve yıkım-tesviye giderlerini eklemeyi birlikte kontrol edin.'
+    celdiriciler:
+      A: Yalnız arsa bedelinden hibe düşülmüş, yıkım, tesviye, tapu ve noter giderleri maliyete katılmamıştır.
+      B: Hibe düşülmüş, tapu-noter ve tesviye eklenmiş; ancak mevcut binanın yıkım gideri maliyete eklenmemiştir.
+      D: Hibe maliyetten indirilmemiştir; hibe indirimi md. 262'de açıkça öngörülmüştür.
+      E: Hibe maliyetten indirilmek yerine maliyete eklenmiştir.
+    hesap_adimlari:
+    - 8.000.000 + 240.000 + 60.000 + 160.000 = 8.460.000
+    - 8.460.000 − 350.000 = 8.110.000
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 262 (d bendi)
+    alinti: d) Gayrimenkullerde mevcut bir binanın satın alınarak yıkılmasından ve arsasının tesviyesinden mütevellit giderler.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 262 (hibe)
+    alinti: Gayrimenkullerle doğrudan ilgili olması şartıyla, bunların envantere alındığı hesap dönemi sonuna kadar alınan
+      hibeler maliyet bedelinden indirilir.
+  gecerlilik:
+    baslangic: '2021-10-14'
+    bitis: null
+  dogrulama:
+    python: sonuc = 8000000 + 240000 + 60000 + 160000 - 350000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim VTK_DEG_20261105_1.yaml, satır None
+- id: YMM-VTK-DEG-0058
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Değerleme ve enflasyon düzeltmesi
+  konu: DEG
+  kazanim: gayrimenkullerde ve taşıtlarda maliyet bedelinin artması
+  tip: kavrama
+  zorluk: 1
+  kok: VUK md. 272'ye göre, bir motorlu kara nakil vasıtasının maliyet bedeline eklenmesi gereken giderler aşağıdakilerden
+    hangisidir?
+  secenekler:
+    A: Aracın motorunun yenisiyle değiştirilmesi için yapılan giderler
+    B: Aracın periyodik bakımında yapılan yağ ve filtre değişimi giderleri
+    C: Aracın dış yüzeyindeki boyanın yenilenmesi için yapılan giderler
+    D: Aracın kaza sonrası hasarlı parçalarının onarım giderleri
+    E: Aracın iç temizliği ve yıkama için yapılan giderler
+  dogru: A
+  aciklama:
+    dogru_neden: VUK md. 272 uyarınca motorlu kara nakil vasıtasının kasa veya motorunun yenisi ile değiştirilmesi veya alımında
+      mevcut olmayan yeni bir tertibatın eklenmesi için yapılan giderler iktisadi kıymeti devamlı olarak artırdığından maliyet
+      bedeline eklenir.
+    celdiriciler:
+      B: Periyodik bakım normal bakım-onarım niteliğindedir; kıymeti devamlı olarak artırmaz, dönem gideridir.
+      C: Boya yenileme kıymeti devamlı artırmayan normal bakım-onarım giderlerindendir.
+      D: Hasar onarımı kıymeti artırmayan, mevcut durumu koruyan tamir giderlerindendir.
+      E: Temizlik giderleri md. 272'de açıkça maliyete eklenmeyen normal giderlerdendir.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 272
+    alinti: Bir geminin iktisap tarihindeki süratini fazlalaştırmak, yolcu ve eşya yükleme ve barındırma tertibatını genişletmek
+      veya değiştirmek suretiyle iktisadi kıymetini devamlı olarak artıran giderlerle bir motorlu kara nakil vasıtasının kasa
+      veya motorunun yenisi ile değiştirilmesi veya alımında mevcut olmayan yeni bir tertibatın eklenmesi için yapılan giderler
+      maliyet bedeline eklenmesi gereken giderlerdendir.
+  gecerlilik:
+    baslangic: '2005-07-03'
+    bitis: null
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim VTK_DEG_20261105_1.yaml, satır None
+- id: YMM-VTK-DEG-0059
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Değerleme ve enflasyon düzeltmesi
+  konu: DEG
+  kazanim: özel maliyet bedellerinin itfası
+  tip: hesaplama
+  zorluk: 3
+  kok: (M) A.Ş., 01.01.2026-31.12.2030 süreli kira sözleşmesiyle tuttuğu iş yerinde 2026 yılı başında, kıymeti devamlı olarak
+    artıran 1.000.000 TL'lik tadilat yapmış ve aynı yıl 90.000 TL normal bakım-onarım gideri ödemiştir. Şirket iş yerini kira
+    süresi dolmadan 31.12.2028 tarihinde boşaltmıştır. Buna göre VUK md. 327 uyarınca özel maliyet bedeline ilişkin olarak
+    2028 yılında bir defada gider yazılacak tutar kaç TL'dir?
+  secenekler:
+    A: '200.000'
+    B: '400.000'
+    C: '600.000'
+    D: '800.000'
+    E: 1.000.000
+  dogru: C
+  aciklama:
+    dogru_neden: 'Kiracının yaptığı ve iktisadi kıymeti artıran giderler özel maliyet bedeli olarak kira süresine (5 yıl)
+      göre eşit yüzdelerle itfa edilir: yıllık %20 = 200.000 TL. Kira süresi dolmadan boşaltılırsa henüz itfa edilmemiş giderler
+      boşaltma yılında bir defada gider yazılır. 2026 ve 2027''de 400.000 TL itfa edilmiştir; 2028''de 1.000.000 − 400.000
+      = 600.000 TL bir defada gider yazılır. Püf noktaları: Normal bakım-onarım gideri (90.000 TL) itfaya girmez; bu soruda
+      gereksiz veridir. Boşaltma yılının normal itfa payı ayrıca eklenmez, 600.000 TL''nin içindedir.'
+    celdiriciler:
+      A: Yalnız bir yıllık itfa payı bulunmuştur; itfa edilmemiş bakiyenin tamamı boşaltma yılında gider yazılır.
+      B: İki yıllık itfa edilen tutar (2026-2027) bulunmuştur; kalan tutar değildir.
+      D: Yalnız 2026 itfası düşülmüş, 2027 itfası düşülmemiştir.
+      E: Hiç itfa yapılmamış gibi tutarın tamamı gider yazılmıştır.
+    hesap_adimlari:
+    - Yıllık itfa = 1.000.000 / 5 = 200.000
+    - 2026-2027 itfası = 400.000
+    - 2028 gideri = 1.000.000 − 400.000 = 600.000
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 327
+    alinti: Kira veya işletme hakkı süresi dolmadan, kiralanan veya işletme hakkı alınan şeyin boşaltılması veya işletme hakkının
+      herhangi bir sebepten sona ermesi halinde henüz itfa edilmemiş olan giderler, boşaltma veya hakkın sona erdiği yılda
+      bir defada gider yazılır.
+  gecerlilik:
+    baslangic: '2005-07-03'
+    bitis: null
+  dogrulama:
+    python: sonuc = 1000000 - 2 * (1000000 / 5)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim VTK_DEG_20261105_1.yaml, satır None
+- id: YMM-VTK-DEG-0060
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Değerleme ve enflasyon düzeltmesi
+  konu: DEG
+  kazanim: ilk tesis ve taazzuv giderleri
+  tip: kavrama
+  zorluk: 2
+  kok: Kurumlarda aktifleştirilen ilk tesis ve taazzuv giderlerinin VUK'a göre vergisel işleyişi ile ilgili aşağıdakilerden
+    hangisi doğrudur?
+  secenekler:
+    A: Aktifleştirilmeleri zorunludur; itfa süresi kurumca serbestçe belirlenir.
+    B: Aktifleştirilmeleri ihtiyaridir; aktifleştirilenler eşit miktarlarda ve beş yıl içinde itfa edilir.
+    C: Aktifleştirilmeleri zorunludur; aktifleştirilenler on yıl içinde azalan bakiyeler usulüyle itfa edilir.
+    D: Aktifleştirilmeleri ihtiyaridir; aktifleştirilenler Maliye Bakanlığınca ilan edilen amortisman oranlarıyla itfa edilir.
+    E: Aktifleştirilmeleri ihtiyaridir; aktifleştirilenler mukayyet değerinin yarısı kadar itfa edilir.
+  dogru: B
+  aciklama:
+    dogru_neden: VUK md. 282'ye göre ilk tesis ve taazzuv giderlerinin aktifleştirilmesi ihtiyaridir; md. 326'ya göre kurumların
+      aktifleştirdikleri bu giderler mukayyet değerleri üzerinden eşit miktarlarda ve beş yıl içinde itfa olunur.
+    celdiriciler:
+      A: Aktifleştirme zorunlu değil ihtiyaridir; itfa da kurumun serbestisine bırakılmamış, beş yıl ve eşit miktar şartı
+        konulmuştur.
+      C: Aktifleştirme zorunlu değildir; itfa süresi on yıl değil beş yıldır ve azalan bakiyeler usulü öngörülmemiştir.
+      D: Bu giderler amortisman oranlarıyla değil md. 326'daki özel itfa kuralıyla (eşit miktarlarda, beş yılda) yok edilir.
+      E: Mukayyet değerin yarısıyla sınırlı bir itfa hükmü yoktur; değerin tamamı beş yılda itfa olunur.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 282
+    alinti: İlk tesis ve taazzuv giderlerinin aktifleştirilmesi ihtiyaridir.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 326
+    alinti: Madde 326 – Kurumların aktifleştirdikleri ilk tesis ve taazzuv giderleri ile peştemallıklar mukayyet değerleri
+      üzerinden eşit miktarlarda ve beş yıl içinde itfa olunur.
+  gecerlilik:
+    baslangic: '1961-01-10'
+    bitis: null
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim VTK_DEG_20261105_1.yaml, satır None
+- id: YMM-VTK-DEG-0061
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Değerleme ve enflasyon düzeltmesi
+  konu: DEG
+  kazanim: amortisman süresi ve binek otomobil amortismanı
+  tip: hesaplama
+  zorluk: 3
+  kok: Faaliyet konusu araç kiralama olmayan ve gün esasına göre amortisman uygulamasını seçmemiş (F) A.Ş., maliyeti 900.000
+    TL olan bir binek otomobili 10.08.2026 tarihinde aktife almıştır. Otomobilin normal amortisman oranı %20'dir; otomobil
+    alımında ödenen ÖTV ve indirilemeyen KDV zaten maliyete dahil edilmiştir. Buna göre (F) A.Ş.'nin otomobil için 2026 yılında
+    ayıracağı amortisman tutarı kaç TL'dir?
+  secenekler:
+    A: '60.000'
+    B: '75.000'
+    C: '90.000'
+    D: '150.000'
+    E: '180.000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'VUK md. 320/2''ye göre binek otomobillerde aktife girilen hesap döneminde ay kesri tam ay sayılarak kalan
+      ay süresi kadar amortisman ayrılır. Ağustos-Aralık = 5 ay. Yıllık amortisman 900.000 × %20 = 180.000 TL; 180.000 × 5/12
+      = 75.000 TL. Ayrılmayan süreye isabet eden bakiye itfa süresinin son yılında yok edilir. Püf noktaları: Ağustos ayı
+      10''unda başlasa da tam ay sayılır; ÖTV-KDV verisi ek bir hesap gerektirmez.'
+    celdiriciler:
+      A: Ağustos ayı sayılmadan 4 ay (Eylül-Aralık) üzerinden hesaplanmıştır; ay kesri tam ay sayılır.
+      C: 6 ay üzerinden hesaplanmıştır; Ağustos-Aralık 5 aydır.
+      D: Yıllık tutarın 10 aya isabet eden kısmı alınmıştır; hesapta ay sayısı yanlıştır.
+      E: Tam yıllık amortisman ayrılmıştır; aktife girilen yılda yalnız kalan ay süresi kadar ayrılır.
+    hesap_adimlari:
+    - Yıllık amortisman = 900.000 × 0,20 = 180.000
+    - Ay sayısı = 5 (Ağustos-Aralık)
+    - 180.000 × 5 / 12 = 75.000
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 320/2
+    alinti: Faaliyetleri kısmen veya tamamen binek otomobillerinin kiralanması veya çeşitli şekillerde işletilmesi olanların
+      bu amaçla kullandıkları binek otomobilleri hariç olmak üzere, işletmelere ait binek otomobillerinin aktife girdiği hesap
+      dönemi için ay kesri tam ay sayılmak suretiyle kalan ay süresi kadar amortisman ayrılır.
+  gecerlilik:
+    baslangic: '1995-05-25'
+    bitis: null
+  dogrulama:
+    python: sonuc = 900000 * 0.20 * 5 / 12
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim VTK_DEG_20261105_1.yaml, satır None
+- id: YMM-VTK-DEG-0062
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Değerleme ve enflasyon düzeltmesi
+  konu: DEG
+  kazanim: borçların ve tahvillerin değerlemesi
+  tip: bilgi
+  zorluk: 1
+  kok: Eshamlı şirketler ile iktisadi kamu müesseselerinin kendi çıkardıkları tahvilleri VUK'a göre hangi ölçüyle değerlemeleri
+    zorunludur?
+  secenekler:
+    A: Borsa rayici
+    B: Emsal bedeli
+    C: İtibari değer
+    D: Tasarruf değeri
+    E: Maliyet bedeli
+  dogru: C
+  aciklama:
+    dogru_neden: VUK md. 286'ya göre eshamlı şirketler ile iktisadi kamu müesseseleri çıkardıkları tahvilleri itibari değerleriyle
+      değerlemeye mecburdur. İtibari değer, senet ve tahvil üzerinde yazılı değerdir (md. 266).
+    celdiriciler:
+      A: Borsa rayici çıkarılan tahvillerin değerlemesinde esas alınmaz; md. 286 itibari değeri zorunlu kılar.
+      B: Emsal bedeli gerçek bedeli olmayan mallar için kullanılan bir ölçüdür.
+      D: Tasarruf değeri varlığın sahibi için arz ettiği gerçek değerdir; çıkarılan tahvil için aranmaz.
+      E: Maliyet bedeli iktisap ve değer artırma ödemelerinin toplamıdır; çıkarılan tahvil için kullanılmaz.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 286
+    alinti: Madde 286 – Eshamlı şirketlerle iktisadi kamu müesseseleri çıkardıkları tahvilleri itibari değerleriyle değerlemeye
+      mecburdurlar.
+  gecerlilik:
+    baslangic: '1961-01-10'
+    bitis: null
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim VTK_DEG_20261105_1.yaml, satır None
+- id: YMM-VTK-DEG-0063
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Değerleme ve enflasyon düzeltmesi
+  konu: DEG
+  kazanim: girişim sermayesi fonu
+  tip: hesaplama
+  zorluk: 2
+  kok: Girişim sermayesi yatırım ortaklığına sermaye olarak koymak amacıyla VUK md. 325/A kapsamında fon ayırmak isteyen (G)
+    A.Ş.'nin ilgili dönem kurum kazancı 4.000.000 TL, öz sermayesi 12.000.000 TL'dir. Bu fon hesabına en fazla kaç TL ayrılabilir?
+  secenekler:
+    A: '400.000'
+    B: '800.000'
+    C: 1.200.000
+    D: 2.400.000
+    E: 4.000.000
+  dogru: A
+  aciklama:
+    dogru_neden: 'Girişim sermayesi fonu kurum kazancının %10''unu ve öz sermayenin %20''sini aşamaz; iki sınırın birlikte
+      sağlanması gerekir. %10 × 4.000.000 = 400.000 TL; %20 × 12.000.000 = 2.400.000 TL. Küçük olan sınır geçerlidir: 400.000
+      TL.'
+    celdiriciler:
+      B: Kurum kazancının %20'si alınmıştır; kazanç sınırı %10'dur.
+      C: Öz sermayenin %10'u alınmıştır; öz sermaye sınırı %20'dir.
+      D: Yalnız öz sermaye sınırı (%20) dikkate alınmıştır; kazanç sınırı da aşılamaz.
+      E: Kurum kazancının tamamı alınmıştır; fon kazancın %10'unu aşamaz.
+    hesap_adimlari:
+    - Kazanç sınırı = 4.000.000 × 0,10 = 400.000
+    - Öz sermaye sınırı = 12.000.000 × 0,20 = 2.400.000
+    - Fon = min(400.000; 2.400.000) = 400.000
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 325/A
+    alinti: Bu fon, kurum kazancının veya beyan edilen gelirin %10’unu ve öz sermayenin %20’sini aşamaz.
+  gecerlilik:
+    baslangic: '2012-05-31'
+    bitis: null
+  dogrulama:
+    python: sonuc = min(4000000 * 0.10, 12000000 * 0.20)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim VTK_DEG_20261105_1.yaml, satır None
+- id: YMM-VTK-DEG-0064
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Değerleme ve enflasyon düzeltmesi
+  konu: DEG
+  kazanim: vazgeçilen alacaklar
+  tip: uygulama
+  zorluk: 2
+  kok: Bir işletme, konkordato yoluyla alınmasından vazgeçilen 700.000 TL tutarındaki alacağını VUK md. 324 uyarınca özel
+    bir karşılık hesabına almıştır. Alacaktan 2026 yılında vazgeçilmiştir. Bu hesabın muhteviyatı hangi tarihe kadar zararla
+    itfa edilmediği takdirde kâr hesabına nakledilir?
+  secenekler:
+    A: 31.12.2026
+    B: 31.12.2027
+    C: 31.12.2028
+    D: 31.12.2029
+    E: 31.12.2030
+  dogru: D
+  aciklama:
+    dogru_neden: VUK md. 324'e göre bu hesabın muhteviyatı, alacaktan vazgeçildiği yılın sonundan başlayarak üç yıl içinde
+      zararla itfa edilmediği takdirde kâr hesabına nakledilir. Vazgeçme yılı 2026 olduğundan başlangıç 31.12.2026'dır; üç
+      yıl sonu 31.12.2029'dur.
+    celdiriciler:
+      A: Vazgeçilen yılın sonu başlangıç noktasıdır, üç yıllık sürenin sonu değildir.
+      B: Yalnız bir yıl eklenmiştir; süre üç yıldır.
+      C: Vazgeçme yılı da sayılarak üç yıl hesaplanmıştır; süre yılın sonundan başlar.
+      E: Dört yıl eklenmiştir; kanunda süre üç yıldır.
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 324
+    alinti: Bu hesabın muhteviyatı alacaktan vazgeçildiği yılın sonundan başlıyarak üç yıl içinde zararla itfa edilmediği
+      takdirde kar hesabına naklolunur.
+  gecerlilik:
+    baslangic: '1961-01-10'
+    bitis: null
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim VTK_DEG_20261105_1.yaml, satır None
+- id: YMM-VTK-DEG-0065
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: VTK
+  unite: Değerleme ve enflasyon düzeltmesi
+  konu: DEG
+  kazanim: emtia sigorta tazminatı
+  tip: hesaplama
+  zorluk: 2
+  kok: Bilanço esasına göre defter tutan (N) A.Ş.'nin deposunda 2026 yılında çıkan yangında maliyet bedeli 2.000.000 TL olan
+    emtia yok olmuş ve sigorta şirketinden 2.600.000 TL tazminat alınmıştır. Şirket emtiayı yeniden almayı planlamaktadır.
+    VUK'un ilgili hükmüne göre bu olayda doğrudan kâra alınması gereken tutar kaç TL'dir?
+  secenekler:
+    A: '0'
+    B: '300.000'
+    C: '600.000'
+    D: 2.000.000
+    E: 2.600.000
+  dogru: C
+  aciklama:
+    dogru_neden: VUK md. 330'a göre emtia, zirai mahsul ve hayvan kıymetlerinde meydana gelen zayiat nedeniyle alınan sigorta
+      tazminatı bunların değerinden fazla ise bu fazlalık kâra alınır. Amortismana tabi kıymetlerdeki gibi geçici hesapta
+      tutma imkânı emtia için yoktur. 2.600.000 − 2.000.000 = 600.000 TL.
+    celdiriciler:
+      A: Emtia tazminatında amortismana tabi kıymetler için tanınan geçici hesapta tutma imkânı yoktur; fazlalık kâra alınır.
+      B: Fazlalığın yarısı alınmıştır; kanunda böyle bir oran yoktur.
+      D: Zayi olan emtianın maliyet bedeli kâra alınmaz; yalnız tazminatın değerinden fazla kısmı kâra alınır.
+      E: Tazminatın tamamı kâra alınmıştır; emtianın değerine karşılık gelen kısım fazlalık değildir.
+    hesap_adimlari:
+    - Fazlalık = 2.600.000 − 2.000.000 = 600.000
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 330
+    alinti: Emtia ve zirai mahsul ve hayvan kıymetlerinde vukua gelen zayiat dolayısiyle alınan sigorta tazminatları bunların
+      değerlerinden fazla olursa bu fazlalık kara alınır.
+  gecerlilik:
+    baslangic: '1961-01-10'
+    bitis: null
+  dogrulama:
+    python: sonuc = 2600000 - 2000000
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici (claude, paket 2026-11-05)'
+    istem_surumu: uretici paketi YMM paketi 2026-11-05
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim VTK_DEG_20261105_2.yaml, satır None
