@@ -1001,3 +1001,1922 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+- id: YMM-FYN-ZDP-K007
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - anüite (ertelenmiş ve büyüyen)
+  - bugünkü ve gelecek değer
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: '**Olay:** Hasan Bey, 4. yılın sonundan başlayarak ardışık 3 yıl boyunca her yıl sonunda 250.000 TL tutarında ikramiye
+    alacaktır (4., 5. ve 6. yıl sonları). Tüm hesaplarda yıllık %25 bileşik faiz kullanılacaktır. Gerekli faktörler:
+
+
+    | n | (1,25)^−n | (1,25)^n |
+
+    |---|---|---|
+
+    | 1 | 0,8 | 1,25 |
+
+    | 2 | 0,64 | 1,5625 |
+
+    | 3 | 0,512 | 1,953125 |
+
+    | 4 | 0,4096 | 2,44140625 |
+
+    | 5 | 0,32768 | 3,0517578125 |
+
+
+    **İstenenler:**
+
+
+    (a) İkramiye akışının bugünkü değerini (ertelenmiş anüite) hesaplayınız. (6 puan)
+
+
+    (b) Son ikramiyenin alındığı 6. yıl sonu itibarıyla ikramiyelerin toplam gelecek değerini bulunuz. (5 puan)
+
+
+    (c) Hasan Bey bu ikramiyeleri finanse etmek için 1., 2. ve 3. yıl sonlarında eşit tutarlarda birikim yapacaksa yıllık
+    tutarı bulunuz. (7 puan)
+
+
+    (d) İkramiyeler 3., 4. ve 5. yıl sonlarında (bir yıl erken) ödenseydi bugünkü değer ne olurdu? (4 puan)
+
+    '
+  cozum: '**(a)** 3. yıl sonunda (ilk ödemeden bir dönem önce) 3 yıllık anüite değeri = 250.000 × (0,8 + 0,64 + 0,512) = 250.000
+    × 1,952 = 488.000 TL. Bugüne iskonto: 488.000 × 0,512 = **249.856 TL**.
+
+
+    **(b)** Gelecek değer faktörü = (1,25³ − 1) / 0,25 = 3,8125; FV = 250.000 × 3,8125 = **953.125 TL**.
+
+
+    **(c)** 3. yıl sonunda gereken tutar 488.000 TL''dir. Üç yıllık eşit birikim: 488.000 / 3,8125 = **128.000 TL**.
+
+
+    **(d)** PV = 250.000 × (0,512 + 0,4096 + 0,32768) = **312.320 TL**.
+
+
+    **Mevzuat dayanağı:** TMS 36 paragraf 30 uyarınca kullanım değeri hesabında gelecekteki nakit akışlarının tahmini ve paranın
+    zaman değeri dikkate alınır.
+
+    '
+  puanlama:
+  - olcut: (a) ertelenmiş anüitenin bugünkü değeri
+    puan: 6
+  - olcut: (b) 6. yıl sonu gelecek değeri
+    puan: 5
+  - olcut: (c) 3. yıl sonundaki değerin eşit birikime bölünmesi
+    puan: 7
+  - olcut: (d) erken ödemede bugünkü değer
+    puan: 4
+  kaynaklar:
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: paragraf 30
+    alinti: 'Varlığın kullanım değerinin hesaplamasında aşağıdaki unsurlar dikkate alınır: (a) İşletmenin varlıktan elde etmeyi
+      beklediği gelecekteki nakit akışlarının tahmini; (b) Söz konusu gelecekteki nakit akışlarının tutarı ve zamanlamasında
+      olabilecek değişikliklerle ilgili beklentiler; (c) Piyasa riski hariç tutulmuş cari faiz oranı ile temsil edilen paranın
+      zaman değeri;'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'pmt=250_000
+
+      f1, f2, f3, f4, f5 = 0.8, 0.64, 0.512, 0.4096, 0.32768
+
+      a3 = f1+f2+f3
+
+      deger3 = pmt*a3
+
+      pv0 = deger3*f3
+
+      fv_a = (1.25**3-1)/0.25
+
+      fv6 = pmt*fv_a
+
+      taksit = deger3/fv_a
+
+      pv_basi = pmt*(f3+f4+f5)
+
+      sonuc = {''a'': pv0, ''b'': fv6, ''c'': taksit, ''d'': pv_basi}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 1
+- id: YMM-FYN-ZDP-K008
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - anüite (ertelenmiş ve büyüyen)
+  - bugünkü ve gelecek değer
+  zorluk: 2
+  puan: 21
+  sure_dk: 30
+  soru: '**Olay:** Ekin Ltd. Şti., bir depoyu 4 yıllığına kiralamıştır. 1. yıl sonunda ödenecek kira 200.000 TL olup kira
+    her yıl %10 artacaktır (son kira 4. yıl sonundadır). Şirketin iskonto oranı yıllık %25''tir.
+
+
+    **İstenenler:**
+
+
+    (a) Kira ödemelerini tek tek iskonto ederek bugünkü değerini bulunuz. (6 puan)
+
+
+    (b) Aynı değeri büyüyen anüite formülü ile hesaplayarak doğrulayınız. (5 puan)
+
+
+    (c) Kira artışı olmasaydı (sabit 200.000 TL) bugünkü değer ne olurdu? Artışın maliyetini bulunuz. (5 puan)
+
+
+    (d) Kira sürekli olarak %10 artarak sonsuza dek ödenseydi bugünkü değeri ve (a) şıkkındaki akışın 4. yıl sonundaki gelecek
+    değerini bulunuz. (5 puan)
+
+    '
+  cozum: '**(a)** Kiralar: 200.000; 220.000; 242.000; 266.200 TL. Bugünkü değerler: 160.000; 140.800; 123.904; 109.035,52.
+    Toplam = **533.739,52 TL**.
+
+
+    **(b)** PV = C / (r − g) × [1 − ((1 + g) / (1 + r))ⁿ] = 200.000 / 0,15 × [1 − (1,10 / 1,25)⁴] = 200.000 / 0,15 × (1 −
+    0,59969536) = **533.739,52 TL**.
+
+
+    **(c)** Sabit kira: 200.000 × (0,8 + 0,64 + 0,512 + 0,4096) = **472.320 TL**. Artışın bugünkü değer maliyeti = 533.739,52
+    − 472.320 = **61.419,52 TL**.
+
+
+    **(d)** Büyüyen perpetüite = C / (r − g) = 200.000 / 0,15 = **1.333.333,33 TL**. (a) akışının 4. yıl sonu gelecek değeri
+    = 533.739,52 × 1,25⁴ = **1.303.075 TL**.
+
+
+    **Mevzuat dayanağı:** TMS 36 paragraf 6 uyarınca kullanım değeri, beklenen gelecekteki nakit akışlarının bugünkü değeridir.
+
+    '
+  puanlama:
+  - olcut: (a) kira ödemelerinin bugünkü değeri (tek tek)
+    puan: 6
+  - olcut: (b) büyüyen anüite formülü
+    puan: 5
+  - olcut: (c) sabit anüite ve artış maliyeti
+    puan: 5
+  - olcut: (d) büyüyen perpetüite ve gelecek değer
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: paragraf 6
+    alinti: 'Kullanım değeri: Bir varlık veya nakit yaratan birimden elde edilmesi beklenen gelecekteki nakit akışlarının
+      bugünkü değeridir.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'c1=200_000; g=0.10; r=0.25; n=4
+
+      cf1 = c1
+
+      cf2 = c1*1.10
+
+      cf3 = c1*1.10**2
+
+      cf4 = c1*1.10**3
+
+      pv1 = cf1/1.25
+
+      pv2 = cf2/1.25**2
+
+      pv3 = cf3/1.25**3
+
+      pv4 = cf4/1.25**4
+
+      toplam = pv1+pv2+pv3+pv4
+
+      oran = (1.10/1.25)**4
+
+      formul = c1/(r-g)*(1-oran)
+
+      sabit = c1*(1/1.25+1/1.25**2+1/1.25**3+1/1.25**4)
+
+      surekli = c1/(r-g)
+
+      fv4 = toplam*1.25**4
+
+      fark = toplam-sabit
+
+      sonuc = {''a'': toplam, ''b'': formul, ''c'': (sabit, toplam-sabit), ''d'': (surekli, fv4)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 2
+- id: YMM-FYN-ZDP-K009
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - tahvil değerlemesi ve durasyon
+  - bugünkü ve gelecek değer
+  zorluk: 2
+  puan: 20
+  sure_dk: 30
+  soru: '**Olay:** Nominal değeri 1.000 TL, yıllık kupon oranı %10 (kupon yıl sonlarında ödenir) ve vadesine 2 yıl kalan bir
+    tahvil borsada 784 TL''den işlem görmektedir.
+
+
+    **İstenenler:**
+
+
+    (a) Cari getiriyi hesaplayınız. (3 puan)
+
+
+    (b) Vadeye kadar getirinin (YTM) %25 olup olmadığını deneme yöntemiyle gösteriniz. (7 puan)
+
+
+    (c) Yaklaşık YTM formülü ((kupon + (nominal − fiyat) / n) / ((nominal + fiyat) / 2)) ile yaklaşık getiriyi bulunuz ve
+    gerçek YTM ile farkını yorumlayınız. (5 puan)
+
+
+    (d) Piyasa getirisi %20''ye düşerse tahvil fiyatı ve yüzde değişim ne olur? Fiyat–getiri ilişkisini açıklayınız. (5 puan)
+
+    '
+  cozum: '**(a)** Cari getiri = kupon / fiyat = 100 / 784 = **%12,7551** (sadece kupon geliri; fiyat artışını içermez).
+
+
+    **(b)** %25 ile fiyat: 100 / 1,25 + 1.100 / 1,25² = 80 + 704 = **784 TL** = piyasa fiyatı. Fiyat eşit olduğundan YTM =
+    **%25**''tir.
+
+
+    **(c)** Yaklaşık YTM = (100 + (1.000 − 784) / 2) / ((1.000 + 784) / 2) = 208 / 892 = **%23,3184**. Formül bileşik etkiyi
+    ve nakit akışlarının zamanlamasını yok saydığından gerçek YTM''den (%25) düşük sonuç verir.
+
+
+    **(d)** %20 ile fiyat = 100 / 1,20 + 1.100 / 1,20² = **847,22 TL**; değişim = 847,22 / 784 − 1 = **%8,0641**. Piyasa getirisi
+    düştüğünde sabit nakit akışlarının bugünkü değeri artar; fiyat ile getiri ters yönlüdür.
+
+
+    **Mevzuat dayanağı:** TMS 36 paragraf 6 uyarınca kullanım değeri, beklenen gelecekteki nakit akışlarının bugünkü değeridir.
+
+    '
+  puanlama:
+  - olcut: (a) cari getiri
+    puan: 3
+  - olcut: (b) %25 ile fiyat denemesi ve YTM doğrulaması
+    puan: 7
+  - olcut: (c) yaklaşık YTM ve yorum
+    puan: 5
+  - olcut: (d) %20 getiride fiyat ve ilişki
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: paragraf 6
+    alinti: 'Kullanım değeri: Bir varlık veya nakit yaratan birimden elde edilmesi beklenen gelecekteki nakit akışlarının
+      bugünkü değeridir.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'nom=1000; kupon=100; fiyat=784
+
+      cari = kupon/fiyat
+
+      p25 = kupon/1.25 + (kupon+nom)/1.25**2
+
+      ytm_yak = (kupon + (nom-fiyat)/2)/((nom+fiyat)/2)
+
+      p20 = kupon/1.20 + (kupon+nom)/1.20**2
+
+      degisim = p20/fiyat-1
+
+      nom_k = nom+kupon
+
+      pay = kupon + (nom-fiyat)/2
+
+      payda = (nom+fiyat)/2
+
+      sonuc = {''a'': cari, ''b'': p25, ''c'': ytm_yak, ''d'': (p20, degisim)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 3
+- id: YMM-FYN-ZDP-K010
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - tahvil değerlemesi ve durasyon
+  - iskonto ve senet hesapları
+  zorluk: 3
+  puan: 22
+  sure_dk: 35
+  soru: '**Olay:** Bir portföy yöneticisi, nominal değeri 1.000 TL, yıllık %10 kuponlu (kuponlar yıl sonunda ödenir) ve vadesine
+    3 yıl kalan bir tahvili incelemektedir. Piyasa getirisi (YTM) %25''tir. Aynı vadede kuponsuz (sıfır kuponlu) bir tahvil
+    de bulunmaktadır.
+
+
+    **İstenenler:**
+
+
+    (a) Kuponlu tahvilin fiyatını bulunuz. (5 puan)
+
+
+    (b) Macaulay durasyonunu ve değiştirilmiş (modified) durasyonu hesaplayınız. (7 puan)
+
+
+    (c) Getiri 1 puan artarak %26''ya çıkarsa değiştirilmiş durasyon ile tahminî yeni fiyatı bulunuz. (5 puan)
+
+
+    (d) Aynı vadeli sıfır kuponlu tahvilin Macaulay durasyonunu belirterek iki tahvilin getiri duyarlılığını karşılaştırınız.
+    (5 puan)
+
+    '
+  cozum: '**(a)** Nakit akışları: 100; 100; 1.100. PV''ler: 80; 64; 563,20. Fiyat = **707,20 TL**.
+
+
+    **(b)** Macaulay durasyonu = (1 × 80 + 2 × 64 + 3 × 563,20) / 707,20 = **2,68 yıl**. Değiştirilmiş durasyon = 2,68 / 1,25
+    = **2,15**.
+
+
+    **(c)** Fiyat değişimi ≈ −2,15 × 0,01 = −%2,1466. Yeni fiyat ≈ 707,20 × (1 − 2,15 × 0,01) = **692,02 TL**.
+
+
+    **(d)** Sıfır kuponlu tahvilin durasyonu vadesine eşittir: **3 yıl**; değiştirilmiş durasyonu 3 / 1,25 = 2,40. 1 puanlık
+    getiri artışında yaklaşık fiyat kaybı: kuponlu tahvilde %2,1466, sıfır kuponlu tahvilde %2,40. Kupon ödemeleri nakit akışlarının
+    ağırlık merkezini öne çektiğinden kuponlu tahvil faiz değişimine daha az duyarlıdır.
+
+
+    **Mevzuat dayanağı:** TMS 36 paragraf 6 uyarınca kullanım değeri, beklenen gelecekteki nakit akışlarının bugünkü değeridir.
+
+    '
+  puanlama:
+  - olcut: (a) tahvil fiyatı
+    puan: 5
+  - olcut: (b) Macaulay ve değiştirilmiş durasyon
+    puan: 7
+  - olcut: (c) durasyonla tahminî fiyat
+    puan: 5
+  - olcut: (d) sıfır kuponlu tahvil durasyonu ve karşılaştırma
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: paragraf 6
+    alinti: 'Kullanım değeri: Bir varlık veya nakit yaratan birimden elde edilmesi beklenen gelecekteki nakit akışlarının
+      bugünkü değeridir.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kupon=100; nom=1000; y=0.25
+
+      cf1 = kupon; cf2 = kupon; cf3 = kupon+nom
+
+      pv1 = cf1/1.25; pv2 = cf2/1.25**2; pv3 = cf3/1.25**3
+
+      p = pv1+pv2+pv3
+
+      d = (1*pv1+2*pv2+3*pv3)/p
+
+      md = d/(1+y)
+
+      yaklasik_p = p*(1-md*0.01)
+
+      d_sifir = 3
+
+      md_sifir = d_sifir/(1+y)
+
+      fark_sifir = md_sifir*0.01
+
+      fark_kuponlu = md*0.01
+
+      dd = md*0.01
+
+      sonuc = {''a'': p, ''b'': (d, md), ''c'': yaklasik_p, ''d'': (fark_kuponlu, fark_sifir)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 4
+- id: YMM-FYN-ZDP-K011
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - iskonto ve senet hesapları
+  - bugünkü ve gelecek değer
+  zorluk: 2
+  puan: 21
+  sure_dk: 30
+  soru: '**Olay:** Rüzgâr Ticaret A.Ş., bugün (1 yıl = 360 gün) bankaya aşağıdaki üç alacak senedini iskonto ettirmek istemektedir.
+    Banka yıllık %48 oranında basit dış (ticari) iskonto uygulamaktadır (iskonto = nominal × oran × gün / 360); komisyon yoktur.
+
+
+    | Senet | Nominal (TL) | Vadeye kalan gün |
+
+    |---|---|---|
+
+    | 1 | 300.000 | 30 |
+
+    | 2 | 500.000 | 60 |
+
+    | 3 | 200.000 | 90 |
+
+
+    **İstenenler:**
+
+
+    (a) Her senet için iskonto tutarını hesaplayınız. (5 puan)
+
+
+    (b) Toplam iskontoyu ve işletmenin eline geçecek net tutarı bulunuz. (4 puan)
+
+
+    (c) Üç senedin yerine tek bir senet verilecek olsa eş değer (ortalama) vadeyi hesaplayınız ve toplam iskontonun aynı olduğunu
+    gösteriniz. (8 puan)
+
+
+    (d) 1. senet için işletmenin fiilen ödediği yıllık basit maliyeti (net bedel esaslı) hesaplayınız. (4 puan)
+
+    '
+  cozum: '**(a)** Senet 1 = 300.000 × 0,48 × 30 / 360 = **12.000 TL**; Senet 2 = 500.000 × 0,48 × 60 / 360 = **40.000 TL**;
+    Senet 3 = 200.000 × 0,48 × 90 / 360 = **24.000 TL**.
+
+
+    **(b)** Toplam iskonto = **76.000 TL**; net tutar = 1.000.000 − 76.000 = **924.000 TL**.
+
+
+    **(c)** Ortalama vade = (300.000 × 30 + 500.000 × 60 + 200.000 × 90) / 1.000.000 = **57 gün**. Tek senet iskontosu = 1.000.000
+    × 0,48 × 57 / 360 = **76.000 TL** = toplam iskonto.
+
+
+    **(d)** Senet 1 net bedeli = 300.000 − 12.000 = 288.000 TL. Maliyet = 12.000 / 288.000 × 360 / 30 = **%50**. Dış iskonto
+    oranı %48 olmasına rağmen, iskonto nominal üzerinden alındığından fiili maliyet daha yüksektir.
+
+
+    **Mevzuat dayanağı:** TBK md. 88/2 uyarınca sözleşmeyle kararlaştırılacak yıllık faiz oranı, yasal belirlenen yıllık faiz
+    oranının yüzde elli fazlasını aşamaz.
+
+    '
+  puanlama:
+  - olcut: (a) senet bazında iskonto
+    puan: 5
+  - olcut: (b) toplam iskonto ve net tutar
+    puan: 4
+  - olcut: (c) ortalama vade ve iskonto eşitliği
+    puan: 8
+  - olcut: (d) net bedel esaslı efektif maliyet
+    puan: 4
+  kaynaklar:
+  - mevzuat: 6098 sayılı Türk Borçlar Kanunu
+    madde: md. 88/2
+    alinti: Sözleşme ile kararlaştırılacak yıllık faiz oranı, birinci fıkra uyarınca belirlenen yıllık faiz oranının yüzde
+      elli fazlasını aşamaz.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'n1, t1 = 300_000, 30
+
+      n2, t2 = 500_000, 60
+
+      n3, t3 = 200_000, 90
+
+      i = 0.48
+
+      d1 = n1*i*t1/360
+
+      d2 = n2*i*t2/360
+
+      d3 = n3*i*t3/360
+
+      toplam_d = d1+d2+d3
+
+      net = n1+n2+n3-toplam_d
+
+      ort_vade = (n1*t1+n2*t2+n3*t3)/(n1+n2+n3)
+
+      d_ort = (n1+n2+n3)*i*ort_vade/360
+
+      net1 = n1-d1
+
+      efektif1 = d1/net1*360/t1
+
+      sonuc = {''a'': (d1,d2,d3), ''b'': (toplam_d, net), ''c'': (ort_vade, d_ort), ''d'': efektif1}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 5
+- id: YMM-FYN-ZDP-K012
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - reel faiz (Fisher)
+  - bugünkü ve gelecek değer
+  zorluk: 2
+  puan: 24
+  sure_dk: 30
+  soru: '**Olay:** Meltem Ltd. Şti. bir yıl vadeli 1.000.000 TL tutarında mevduat açmayı planlamaktadır. Yıllık nominal mevduat
+    faizi %60, beklenen yıllık enflasyon %40''tır (vergi dikkate alınmayacaktır).
+
+
+    **İstenenler:**
+
+
+    (a) Fisher denklemine göre reel faiz oranını bulunuz; basit fark yaklaşımıyla karşılaştırınız. (6 puan)
+
+
+    (b) Vade sonundaki nominal tutarı ve bu tutarın bugünkü satın alma gücüyle karşılığını bulunuz. (5 puan)
+
+
+    (c) %10 reel getiri hedefleniyorsa gereken nominal faizi, enflasyon %50''ye çıkarsa %60 nominal faizin reel getirisini
+    bulunuz. (7 puan)
+
+
+    (d) Enflasyon her yıl %40 kalırsa bugünkü fiyatlarla 1.000.000 TL''lik bir harcama için 3 yıl sonra gereken nominal tutarı
+    ve bunun için bugün %60 nominal faizle (bileşik) yatırılması gereken tutarı bulunuz. (6 puan)
+
+    '
+  cozum: '**(a)** Reel faiz = (1 + 0,60) / (1 + 0,40) − 1 = **%14,2857**. Basit fark yaklaşımı: 60 − 40 = %20. Enflasyon yüksek
+    olduğunda basit fark reel faizi olduğundan yüksek gösterir.
+
+
+    **(b)** Nominal tutar = 1.000.000 × 1,60 = **1.600.000 TL**; bugünkü satın alma gücü = 1.600.000 / 1,40 = **1.142.857,14
+    TL** (yatırımın reel getirisi = 1.142.857,14 / 1.000.000 − 1 = %14,2857).
+
+
+    **(c)** Gereken nominal faiz = 1,10 × 1,40 − 1 = **%54**. Enflasyon %50 iken reel getiri = 1,60 / 1,50 − 1 = **%6,6667**.
+
+
+    **(d)** Gereken nominal tutar = 1.000.000 × 1,40³ = **2.744.000 TL**. Bugünkü yatırım = 2.744.000 / 1,60³ = **669.921,87
+    TL**.
+
+
+    **Mevzuat dayanağı:** TMS 29 paragraf 2 uyarınca yüksek enflasyonlu bir ekonomide düzeltme yapılmaksızın yerel para biriminde
+    raporlama anlamlı ve faydalı değildir; bu nedenle reel getiri nominal getiriden ayrıştırılarak değerlendirilir.
+
+    '
+  puanlama:
+  - olcut: (a) Fisher reel faizi ve yaklaşık değer
+    puan: 6
+  - olcut: (b) nominal tutar ve reel karşılığı
+    puan: 5
+  - olcut: (c) hedef reel için nominal faiz ve yüksek enflasyonda reel getiri
+    puan: 7
+  - olcut: (d) 3 yıllık nominal hedef ve bugünkü yatırım
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 29 Yüksek Enflasyonlu Ekonomilerde Finansal Raporlama
+    madde: paragraf 2
+    alinti: Yüksek enflasyonlu bir ekonomide, faaliyet sonuçlarının ve finansal durumun düzeltme yapılmaksızın yerel para
+      biriminde raporlanması anlamlı ve faydalı değildir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'nom=0.60; enf=0.40; tutar=1_000_000
+
+      reel = (1+nom)/(1+enf)-1
+
+      yaklasik = nom-enf
+
+      fv = tutar*(1+nom)
+
+      reel_fv = fv/(1+enf)
+
+      hedef_reel = 0.10
+
+      gerek_nom = (1+hedef_reel)*(1+enf)-1
+
+      enf2 = 0.50
+
+      reel2 = (1+nom)/(1+enf2)-1
+
+      hedef_cari = 1_000_000
+
+      gerek_nominal_tutar = hedef_cari*(1+enf)**3
+
+      bugun_yatirim = gerek_nominal_tutar/(1+nom)**3
+
+      sonuc = {''a'': (reel, yaklasik), ''b'': (fv, reel_fv), ''c'': (gerek_nom, reel2), ''d'': (gerek_nominal_tutar, bugun_yatirim)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 6
+- id: YMM-FYN-ZDP-K013
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - hisse senedi değerlemesi (Gordon modeli) ve göreli değerleme
+  - bugünkü ve gelecek değer
+  zorluk: 2
+  puan: 21
+  sure_dk: 30
+  soru: '**Olay:** Tekin Gıda A.Ş. az önce pay başına 3 TL kâr payı (D0) dağıtmıştır. Kâr payının bundan sonra süresiz olarak
+    her yıl %5 büyüyeceği beklenmektedir. Yatırımcıların gerekli getiri oranı %20, payın borsa fiyatı 18 TL''dir.
+
+
+    **İstenenler:**
+
+
+    (a) Gordon modeline göre payın içsel değerini bulunuz. (6 puan)
+
+
+    (b) Pay için al/alma kararını veriniz; piyasa fiyatının ima ettiği gerekli getiri oranını hesaplayınız. (6 puan)
+
+
+    (c) İki yıl sonraki teorik pay değerini ve bugünkü kâr payı verimini (D1 / P0) bulunuz. (5 puan)
+
+
+    (d) İkinci yıl (D2) kâr payı tutarını bulunuz ve Gordon modelinin temel varsayımlarını belirtiniz. (4 puan)
+
+    '
+  cozum: '**(a)** D1 = 3 × 1,05 = 3,15 TL. P0 = D1 / (k − g) = 3,15 / (0,20 − 0,05) = **21 TL**.
+
+
+    **(b)** İçsel değer (21 TL) piyasa fiyatından (18 TL) 3 TL yüksektir → pay düşük fiyatlanmıştır, **alınmalıdır**. İma
+    edilen getiri k = D1 / P + g = 3,15 / 18 + 0,05 = **%22,50**; bu oran gerekli getiriden (%20) yüksektir.
+
+
+    **(c)** P2 = P0 × 1,05² = **23,1525 TL**; kâr payı verimi = 3,15 / 21 = **%15** (k − g ile aynıdır).
+
+
+    **(d)** D2 = 3 × 1,05² = **3,3075 TL**. Gordon modeli kâr payının sabit oranda sonsuza dek büyüdüğünü ve k > g olduğunu
+    varsayar.
+
+
+    **Mevzuat dayanağı:** TTK md. 507/1 uyarınca her pay sahibi, dağıtılması kararlaştırılmış net dönem kârına payı oranında
+    katılır.
+
+    '
+  puanlama:
+  - olcut: (a) D1 ve Gordon içsel değeri
+    puan: 6
+  - olcut: (b) karar ve ima edilen getiri
+    puan: 6
+  - olcut: (c) P2 ve kâr payı verimi
+    puan: 5
+  - olcut: (d) D2 ve model varsayımları
+    puan: 4
+  kaynaklar:
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 507/1
+    alinti: Her pay sahibi, kanun ve esas sözleşme hükümlerine göre pay sahiplerine dağıtılması kararlaştırılmış net dönem
+      kârına, payı oranında katılma hakkını haizdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'd0=3.0; g=0.05; k=0.20; piyasa=18.0
+
+      d1 = d0*(1+g)
+
+      p0 = d1/(k-g)
+
+      fark = p0-piyasa
+
+      k_ima = d1/piyasa + g
+
+      d2 = d0*(1+g)**2
+
+      p2 = p0*(1+g)**2
+
+      verim = d1/p0
+
+      sonuc = {''a'': (d1, p0), ''b'': (fark, k_ima), ''c'': (p2, verim), ''d'': d2}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 7
+- id: YMM-FYN-ZDP-K014
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - hisse senedi değerlemesi (Gordon modeli) ve göreli değerleme
+  - içsel ve sürdürülebilir büyüme
+  zorluk: 3
+  puan: 21
+  sure_dk: 35
+  soru: '**Olay:** Orhan Enerji A.Ş.''nin gelecek yıl pay başına kazancının (PBK1) 12 TL olması beklenmektedir. Şirket kârını
+    yeniden yatırım oranı (tutma oranı) b ile işletmede tutmakta ve bu yatırımlardan özkaynak kârlılığı (ROE) elde etmektedir;
+    süresiz büyüme oranı g = ROE × b''dir. Yatırımcıların gerekli getirisi %20''dir. Değerleme Gordon modeline göre yapılacaktır
+    (D1 = PBK1 × (1 − b)).
+
+
+    **İstenenler:**
+
+
+    (a) ROE %20 ve tutma oranı %60 iken büyüme oranını, D1''i ve pay değerini bulunuz. (6 puan)
+
+
+    (b) Tutma oranı %40''a düşürülürse (ROE %20) pay değeri ne olur? Sonucu yorumlayınız. (5 puan)
+
+
+    (c) ROE %25 olsaydı tutma oranı %60 ve %40 için pay değerlerini bulunuz. (6 puan)
+
+
+    (d) ROE %25 ve b = %60 iken büyümesiz değeri (PBK1 / k) ve büyüme fırsatlarının bugünkü değerini (PVGO) hesaplayınız.
+    (4 puan)
+
+    '
+  cozum: '**(a)** g = 0,20 × 0,60 = **%12**; D1 = 12 × (1 − 0,60) = **4,80 TL**; P0 = 4,80 / (0,20 − 0,12) = **60 TL**.
+
+
+    **(b)** g = 0,20 × 0,40 = %8; D1 = 12 × 0,60 = 7,20 TL; P0 = 7,20 / (0,20 − 0,08) = **60 TL**. ROE gerekli getiriye eşit
+    (ROE = k) olduğunda kâr dağıtım politikası değeri değiştirmez; yeniden yatırım değer yaratmaz.
+
+
+    **(c)** ROE %25: b = %60 için g = %15, P0 = 4,80 / (0,20 − 0,15) = **96 TL**; b = %40 için g = %10, P0 = 7,20 / (0,20
+    − 0,10) = **72 TL**. ROE > k olduğunda kârın tutulması (büyüme) değeri artırır.
+
+
+    **(d)** Büyümesiz değer = 12 / 0,20 = **60 TL**; PVGO = 96 − 60 = **36 TL**.
+
+
+    **Mevzuat dayanağı:** TTK md. 507/1 uyarınca her pay sahibi, dağıtılması kararlaştırılmış net dönem kârına payı oranında
+    katılır.
+
+    '
+  puanlama:
+  - olcut: (a) g, D1 ve P0 (ROE=k, b=%60)
+    puan: 6
+  - olcut: (b) b=%40 değeri ve ROE=k yorumu
+    puan: 5
+  - olcut: (c) ROE=%25 için iki politika değeri
+    puan: 6
+  - olcut: (d) büyümesiz değer ve PVGO
+    puan: 4
+  kaynaklar:
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 507/1
+    alinti: Her pay sahibi, kanun ve esas sözleşme hükümlerine göre pay sahiplerine dağıtılması kararlaştırılmış net dönem
+      kârına, payı oranında katılma hakkını haizdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'eps1=12.0; k=0.20
+
+      roe_a=0.20; b_a=0.60
+
+      g_a = roe_a*b_a
+
+      d1_a = eps1*(1-b_a)
+
+      p_a = d1_a/(k-g_a)
+
+      b_b = 0.40
+
+      g_b = roe_a*b_b
+
+      d1_b = eps1*(1-b_b)
+
+      p_b = d1_b/(k-g_b)
+
+      roe_c = 0.25
+
+      g_c = roe_c*b_a
+
+      p_c = d1_a/(k-g_c)
+
+      g_d = roe_c*b_b
+
+      p_d = d1_b/(k-g_d)
+
+      p_buyumesiz = eps1/k
+
+      pvgo = p_c-p_buyumesiz
+
+      sonuc = {''a'': (g_a, d1_a, p_a), ''b'': (g_b, d1_b, p_b), ''c'': (g_c, p_c, g_d, p_d), ''d'': (p_buyumesiz, pvgo)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 8
+- id: YMM-FYN-ZDP-K015
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - hisse senedi değerlemesi (Gordon modeli) ve göreli değerleme
+  zorluk: 2
+  puan: 21
+  sure_dk: 30
+  soru: '**Olay:** Aygün Kimya A.Ş.''nin değeri benzer üç firmanın çarpanlarıyla değerlenecektir.
+
+
+    | Veri | Aygün Kimya |
+
+    |---|---|
+
+    | Net kâr | 12.000.000 TL |
+
+    | Özkaynak defter değeri | 55.000.000 TL |
+
+    | FAVÖK | 30.000.000 TL |
+
+    | Net finansal borç | 50.000.000 TL |
+
+    | Pay sayısı | 4.000.000 |
+
+    | Borsa fiyatı | 28 TL |
+
+
+    Benzer firmaların çarpanları: F/K = 9; 11; 10. PD/DD = 1,8; 2,2; 2,0. FD/FAVÖK = 5; 6; 7.
+
+
+    **İstenenler:**
+
+
+    (a) Ortalama F/K çarpanıyla Aygün Kimya''nın piyasa değerini ve pay başına değerini bulunuz. (5 puan)
+
+
+    (b) Ortalama PD/DD çarpanıyla piyasa değerini ve pay başına değerini bulunuz. (5 puan)
+
+
+    (c) Ortalama FD/FAVÖK çarpanıyla firma değerini, özkaynak değerini ve pay başına değeri bulunuz. (7 puan)
+
+
+    (d) Üç yöntemin ortalamasını ve borsa fiyatına göre potansiyel primi/iskontoyu hesaplayınız. (4 puan)
+
+    '
+  cozum: '**(a)** Ortalama F/K = (9 + 11 + 10) / 3 = 10. Piyasa değeri = 12.000.000 × 10 = **120.000.000 TL**; pay başına
+    = 120.000.000 / 4.000.000 = **30 TL**.
+
+
+    **(b)** Ortalama PD/DD = 2. Piyasa değeri = 55.000.000 × 2 = **110.000.000 TL**; pay başına = **27,50 TL**.
+
+
+    **(c)** Ortalama FD/FAVÖK = 6. Firma değeri = 30.000.000 × 6 = **180.000.000 TL**; özkaynak değeri = 180.000.000 − 50.000.000
+    = **130.000.000 TL**; pay başına = **32,50 TL**.
+
+
+    **(d)** Ortalama = (30 + 27,50 + 32,50) / 3 = **30 TL**; borsa fiyatına göre potansiyel prim = 30 / 28 − 1 = **%7,1429**.
+
+
+    **Mevzuat dayanağı:** TMS 36 paragraf 6 uyarınca kullanım değeri, beklenen gelecekteki nakit akışlarının bugünkü değeridir.
+
+    '
+  puanlama:
+  - olcut: (a) F/K ile değer
+    puan: 5
+  - olcut: (b) PD/DD ile değer
+    puan: 5
+  - olcut: (c) FD/FAVÖK ile firma ve özkaynak değeri
+    puan: 7
+  - olcut: (d) ortalama değer ve prim
+    puan: 4
+  kaynaklar:
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: paragraf 6
+    alinti: 'Kullanım değeri: Bir varlık veya nakit yaratan birimden elde edilmesi beklenen gelecekteki nakit akışlarının
+      bugünkü değeridir.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'nk=12_000_000; oz=55_000_000; favok=30_000_000; nborc=50_000_000; adet=4_000_000; fiyat=28
+
+      fk = (9+11+10)/3
+
+      pddd = (1.8+2.2+2.0)/3
+
+      fdf = (5+6+7)/3
+
+      pd_fk = nk*fk
+
+      pd_dd = oz*pddd
+
+      fd = favok*fdf
+
+      pd_fd = fd-nborc
+
+      h1 = pd_fk/adet
+
+      h2 = pd_dd/adet
+
+      h3 = pd_fd/adet
+
+      ort = (h1+h2+h3)/3
+
+      prim = ort/fiyat-1
+
+      sonuc = {''a'': (fk, h1), ''b'': (pddd, h2), ''c'': (fd, pd_fd, h3), ''d'': (ort, prim)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 9
+- id: YMM-FYN-ZDP-K016
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - bugünkü ve gelecek değer
+  - iskonto ve senet hesapları
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: '**Olay:** Bir banka, 500.000 TL tutarındaki 3 yıllık mevduata yarıyıllık %20 oranında (altı aylık dönemler için)
+    faiz uygulamakta, faizi her yarıyıl sonunda anaparaya eklemektedir (bileşik). İşletme alternatif olarak aynı tutarı yıllık
+    nominal %40 oranında basit faizle (bileşik değil) 3 yıl vadeli bir araca yatırmayı düşünmektedir.
+
+
+    **İstenenler:**
+
+
+    (a) Bankanın mevduatının yıllık efektif faiz oranını ve nominal yıllık oranını bulunuz. (5 puan)
+
+
+    (b) 3 yıl sonunda mevduatın bileşik değerini hesaplayınız. (5 puan)
+
+
+    (c) Yıllık efektif oranla 3 yıllık bileşiklemeyi yaparak (b) sonucunu doğrulayınız ve basit faizli alternatifle farkı
+    bulunuz. (8 puan)
+
+
+    (d) Bir sözleşmede faiz oranı belirlenirken, yasal olarak belirlenen yıllık faiz oranı %24 ise sözleşmeyle kararlaştırılabilecek
+    en yüksek yıllık faiz oranını bulunuz; yıllık %30''luk bir sözleşme faizinin bu sınır içinde kalıp kalmadığını belirtiniz.
+    (4 puan)
+
+    '
+  cozum: '**(a)** Yıllık efektif oran = (1 + 0,20)² − 1 = **%44**; nominal yıllık oran = 2 × %20 = **%40**.
+
+
+    **(b)** FV = 500.000 × 1,20⁶ = 500.000 × 2,985984 = **1.492.992 TL**.
+
+
+    **(c)** Efektif oranla: 500.000 × (1,44)³ = **1.492.992 TL** (aynı sonuç). Basit faizli alternatif: 500.000 × (1 + 0,40
+    × 3) = **1.100.000 TL**. Fark = **392.992 TL** (bileşik mevduat lehine).
+
+
+    **(d)** En yüksek yıllık faiz oranı = %24 × 1,5 = **%36**. Yıllık %30 bu sınırın altında olduğundan sınır içindedir.
+
+
+    **Mevzuat dayanağı:** TBK md. 88/2 uyarınca sözleşmeyle kararlaştırılacak yıllık faiz oranı, yasal belirlenen yıllık faiz
+    oranının yüzde elli fazlasını aşamaz.
+
+    '
+  puanlama:
+  - olcut: (a) efektif ve nominal oran
+    puan: 5
+  - olcut: (b) 3 yıllık bileşik değer
+    puan: 5
+  - olcut: (c) efektif oranla doğrulama ve basit faiz farkı
+    puan: 8
+  - olcut: (d) yasal faiz sınırı ve %30 kontrolü
+    puan: 4
+  kaynaklar:
+  - mevzuat: 6098 sayılı Türk Borçlar Kanunu
+    madde: md. 88/2
+    alinti: Sözleşme ile kararlaştırılacak yıllık faiz oranı, birinci fıkra uyarınca belirlenen yıllık faiz oranının yüzde
+      elli fazlasını aşamaz.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'yarim=0.20; ana=500_000
+
+      efektif = (1+yarim)**2-1
+
+      nominal = yarim*2
+
+      fv3 = ana*(1+yarim)**6
+
+      fv3_yillik = ana*(1+efektif)**3
+
+      fv_basit = ana*(1+nominal*3)
+
+      fark = fv3-fv_basit
+
+      yasal = 0.24
+
+      ust = yasal*1.5
+
+      sozlesme = 0.30
+
+      sonuc = {''a'': (efektif, nominal), ''b'': fv3, ''c'': (fv3_yillik, fv_basit, fark), ''d'': ust}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 10
+- id: YMM-FYN-ZDP-K017
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - anüite (ertelenmiş ve büyüyen)
+  - bugünkü ve gelecek değer
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: '**Olay:** Bora Makine A.Ş., 976.000 TL tutarında bir kredi kullanmıştır. Yıllık faiz oranı %25''tir; kredi 3 eşit
+    taksitle geri ödenecek, faiz kalan anapara üzerinden hesaplanacaktır. Gerekli faktör: (1,25)^−1 = 0,8; (1,25)^−2 = 0,64;
+    (1,25)^−3 = 0,512.
+
+
+    **İstenenler:**
+
+
+    (a) Yıl sonlarında ödenecek eşit taksit tutarını bulunuz. (5 puan)
+
+
+    (b) Geri ödeme (amortisman) tablosunu düzenleyiniz. (7 puan)
+
+
+    (c) Toplam faiz giderini ve 2. taksit ödendikten hemen sonra kalan borcu, kalan taksitin bugünkü değeriyle doğrulayınız.
+    (5 puan)
+
+
+    (d) Taksitler yılbaşlarında (kredi kullanımı anında ilk taksit) ödenseydi eşit taksit ne olurdu? (5 puan)
+
+    '
+  cozum: '**(a)** Taksit = 976.000 / (0,8 + 0,64 + 0,512) = 976.000 / 1,952 = **500.000 TL**.
+
+
+    **(b)**
+
+
+    | Yıl | Başlangıç borç | Faiz | Anapara | Kalan borç |
+
+    |---|---|---|---|---|
+
+    | 1 | 976.000 | 244.000 | 256.000 | 720.000 |
+
+    | 2 | 720.000 | 180.000 | 320.000 | 400.000 |
+
+    | 3 | 400.000 | 100.000 | 400.000 | 0 |
+
+
+    **(c)** Toplam faiz = 244.000 + 180.000 + 100.000 = **524.000 TL**. 2. taksit sonrası kalan borç 400.000 TL; son taksidin
+    bugünkü değeri = 500.000 × 0,8 = **400.000 TL** (eşit).
+
+
+    **(d)** Dönem başı faktörü = 1 + 0,8 + 0,64 = 2,44; taksit = 976.000 / 2,44 = **400.000 TL**.
+
+
+    **Mevzuat dayanağı:** TBK md. 88/2 uyarınca sözleşmeyle kararlaştırılacak yıllık faiz oranı, yasal belirlenen yıllık faiz
+    oranının yüzde elli fazlasını aşamaz.
+
+    '
+  puanlama:
+  - olcut: (a) eşit taksit tutarı
+    puan: 5
+  - olcut: (b) faiz-anapara-kalan borç tablosu
+    puan: 7
+  - olcut: (c) toplam faiz ve kalan borç doğrulaması
+    puan: 5
+  - olcut: (d) dönem başı taksit
+    puan: 5
+  kaynaklar:
+  - mevzuat: 6098 sayılı Türk Borçlar Kanunu
+    madde: md. 88/2
+    alinti: Sözleşme ile kararlaştırılacak yıllık faiz oranı, birinci fıkra uyarınca belirlenen yıllık faiz oranının yüzde
+      elli fazlasını aşamaz.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kredi=976_000; r=0.25
+
+      f = 0.8+0.64+0.512
+
+      taksit = kredi/f
+
+      f1 = kredi*r
+
+      a1 = taksit-f1
+
+      k1 = kredi-a1
+
+      f2 = k1*r
+
+      a2 = taksit-f2
+
+      k2 = k1-a2
+
+      f3 = k2*r
+
+      a3 = taksit-f3
+
+      k3 = k2-a3
+
+      top_faiz = f1+f2+f3
+
+      f_basi = 1+0.8+0.64
+
+      taksit_basi = kredi/f_basi
+
+      erken = taksit*0.8
+
+      sonuc = {''a'': taksit, ''b'': (f1,a1,k1,f2,a2,k2,f3,a3,k3), ''c'': (top_faiz, erken), ''d'': taksit_basi}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 11
+- id: YMM-FYN-ZDP-K018
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - anüite (ertelenmiş ve büyüyen)
+  - bugünkü ve gelecek değer
+  zorluk: 2
+  puan: 21
+  sure_dk: 30
+  soru: '**Olay:** Ayhan Vakfı, bir üniversiteye her yıl sonunda 120.000 TL tutarında burs ödemesini süresiz olarak sürdürecek
+    bir fon kurmak istemektedir. Fon yıllık %25 getiri sağlamaktadır.
+
+
+    **İstenenler:**
+
+
+    (a) Bu süresiz ödeme için bugün fona konulması gereken tutarı bulunuz. (4 puan)
+
+
+    (b) Burs tutarı her yıl %5 artacaksa (ilk ödeme 120.000 TL) gereken tutarı bulunuz. (5 puan)
+
+
+    (c) Ödemelere ilk olarak 3. yıl sonunda başlanacak (ve süresiz sürecek) olsaydı, bugün konulması gereken tutar ne olurdu?
+    (6 puan)
+
+
+    (d) Fona 480.000 TL konulur ve ilk iki yıl sonunda 150.000 TL''şer çekilirse 2. yıl sonunda fonun değeri ve bundan sonra
+    süresiz çekilebilecek yıllık tutar ne olur? (6 puan)
+
+    '
+  cozum: '**(a)** PV = C / r = 120.000 / 0,25 = **480.000 TL**.
+
+
+    **(b)** PV = C / (r − g) = 120.000 / (0,25 − 0,05) = **600.000 TL**.
+
+
+    **(c)** İlk ödeme 3. yıl sonunda olduğundan sonsuz anüitenin değeri 2. yıl sonunda hesaplanır (480.000 TL) ve 2 yıl iskonto
+    edilir: 480.000 × 0,64 = **307.200 TL**.
+
+
+    **(d)** 1. yıl sonu: 480.000 × 1,25 − 150.000 = **450.000 TL**; 2. yıl sonu: 450.000 × 1,25 − 150.000 = **412.500 TL**.
+    Bundan sonra yıllık sürdürülebilir çekim = 412.500 × 0,25 = **103.125 TL** (anaparaya dokunmadan).
+
+
+    **Mevzuat dayanağı:** TMS 36 paragraf 6 uyarınca kullanım değeri, beklenen gelecekteki nakit akışlarının bugünkü değeridir.
+
+    '
+  puanlama:
+  - olcut: (a) sonsuz anüite değeri
+    puan: 4
+  - olcut: (b) büyüyen sonsuz anüite değeri
+    puan: 5
+  - olcut: (c) ertelenmiş sonsuz anüite değeri
+    puan: 6
+  - olcut: (d) iki yıl sonunda fon değeri ve sürdürülebilir çekim
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: paragraf 6
+    alinti: 'Kullanım değeri: Bir varlık veya nakit yaratan birimden elde edilmesi beklenen gelecekteki nakit akışlarının
+      bugünkü değeridir.'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'odeme=120_000; r=0.25; g=0.05
+
+      pv = odeme/r
+
+      pv_g = odeme/(r-g)
+
+      pv_ert = pv*0.64
+
+      fon=480_000; cekim=150_000
+
+      d1 = fon*1.25-cekim
+
+      d2 = d1*1.25-cekim
+
+      surd = d2*r
+
+      sonuc = {''a'': pv, ''b'': pv_g, ''c'': pv_ert, ''d'': (d1, d2, surd)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 12
+- id: YMM-FYN-ZDP-K019
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - bugünkü ve gelecek değer
+  - anüite (ertelenmiş ve büyüyen)
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: '**Olay:** Sera Tarım A.Ş., yıllık %25 bileşik getirili bir fona bugün 128.000 TL yatırmıştır. Ayrıca 2. yıl sonunda
+    fona 64.000 TL daha ekleyecektir. Şirketin 5. yıl sonunda 1.000.000 TL''ye ihtiyacı vardır. Gerekli faktörler: 1,25⁵ =
+    3,0517578125; 1,25³ = 1,953125; 1,25⁻⁵ = 0,32768.
+
+
+    **İstenenler:**
+
+
+    (a) Bugünkü 128.000 TL''nin 5. yıl sonundaki değerini bulunuz. (4 puan)
+
+
+    (b) 2. yıl sonundaki 64.000 TL''nin 5. yıl sonundaki değerini ve toplam birikimi bulunuz. (5 puan)
+
+
+    (c) Hiçbir ek yatırım yapılmayacaksa 5. yıl sonunda 1.000.000 TL elde etmek için bugün yatırılması gereken tutarı bulunuz.
+    (6 puan)
+
+
+    (d) 2. yıl sonunda 64.000 TL ek yatırım yapılacaksa, hedefe ulaşmak için bugün yatırılması gereken tutarı bulunuz. (7
+    puan)
+
+    '
+  cozum: '**(a)** FV = 128.000 × 1,25⁵ = 128.000 × 3,0517578125 = **390.625 TL**.
+
+
+    **(b)** Ek yatırım 3 yıl işler: 64.000 × 1,953125 = **125.000 TL**. Toplam = 390.625 + 125.000 = **515.625 TL** (hedefin
+    altındadır).
+
+
+    **(c)** PV = 1.000.000 × 0,32768 = **327.680 TL**.
+
+
+    **(d)** Ek yatırımın 5. yıl değeri 125.000 TL olduğundan ilk yatırımdan beklenen = 1.000.000 − 125.000 = 875.000 TL; bugünkü
+    tutar = 875.000 × 0,32768 = **286.720 TL**.
+
+
+    **Mevzuat dayanağı:** TMS 36 paragraf 30 uyarınca kullanım değeri hesabında gelecekteki nakit akışlarının tahmini ve paranın
+    zaman değeri dikkate alınır.
+
+    '
+  puanlama:
+  - olcut: (a) ilk yatırımın gelecek değeri
+    puan: 4
+  - olcut: (b) ek yatırımın gelecek değeri ve toplam
+    puan: 5
+  - olcut: (c) hedef için bugünkü yatırım
+    puan: 6
+  - olcut: (d) ek yatırımlı senaryoda bugünkü tutar
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: paragraf 30
+    alinti: 'Varlığın kullanım değerinin hesaplamasında aşağıdaki unsurlar dikkate alınır: (a) İşletmenin varlıktan elde etmeyi
+      beklediği gelecekteki nakit akışlarının tahmini; (b) Söz konusu gelecekteki nakit akışlarının tutarı ve zamanlamasında
+      olabilecek değişikliklerle ilgili beklentiler; (c) Piyasa riski hariç tutulmuş cari faiz oranı ile temsil edilen paranın
+      zaman değeri;'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ilk=128_000; ek=64_000; hedef=1_000_000
+
+      fv5 = ilk*1.25**5
+
+      fv_ek = ek*1.25**3
+
+      toplam = fv5+fv_ek
+
+      pv_hedef = hedef/1.25**5
+
+      kalan = hedef-fv_ek
+
+      pv_hedef_ek = kalan/1.25**5
+
+      fvifa5 = (1.25**5-1)/0.25
+
+      sonuc = {''a'': fv5, ''b'': (fv_ek, toplam), ''c'': pv_hedef, ''d'': pv_hedef_ek}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 13
+- id: YMM-FYN-ZDP-K020
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - hisse senedi değerlemesi (Gordon modeli) ve göreli değerleme
+  - bugünkü ve gelecek değer
+  zorluk: 3
+  puan: 22
+  sure_dk: 35
+  soru: '**Olay:** Kılıç Otomotiv A.Ş. az önce pay başına 2 TL kâr payı (D0) dağıtmıştır. Kâr payının önümüzdeki 2 yıl her
+    yıl %20, sonrasında süresiz olarak her yıl %5 büyümesi beklenmektedir. Gerekli getiri oranı %25, borsa fiyatı 14 TL''dir.
+
+
+    **İstenenler:**
+
+
+    (a) D1, D2, D3 ve 2. yıl sonundaki uç (terminal) değeri (P2) bulunuz. (6 puan)
+
+
+    (b) Payın bugünkü içsel değerini ve borsa fiyatıyla farkını hesaplayarak karar veriniz. (6 puan)
+
+
+    (c) Gerekli getiri %20 olsaydı içsel değer ne olurdu? (5 puan)
+
+
+    (d) (b) şıkkındaki içsel değerin yüzde kaçı uç değerden gelmektedir? Sonucu yorumlayınız. (5 puan)
+
+    '
+  cozum: '**(a)** D1 = 2 × 1,20 = **2,40**; D2 = 2,40 × 1,20 = **2,88**; D3 = 2,88 × 1,05 = **3,024**. P2 = D3 / (k − g2)
+    = 3,024 / (0,25 − 0,05) = **15,12 TL**.
+
+
+    **(b)** P0 = 2,40 / 1,25 + 2,88 / 1,25² + 15,12 / 1,25² = 1,92 + 1,8432 + 9,6768 = **13,44 TL**. Fark = 13,44 − 14 = **-0,56
+    TL**: içsel değer piyasa fiyatından düşük olduğundan pay pahalıdır, **alınmamalıdır**.
+
+
+    **(c)** k = %20: P2 = 3,024 / 0,15 = 20,16; P0 = 2,40 / 1,2 + 2,88 / 1,44 + 20,16 / 1,44 = **18 TL**.
+
+
+    **(d)** Uç değerin bugünkü değeri 9,6768 TL; payı = 9,6768 / 13,44 = **%72**. Değerin büyük bölümü uzak gelecek varsayımlarına
+    bağlı olduğundan sonuç büyüme ve getiri varsayımlarına çok duyarlıdır.
+
+
+    **Mevzuat dayanağı:** TTK md. 507/1 uyarınca her pay sahibi, dağıtılması kararlaştırılmış net dönem kârına payı oranında
+    katılır.
+
+    '
+  puanlama:
+  - olcut: (a) kâr payı akışı ve uç değer
+    puan: 6
+  - olcut: (b) içsel değer ve karar
+    puan: 6
+  - olcut: (c) %20 getiride değer
+    puan: 5
+  - olcut: (d) uç değerin payı ve yorum
+    puan: 5
+  kaynaklar:
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 507/1
+    alinti: Her pay sahibi, kanun ve esas sözleşme hükümlerine göre pay sahiplerine dağıtılması kararlaştırılmış net dönem
+      kârına, payı oranında katılma hakkını haizdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'd0=2.0; g1=0.20; g2=0.05; k=0.25; piyasa=14.0
+
+      d1 = d0*(1+g1)
+
+      d2 = d1*(1+g1)
+
+      d3 = d2*(1+g2)
+
+      p2 = d3/(k-g2)
+
+      pv_d1 = d1/(1+k)
+
+      pv_d2 = d2/(1+k)**2
+
+      pv_p2 = p2/(1+k)**2
+
+      p0 = pv_d1+pv_d2+pv_p2
+
+      fark = p0-piyasa
+
+      k2 = 0.20
+
+      p2b = d3/(k2-g2)
+
+      oran = pv_p2/p0
+
+      p0b = d1/(1+k2)+d2/(1+k2)**2+p2b/(1+k2)**2
+
+      sonuc = {''a'': (d1,d2,d3,p2), ''b'': (p0, fark), ''c'': p0b, ''d'': pv_p2/p0}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 14
+- id: YMM-FYN-ZDP-K021
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - iskonto ve senet hesapları
+  zorluk: 2
+  puan: 21
+  sure_dk: 30
+  soru: '**Olay:** Çağlar İnşaat A.Ş., vadesine 120 gün kalmış 1.000.000 TL nominal değerli bir senedini iskonto ettirecektir
+    (1 yıl = 360 gün). A Bankası yıllık %60 dış (ticari) iskonto oranı uygulamaktadır. B Bankası ise yıllık %66 oranında iç
+    (rasyonel) iskonto uygulamaktadır (net bedel = nominal / (1 + oran × gün / 360)). Komisyon ve vergiler dikkate alınmayacaktır.
+
+
+    **İstenenler:**
+
+
+    (a) A Bankası için iskonto tutarını ve net bedeli bulunuz. (4 puan)
+
+
+    (b) Aynı %60 oranı iç iskonto olarak uygulansaydı net bedeli ve iskontoyu bulunuz. (5 puan)
+
+
+    (c) A Bankası''nın uyguladığı dış iskontonun net bedele göre yıllık basit efektif maliyetini hesaplayınız. (5 puan)
+
+
+    (d) B Bankası''nın net bedelini bularak işletmenin hangi bankayı seçeceğini fark tutarıyla birlikte belirtiniz. (7 puan)
+
+    '
+  cozum: '**(a)** İskonto = 1.000.000 × 0,60 × 120 / 360 = **200.000 TL**; net bedel = **800.000 TL**.
+
+
+    **(b)** Net bedel = 1.000.000 / (1 + 0,60 × 120 / 360) = 1.000.000 / 1,20 = **833.333,33 TL**; iskonto = **166.666,67
+    TL**.
+
+
+    **(c)** Maliyet = 200.000 / 800.000 × 360 / 120 = **%75**.
+
+
+    **(d)** B Bankası: 1.000.000 / (1 + 0,66 × 120 / 360) = 1.000.000 / 1,22 = **819.672,13 TL**. B Bankası''nın net bedeli
+    A Bankası''ndan **19.672,13 TL** yüksektir; işletme **B Bankası**''nı seçmelidir (A Bankası''nın efektif maliyeti %75,
+    B''nin %66''dır).
+
+
+    **Mevzuat dayanağı:** TBK md. 88/2 uyarınca sözleşmeyle kararlaştırılacak yıllık faiz oranı, yasal belirlenen yıllık faiz
+    oranının yüzde elli fazlasını aşamaz.
+
+    '
+  puanlama:
+  - olcut: (a) dış iskonto ve net bedel
+    puan: 4
+  - olcut: (b) iç iskonto ile net bedel ve iskonto
+    puan: 5
+  - olcut: (c) dış iskontonun efektif maliyeti
+    puan: 5
+  - olcut: (d) B bankası net bedeli, fark ve karar
+    puan: 7
+  kaynaklar:
+  - mevzuat: 6098 sayılı Türk Borçlar Kanunu
+    madde: md. 88/2
+    alinti: Sözleşme ile kararlaştırılacak yıllık faiz oranı, birinci fıkra uyarınca belirlenen yıllık faiz oranının yüzde
+      elli fazlasını aşamaz.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'n=1_000_000; t=120; i_dis=0.60; i_ic_b=0.66
+
+      d_dis = n*i_dis*t/360
+
+      net_dis = n-d_dis
+
+      net_ic = n/(1+0.60*t/360)
+
+      d_ic = n-net_ic
+
+      efektif_dis = d_dis/net_dis*360/t
+
+      net_b = n/(1+i_ic_b*t/360)
+
+      fark = net_b-net_dis
+
+      ic_esdeger = d_dis/net_dis*360/t
+
+      sonuc = {''a'': (d_dis, net_dis), ''b'': (net_ic, d_ic), ''c'': efektif_dis, ''d'': (net_b, fark)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 15
+- id: YMM-FYN-ZDP-K022
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - anüite (ertelenmiş ve büyüyen)
+  - bugünkü ve gelecek değer
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: '**Olay:** Yılmaz Gıda A.Ş. bir paketleme makinesini peşin 600.000 TL''ye satın alabilir veya 3 yıl süreyle yılda
+    250.000 TL ödeyerek kiralayabilir. Şirketin yıllık iskonto oranı %25''tir (faktörler: 0,8; 0,64; 0,512). Makinenin 3 yıl
+    sonunda değeri sıfır varsayılacaktır.
+
+
+    **İstenenler:**
+
+
+    (a) Kira ödemeleri yılbaşlarında (ilki bugün) yapılırsa kiralamanın bugünkü maliyetini bulunuz. (5 puan)
+
+
+    (b) Kiralama ile satın alma arasında bugünkü değer farkını bulunuz ve karar veriniz. (5 puan)
+
+
+    (c) Kira ödemeleri yıl sonlarında yapılırsa kiralamanın bugünkü maliyetini bulunuz ve kararı yeniden değerlendiriniz.
+    (6 puan)
+
+
+    (d) Peşin fiyatla eşdeğer yıllık kira tutarlarını (dönem başı ve dönem sonu için ayrı ayrı) bulunuz. (6 puan)
+
+    '
+  cozum: '**(a)** PV = 250.000 × (1 + 0,8 + 0,64) = 250.000 × 2,44 = **610.000 TL**.
+
+
+    **(b)** Kiralamanın bugünkü maliyeti (610.000 TL), peşin fiyattan (600.000 TL) **10.000 TL** yüksektir → **satın alma**
+    tercih edilmelidir.
+
+
+    **(c)** PV = 250.000 × (0,8 + 0,64 + 0,512) = 250.000 × 1,952 = **488.000 TL**. Bu tutar peşin fiyattan düşüktür → ödemeler
+    yıl sonlarında yapılırsa **kiralama** tercih edilir. Ödeme zamanlaması karar sonucunu değiştirmiştir.
+
+
+    **(d)** Dönem başı: 600.000 / 2,44 = **245.901,64 TL**; dönem sonu: 600.000 / 1,952 = **307.377,05 TL**.
+
+
+    **Mevzuat dayanağı:** TMS 36 paragraf 30 uyarınca kullanım değeri hesabında gelecekteki nakit akışlarının tahmini ve paranın
+    zaman değeri dikkate alınır.
+
+    '
+  puanlama:
+  - olcut: (a) dönem başı kira bugünkü değeri
+    puan: 5
+  - olcut: (b) fark ve karar
+    puan: 5
+  - olcut: (c) dönem sonu kira ve karar
+    puan: 6
+  - olcut: (d) eşdeğer kira tutarları
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 36 Varlıklarda Değer Düşüklüğü
+    madde: paragraf 30
+    alinti: 'Varlığın kullanım değerinin hesaplamasında aşağıdaki unsurlar dikkate alınır: (a) İşletmenin varlıktan elde etmeyi
+      beklediği gelecekteki nakit akışlarının tahmini; (b) Söz konusu gelecekteki nakit akışlarının tutarı ve zamanlamasında
+      olabilecek değişikliklerle ilgili beklentiler; (c) Piyasa riski hariç tutulmuş cari faiz oranı ile temsil edilen paranın
+      zaman değeri;'
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fiyat=600_000; kira=250_000; r=0.25
+
+      f_basi = 1+0.8+0.64
+
+      pv_basi = kira*f_basi
+
+      fark1 = pv_basi-fiyat
+
+      f_sonu = 0.8+0.64+0.512
+
+      pv_sonu = kira*f_sonu
+
+      esit_basi = fiyat/f_basi
+
+      esit_sonu = fiyat/f_sonu
+
+      sonuc = {''a'': pv_basi, ''b'': fark1, ''c'': pv_sonu, ''d'': (esit_basi, esit_sonu)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 16
+- id: YMM-FYN-ZDP-K023
+  sinav: ymm
+  ders: FYN
+  konu: ZDP
+  kazanimlar:
+  - hisse senedi değerlemesi (Gordon modeli) ve göreli değerleme
+  zorluk: 2
+  puan: 21
+  sure_dk: 30
+  soru: '**Olay:** Kaya Yazılım A.Ş.''nin gelecek yıl pay başına kazancının (PBK1) 5 TL olması ve kazançlarının önümüzdeki
+    yıllarda yıllık %15 büyümesi beklenmektedir. Benzer üç şirketin F/K oranları (gelecek yıl kazancı esaslı) ve beklenen
+    yıllık kazanç büyümeleri: Şirket 1: F/K = 12, büyüme %12; Şirket 2: F/K = 20, büyüme %20; Şirket 3: F/K = 16, büyüme %16.
+    Kaya Yazılım''ın payı borsada 90 TL''den işlem görmektedir.
+
+
+    **İstenenler:**
+
+
+    (a) Benzer şirketlerin PEG oranlarını (F/K / büyüme yüzdesi) ve ortalamasını bulunuz. (5 puan)
+
+
+    (b) Ortalama PEG ile Kaya Yazılım için adil F/K''yı ve pay değerini bulunuz. (5 puan)
+
+
+    (c) Borsa fiyatına göre Kaya Yazılım''ın F/K''sını ve PEG oranını hesaplayıp değerlemeyi yorumlayınız. (6 puan)
+
+
+    (d) Gelecek yıl pay başına 1 TL kâr payı dağıtılacağı varsayımıyla (b) değerinin ima ettiği gerekli getiri oranını ve
+    kazanç verimini bulunuz. (5 puan)
+
+    '
+  cozum: '**(a)** PEG1 = 12 / 12 = **1**; PEG2 = 20 / 20 = **1**; PEG3 = 16 / 16 = **1**. Ortalama = **1**.
+
+
+    **(b)** Adil F/K = PEG × büyüme = 1 × 15 = **15**; değer = 15 × 5 = **75 TL**.
+
+
+    **(c)** Piyasa F/K = 90 / 5 = **18**; PEG = 18 / 15 = **1,20** > 1 → Kaya Yazılım, benzerlerine göre **pahalı** fiyatlanmıştır
+    (piyasa değeri 90 TL, göreli değer 75 TL).
+
+
+    **(d)** Gordon ilişkisi: k = D1 / P0 + g = 1 / 75 + 0,15 = **%16,3333**. Kazanç verimi = 1 / adil F/K = **%6,6667**.
+
+
+    **Mevzuat dayanağı:** TTK md. 507/1 uyarınca her pay sahibi, dağıtılması kararlaştırılmış net dönem kârına payı oranında
+    katılır.
+
+    '
+  puanlama:
+  - olcut: (a) PEG oranları ve ortalaması
+    puan: 5
+  - olcut: (b) adil F/K ve pay değeri
+    puan: 5
+  - olcut: (c) piyasa F/K, PEG ve yorum
+    puan: 6
+  - olcut: (d) ima edilen getiri ve kazanç verimi
+    puan: 5
+  kaynaklar:
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 507/1
+    alinti: Her pay sahibi, kanun ve esas sözleşme hükümlerine göre pay sahiplerine dağıtılması kararlaştırılmış net dönem
+      kârına, payı oranında katılma hakkını haizdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'eps1=5.0; g=15; fk1, g1 = 12, 12
+
+      fk2, g2 = 20, 20
+
+      fk3, g3 = 16, 16
+
+      peg1, peg2, peg3 = fk1/g1, fk2/g2, fk3/g3
+
+      peg = (peg1+peg2+peg3)/3
+
+      fk_hedef = peg*g
+
+      deger = fk_hedef*eps1
+
+      piyasa = 90.0
+
+      fk_piyasa = piyasa/eps1
+
+      peg_piyasa = fk_piyasa/g
+
+      d1 = 1.0
+
+      k_ima = d1/deger + g/100
+
+      kazanc_verimi = 1/fk_hedef
+
+      sonuc = {''a'': (peg1, peg2, peg3, peg), ''b'': (fk_hedef, deger), ''c'': (fk_piyasa, peg_piyasa), ''d'': (k_ima, kazanc_verimi)}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim FYN_ZDP_20261102_1.yaml, klasik 17

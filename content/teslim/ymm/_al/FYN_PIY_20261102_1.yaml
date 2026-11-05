@@ -1,0 +1,1107 @@
+yazar: harici üretici
+gorev: YMM talimatı 2026-11-02
+klasik:
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - kur riski ve korunma
+  - vadeli işlem ve opsiyon
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: '**Olay:** Mersin Narenciye A.Ş. bir yıl sonra tahsil edeceği 500.000 USD tutarında ihracat alacağına sahiptir. Spot
+    kur 40 TL/USD, bir yıllık TL faizi %30, USD faizi %4''tür. Bir yıl sonra spot kurun üç farklı düzeyde (55; 45; 50 TL/USD)
+    gerçekleşebileceği düşünülmektedir. Banka, faiz paritesine uygun 1 yıllık vadeli kur (forward) önermektedir.
+
+
+    **İstenenler:**
+
+
+    (a) Faiz paritesine göre 1 yıllık vadeli kuru ve vadeli satışla sabitlenen TL tutarını bulunuz. (6 puan)
+
+
+    (b) Korunmasız durumda üç kur senaryosunda TL tahsilatını hesaplayınız. (5 puan)
+
+
+    (c) Vadeli satış yapılmış olsaydı her senaryoda korunmasız duruma göre fırsat kazancı/kaybını (vadeli – spot) bulunuz.
+    (6 puan)
+
+
+    (d) Alacağın bugünkü spot kurla TL karşılığını ve kur riskinin (işlem riski) kaynağını açıklayınız; kur farkının muhasebeleştirilme
+    dönemini belirtiniz. (5 puan)
+
+    '
+  cozum: '**(a)** Vadeli kur = 40 × (1 + 0,30) / (1 + 0,04) = **50 TL/USD**. Vadeli satışla sabitlenen tutar = 500.000 × 50
+    = **25.000.000 TL**.
+
+
+    **(b)** Spot 55: 500.000 × 55 = **27.500.000 TL**; spot 45: **22.500.000 TL**; spot 50: **25.000.000 TL**.
+
+
+    **(c)** Fark = vadeli satışla sabitlenen tutar − korunmasız tahsilat: spot 55 iken **-2.500.000 TL** (fırsat kaybı); spot
+    45 iken **2.500.000 TL** (koruma kazancı); spot 50 iken **0 TL**. Vadeli satış, tahsilatı 25.000.000 TL''de sabitleyerek
+    belirsizliği ortadan kaldırır.
+
+
+    **(d)** Bugünkü spot karşılık = 500.000 × 40 = **20.000.000 TL**. Alacak, tahsil edilene kadar kurun değişmesi riskine
+    açıktır (işlem riski). Parasal kalem olan alacağın farklı kurdan çevrilmesinden doğan kur farkı, oluştuğu dönemde kâr
+    veya zararda muhasebeleştirilir.
+
+
+    **Mevzuat dayanağı:** TMS 21 paragraf 28 uyarınca parasal kalemlerin farklı kurlardan çevrilmesinden kaynaklanan kur farkları,
+    oluştukları dönemde kâr veya zararda muhasebeleştirilir. SPKn md. 3/1-u uyarınca değeri bir menkul kıymet fiyatına, döviz
+    fiyatına, faiz oranına veya kredi riski transferi sağlayan ölçüm değerlerine bağlı olan araçlar türev araç kapsamındadır.
+
+    '
+  puanlama:
+  - olcut: (a) vadeli kur ve sabitlenen TL tutarı
+    puan: 6
+  - olcut: (b) açık pozisyonda TL tahsilatı
+    puan: 5
+  - olcut: (c) vadeli ile korunmasız fark
+    puan: 6
+  - olcut: (d) bugünkü karşılık, işlem riski ve kur farkı muhasebesi
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 21 Kur Değişiminin Etkileri
+    madde: paragraf 28
+    alinti: Parasal kalemlerin ödenmesinden ya da dönem içinde veya önceki finansal tablolarda ilk muhasebeleştirme sırasında
+      çevrildiklerinden farklı kurlardan çevrilmelerinden kaynaklanan kur farkları, 32’nci paragrafta belirtilenler hariç
+      olmak üzere, oluştukları dönemde kâr veya zararda muhasebeleştirilir.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 3/1-u
+    alinti: Değeri, bir menkul kıymet fiyatına veya getirisine; bir döviz fiyatına veya fiyat değişikliğine; faiz oranına
+      veya orandaki değişikliğe; bir kıymetli maden veya kıymetli taş fiyatına veya fiyat değişikliğine; bir mal fiyatına
+      veya fiyat değişikliğine; Kurulca uygun görülen kurumlarca yayınlanan istatistiklere veya bunlardaki değişikliğe; kredi
+      riski transferi sağlayan, enerji fiyatları ve iklim değişkenleri gibi ölçüm değerleri olan ve bu sayılanlardan oluşturulan
+      bir endeks seviyesine veya seviyedeki değişikliğe bağlı olan türev araçları,
+  dogrulama:
+    python: 'usd=500_000; spot=40.0; rtl=0.30; rusd=0.04
+
+      fwd = spot*(1+rtl)/(1+rusd)
+
+      sabit_tl = usd*fwd
+
+      s1 = 55.0; s2 = 45.0; s3 = 50.0
+
+      a1 = usd*s1; a2 = usd*s2; a3 = usd*s3
+
+      f1 = sabit_tl-a1; f2 = sabit_tl-a2; f3 = sabit_tl-a3
+
+      spot_tl = usd*spot
+
+      sonuc = {''a'': (fwd, sabit_tl), ''b'': (a1, a2, a3), ''c'': (f1, f2, f3), ''d'': spot_tl}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - vadeli işlem ve opsiyon
+  zorluk: 3
+  puan: 22
+  sure_dk: 35
+  soru: '**Olay:** Bir payın spot fiyatı 100 TL''dir. Bu paya yazılı, 1 yıl vadeli, kullanım (kullanma) fiyatı 100 TL olan
+    Avrupa tipi alım opsiyonunun (call) primi 28 TL''dir. Risksiz faiz oranı yıllık %25''tir; paya vade içinde kâr payı ödenmeyecektir.
+
+
+    **İstenenler:**
+
+
+    (a) Alım opsiyonu alıcısının vade sonunda pay fiyatı 70, 100 ve 130 TL olduğundaki net kâr/zararını (prim dahil) hesaplayınız.
+    (5 puan)
+
+
+    (b) Alım–satım paritesini kullanarak aynı kullanım fiyatlı satım opsiyonunun (put) teorik primini bulunuz. (6 puan)
+
+
+    (c) Satım opsiyonu alıcısının vade sonunda pay fiyatı 70, 100 ve 130 TL olduğundaki net kâr/zararını hesaplayınız. (5
+    puan)
+
+
+    (d) Her iki opsiyonun başabaş fiyatını bulunuz; pay + satım opsiyonu (korumalı pozisyon) için vade sonunda pay 70 ve 130
+    TL iken toplam değeri (prim düşülmüş) hesaplayıp ilişkiyi yorumlayınız. (6 puan)
+
+    '
+  cozum: '**(a)** Net sonuç = max(S − K; 0) − prim: S = 70 → **-28 TL**; S = 100 → **-28 TL**; S = 130 → 30 − 28 = **2 TL**.
+
+
+    **(b)** Parite: C + K / (1 + r) = P + S → P = C − S + K / (1 + r) = 28 − 100 + 100 / 1,25 = 28 − 100 + 80 = **8 TL**.
+
+
+    **(c)** Net sonuç = max(K − S; 0) − prim: S = 70 → 30 − 8 = **22 TL**; S = 100 → **-8 TL**; S = 130 → **-8 TL**.
+
+
+    **(d)** Call başabaşı = K + prim = **128 TL**; put başabaşı = K − prim = **92 TL**. Korumalı pozisyonda (pay + put): S
+    = 70 → 70 + 30 − 8 = **92 TL**; S = 130 → 130 + 0 − 8 = **122 TL**. Satım opsiyonu, pay fiyatı düştüğünde alt sınır (100
+    − prim) sağlar; yukarı yönlü kazancı prim kadar azaltır.
+
+
+    **Mevzuat dayanağı:** SPKn md. 3/1-u uyarınca menkul kıymetleri satın alma veya satma hakkı veren araçlar türev araç sayılır.
+
+    '
+  puanlama:
+  - olcut: (a) call alıcısı net sonuçları
+    puan: 5
+  - olcut: (b) put-call paritesi ile put primi
+    puan: 6
+  - olcut: (c) put alıcısı net sonuçları
+    puan: 5
+  - olcut: (d) başabaş fiyatları ve korumalı pozisyon
+    puan: 6
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 3/1-u
+    alinti: 'Türev araçlar: Aşağıda sayılan veya Kurulca bu kapsamda olduğu belirlenen diğer türev araçları: 1) Menkul kıymetleri
+      satın alma veya satma veya birbirleri ile değiştirme hakkı veren türev araçları,'
+  dogrulama:
+    python: 'S=100.0; K_=100.0; r=0.25; call=28.0
+
+      pv_k = K_/(1+r)
+
+      put = call - S + pv_k
+
+      c70 = max(70-K_,0)-call
+
+      c100 = max(100-K_,0)-call
+
+      c130 = max(130-K_,0)-call
+
+      p70 = max(K_-70,0)-put
+
+      p100 = max(K_-100,0)-put
+
+      p130 = max(K_-130,0)-put
+
+      be_call = K_+call
+
+      be_put = K_-put
+
+      korumali70 = 70 + max(K_-70,0) - put
+
+      korumali130 = 130 + max(K_-130,0) - put
+
+      sonuc = {''a'': (c70,c100,c130), ''b'': put, ''c'': (p70,p100,p130), ''d'': (be_call, be_put, korumali70, korumali130)}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - swap ve kredi temerrüt swabı
+  - para ve sermaye piyasası araçları
+  zorluk: 3
+  puan: 22
+  sure_dk: 35
+  soru: '**Olay:** A şirketi değişken faizli, B şirketi sabit faizli borçlanmak istemektedir. Piyasada borçlanma maliyetleri
+    (yıllık) şöyledir: A: sabit %20, değişken TLREF + %1; B: sabit %24, değişken TLREF + %2,5. Her iki şirket 10.000.000 TL
+    ana para üzerinden faiz swapı yapacaktır (A sabit faizle borçlanıp swap ile değişken faize; B değişken faizle borçlanıp
+    swap ile sabit faize geçecektir). Swap kazancı iki taraf arasında eşit paylaşılacaktır.
+
+
+    **İstenenler:**
+
+
+    (a) Sabit ve değişken piyasalardaki faiz farklarını bulunuz; swapın toplam kazancını (kalite farkı) hesaplayınız. (6 puan)
+
+
+    (b) Eşit paylaşım için B''nin A''ya ödeyeceği sabit oranı bulunuz (A, B''ye TLREF öder). (6 puan)
+
+
+    (c) Swap sonrası B''nin net sabit maliyetini ve A''nın yıllık TL tasarrufunu hesaplayınız. (5 puan)
+
+
+    (d) B''nin borç verenine karşı yıllık %1,5 primle CDS (kredi temerrüt swapı) alması hâlinde yıllık prim tutarını ve temerrütte
+    %40 kurtarma oranıyla koruma satıcısının ödeyeceği tutarı bulunuz. (5 puan)
+
+    '
+  cozum: '**(a)** Sabit piyasa farkı = 24 − 20 = **%4**; değişken piyasa farkı = 2,5 − 1 = **%1,50**. Toplam kazanç = 4 −
+    1,50 = **%2,50**; eşit paylaşımda her taraf **%1,25** kazanır.
+
+
+    **(b)** A sabit %20''den borçlanır, B değişken TLREF + 2,5''ten borçlanır. A''nın net değişken maliyeti hedefi = TLREF
+    + 1 − 1,25 (paylaşılan kazanç). A''nın net maliyeti = 20 − x + TLREF = TLREF + 1 − 1,25 → x = **%20,25**. (B, A''ya %20,25
+    sabit öder.)
+
+
+    **(c)** B''nin net maliyeti = (TLREF + 2,5) − TLREF + 20,25 = **%22,75** (doğrudan %24 yerine; kazanç %1,25). A''nın yıllık
+    tasarrufu = 10.000.000 × %1,25 = **125.000 TL**.
+
+
+    **(d)** Yıllık prim = 10.000.000 × %1,5 = **150.000 TL**. Temerrütte koruma satıcısı, anaparadan kurtarma tutarını çıkarılmış
+    hâliyle ödeyecektir: 10.000.000 × (1 − 0,40) = **6.000.000 TL**. CDS, kredi riski transferi sağlayan bir türev işlemdir.
+
+
+    **Mevzuat dayanağı:** SPKn md. 3/1-u uyarınca değeri bir menkul kıymet fiyatına, döviz fiyatına, faiz oranına veya kredi
+    riski transferi sağlayan ölçüm değerlerine bağlı olan araçlar türev araç kapsamındadır.
+
+    '
+  puanlama:
+  - olcut: (a) faiz farkları ve toplam kazanç
+    puan: 6
+  - olcut: (b) swap sabit oranı ve her taraf kazancı
+    puan: 6
+  - olcut: (c) B'nin net maliyeti ve A'nın tasarrufu
+    puan: 5
+  - olcut: (d) CDS primi ve temerrüt ödemesi
+    puan: 5
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 3/1-u
+    alinti: Değeri, bir menkul kıymet fiyatına veya getirisine; bir döviz fiyatına veya fiyat değişikliğine; faiz oranına
+      veya orandaki değişikliğe; bir kıymetli maden veya kıymetli taş fiyatına veya fiyat değişikliğine; bir mal fiyatına
+      veya fiyat değişikliğine; Kurulca uygun görülen kurumlarca yayınlanan istatistiklere veya bunlardaki değişikliğe; kredi
+      riski transferi sağlayan, enerji fiyatları ve iklim değişkenleri gibi ölçüm değerleri olan ve bu sayılanlardan oluşturulan
+      bir endeks seviyesine veya seviyedeki değişikliğe bağlı olan türev araçları,
+  dogrulama:
+    python: 'a_sabit=0.20; a_deg=0.01; b_sabit=0.24; b_deg=0.025
+
+      ns = 10_000_000
+
+      sabit_fark = b_sabit-a_sabit
+
+      deg_fark = b_deg-a_deg
+
+      kazanc = sabit_fark-deg_fark
+
+      pay = kazanc/2
+
+      x = a_sabit - a_deg + pay
+
+      a_net = a_sabit - x
+
+      b_net = b_deg + x
+
+      b_swap = b_sabit - pay
+
+      a_tas_tl = ns*pay
+
+      prim = 0.015
+
+      yillik_prim = ns*prim
+
+      kurtarma = 0.40
+
+      temerrut_odeme = ns*(1-kurtarma)
+
+      sonuc = {''a'': (sabit_fark, deg_fark, kazanc), ''b'': (x, pay), ''c'': (b_swap, a_tas_tl), ''d'': (yillik_prim, temerrut_odeme)}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - para ve sermaye piyasası araçları
+  zorluk: 2
+  puan: 21
+  sure_dk: 30
+  soru: '**Olay:** Bir yatırımcı aşağıdaki dört alternatifi karşılaştırmaktadır (nominal değerler 100 TL; 1 yıl = 360 gün):
+
+
+    | Alternatif | Özellik |
+
+    |---|---|
+
+    | A | 180 gün vadeli iskontolu hazine bonosu, fiyatı 80 TL |
+
+    | B | 360 gün vadeli iskontolu hazine bonosu, fiyatı 64 TL |
+
+    | C | 6 aylık dönemlerle faizi anaparaya eklenen mevduat, nominal yıllık %50 |
+
+    | D | 2 yıl vadeli kuponsuz tahvil, fiyatı 40 TL (vadede 100 TL ödenir) |
+
+
+    **İstenenler:**
+
+
+    (a) A bonosunun dönemlik getirisini, basit yıllık getirisini ve bileşik yıllık getirisini bulunuz. (6 puan)
+
+
+    (b) B bonosunun yıllık getirisini bulunuz ve A ile bileşik getirilerini karşılaştırınız. (5 puan)
+
+
+    (c) C mevduatının efektif yıllık getirisini ve D tahvilinin yıllık bileşik getirisini bulunuz; dört alternatifi sıralayınız.
+    (7 puan)
+
+
+    (d) Basit yıllık getirinin farklı vadeli araçları karşılaştırmada neden yanıltıcı olduğunu A bonosu örneğiyle açıklayınız.
+    (3 puan)
+
+    '
+  cozum: '**(a)** Dönemlik getiri = 100 / 80 − 1 = **%25**; basit yıllık = 2 × %25 = **%50**; bileşik yıllık = (1 + 0,25)²
+    − 1 = **%56,25**.
+
+
+    **(b)** B: 100 / 64 − 1 = **%56,25**. A''nın bileşik getirisi ile aynıdır; yani 180 günlük %25''lik getiri, 360 günlük
+    %56,25''lik getiriyle eşdeğerdir.
+
+
+    **(c)** C: dönemlik %25, efektif yıllık = (1,25)² − 1 = **%56,25**. D: (100 / 40)^(1/2) − 1 = **%58,11**. Sıralama (yüksekten
+    düşüğe): D (%58,11) > A = B = C (%56,25).
+
+
+    **(d)** A bonosunun basit yıllık getirisi (%50), bileşik getirisinden (%56,25) düşüktür; vadesi kısa olan araçta getiri
+    yıl içinde yeniden yatırılabileceğinden basit yöntem getiriyi olduğundan düşük gösterir ve vadeleri farklı araçların doğru
+    karşılaştırılmasını engeller. Karşılaştırma bileşik (efektif) yıllık getiri üzerinden yapılmalıdır. Kısa vadeli nakit
+    taahhütleri için elde tutulan, kolayca nakde çevrilebilen yatırımlar nakit benzeri niteliğindedir.
+
+
+    **Mevzuat dayanağı:** TMS 7 paragraf 7 uyarınca nakit benzerleri, kısa vadeli nakit taahhütlerinin yerine getirilmesi
+    amacıyla elde tutulur.
+
+    '
+  puanlama:
+  - olcut: (a) A bonosu getirileri
+    puan: 6
+  - olcut: (b) B getirisi ve karşılaştırma
+    puan: 5
+  - olcut: (c) C ve D getirileri ve sıralama
+    puan: 7
+  - olcut: (d) basit–bileşik getiri yorumu
+    puan: 3
+  kaynaklar:
+  - mevzuat: TMS 7 Nakit Akış Tablosu
+    madde: paragraf 7
+    alinti: Nakit benzerleri, yatırım veya diğer amaçlardan ziyade, kısa vadeli nakit taahhütlerinin yerine getirilmesi amacıyla
+      elde tutulur.
+  dogrulama:
+    python: 'fa = 80.0; fb = 64.0; fd = 40.0
+
+      a_donem = 100/fa-1
+
+      a_basit = a_donem*2
+
+      a_bilesik = (1+a_donem)**2-1
+
+      b_yillik = 100/fb-1
+
+      c_donem = 0.50/2
+
+      c_efektif = (1+c_donem)**2-1
+
+      d_yillik = (100/fd)**0.5-1
+
+      fark_ab = a_bilesik-b_yillik
+
+      sonuc = {''a'': (a_donem, a_basit, a_bilesik), ''b'': b_yillik, ''c'': (c_efektif, d_yillik)}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - menkul kıymetleştirme
+  - para ve sermaye piyasası araçları
+  zorluk: 3
+  puan: 22
+  sure_dk: 35
+  soru: '**Olay:** Güney Bankası, ortalama brüt getirisi %28 olan 100.000.000 TL tutarındaki kredi portföyünü bir menkul kıymetleştirme
+    yapısına devretmiştir. Yapıdan ihraç edilen menkul kıymetler üç dilimden oluşmaktadır: Kıdemli (senior) dilim 70.000.000
+    TL (faiz %22), ara (mezzanine) dilim 20.000.000 TL (faiz %30) ve ilk zarar (equity) dilimi 10.000.000 TL (bankada kalmıştır).
+    Portföy gelirinden önce kıdemli, sonra ara dilim faizleri ödenir; kalan tutar ilk zarar dilimine kalır. Anapara zararları
+    ise önce ilk zarar dilimine, sonra ara dilime, en sonunda kıdemli dilime yazılır. Portföyde kayıp yoksa yıllık gelirler
+    yukarıdaki gibi gerçekleşir.
+
+
+    **İstenenler:**
+
+
+    (a) Yıllık portföy gelirini, kıdemli ve ara dilimlere ödenecek faizi ve ilk zarar dilimine kalan tutarı hesaplayınız.
+    (6 puan)
+
+
+    (b) İlk zarar diliminin getirisini ve kıdemli+ara dilimlerin ağırlıklı faiz maliyetini bulunuz. (5 puan)
+
+
+    (c) Portföyde 5, 15 ve 35 milyon TL anapara zararı oluşursa her dilime yazılacak zararı gösteriniz. (8 puan)
+
+
+    (d) Bu yapının ihraç edilen araçlarının hangi nitelikte sermaye piyasası aracı olduğunu belirtiniz ve ilk zarar diliminin
+    bankada tutulmasının amacını yorumlayınız. (3 puan)
+
+    '
+  cozum: '**(a)** Portföy geliri = 100.000.000 × %28 = **28.000.000 TL**; kıdemli faiz = 70.000.000 × %22 = **15.400.000 TL**;
+    ara faiz = 20.000.000 × %30 = **6.000.000 TL**; ilk zarar dilimine kalan = 28.000.000 − 15.400.000 − 6.000.000 = **6.600.000
+    TL**.
+
+
+    **(b)** İlk zarar getirisi = 6.600.000 / 10.000.000 = **%66**. Kıdemli + ara dilimlerin ağırlıklı maliyeti = (15.400.000
+    + 6.000.000) / (70.000.000 + 20.000.000) = **%23,78**.
+
+
+    **(c)**
+
+
+    | Zarar | İlk zarar dilimi | Ara dilim | Kıdemli dilim |
+
+    |---|---|---|---|
+
+    | 5.000.000 | 5.000.000 | 0 | 0 |
+
+    | 15.000.000 | 10.000.000 | 5.000.000 | 0 |
+
+    | 35.000.000 | 10.000.000 | 20.000.000 | 5.000.000 |
+
+
+    **(d)** İhraç edilen araçlar, portföydeki varlıklar karşılık gösterilerek ihraç edilen ipoteğe/varlığa dayalı menkul kıymet
+    niteliğindeki sermaye piyasası araçlarıdır. İlk zarar diliminin bankada kalması, bankayı zararın ilk bölümünü üstlenmeye
+    zorlayarak kredi kalitesinin korunması yönünde teşvik sağlar (aksi hâlde kredi riskini tamamen aktararak özen göstermeme
+    riski doğar) ve diğer yatırımcılara güven verir.
+
+
+    **Mevzuat dayanağı:** SPKn uyarınca ipoteğe ve varlığa dayalı menkul kıymetler, ilgili fonların veya ipotek finansmanı
+    kuruluşlarının portföyündeki varlıklar karşılık gösterilerek ihraç edilen sermaye piyasası araçlarıdır.
+
+    '
+  puanlama:
+  - olcut: (a) gelir, dilim faizleri ve artan tutar
+    puan: 6
+  - olcut: (b) equity getirisi ve ağırlıklı maliyet
+    puan: 5
+  - olcut: (c) üç zarar senaryosunda dilim zararları
+    puan: 8
+  - olcut: (d) araç niteliği ve ilk zarar diliminin işlevi
+    puan: 3
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 58/1
+    alinti: İpoteğe ve varlığa dayalı menkul kıymetler, ilgili fonların veya ipotek finansmanı kuruluşlarının portföyündeki
+      varlıklar karşılık gösterilerek ihraç edilen sermaye piyasası araçlarıdır.
+  dogrulama:
+    python: 'port=100_000_000; sen=70_000_000; mez=20_000_000; eq=10_000_000
+
+      brut=0.28; r_sen=0.22; r_mez=0.30
+
+      gelir = port*brut
+
+      g_sen = sen*r_sen
+
+      g_mez = mez*r_mez
+
+      fazla = gelir-g_sen-g_mez
+
+      eq_getiri = fazla/eq
+
+      l1, l2, l3 = 5_000_000, 15_000_000, 35_000_000
+
+      e1 = min(l1, eq); m1 = min(max(l1-eq,0), mez); s1 = max(l1-eq-mez,0)
+
+      e2 = min(l2, eq); m2 = min(max(l2-eq,0), mez); s2 = max(l2-eq-mez,0)
+
+      e3 = min(l3, eq); m3 = min(max(l3-eq,0), mez); s3 = max(l3-eq-mez,0)
+
+      maliyet = (g_sen+g_mez)/(sen+mez)
+
+      sonuc = {''a'': (gelir, g_sen, g_mez, fazla), ''b'': (eq_getiri, maliyet), ''c'': (e1,m1,s1,e2,m2,s2,e3,m3,s3)}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - finansal yönetimin temel kavramları (acenta sorunu, ekonomik kâr)
+  zorluk: 2
+  puan: 21
+  sure_dk: 30
+  soru: '**Olay:** Tezcan Makine A.Ş.''nin yatırılan sermayesi 10.000.000 TL, ağırlıklı ortalama sermaye maliyeti (WACC) %20''dir.
+    FVÖK 3.200.000 TL, faiz gideri 600.000 TL ve kurumlar vergisi oranı %25''tir. Yönetimin ek primi FVÖK artışına göre hesaplanmaktadır.
+    Genel müdür, 2.000.000 TL''lik yeni bir projenin yıllık 300.000 TL vergi sonrası faaliyet kârı (NOPAT) sağlayacağını ve
+    projenin tamamen borçla finanse edilebileceğini belirtmektedir.
+
+
+    **İstenenler:**
+
+
+    (a) Mevcut durumda NOPAT''ı, sermaye ücretini ve ekonomik katma değeri (ekonomik kâr, EVA) hesaplayınız. (6 puan)
+
+
+    (b) Muhasebe net kârını bulunuz ve ekonomik kâr ile muhasebe kârı arasındaki farkın nedenini açıklayınız. (5 puan)
+
+
+    (c) Yeni projenin getirisini (ROIC), proje EVA''sını ve projeden sonraki toplam EVA''yı hesaplayarak pay sahibi açısından
+    kararı belirtiniz. (6 puan)
+
+
+    (d) Primin FVÖK''e bağlanması durumunda yönetimin projeyi neden isteyeceğini; bu durumun hangi temel finans sorununu (acenta
+    sorunu) gösterdiğini ve çözüm yollarını açıklayınız. (4 puan)
+
+    '
+  cozum: '**(a)** NOPAT = 3.200.000 × (1 − 0,25) = **2.400.000 TL**; sermaye ücreti = 10.000.000 × %20 = **2.000.000 TL**;
+    EVA = 2.400.000 − 2.000.000 = **400.000 TL**.
+
+
+    **(b)** Muhasebe net kârı = (3.200.000 − 600.000) × 0,75 = **1.950.000 TL**. Muhasebe kârı yalnızca borç faizini gider
+    yazar; özkaynağın fırsat maliyeti kâr hesabında yer almaz. Ekonomik kâr ise toplam sermayenin (borç + özkaynak) maliyetini
+    düşer.
+
+
+    **(c)** Proje ROIC = 300.000 / 2.000.000 = **%15** < WACC (%20). Proje EVA = 300.000 − 2.000.000 × 0,20 = **-100.000 TL**;
+    proje sonrası toplam EVA = 400.000 + (-100.000) = **300.000 TL**. Proje ekonomik değer yok ettiğinden pay sahibi açısından
+    **reddedilmelidir**.
+
+
+    **(d)** Proje FVÖK''ü yaklaşık 300.000 / 0,75 = 400.000 TL artırarak yönetimin primini yükseltir (yeni FVÖK ≈ 3.600.000
+    TL), ancak sermaye maliyetini karşılamaz. Yönetici kendi çıkarı ile pay sahibinin çıkarı çatıştığı için acenta sorunu
+    ortaya çıkar. Çözüm: primi EVA/özkaynak değerine bağlamak, hisse bazlı ödüller ve izleme/denetim mekanizmaları. Yönetim
+    kurulu üyeleri ve yönetimle görevli kişiler görevlerini tedbirli bir yöneticinin özeniyle yerine getirmek ve şirketin
+    menfaatlerini dürüstlük kurallarına uyarak gözetmekle yükümlüdür.
+
+
+    **Mevzuat dayanağı:** TTK md. 369/1 uyarınca yönetim kurulu üyeleri ve yönetimle görevli üçüncü kişiler, görevlerini tedbirli
+    bir yöneticinin özeniyle yerine getirmek ve şirketin menfaatlerini dürüstlük kurallarına uyarak gözetmekle yükümlüdür.
+
+    '
+  puanlama:
+  - olcut: (a) NOPAT, sermaye ücreti ve EVA
+    puan: 6
+  - olcut: (b) muhasebe kârı ve fark nedeni
+    puan: 5
+  - olcut: (c) proje getirisi, EVA ve karar
+    puan: 6
+  - olcut: (d) acenta sorunu ve çözüm
+    puan: 4
+  kaynaklar:
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 369/1
+    alinti: Yönetim kurulu üyeleri ve yönetimle görevli üçüncü kişiler, görevlerini tedbirli bir yöneticinin özeniyle yerine
+      getirmek ve şirketin menfaatlerini dürüstlük kurallarına uyarak gözetmek yükümlülüğü altındadırlar.
+  dogrulama:
+    python: 'ic=10_000_000; wacc=0.20; ebit=3_200_000; v=0.25; faiz=600_000
+
+      nopat = ebit*(1-v)
+
+      ucret = ic*wacc
+
+      eva = nopat-ucret
+
+      muh_kar = (ebit-faiz)*(1-v)
+
+      proje_ic = 2_000_000; proje_nopat = 300_000
+
+      proje_eva = proje_nopat - proje_ic*wacc
+
+      roic_proje = proje_nopat/proje_ic
+
+      yeni_ebit = ebit + proje_nopat/(1-v)
+
+      yeni_eva = eva + proje_eva
+
+      fv = proje_nopat/(1-v)
+
+      sonuc = {''a'': (nopat, ucret, eva), ''b'': muh_kar, ''c'': (roic_proje, proje_eva, yeni_eva), ''d'': yeni_ebit}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - kur riski ve korunma
+  zorluk: 3
+  puan: 22
+  sure_dk: 35
+  soru: '**Olay:** Ege Mobilya A.Ş.''nin 6 ay sonra tahsil edeceği 300.000 EUR tutarında ihracat alacağı ve aynı tarihte ödeyeceği
+    200.000 EUR tutarında ithalat borcu vardır. Spot kur 52 TL/EUR; 6 aylık faiz oranları (dönemlik) TL için %12, EUR için
+    %4''tür. Şirket yalnızca net pozisyonunu korumak istemektedir.
+
+
+    **İstenenler:**
+
+
+    (a) Şirketin net döviz pozisyonunu ve yönünü belirtiniz. (3 puan)
+
+
+    (b) Faiz paritesine göre 6 aylık vadeli kuru ve net pozisyon için sabitlenen TL tutarını bulunuz. (5 puan)
+
+
+    (c) Aynı net alacağı para piyasası yöntemiyle korumak için gereken işlemleri sıralayıp tutarları hesaplayınız (EUR borçlanılır,
+    spotta TL''ye çevrilir, TL mevduata yatırılır). (9 puan)
+
+
+    (d) Korunmasız bırakılırsa 6 ay sonra kur 60 ve 50 TL/EUR olursa net alacağın TL karşılığını bulunuz ve (b) ile karşılaştırınız.
+    (5 puan)
+
+    '
+  cozum: '**(a)** Net pozisyon = 300.000 − 200.000 = **100.000 EUR net alacak (uzun pozisyon)**; kur düşerse zarar eder. Alacak
+    ve borcun aynı vadede olması doğal koruma sağlar.
+
+
+    **(b)** Vadeli kur = 52 × (1 + 0,12) / (1 + 0,04) = **56 TL/EUR**. Sabitlenen tutar = 100.000 × 56 = **5.600.000 TL**.
+
+
+    **(c)** 1) 6 ay sonra tahsil edilecek net 100.000 EUR''nun bugünkü karşılığı kadar EUR borçlanılır: 100.000 / 1,04 = **96.153,85
+    EUR**. 2) Bu tutar spot kurdan TL''ye çevrilir: 96.153,85 × 52 = **5.000.000 TL**. 3) TL, 6 ay %12 ile değerlendirilir:
+    5.000.000 × 1,12 = **5.600.000 TL**. 4) Vadede tahsil edilen 100.000 EUR borcun kapatılmasında kullanılır. Sonuç, vadeli
+    işlemle aynıdır (5.600.000 TL).
+
+
+    **(d)** Kur 60 ise 100.000 × 60 = **6.000.000 TL**; kur 50 ise **5.000.000 TL**. Vadeli kurla sabitlenen 5.600.000 TL,
+    kur düşerse korumadan yarar sağlar, kur yükselirse fırsat kaybına yol açar.
+
+
+    **Mevzuat dayanağı:** TMS 21 paragraf 28 uyarınca parasal kalemlerin farklı kurlardan çevrilmesinden kaynaklanan kur farkları,
+    oluştukları dönemde kâr veya zararda muhasebeleştirilir. SPKn md. 3/1-u uyarınca değeri bir menkul kıymet fiyatına, döviz
+    fiyatına, faiz oranına veya kredi riski transferi sağlayan ölçüm değerlerine bağlı olan araçlar türev araç kapsamındadır.
+
+    '
+  puanlama:
+  - olcut: (a) net pozisyon ve yön
+    puan: 3
+  - olcut: (b) vadeli kur ve sabitlenen TL
+    puan: 5
+  - olcut: (c) para piyasası korunmasının adımları ve TL tutarları
+    puan: 9
+  - olcut: (d) açık pozisyon senaryoları ve karşılaştırma
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 21 Kur Değişiminin Etkileri
+    madde: paragraf 28
+    alinti: Parasal kalemlerin ödenmesinden ya da dönem içinde veya önceki finansal tablolarda ilk muhasebeleştirme sırasında
+      çevrildiklerinden farklı kurlardan çevrilmelerinden kaynaklanan kur farkları, 32’nci paragrafta belirtilenler hariç
+      olmak üzere, oluştukları dönemde kâr veya zararda muhasebeleştirilir.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 3/1-u
+    alinti: Değeri, bir menkul kıymet fiyatına veya getirisine; bir döviz fiyatına veya fiyat değişikliğine; faiz oranına
+      veya orandaki değişikliğe; bir kıymetli maden veya kıymetli taş fiyatına veya fiyat değişikliğine; bir mal fiyatına
+      veya fiyat değişikliğine; Kurulca uygun görülen kurumlarca yayınlanan istatistiklere veya bunlardaki değişikliğe; kredi
+      riski transferi sağlayan, enerji fiyatları ve iklim değişkenleri gibi ölçüm değerleri olan ve bu sayılanlardan oluşturulan
+      bir endeks seviyesine veya seviyedeki değişikliğe bağlı olan türev araçları,
+  dogrulama:
+    python: 'alacak=300_000; borc=200_000; spot=52.0; r_tl=0.12; r_eur=0.04
+
+      net = alacak-borc
+
+      fwd = spot*(1+r_tl)/(1+r_eur)
+
+      sabit = net*fwd
+
+      pv_eur = net/(1+r_eur)
+
+      tl_bugun = pv_eur*spot
+
+      tl_vade = tl_bugun*(1+r_tl)
+
+      s_yuksek = 60.0
+
+      s_dusuk = 50.0
+
+      acik_y = net*s_yuksek
+
+      acik_d = net*s_dusuk
+
+      bkz_alacak_tl = alacak*spot
+
+      sonuc = {''a'': net, ''b'': (fwd, sabit), ''c'': (pv_eur, tl_bugun, tl_vade), ''d'': (acik_y, acik_d)}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - vadeli işlem ve opsiyon
+  - kur riski ve korunma
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: '**Olay:** Bir yatırımcı, çarpanı 10 TL olan endeks vadeli işlem sözleşmesinden 1 adet uzun pozisyon açmıştır (endeks
+    10.000 puan iken). Başlangıç teminatı sözleşme değerinin %10''udur; idame teminatı başlangıç teminatının %75''idir. Günlük
+    uzlaşma (gün sonu) fiyatları sırasıyla 9.900; 9.700; 9.900 ve 10.200 puandır. İdame teminatının altına düşülürse teminat
+    başlangıç düzeyine tamamlanır. Spot endeks 10.000 puan, yıllık faiz %24, yıllık temettü verimi %4, vade 3 aydır.
+
+
+    **İstenenler:**
+
+
+    (a) Sözleşme değerini, başlangıç teminatını ve idame teminatını bulunuz. (4 puan)
+
+
+    (b) Dört günlük teminat hesabı hareketlerini gösteriniz; teminat tamamlama çağrısı olup olmadığını ve tutarını belirleyiniz.
+    (8 puan)
+
+
+    (c) Pozisyonun 4. gün sonu toplam net kârını ve başlangıç teminatına göre getirisini hesaplayınız; kaldıraç etkisini yorumlayınız.
+    (5 puan)
+
+
+    (d) Taşıma maliyeti modeliyle teorik vadeli endeks fiyatını bulunuz; piyasada 10.700 puan işlem görüyorsa arbitraj kazancını
+    (sözleşme başına) hesaplayınız. (5 puan)
+
+    '
+  cozum: '**(a)** Sözleşme değeri = 10 × 10.000 = **100.000 TL**; başlangıç teminatı = **10.000 TL**; idame teminatı = **7.500
+    TL**.
+
+
+    **(b)** Gün 1: (9.900 − 10.000) × 10 = -1.000 → bakiye **9.000** (idame üstünde). Gün 2: (9.700 − 9.900) × 10 = -2.000
+    → bakiye **7.000** < 7.500: teminat tamamlama çağrısı; çağrı tutarı = 10.000 − 7.000 = **3.000 TL** → bakiye 10.000. Gün
+    3: (9.900 − 9.700) × 10 = 2.000 → bakiye **12.000**. Gün 4: (10.200 − 9.900) × 10 = 3.000 → bakiye **15.000**.
+
+
+    **(c)** Net kâr = (10.200 − 10.000) × 10 = **2.000 TL**; başlangıç teminatına göre getiri = 2.000 / 10.000 = **%20**.
+    Endeks yalnızca %2 yükselmiştir; kaldıraç (sözleşme değeri / teminat = 10) kâr ve zararı teminata göre büyütür.
+
+
+    **(d)** Teorik fiyat = 10.000 × [1 + (0,24 − 0,04) × 0,25] = **10.500 puan**. Piyasa 10.700 ise vadeli sözleşme pahalıdır:
+    spotu alıp vadeli satarak sözleşme başına (10.700 − 10.500) × 10 = **2.000 TL** arbitraj kazancı elde edilir.
+
+
+    **Mevzuat dayanağı:** SPKn md. 3/1-u uyarınca menkul kıymetleri satın alma veya satma hakkı veren araçlar türev araç sayılır.
+
+    '
+  puanlama:
+  - olcut: (a) sözleşme değeri ve teminatlar
+    puan: 4
+  - olcut: (b) günlük uzlaşma, teminat bakiyeleri ve çağrı
+    puan: 8
+  - olcut: (c) net kâr, teminat getirisi ve kaldıraç
+    puan: 5
+  - olcut: (d) teorik vadeli fiyat ve arbitraj
+    puan: 5
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 3/1-u
+    alinti: 'Türev araçlar: Aşağıda sayılan veya Kurulca bu kapsamda olduğu belirlenen diğer türev araçları: 1) Menkul kıymetleri
+      satın alma veya satma veya birbirleri ile değiştirme hakkı veren türev araçları,'
+  dogrulama:
+    python: 'carpan=10; endeks=10_000
+
+      deger = carpan*endeks
+
+      ilk = deger*0.10
+
+      idame = ilk*0.75
+
+      f1, f2, f3, f4 = 9_900, 9_700, 9_900, 10_200
+
+      k1 = (f1-endeks)*carpan
+
+      k2 = (f2-f1)*carpan
+
+      k3 = (f3-f2)*carpan
+
+      k4 = (f4-f3)*carpan
+
+      b1 = ilk+k1
+
+      b2 = b1+k2
+
+      tamamlama = ilk-b2 if b2 < idame else 0
+
+      b2_son = b2+tamamlama
+
+      b3 = b2_son+k3
+
+      b4 = b3+k4
+
+      net_kar = (f4-endeks)*carpan
+
+      kaldirac = deger/ilk
+
+      getiri_teminat = net_kar/ilk
+
+      spot=10_000; r=0.24; d=0.04; vade=0.25
+
+      teorik = spot*(1+(r-d)*vade)
+
+      piyasa = 10_700
+
+      arbitraj = (piyasa-teorik)*carpan
+
+      sonuc = {''a'': (deger, ilk, idame), ''b'': (b1, b2, tamamlama, b3, b4), ''c'': (net_kar, getiri_teminat), ''d'': (teorik,
+      arbitraj)}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - vadeli işlem ve opsiyon
+  - kur riski ve korunma
+  zorluk: 3
+  puan: 22
+  sure_dk: 35
+  soru: '**Olay:** Bir portföy yöneticisi, betası 1,20 olan 50.000.000 TL''lik hisse senedi portföyünü piyasa düşüşlerine
+    karşı endeks vadeli işlem sözleşmeleriyle korumak istemektedir. Endeks vadeli sözleşmesi 10.000 puan seviyesindedir ve
+    çarpanı 10 TL''dir (sözleşme değeri 100.000 TL). Portföyün getirisinin yalnızca piyasa hareketine bağlı olduğu (sistematik
+    risk) varsayılacaktır.
+
+
+    **İstenenler:**
+
+
+    (a) Portföyü tamamen korumak için satılması gereken sözleşme sayısını bulunuz. (5 puan)
+
+
+    (b) Endeks %10 düşerse portföy kaybını, vadeli pozisyon kazancını ve net sonucu hesaplayınız. (6 puan)
+
+
+    (c) Yönetici yalnızca yarısı kadar sözleşme satarsa aynı düşüşte net kaybı bulunuz. (5 puan)
+
+
+    (d) Endeks %10 artarsa tam korumalı portföyün kazancını, vadeli pozisyon zararını ve net sonucu hesaplayarak korumanın
+    maliyetini yorumlayınız. (6 puan)
+
+    '
+  cozum: '**(a)** Sözleşme sayısı = beta × portföy değeri / sözleşme değeri = 1,20 × 50.000.000 / 100.000 = **600 adet** (satış
+    pozisyonu).
+
+
+    **(b)** Portföy kaybı = 50.000.000 × 1,20 × %10 = **6.000.000 TL**. Vadeli kazanç = 600 × (10.000 × %10 = 1.000 puan)
+    × 10 = **6.000.000 TL**. Net = **0 TL** (tam korunmuş).
+
+
+    **(c)** Yarım koruma: 300 sözleşme → kazanç 300 × 1.000 × 10 = 3.000.000 TL; net kayıp = 6.000.000 − 3.000.000 = **3.000.000
+    TL**.
+
+
+    **(d)** Portföy kazancı = 50.000.000 × 1,20 × %10 = **6.000.000 TL**; vadeli zarar = **6.000.000 TL**; net = **0 TL**.
+    Korumanın maliyeti, yükseliş potansiyelinden vazgeçmektir; vadeli satış hem zararı hem kazancı sabitler.
+
+
+    **Mevzuat dayanağı:** SPKn md. 3/1-u uyarınca menkul kıymetleri satın alma veya satma hakkı veren araçlar türev araç sayılır.
+
+    '
+  puanlama:
+  - olcut: (a) beta esaslı koruma oranı ve sözleşme sayısı
+    puan: 5
+  - olcut: (b) düşüş senaryosunda kayıp, kazanç ve net
+    puan: 6
+  - olcut: (c) kısmi koruma net kaybı
+    puan: 5
+  - olcut: (d) yükseliş senaryosu ve maliyet yorumu
+    puan: 6
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 3/1-u
+    alinti: 'Türev araçlar: Aşağıda sayılan veya Kurulca bu kapsamda olduğu belirlenen diğer türev araçları: 1) Menkul kıymetleri
+      satın alma veya satma veya birbirleri ile değiştirme hakkı veren türev araçları,'
+  dogrulama:
+    python: 'port=50_000_000; beta=1.2; endeks=10_000; carpan=10
+
+      sozlesme_degeri = endeks*carpan
+
+      sozlesme = beta*port/sozlesme_degeri
+
+      dusus = 0.10
+
+      port_kayip = port*beta*dusus
+
+      vadeli_kazanc = sozlesme*(endeks*dusus)*carpan
+
+      net = vadeli_kazanc-port_kayip
+
+      sozlesme_yarim = sozlesme/2
+
+      yk = sozlesme_yarim*(endeks*dusus)*carpan
+
+      yarim_kayip = port_kayip - yk
+
+      art = 0.10
+
+      port_kazanc = port*beta*art
+
+      vadeli_zarar = sozlesme*(endeks*art)*carpan
+
+      net_art = port_kazanc-vadeli_zarar
+
+      sonuc = {''a'': sozlesme, ''b'': (port_kayip, vadeli_kazanc, net), ''c'': (sozlesme_yarim, yarim_kayip), ''d'': (port_kazanc,
+      vadeli_zarar, net_art)}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: PIY
+  kazanimlar:
+  - finansal yönetimin temel kavramları (acenta sorunu, ekonomik kâr)
+  - bugünkü ve gelecek değer
+  zorluk: 2
+  puan: 21
+  sure_dk: 30
+  soru: '**Olay:** Tuna Plastik A.Ş. aynı 200.000 TL tutarındaki yatırımı gerektiren iki projeden yalnızca birini seçebilecektir.
+    A projesi 3 yıl boyunca her yıl sonunda 120.000 TL nakit girişi sağlar. B projesi ise yalnızca 3. yıl sonunda 400.000
+    TL nakit girişi sağlar. Şirketin sermaye maliyeti %25''tir (faktörler: 0,8; 0,64; 0,512). Yönetici ücreti toplam nakit
+    kazanca göre belirlenmektedir.
+
+
+    **İstenenler:**
+
+
+    (a) Her proje için üç yıllık toplam nakit kazancı (parasal kâr) bulunuz; kâr maksimizasyonu ölçütüne göre hangi projenin
+    seçileceğini belirtiniz. (5 puan)
+
+
+    (b) Her projenin nakit girişlerinin bugünkü değerini bulunuz. (5 puan)
+
+
+    (c) Net bugünkü değerleri hesaplayınız; pay sahibi servetini maksimize eden karara göre hangi projenin seçileceğini belirtiniz.
+    (6 puan)
+
+
+    (d) İki ölçütün farklı sonuç vermesinin nedenini zaman değeri açısından açıklayınız; yöneticinin teşvikinin acenta sorunu
+    yaratıp yaratmadığını yorumlayınız. (5 puan)
+
+    '
+  cozum: '**(a)** A: 3 × 120.000 − 200.000 = **160.000 TL**; B: 400.000 − 200.000 = **200.000 TL**. Toplam kâr ölçütüne göre
+    **B** seçilir.
+
+
+    **(b)** A: 120.000 × (0,8 + 0,64 + 0,512) = **234.240 TL**; B: 400.000 × 0,512 = **204.800 TL**.
+
+
+    **(c)** NBD(A) = 234.240 − 200.000 = **34.240 TL**; NBD(B) = 204.800 − 200.000 = **4.800 TL**. Servet maksimizasyonu için
+    **A** seçilmelidir (NBD farkı 29.440 TL).
+
+
+    **(d)** Toplam kâr ölçütü paranın zaman değerini ve nakit akışlarının zamanlamasını dikkate almaz; B''nin nakitleri geç
+    geldiğinden bugünkü değeri düşüktür. Yöneticinin ücreti toplam nakit kazanca bağlıysa B''yi seçme eğilimi doğar; bu pay
+    sahibi servetini azaltacağından acenta sorunu yaratır. Yönetim kurulu üyeleri ve yönetimle görevli kişiler şirketin menfaatlerini
+    dürüstlük kurallarına uyarak gözetmekle yükümlüdür; teşvik NBD/EVA''ya bağlanmalıdır.
+
+
+    **Mevzuat dayanağı:** TTK md. 369/1 uyarınca yönetim kurulu üyeleri ve yönetimle görevli üçüncü kişiler, görevlerini tedbirli
+    bir yöneticinin özeniyle yerine getirmek ve şirketin menfaatlerini dürüstlük kurallarına uyarak gözetmekle yükümlüdür.
+
+    '
+  puanlama:
+  - olcut: (a) toplam kâr ve kâr maksimizasyonu kararı
+    puan: 5
+  - olcut: (b) projelerin bugünkü değerleri
+    puan: 5
+  - olcut: (c) NBD ve servet maksimizasyonu kararı
+    puan: 6
+  - olcut: (d) farkın nedeni ve acenta yorumu
+    puan: 5
+  kaynaklar:
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 369/1
+    alinti: Yönetim kurulu üyeleri ve yönetimle görevli üçüncü kişiler, görevlerini tedbirli bir yöneticinin özeniyle yerine
+      getirmek ve şirketin menfaatlerini dürüstlük kurallarına uyarak gözetmek yükümlülüğü altındadırlar.
+  dogrulama:
+    python: 'yat=200_000; r=0.25
+
+      a_nak = 120_000
+
+      b_nak3 = 400_000
+
+      a_toplam = a_nak*3
+
+      b_toplam = b_nak3
+
+      a_kar = a_toplam-yat
+
+      b_kar = b_toplam-yat
+
+      a_pv = a_nak*(0.8+0.64+0.512)
+
+      b_pv = b_nak3*0.512
+
+      a_npv = a_pv-yat
+
+      b_npv = b_pv-yat
+
+      fark = a_npv-b_npv
+
+      sonuc = {''a'': (a_kar, b_kar), ''b'': (a_pv, b_pv), ''c'': (a_npv, b_npv), ''d'': fark}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+sorular: []

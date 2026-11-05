@@ -1,0 +1,407 @@
+- id: YMM-SPM-HAO-0092
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Halka açık ortaklıklar
+  konu: HAO
+  kazanim: kayıtlı sermaye
+  tip: bilgi
+  zorluk: 1
+  kok: Kurulca izin verilen kayıtlı sermaye tavanı, iznin verildiği yıl da dahil olmak üzere kaç yıllık süre için geçerlidir?
+  secenekler:
+    A: İki yıl
+    B: Üç yıl
+    C: Beş yıl
+    D: Yedi yıl
+    E: On yıl
+  dogru: C
+  aciklama:
+    dogru_neden: II-18.1 md. 6/2 uyarınca Kurulca izin verilen tavan, iznin verildiği yıl dahil beş yıllık süre için geçerlidir;
+      süre takvim yılı esasına göre hesaplanır.
+    celdiriciler:
+      A: İki yıl, Tebliğde hiçbir süre için öngörülmemiştir; tavan süresi beş yıldır.
+      B: Üç yıl, geri alım programının borsada işlem gören ortaklıklar için azami süresidir; kayıtlı sermaye tavanıyla karıştırılmıştır.
+      D: Yedi yıl, Tebliğde öngörülen bir süre değildir; tavan en fazla beş yıllık dönemler hâlinde uzatılır.
+      E: On yıl, kayıtlı sermaye tavanı için öngörülmemiştir; yetki ancak beşer yıllık dönemlerle uzatılabilir.
+  kaynaklar:
+  - mevzuat: II-18.1 Kayıtlı Sermaye Sistemi Tebliği
+    madde: md. 6/2
+    alinti: (2) Kurulca izin verilen kayıtlı sermaye tavanı, iznin verildiği yıl da dâhil olmak üzere beş yıllık süre için
+      geçerlidir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim SPM_HAO_T20261102_1.yaml, satır None
+- id: YMM-SPM-HAO-0093
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Halka açık ortaklıklar
+  konu: HAO
+  kazanim: kayıtlı sermaye
+  tip: hesaplama
+  zorluk: 2
+  kok: Halka açık bir ortaklığın ödenmiş sermayesi 40.000.000 TL; bağımsız denetimden geçmiş konsolide finansal tablolarında
+    ana ortaklığa ait özsermaye toplamı 90.000.000 TL'dir. Finansal tablo tarihinden sonra sermaye artırımı yapılmamıştır.
+    Kayıtlı sermaye sistemine geçişte Kurulca izin verilebilecek tavanın üst limiti kaç TL'dir?
+  secenekler:
+    A: 200.000.000 TL
+    B: 270.000.000 TL
+    C: 360.000.000 TL
+    D: 450.000.000 TL
+    E: 650.000.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: Tavan, ödenmiş sermaye veya özsermayeden yüksek olanının beş katını aşamaz; konsolide tablolarda ana ortaklığa
+      ait özsermaye esas alınır. Yüksek olan 90.000.000 TL olduğundan üst limit 5 × 90.000.000 = 450.000.000 TL'dir.
+    celdiriciler:
+      A: 200.000.000 TL, yüksek olan yerine ödenmiş sermayenin (40.000.000 TL) beş katıdır; hata özsermayeyi dikkate almamaktır.
+      B: 270.000.000 TL, özsermayenin üç katıdır; Tebliğdeki çarpan beştir.
+      C: 360.000.000 TL, özsermayenin dört katıdır; Tebliğdeki çarpan beştir.
+      E: 650.000.000 TL, ödenmiş sermaye ile özsermayenin toplamının beş katıdır; Tebliğ iki değerden yüksek olanı esas alır,
+        toplamını değil.
+  kaynaklar:
+  - mevzuat: II-18.1 Kayıtlı Sermaye Sistemi Tebliği
+    madde: md. 5/4
+    alinti: (4) Kurulca beş yıl süreyle geçerli olmak üzere izin verilecek kayıtlı sermaye tavanı, ortaklıkların ödenmiş/çıkarılmış
+      sermayesi veya özsermayesinden yüksek olanının beş katını aşamaz.
+  - mevzuat: II-18.1 Kayıtlı Sermaye Sistemi Tebliği
+    madde: md. 5/4
+    alinti: Ortaklıkların konsolide finansal tablolarının bulunması durumunda, kayıtlı sermaye tavanına ilişkin üst limitin
+      belirlenmesinde konsolide finansal tablolardaki ana ortaklığa ait özsermaye toplamı esas alınır.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 5 * max(40000000, 90000000)
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim SPM_HAO_T20261102_1.yaml, satır None
+- id: YMM-SPM-HAO-0094
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Halka açık ortaklıklar
+  konu: HAO
+  kazanim: kâr payı dağıtımı
+  tip: bilgi
+  zorluk: 2
+  kok: Payları borsada işlem görmeyen ortaklıklar için kâr payı dağıtım oranı, Tebliğ hükümleri uyarınca belirlenen bağışlar
+    eklenmiş net dağıtılabilir dönem kârının en az yüzde kaçı olmalıdır?
+  secenekler:
+    A: Yüzde beşi
+    B: Yüzde yirmisi
+    C: Yüzde otuzu
+    D: Yüzde ellisi
+    E: Yüzde yetmiş beşi
+  dogru: B
+  aciklama:
+    dogru_neden: II-19.1 md. 7/1, payları borsada işlem görmeyen ortaklıklarda kâr payı dağıtım oranının bağışlar eklenmiş
+      net dağıtılabilir dönem kârının yüzde yirmisinden az olamayacağını belirtir.
+    celdiriciler:
+      A: Yüzde beş, md. 7/3'teki sermayenin yüzde beşi eşiğidir; kâr payı oranı için değil, dağıtmama imkânı için kullanılan
+        ölçüttür.
+      C: Yüzde otuz, Tebliğde böyle bir asgari oran öngörülmemiştir.
+      D: Yüzde elli, Tebliğde borsada işlem görmeyen ortaklıklar için aranan asgari oran değildir.
+      E: Yüzde yetmiş beş, Tebliğde yer alan bir oran değildir.
+  kaynaklar:
+  - mevzuat: II-19.1 Kâr Payı Tebliği
+    madde: md. 7/1
+    alinti: (1) Payları borsada işlem görmeyen ortaklıklar için kâr payı dağıtım oranı, bu Tebliğ hükümleri uyarınca belirlenen
+      bağışlar eklenmiş net dağıtılabilir dönem kârının yüzde yirmisinden az olamaz.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim SPM_HAO_T20261102_1.yaml, satır None
+- id: YMM-SPM-HAO-0095
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Halka açık ortaklıklar
+  konu: HAO
+  kazanim: geri alınan paylar
+  tip: uygulama
+  zorluk: 3
+  kok: Payları borsada işlem gören ve nominal değeri 1 TL olan bir ortaklığın payının günlük ağırlıklı ortalama fiyatı, yönetim
+    kurulu karar tarihinden bir ay önce 10 TL iken karar tarihinde 8 TL'dir. Genel kurulca onaylanmış bir geri alım programı
+    yoktur. Buna göre aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Yüzde yirmilik düşüş yakın ve ciddi kayıp sayılmadığından, geri alım için işlem öncesinde Kurulun onayı gerekir.
+    B: Fiyat düşüşü yüzde yirmiye ulaştığından yakın ve ciddi kayıp kabul edilir ve yönetim kurulu kararıyla geri alım yapılabilir.
+    C: Pay fiyatı nominal değerin üzerinde olduğundan yönetim kurulu kararıyla geri alım hiçbir şart aranmadan yapılabilir.
+    D: Genel kurul onaylı program olmadıkça yönetim kurulu hiçbir hâlde, Kurul onayı alsa dahi geri alım yapamaz.
+    E: Yönetim kurulu kararıyla geri alım için ortaklığın yalnızca Kurula ve kamuya bilgi vermesi yeterlidir.
+  dogru: A
+  aciklama:
+    dogru_neden: Günlük ağırlıklı ortalama fiyatın son bir ayda nominal değerin altında seyretmesi veya yüzde yirminin üzerinde
+      değer kaybetmesi hâlinde yakın ve ciddi kayıp kabul edilir. Düşüş tam yüzde yirmidir, 'üzerinde' değildir; fiyat da
+      nominalin üstündedir. Bu nedenle md. 5/6 gereği işlem öncesi Kurul onayı gerekir.
+    celdiriciler:
+      B: Yüzde yirmilik düşüş 'yüzde yirminin üzerinde' koşulunu sağlamaz; sınır dahil değildir.
+      C: Nominal değerin üzerinde olması yakın ve ciddi kaybı yok eder, ancak bu durum şartsız geri alım yetkisi doğurmaz;
+        Kurul onayı aranır.
+      D: Yakın ve ciddi kayıp bulunmayan hâllerde de yönetim kurulu kararıyla geri alım, işlem öncesi Kurul onayıyla mümkündür.
+      E: Kurul onayı alınmadan yalnızca bilgi verilmesi, yakın ve ciddi kayıp bulunmayan hâlde yeterli değildir.
+  kaynaklar:
+  - mevzuat: II-22.1 Geri Alınan Paylar Tebliği
+    madde: md. 5/5-6
+    alinti: (5) Ortaklık paylarının günlük ağırlıklı ortalama fiyatının yönetim kurulu karar tarihinden önceki son bir ayda,
+      a) Nominal değerinin altında seyretmesi veya b) Yüzde yirminin üzerinde değer kaybetmesi, durumlarında yakın ve ciddi
+      bir kaybın varlığı kabul edilir. (6) Beşinci fıkrada belirtilen haller dışında yönetim kurulu kararı ile geri alım yapılabilmesi
+      için, ortaklık tarafından işlem öncesinde Kurulun onayının alınması gereklidir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim SPM_HAO_T20261102_1.yaml, satır None
+- id: YMM-SPM-HAO-0096
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Halka açık ortaklıklar
+  konu: HAO
+  kazanim: pay alım teklifi
+  tip: uygulama
+  zorluk: 3
+  kok: Kurul, payları borsada işlem görmeyen bir hedef ortaklık için pay alım teklifi bilgi formunu 1 Haziran 2026 Pazartesi
+    günü onaylamış, form ilk kez 2 Haziran 2026 Salı günü bir gazetede ilan edilmiştir. Haziran'da resmî tatil yoktur. Gazetenin
+    Kurula en geç hangi tarihe kadar gönderilmesi gerekir?
+  secenekler:
+    A: 5 Haziran 2026
+    B: 8 Haziran 2026
+    C: 9 Haziran 2026
+    D: 10 Haziran 2026
+    E: 12 Haziran 2026
+  dogru: D
+  aciklama:
+    dogru_neden: II-26.1 md. 7/4'e göre bilgi formunun ilan edildiği gazete, ilk ilan tarihini takip eden altı iş günü içinde
+      Kurula gönderilir. İlk ilan 2 Haziran'dır; 3, 4, 5, 8, 9 ve 10 Haziran altı iş günüdür; son gün 10 Haziran 2026'dır.
+    celdiriciler:
+      A: 5 Haziran, ilanı izleyen üçüncü iş günüdür; üç iş günü, formun ilanı için onaydan itibaren tanınan süredir, gazetenin
+        gönderilmesi için değil.
+      B: 8 Haziran, ilanı izleyen dördüncü iş günüdür; süre altı iş günüdür.
+      C: 9 Haziran, beşinci iş günüdür; Tebliğ altı iş günü öngörür.
+      E: 12 Haziran, sekizinci iş günüdür; süre altı iş günüyle sınırlıdır.
+  kaynaklar:
+  - mevzuat: II-26.1 Pay Alım Teklifi Tebliği
+    madde: md. 7/4
+    alinti: (4) Bilgi formunun ilan edildiği gazete, ilk ilan tarihini takip eden altı iş günü içinde Kurula gönderilir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim SPM_HAO_T20261102_1.yaml, satır None
+- id: YMM-SPM-HAO-0097
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Halka açık ortaklıklar
+  konu: HAO
+  kazanim: Kurulun görev ve yetkileri
+  tip: hesaplama
+  zorluk: 2
+  kok: Halka açık bir ortaklığın yönetim kurulunda toplantı yeter sayısı sağlanamadığından Kurul, resen üye atamıştır. Atama
+    sonucunda geriye 5 boş üyelik kalmıştır. Kurul, bağımsızlık kriterlerini sağlayan kaç kişiyi ortaklardan aday göstermelerini
+    talep eder?
+  secenekler:
+    A: '5'
+    B: '8'
+    C: '10'
+    D: '12'
+    E: '15'
+  dogru: E
+  aciklama:
+    dogru_neden: 'SPKn md. 128/1-k''ya göre resen atama sonucunda geriye kalan boş üyelikler için Kurul, boş üye sayısının
+      üç katı kadar kişiyi ortaklardan aday göstermelerini talep eder: 5 × 3 = 15.'
+    celdiriciler:
+      A: 5, boş üyelik sayısıdır; Kanun aday sayısı olarak boş üye sayısının üç katını öngörür.
+      B: 8, hiçbir hesaba dayanmayan bir sayıdır; boş üye sayısı 3 ile çarpılır.
+      C: 10, boş üye sayısının iki katıdır; Kanundaki katsayı üçtür.
+      D: 12, Kanunda öngörülmeyen bir sayıdır; doğru hesap 5 × 3'tür.
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 128/1-k
+    alinti: Kurulca yapılan resen atama sonucunda geriye kalan boş üyelikler için, kurumsal yönetim ilkelerinde sayılan bağımsızlık
+      kriterlerini sağlayan, boş üye sayısının 3 katı kadar kişiyi halka açık ortaklığın ortaklarından aday göstermelerini
+      talep eder. Kurul bu talebini ortakların halka açık ortaklıkta sahip olduğu pay oranlarını dikkate alarak belirler ve
+      bu bentteki esaslara uygun olarak atama yapar.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 5 * 3
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-05'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: bekliyor
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim SPM_HAO_T20261102_1.yaml, satır None

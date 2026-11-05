@@ -1,0 +1,1291 @@
+yazar: harici üretici
+gorev: YMM talimatı 2026-11-02
+klasik:
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: MSS
+  kazanimlar:
+  - sipariş maliyet sistemi
+  - genel üretim giderlerinin yüklenmesi
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: 'Tuna Makine A.Ş. özel siparişlerle çalışmakta ve sipariş maliyet sistemi uygulamaktadır. Genel üretim giderleri,
+    direkt işçilik saatine göre önceden belirlenmiş oranla yüklenmektedir: yıllık bütçelenen genel üretim gideri 720.000 TL,
+    bütçelenen direkt işçilik saati 18.000''dir. Direkt işçilik saat ücreti 30 TL''dir.
+
+
+    Dönem sonunda sipariş kartlarındaki bilgiler:
+
+
+    | Sipariş | Direkt ilk madde (TL) | Direkt işçilik saati | Durum |
+
+    |---|---|---|---|
+
+    | A-101 | 160.000 | 2.000 | Tamamlandı ve müşteriye teslim edildi |
+
+    | B-102 | 90.000 | 1.200 | Üretimi sürüyor |
+
+    | C-103 | 70.000 | 800 | Tamamlandı, henüz teslim edilmedi |
+
+
+    Dönem içinde gerçekleşen genel üretim gideri 168.000 TL''dir.
+
+
+    **İstenenler:**
+
+    (a) Genel üretim gideri yükleme oranını ve her siparişin maliyetini hesaplayınız. (8 puan)
+
+    (b) Dönem sonunda yarı mamul (151), mamul (152) ve satılan mamul maliyeti (620) hesaplarının fark düzeltmesinden önceki
+    bakiyelerini belirleyerek genel üretim giderlerinin eksik veya fazla yüklenme tutarını bulunuz. (6 puan)
+
+    (c) Eksik/fazla yüklenmiş tutarı, yüklenen genel üretim gideri oranında siparişlere dağıtarak düzeltilmiş 151, 152 ve
+    620 bakiyelerini bulunuz. (6 puan)
+
+    '
+  cozum: '**(a)** Yükleme oranı = 720.000 / 18.000 = **40 TL/saat**.
+
+
+    | Sipariş | İlk madde | İşçilik | GÜG | Toplam (TL) |
+
+    |---|---|---|---|---|
+
+    | A-101 | 160.000 | 60.000 | 80.000 | **300.000** |
+
+    | B-102 | 90.000 | 36.000 | 48.000 | **174.000** |
+
+    | C-103 | 70.000 | 24.000 | 32.000 | **126.000** |
+
+
+    **(b)** A-101 teslim edildiğinden 620''ye (300.000 TL), B-102 devam ettiğinden 151''e (174.000 TL), C-103 satışa hazır
+    olduğundan 152''ye (126.000 TL) aktarılır. Yüklenen GÜG = 4.000 × 40 = 160.000 TL; fiilî 168.000 TL olduğundan **8.000
+    TL eksik yükleme** vardır.
+
+
+    **(c)** Dağıtım yüklenen GÜG oranında yapılır: A-101 %50 (4.000 TL), B-102 %30 (2.400 TL), C-103 %20 (1.600 TL).
+
+
+    | Hesap | Düzeltmeden önce | Düzeltme | Düzeltilmiş bakiye (TL) |
+
+    |---|---|---|---|
+
+    | 620 Satılan Mamuller Maliyeti | 300.000 | 4.000 | **304.000** |
+
+    | 151 Yarı Mamuller-Üretim | 174.000 | 2.400 | **176.400** |
+
+    | 152 Mamuller | 126.000 | 1.600 | **127.600** |
+
+    '
+  puanlama:
+  - olcut: (a) yükleme oranı ve sipariş maliyetleri
+    puan: 8
+  - olcut: (b) hesap bakiyeleri ve eksik yükleme
+    puan: 6
+  - olcut: (c) farkın dağıtımı ve düzeltilmiş bakiyeler
+    puan: 6
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 152 Mamuller
+    alinti: 'Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır. İşleyişi
+      : Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle
+      ambardan çekilmesi ile alacaklandırılır.'
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 620 Satılan Mamuller Maliyeti
+    alinti: Satılan mamullerin maliyet tutarı 152 nolu hesaba (Mamuller Hs.) alacak, bu hesaba ise borç kaydedilir.
+  dogrulama:
+    python: 'oran = 720000 / 18000
+
+      mA = 160000 + 2000 * 30 + 2000 * oran
+
+      mB = 90000 + 1200 * 30 + 1200 * oran
+
+      mC = 70000 + 800 * 30 + 800 * oran
+
+      yuk = 4000 * oran
+
+      fiili = 168000
+
+      eksik = fiili - yuk
+
+      payA = eksik * (2000 * oran) / yuk
+
+      payB = eksik * (1200 * oran) / yuk
+
+      payC = eksik * (800 * oran) / yuk
+
+      c620 = mA + payA
+
+      c151 = mB + payB
+
+      c152 = mC + payC
+
+      sonuc = {''a'': mA + mB + mC, ''b'': eksik, ''c'': c620, ''c151'': c151, ''c152'': c152}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: MSS
+  kazanimlar:
+  - safha maliyet sistemi ve fire
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: 'Akçaağaç Ambalaj A.Ş. tek safhalı seri üretim yapmaktadır ve safha maliyetini **ağırlıklı ortalama yöntemiyle** hesaplamaktadır.
+    Direkt ilk madde üretimin başında %100 verilmekte, dönüşüm maliyeti (direkt işçilik ve genel üretim gideri) üretim boyunca
+    eşit olarak oluşmaktadır. Dönem verileri:
+
+
+    | Kalem | Birim | Maliyet (TL) |
+
+    |---|---|---|
+
+    | Dönem başı yarı mamul (ilk madde %100, dönüşüm %50 tamamlanmış) | 4.000 | İlk madde 40.000; dönüşüm 20.000 |
+
+    | Dönemde üretime başlanan | 20.000 | |
+
+    | Dönem içi ilk madde maliyeti | | 200.000 |
+
+    | Dönem içi dönüşüm maliyeti | | 184.000 |
+
+    | Tamamlanıp ikinci depoya devredilen | 18.000 | |
+
+    | Dönem sonu yarı mamul (ilk madde %100, dönüşüm %40 tamamlanmış) | 6.000 | |
+
+
+    **İstenenler:**
+
+    (a) İlk madde ve dönüşüm için eşdeğer birim sayılarını bulunuz. (6 puan)
+
+    (b) Eşdeğer birim başına ilk madde, dönüşüm ve toplam birim maliyeti hesaplayınız. (7 puan)
+
+    (c) Devredilen mamullerin ve dönem sonu yarı mamulün maliyetini bulunuz; toplam maliyetle mutabakat sağlayınız. (7 puan)
+
+    '
+  cozum: '**(a)** İlk madde eşdeğer birimi = 18.000 + 6.000 = **24.000**; dönüşüm eşdeğer birimi = 18.000 + 6.000 × 0,40 =
+    **20.400**.
+
+
+    **(b)** İlk madde = (40.000 + 200.000) / 24.000 = **10 TL**; dönüşüm = (20.000 + 184.000) / 20.400 = **10 TL**; toplam
+    birim maliyet = **20 TL**.
+
+
+    **(c)** Devredilen = 18.000 × 20 = **360.000 TL**. Dönem sonu yarı mamul = 6.000 × 10 + 2.400 × 10 = 60.000 + 24.000 =
+    **84.000 TL**.
+
+    Mutabakat: 60.000 + 200.000 + 184.000 = 444.000 TL = 360.000 + 84.000.
+
+    '
+  puanlama:
+  - olcut: (a) eşdeğer birimler
+    puan: 6
+  - olcut: (b) eşdeğer birim maliyetleri
+    puan: 7
+  - olcut: (c) devir, dönem sonu stoku ve mutabakat
+    puan: 7
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 152 Mamuller
+    alinti: 'Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır. İşleyişi
+      : Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle
+      ambardan çekilmesi ile alacaklandırılır.'
+  dogrulama:
+    python: 'tam = 18000
+
+      sonu = 6000
+
+      dm_es = tam + sonu
+
+      dn_es = tam + sonu * 0.4
+
+      beg_dm = 40000
+
+      beg_dn = 20000
+
+      dm_top = beg_dm + 200000
+
+      dn_top = beg_dn + 184000
+
+      dm_br = dm_top / dm_es
+
+      dn_br = dn_top / dn_es
+
+      birim = dm_br + dn_br
+
+      devir = tam * birim
+
+      sonu_dm = sonu * dm_br
+
+      sonu_dn = sonu * 0.4 * dn_br
+
+      sonu_top = sonu_dm + sonu_dn
+
+      kontrol = 60000 + 200000 + 184000
+
+      sonuc = {''a'': dn_es, ''b'': birim, ''c'': devir, ''d'': sonu_top, ''k'': kontrol - devir - sonu_top}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: MSS
+  kazanimlar:
+  - safha maliyet sistemi ve fire
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: 'Çınar Boya A.Ş. tek safhalı seri üretimde safha maliyetini **ilk giren ilk çıkar (FIFO) yöntemiyle** hesaplamaktadır.
+    İlk madde üretimin başında %100, dönüşüm maliyeti üretim boyunca eşit olarak verilmektedir.
+
+
+    | Kalem | Birim | Maliyet (TL) |
+
+    |---|---|---|
+
+    | Dönem başı yarı mamul (ilk madde %100, dönüşüm %60 tamamlanmış) | 3.000 | İlk madde 30.000; dönüşüm 18.000 |
+
+    | Dönemde üretime başlanan | 17.000 | |
+
+    | Tamamlanıp devredilen (dönem başı yarı mamuller dâhil) | 16.000 | |
+
+    | Dönem sonu yarı mamul (ilk madde %100, dönüşüm %50 tamamlanmış) | 4.000 | |
+
+    | Dönem içi ilk madde maliyeti | | 170.000 |
+
+    | Dönem içi dönüşüm maliyeti | | 162.000 |
+
+
+    **İstenenler:**
+
+    (a) FIFO''ya göre dönemin ilk madde ve dönüşüm eşdeğer birimlerini bulunuz. (6 puan)
+
+    (b) Dönem içinde eşdeğer birim başına ilk madde, dönüşüm ve toplam maliyetleri bulunuz. (5 puan)
+
+    (c) Devredilen mamullerin ve dönem sonu yarı mamulün maliyetini hesaplayınız; mutabakat yapınız. (9 puan)
+
+    '
+  cozum: '**(a)** İlk madde eşdeğer birimi = dönemde başlanıp tamamlanan 13.000 + sonu 4.000 = **17.000** (başlangıç stokunun
+    ilk maddesi önceki dönemde verilmiştir). Dönüşüm eşdeğer birimi = 3.000 × 0,40 + 13.000 + 4.000 × 0,50 = **16.200**.
+
+
+    **(b)** İlk madde = 170.000 / 17.000 = **10 TL**; dönüşüm = 162.000 / 16.200 = **10 TL**; toplam = **20 TL**.
+
+
+    **(c)** Devredilen mamul maliyeti:
+
+    - Dönem başı yarı mamul önceki maliyeti: 48.000 TL
+
+    - Tamamlama maliyeti: 1.200 × 10 = 12.000 TL
+
+    - Dönemde başlayıp biten 13.000 × 20 = 260.000 TL
+
+    - **Toplam devir = 320.000 TL**
+
+
+    Dönem sonu yarı mamul = 4.000 × 10 + 2.000 × 10 = **60.000 TL**. Mutabakat: 48.000 + 170.000 + 162.000 = 380.000 = 320.000
+    + 60.000.
+
+    '
+  puanlama:
+  - olcut: (a) FIFO eşdeğer birimler
+    puan: 6
+  - olcut: (b) birim maliyetler
+    puan: 5
+  - olcut: (c) devir maliyeti, dönem sonu stoku ve mutabakat
+    puan: 9
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 152 Mamuller
+    alinti: 'Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır. İşleyişi
+      : Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle
+      ambardan çekilmesi ile alacaklandırılır.'
+  dogrulama:
+    python: 'beg = 3000
+
+      yeni_tam = 13000
+
+      sonu = 4000
+
+      dm_es = yeni_tam + sonu
+
+      dn_es = beg * 0.4 + yeni_tam + sonu * 0.5
+
+      dm_br = 170000 / dm_es
+
+      dn_br = 162000 / dn_es
+
+      birim = dm_br + dn_br
+
+      beg_mal = 30000 + 18000
+
+      tamamlama = beg * 0.4 * dn_br
+
+      yeni = yeni_tam * birim
+
+      devir = beg_mal + tamamlama + yeni
+
+      sonu_mal = sonu * dm_br + sonu * 0.5 * dn_br
+
+      kontrol = beg_mal + 170000 + 162000
+
+      sonuc = {''a'': dn_es, ''b'': birim, ''c'': devir, ''d'': sonu_mal, ''k'': kontrol - devir - sonu_mal}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: MSS
+  kazanimlar:
+  - safha maliyet sistemi ve fire
+  - THP 7/A ve 7/B maliyet hesapları
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: 'Meltem Gıda A.Ş. iki safhada üretim yapmaktadır. Dönem boyunca 1. safhadan 2. safhaya 10.000 kg yarı mamul devredilmiştir
+    (devir maliyeti 150.000 TL). 2. safhanın verileri:
+
+    - Dönem başı yarı mamul yoktur.
+
+    - Ek malzeme (aroma) safhanın sonunda eklenir; dönem içi ek malzeme maliyeti 24.000 TL, dönüşüm maliyeti (işçilik + GÜG)
+    90.000 TL''dir.
+
+    - 8.000 kg tamamlanıp mamul deposuna alınmıştır; kalan 2.000 kg dönem sonu yarı mamuldür (dönüşüm %50 tamamlanmış, ek
+    malzeme henüz eklenmemiş).
+
+    - Fire yoktur.
+
+
+    **İstenenler:**
+
+    (a) Devralınan maliyet, ek malzeme ve dönüşüm için eşdeğer birimleri ve birim maliyetleri hesaplayınız. (7 puan)
+
+    (b) Tamamlanan mamullerin ve dönem sonu yarı mamulün maliyetini bulunuz. (6 puan)
+
+    (c) 2. safha maliyetlerinin 151 ve 152 hesaplarına kaydedilmesi ile ilgili yevmiye kaydını yapınız ve 152 hesabına aktarılan
+    tutarı gösteriniz. (7 puan)
+
+    '
+  cozum: '**(a)** Devralınan maliyet birimi = 150.000 / 10.000 = **15 TL**. Ek malzeme eşdeğer birimi = 8.000; birim = 24.000
+    / 8.000 = **3 TL**. Dönüşüm eşdeğer birimi = 8.000 + 2.000 × 0,50 = **9.000**; birim = 90.000 / 9.000 = **10 TL**. Tamamlanan
+    birim maliyeti = 15 + 3 + 10 = **28 TL**.
+
+
+    **(b)** Tamamlanan = 8.000 × 28 = **224.000 TL**. Dönem sonu yarı mamul = 2.000 × 15 + 1.000 × 10 = **40.000 TL**. Mutabakat:
+    264.000 = 224.000 + 40.000.
+
+
+    **(c)**
+
+
+    | Kayıt | Borç | Alacak |
+
+    |---|---|---|
+
+    | 151 Yarı Mamuller-Üretim (2. safha: devir 150.000 + malzeme 24.000 + dönüşüm 90.000) | 264.000 | |
+
+    | 711 / 721 / 731 ve devralınan 151 (1. safha) hesapları | | 264.000 |
+
+    | 152 Mamuller (tamamlanan) | 224.000 | |
+
+    | 151 Yarı Mamuller-Üretim | | 224.000 |
+
+
+    Üretimi tamamlananların maliyeti 151 hesabının alacağı karşılığında ilgili stok hesabına (152 Mamuller) aktarılır; 151
+    hesabında 40.000 TL borç bakiyesi kalır.
+
+    '
+  puanlama:
+  - olcut: (a) eşdeğer birimler ve birim maliyetler
+    puan: 7
+  - olcut: (b) tamamlanan ve dönem sonu maliyetleri
+    puan: 6
+  - olcut: (c) 151 ve 152 kayıtları
+    puan: 7
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 152 Mamuller
+    alinti: 'Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır. İşleyişi
+      : Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle
+      ambardan çekilmesi ile alacaklandırılır.'
+  dogrulama:
+    python: 'gelen = 10000
+
+      gelen_mal = 150000
+
+      tam = 8000
+
+      sonu = 2000
+
+      gelen_br = gelen_mal / gelen
+
+      mlz_es = tam
+
+      dn_es = tam + sonu * 0.5
+
+      mlz_br = 24000 / mlz_es
+
+      dn_br = 90000 / dn_es
+
+      birim = gelen_br + mlz_br + dn_br
+
+      devir = tam * birim
+
+      sonu_mal = sonu * gelen_br + sonu * 0.5 * dn_br
+
+      kontrol = gelen_mal + 24000 + 90000
+
+      sonuc = {''a'': dn_es, ''b'': birim, ''c'': devir, ''d'': sonu_mal, ''k'': kontrol - devir - sonu_mal}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: MSS
+  kazanimlar:
+  - safha maliyet sistemi ve fire
+  zorluk: 3
+  puan: 20
+  sure_dk: 32
+  soru: 'Fidan Plastik A.Ş. tek safhalı seri üretimde safha maliyetini ağırlıklı ortalama yöntemiyle hesaplamaktadır. İlk
+    madde başlangıçta %100 verilir, dönüşüm maliyeti eşit olarak oluşur. Kalite kontrol safhanın sonunda yapılır; fireler
+    bu aşamada tespit edilir ve normal fire, kalite kontrolden geçen iyi birimlerin %10''u kadardır. Fire ürünlerin satış
+    değeri yoktur.
+
+
+    Dönemde 10.000 birim üretime başlanmış, 7.600 birim iyi mamul olarak tamamlanmış, 1.200 birim fire olmuş, 1.200 birim
+    dönem sonu yarı mamul (dönüşüm %50 tamamlanmış) kalmıştır. Dönem başı yarı mamul yoktur. Dönem içi ilk madde maliyeti
+    120.000 TL, dönüşüm maliyeti 94.000 TL''dir.
+
+
+    **İstenenler:**
+
+    (a) Eşdeğer birimleri ve fire dâhil birim maliyeti hesaplayınız. (6 puan)
+
+    (b) Normal ve anormal fire miktarlarını ve maliyetlerini bulunuz; anormal fire maliyetinin muhasebe işlemini açıklayınız.
+    (7 puan)
+
+    (c) İyi mamullerin birim maliyetini ve dönem sonu yarı mamulün maliyetini bulunuz; mutabakat yapınız. (7 puan)
+
+    '
+  cozum: '**(a)** İlk madde eşdeğer birimi = 10.000 (fireler dâhil); dönüşüm eşdeğer birimi = 7.600 + 1.200 (fire) + 1.200
+    × 0,50 = **9.400**. İlk madde birimi = 120.000 / 10.000 = 12 TL; dönüşüm birimi = 94.000 / 9.400 = 10 TL; birim maliyet
+    = **22 TL**.
+
+
+    **(b)** Normal fire = 7.600 × %10 = **760 birim** (16.720 TL, iyi mamullere yüklenir). Anormal fire = 1.200 − 760 = **440
+    birim** = 440 × 22 = **9.680 TL**. Normalin üstünde gerçekleşen fire ve kayıplar stok maliyetine eklenmez; gerçekleştiği
+    dönemde gider olarak yansıtılır.
+
+
+    **(c)** İyi mamul birim maliyeti = (7.600 × 22 + 16.720) / 7.600 = **24,20 TL**. Dönem sonu yarı mamul = 1.200 × 12 +
+    600 × 10 = **20.400 TL**. Mutabakat: 214.000 TL = iyi mamul (7.600 × 22 + 16.720) + anormal fire 9.680 + yarı mamul 20.400.
+
+    '
+  puanlama:
+  - olcut: (a) eşdeğer birim ve birim maliyet
+    puan: 6
+  - olcut: (b) normal ve anormal fire ile muhasebe işlemi
+    puan: 7
+  - olcut: (c) iyi mamul maliyeti, yarı mamul ve mutabakat
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  dogrulama:
+    python: 'basl = 10000
+
+      iyi = 7600
+
+      sonu = 1200
+
+      fire = basl - iyi - sonu
+
+      normal = iyi * 0.10
+
+      anormal = fire - normal
+
+      dm_es = basl
+
+      dn_es = iyi + fire + sonu * 0.5
+
+      dm_br = 120000 / dm_es
+
+      dn_br = 94000 / dn_es
+
+      birim = dm_br + dn_br
+
+      n_mal = normal * birim
+
+      a_mal = anormal * birim
+
+      iyi_br = (iyi * birim + n_mal) / iyi
+
+      sonu_mal = sonu * dm_br + sonu * 0.5 * dn_br
+
+      kontrol = 120000 + 94000
+
+      sonuc = {''a'': birim, ''b'': a_mal, ''c'': iyi_br, ''d'': sonu_mal, ''k'': kontrol - iyi * birim - n_mal - a_mal -
+      sonu_mal}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: MSS
+  kazanimlar:
+  - üretilen mamul maliyeti tablosu
+  - THP 7/A ve 7/B maliyet hesapları
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: 'Işık Lamba A.Ş. 7/A seçeneğini uygulamaktadır. 31 Aralık 2026 itibarıyla bilgiler (TL):
+
+
+    | Kalem | Tutar |
+
+    |---|---|
+
+    | Dönem başı ilk madde ve malzeme (150) | 80.000 |
+
+    | Dönem içi ilk madde alımları | 520.000 |
+
+    | Dönem sonu ilk madde ve malzeme (150) | 100.000 |
+
+    | Direkt işçilik giderleri (720) | 300.000 |
+
+    | Genel üretim giderleri (730) | 250.000 |
+
+    | Dönem başı yarı mamul (151) | 60.000 |
+
+    | Dönem sonu yarı mamul (151) | 90.000 |
+
+    | Dönem başı mamul (152) | 140.000 |
+
+    | Dönem sonu mamul (152) | 110.000 |
+
+
+    **İstenenler:**
+
+    (a) Dönem içinde kullanılan ilk madde ve dönem üretim maliyetini hesaplayarak üretilen mamul maliyeti tablosunu hazırlayınız.
+    (10 puan)
+
+    (b) Satılan mamul maliyetini (620) hesaplayınız. (5 puan)
+
+    (c) 151 ve 152 hesaplarının dönem sonu kapanış etkisini gösteren yevmiye kayıtlarını yapınız. (5 puan)
+
+    '
+  cozum: '**(a)**
+
+
+    | Üretilen Mamul Maliyeti Tablosu | TL |
+
+    |---|---|
+
+    | Dönem başı ilk madde ve malzeme | 80.000 |
+
+    | + Dönem içi alımlar | 520.000 |
+
+    | − Dönem sonu ilk madde ve malzeme | -100.000 |
+
+    | **Kullanılan direkt ilk madde (710)** | **500.000** |
+
+    | Direkt işçilik (720) | 300.000 |
+
+    | Genel üretim giderleri (730) | 250.000 |
+
+    | **Dönem üretim maliyeti** | **1.050.000** |
+
+    | + Dönem başı yarı mamul | 60.000 |
+
+    | − Dönem sonu yarı mamul | -90.000 |
+
+    | **Üretilen mamul maliyeti** | **1.020.000** |
+
+
+    **(b)** Satılan mamul maliyeti = 140.000 + 1.020.000 − 110.000 = **1.050.000 TL**.
+
+
+    **(c)**
+
+
+    | Kayıt | Borç | Alacak |
+
+    |---|---|---|
+
+    | 152 Mamuller | 1.020.000 | |
+
+    | 151 Yarı Mamuller-Üretim | | 1.020.000 |
+
+    | 620 Satılan Mamuller Maliyeti | 1.050.000 | |
+
+    | 152 Mamuller | | 1.050.000 |
+
+
+    152 hesabında dönem sonunda 140.000 + 1.020.000 − 1.050.000 = 110.000 TL borç bakiyesi kalır; 151 hesabında 90.000 TL
+    bakiye vardır.
+
+    '
+  puanlama:
+  - olcut: (a) üretilen mamul maliyeti tablosu
+    puan: 10
+  - olcut: (b) satılan mamul maliyeti
+    puan: 5
+  - olcut: (c) 151/152/620 kayıtları
+    puan: 5
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 151 Yarı Mamuller-Üretim
+    alinti: 'Henüz tam mamul haline gelmemiş ancak direkt ilk madde ve malzeme ile direkt işçilik ve genel üretim giderlerinden
+      belli oranlarda pay almış üretim aşamasındaki mamullerin izlendiği hesaptır. İşleyişi : Maliyet dönemi sonunda direkt
+      ilk madde ve malzeme, direkt işçilik ve genel üretim giderleri tutarları kadar bu hesap borçlandırılır. Üretimi tamamlananların
+      maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır.'
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 152 Mamuller
+    alinti: 'Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır. İşleyişi
+      : Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle
+      ambardan çekilmesi ile alacaklandırılır.'
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 620 Satılan Mamuller Maliyeti
+    alinti: Satılan mamullerin maliyet tutarı 152 nolu hesaba (Mamuller Hs.) alacak, bu hesaba ise borç kaydedilir.
+  dogrulama:
+    python: 'dm_kul = 80000 + 520000 - 100000
+
+      dis = 300000
+
+      guc = 250000
+
+      uretim_mal = dm_kul + dis + guc
+
+      yarim_bas = 60000
+
+      yarim_son = 90000
+
+      uretilen = uretim_mal + yarim_bas - yarim_son
+
+      mamul_bas = 140000
+
+      mamul_son = 110000
+
+      smm = mamul_bas + uretilen - mamul_son
+
+      sonuc = {''a'': uretilen, ''b'': smm, ''c'': dm_kul, ''d'': uretim_mal}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: MSS
+  kazanimlar:
+  - genel üretim giderlerinin yüklenmesi
+  - THP 7/A ve 7/B maliyet hesapları
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: 'Doruk Vana A.Ş. genel üretim giderlerini makine saatine göre yüklemektedir. Yıllık genel üretim gideri bütçesi: sabit
+    gider 480.000 TL, değişken gider makine saati başına 30 TL; normal kapasite 16.000 makine saatidir. Dönemde 15.000 makine
+    saati çalışılmış ve fiilî genel üretim gideri 925.000 TL gerçekleşmiştir. 7/A seçeneği uygulanmaktadır.
+
+
+    **İstenenler:**
+
+    (a) Yükleme oranını (normal kapasiteye göre) hesaplayınız. (4 puan)
+
+    (b) Yüklenen genel üretim giderini ve toplam eksik/fazla yükleme tutarını bulunuz. (4 puan)
+
+    (c) Yüklemeyi ve dönem sonu kapatmayı 730, 731, 732, 734 ve 151 hesaplarıyla yevmiye kaydıyla gösteriniz. (8 puan)
+
+    (d) Farkı bütçe ve kapasite sapmalarına ayırınız; kapasite sapmasının muhasebe işlemini açıklayınız. (4 puan)
+
+    '
+  cozum: '**(a)** Oran = (480.000 + 30 × 16.000) / 16.000 = 960.000 / 16.000 = **60 TL/saat** (sabit 30 + değişken 30).
+
+
+    **(b)** Yüklenen = 15.000 × 60 = **900.000 TL**. Fark = 925.000 − 900.000 = **25.000 TL** (eksik yükleme).
+
+
+    **(c)**
+
+
+    | Kayıt | Borç | Alacak |
+
+    |---|---|---|
+
+    | 151 Yarı Mamuller-Üretim | 900.000 | |
+
+    | 731 Genel Üretim Giderleri Yansıtma Hesabı | | 900.000 |
+
+    | 731 Genel Üretim Giderleri Yansıtma Hesabı | 900.000 | |
+
+    | 734 Genel Üretim Giderleri Kapasite Farkları | 30.000 | |
+
+    | 732 Genel Üretim Giderleri Bütçe Farkları | | -5.000 |
+
+    | 730 Genel Üretim Giderleri (fiilî) | | 925.000 |
+
+
+    (Borç toplamı 930.000 TL = alacak toplamı: 925.000 + 5.000.) Bütçe farkı olumludur ve 732 hesabın alacağında izlenir.
+
+
+    **(d)** Esnek bütçe (15.000 saat) = 480.000 + 30 × 15.000 = 930.000 TL. Bütçe sapması = 925.000 − 930.000 = **-5.000 TL**
+    (olumlu). Kapasite sapması = (16.000 − 15.000) × 30 = **30.000 TL** (olumsuz). Toplam = 25.000 TL. Kapasite sapması normal
+    kapasitenin altında çalışmadan doğan, ürünlere yüklenemeyen sabit giderdir; üretim birimlerine dağıtılan sabit gider düşük
+    üretim düzeyi nedeniyle artırılmaz ve dağıtılmayan genel giderler gerçekleştiği dönemde gider yazılır.
+
+    '
+  puanlama:
+  - olcut: (a) yükleme oranı
+    puan: 4
+  - olcut: (b) yüklenen GÜG ve fark
+    puan: 4
+  - olcut: (c) yevmiye kayıtları
+    puan: 8
+  - olcut: (d) sapmaların ayrıştırılması ve muhasebe işlemi
+    puan: 4
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 731 Genel Üretim Giderleri Yansıtma Hesabı
+    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda, önceden saptanmış genel üretim giderleri, Fiili
+      maliyet yönteminin uygulandığı durumlarda, "730- Genel üretim Giderleri Hesabı"nın borcuna kaydedilen giderleri, bu
+      hesabın alacağı karşılığı "151- Yarı Mamüller Üretim Hesabı" ile diğer aktif, gider ve zarar hesaplarına borç kaydedilir.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 734 Genel Üretim Giderleri Kapasite Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz
+      kapasite farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem
+      sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Sabit genel üretim giderleri, üretim tesislerinin normal kapasitesi esas alınarak dönüştürme maliyetlerine dağıtılır.
+  dogrulama:
+    python: 'oran = 960000 / 16000
+
+      yuk = 15000 * oran
+
+      fiili = 925000
+
+      fark = fiili - yuk
+
+      esnek = 480000 + 30 * 15000
+
+      butce = fiili - esnek
+
+      kap = (16000 - 15000) * 30
+
+      kontrol = butce + kap
+
+      sonuc = {''a'': oran, ''b'': fark, ''c'': kap, ''d'': butce, ''k'': kontrol - fark}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: MSS
+  kazanimlar:
+  - THP 7/A ve 7/B maliyet hesapları
+  - genel üretim giderlerinin yüklenmesi
+  zorluk: 3
+  puan: 20
+  sure_dk: 32
+  soru: 'Kıyı Mutfak Gereçleri A.Ş. 7/A seçeneğini ve önceden belirlenmiş maliyet yöntemini uygulamaktadır. Aralık 2026''da
+    gerçekleşen işlemler (TL; KDV dikkate alınmayacaktır):
+
+    1. Ambardan 400.000 TL tutarında direkt ilk madde üretime verilmiştir.
+
+    2. Direkt işçilik giderleri 250.000 TL olarak tahakkuk ettirilmiştir (335 Personele Borçlar).
+
+    3. Genel üretim giderleri fiilen 190.000 TL olmuş (çeşitli hesaplara karşılık), üretime önceden belirlenmiş oranla 200.000
+    TL genel üretim gideri yüklenmiştir.
+
+    4. Üretimi tamamlanan mamullerin maliyeti 700.000 TL''dir; mamul deposuna alınmıştır.
+
+    5. Maliyeti 500.000 TL olan mamuller satılmıştır.
+
+    6. Dönem sonunda genel üretim giderleri farkı satılan mamul maliyetine aktarılmıştır.
+
+
+    **İstenenler:**
+
+    (a) 1–3 numaralı işlemlerin yevmiye kayıtlarını (710-720-730; 711-721-731 yansıtma ve 151) yapınız. (9 puan)
+
+    (b) 4 ve 5 numaralı işlemler ile dönem sonu kapatmalarını (711, 721, 731, 710, 720, 730 hesapları ile 732) yevmiye kaydıyla
+    gösteriniz. (7 puan)
+
+    (c) Dönem sonunda 151, 152 ve 620 hesapları bakiyelerini bulunuz. (4 puan)
+
+    '
+  cozum: '**(a)**
+
+
+    | Kayıt | Borç | Alacak |
+
+    |---|---|---|
+
+    | 1. 710 Direkt İlkmadde ve Malzeme Giderleri | 400.000 | |
+
+    | 150 İlk Madde ve Malzeme | | 400.000 |
+
+    | 2. 720 Direkt İşçilik Giderleri | 250.000 | |
+
+    | 335 Personele Borçlar | | 250.000 |
+
+    | 3. 730 Genel Üretim Giderleri | 190.000 | |
+
+    | İlgili gider ve borç hesapları | | 190.000 |
+
+    | Yansıtma: 151 Yarı Mamuller-Üretim | 850.000 | |
+
+    | 711 Direkt İlkmadde ve Malzeme Yansıtma Hesabı | | 400.000 |
+
+    | 721 Direkt İşçilik Giderleri Yansıtma Hesabı | | 250.000 |
+
+    | 731 Genel Üretim Giderleri Yansıtma Hesabı | | 200.000 |
+
+
+    **(b)**
+
+
+    | Kayıt | Borç | Alacak |
+
+    |---|---|---|
+
+    | 4. 152 Mamuller | 700.000 | |
+
+    | 151 Yarı Mamuller-Üretim | | 700.000 |
+
+    | 5. 620 Satılan Mamuller Maliyeti | 500.000 | |
+
+    | 152 Mamuller | | 500.000 |
+
+    | Kapatma: 711, 721, 731 yansıtma hesapları | 850.000 | |
+
+    | 710, 720, 730 gider hesapları | | 840.000 |
+
+    | 732 Genel Üretim Giderleri Bütçe Farkları (olumlu fark) | | 10.000 |
+
+    | 732 Genel Üretim Giderleri Bütçe Farkları | 10.000 | |
+
+    | 620 Satılan Mamuller Maliyeti | | 10.000 |
+
+
+    Yansıtma hesapları borç (850.000), gider hesapları (400.000 + 250.000 + 190.000) alacak (840.000) kapanır; fazla yüklenen
+    10.000 TL olumlu farktır ve 732 alacağında izlenir, dönem sonunda satış maliyeti hesabına aktarılarak kapatılır.
+
+
+    **(c)** 151: 850.000 − 700.000 = **150.000 TL** (borç). 152: 700.000 − 500.000 = **200.000 TL** (borç). 620: 500.000 −
+    10.000 = **490.000 TL** (borç).
+
+    '
+  puanlama:
+  - olcut: (a) giderlerin kaydı ve yansıtma
+    puan: 9
+  - olcut: (b) tamamlama, satış ve kapatma kayıtları
+    puan: 7
+  - olcut: (c) hesap bakiyeleri
+    puan: 4
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 710 Direkt İlkmadde ve Malzeme Giderleri
+    alinti: Bu giderler, esas üretim gider yerleri ile ilgili olup, mamülün bünyesine giren, mamülün temel öğesini oluşturan
+      ve mamülün bünyesine doğrudan yüklenebilen maddelerin kullanımı fiili tutarlarla bu hesapta izlenir. Üretimde kullanılmayan
+      ve satılan ilkmadde ve malzemenin maliyeti bu hesapta izlenmez.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 711 Direkt İlkmadde ve Malzeme Yansıtma Hesabı
+    alinti: Fiili maliyet yönteminin uygulandığı durumlarda "710- Direkt İlkmadde ve Malzeme Giderleri Hesabı"nın borcuna
+      gider çeşidi olarak kaydedilen giderler ile, önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda, önceden
+      hesaplanmış giderler, maliyet unsuru olarak bu hesabın alacağı karşılığında "151- Yarı Mamüller-Üretim Hesabı"na borç
+      kaydedilir. Dönem sonlarında "710- Direkt İlkmadde ve Malzeme Giderleri Hesabı" ile karşılaştırılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 731 Genel Üretim Giderleri Yansıtma Hesabı
+    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda, önceden saptanmış genel üretim giderleri, Fiili
+      maliyet yönteminin uygulandığı durumlarda, "730- Genel üretim Giderleri Hesabı"nın borcuna kaydedilen giderleri, bu
+      hesabın alacağı karşılığı "151- Yarı Mamüller Üretim Hesabı" ile diğer aktif, gider ve zarar hesaplarına borç kaydedilir.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 152 Mamuller
+    alinti: 'Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır. İşleyişi
+      : Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle
+      ambardan çekilmesi ile alacaklandırılır.'
+  dogrulama:
+    python: 'dm = 400000
+
+      dis = 250000
+
+      guc_f = 190000
+
+      guc_y = 200000
+
+      t151 = dm + dis + guc_y
+
+      tam = 700000
+
+      b151 = t151 - tam
+
+      sat = 500000
+
+      b152 = tam - sat
+
+      fark = guc_y - guc_f
+
+      b620 = sat - fark
+
+      sonuc = {''a'': t151, ''b'': b151, ''c'': b152, ''d'': b620}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: MSS
+  kazanimlar:
+  - THP 7/A ve 7/B maliyet hesapları
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: 'Güneş Plastik A.Ş. Tekdüzen Hesap Planı''nın 7/B seçeneğini uygulamaktadır. Yıl içinde 79 grubunda toplanan giderler
+    (TL): 790 İlkmadde ve Malzeme Giderleri 600.000; 791 İşçi Ücret ve Giderleri 540.000; 793 Dışarıdan Sağlanan Fayda ve
+    Hizmetler 180.000; 796 Amortismanlar 120.000; 797 Finansman Giderleri 60.000. Gider dağıtım tablosuna göre fonksiyonlara
+    dağılım:
+
+
+    | Gider çeşidi | Üretim | Pazarlama-satış-dağıtım | Genel yönetim | Finansman |
+
+    |---|---|---|---|---|
+
+    | 790 | 560.000 | 40.000 | - | - |
+
+    | 791 | 380.000 | 100.000 | 60.000 | - |
+
+    | 793 | 90.000 | 30.000 | 60.000 | - |
+
+    | 796 | 80.000 | 10.000 | 30.000 | - |
+
+    | 797 | - | - | - | 60.000 |
+
+
+    Dönem içinde üretilen mamullerin 900.000 TL''lik kısmı tamamlanıp mamul deposuna alınmış, kalan kısım üretim aşamasında
+    kalmıştır.
+
+
+    **İstenenler:**
+
+    (a) Fonksiyonlara göre dağılım toplamlarını bulunuz ve 7/B seçeneğinde dönem sonunda yapılacak gider dağıtım kaydını (798,
+    799, 631, 632, 66) yevmiye ile gösteriniz. (10 puan)
+
+    (b) 798 ile 790–797 numaralı hesapların kapatılmasını yevmiye kaydıyla gösteriniz. (5 puan)
+
+    (c) 799 Üretim Maliyet Hesabı''nın 151 ve 152 hesaplarına devrini yapınız ve 151 hesabının bakiyesini bulunuz. (5 puan)
+
+    '
+  cozum: '**(a)** Üretim = 1.110.000 TL; pazarlama-satış-dağıtım = 180.000 TL; genel yönetim = 150.000 TL; finansman = 60.000
+    TL; toplam = 1.500.000 TL.
+
+
+    | Kayıt | Borç | Alacak |
+
+    |---|---|---|
+
+    | 799 Üretim Maliyet Hesabı | 1.110.000 | |
+
+    | 631 Pazarlama Satış ve Dağıtım Giderleri | 180.000 | |
+
+    | 632 Genel Yönetim Giderleri | 150.000 | |
+
+    | 66 Finansman Giderleri | 60.000 | |
+
+    | 798 Gider Çeşitleri Yansıtma Hesabı | | 1.500.000 |
+
+
+    **(b)**
+
+
+    | Kayıt | Borç | Alacak |
+
+    |---|---|---|
+
+    | 798 Gider Çeşitleri Yansıtma Hesabı | 1.500.000 | |
+
+    | 790 İlkmadde ve Malzeme Giderleri | | 600.000 |
+
+    | 791 İşçi Ücret ve Giderleri | | 540.000 |
+
+    | 793 Dışarıdan Sağlanan Fayda ve Hizmetler | | 180.000 |
+
+    | 796 Amortismanlar ve Tükenme Payları | | 120.000 |
+
+    | 797 Finansman Giderleri | | 60.000 |
+
+
+    **(c)** Dönem sonunda 799, üretim işletmelerinde 151 ve 152 hesaplarına devredilerek kapatılır:
+
+
+    | Kayıt | Borç | Alacak |
+
+    |---|---|---|
+
+    | 152 Mamuller | 900.000 | |
+
+    | 151 Yarı Mamuller-Üretim | 210.000 | |
+
+    | 799 Üretim Maliyet Hesabı | | 1.110.000 |
+
+
+    151 hesabı 210.000 TL borç bakiyesi verir (üretimi sürmekte olan mamuller).
+
+    '
+  puanlama:
+  - olcut: (a) dağılım toplamları ve yevmiye kaydı
+    puan: 10
+  - olcut: (b) 798 ve 790-797 kapatma kaydı
+    puan: 5
+  - olcut: (c) 799'un devri ve 151 bakiyesi
+    puan: 5
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 7/B seçeneği; 799 Üretim Maliyet Hesabı
+    alinti: Dönem sonlarında "799- Üretim Maliyet Hesabı", üretim işletmelerinde 151- Yarı Mamüller Üretim" ve "152- Mamüller"
+      hesaplarına, hizmet işletmelerinde ise "622- Satılan Hizmet Maliyeti Hesabı"na devredilerek kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 152 Mamuller
+    alinti: 'Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır. İşleyişi
+      : Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle
+      ambardan çekilmesi ile alacaklandırılır.'
+  dogrulama:
+    python: 'u = 560000 + 380000 + 90000 + 80000
+
+      p = 40000 + 100000 + 30000 + 10000
+
+      g = 60000 + 60000 + 30000
+
+      f = 60000
+
+      top = u + p + g + f
+
+      c790 = 600000
+
+      c791 = 540000
+
+      c793 = 180000
+
+      c796 = 120000
+
+      c797 = 60000
+
+      kontrol = c790 + c791 + c793 + c796 + c797
+
+      tam = 900000
+
+      b151 = u - tam
+
+      sonuc = {''a'': u, ''b'': top, ''c'': b151, ''k'': kontrol - top}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: MSS
+  kazanimlar:
+  - sipariş maliyet sistemi
+  - genel üretim giderlerinin yüklenmesi
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: 'Dumlupınar Makine İmalat A.Ş., müşteri siparişlerini sipariş maliyet sistemiyle izlemekte ve fiyatı maliyetin %30
+    üzerinde belirlemektedir. Genel üretim giderleri, direkt işçilik TL''si üzerinden yıllık bütçe oranıyla yüklenmektedir:
+    bütçelenen genel üretim gideri 900.000 TL, bütçelenen direkt işçilik gideri 600.000 TL''dir.
+
+
+    Yeni bir sipariş (S-210) için tahmini verilerin: direkt ilk madde 120.000 TL; direkt işçilik 800 saat × 50 TL/saat.
+
+
+    **İstenenler:**
+
+    (a) Genel üretim gideri yükleme oranını, S-210 siparişinin tahmini maliyetini ve teklif edilecek fiyatı hesaplayınız.
+    (7 puan)
+
+    (b) Sipariş tamamlandığında yılın gerçek genel üretim gideri oranının direkt işçilik giderinin %160''ı olduğu anlaşılırsa
+    siparişin gerçek maliyetini ve (a)''daki fiyat üzerinden gerçekleşen kârı hesaplayınız. (7 puan)
+
+    (c) Gerçek maliyet üzerinden %30 kâr elde edilmek istenseydi teklif edilmesi gereken fiyatı bulunuz ve sipariş maliyet
+    sistemlerinde önceden belirlenmiş yükleme oranlarının kullanılma nedenini açıklayınız. (6 puan)
+
+    '
+  cozum: '**(a)** Yükleme oranı = 900.000 / 600.000 = **1,50** (direkt işçilik giderinin %150''si). Direkt işçilik = 800 ×
+    50 = 40.000 TL; yüklenen GÜG = 40.000 × 1,5 = 60.000 TL; sipariş maliyeti = 120.000 + 40.000 + 60.000 = **220.000 TL**.
+    Teklif edilecek fiyat = 220.000 × 1,30 = **286.000 TL**.
+
+
+    **(b)** Gerçek oran %160 ise GÜG = 40.000 × 1,60 = 64.000 TL; gerçek maliyet = **224.000 TL**. Gerçekleşen kâr = 286.000
+    − 224.000 = **62.000 TL** (maliyetin %27,68''i).
+
+
+    **(c)** Gerçek maliyetin %30 üzerinden fiyat = 224.000 × 1,30 = **291.200 TL**. Sipariş tamamlandığında gerçek giderler
+    henüz belli olmadığından ve her siparişin zamanında maliyetlenip fiyatlanması gerektiğinden önceden belirlenmiş yükleme
+    oranı kullanılır; dönem sonunda oluşan eksik/fazla yükleme farkı düzeltilir.
+
+    '
+  puanlama:
+  - olcut: (a) yükleme oranı, sipariş maliyeti ve fiyat
+    puan: 7
+  - olcut: (b) gerçek maliyet ve kâr
+    puan: 7
+  - olcut: (c) yeni fiyat ve oran gerekçesi
+    puan: 6
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 730 Genel Üretim Giderleri
+    alinti: İşletmenin üretimi ve bu üretime bağlı hizmetler için yapılan direkt işçilik ve direkt ilkmadde ve malzeme dışında
+      kalan giderlerin izlendiği hesaptır. Bu giderlerin; — Üretim ve hizmet maliyeti ile ilgili bir gider niteliğini taşıması,
+      — Çeşit ve değer yönü ile doğrudan doğruya değil ancak dağıtım yoluyla üretim ve hizmet maliyetlerine yansıtılabilir
+      nitelikte olması, gerekir. Tahakkuk eden giderler bu hesabın borcuna kaydedilir. Dönem sonlarında "731- Genel Üretim
+      Giderleri Yansıtma Hesabı" ile karşılaştırılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 731 Genel Üretim Giderleri Yansıtma Hesabı
+    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda, önceden saptanmış genel üretim giderleri, Fiili
+      maliyet yönteminin uygulandığı durumlarda, "730- Genel üretim Giderleri Hesabı"nın borcuna kaydedilen giderleri, bu
+      hesabın alacağı karşılığı "151- Yarı Mamüller Üretim Hesabı" ile diğer aktif, gider ve zarar hesaplarına borç kaydedilir.
+  dogrulama:
+    python: 'oran = 900000 / 600000
+
+      dis_tl = 800 * 50
+
+      guc = dis_tl * oran
+
+      maliyet = 120000 + dis_tl + guc
+
+      fiyat = maliyet * 1.30
+
+      guc2 = dis_tl * 1.60
+
+      maliyet2 = 120000 + dis_tl + guc2
+
+      kar = fiyat - maliyet2
+
+      oran_kar = kar / maliyet2 * 100
+
+      fiyat2 = maliyet2 * 1.30
+
+      sonuc = {''a'': fiyat, ''b'': kar, ''c'': fiyat2}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+sorular: []

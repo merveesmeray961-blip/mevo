@@ -1,0 +1,2136 @@
+yazar: harici üretici
+gorev: YMM talimatı 2026-11-02
+klasik:
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - ürün hattını kapatma
+  - fark analizi
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: 'Deniz Mobilya A.Ş. iki ürün hattı işletmektedir. Hatlara ilişkin yıllık bölüm sonuçları aşağıdadır (TL):
+
+
+    | | Dolap hattı | Sandalye hattı |
+
+    |---|---|---|
+
+    | Satışlar | 900.000 | 500.000 |
+
+    | Değişken giderler | 540.000 | 380.000 |
+
+    | Hatta doğrudan izlenen sabit giderler | 150.000 | 110.000 |
+
+    | Dağıtılan ortak sabit giderler | 140.000 | 60.000 |
+
+
+    Ek bilgiler:
+
+    - Sandalye hattının doğrudan sabit giderlerinin 90.000 TL''si (usta ve vardiya personeli) hat kapatılırsa ortadan kalkar;
+    kalan 20.000 TL makine amortismanıdır ve kaçınılamaz.
+
+    - Dağıtılan ortak sabit giderler, hangi seçenek uygulanırsa uygulansın değişmez.
+
+    - Sandalye hattı kapatılırsa boşalan üretim alanı bir komşu firmaya yıllık 45.000 TL''ye kiralanabilecektir.
+
+    - Sandalye müşterileri aynı zamanda dolap da almaktadır; sandalye hattı kapatılırsa dolap satışlarının %10 oranında azalması,
+    buna bağlı olarak dolap hattının değişken giderlerinin de oransal azalması beklenmektedir.
+
+
+    **İstenenler:**
+
+    (a) Sandalye hattının bölüm sonucunu bulunuz ve hattın kapatılmasının işletme kârına etkisini hesaplayınız. (7 puan)
+
+    (b) Boşalan alanın kiralanması hâlinde kapatma kararının kâra etkisini bulunuz. (7 puan)
+
+    (c) Dolap satışlarındaki düşüşü de dikkate alarak kiralama dâhil kapatma kararının kâra etkisini bulunuz; karar kayıtsızlık
+    noktasındaki yıllık kira bedelini hesaplayınız. (8 puan)
+
+    '
+  cozum: '**(a)** Sandalye hattı bölüm sonucu = 500.000 − 380.000 − 110.000 − 60.000 = **-50.000 TL** (zarar). Ancak karar
+    için yalnızca kaçınılabilir kalemler ilgilidir:
+
+
+    | Kalem | Tutar (TL) |
+
+    |---|---|
+
+    | Kaybedilen katkı payı (500.000 − 380.000) | -120.000 |
+
+    | Kaçınılan sabit gider | +90.000 |
+
+    | Kapatmanın kâra etkisi | **-30.000** |
+
+
+    Amortisman (20.000) ve dağıtılan ortak giderler (60.000) kaçınılamadığı için ilgisizdir; bölüm zararı tek başına kapatmayı
+    haklı kılmaz. Hat, kaçınılamayan giderlere 30.000 TL katkı sağladığından kapatma kârı azaltır.
+
+
+    **(b)** Kira geliri ilgili artımlı gelirdir: net etki = -30.000 + 45.000 = **15.000 TL**; kiralama ile birlikte kapatma
+    kârı 15.000 TL artırır.
+
+
+    **(c)** Dolap katkı payı kaybı = (900.000 − 540.000) × %10 = 36.000 TL. Toplam etki = 15.000 − 36.000 = **-21.000 TL**;
+    kapatma kârı 21.000 TL azaltır, hat kapatılmamalıdır. Kayıtsızlık kirası = hat kapatmanın kayıpları (30.000 + 36.000)
+    = **66.000 TL**; yıllık kira bunun üzerindeyse kapatma kârlı olur.
+
+    '
+  puanlama:
+  - olcut: (a) bölüm sonucu ve doğru ilgili maliyet tablosu ile kapatma etkisi
+    puan: 7
+  - olcut: (b) kira gelirinin eklenmesi ve sonuç
+    puan: 7
+  - olcut: (c) çapraz etki, toplam etki ve kayıtsızlık kirası
+    puan: 8
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: 'katkiB = 500000 - 380000
+
+      kacB = 90000
+
+      bolum_zarar = katkiB - 110000 - 60000
+
+      etki = -(katkiB - kacB)
+
+      kira = 45000
+
+      etki_kira = etki + kira
+
+      capraz = 0.10 * (900000 - 540000)
+
+      etki_capraz = etki_kira - capraz
+
+      kayitsiz = -etki + capraz
+
+      sonuc = {''a'': etki, ''b'': etki_kira, ''c'': etki_capraz, ''k'': kayitsiz}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - üret veya satın al
+  - fark analizi
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: 'Tuna Otomotiv A.Ş., montaj hattında kullandığı conta setini yılda 12.000 adet kendi atölyesinde üretmektedir. Birim
+    maliyet bilgileri şöyledir:
+
+
+    | Kalem | Birim (TL) |
+
+    |---|---|
+
+    | Direkt ilk madde ve malzeme | 14 |
+
+    | Direkt işçilik | 10 |
+
+    | Değişken genel üretim gideri | 6 |
+
+    | Sabit genel üretim gideri (yıllık 96.000 TL, 12.000 adede bölünmüş) | 8 |
+
+    | **Tam maliyet** | **38** |
+
+
+    Yıllık 96.000 TL sabit genel üretim giderinin 36.000 TL''si atölye şefinin ücretidir ve üretim durursa ortadan kalkar;
+    60.000 TL''si ise binanın amortismanı ve kirasıdır. Bir tedarikçi aynı kalitede conta setini adedi 31 TL''den sunmaktadır.
+
+
+    **İstenenler:**
+
+    (a) Kendi üretimi ile satın almayı ilgili maliyetler esasına göre karşılaştırarak kararı gerekçelendiriniz; kararın yıllık
+    kâra etkisini bulunuz. (8 puan)
+
+    (b) Üretim durdurulursa boşalan kapasitenin başka bir işte kullanılarak yılda 48.000 TL net katkı sağlayacağı anlaşılmıştır.
+    Bu bilgiyle kararı yeniden değerlendiriniz ve satın almanın avantajını bulunuz. (8 puan)
+
+    (c) Kapasite için bu alternatif varken işletmenin ödemeyi kabul edebileceği en yüksek tedarik fiyatını hesaplayınız. (6
+    puan)
+
+    '
+  cozum: '**(a)** İlgili üretim maliyeti: değişken kalemler 30 TL + kaçınılabilir sabit gider (36.000 / 12.000 = 3 TL) = **33
+    TL/adet**. Amortisman ve kira kaçınılamadığı için ilgisizdir; bu yüzden 38 TL''lik tam maliyet karar ölçütü olamaz (tam
+    maliyet = 38 TL).
+
+
+    Satın alma fiyatı 31 TL < 33 TL olduğundan satın alınmalıdır. Yıllık tasarruf = (33 − 31) × 12.000 = **24.000 TL**.
+
+
+    **(b)** Satın alma seçeneğinin net maliyeti = 31 × 12.000 − 48.000 = 324.000 TL; üretim ilgili maliyeti = 33 × 12.000
+    = 396.000 TL. Satın alma avantajı = **72.000 TL**; satın alma ve kapasiteyi alternatif işte kullanma tercih edilir.
+
+
+    **(c)** Kapasite alternatifi varken kayıtsızlık fiyatı = (396.000 − 48.000) / 12.000 = **29 TL/adet**. Tedarik fiyatı
+    bunun altındaysa satın alma, üstündeyse üretim kârlıdır.
+
+    '
+  puanlama:
+  - olcut: (a) ilgili maliyetin doğru belirlenmesi, kaçınılamayan sabit giderin dışlanması, sonuç
+    puan: 8
+  - olcut: (b) fırsat maliyetinin karara eklenmesi ve avantaj tutarı
+    puan: 8
+  - olcut: (c) kayıtsızlık fiyatı
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  dogrulama:
+    python: 'adet = 12000
+
+      degisken = 14 + 10 + 6
+
+      kac_sabit_br = 36000 / adet
+
+      uretim_ilgili = degisken + kac_sabit_br
+
+      fiyat = 31
+
+      tasarruf = (uretim_ilgili - fiyat) * adet
+
+      alt_gelir = 48000
+
+      uret_top = uretim_ilgili * adet
+
+      al_top = fiyat * adet - alt_gelir
+
+      avantaj = uret_top - al_top
+
+      esik = (uret_top - alt_gelir) / adet
+
+      esik_yok = uretim_ilgili
+
+      tam_maliyet = degisken + 96000 / adet
+
+      sonuc = {''a'': tasarruf, ''b'': avantaj, ''c'': esik, ''tam'': tam_maliyet}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - özel sipariş
+  - fark analizi
+  zorluk: 3
+  puan: 24
+  sure_dk: 30
+  soru: 'Bora Mutfak Gereçleri A.Ş. yıllık 60.000 adet kapasiteli bir tesiste çelik tencere seti üretmektedir. Yıl içinde
+    normal satışlar 50.000 adet olup birim satış fiyatı 140 TL''dir. Birim maliyet verileri:
+
+
+    | Kalem | Birim (TL) |
+
+    |---|---|
+
+    | Direkt ilk madde ve malzeme | 48 |
+
+    | Direkt işçilik | 30 |
+
+    | Değişken genel üretim gideri | 12 |
+
+    | Satış komisyonu | 10 |
+
+    | Sabit genel üretim gideri (600.000 TL / 50.000 adet) | 12 |
+
+
+    Yurt dışındaki bir müşteri, işletmenin normal pazarını etkilemeyecek biçimde 15.000 adet set için adedi 100 TL''den sipariş
+    vermek istemektedir. Siparişte komisyon ödenmeyecektir; ancak siparişe özgü toplam 25.000 TL hazırlık ve sertifikasyon
+    gideri oluşacaktır. Boş kapasite yalnızca 10.000 adettir; siparişin tamamı kabul edilirse 5.000 adet normal satıştan vazgeçilecektir.
+
+
+    **İstenenler:**
+
+    (a) Siparişin yalnız 10.000 adetlik bölümü kabul edilirse kâra etkisini hesaplayınız. (7 puan)
+
+    (b) 15.000 adetlik siparişin tamamı kabul edilirse kâra etkisini hesaplayınız ve kararı belirtiniz. (9 puan)
+
+    (c) 15.000 adetlik siparişin tamamının kabul edilebilmesi için istenebilecek asgari birim satış fiyatını bulunuz; tam
+    maliyete (112 TL) göre karar vermenin neden yanıltıcı olacağını açıklayınız. (8 puan)
+
+    '
+  cozum: '**(a)** Özel siparişin birim katkısı = 100 − (48 + 30 + 12) = 10 TL (komisyon ödenmediği için ilgisiz). Sabit gider
+    artmadığı için tam maliyetteki 12 TL ilgisizdir.
+
+    10.000 × 10 − 25.000 = **75.000 TL** kâr artışı.
+
+
+    **(b)** Normal satışın birim katkısı = 140 − (48 + 30 + 12 + 10) = 40 TL. Vazgeçilen 5.000 adet için fırsat maliyeti =
+    5.000 × 40 = 200.000 TL.
+
+
+    | Kalem | TL |
+
+    |---|---|
+
+    | Özel sipariş katkısı (15.000 × 10) | 150.000 |
+
+    | Vazgeçilen normal katkı | -200.000 |
+
+    | Hazırlık gideri | -25.000 |
+
+    | **Net etki** | **-75.000** |
+
+
+    Tamamı kabul edilirse kâr 75.000 TL azalır; yalnız 10.000 adetlik bölüm kabul edilmelidir.
+
+
+    **(c)** Asgari fiyat = (15.000 × 90 + 200.000 + 25.000) / 15.000 = **105 TL/adet**. Tam maliyet 112 TL''dir; oysa sabit
+    gider artmadığı için siparişin ilgili maliyeti 90 TL''dir ve fırsat maliyeti dışında sipariş 100 TL ile kârlıdır. Tam
+    maliyet, ilgisiz sabit gideri karara katar.
+
+    '
+  puanlama:
+  - olcut: (a) birim katkı ve 10.000 adet sonucu
+    puan: 7
+  - olcut: (b) fırsat maliyeti ve net etki, karar
+    puan: 9
+  - olcut: (c) asgari fiyat ve tam maliyetin yanıltıcılığı
+    puan: 8
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  dogrulama:
+    python: 'vc_normal = 48 + 30 + 12 + 10
+
+      vc_ozel = 48 + 30 + 12
+
+      katki_normal = 140 - vc_normal
+
+      katki_ozel = 100 - vc_ozel
+
+      hazirlik = 25000
+
+      a = 10000 * katki_ozel - hazirlik
+
+      kesinti = 5000 * katki_normal
+
+      b = 15000 * katki_ozel - kesinti - hazirlik
+
+      c = (15000 * vc_ozel + kesinti + hazirlik) / 15000
+
+      tam = 112
+
+      sonuc = {''a'': a, ''b'': b, ''c'': c}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - kıt kaynak kullanımı
+  - fark analizi
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: 'Alp Plastik A.Ş. aynı enjeksiyon makinelerinde üç ürün üretmektedir. Gelecek yıl için makine kapasitesi 10.000 makine
+    saatidir. Ürünlere ilişkin veriler:
+
+
+    | | P | Q | R |
+
+    |---|---|---|---|
+
+    | Birim satış fiyatı (TL) | 120 | 90 | 150 |
+
+    | Birim değişken maliyet (TL) | 80 | 60 | 96 |
+
+    | Birim başına makine saati | 2 | 1 | 2 |
+
+    | Azami talep (adet) | 3.000 | 4.000 | 2.000 |
+
+
+    Yıllık sabit giderler 150.000 TL''dir ve üretim planından bağımsızdır.
+
+
+    **İstenenler:**
+
+    (a) Her ürünün makine saati başına katkı payını hesaplayarak üretim önceliğini belirleyiniz. (6 puan)
+
+    (b) Kârı en çok artıran üretim planını kurarak işletmenin faaliyet kârını bulunuz. (8 puan)
+
+    (c) Makine saati başına 15 TL ek bedelle yan kuruluştan en çok 3.000 saat daha kapasite kiralanabileceği öğrenilmiştir.
+    Kiralama kararını değerlendirerek en yüksek faaliyet kârını bulunuz. (8 puan)
+
+    '
+  cozum: '**(a)** Kısıtlı kaynak makine saati olduğundan ölçüt birim katkı değil saat başına katkıdır:
+
+
+    | | P | Q | R |
+
+    |---|---|---|---|
+
+    | Birim katkı (TL) | 40 | 30 | 54 |
+
+    | Saat başına katkı (TL) | 20 | 30 | 27 |
+
+
+    Öncelik: Q (30) > R (27) > P (20).
+
+
+    **(b)** Plan: Q 4.000 adet (4.000 saat), R 2.000 adet (4.000 saat), kalan 2.000 saat P için → 1.000 adet.
+
+    Katkı = 4.000 × 30 + 2.000 × 54 + 1.000 × 40 = 268.000 TL; faaliyet kârı = 268.000 − 150.000 = **118.000 TL**.
+
+
+    **(c)** P''nin saat başına katkısı 20 TL, ek saat bedeli 15 TL olduğundan her saatte 5 TL net kazanç vardır. P''nin kalan
+    talebi 2.000 adet = 4.000 saat olup 3.000 saatlik kiralama sınırı bu talepten küçüktür; 3.000 saatin tamamı P için kullanılır
+    (1.500 adet). Net kazanç = 3.000 × (20 − 15) = 15.000 TL. Faaliyet kârı = 118.000 + 15.000 = **133.000 TL**.
+
+    '
+  puanlama:
+  - olcut: (a) saat başına katkı ve öncelik sırası
+    puan: 6
+  - olcut: (b) üretim planı ve faaliyet kârı
+    puan: 8
+  - olcut: (c) kiralama kararı ve en yüksek kâr
+    puan: 8
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: 'kP = 120 - 80
+
+      kQ = 90 - 60
+
+      kR = 150 - 96
+
+      sP = kP / 2
+
+      sQ = kQ / 1
+
+      sR = kR / 2
+
+      saatQ = 4000
+
+      saatR = 2 * 2000
+
+      saatP = 10000 - saatQ - saatR
+
+      adetP = saatP / 2
+
+      katki = 4000 * kQ + 2000 * kR + adetP * kP
+
+      kar = katki - 150000
+
+      ek_saat = 3000
+
+      ek_net = ek_saat * (sP - 15)
+
+      kar2 = kar + ek_net
+
+      sonuc = {''a'': sR, ''b'': kar, ''c'': kar2}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - ortak ürünlerde ayrılma noktası ve ek işlem kararı
+  - fark analizi
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: 'Gülsan Kimya A.Ş., tek bir ortak işlem sürecinden X, Y ve Z ortak ürünlerini elde etmektedir. Dönem ortak işlem maliyeti
+    960.000 TL''dir. Ayrılma noktasında ürünler şu miktarlarda elde edilmiş ve şu fiyatlardan satılabilmektedir:
+
+
+    | Ürün | Miktar (litre) | Ayrılma noktasındaki satış fiyatı (TL/litre) |
+
+    |---|---|---|
+
+    | X | 100.000 | 6 |
+
+    | Y | 150.000 | 3 |
+
+    | Z | 50.000 | 3 |
+
+
+    Y ve Z ürünleri ayrılma noktasından sonra ek işleme tabi tutulabilmektedir:
+
+    - Z: ek işlemle litresi 5 TL''ye satılabilir; ek işlem maliyeti litre başına 1,5 TL''dir.
+
+    - Y: ek işlemle litresi 4 TL''ye satılabilir; ek işlem maliyeti litre başına 1,2 TL''dir.
+
+
+    **İstenenler:**
+
+    (a) Ortak işlem maliyetini ayrılma noktasındaki nispi satış değerine göre ürünlere dağıtınız. (8 puan)
+
+    (b) Z ürününün ek işleme tabi tutulup tutulmayacağına karar veriniz. (7 puan)
+
+    (c) Y ürünü için ek işlem kararını veriniz; ortak maliyet dağıtımının bu kararlarda neden dikkate alınmadığını açıklayınız.
+    (7 puan)
+
+    '
+  cozum: '**(a)** Nispi satış değerleri: X = 600.000, Y = 450.000, Z = 150.000; toplam 1.200.000 TL.
+
+
+    | Ürün | Pay | Dağıtılan ortak maliyet (TL) |
+
+    |---|---|---|
+
+    | X | 600.000 / 1.200.000 | **480.000** |
+
+    | Y | 450.000 / 1.200.000 | **360.000** |
+
+    | Z | 150.000 / 1.200.000 | **120.000** |
+
+
+    **(b)** Z için artımlı gelir = 50.000 × (5 − 3) = 100.000 TL; ek işlem maliyeti = 50.000 × 1,5 = 75.000 TL. Net fayda
+    = **25.000 TL** → ek işlem yapılmalıdır.
+
+
+    **(c)** Y için artımlı gelir = 150.000 × (4 − 3) = 150.000 TL; ek işlem maliyeti = 180.000 TL; net etki = **-30.000 TL**
+    → ek işlem yapılmamalı, Y ayrılma noktasında satılmalıdır. Ortak maliyet, ek işlem yapılsın ya da yapılmasın aynı tutarda
+    gerçekleştiğinden batıktır; yalnız ayrılma noktasından sonraki artımlı gelir ve maliyetler ilgilidir.
+
+    '
+  puanlama:
+  - olcut: (a) nispi satış değeri ve dağıtım tutarları
+    puan: 8
+  - olcut: (b) Z için artımlı analiz ve karar
+    puan: 7
+  - olcut: (c) Y için karar ve ortak maliyetin ilgisizliği
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 14
+    alinti: Her bir ürünün dönüştürme maliyetlerinin ayrı olarak belirlenemediği durumlarda, bu maliyetler ürünler arasında
+      mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı örneğin; her bir ürünün ayrı olarak belirlenebilir
+      hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki nispi satış değerine göre yapılabilir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 9
+    alinti: Stoklar, maliyet değeri ile net gerçekleşebilir değerin düşük olanı üzerinden ölçülür.
+  dogrulama:
+    python: 'ortak = 960000
+
+      nX = 100000 * 6
+
+      nY = 150000 * 3
+
+      nZ = 50000 * 3
+
+      top = nX + nY + nZ
+
+      tX = ortak * nX / top
+
+      tY = ortak * nY / top
+
+      tZ = ortak * nZ / top
+
+      ek_gelir_Z = 50000 * (5 - 3)
+
+      ek_mal_Z = 50000 * 1.5
+
+      kararZ = ek_gelir_Z - ek_mal_Z
+
+      ek_gelir_Y = 150000 * (4 - 3)
+
+      ek_mal_Y = 150000 * 1.2
+
+      kararY = ek_gelir_Y - ek_mal_Y
+
+      sonuc = {''a'': tX, ''b'': kararZ, ''c'': kararY}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - ortak ürünlerde ayrılma noktası ve ek işlem kararı
+  - üret veya satın al
+  zorluk: 3
+  puan: 21
+  sure_dk: 30
+  soru: 'Nil Süt Ürünleri A.Ş. peynir üretimi sırasında yan ürün olarak peynir altı suyu tozu elde etmektedir. Dönem ortak
+    işlem maliyeti 840.000 TL''dir. Dönemde 74.000 kg peynir (ana ürün) ve 20.000 kg süt tozu (yan ürün) üretilmiştir. Süt
+    tozunun satış fiyatı 6 TL/kg, kg başına ayrıca 1 TL ambalaj ve satış gideri vardır. Dönem sonunda 14.000 kg peynir ve
+    5.000 kg süt tozu satılmamıştır.
+
+
+    İşletme, yan ürünü net gerçekleşebilir değerinden ölçmekte ve bu değeri ana ürünün maliyetinden düşmektedir.
+
+
+    Yönetim, süt tozunu granül hâle getirmeyi düşünmektedir. Granül ürün 9 TL/kg''a satılabilecek; ek işlem kg başına 2,5
+    TL değişken maliyet ve toplam 20.000 TL sabit işletme gideri doğuracaktır. Ambalaj ve satış gideri granülde de kg başına
+    1 TL''dir.
+
+
+    **İstenenler:**
+
+    (a) Yan ürünün net gerçekleşebilir değerini ve ana ürünün kg başına maliyetini bulunuz. (7 puan)
+
+    (b) Dönem sonu mamul stoklarının toplam değerini hesaplayınız. (7 puan)
+
+    (c) Granül işleminin yapılıp yapılmayacağına karar veriniz ve kararın kâra etkisini bulunuz. (7 puan)
+
+    '
+  cozum: '**(a)** Yan ürün NGD = 20.000 × (6 − 1) = **100.000 TL** (5 TL/kg). Ana ürüne yüklenecek maliyet = 840.000 − 100.000
+    = 740.000 TL; birim maliyet = 740.000 / 74.000 = **10 TL/kg**.
+
+
+    **(b)** Peynir stoğu = 14.000 × 10 = 140.000 TL; süt tozu stoğu = 5.000 × 5 = 25.000 TL. Toplam = **165.000 TL** (stok
+    maliyeti NGD''den yüksek olamaz).
+
+
+    **(c)** Granülün net geliri = 9 − 1 − 2,5 = 5,50 TL/kg; mevcut net gelir 5 TL/kg. Artımlı kazanç = (5,50 − 5) × 20.000
+    = 10.000 TL; sabit gider 20.000 TL düşüldüğünde net etki = **-10.000 TL**. Etki negatif olduğundan granül işlemi yapılmamalıdır.
+
+    '
+  puanlama:
+  - olcut: (a) yan ürün NGD ve ana ürün birim maliyeti
+    puan: 7
+  - olcut: (b) stok değerleri
+    puan: 7
+  - olcut: (c) artımlı analiz ve karar
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 14
+    alinti: Yan ürünlerin çoğu, yapıları gereği önemsizdir. Böyle bir durumda, yan ürünler genellikle net gerçekleşebilir
+      değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden düşülür. Bunun sonucu olarak ana ürünün defter değeri, maliyet
+      değerinden önemli ölçüde farklılık göstermez.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 9
+    alinti: Stoklar, maliyet değeri ile net gerçekleşebilir değerin düşük olanı üzerinden ölçülür.
+  dogrulama:
+    python: 'ortak = 840000
+
+      yan_kg = 20000
+
+      yan_ngd_br = 6 - 1
+
+      yan_ngd = yan_kg * yan_ngd_br
+
+      ana_maliyet = ortak - yan_ngd
+
+      ana_kg = 74000
+
+      ana_br = ana_maliyet / ana_kg
+
+      stok_ana = 14000 * ana_br
+
+      stok_yan = 5000 * yan_ngd_br
+
+      toplam_stok = stok_ana + stok_yan
+
+      islem_br = 9 - 1 - 2.5
+
+      ek_kazanc = (islem_br - yan_ngd_br) * yan_kg
+
+      net = ek_kazanc - 20000
+
+      sonuc = {''a'': ana_br, ''b'': toplam_stok, ''c'': net}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - fark analizi
+  - ilgili ve ilgisiz maliyetler (batık maliyet)
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: 'Dilek Tekstil A.Ş. mevcut dokuma makinesini yenisiyle değiştirmeyi düşünmektedir. Bilgiler (kalan beş yıl için, paranın
+    zaman değeri ihmal edilecektir):
+
+
+    | | Eski makine | Yeni makine |
+
+    |---|---|---|
+
+    | Defter değeri / alış bedeli | 240.000 TL (defter değeri) | 400.000 TL (alış bedeli) |
+
+    | Yıllık işletme gideri | 180.000 TL | 120.000 TL |
+
+    | Beş yıl sonundaki hurda değeri | 0 | 40.000 TL |
+
+    | Bugün satılırsa elde edilecek tutar | 30.000 TL | - |
+
+
+    Her iki makine de aynı üretim kapasitesine ve aynı gelire sahiptir. Eski makinenin defter değeri amortisman yoluyla beş
+    yılda giderleşecektir.
+
+
+    **İstenenler:**
+
+    (a) Fark (artımlı) analizi ile beş yıllık toplamda makine değiştirmenin net maliyetini hesaplayınız ve kararı belirtiniz;
+    eski makinenin defter değerinin kararla ilişkisini açıklayınız. (8 puan)
+
+    (b) Yeni makinenin yıllık işletme gideri kaç TL olursa karar kayıtsız kalır? (7 puan)
+
+    (c) Yeni makinenin yılda 20.000 TL fire tasarrufu sağlayacağı anlaşıldığında kararı yeniden değerlendiriniz. (7 puan)
+
+    '
+  cozum: '**(a)** Eski makinede kalınırsa toplam işletme gideri = 5 × 180.000 = 900.000 TL. Yeni makine için net maliyet =
+    400.000 + 5 × 120.000 − 40.000 (hurda) − 30.000 (eski makinenin satışı) = **930.000 TL**. Fark = 930.000 − 900.000 = **30.000
+    TL**; makine değiştirmek 30.000 TL daha pahalıdır, eski makine kullanılmaya devam etmelidir.
+
+    Defter değeri (240.000 TL) her iki seçenekte de toplam gider yazılacağı için **batık maliyettir**, ilgisizdir; yalnız
+    satış tutarı (30.000 TL) ilgilidir.
+
+
+    **(b)** Kayıtsızlık: 400.000 − 40.000 − 30.000 + 5x = 900.000 → x = **114.000 TL**.
+
+
+    **(c)** Yeni makinenin net maliyeti = 930.000 − 5 × 20.000 = 830.000 TL. Eski makine maliyeti 900.000 TL; fark = **70.000
+    TL** lehine yeni makine → makine değiştirilmelidir.
+
+    '
+  puanlama:
+  - olcut: (a) ilgili kalemlerle fark analizi, karar ve batık maliyet açıklaması
+    puan: 8
+  - olcut: (b) kayıtsızlık noktası
+    puan: 7
+  - olcut: (c) fire tasarrufu ile yeni karar
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: 'eski_isl = 5 * 180000
+
+      yeni_isl = 5 * 120000
+
+      yeni_net = 400000 + yeni_isl - 40000 - 30000
+
+      fark = yeni_net - eski_isl
+
+      x = (eski_isl - (400000 - 40000 - 30000)) / 5
+
+      yeni_net2 = yeni_net - 5 * 20000
+
+      fark2 = eski_isl - yeni_net2
+
+      sonuc = {''a'': fark, ''b'': x, ''c'': fark2}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - üret veya satın al
+  - kıt kaynak kullanımı
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: 'Fırat Elektronik A.Ş. iki bileşeni (K1 ve K2) kendi atölyesinde üretmektedir. Atölyenin işçi kapasitesi yıllık 6.000
+    direkt işçilik saatidir. Veriler:
+
+
+    | | K1 | K2 |
+
+    |---|---|---|
+
+    | Yıllık ihtiyaç (adet) | 3.000 | 2.000 |
+
+    | Kendi üretimde birim değişken maliyet (TL) | 40 | 70 |
+
+    | Birim başına direkt işçilik saati | 2 | 3 |
+
+    | Dış tedarik fiyatı (TL/adet) | 52 | 94 |
+
+
+    Atölyedeki sabit giderler, üretim kararından bağımsızdır. Eksik kalan ihtiyaç dış tedarikçilerden karşılanacaktır.
+
+
+    **İstenenler:**
+
+    (a) Her bileşen için kendi üretiminin işçilik saati başına sağladığı tasarruf tutarını hesaplayınız. (6 puan)
+
+    (b) Toplam yıllık satın alma ve üretim maliyetini en aza indirecek planı kurunuz ve toplam maliyeti bulunuz. (9 puan)
+
+    (c) K1 için tedarikçinin yılda en çok 1.500 adet teslim edebildiği varsayılırsa en uygun planı ve toplam maliyeti bulunuz.
+    (7 puan)
+
+    '
+  cozum: '**(a)** Satın almanın ek maliyeti: K1 için 52 − 40 = 12 TL, saat başına 12 / 2 = **6 TL**; K2 için 94 − 70 = 24
+    TL, saat başına 24 / 3 = **8 TL**.
+
+
+    **(b)** Kıt kaynak (saat) en yüksek tasarrufu sağlayan bileşene ayrılır: K2 (8 TL/saat) önce, K1 (6 TL/saat) sonra. K2''nin
+    tamamı için 2.000 × 3 = 6.000 saat gereklidir ve kapasiteyi doldurur. Plan: K2''nin tamamı kendi atölyede üretilir, K1''in
+    tamamı satın alınır.
+
+    Maliyet = 3.000 × 52 + 2.000 × 70 = 156.000 + 140.000 = **296.000 TL**. Ters plan 308.000 TL''dir; fark 12.000 TL''dir.
+
+
+    **(c)** K1''in en çok 1.500 adedi satın alınabildiğinden 1.500 adedin kendi üretimi zorunludur (3.000 saat). Kalan 3.000
+    saatle K2''den 1.000 adet üretilir, 1.000 adet satın alınır.
+
+    Maliyet = K1: 1.500 × 52 + 1.500 × 40 = 138.000; K2: 1.000 × 94 + 1.000 × 70 = 164.000; toplam **302.000 TL**.
+
+    '
+  puanlama:
+  - olcut: (a) saat başına tasarruflar
+    puan: 6
+  - olcut: (b) kıt kaynak ile plan ve toplam maliyet
+    puan: 9
+  - olcut: (c) tedarik sınırı altında plan ve maliyet
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: 'ek1 = 52 - 40
+
+      ek2 = 94 - 70
+
+      s1 = ek1 / 2
+
+      s2 = ek2 / 3
+
+      k1_dis = 3000 * 52
+
+      k2_own = 2000 * 70
+
+      toplam1 = k1_dis + k2_own
+
+      alt = 3000 * 40 + 2000 * 94
+
+      fark = alt - toplam1
+
+      ek_a = 1500 * 52 + 1500 * 40
+
+      ek_b = 1000 * 94 + 1000 * 70
+
+      toplam2 = ek_a + ek_b
+
+      sonuc = {''a'': s1, ''b'': toplam1, ''c'': toplam2, ''s2'': s2}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - ürün hattını kapatma
+  - fark analizi
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: 'Kuzey Giyim A.Ş.''nin Çarşı mağazasına ilişkin yıllık veriler (TL):
+
+
+    | Kalem | Tutar |
+
+    |---|---|
+
+    | Net satışlar | 2.400.000 |
+
+    | Satılan ticari mal maliyeti | 1.560.000 |
+
+    | Mağazaya özgü değişken işletme giderleri | 240.000 |
+
+    | Mağaza kirası | 360.000 |
+
+    | Mağaza personelinin sabit ücretleri | 180.000 |
+
+    | Mağaza dekorunun amortismanı | 60.000 |
+
+    | Merkezden dağıtılan genel yönetim gideri | 150.000 |
+
+
+    Mağaza kapatılırsa kira sözleşmesi cezasız feshedilecek ve personel ile ilişik kesilecektir; amortisman ve dağıtılan genel
+    yönetim gideri değişmeyecektir.
+
+
+    **İstenenler:**
+
+    (a) Mağazanın bölüm sonucunu bulunuz ve kapatmanın işletme kârına etkisini hesaplayınız. (7 puan)
+
+    (b) Mağaza kapanırsa bu müşterilerin işletmenin çevrimiçi satışlarına yaptığı 40.000 TL''lik yıllık katkının da kaybolacağı
+    anlaşılmıştır. Toplam etkiyi bulunuz. (6 puan)
+
+    (c) Mağazanın yeri yıllık 150.000 TL''ye alt kiraya verilebilirse kapatma kararının etkisini bulunuz; karar kayıtsızlık
+    noktasındaki yıllık alt kira bedelini hesaplayınız. (7 puan)
+
+    '
+  cozum: '**(a)** Brüt kâr = 2.400.000 − 1.560.000 = 840.000 TL; katkı payı = 840.000 − 240.000 = 600.000 TL. Bölüm sonucu
+    = 600.000 − 360.000 − 180.000 − 60.000 − 150.000 = **-150.000 TL** (zarar).
+
+    Kaçınılabilir sabit giderler = kira + personel = 540.000 TL. Kapatma etkisi = −600.000 + 540.000 = **-60.000 TL** → kapatma
+    kârı azaltır; mağaza bölüm zararına rağmen kapatılmamalıdır.
+
+
+    **(b)** Çevrimiçi katkı kaybı −40.000 TL ile toplam etki = -60.000 − 40.000 = **-100.000 TL**.
+
+
+    **(c)** Alt kira geliri + 150.000 TL → net etki = -100.000 + 150.000 = **50.000 TL**; kapatma ve alt kiralama kârı artırır.
+    Kayıtsızlık alt kirası = **100.000 TL**; bunun üstünde kapatma ve alt kiralama tercih edilir.
+
+    '
+  puanlama:
+  - olcut: (a) bölüm sonucu ve kaçınılabilir kalemlerle kapatma etkisi
+    puan: 7
+  - olcut: (b) çevrimiçi satış kaybının dahil edilmesi
+    puan: 6
+  - olcut: (c) alt kira ile etki ve kayıtsızlık kirası
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: 'brut = 2400000 - 1560000
+
+      katki = brut - 240000
+
+      zarar = katki - 360000 - 180000 - 60000 - 150000
+
+      kac = 360000 + 180000
+
+      etki = -katki + kac
+
+      online = 40000
+
+      etki2 = etki - online
+
+      alt = 150000
+
+      etki3 = etki2 + alt
+
+      esik = -etki2
+
+      sonuc = {''a'': etki, ''b'': etki2, ''c'': etki3, ''esik'': esik, ''zarar'': zarar}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - özel sipariş
+  - kıt kaynak kullanımı
+  zorluk: 3
+  puan: 23
+  sure_dk: 30
+  soru: 'Mert Boya A.Ş. yıllık pratik kapasitesi 100.000 kutu olan tesiste boya üretmektedir. Mevcut yıllık satış 90.000 kutu
+    olup birim satış fiyatı 85 TL''dir. Birim değişken maliyet 55 TL''dir ve bunun 5 TL''si satış komisyonudur. Sabit giderler
+    yıllık 1.200.000 TL''dir ve kapasite aşılmadığı sürece değişmez.
+
+
+    Bir zincir market, kendi markasıyla satılacak 25.000 kutu boyayı kutusu 70 TL''den sipariş etmiştir. Bu satışta komisyon
+    ödenmeyecektir. Boş kapasite 10.000 kutudur. Kalan 15.000 kutu için iki yol vardır:
+
+    - Yol 1: Normal müşterilerden 15.000 kutuluk satış kesilir.
+
+    - Yol 2: Ek vardiya çalıştırılır; ek vardiya kutu başına 3 TL ek işçilik ve toplam 30.000 TL sabit yönetim gideri doğurur.
+
+
+    **İstenenler:**
+
+    (a) Siparişin yalnız 10.000 kutuluk bölümünün kabulünün kâra etkisini bulunuz. (6 puan)
+
+    (b) 25.000 kutunun tamamı Yol 1 ile kabul edilirse kâra etkisini bulunuz. (6 puan)
+
+    (c) Tamamı Yol 2 ile kabul edilirse kâra etkisini bulunuz; hangi yolun tercih edileceğini belirtiniz. (6 puan)
+
+    (d) Yol 2''de siparişin kabulü için istenebilecek asgari ortalama birim fiyatı hesaplayınız. (5 puan)
+
+    '
+  cozum: 'Siparişin birim değişken maliyeti = 55 − 5 (komisyon yok) = 50 TL; birim katkı = 70 − 50 = 20 TL. Normal satışın
+    birim katkısı = 85 − 55 = 30 TL.
+
+
+    **(a)** 10.000 × 20 = **200.000 TL** artış.
+
+
+    **(b)** Yol 1''de 15.000 kutu için katkı farkı = 20 − 30 = −10 TL/kutu → −150.000 TL. Toplam = 200.000 − 150.000 = **50.000
+    TL**.
+
+
+    **(c)** Yol 2''de 15.000 kutu için ek katkı = 20 − 3 = 17 TL/kutu → 255.000 TL; sabit yönetim gideri −30.000 TL. Toplam
+    = 200.000 + 255.000 − 30.000 = **425.000 TL**. Yol 2 tercih edilir (Yol 1: 50.000 TL).
+
+
+    **(d)** Asgari ortalama fiyat = (10.000 × 50 + 15.000 × 53 + 30.000) / 25.000 = **53 TL/kutu**.
+
+    '
+  puanlama:
+  - olcut: (a) 10.000 kutuluk bölümün katkısı
+    puan: 6
+  - olcut: (b) Yol 1 fırsat maliyeti ile etki
+    puan: 6
+  - olcut: (c) Yol 2 etkisi ve yol seçimi
+    puan: 6
+  - olcut: (d) asgari birim fiyat
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  dogrulama:
+    python: 'vc_normal = 55
+
+      vc_ozel = 50
+
+      katki_ozel = 70 - vc_ozel
+
+      katki_normal = 85 - vc_normal
+
+      a = 10000 * katki_ozel
+
+      b = a + 15000 * (katki_ozel - katki_normal)
+
+      vard_br = 3
+
+      vard_sabit = 30000
+
+      c = a + 15000 * (katki_ozel - vard_br) - vard_sabit
+
+      d = (10000 * vc_ozel + 15000 * (vc_ozel + vard_br) + vard_sabit) / 25000
+
+      sonuc = {''a'': a, ''b'': b, ''c'': c, ''d'': d}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - özel sipariş
+  - kıt kaynak kullanımı
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: 'Ekin Matbaası''nın gelecek çeyrekte kullanılabilecek boş baskı kapasitesi 10.000 makine saatidir. Üç müşteriden sipariş
+    teklifi gelmiştir; siparişler bölünerek kısmen kabul edilebilir ve her biri en çok aşağıdaki miktarda yapılabilir:
+
+
+    | | S1 (kitap) | S2 (broşür) | S3 (katalog) |
+
+    |---|---|---|---|
+
+    | Miktar (adet) | 5.000 | 16.000 | 4.000 |
+
+    | Birim fiyat (TL) | 22 | 9 | 30 |
+
+    | Birim değişken maliyet (TL) | 14 | 6 | 19 |
+
+    | Tam miktar için gereken makine saati | 8.000 | 8.000 | 8.000 |
+
+
+    Matbaanın sabit giderleri siparişlerden bağımsızdır.
+
+
+    **İstenenler:**
+
+    (a) Her siparişin makine saati başına katkı payını hesaplayarak sıralayınız. (6 puan)
+
+    (b) Kapasiteyi en kârlı kullanacak sipariş karmasını ve toplam katkı payını bulunuz. (8 puan)
+
+    (c) S2 siparişinin kabul edilmesi hâlinde 12.000 TL tutarında bir kalıp ve hazırlık gideri doğacağı anlaşılmıştır. Bu
+    bilgiyle karmayı yeniden değerlendiriniz; S2 kabul edilebilir mi? (8 puan)
+
+    '
+  cozum: '**(a)** Toplam katkı: S1 = 40.000 TL, S2 = 48.000 TL, S3 = 44.000 TL. Her siparişin tam miktarı 8.000 saat gerektirdiğinden
+    saat başına katkı: S1 = **5**, S2 = **6**, S3 = **5,50** TL. Sıralama: S2 > S3 > S1.
+
+
+    **(b)** S2''nin tamamı (8.000 saat) kabul edilir; kalan 2.000 saat S3''e verilir. Toplam katkı = 48.000 + 2.000 × 5,50
+    = **59.000 TL**.
+
+
+    **(c)** S2 kabul edilmezse karma: S3''ün tamamı (8.000 saat, 44.000 TL) + S1''e 2.000 saat (2.000 × 5 = 10.000 TL) = **54.000
+    TL**.
+
+    S2''li karma: 59.000 − 12.000 = **47.000 TL**. S2''nin sağladığı artımlı katkı (59.000 − 54.000 = 5.000 TL) hazırlık giderinden
+    küçüktür; S2 kısmen kabul edilse de artımlı katkı daha da düşük olacağından **S2 kabul edilmemelidir**.
+
+    '
+  puanlama:
+  - olcut: (a) saat başına katkılar ve sıralama
+    puan: 6
+  - olcut: (b) karma ve toplam katkı
+    puan: 8
+  - olcut: (c) sabit hazırlık gideri ile karşılaştırma ve karar
+    puan: 8
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: 'k1 = 5000 * (22 - 14)
+
+      k2 = 16000 * (9 - 6)
+
+      k3 = 4000 * (30 - 19)
+
+      s1 = k1 / 8000
+
+      s2 = k2 / 8000
+
+      s3 = k3 / 8000
+
+      b = k2 + 2000 * s3
+
+      alt = k3 + 2000 * s1
+
+      c = b - 12000
+
+      sonuc = {''a'': s2, ''b'': b, ''c'': alt, ''c_s2'': c}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - ortak ürünlerde ayrılma noktası ve ek işlem kararı
+  - üret veya satın al
+  zorluk: 3
+  puan: 21
+  sure_dk: 30
+  soru: 'Çınar Un Fabrikası, buğdayı işlediği ortak süreçte aynı anda un, irmik ve kepek elde etmektedir. Dönem ortak işlem
+    maliyeti 1.350.000 TL''dir. Ayrılma noktasındaki miktarlar ve birim satış fiyatları:
+
+
+    | Ürün | Miktar (kg) | Satış fiyatı (TL/kg) |
+
+    |---|---|---|
+
+    | Un | 500.000 | 3,0 |
+
+    | İrmik | 200.000 | 4,5 |
+
+    | Kepek | 300.000 | 2,0 |
+
+
+    Kepek için kg başına 0,8 TL satış ve dağıtım gideri oluşmaktadır. Dönem sonunda 100.000 kg kepek satılmamış olarak depodadır.
+
+
+    **İstenenler:**
+
+    (a) Ortak maliyeti ayrılma noktasındaki nispi satış değerine göre dağıtınız. (7 puan)
+
+    (b) Ortak maliyeti fiziksel birim (kg) esasına göre dağıtınız; kepeğe yüklenen tutarı bulunuz. (6 puan)
+
+    (c) Her iki yöntemde dönem sonu kepek stokunun net gerçekleşebilir değerle karşılaştırılmasını yaparak değer düşüklüğü
+    gerekip gerekmediğini belirleyiniz. (8 puan)
+
+    '
+  cozum: '**(a)** Nispi satış değerleri: un 1.500.000, irmik 900.000, kepek 600.000 TL; toplam 3.000.000 TL (oran %45).
+
+
+    | Ürün | Dağıtılan ortak maliyet (TL) |
+
+    |---|---|
+
+    | Un | **675.000** |
+
+    | İrmik | **405.000** |
+
+    | Kepek | **270.000** |
+
+
+    **(b)** Toplam miktar 1.000.000 kg; birim ortak maliyet = 1,35 TL/kg. Un 675.000, irmik 270.000, kepek **405.000 TL**.
+
+
+    **(c)** Kepeğin net gerçekleşebilir değeri = 2,0 − 0,8 = 1,20 TL/kg; stok için 120.000 TL.
+
+    - Fiziksel birim: stok maliyeti = 100.000 × 1,35 = 135.000 TL > 120.000 TL → **15.000 TL değer düşüklüğü** ayrılır.
+
+    - Nispi satış değeri: kg maliyeti = 270.000 / 300.000 = 0,9 TL; stok maliyeti = **90.000 TL** < 120.000 TL → değer düşüklüğü
+    gerekmez.
+
+    Stoklar maliyet ile net gerçekleşebilir değerin düşüğü ile ölçülür.
+
+    '
+  puanlama:
+  - olcut: (a) nispi satış değeri ile dağıtım
+    puan: 7
+  - olcut: (b) fiziksel birim yöntemi
+    puan: 6
+  - olcut: (c) iki yöntemde NGD karşılaştırması ve değer düşüklüğü
+    puan: 8
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 14
+    alinti: Her bir ürünün dönüştürme maliyetlerinin ayrı olarak belirlenemediği durumlarda, bu maliyetler ürünler arasında
+      mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı örneğin; her bir ürünün ayrı olarak belirlenebilir
+      hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki nispi satış değerine göre yapılabilir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 9
+    alinti: Stoklar, maliyet değeri ile net gerçekleşebilir değerin düşük olanı üzerinden ölçülür.
+  dogrulama:
+    python: 'ortak = 1350000
+
+      v_un = 500000 * 3
+
+      v_ir = 200000 * 4.5
+
+      v_kep = 300000 * 2
+
+      top = v_un + v_ir + v_kep
+
+      t_un = ortak * v_un / top
+
+      t_ir = ortak * v_ir / top
+
+      t_kep = ortak * v_kep / top
+
+      br = ortak / 1000000
+
+      f_un = br * 500000
+
+      f_ir = br * 200000
+
+      f_kep = br * 300000
+
+      kep_ngd = 2 - 0.8
+
+      stok_f = 100000 * br
+
+      stok_ngd = 100000 * kep_ngd
+
+      karsilik = stok_f - stok_ngd
+
+      stok_n = 100000 * t_kep / 300000
+
+      sonuc = {''a'': t_un, ''b'': f_kep, ''c'': karsilik, ''d'': stok_n}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - fark analizi
+  - ürün karması kararı
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: 'Orman Defter A.Ş. mevcut defter ürününe ek olarak ajanda üretimini düşünmektedir. Bilgiler:
+
+
+    | | Defter (mevcut) | Ajanda (yeni) |
+
+    |---|---|---|
+
+    | Birim satış fiyatı (TL) | 100 | 63 |
+
+    | Birim değişken maliyet (TL) | 75 | 38 |
+
+    | Beklenen yıllık satış (adet) | - | 15.000 |
+
+
+    - Ajanda için yılda 150.000 TL ek pazarlama gideri yapılacaktır.
+
+    - İşletmenin mevcut makinelerinin amortismanı ve fabrika kirası olan 80.000 TL''lik sabit gider ajanda üretimi için de
+    kullanılacak olup değişmeyecektir.
+
+    - Ajanda satışa çıkınca defter satışlarında yılda 3.000 adetlik kayıp beklenmektedir.
+
+
+    **İstenenler:**
+
+    (a) Ajanda üretiminin işletme kârına yıllık etkisini hesaplayınız. (7 puan)
+
+    (b) Ajandanın kârı azaltmaması için gereken asgari yıllık satış miktarını bulunuz. (7 puan)
+
+    (c) Ajandanın fiyatı 66 TL''ye çıkarılırsa satışların 12.000 adede düşeceği tahmin edilmektedir. Bu fiyat önerisinin kâra
+    etkisini bulunuz ve (a) ile karşılaştırarak yorumlayınız. (6 puan)
+
+    '
+  cozum: 'Ajandanın birim katkısı = 63 − 38 = 25 TL. Defterin birim katkısı = 100 − 75 = 25 TL. Amortisman ve kira (80.000
+    TL) değişmediği için ilgisizdir; ajanda başına dağıtılacak sabit gider hesabı (43,33 TL''lik tam maliyet) karar ölçütü
+    değildir.
+
+
+    **(a)** Ajanda katkısı = 15.000 × 25 = 375.000 TL. Defter satış kaybı = 3.000 × 25 = 75.000 TL. Net etki = 375.000 − 150.000
+    − 75.000 = **150.000 TL** artış.
+
+
+    **(b)** Kayıtsızlık: 25 × x = 150.000 + 75.000 → x = **9.000 adet**.
+
+
+    **(c)** Yeni katkı = 66 − 38 = 28 TL; 12.000 × 28 = 336.000 TL; net etki = 336.000 − 150.000 − 75.000 = **111.000 TL**.
+    Fiyat artışı kârı (a)''daki 150.000 TL''den 111.000 TL''ye düşürür; öneri uygun değildir.
+
+    '
+  puanlama:
+  - olcut: (a) artımlı katkı, ek sabit gider ve kayıp defter katkısı
+    puan: 7
+  - olcut: (b) kayıtsızlık miktarı
+    puan: 7
+  - olcut: (c) fiyat önerisinin etkisi ve yorum
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  dogrulama:
+    python: 'katkiB = 63 - 38
+
+      kayipA = 3000 * 25
+
+      a = 15000 * katkiB - 150000 - kayipA
+
+      x = (150000 + kayipA) / katkiB
+
+      c = (66 - 38) * 12000 - 150000 - kayipA
+
+      tam_B = 38 + 80000 / 15000
+
+      sonuc = {''a'': a, ''b'': x, ''c'': c}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - ürün hattını kapatma
+  - fark analizi
+  zorluk: 3
+  puan: 21
+  sure_dk: 28
+  soru: 'Akdeniz Konserve A.Ş.''nin domates işleme tesisi sezon dışı üç ay boyunca düşük talep ile çalışacaktır. Bu dönemde
+    aylık beklenen sonuçlar:
+
+
+    | Kalem | Aylık (TL) |
+
+    |---|---|
+
+    | Satışlar | 400.000 |
+
+    | Değişken giderler | 310.000 |
+
+    | Sabit giderler | 120.000 |
+
+
+    Tesis üç ay kapatılırsa aylık sabit giderlerin 40.000 TL''si (vardiya amirleri, enerji bağlantı bedeli ve sigorta) ortadan
+    kalkar, kalan 80.000 TL ise (kira ve amortisman) devam eder. Kapatma ve yeniden açılış için toplam 24.000 TL tek seferlik
+    gider doğacaktır.
+
+
+    **İstenenler:**
+
+    (a) Tesis açık tutulursa bir aylık sonucu bulunuz. (5 puan)
+
+    (b) Üç aylık dönem için açık tutma ve kapatma seçeneklerinin sonuçlarını karşılaştırınız; kararı gerekçelendiriniz. (9
+    puan)
+
+    (c) Tesisin açık tutulmasının kârlı olması için aylık katkı payının en az ne kadar olması gerektiğini bulunuz. (7 puan)
+
+    '
+  cozum: '**(a)** 400.000 − 310.000 − 120.000 = **-30.000 TL** (aylık zarar).
+
+
+    **(b)** Aylık katkı payı = 400.000 − 310.000 = 90.000 TL.
+
+
+    | Seçenek | Hesap | Üç aylık sonuç (TL) |
+
+    |---|---|---|
+
+    | Açık | 3 × (-30.000) | **-90.000** |
+
+    | Kapalı | 3 × (−80.000) − 24.000 | **-264.000** |
+
+
+    Açık tutmak üç ayda **174.000 TL** daha az zarar doğurur. Açıkken zarar görünse de kaçınılamayan 80.000 TL''lik sabit
+    gider zaten ödenecek; katkı payı (90.000) kaçınılabilir sabit giderden (40.000) büyüktür.
+
+
+    **(c)** Kritik katkı = kaçınılabilir sabit gider + aylığa düşen kapatma gideri = 40.000 + 24.000 / 3 = **48.000 TL**.
+    Aylık katkı bu tutarın üzerindeyse tesis açık tutulur.
+
+    '
+  puanlama:
+  - olcut: (a) aylık açık sonuç
+    puan: 5
+  - olcut: (b) iki seçeneğin karşılaştırması, kaçınılamayan sabit gider ve karar
+    puan: 9
+  - olcut: (c) kritik katkı payı
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Her bir üretim birimine dağıtılan sabit genel gider miktarı, düşük üretim düzeyi veya atıl kapasite nedeniyle
+      arttırılmaz. Dağıtılmayan genel giderler, gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: 'acik_ay = 400000 - 310000 - 120000
+
+      kapali_ay = -(120000 - 40000)
+
+      acik3 = 3 * acik_ay
+
+      kapali3 = 3 * kapali_ay - 24000
+
+      fark = acik3 - kapali3
+
+      esik = 40000 + 24000 / 3
+
+      sonuc = {''a'': acik_ay, ''b'': fark, ''c'': esik}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - üret veya satın al
+  - fark analizi
+  zorluk: 3
+  puan: 21
+  sure_dk: 28
+  soru: 'Pınar Gıda Dağıtım A.Ş. mamul sevkiyatını kendi araç filosuyla yapmaktadır. Yıllık sevkiyat 600.000 km''dir. Maliyet
+    bilgileri:
+
+
+    | Kalem | Tutar |
+
+    |---|---|
+
+    | Değişken işletme gideri (yakıt, lastik, bakım) | km başına 4,2 TL |
+
+    | Şoför ücretleri | Yıllık 360.000 TL (filo elden çıkarılırsa ortadan kalkar) |
+
+    | Araç amortismanı | Yıllık 60.000 TL (defter değeri 300.000 TL, kalan ömür 5 yıl) |
+
+
+    Bir nakliye firması aynı hizmeti km başına 4,6 TL''ye sunmaktadır. Filo elden çıkarılırsa araçlar bugün 400.000 TL''ye
+    satılabilecektir.
+
+
+    **İstenenler:**
+
+    (a) Araçların satışı dikkate alınmadan, kendi filo ile dış hizmet alımını ilgili maliyetler esasına göre karşılaştırınız.
+    (7 puan)
+
+    (b) Araçların satışından elde edilecek 400.000 TL''yi beş yıla eşit yayarak karara dahil ediniz; dış hizmetin yıllık toplam
+    avantajını bulunuz. Defter değerinin ve amortismanın karardaki yerini açıklayınız. (7 puan)
+
+    (c) Kendi filonun dış hizmetten ucuz olması için gereken yıllık asgari km miktarını bulunuz. (7 puan)
+
+    '
+  cozum: '**(a)** Kendi filo: 4,2 × 600.000 + 360.000 = 2.880.000 TL. Dış hizmet: 4,6 × 600.000 = 2.760.000 TL. Amortisman
+    kaçınılamayan, geçmişe ait bir gider olduğundan ilgisizdir. Dış hizmet yıllık **120.000 TL** avantaj sağlar.
+
+
+    **(b)** Araç satışı yıllık 400.000 / 5 = 80.000 TL artımlı gelirdir. Dış hizmetin toplam avantajı = 120.000 + 80.000 =
+    **200.000 TL**. Defter değeri (300.000 TL) ve amortisman (60.000 TL) batık maliyettir; yalnız elde edilecek satış bedeli
+    ilgilidir.
+
+
+    **(c)** 4,2 x + 360.000 < 4,6 x → x > 360.000 / 0,4 = **900.000 km**. Yıllık 900.000 km''nin üzerinde kendi filo daha
+    ucuzdur; mevcut 600.000 km bu sınırın altındadır.
+
+    '
+  puanlama:
+  - olcut: (a) ilgili maliyetlerle karşılaştırma
+    puan: 7
+  - olcut: (b) araç satışının dahil edilmesi, batık maliyet açıklaması
+    puan: 7
+  - olcut: (c) kritik km
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: 'km = 600000
+
+      kendi = 4.2 * km + 360000
+
+      dis = 4.6 * km
+
+      avantaj = round(kendi - dis, 2)
+
+      arac_yillik = 400000 / 5
+
+      avantaj2 = avantaj + arac_yillik
+
+      x = round(360000 / (4.6 - 4.2), 2)
+
+      sonuc = {''a'': avantaj, ''b'': avantaj2, ''c'': x}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - kıt kaynak kullanımı
+  - fark analizi
+  zorluk: 3
+  puan: 21
+  sure_dk: 30
+  soru: 'Cihan Ambalaj A.Ş. tek bir ham maddeyi kullanarak X, Y ve Z ürünlerini üretmektedir. Gelecek yıl için ham madde arzı
+    en çok 24.000 kg ile sınırlıdır. Veriler:
+
+
+    | | X | Y | Z |
+
+    |---|---|---|---|
+
+    | Birim katkı payı (TL) | 36 | 30 | 64 |
+
+    | Birim başına ham madde (kg) | 3 | 2 | 4 |
+
+    | Azami talep (adet) | 4.000 | 5.000 | 3.500 |
+
+
+    Yıllık sabit giderler 280.000 TL''dir.
+
+
+    **İstenenler:**
+
+    (a) Ürünlerin ham madde kilogramı başına katkı payını hesaplayarak üretim sırasını belirleyiniz. (6 puan)
+
+    (b) En çok kâr sağlayan üretim planını ve yıllık faaliyet kârını bulunuz. (8 puan)
+
+    (c) Tedarikçi, normal fiyatın üzerinde kg başına 10 TL ek bedelle en çok 12.000 kg daha ham madde sağlayabileceğini bildirmiştir.
+    Ek alımın yapılıp yapılmayacağına karar veriniz ve en yüksek faaliyet kârını bulunuz. (7 puan)
+
+    '
+  cozum: '**(a)** Kg başına katkı: X = **12**, Y = **15**, Z = **16** TL. Sıra: Z > Y > X.
+
+
+    **(b)** Z''nin tamamı: 3.500 × 4 = 14.000 kg; Y''nin tamamı: 5.000 × 2 = 10.000 kg; toplam 24.000 kg kapasiteyi doldurur,
+    X üretilmez.
+
+    Katkı = 3.500 × 64 + 5.000 × 30 = 374.000 TL; faaliyet kârı = 374.000 − 280.000 = **94.000 TL**.
+
+
+    **(c)** Y ve Z''nin talebi zaten tamamen karşılanmıştır; ek hammadde yalnız X''e gidebilir. X''in kg başına katkısı 12
+    TL, ek bedel 10 TL olduğundan kg başına 2 TL kazanç vardır. X''in azami talebi 4.000 adet = 12.000 kg, tedarik sınırı
+    ile eşittir. Ek kazanç = 12.000 × 2 = 24.000 TL. En yüksek faaliyet kârı = 94.000 + 24.000 = **118.000 TL**. Ek bedel
+    12 TL''yi aşarsa alım kârsız olur.
+
+    '
+  puanlama:
+  - olcut: (a) kg başına katkı ve sıralama
+    puan: 6
+  - olcut: (b) üretim planı ve faaliyet kârı
+    puan: 8
+  - olcut: (c) ek hammadde kararı ve kâr
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: 'sX = 36 / 3
+
+      sY = 30 / 2
+
+      sZ = 64 / 4
+
+      kgZ = 3500 * 4
+
+      kgY = 5000 * 2
+
+      katki = 3500 * 64 + 5000 * 30
+
+      kar = katki - 280000
+
+      ek_kg = 4000 * 3
+
+      ek_net = ek_kg * (sX - 10)
+
+      kar2 = kar + ek_net
+
+      sonuc = {''a'': sZ, ''b'': kar, ''c'': kar2}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - ortak ürünlerde ayrılma noktası ve ek işlem kararı
+  - fark analizi
+  zorluk: 3
+  puan: 21
+  sure_dk: 28
+  soru: 'Anadolu Fırıncılık A.Ş. yılda 20.000 kasa dondurulmuş hamur (yarı mamul) üretmektedir. Hamurun üretim maliyeti kasa
+    başına 26 TL''dir ve bu maliyet gerçekleşmiştir. Hamur kasası toptancılara 30 TL''ye satılabilmektedir. Alternatif olarak
+    hamur pişirilip paketlenerek kasa başına 52 TL''ye satılabilir. Pişirme ve paketleme için:
+
+    - Kasa başına 14 TL değişken maliyet,
+
+    - Yıllık 60.000 TL tutarında ek ekipman kirası doğacaktır.
+
+
+    **İstenenler:**
+
+    (a) Hamurun işlenip satılması ile olduğu gibi satılması seçeneklerini artımlı analizle karşılaştırınız. 26 TL''lik üretim
+    maliyetinin karardaki yerini açıklayınız. (7 puan)
+
+    (b) İşlemenin kârlı olması için gereken asgari yıllık kasa miktarını bulunuz. (6 puan)
+
+    (c) Pişirme sırasında hamurun %10''unun fire verdiği (fire kasaları satılamamakta, ancak işlem maliyeti 20.000 kasanın
+    tamamı için doğmaktadır) anlaşılırsa kararı yeniden değerlendiriniz. (8 puan)
+
+    '
+  cozum: '**(a)** Artımlı gelir = 52 − 30 = 22 TL/kasa; artımlı değişken maliyet = 14 TL/kasa; kasa başına katkı 8 TL. Net
+    etki = 8 × 20.000 − 60.000 = **100.000 TL** → işlenip satılmalıdır. 26 TL''lik hamur maliyeti her iki seçenekte de aynı
+    olan, gerçekleşmiş (batık) maliyettir ve ilgisizdir.
+
+
+    **(b)** Kayıtsızlık: 8 × x = 60.000 → x = **7.500 kasa**.
+
+
+    **(c)** Satılabilir miktar = 20.000 × %90 = 18.000 kasa. İşleme seçeneği: 18.000 × 52 = 936.000 TL gelir; ek maliyet =
+    20.000 × 14 + 60.000 = 340.000 TL; net = **596.000 TL**. Hamuru olduğu gibi satmak: 20.000 × 30 = 600.000 TL. Fark = **-4.000
+    TL** → fire durumunda hamur olduğu gibi satılmalıdır.
+
+    '
+  puanlama:
+  - olcut: (a) artımlı analiz ve batık maliyet
+    puan: 7
+  - olcut: (b) kayıtsızlık miktarı
+    puan: 6
+  - olcut: (c) fire dahil karşılaştırma ve karar
+    puan: 8
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 9
+    alinti: Stoklar, maliyet değeri ile net gerçekleşebilir değerin düşük olanı üzerinden ölçülür.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: 'a = (52 - 30 - 14) * 20000 - 60000
+
+      kayit = 60000 / (52 - 30 - 14)
+
+      gelir = 18000 * 52
+
+      ek_mal = 20000 * 14 + 60000
+
+      isle = gelir - ek_mal
+
+      sat = 20000 * 30
+
+      fark = isle - sat
+
+      sonuc = {''a'': a, ''b'': kayit, ''c'': fark}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - üret veya satın al
+  - fark analizi
+  zorluk: 3
+  puan: 21
+  sure_dk: 28
+  soru: 'Yıldız Beyaz Eşya A.Ş. montaj için kullandığı kontrol kartını kendisi üretebilmekte veya dışarıdan alabilmektedir.
+    Kendi üretiminde birim değişken maliyet 31 TL''dir; ayrıca üretimin sürdürülmesi hâlinde yıllık 98.000 TL kaçınılabilir
+    sabit gider (özel kalite kontrol ekibi) doğmaktadır. Tedarikçi birim fiyatı 36 TL, kart başına nakliye ve gümrükleme 2
+    TL''dir (toplam 38 TL).
+
+
+    **İstenenler:**
+
+    (a) Yıllık ihtiyaç 20.000 adet ise iki seçeneğin ilgili maliyetini hesaplayınız ve kararı belirtiniz. Üretimin ve satın
+    almanın eşit maliyetli olduğu miktarı bulunuz. (7 puan)
+
+    (b) Yıllık ihtiyaç 12.000 adet ise karar ne olur? Üretime göre satın almanın avantajını bulunuz. (7 puan)
+
+    (c) Tedarikçi, yıllık 15.000 adet ve üzeri siparişlerin tamamında toplam birim maliyeti 37 TL''ye indirmeyi önermiştir.
+    16.000 adetlik ihtiyaç için kararı yeniden değerlendiriniz. (7 puan)
+
+    '
+  cozum: '**(a)** Üretim: 31 × 20.000 + 98.000 = 718.000 TL; satın alma: 38 × 20.000 = 760.000 TL. Üretim **42.000 TL** avantajlıdır.
+    Kayıtsızlık miktarı: 31 x + 98.000 = 38 x → x = **14.000 adet**; bu miktarın altında satın alma, üstünde üretim ucuzdur.
+
+
+    **(b)** Üretim: 31 × 12.000 + 98.000 = 470.000 TL; satın alma: 38 × 12.000 = 456.000 TL. **Satın alma** 14.000 TL avantajlıdır.
+
+
+    **(c)** İskontolu fiyatla satın alma: 37 × 16.000 = 592.000 TL; üretim: 31 × 16.000 + 98.000 = 594.000 TL. Satın alma
+    **2.000 TL** avantajlıdır; 16.000 adet için satın alınmalıdır. (İskonto altında kayıtsızlık miktarı 98.000 / 6 ≈ 16.333
+    adettir.)
+
+    '
+  puanlama:
+  - olcut: (a) iki seçeneğin maliyeti, karar ve kayıtsızlık miktarı
+    puan: 7
+  - olcut: (b) düşük hacimde karar
+    puan: 7
+  - olcut: (c) iskontolu fiyatla karar
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  dogrulama:
+    python: 'a_uret = 31 * 20000 + 98000
+
+      a_al = 38 * 20000
+
+      a_fark = a_al - a_uret
+
+      x = 98000 / (38 - 31)
+
+      b_uret = 31 * 12000 + 98000
+
+      b_al = 38 * 12000
+
+      b_fark = b_uret - b_al
+
+      c_uret = 31 * 16000 + 98000
+
+      c_al = 37 * 16000
+
+      c_fark = c_uret - c_al
+
+      sonuc = {''a'': a_fark, ''b'': b_fark, ''c'': c_fark, ''x'': x}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - fark analizi
+  - kıt kaynak kullanımı
+  zorluk: 3
+  puan: 21
+  sure_dk: 28
+  soru: 'Marmara Spor Giyim A.Ş.''nin bir spor ayakkabı modelinde fiyat 100 TL, birim değişken maliyet 70 TL ve yıllık satış
+    40.000 çifttir. Sabit giderler 900.000 TL olup aşağıdaki seçeneklerden bağımsızdır. Yönetim iki ayrı kampanya değerlendirmektedir:
+
+    - **Seçenek A:** 150.000 TL ek reklam gideri yapılacak, fiyat korunacak ve satışların 7.500 çift artması beklenmektedir.
+
+    - **Seçenek B:** Fiyat 95 TL''ye indirilecek, reklam yapılmayacak ve satışların 52.000 çifte çıkması beklenmektedir.
+
+
+    **İstenenler:**
+
+    (a) Mevcut duruma göre her iki seçeneğin kâra etkisini ayrı ayrı bulunuz. (7 puan)
+
+    (b) Seçenek B''nin Seçenek A''dan daha iyi olması için B''de ulaşılması gereken satış miktarını (çift) hesaplayınız. (7
+    puan)
+
+    (c) Tesisin yıllık azami kapasitesi 50.000 çift ise B''nin A''ya göre durumunu inceleyerek kararı veriniz. (7 puan)
+
+    '
+  cozum: 'Mevcut katkı payı = 40.000 × 30 = 1.200.000 TL.
+
+
+    **(a)** A: (40.000 + 7.500) × 30 − 150.000 = 1.275.000 TL; mevcuda göre etki = **75.000 TL**. B: birim katkı = 95 − 70
+    = 25 TL; 52.000 × 25 = 1.300.000 TL; mevcuda göre etki = **100.000 TL**. B, A''dan 25.000 TL daha kârlıdır.
+
+
+    **(b)** B''nin A''ya eşit olması: 25 x = 1.275.000 → x = **51.000 çift**; bunun üzerinde B tercih edilir.
+
+
+    **(c)** Kapasite 50.000 çift ile sınırlıysa B''nin katkısı = 50.000 × 25 = 1.250.000 TL; A''nın katkısı 1.275.000 TL.
+    A, **25.000 TL** daha kârlıdır; kapasite sınırı nedeniyle A seçilmelidir.
+
+    '
+  puanlama:
+  - olcut: (a) iki seçeneğin artımlı etkisi
+    puan: 7
+  - olcut: (b) kayıtsızlık satış miktarı
+    puan: 7
+  - olcut: (c) kapasite sınırı ile karar
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Her bir üretim birimine dağıtılan sabit genel gider miktarı, düşük üretim düzeyi veya atıl kapasite nedeniyle
+      arttırılmaz. Dağıtılmayan genel giderler, gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+  dogrulama:
+    python: 'mevcut = 40000 * (100 - 70)
+
+      A = (40000 + 7500) * 30 - 150000
+
+      B = 52000 * (95 - 70)
+
+      fa = A - mevcut
+
+      fb = B - mevcut
+
+      x = A / 25
+
+      B_kap = 50000 * 25
+
+      fark_kap = A - B_kap
+
+      sonuc = {''a'': fa, ''b'': fb, ''c'': x, ''d'': fark_kap}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: KRV
+  kazanimlar:
+  - kıt kaynak kullanımı
+  - fark analizi
+  zorluk: 3
+  puan: 21
+  sure_dk: 30
+  soru: 'Doruk Metal A.Ş. A ve B ürünlerini üretmektedir. Üretimde iki kıt kaynak vardır: aylık 800 makine saati ve 700 işçilik
+    saati. Veriler:
+
+
+    | | A | B |
+
+    |---|---|---|
+
+    | Birim katkı payı (TL) | 45 | 30 |
+
+    | Birim başına makine saati | 2 | 1 |
+
+    | Birim başına işçilik saati | 1 | 2 |
+
+
+    Her iki ürüne talep sınırsızdır; üretim miktarları kesirli olabilir. Grafik çizmeden, köşe noktaları yöntemiyle çözüm
+    yapılacaktır.
+
+
+    **İstenenler:**
+
+    (a) Yalnız A ve yalnız B üretildiğinde ulaşılabilecek azami üretim miktarlarını ve katkı paylarını bulunuz. (6 puan)
+
+    (b) Her iki kısıtın aynı anda bağlayıcı olduğu üretim planını ve toplam katkı payını hesaplayınız. (8 puan)
+
+    (c) Makine saati kapasitesi 90 saat artırıldığında katkının ne kadar artacağını bulunuz; bu saatlerin saat başına 12 TL
+    ek bedelle kiralanabilmesi hâlinde kiralamanın net kazancını hesaplayınız. (7 puan)
+
+    '
+  cozum: '**(a)** Yalnız A: makine 800 / 2 = 400, işçilik 700 / 1 = 700 → en çok 400 adet; katkı = 400 × 45 = **18.000 TL**.
+    Yalnız B: makine 800, işçilik 700 / 2 = 350 → en çok 350 adet; katkı = 350 × 30 = **10.500 TL**.
+
+
+    **(b)** 2A + B = 800 ve A + 2B = 700 denklem sisteminin çözümü A = **300**, B = **200**. Toplam katkı = 300 × 45 + 200
+    × 30 = **19.500 TL** (köşe noktalarındaki en yüksek değerdir).
+
+
+    **(c)** Makine kapasitesi 890 saat: 2A + B = 890, A + 2B = 700 → A = 360, B = 170; katkı = 21.300 TL. Artış = **1.800
+    TL** (saat başına 20 TL gölge fiyat). Kiralama bedeli 90 × 12 = 1.080 TL; net kazanç = 1.800 − 1.080 = **720 TL**.
+
+    '
+  puanlama:
+  - olcut: (a) tek ürüne dayalı azami üretim ve katkılar
+    puan: 6
+  - olcut: (b) denklem sistemi çözümü ve optimal katkı
+    puan: 8
+  - olcut: (c) kapasite artışının katkısı ve kiralamanın net kazancı
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  dogrulama:
+    python: 'kA = 45
+
+      kB = 30
+
+      c1 = 400 * kA
+
+      c2 = 350 * kB
+
+      A = (2 * 800 - 700) / 3
+
+      B = 800 - 2 * A
+
+      opt = A * kA + B * kB
+
+      A2 = (2 * 890 - 700) / 3
+
+      B2 = 890 - 2 * A2
+
+      opt2 = A2 * kA + B2 * kB
+
+      gain = opt2 - opt
+
+      net = gain - 90 * 12
+
+      sonuc = {''a'': opt, ''b'': gain, ''c'': net}
+
+      '
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+sorular: []

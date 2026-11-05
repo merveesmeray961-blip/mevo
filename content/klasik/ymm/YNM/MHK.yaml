@@ -1232,3 +1232,1572 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+- id: YMM-YNM-MHK-K013
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - başabaş noktası
+  - güvenlik marjı
+  - hedef kâr
+  zorluk: 3
+  puan: 21
+  sure_dk: 28
+  soru: 'Kaya Seramik A.Ş. fayans üretmektedir. Birim satış fiyatı 250 TL''dir. Birim değişken maliyetler: direkt ilk madde
+    90 TL, direkt işçilik 40 TL, değişken genel üretim gideri 12 TL, satış komisyonu 8 TL. Yıllık sabit giderler 1.200.000
+    TL''dir (700.000 TL üretim, 500.000 TL satış ve yönetim). Gelecek yıl için satış tahmini 15.000 adettir. Kurumlar vergisi
+    oranı %25''tir.
+
+
+    **İstenenler:**
+
+    (a) Başabaş noktasını adet ve TL olarak bulunuz. (6 puan)
+
+    (b) Güvenlik marjını adet, TL ve oran olarak hesaplayınız. (6 puan)
+
+    (c) Vergi sonrası 450.000 TL net kâr elde etmek için satılması gereken adedi bulunuz. (9 puan)
+
+    '
+  cozum: 'Birim değişken maliyet = 90 + 40 + 12 + 8 = 150 TL; birim katkı payı = 250 − 150 = **100 TL**.
+
+
+    **(a)** Başabaş (adet) = 1.200.000 / 100 = **12.000 adet**; TL olarak = 12.000 × 250 = **3.000.000 TL**.
+
+
+    **(b)** Güvenlik marjı = 15.000 − 12.000 = **3.000 adet** = 750.000 TL; oran = 3.000 / 15.000 = **%20**.
+
+
+    **(c)** Vergi öncesi kâr = 450.000 / (1 − 0,25) = 600.000 TL. Gerekli adet = (1.200.000 + 600.000) / 100 = **18.000 adet**.
+
+    '
+  puanlama:
+  - olcut: (a) birim katkı, başabaş adet ve TL
+    puan: 6
+  - olcut: (b) güvenlik marjı adet, TL, oran
+    puan: 6
+  - olcut: (c) vergi öncesi kâr ve gerekli adet
+    puan: 9
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fiyat = 250
+
+      vc = 90 + 40 + 12 + 8
+
+      katki = fiyat - vc
+
+      sabit = 1200000
+
+      bep = sabit / katki
+
+      bep_tl = bep * fiyat
+
+      satis = 15000
+
+      gm_adet = satis - bep
+
+      gm_tl = gm_adet * fiyat
+
+      gm_oran = gm_adet / satis * 100
+
+      once = 450000 / (1 - 0.25)
+
+      adet = (sabit + once) / katki
+
+      sonuc = {''a'': bep, ''b'': gm_oran, ''c'': adet}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 1
+- id: YMM-YNM-MHK-K014
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - çok ürünlü başabaş
+  - başabaş noktası
+  - güvenlik marjı
+  zorluk: 3
+  puan: 21
+  sure_dk: 30
+  soru: 'Yeşil Vadi Gıda A.Ş. üç ürün satmaktadır. Gelecek yıl bütçesi:
+
+
+    | | X | Y | Z |
+
+    |---|---|---|---|
+
+    | Satış (adet) | 5.000 | 3.000 | 2.000 |
+
+    | Birim satış fiyatı (TL) | 80 | 120 | 200 |
+
+    | Birim değişken maliyet (TL) | 50 | 70 | 120 |
+
+
+    Ortak sabit giderler yıllık 368.000 TL''dir. Satış karmasının (adet olarak 5 : 3 : 2) aynı kalacağı varsayılacaktır.
+
+
+    **İstenenler:**
+
+    (a) İşletmenin başabaş noktasını toplam adet olarak ve ürün bazında bulunuz. (8 puan)
+
+    (b) Başabaş noktasını TL olarak hesaplayınız ve güvenlik marjı oranını bulunuz. (6 puan)
+
+    (c) Karma %20 X, %20 Y, %60 Z olarak değişirse başabaş noktası kaç adet olur? (7 puan)
+
+    '
+  cozum: 'Birim katkı payları: X = 30, Y = 50, Z = 80 TL. Ortalama (paket) katkı payı = (5.000 × 30 + 3.000 × 50 + 2.000 ×
+    80) / 10.000 = **46 TL/adet**.
+
+
+    **(a)** Başabaş = 368.000 / 46 = **8.000 adet**; X = 4.000, Y = 2.400, Z = 1.600 adet.
+
+
+    **(b)** Bütçe satışı = 1.160.000 TL; bütçe katkısı = 460.000 TL. Başabaş satış = 368.000 × 1.160.000 / 460.000 = **928.000
+    TL**. Güvenlik marjı = (10.000 − 8.000) / 10.000 = **%20**.
+
+
+    **(c)** Yeni ortalama katkı = 0,2 × 30 + 0,2 × 50 + 0,6 × 80 = 64 TL. Başabaş = 368.000 / 64 = **5.750 adet**. Yüksek
+    katkılı Z''nin payı arttığından başabaş noktası düşer.
+
+    '
+  puanlama:
+  - olcut: (a) ortalama katkı, toplam ve ürün bazında başabaş
+    puan: 8
+  - olcut: (b) TL cinsinden başabaş, güvenlik marjı
+    puan: 6
+  - olcut: (c) yeni karma ile başabaş
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'paket = (5000 * 30 + 3000 * 50 + 2000 * 80) / 10000
+
+      sabit = 368000
+
+      bep = sabit / paket
+
+      bx = bep * 0.5
+
+      by = bep * 0.3
+
+      bz = bep * 0.2
+
+      sat_b = 5000 * 80 + 3000 * 120 + 2000 * 200
+
+      kat_b = 10000 * paket
+
+      bep_tl = sabit * sat_b / kat_b
+
+      gm = (10000 - bep) / 10000 * 100
+
+      paket2 = 0.2 * 30 + 0.2 * 50 + 0.6 * 80
+
+      bep2 = sabit / paket2
+
+      sonuc = {''a'': bep, ''b'': bep_tl, ''c'': bep2}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 2
+- id: YMM-YNM-MHK-K015
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - faaliyet kaldıracı
+  - güvenlik marjı
+  - katkı payı
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: 'Nehir Hırdavat A.Ş.''nin gelecek yıl bütçelenen sonuçları: satışlar 2.000.000 TL, değişken giderler 1.200.000 TL,
+    sabit giderler 400.000 TL.
+
+
+    **İstenenler:**
+
+    (a) Katkı payı oranını ve faaliyet kaldıracı derecesini hesaplayınız. (5 puan)
+
+    (b) Satışlar %15 artarsa faaliyet kârı ne kadar olur? (5 puan)
+
+    (c) Satışlar %20 azalırsa faaliyet kârı ne kadar olur? Sonucu doğrudan gelir tablosuyla doğrulayınız. (5 puan)
+
+    (d) Başabaş satışını ve güvenlik marjı oranını bulunuz; güvenlik marjı ile kaldıraç derecesi arasındaki ilişkiyi belirtiniz.
+    (5 puan)
+
+    '
+  cozum: '**(a)** Katkı payı = 2.000.000 − 1.200.000 = 800.000 TL (oran %40); faaliyet kârı = 800.000 − 400.000 = 400.000
+    TL. Faaliyet kaldıracı derecesi = 800.000 / 400.000 = **2**.
+
+
+    **(b)** Kâr artışı = %15 × 2 = %30; yeni kâr = 400.000 × 1,30 = **520.000 TL**. (Doğrulama: satış 2.300.000 → katkı 920.000
+    − 400.000 = 520.000 TL.)
+
+
+    **(c)** Kâr değişimi = −%20 × 2 = −%40; yeni kâr = **240.000 TL**. (Satış 1.600.000 → katkı 640.000 − 400.000 = 240.000
+    TL.)
+
+
+    **(d)** Başabaş satışı = 400.000 / 0,40 = **1.000.000 TL**; güvenlik marjı = (2.000.000 − 1.000.000) / 2.000.000 = **%50**.
+    Kaldıraç derecesi güvenlik marjı oranının tersidir (1 / 0,50 = 2).
+
+    '
+  puanlama:
+  - olcut: (a) kaldıraç derecesi
+    puan: 5
+  - olcut: (b) satış artışında kâr
+    puan: 5
+  - olcut: (c) satış düşüşünde kâr ve doğrulama
+    puan: 5
+  - olcut: (d) başabaş, güvenlik marjı ve ilişki
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'satis = 2000000
+
+      dgs = 1200000
+
+      kat = satis - dgs
+
+      sabit = 400000
+
+      kar = kat - sabit
+
+      dol = kat / kar
+
+      kar_up = kar * (1 + dol * 0.15)
+
+      kar_dn = kar * (1 - dol * 0.2)
+
+      bep_tl = sabit / (kat / satis)
+
+      gm = (satis - bep_tl) / satis * 100
+
+      sonuc = {''a'': dol, ''b'': kar_up, ''c'': kar_dn, ''d'': gm}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 3
+- id: YMM-YNM-MHK-K016
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - başabaş noktası
+  - katkı payı
+  - hedef kâr
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: 'Beyaz Kalem A.Ş. kalem üretiminde iki maliyet yapısını karşılaştırmaktadır. Birim satış fiyatı 100 TL''dir.
+
+
+    | | Mevcut yapı | Otomasyonlu yapı |
+
+    |---|---|---|
+
+    | Birim değişken maliyet (TL) | 60 | 50 |
+
+    | Yıllık sabit gider (TL) | 1.000.000 | 1.400.000 |
+
+
+    **İstenenler:**
+
+    (a) İki yapının başabaş noktalarını (adet) bulunuz. (6 puan)
+
+    (b) İki yapının kârının eşit olduğu satış miktarını bulunuz. (6 puan)
+
+    (c) Yıllık satış 50.000 adet ve 32.000 adet olduğunda iki yapının faaliyet kârlarını karşılaştırarak her durumda hangisinin
+    tercih edileceğini belirtiniz. (8 puan)
+
+    '
+  cozum: 'Birim katkı payı: mevcut 40 TL; otomasyonlu 50 TL.
+
+
+    **(a)** Mevcut: 1.000.000 / 40 = **25.000 adet**; otomasyonlu: 1.400.000 / 50 = **28.000 adet**.
+
+
+    **(b)** 40 x − 1.000.000 = 50 x − 1.400.000 → x = 400.000 / 10 = **40.000 adet**. Bu miktarın üzerinde otomasyonlu yapı,
+    altında mevcut yapı daha kârlıdır.
+
+
+    **(c)**
+
+
+    | Satış | Mevcut kâr (TL) | Otomasyonlu kâr (TL) | Tercih |
+
+    |---|---|---|---|
+
+    | 50.000 adet | 1.000.000 | 1.100.000 | Otomasyonlu |
+
+    | 32.000 adet | 280.000 | 200.000 | Mevcut yapı |
+
+
+    50.000 adette otomasyonlu yapı 100.000 TL, 32.000 adette mevcut yapı 80.000 TL daha kârlıdır.
+
+    '
+  puanlama:
+  - olcut: (a) başabaş noktaları
+    puan: 6
+  - olcut: (b) kayıtsızlık miktarı
+    puan: 6
+  - olcut: (c) iki hacimde karşılaştırma ve tercih
+    puan: 8
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'bep_m = 1000000 / (100 - 60)
+
+      bep_o = 1400000 / (100 - 50)
+
+      x = (1400000 - 1000000) / (50 - 40)
+
+      k1_m = 40 * 50000 - 1000000
+
+      k1_o = 50 * 50000 - 1400000
+
+      k2_m = 40 * 32000 - 1000000
+
+      k2_o = 50 * 32000 - 1400000
+
+      sonuc = {''a'': bep_o, ''b'': x, ''c'': k1_o - k1_m, ''d'': k2_o - k2_m}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 4
+- id: YMM-YNM-MHK-K017
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - başabaş noktası
+  - katkı payı
+  - hedef kâr
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: 'Anka Yazılım Lisans Ltd. Şti. bir donanım anahtarı satmaktadır. Birim satış fiyatı 200 TL, birim değişken maliyet
+    120 TL''dir. Satış personeli için iki ücret modeli düşünülmektedir:
+
+    - **Model 1:** Satış tutarının %8''i komisyon; diğer sabit giderler yıllık 2.000.000 TL.
+
+    - **Model 2:** Komisyon yok, ancak sabit maaşlar nedeniyle sabit giderler yıllık 2.600.000 TL.
+
+
+    **İstenenler:**
+
+    (a) Her iki modelde başabaş noktasını (adet) hesaplayınız. (6 puan)
+
+    (b) İki modelin kârının eşit olduğu satış miktarını bulunuz. (6 puan)
+
+    (c) Yıllık satış 45.000 adet ise hangi model daha kârlıdır; kâr farkını ve 1.200.000 TL hedef kâr için gereken adetleri
+    hesaplayınız. (8 puan)
+
+    '
+  cozum: 'Model 1 birim katkı = 200 − 120 − 16 = **64 TL**; Model 2 birim katkı = **80 TL**.
+
+
+    **(a)** Model 1: 2.000.000 / 64 = **31.250 adet**; Model 2: 2.600.000 / 80 = **32.500 adet**.
+
+
+    **(b)** 64 x − 2.000.000 = 80 x − 2.600.000 → x = 600.000 / 80 − 64 = **37.500 adet**.
+
+
+    **(c)** 45.000 adette: Model 1 kârı = 880.000 TL; Model 2 kârı = 1.000.000 TL. **Model 2** 1.000.000 − 880.000 = 120.000
+    TL daha kârlıdır (satış kayıtsızlık noktasının üzerindedir). 1.200.000 TL hedef kâr için Model 1''de 50.000 adet, Model
+    2''de 47.500 adet gerekir.
+
+    '
+  puanlama:
+  - olcut: (a) iki modelin başabaşı
+    puan: 6
+  - olcut: (b) kayıtsızlık miktarı
+    puan: 6
+  - olcut: (c) 45.000 adette karşılaştırma ve hedef kâr adetleri
+    puan: 8
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fiyat = 200
+
+      vc = 120
+
+      kom = 0.08 * fiyat
+
+      k1 = fiyat - vc - kom
+
+      k2 = fiyat - vc
+
+      b1 = 2000000 / k1
+
+      b2 = 2600000 / k2
+
+      x = (2600000 - 2000000) / (k2 - k1)
+
+      kar1 = k1 * 45000 - 2000000
+
+      kar2 = k2 * 45000 - 2600000
+
+      hedef = 1200000
+
+      h1 = (2000000 + hedef) / k1
+
+      h2 = (2600000 + hedef) / k2
+
+      sonuc = {''a'': b1, ''b'': x, ''c'': kar2 - kar1}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 5
+- id: YMM-YNM-MHK-K018
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - başabaş noktası
+  - hedef kâr
+  zorluk: 3
+  puan: 21
+  sure_dk: 28
+  soru: 'Pusula Kırtasiye A.Ş. birim fiyatı 90 TL, birim değişken maliyeti 60 TL olan bir defter satmaktadır. Yıllık sabit
+    giderler 900.000 TL''dir; bu tutarın 180.000 TL''si amortisman gideridir (nakit çıkışı yoktur). Ayrıca yıl içinde 150.000
+    TL tutarında banka kredisi anaparası ödenecektir (gider değildir).
+
+
+    **İstenenler:**
+
+    (a) Muhasebe başabaş noktasını (adet) bulunuz. (5 puan)
+
+    (b) Nakit başabaş noktasını (amortisman hariç) bulunuz. (5 puan)
+
+    (c) Kredi anapara ödemesi de karşılanacak şekilde nakit başabaş adedini bulunuz. (5 puan)
+
+    (d) Faaliyetlerden en az 300.000 TL net nakit yaratmak için (kredi anapara ödemesi dâhil) satılması gereken adedi bulunuz.
+    (6 puan)
+
+    '
+  cozum: 'Birim katkı payı = 90 − 60 = 30 TL.
+
+
+    **(a)** 900.000 / 30 = **30.000 adet**.
+
+
+    **(b)** Nakit sabit gider = 900.000 − 180.000 = 720.000 TL; nakit başabaş = 720.000 / 30 = **24.000 adet**.
+
+
+    **(c)** (720.000 + 150.000) / 30 = **29.000 adet**.
+
+
+    **(d)** (720.000 + 150.000 + 300.000) / 30 = **39.000 adet**.
+
+    '
+  puanlama:
+  - olcut: (a) muhasebe başabaşı
+    puan: 5
+  - olcut: (b) nakit başabaş
+    puan: 5
+  - olcut: (c) anapara ödemesi dahil nakit başabaş
+    puan: 5
+  - olcut: (d) hedef nakit için adet
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'sabit = 900000
+
+      amort = 180000
+
+      nakit_sabit = sabit - amort
+
+      katki = 90 - 60
+
+      bep = sabit / katki
+
+      nbep = nakit_sabit / katki
+
+      borc = 150000
+
+      nbep2 = (nakit_sabit + borc) / katki
+
+      hedef = 300000
+
+      adet3 = (nakit_sabit + borc + hedef) / katki
+
+      sonuc = {''a'': bep, ''b'': nbep, ''c'': nbep2, ''d'': adet3}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 6
+- id: YMM-YNM-MHK-K019
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - başabaş noktası
+  - hedef kâr
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: 'Çamlık Butik Otel A.Ş. 60 odalı bir tesistir ve yılda 300 gün açıktır (yıllık kapasite 18.000 oda-gece). Ortalama
+    oda ücreti 2.000 TL''dir. Oda-gece başına değişken maliyetler (temizlik, çamaşırhane, kahvaltı, enerji) 500 TL, yıllık
+    sabit giderler 16.200.000 TL''dir.
+
+
+    **İstenenler:**
+
+    (a) Başabaş oda-gece sayısını ve başabaş doluluk oranını bulunuz. (6 puan)
+
+    (b) 4.050.000 TL faaliyet kârı için gereken oda-gece sayısını ve doluluk oranını bulunuz. (7 puan)
+
+    (c) Rekabet nedeniyle oda ücreti 1.700 TL''ye düşürülürse başabaş doluluk oranı ve 4.050.000 TL kâr için gerekli doluluk
+    oranı ne olur? (7 puan)
+
+    '
+  cozum: 'Birim (oda-gece) katkı payı = 2.000 − 500 = 1.500 TL.
+
+
+    **(a)** Başabaş = 16.200.000 / 1.500 = **10.800 oda-gece**; doluluk = 10.800 / 18.000 = **%60**.
+
+
+    **(b)** Gerekli oda-gece = (16.200.000 + 4.050.000) / 1.500 = **13.500**; doluluk = **%75**.
+
+
+    **(c)** Katkı payı = 1.700 − 500 = 1.200 TL. Başabaş = 16.200.000 / 1.200 = 13.500 oda-gece = **%75** doluluk. Hedef kâr
+    için (16.200.000 + 4.050.000) / 1.200 = 16.875 oda-gece = **%93,75** doluluk gerekir. Fiyat indirimi başabaş doluluğunu
+    %60''tan %75''e çıkarır.
+
+    '
+  puanlama:
+  - olcut: (a) başabaş oda-gece ve doluluk
+    puan: 6
+  - olcut: (b) hedef kâr için doluluk
+    puan: 7
+  - olcut: (c) düşük fiyatta doluluk oranları
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kap = 60 * 300
+
+      katki = 2000 - 500
+
+      sabit = 16200000
+
+      bep = sabit / katki
+
+      doluluk = bep / kap * 100
+
+      hedef = 4050000
+
+      adet2 = (sabit + hedef) / katki
+
+      dol2 = adet2 / kap * 100
+
+      katki3 = 1700 - 500
+
+      bep3 = sabit / katki3
+
+      dol3 = bep3 / kap * 100
+
+      adet4 = (sabit + hedef) / katki3
+
+      dol4 = adet4 / kap * 100
+
+      sonuc = {''a'': doluluk, ''b'': dol2, ''c'': dol3, ''d'': dol4}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 7
+- id: YMM-YNM-MHK-K020
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - çok ürünlü başabaş
+  - güvenlik marjı
+  - hedef kâr
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: 'Güneş Mobilya A.Ş. üç ürün grubundan oluşan bir satış planı hazırlamıştır:
+
+
+    | Ürün grubu | Bütçe satışı (TL) | Katkı payı oranı |
+
+    |---|---|---|
+
+    | A | 600.000 | %40 |
+
+    | B | 900.000 | %30 |
+
+    | C | 500.000 | %20 |
+
+
+    Ortak sabit giderler 366.000 TL''dir. Satış karmasının (TL olarak) değişmeyeceği varsayılacaktır.
+
+
+    **İstenenler:**
+
+    (a) Ağırlıklı ortalama katkı payı oranını ve başabaş satış tutarını bulunuz. (7 puan)
+
+    (b) Başabaş satışının ürün grubu dağılımını ve güvenlik marjı oranını bulunuz. (6 puan)
+
+    (c) 183.000 TL faaliyet kârı için gerekli toplam satışı hesaplayınız. (7 puan)
+
+    '
+  cozum: '**(a)** Katkı payları: A = 240.000, B = 270.000, C = 100.000; toplam 610.000 TL. Bütçe satışı 2.000.000 TL. Ağırlıklı
+    katkı oranı = 610.000 / 2.000.000 = **%30,5**. Başabaş satış = 366.000 / 0,305 = **1.200.000 TL**.
+
+
+    **(b)** Dağılım (satış payı %30, %45, %25): A = **360.000**, B = **540.000**, C = **300.000** TL. Güvenlik marjı = (2.000.000
+    − 1.200.000) / 2.000.000 = **%40**.
+
+
+    **(c)** Gerekli satış = (366.000 + 183.000) / 0,305 = **1.800.000 TL**.
+
+    '
+  puanlama:
+  - olcut: (a) ağırlıklı katkı oranı ve başabaş satış
+    puan: 7
+  - olcut: (b) ürün dağılımı ve güvenlik marjı
+    puan: 6
+  - olcut: (c) hedef kâr için satış
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'sA = 600000
+
+      sB = 900000
+
+      sC = 500000
+
+      kA = 0.4 * sA
+
+      kB = 0.3 * sB
+
+      kC = 0.2 * sC
+
+      satis = sA + sB + sC
+
+      kat = kA + kB + kC
+
+      oran = kat / satis
+
+      sabit = 366000
+
+      bep = sabit / oran
+
+      bA = bep * sA / satis
+
+      bB = bep * sB / satis
+
+      bC = bep * sC / satis
+
+      gm = (satis - bep) / satis * 100
+
+      hedef = 183000
+
+      s_h = (sabit + hedef) / oran
+
+      sonuc = {''a'': bep, ''b'': gm, ''c'': s_h}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 8
+- id: YMM-YNM-MHK-K021
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - başabaş noktası
+  - hedef kâr
+  - katkı payı
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: 'Doruk Ambalaj A.Ş. bir ambalaj ürününü birim fiyat 50 TL, birim değişken maliyet 30 TL ile satmaktadır. Yıllık sabit
+    giderler 600.000 TL, yıllık satış 40.000 adettir. Pazarlama bölümü fiyatın 46 TL''ye indirilmesini önermektedir.
+
+
+    **İstenenler:**
+
+    (a) Mevcut durumda faaliyet kârı ve başabaş noktasını bulunuz. (5 puan)
+
+    (b) Fiyat 46 TL''ye indirilirse mevcut kârın korunması için gerekli satış miktarını ve artış oranını bulunuz; yeni başabaş
+    noktasını hesaplayınız. (7 puan)
+
+    (c) Fiyat indirimiyle satışların 48.000 adede çıkması bekleniyorsa kâr ne olur? Öneri kabul edilmeli midir? (8 puan)
+
+    '
+  cozum: '**(a)** Birim katkı = 20 TL; kâr = 20 × 40.000 − 600.000 = **200.000 TL**; başabaş = 600.000 / 20 = **30.000 adet**.
+
+
+    **(b)** Yeni birim katkı = 46 − 30 = 16 TL. Aynı kâr için adet = (600.000 + 200.000) / 16 = **50.000 adet** (artış **%25**).
+    Yeni başabaş = 600.000 / 16 = **37.500 adet**.
+
+
+    **(c)** Kâr = 16 × 48.000 − 600.000 = **168.000 TL** < 200.000 TL. Satış artışı, kârı korumaya yetecek 50.000 adedin altında
+    kaldığından öneri kabul edilmemelidir.
+
+    '
+  puanlama:
+  - olcut: (a) mevcut kâr ve başabaş
+    puan: 5
+  - olcut: (b) kârı koruyan adet ve yeni başabaş
+    puan: 7
+  - olcut: (c) beklenen satış ve karar
+    puan: 8
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'k = 50 - 30
+
+      kar = k * 40000 - 600000
+
+      bep = 600000 / k
+
+      k2 = 46 - 30
+
+      bep2 = 600000 / k2
+
+      adet = (600000 + 200000) / k2
+
+      art = (adet - 40000) / 40000 * 100
+
+      kar3 = k2 * 48000 - 600000
+
+      sonuc = {''a'': kar, ''b'': adet, ''c'': kar3}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 9
+- id: YMM-YNM-MHK-K022
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - hedef kâr
+  - katkı payı
+  zorluk: 3
+  puan: 21
+  sure_dk: 28
+  soru: 'Kuzey Soğutma A.Ş. bir tür soğutucu üretmektedir. Birim satış fiyatı 400 TL, birim değişken maliyet 240 TL, yıllık
+    sabit giderler 3.000.000 TL''dir. Yatırılan sermaye 10.000.000 TL''dir. Kurumlar vergisi oranı %25''tir.
+
+
+    **İstenenler:**
+
+    (a) Vergi öncesi kârın satışların %15''i olması için gereken satış miktarını bulunuz. (7 puan)
+
+    (b) Yatırılan sermaye üzerinden %12 vergi öncesi getiri elde etmek için gereken satış miktarını bulunuz. (7 puan)
+
+    (c) Vergi sonrası 1.050.000 TL net kâr için gereken satış miktarını bulunuz. (7 puan)
+
+    '
+  cozum: 'Birim katkı = 400 − 240 = 160 TL.
+
+
+    **(a)** Kâr = 0,15 × 400 x = 60 x. 160 x − 3.000.000 = 60 x → x = 3.000.000 / 100 = **30.000 adet**.
+
+
+    **(b)** Hedef kâr = 10.000.000 × 0,12 = 1.200.000 TL; x = (3.000.000 + 1.200.000) / 160 = **26.250 adet**.
+
+
+    **(c)** Vergi öncesi kâr = 1.050.000 / 0,75 = 1.400.000 TL; x = (3.000.000 + 1.400.000) / 160 = **27.500 adet**.
+
+    '
+  puanlama:
+  - olcut: (a) satış getirisi hedefi
+    puan: 7
+  - olcut: (b) sermaye getirisi hedefi
+    puan: 7
+  - olcut: (c) vergi sonrası hedef kâr
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'k = 400 - 240
+
+      x1 = 3000000 / (k - 0.15 * 400)
+
+      hedef = 0.12 * 10000000
+
+      x2 = (3000000 + hedef) / k
+
+      once = 1050000 / (1 - 0.25)
+
+      x3 = (3000000 + once) / k
+
+      sonuc = {''a'': x1, ''b'': x2, ''c'': x3}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 10
+- id: YMM-YNM-MHK-K023
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - faaliyet kaldıracı
+  - güvenlik marjı
+  - başabaş noktası
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: 'Pınar Plastik A.Ş. tek tip bir ürün satmaktadır. Birim fiyat 150 TL, birim değişken maliyet 90 TL, yıllık sabit giderler
+    1.800.000 TL''dir. Gelecek yıl satış tahmini 40.000 adettir.
+
+
+    **İstenenler:**
+
+    (a) Başabaş noktasını ve güvenlik marjı oranını bulunuz. (6 puan)
+
+    (b) Faaliyet kaldıracı derecesini hesaplayarak satışların %5 azalması hâlinde faaliyet kârını bulunuz. (7 puan)
+
+    (c) Sabit giderler 1.500.000 TL''ye düşürülürse başabaş noktası, faaliyet kârı ve kaldıraç derecesi ne olur? Sonucu yorumlayınız.
+    (7 puan)
+
+    '
+  cozum: '**(a)** Birim katkı = 60 TL; katkı payı toplamı = 2.400.000 TL; kâr = 600.000 TL. Başabaş = 1.800.000 / 60 = **30.000
+    adet**; güvenlik marjı = (40.000 − 30.000) / 40.000 = **%25**.
+
+
+    **(b)** Kaldıraç derecesi = 2.400.000 / 600.000 = **4**. Satış %5 azalırsa kâr %20 azalır: 600.000 × 0,80 = **480.000
+    TL**. (38.000 adet → 2.280.000 − 1.800.000 = 480.000 TL.)
+
+
+    **(c)** Başabaş = 1.500.000 / 60 = **25.000 adet**; kâr = 2.400.000 − 1.500.000 = **900.000 TL**; kaldıraç = 2.400.000
+    / 900.000 = **2,67**. Sabit gider azalınca başabaş düşer, kâr artar ve kâr satış dalgalanmalarına daha az duyarlı olur.
+
+    '
+  puanlama:
+  - olcut: (a) başabaş ve güvenlik marjı
+    puan: 6
+  - olcut: (b) kaldıraç derecesi ve kâr
+    puan: 7
+  - olcut: (c) sabit gider azalışının etkisi
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'k = 150 - 90
+
+      kat = k * 40000
+
+      kar = kat - 1800000
+
+      bep = 1800000 / k
+
+      gm = (40000 - bep) / 40000 * 100
+
+      dol = kat / kar
+
+      kar2 = kar * (1 - dol * 0.05)
+
+      kar3 = kat - 1500000
+
+      bep3 = 1500000 / k
+
+      dol3 = kat / kar3
+
+      sonuc = {''a'': bep, ''b'': kar2, ''c'': dol3}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 11
+- id: YMM-YNM-MHK-K024
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - başabaş noktası
+  - çok ürünlü başabaş
+  - katkı payı
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: 'Kuzey Süt Ürünleri A.Ş. iki bölümlüdür. Bütçe verileri:
+
+
+    | | Peynir bölümü | Yoğurt bölümü |
+
+    |---|---|---|
+
+    | Satışlar (TL) | 2.400.000 | 1.600.000 |
+
+    | Katkı payı oranı | %35 | %25 |
+
+    | Bölüme doğrudan bağlı sabit giderler (TL) | 420.000 | 240.000 |
+
+
+    İşletmenin her iki bölüme ortak sabit gideri 270.000 TL''dir ve hangi seçenek uygulanırsa uygulansın değişmez.
+
+
+    **İstenenler:**
+
+    (a) Her bölümün kendi doğrudan sabit giderini karşılayan başabaş satış tutarını bulunuz. (6 puan)
+
+    (b) Satış karması bütçedeki gibi kalacak şekilde işletmenin başabaş satış tutarını bulunuz. (7 puan)
+
+    (c) Yoğurt bölümü kapatılırsa faaliyet kârı ne kadar değişir? (7 puan)
+
+    '
+  cozum: '**(a)** Peynir: 420.000 / 0,35 = **1.200.000 TL**; yoğurt: 240.000 / 0,25 = **960.000 TL**.
+
+
+    **(b)** Katkı payları: peynir 840.000, yoğurt 400.000 TL; toplam satış 4.000.000 TL; ağırlıklı katkı oranı = **0,31**
+    (%31). Toplam sabit gider = 420.000 + 240.000 + 270.000 = 930.000 TL. Başabaş satış = 930.000 / 0,31 = **3.000.000 TL**.
+
+
+    **(c)** Mevcut kâr = 840.000 + 400.000 − 930.000 = 310.000 TL. Yoğurt kapatılırsa kâr = 840.000 − 420.000 − 270.000 =
+    150.000 TL. Değişim = **-160.000 TL**. Yoğurt bölümü kendi doğrudan giderlerini aşan 160.000 TL katkı sağladığından kapatılmamalıdır;
+    ortak gider kaçınılamaz.
+
+    '
+  puanlama:
+  - olcut: (a) bölüm başabaşları
+    puan: 6
+  - olcut: (b) ağırlıklı katkı oranı ve işletme başabaşı
+    puan: 7
+  - olcut: (c) kapatma etkisi
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim
+      sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut
+      konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'sP = 2400000
+
+      oP = 0.35
+
+      dP = 420000
+
+      sY = 1600000
+
+      oY = 0.25
+
+      dY = 240000
+
+      ort = 270000
+
+      bP = dP / oP
+
+      bY = dY / oY
+
+      katP = sP * oP
+
+      katY = sY * oY
+
+      oran = (katP + katY) / (sP + sY)
+
+      sab = dP + dY + ort
+
+      bep = sab / oran
+
+      kar = katP + katY - sab
+
+      kar_kapat = katP - dP - ort
+
+      etki = kar_kapat - kar
+
+      sonuc = {''a'': bP, ''b'': bep, ''c'': etki}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 12
+- id: YMM-YNM-MHK-K025
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - başabaş noktası
+  - güvenlik marjı
+  - hedef kâr
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: 'Toprak Gıda Paketleme A.Ş.''nin toplam üretim ve satış giderleri karma niteliktedir. Geçmiş iki dönemde gözlenen
+    toplam giderler: 20.000 adet satışta 1.300.000 TL; 30.000 adet satışta 1.600.000 TL. Birim satış fiyatı 70 TL''dir. Gelecek
+    dönem için satış tahmini 25.000 adettir.
+
+
+    **İstenenler:**
+
+    (a) En yüksek-en düşük yöntemiyle birim değişken gideri ve sabit gideri bulunuz. (7 puan)
+
+    (b) Başabaş noktasını bulunuz ve 400.000 TL faaliyet kârı için gereken satış miktarını hesaplayınız. (6 puan)
+
+    (c) Tahmini 25.000 adet için güvenlik marjı oranını hesaplayınız. (7 puan)
+
+    '
+  cozum: '**(a)** Birim değişken gider = (1.600.000 − 1.300.000) / (30.000 − 20.000) = **30 TL**; sabit gider = 1.300.000
+    − 30 × 20.000 = **700.000 TL**.
+
+
+    **(b)** Birim katkı = 70 − 30 = 40 TL; başabaş = 700.000 / 40 = **17.500 adet**. 400.000 TL kâr için (700.000 + 400.000)
+    / 40 = **27.500 adet**.
+
+
+    **(c)** Güvenlik marjı = (25.000 − 17.500) / 25.000 = **%30**.
+
+    '
+  puanlama:
+  - olcut: (a) değişken ve sabit gider
+    puan: 7
+  - olcut: (b) başabaş ve hedef kâr adedi
+    puan: 6
+  - olcut: (c) güvenlik marjı
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'v = (1600000 - 1300000) / (30000 - 20000)
+
+      sabit = 1300000 - v * 20000
+
+      katki = 70 - v
+
+      bep = sabit / katki
+
+      hedef = 400000
+
+      x = (sabit + hedef) / katki
+
+      gm = (25000 - bep) / 25000 * 100
+
+      sonuc = {''a'': sabit, ''b'': bep, ''c'': x, ''gm'': gm}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 13
+- id: YMM-YNM-MHK-K026
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - çok ürünlü başabaş
+  - hedef kâr
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: 'Beta Eğitim Yayınları A.Ş. K ve L kitaplarını 3 : 1 adet oranında satmaktadır. K''nın birim fiyatı 60 TL, birim katkısı
+    20 TL; L''nin birim fiyatı 100 TL, birim katkısı 40 TL''dir. Ortak sabit giderler yıllık 800.000 TL''dir. Vergi oranı
+    %20''dir.
+
+
+    **İstenenler:**
+
+    (a) Başabaş noktasında satılması gereken K ve L adetlerini bulunuz. (6 puan)
+
+    (b) Vergi sonrası 600.000 TL net kâr için K ve L adetlerini ve toplam satış tutarını bulunuz. (8 puan)
+
+    (c) Karma 2 : 1''e dönerse başabaş noktasını (her iki ürün) bulunuz. (6 puan)
+
+    '
+  cozum: 'Paket (3 K + 1 L) katkısı = 3 × 20 + 40 = **100 TL**.
+
+
+    **(a)** Başabaş = 800.000 / 100 = 8.000 paket → K = 24.000 adet, L = **8.000 adet**.
+
+
+    **(b)** Vergi öncesi kâr = 600.000 / 0,80 = 750.000 TL; paket sayısı = (800.000 + 750.000) / 100 = 15.500; K = 46.500
+    adet, L = **15.500 adet**. Paket satışı = 3 × 60 + 100 = 280 TL; toplam satış = 15.500 × 280 = **4.340.000 TL**.
+
+
+    **(c)** 2 K + 1 L paket katkısı = 2 × 20 + 40 = 80 TL; başabaş = 800.000 / 80 = **10.000 paket** → K = 20.000, L = 10.000
+    adet.
+
+    '
+  puanlama:
+  - olcut: (a) paket katkısı ve başabaş adetleri
+    puan: 6
+  - olcut: (b) vergi sonrası hedef kâr için adet ve satış
+    puan: 8
+  - olcut: (c) yeni karma ile başabaş
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'paket = 3 * 20 + 1 * 40
+
+      sabit = 800000
+
+      bep_p = sabit / paket
+
+      once = 600000 / 0.8
+
+      p2 = (sabit + once) / paket
+
+      satis = p2 * (3 * 60 + 100)
+
+      paket3 = 2 * 20 + 1 * 40
+
+      bep3 = sabit / paket3
+
+      sonuc = {''a'': bep_p, ''b'': p2, ''c'': bep3, ''satis'': satis}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 14
+- id: YMM-YNM-MHK-K027
+  sinav: ymm
+  ders: YNM
+  konu: MHK
+  kazanimlar:
+  - katkı payı
+  - başabaş noktası
+  - hedef kâr
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: 'Çelik Kapı A.Ş. bir model kapı satmaktadır: birim fiyat 120 TL, birim değişken maliyet 70 TL, yıllık sabit gider
+    1.000.000 TL, beklenen satış 30.000 adet. Hammadde fiyat artışı nedeniyle birim değişken maliyet 80 TL''ye çıkmıştır.
+
+
+    **İstenenler:**
+
+    (a) Maliyet artışından önce ve sonra faaliyet kârını ve başabaş noktasını bulunuz. (7 puan)
+
+    (b) Satış miktarı aynı kalmak şartıyla eski kârı korumak için gereken satış fiyatını bulunuz. (6 puan)
+
+    (c) Fiyat bu düzeye çıkarılırsa satışların %10 azalması beklenmektedir. Bu durumda kârı bulunuz ve eski kârı korumak için
+    gereken satış miktarını belirtiniz. (7 puan)
+
+    '
+  cozum: '**(a)** Önceki kâr = 50 × 30.000 − 1.000.000 = **500.000 TL**; başabaş = **20.000 adet**. Sonrası: kâr = 40 × 30.000
+    − 1.000.000 = **200.000 TL**; başabaş = **25.000 adet**.
+
+
+    **(b)** Birim katkıyı 50 TL''de tutmak için fiyat = 120 + 10 = **130 TL**.
+
+
+    **(c)** Satış 27.000 adet olur: kâr = (130 − 80) × 27.000 − 1.000.000 = **350.000 TL**. Eski kârı (500.000 TL) korumak
+    için gereken satış = (1.000.000 + 500.000) / 50 = **30.000 adet**; beklenen satış bunun altında kaldığından kâr 150.000
+    TL düşer.
+
+    '
+  puanlama:
+  - olcut: (a) kâr ve başabaş karşılaştırması
+    puan: 7
+  - olcut: (b) gerekli fiyat
+    puan: 6
+  - olcut: (c) satış kaybıyla kâr ve gerekli satış
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı
+      ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde
+      yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri
+      ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kar0 = (120 - 70) * 30000 - 1000000
+
+      kar1 = (120 - 80) * 30000 - 1000000
+
+      bep0 = 1000000 / (120 - 70)
+
+      bep1 = 1000000 / (120 - 80)
+
+      fiyat = 120 + 10
+
+      kar2 = (130 - 80) * 27000 - 1000000
+
+      gerekli = (1000000 + kar0) / (130 - 80)
+
+      sonuc = {''a'': kar1, ''b'': fiyat, ''c'': kar2, ''gerekli'': gerekli}
+
+      '
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: harici üretici'
+    istem_surumu: uretici paketi YMM talimatı 2026-11-02
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-05'
+      G5:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-05'
+    kim: uretici
+    ne: harici teslim YNM_MHK_20261102_1.yaml, klasik 16
