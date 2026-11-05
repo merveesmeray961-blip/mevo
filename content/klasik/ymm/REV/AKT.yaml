@@ -1432,7 +1432,7 @@
       \ 40000\nmatrah = -fazla + am - hasarli_zarar\nkv = matrah * 0.25\nsonuc = {\"fazla\": fazla, \"mahsup26\": am, \"kalan26\"\
       : k26, \"mahsup27\": am, \"kalan27\": k27, \"mahsup28\": m28, \"gider28\": gider28,\n         \"emtia_fazla\": emtia_fazla,\
       \ \"hasarli_zarar\": hasarli_zarar, \"matrah\": matrah, \"kv\": kv}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1443,11 +1443,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem kabul: NOT (kabul): 4 no.lu hırsızlık zayiatında indirimi reddedilen 20.000 TL KDV (KDVK md. 58) gider
+          yazılabilirse matrah etkisi -340.000 / KV -85.000 olurdu; çözüm "etki yok" diyor. Ayrıca GUT''ye göre geri alma,
+          zayi dönemi beyannamesinde "İlave Edilecek KDV" satırıyla yapılır. Kesin olmadı'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim REV_AKT_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem kabul: NOT (kabul): 4 no.lu hırsızlık zayiatında indirimi reddedilen 20.000 TL KDV (KDVK md. 58) gider yazılabilirse
+      matrah etkisi -340.000 / KV -85.000 olurdu; çözüm "etki yok" diyor. Ayrıca GUT''ye göre geri alma, zayi dönemi beyannamesinde
+      "İlave Edilecek KDV" satırıyla yapılır. Kesin olmadı'
 - id: YMM-REV-AKT-K012
   sinav: ymm
   ders: REV
@@ -2024,7 +2034,7 @@
       toplam = fazla_a + bil_etki + fazla_c + fazla_d\nsonuc = {\"gun\": gun, \"dogru\": dogru, \"fazla_a\": fazla_a, \"bil_etki\"\
       : bil_etki, \"fazla_c\": fazla_c, \"dogru_d\": dogru_d, \"fazla_d\": fazla_d,\n         \"toplam\": toplam, \"kv\":\
       \ toplam * 0.25}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2035,8 +2045,14 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim REV_AKT_20261105_1.yaml, klasik 4
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul

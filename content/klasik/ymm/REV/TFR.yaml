@@ -1223,7 +1223,9 @@
 
     Tüm faiz ve kur farkı giderleri 2026 yılında gider yazılmıştır. Örtülü sermayeye isabet eden kanunen kabul edilmeyen gider
     tutarının hesabında, Tebliğ''deki örnek hesapta olduğu gibi, örtülü sermaye tutarının hesaba esas alınan toplam borca
-    oranı üzerinden, ilgili borçlara ait faiz ve kur farkı giderlerinin toplamı esas alınacaktır. Kurumlar vergisi oranı %25''tir.
+    oranı üzerinden, ilgili borçlara ait faiz ve kur farkı giderlerinin toplamı esas alınacaktır; bankadan yapılan borçlanma
+    %50 oranında dikkate alındığından bu borca ait faiz gideri de yalnızca %50''si oranında hesaba katılacaktır. Kurumlar
+    vergisi oranı %25''tir.
 
 
     **İstenenler:**
@@ -1297,8 +1299,8 @@
 
 
     Oran = 600.000 / 2.400.000 = %25. Örtülü sermaye hesabına giren borçların faiz ve kur farkı giderleri: 120.000 + 54.000
-    + 18.000 + 192.000 = 384.000 TL. KKEG = 384.000 × %25 = **96.000 TL** (KVK md. 11/1-b). Kurumlar vergisi etkisi = 96.000
-    × %25 = **24.000 TL**.
+    + 18.000 + 96.000 (Karadeniz Bankası faizinin %50''si: 192.000 × %50) = 288.000 TL. KKEG = 288.000 × %25 = **72.000 TL**
+    (KVK md. 11/1-b). Kurumlar vergisi etkisi = 72.000 × %25 = **18.000 TL**.
 
 
     **(d) Borç verenler nezdindeki sonuç**
@@ -1308,8 +1310,9 @@
     gerçekleştiği hesap döneminin son günü (31.12.2026) itibarıyla **dağıtılmış kâr payı** (dar mükellefler için ana merkeze
     aktarılan tutar) sayılır (KVK md. 12/7).
 
-    - Faiz kısmı: (120.000 + 54.000 + 192.000) × %25 = 91.500 TL kâr payı sayılır. **Kur farkı kısmı (18.000 × %25 = 4.500
-    TL) kâr payı sayılmaz.**
+    - Faiz kısmı: borç verenlere isabet eden faiz: Bay Ali''ye 120.000 × 300.000 / 1.200.000 = 30.000 TL, Nova Holding''e
+    54.000 × 150.000 / 600.000 = 13.500 TL ve Karadeniz Bankası''na 192.000 × 150.000 / 1.200.000 = 24.000 TL olmak üzere
+    toplam 67.500 TL kâr payı sayılır. **Kur farkı kısmı (18.000 × %25 = 4.500 TL) kâr payı sayılmaz.**
 
     - Nova Holding GmbH dar mükellef kurum olduğundan kendisine isabeden faiz (54.000 × %25 = 13.500 TL), net kâr payı kabul
     edilip brüte tamamlanarak kâr dağıtımına bağlı vergi kesintisine tabidir; daha önce faizden yapılan kesinti bu kesintiye
@@ -1324,7 +1327,8 @@
     puan: 6
   - olcut: (b) Öz sermayenin üç katı (1.800.000 TL), örtülü sermaye 600.000 TL ve payların dağılımı
     puan: 5
-  - olcut: (c) %25 oranı, 384.000 TL gider toplamı, 96.000 TL KKEG ve 24.000 TL vergi etkisi
+  - olcut: (c) %25 oranı, 288.000 TL gider toplamı (bankadan alınan borcun faizinin %50'si dahil), 72.000 TL KKEG ve 18.000
+      TL vergi etkisi
     puan: 5
   - olcut: (d) Kâr payı sayılma (md. 12/7), kur farkının hariç kalması, dar mükellef için kesinti, düzeltme şartı
     puan: 5
@@ -1373,7 +1377,7 @@
 
       oran=ortulu/dikkate
 
-      faiz=120000+54000+192000; kur=18000
+      faiz=120000+54000+192000*0.5; kur=18000  # banka faizi %50
 
       kkeg=oran*(faiz+kur)
 
@@ -1384,7 +1388,7 @@
       sonuc={"dikkate":dikkate,"ortulu":ortulu,"pay_ali":pay_ali,"pay_nova":pay_nova,"pay_bank":pay_bank,"kkeg":kkeg,"kv":kv,"kar_payi_faiz":kar_payi_faiz,"kur":kar_payi_kur}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1395,11 +1399,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem duzelt: Tebliğ 12.5 Örnek 2''de %50 dikkate alınan bankadan borçlanmada faiz/kur farkı da %50 alınır;
+          çözüm Karadeniz Bankası faizini tam (192.000) aldığı için KKEG (96.000 yerine 72.000), vergi etkisi (24.000 yerine
+          18.000) ve (d)''deki kâr payı tutarı (91.500 yerine 67.500) hatalı.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim REV_TFR_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Tebliğ 12.5 Örnek 2''de %50 dikkate alınan bankadan borçlanmada faiz/kur farkı da %50 alınır; çözüm
+      Karadeniz Bankası faizini tam (192.000) aldığı için KKEG (96.000 yerine 72.000), vergi etkisi (24.000 yerine 18.000)
+      ve (d)''deki kâr payı tutarı (91.500 yerine 67.500) hatalı.'
 - id: YMM-REV-TFR-K012
   sinav: ymm
   ders: REV

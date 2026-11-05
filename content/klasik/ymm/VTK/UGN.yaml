@@ -1101,7 +1101,7 @@
     python: 'sonuc = {''a_ilan_gunu'': 3 + 15, ''b_tutar_aralikta'': 30000 <= 2000000 <= 3000000, ''c_ustu'': 5000000 > 3000000}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1112,11 +1112,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_UGN_20261102_1.yaml, klasik 6
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-UGN-K011
   sinav: ymm
   ders: VTK
@@ -1374,8 +1380,8 @@
 
     |---|---|
 
-    | 1 | Mimoza Ltd. Şti., bir malı 1.000.000 TL bedelle teslim etmiş, ancak sözleşmeye "bağış" yazmıştır; bedelin banka
-    yoluyla tahsil edildiği belgelerle sabittir. |
+    | 1 | Mimoza Ltd. Şti., bir malı KDV hariç 1.000.000 TL bedelle teslim etmiş, ancak sözleşmeye "bağış" yazmıştır; bedelin
+    banka yoluyla tahsil edildiği belgelerle sabittir. |
 
     | 2 | Şirket ortağı, vergi dairesinde, vergiyi doğuran olayla bağlantısı olmayan bir komşusunu şahit olarak göstermek
     istemektedir. |
@@ -1457,7 +1463,7 @@
     python: 'sonuc = {''a_kdv'': 1000000 * 0.20}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1468,11 +1474,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem duzelt: Soruda 1.000.000 TL''nin KDV dahil mi hariç mi olduğu belirtilmemiş; çözüm KDV hariç (matrah)
+          varsayıyor. Veri belirsizliği giderildi.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_UGN_20261102_1.yaml, klasik 9
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Soruda 1.000.000 TL''nin KDV dahil mi hariç mi olduğu belirtilmemiş; çözüm KDV hariç (matrah) varsayıyor.
+      Veri belirsizliği giderildi.'
 - id: YMM-VTK-UGN-K014
   sinav: ymm
   ders: VTK

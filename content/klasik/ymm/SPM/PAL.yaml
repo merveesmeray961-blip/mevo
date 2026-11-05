@@ -2009,7 +2009,7 @@
       itiraz = dt.date(2026, 3, 17)\nsonuc = {'itiraz_var': itiraz_var, 'kiyi_son': str(kiyi_son), 'kiyi_gecikme_gun': kiyi_gecikme,\
       \ 'pusula_son': str(pusula_son), 'pusula_zamaninda': pusula_zamaninda, 'kiyi_itiraz_son': str(kiyi_itiraz_son), 'kiyi_itiraz_suresinde':\
       \ itiraz <= kiyi_itiraz_son, 'pusula_itiraz_son': str(pusula_itiraz_son), 'pusula_itiraz_suresinde': itiraz <= pusula_itiraz_son}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2020,8 +2020,14 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim SPM_PAL_20261105_1.yaml, klasik 5
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul

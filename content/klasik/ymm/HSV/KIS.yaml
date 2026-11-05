@@ -1816,7 +1816,7 @@
       tahsil=(1000000+500000)*0.20
 
       sonuc={''a'':v,''c'':tahsil+tahsil*0.035*7,''terkin'':terk}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1827,11 +1827,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 1
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K010
   sinav: ymm
   ders: HSV
@@ -2418,7 +2424,7 @@
       i=100000+120000
 
       sonuc={''b'':[h,i],''c'':i-h}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2429,11 +2435,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 6
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K015
   sinav: ymm
   ders: HSV
@@ -3563,8 +3575,10 @@
     TL**.
 
 
-    **(b)** Gerçek usulde KDV mükellefleri tevkif ettikleri KDV''yi **2 No.lu KDV beyannamesi** (1015B) ile, sorumlu sıfatıyla
-    beyan eder ve öder (kısmi tevkifatta satıcı kendi payını 1 No.lu beyannamede aynı dönemde beyan eder).
+    **(b)** Gerçek usulde KDV mükellefleri tevkif ettikleri KDV''yi **2 No.lu KDV beyannamesi** (1015B) ile, tevkifata tabi
+    işlemin yapıldığı dönem (Ekim 2026) için sorumlu sıfatıyla beyan eder ve öder: beyan izleyen ayın 21''inci günü akşamına
+    kadar (21 Kasım 2026), ödeme beyanname verilecek ayın 23''üncü günü akşamına kadar (23 Kasım 2026) yapılır (md. 41/1,
+    46/1) (kısmi tevkifatta satıcı kendi payını 1 No.lu beyannamede aynı dönemde beyan eder).
 
 
     **(c)** Md. 29/1-ç: vergi kesintisi yapmakla sorumlu tutulanlar tarafından sorumlu sıfatıyla beyan edilerek ödenen KDV,
@@ -3606,7 +3620,7 @@
     python: 'ind=250000+60000+60000
 
       sonuc={''a'':60000,''d'':3000000*0.2-ind}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3617,11 +3631,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem duzelt: (b) bendinde sorulan "hangi dönemde" cevabı eksik; ayrıca tevkifat beyan/ödeme süresi (md. 41/1:
+          ayın 21''i, md. 46/1: ayın 23''ü) belirtilmemiş.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 18
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: (b) bendinde sorulan "hangi dönemde" cevabı eksik; ayrıca tevkifat beyan/ödeme süresi (md. 41/1:
+      ayın 21''i, md. 46/1: ayın 23''ü) belirtilmemiş.'
 - id: YMM-HSV-KIS-K027
   sinav: ymm
   ders: HSV
@@ -4055,9 +4077,9 @@
     | **Tapu işleminden önce, elden çıkaran (Bay (Y)) tarafından ödenecek toplam** | **2.760.000** |
 
 
-    Teslim tarihi Nisan-Mayıs 2026, elden çıkarma 14/9/2027 olduğundan üç yıllık süre içindedir. Bentte öngörülen şartları
-    taşımadığı hâlde istisnanın uygulandığı tespit edilirse zamanında tahsil edilmeyen vergi, vergi ziyaı cezası ve gecikme
-    faizinden satıcı mükellef (K) ile birlikte alıcı müteselsilen sorumludur.
+    Teslim tarihi Mayıs 2026, elden çıkarma 14/9/2027 olduğundan üç yıllık süre içindedir. Bentte öngörülen şartları taşımadığı
+    hâlde istisnanın uygulandığı tespit edilirse zamanında tahsil edilmeyen vergi, vergi ziyaı cezası ve gecikme faizinden
+    satıcı mükellef (K) ile birlikte alıcı müteselsilen sorumludur.
 
     '
   puanlama:
@@ -4146,7 +4168,7 @@
       konut_kdv, "tapu_oncesi": tapu_oncesi}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4157,11 +4179,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem duzelt: Çözümde teslim tarihi "Nisan-Mayıs 2026" yazılmış; soruda dönem Mayıs 2026, teslim Mayıs 2026
+          dönemindedir (tutarsız ifade).'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Çözümde teslim tarihi "Nisan-Mayıs 2026" yazılmış; soruda dönem Mayıs 2026, teslim Mayıs 2026 dönemindedir
+      (tutarsız ifade).'
 - id: YMM-HSV-KIS-K031
   sinav: ymm
   ders: HSV
@@ -4387,7 +4417,7 @@
       devreden}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4398,11 +4428,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261105_1.yaml, klasik 2
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K032
   sinav: ymm
   ders: HSV

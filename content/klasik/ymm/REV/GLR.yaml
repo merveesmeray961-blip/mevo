@@ -620,8 +620,8 @@
 
     4. **Yeni şube:** Şirket, yeni şubenin açılışı için açılış organizasyonu, personel eğitimi ve tanıtım adı altında maddi
     bir kıymet iktisap edilmeyen 1.000.000 TL harcama yapmış ve bunu 262 Kuruluş ve Örgütlenme Giderleri hesabında aktifleştirmiştir.
-    Şirket aktifleştirmeyi tercih etmiştir; 2026 hesap döneminden başlayarak ilk yıl dâhil yıllık eşit itfa yapılacaktır.
-    Şirket 2026''da yalnızca 100.000 TL itfa payı gider yazmıştır.
+    Şirket aktifleştirmeyi tercih etmiştir; 2026 hesap döneminden başlayarak ilk yıl dâhil, VUK md. 326''daki azami süre olan
+    beş yıl esas alınarak yıllık eşit itfa yapılacaktır. Şirket 2026''da yalnızca 100.000 TL itfa payı gider yazmıştır.
 
 
     **İstenenler:**
@@ -771,7 +771,7 @@
       tahakkuk = 120000\nitfa = 1000000 / 5\neksik_itfa = itfa - 100000\ntoplam = duzeltme_1_2 - tahakkuk - eksik_itfa\nsonuc\
       \ = {\"kira_gider\": kira_gider, \"kira_ak\": kira_ak, \"duzeltme_1_2\": duzeltme_1_2, \"tahakkuk\": tahakkuk, \"itfa\"\
       : itfa, \"eksik_itfa\": eksik_itfa,\n         \"toplam\": toplam, \"kv\": toplam * 0.25}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -782,11 +782,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem duzelt: Soruda ilk tesis ve taazzuv giderleri için itfa süresi (yıl sayısı) verilmemiş; 200.000 TL yıllık
+          itfa ancak VUK md. 326''daki beş yıl varsayımıyla bulunabiliyor.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim REV_GLR_20261105_1.yaml, klasik 2
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Soruda ilk tesis ve taazzuv giderleri için itfa süresi (yıl sayısı) verilmemiş; 200.000 TL yıllık
+      itfa ancak VUK md. 326''daki beş yıl varsayımıyla bulunabiliyor.'
 - id: YMM-REV-GLR-K006
   sinav: ymm
   ders: REV

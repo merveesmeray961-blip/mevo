@@ -1346,7 +1346,7 @@
       sonuc = {"a": ortulu, "b": kkeg, "c": [kazanc, kazanc * 0.25]}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1357,11 +1357,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'kabul örneklemesi: GUV örneklem kusuru %0 (n=6)'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim GUV_KVM_20261102_1.yaml, klasik 1
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'kabul örneklemesi: GUV örneklem kusuru %0 (n=6)'
 - id: YMM-GUV-KVM-K009
   sinav: ymm
   ders: GUV
@@ -1502,7 +1508,7 @@
       sonuc = {"b": [oku, kazanc], "c": kv, "d": ceza}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1513,11 +1519,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'kabul örneklemesi: GUV örneklem kusuru %0 (n=6)'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim GUV_KVM_20261102_1.yaml, klasik 2
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'kabul örneklemesi: GUV örneklem kusuru %0 (n=6)'
 - id: YMM-GUV-KVM-K010
   sinav: ymm
   ders: GUV
@@ -1554,7 +1566,8 @@
     |
 
 
-    Kurumlar vergisi oranı %25''tir; 2026 öncesindeki beyannamelerde bu zararlar yıl yıl ayrı gösterilmiştir.
+    Kurumlar vergisi oranı %25''tir; 2026 öncesindeki beyannamelerde bu zararlar yıl yıl ayrı gösterilmiştir. Yurt içi asgari
+    kurumlar vergisi (KVK md. 32/C) hesabı bu soruda dikkate alınmayacaktır.
 
 
     **İstenenler:**
@@ -1654,7 +1667,7 @@
       sonuc = {"b": [zarar, matrah], "c": matrah * 0.25}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1665,11 +1678,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem duzelt: Yurt içi asgari KV (KVK md. 32/C) gözetilmemiş: geçmiş yıl zararları asgari KV matrahından düşülmediğinden
+          asgari KV (en az 12.000.000 x %10 = 1.200.000 TL) normal KV 375.000 TL''yi aşar. Soru kapsamını korumak için asgari
+          KV hesabı soruda kapsam dışı bırakıldı.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim GUV_KVM_20261102_1.yaml, klasik 3
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Yurt içi asgari KV (KVK md. 32/C) gözetilmemiş: geçmiş yıl zararları asgari KV matrahından düşülmediğinden
+      asgari KV (en az 12.000.000 x %10 = 1.200.000 TL) normal KV 375.000 TL''yi aşar. Soru kapsamını korumak için asgari
+      KV hesabı soruda kapsam dışı bırakıldı.'
 - id: YMM-GUV-KVM-K011
   sinav: ymm
   ders: GUV
@@ -1710,7 +1733,7 @@
 
     | 5651 sayılı Kanun ek 4. madde kapsamında hakkında reklam yasağı uygulananlara verilen reklam | 60.000 |
 
-    | Şans ve bahis oyunlarına ait reklam gideri | 40.000 |
+    | Şans ve bahis oyunlarına ait ilan ve reklam gideri (20/6/2026 tarihli) | 40.000 |
 
 
     Başka düzeltme ve indirim yoktur. KV oranı %25''tir.
@@ -1758,7 +1781,7 @@
 
     | Reklam yasağı olanlara reklam | j | 60.000 |
 
-    | Şans/bahis reklamı | k | 40.000 |
+    | Şans/bahis reklamı (20/6/2026 tarihli; md. 11/1-k 17/4/2026''da yürürlüğe girmiştir) | k | 40.000 |
 
     | **Toplam** | | **1.750.000** |
 
@@ -1835,7 +1858,7 @@
       sonuc = {"a": kkeg, "b": [kazanc, kazanc * 0.25]}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1846,11 +1869,20 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem duzelt: Şans ve bahis oyunu reklamı KKEG hükmü (md. 11/1-k, 7577 sayılı Kanun) 17/4/2026''da yürürlüğe
+          girmiştir; gider tarihi verilmediğinden 40.000 TL''nin KKEG olup olmadığı belirsiz. Gider tarihi yürürlük sonrası
+          olarak netleştirildi.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim GUV_KVM_20261102_1.yaml, klasik 4
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Şans ve bahis oyunu reklamı KKEG hükmü (md. 11/1-k, 7577 sayılı Kanun) 17/4/2026''da yürürlüğe girmiştir;
+      gider tarihi verilmediğinden 40.000 TL''nin KKEG olup olmadığı belirsiz. Gider tarihi yürürlük sonrası olarak netleştirildi.'
 - id: YMM-GUV-KVM-K012
   sinav: ymm
   ders: GUV
@@ -2076,7 +2108,7 @@
 
       sonuc = {''kontrol'': h_max, ''pasif_oran'': oran_pasif, ''vergi_yuku'': yuk, ''dahil'': dahil, ''kv'': kv, ''mahsup'':
       mahsup, ''malta_mahsup_edilemez'': malta, ''ek_kv'': ek, ''asan_2027'': asan}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2087,11 +2119,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'kabul örneklemesi: GUV örneklem kusuru %0 (n=6)'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim GUV_KVM_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'kabul örneklemesi: GUV örneklem kusuru %0 (n=6)'
 - id: YMM-GUV-KVM-K013
   sinav: ymm
   ders: GUV
@@ -2310,7 +2348,7 @@
 
       sonuc = {''basi1'': b1, ''sonu1'': s1, ''kar1'': kar1, ''kv1'': kv1, ''sonu2'': sonu2, ''zarar2'': zarar2, ''net'':
       net, ''kv_net'': kvnet, ''iade'': iade, ''hatali_zarar'': hatali_zarar}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2321,11 +2359,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim GUV_KVM_20261105_1.yaml, klasik 2
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-GUV-KVM-K014
   sinav: ymm
   ders: GUV
@@ -2520,7 +2564,7 @@
       kv = kurum * 25 // 100
 
       sonuc = {''kkeg'': kkeg, ''ihrac_indirim'': ihrac, ''kurum_kazanci'': kurum, ''kv'': kv}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2531,11 +2575,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim GUV_KVM_20261105_1.yaml, klasik 3
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-GUV-KVM-K015
   sinav: ymm
   ders: GUV
@@ -2758,7 +2808,7 @@
 
       sonuc = {''ova_toplam'': ova_zarar, ''ova_mahsup'': ova_mahsup, ''iptal'': iptal, ''kendi_zarar'': kendi_zarar, ''kurum_kazanci'':
       kurum_kazanci, ''matrah'': matrah, ''kv'': kv, ''ziyai_vergi'': ziyai_vergi}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2769,11 +2819,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim GUV_KVM_20261105_1.yaml, klasik 4
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-GUV-KVM-K016
   sinav: ymm
   ders: GUV
@@ -2961,7 +3017,7 @@
       sonuc = {''okul_kurum_kazanci'': okul_ka, ''okul_kv'': okul_kv, ''poliklinik_kurum_kazanci'': pol_ka, ''poliklinik_kv'':
       pol_kv, ''maden_suyu_matrah'': ms_ka, ''maden_suyu_kv'': ms_kv, ''toplam_kv'': okul_kv + pol_kv + ms_kv, ''beyanname_sayisi'':
       3}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2972,11 +3028,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'kabul örneklemesi: GUV örneklem kusuru %0 (n=6)'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim GUV_KVM_20261105_1.yaml, klasik 5
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'kabul örneklemesi: GUV örneklem kusuru %0 (n=6)'
 - id: YMM-GUV-KVM-K017
   sinav: ymm
   ders: GUV
@@ -3164,7 +3226,7 @@
 
       sonuc = {''kv'': kv, ''sinir'': sinir, ''mahsup_yd'': mahsup_yd, ''devir'': devir, ''odenecek'': odenecek, ''ertelenen'':
       ertelenen, ''fazla'': fazla}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3175,8 +3237,14 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'kabul örneklemesi: GUV örneklem kusuru %0 (n=6)'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim GUV_KVM_20261105_1.yaml, klasik 6
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'kabul örneklemesi: GUV örneklem kusuru %0 (n=6)'

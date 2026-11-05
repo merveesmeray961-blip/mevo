@@ -524,7 +524,7 @@
       mat = [(4000000,0.01),(1500000,0.02),(800000,0.03),(300000,0.20),(100000,0.50)]\ngerekli = sum(a*r for a, r in mat)\n\
       sonuc = {'k1': k1, 'k2': k2, 'k3': k3, 'toplam25': k1+k2+k3, 'faiz_k3': fi_k3, 'faiz_toplam': fi,\n         'kar26':\
       \ a26, 'toplam26': sum(a26.values()), 'matris': gerekli, 'ilave': gerekli - 140000}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -535,11 +535,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem kabul: NOT (kabul): K3 için 2026 zarar karşılığı 552.000 (brüt değer 1.000.000 sabit tutulup faiz zarar
+          karşılığına yansıtılıyor); biriken ödenmemiş faiz brüt defter değerine eklenseydi karşılık 672.000 olurdu, net defter
+          değeri (448.000) aynı. Kabul edilebilir basitleştirme, kesin hata değil.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim IFM_FAR_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem kabul: NOT (kabul): K3 için 2026 zarar karşılığı 552.000 (brüt değer 1.000.000 sabit tutulup faiz zarar
+      karşılığına yansıtılıyor); biriken ödenmemiş faiz brüt defter değerine eklenseydi karşılık 672.000 olurdu, net defter
+      değeri (448.000) aynı. Kabul edilebilir basitleştirme, kesin hata değil.'
 - id: YMM-IFM-FAR-K004
   sinav: ymm
   ders: IFM
@@ -769,7 +779,7 @@
       \ round(pv_a,2), 'fark_a': round(fark_a,4), 'kazanc_a': kazanc_a, 'pv_b': round(pv_b,2),\n         'fark_b': round(fark_b,4),\
       \ 'defter_b': defter_b, 'pv_r': round(pv_r,2), 'kayip_r': round(1000000-pv_r,2),\n         'defter_r': round(pv_r+10000,2),\
       \ 'pd_orani': 0.18/0.06}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -780,11 +790,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem kabul: NOT (kabul): Kredi B (önemli değişiklik yok) için TFRS 9 B5.4.6 uyarınca itfa edilmiş maliyetin
+          yeniden hesaplanıp 69.520 TL değişiklik kazancı yazılması gerektiği yönünde görüş olabilir (çözüm yalnız ücreti
+          defter değerinden düşüyor: 1.970.000); kaynak metinde yükümlülük için açık hükü'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim IFM_FAR_20261105_1.yaml, klasik 2
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem kabul: NOT (kabul): Kredi B (önemli değişiklik yok) için TFRS 9 B5.4.6 uyarınca itfa edilmiş maliyetin yeniden
+      hesaplanıp 69.520 TL değişiklik kazancı yazılması gerektiği yönünde görüş olabilir (çözüm yalnız ücreti defter değerinden
+      düşüyor: 1.970.000); kaynak metinde yükümlülük için açık hükü'
 - id: YMM-IFM-FAR-K005
   sinav: ymm
   ders: IFM

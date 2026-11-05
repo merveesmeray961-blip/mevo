@@ -1983,7 +1983,7 @@
 
     |---|---|---|---|---|
 
-    | Makine | 2022 | 2.000.000 | 1.200.000 | Normal amortisman oranı %10 |
+    | Makine | 2020 | 2.000.000 | 1.200.000 | Normal amortisman oranı %10 |
 
     | Fabrika binası | 2023 | 5.000.000 | 800.000 | Maliyete 2024''te eklenen 300.000 TL kredi faizi ve kur farkı dahildir;
     bunlara isabet eden birikmiş amortisman 30.000 TL''dir |
@@ -2142,7 +2142,7 @@
       \ round(4700000 * r, 2),\n         'bina_yeni_amort': round(770000 * r, 2), 'dem_yeni_maliyet': round(100000 * r, 2),\
       \ 'dem_yeni_amort': round(40000 * r, 2),\n         'amort_2026': round(2000000 * r * 0.10, 2), 'vergiye_tabi': 150000\
       \ + 100000}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2153,11 +2153,20 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem duzelt: Makine 2022''de aktife girmiş görünüyor (2022-2025 = 4 yıl) ama %10 oranla birikmiş amortisman
+          1.200.000 (%60) olamaz (en çok %40). Giriş yılı 2020 yapılınca (2020-2025 = 6 yıl x %10) veri tutarlı olur; hesaplar
+          değişmez.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_DEG_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Makine 2022''de aktife girmiş görünüyor (2022-2025 = 4 yıl) ama %10 oranla birikmiş amortisman 1.200.000
+      (%60) olamaz (en çok %40). Giriş yılı 2020 yapılınca (2020-2025 = 6 yıl x %10) veri tutarlı olur; hesaplar değişmez.'
 - id: YMM-VTK-DEG-K015
   sinav: ymm
   ders: VTK
@@ -2317,7 +2326,7 @@
       \ = 800000 * 0.5\nb27 = (800000 - b26) * 0.5\nb28 = 800000 - b26 - b27\noto_yil = 1800000 * 0.2\no26 = oto_yil * 4 /\
       \ 12\no30 = oto_yil + (oto_yil - o26)\nsonuc = {'m23': m23, 'm24': m24, 'bakiye': bakiye, 'm25': m25, 'b26': b26, 'b27':\
       \ b27, 'b28': b28,\n         'o26': o26, 'o30': o30, 'toplam_oto': o26 + 3 * oto_yil + o30, 'sure_max': min(2 * 8, 50)}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2328,11 +2337,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_DEG_20261105_1.yaml, klasik 2
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-DEG-K016
   sinav: ymm
   ders: VTK
@@ -2878,7 +2893,7 @@
       sonuc = {''yeni_maliyet'': round(yeni_maliyet, 2), ''yeni_amort'': round(yeni_amort, 2), ''artis'': round(artis, 2)}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2889,11 +2904,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_DEG_20261105_1.yaml, klasik 6
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-DEG-K019
   sinav: ymm
   ders: VTK
@@ -3063,7 +3084,7 @@
       ''bina_fazla'': bina_fazla, ''emtia'': emtia}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3074,8 +3095,14 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_DEG_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul

@@ -689,7 +689,7 @@
     gereken paranın %2,5''unu aşamaz: 4.200.000 × %2,5 = **105.000 TL**.
 
     - Gecikme faizi: kabahat tarihi (10.03.2026) ile tahsil tarihi (25.08.2026) arasında 5 tam ay vardır (10.03 – 10.08);
-    ay kesirleri (11 gün) dikkate alınmaz. Faiz = 105.000 × %4 × 5 = **21.000 TL**.
+    ay kesirleri (15 gün) dikkate alınmaz. Faiz = 105.000 × %4 × 5 = **21.000 TL**.
 
     - Toplam tahsilat = 105.000 + 21.000 = **126.000 TL**.
 
@@ -850,7 +850,7 @@
       "b3": ilk_tesebbus, "c_alt": alt, "c_ust": ust, "c_toplam": toplam_alt, "c_tesebbus": tesebbus_toplam, "d": yetkisiz}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -861,11 +861,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem duzelt: (a) çözümünde 10.03-10.08 sonrası artan gün sayısı 11 yazılmış; 10.08 ile 25.08 arası 15 gündür
+          (sonuç 5 ay/21.000 TL değişmez).'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim DTK_KMB_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: (a) çözümünde 10.03-10.08 sonrası artan gün sayısı 11 yazılmış; 10.08 ile 25.08 arası 15 gündür
+      (sonuç 5 ay/21.000 TL değişmez).'
 - id: YMM-DTK-KMB-K007
   sinav: ymm
   ders: DTK
@@ -1266,7 +1274,7 @@
       \ > 50000\nbanka_tl_usd = 2100000 // kur\nbanka_tl_var = banka_tl_usd > 50000\nbanka_tl2_var = 1900000 // kur > 50000\n\
       sonuc = {\"beyan\": beyan, \"aylik\": aylik, \"banka_son_ham\": banka_son, \"banka_usd\": banka_usd, \"banka_tl_var\"\
       : banka_tl_var, \"banka_tl2_var\": banka_tl2_var, \"tl_usd\": banka_tl_usd}\n"
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1277,11 +1285,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-11-05'
+        not: 'hakem ret: Kurgu, ''10.000 Avro veya eşitini aşan'' ve ''50.000 ABD Doları veya eşitini aşan'' ibarelerindeki
+          ''eşiti''ni ''eşit olan'' diye okuyup eşik değerdeki C, E ve H''yi kapsama alıyor. Metinde ''eşiti'' büyük olasılıkla
+          ''karşılığı'' anlamında ve ''aşan'' kesin aşmayı gerektirir; kurgu kendi içinde de tuta'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim DTK_KMB_20261105_1.yaml, klasik 3
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'hakem ret: Kurgu, ''10.000 Avro veya eşitini aşan'' ve ''50.000 ABD Doları veya eşitini aşan'' ibarelerindeki
+      ''eşiti''ni ''eşit olan'' diye okuyup eşik değerdeki C, E ve H''yi kapsama alıyor. Metinde ''eşiti'' büyük olasılıkla
+      ''karşılığı'' anlamında ve ''aşan'' kesin aşmayı gerektirir; kurgu kendi içinde de tuta'
 - id: YMM-DTK-KMB-K009
   sinav: ymm
   ders: DTK
@@ -1489,7 +1507,7 @@
       \ \"fuar\": fmt(fuar), \"gecici\": fmt(gecici), \"kredili\": fmt(kredili), \"uzun_vade\": fmt(uzun_vade), \"normal_ham\"\
       : fmt(normal_ham), \"normal\": fmt(normal), \"pesin\": fmt(pesin), \"vade_gun\": vade_gun, \"hg_konsinye\": hg(dfc(*konsinye_ham)),\
       \ \"hg_normal\": hg(dfc(*normal_ham))}\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1500,11 +1518,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim DTK_KMB_20261105_1.yaml, klasik 4
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-DTK-KMB-K010
   sinav: ymm
   ders: DTK

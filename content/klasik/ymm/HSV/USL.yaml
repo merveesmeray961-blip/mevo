@@ -658,7 +658,7 @@
       sonuc={"arac1_gecmis_taksit":taksit1,"arac1_son_gun":"2026-04-10","arac1_temmuz_taksit":taksit1,"arac2_tahakkuk":60000/2,"arac2_son_gun":"2026-10-14","arac3_alici_baslangic":"2027-01-01","arac4_alici_baslangic":"2026-07-01"}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -669,11 +669,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_USL_20261105_1.yaml, klasik 3
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-USL-K005
   sinav: ymm
   ders: HSV
@@ -769,8 +775,9 @@
     **(d) İthalatta KDV (md. 46/2, md. 47)**
 
 
-    İthalde alınan KDV gümrük vergisi ile birlikte ve aynı zamanda ödenir: 300.000 + 480.000 = **780.000 TL**. İthal sırasında
-    alınan KDV gümrük makbuzunda ayrıca gösterilir.
+    İthalde alınan KDV gümrük vergisi ile birlikte ve aynı zamanda ödenir: KDV 480.000 TL''dir; gümrük vergisiyle (300.000
+    TL) birlikte ve aynı zamanda ödenen toplam 300.000 + 480.000 = **780.000 TL**. İthal sırasında alınan KDV gümrük makbuzunda
+    ayrıca gösterilir.
 
     '
   puanlama:
@@ -827,7 +834,7 @@
       :\"2026-09-%d\"%(24),\"z_odeme\":\"2026-09-%d\"%(24+2),\"ekim_toplam_odeme\":odenecek+tev,\"ithalat_toplam\":300000+480000}\n\
       assert sonuc[\"odeme\"]==\"2026-10-26\" and sonuc[\"tev_odeme\"]==\"2026-10-23\" and sonuc[\"z_odeme\"]==\"2026-09-26\"\
       \n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -838,11 +845,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem duzelt: (d) bendi "KDV''nin ... ne kadar ödeneceği" soruyor; çözümde yalnız gümrük vergisi dahil 780.000
+          TL toplamı var, KDV tutarı (480.000 TL) açıkça belirtilmemiş.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_USL_20261105_1.yaml, klasik 4
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: (d) bendi "KDV''nin ... ne kadar ödeneceği" soruyor; çözümde yalnız gümrük vergisi dahil 780.000
+      TL toplamı var, KDV tutarı (480.000 TL) açıkça belirtilmemiş.'
 - id: YMM-HSV-USL-K006
   sinav: ymm
   ders: HSV
@@ -870,8 +885,8 @@
     | 2 | Mesken olarak kullanılan apartmanın bir dairesi 4 Ekim 2026''da dükkâna çevrilmiştir; (K) bu olay için bildirim
     vermemiştir. |
 
-    | 3 | (K), vergi değeri 9.000.000 TL olan mesken olmayan bir binaya (K)''nın üç mirasçı ortağıyla elbirliği mülkiyetinde
-    sahiptir; mirasçılardan biri münferiden bildirim vermiştir. |
+    | 3 | Vergi değeri 9.000.000 TL olan mesken olmayan bir bina, (K) dahil toplam üç hissedarın elbirliği mülkiyetindedir;
+    hissedarlardan biri münferiden bildirim vermiştir. |
 
     | 4 | Kanunla tasarrufu kısıtlanan bir bina için, kısıtlama olmasaydı hesaplanacak yıllık bina vergisi 40.000 TL''dir;
     kısıtlama bütün yıl devam etmektedir. |
@@ -994,7 +1009,7 @@
       sonuc={\"olay1_son\":\"2026-12-%d\"%(31),\"olay2_son\":\"2027-01-%d\"%(4),\"yillik_vergi\":yillik,\"hissedar_basi\"\
       :hisse,\"hissedar_taksit\":hisse/2,\n \"kisitli_vergi\":kisitli,\"kisitli_taksit\":kisitli/2}\nassert yillik==36000\
       \ and hisse==12000 and kisitli==4000\n"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1005,11 +1020,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-05'
+        not: 'hakem duzelt: Soru metni 3 numaralı olayda hissedar sayısını belirsiz bırakıyor: "(K), ... (K)''nın üç mirasçı
+          ortağıyla" ifadesi (K) dahil dört hissedar anlamına gelir; çözüm 3 hissedara bölüyor (12.000 TL). Soru, çözümle
+          uyumlu olacak biçimde düzeltildi.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_USL_20261105_1.yaml, klasik 5
+  - tarih: '2026-11-05'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Soru metni 3 numaralı olayda hissedar sayısını belirsiz bırakıyor: "(K), ... (K)''nın üç mirasçı
+      ortağıyla" ifadesi (K) dahil dört hissedar anlamına gelir; çözüm 3 hissedara bölüyor (12.000 TL). Soru, çözümle uyumlu
+      olacak biçimde düzeltildi.'
 - id: YMM-HSV-USL-K007
   sinav: ymm
   ders: HSV
