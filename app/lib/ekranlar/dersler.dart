@@ -7,6 +7,7 @@ import 'anlatimlar.dart';
 import 'calisma.dart';
 import 'klasik.dart';
 import 'konu.dart';
+import 'pdf_olustur.dart';
 import '../bilesenler/duzen.dart';
 
 class DerslerEkrani extends StatelessWidget {
@@ -21,7 +22,18 @@ class DerslerEkrani extends StatelessWidget {
         final bolum = durum.bolum;
         final dersler = durum.banka.bolumDersleri(bolum);
         return Scaffold(
-          appBar: AppBar(title: const Text('Dersler')),
+          appBar: AppBar(
+            title: const Text('Dersler'),
+            actions: [
+              IconButton(
+                key: const Key('pdf-foy'),
+                tooltip: 'PDF çalışma föyü',
+                icon: const Icon(Icons.picture_as_pdf_outlined),
+                onPressed: () =>
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const PdfOlusturEkrani())),
+              ),
+            ],
+          ),
           // Geniş tablette (yatay 10") kartlar iki sütuna dizilir; dar ekranlarda tek sütun ve okuma genişliği korunur.
           body: Govde(
             enGenis: tabletGenisligi,
@@ -214,7 +226,18 @@ class DersDetay extends StatelessWidget {
         ];
         final t = Theme.of(context).textTheme;
         return Scaffold(
-          appBar: AppBar(title: Text(ders.gorunenAd(bolum))),
+          appBar: AppBar(
+            title: Text(ders.gorunenAd(bolum)),
+            actions: [
+              IconButton(
+                tooltip: 'Bu dersten PDF föy',
+                icon: const Icon(Icons.picture_as_pdf_outlined),
+                onPressed: () => Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (_) => PdfOlusturEkrani(ders: ders.kod))),
+              ),
+            ],
+          ),
           body: Govde(
             child: ListView(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),

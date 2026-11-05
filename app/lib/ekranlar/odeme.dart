@@ -138,6 +138,7 @@ class _OdemeEkraniState extends State<OdemeEkrani> {
                     ('Günlük soru', '$ucretsizGunlukSoru', 'Sınırsız'),
                     ('Deneme sınavı', '$ucretsizDeneme', 'Sınırsız'),
                     ('Konu anlatımları', 'Her dersten 1', 'Tümü'),
+                    ('PDF çalışma föyü (yazdır)', '—', '✓'),
                     ('Yanlış defteri ve aralıklı tekrar', '✓', '✓'),
                     ('Mevzuat sekmesi', '✓', '✓'),
                     ('Kanun maddeli açıklamalar', '✓', '✓'),
