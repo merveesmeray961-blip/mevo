@@ -1,0 +1,1633 @@
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - ana bütçe
+  zorluk: 3
+  puan: 23
+  sure_dk: 30
+  soru: |
+    Poyraz Boya A.Ş. tek tip boya üretmektedir. 2026 yılı üçüncü çeyreği için ana bütçe çalışmaları sürmektedir. Beklenen satışlar (kutu): Temmuz 20.000, Ağustos 25.000, Eylül 30.000, Ekim 24.000, Kasım 20.000.
+
+    Bütçe varsayımları:
+    - Her ayın sonunda mamul stoku, izleyen ayın satış miktarının %20'si düzeyinde tutulacaktır; Temmuz başı stoku bu ilkeye uygundur.
+    - Bir kutu boya için 2 kg ilk madde gerekir; kilogram fiyatı 3 TL'dir. Her ayın sonunda ilk madde stoku, izleyen ayın üretim ihtiyacının %25'i kadar olacaktır; Temmuz başı stoku da bu ilkeye uygundur.
+    - Bir kutunun birim standart maliyeti 12 TL'dir (2 kg ilk madde 6 TL dâhil).
+
+    **İstenenler:**
+    (a) Temmuz, Ağustos ve Eylül için aylık üretim bütçesini (kutu) hazırlayınız. (8 puan)
+    (b) Aynı aylar için ilk madde alım bütçesini hazırlayınız; çeyreklik alım miktarını (kg) ve tutarını (TL) bulunuz. (9 puan)
+    (c) Eylül sonu itibarıyla mamul stoku ve ilk madde stokunun toplam tutarını hesaplayınız. (6 puan)
+  cozum: |
+    **(a)** Üretim = satış + hedef son stok − başlangıç stoku (başlangıç stoku = o ayın satışının %20'si).
+
+    | | Temmuz | Ağustos | Eylül |
+    |---|---|---|---|
+    | Satış | 20.000 | 25.000 | 30.000 |
+    | + Hedef son stok | 5.000 | 6.000 | 4.800 |
+    | − Başlangıç stoku | 4.000 | 5.000 | 6.000 |
+    | **Üretim (kutu)** | **21.000** | **26.000** | **28.800** |
+
+    Çeyreklik üretim = 75.800 kutu. Ekim üretimi de 23.200 kutudur (24.000 + 4.000 − 4.800).
+
+    **(b)** İlk madde ihtiyacı üretimin 2 katıdır.
+
+    | | Temmuz | Ağustos | Eylül |
+    |---|---|---|---|
+    | İhtiyaç (kg) | 42.000 | 52.000 | 57.600 |
+    | + Hedef son stok (%25) | 13.000 | 14.400 | 11.600 |
+    | − Başlangıç stoku | 10.500 | 13.000 | 14.400 |
+    | **Alım (kg)** | **44.500** | **53.400** | **54.800** |
+
+    Çeyreklik alım = **152.700 kg**; tutar = 152.700 × 3 = **458.100 TL**.
+
+    **(c)** Mamul stoku = 4.800 kutu × 12 = 57.600 TL; ilk madde stoku = 11.600 kg × 3 = 34.800 TL. Toplam = **92.400 TL**.
+  puanlama:
+  - olcut: (a) üretim bütçesi
+    puan: 8
+  - olcut: (b) ilk madde alım bütçesi, miktar ve tutar
+    puan: 9
+  - olcut: (c) dönem sonu stok tutarları
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 710 Direkt İlkmadde ve Malzeme Giderleri
+    alinti: Bu giderler, esas üretim gider yerleri ile ilgili olup, mamülün bünyesine giren, mamülün temel öğesini oluşturan ve mamülün bünyesine doğrudan yüklenebilen maddelerin kullanımı fiili tutarlarla bu hesapta izlenir. Üretimde kullanılmayan ve satılan ilkmadde ve malzemenin maliyeti bu hesapta izlenmez.
+  dogrulama:
+    python: |
+      s_tem = 20000
+      s_agu = 25000
+      s_eyl = 30000
+      s_eki = 24000
+      s_kas = 20000
+      u_tem = s_tem + 0.2 * s_agu - 0.2 * s_tem
+      u_agu = s_agu + 0.2 * s_eyl - 0.2 * s_agu
+      u_eyl = s_eyl + 0.2 * s_eki - 0.2 * s_eyl
+      u_eki = s_eki + 0.2 * s_kas - 0.2 * s_eki
+      i_tem = 2 * u_tem
+      i_agu = 2 * u_agu
+      i_eyl = 2 * u_eyl
+      i_eki = 2 * u_eki
+      a_tem = i_tem + 0.25 * i_agu - 0.25 * i_tem
+      a_agu = i_agu + 0.25 * i_eyl - 0.25 * i_agu
+      a_eyl = i_eyl + 0.25 * i_eki - 0.25 * i_eyl
+      a_top = a_tem + a_agu + a_eyl
+      a_tl = a_top * 3
+      u_top = u_tem + u_agu + u_eyl
+      mamul_son = 0.2 * s_eki
+      mamul_tl = mamul_son * 12
+      dm_son = 0.25 * i_eki
+      dm_tl = dm_son * 3
+      sonuc = {'a': u_top, 'b': a_top, 'b_tl': a_tl, 'c': mamul_tl + dm_tl}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - ana bütçe
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    Işık Armatür A.Ş. tek tip armatür üretmektedir. 2026 yılı ana bütçesi için veriler:
+
+    | Kalem | Bilgi |
+    |---|---|
+    | Satış miktarı / birim satış fiyatı | 100.000 adet / 80 TL |
+    | Dönem başı mamul stoku | 10.000 adet; birim maliyet 50 TL |
+    | Dönem sonu hedef mamul stoku | 15.000 adet |
+    | Birim değişken üretim maliyeti | Direkt ilk madde 20 TL, direkt işçilik 12 TL, değişken genel üretim gideri 6 TL |
+    | Yıllık sabit genel üretim gideri | 1.260.000 TL (üretim miktarına bölünerek birim maliyete katılır) |
+    | Satış ve dağıtım gideri | Adet başına 5 TL değişken, ayrıca yıllık 900.000 TL sabit |
+    | Faiz gideri | 120.000 TL |
+    | Kurumlar vergisi oranı | %25 |
+
+    Stoklar ilk giren ilk çıkar yöntemiyle izlenmektedir; bütçe dönemi birim maliyeti 50 TL olarak gerçekleşecektir.
+
+    **İstenenler:**
+    (a) Üretim bütçesini hazırlayınız (adet). (4 puan)
+    (b) Dönem üretim maliyet bütçesini ve birim tam maliyeti bulunuz. (6 puan)
+    (c) Bütçelenmiş gelir tablosunu (satılan mamul maliyeti, brüt kâr, faaliyet kârı ve net kâr) hazırlayınız. (10 puan)
+  cozum: |
+    **(a)** Üretim = 100.000 + 15.000 − 10.000 = **105.000 adet**.
+
+    **(b)**
+
+    | Kalem | Tutar (TL) |
+    |---|---|
+    | Direkt ilk madde (105.000 × 20) | 2.100.000 |
+    | Direkt işçilik (105.000 × 12) | 1.260.000 |
+    | Değişken genel üretim gideri (105.000 × 6) | 630.000 |
+    | Sabit genel üretim gideri | 1.260.000 |
+    | **Üretim maliyeti** | **5.250.000** |
+
+    Birim tam maliyet = 5.250.000 / 105.000 = **50 TL**.
+
+    **(c)** FIFO'ya göre önce dönem başı stok satılır: Satılan mamul maliyeti = 10.000 × 50 + 5.250.000 − 15.000 × 50 = **5.000.000 TL**.
+
+    | Kalem | Tutar (TL) |
+    |---|---|
+    | Satışlar (100.000 × 80) | 8.000.000 |
+    | Satılan mamul maliyeti | -5.000.000 |
+    | **Brüt kâr** | **3.000.000** |
+    | Satış ve dağıtım gideri (500.000 + 900.000) | -1.400.000 |
+    | **Faaliyet kârı** | **1.600.000** |
+    | Faiz gideri | -120.000 |
+    | Vergi öncesi kâr | 1.480.000 |
+    | Kurumlar vergisi (%25) | -370.000 |
+    | **Net kâr** | **1.110.000** |
+  puanlama:
+  - olcut: (a) üretim bütçesi
+    puan: 4
+  - olcut: (b) üretim maliyeti ve birim maliyet
+    puan: 6
+  - olcut: (c) bütçelenmiş gelir tablosu
+    puan: 10
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 152 Mamuller
+    alinti: 'Üretim çalışmaları sonunda elde edilen ve satışa hazır hale gelmiş bulunan mamullerin izlendiği hesaptır. İşleyişi : Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır. Satılması veya herhangi bir nedenle ambardan çekilmesi ile alacaklandırılır.'
+  dogrulama:
+    python: |
+      satis = 100000
+      fiyat = 80
+      bas_stok = 10000
+      son_stok = 15000
+      uretim = satis + son_stok - bas_stok
+      dm = uretim * 20
+      dis = uretim * 12
+      vguc = uretim * 6
+      sguc = 1260000
+      uret_mal = dm + dis + vguc + sguc
+      birim = uret_mal / uretim
+      smm = bas_stok * 50 + uret_mal - son_stok * birim
+      ciro = satis * fiyat
+      brut = ciro - smm
+      faal_gider = satis * 5 + 900000
+      faal_kar = brut - faal_gider
+      vergi_once = faal_kar - 120000
+      vergi = vergi_once * 0.25
+      net = vergi_once - vergi
+      sonuc = {'a': uretim, 'b': uret_mal, 'c': net, 'smm': smm}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - nakit bütçesi ve finansman ihtiyacı
+  - ana bütçe
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: |
+    Lale Züccaciye A.Ş.'nin 2026 yılı ilk çeyreği için satış tahminleri (TL): Kasım 2025: 300.000; Aralık 2025: 350.000; Ocak: 400.000; Şubat: 500.000; Mart: 600.000.
+
+    Tüm satışlar kredilidir ve tahsilat politikası şöyledir: Satış ayında %30 (bu tutara %2 peşin ödeme iskontosu uygulanır), izleyen ayda %50, ikinci ayda %20 tahsil edilir. Tahsil edilemeyen alacak yoktur.
+
+    **İstenenler:**
+    (a) Ocak, Şubat ve Mart ayları için tahsilat bütçesini hazırlayınız ve çeyreklik toplam tahsilatı bulunuz. (9 puan)
+    (b) 31 Mart itibarıyla ticari alacak bakiyesini (iskonto uygulanmamış brüt tutar üzerinden) hesaplayınız. (5 puan)
+    (c) İşletme, Ocak'tan itibaren tahsilat politikasını değiştirerek satış ayında %40 (yine %2 iskontolu), izleyen ayda %60 tahsilat yapmaya karar verirse Mart ayı tahsilatı ne kadar değişir? (6 puan)
+  cozum: |
+    **(a)**
+
+    | Ay | Satış ayı tahsilatı (%30, %2 iskontolu) | Önceki ay (%50) | İki ay önceki (%20) | Toplam (TL) |
+    |---|---|---|---|---|
+    | Ocak | 400.000 × 0,30 × 0,98 = 117.600 | 175.000 | 60.000 | **352.600** |
+    | Şubat | 147.000 | 200.000 | 70.000 | **417.000** |
+    | Mart | 176.400 | 250.000 | 80.000 | **506.400** |
+
+    Çeyreklik tahsilat = **1.276.000 TL**.
+
+    **(b)** Mart sonu alacak = Mart satışının tahsil edilmeyen %70'i + Şubat satışının tahsil edilmeyen %20'si = 420.000 + 100.000 = **520.000 TL**.
+
+    **(c)** Yeni politikada Mart tahsilatı = 600.000 × 0,40 × 0,98 + 500.000 × 0,60 = 535.200 TL. Değişim = 535.200 − 506.400 = **28.800 TL** (artış). İskonto maliyeti pahasına tahsilat hızlanmıştır.
+  puanlama:
+  - olcut: (a) aylık tahsilatlar ve çeyreklik toplam
+    puan: 9
+  - olcut: (b) 31 Mart alacak bakiyesi
+    puan: 5
+  - olcut: (c) yeni politikada Mart tahsilatı ve değişim
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  dogrulama:
+    python: |
+      oca = 400000
+      sub = 500000
+      mar = 600000
+      ara = 350000
+      kas = 300000
+      t_oca = 0.3 * 0.98 * oca + 0.5 * ara + 0.2 * kas
+      t_sub = 0.3 * 0.98 * sub + 0.5 * oca + 0.2 * ara
+      t_mar = 0.3 * 0.98 * mar + 0.5 * sub + 0.2 * oca
+      t_top = t_oca + t_sub + t_mar
+      alacak = 0.7 * mar + 0.2 * sub
+      y_mar = 0.4 * 0.98 * mar + 0.6 * sub
+      fark = y_mar - t_mar
+      sonuc = {'a': t_top, 'b': alacak, 'c': fark}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - nakit bütçesi ve finansman ihtiyacı
+  zorluk: 3
+  puan: 24
+  sure_dk: 32
+  soru: |
+    Dolunay Kırtasiye A.Ş. 2026 yılı ikinci çeyreği için nakit bütçesi hazırlamaktadır. Nisan başındaki kasa ve banka mevcudu 40.000 TL'dir. İşletme her ay sonunda en az 30.000 TL nakit bulundurmak istemektedir. Yetersiz kalan tutar, 10.000 TL'nin katları hâlinde ay sonunda kredi çekilerek karşılanır. Kredinin aylık faizi %2 olup önceki ay sonundaki kredi bakiyesi üzerinden hesaplanır ve izleyen ay içinde nakden ödenir; anapara bu çeyrekte geri ödenmeyecektir.
+
+    | Aylık nakit hareketleri (TL) | Nisan | Mayıs | Haziran |
+    |---|---|---|---|
+    | Tahsilatlar | 220.000 | 180.000 | 260.000 |
+    | Mal alımı ödemeleri | 150.000 | 130.000 | 120.000 |
+    | İşçilik ödemeleri | 40.000 | 40.000 | 40.000 |
+    | Genel giderler | 30.000 | 30.000 | 30.000 |
+    | Vergi ödemesi | 20.000 | - | - |
+    | Makine alımı | - | - | 90.000 |
+
+    **İstenenler:**
+    (a) Nisan, Mayıs ve Haziran için nakit bütçesini (kredi çekimi ve ay sonu nakdi dâhil) hazırlayınız. (12 puan)
+    (b) Haziran sonundaki kredi bakiyesini ve çeyrek boyunca ödenen toplam faizi bulunuz. (6 puan)
+    (c) Makine alımı Temmuz'a ertelenirse Haziran ayında çekilecek kredi tutarı ne olur? (6 puan)
+  cozum: |
+    **(a)**
+
+    | TL | Nisan | Mayıs | Haziran |
+    |---|---|---|---|
+    | Açılış nakdi | 40.000 | 30.000 | 39.800 |
+    | + Tahsilat | 220.000 | 180.000 | 260.000 |
+    | − Ödemeler | -240.000 | -200.000 | -280.000 |
+    | − Faiz (%2) | 0 | -200 | -800 |
+    | Kredi öncesi nakit | 20.000 | 9.800 | 19.000 |
+    | Asgari nakit | 30.000 | 30.000 | 30.000 |
+    | **Kredi çekimi (10.000 katı)** | **10.000** | **30.000** | **20.000** |
+    | **Ay sonu nakdi** | **30.000** | **39.800** | **39.000** |
+
+    **(b)** Kredi bakiyesi: Nisan 10.000, Mayıs 40.000, Haziran **60.000 TL**. Ödenen faiz = 200 + 800 = **1.000 TL**.
+
+    **(c)** Makine alımı yoksa Haziran kredi öncesi nakit = 109.000 TL; asgari nakit 30.000 TL'yi karşılayacağından Haziran'da çekilecek kredi **0 TL** olur.
+  puanlama:
+  - olcut: (a) üç aylık nakit bütçesi, faiz ve kredi çekimleri
+    puan: 12
+  - olcut: (b) Haziran sonu bakiye ve toplam faiz
+    puan: 6
+  - olcut: (c) makine alımı ertelenince kredi ihtiyacı
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  dogrulama:
+    python: |
+      asgari = 30000
+      ac = 40000
+      tah_n = 220000
+      od_n = 150000 + 40000 + 30000 + 20000
+      once_n = ac + tah_n - od_n
+      eksik_n = asgari - once_n
+      kredi_n = 0
+      if eksik_n > 0:
+          kredi_n = ((eksik_n + 9999) // 10000) * 10000
+      son_n = once_n + kredi_n
+      bak_n = kredi_n
+      faiz_m = bak_n * 0.02
+      once_m = son_n + 180000 - (130000 + 40000 + 30000) - faiz_m
+      eksik_m = asgari - once_m
+      kredi_m = 0
+      if eksik_m > 0:
+          kredi_m = ((eksik_m + 9999) // 10000) * 10000
+      son_m = once_m + kredi_m
+      bak_m = bak_n + kredi_m
+      faiz_h = bak_m * 0.02
+      once_h = son_m + 260000 - (120000 + 40000 + 30000 + 90000) - faiz_h
+      eksik_h = asgari - once_h
+      kredi_h = 0
+      if eksik_h > 0:
+          kredi_h = ((eksik_h + 9999) // 10000) * 10000
+      son_h = once_h + kredi_h
+      bak_h = bak_m + kredi_h
+      faiz_top = faiz_m + faiz_h
+      once_h2 = son_m + 260000 - (120000 + 40000 + 30000) - faiz_h
+      eksik_h2 = asgari - once_h2
+      kredi_h2 = 0
+      if eksik_h2 > 0:
+          kredi_h2 = ((eksik_h2 + 9999) // 10000) * 10000
+      sonuc = {'a': son_h, 'b': bak_h, 'faiz': faiz_top, 'c': kredi_h2}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - ana bütçe
+  - nakit bütçesi ve finansman ihtiyacı
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: |
+    Verim Tekstil Ticaret A.Ş. perakende satışla uğraşmaktadır. Satılan ticari mal maliyeti, net satışların %60'ıdır. Beklenen aylık satışlar (TL): Mart 500.000; Nisan 600.000; Mayıs 800.000; Haziran 700.000; Temmuz 500.000.
+
+    Mal alımları ile ilgili varsayımlar:
+    - Her ayın sonunda ticari mal stoku, izleyen ayın satılan mal maliyetinin %50'si düzeyindedir; Mart başı stoku da bu ilkeye uygundur.
+    - Alımların %40'ı alım ayında peşin, %60'ı izleyen ayda ödenir.
+
+    **İstenenler:**
+    (a) Nisan, Mayıs ve Haziran ayları için mal alım bütçesini hazırlayınız. (8 puan)
+    (b) Mayıs ve Haziran aylarında satıcılara yapılacak ödemeleri bulunuz. (6 puan)
+    (c) 30 Haziran itibarıyla satıcılara borç bakiyesini ve ticari mal stokunu bulunuz. (6 puan)
+  cozum: |
+    Satılan mal maliyetleri: Mart 300.000, Nisan 360.000, Mayıs 480.000, Haziran 420.000, Temmuz 300.000 TL.
+
+    **(a)** Alım = satılan mal maliyeti + hedef son stok − başlangıç stoku. Başlangıç stoku önceki ayın hedef son stokudur; bu yüzden alım = %50 × (cari ay maliyeti + izleyen ay maliyeti).
+
+    | | Nisan | Mayıs | Haziran |
+    |---|---|---|---|
+    | Satılan mal maliyeti | 360.000 | 480.000 | 420.000 |
+    | + Hedef son stok | 240.000 | 210.000 | 150.000 |
+    | − Başlangıç stoku | 180.000 | 240.000 | 210.000 |
+    | **Alım** | **420.000** | **450.000** | **360.000** |
+
+    Kontrol: Nisan alımı = 360.000 + 240.000 − 180.000 = 420.000 TL.
+
+    **(b)** Mayıs ödemesi = 0,40 × 450.000 + 0,60 × 420.000 = 180.000 + 252.000 = 432.000 TL. Haziran ödemesi = 0,40 × 360.000 + 0,60 × 450.000 = **414.000 TL**.
+
+    **(c)** Haziran sonu satıcı borcu = 0,60 × 360.000 = **216.000 TL**; stok = 0,5 × 300.000 = **150.000 TL**.
+  puanlama:
+  - olcut: (a) mal alım bütçesi
+    puan: 8
+  - olcut: (b) Mayıs ve Haziran ödemeleri
+    puan: 6
+  - olcut: (c) borç ve stok bakiyeleri
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 9
+    alinti: Stoklar, maliyet değeri ile net gerçekleşebilir değerin düşük olanı üzerinden ölçülür.
+  dogrulama:
+    python: |
+      cm = 0.6 * 500000
+      cn = 0.6 * 600000
+      cy = 0.6 * 800000
+      ch = 0.6 * 700000
+      ct = 0.6 * 500000
+      al_m = 0.5 * cm + 0.5 * cn
+      al_n = 0.5 * cn + 0.5 * cy
+      al_y = 0.5 * cy + 0.5 * ch
+      al_h = 0.5 * ch + 0.5 * ct
+      od_y = 0.4 * al_y + 0.6 * al_n
+      od_h = 0.4 * al_h + 0.6 * al_y
+      borc_h = 0.6 * al_h
+      stok_h = 0.5 * ct
+      sonuc = {'a': al_h, 'b': od_h, 'c': borc_h, 'al_y': al_y}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - nakit bütçesi ve finansman ihtiyacı
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: |
+    Tepe Termal Otel A.Ş. kış sezonunda gelirin düşük, bakım ve sabit giderlerin yüksek olduğu bir işletmedir. Kasım 2026'dan Mart 2027'ye kadar aylık bütçelenen net nakit akışları (tahsilat − ödeme; kredi ve faiz hariç):
+
+    | Ay | Net nakit akışı (TL) |
+    |---|---|
+    | Kasım | -40.000 |
+    | Aralık | -90.000 (ayrıca 50.000 TL çatı onarımı ödemesi) |
+    | Ocak | -130.000 |
+    | Şubat | -60.000 |
+    | Mart | +150.000 |
+
+    Kasım başındaki nakit 120.000 TL'dir. İşletme her ay sonunda en az 60.000 TL nakit tutmaktadır. Eksik tutar, ay sonunda 10.000 TL'nin katları kadar kredi kullanılarak karşılanır; kredi limiti 350.000 TL'dir. Faiz aylık %2'dir, önceki ay sonu kredi bakiyesi üzerinden hesaplanıp ay içinde nakden ödenir. Mart ayında asgari nakit üzerindeki fazla tutar, 10.000 TL'nin katları hâlinde krediye geri ödenir.
+
+    **İstenenler:**
+    (a) Kasım–Mart nakit bütçesini kredi çekimleri, faiz ve geri ödeme ile birlikte hazırlayınız. (10 puan)
+    (b) En yüksek kredi bakiyesinin hangi ay sonunda oluştuğunu ve limitin yeterli olup olmadığını belirtiniz; toplam faiz ödemesini bulunuz. (6 puan)
+    (c) Mart sonu kredi bakiyesini ve nakdi bulunuz. (6 puan)
+  cozum: |
+    **(a)**
+
+    | TL | Kasım | Aralık | Ocak | Şubat | Mart |
+    |---|---|---|---|---|---|
+    | Net nakit akışı | -40.000 | -140.000 | -130.000 | -60.000 | 150.000 |
+    | Faiz | 0 | 0 | -2.400 | -5.200 | -6.400 |
+    | Kredi öncesi ay sonu nakdi | 80.000 | -60.000 | -72.400 | 2.400 | 206.000 |
+    | Kredi çekimi | 0 | 120.000 | 140.000 | 60.000 | 0 |
+    | Kredi geri ödemesi | 0 | 0 | 0 | 0 | -140.000 |
+    | **Ay sonu nakdi** | **80.000** | **60.000** | **67.600** | **62.400** | **66.000** |
+    | **Kredi bakiyesi** | 0 | 120.000 | 260.000 | 320.000 | 180.000 |
+
+    **(b)** Kredi bakiyesi Şubat sonunda en yüksek düzeye (**320.000 TL**) çıkar; 350.000 TL limit yeterlidir. Toplam faiz = 0 + 2.400 + 5.200 + 6.400 = **14.000 TL**.
+
+    **(c)** Mart sonunda kredi bakiyesi **180.000 TL**, nakit **66.000 TL**'dir.
+  puanlama:
+  - olcut: (a) aylık nakit bütçesi, faiz, kredi çekimi ve geri ödeme
+    puan: 10
+  - olcut: (b) en yüksek bakiye, limit yeterliliği, toplam faiz
+    puan: 6
+  - olcut: (c) Mart sonu bakiyeleri
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  dogrulama:
+    python: |
+      asgari = 60000
+      limit = 350000
+      ac = 120000
+      net_k = -40000
+      net_a = -90000 - 50000
+      net_o = -130000
+      net_s = -60000
+      net_m = 150000
+      once_k = ac + net_k
+      kr_k = 0
+      if asgari - once_k > 0:
+          kr_k = ((asgari - once_k + 9999) // 10000) * 10000
+      son_k = once_k + kr_k
+      b_k = kr_k
+      f_a = b_k * 0.02
+      once_a = son_k + net_a - f_a
+      kr_a = 0
+      if asgari - once_a > 0:
+          kr_a = ((asgari - once_a + 9999) // 10000) * 10000
+      son_a = once_a + kr_a
+      b_a = b_k + kr_a
+      f_o = b_a * 0.02
+      once_o = son_a + net_o - f_o
+      kr_o = 0
+      if asgari - once_o > 0:
+          kr_o = ((asgari - once_o + 9999) // 10000) * 10000
+      son_o = once_o + kr_o
+      b_o = b_a + kr_o
+      f_s = b_o * 0.02
+      once_s = son_o + net_s - f_s
+      kr_s = 0
+      if asgari - once_s > 0:
+          kr_s = ((asgari - once_s + 9999) // 10000) * 10000
+      son_s = once_s + kr_s
+      b_s = b_o + kr_s
+      f_m = b_s * 0.02
+      once_m = son_s + net_m - f_m
+      fazla = once_m - asgari
+      geri = (fazla // 10000) * 10000
+      son_m = once_m - geri
+      b_m = b_s - geri
+      faiz_top = f_a + f_o + f_s + f_m
+      sonuc = {'a': b_s, 'b': faiz_top, 'c': b_m, 'nakit': son_m}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - esnek bütçe
+  zorluk: 3
+  puan: 21
+  sure_dk: 30
+  soru: |
+    Çınar Plastik A.Ş.'nin 2026 yılı statik bütçesi 20.000 birim satış üzerine kuruludur. Bütçe ve fiilî sonuçlar (TL):
+
+    | Kalem | Statik bütçe (20.000 birim) | Fiilî (22.000 birim) |
+    |---|---|---|
+    | Satışlar | 2.000.000 | 2.140.000 |
+    | Direkt ilk madde | 400.000 | 452.000 |
+    | Direkt işçilik | 300.000 | 330.000 |
+    | Değişken genel üretim gideri | 100.000 | 111.000 |
+    | Değişken satış gideri | 200.000 | 215.000 |
+    | Sabit genel üretim gideri | 250.000 | 262.000 |
+    | Sabit yönetim gideri | 150.000 | 150.000 |
+
+    Yönetim, esnek bütçeye göre sapması %3'ü aşan kalemlerin incelenmesini istemektedir.
+
+    **İstenenler:**
+    (a) 22.000 birimlik gerçekleşme düzeyi için esnek bütçeyi hazırlayarak esnek bütçedeki faaliyet kârını bulunuz. (7 puan)
+    (b) Statik bütçe kârından fiilî kâra geçişi hacim sapması ve esnek bütçe sapması olarak ayırınız; kalem bazında esnek bütçe sapmalarını gösteriniz. (9 puan)
+    (c) İncelenmesi gereken kalemi belirleyiniz. (5 puan)
+  cozum: |
+    **(a)** Değişken kalemler birim başına: satış 100, ilk madde 20, işçilik 15, değişken GÜG 5, satış gideri 10 TL. 22.000 birim için esnek bütçe:
+
+    | Kalem | Esnek bütçe (TL) | Fiilî (TL) | Sapma (TL) |
+    |---|---|---|---|
+    | Satışlar | 2.200.000 | 2.140.000 | -60.000 (O) |
+    | Direkt ilk madde | 440.000 | 452.000 | -12.000 (O) |
+    | Direkt işçilik | 330.000 | 330.000 | 0 |
+    | Değişken GÜG | 110.000 | 111.000 | -1.000 (O) |
+    | Değişken satış gideri | 220.000 | 215.000 | 5.000 (L) |
+    | Sabit GÜG | 250.000 | 262.000 | -12.000 (O) |
+    | Sabit yönetim gideri | 150.000 | 150.000 | 0 |
+
+    Esnek bütçe kârı = 2.200.000 − 1.100.000 − 400.000 = **700.000 TL**. (O: olumsuz, L: olumlu.)
+
+    **(b)** Statik bütçe kârı = 600.000 TL (2.000.000 − 1.000.000 − 400.000). Hacim sapması = 700.000 − 600.000 = **100.000 TL** (olumlu). Fiilî kâr = 620.000 TL; esnek bütçe sapması = 620.000 − 700.000 = **-80.000 TL** (olumsuz); kalem sapmalarının toplamı -80.000 TL'dir.
+
+    **(c)** Sapma yüzdeleri: satış 60.000 / 2.200.000 = %2,73; ilk madde %2,73; değişken GÜG %0,91; satış gideri %2,27; **sabit GÜG 12.000 / 250.000 = %4,80**. Yalnız sabit genel üretim gideri %3 sınırını aşar ve incelenmelidir.
+  puanlama:
+  - olcut: (a) esnek bütçe ve esnek bütçe kârı
+    puan: 7
+  - olcut: (b) hacim ve esnek bütçe sapmalarının ayrıştırılması
+    puan: 9
+  - olcut: (c) %3 sınırı ile incelenecek kalem
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  dogrulama:
+    python: |
+      st_kar = 2000000 - (400000 + 300000 + 100000 + 200000) - (250000 + 150000)
+      f_satis = 22000 * 100
+      f_dm = 22000 * 20
+      f_dis = 22000 * 15
+      f_guc = 22000 * 5
+      f_sg = 22000 * 10
+      fx_kar = f_satis - (f_dm + f_dis + f_guc + f_sg) - 400000
+      fi_kar = 2140000 - (452000 + 330000 + 111000 + 215000) - (262000 + 150000)
+      hacim = fx_kar - st_kar
+      esnek_sap = fi_kar - fx_kar
+      s_satis = 2140000 - f_satis
+      s_dm = f_dm - 452000
+      s_dis = f_dis - 330000
+      s_guc = f_guc - 111000
+      s_sg = f_sg - 215000
+      s_sabit = 250000 - 262000
+      kont = s_satis + s_dm + s_dis + s_guc + s_sg + s_sabit
+      yuzde = (12000 / 250000) * 100
+      sonuc = {'a': fx_kar, 'b': esnek_sap, 'c': yuzde, 'hacim': hacim}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - esnek bütçe
+  - genel üretim gideri sapmaları
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    Meridyen Döküm A.Ş.'nin bakım-onarım gideri karma bir giderdir ve makine saati ile ilişkilidir. Son aylarda gözlenen en düşük ve en yüksek faaliyet düzeyleri:
+
+    | | Makine saati | Bakım-onarım gideri (TL) |
+    |---|---|---|
+    | En düşük | 10.000 | 140.000 |
+    | En yüksek | 16.000 | 170.000 |
+
+    Normal kapasite aylık 15.000 makine saatidir. Bakım-onarım gideri bölümün tek genel üretim gideridir. Dönemde fiilî 12.500 makine saati çalışılmış ve 156.000 TL bakım-onarım gideri gerçekleşmiştir. Gerçekleşen üretime izin verilen standart süre 12.000 makine saatidir.
+
+    **İstenenler:**
+    (a) En yüksek-en düşük yöntemiyle maliyet formülünü (birim değişken gider ve sabit gider) bulunuz. (5 puan)
+    (b) 12.500 saatlik esnek bütçeyi hazırlayarak bütçe (harcama) sapmasını hesaplayınız. (7 puan)
+    (c) Normal kapasiteye göre genel üretim gideri yükleme oranını hesaplayarak toplam sapmayı bütçe, verimlilik ve kapasite sapması olarak ayırınız. (8 puan)
+  cozum: |
+    **(a)** Birim değişken gider = (170.000 − 140.000) / (16.000 − 10.000) = **5 TL/saat**; sabit gider = 140.000 − 5 × 10.000 = **90.000 TL**.
+
+    **(b)** Esnek bütçe (12.500 saat) = 90.000 + 5 × 12.500 = 152.500 TL. Bütçe sapması = 156.000 − 152.500 = **3.500 TL** (olumsuz); THP'de 732 hesapta izlenir.
+
+    **(c)** Sabit gider yükleme oranı = 90.000 / 15.000 = 6 TL/saat; toplam oran = 5 + 6 = **11 TL/saat**. Yüklenen GÜG = 12.000 × 11 = 132.000 TL. Toplam sapma = 156.000 − 132.000 = **24.000 TL** (olumsuz).
+
+    | Sapma | Hesap | Tutar (TL) | Hesap |
+    |---|---|---|---|
+    | Bütçe | 156.000 − 152.500 | 3.500 | 732 |
+    | Verimlilik | (12.500 − 12.000) × 11 | 5.500 | 733 |
+    | Kapasite | (15.000 − 12.500) × 6 | 15.000 | 734 |
+    | **Toplam** | | **24.000** | |
+  puanlama:
+  - olcut: (a) maliyet formülü
+    puan: 5
+  - olcut: (b) esnek bütçe ve bütçe sapması
+    puan: 7
+  - olcut: (c) yükleme oranı ve üç sapmanın ayrıştırılması
+    puan: 8
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 732 Genel Üretim Giderleri Bütçe Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz bütçe farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 733 Genel Üretim Giderleri Verimlilik Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz verimlilik farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 734 Genel Üretim Giderleri Kapasite Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz kapasite farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  dogrulama:
+    python: |
+      d = (170000 - 140000) / (16000 - 10000)
+      sabit = 140000 - d * 10000
+      esnek_12500 = sabit + d * 12500
+      fiili = 156000
+      butce_sap = fiili - esnek_12500
+      f_oran = sabit / 15000
+      toplam_oran = d + f_oran
+      uygulanan = 12000 * toplam_oran
+      verim = (12500 - 12000) * toplam_oran
+      kap = (15000 - 12500) * f_oran
+      toplam = fiili - uygulanan
+      kontrol = butce_sap + verim + kap
+      sonuc = {'a': sabit, 'b': butce_sap, 'c': toplam, 'kontrol': kontrol}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - esnek bütçe
+  - ana bütçe
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: |
+    Akın Elektronik A.Ş. iki ürün satmaktadır. 2026 yılı bütçesi ve fiilî sonuçlar:
+
+    | | Ürün A bütçe | Ürün A fiilî | Ürün B bütçe | Ürün B fiilî |
+    |---|---|---|---|---|
+    | Satış miktarı (adet) | 10.000 | 9.000 | 5.000 | 6.500 |
+    | Birim satış fiyatı (TL) | 50 | 52 | 100 | 98 |
+    | Birim değişken maliyet (TL) | 30 | 31 | 70 | 70 |
+
+    Sabit giderler bütçede ve fiilîde aynıdır.
+
+    **İstenenler:**
+    (a) Bütçelenen ve fiilî toplam katkı payını bulunuz. (5 puan)
+    (b) Her ürün için ve toplamda satış hacim sapmasını (bütçe birim katkısı üzerinden) hesaplayınız. (7 puan)
+    (c) Satış fiyatı sapmasını ve değişken maliyet sapmasını ürün bazında hesaplayarak bütçe katkısından fiilî katkıya geçişi gösteriniz. (8 puan)
+  cozum: |
+    **(a)** Bütçe katkısı = 10.000 × 20 + 5.000 × 30 = **350.000 TL**. Fiilî katkı: A = 9.000 × (52 − 31) = 189.000; B = 6.500 × (98 − 70) = 182.000; toplam **371.000 TL**.
+
+    **(b)** Hacim sapması = (fiilî adet − bütçe adedi) × bütçe birim katkısı.
+    - A: (9.000 − 10.000) × 20 = -20.000 TL (olumsuz)
+    - B: (6.500 − 5.000) × 30 = 45.000 TL (olumlu)
+    - Toplam: **25.000 TL** (olumlu)
+
+    **(c)** Fiyat sapması = (fiilî fiyat − bütçe fiyatı) × fiilî adet: A = 2 × 9.000 = 18.000; B = −2 × 6.500 = -13.000; toplam **5.000 TL**. Değişken maliyet sapması = −(fiilî − standart birim maliyet) × fiilî adet: A = −1 × 9.000 = -9.000; B = 0; toplam **-9.000 TL**.
+
+    | Kalem | TL |
+    |---|---|
+    | Bütçe katkısı | 350.000 |
+    | Hacim sapması | 25.000 |
+    | Fiyat sapması | 5.000 |
+    | Değişken maliyet sapması | -9.000 |
+    | **Toplam sapma** | **21.000** |
+    | **Fiilî katkı** | **371.000** |
+  puanlama:
+  - olcut: (a) bütçe ve fiilî katkı
+    puan: 5
+  - olcut: (b) ürün bazında hacim sapması
+    puan: 7
+  - olcut: (c) fiyat ve maliyet sapması, uzlaştırma
+    puan: 8
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  dogrulama:
+    python: |
+      b_katki = 10000 * 20 + 5000 * 30
+      f_katki_A = 9000 * (52 - 31)
+      f_katki_B = 6500 * (98 - 70)
+      f_katki = f_katki_A + f_katki_B
+      hA = (9000 - 10000) * 20
+      hB = (6500 - 5000) * 30
+      hacim = hA + hB
+      fA = (52 - 50) * 9000
+      fB = (98 - 100) * 6500
+      fiyat = fA + fB
+      mA = -(31 - 30) * 9000
+      maliyet = mA
+      toplam = hacim + fiyat + maliyet
+      fark = f_katki - b_katki
+      sonuc = {'a': f_katki, 'b': hacim, 'c': toplam, 'fark': fark}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - malzeme ve işçilik sapmaları
+  zorluk: 3
+  puan: 22
+  sure_dk: 32
+  soru: |
+    Sera Seramik A.Ş. standart maliyet sistemi uygulayan ve Tekdüzen Hesap Planı'nın 7/A seçeneğini kullanan bir işletmedir. Bir birim seramik panelin standart direkt ilk madde maliyeti 3 kg × 8 TL = 24 TL'dir. Dönem verileri:
+    - Üretim: 5.000 panel (tamamı bitmiş ve 152 numaralı hesaba aktarılmıştır); bunun 4.000'i satılmıştır.
+    - Dönemde 18.000 kg ilk madde 8,5 TL/kg fiyatla veresiye (320 Satıcılar) alınmıştır; ilk madde stoğu standart fiyatla izlenmektedir ve fiyat farkı alım anında ayrılmaktadır.
+    - Üretimde fiilen 15.600 kg ilk madde kullanılmıştır.
+    KDV dikkate alınmayacaktır.
+
+    **İstenenler:**
+    (a) Direkt ilk madde fiyat sapmasını (alım anında) ve miktar sapmasını hesaplayınız. (6 puan)
+    (b) Alımın, malzemenin üretime verilmesinin ve standart maliyetin yansıtılmasının yevmiye kayıtlarını yapınız; 710 ve 711 hesaplarının kapatılmasını gösteriniz. (10 puan)
+    (c) Dönem sonunda 712 ve 713 numaralı fark hesaplarını; fiyat farkının kullanılmayan ilk madde (150), mamul stoku (152) ve satılan mamul maliyeti (620) arasında, miktar farkının ise 152 ve 620 arasında dağıtılarak kapatılmasını gösteriniz. (6 puan)
+  cozum: |
+    **(a)** Fiyat sapması = (8,5 − 8) × 18.000 = **9.000 TL** (olumsuz). Standart kullanım = 5.000 × 3 = 15.000 kg; miktar sapması = (15.600 − 15.000) × 8 = **4.800 TL** (olumsuz).
+
+    **(b)** Kayıtlar (TL):
+
+    | Kayıt | Borç | Alacak |
+    |---|---|---|
+    | 1. Alım: 150 İlk Madde ve Malzeme | 144.000 | |
+    | 712 Direkt İlkmadde ve Malzeme Fiyat Farkı | 9.000 | |
+    | 320 Satıcılar | | 153.000 |
+    | 2. Üretime verilen malzeme: 710 Direkt İlkmadde ve Malzeme Giderleri | 124.800 | |
+    | 150 İlk Madde ve Malzeme | | 124.800 |
+    | 3. Standart maliyetin yansıtılması: 151 Yarı Mamuller-Üretim | 120.000 | |
+    | 711 Direkt İlkmadde ve Malzeme Yansıtma Hesabı | | 120.000 |
+    | 4. Kapatma: 711 Yansıtma Hesabı | 120.000 | |
+    | 713 Direkt İlkmadde ve Malzeme Miktar Farkı | 4.800 | |
+    | 710 Direkt İlkmadde ve Malzeme Giderleri | | 124.800 |
+
+    **(c)** Fiyat farkı (9.000 TL): kullanılmayan 2.400 kg'ın payı = 9.000 × 2.400 / 18.000 = 1.200 TL → 150; kullanılan malzemenin payı 7.800 TL'nin 1.000/5.000'i = 1.560 TL → 152, 4.000/5.000'i = 6.240 TL → 620. Miktar farkı (4.800 TL): 960 TL → 152, 3.840 TL → 620.
+
+    | Kapatma kaydı | Borç | Alacak |
+    |---|---|---|
+    | 150 İlk Madde ve Malzeme | 1.200 | |
+    | 152 Mamuller | 1.560 + 960 | |
+    | 620 Satılan Mamuller Maliyeti | 6.240 + 3.840 | |
+    | 712 Fiyat Farkı | | 9.000 |
+    | 713 Miktar Farkı | | 4.800 |
+  puanlama:
+  - olcut: (a) fiyat ve miktar sapması
+    puan: 6
+  - olcut: (b) yevmiye kayıtları ve 710-711 kapatması
+    puan: 10
+  - olcut: (c) dönem sonu fark hesaplarının dağıtılması
+    puan: 6
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 712 Direkt İlkmadde ve Malzeme Fiyat Farkı
+    alinti: Önceden saptanmış maliyet hesaplama yöntemlerinin uygulandığı durumlarda fiili direkt ilkmadde ve malzeme giderleri ile önceden saptanmış ve maliyetlere yüklenmiş, direkt ilkmadde ve malzeme giderleri arasındaki olumlu veya olumsuz fiyat farklarının izlendiği hesaptır. Olumsuz fiyat farkları bu hesabın borcuna, olumlu fiyat farkları ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyet hesaplarına aktarılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 713 Direkt İlkmadde ve Malzeme Miktar Farkı
+    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda fiili direkt ilkmadde ve malzeme giderleri ile önceden saptanmış direkt ilkmadde ve malzeme giderleri arasındaki olumlu veya olumsuz miktar farklarının kaydedildiği hesaptır. Olumsuz miktar farkları hesabın borcuna, olumlu farklar ise alacağına kaydedilir. Dönem sonunda hu hesap ilgili stok ve satış maliyet hesaplarına aktarılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 711 Direkt İlkmadde ve Malzeme Yansıtma Hesabı
+    alinti: Fiili maliyet yönteminin uygulandığı durumlarda "710- Direkt İlkmadde ve Malzeme Giderleri Hesabı"nın borcuna gider çeşidi olarak kaydedilen giderler ile, önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda, önceden hesaplanmış giderler, maliyet unsuru olarak bu hesabın alacağı karşılığında "151- Yarı Mamüller-Üretim Hesabı"na borç kaydedilir. Dönem sonlarında "710- Direkt İlkmadde ve Malzeme Giderleri Hesabı" ile karşılaştırılarak kapatılır.
+  dogrulama:
+    python: |
+      std_fiyat = 8
+      std_kg = 3
+      uretim = 5000
+      alim = 18000
+      f_fiyat = 8.5
+      kullanim = 15600
+      fiyat_sap = (f_fiyat - std_fiyat) * alim
+      std_kul = uretim * std_kg
+      miktar_sap = (kullanim - std_kul) * std_fiyat
+      borc = alim * f_fiyat
+      stok150 = alim * std_fiyat
+      k710 = kullanim * std_fiyat
+      k711 = std_kul * std_fiyat
+      satilan = 4000
+      stok_kg = alim - kullanim
+      fiyat_150 = fiyat_sap * stok_kg / alim
+      fiyat_urun = fiyat_sap - fiyat_150
+      fiyat_152 = fiyat_urun * (uretim - satilan) / uretim
+      fiyat_620 = fiyat_urun - fiyat_152
+      miktar_152 = miktar_sap * (uretim - satilan) / uretim
+      miktar_620 = miktar_sap - miktar_152
+      sonuc = {'a': fiyat_sap, 'b': miktar_sap, 'c': fiyat_620 + miktar_620}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - malzeme ve işçilik sapmaları
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: |
+    Kıyı Mobilya A.Ş. standart maliyet sistemi ve Tekdüzen Hesap Planı'nın 7/A seçeneğini uygulamaktadır. Bir sandalyenin standart direkt işçiliği 2 saat × 40 TL = 80 TL'dir. Dönemde 6.000 sandalye üretilmiş, 12.600 direkt işçilik saati kullanılmış ve saat başına 42 TL ücret ödenmiştir (ödemeler 335 Personele Borçlar hesabına alacak yazılmıştır). Fiilî saatlerin 200 saati, bölüm yönetiminin sorumluluğu dışında kalan elektrik kesintisinden doğan bekleme süresidir.
+
+    **İstenenler:**
+    (a) Direkt işçilik ücret sapmasını ve süre sapmasını hesaplayınız; toplam sapmanın fiilî ve standart maliyet farkına eşit olduğunu gösteriniz. (7 puan)
+    (b) Fiilî işçilik giderinin kaydını, standart maliyetin yansıtılmasını ve 720-721 ile fark hesaplarının kapatılmasını yevmiye kaydıyla gösteriniz. (9 puan)
+    (c) Süre sapmasının bölüm yönetiminin sorumluluğundaki kısmını bulunuz. (6 puan)
+  cozum: |
+    **(a)** Ücret sapması = (42 − 40) × 12.600 = **25.200 TL** (olumsuz). Standart saat = 6.000 × 2 = 12.000; süre sapması = (12.600 − 12.000) × 40 = **24.000 TL** (olumsuz). Toplam sapma = **49.200 TL**; fiilî maliyet 529.200 − standart maliyet 480.000 = 49.200 TL.
+
+    **(b)**
+
+    | Kayıt | Borç | Alacak |
+    |---|---|---|
+    | 1. 720 Direkt İşçilik Giderleri | 529.200 | |
+    | 335 Personele Borçlar | | 529.200 |
+    | 2. 151 Yarı Mamuller-Üretim | 480.000 | |
+    | 721 Direkt İşçilik Giderleri Yansıtma Hesabı | | 480.000 |
+    | 3. Kapatma: 721 Yansıtma Hesabı | 480.000 | |
+    | 722 Direkt İşçilik Ücret Farkları | 25.200 | |
+    | 723 Direkt İşçilik Süre (Zaman) Farkları | 24.000 | |
+    | 720 Direkt İşçilik Giderleri | | 529.200 |
+
+    Olumsuz farklar fark hesaplarının borcuna yazılır; dönem sonunda ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+
+    **(c)** Elektrik kesintisi kaynaklı süre sapması = 200 × 40 = 8.000 TL; bölüm yönetiminin sorumluluğundaki kısım = 24.000 − 8.000 = **16.000 TL**.
+  puanlama:
+  - olcut: (a) ücret ve süre sapmaları ile uzlaştırma
+    puan: 7
+  - olcut: (b) yevmiye kayıtları
+    puan: 9
+  - olcut: (c) yönetim sorumluluğundaki süre sapması
+    puan: 6
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 722 Direkt İşçilik Ücret Farkları
+    alinti: Önceden saptanmış maliyet hesaplama yöntemlerinin uygulandığı durumlarda, fiili direkt işçilik giderleri ile önceden saptanmış ve maliyetlere yüklenmiş direkt işçilik giderleri arasındaki olumlu veya olumsuz ücret farklarının izlendiği hesaptır. Olumsuz ücret farkları bu hesabın borcuna, olumlu ücret farkları ise alacağına kaydedilir. Bu hesap dönem sonlarında ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 723 Direkt İşçilik Süre (Zaman) Farkları
+    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda fiili giderler ile önceden saptanmış giderler arasındaki olumlu ya da olumsuz süre (zaman) farklarının kaydedildiği hesaptır. Olumsuz süre farkları bu hesabın borcuna olumlu süre farkları ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 721 Direkt İşçilik Giderleri Yansıtma Hesabı
+    alinti: Fiili maliyet yönteminin uygulandığı işletmelerde üretim yapılmayan işçilikler olağan durumlarda bu hesabın alacağı karşılığı "680- Çalışmayan Kısım Giderleri Hesabı"nın borcuna aktarılır.
+  dogrulama:
+    python: |
+      ssb = 2
+      su = 40
+      uretim = 6000
+      std_saat = uretim * ssb
+      f_saat = 12600
+      f_ucret = 42
+      fiili = f_saat * f_ucret
+      std_mal = std_saat * su
+      ucret = (f_ucret - su) * f_saat
+      sure = (f_saat - std_saat) * su
+      toplam = ucret + sure
+      ariza = 200 * su
+      sorumlu = sure - ariza
+      sonuc = {'a': ucret, 'b': sure, 'c': sorumlu, 'toplam': toplam}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - malzeme ve işçilik sapmaları
+  zorluk: 3
+  puan: 22
+  sure_dk: 32
+  soru: |
+    Bahar Boya A.Ş., toplu üretim yöntemiyle iki ham maddeyi karıştırarak vernik üretmektedir. Standart girdi karışımı ağırlıkça %40 X ham maddesi (5 TL/kg) ve %60 Y ham maddesi (8 TL/kg)'dir; standart verim, toplam girdinin %90'ıdır. Dönemde 4.800 kg X (fiilî fiyat 5,20 TL/kg) ve 6.200 kg Y (fiilî fiyat 7,90 TL/kg) kullanılmış ve 10.080 kg vernik elde edilmiştir.
+
+    **İstenenler:**
+    (a) Her ham madde için fiyat sapmasını ve toplam fiyat sapmasını hesaplayınız. (6 puan)
+    (b) Malzeme karışım sapmasını hesaplayınız. (7 puan)
+    (c) Malzeme verim sapmasını hesaplayınız; fiyat, karışım ve verim sapmalarının toplamının fiilî ile standart maliyet farkına eşit olduğunu gösteriniz. (9 puan)
+  cozum: |
+    **(a)** X: (5,20 − 5) × 4.800 = 960 TL (olumsuz); Y: (7,90 − 8) × 6.200 = -620 TL (olumlu). Toplam fiyat sapması = **340 TL** (olumsuz).
+
+    **(b)** Fiilî toplam girdi = 11.000 kg; standart karışımla X = 4.400 kg, Y = 6.600 kg olmalıydı. Karışım sapması = (4.800 − 4.400) × 5 + (6.200 − 6.600) × 8 = 2.000 + (-3.200) = **-1.200 TL** (olumlu; pahalı Y yerine daha ucuz X'in payı artmıştır).
+
+    **(c)** 10.080 kg çıktı için standart girdi = 10.080 / 0,9 = 11.200 kg. Ortalama standart girdi maliyeti = 0,4 × 5 + 0,6 × 8 = 6,80 TL/kg. Verim sapması = (11.000 − 11.200) × 6,80 = **-1.360 TL** (olumlu).
+
+    Kontrol: fiilî maliyet = 4.800 × 5,2 + 6.200 × 7,9 = 73.940 TL; standart maliyet = 4.480 × 5 + 6.720 × 8 = 76.160 TL; fark = **-2.220 TL**. Fiyat (340) + karışım (-1.200) + verim (-1.360) = -2.220 TL. Karışım ve verim sapmalarının toplamı (-2.560 TL) miktar sapmasıdır ve 713 numaralı hesapta izlenir.
+  puanlama:
+  - olcut: (a) fiyat sapmaları
+    puan: 6
+  - olcut: (b) karışım sapması
+    puan: 7
+  - olcut: (c) verim sapması ve uzlaştırma
+    puan: 9
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 713 Direkt İlkmadde ve Malzeme Miktar Farkı
+    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda fiili direkt ilkmadde ve malzeme giderleri ile önceden saptanmış direkt ilkmadde ve malzeme giderleri arasındaki olumlu veya olumsuz miktar farklarının kaydedildiği hesaptır. Olumsuz miktar farkları hesabın borcuna, olumlu farklar ise alacağına kaydedilir. Dönem sonunda hu hesap ilgili stok ve satış maliyet hesaplarına aktarılarak kapatılır.
+  dogrulama:
+    python: |
+      fx = 4800
+      fy = 6200
+      fg = fx + fy
+      px = 5.2
+      py = 7.9
+      sx = 5
+      sy = 8
+      cikti = 10080
+      std_g = cikti * 10 / 9
+      sxk = std_g * 0.4
+      syk = std_g * 0.6
+      fiyat_x = (px - sx) * fx
+      fiyat_y = (py - sy) * fy
+      fiyat = fiyat_x + fiyat_y
+      kar_x = (fx - fg * 0.4) * sx
+      kar_y = (fy - fg * 0.6) * sy
+      karisim = kar_x + kar_y
+      ort = 0.4 * sx + 0.6 * sy
+      verim = (fg - std_g) * ort
+      miktar = karisim + verim
+      fiili_mal = fx * px + fy * py
+      std_mal = sxk * sx + syk * sy
+      toplam = fiili_mal - std_mal
+      sonuc = {'a': fiyat, 'b': karisim, 'c': verim, 'toplam': toplam}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - malzeme ve işçilik sapmaları
+  - genel üretim gideri sapmaları
+  zorluk: 3
+  puan: 23
+  sure_dk: 33
+  soru: |
+    Doğa Metal A.Ş. standart maliyet sistemi uygulamaktadır. Bir birim mamulün standart maliyet kartı:
+
+    | Kalem | Standart | Birim maliyet (TL) |
+    |---|---|---|
+    | Direkt ilk madde | 3 kg × 10 TL | 30 |
+    | Direkt işçilik | 2 saat × 30 TL | 60 |
+    | Genel üretim gideri | 2 saat × 15 TL (değişken 6 TL, sabit 9 TL) | 30 |
+    | **Toplam** | | **120** |
+
+    Genel üretim gideri bütçesi: normal kapasite 20.000 direkt işçilik saati, sabit gider 180.000 TL, saat başına değişken gider 6 TL. Dönemde 9.000 birim üretilmiştir. Gerçekleşenler: 28.000 kg ilk madde alınıp tamamı kullanılmış (kg fiyatı 10,40 TL); 18.500 direkt işçilik saati 29 TL/saat ile ödenmiş; fiilî genel üretim gideri 293.000 TL olmuştur.
+
+    **İstenenler:**
+    (a) Direkt ilk madde fiyat ve miktar sapmalarını hesaplayınız. (6 puan)
+    (b) Direkt işçilik ücret ve süre sapmalarını hesaplayınız. (6 puan)
+    (c) Genel üretim gideri bütçe, verimlilik ve kapasite sapmalarını hesaplayınız. (8 puan)
+    (d) Tüm sapmaların toplamının fiilî ve standart maliyet farkına eşit olduğunu gösteriniz. (3 puan)
+  cozum: |
+    Standart: ilk madde 9.000 × 3 = 27.000 kg; işçilik 9.000 × 2 = 18.000 saat; yüklenen GÜG = 18.000 × 15 = 270.000 TL.
+
+    **(a)** Fiyat = (10,40 − 10) × 28.000 = **11.200 TL** (O); miktar = (28.000 − 27.000) × 10 = **10.000 TL** (O).
+
+    **(b)** Ücret = (29 − 30) × 18.500 = **-18.500 TL** (L); süre = (18.500 − 18.000) × 30 = **15.000 TL** (O).
+
+    **(c)** Esnek bütçe (18.500 saat) = 180.000 + 6 × 18.500 = 291.000 TL.
+    - Bütçe sapması = 293.000 − 291.000 = **2.000 TL** (O)
+    - Verimlilik sapması = (18.500 − 18.000) × 15 = **7.500 TL** (O)
+    - Kapasite sapması = (20.000 − 18.500) × 9 = **13.500 TL** (O)
+    - Toplam GÜG sapması = **23.000 TL**; kontrol: 293.000 − 270.000 = 23.000 TL.
+
+    **(d)** Toplam sapma = 11.200 + 10.000 + (-18.500) + 15.000 + 23.000 = **40.700 TL**. Fiilî maliyet = 291.200 + 536.500 + 293.000 = 1.120.700 TL; standart maliyet = 9.000 × 120 = 1.080.000 TL; fark = 40.700 TL. (O: olumsuz, L: olumlu.)
+  puanlama:
+  - olcut: (a) malzeme sapmaları
+    puan: 6
+  - olcut: (b) işçilik sapmaları
+    puan: 6
+  - olcut: (c) GÜG sapmaları
+    puan: 8
+  - olcut: (d) uzlaştırma
+    puan: 3
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 712 Direkt İlkmadde ve Malzeme Fiyat Farkı
+    alinti: Önceden saptanmış maliyet hesaplama yöntemlerinin uygulandığı durumlarda fiili direkt ilkmadde ve malzeme giderleri ile önceden saptanmış ve maliyetlere yüklenmiş, direkt ilkmadde ve malzeme giderleri arasındaki olumlu veya olumsuz fiyat farklarının izlendiği hesaptır. Olumsuz fiyat farkları bu hesabın borcuna, olumlu fiyat farkları ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyet hesaplarına aktarılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 722 Direkt İşçilik Ücret Farkları
+    alinti: Önceden saptanmış maliyet hesaplama yöntemlerinin uygulandığı durumlarda, fiili direkt işçilik giderleri ile önceden saptanmış ve maliyetlere yüklenmiş direkt işçilik giderleri arasındaki olumlu veya olumsuz ücret farklarının izlendiği hesaptır. Olumsuz ücret farkları bu hesabın borcuna, olumlu ücret farkları ise alacağına kaydedilir. Bu hesap dönem sonlarında ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 732 Genel Üretim Giderleri Bütçe Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz bütçe farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 733 Genel Üretim Giderleri Verimlilik Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz verimlilik farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 734 Genel Üretim Giderleri Kapasite Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz kapasite farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  dogrulama:
+    python: |
+      uretim = 9000
+      dm_kg = 28000
+      dm_f = 10.4
+      dm_fiyat = (dm_f - 10) * dm_kg
+      dm_miktar = (dm_kg - uretim * 3) * 10
+      s_saat = uretim * 2
+      f_saat = 18500
+      f_ucret = 29
+      ucret = (f_ucret - 30) * f_saat
+      sure = (f_saat - s_saat) * 30
+      sabit_b = 180000
+      v = 6
+      f_or = sabit_b / 20000
+      t_or = v + f_or
+      guc_f = 293000
+      esnek = sabit_b + v * f_saat
+      g_butce = guc_f - esnek
+      g_ver = (f_saat - s_saat) * t_or
+      g_kap = (20000 - f_saat) * f_or
+      g_top = g_butce + g_ver + g_kap
+      toplam = dm_fiyat + dm_miktar + ucret + sure + g_top
+      fiili = dm_kg * dm_f + f_saat * f_ucret + guc_f
+      std = uretim * 120
+      sonuc = {'a': dm_fiyat + dm_miktar, 'b': ucret + sure, 'c': g_top, 'd': toplam, 'kontrol': fiili - std}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - genel üretim gideri sapmaları
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    Özgür Otomotiv Parça A.Ş. genel üretim giderlerini makine saati üzerinden yüklemektedir. Genel üretim gideri bütçesi: normal kapasite 10.000 makine saati; yıllık sabit gider 120.000 TL; makine saati başına değişken gider 8 TL. Dönem verileri: fiilî üretim için izin verilen standart makine saati 9.200, fiilî makine saati 9.600; fiilî değişken genel üretim gideri 80.300 TL, fiilî sabit genel üretim gideri 123.000 TL (dönemlik bütçe aynı tutardır).
+
+    Sapma analizinde 732 hesapta bütçe (harcama) farkları, 733 hesapta verimlilik (değişken) farkları, 734 hesapta kapasite (sabit gider hacim) farkları izlenmektedir.
+
+    **İstenenler:**
+    (a) Değişken genel üretim gideri için harcama ve verimlilik sapmalarını hesaplayınız. (6 puan)
+    (b) Sabit genel üretim gideri için harcama ve hacim (kapasite) sapmalarını hesaplayınız. (6 puan)
+    (c) Yüklenen genel üretim giderini kaydediniz; dönem sonunda 730-731 ve 732-734 hesaplarının kapatılmasını yevmiye kaydıyla gösteriniz. (8 puan)
+  cozum: |
+    Sabit gider yükleme oranı = 120.000 / 10.000 = 12 TL/saat; toplam yükleme oranı = 8 + 12 = 20 TL/saat.
+
+    **(a)** Değişken harcama sapması = 80.300 − 8 × 9.600 = **3.500 TL** (O). Verimlilik sapması = (9.600 − 9.200) × 8 = **3.200 TL** (O).
+
+    **(b)** Sabit harcama sapması = 123.000 − 120.000 = **3.000 TL** (O). Hacim (kapasite) sapması = 120.000 − 12 × 9.200 = **9.600 TL** (O).
+
+    Toplam sapma = 19.300 TL = fiilî GÜG 203.300 − yüklenen GÜG 184.000 TL.
+
+    **(c)** Yevmiye kayıtları:
+
+    | Kayıt | Borç | Alacak |
+    |---|---|---|
+    | 1. 151 Yarı Mamuller-Üretim | 184.000 | |
+    | 731 Genel Üretim Giderleri Yansıtma Hesabı | | 184.000 |
+    | 2. 731 Genel Üretim Giderleri Yansıtma Hesabı | 184.000 | |
+    | 732 GÜG Bütçe Farkları (3.500 + 3.000) | 6.500 | |
+    | 733 GÜG Verimlilik Farkları | 3.200 | |
+    | 734 GÜG Kapasite Farkları | 9.600 | |
+    | 730 Genel Üretim Giderleri (fiilî) | | 203.300 |
+
+    Fark hesapları dönem sonunda ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  puanlama:
+  - olcut: (a) değişken GÜG sapmaları
+    puan: 6
+  - olcut: (b) sabit GÜG sapmaları
+    puan: 6
+  - olcut: (c) yansıtma ve kapatma kayıtları
+    puan: 8
+  kaynaklar:
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 731 Genel Üretim Giderleri Yansıtma Hesabı
+    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda, önceden saptanmış genel üretim giderleri, Fiili maliyet yönteminin uygulandığı durumlarda, "730- Genel üretim Giderleri Hesabı"nın borcuna kaydedilen giderleri, bu hesabın alacağı karşılığı "151- Yarı Mamüller Üretim Hesabı" ile diğer aktif, gider ve zarar hesaplarına borç kaydedilir.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 732 Genel Üretim Giderleri Bütçe Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz bütçe farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 733 Genel Üretim Giderleri Verimlilik Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz verimlilik farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 734 Genel Üretim Giderleri Kapasite Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz kapasite farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  dogrulama:
+    python: |
+      v = 8
+      sabit_b = 120000
+      f = sabit_b / 10000
+      Sh = 9200
+      Ah = 9600
+      vf = 80300
+      sf = 123000
+      v_harc = vf - v * Ah
+      v_ver = (Ah - Sh) * v
+      s_harc = sf - sabit_b
+      s_hacim = sabit_b - f * Sh
+      toplam = v_harc + v_ver + s_harc + s_hacim
+      fiili = vf + sf
+      uyg = Sh * (v + f)
+      harc = v_harc + s_harc
+      sonuc = {'a': v_harc + v_ver, 'b': s_harc + s_hacim, 'toplam': toplam, 'kontrol': fiili - uyg}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - malzeme ve işçilik sapmaları
+  - genel üretim gideri sapmaları
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    Yurt Mobilya A.Ş. standart maliyet sistemi ile çalışmaktadır. Dönem içinde üretilen 10.000 birimin 8.000'i satılmış, 2.000'i stokta kalmıştır; dönem başı stok yoktur. Tüm direkt ilk madde dönem içinde kullanılmıştır. Dönem sonundaki fark hesaplarının bakiyeleri (olumsuz farklar borç, olumlu farklar alacak bakiyeli):
+
+    | Hesap | Bakiye (TL) |
+    |---|---|
+    | 712 Direkt İlkmadde ve Malzeme Fiyat Farkı | 36.000 borç |
+    | 713 Direkt İlkmadde ve Malzeme Miktar Farkı | 18.000 borç |
+    | 722 Direkt İşçilik Ücret Farkları | 12.000 alacak |
+    | 723 Direkt İşçilik Süre Farkları | 15.000 borç |
+    | 732 GÜG Bütçe Farkları | 9.000 borç |
+    | 733 GÜG Verimlilik Farkları | 6.000 borç |
+    | 734 GÜG Kapasite Farkları | 21.000 borç |
+
+    İşletme, kapasite farkını (fabrikanın normal kapasitenin altında çalışmasından doğan atıl kapasite maliyeti) stok maliyetine eklememekte ve doğrudan dönem giderine yazmaktadır; diğer farkları stok ile satılan mamul arasında fiilî üretim oranında dağıtmaktadır.
+
+    **İstenenler:**
+    (a) Tüm farkların net toplamını bulunuz. (5 puan)
+    (b) Farkların mamul stoku (152) ve satılan mamuller maliyeti (620) hesaplarına dağıtımını gösteriniz. (10 puan)
+    (c) Tüm farkların satılan mamul maliyetine yazılması yöntemine göre bulunacak kârdan, (b)'deki yöntemle bulunacak kârın farkını hesaplayınız ve nedenini açıklayınız. (5 puan)
+  cozum: |
+    **(a)** Net fark = 36.000 + 18.000 − 12.000 + 15.000 + 9.000 + 6.000 + 21.000 = **93.000 TL** (olumsuz).
+
+    **(b)** Atıl kapasite maliyeti olan 734 bakiyesi (21.000 TL) stoklara eklenmez; doğrudan gider (620) yazılır. Kalan farklar = 93.000 − 21.000 = 72.000 TL; üretimin %20'si stokta, %80'i satılmıştır.
+
+    | Fark | 152 Mamuller (%20) | 620 Satılan Mamuller Maliyeti |
+    |---|---|---|
+    | 712, 713, 722, 723, 732, 733 toplamı | **14.400** | 57.600 |
+    | 734 kapasite farkı | 0 | 21.000 |
+    | **Toplam** | **14.400** | **78.600** |
+
+    **(c)** Tümü 620'ye yazılırsa satılan mamul maliyeti 93.000 TL olur; fark = 93.000 − 78.600 = **14.400 TL**. Bu tutar stoklara aktarılan farktır; (b)'deki yöntemle kâr 14.400 TL daha yüksek çıkar. Normal kapasitenin altında çalışmadan doğan atıl kapasite maliyetinin stok maliyetine eklenmemesi ve gerçekleştiği dönemin gideri olması gerekir.
+  puanlama:
+  - olcut: (a) net fark
+    puan: 5
+  - olcut: (b) dağıtım tablosu
+    puan: 10
+  - olcut: (c) kâra etki ve gerekçe
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Her bir üretim birimine dağıtılan sabit genel gider miktarı, düşük üretim düzeyi veya atıl kapasite nedeniyle arttırılmaz. Dağıtılmayan genel giderler, gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 734 Genel Üretim Giderleri Kapasite Farkları
+    alinti: Fiili üretim genel giderleri ile maliyetlere yüklenen önceden saptanmış giderler arasındaki olumlu ya da olumsuz kapasite farklarının izlendiği hesaptır. Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir. Dönem sonlarında bu hesap ilgili stok ve satış maliyeti hesaplarına aktarılarak kapatılır.
+  dogrulama:
+    python: |
+      f712 = 36000
+      f713 = 18000
+      u722 = -12000
+      u723 = 15000
+      g732 = 9000
+      g733 = 6000
+      g734 = 21000
+      net = f712 + f713 + u722 + u723 + g732 + g733 + g734
+      diger = net - g734
+      stok = diger * 0.2
+      smm_diger = diger * 0.8
+      smm = smm_diger + g734
+      hepsi_smm = net
+      fark = hepsi_smm - smm
+      sonuc = {'a': net, 'b': smm, 'c': fark, 'stok': stok}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - esnek bütçe
+  - malzeme ve işçilik sapmaları
+  - genel üretim gideri sapmaları
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    Barış Aydınlatma A.Ş. tek ürün satmaktadır. Bütçe ve fiilî sonuçlar:
+
+    | Kalem | Bütçe | Fiilî |
+    |---|---|---|
+    | Üretim ve satış (adet) | 10.000 | 11.000 |
+    | Birim satış fiyatı (TL) | 60 | 58 |
+    | Direkt ilk madde (TL) | 15 TL/adet | 171.600 |
+    | Direkt işçilik (TL) | 12 TL/adet | 128.700 |
+    | Değişken genel üretim gideri (TL) | 8 TL/adet | 91.300 |
+    | Sabit genel üretim gideri (TL) | 90.000 | 93.000 |
+    | Sabit satış ve yönetim gideri (TL) | 70.000 | 69.000 |
+
+    Üretim ve satış miktarları aynıdır; stok değişimi yoktur.
+
+    **İstenenler:**
+    (a) Bütçelenen faaliyet kârını bulunuz. (4 puan)
+    (b) Fiilî faaliyet kârını bulunuz. (5 puan)
+    (c) Bütçe kârından fiilî kâra geçişi satış hacim sapması, satış fiyatı sapması ve her maliyet kalemi sapması (olumlu/olumsuz) şeklinde gösteren uzlaştırma tablosunu hazırlayınız. (9 puan)
+    (d) En büyük olumsuz sapmayı belirtiniz. (2 puan)
+  cozum: |
+    **(a)** Bütçe birim katkısı = 60 − (15 + 12 + 8) = 25 TL; bütçe kârı = 10.000 × 25 − 160.000 = **90.000 TL**.
+
+    **(b)** Fiilî kâr = 11.000 × 58 − (171.600 + 128.700 + 91.300) − (93.000 + 69.000) = **84.400 TL**.
+
+    **(c)**
+
+    | Kalem | Sapma (TL) | Yön |
+    |---|---|---|
+    | Bütçe kârı | 90.000 | |
+    | Satış hacim sapması (1.000 × 25) | 25.000 | L |
+    | Satış fiyatı sapması (−2 × 11.000) | -22.000 | O |
+    | Direkt ilk madde (165.000 − 171.600) | -6.600 | O |
+    | Direkt işçilik (132.000 − 128.700) | 3.300 | L |
+    | Değişken GÜG (88.000 − 91.300) | -3.300 | O |
+    | Sabit GÜG (90.000 − 93.000) | -3.000 | O |
+    | Sabit satış ve yönetim (70.000 − 69.000) | 1.000 | L |
+    | **Toplam sapma** | **-5.600** | |
+    | **Fiilî kâr** | **84.400** | |
+
+    **(d)** En büyük olumsuz sapma satış fiyatı sapmasıdır (-22.000 TL).
+  puanlama:
+  - olcut: (a) bütçe kârı
+    puan: 4
+  - olcut: (b) fiilî kâr
+    puan: 5
+  - olcut: (c) uzlaştırma tablosu
+    puan: 9
+  - olcut: (d) en büyük olumsuz sapma
+    puan: 2
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Değişken genel üretim giderleri, endirekt (dolaylı) malzeme ve endirekt (dolaylı) işçilik gibi, üretim miktarı ile birlikte doğru orantılı olarak değişen dolaylı üretim maliyetleridir.
+  dogrulama:
+    python: |
+      b_kar = 10000 * (60 - 35) - 160000
+      hacim = (11000 - 10000) * 25
+      fiyat = (58 - 60) * 11000
+      dm = 15 * 11000 - 171600
+      dis = 12 * 11000 - 128700
+      vg = 8 * 11000 - 91300
+      sg = 90000 - 93000
+      ssy = 70000 - 69000
+      toplam = hacim + fiyat + dm + dis + vg + sg + ssy
+      f_kar = b_kar + toplam
+      kontrol = 11000 * 58 - (171600 + 128700 + 91300) - (93000 + 69000)
+      sonuc = {'a': b_kar, 'b': f_kar, 'c': toplam, 'kontrol': kontrol}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - ana bütçe
+  - genel üretim gideri sapmaları
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    Ufuk Beyaz Eşya A.Ş. iki ürün üretmektedir. 2026 yılı ana bütçesi için veriler:
+
+    | | A | B |
+    |---|---|---|
+    | Satış (adet) | 12.000 | 8.500 |
+    | Dönem başı mamul stoku (adet) | 3.000 | 1.500 |
+    | Dönem sonu hedef mamul stoku (adet) | 5.000 | 1.000 |
+    | Birim direkt ilk madde (TL) | 40 | 55 |
+    | Birim direkt işçilik saati | 2 | 3 |
+
+    Direkt işçilik saat ücreti 25 TL'dir. Genel üretim gideri direkt işçilik saatine göre yüklenecektir: saat başına değişken gider 6 TL; yıllık sabit gider 624.000 TL.
+
+    **İstenenler:**
+    (a) Üretim bütçesini ve direkt işçilik bütçesini (saat ve TL) hazırlayınız. (6 puan)
+    (b) Genel üretim gideri bütçesini ve saat başına yükleme oranını hesaplayınız. (7 puan)
+    (c) Her ürünün birim maliyetini ve toplam üretim maliyeti bütçesini bulunuz. (7 puan)
+  cozum: |
+    **(a)** Üretim = satış + son stok − başlangıç stoku: A = 12.000 + 5.000 − 3.000 = **14.000**; B = 8.500 + 1.000 − 1.500 = **8.000** adet. İşçilik saati: A = 14.000 × 2 = 28.000; B = 8.000 × 3 = 24.000; toplam **52.000 saat**. İşçilik bütçesi = 52.000 × 25 = **1.300.000 TL**.
+
+    **(b)** Değişken GÜG = 52.000 × 6 = 312.000 TL; sabit GÜG = 624.000 TL; toplam 312.000 + 624.000 = 936.000 TL. Yükleme oranı = 936.000 / 52.000 = **18 TL/saat**.
+
+    **(c)** Birim maliyet: A = 40 + 2 × 25 + 2 × 18 = **126 TL**; B = 55 + 3 × 25 + 3 × 18 = **184 TL**. Toplam üretim maliyeti = direkt ilk madde 1.000.000 + işçilik 1.300.000 + GÜG 936.000 = **3.236.000 TL**. Kontrol: 14.000 × 126 + 8.000 × 184 = 3.236.000 TL.
+  puanlama:
+  - olcut: (a) üretim ve işçilik bütçesi
+    puan: 6
+  - olcut: (b) GÜG bütçesi ve yükleme oranı
+    puan: 7
+  - olcut: (c) birim maliyetler ve toplam maliyet
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  - mevzuat: MSUGT 1 sıra no.lu Tebliğ eki Tekdüzen Hesap Planı
+    madde: 731 Genel Üretim Giderleri Yansıtma Hesabı
+    alinti: Önceden saptanmış maliyet yöntemlerinin uygulandığı durumlarda, önceden saptanmış genel üretim giderleri, Fiili maliyet yönteminin uygulandığı durumlarda, "730- Genel üretim Giderleri Hesabı"nın borcuna kaydedilen giderleri, bu hesabın alacağı karşılığı "151- Yarı Mamüller Üretim Hesabı" ile diğer aktif, gider ve zarar hesaplarına borç kaydedilir.
+  dogrulama:
+    python: |
+      uA = 12000 + 5000 - 3000
+      uB = 8500 + 1000 - 1500
+      sA = uA * 2
+      sB = uB * 3
+      saat = sA + sB
+      dis = saat * 25
+      vg = saat * 6
+      sg = 624000
+      oran = (vg + sg) / saat
+      birA = 40 + 2 * 25 + 2 * oran
+      birB = 55 + 3 * 25 + 3 * oran
+      dm = uA * 40 + uB * 55
+      toplam = dm + dis + vg + sg
+      kontrol = uA * birA + uB * birB
+      sonuc = {'a': dis, 'b': oran, 'c': toplam, 'kontrol': kontrol}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - nakit bütçesi ve finansman ihtiyacı
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: |
+    Orhan Yapı Malzemeleri A.Ş.'nin Haziran–Eylül 2026 satış tahminleri (TL): Haziran 300.000; Temmuz 400.000; Ağustos 500.000; Eylül 450.000. Tüm satışlar kredilidir.
+
+    Mevcut politika: satışın %50'si satış ayında, %50'si izleyen ayda tahsil edilir.
+    Önerilen politika: satışın %70'i satış ayında tahsil edilir ve bu tutara %2 peşin ödeme iskontosu uygulanır; kalan %30 izleyen ayda iskontosuz tahsil edilir.
+
+    **İstenenler:**
+    (a) Mevcut politikaya göre Temmuz–Eylül tahsilat bütçesini hazırlayınız ve toplamı bulunuz. (6 puan)
+    (b) Önerilen politikaya göre aynı dönemin tahsilatlarını hesaplayınız. (7 puan)
+    (c) 30 Eylül itibarıyla ticari alacaktaki azalmayı ve Temmuz–Eylül satışlarında verilecek toplam iskonto tutarını bulunuz. (7 puan)
+  cozum: |
+    **(a)**
+
+    | Ay | Hesap | Tahsilat (TL) |
+    |---|---|---|
+    | Temmuz | 0,5 × 400.000 + 0,5 × 300.000 | 350.000 |
+    | Ağustos | 0,5 × 500.000 + 0,5 × 400.000 | 450.000 |
+    | Eylül | 0,5 × 450.000 + 0,5 × 500.000 | 475.000 |
+    | **Toplam** | | **1.275.000** |
+
+    **(b)**
+
+    | Ay | Hesap | Tahsilat (TL) |
+    |---|---|---|
+    | Temmuz | 0,7 × 0,98 × 400.000 + 0,3 × 300.000 | 364.400 |
+    | Ağustos | 0,7 × 0,98 × 500.000 + 0,3 × 400.000 | 463.000 |
+    | Eylül | 0,7 × 0,98 × 450.000 + 0,3 × 500.000 | 458.700 |
+    | **Toplam** | | **1.286.100** |
+
+    Toplam tahsilat 11.100 TL artar.
+
+    **(c)** Eylül sonu alacak: mevcut politikada 0,5 × 450.000 = 225.000 TL; önerilen politikada 0,3 × 450.000 = 135.000 TL; azalma **90.000 TL**. İskonto = 0,7 × %2 × (400.000 + 500.000 + 450.000) = **18.900 TL**.
+  puanlama:
+  - olcut: (a) mevcut politika tahsilatları
+    puan: 6
+  - olcut: (b) önerilen politika tahsilatları
+    puan: 7
+  - olcut: (c) alacak azalması ve iskonto tutarı
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  dogrulama:
+    python: |
+      haz = 300000
+      tem = 400000
+      agu = 500000
+      eyl = 450000
+      m_tem = 0.5 * tem + 0.5 * haz
+      m_agu = 0.5 * agu + 0.5 * tem
+      m_eyl = 0.5 * eyl + 0.5 * agu
+      m_top = m_tem + m_agu + m_eyl
+      y_tem = 0.7 * 0.98 * tem + 0.3 * haz
+      y_agu = 0.7 * 0.98 * agu + 0.3 * tem
+      y_eyl = 0.7 * 0.98 * eyl + 0.3 * agu
+      y_top = y_tem + y_agu + y_eyl
+      fark = y_top - m_top
+      m_alacak = 0.5 * eyl
+      y_alacak = 0.3 * eyl
+      azalma = m_alacak - y_alacak
+      iskonto = 0.7 * 0.02 * (tem + agu + eyl)
+      sonuc = {'a': m_top, 'b': y_top, 'c': azalma, 'isk': iskonto}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: BTC
+  kazanimlar:
+  - genel üretim gideri sapmaları
+  - ana bütçe
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    Nehir Pompa A.Ş. bir pompa modeli üretmektedir. Bir pompanın standart maliyeti: direkt ilk madde 20 TL, direkt işçilik 18 TL, değişken genel üretim gideri 5 TL × 2 makine saati = 10 TL ve sabit genel üretim gideri. Planlı bakım duruşları dikkate alınarak normal kapasite yıllık 80.000 makine saatidir; yıllık sabit genel üretim gideri 960.000 TL'dir. Bir pompa 2 makine saati gerektirir. Dönemde talebin düşük kalması nedeniyle 32.000 pompa (64.000 makine saati) üretilmiş, 27.000 pompa satılmıştır; dönem başı stok yoktur. Fiilî genel üretim gideri bütçeyle aynı gerçekleşmiştir.
+
+    **İstenenler:**
+    (a) Normal kapasiteye göre sabit genel üretim gideri yükleme oranını ve pompanın birim standart maliyetini bulunuz. (5 puan)
+    (b) Kapasite sapmasını hesaplayınız ve muhasebe işlemini açıklayınız. (6 puan)
+    (c) Dönem sonu mamul stokunu ve satılan mamul maliyetini (kapasite sapması hariç) bulunuz. (5 puan)
+    (d) Sabit gider, düşük kapasite kullanımını yansıtacak şekilde fiilî makine saati olan 64.000'e bölünerek yüklenseydi stok değeri ne kadar farklı çıkardı? (4 puan)
+  cozum: |
+    **(a)** Sabit gider yükleme oranı = 960.000 / 80.000 = **12 TL/saat**. Birim standart maliyet = 20 + 18 + 10 + 2 × 12 = **72 TL**.
+
+    **(b)** Kapasite sapması = (80.000 − 64.000) × 12 = **192.000 TL** (olumsuz). Üretim birimlerine dağıtılan sabit gider, düşük üretim düzeyi nedeniyle artırılmaz; yüklenmeyen sabit gider (734 Kapasite Farkları) gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır, stoklara eklenmez.
+
+    **(c)** Stokta kalan = 32.000 − 27.000 = 5.000 pompa; stok değeri = 5.000 × 72 = **360.000 TL**. Satılan mamul maliyeti = 27.000 × 72 = **1.944.000 TL**; ayrıca 192.000 TL kapasite sapması dönem gideridir.
+
+    **(d)** Fiilî saate göre sabit oran = 960.000 / 64.000 = 15 TL/saat; birim maliyet = 78 TL; stok değeri = 5.000 × 78 = 390.000 TL. Fark = **30.000 TL**; bu yöntem stoku fazla gösterir ve normal kapasite ilkesine aykırıdır.
+  puanlama:
+  - olcut: (a) yükleme oranı ve birim standart maliyet
+    puan: 5
+  - olcut: (b) kapasite sapması ve muhasebe işlemi
+    puan: 6
+  - olcut: (c) stok ve satılan mamul maliyeti
+    puan: 5
+  - olcut: (d) fiilî saat esasının etkisi
+    puan: 4
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Sabit genel üretim giderleri, üretim tesislerinin normal kapasitesi esas alınarak dönüştürme maliyetlerine dağıtılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Her bir üretim birimine dağıtılan sabit genel gider miktarı, düşük üretim düzeyi veya atıl kapasite nedeniyle arttırılmaz. Dağıtılmayan genel giderler, gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Anormal bir şekilde yüksek üretimin gerçekleştiği dönemlerde, her bir üretim birimine dağıtılan sabit genel gider miktarı düşer ve böylece stoklar maliyet değerini aşan bir değer üzerinden ölçülmemiş olur.
+  dogrulama:
+    python: |
+      normal = 80000
+      f_saat = 64000
+      sabit = 960000
+      f = sabit / normal
+      std_br = 20 + 18 + 10 + 2 * f
+      kap = (normal - f_saat) * f
+      uretim = 32000
+      satis = 27000
+      stok_ad = uretim - satis
+      cogs = satis * std_br
+      stok = stok_ad * std_br
+      f2 = sabit / f_saat
+      br2 = 20 + 18 + 10 + 2 * f2
+      stok2 = stok_ad * br2
+      fark = stok2 - stok
+      sonuc = {'a': std_br, 'b': kap, 'c': stok, 'd': fark, 'cogs': cogs}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

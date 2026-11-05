@@ -1,0 +1,1106 @@
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - ÖTV'nin KDV matrahına etkisi
+  - ithalatta matrah
+  - (II) sayılı listede ilk iktisap
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Doruk Otomotiv A.Ş.** 2026 yılında Almanya'dan bir binek otomobili ithal etmiştir ve (II) sayılı listede yer alan bu araç için gümrük beyannamesi 12 Mart 2026'da tescil edilmiştir. Veriler:
+
+    | Unsur | Tutar |
+    |---|---|
+    | Gümrük vergisine esas kıymet (CIF) | 800.000 TL |
+    | Gümrük vergisi (CIF'in %10'u) | 80.000 TL |
+    | Başka vergi, resim, harç veya masraf | Yoktur |
+
+    Ek bilgiler: Bu vakada aracın tabi olduğu ÖTV oranı %60, KDV oranı %20 kabul edilecektir. Aracın yurt içi imalatçı satış bedeli ve diğer alt sınırlar dikkate alınmayacaktır.
+
+    **İstenenler:**
+
+    (a) ÖTV matrahını ve ÖTV tutarını hesaplayınız. (8 puan)
+
+    (b) KDV matrahını ve ödenecek KDV'yi bulunuz; ÖTV'nin KDV matrahı yönünden durumunu belirtiniz. (8 puan)
+
+    (c) Gümrük idaresince hesaplanan ÖTV'nin ne zaman ödeneceğini md. 14'e göre belirtiniz. (5 puan)
+
+    (d) Aracı ithal eden mükellefin ÖTV'yi satış belgelerinde nasıl göstermek zorunda olduğunu belirtiniz (md. 15). (4 puan)
+  cozum: |
+    **(a)** Md. 11/3: (II) sayılı listedeki mallar için matrah, bunların ilk iktisabı ve ithalinde, hesaplanacak ÖTV hariç, KDV matrahını oluşturan unsurlardan teşekkül eder. KDVK md. 21 ithalat matrahı: gümrük vergisine esas kıymet + ithalat sırasında ödenen vergi, resim, harç ve paylar = 800.000 + 80.000 = **880.000 TL**. ÖTV = 880.000 × %60 = **528.000 TL**.
+
+    **(b)** KDV matrahı = 880.000 + 528.000 = **1.408.000 TL** (KDVK md. 24/b: vergi karşılığı unsurlar matraha dahildir, ÖTV KDV matrahına girer). KDV = 1.408.000 × %20 = **281.600 TL**.
+
+    **(c)** Md. 14/3: ithalatta alınan vergi gümrük idaresince hesaplanır, ithalat vergileri ile **aynı zamanda ödenir**.
+
+    **(d)** Md. 15/1: mükellefler ÖTV'yi satış belgelerinde **ayrıca göstermeye** mecburdur.
+
+    Püf noktaları: ÖTV matrahına ÖTV girmez; KDV matrahına ÖTV girer. Sıra: ÖTV → KDV.
+  puanlama:
+  - olcut: (a) ÖTV matrahı ve tutarı
+    puan: 8
+  - olcut: (b) KDV matrahı ve KDV
+    puan: 8
+  - olcut: (c) ödeme zamanı
+    puan: 5
+  - olcut: (d) belgelerde gösterme
+    puan: 4
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 11/3
+    alinti: 3. (II), (III) [(B) cetvelindekiler hariç] ve (IV) sayılı listelerdeki mallar için verginin matrahı; bunların teslimi, ilk iktisabı ve ithalinde, hesaplanacak özel tüketim vergisi hariç, katma değer vergisi matrahını oluşturan unsurlardan teşekkül eder.
+  - mevzuat: 3065 sayılı KDV Kanunu
+    madde: md. 24
+    alinti: b) Ambalaj giderleri, sigorta, komisyon ve benzeri gider karşılıkları ile vergi, resim, harç, pay, fon karşılığı gibi unsurlar,
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 14/3
+    alinti: Bu vergi, ithalat vergileri ile aynı zamanda ödenir.
+  dogrulama:
+    python: |-
+      cif=800000; gv=80000
+      m=cif+gv
+      otv=m*0.6
+      kdv=(m+otv)*0.2
+      sonuc={'a':[m,otv],'b':[m+otv,kdv]}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - (II) sayılı listede matrah ve alt sınır (md. 12)
+  - motorlu araç ticareti yapanlar
+  - ilk iktisap
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    **Güven Galeri Ltd. Şti.**, motorlu araç ticareti yapan bir mükelleftir. 2026 yılı Mayıs ayında yetkili bayiden satın aldığı (II) sayılı listedeki bir otomobili (kayıt ve tescile tabi) aşağıdaki şekilde müşterisine satmıştır:
+
+    | Bilgi | Tutar (ÖTV ve KDV hariç) |
+    |---|---|
+    | Galerinin alış bedeli | 1.500.000 TL |
+    | Galerinin müşteriye satış bedeli | 1.350.000 TL |
+    | Aracın imalatçısının satış bedeli | 1.400.000 TL |
+
+    Bu vakada aracın tabi olduğu ÖTV oranı %50 kabul edilecek olup, ilk iktisaba ilişkin işlemin satış sırasında galeri adına yapıldığı varsayılacaktır.
+
+    **İstenenler:**
+
+    (a) Md. 12'ye göre ÖTV'nin hesaplanacağı alt sınırı belirleyiniz ve ödenecek ÖTV'yi hesaplayınız. (10 puan)
+
+    (b) Galerinin satış bedeli üzerinden hesaplanan ÖTV ile md. 12'ye göre ödenecek ÖTV arasındaki farkı bulunuz. (5 puan)
+
+    (c) Md. 13/3 uyarınca (II) sayılı listedeki mallara ilişkin işlemleri yapanların yükümlülüğünü belirtiniz. (5 puan)
+  cozum: |
+    **(a)** Md. 12/1 ek paragraf: (II) sayılı listedeki mallardan alınacak vergi, mükellefin bu malı **alış bedeli** ile her hâlükârda bu malların imalatçısının satış bedeli veya ithalatta hesaplanan KDV matrahı üzerinden malın tabi olduğu orana göre hesaplanan vergi tutarından az olamaz. Alt sınır matrah = en yüksek olan: 1.500.000 TL (alış) > 1.400.000 TL (imalatçı satışı). ÖTV = 1.500.000 × %50 = **750.000 TL**.
+
+    **(b)** Satış bedeli üzerinden: 1.350.000 × %50 = 675.000 TL. Fark = 750.000 − 675.000 = **75.000 TL**; ödenecek vergi alt sınır nedeniyle 750.000 TL'dir.
+
+    **(c)** Md. 13/3: (II) sayılı listedeki malların ilk iktisabı, teslimi veya ithaline ilişkin işlemleri gerçekleştirenler, bu işlemlerden önce ÖTV'nin ödendiğini gösteren belgeleri aramak zorundadır.
+
+    Püf noktaları: Zararına satışta bile ÖTV alış bedeli ve imalatçı bedeli esas alınarak alt sınırın altına inemez.
+  puanlama:
+  - olcut: (a) alt sınır ve 750.000 TL
+    puan: 10
+  - olcut: (b) fark 75.000 TL
+    puan: 5
+  - olcut: (c) belge arama zorunluluğu
+    puan: 5
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 12/1
+    alinti: (II) sayılı listedeki mallardan alınacak vergi, mükellefin bu malı alış bedeli ile her hâlükârda bu malların imalatçısının satış bedeli veya ithalatta hesaplanan katma değer vergisi matrahı üzerinden malın tabi olduğu orana göre hesaplanan vergi tutarından az olamaz.
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 13/3
+    alinti: 3. (II) sayılı listedeki malların ilk iktisabı, teslimi veya ithaline ilişkin işlemleri gerçekleştirenler, bu işlemlerden önce özel tüketim vergisinin ödendiğini gösteren belgeleri aramak zorundadırlar.
+  dogrulama:
+    python: |-
+      alt=max(1500000,1400000)
+      sonuc={'a':alt*0.5,'b':alt*0.5-1350000*0.5}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - (III) sayılı liste (A) cetveli
+  - asgari maktu vergi
+  - matrah ve vergi
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Eylül Alkollü İçki San. A.Ş.**, (III) sayılı listenin (A) cetvelindeki bir alkollü içkinin imalatçısıdır. Ağustos 2026 döneminde 20.000 litre ürün satmıştır. Veriler:
+
+    - Litre başına ÖTV ve KDV hariç satış bedeli: 400 TL
+    - Bu vakada (A) cetveli için nispi vergi oranı %60'tır.
+    - Bu vakada asgari maktu vergi tutarı litre başına 280 TL kabul edilecektir (ürünün litresi itibarıyla).
+    - KDV oranı %20'dir.
+
+    **İstenenler:**
+
+    (a) Nispi vergiyi ve asgari maktu vergiye göre hesaplanan tutarı bulunuz. (8 puan)
+
+    (b) Ödenecek ÖTV'yi md. 11/5'e göre belirleyiniz. (6 puan)
+
+    (c) Bu ÖTV'nin KDV matrahına etkisi bakımından toplam KDV'yi hesaplayınız. (6 puan)
+
+    (d) Bu mallara ilişkin ÖTV beyannamesinin verilme süresini md. 14'e göre belirtiniz. (5 puan)
+  cozum: |
+    **(a)** Nispi vergi = 20.000 × 400 × %60 = 4.800.000 TL. Asgari maktu vergi = 20.000 × 280 = 5.600.000 TL.
+
+    **(b)** Md. 11/5: (A) cetvelindeki mallar için asgari maktu vergi tutarlarına göre hesaplanacak vergi tutarından az olmamak üzere yalnızca nispi vergi uygulanır. Nispi vergi (4.800.000) asgari maktu vergiden (5.600.000) az olduğundan ödenecek ÖTV = **5.600.000 TL**.
+
+    **(c)** KDV matrahı = 8.000.000 (satış) + 5.600.000 (ÖTV) = 13.600.000 TL; KDV = **2.720.000 TL**.
+
+    **(d)** Md. 14/1: (III) sayılı listedeki mallar için vergilendirme dönemi aylık; beyanname dönemi izleyen ayın onbeşinci günü akşamına kadar verilir (Ağustos dönemi için 15 Eylül 2026).
+
+    Püf noktaları: Nispi vergi, asgari maktu tutarın altında kalırsa asgari maktu vergi ödenir.
+  puanlama:
+  - olcut: (a) iki hesap
+    puan: 8
+  - olcut: (b) 5.600.000 TL
+    puan: 6
+  - olcut: (c) KDV
+    puan: 6
+  - olcut: (d) 15 Eylül
+    puan: 5
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 11/5
+    alinti: (A) cetvelindeki mallar için asgari maktu vergi tutarlarına göre hesaplanacak vergi tutarından az olmamak üzere yalnızca nispi vergi uygulanır.
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 14/1
+    alinti: Beyanname, (I) sayılı listedeki mallar için vergilendirme dönemini izleyen onuncu günü, diğer mallar için vergilendirme dönemini izleyen ayın onbeşinci günü akşamına kadar
+  dogrulama:
+    python: |-
+      nis=20000*400*0.6
+      asg=20000*280
+      v=max(nis,asg)
+      sonuc={'a':[nis,asg],'b':v,'c':(8000000+v)*0.2}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - (I) sayılı liste
+  - vergilendirme dönemi ve beyan süresi
+  - ödeme süresi
+  zorluk: 2
+  puan: 20
+  sure_dk: 25
+  soru: |
+    **Marka Akaryakıt Rafinerisi A.Ş.**, (I) sayılı listedeki mallardan olan akaryakıtı teslim etmektedir. Mayıs 2026'da teslimleri aşağıdaki gibidir (ÖTV tutarı bu vakada verilmiştir):
+
+    | Teslim tarihi | ÖTV tutarı |
+    |---|---|
+    | 3 Mayıs 2026 | 4.000.000 TL |
+    | 14 Mayıs 2026 | 6.000.000 TL |
+    | 18 Mayıs 2026 | 5.000.000 TL |
+    | 29 Mayıs 2026 | 3.000.000 TL |
+
+    **İstenenler:**
+
+    (a) Md. 14'e göre vergilendirme dönemlerini belirtiniz ve her dönemin ÖTV toplamını bulunuz. (8 puan)
+
+    (b) Her dönem için beyanname verme ve ödeme süresinin son gününü belirtiniz. (8 puan)
+
+    (c) Beyan edilen ve ödenen vergiden fazla vergi gösterilmişse veya vergiye tabi işlem olmadığı hâlde belgede ÖTV gösterilmişse sonucun ne olacağını md. 15'e göre belirtiniz. (4 puan)
+  cozum: |
+    **(a)** Md. 14/1: (I) sayılı listedeki mallar için vergilendirme dönemi her ayın ilk onbeş günlük birinci ve kalan günlerinden oluşan ikinci dönemdir. 1.–15. Mayıs dönemi: 4.000.000 + 6.000.000 = **10.000.000 TL**; 16.–31. Mayıs dönemi: 5.000.000 + 3.000.000 = **8.000.000 TL**.
+
+    **(b)** Beyanname vergilendirme dönemini izleyen onuncu günü akşamına kadar verilir; vergi, beyanname verme süresi içinde ödenir: birinci dönem için **25 Mayıs 2026**, ikinci dönem için **10 Haziran 2026**.
+
+    **(c)** Md. 15/1: Vergiye tabi işlem olmadığı hâlde veya kanuna göre borçlu olduğundan daha yüksek tutarı belgede gösterenler, gösterdikleri vergiyi beyan ve ödemekle mükelleftir.
+
+    Püf noktaları: Onuncu gün 1–15 dönemi için ayın 25'idir; ikinci dönem sonraki ayın 10'u.
+  puanlama:
+  - olcut: (a) iki dönem ve toplamlar
+    puan: 8
+  - olcut: (b) 25 Mayıs ve 10 Haziran
+    puan: 8
+  - olcut: (c) md. 15 sonucu
+    puan: 4
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 14/1
+    alinti: Vergilendirme dönemi; bu Kanuna ekli (I) sayılı listedeki mallar için her ayın ilk onbeş günlük birinci ve kalan günlerinden oluşan ikinci dönem,
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 14/1
+    alinti: Beyanname, (I) sayılı listedeki mallar için vergilendirme dönemini izleyen onuncu günü, diğer mallar için vergilendirme dönemini izleyen ayın onbeşinci günü akşamına kadar mükellefin katma değer vergisi yönünden bağlı olduğu vergi dairesine verilir.
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 15/1
+    alinti: Vergiye tâbi bir işlem söz konusu olmadığı veya bu Kanun kapsamına giren vergiyi fatura veya benzeri belgelerde göstermeye hakkı bulunmadığı halde, düzenlediği bu tür belgelerde bu vergiyi gösterenler, söz konusu vergiyi beyan ve ödemekle mükelleftirler.
+  dogrulama:
+    python: sonuc={'a':[4000000+6000000,5000000+3000000]}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - ihracat istisnası ve iade (md. 5)
+  - ihracat sayılmayan teslimler
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    **Delta Tütün ve İçki Mamulleri A.Ş.** (ÖTV listelerindeki malların imalatçısı) 2026 yılında aşağıdaki teslimleri yapmıştır (ÖTV bu vakada verilmiştir):
+
+    | Teslim | Bedel (ÖTV hariç) | Hesaplanacak ÖTV (istisna uygulanmasaydı) |
+    |---|---|---|
+    | Yurt dışındaki bir alıcıya, malın Gümrük Bölgesi'nden çıkışıyla sonuçlanan teslim | 3.000.000 TL | 900.000 TL |
+    | Yurt dışındaki alıcının adına hareket eden yurt içindeki bir firmaya, işlenmek üzere yurt içinde teslim (sonra ihraç edilecek) | 1.000.000 TL | 300.000 TL |
+    | Serbest bölgedeki alıcıya yurt içinden yapılan teslim | 500.000 TL | 150.000 TL |
+
+    Ek bilgi: Birinci teslime konu malların önceki imalat aşamalarında alış faturalarında gösterilen ve beyan edilen ÖTV 200.000 TL olup bu ÖTV ihracatçıya iade talebine konu edilecektir.
+
+    **İstenenler:**
+
+    (a) Her teslimin ihracat istisnasından yararlanıp yararlanmadığını md. 5'e göre değerlendiriniz. (10 puan)
+
+    (b) Dönemde ödenecek ÖTV'yi bulunuz. (5 puan)
+
+    (c) İhraç edilen mallara ait alış faturalarında gösterilen ÖTV'nin akıbetini md. 5/3'e göre belirtiniz. (5 puan)
+  cozum: |
+    **(a)** Md. 5/1: teslim yurt dışındaki bir müşteriye yapılmalı ve mal Gümrük Bölgesi'nden çıkmış olmalıdır. (1) şartları sağlar, istisna. (2) Malın ihraç edilmeden önce yurt dışındaki alıcı adına hareket edenlere işlenmek üzere yurt içinde teslimi ihracat sayılmaz; ÖTV'ye tabidir. (3) Yurt içinden serbest bölgelere yapılan teslimler ihracat sayılmaz; ÖTV'ye tabidir.
+
+    **(b)** Ödenecek ÖTV = 300.000 + 150.000 = **450.000 TL**.
+
+    **(c)** Md. 5/3: ihraç edilen malların alış faturaları ve benzeri belgeler üzerinde gösterilen ve beyan edilen ÖTV, ihracatçıya iade edilir (200.000 TL).
+
+    Püf noktaları: Yurt içinde teslim, sonra ihraç edilecek olsa bile "alıcı adına hareket eden" yurt içi firmaya işlenmek üzere teslim ihracat değildir; serbest bölgeye yurt içinden teslim de ihracat sayılmaz.
+  puanlama:
+  - olcut: (a) üç teslim
+    puan: 10
+  - olcut: (b) 450.000 TL
+    puan: 5
+  - olcut: (c) iade
+    puan: 5
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 5/1
+    alinti: Malın ihraç edilmeden önce yurt dışındaki alıcı adına hareket edenlere veya bizzat alıcıya işlenmek ya da herhangi bir şekilde değerlendirilmek üzere yurt içinde teslimi ile yurt içinden serbest bölgelere yapılan teslimler ihracat sayılmaz.
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 5/3
+    alinti: ihracatçıya veya gümrüksüz satış mağazalarında satılmak üzere bu mağazalara veya bunların depolarına mal teslim edenlere iade edilir.
+  dogrulama:
+    python: sonuc={'b':300000+150000,'c':200000}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - ihracatçıya teslimde tecil-terkin (md. 8/2)
+  - gecikme zammı
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    **Kuzey Mamulleri A.Ş.**, ÖTV'ye tabi bir malı 12 Şubat 2026'da ihraç edilmek şartıyla **Yıldız Dış Ticaret A.Ş.**'ye teslim etmiş ve ÖTV'yi ihracatçıdan tahsil etmemiştir. İmalatçının talebi üzerine vergi dairesince ÖTV tarh ve tecil edilmiştir. Tecil edilen ÖTV toplamı 2.400.000 TL olup mallar şu şekilde ihraç edilmiştir:
+
+    | Parti | ÖTV | İhraç tarihi |
+    |---|---|---|
+    | A | 1.200.000 TL | 28 Mayıs 2026 |
+    | B | 800.000 TL | 10 Haziran 2026 |
+    | C | 400.000 TL | İhraç edilmemiştir |
+
+    Ek bilgiler: Gecikme zammı bu vakada aylık %3,5 basit zam olarak alınacak ve ay kesirleri tam ay sayılacaktır. Zam için tahakkuk (vade) tarihi Mart 2026 beyanname süresine göre 15 Mart 2026 kabul edilecek, ödeme tarihi 15 Eylül 2026'dır (15 Mart–15 Eylül arası 6 ay). Mücbir sebep yoktur.
+
+    **İstenenler:**
+
+    (a) Terkin için ihracatın tamamlanması gereken son günü bulunuz. (5 puan)
+
+    (b) Hangi partilerin ÖTV'sinin terkin edileceğini, hangilerinin tahsil edileceğini belirtiniz. (5 puan)
+
+    (c) Tahsil edilecek toplam tutarı (vergi ve gecikme zammı) hesaplayınız. (6 puan)
+
+    (d) İhracat 3 ay içinde mücbir sebep nedeniyle yapılamasaydı tahsil şeklinin nasıl değişeceğini ve ek süre imkânını açıklayınız. (4 puan)
+  cozum: |
+    **(a)** Md. 8/2: ihracatçıya teslim tarihi 12 Şubat 2026; ihraç, teslim tarihini takip eden aybaşından (1 Mart 2026) itibaren üç ay içinde yapılmalıdır: son gün **31 Mayıs 2026**.
+
+    **(b)** A partisi 28 Mayıs'ta (süre içinde) ihraç edildiğinden 1.200.000 TL **terkin**; B (10 Haziran, süre dışı) ve C (ihraç yok) tecil kalkar ve tahsil edilir.
+
+    **(c)** Tahsil edilecek ÖTV = 800.000 + 400.000 = 1.200.000 TL. Zam = 1.200.000 × %3,5 × 6 = 252.000 TL. Toplam = **1.452.000 TL**.
+
+    **(d)** Mücbir sebepler nedeniyle ihraç edilememesi hâlinde tecil edilen vergi, gecikme zammı yerine 6183 sayılı Kanun md. 48'e göre tecil faiziyle tahsil edilir. Üç ay içinde mücbir sebep veya beklenmedik durumlar nedeniyle yapılamayan ihracat için üç aylık sürenin dolduğu tarihten itibaren on beş gün içinde başvuran ihracatçıya üç aya kadar ek süre verilebilir.
+
+    Püf noktaları: Üç ay, teslimi izleyen **aybaşından** başlar.
+  puanlama:
+  - olcut: (a) 31 Mayıs
+    puan: 5
+  - olcut: (b) terkin/tahsil ayrımı
+    puan: 5
+  - olcut: (c) 1.452.000 TL
+    puan: 6
+  - olcut: (d) tecil faizi ve ek süre
+    puan: 4
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 8/2
+    alinti: Söz konusu malların ihracatçıya teslim tarihini takip eden aybaşından itibaren üç ay içinde ihraç edilmesi halinde tecil edilen vergi terkin olunur.
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 8/2
+    alinti: İhracatın mücbir sebepler veya beklenmedik durumlar nedeniyle üç ay içinde gerçekleştirilememesi halinde, en geç üç aylık sürenin dolduğu tarihten itibaren onbeş gün içinde başvuran ihracatçılara, Maliye Bakanlığınca veya Bakanlığın uygun görmesi halinde vergi dairelerince üç aya kadar ek süre verilebilir.
+  dogrulama:
+    python: |-
+      t=800000+400000
+      sonuc={'c':t+t*0.035*6}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - (I) sayılı liste (B) cetveli
+  - imalde kullanım nedeniyle tecil-terkin (md. 8/1)
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    **Anadolu Kimya San. A.Ş.**, (I) sayılı listenin (B) cetvelinde yer alan bir malı 5 Ocak 2026'da **Petrol Ürünleri Ltd. Şti.**'ne, (I) sayılı listeye dahil olmayan malların imalinde kullanılmak üzere satmış ve ÖTV'yi tarh ve tahakkuk ettirerek Cumhurbaşkanı'nın belirlediği kısmını teminat alarak tecil ettirmiştir. Tecil edilen ÖTV 1.800.000 TL'dir.
+
+    Alıcı, ürünün ÖTV'si 1.000.000 TL olan kısmını 20 Aralık 2026'da imalde kullanmış, kalan kısmını (ÖTV'si 800.000 TL) imalde kullanmadan üçüncü kişiye satmıştır.
+
+    Ek bilgiler: Tecil tarihi Ocak 2026 ayı içindedir. Gecikme zammı aylık %3 basit olup 2026 Şubat başı vade kabul edilerek 12 ay hesaplanacaktır.
+
+    **İstenenler:**
+
+    (a) Terkin için imalde kullanım süresinin bitiş tarihini bulunuz. (5 puan)
+
+    (b) Hangi tutarın terkin edileceğini, hangi tutarın kimden ve nasıl tahsil edileceğini belirtiniz. (9 puan)
+
+    (c) Gecikme zammı dahil tahsil edilecek toplamı hesaplayınız. (6 puan)
+  cozum: |
+    **(a)** Md. 8/1: tecil tarihini takip eden aybaşından (Şubat 2026) itibaren **oniki ay içinde** kullanılmalıdır; son gün **31 Ocak 2027**.
+
+    **(b)** Süre içinde (20/12/2026) imalde kullanılan kısmın ÖTV'si **1.000.000 TL terkin** edilir. İmalde kullanılmayıp satılan kısmın ÖTV'si (**800.000 TL**), tecil-terkin işlemi dışındaki amaçla teslim nedeniyle **alıcıdan**, vade tarihinden itibaren 6183 sayılı Kanun md. 51 gecikme zammıyla birlikte tahsil edilir.
+
+    **(c)** Zam = 800.000 × %3 × 12 = 288.000 TL. Tahsil edilecek toplam = 800.000 + 288.000 = **1.088.000 TL**.
+
+    Püf noktaları: Süre, tecil tarihini takip eden aybaşından itibaren 12 aydır; amacı dışında satılan kısım için terkin yoktur. Mücbir sebepte zam yerine tecil faizi uygulanır.
+  puanlama:
+  - olcut: (a) 31/1/2027
+    puan: 5
+  - olcut: (b) terkin yok, alıcıdan tahsil
+    puan: 9
+  - olcut: (c) 1.088.000 TL
+    puan: 6
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 8/1
+    alinti: Söz konusu malların tecil tarihini takip eden aybaşından itibaren oniki ay içinde (I) sayılı listeye dahil olmayan malların imalinde kullanılması halinde tecil olunan vergi terkin edilir.
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 8/1
+    alinti: Bu hükümlere uyulmaması halinde, bu malların tecil-terkin işlemi dışındaki amaçlarla tesliminde tarh edilmesi gereken vergi tutarından, daha önce tahsil edilen verginin mahsubundan sonra kalan tutar, vade tarihinden itibaren 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanunun 51 inci maddesinde belirlenen gecikme zammı ile birlikte alıcıdan tahsil edilir.
+  dogrulama:
+    python: |-
+      v=800000
+      sonuc={'c':v+v*0.03*12}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - engellilere ÖTV istisnası (md. 7/2)
+  - istisna limiti
+  - (II) sayılı liste
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    **Hakan Bey**, engelli sağlık kurulu raporunda ortopedik engelliliği %50 olan ve bu engel durumu nedeniyle sürücü belgesi alamayan bir malûl ve engellidir. Bizzat kullanma amacıyla engelliliğine uygun hareket ettirici özel tertibat yaptırmıştır. Yerli katkı oranı en az %20 olan, 87.03 G.T.İ.P. numarasında yer alan, motor silindir hacmi 1.600 cm³ olan iki farklı araçtan birini almak istemektedir (bu vakada istisna sınırı 2.873.900 TL kabul edilecektir; ÖTV ve diğer her türlü vergiler dahil bedel):
+
+    | Araç | ÖTV ve diğer vergiler dahil bedel |
+    |---|---|
+    | A modeli | 2.500.000 TL |
+    | B modeli | 3.200.000 TL |
+
+    **İstenenler:**
+
+    (a) Hakan Bey'in her iki araç bakımından ÖTV istisnasından yararlanıp yararlanamayacağını md. 7/2-c'ye göre değerlendiriniz. (12 puan)
+
+    (b) Bu istisnanın uygulandığı araçların listesi (hangi liste) ve hangi G.T.İ.P. numaraları kapsamında istisna tanındığını belirtiniz. (5 puan)
+
+    (c) B modeli için istisna uygulanmazsa ÖTV'nin hangi mükellef tarafından ödeneceğini belirtiniz. (3 puan)
+  cozum: |
+    **(a)** Md. 7/2-c: (II) sayılı listede yer alan kayıt ve tescile tâbi, yerli katkı oranı en az %20 olan mallardan 87.03 (hesaplanması gereken ÖTV ve diğer her türlü vergiler dahil bedeli 2.873.900 TL'yi aşanlar hariç), 87.04 (motor silindir hacmi 2.800 cm³'ü aşanlar hariç) ve 87.11 G.T.İ.P. numaralarında yer alanların, bizzat kullanma amacıyla engelliliğine uygun hareket ettirici özel tertibat yaptıran malûl ve engelliler ile engelli sağlık kurulu raporunda ortopedik engelliliği yüzde 40 ve üzeri olup bu engel durumu nedeniyle sürücü belgesi alamayan malûl ve engelliler tarafından iktisabı ÖTV'den müstesnadır. Hakan Bey ortopedik engelliliği %50 (≥%40), sürücü belgesi alamıyor ve özel tertibat yaptırmış → şartlar sağlanır. A modeli (2.500.000 ≤ 2.873.900) → **istisnadan yararlanır**. B modeli (3.200.000 > 2.873.900) → **istisna dışındadır**.
+
+    **(b)** Konu (II) sayılı liste; 87.03, 87.04 ve 87.11 G.T.İ.P. numaraları.
+
+    **(c)** B modelinde istisna uygulanmayacağından (II) sayılı listedeki malın ilk iktisabında motorlu araç ticareti yapan satıcı mükellef (md. 4/1-b) ÖTV'yi beyan ve öder; ÖTV araç fiyatına yansır.
+
+    Püf noktaları: Limit, ÖTV ve diğer vergiler dahil bedele göre; limiti aşan araç tamamen istisna dışında kalır.
+  puanlama:
+  - olcut: (a) A istisna, B değil
+    puan: 12
+  - olcut: (b) liste ve GTİP
+    puan: 5
+  - olcut: (c) mükellef
+    puan: 3
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 7/2-c
+    alinti: 87.03 (hesaplanması gereken özel tüketim vergisi ve diğer her türlü vergiler dahil bedeli 2.873.900 TL’yi aşanlar hariç), 87.04 (motor silindir hacmi 2.800 cm³’ü aşanlar hariç) ve 87.11 G.T.İ.P. numaralarında yer alanların, bizzat kullanma amacıyla engelliliğine uygun hareket ettirici özel tertibat yaptıran malûl ve engelliler ile engelli sağlık kurulu raporunda ortopedik engelliliği yüzde 40 ve üzeri olup bu engel durumu nedeniyle sürücü belgesi alamayan malûl ve engelliler tarafından,
+  dogrulama:
+    python: sonuc={'a':[2500000<=2873900, 3200000<=2873900]}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - diplomatik istisna (md. 6)
+  - karşılıklılık
+  - ilk iktisap
+  zorluk: 2
+  puan: 20
+  sure_dk: 25
+  soru: |
+    **Eker Motorlu Araçlar A.Ş.** Haziran 2026'da aşağıdaki araç satışlarını yapmıştır (II sayılı listede yer alan, kayıt ve tescile tabi araçlar; ÖTV bu vakada verilmiştir):
+
+    | Alıcı | ÖTV (istisna olmasaydı) |
+    |---|---|
+    | X Devleti'nin Ankara Büyükelçiliği (karşılıklılık vardır), büyükelçilik ihtiyacı için | 600.000 TL |
+    | X Devleti Büyükelçiliği'nin diplomatik hakları bulunan bir mensubu, kendi ihtiyacı için (karşılıklılık vardır) | 400.000 TL |
+    | X Devleti Büyükelçiliği'nde çalışan, diplomatik hakları olmayan yerel personel | 350.000 TL |
+    | Y Devleti Konsolosluğu (karşılıklılık yoktur) | 250.000 TL |
+
+    **İstenenler:**
+
+    (a) Her satışın ÖTV yönünden durumunu md. 6'ya göre değerlendiriniz. (12 puan)
+
+    (b) Ödenmesi gereken ÖTV toplamını bulunuz. (4 puan)
+
+    (c) ÖTV'ye ilişkin istisna ve muafiyetlerin hangi şekilde düzenlenebileceğini md. 10'a göre belirtiniz. (4 puan)
+  cozum: |
+    **(a)** Md. 6: (I), (II) ve (III) sayılı listelerdeki malların, karşılıklı olmak kaydıyla yabancı devletlerin Türkiye'deki diplomatik temsilcilikleri, konsoloslukları ve bunların diplomatik haklara sahip mensupları tarafından kendi ihtiyaçları için ilk iktisabı veya bunlara teslimi ÖTV'den müstesnadır. (1) ve (2) istisna; (3) diplomatik haklara sahip olmadığından istisna yok; (4) karşılıklılık olmadığından istisna yok.
+
+    **(b)** Ödenecek ÖTV = 350.000 + 250.000 = **600.000 TL**.
+
+    **(c)** Md. 10/1: ÖTV'ye ilişkin istisna ve muafiyetler ancak bu Kanuna hüküm eklenmek veya bu Kanunda değişiklik yapılmak suretiyle düzenlenir; diğer kanunlardaki istisna veya muafiyet hükümleri bu vergi bakımından geçersizdir. Uluslararası anlaşma hükümleri saklıdır.
+
+    Püf noktaları: Karşılıklılık ve diplomatik haklara sahip olma birlikte aranır; başka kanunlardaki muafiyetler ÖTV'de geçerli değildir.
+  puanlama:
+  - olcut: (a) dört satış
+    puan: 12
+  - olcut: (b) 600.000 TL
+    puan: 4
+  - olcut: (c) md. 10
+    puan: 4
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 6
+    alinti: Madde 6 – Bu Kanuna ekli (I), (II) ve (III) sayılı listelerde yer alan malların, karşılıklı olmak kaydıyla yabancı devletlerin Türkiye’deki diplomatik temsilcilikleri, konsoloslukları ve uluslararası anlaşmalarla vergi muafiyeti tanınan uluslararası kuruluşlar ve bunların diplomatik haklara sahip mensupları tarafından kendi ihtiyaçları için ilk iktisabı, ithali veya bunlara teslimi
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 10/1
+    alinti: Özel tüketim vergisine ilişkin istisna ve muafiyetler ancak bu Kanuna hüküm eklenmek veya bu Kanunda değişiklik yapılmak suretiyle düzenlenir. Diğer kanunlarda yer alan istisna veya muafiyet hükümleri bu vergi bakımından geçersizdir.
+  dogrulama:
+    python: sonuc={'b':350000+250000}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - müteselsil sorumluluk (md. 13/3)
+  - vergi ziyaı cezası ve gecikme faizi
+  - (II) sayılı liste
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Sevgi Otomotiv Ltd. Şti.** motorlu araç ticareti yapmaktadır. Şirket, 6 Nisan 2026'da (II) sayılı listede yer alan, ilk iktisabı henüz ÖTV ödenmemiş bir aracı, ÖTV'nin ödendiğini gösteren belgeyi aramadan satın alarak adına kaydettirmiştir. Mükellef imalatçı, ÖTV'yi beyan etmemiştir. Daha sonra yapılan incelemede ÖTV 900.000 TL olarak hesaplanmış, vergi ziyaı cezası (1 kat) ve gecikme faizi (bu vakada 900.000 × %2 × 8 ay = 144.000 TL kabul edilecektir) hesaplanmıştır. Tescil işlemini yapan memur da ÖTV ödendiğini gösteren belgeyi aramaksızın işlemi yapmıştır.
+
+    **İstenenler:**
+
+    (a) Ziyaa uğratılan ÖTV, vergi cezası ve gecikme faizinin toplam tutarını hesaplayınız. (6 puan)
+
+    (b) Bu toplamdan kimlerin müteselsilen sorumlu olduğunu md. 13/3'e göre belirtiniz. (8 puan)
+
+    (c) Ödemek zorunda kalan müteselsil sorumlunun mükellefe karşı sahip olduğu hakkı belirtiniz. (5 puan)
+
+    (d) Belgeyi aramak zorunda olan kişilerin kapsamını (en az dört grup) sayınız. (6 puan)
+  cozum: |
+    **(a)** ÖTV 900.000 + vergi ziyaı cezası 900.000 + gecikme faizi 144.000 = **1.944.000 TL**.
+
+    **(b)** Md. 13/3: bu mecburiyete uymamak suretiyle gerekli verginin ödenmesinden önce işlem yapan gümrük memurları, kayıt ve tescile yetkili memurlar, motorlu araç ticareti yapanlar, müzayede yoluyla satışı gerçekleştirenler ile icra memurları, ziyaa uğratılan vergi, vergi cezası ve gecikme faizinden mükellefle birlikte **müteselsilen sorumludur**. Burada Sevgi Otomotiv ve tescil memuru ile mükellef imalatçı sorumludur.
+
+    **(c)** Ödemek zorunda kalan müteselsil sorumlular, ödedikleri vergi, ceza ve faizler için mükellefe **rücu hakkına** sahiptir.
+
+    **(d)** Gümrük memurları, kayıt ve tescile yetkili memurlar, motorlu araç ticareti yapanlar, müzayede yoluyla satışı gerçekleştirenler ve icra memurları.
+
+    Püf noktaları: Sorumluluk vergi ile sınırlı değildir; ceza ve faizi de kapsar; rücu hakkı saklıdır.
+  puanlama:
+  - olcut: (a) 1.944.000 TL
+    puan: 6
+  - olcut: (b) müteselsil sorumluluk
+    puan: 8
+  - olcut: (c) rücu hakkı
+    puan: 5
+  - olcut: (d) sorumlu gruplar
+    puan: 6
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 13/3
+    alinti: Bu mecburiyete uymamak suretiyle gerekli verginin ödenmesinden önce işlem yapan gümrük memurları, kayıt ve tescile yetkili memurlar, motorlu araç ticareti yapanlar, bu malların müzayede yoluyla satışını gerçekleştirenler ile icra memurları, ziyaa uğratılan vergi, vergi cezası ve gecikme faizinden mükellefle birlikte müteselsilen sorumludurlar. Ancak bunlar, ödemek zorunda kaldıkları vergi, ceza ve faizler için mükellefe rücu hakkına sahiptirler.
+  dogrulama:
+    python: sonuc={'a':900000+900000+144000}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - (I) sayılı liste
+  - daha yüksek vergili malın yerine kullanma (md. 13/2)
+  - vergi ziyaı cezası
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    **Sahil Ticaret Ltd. Şti.**, (I) sayılı listedeki bir malı vergi tutarı litre başına 4 TL olan türde satın almıştır. Şirket bu malı 2026 yılı Haziran ayında, litre başına 10 TL ÖTV'ye tabi olan başka bir mal olarak kullanmıştır. Toplam 120.000 litre mal kullanılmıştır. Bu vakada vergi ziyaı cezası 1 kat, gecikme faizi toplam 90.000 TL olarak kabul edilecektir.
+
+    **İstenenler:**
+
+    (a) Ziyaa uğratılan ÖTV tutarını ve bu tutarın kimin adına tarh edileceğini md. 13/2'ye göre belirtiniz. (8 puan)
+
+    (b) Vergi ziyaı cezasını hesaplayınız ve toplam yükü (vergi + ceza + gecikme faizi) bulunuz. (8 puan)
+
+    (c) Uygulanacak ceza hükmünün hangi kanundaki hangi maddeye atıfla uygulanacağını belirtiniz. (4 puan)
+  cozum: |
+    **(a)** Md. 13/2: (I) sayılı listedeki malları teslim alanların, bu malları daha yüksek tutarda vergiye tâbi bir mal olarak kullanmak veya üçüncü kişilere satmak suretiyle vergi ziyaına sebebiyet vermeleri halinde ziyaa uğratılan vergi **bunlar adına tarh olunur**. Fark = 10 − 4 = 6 TL/litre; ÖTV = 120.000 × 6 = **720.000 TL**, Sahil Ticaret adına tarh edilir.
+
+    **(b)** Vergi ziyaı cezası = 720.000 TL (1 kat). Toplam = 720.000 + 720.000 + 90.000 = **1.530.000 TL**.
+
+    **(c)** Tarhiyata 213 sayılı VUK md. 344'e göre vergi ziyaı cezası uygulanır.
+
+    Püf noktaları: Ziyaa uğratılan vergi fark tutardır (10−4), tamamı değildir.
+  puanlama:
+  - olcut: (a) 720.000 TL ve tarh
+    puan: 8
+  - olcut: (b) 1.530.000 TL
+    puan: 8
+  - olcut: (c) VUK md. 344
+    puan: 4
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 13/2
+    alinti: 2. (I) sayılı listedeki malları teslim alanların, bu malları daha yüksek tutarda vergiye tâbi bir mal olarak kullanmak veya üçüncü kişilere satmak suretiyle vergi ziyaına sebebiyet vermeleri halinde, ziyaa uğratılan vergi bunlar adına tarh olunur ve tarhiyata 213 sayılı Vergi Usul Kanununun 344 üncü Maddesine göre vergi ziyaı cezası uygulanır.
+  dogrulama:
+    python: |-
+      fark=(10-4)*120000
+      sonuc={'a':fark,'b':fark+fark+90000}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - ÖTV indirimi (md. 9)
+  - (IV) sayılı listeden iade (md. 9/A)
+  - (II) sayılı listede imalat
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Atlas Otomotiv A.Ş.**, (II) sayılı listenin 87.03 G.T.İ.P. numarasındaki araçları imal etmektedir. Haziran 2026 döneminde:
+
+    | Kalem | Tutar |
+    |---|---|
+    | İmal edilen ve satılan araçlar için hesaplanan ÖTV | 12.000.000 TL |
+    | Araç imalinde kullanılan, (IV) sayılı listedeki malların (örn. bazı elektronik cihazlar) alış faturalarında gösterilen ve beyan edilen ÖTV | 700.000 TL |
+    | Aynı listede yer alan başka bir mal olan ve imalde kullanılan hammaddeye ilişkin faturalarda gösterilen ÖTV (aynı liste içi kullanım) | 300.000 TL |
+
+    Ek bilgi: Aynı liste içi kullanım için ödenen vergi Maliye Bakanlığınca belirlenen esaslara uygun olarak tespit edilmiştir.
+
+    **İstenenler:**
+
+    (a) (IV) sayılı listedeki malların imalde kullanılması nedeniyle gösterilen ÖTV'nin akıbetini md. 9/A'ya göre belirtiniz. (8 puan)
+
+    (b) Listedeki başka bir malın imalinde kullanılan ÖTV'ye tabi mal için ödenen verginin akıbetini md. 9'a göre belirtiniz. (6 puan)
+
+    (c) Dönem ödenecek ÖTV'yi hesaplayınız (iade edilen tutar ödenecek vergiden mahsup edilmeyecek, ayrıca belirtilecektir). (6 puan)
+
+    (d) Md. 9/A'daki iadenin usul ve esaslarını belirlemeye yetkili merciyi belirtiniz. (5 puan)
+  cozum: |
+    **(a)** Md. 9/A: (II) sayılı listenin 87.03 vb. G.T.İ.P. numaralarında yer alan malların imalinde kullanılan (IV) sayılı listedeki malların alış faturalarında gösterilen ve beyan edilen ÖTV, (II) sayılı listedeki malların imalatçısına **iade edilir**: 700.000 TL iade.
+
+    **(b)** Md. 9: ÖTV'ye tabi malların, yer aldığı listedeki başka bir malın imalinde kullanılması halinde ödenen vergi, Maliye Bakanlığınca belirlenen esaslara göre ödenecek vergiden **indirilir**: 300.000 TL indirim.
+
+    **(c)** Ödenecek ÖTV = 12.000.000 − 300.000 = **11.700.000 TL**; ayrıca 700.000 TL iade edilir.
+
+    **(d)** Maliye Bakanlığı.
+
+    Püf noktaları: İndirim aynı liste içinde yer alan malda; (IV) listeden (II) listeye geçişte iade söz konusudur.
+  puanlama:
+  - olcut: (a) iade 700.000
+    puan: 8
+  - olcut: (b) indirim 300.000
+    puan: 6
+  - olcut: (c) ödenecek 11.700.000
+    puan: 6
+  - olcut: (d) yetkili merci
+    puan: 5
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 9
+    alinti: Özel tüketim vergisine tâbi malların, yer aldığı listedeki başka bir malın imalinde kullanılması halinde ödenen vergi, Maliye Bakanlığınca belirlenen esaslara göre ödenecek vergiden indirilir.
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 9/A
+    alinti: (II) sayılı listenin 8701.20, 87.02, 87.03, 87.04, 87.11 G.T.İ.P. numaralarında yer alan malların imalinde kullanılan (IV) sayılı listedeki malların alış faturaları ve benzeri belgeler üzerinde gösterilen ve beyan edilen özel tüketim vergisi, (II) sayılı listedeki malların imalatçısına iade edilir.
+  dogrulama:
+    python: sonuc={'c':12000000-300000,'a':700000}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - vergiyi doğuran olay (md. 3)
+  - fatura ile sınırlı vergiyi doğuran olay
+  - oran değişikliği
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Mavi Beyaz Eşya A.Ş.**, (IV) sayılı listede yer alan bir malın imalatçısıdır. Hasan Ticaret Ltd. Şti.'ye 30 adet mal satmıştır (birim satış bedeli ÖTV ve KDV hariç 20.000 TL). Veriler:
+
+    | Tarih | Olay |
+    |---|---|
+    | 20 Ocak 2026 | 30 adet için fatura düzenlenmiştir (malın tesliminden önce) |
+    | 8 Şubat 2026 | 20 adet fiilen teslim edilmiştir |
+    | 5 Mart 2026 | Kalan 10 adet fiilen teslim edilmiştir |
+
+    Ek bilgi: Bu vakada ürünün ÖTV oranı 31 Ocak 2026'ya kadar %10, 1 Şubat 2026'dan itibaren %15 olarak kabul edilecektir. Faturada belirtilen miktar kadar işlem için vergiyi doğuran olay fatura tarihinde gerçekleşir.
+
+    **İstenenler:**
+
+    (a) Md. 3'e göre vergiyi doğuran olayın ne zaman gerçekleştiğini belirtiniz. (6 puan)
+
+    (b) Hangi oranın uygulanacağını belirleyip ÖTV'yi hesaplayınız. (9 puan)
+
+    (c) Fatura 30 adet yerine 25 adet için düzenlenmiş olsaydı, kalan 5 adet için vergiyi doğuran olayın ne zaman gerçekleşeceğini ve hangi oranın uygulanacağını belirtiniz. (6 puan)
+
+    (d) Matrah ve ÖTV, KDV matrahına nasıl etki eder? Fatura (30 adet) için KDV'yi hesaplayınız (KDV %20). (4 puan)
+  cozum: |
+    **(a)** Md. 3/b: malın tesliminden önce fatura veya benzeri belgeler verilmesi hallerinde, bu belgelerde gösterilen miktarla sınırlı olmak üzere fatura veya benzeri belgelerin düzenlenmesi, vergiyi doğuran olaydır. 30 adedin tamamı için fatura 20 Ocak'ta düzenlendiğinden vergiyi doğuran olay **20 Ocak 2026**'da gerçekleşir.
+
+    **(b)** Vergiyi doğuran olay 31 Ocak'tan önce olduğundan oran **%10**. Matrah = 30 × 20.000 = 600.000 TL; ÖTV = 60.000 TL.
+
+    **(c)** Fatura 25 adet için düzenlenmiş olsaydı, 25 adet için 20 Ocak (oran %10); kalan 5 adet için vergiyi doğuran olay md. 3/a gereği malın teslimi olan **5 Mart 2026**'da gerçekleşir ve oran %15 uygulanır.
+
+    **(d)** Md. 11/3: matrah ÖTV hariç, KDV matrahını oluşturan unsurlardan oluşur; KDV matrahı ÖTV'yi içerir (KDVK md. 24/b). KDV matrahı = 600.000 + 60.000 = 660.000 TL; KDV = **132.000 TL**.
+
+    Püf noktaları: Fatura, yalnız gösterilen miktar için vergiyi doğurur; faturanın aşan kısmı teslimle doğar.
+  puanlama:
+  - olcut: (a) md. 3/b, 20 Ocak
+    puan: 6
+  - olcut: (b) %10 ve 60.000
+    puan: 9
+  - olcut: (c) kalan miktar ve %15
+    puan: 6
+  - olcut: (d) KDV 132.000
+    puan: 4
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 3
+    alinti: a) Mal teslimi veya ilk iktisap hallerinde malın teslimi veya ilk iktisabı, b) Malın tesliminden önce fatura veya benzeri belgeler verilmesi hallerinde, bu belgelerde gösterilen miktarla sınırlı olmak üzere fatura veya benzeri belgelerin düzenlenmesi,
+  - mevzuat: 3065 sayılı KDV Kanunu
+    madde: md. 24/b
+    alinti: b) Ambalaj giderleri, sigorta, komisyon ve benzeri gider karşılıkları ile vergi, resim, harç, pay, fon karşılığı gibi unsurlar,
+  dogrulama:
+    python: |-
+      m=30*20000
+      otv=m*0.10
+      sonuc={'b':otv,'d':(m+otv)*0.2}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - istisna ile iktisap edilen aracın devri (md. 15/2-a)
+  - engelli aracı
+  - (II) sayılı liste
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    **Selin Hanım**, ÖTV istisnasından yararlanarak (md. 7/2 kapsamında) bir otomobil iktisap etmiş ve ilk iktisap matrahı 1.200.000 TL olan araç adına 10 Mart 2023'te tescil edilmiştir. Araç, aşağıdaki iki farklı senaryoda satılmıştır:
+
+    **Senaryo 1:** Selin Hanım aracı 2026'da, istisnadan yararlanan bir engelli olmayan **Ayhan Bey**'e satmış; Ayhan Bey adına tescil 14 Eylül 2026'da yapılmıştır. Tescil tarihinde araçta geçerli ÖTV oranı %50'dir.
+
+    **Senaryo 2:** Aracı 18 Nisan 2029'da (iktisaptan 5 yıldan fazla kullandıktan sonra) başka bir kişiye satmıştır (tescil tarihi 18 Nisan 2029).
+
+    **İstenenler:**
+
+    (a) Senaryo 1'de ÖTV'nin doğup doğmadığını, doğuyorsa tutarını ve kimden alınacağını md. 15/2-a'ya göre belirtiniz. (10 puan)
+
+    (b) Senaryo 2'de ÖTV'nin doğup doğmayacağını gerekçesiyle belirtiniz. (8 puan)
+
+    (c) Veraset yoluyla intikal hâlinde md. 15/2-a'nın uygulanıp uygulanmayacağını belirtiniz. (2 puan)
+  cozum: |
+    **(a)** Md. 15/2-a: (II) sayılı listedeki kayıt ve tescile tâbi malların, veraset yoluyla intikaller hariç ilk iktisabında istisna uygulanan malların istisnadan yararlananlar dışındakilerce iktisabında, ilk iktisabındaki matrah esas alınarak adına kayıt ve tescil işlemi yapılandan, kayıt ve tescili tarihinde geçerli olan oran üzerinden bu tarihte ÖTV alınır. Matrah = 1.200.000 TL; oran %50; ÖTV = **600.000 TL**, **Ayhan Bey adına** tescil yapılan kişiden alınır.
+
+    **(b)** Aynı hükmün devamı: md. 7'nin (2) ve (8) numaralı bentleri çerçevesinde istisnadan yararlananlar bu istisnadan yararlanarak iktisap ettikleri kayıt ve tescile tabi malları **5 yıldan fazla kullanarak** elden çıkarırlarsa bu hüküm uygulanmaz. 10/3/2023–18/4/2029 arası 5 yıldan fazladır; **ÖTV doğmaz**.
+
+    **(c)** Veraset yoluyla intikaller hükmün dışındadır; ÖTV alınmaz.
+
+    Püf noktaları: Oran, ilk iktisap tarihindeki değil **yeni tescil tarihindeki** orandır; matrah ise ilk iktisap matrahıdır.
+  puanlama:
+  - olcut: (a) 600.000 TL
+    puan: 10
+  - olcut: (b) 5 yıl kuralı
+    puan: 8
+  - olcut: (c) veraset
+    puan: 2
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 15/2-a
+    alinti: (II) sayılı listedeki mallardan kayıt ve tescile tâbi olanların, veraset yoluyla intikaller hariç ilk iktisabında istisna uygulanan malların istisnadan yararlananlar dışındakilerce iktisabında, ilk iktisabındaki matrah esas alınarak adına kayıt ve tescil işlemi yapılandan, kayıt ve tescili tarihinde geçerli olan oran üzerinden, bu tarihte özel tüketim vergisi alınır.
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 15/2-a
+    alinti: Kanunun 7 nci maddesinin (2) ve (8) numaralı bentleri çerçevesinde istisnadan yararlananlar tarafından bu istisnadan yararlanılarak iktisap ettikleri kayıt ve tescile tabi malları 5 yıldan fazla kullanarak elden çıkarmaları durumunda bu hüküm uygulanmaz.
+  dogrulama:
+    python: sonuc={'a':1200000*0.5}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - belgesiz mal bulundurma (md. 4/3)
+  - asgari maktu vergi
+  - vergi ziyaı cezası
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Orhan Bakkaliye Ltd. Şti.** nezdinde 22 Nisan 2026'da yapılan fiili envanter sırasında (III) sayılı listenin (A) cetvelinde yer alan 400 litre alkollü içkinin alış belgesinin bulunmadığı tespit edilmiştir. Mükellefe belgelerini ibraz etmesi için verilen süre içinde belge ibraz edilememiştir. Veriler:
+
+    - Malın tespit tarihindeki emsal bedeli (ÖTV ve KDV hariç): litre başına 500 TL
+    - Bu vakada (A) cetveli nispi vergi oranı %40; asgari maktu vergi litre başına 280 TL kabul edilecektir.
+    - Vergi ziyaı cezası vergi farkının 1 katıdır; indirim yoktur.
+
+    **İstenenler:**
+
+    (a) Belgesiz mal bulunduğunun tespiti hâlinde tanınacak süreyi belirtiniz ve süre bitiminde yapılacak işlemi açıklayınız. (6 puan)
+
+    (b) Resen tarh edilecek ÖTV'yi md. 4/3 ve md. 11/5'e göre hesaplayınız. (9 puan)
+
+    (c) Vergi ziyaı cezası dahil toplam yükü bulunuz. (3 puan)
+
+    (d) Bu malları satana tarhiyat yapılırsa alıcıdan vergi ve cezanın aranıp aranmayacağını belirtiniz. (7 puan)
+  cozum: |
+    **(a)** Md. 4/3: belgesiz mal bulunduran mükelleflere alış belgelerinin ibrazı için tespit tarihinden itibaren **10 günlük** süre verilir. Süre içinde ibraz edilemezse belgesi ibraz edilemeyen malın tespit tarihindeki emsal bedeli üzerinden hesaplanan ÖTV, alışını belgeleyemeyen mükellef adına **re'sen tarh** edilir.
+
+    **(b)** Nispi vergi = 400 × 500 × %40 = 80.000 TL. Asgari maktu vergi = 400 × 280 = 112.000 TL. Tarh edilecek ÖTV asgari maktu vergiden az olamaz → **112.000 TL**.
+
+    **(c)** Vergi ziyaı cezası = 112.000 TL. Toplam = **224.000 TL**.
+
+    **(d)** Belgesiz mal bulunduran mükelleflere bu malları satanlara, vergi inceleme raporuna dayanılarak ÖTV tarhiyatı yapıldığında, ayrıca alıcıdan ÖTV ve buna ilişkin ceza **aranmaz**.
+
+    Püf noktaları: Resen tarhta da asgari maktu vergi alt sınırı geçerlidir.
+  puanlama:
+  - olcut: (a) 10 gün ve re'sen tarh
+    puan: 6
+  - olcut: (b) 112.000 TL
+    puan: 9
+  - olcut: (c) 224.000 TL
+    puan: 3
+  - olcut: (d) alıcıdan aranmaz
+    puan: 7
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 4/3
+    alinti: Bu süre içinde alış belgelerinin ibraz edilememesi halinde, belgesi ibraz edilemeyen malın tespit tarihindeki emsal bedeli üzerinden hesaplanan özel tüketim vergisi, alışını belgeleyemeyen mükellef adına re’sen tarh edilir. Tarh edilecek özel tüketim vergisi, asgari maktu vergi tutarına göre hesaplanacak vergiden az olamaz. Bu tarhiyata vergi ziyaı cezası uygulanır.
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 4/3
+    alinti: Ancak, belgesiz mal bulunduran mükelleflere bu malları satanlara, bu satışları ile ilgili vergi inceleme raporuna dayanılarak özel tüketim vergisi tarhiyatı yapıldığı takdirde, ayrıca alıcıdan özel tüketim vergisi ve buna ilişkin ceza aranmaz.
+  dogrulama:
+    python: |-
+      nis=400*500*0.4
+      asg=400*280
+      v=max(nis,asg)
+      sonuc={'b':v,'c':2*v}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - özel etiketsiz mal bulundurma (md. 13/5)
+  - (III) sayılı liste (A) cetveli
+  - resen tarh
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Köşe Market Ltd. Şti.** nezdinde 7 Temmuz 2026'da yapılan denetimde, zorunlu özel etiketi bulunmayan (III) sayılı listenin (A) cetvelindeki alkollü içkilerden iki ayrı tespit yapılmıştır:
+
+    | Tespit | Miktar (litre) | Emsal bedel (ÖTV, KDV hariç, litre başına) |
+    |---|---|---|
+    | 1. Tespit | 30 | 400 TL |
+    | 2. Tespit (farklı depo, aynı gün; ayrı tespit tutanağı) | 80 | 400 TL |
+
+    Bu vakada (A) cetvelinde nispi vergi oranı %50, asgari maktu vergi litre başına 280 TL kabul edilecektir. Vergi ziyaı cezası vergi farkının 1 katıdır.
+
+    **İstenenler:**
+
+    (a) Hangi tespit(ler) için md. 13/5 uyarınca resen tarhiyat yapılacağını belirtiniz. (6 puan)
+
+    (b) Tarh edilecek ÖTV ve vergi ziyaı cezasını hesaplayınız. (10 puan)
+
+    (c) Mal sahibinin yanı sıra kimlerin adına tarhiyat yapılabileceğini md. 13/5'e göre belirtiniz. (5 puan)
+
+    (d) Tarhiyatın dayandığı vergileme ölçüsünü (hangi maddedeki esaslar) belirtiniz. (4 puan)
+  cozum: |
+    **(a)** Md. 13/5: her bir tespit için (A) cetvelindeki malların **50 litreyi aşması** hâlinde resen tarh. 1. tespit 30 litre → hükümde belirtilen eşiği aşmadığından bu hükme göre tarhiyat yapılmaz; 2. tespit 80 litre > 50 → tarhiyat yapılır.
+
+    **(b)** Nispi = 80 × 400 × %50 = 16.000 TL; asgari maktu = 80 × 280 = 22.400 TL; ÖTV = **22.400 TL**. Vergi ziyaı cezası = **22.400 TL**. Toplam 44.800 TL.
+
+    **(c)** Malları bulunduranlar ile ithal veya imal edenlerden herhangi biri adına, **müteselsilen sorumlu olmak üzere** tarh yapılır.
+
+    **(d)** Md. 11'deki esaslara göre (malın tespit tarihindeki emsal bedeli veya miktarı üzerinden).
+
+    Püf noktaları: Eşik her bir tespit için ayrı aranır.
+  puanlama:
+  - olcut: (a) 50 litre eşiği
+    puan: 6
+  - olcut: (b) 22.400 ve ceza
+    puan: 10
+  - olcut: (c) müteselsil sorumluluk
+    puan: 5
+  - olcut: (d) md. 11 esasları
+    puan: 4
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 13/5
+    alinti: (A) cetvelinde yer alan malların 50 litreyi, (B) cetvelinde yer alan 2402.20 ve 2402.90.00.00.00 (yalnız tütün yerine geçen maddelerden yapılmış sigaralar) ile 4813.10.00.80.00 (makaron) G.T.İ.P. numaralı malların 5.000 adedi aşması hâlinde ise müteselsilen sorumlu olmak üzere, bu malları bulunduranlar ile ithal veya imal edenlerden herhangi biri adına;
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 13/5
+    alinti: malların tespit tarihindeki emsal bedeli veya miktarı üzerinden 11 inci maddedeki esaslara göre özel tüketim vergisi resen tarh edilir.
+  dogrulama:
+    python: |-
+      nis=80*400*0.5
+      asg=80*280
+      v=max(nis,asg)
+      sonuc={'b':[v,v]}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: OTV
+  kazanimlar:
+  - matrahta değişiklik ve düzeltme (md. 15)
+  - tescilden sonra iade
+  - ilk iktisap
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Trend Otomotiv A.Ş.** (motorlu araç ticareti yapan), (II) sayılı listedeki bir aracı Mart 2026'da 1.000.000 TL (ÖTV ve KDV hariç) bedelle müşteriye satmış; ÖTV'yi (oran %50, 500.000 TL) beyan edip ödemiştir. Aşağıda iki farklı durum ele alınacaktır:
+
+    **Durum A:** Araç, alıcı adına tescil edilmeden önce, sözleşmeden vazgeçilmesi nedeniyle 28 Mart 2026'da iade edilmiştir.
+
+    **Durum B:** Araç alıcı adına tescil edildikten sonra Tüketicinin Korunması Hakkında Kanun hükümlerine göre 15 Nisan 2026'da galeriye iade edilmiştir.
+
+    **İstenenler:**
+
+    (a) Durum A'da ÖTV yönünden düzeltme yapılıp yapılamayacağını ve düzeltmenin dönemini md. 15'e göre belirtiniz; düzeltilecek tutarı bulunuz. (9 puan)
+
+    (b) Durum B'de düzeltmenin mümkün olup olmadığını gerekçesiyle belirtiniz. (6 puan)
+
+    (c) Durum B'de iade edilen aracın galerinin elinde yeniden satışında ilk iktisabın nasıl değerlendirileceğini md. 2/1-b'ye göre belirtiniz. (5 puan)
+
+    (d) Düzeltmenin şartlarını (fiili giriş vb.) belirtiniz. (5 puan)
+  cozum: |
+    **(a)** Md. 15/1: malların iade edilmesi, işlemin gerçekleşmemesi, işlemden vazgeçilmesi vb. nedenlerle matrahta değişiklik vuku bulduğunda mükellef, borçlandığı vergiyi değişikliğin mahiyetine uygun şekilde ve **meydana geldiği dönem içinde** düzeltme yapabilir. Düzeltilecek ÖTV = **500.000 TL**, Mart 2026 döneminde.
+
+    **(b)** Madde, (II) sayılı listedeki kayıt ve tescile tâbi malların **kayıt ve tescil edildikten sonra iade edilmesi hâlini** düzeltme hükmünün dışında bırakır; Durum B'de düzeltme yapılamaz.
+
+    **(c)** Md. 2/1-b: kayıt ve tescil edilmiş olsa dahi 4077 sayılı Kanun hükümlerine göre iade edilenler de dahil motorlu araç ticareti yapanlardan iktisap, ilk iktisaptır. Galeri tarafından yeniden kullanılmaya başlanması veya satılması yeni bir ilk iktisaba yol açabilir (galerinin satışı sırasında yeniden ÖTV doğar).
+
+    **(d)** İade olunan malların fiilen işletmeye girmiş olması, yersiz veya fazla ödenen verginin alıcıya iade edilmesi ve bu işlemlerin defter kayıtları, belgeler ile beyannamede gösterilmesi şarttır.
+
+    Püf noktaları: Tescilli araçta iade sonrası ÖTV düzeltilemez.
+  puanlama:
+  - olcut: (a) düzeltme ve 500.000
+    puan: 9
+  - olcut: (b) tescil sonrası düzeltme yok
+    puan: 6
+  - olcut: (c) md. 2/1-b
+    puan: 5
+  - olcut: (d) şartlar
+    puan: 5
+  kaynaklar:
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 15/1
+    alinti: (II) sayılı listedeki kayıt ve tescile tâbi olan malların kayıt ve tescil edildikten sonra iade edilmesi hali hariç, malların iade edilmesi, işlemin gerçekleşmemesi, işlemden vazgeçilmesi veya diğer nedenlerle matrahta değişiklik vuku bulduğu ya da yersiz veya fazla vergi hesaplandığı hallerde vergiye tâbi işlemleri yapmış olan mükellefler; bunlarla ilgili borçlandıkları ya da ödedikleri vergiler için değişikliğin mahiyetine uygun şekilde ve meydana geldiği dönem içinde düzeltme yapabilirler,
+  - mevzuat: 4760 sayılı Özel Tüketim Vergisi Kanunu
+    madde: md. 15/1
+    alinti: Şu kadar ki, iade olunan malların fiilen işletmeye girmiş olması, yersiz veya fazla ödenen verginin alıcıya iade edilmesi ve bu işlemlerin defter kayıtları, belgeler ile beyannamede gösterilmesi şarttır.
+  dogrulama:
+    python: sonuc={'a':1000000*0.5}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

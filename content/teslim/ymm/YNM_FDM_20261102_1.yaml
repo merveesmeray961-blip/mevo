@@ -1,0 +1,997 @@
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - faaliyete dayalı maliyetleme
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    Vera Kapı A.Ş. iki ürün üretmektedir: seri üretilen Standart (S) kapı ve müşterisine özel tasarlanan Özel (Ö) kapı. Yıllık genel üretim giderleri ve maliyet sürücüleri:
+
+    | Faaliyet havuzu | Gider (TL) | Maliyet sürücüsü | S | Ö |
+    |---|---|---|---|---|
+    | Makine ayarı | 240.000 | Ayar sayısı | 40 | 120 |
+    | Kalite kontrol | 180.000 | Muayene saati | 300 | 600 |
+    | Malzeme taşıma | 120.000 | Taşıma sayısı | 200 | 400 |
+    | Makine kullanımı | 600.000 | Makine saati | 6.000 | 4.000 |
+
+    Diğer bilgiler:
+
+    | | S | Ö |
+    |---|---|---|
+    | Yıllık üretim ve satış (adet) | 8.000 | 2.000 |
+    | Birim satış fiyatı (TL) | 520 | 1.150 |
+    | Birim direkt maliyet (ilk madde + işçilik, TL) | 400 | 900 |
+    | Direkt işçilik saati (toplam) | 18.000 | 12.000 |
+
+    **İstenenler:**
+    (a) Her faaliyet havuzu için maliyet sürücüsü oranını hesaplayınız. (5 puan)
+    (b) Faaliyete dayalı maliyetleme ile her ürüne yüklenecek genel üretim giderini ve birim genel üretim giderini bulunuz. (6 puan)
+    (c) Genel üretim giderlerinin tamamının direkt işçilik saatine göre dağıtılması hâlinde birim genel üretim giderlerini hesaplayınız. (4 puan)
+    (d) Her iki yönteme göre ürünlerin birim kârını bulunuz ve sonuçları yorumlayınız. (5 puan)
+  cozum: |
+    **(a)** Ayar: 240.000 / 160 = **1.500 TL/ayar**; kalite kontrol: 180.000 / 900 = **200 TL/saat**; taşıma: 120.000 / 600 = **200 TL/taşıma**; makine: 600.000 / 10.000 = **60 TL/saat**.
+
+    **(b)** S: 40 × 1.500 + 300 × 200 + 200 × 200 + 6.000 × 60 = 520.000 TL → birim **65 TL**. Ö: 120 × 1.500 + 600 × 200 + 400 × 200 + 4.000 × 60 = 620.000 TL → birim **310 TL**.
+
+    **(c)** Genel oran = 1.140.000 / 30.000 = 38 TL/işçilik saati. S: 18.000 × 38 / 8.000 = **85,50 TL**; Ö: 12.000 × 38 / 2.000 = **228 TL**.
+
+    **(d)**
+
+    | | S | Ö |
+    |---|---|---|
+    | Birim kâr — faaliyete dayalı | 55 | -60 |
+    | Birim kâr — işçilik saati esaslı | 34,50 | 22 |
+
+    Geleneksel yöntem, ayar, kontrol ve taşıma faaliyetlerini çok kullanan Özel kapıyı düşük maliyetli, Standart kapıyı ise yüksek maliyetli gösterir (çapraz sübvansiyon). Faaliyete dayalı maliyetleme Özel kapının zararlı olduğunu ortaya koyar; fiyat veya ürün karması gözden geçirilmelidir.
+  puanlama:
+  - olcut: (a) sürücü oranları
+    puan: 5
+  - olcut: (b) ABC ile yükleme ve birim GÜG
+    puan: 6
+  - olcut: (c) geleneksel dağıtım
+    puan: 4
+  - olcut: (d) birim kâr karşılaştırması ve yorum
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 14
+    alinti: Her bir ürünün dönüştürme maliyetlerinin ayrı olarak belirlenemediği durumlarda, bu maliyetler ürünler arasında mantıklı ve tutarlı bir biçimde dağıtılır. Maliyetlerin dağıtımı örneğin; her bir ürünün ayrı olarak belirlenebilir hale geldiği üretim aşamasındaki veya üretimin tamamlandığı andaki nispi satış değerine göre yapılabilir.
+  dogrulama:
+    python: |
+      r_ayar = 240000 / (40 + 120)
+      r_kal = 180000 / (300 + 600)
+      r_tas = 120000 / (200 + 400)
+      r_mak = 600000 / (6000 + 4000)
+      S_abc = 40 * r_ayar + 300 * r_kal + 200 * r_tas + 6000 * r_mak
+      O_abc = 120 * r_ayar + 600 * r_kal + 400 * r_tas + 4000 * r_mak
+      S_br = S_abc / 8000
+      O_br = O_abc / 2000
+      r_dis = 1140000 / 30000
+      S_g = 18000 * r_dis / 8000
+      O_g = 12000 * r_dis / 2000
+      S_kar_abc = 520 - 400 - S_br
+      O_kar_abc = 1150 - 900 - O_br
+      S_kar_g = 520 - 400 - S_g
+      O_kar_g = 1150 - 900 - O_g
+      sonuc = {'a': r_ayar, 'b': O_br, 'c': O_kar_abc, 'd': O_kar_g}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - faaliyete dayalı maliyetleme
+  zorluk: 3
+  puan: 21
+  sure_dk: 30
+  soru: |
+    Orbit Yazılım Destek Ltd. Şti. iki müşteri segmentine abonelik temelli destek hizmeti vermektedir: Kurumsal (K) ve Bireysel (B). Dolaylı giderler ve faaliyet sürücüleri:
+
+    | Faaliyet | Gider (TL) | Sürücü | K | B |
+    |---|---|---|---|---|
+    | Sözleşme yönetimi | 300.000 | Sözleşme sayısı | 50 | 250 |
+    | Teknik destek | 840.000 | Destek saati | 1.200 | 1.800 |
+    | Faturalama | 180.000 | Fatura sayısı | 1.200 | 6.000 |
+
+    Segment gelirleri ve doğrudan giderler (TL): K için gelir 700.000, doğrudan gider 150.000; B için gelir 1.000.000, doğrudan gider 240.000.
+
+    **İstenenler:**
+    (a) Her faaliyet için sürücü oranını bulunuz. (5 puan)
+    (b) Her segmente yüklenecek dolaylı gideri ve segment kârını hesaplayınız. (8 puan)
+    (c) B segmentinin başabaşa gelmesi için gelirinin yüzde kaç artırılması gerektiğini bulunuz (diğer koşullar sabit). (8 puan)
+  cozum: |
+    **(a)** Sözleşme: 300.000 / 300 = **1.000 TL/sözleşme**; destek: 840.000 / 3.000 = **280 TL/saat**; faturalama: 180.000 / 7.200 = **25 TL/fatura**.
+
+    **(b)** K: 50 × 1.000 + 1.200 × 280 + 1.200 × 25 = **416.000 TL**; B: 250 × 1.000 + 1.800 × 280 + 6.000 × 25 = **904.000 TL**.
+
+    | TL | K | B |
+    |---|---|---|
+    | Gelir | 700.000 | 1.000.000 |
+    | Doğrudan gider | -150.000 | -240.000 |
+    | Dolaylı gider (ABC) | -416.000 | -904.000 |
+    | **Segment kârı** | **134.000** | **-144.000** |
+
+    **(c)** B'nin başabaş geliri = 240.000 + 904.000 = 1.144.000 TL; mevcut gelir 1.000.000 TL olduğundan gerekli artış = **%14,40**.
+  puanlama:
+  - olcut: (a) sürücü oranları
+    puan: 5
+  - olcut: (b) dolaylı gider yüklemesi ve segment kârları
+    puan: 8
+  - olcut: (c) başabaş için gelir artışı
+    puan: 8
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  dogrulama:
+    python: |
+      r1 = 300000 / (50 + 250)
+      r2 = 840000 / (1200 + 1800)
+      r3 = 180000 / (1200 + 6000)
+      K = 50 * r1 + 1200 * r2 + 1200 * r3
+      B = 250 * r1 + 1800 * r2 + 6000 * r3
+      kK = 700000 - 150000 - K
+      kB = 1000000 - 240000 - B
+      gerekli = 240000 + B
+      art = (gerekli - 1000000) / 1000000 * 100
+      sonuc = {'a': r2, 'b': kK, 'c': kB, 'd': art}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - faaliyete dayalı maliyetleme
+  - kalite maliyetleri
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    Marmara Kalıp A.Ş. makine ayar faaliyeti için yıllık 360.000 TL gider yapmaktadır. Ayar ekibinin pratik kapasitesi yılda 1.200 ayardır; dönemde fiilen 900 ayar yapılmıştır (A ürünü için 500, B ürünü için 400). A ürününden 5.000 adet üretilmiş, 4.000 adet satılmıştır.
+
+    **İstenenler:**
+    (a) Ayar faaliyeti için pratik kapasiteye göre ve fiilî kullanıma göre maliyet sürücüsü oranlarını bulunuz. (5 puan)
+    (b) Pratik kapasite oranıyla A ve B ürünlerine yüklenecek ayar giderini ve kullanılmayan kapasite maliyetini hesaplayınız; kullanılmayan kapasite maliyetinin muhasebe işlemini açıklayınız. (8 puan)
+    (c) A ürününün dönem sonu stokunda yer alacak ayar gideri tutarını iki oran için bulunuz; fiilî kullanım oranının stokları nasıl etkilediğini belirtiniz. (7 puan)
+  cozum: |
+    **(a)** Pratik kapasite oranı = 360.000 / 1.200 = **300 TL/ayar**; fiilî kullanıma göre = 360.000 / 900 = **400 TL/ayar**.
+
+    **(b)** A: 500 × 300 = **150.000 TL**; B: 400 × 300 = **120.000 TL**. Kullanılmayan kapasite maliyeti = (1.200 − 900) × 300 = **90.000 TL**. Üretim birimine dağıtılan sabit gider düşük üretim düzeyi veya atıl kapasite nedeniyle artırılmaz; dağıtılmayan genel giderler gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+
+    **(c)** Stokta kalan 1.000 adet için: pratik kapasite oranıyla 150.000 / 5.000 × 1.000 = **30.000 TL**; fiilî kullanım oranıyla 500 × 400 / 5.000 × 1.000 = **40.000 TL**. Fiilî kullanım oranı, atıl kapasite maliyetini ürünlere yükleyerek stokları 10.000 TL fazla gösterir.
+  puanlama:
+  - olcut: (a) iki sürücü oranı
+    puan: 5
+  - olcut: (b) yükleme, atıl kapasite maliyeti ve muhasebe işlemi
+    puan: 8
+  - olcut: (c) stok değeri karşılaştırması
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Sabit genel üretim giderleri, üretim tesislerinin normal kapasitesi esas alınarak dönüştürme maliyetlerine dağıtılır.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Her bir üretim birimine dağıtılan sabit genel gider miktarı, düşük üretim düzeyi veya atıl kapasite nedeniyle arttırılmaz. Dağıtılmayan genel giderler, gerçekleştiği dönemde gider olarak finansal tablolara yansıtılır.
+  dogrulama:
+    python: |
+      havuz = 360000
+      pratik = 1200
+      kul = 500 + 400
+      r_p = havuz / pratik
+      r_k = havuz / kul
+      A_p = 500 * r_p
+      B_p = 400 * r_p
+      atil = (pratik - kul) * r_p
+      stok_p = A_p / 5000 * (5000 - 4000)
+      stok_k = 500 * r_k / 5000 * (5000 - 4000)
+      fark = stok_k - stok_p
+      sonuc = {'a': r_p, 'b': A_p, 'c': atil, 'd': fark}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - faaliyete dayalı maliyetleme
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    Pamuk Tekstil A.Ş. üç ürün üretmektedir. Yıllık genel üretim gideri 900.000 TL'dir ve iki havuzdan oluşur: üretim hazırlık gideri 400.000 TL (sürücü: parti sayısı) ve makine gideri 500.000 TL (sürücü: makine saati).
+
+    | | P1 | P2 | P3 |
+    |---|---|---|---|
+    | Üretim (adet) | 20.000 | 5.000 | 4.000 |
+    | Parti sayısı | 10 | 30 | 60 |
+    | Makine saati | 2.000 | 1.000 | 2.000 |
+    | Direkt işçilik saati | 2.000 | 1.000 | 2.000 |
+    | Birim satış fiyatı (TL) | 60 | 120 | 200 |
+    | Birim direkt maliyet (TL) | 40 | 70 | 90 |
+
+    **İstenenler:**
+    (a) Faaliyete dayalı maliyetleme ile ürünlerin birim genel üretim giderini bulunuz. (8 puan)
+    (b) Genel üretim giderinin direkt işçilik saatine göre dağıtılması hâlinde birim giderleri bulunuz. (5 puan)
+    (c) İki yönteme göre birim kârları hesaplayınız ve ürünlerin kârlılık sıralamasının nasıl değiştiğini açıklayınız. (7 puan)
+  cozum: |
+    **(a)** Parti oranı = 400.000 / 100 = 4.000 TL/parti; makine saati oranı = 500.000 / 5.000 = 100 TL/saat. P1 = (10 × 4.000 + 2.000 × 100) / 20.000 = **12 TL**; P2 = (30 × 4.000 + 1.000 × 100) / 5.000 = **44 TL**; P3 = (60 × 4.000 + 2.000 × 100) / 4.000 = **110 TL**.
+
+    **(b)** İşçilik saati oranı = 900.000 / 5.000 = 180 TL. P1 = 2.000 × 180 / 20.000 = **18 TL**; P2 = **36 TL**; P3 = **90 TL**.
+
+    **(c)**
+
+    | Birim kâr (TL) | P1 | P2 | P3 |
+    |---|---|---|---|
+    | Faaliyete dayalı | 8 | 6 | 0 |
+    | İşçilik saati esaslı | 2 | 14 | 20 |
+
+    Geleneksel yöntemde en kârlı görünen P3, çok sayıda küçük parti nedeniyle hazırlık faaliyetlerini yoğun kullandığı için gerçekte başabaştadır; P1 ise geleneksel yöntemde en az kârlı görünmesine karşın en kârlı üründür.
+  puanlama:
+  - olcut: (a) ABC ile birim GÜG
+    puan: 8
+  - olcut: (b) geleneksel birim GÜG
+    puan: 5
+  - olcut: (c) birim kârlar ve sıralama yorumu
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  dogrulama:
+    python: |
+      r_parti = 400000 / (10 + 30 + 60)
+      r_saat = 500000 / (2000 + 1000 + 2000)
+      p1 = (10 * r_parti + 2000 * r_saat) / 20000
+      p2 = (30 * r_parti + 1000 * r_saat) / 5000
+      p3 = (60 * r_parti + 2000 * r_saat) / 4000
+      r_dis = 900000 / 5000
+      g1 = 2000 * r_dis / 20000
+      g2 = 1000 * r_dis / 5000
+      g3 = 2000 * r_dis / 4000
+      k1 = 60 - 40 - p1
+      k2 = 120 - 70 - p2
+      k3 = 200 - 90 - p3
+      kg1 = 60 - 40 - g1
+      kg2 = 120 - 70 - g2
+      kg3 = 200 - 90 - g3
+      sonuc = {'a': p3, 'b': g3, 'c': k3, 'd': kg3}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - hedef maliyetleme
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: |
+    Işıl Küçük Ev Aletleri A.Ş. yeni bir blender modelini piyasaya sunmak üzeredir. Pazar araştırmasına göre rakiplerin benzer ürünleri 800 TL'den satılmakta ve işletme bu fiyattan 10.000 adet satacağını öngörmektedir. İşletme, satış fiyatı üzerinden %25 kâr marjı hedeflemektedir. Mevcut tasarımın tahmini birim maliyeti: malzeme 300 TL, direkt işçilik 120 TL, genel üretim gideri 160 TL, dağıtım 100 TL.
+
+    Değer mühendisliği çalışmasıyla şu iyileştirmeler önerilmiştir: malzemede 35 TL (yeni kalıp yatırımı ile; kalıp yatırımı 250.000 TL'dir), genel üretim giderinde 25 TL, dağıtımda 20 TL tasarruf.
+
+    **İstenenler:**
+    (a) Hedef maliyeti ve mevcut tasarımın maliyet açığını bulunuz. (6 puan)
+    (b) Önerilen iyileştirmelerden sonra birim maliyeti bulunuz ve hedefe ulaşılıp ulaşılmadığını belirtiniz. (7 puan)
+    (c) İyileştirmelerin yıllık kâra etkisini hesaplayınız; kalıp yatırımının kaç yılda geri döneceğini bulunuz. (7 puan)
+  cozum: |
+    **(a)** Hedef maliyet = 800 × (1 − 0,25) = **600 TL**. Mevcut maliyet = 300 + 120 + 160 + 100 = 680 TL; maliyet açığı = **80 TL** (mevcut maliyetin %11,76'i).
+
+    **(b)** Yeni maliyet = 265 + 120 + 135 + 80 = **600 TL**; hedef maliyete ulaşılmıştır.
+
+    **(c)** Yıllık kâr: önce (800 − 680) × 10.000 = 1.200.000 TL; sonra (800 − 600) × 10.000 = **2.000.000 TL** (artış 800.000 TL). Kalıptan sağlanan tasarruf yılda 35 × 10.000 = 350.000 TL olduğundan 250.000 / 350.000 ≈ 0,71 yıl (yaklaşık 8,6 ay) içinde geri döner.
+  puanlama:
+  - olcut: (a) hedef maliyet ve açık
+    puan: 6
+  - olcut: (b) iyileştirme sonrası maliyet ve hedefe ulaşma
+    puan: 7
+  - olcut: (c) kâra etki ve geri dönüş süresi
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 9
+    alinti: Stoklar, maliyet değeri ile net gerçekleşebilir değerin düşük olanı üzerinden ölçülür.
+  dogrulama:
+    python: |
+      fiyat = 800
+      hedef = fiyat * (1 - 0.25)
+      mevcut = 300 + 120 + 160 + 100
+      acik = mevcut - hedef
+      acik_oran = acik / mevcut * 100
+      mal_yeni = 300 - 35
+      guc_yeni = 160 - 25
+      dag_yeni = 100 - 20
+      yeni = mal_yeni + 120 + guc_yeni + dag_yeni
+      kar_once = (fiyat - mevcut) * 10000
+      kar_sonra = (fiyat - yeni) * 10000
+      kalip_tasarruf = 35 * 10000
+      sonuc = {'a': hedef, 'b': acik, 'c': kar_sonra, 'd': kalip_tasarruf}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - hedef maliyetleme
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: |
+    Selçuk Bisiklet A.Ş. şehir bisikleti için pazar fiyatını 625 TL ve hedef kâr marjını satış fiyatının %20'si olarak belirlemiştir. Mevcut tasarımın tahmini birim maliyeti ile mühendislik ekibinin ürün işlevlerine verdiği önem payları:
+
+    | Bileşen | Mevcut maliyet (TL) | İşlev önem payı |
+    |---|---|---|
+    | Çerçeve ve motor grubu | 250 | %40 |
+    | Gövde | 110 | %25 |
+    | Elektronik | 110 | %20 |
+    | Ambalaj | 50 | %15 |
+
+    **İstenenler:**
+    (a) Hedef maliyeti ve toplam maliyet açığını bulunuz. (4 puan)
+    (b) Hedef maliyeti işlev önem paylarına göre bileşenlere dağıtarak her bileşenin hedefe göre fazlasını veya eksiğini gösteriniz. (9 puan)
+    (c) Yalnızca çerçeve ve motor grubunda 20 TL azaltım yapılırsa ürünün hedef maliyete ulaşıp ulaşmadığını ve bileşen düzeyindeki durumu yorumlayınız. (7 puan)
+  cozum: |
+    **(a)** Hedef maliyet = 625 × 0,80 = **500 TL**; mevcut maliyet = 520 TL; açık = **20 TL**.
+
+    **(b)**
+
+    | Bileşen | Hedef (TL) | Mevcut (TL) | Fark (TL) |
+    |---|---|---|---|
+    | Çerçeve ve motor | 200 | 250 | +50 (aşım) |
+    | Gövde | 125 | 110 | -15 (düşük) |
+    | Elektronik | 100 | 110 | +10 (aşım) |
+    | Ambalaj | 75 | 50 | -25 (düşük) |
+    | **Toplam** | **500** | **520** | **+20** |
+
+    **(c)** Maliyet 20 TL azalırsa 500 TL olur ve hedefe ulaşılır. Bileşen düzeyinde ise çerçeve ve motor (30 TL) ile elektronik (10 TL) hedefin üzerinde kalmaya devam eder; gövde ve ambalaj hedefin altında olduğundan toplam hedef tutturulur. Bileşen bazlı iyileştirme planı gerekir.
+  puanlama:
+  - olcut: (a) hedef maliyet ve açık
+    puan: 4
+  - olcut: (b) bileşen hedefleri ve fark tablosu
+    puan: 9
+  - olcut: (c) yeni durum ve yorum
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 21
+    alinti: Standart maliyetler; hammadde ve malzemenin, işçiliğin, etkinliğin ve kapasite kullanımının normal düzeylerini dikkate alır. Standart maliyetler düzenli olarak gözden geçirilir ve gerek görülürse mevcut koşullar dikkate alınarak yeniden belirlenir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: |
+      fiyat = 625
+      hedef = fiyat * (1 - 0.20)
+      pay_m = 0.40
+      pay_g = 0.25
+      pay_e = 0.20
+      pay_a = 0.15
+      h_m = hedef * pay_m
+      h_g = hedef * pay_g
+      h_e = hedef * pay_e
+      h_a = hedef * pay_a
+      mevcut = 250 + 110 + 110 + 50
+      acik = mevcut - hedef
+      f_m = 250 - h_m
+      f_g = 110 - h_g
+      f_e = 110 - h_e
+      f_a = 50 - h_a
+      yeni = mevcut - 20
+      sonuc = {'a': hedef, 'b': acik, 'c': f_m, 'd': yeni}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - hedef maliyetleme
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: |
+    Yelken Mobilya A.Ş. 6.000.000 TL yatırımla yeni bir üretim hattı kurmuştur. Hattın yıllık 30.000 adet ürün üretip satması beklenmektedir. Yönetim, yatırılan sermaye üzerinden yılda en az %15 faaliyet kârı hedeflemektedir. Ürünün pazar fiyatı 400 TL, tahmini birim maliyeti 392 TL'dir.
+
+    **İstenenler:**
+    (a) Birim başına hedef kârı ve hedef maliyeti bulunuz. (6 puan)
+    (b) Mevcut maliyetle hedefin gerisinde kalan yıllık tutarı hesaplayınız. (7 puan)
+    (c) Rekabet nedeniyle fiyat 380 TL'ye inerse hedef maliyeti ve maliyet açığını bulunuz. (7 puan)
+  cozum: |
+    **(a)** Hedef yıllık kâr = 6.000.000 × 0,15 = 900.000 TL; birim hedef kâr = 900.000 / 30.000 = **30 TL**; hedef maliyet = 400 − 30 = **370 TL**.
+
+    **(b)** Birim açık = 392 − 370 = 22 TL; yıllık fark = 22 × 30.000 = **660.000 TL**. Gerçekleşen kâr 8 × 30.000 = 240.000 TL olup hedef kâr 900.000 TL'nin 660.000 TL altındadır.
+
+    **(c)** Hedef maliyet = 380 − 30 = **350 TL**; maliyet açığı = 392 − 350 = **42 TL**. Fiyat düştükçe hedef maliyet aynı tutarda düşer; açık kapanmadan ürün hedef getiriyi sağlayamaz.
+  puanlama:
+  - olcut: (a) birim hedef kâr ve hedef maliyet
+    puan: 6
+  - olcut: (b) yıllık fark
+    puan: 7
+  - olcut: (c) yeni fiyatla hedef maliyet ve açık
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 9
+    alinti: Stoklar, maliyet değeri ile net gerçekleşebilir değerin düşük olanı üzerinden ölçülür.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: |
+      yat = 6000000
+      getiri = yat * 0.15
+      adet = 30000
+      br_kar = getiri / adet
+      hedef = 400 - br_kar
+      acik = 392 - hedef
+      yillik = acik * adet
+      hedef2 = 380 - br_kar
+      acik2 = 392 - hedef2
+      sonuc = {'a': hedef, 'b': yillik, 'c': acik2}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - yaşam boyu maliyetleme
+  - hedef maliyetleme
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    Delta Robotik A.Ş. beş yıl satılacak bir temizlik robotunun yaşam boyu maliyetini planlamaktadır. Beş yılda toplam 100.000 adet satış beklenmektedir. Planlanan maliyetler:
+
+    | Yaşam döngüsü aşaması | Maliyet |
+    |---|---|
+    | Araştırma (ilk yıl öncesi) | 1.200.000 TL |
+    | Ürün geliştirme ve tasarım (aktifleştirme koşulları sağlanmaktadır) | 600.000 TL |
+    | Üretim | Birim değişken 140 TL; sabit 400.000 TL/yıl |
+    | Pazarlama ve dağıtım | 20 TL/adet; ayrıca 300.000 TL/yıl |
+    | Satış sonrası hizmet ve garanti | 10 TL/adet |
+    | Ürünün piyasadan çekilme maliyeti (son yıl) | 100.000 TL |
+
+    Birim satış fiyatı 260 TL olarak düşünülmektedir.
+
+    **İstenenler:**
+    (a) Yaşam boyu toplam maliyeti ve birim yaşam boyu maliyeti bulunuz. (8 puan)
+    (b) 260 TL fiyatla yaşam boyu toplam kârı ve %20 satış kâr marjı için gereken fiyatı hesaplayınız. (6 puan)
+    (c) Finansal muhasebe açısından araştırma ve geliştirme harcamalarının nasıl işleneceğini belirterek geliştirme harcamasının yıllık itfa payını bulunuz (5 yıl, eşit). (6 puan)
+  cozum: |
+    **(a)** Üretim = 140 × 100.000 + 5 × 400.000 = 16.000.000 TL; pazarlama = 5 × 300.000 + 20 × 100.000 = 3.500.000 TL; hizmet = 1.000.000 TL.
+
+    | Aşama | TL |
+    |---|---|
+    | Araştırma | 1.200.000 |
+    | Geliştirme ve tasarım | 600.000 |
+    | Üretim | 16.000.000 |
+    | Pazarlama ve dağıtım | 3.500.000 |
+    | Satış sonrası hizmet | 1.000.000 |
+    | Çekilme | 100.000 |
+    | **Toplam** | **22.400.000** |
+
+    Birim yaşam boyu maliyeti = 22.400.000 / 100.000 = **224 TL**.
+
+    **(b)** Yaşam boyu kâr = (260 − 224) × 100.000 = **3.600.000 TL**. %20 marj için fiyat = 224 / 0,80 = **280 TL**.
+
+    **(c)** Araştırma harcamaları (1.200.000 TL) gerçekleştiğinde gider yazılır; geliştirme harcamaları ise koşulların tamamı sağlandığı için maddi olmayan duran varlık olarak aktifleştirilir ve 600.000 / 5 = **120.000 TL/yıl** itfa edilir. Yönetim muhasebesinde ise her iki harcama da yaşam boyu maliyete dâhildir; yıllık raporlama bu yatırımı ilk yıllarda gizler.
+  puanlama:
+  - olcut: (a) yaşam boyu maliyet tablosu ve birim maliyet
+    puan: 8
+  - olcut: (b) yaşam boyu kâr ve hedef fiyat
+    puan: 6
+  - olcut: (c) Ar-Ge harcamalarının finansal muhasebe işlemi ve itfa
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 38 Maddi Olmayan Duran Varlıklar
+    madde: par. 54
+    alinti: Araştırmadan (veya işletme içi bir projenin araştırma safhasından) kaynaklanan herhangi bir maddi olmayan duran varlık muhasebeleştirilmez. Araştırma (veya işletme içi bir projenin araştırma safhası) harcamaları gerçekleştiğinde gider olarak muhasebeleştirilir.
+  - mevzuat: TMS 38 Maddi Olmayan Duran Varlıklar
+    madde: par. 57
+    alinti: 'Sadece ve sadece, aşağıdaki koşulların tamamının varlığı halinde, geliştirmeden (veya işletme bünyesinde yürütülen bir projenin geliştirme safhasından) kaynaklanan maddi olmayan duran varlıklar muhasebeleştirilir:'
+  dogrulama:
+    python: |
+      arge = 1200000
+      tasarim = 600000
+      adet = 100000
+      uretim = 140 * adet + 5 * 400000
+      paz = 5 * 300000 + 20 * adet
+      hizmet = 10 * adet
+      tasfiye = 100000
+      top = arge + tasarim + uretim + paz + hizmet + tasfiye
+      birim = top / adet
+      kar = (260 - birim) * adet
+      fiyat = birim / 0.8
+      itfa = tasarim / 5
+      sonuc = {'a': top, 'b': kar, 'c': fiyat, 'd': itfa}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - yaşam boyu maliyetleme
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: |
+    Doğu Matbaacılık A.Ş. bir baskı makinesi alacaktır. Paranın zaman değeri ihmal edilerek sahip olma maliyeti karşılaştırması yapılacaktır. İki alternatif:
+
+    | | Makine A | Makine B |
+    |---|---|---|
+    | Satın alma bedeli (TL) | 500.000 | 640.000 |
+    | Yıllık işletme gideri (TL) | 120.000 | 80.000 |
+    | Yıllık bakım gideri (TL) | 30.000 | 20.000 |
+    | Ekonomik ömür | 8 yıl | 8 yıl |
+    | Ömür sonu hurda değeri (TL) | 20.000 | 40.000 |
+
+    **İstenenler:**
+    (a) İki makinenin yaşam boyu sahip olma maliyetini hesaplayarak karşılaştırınız. (7 puan)
+    (b) Makine B'nin yıllık işletme ve bakım giderinin toplam kaç TL'ye çıkması hâlinde iki makine eşit maliyetli olur? (6 puan)
+    (c) Makine B'nin ekonomik ömrü 5 yıl olsaydı (işletme ve bakım giderleri aynı, ömür sonu hurda değeri 40.000 TL), iki makineyi yıllık eşdeğer maliyetle karşılaştırarak karar veriniz. (7 puan)
+  cozum: |
+    **(a)** A: 500.000 + 8 × 150.000 − 20.000 = **1.680.000 TL**; B: 640.000 + 8 × 100.000 − 40.000 = **1.400.000 TL**. B, **280.000 TL** daha ucuzdur.
+
+    **(b)** 640.000 + 8 y − 40.000 = 1.680.000 → y = **135.000 TL/yıl**; B'nin yıllık işletme ve bakım gideri bu tutarı aşmadığı sürece B tercih edilir.
+
+    **(c)** B (5 yıl): 640.000 + 5 × 100.000 − 40.000 = 1.100.000 TL → yıllık **220.000 TL**. A: 1.680.000 / 8 = **210.000 TL/yıl**. Yıllık eşdeğer maliyet A için daha düşüktür; ömür farkı dikkate alındığında A tercih edilir.
+  puanlama:
+  - olcut: (a) sahip olma maliyetleri
+    puan: 7
+  - olcut: (b) kayıtsızlık işletme gideri
+    puan: 6
+  - olcut: (c) yıllık eşdeğer maliyet ve karar
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 9
+    alinti: Stoklar, maliyet değeri ile net gerçekleşebilir değerin düşük olanı üzerinden ölçülür.
+  dogrulama:
+    python: |
+      A = 500000 + 8 * (120000 + 30000) - 20000
+      B = 640000 + 8 * (80000 + 20000) - 40000
+      fark = A - B
+      x = (A + 40000 - 640000) / 8
+      B5 = 640000 + 5 * 100000 - 40000
+      aA = A / 8
+      aB = B5 / 5
+      sonuc = {'a': fark, 'b': x, 'c': aA - aB}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - yaşam boyu maliyetleme
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: |
+    Şimşek Tıbbi Cihaz A.Ş. bir ürünü dört yıl satmayı planlamaktadır. Ürünün araştırma ve tasarım harcaması (yıl 0) 1.000.000 TL'dir ve araştırma niteliğindedir. Yıllara göre satış gelirleri ve üretim-pazarlama maliyetleri (TL):
+
+    | Yıl | Gelir | Üretim ve pazarlama maliyeti |
+    |---|---|---|
+    | 1 | 400.000 | 500.000 |
+    | 2 | 1.800.000 | 1.300.000 |
+    | 3 | 2.200.000 | 1.500.000 |
+    | 4 | 600.000 | 500.000 |
+
+    Ürünü piyasadan çekme maliyeti (yıl 4) 100.000 TL'dir.
+
+    **İstenenler:**
+    (a) Ürünün yaşam boyu toplam kârını bulunuz. (5 puan)
+    (b) Araştırma harcamasının gerçekleştiği dönemde gider yazıldığını dikkate alarak yıllık sonuçları gösteriniz; ürünün ilk iki yıldaki durumunu yorumlayınız. (8 puan)
+    (c) Yaşam boyu satış kâr marjının en az %20 olması için toplam gelirin ne kadar olması gerektiğini ve gelirdeki artış oranını hesaplayınız. (7 puan)
+  cozum: |
+    **(a)** Toplam gelir = 5.000.000 TL; toplam maliyet = 1.000.000 + 3.800.000 + 100.000 = 4.900.000 TL. Yaşam boyu kâr = **100.000 TL** (satışların %2'si).
+
+    **(b)**
+
+    | Yıl | Sonuç (TL) |
+    |---|---|
+    | 0 | -1.000.000 |
+    | 1 | -100.000 |
+    | 2 | 500.000 |
+    | 3 | 700.000 |
+    | 4 (çekilme dâhil) | 0 |
+    | **Toplam** | **100.000** |
+
+    Araştırma harcaması 0. yılda gider yazıldığından ilk yıl ve 1. yıl zarar görünür; ürünün yaşam boyu kârlılığı ancak 2. ve 3. yıllarda ortaya çıkar. Yıllık raporlama bu nedenle ürünü olduğundan kötü gösterebilir.
+
+    **(c)** Toplam maliyet 4.900.000 TL; %20 marj için gelir = 4.900.000 / 0,80 = **6.125.000 TL**. Gelir artışı = (6.125.000 − 5.000.000) / 5.000.000 = **%22,50**.
+  puanlama:
+  - olcut: (a) yaşam boyu kâr
+    puan: 5
+  - olcut: (b) yıllık sonuçlar ve yorum
+    puan: 8
+  - olcut: (c) %20 marj için gelir ve artış oranı
+    puan: 7
+  kaynaklar:
+  - mevzuat: TMS 38 Maddi Olmayan Duran Varlıklar
+    madde: par. 54
+    alinti: Araştırmadan (veya işletme içi bir projenin araştırma safhasından) kaynaklanan herhangi bir maddi olmayan duran varlık muhasebeleştirilmez. Araştırma (veya işletme içi bir projenin araştırma safhası) harcamaları gerçekleştiğinde gider olarak muhasebeleştirilir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: |
+      g1 = 400000
+      g2 = 1800000
+      g3 = 2200000
+      g4 = 600000
+      o1 = 500000
+      o2 = 1300000
+      o3 = 1500000
+      o4 = 500000
+      arge = 1000000
+      son = 100000
+      y0 = -arge
+      y1 = g1 - o1
+      y2 = g2 - o2
+      y3 = g3 - o3
+      y4 = g4 - o4 - son
+      toplam = y0 + y1 + y2 + y3 + y4
+      gelir = g1 + g2 + g3 + g4
+      maliyet = arge + o1 + o2 + o3 + o4 + son
+      gerekli = maliyet / 0.8
+      art = (gerekli - gelir) / gelir * 100
+      sonuc = {'a': toplam, 'b': y1, 'c': gerekli, 'd': art}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - kalite maliyetleri
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: |
+    Zeytin Beyaz Eşya A.Ş.'nin 2026 yılı satışları 20.000.000 TL'dir. Yıl içinde gerçekleşen kaliteyle ilgili giderler (TL):
+
+    | Kalem | Tutar |
+    |---|---|
+    | Tasarım gözden geçirme | 120.000 |
+    | Tedarikçi değerlendirme | 80.000 |
+    | Çalışan kalite eğitimi | 100.000 |
+    | Hammadde muayenesi | 150.000 |
+    | Üretim hattı proses testleri | 250.000 |
+    | Ölçü aletleri kalibrasyonu | 60.000 |
+    | Hurda kayıpları | 340.000 |
+    | Yeniden işleme | 260.000 |
+    | Garanti kapsamında onarım | 420.000 |
+    | Müşteri şikâyetlerinin işlenmesi | 90.000 |
+    | İade edilen ürünler | 130.000 |
+    | Kalite sorunu nedeniyle kaybedilen satışların tahmini katkı kaybı (muhasebe kaydı yok) | 300.000 |
+
+    **İstenenler:**
+    (a) Kalemleri önleme, değerleme, iç başarısızlık ve dış başarısızlık maliyetleri olarak sınıflandırarak muhasebe kayıtlarında yer alan kalite maliyetini ve satışlara oranını bulunuz. (8 puan)
+    (b) Uyum (önleme + değerleme) ve uyumsuzluk (başarısızlık) maliyetlerini ayrı ayrı bulunuz; görünmeyen maliyetin raporlamadaki yerini açıklayınız. (6 puan)
+    (c) Önleme programına 200.000 TL yatırım yapılması hâlinde iç ve dış başarısızlık maliyetlerinin %30 azalacağı tahmin edilmektedir. Programın net faydasını bulunuz. (6 puan)
+  cozum: |
+    **(a)**
+
+    | Sınıf | Tutar (TL) |
+    |---|---|
+    | Önleme (120.000 + 80.000 + 100.000) | 300.000 |
+    | Değerleme (150.000 + 250.000 + 60.000) | 460.000 |
+    | İç başarısızlık (340.000 + 260.000) | 600.000 |
+    | Dış başarısızlık (420.000 + 90.000 + 130.000) | 640.000 |
+    | **Toplam** | **2.000.000** |
+
+    Kalite maliyeti / satışlar = 2.000.000 / 20.000.000 = **%10**.
+
+    **(b)** Uyum maliyeti = 300.000 + 460.000 = **760.000 TL**; uyumsuzluk maliyeti = 600.000 + 640.000 = **1.240.000 TL**. Kaybedilen satış katkısı (300.000 TL) muhasebe kaydı olmayan görünmeyen dış başarısızlık maliyetidir; ayrıca tahmin edilip yönetim raporlarında gösterilmelidir, ancak finansal tablolara yansımaz.
+
+    **(c)** Azalma = 1.240.000 × %30 = 372.000 TL; net fayda = 372.000 − 200.000 = **172.000 TL**. Program kabul edilmelidir.
+  puanlama:
+  - olcut: (a) sınıflandırma, toplam ve oran
+    puan: 8
+  - olcut: (b) uyum/uyumsuzluk ve görünmeyen maliyet
+    puan: 6
+  - olcut: (c) önleme programının net faydası
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: |
+      onleme = 120000 + 80000 + 100000
+      degerleme = 150000 + 250000 + 60000
+      ic = 340000 + 260000
+      dis = 420000 + 90000 + 130000
+      gorunmeyen = 300000
+      top = onleme + degerleme + ic + dis
+      satis = 20000000
+      oran = top / satis * 100
+      uyum = onleme + degerleme
+      uyumsuz = ic + dis
+      basarisizlik = ic + dis
+      azalma = basarisizlik * 0.30
+      net = azalma - 200000
+      sonuc = {'a': top, 'b': uyum, 'c': net, 'oran': oran}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - kalite maliyetleri
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: |
+    Tahsin Pompa A.Ş., sattığı pompalara 12 ay garanti vermektedir. Yıl içinde 8.000 pompa satılmıştır. Geçmiş deneyime göre satılan pompaların %70'i hatasız, %25'i küçük hatalı (onarım maliyeti 400 TL), %5'i büyük hatalı (onarım maliyeti 2.400 TL) çıkmaktadır.
+
+    Kalite bölümü, 500.000 TL'lik bir önleme programıyla (tedarikçi geliştirme ve proses iyileştirme) hatasız oranının %78'e (küçük hata %20, büyük hata %2) çıkabileceğini öngörmektedir.
+
+    **İstenenler:**
+    (a) Pompa başına beklenen garanti onarım maliyetini bulunuz. (5 puan)
+    (b) Satılan pompalar için garanti yükümlülüğünün bir bütün olarak değerlendirilmesi ilkesine göre dönem sonunda ayrılacak karşılığı hesaplayınız. (7 puan)
+    (c) Önleme programı uygulanırsa beklenen garanti maliyetini ve programın net faydasını bulunuz. (8 puan)
+  cozum: |
+    **(a)** Beklenen birim maliyet = 0,70 × 0 + 0,25 × 400 + 0,05 × 2.400 = 100 + 120 = **220 TL**.
+
+    **(b)** Benzer çok sayıda yükümlülüğün (ürün garantileri) bir sınıf olarak bütün hâlinde değerlendirilmesi gerektiğinden karşılık = 8.000 × 220 = **1.760.000 TL**.
+
+    **(c)** Program sonrası beklenen birim maliyet = 0,20 × 400 + 0,02 × 2.400 = 80 + 48 = **128 TL**. Tasarruf = (220 − 128) × 8.000 = 736.000 TL; net fayda = 736.000 − 500.000 = **236.000 TL**. Program kârlıdır.
+  puanlama:
+  - olcut: (a) beklenen birim garanti maliyeti
+    puan: 5
+  - olcut: (b) garanti karşılığı
+    puan: 7
+  - olcut: (c) program sonrası maliyet ve net fayda
+    puan: 8
+  kaynaklar:
+  - mevzuat: TMS 37 Karşılıklar, Koşullu Borçlar ve Koşullu Varlıklar
+    madde: par. 24
+    alinti: Pek çok sayıda benzeri yükümlülük bulunması durumunda (ürün garantileri vb. sözleşmeler gibi), yükümlülüğün yerine getirilmesine ilişkin olarak kaynakların işletme dışına çıkmalarının gerekmesi ihtimali, ilgili yükümlülük sınıfları bir bütün olarak dikkate alınmak suretiyle değerlendirilir.
+  dogrulama:
+    python: |
+      adet = 8000
+      bek = 0.25 * 400 + 0.05 * 2400
+      karsilik = adet * bek
+      yeni = 0.20 * 400 + 0.02 * 2400
+      tas = (bek - yeni) * adet
+      net = tas - 500000
+      sonuc = {'a': bek, 'b': karsilik, 'c': net, 'yeni': yeni}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - kalite maliyetleri
+  - faaliyete dayalı maliyetleme
+  zorluk: 3
+  puan: 20
+  sure_dk: 28
+  soru: |
+    Vadi Dökümhanesi A.Ş. bir parçanın üretimine 52.500 adet başlamış, 50.000 adet kusursuz parça ve 2.500 adet hurda elde etmiştir. Başlatılan her parçanın üretim maliyeti 75 TL'dir. Hurda parçalar adet başına 5 TL'ye satılabilmektedir. Planlı üretim koşullarında normal hurda miktarı 1.000 adettir. Ayrıca 3.000 kusurlu parça 18 TL/adet ek maliyetle yeniden işlenerek satılabilir hâle getirilmiştir.
+
+    **İstenenler:**
+    (a) Normal ve anormal hurda miktarını belirleyerek kusursuz parçaların birim maliyetini hesaplayınız. (8 puan)
+    (b) Anormal hurdanın maliyetini bulunuz ve muhasebe işlemini açıklayınız. (6 puan)
+    (c) Kalite maliyeti raporunda iç başarısızlık maliyeti olarak gösterilecek toplam tutarı bulunuz. (6 puan)
+  cozum: |
+    **(a)** Normal hurda = 1.000 adet; anormal hurda = 2.500 − 1.000 = 1.500 adet. Normal hurdanın net kaybı = 1.000 × (75 − 5) = 70.000 TL kusursuz parçalara yüklenir. Kusursuz parçaların toplam maliyeti = 50.000 × 75 + 70.000 = 3.820.000 TL; birim maliyet = **76,40 TL**.
+
+    **(b)** Anormal hurdanın maliyeti = 1.500 × (75 − 5) = **105.000 TL**. Normalin üstünde gerçekleşen hammadde fire ve kayıpları ile işçilik ve diğer üretim maliyetleri stok maliyetine eklenmez; gerçekleştikleri dönemde gider olarak finansal tablolara yansıtılır.
+    Kontrol: 52.500 × 75 − 12.500 (hurda geliri) = 3.925.000 TL = 3.820.000 + 105.000.
+
+    **(c)** İç başarısızlık maliyeti = hurda net kaybı (normal 70.000 + anormal 105.000) + yeniden işleme (3.000 × 18 = 54.000) = **229.000 TL**.
+  puanlama:
+  - olcut: (a) normal-anormal hurda ve birim maliyet
+    puan: 8
+  - olcut: (b) anormal hurda maliyeti ve muhasebe işlemi
+    puan: 6
+  - olcut: (c) iç başarısızlık maliyeti
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 13
+    alinti: Anormal bir şekilde yüksek üretimin gerçekleştiği dönemlerde, her bir üretim birimine dağıtılan sabit genel gider miktarı düşer ve böylece stoklar maliyet değerini aşan bir değer üzerinden ölçülmemiş olur.
+  dogrulama:
+    python: |
+      basl = 52500
+      iyi = 50000
+      hurda = 2500
+      br = 75
+      top = basl * br
+      hurda_gelir = hurda * 5
+      normal = 1000
+      anormal = hurda - normal
+      normal_kayip = normal * (br - 5)
+      anormal_kayip = anormal * (br - 5)
+      iyi_maliyet = iyi * br + normal_kayip
+      iyi_br = iyi_maliyet / iyi
+      kontrol = top - hurda_gelir
+      yeniden = 3000 * 18
+      ic_basarisizlik = anormal_kayip + normal_kayip + yeniden
+      sonuc = {'a': iyi_br, 'b': anormal_kayip, 'c': ic_basarisizlik, 'k': kontrol - iyi_maliyet - anormal_kayip}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: YNM
+  konu: FDM
+  kazanimlar:
+  - faaliyete dayalı maliyetleme
+  - hedef maliyetleme
+  zorluk: 3
+  puan: 20
+  sure_dk: 30
+  soru: |
+    Aydın Ofis Mobilyaları A.Ş. yeni bir çalışma masası modeli geliştirmektedir. Hedef satış fiyatı 900 TL, hedef kâr marjı satış fiyatının %20'sidir. Tahmini birim maliyetler:
+    - Direkt ilk madde 380 TL; direkt işçilik 5 saat × 20 TL.
+    - Genel üretim giderleri faaliyete dayalı olarak izlenmektedir: makine ayarı partide 2.400 TL (parti büyüklüğü 200 adet); kalite kontrol ürün başına 0,5 saat × 160 TL; makine kullanımı ürün başına 3 saat × 40 TL; malzeme taşıma ürün başına 8 TL.
+
+    **İstenenler:**
+    (a) Hedef maliyeti ve faaliyete dayalı yöntemle hesaplanan tahmini birim maliyeti bulunuz; hedefe ulaşılıp ulaşılmadığını belirtiniz. (7 puan)
+    (b) Tedarik sorunu nedeniyle parti büyüklüğü 100 adede düşer ve ürün başına muayene süresi 0,6 saate çıkarsa birim maliyet ve hedefe göre aşım ne olur? (7 puan)
+    (c) Aşımı kapatmak için makine kullanım süresinin ne kadar kısaltılması gerektiğini bulunuz. (6 puan)
+  cozum: |
+    **(a)** Hedef maliyet = 900 × 0,80 = **720 TL**. Genel üretim gideri = ayar (2.400 / 200 = 12) + kalite kontrol (80) + makine (120) + taşıma (8) = 220 TL. Birim maliyet = 380 + 100 + 220 = **700 TL**. Hedef maliyetin altında olduğundan hedefe ulaşılmıştır (kâr marjı %22,22).
+
+    **(b)** Ayar = 2.400 / 100 = 24 TL; kalite kontrol = 0,6 × 160 = 96 TL. Birim maliyet = 380 + 100 + 24 + 96 + 120 + 8 = **728 TL**; hedef maliyeti **8 TL** aşar.
+
+    **(c)** Aşımı kapatmak için makine saati azalışı = 8 / 40 = **0,20 saat** (3 saatten 2,8 saate).
+  puanlama:
+  - olcut: (a) hedef maliyet ve ABC maliyeti
+    puan: 7
+  - olcut: (b) yeni koşullarda maliyet ve aşım
+    puan: 7
+  - olcut: (c) gerekli makine saati azalışı
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 12
+    alinti: Sabit genel üretim giderleri; amortisman, fabrika binası ve teçhizatının bakım onarım giderleri ile üretim sürecinde yer alan kullanım hakkı varlıkları gibi, üretim miktarından bağımsız olarak nispeten sabit kalan dolaylı üretim maliyetleri ile fabrikanın yönetim ve idaresi ile ilgili maliyetlerdir.
+  - mevzuat: TMS 2 Stoklar
+    madde: par. 16
+    alinti: (a) Normalin üstünde gerçekleşen; hammadde fire ve kayıpları, işçilik ve diğer üretim maliyetleri, (b) Üretim sürecinde bir sonraki üretim aşamasından önce gerekli olanlar dışında kalan depolama maliyetleri, (c) Stokların mevcut konumuna ve durumuna getirilmesinde katkısı olmayan genel yönetim giderleri, (d) Satış maliyetleri.
+  dogrulama:
+    python: |
+      hedef = 900 * (1 - 0.20)
+      ayar = 2400 / 200
+      kal = 0.5 * 160
+      mak = 3 * 40
+      tas = 8
+      guc = ayar + kal + mak + tas
+      dm = 380
+      dis = 5 * 20
+      maliyet = dm + dis + guc
+      marj = (900 - maliyet) / 900 * 100
+      ayar2 = 2400 / 100
+      kal2 = 0.6 * 160
+      maliyet2 = dm + dis + ayar2 + kal2 + mak + tas
+      asim = maliyet2 - hedef
+      mak_azalis = asim / 40
+      sonuc = {'a': maliyet, 'b': maliyet2, 'c': mak_azalis}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

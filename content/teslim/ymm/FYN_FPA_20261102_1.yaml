@@ -1,0 +1,1107 @@
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - oranlardan finansal tablo türetme
+  - oran analizi
+  zorluk: 2
+  puan: 23
+  sure_dk: 30
+  soru: |
+    **Olay:** Yıldız Tekstil A.Ş.'nin 31/12/2025 tarihli bilançosu kayıp olup yalnızca aşağıdaki oranlar ve veriler elde bulunmaktadır (1 yıl = 360 gün, satışların tamamı vadelidir, bilanço kalemleri yıl sonu bakiyesidir):
+
+    | Veri | Değer |
+    |---|---|
+    | Net satışlar | 4.000.000 TL |
+    | Brüt satış kârı marjı | %25 |
+    | Cari oran | 2 |
+    | Asit-test oranı (stoklar hariç dönen varlıklar / KVB) | 1,20 |
+    | Kısa vadeli yabancı kaynaklar (KVB) | 500.000 TL |
+    | Alacak tahsil süresi | 45 gün |
+    | Aktif devir hızı (net satışlar / toplam varlıklar) | 2 |
+    | Toplam borç / toplam varlıklar | %60 |
+    | Net kâr marjı | %5 |
+
+    **İstenenler:**
+
+    (a) Dönen varlıklar, stoklar, ticari alacaklar ve hazır değerler (kısa vadeli diğer kalemler yoktur) tutarlarını bulunuz. (7 puan)
+
+    (b) Duran varlıkları, uzun vadeli yabancı kaynakları ve özkaynakları bularak bilançoyu özet hâlde düzenleyiniz. (6 puan)
+
+    (c) Stok devir hızını ve stokta kalma süresini hesaplayınız. (5 puan)
+
+    (d) Özkaynak kârlılığını (ROE) ve aktif kârlılığını (ROA) hesaplayıp ROE'nin ROA'dan yüksek olmasını gerekçelendiriniz. (5 puan)
+  cozum: |
+    **(a)** Toplam varlıklar = 4.000.000 / 2 = **2.000.000 TL**. Dönen varlıklar = cari oran × KVB = 2 × 500.000 = **1.000.000 TL**.
+    Asit-test: (DV − stok) / KVB = 1,20 → DV − stok = 1,20 × 500.000; stok = 1.000.000 − 1,20 × 500.000 = **400.000 TL**.
+    Alacaklar = 4.000.000 × 45 / 360 = **500.000 TL**. Hazır değerler = 1.000.000 − 400.000 − 500.000 = **100.000 TL**.
+
+    **(b)**
+
+    | Aktif | TL | Pasif | TL |
+    |---|---|---|---|
+    | Hazır değerler | 100.000 | KVB | 500.000 |
+    | Ticari alacaklar | 500.000 | UVB | 700.000 |
+    | Stoklar | 400.000 | Özkaynaklar | 800.000 |
+    | Duran varlıklar | 1.000.000 | | |
+    | **Toplam** | **2.000.000** | **Toplam** | **2.000.000** |
+
+    Toplam borç = %60 × 2.000.000 = 1.200.000 TL; UVB = 1.200.000 − 500.000 = 700.000 TL; özkaynak = 2.000.000 − 1.200.000 = 800.000 TL; duran varlık = 2.000.000 − 1.000.000 = 1.000.000 TL.
+
+    **(c)** Satışların maliyeti = 4.000.000 × (1 − %25) = 3.000.000 TL. Stok devir hızı = 3.000.000 / 400.000 = **7,50 kez**; stokta kalma süresi = 360 / 7,50 = **48 gün**.
+
+    **(d)** Net kâr = 4.000.000 × %5 = 200.000 TL. ROE = 200.000 / 800.000 = **%25**; ROA = 200.000 / 2.000.000 = **%10**.
+    ROE > ROA çünkü varlıkların bir bölümü yabancı kaynakla finanse edilmiştir (ROE = ROA × özkaynak çarpanı = %10 × 2.000.000 / 800.000).
+
+    **Mevzuat dayanağı:** TMS 1 paragraf 25 uyarınca işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar; çözümde analiz edilen tablolar bu esasa göre hazırlanmış kabul edilmiştir.
+  puanlama:
+  - olcut: (a) dönen varlık, stok, alacak ve hazır değer tutarları
+    puan: 7
+  - olcut: (b) duran varlık, UVB ve özkaynak tutarları ile bilanço denkliği
+    puan: 6
+  - olcut: (c) stok devir hızı ve süresi
+    puan: 5
+  - olcut: (d) ROE, ROA ve kaldıraç gerekçesi
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 1 Finansal Tabloların Sunuluşu
+    madde: paragraf 25
+    alinti: Yönetimin işletmeyi tasfiye etme veya işletmenin ticari faaliyetine son verme niyeti bulunmadığı ya da bunları yapmak dışında gerçekçi bir alternatifi olduğu sürece işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar.
+  dogrulama:
+    python: |
+      satis=4_000_000; cari=2.0; asit=1.2; kvb=500_000; atg=45; tva=2.0; bo=0.6; gm=0.25; nm=0.05
+      tv = satis/tva
+      dv = cari*kvb
+      stok = dv - asit*kvb
+      alac = satis*atg/360
+      hazir = dv - stok - alac
+      dur = tv - dv
+      borc = bo*tv
+      uvb = borc - kvb
+      oz = tv - borc
+      sm = satis*(1-gm)
+      sdh = sm/stok
+      sds = 360/sdh
+      ni = satis*nm
+      roe = ni/oz
+      roa = ni/tv
+      sonuc = {'a': (dv, stok, alac, hazir), 'b': (dur, uvb, oz), 'c': (sdh, sds), 'd': (roe, roa)}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - başabaş analizi (faiz dahil ve çok ürünlü)
+  - nakit başabaş ve hedef kâr
+  zorluk: 3
+  puan: 21
+  sure_dk: 35
+  soru: |
+    **Olay:** Kuzey Plastik San. A.Ş. X ve Y ürünlerini her 3 birim X satışına karşılık 1 birim Y satılacak biçimde (sabit satış karması) üretip satmaktadır. 2026 yılı için veriler aşağıdadır (kurumlar vergisi oranı %25 alınacaktır):
+
+    | Veri | X | Y |
+    |---|---|---|
+    | Birim satış fiyatı | 100 TL | 200 TL |
+    | Birim değişken maliyet | 60 TL | 120 TL |
+
+    Sabit giderler 480.000 TL'dir; bunun 80.000 TL'si amortismandır (nakit çıkışı yoktur). Yıllık faiz gideri 120.000 TL'dir.
+
+    **İstenenler:**
+
+    (a) Faaliyet başabaş noktasını (FVÖK = 0) ürün adetleri olarak bulunuz. (5 puan)
+
+    (b) Faiz giderini de karşılayan başabaş noktasını (FVK = 0) ürün adetleri olarak bulunuz. (5 puan)
+
+    (c) Nakit başabaş noktasını (amortisman nakit dışı gider; faiz dahil) paket sayısı olarak bulunuz. (5 puan)
+
+    (d) 150.000 TL vergi sonrası net kâr hedefi için gerekli X ve Y adetlerini ve toplam satış hasılatını bulunuz. (6 puan)
+  cozum: |
+    Bir paket = 3 X + 1 Y. Birim katkı payları: X = 100 − 60 = 40 TL; Y = 200 − 120 = 80 TL. Paket katkı payı = 3 × 40 + 80 = **200 TL**; paket hasılatı = 3 × 100 + 200 = 500 TL.
+
+    **(a)** Başabaş paket = 480.000 / 200 = **2.400 paket** → X = 2.400 × 3 = **7.200 adet**, Y = **2.400 adet**.
+
+    **(b)** Başabaş paket = (480.000 + 120.000) / 200 = **3.000 paket** → X = **9.000 adet**, Y = **3.000 adet**.
+
+    **(c)** Nakit sabit gider = 480.000 − 80.000 + 120.000 = 520.000 TL; paket = 520.000 / 200 = **2.600 paket** (X = 7.800, Y = 2.600).
+
+    **(d)** Vergi öncesi hedef kâr = 150.000 / (1 − 0,25) = 200.000 TL. Paket = (480.000 + 120.000 + 200.000) / 200 = **4.000 paket** → X = **12.000 adet**, Y = **4.000 adet**. Hasılat = 4.000 × 500 = **2.000.000 TL**.
+
+    **Mevzuat dayanağı:** TMS 1 paragraf 25 uyarınca işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar; çözümde analiz edilen tablolar bu esasa göre hazırlanmış kabul edilmiştir.
+  puanlama:
+  - olcut: (a) paket katkı payı ve faaliyet başabaşı
+    puan: 5
+  - olcut: (b) faiz dahil başabaş
+    puan: 5
+  - olcut: (c) nakit başabaş paket sayısı
+    puan: 5
+  - olcut: (d) hedef net kâr için adet ve hasıla
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 1 Finansal Tabloların Sunuluşu
+    madde: paragraf 25
+    alinti: Yönetimin işletmeyi tasfiye etme veya işletmenin ticari faaliyetine son verme niyeti bulunmadığı ya da bunları yapmak dışında gerçekçi bir alternatifi olduğu sürece işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar.
+  dogrulama:
+    python: |
+      px, vx = 100, 60
+      py_, vy = 200, 120
+      mixx, mixy = 3, 1
+      sabit = 480_000; amort = 80_000; faiz = 120_000; vergi = 0.25; hedef = 150_000
+      kx, ky = px-vx, py_-vy
+      paket_k = mixx*kx + mixy*ky
+      paket_s = mixx*px + mixy*py_
+      q_faal = sabit/paket_k
+      q_faiz = (sabit+faiz)/paket_k
+      q_nakit = (sabit-amort+faiz)/paket_k
+      ebt_h = hedef/(1-vergi)
+      q_hedef = (sabit+faiz+ebt_h)/paket_k
+      satis_h = q_hedef*paket_s
+      nsg = sabit - amort + faiz
+      xa, xb, xc, xd = 3*q_faal, 3*q_faiz, 3*q_nakit, 3*q_hedef
+      sonuc = {'a': (xa, q_faal), 'b': (xb, q_faiz), 'c': q_nakit, 'd': (xd, q_hedef, satis_h)}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - proforma tablolar ve dış finansman ihtiyacı
+  - içsel ve sürdürülebilir büyüme oranı
+  zorluk: 2
+  puan: 23
+  sure_dk: 30
+  soru: |
+    **Olay:** Deniz Gıda A.Ş. 2025 yılında 2.000.000 TL satış yapmıştır. 2026 yılında satışların %20 artması beklenmektedir. Aktiflerin tamamı ile KVB kalemleri satışlarla orantılı olarak değişmekte, uzun vadeli borçlar ve özkaynaklar ise değişmemektedir (ek finansman hariç). Net kâr marjı %6, kâr dağıtım oranı (net kârın dağıtılan kısmı) %50'dir; 2025 net kârı da aynı marjla gerçekleşmiştir.
+
+    | 31/12/2025 | TL | | TL |
+    |---|---|---|---|
+    | Dönen varlıklar | 800.000 | Kısa vadeli yabancı kaynaklar | 300.000 |
+    | Duran varlıklar | 1.200.000 | Uzun vadeli yabancı kaynaklar | 500.000 |
+    | | | Özkaynaklar | 1.200.000 |
+    | **Toplam** | **2.000.000** | **Toplam** | **2.000.000** |
+
+    **İstenenler:**
+
+    (a) 2026 yılı için proforma satış, net kâr ve dağıtılmayıp bırakılacak kâr tutarını bulunuz. (5 puan)
+
+    (b) Dış finansman ihtiyacını (EFN) hesaplayınız. (7 puan)
+
+    (c) 2025 verilerine göre içsel büyüme oranını ve sürdürülebilir büyüme oranını hesaplayınız. (6 puan)
+
+    (d) EFN'nin tamamı uzun vadeli borçla karşılanırsa 2026 sonunda toplam borç / özkaynak oranını bulunuz. (5 puan)
+  cozum: |
+    **(a)** Proforma satış = 2.000.000 × 1,20 = **2.400.000 TL**; net kâr = 2.400.000 × %6 = **144.000 TL**; dağıtılmayan kâr = 144.000 × (1 − %50) = **72.000 TL**.
+
+    **(b)** Toplam varlık artışı = 2.000.000 × 0,20 = 400.000 TL; KVB'deki kendiliğinden artış = 300.000 × 0,20 = 60.000 TL.
+    EFN = 400.000 − 60.000 − 72.000 = **268.000 TL**.
+
+    **(c)** 2025 net kârı = 120.000 TL; ROA = 120.000 / 2.000.000 = %6; ROE = 120.000 / 1.200.000 = %10; tutma oranı b = %50.
+    İçsel büyüme = ROA × b / (1 − ROA × b) = 0,03 / 0,97 = **%3,0928**.
+    Sürdürülebilir büyüme = ROE × b / (1 − ROE × b) = 0,05 / 0,95 = **%5,2632**.
+
+    **(d)** Özkaynak = 1.200.000 + 72.000 = **1.272.000 TL**. Toplam borç = KVB 360.000 + UVB 500.000 + EFN 268.000 = **1.128.000 TL**. Borç / özkaynak = **0,89**.
+
+    **Mevzuat dayanağı:** TMS 1 paragraf 25 uyarınca işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar; çözümde analiz edilen tablolar bu esasa göre hazırlanmış kabul edilmiştir.
+  puanlama:
+  - olcut: (a) proforma satış, net kâr ve dağıtılmayan kâr
+    puan: 5
+  - olcut: (b) ihtiyaç duyulan fon artışı ve EFN
+    puan: 7
+  - olcut: (c) içsel ve sürdürülebilir büyüme oranları
+    puan: 6
+  - olcut: (d) proforma toplam borç ve özkaynak ile borç/özkaynak oranı
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 1 Finansal Tabloların Sunuluşu
+    madde: paragraf 25
+    alinti: Yönetimin işletmeyi tasfiye etme veya işletmenin ticari faaliyetine son verme niyeti bulunmadığı ya da bunları yapmak dışında gerçekçi bir alternatifi olduğu sürece işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar.
+  dogrulama:
+    python: |
+      s0=2_000_000; g=0.20; dv=800_000; duv=1_200_000; kvb=300_000; uvb=500_000; oz=1_200_000; nm=0.06; pay=0.5
+      s1 = s0*(1+g)
+      ta0 = dv+duv
+      ta1 = ta0*(1+g)
+      kvb1 = kvb*(1+g)
+      ni1 = s1*nm
+      re1 = ni1*(1-pay)
+      efn = (ta1-ta0) - (kvb1-kvb) - re1
+      ni0 = s0*nm
+      roa = ni0/ta0
+      roe = ni0/oz
+      b = 1-pay
+      gi = roa*b/(1-roa*b)
+      gs = roe*b/(1-roe*b)
+      dva = ta1-ta0
+      dkv = kvb1-kvb
+      roab = roa*b
+      roab1 = 1-roa*b
+      roeb = roe*b
+      roeb1 = 1-roe*b
+      oz1 = oz+re1
+      borc1 = kvb1+uvb+efn
+      de = borc1/oz1
+      sonuc = {'a': (s1, ni1, re1), 'b': efn, 'c': (gi, gs), 'd': (borc1, oz1, de)}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - nakit akım ve fon akım tablosu
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: |
+    **Olay:** Orman Mobilya A.Ş.'nin 2025 yılına ilişkin bilgileri aşağıdadır (tutarlar TL; vergi ödemeleri net kâra dahil edilmiştir, faiz giderleri net kârda yer almakta ve faaliyetlerden sınıflanmaktadır):
+
+    | Kalem | Tutar |
+    |---|---|
+    | Net kâr | 300.000 |
+    | Amortisman gideri | 90.000 |
+    | Ticari alacaklardaki artış | 120.000 |
+    | Stoklardaki azalış | 40.000 |
+    | Ticari borçlardaki artış | 60.000 |
+    | Makine satış kârı (net kâra dahil) | 20.000 |
+    | Nakit ödenen yeni makine alımı | 400.000 |
+    | Satılan eski makinenin net defter değeri | 50.000 |
+    | Alınan uzun vadeli kredi | 200.000 |
+    | Uzun vadeli kredi anapara ödemesi | 80.000 |
+    | Ödenen nakit kâr payı | 100.000 |
+    | 1/1/2025 nakit ve nakit benzerleri | 150.000 |
+
+    **İstenenler:**
+
+    (a) Dolaylı yöntemle işletme faaliyetlerinden nakit akışını bulunuz. (8 puan)
+
+    (b) Yatırım ve finansman faaliyetlerinden nakit akışlarını hesaplayınız; makine satışı ve kâr payı ödemesinin hangi faaliyette gösterileceğini TMS 7 tanımlarıyla gerekçelendiriniz. (7 puan)
+
+    (c) Dönem sonu nakit ve nakit benzerlerini bulunuz. (3 puan)
+
+    (d) Faaliyet nakit akışının makine yatırımını karşılama oranını hesaplayıp yorumlayınız. (4 puan)
+  cozum: |
+    **(a)** Net kâr 300.000 + amortisman 90.000 − alacak artışı 120.000 + stok azalışı 40.000 + ticari borç artışı 60.000 − makine satış kârı 20.000 (yatırımla ilgili kâr, ters çevrilir) = **350.000 TL**.
+
+    **(b)** Yatırım: makine alımı −400.000 + makine satışı (50.000 + 20.000 = 70.000) = **-330.000 TL**.
+    Finansman: kredi 200.000 − anapara 80.000 − kâr payı 100.000 = **20.000 TL**.
+    Makine alım-satımı uzun vadeli varlığın edinilmesi ve elden çıkarılması olduğundan yatırım faaliyetidir; kredi ve kâr payı ödemesi ise borçlanmaların ve özkaynak üzerindeki hakların büyüklüğünü değiştirdiğinden finansman faaliyetidir.
+
+    **(c)** Net değişim = 350.000 + (-330.000) + 20.000 = 40.000 TL; dönem sonu nakit = 150.000 + 40.000 = **190.000 TL**.
+
+    **(d)** Oran = 350.000 / 400.000 = **0,875**. Faaliyet nakit akışı makine yatırımını tam karşılamamaktadır (oran 1'in altındadır); fark kredi ile kapatılmıştır.
+
+    **Mevzuat dayanağı:** TMS 7 paragraf 6 uyarınca yatırım faaliyetleri, uzun vadeli varlıkların ve nakit benzeri olmayan diğer yatırımların edinilmesi ve elden çıkarılması faaliyetleridir. TMS 7 paragraf 6 uyarınca finansman faaliyetleri, ödenmiş sermayenin ve borçlanmaların büyüklüğünde ve birleşiminde değişikliğe neden olan faaliyetlerdir.
+  puanlama:
+  - olcut: (a) dolaylı yöntemle faaliyet nakit akışı
+    puan: 8
+  - olcut: (b) yatırım ve finansman akışları ve sınıflama gerekçesi
+    puan: 7
+  - olcut: (c) net nakit değişimi ve dönem sonu bakiye
+    puan: 3
+  - olcut: (d) faaliyet nakit akışı / yatırım oranı ve yorum
+    puan: 4
+  kaynaklar:
+  - mevzuat: TMS 7 Nakit Akış Tablosu
+    madde: paragraf 6
+    alinti: 'Yatırım faaliyetleri: Uzun vadeli varlıklar ile nakit benzeri olarak nitelendirilmeyen diğer yatırımların edinilmesi ve elden çıkarılması faaliyetleridir.'
+  - mevzuat: TMS 7 Nakit Akış Tablosu
+    madde: paragraf 6
+    alinti: 'Finansman faaliyetleri: İşletmenin ödenmiş sermayesinin ve borçlanmalarının büyüklüğünde ve birleşiminde değişikliğe neden olan faaliyetlerdir.'
+  dogrulama:
+    python: |
+      ni=300_000; amort=90_000; d_alac=120_000; d_stok=-40_000; d_borc=60_000; kar_satis=20_000
+      makine=400_000; defter=50_000; kredi_k=200_000; kredi_o=80_000; temettu=100_000; bas=150_000
+      satis_ty = defter+kar_satis
+      sa = -d_stok
+      faal = ni+amort-d_alac-d_stok+d_borc-kar_satis
+      yat = -makine+satis_ty
+      fin = kredi_k-kredi_o-temettu
+      net = faal+yat+fin
+      son = bas+net
+      oran = faal/makine
+      sonuc = {'a': faal, 'b': yat, 'c': fin, 'd': (net, son), 'e': oran}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - Altman Z iflas tahmini
+  - oran analizi
+  zorluk: 3
+  puan: 22
+  sure_dk: 35
+  soru: |
+    **Olay:** Borsada işlem gören iki imalat işletmesinin (A ve B) 2025 yıl sonu verileri aşağıdadır (bin TL). Altman Z modeli: Z = 1,2·X1 + 1,4·X2 + 3,3·X3 + 0,6·X4 + 1,0·X5. Burada X1 = net işletme sermayesi / toplam varlık, X2 = dağıtılmamış kârlar / toplam varlık, X3 = FVÖK / toplam varlık, X4 = özkaynak piyasa değeri / toplam borç, X5 = satışlar / toplam varlık. Z < 1,81 ise iflas bölgesi, 1,81–2,99 gri bölge, Z > 2,99 güvenli bölgedir.
+
+    | Kalem | A | B |
+    |---|---|---|
+    | Toplam varlıklar | 10.000 | 8.000 |
+    | Net işletme sermayesi | 1.500 | 800 |
+    | Dağıtılmamış kârlar | 2.000 | 400 |
+    | FVÖK | 1.500 | 400 |
+    | Özkaynak piyasa değeri | 6.000 | 2.800 |
+    | Toplam borç | 5.000 | 5.600 |
+    | Satışlar | 11.500 | 8.000 |
+
+    A işletmesinin dönen varlıkları 4.000, kısa vadeli borçları 2.500 bin TL'dir.
+
+    **İstenenler:**
+
+    (a) A işletmesinin Z skorunu hesaplayarak hangi bölgede olduğunu belirtiniz. (6 puan)
+
+    (b) B işletmesinin Z skorunu hesaplayarak hangi bölgede olduğunu belirtiniz. (6 puan)
+
+    (c) A işletmesinin cari oranını ve net işletme sermayesini hesaplayınız. (4 puan)
+
+    (d) Diğer oranlar sabitken A işletmesinin güvenli bölgeye (Z = 2,99) geçebilmesi için gereken FVÖK tutarını bulunuz. (6 puan)
+  cozum: |
+    **(a)** A: X1 = 0,15; X2 = 0,20; X3 = 0,15; X4 = 1,20; X5 = 1,15.
+    Z = 1,2 × 0,15 + 1,4 × 0,20 + 3,3 × 0,15 + 0,6 × 1,20 + 1,0 × 1,15 = **2,825** → 1,81 ile 2,99 arasında olduğundan **gri bölge**.
+
+    **(b)** B: X1 = 0,10; X2 = 0,05; X3 = 0,05; X4 = 0,50; X5 = 1,00. Z = 0,12 + 0,07 + 0,165 + 0,30 + 1,00 = **1,655** → 1,81'in altında olduğundan **iflas (sıkıntı) bölgesi**.
+
+    **(c)** Cari oran = 4.000 / 2.500 = **1,60**; net işletme sermayesi = 4.000 − 2.500 = **1.500 bin TL**.
+
+    **(d)** X3 dışındaki terimlerin toplamı = 1,2 × 0,15 + 1,4 × 0,20 + 0,6 × 1,20 + 1,15 = 2,33. 3,3 × X3 = 2,99 − 2,33 = 0,66; X3 = 0,20; FVÖK = 0,20 × 10.000 = **2.000 bin TL** (mevcut 1.500 bin TL'nin üzerinde).
+
+    **Mevzuat dayanağı:** TMS 1 paragraf 25 uyarınca işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar; çözümde analiz edilen tablolar bu esasa göre hazırlanmış kabul edilmiştir.
+  puanlama:
+  - olcut: (a) A için X1-X5 ve Z skoru, bölge
+    puan: 6
+  - olcut: (b) B için Z skoru ve bölge
+    puan: 6
+  - olcut: (c) cari oran ve net işletme sermayesi
+    puan: 4
+  - olcut: (d) geri hesapla gerekli FVÖK
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 1 Finansal Tabloların Sunuluşu
+    madde: paragraf 25
+    alinti: Yönetimin işletmeyi tasfiye etme veya işletmenin ticari faaliyetine son verme niyeti bulunmadığı ya da bunları yapmak dışında gerçekçi bir alternatifi olduğu sürece işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar.
+  dogrulama:
+    python: |
+      # bin TL
+      taA=10_000; nwcA=1_500; reA=2_000; ebitA=1_500; mvA=6_000; tdA=5_000; sA=11_500; dvA=4_000; kvbA=2_500
+      taB=8_000; nwcB=800; reB=400; ebitB=400; mvB=2_800; tdB=5_600; sB=8_000
+      def z(ta,nwc,re,ebit,mv,td,s):
+          return 1.2*nwc/ta + 1.4*re/ta + 3.3*ebit/ta + 0.6*mv/td + 1.0*s/ta
+      zA = z(taA,nwcA,reA,ebitA,mvA,tdA,sA)
+      zB = z(taB,nwcB,reB,ebitB,mvB,tdB,sB)
+      x1,x2,x3,x4,x5 = nwcA/taA, reA/taA, ebitA/taA, mvA/tdA, sA/taA
+      cariA = dvA/kvbA
+      nA = dvA-kvbA
+      sabit_kisim = 1.2*x1 + 1.4*x2 + 0.6*x4 + 1.0*x5
+      fark = 2.99 - sabit_kisim
+      x3g = fark/3.3
+      ebit_gerek = x3g*taA
+      sonuc = {'a': zA, 'b': zB, 'c': (cariA, nA), 'd': ebit_gerek}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - kâr payı politikası
+  - içsel ve sürdürülebilir büyüme oranı
+  zorluk: 2
+  puan: 23
+  sure_dk: 30
+  soru: |
+    **Olay:** Güneş Enerji A.Ş.'nin (ödenmiş sermayesi 2.000.000 TL, 100.000 adet pay) 2025 net dönem kârı 1.000.000 TL'dir. Şirketin ayrılmış genel kanuni yedek akçesi 150.000 TL'dir; geçmiş yıl zararı ve başka bir ayırma yoktur. 2026 yatırım programı 800.000 TL olup yatırımın %60'si özkaynakla (dağıtılmayan kârla), kalanı borçla finanse edilecektir. Yönetim artık (kalıntı) kâr payı politikasını uygulamayı düşünmektedir. Payın piyasa fiyatı 94 TL'dir.
+
+    **İstenenler:**
+
+    (a) Genel kanuni yedek akçeye bu yıl ayrılacak tutarı ve dağıtılabilir kârı belirleyiniz; yedek akçe sınırına ulaşılıp ulaşılmadığını gösteriniz. (6 puan)
+
+    (b) Artık kâr payı politikasına göre dağıtılacak kâr payı tutarını, kâr dağıtım oranını ve pay başına kâr payını hesaplayınız. (7 puan)
+
+    (c) Yönetim bunun yerine net kârın %40'ını dağıtan sabit oranlı politikayı seçerse dağıtılacak tutarı ve pay başına kâr payını bulunuz. (5 puan)
+
+    (d) (b) şıkkındaki kâr payına göre kâr payı verimini hesaplayınız. (5 puan)
+  cozum: |
+    **(a)** Yedek akçe = 1.000.000 × %5 = **50.000 TL**. Yedek akçe sınırı = 2.000.000 × %20 = 400.000 TL; toplam yedek = 150.000 + 50.000 = 200.000 TL < 400.000 TL, yani sınıra ulaşılmamıştır, ayırma devam eder. Dağıtılabilir kâr = 1.000.000 − 50.000 = **950.000 TL**.
+
+    **(b)** Özkaynakla finanse edilecek yatırım = 800.000 × %60 = 480.000 TL. Artık kâr payı = 950.000 − 480.000 = **470.000 TL**. Dağıtım oranı = 470.000 / 1.000.000 = **%47**. Pay başına kâr payı = 470.000 / 100.000 = **4,70 TL**.
+
+    **(c)** Sabit oranlı politika: 1.000.000 × %40 = **400.000 TL**; pay başına **4 TL**. (Dağıtılabilir kâr 950.000 TL'yi aşmadığından uygulanabilir.)
+
+    **(d)** Kâr payı verimi = 4,70 / 94 = **%5**.
+
+    **Mevzuat dayanağı:** TTK md. 519/1 uyarınca yıllık kârın yüzde beşi, ödenmiş sermayenin yüzde yirmisine ulaşıncaya kadar genel kanuni yedek akçeye ayrılır. TTK md. 509/1-2 uyarınca sermaye için faiz ödenemez; kâr payı ancak net dönem kârından ve serbest yedek akçelerden dağıtılabilir.
+  puanlama:
+  - olcut: (a) yedek akçe ayrımı, sınır kontrolü ve dağıtılabilir kâr
+    puan: 6
+  - olcut: (b) artık politikayla kâr payı, oran ve pay başına tutar
+    puan: 7
+  - olcut: (c) sabit oranlı politikada kâr payı
+    puan: 5
+  - olcut: (d) kâr payı verimi
+    puan: 5
+  kaynaklar:
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 519/1
+    alinti: Yıllık kârın yüzde beşi, ödenmiş sermayenin yüzde yirmisine ulaşıncaya kadar genel kanuni yedek akçeye ayrılır.
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 509/1-2
+    alinti: Sermaye için faiz ödenemez. (2) Kâr payı ancak net dönem kârından ve serbest yedek akçelerden dağıtılabilir.
+  dogrulama:
+    python: |
+      ni=1_000_000; sermaye=2_000_000; yedek0=150_000; yatirim=800_000; oz_pay=0.6; adet=100_000; fiyat=94
+      yedek_ay = ni*0.05
+      yedek_limit = sermaye*0.20
+      yedek1 = yedek0+yedek_ay
+      dagitilabilir = ni - yedek_ay
+      oz_ihtiyac = yatirim*oz_pay
+      artik = dagitilabilir - oz_ihtiyac
+      payout = artik/ni
+      dps = artik/adet
+      verim = dps/fiyat
+      sabit_pay = 0.40*ni
+      dps2 = sabit_pay/adet
+      sonuc = {'a': (yedek_ay, dagitilabilir), 'b': (artik, payout, dps), 'c': (sabit_pay, dps2), 'd': verim}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - başabaş analizi (faiz dahil ve çok ürünlü)
+  - kaldıraç dereceleri (faaliyet finansal birleşik)
+  zorluk: 2
+  puan: 21
+  sure_dk: 30
+  soru: |
+    **Olay:** Ay Kozmetik Ltd. Şti. üç ürün grubuyla çalışmaktadır. 2025 yılı satış karması ve katkı payı oranları aşağıdadır; sabit giderler 210.000 TL'dir.
+
+    | Ürün | Satış (TL) | Katkı payı oranı |
+    |---|---|---|
+    | A | 600.000 | %40 |
+    | B | 300.000 | %30 |
+    | C | 100.000 | %20 |
+
+    **İstenenler:**
+
+    (a) Ağırlıklı ortalama katkı payı oranını, başabaş satış hasılatını ve güvenlik marjını (%) hesaplayınız. (6 puan)
+
+    (b) 140.000 TL faaliyet kârı hedefi için gereken satış hasılatını bulunuz. (4 puan)
+
+    (c) Toplam satış 1.000.000 TL kalmak üzere karma A: 200.000, B: 400.000, C: 400.000 TL olursa yeni başabaş hasılatını ve güvenlik marjını bulunuz; karmadaki değişimi yorumlayınız. (6 puan)
+
+    (d) Mevcut karmada faaliyet kaldıraç derecesini bulunuz; satışlar %10 artarsa faaliyet kârının ne olacağını gösteriniz. (5 puan)
+  cozum: |
+    **(a)** Toplam satış = 1.000.000 TL; toplam katkı = 240.000 + 90.000 + 20.000 = 350.000 TL; ağırlıklı katkı oranı = 350.000 / 1.000.000 = **%35**. Başabaş hasılatı = 210.000 / 0,35 = **600.000 TL**. Güvenlik marjı = (1.000.000 − 600.000) / 1.000.000 = **%40**.
+
+    **(b)** Hedef hasılat = (210.000 + 140.000) / 0,35 = **1.000.000 TL**.
+
+    **(c)** Katkı = 200.000 × 0,40 + 400.000 × 0,30 + 400.000 × 0,20 = 280.000 TL; oran = **%28**. Başabaş = 210.000 / 0,28 = **750.000 TL**; güvenlik marjı = (1.000.000 − 750.000) / 1.000.000 = **%25**.
+    Düşük katkı oranlı C grubunun payı arttığından ağırlıklı oran düşmüş, başabaş noktası yükselmiş, güvenlik marjı daralmıştır.
+
+    **(d)** Faaliyet kârı = 350.000 − 210.000 = 140.000 TL; DOL = 350.000 / 140.000 = **2,50**. Satışlar %10 artarsa faaliyet kârı %25 artar: 140.000 × (1 + 0,25) = **175.000 TL**.
+
+    **Mevzuat dayanağı:** TMS 1 paragraf 25 uyarınca işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar; çözümde analiz edilen tablolar bu esasa göre hazırlanmış kabul edilmiştir.
+  puanlama:
+  - olcut: (a) ağırlıklı katkı oranı, başabaş hasılatı ve güvenlik marjı
+    puan: 6
+  - olcut: (b) hedef kâr için satış hasılatı
+    puan: 4
+  - olcut: (c) yeni karma ile başabaş, güvenlik marjı ve yorum
+    puan: 6
+  - olcut: (d) DOL ve satış artışının kâra etkisi
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 1 Finansal Tabloların Sunuluşu
+    madde: paragraf 25
+    alinti: Yönetimin işletmeyi tasfiye etme veya işletmenin ticari faaliyetine son verme niyeti bulunmadığı ya da bunları yapmak dışında gerçekçi bir alternatifi olduğu sürece işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar.
+  dogrulama:
+    python: |
+      satA, satB, satC = 600_000, 300_000, 100_000
+      kmA, kmB, kmC = 0.40, 0.30, 0.20
+      sabit = 210_000; hedef = 140_000
+      top = satA+satB+satC
+      kat = satA*kmA + satB*kmB + satC*kmC
+      wkm = kat/top
+      bep = sabit/wkm
+      gm = (top-bep)/top
+      hedef_sat = (sabit+hedef)/wkm
+      sA2, sB2, sC2 = 200_000, 400_000, 400_000
+      kat2 = sA2*kmA + sB2*kmB + sC2*kmC
+      wkm2 = kat2/(sA2+sB2+sC2)
+      bep2 = sabit/wkm2
+      gm2 = (top-bep2)/top
+      ebit = kat - sabit
+      dol = kat/ebit
+      dolp = dol*0.10
+      ebit_yeni = ebit*(1+dolp)
+      sonuc = {'a': (wkm, bep, gm), 'b': hedef_sat, 'c': (wkm2, bep2, gm2), 'd': (dol, ebit_yeni)}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - kaldıraç dereceleri (faaliyet finansal birleşik)
+  - içsel ve sürdürülebilir büyüme oranı
+  zorluk: 3
+  puan: 22
+  sure_dk: 35
+  soru: |
+    **Olay:** Mavi Cam A.Ş. 2025 yılında 80.000 adet ürünü birim fiyat 100 TL, birim değişken maliyet 60 TL ile satmıştır. Sabit giderler 1.200.000 TL, faiz giderleri 400.000 TL, kurumlar vergisi oranı %25 ve dolaşımdaki pay sayısı 400.000 adettir.
+
+    **İstenenler:**
+
+    (a) Faaliyet, finansal ve birleşik kaldıraç derecelerini hesaplayınız. (6 puan)
+
+    (b) Satış adedi %10 artarsa pay başına kazancı (PBK) doğrudan hesaplayarak bulunuz ve artışı birleşik kaldıraç derecesiyle doğrulayınız. (6 puan)
+
+    (c) Faiz giderlerini karşılayan (FVK = 0) başabaş satış adedini bulunuz. (4 puan)
+
+    (d) Şirket 400.000 TL faizli borcun bir kısmını kapatıp faiz giderini 300.000 TL'ye indirmek için pay sayısını 500.000 adede çıkarırsa (satışlar sabit) yeni PBK'yi ve finansal kaldıraç derecesini bulunuz. (6 puan)
+  cozum: |
+    Katkı payı = 80.000 × (100 − 60) = 3.200.000 TL; FVÖK = 3.200.000 − 1.200.000 = 2.000.000 TL; FVK = 2.000.000 − 400.000 = 1.600.000 TL; net kâr = 1.600.000 × 0,75 = 1.200.000 TL; PBK = 1.200.000 / 400.000 = 3 TL.
+
+    **(a)** DOL = 3.200.000 / 2.000.000 = **1,60**; DFL = 2.000.000 / 1.600.000 = **1,25**; DCL = 1,60 × 1,25 = **2**.
+
+    **(b)** Yeni adet = 88.000; FVÖK = 88.000 × 40 − 1.200.000 = 2.320.000 TL; net kâr = (2.320.000 − 400.000) × 0,75 = 1.440.000 TL; PBK = **3,60 TL**. Artış = 3,60 / 3 − 1 = **%20** = %10 × DCL (2) ile uyumludur.
+
+    **(c)** Q = (1.200.000 + 400.000) / 40 = **40.000 adet**.
+
+    **(d)** Net kâr = (2.000.000 − 300.000) × 0,75 = 1.275.000 TL; PBK = 1.275.000 / 500.000 = **2,55 TL**; DFL = 2.000.000 / (2.000.000 − 300.000) = **1,18**. Borcun azaltılması finansal riski düşürmüş, ancak pay sayısı arttığından PBK 3 TL'den 2,55 TL'ye düşmüştür. (Not: Borç ortaklardan veya ortaklarla ilişkili kişilerden sağlanmışsa, hesap dönemi içinde özkaynağın üç katını aşan kısmı örtülü sermaye sayılır.)
+
+    **Mevzuat dayanağı:** KVK md. 12/1 uyarınca ortaklardan veya ortaklarla ilişkili kişilerden temin edilen borçların, hesap dönemi içinde herhangi bir tarihte kurumun öz sermayesinin üç katını aşan kısmı örtülü sermaye sayılır.
+  puanlama:
+  - olcut: (a) DOL, DFL ve DCL hesabı
+    puan: 6
+  - olcut: (b) yeni PBK ve DCL ile doğrulama
+    puan: 6
+  - olcut: (c) faiz dahil başabaş adedi
+    puan: 4
+  - olcut: (d) yeni sermaye yapısında PBK ve DFL
+    puan: 6
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 12/1
+    alinti: Kurumların, ortaklarından veya ortaklarla ilişkili olan kişilerden doğrudan veya dolaylı olarak temin ederek işletmede kullandıkları borçların, hesap dönemi içinde herhangi bir tarihte kurumun öz sermayesinin üç katını aşan kısmı, ilgili hesap dönemi için örtülü sermaye sayılır.
+  dogrulama:
+    python: |
+      q=80_000; p=100; v=60; sabit=1_200_000; faiz=400_000; vergi=0.25; pay=400_000
+      kat = q*(p-v)
+      ebit = kat - sabit
+      ebt = ebit - faiz
+      ni = ebt*(1-vergi)
+      eps = ni/pay
+      dol = kat/ebit
+      dfl = ebit/ebt
+      dcl = dol*dfl
+      q2 = q*1.10
+      ebit2 = q2*(p-v) - sabit
+      ni2 = (ebit2-faiz)*(1-vergi)
+      eps2 = ni2/pay
+      eps_art = eps2/eps - 1
+      q_be = (sabit+faiz)/(p-v)
+      faiz3 = 300_000; pay3 = 500_000
+      ebit3 = ebit
+      ni3 = (ebit3-faiz3)*(1-vergi)
+      eps3 = ni3/pay3
+      dfl3 = ebit3/(ebit3-faiz3)
+      sonuc = {'a': (dol, dfl, dcl), 'b': (eps, eps2, eps_art), 'c': q_be, 'd': (eps3, dfl3)}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - oran analizi
+  - kaldıraç dereceleri (faaliyet finansal birleşik)
+  zorluk: 3
+  puan: 22
+  sure_dk: 35
+  soru: |
+    **Olay:** Çelik Makine A.Ş.'nin iki yıla ait verileri aşağıdadır (kurumlar vergisi oranı %25; tüm bilanço kalemleri yıl sonu bakiyesidir).
+
+    | Kalem (TL) | 2024 | 2025 |
+    |---|---|---|
+    | Net satışlar | 5.000.000 | 6.000.000 |
+    | FVÖK | 600.000 | 600.000 |
+    | Faiz gideri | 100.000 | 120.000 |
+    | Toplam varlıklar | 2.500.000 | 3.000.000 |
+    | Özkaynaklar | 1.250.000 | 1.200.000 |
+
+    **İstenenler:**
+
+    (a) 2025 için net kâr marjı, aktif devir hızı ve özkaynak çarpanıyla üç faktörlü Dupont ayrıştırmasını yapınız ve ROE'yi bulunuz. (5 puan)
+
+    (b) Beş faktörlü Dupont (vergi yükü × faiz yükü × FVÖK marjı × aktif devir hızı × özkaynak çarpanı) ile her iki yılın ROE'sini bulunuz. (7 puan)
+
+    (c) ROE'nin değişmemesine rağmen hangi bileşenlerin hangi yönde değiştiğini gösteriniz ve yorumlayınız. (5 puan)
+
+    (d) Diğer bileşenler 2025 düzeyinde sabit kalmak üzere 2026'da ROE'nin %36'ya çıkması için gereken FVÖK marjını bulunuz. (5 puan)
+  cozum: |
+    **(a)** 2025 net kâr = (600.000 − 120.000) × 0,75 = 360.000 TL. Net kâr marjı = 360.000 / 6.000.000 = %6; aktif devir hızı = 6.000.000 / 3.000.000 = 2; özkaynak çarpanı = 3.000.000 / 1.200.000 = 2,50. ROE = %6 × 2 × 2,50 = **%30**.
+
+    **(b)**
+
+    | Faktör | 2024 | 2025 |
+    |---|---|---|
+    | Vergi yükü (NK / FVK) | 0,75 | 0,75 |
+    | Faiz yükü (FVK / FVÖK) | 0,83 | 0,80 |
+    | FVÖK marjı | %12 | %10 |
+    | Aktif devir hızı | 2 | 2 |
+    | Özkaynak çarpanı | 2 | 2,50 |
+    | **ROE** | **%30** | **%30** |
+
+    **(c)** ROE iki yılda da %30'dir. Ancak FVÖK marjı %12'den %10'e düşmüş (karlılık zayıflamış), faiz yükü artmış; buna karşılık özkaynak çarpanı 2'ten 2,50'e yükselmiştir. Yani ROE, operasyonel verimlilik yerine daha fazla borçlanmayla (finansal kaldıraçla) korunmuştur; bu, finansal riski artırır.
+
+    **(d)** Gerekli marj = 0,36 / (0,75 × 0,80 × 2 × 2,50) = **%12**.
+
+    **Mevzuat dayanağı:** TMS 1 paragraf 25 uyarınca işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar; çözümde analiz edilen tablolar bu esasa göre hazırlanmış kabul edilmiştir.
+  puanlama:
+  - olcut: (a) üç faktörlü Dupont ve ROE
+    puan: 5
+  - olcut: (b) beş faktörlü ayrıştırma ve iki yılın ROE'si
+    puan: 7
+  - olcut: (c) bileşen değişimleri ve yorum
+    puan: 5
+  - olcut: (d) geri hesapla FVÖK marjı
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 1 Finansal Tabloların Sunuluşu
+    madde: paragraf 25
+    alinti: Yönetimin işletmeyi tasfiye etme veya işletmenin ticari faaliyetine son verme niyeti bulunmadığı ya da bunları yapmak dışında gerçekçi bir alternatifi olduğu sürece işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar.
+  dogrulama:
+    python: |
+      # 2025
+      s25=6_000_000; e25=600_000; f25=120_000; ta25=3_000_000; oz25=1_200_000
+      # 2024
+      s24=5_000_000; e24=600_000; f24=100_000; ta24=2_500_000; oz24=1_250_000
+      v=0.25
+      def fak(s,e,f,ta,oz,v):
+          ebt=e-f; ni=ebt*(1-v)
+          return ni, ni/ebt, ebt/e, e/s, s/ta, ta/oz, ni/oz
+      n25,vy25,fy25,m25,d25,k25,roe25 = fak(s25,e25,f25,ta25,oz25,v)
+      n24,vy24,fy24,m24,d24,k24,roe24 = fak(s24,e24,f24,ta24,oz24,v)
+      nm25 = n25/s25
+      hedef_roe = 0.36
+      m_gerek = hedef_roe/(vy25*fy25*d25*k25)
+      sonuc = {'a': (n25, nm25, d25, k25, roe25), 'b': (roe24, roe25), 'c': (m24, m25, k24, k25), 'd': m_gerek}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - proforma tablolar ve dış finansman ihtiyacı
+  - oran analizi
+  zorluk: 3
+  puan: 23
+  sure_dk: 35
+  soru: |
+    **Olay:** Doğu Elektrik A.Ş. 2025 yılında 5.000.000 TL satış yapmış ve tesisini %80 kapasiteyle kullanmıştır. Dönen varlıklar ve KVB satışlarla orantılı değişir; duran varlıklar kapasite dolana kadar değişmez, kapasite dolduktan sonra satışlarla orantılı artar. Uzun vadeli borç sabittir. Net kâr marjı %8, kâr dağıtım oranı %25'dir (2026'da da geçerli).
+
+    | 31/12/2025 | TL | | TL |
+    |---|---|---|---|
+    | Dönen varlıklar | 1.500.000 | KVB | 700.000 |
+    | Duran varlıklar | 2.500.000 | UVB | 1.000.000 |
+    | | | Özkaynaklar | 2.300.000 |
+    | **Toplam** | **4.000.000** | **Toplam** | **4.000.000** |
+
+    **İstenenler:**
+
+    (a) Satışların %20 artması hâlinde proforma bilançoyu özetleyerek dış finansman ihtiyacını (veya fazlasını) bulunuz. (7 puan)
+
+    (b) Yeni duran varlık yatırımı yapmadan ulaşılabilecek azami satış tutarını ve büyüme oranını bulunuz. (4 puan)
+
+    (c) Satışların %50 artması hâlinde gereken duran varlık tutarını ve dış finansman ihtiyacını hesaplayınız. (8 puan)
+
+    (d) (c) şıkkındaki EFN uzun vadeli borçla karşılanırsa 2026 sonu toplam borç / özkaynak oranını bulunuz. (4 puan)
+  cozum: |
+    **(a)** Satış = 6.000.000 TL; dönen varlık = 1.800.000 TL; duran varlık değişmez (2.500.000 TL); toplam varlık = **4.300.000 TL**. KVB = 840.000 TL; net kâr = 480.000 TL; dağıtılmayan = 360.000 TL; özkaynak = 2.660.000 TL. Pasif toplamı = 840.000 + 1.000.000 + 2.660.000 = **4.500.000 TL**. EFN = 4.300.000 − 4.500.000 = **-200.000 TL** (negatif: **fazla fon**, borç ödenebilir).
+
+    **(b)** Azami satış = 5.000.000 / 0,80 = **6.250.000 TL** → büyüme = **%25**.
+
+    **(c)** Satış = 7.500.000 TL. Kapasite 6.250.000 TL'de dolduğundan duran varlık = 2.500.000 × 7.500.000 / 6.250.000 = **3.000.000 TL**. Dönen varlık = 2.250.000 TL; toplam varlık = **5.250.000 TL**. KVB = 1.050.000; net kâr = 600.000; dağıtılmayan = 450.000; özkaynak = 2.750.000 TL. EFN = 5.250.000 − (1.050.000 + 1.000.000 + 2.750.000) = **450.000 TL**.
+
+    **(d)** Toplam borç = 1.050.000 + 1.000.000 + 450.000 = 2.500.000 TL; borç / özkaynak = 2.500.000 / 2.750.000 = **0,9090909091**.
+
+    **Mevzuat dayanağı:** TMS 1 paragraf 25 uyarınca işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar; çözümde analiz edilen tablolar bu esasa göre hazırlanmış kabul edilmiştir.
+  puanlama:
+  - olcut: (a) proforma varlık, pasif ve EFN/fazla fon
+    puan: 7
+  - olcut: (b) azami satış ve büyüme
+    puan: 4
+  - olcut: (c) yeni duran varlık ve EFN
+    puan: 8
+  - olcut: (d) borç / özkaynak oranı
+    puan: 4
+  kaynaklar:
+  - mevzuat: TMS 1 Finansal Tabloların Sunuluşu
+    madde: paragraf 25
+    alinti: Yönetimin işletmeyi tasfiye etme veya işletmenin ticari faaliyetine son verme niyeti bulunmadığı ya da bunları yapmak dışında gerçekçi bir alternatifi olduğu sürece işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar.
+  dogrulama:
+    python: |
+      s0=5_000_000; dv=1_500_000; duv=2_500_000; kvb=700_000; uvb=1_000_000; oz=2_300_000; nm=0.08; pay=0.25; kap=0.80
+      ta0=dv+duv
+      g1=0.20
+      s1=s0*(1+g1)
+      dv1=dv*(1+g1); duv1=duv
+      ta1=dv1+duv1
+      kvb1=kvb*(1+g1)
+      ni1=s1*nm; re1=ni1*(1-pay)
+      oz1=oz+re1
+      pasif1=kvb1+uvb+oz1
+      efn1=ta1-pasif1
+      max_s=s0/kap
+      max_g=max_s/s0-1
+      g2=0.50
+      s2=s0*(1+g2)
+      duv2=duv*s2/max_s
+      dv2=dv*(1+g2)
+      ta2=dv2+duv2
+      kvb2=kvb*(1+g2)
+      ni2=s2*nm; re2=ni2*(1-pay)
+      oz2=oz+re2
+      efn2=ta2-(kvb2+uvb+oz2)
+      borc2=kvb2+uvb+efn2
+      de2=borc2/oz2
+      sonuc = {'a': (ta1, pasif1, efn1), 'b': (max_s, max_g), 'c': (duv2, ta2, efn2), 'd': de2}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - oran analizi
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: |
+    **Olay:** Tuna Gıda A.Ş.'nin iki yıla ait özet finansal bilgileri aşağıdadır (bin TL; 1 yıl = 360 gün; oranlar yıl sonu bakiyeleriyle hesaplanacaktır; kurumlar vergisi oranı %25'tir).
+
+    | Kalem | 2024 | 2025 |
+    |---|---|---|
+    | Dönen varlıklar | 1.600 | 2.000 |
+    | – Stoklar | 600 | 900 |
+    | – Ticari alacaklar | 500 | 600 |
+    | Kısa vadeli yabancı kaynaklar | 800 | 1.250 |
+    | Toplam varlıklar | 4.000 | 5.000 |
+    | Toplam yabancı kaynaklar | 2.000 | 3.000 |
+    | Net satışlar (tamamı vadeli) | 8.000 | 9.000 |
+    | Satışların maliyeti | 6.000 | 7.200 |
+    | FVÖK | 800 | 720 |
+    | Faiz gideri | 200 | 360 |
+
+    **İstenenler:**
+
+    (a) Her iki yıl için cari oran ve asit-test oranını hesaplayarak likidite değişimini yorumlayınız. (6 puan)
+
+    (b) Stokta kalma süresi ile alacak tahsil süresini hesaplayınız. (5 puan)
+
+    (c) Borç oranı (toplam borç / toplam varlık) ve faiz karşılama oranını hesaplayınız. (5 puan)
+
+    (d) 2025 için net kâr marjı, ROA ve ROE'yi hesaplayarak iki yılın kârlılığını karşılaştırınız. (6 puan)
+  cozum: |
+    **(a)** Cari oran: 2024 = 1.600 / 800 = **2**; 2025 = 2.000 / 1.250 = **1,60**. Asit-test: 2024 = (1.600 − 600) / 800 = **1,25**; 2025 = (2.000 − 900) / 1.250 = **0,88**. Likidite zayıflamış; asit-test oranı 1'in altına inmiştir (stoklara bağımlılık artmıştır).
+
+    **(b)** Stokta kalma süresi: 2024 = 360 × 600 / 6.000 = **36 gün**; 2025 = 360 × 900 / 7.200 = **45 gün**. Alacak tahsil süresi: 2024 = 360 × 500 / 8.000 = **22,50 gün**; 2025 = 360 × 600 / 9.000 = **24 gün**.
+
+    **(c)** Borç oranı: 2024 = **%50**; 2025 = **%60**. Faiz karşılama (FVÖK / faiz): 2024 = **4**; 2025 = **2**.
+
+    **(d)** Net kâr 2024 = (800 − 200) × 0,75 = 450; 2025 = (720 − 360) × 0,75 = 270. 2025: net kâr marjı = **%3**; ROA = 270 / 5.000 = **%5,40**; özkaynak = 2.000 → ROE = **%13,50**. 2024 değerleri: marj %5,625, ROA %11,25, ROE %22,50. Satışlar artmış olmasına rağmen faiz yükü ve maliyetler nedeniyle kârlılık belirgin biçimde gerilemiştir.
+
+    **Mevzuat dayanağı:** TMS 1 paragraf 25 uyarınca işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar; çözümde analiz edilen tablolar bu esasa göre hazırlanmış kabul edilmiştir.
+  puanlama:
+  - olcut: (a) cari ve asit-test oranları ile yorum
+    puan: 6
+  - olcut: (b) stok ve alacak süreleri
+    puan: 5
+  - olcut: (c) borç oranı ve faiz karşılama oranı
+    puan: 5
+  - olcut: (d) kârlılık oranları ve karşılaştırma
+    puan: 6
+  kaynaklar:
+  - mevzuat: TMS 1 Finansal Tabloların Sunuluşu
+    madde: paragraf 25
+    alinti: Yönetimin işletmeyi tasfiye etme veya işletmenin ticari faaliyetine son verme niyeti bulunmadığı ya da bunları yapmak dışında gerçekçi bir alternatifi olduğu sürece işletme, finansal tablolarını işletmenin sürekliliği esasına göre hazırlar.
+  dogrulama:
+    python: |
+      # bin TL
+      dv24, dv25 = 1_600, 2_000
+      st24, st25 = 600, 900
+      al24, al25 = 500, 600
+      kvb24, kvb25 = 800, 1_250
+      ta24, ta25 = 4_000, 5_000
+      bor24, bor25 = 2_000, 3_000
+      s24, s25 = 8_000, 9_000
+      sm24, sm25 = 6_000, 7_200
+      e24, e25 = 800, 720
+      f24, f25 = 200, 360
+      v=0.25
+      cari24, cari25 = dv24/kvb24, dv25/kvb25
+      asit24, asit25 = (dv24-st24)/kvb24, (dv25-st25)/kvb25
+      sd24, sd25 = 360*st24/sm24, 360*st25/sm25
+      ad24, ad25 = 360*al24/s24, 360*al25/s25
+      bo24, bo25 = bor24/ta24, bor25/ta25
+      fk24, fk25 = e24/f24, e25/f25
+      ni24, ni25 = (e24-f24)*(1-v), (e25-f25)*(1-v)
+      nm24, nm25 = ni24/s24, ni25/s25
+      roa24, roa25 = ni24/ta24, ni25/ta25
+      oz24, oz25 = ta24-bor24, ta25-bor25
+      roe24, roe25 = ni24/oz24, ni25/oz25
+      sonuc = {'a': (cari24, cari25, asit24, asit25), 'b': (sd24, sd25, ad24, ad25), 'c': (bo24, bo25, fk24, fk25), 'd': (nm25, roa25, roe25)}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - nakit akım ve fon akım tablosu
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: |
+    **Olay:** Fidan Kimya A.Ş.'nin 2025 yılına ilişkin bilgileri aşağıdadır (TL):
+
+    | Kalem | Tutar |
+    |---|---|
+    | Net dönem kârı | 240.000 |
+    | Amortisman gideri | 60.000 |
+    | Duran varlık satış kârı (net kâra dahil; satış bedeli 40.000 TL, nakit) | 10.000 |
+    | Duran varlık alımı (nakit) | 220.000 |
+    | Uzun vadeli borç kullanımı | 150.000 |
+    | Uzun vadeli borç anapara ödemesi | 50.000 |
+    | Nakit sermaye artırımı | 100.000 |
+    | Ödenen kâr payı | 80.000 |
+    | Nakit ve nakit benzerlerindeki artış | 40.000 |
+    | Ticari alacaklardaki artış | 120.000 |
+    | Stoklardaki artış | 110.000 |
+    | Kısa vadeli yabancı kaynaklardaki artış | 40.000 |
+
+    **İstenenler:**
+
+    (a) Faaliyetlerden sağlanan fonu (net işletme sermayesi esaslı) hesaplayınız. (5 puan)
+
+    (b) Fon kaynakları, fon kullanımları ve net işletme sermayesindeki artışı gösteren fon akım tablosunu düzenleyiniz. (7 puan)
+
+    (c) Net işletme sermayesi artışını dönen varlık ve KVB değişimleriyle doğrulayınız; faaliyetlerden nakit akışını bulunuz. (6 puan)
+
+    (d) Nakit akışı yaklaşımıyla toplam net nakit değişiminin, verilen nakit artışıyla uyumlu olduğunu gösteriniz. (4 puan)
+  cozum: |
+    **(a)** Faaliyetlerden fon = 240.000 + 60.000 − 10.000 = **290.000 TL** (satış kârı yatırım faaliyetiyle ilgili olduğundan çıkarılır).
+
+    **(b)**
+
+    | Fon kaynakları | TL | Fon kullanımları | TL |
+    |---|---|---|---|
+    | Faaliyetlerden fon | 290.000 | Duran varlık alımı | 220.000 |
+    | Duran varlık satışı | 40.000 | Kâr payı ödemesi | 80.000 |
+    | Uzun vadeli borç | 150.000 | Borç anapara ödemesi | 50.000 |
+    | Sermaye artırımı | 100.000 | | |
+    | **Toplam** | **580.000** | **Toplam** | **350.000** |
+
+    Net işletme sermayesi artışı = 580.000 − 350.000 = **230.000 TL**.
+
+    **(c)** Dönen varlık artışı = 40.000 + 120.000 + 110.000 = 270.000 TL; KVB artışı = 40.000 TL; NİS artışı = 270.000 − 40.000 = **230.000 TL** (tablo ile uyumlu). Faaliyetlerden nakit akışı = 290.000 − 120.000 − 110.000 + 40.000 = **100.000 TL**.
+
+    **(d)** Yatırım: −220.000 + 40.000; finansman: 150.000 + 100.000 − 80.000 − 50.000. Net nakit değişimi = 100.000 + (−220.000 + 40.000) + (150.000 + 100.000 − 80.000 − 50.000) = **40.000 TL**; verilen nakit artışı (40.000 TL) ile aynıdır.
+
+    **Mevzuat dayanağı:** TMS 7 paragraf 6 uyarınca yatırım faaliyetleri, uzun vadeli varlıkların ve nakit benzeri olmayan diğer yatırımların edinilmesi ve elden çıkarılması faaliyetleridir. TMS 7 paragraf 7 uyarınca nakit benzerleri, kısa vadeli nakit taahhütlerinin yerine getirilmesi amacıyla elde tutulur.
+  puanlama:
+  - olcut: (a) faaliyetlerden sağlanan fon
+    puan: 5
+  - olcut: (b) kaynak ve kullanım tablosu ile NİS artışı
+    puan: 7
+  - olcut: (c) NİS doğrulaması ve faaliyet nakit akışı
+    puan: 6
+  - olcut: (d) net nakit değişimi uyumu
+    puan: 4
+  kaynaklar:
+  - mevzuat: TMS 7 Nakit Akış Tablosu
+    madde: paragraf 6
+    alinti: 'Yatırım faaliyetleri: Uzun vadeli varlıklar ile nakit benzeri olarak nitelendirilmeyen diğer yatırımların edinilmesi ve elden çıkarılması faaliyetleridir.'
+  - mevzuat: TMS 7 Nakit Akış Tablosu
+    madde: paragraf 7
+    alinti: Nakit benzerleri, yatırım veya diğer amaçlardan ziyade, kısa vadeli nakit taahhütlerinin yerine getirilmesi amacıyla elde tutulur.
+  dogrulama:
+    python: |
+      ni=240_000; am=60_000; kar=10_000; sat=40_000
+      alim=220_000; borc_k=150_000; sermaye=100_000; temettu=80_000; borc_o=50_000
+      d_nakit=40_000; d_alac=120_000; d_stok=110_000; d_kvb=40_000
+      faal_fon = ni+am-kar
+      kaynak = faal_fon+sat+borc_k+sermaye
+      kullanim = alim+temettu+borc_o
+      nis = kaynak-kullanim
+      dv_art = d_nakit+d_alac+d_stok
+      nis2 = dv_art-d_kvb
+      faal_nakit = faal_fon-d_alac-d_stok+d_kvb
+      nakit_degisim = faal_nakit + (-alim+sat) + (borc_k+sermaye-temettu-borc_o)
+      sonuc = {'a': faal_fon, 'b': (kaynak, kullanim, nis), 'c': (nis2, faal_nakit), 'd': nakit_degisim}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: FPA
+  kazanimlar:
+  - içsel ve sürdürülebilir büyüme oranı
+  - oran analizi
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: |
+    **Olay:** Yeşil Ambalaj A.Ş.'nin net kâr marjı %6, aktif devir hızı 2,0 ve özkaynak çarpanı (toplam varlık / özkaynak) 1,5'tir. Şirket net kârının %50'sini kâr payı olarak dağıtmaktadır. Yönetim, dış kaynaktan pay ihracı yapmadan ve sermaye yapısını (borç/özkaynak oranını) koruyarak satışları %25 büyütmeyi planlamaktadır. (Bu soruda kanuni yedek akçe ayırma etkisi dikkate alınmayacak, ROE dönem sonu özkaynak üzerinden hesaplanacaktır.)
+
+    **İstenenler:**
+
+    (a) Mevcut ROE'yi ve sürdürülebilir büyüme oranını hesaplayınız. (5 puan)
+
+    (b) Kâr payı hiç dağıtılmasa (tutma oranı %100) ulaşılabilecek en yüksek sürdürülebilir büyüme oranı nedir? (5 puan)
+
+    (c) %25 büyümeyi yakalamak için, kâr dağıtım oranı %50 sabitken gereken ROE'yi; ROE sabitken gereken kâr dağıtım oranını belirleyiniz ve hedefin mümkün olup olmadığını yorumlayınız. (7 puan)
+
+    (d) Aktif devir hızı ve özkaynak çarpanı 2,0 olursa (c) şıkkındaki ROE için gereken net kâr marjını bulunuz. (5 puan)
+  cozum: |
+    **(a)** ROE = %6 × 2,0 × 1,5 = **%18**; tutma oranı b = %50. Sürdürülebilir büyüme = ROE × b / (1 − ROE × b) = 0,09 / 0,91 = **%9,8901**.
+
+    **(b)** b = 1 iken g = ROE / (1 − ROE) = 0,18 / 0,82 = **%21,9512**; %25 hedefin altındadır.
+
+    **(c)** g = 0,25 için ROE × b = g / (1 + g) = 0,20. b = 0,50 iken gereken ROE = 0,20 / 0,50 = **%40**. ROE sabit (%18) iken gereken b = 0,20 / 0,18 = **1,11** (> 1); yani kâr dağıtımı sıfır olsa bile hedef ulaşılamaz. Hedef için ROE'nin artırılması (marj, devir veya kaldıraç) ya da dış finansman gerekir.
+
+    **(d)** Net kâr marjı = ROE / (devir × çarpan) = 0,40 / (2,0 × 2,0) = **%10**.
+
+    **Mevzuat dayanağı:** TTK md. 507/1 uyarınca her pay sahibi, dağıtılması kararlaştırılmış net dönem kârına payı oranında katılır.
+  puanlama:
+  - olcut: (a) ROE ve sürdürülebilir büyüme oranı
+    puan: 5
+  - olcut: (b) azami sürdürülebilir büyüme
+    puan: 5
+  - olcut: (c) gerekli ROE ve gerekli dağıtım oranı, yorum
+    puan: 7
+  - olcut: (d) gerekli net kâr marjı
+    puan: 5
+  kaynaklar:
+  - mevzuat: 6102 sayılı Türk Ticaret Kanunu
+    madde: md. 507/1
+    alinti: Her pay sahibi, kanun ve esas sözleşme hükümlerine göre pay sahiplerine dağıtılması kararlaştırılmış net dönem kârına, payı oranında katılma hakkını haizdir.
+  dogrulama:
+    python: |
+      nm=0.06; tat=2.0; em=1.5; payout=0.5; hedef_g=0.25; hedef_tat=2.0; hedef_em=2.0
+      roe = nm*tat*em
+      b = 1-payout
+      g = roe*b/(1-roe*b)
+      g_max = roe/(1-roe)
+      rb = roe*b
+      rb1 = 1-roe*b
+      roe1 = 1-roe
+      gg = hedef_g/(1+hedef_g)
+      roe_gerek = (hedef_g/(1+hedef_g))/b
+      nm_gerek = roe_gerek/(hedef_tat*hedef_em)
+      b_gerek = (hedef_g/(1+hedef_g))/roe
+      sonuc = {'a': (roe, g), 'b': g_max, 'c': (roe_gerek, b_gerek), 'd': nm_gerek}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

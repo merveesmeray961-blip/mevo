@@ -1,0 +1,741 @@
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: GDR
+  kazanimlar:
+  - banka ve sigorta muameleleri vergisi
+  - matrah ve istisna
+  - kambiyo muameleleri
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Güven Bankası A.Ş.** Mart 2026 döneminde aşağıdaki gelirleri elde etmiş ve işlemleri yapmıştır:
+
+    | Kalem | Tutar |
+    |---|---|
+    | Kredi faiz gelirleri | 4.000.000 TL |
+    | Komisyon ve ücret gelirleri | 600.000 TL |
+    | Kambiyo satışlarının tutarı | 20.000.000 TL |
+    | Merkezi Türkiye'de olan bankanın kendi şube ve ajanslarıyla yaptığı muameleler dolayısıyla tahakkuk eden paralar | 1.000.000 TL |
+    | Müşterileri nam ve hesabına başka kuruluşlara yaptırılan hizmet karşılığı alınıp aynen ödenen paralar | 500.000 TL |
+
+    Ek bilgiler: Bu vakada banka ve sigorta muameleleri vergisinin genel oranı %5, kambiyo muamelelerinde oran binde ikidir; vergi matrahından gider veya vergi adı altında indirim yapılamaz.
+
+    **İstenenler:**
+
+    (a) Vergiye tabi ve istisna işlemleri ayırarak BSMV matrahını belirleyiniz. (8 puan)
+
+    (b) Ödenecek BSMV'yi (genel muameleler ve kambiyo ayrı ayrı) hesaplayınız. (8 puan)
+
+    (c) Mart 2026 dönemi BSMV beyanname ve ödeme süresinin son gününü md. 47-48'e göre belirtiniz. (5 puan)
+
+    (d) BSMV'nin matraha dahil edilip edilmeyeceğini ve matrahtan indirim yapılıp yapılamayacağını md. 31'e göre belirtiniz. (4 puan)
+  cozum: |
+    **(a)** Md. 29/a ve d: merkezleri Türkiye'de bulunan bankaların kendi şube ve ajanslarıyla yaptığı muameleler ile müşteriler nam ve hesabına başka kuruluşlara yaptırılan ve aynen ödenen paralar istisnadır. Genel muamele matrahı = 4.000.000 + 600.000 = **4.600.000 TL**; kambiyo muamelesi matrahı (kambiyo satışları) = **20.000.000 TL**.
+
+    **(b)** Genel: 4.600.000 × %5 = 230.000 TL. Kambiyo: 20.000.000 × binde 2 = 40.000 TL. Toplam = **270.000 TL**.
+
+    **(c)** Md. 47: bir ay içindeki vergiye tabi muameleler ertesi ayın 15 inci günü akşamına kadar bildirilir; md. 48: vergi beyanname verme süresi içinde ödenir. Mart dönemi için **15 Nisan 2026**.
+
+    **(d)** Md. 31: vergi matrahından gider ve vergi adı altında indirim yapılamaz; bu kanunla alınan BSMV matraha dahil edilmez.
+
+    Püf noktaları: Kambiyoda matrah kambiyo satışlarının tutarıdır; kambiyo oranı binde ikidir.
+  puanlama:
+  - olcut: (a) matrah
+    puan: 8
+  - olcut: (b) 270.000 TL
+    puan: 8
+  - olcut: (c) 15 Nisan
+    puan: 5
+  - olcut: (d) md. 31
+    puan: 4
+  kaynaklar:
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 29/a
+    alinti: a) Merkezleri Türkiye'de bulunan bankaların kendi şube ve ajansları ile veya bu şube ve ajansların birbirleriyle yaptıkları muameleler dolayısiyle tahakkuk eden paralar,
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 29/d
+    alinti: d) Bankaların müşterileri nam ve hesabına başka şahıs ve müesseselere yaptırdıkları hizmetler mukabili olarak aldıkları ve aynen mezkür şahıs veya müesseselere ödedikleri paralar,
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 31
+    alinti: Kambiyo alım ve satım muamelelerinde kambiyo satışlarının tutarı vergiye matrah olur.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 31
+    alinti: Vergi matrahından gider ve vergi adı altında indirim yapılamaz. Bu kanunla alınan banka ve sigorta muameleleri vergisi matraha dahil edilmez.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 47
+    alinti: her mükellef, bir ay içindeki vergiye tabi muamelelerini bir beyanname ile ertesi ayın 15 inci günü akşamına kadar
+  dogrulama:
+    python: |-
+      g=(4000000+600000)*0.05
+      k=20000000*0.002
+      sonuc={'b':g+k,'a':[4600000,20000000]}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: GDR
+  kazanimlar:
+  - banka ve sigorta muameleleri vergisi
+  - sigorta primi matrahı
+  - iptal edilen poliçe indirimi
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Kalkan Sigorta A.Ş.** Haziran 2026 döneminde şu poliçeleri düzenlemiştir:
+
+    | Kalem | Tutar |
+    |---|---|
+    | Poliçelerde yer alan prim tutarları toplamı | 3.000.000 TL |
+    | Sigorta aracılarına (acentelere) ödenen komisyonlar | 300.000 TL |
+    | İptal edilen bir poliçenin, iptal tarihinden sonraki döneme ait prim tutarı | 150.000 TL |
+    | Yurt dışındaki bir şirkete ödenen reasürans primi (bu vakada vergi konusu değildir) | 400.000 TL |
+
+    Ek bilgiler: Bu vakada sigorta işlemlerinde BSMV oranı %5 kabul edilecektir. İptal tarihinden önceki bir dönemde (Mayıs 2026) poliçe düzenlenmiş ve o dönemde ilgili BSMV beyan edilip ödenmiştir.
+
+    **İstenenler:**
+
+    (a) Haziran dönemi BSMV matrahını md. 31'e göre belirleyiniz; acente komisyonlarının indirilip indirilemeyeceğini belirtiniz. (8 puan)
+
+    (b) Hesaplanan BSMV'yi bulunuz. (5 puan)
+
+    (c) İptal edilen poliçeye ilişkin vergi indirimini ve hangi döneme ait beyannamede yapılacağını belirtiniz. (8 puan)
+
+    (d) Ödenecek BSMV'yi hesaplayınız ve mükellefin kim olduğunu md. 30'a göre belirtiniz (sigorta aracılarının işlemleri bakımından). (4 puan)
+  cozum: |
+    **(a)** Md. 31: sigorta işlemlerinde verginin matrahı, bu işlem dolayısıyla poliçede yer alan prim tutarıdır; prim tutarının hesabında komisyon ve benzeri adlarla sigorta aracılarına yapılan ödemeler indirim konusu yapılamaz. Matrah = **3.000.000 TL**.
+
+    **(b)** BSMV = 3.000.000 × %5 = **150.000 TL**.
+
+    **(c)** Sigorta şirketleri, iptal ettikleri sigorta muamelelerine ilişkin vergileri (yalnızca iptal tarihinden sonraki döneme ait olan kısmı) iptalin gerçekleştiği dönemde hesaplanan BSMV'den indirebilir. İndirim = 150.000 × %5 = 7.500 TL, **Haziran 2026** dönemi beyannamesinde yapılır. Bu dönemde indirilemeyen vergiler sonraki dönem beyannamelerinde indirim konusu yapılabilir.
+
+    **(d)** Ödenecek BSMV = 150.000 − 7.500 = **142.500 TL**. Md. 30: sigorta aracıları tarafından yapılan sigorta işlemlerinde de verginin mükellefi **sigorta şirketleridir**.
+
+    Püf noktaları: Komisyon primden düşülmez; iptalde yalnızca iptal sonrası döneme ait prim kısmının vergisi indirilir.
+  puanlama:
+  - olcut: (a) prim matrah, komisyon indirilemez
+    puan: 8
+  - olcut: (b) 150.000
+    puan: 5
+  - olcut: (c) iptal indirimi
+    puan: 8
+  - olcut: (d) 142.500 ve mükellef
+    puan: 4
+  kaynaklar:
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 31
+    alinti: Sigorta işlemlerinde verginin matrahı, bu işlem dolayısıyla poliçede yer alan prim tutarıdır. Prim tutarının hesabında, sigorta işlemi dolayısıyla komisyon ve benzeri adlarla sigorta aracılarına yapılan ödemeler indirim konusu yapılamaz.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 31
+    alinti: Sigorta şirketleri, iptal ettikleri sigorta muamelelerine ilişkin vergileri (yalnızca iptal tarihinden sonraki döneme ait olan kısmı), iptalin gerçekleştiği dönemde; bankalar ve finansman şirketleri, 7/11/2013 tarihli ve 6502 sayılı Tüketicinin Korunması Hakkında Kanun gereğince tüketicilere iade ettikleri ücret, komisyon ve benzeri adlarla tahsil ettikleri tutarlara ilişkin vergileri, iadenin gerçekleştiği dönemde hesaplanan banka ve sigorta muameleleri vergisinden indirebilirler. Bu dönemde indirilemeyen vergiler, sonraki dönem beyannamelerinde indirim konusu yapılabilir.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 30
+    alinti: Sigorta aracıları tarafından yapılan sigorta işlemlerinde de verginin mükellefi sigorta şirketleridir.
+  dogrulama:
+    python: |-
+      h=3000000*0.05
+      i=150000*0.05
+      sonuc={'b':h,'d':h-i}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: GDR
+  kazanimlar:
+  - BSMV mükellefleri ve bankerler
+  - istisnalar (md. 29)
+  - finansal kiralama işlemleri
+  zorluk: 2
+  puan: 25
+  sure_dk: 25
+  soru: |
+    **Metin Finansman A.Ş.** (ikraz işleriyle uğraşan bir finansman şirketidir) ve **Altın Ticaret Ltd. Şti.** (yalnızca altın alım satımıyla uğraşmaktadır) ile **Leasing A.Ş.** (finansal kiralama şirketi) aşağıdaki işlemlerden gelir elde etmişlerdir (2026 yılı bir ay):
+
+    | Mükellef | Gelir | Tutar |
+    |---|---|---|
+    | Metin Finansman A.Ş. | İkraz (tüketici kredisi) işlemlerinden faiz ve komisyon | 2.000.000 TL |
+    | Altın Ticaret Ltd. Şti. | Külçe altın alım satımından elde edilen kazanç | 1.000.000 TL |
+    | Leasing A.Ş. | 3226 sayılı Kanun'a göre finansal kiralama işlemlerinden gelir | 3.000.000 TL |
+
+    Bu vakada BSMV genel oranı %5 kabul edilecektir.
+
+    **İstenenler:**
+
+    (a) Her mükellefin BSMV yönünden durumunu md. 28'e göre değerlendiriniz. (12 puan)
+
+    (b) Ödenmesi gereken toplam BSMV'yi bulunuz. (5 puan)
+
+    (c) Banker sayılmanın hangi hâllerde söz konusu olduğunu md. 28'e göre kısaca belirtiniz. (8 puan)
+  cozum: |
+    **(a)** Md. 28/1: banka ve sigorta şirketlerinin 3226 sayılı Finansal Kiralama Kanunu'na göre yaptıkları işlemler hariç olmak üzere yaptıkları bütün muameleler BSMV'ye tabidir. Md. 28/3: 90 sayılı KHK'ye göre ikraz işleriyle uğraşanlar banker sayılır; bir şahsın münhasıran altın alım ve satımı ile uğraşması banker sayılmasını gerektirmez. Metin Finansman → banker sayılır, geliri **vergiye tabi**. Altın Ticaret → banker sayılmaz, **BSMV yok**. Leasing → finansal kiralama işlemi, BSMV kapsamı dışında.
+
+    **(b)** BSMV = 2.000.000 × %5 = **100.000 TL**.
+
+    **(c)** Md. 28/2: bankerlerin yaptıkları banka muamele ve hizmetleri dolayısıyla kendi lehlerine aldıkları paralar (kendileri veya başkaları hesabına menkul kıymet alım satımını meslek haline getirenlerin lehlerine kalan paralar ile devamlı olarak para toplama işiyle uğraşanların topladıkları paralara sağladıkları gelir ve menfaatler üzerinden komisyon vb. adlarla aldıkları paralar dahil) BSMV'ye tabidir; 90 sayılı KHK'ye göre ikraz işleriyle uğraşanlar ve ikinci fıkradaki muamele ve hizmetlerden herhangi birini esas iştigal konusu olarak yapanlar banker sayılır.
+
+    Püf noktaları: Münhasıran altın alım satımı banker sayılma sebebi değildir; finansal kiralama işlemleri BSMV dışındadır.
+  puanlama:
+  - olcut: (a) üç mükellef
+    puan: 12
+  - olcut: (b) 100.000
+    puan: 5
+  - olcut: (c) banker tanımı
+    puan: 8
+  kaynaklar:
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 28
+    alinti: Banka ve sigorta şirketlerinin 10/6/1985 tarihli ve 3226 sayılı Finansal Kiralama Kanununa göre yaptıkları işlemler hariç olmak üzere, her ne şekilde olursa olsun yapmış oldukları bütün muameleler dolayısıyla kendi lehlerine her ne nam ile olursa olsun nakden veya hesaben aldıkları paralar banka ve sigorta muameleleri vergisine tabidir.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 28
+    alinti: 90 sayılı Kanun Hükmünde Kararnameye göre ikraz işleriyle uğraşanlarla ikinci fıkrada belirtilen muamele ve hizmetlerden herhangi birini esas iştigal konusu olarak yapanlar bu Kanunun uygulanmasında
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 28
+    alinti: Bir şahsın münhasıran altın alım ve satımı ile uğraşması banker sayılmasını gerektirmez.
+  dogrulama:
+    python: sonuc={'b':2000000*0.05}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: GDR
+  kazanimlar:
+  - konaklama vergisi
+  - matrah ve oran
+  - KDV ile ilişkisi
+  - beyan süresi
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Sahil Turizm A.Ş.** Temmuz 2026'da bir otel işletmektedir. Aşağıdaki bilgiler (KDV hariç) verilmiştir:
+
+    | Kalem | Tutar |
+    |---|---|
+    | Geceleme hizmeti | 4.000.000 TL |
+    | Geceleme ile birlikte satılan yeme-içme ve havuz kullanımı hizmetleri | 1.000.000 TL |
+    | Otelin ayrı satılan lokanta hizmeti (konaklayanlara değil, dışarıdan gelen müşterilere) | 600.000 TL |
+    | Öğrenci yurdu niteliğindeki ayrı bir pansiyonda öğrencilere verilen hizmetler | 500.000 TL |
+
+    Ek bilgiler: Bu vakada konaklama vergisi oranı %2, KDV oranı %10 kabul edilecektir.
+
+    **İstenenler:**
+
+    (a) Konaklama vergisine tabi tutarı md. 34'e göre belirleyiniz. (8 puan)
+
+    (b) Konaklama vergisini hesaplayınız ve KDV matrahı üzerindeki etkisini açıklayınız; ayrıca KDV tutarını hesaplayınız. (9 puan)
+
+    (c) Temmuz 2026 dönemi için beyan ve ödeme süresinin son gününü belirtiniz. (4 puan)
+
+    (d) Konaklama vergisinin faturada gösterilmesi ve indirim konusunda kuralı belirtiniz. (4 puan)
+  cozum: |
+    **(a)** Md. 34: geceleme hizmeti ile bu hizmetle birlikte satılmak suretiyle konaklama tesisi bünyesinde sunulan diğer tüm hizmetler (yeme, içme, aktivite, havuz vb.) konaklama vergisine tabidir. Matrah = 4.000.000 + 1.000.000 = **5.000.000 TL** (KDV hariç). Ayrı satılan lokanta hizmeti (600.000) geceleme ile birlikte satılmadığından vergiye tabi değildir. Öğrenci yurdu ve pansiyonlarında öğrencilere verilen hizmetler müstesnadır (500.000).
+
+    **(b)** Konaklama vergisi = 5.000.000 × %2 = **100.000 TL**. Bu vergi KDV matrahına dahil edilmez. KDV = 5.000.000 × %10 = 500.000 TL (+ ayrı lokanta için 600.000 × %10 = 60.000 TL).
+
+    **(c)** Vergilendirme dönemi aylıktır; vergi izleyen ayın yirmi altıncı günü akşamına kadar beyan edilip ödenir: **26 Ağustos 2026**.
+
+    **(d)** Konaklama vergisi fatura ve benzeri belgelerde ayrıca gösterilir; bu vergiden herhangi bir ad altında indirim yapılamaz.
+
+    Püf noktaları: Konaklama vergisinde süre ayın 26'sı, KDV matrahına girmez.
+  puanlama:
+  - olcut: (a) matrah
+    puan: 8
+  - olcut: (b) 100.000 TL, KDV
+    puan: 9
+  - olcut: (c) 26 Ağustos
+    puan: 4
+  - olcut: (d) faturada gösterim
+    puan: 4
+  kaynaklar:
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 34
+    alinti: Otel, motel, tatil köyü, pansiyon, apart otel, misafirhane, kamping, dağ evi, yayla evi gibi konaklama tesislerinde verilen geceleme hizmeti ile bu hizmetle birlikte satılmak suretiyle konaklama tesisi bünyesinde sunulan diğer tüm hizmetler (yeme, içme, aktivite, eğlence hizmetleri ve havuz, spor, termal ve benzeri alanların kullanımı gibi) konaklama vergisine tabidir.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 34
+    alinti: Konaklama vergisi, konaklama tesislerince düzenlenen fatura ve benzeri belgelerde ayrıca gösterilir. Bu vergiden herhangi bir ad altında indirim yapılamaz. Bu vergi, katma değer vergisi matrahına dahil edilmez.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 34
+    alinti: a) Öğrenci yurtları, pansiyonları ve kamplarında öğrencilere verilen hizmetler.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 34
+    alinti: vergilendirme dönemini takip eden ayın yirmi altıncı günü akşamına kadar
+  dogrulama:
+    python: |-
+      m=4000000+1000000
+      sonuc={'b':m*0.02,'kdv':m*0.1}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: GDR
+  kazanimlar:
+  - özel iletişim vergisi
+  - matrah ve oran
+  - mobil abonelik ilk tesis tutarı
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Hızlı İletişim A.Ş.** (mobil elektronik haberleşme işletmecisi) Eylül 2026 dönemine ilişkin bilgileri aşağıdadır (tutarlar KDV hariç):
+
+    | Kalem | Tutar |
+    |---|---|
+    | Mobil haberleşme hizmetleri (ön ödemeli hatlara yüklemeler dahil) | 80.000.000 TL |
+    | Mobil internet servis sağlayıcılığı hizmeti | 20.000.000 TL |
+    | Mobil telefon aboneliğinin ilk tesisi: 3.000 yeni abonelik (sesli iletişim amaçlı) | — |
+    | Aynı dönemde 400 operatör değişikliği (mevcut abonenin operatör değişikliği) | — |
+
+    Ek bilgiler: Bu vakada özel iletişim vergisi oranı %10 (Cumhurbaşkanı Kararı ile uygulanan oran), mobil abonelik ilk tesisinde ayrıca alınan maktu özel iletişim vergisi tutarı 2026 yılı için 700 TL'dir.
+
+    **İstenenler:**
+
+    (a) Oran üzerinden hesaplanan özel iletişim vergisini bulunuz. (6 puan)
+
+    (b) Ayrıca alınacak maktu vergiyi, hangi aboneliklerin kapsam dışında kaldığını belirterek hesaplayınız. (8 puan)
+
+    (c) Toplam özel iletişim vergisini ve beyan-ödeme süresinin son gününü (Eylül dönemi) belirtiniz. (6 puan)
+
+    (d) Verginin mükellefinin kim olduğunu ve matrahın nasıl oluştuğunu belirtiniz. (5 puan)
+  cozum: |
+    **(a)** Mobil haberleşme ve internet hizmetleri özel iletişim vergisine tabidir: (80.000.000 + 20.000.000) × %10 = **10.000.000 TL**.
+
+    **(b)** Mobil telefon aboneliğinin ilk tesisinde (operatör değişiklikleri hariç) ayrıca maktu özel iletişim vergisi alınır: 3.000 × 700 = **2.100.000 TL**. Operatör değişiklikleri kapsam dışıdır.
+
+    **(c)** Toplam = 10.000.000 + 2.100.000 = **12.100.000 TL**. Bir aya ait ÖİV, izleyen ayın onbeşinci günü akşamına kadar beyan edilerek aynı süre içinde ödenir: **15 Ekim 2026**.
+
+    **(d)** Verginin mükellefi elektronik haberleşme hizmetlerini sunan işletmecilerdir; matrah KDV matrahını oluşturan unsurlardan teşekkül eder.
+
+    Püf noktaları: Operatör değişikliği maktu vergiye konu değildir; ÖİV'nin beyanında md. 47-48 uygulanmaz, süre ayın 15'idir.
+  puanlama:
+  - olcut: (a) 10.000.000
+    puan: 6
+  - olcut: (b) 2.100.000 ve kapsam dışı
+    puan: 8
+  - olcut: (c) toplam ve 15 Ekim
+    puan: 6
+  - olcut: (d) mükellef ve matrah
+    puan: 5
+  kaynaklar:
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 39
+    alinti: ilk tesisi ile operatör değişiklikleri hariç) yirmimilyon lira ayrıca özel iletişim vergisi alınır.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 39
+    alinti: Bir aya ait özel iletişim vergisi, izleyen ayın onbeşinci günü akşamına kadar beyan edilerek aynı süre içinde ödenir.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 39
+    alinti: Verginin mükellefi; birinci fıkrada sayılan elektronik haberleşme hizmetlerini sunan işletmecilerdir.
+  dogrulama:
+    python: |-
+      o=(80000000+20000000)*0.10
+      m=3000*700
+      sonuc={'a':o,'b':m,'c':o+m}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: GDR
+  kazanimlar:
+  - dijital hizmet vergisi
+  - muafiyet haddi
+  - matrah ve oran
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    Aşağıdaki üç dijital hizmet sağlayıcısının, 2026 yılı vergilendirilmesi için bir önceki hesap dönemine (2025) ilişkin hasılat bilgileri ve 2026 Ocak ayına ilişkin verileri aşağıdadır (konsolide grup yoktur):
+
+    | Şirket | 2025: Türkiye'de elde edilen hasılat | 2025: Dünya genelinde elde edilen hasılat | 2026 Ocak: verginin konusuna giren hasılat (Türkiye) |
+    |---|---|---|---|
+    | A | 25.000.000 TL | 600 milyon avro | 6.000.000 TL |
+    | B | 15.000.000 TL | 900 milyon avro | 5.000.000 TL |
+    | C | 30.000.000 TL | 800 milyon avro | 10.000.000 TL |
+
+    Ek bilgiler: DHV oranı 1/1/2026'dan itibaren %5'tir. Ocak 2026 hasılatı reklam hizmetinden elde edilmiş olup hasılat KDV hariç tutardır.
+
+    **İstenenler:**
+
+    (a) Her şirketin 2026 Ocak dönemi için muaf olup olmadığını md. 4/1'e göre değerlendiriniz. (12 puan)
+
+    (b) Vergiye tabi şirketin DHV'sini hesaplayınız; matrahtan indirim yapılıp yapılamayacağını belirtiniz. (6 puan)
+
+    (c) Ödenen DHV'nin gelir ve kurumlar vergisi yönünden durumunu belirtiniz. (4 puan)
+
+    (d) DHV'nin faturada gösterilip gösterilmeyeceğini belirtiniz. (3 puan)
+  cozum: |
+    **(a)** Md. 4/1: önceki hesap döneminde Türkiye'de elde edilen hasılatı 20 milyon TL'den **veya** dünya genelinde elde edilen hasılatı 750 milyon avrodan **az olanlar** DHV'den muaftır. A: Türkiye hasılatı 25 milyon (≥20) ama dünya hasılatı 600 milyon avro (<750) → **muaf**. B: Türkiye 15 milyon (<20) → **muaf**. C: her iki had de aşılmış → **vergiye tabi**.
+
+    **(b)** C'nin DHV'si = 10.000.000 × %5 = **500.000 TL**. Md. 5/2: verginin matrahından gider, maliyet ve vergi adı altında indirim yapılmaz; md. 5/4: hesaplanan vergiden indirim yapılamaz.
+
+    **(c)** Md. 6/7: ödenen DHV, gelir ve kurumlar vergisine esas safi kazancın tespitinde gider olarak indirilebilir.
+
+    **(d)** Md. 5/2: DHV fatura ve fatura yerine geçen belgelerde ayrıca gösterilmez.
+
+    Püf noktaları: Muafiyet için iki haddin her ikisinin de aşılması gerekir ("veya az olanlar muaf").
+  puanlama:
+  - olcut: (a) üç şirket
+    puan: 12
+  - olcut: (b) 500.000 TL
+    puan: 6
+  - olcut: (c) gider
+    puan: 4
+  - olcut: (d) fatura
+    puan: 3
+  kaynaklar:
+  - mevzuat: 7194 sayılı Kanun (Dijital Hizmet Vergisi)
+    madde: md. 4/1
+    alinti: İlgili hesap döneminden önceki hesap döneminde, 1 inci maddede sayılan hizmetlere ilişkin, Türkiye’de elde edilen hasılatı 20 milyon Türk lirasından veya dünya genelinde elde edilen hasılatı 750 milyon avrodan veya muadili yabancı para karşılığı Türk lirasından az olanlar dijital hizmet vergisinden muaftır.
+  - mevzuat: 7194 sayılı Kanun (Dijital Hizmet Vergisi)
+    madde: md. 5/2
+    alinti: Verginin matrahından gider, maliyet ve vergi adı altında indirim yapılmaz. Dijital hizmet vergisi, fatura ve fatura yerine geçen belgelerde ayrıca gösterilmez.
+  - mevzuat: 7194 sayılı Kanun (Dijital Hizmet Vergisi)
+    madde: md. 6/7
+    alinti: Dijital hizmet vergisi mükelleflerince ödenen dijital hizmet vergisi, bu mükellefler tarafından gelir ve kurumlar vergisine esas safi kazancın tespitinde gider olarak indirilebilir.
+  dogrulama:
+    python: sonuc={'b':10000000*0.05}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: GDR
+  kazanimlar:
+  - dijital hizmet vergisi
+  - muafiyetin sona ermesi
+  - mükellefiyetin başlangıcı
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    **Çevrim Medya Ltd. Şti.**, 2025 hesap döneminde muaf olup 2026 hesap döneminde kümülatif hasılatı şu şekilde gelişmiştir (tüm hasılat verginin konusuna giren hizmetlere ilişkindir):
+
+    | Dönem sonu | Türkiye'de kümülatif hasılat | Dünya genelinde kümülatif hasılat |
+    |---|---|---|
+    | 31 Mart 2026 | 12.000.000 TL | 400 milyon avro |
+    | 30 Haziran 2026 | 22.000.000 TL | 780 milyon avro |
+    | 30 Eylül 2026 | 35.000.000 TL | 900 milyon avro |
+
+    Aylık vergilendirme dönemleri uygulanmaktadır.
+
+    **İstenenler:**
+
+    (a) Hadlerin her ikisinin de aşıldığı dönem sonunu bulunuz. (6 puan)
+
+    (b) DHV mükellefiyetinin hangi vergilendirme döneminden itibaren başlayacağını md. 4/2'ye göre belirtiniz. (8 puan)
+
+    (c) Şirket arka arkaya iki hesap döneminde hadlerden birinin altında kalırsa muafiyetin akıbetini belirtiniz. (5 puan)
+
+    (d) Cumhurbaşkanı'nın hadler konusundaki yetkisini belirtiniz. (6 puan)
+  cozum: |
+    **(a)** Haziran 2026 sonunda Türkiye hasılatı 22 milyon TL (>20 milyon) ve dünya hasılatı 780 milyon avro (>750 milyon): iki had de aşılmıştır. Mart sonunda ikisi de aşılmamıştı. Aşılma: **30 Haziran 2026** itibarıyla.
+
+    **(b)** Md. 4/2: ilgili hesap dönemi içerisinde hadlerin her ikisinin de aşılması hâlinde muafiyet sona erer ve haddin aşıldığı vergilendirme dönemini takip eden **dördüncü vergilendirme döneminden** itibaren DHV mükellefiyeti başlar. Aşıldığı dönem Haziran (3 aylık dönem sonu itibarıyla tespit); izleyen dönemler Temmuz (1), Ağustos (2), Eylül (3), Ekim (4) → mükellefiyet **Ekim 2026 döneminden** itibaren başlar.
+
+    **(c)** Md. 4/3: arka arkaya iki hesap dönemi boyunca hadlerden herhangi birinin altında kalanların vergi muafiyeti, izleyen hesap döneminden itibaren tekrar başlar.
+
+    **(d)** Md. 4/4: Cumhurbaşkanı, hadleri verginin konusuna giren hizmet türlerine göre ayrı ayrı veya birlikte sıfıra kadar indirmeye veya üç katına kadar artırmaya yetkilidir.
+
+    Püf noktaları: "Dördüncü vergilendirme dönemi" aşıldığı dönemi saymaz; izleyen aydan başlayarak sayılır.
+  puanlama:
+  - olcut: (a) Haziran
+    puan: 6
+  - olcut: (b) Ekim 2026
+    puan: 8
+  - olcut: (c) iki dönem altı
+    puan: 5
+  - olcut: (d) Cumhurbaşkanı yetkisi
+    puan: 6
+  kaynaklar:
+  - mevzuat: 7194 sayılı Kanun (Dijital Hizmet Vergisi)
+    madde: md. 4/2
+    alinti: İlgili hesap dönemi içerisinde birinci fıkrada yer alan hadlerin her ikisinin de aşılması hâlinde muafiyet sona erer ve haddin aşıldığı vergilendirme dönemini takip eden dördüncü vergilendirme döneminden itibaren dijital hizmet vergisi mükellefiyeti başlar.
+  - mevzuat: 7194 sayılı Kanun (Dijital Hizmet Vergisi)
+    madde: md. 4/3
+    alinti: Arka arkaya iki hesap dönemi boyunca birinci fıkradaki hadlerden herhangi birinin altında kalanların vergi muafiyeti, izleyen hesap döneminden itibaren tekrar başlar.
+  - mevzuat: 7194 sayılı Kanun (Dijital Hizmet Vergisi)
+    madde: md. 4/4
+    alinti: Cumhurbaşkanı, birinci fıkrada yer alan hadleri verginin konusuna giren hizmet türlerine göre ayrı ayrı veya birlikte sıfıra kadar indirmeye veya üç katına kadar artırmaya yetkilidir.
+  dogrulama:
+    python: sonuc={'b':'Ekim 2026'}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: GDR
+  kazanimlar:
+  - dijital hizmet vergisi
+  - vergi sorumluluğu
+  - beyan ve ödeme
+  zorluk: 3
+  puan: 25
+  sure_dk: 30
+  soru: |
+    Türkiye'de yerleşik olmayan **Global Stream Ltd.** (Türkiye'de ikametgâhı, iş yeri, kanuni ve iş merkezi bulunmayan, hadleri aşan dijital hizmet sağlayıcısı), Mart 2026'da Türkiye'de müşterilere sunduğu dijital içerik hizmetlerinden 8.000.000 TL tutarında hasılat elde etmiştir. Hazine ve Maliye Bakanlığı, vergi alacağının emniyet altına alınması amacıyla ödemelere aracılık eden **Pay Bank A.Ş.**'yi verginin ödenmesinden sorumlu tutmuştur. Pay Bank, vergiyi kesip beyan etmiştir. DHV oranı %5'tir.
+
+    Ek bilgi: Pay Bank, vergi kesintisini 28 Nisan 2026'da yaparak beyanname vermiştir.
+
+    **İstenenler:**
+
+    (a) Dijital hizmetin 'Türkiye'de sunulmuş' sayılma ölçütlerini (md. 2) belirtiniz. (5 puan)
+
+    (b) Vergi ve beyan eden sorumluyu md. 3/2 ve md. 6/2'ye göre belirtiniz; vergi tutarını hesaplayınız. (8 puan)
+
+    (c) Mart dönemi için DHV beyannamesinin son verilme tarihini belirtiniz ve Pay Bank'ın 28 Nisan'daki beyanının süresinde olup olmadığını değerlendiriniz. (8 puan)
+
+    (d) Hazine ve Maliye Bakanlığı üç aylık vergilendirme dönemi belirleyebilir mi? Belirtiniz. (4 puan)
+  cozum: |
+    **(a)** Md. 2/ç: hizmetin Türkiye'de sunulması; hizmetin Türkiye'de sunulmasını, hizmetten Türkiye'de faydalanılmasını, hizmetin Türkiye'de bulunan kişilere yönelik gerçekleştirilmesini veya hizmetin Türkiye'de değerlendirilmesini ifade eder.
+
+    **(b)** Md. 3/2: mükellefin Türkiye içinde ikametgâhının, iş yerinin, kanuni ve iş merkezlerinin bulunmaması hâllerinde Hazine ve Maliye Bakanlığı, vergi alacağının emniyet altına alınması amacıyla işleme ve ödemeye aracılık edenleri verginin ödenmesinden sorumlu tutabilir; md. 6/2: bu durumda beyan, vergi kesintisi yapmakla sorumlu tutulanlar tarafından yapılır. DHV = 8.000.000 × %5 = **400.000 TL**, beyan eden: **Pay Bank**.
+
+    **(c)** Md. 6/3: beyanname vergilendirme dönemini takip eden ayın sonuna kadar verilir: Mart dönemi için **30 Nisan 2026**. 28 Nisan beyanı süresindedir. Md. 6/6: vergi beyanname verme süresi içinde ödenir.
+
+    **(d)** Md. 6/1: vergilendirme dönemi aylıktır; ancak Hazine ve Maliye Bakanlığı hizmet türlerine ve faaliyet hacimlerine göre üçer aylık dönem tespit etmeye yetkilidir.
+
+    Püf noktaları: Beyan süresi dönemi izleyen ayın sonudur (ayın 26'sı veya 15'i değil).
+  puanlama:
+  - olcut: (a) md. 2/ç
+    puan: 5
+  - olcut: (b) 400.000 ve Pay Bank
+    puan: 8
+  - olcut: (c) 30 Nisan, süresinde
+    puan: 8
+  - olcut: (d) üç aylık dönem
+    puan: 4
+  kaynaklar:
+  - mevzuat: 7194 sayılı Kanun (Dijital Hizmet Vergisi)
+    madde: md. 2/ç
+    alinti: 'Hizmetin Türkiye’de sunulması: Hizmetin Türkiye’de sunulmasını, hizmetten Türkiye’de faydalanılmasını, hizmetin Türkiye’de bulunan kişilere yönelik gerçekleştirilmesini veya hizmetin Türkiye’de değerlendirilmesini (Değerlendirmeden maksat'
+  - mevzuat: 7194 sayılı Kanun (Dijital Hizmet Vergisi)
+    madde: md. 3/2
+    alinti: Mükellefin Türkiye içinde ikametgâhının, iş yerinin, kanuni ve iş merkezlerinin bulunmaması hâlleri ile gerekli görülen diğer hâllerde Hazine ve Maliye Bakanlığı, vergi alacağının emniyet altına alınması amacıyla vergiye tabi işlemlere taraf olanlar ile işleme ve ödemeye aracılık edenleri verginin ödenmesinden sorumlu tutabilir.
+  - mevzuat: 7194 sayılı Kanun (Dijital Hizmet Vergisi)
+    madde: md. 6/3
+    alinti: Mükellefler ve vergi kesintisi yapmakla sorumlu tutulanlar, dijital hizmet vergisi beyannamelerini, vergilendirme dönemini takip eden ayın sonuna kadar ilgili vergi dairesine vermekle yükümlüdürler.
+  dogrulama:
+    python: sonuc={'b':8000000*0.05}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: GDR
+  kazanimlar:
+  - değerli kağıtlar
+  - değerli kağıt bedelleri (2026)
+  - noterlerin sorumluluğu
+  zorluk: 2
+  puan: 25
+  sure_dk: 25
+  soru: |
+    Aşağıdaki işlemler için 2026 yılında tahsil edilmesi gereken değerli kağıt bedellerini hesaplayınız (2026 yılı bedelleri Muhasebat Genel Müdürlüğü Genel Tebliği ile belirlenmiş ve kanun metnindeki parantez içi tutarlardır):
+
+    - Vatandaş **Ali**: bir pasaport, bir sürücü belgesi, bir motorlu araç tescil belgesi.
+    - Vatandaş **Ayşe**: kanuni bildirim süresi dışında doğum nedeniyle düzenlenen kimlik kartı, bir aile cüzdanı.
+    - **Noter Bey**: bir vekaletname (noter kâğıdı yerine) adi kâğıt kullanmış, değerli kağıt bedeli (protesto, vekaletname, resen senet) tahsil etmemiştir.
+    - Bir banka: 5 adet çek yaprağı basıp satmıştır (çek yaprağı başına bedel verilmiştir).
+
+    **İstenenler:**
+
+    (a) Ali'nin ödeyeceği toplam değerli kağıt bedelini bulunuz. (6 puan)
+
+    (b) Ayşe'nin ödeyeceği toplam bedeli bulunuz. (5 puan)
+
+    (c) Noterin adi kâğıt kullanması hâlinde tahsil edilecek bedeli ve uygulanacak cezayı hesaplayınız (md. 5). (8 puan)
+
+    (d) Çeklerin değerli kağıt bedelinin bankalarca ne zamana kadar mal sandığına ödeneceğini belirtiniz ve 5 çek yaprağı bedelini hesaplayınız. (6 puan)
+  cozum: |
+    **(a)** 2026 bedelleri: Pasaport 1.351 TL; sürücü belgesi 1.690 TL; motorlu araç tescil belgesi 1.511 TL → toplam **4.552 TL**.
+
+    **(b)** Kanuni bildirim süresi dışında doğum nedeniyle düzenlenen kimlik kartı 220 TL; aile cüzdanı 1.202 TL → **1.422 TL**.
+
+    **(c)** Md. 5: noter kâğıtları yerine adi kâğıt kullanılması halinde bu evraka ait değerli kağıt bedeli noterlerce tahsil edilir; bu mecburiyete uymayan noterlerden tahsil edilecek bedelin **üç katı** tutarında ceza alınır. Vekaletname bedeli 298 TL; ceza = 298 × 3 = **894 TL** (bedel ayrıca 298 TL).
+
+    **(d)** Md. 3: satılan çeklerin (kamu idarelerine verilenler hariç) değerli kâğıt bedelleri bankalarca her ayın yedinci günü akşamına kadar ilgili mal sandıklarına ödenir. 5 çek yaprağı × 95 TL = **475 TL**.
+
+    Püf noktaları: Ceza, tahsil edilmesi gereken bedelin üç katıdır; bedel ayrıca tahsil edilir.
+  puanlama:
+  - olcut: (a) 4.552 TL
+    puan: 6
+  - olcut: (b) 1.422 TL
+    puan: 5
+  - olcut: (c) 298 TL ve 894 TL ceza
+    puan: 8
+  - olcut: (d) 7'si ve 475 TL
+    puan: 6
+  kaynaklar:
+  - mevzuat: 210 sayılı Değerli Kağıtlar Kanunu
+    madde: md. 5
+    alinti: Bu mecburiyete uymayan noterlerden birinci fıkraya göre tahsil edilecek bedelin üç katı tutarında ceza alınır.
+  - mevzuat: 210 sayılı Değerli Kağıtlar Kanunu
+    madde: md. 3
+    alinti: bankalarca her ayın yedinci günü akşamına kadar ilgili mal sandıklarına ödenir.
+  - mevzuat: 210 sayılı Değerli Kağıtlar Kanunu
+    madde: Tablo
+    alinti: Pasaportlar (1351,00)
+  - mevzuat: 210 sayılı Değerli Kağıtlar Kanunu
+    madde: Tablo
+    alinti: Banka Çekleri (her bir çek yaprağı) (95,00)
+  dogrulama:
+    python: sonuc={'a':1351+1690+1511,'b':220+1202,'c':298*3,'d':5*95}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: HSV
+  konu: GDR
+  kazanimlar:
+  - gider vergilerinde beyan ve ödeme süreleri
+  - dijital hizmet vergisi
+  - konaklama vergisi
+  - özel iletişim vergisi
+  zorluk: 2
+  puan: 25
+  sure_dk: 25
+  soru: |
+    Aşağıdaki yükümlülüklerin Mayıs 2026 dönemine ilişkin beyanname verme ve ödeme sürelerinin son günlerini belirleyiniz:
+
+    | No | Mükellef | Vergi |
+    |---|---|---|
+    | 1 | Bir banka | Banka ve sigorta muameleleri vergisi (Mayıs muameleleri) |
+    | 2 | Bir otel | Konaklama vergisi (Mayıs dönemi) |
+    | 3 | Mobil iletişim işletmecisi | Özel iletişim vergisi (Mayıs) |
+    | 4 | Dijital hizmet sağlayıcısı (aylık dönem) | Dijital hizmet vergisi (Mayıs dönemi) |
+    | 5 | Bir sigorta şirketi | BSMV (Mayıs): beyannamenin verileceği yer |
+
+    **İstenenler:**
+
+    (a) 1-4 numaralı yükümlülükler için son günleri belirtiniz (tarih olarak). (12 puan)
+
+    (b) 5 numaralı yükümlülük için beyannamenin verileceği yeri md. 47'ye göre belirtiniz. (5 puan)
+
+    (c) Gider vergilerinde beyanname vermek zorunda olan mükellefin vergiye tabi muamelesi olmayan dönemde yükümlülüğünü belirtiniz. (4 puan)
+
+    (d) Gider vergilerinde verginin tarh yöntemini belirtiniz (md. 45). (4 puan)
+  cozum: |
+    **(a)** 1) BSMV: ertesi ayın 15 inci günü akşamına kadar → **15 Haziran 2026**. 2) Konaklama vergisi: izleyen ayın 26 ncı günü → **26 Haziran 2026**. 3) ÖİV: izleyen ayın onbeşinci günü → **15 Haziran 2026**. 4) DHV: vergilendirme dönemini takip eden ayın sonu → **30 Haziran 2026**.
+
+    **(b)** Md. 47/a: sigorta muamelelerine ilişkin beyanname sigorta şirketlerinin kanuni veya iş merkezlerinin bulunduğu yer vergi dairesine verilir.
+
+    **(c)** Md. 47/e: vergiye tabi muameleleri bulunmayan mükellefler de, keyfiyeti aynı müddetler içinde vergi beyannamesi ile bildirmeye mecburdur.
+
+    **(d)** Md. 45: dahilde alınan gider vergileri mükelleflerin yazılı beyanı üzerine tarh olunur.
+
+    Püf noktaları: Süreler: BSMV 15, ÖİV 15, konaklama 26, DHV ay sonu.
+  puanlama:
+  - olcut: (a) dört süre
+    puan: 12
+  - olcut: (b) beyan yeri
+    puan: 5
+  - olcut: (c) muamele yoksa bildirim
+    puan: 4
+  - olcut: (d) beyan üzerine tarh
+    puan: 4
+  kaynaklar:
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 47
+    alinti: Sigorta muamelelerine ilişkin beyanname sigorta şirketlerinin kanuni veya iş merkezlerinin bulunduğu yer vergi dairesine verilir.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 47/e
+    alinti: Her hangi bir vergi döneminde, vergiye tabi muameleleri bulunmıyan mükellefler de, keyfiyeti aynı müddetler içinde, vergi beyannamesi ile bildirmeye mecburdurlar.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 45
+    alinti: Dahilde alınan gider vergileri, mükelleflerin yazılı beyanı üzerine tarh olunur.
+  - mevzuat: 6802 sayılı Gider Vergileri Kanunu
+    madde: md. 34
+    alinti: vergilendirme dönemini takip eden ayın yirmi altıncı günü akşamına kadar
+  - mevzuat: 7194 sayılı Kanun (Dijital Hizmet Vergisi)
+    madde: md. 6/3
+    alinti: vergilendirme dönemini takip eden ayın sonuna kadar
+  dogrulama:
+    python: sonuc={'a':[15,26,15,30]}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

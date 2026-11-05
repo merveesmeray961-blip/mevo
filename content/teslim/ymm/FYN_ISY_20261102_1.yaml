@@ -1,0 +1,210 @@
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: ISY
+  kazanimlar:
+  - nakit dönüşüm süresi
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: |
+    **Olay:** Marmaris Gıda A.Ş.'nin 2025 yılına ilişkin verileri aşağıdadır (1 yıl = 360 gün; stok ve alacak tutarları ortalama bakiyedir; satışların tamamı vadelidir): Net satışlar 7.200.000 TL, satışların maliyeti 5.400.000 TL, ortalama stok 900.000 TL, ortalama ticari alacak 1.000.000 TL, ortalama ticari borç 450.000 TL (alımlar satışların maliyetiyle orantılı olarak ele alınacaktır). Şirketin kısa vadeli finansman maliyeti yıllık %30'dur.
+
+    **İstenenler:**
+
+    (a) Stokta kalma süresini, alacak tahsil süresini ve borç ödeme süresini hesaplayınız. (6 puan)
+
+    (b) Nakit dönüşüm süresini ve net işletme sermayesine bağlanan finansman tutarını (stok + alacak − borç) bulunuz. (6 puan)
+
+    (c) Alacak tahsil süresi 35 güne indirilirse yeni alacak bakiyesini, serbest kalan fonu ve yıllık finansman tasarrufunu bulunuz. (5 puan)
+
+    (d) Bunun yerine tedarikçilerle borç ödeme süresi 45 güne uzatılırsa (alacak süresi 50 gün kalmak üzere) yeni borç bakiyesini, ek finansman kaynağını ve yeni nakit dönüşüm süresini bulunuz. (5 puan)
+  cozum: |
+    **(a)** Stokta kalma = 900.000 / 5.400.000 × 360 = **60 gün**; alacak tahsil = 1.000.000 / 7.200.000 × 360 = **50 gün**; borç ödeme = 450.000 / 5.400.000 × 360 = **30 gün**.
+
+    **(b)** Nakit dönüşüm süresi = 60 + 50 − 30 = **80 gün**. Bağlı fon = 900.000 + 1.000.000 − 450.000 = **1.450.000 TL**.
+
+    **(c)** Yeni alacak = 7.200.000 × 35 / 360 = **700.000 TL**; serbest kalan fon = 1.000.000 − 700.000 = **300.000 TL**; yıllık tasarruf = 300.000 × %30 = **90.000 TL**.
+
+    **(d)** Yeni borç = 5.400.000 × 45 / 360 = **675.000 TL**; ek kaynak = 675.000 − 450.000 = **225.000 TL**; yeni nakit dönüşüm süresi = 60 + 50 − 45 = **50 gün**.
+
+    **Mevzuat dayanağı:** TMS 2 paragraf 9 uyarınca stoklar, maliyet değeri ile net gerçekleşebilir değerin düşük olanı üzerinden ölçülür.
+  puanlama:
+  - olcut: (a) üç süre bileşeni
+    puan: 6
+  - olcut: (b) nakit dönüşüm süresi ve bağlı fon
+    puan: 6
+  - olcut: (c) alacak süresi kısaltmasının etkisi
+    puan: 5
+  - olcut: (d) borç süresi uzatmasının etkisi
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 9
+    alinti: Stoklar, maliyet değeri ile net gerçekleşebilir değerin düşük olanı üzerinden ölçülür.
+  dogrulama:
+    python: |
+      satis=7_200_000; smm=5_400_000; stok=900_000; alac=1_000_000; borc=450_000; k=0.30
+      sds = stok/smm*360
+      ads = alac/satis*360
+      bds = borc/smm*360
+      nds = sds+ads-bds
+      yatirim = stok+alac-borc
+      ads2 = 35
+      alac2 = satis*ads2/360
+      serbest = alac-alac2
+      maliyet_tasarruf = serbest*k
+      bds2 = 45
+      borc2 = smm*bds2/360
+      serbest2 = borc2-borc
+      nds2 = sds+ads2-bds2
+      sonuc = {'a': (sds, ads, bds), 'b': (nds, yatirim), 'c': (alac2, serbest, maliyet_tasarruf), 'd': (borc2, serbest2, nds2)}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: ISY
+  kazanimlar:
+  - nakit yönetimi (Baumol ve Miller-Orr)
+  zorluk: 3
+  puan: 22
+  sure_dk: 35
+  soru: |
+    **Olay:** Ada Perakende A.Ş.'nin yıllık nakit ihtiyacı 900.000 TL olup nakit ihtiyacı yıl boyunca düzenli ve sabit hızda gerçekleşmektedir. Her menkul kıymet satışının sabit maliyeti 200 TL, menkul kıymetlerin yıllık getirisi %10'dur. Şirket ayrıca günlük nakit akışlarının dalgalandığı bir dönemde Miller-Orr modelini uygulayacaktır: günlük net nakit akışlarının varyansı 40.000 TL² (standart sapma 200 TL), işlem maliyeti 80 TL, günlük fırsat maliyeti %0,03, alt sınır (L) 1.000 TL'dir.
+
+    **İstenenler:**
+
+    (a) Baumol modeline göre optimal nakit çevirme tutarını (C*) ve yıllık işlem sayısını bulunuz. (5 puan)
+
+    (b) Ortalama nakit bakiyesini, işlem maliyetini, fırsat maliyetini ve toplam maliyeti hesaplayınız. (5 puan)
+
+    (c) Miller-Orr modeline göre dönüş noktasını (Z), üst sınırı (U) ve ortalama nakit bakiyesini bulunuz. (7 puan)
+
+    (d) Nakit bakiyesi 8.000 TL'ye çıkarsa Miller-Orr modeline göre alınacak işlemi ve tutarını belirtiniz. (5 puan)
+  cozum: |
+    **(a)** C* = √(2 × T × F / i) = √(2 × 900.000 × 200 / 0,10) = √3.600.000.000 = **60.000 TL**; işlem sayısı = 900.000 / 60.000 = **15**.
+
+    **(b)** Ortalama bakiye = 60.000 / 2 = **30.000 TL**; işlem maliyeti = 15 × 200 = **3.000 TL**; fırsat maliyeti = 30.000 × 0,10 = **3.000 TL**; toplam = **6.000 TL** (iki maliyet birbirine eşit).
+
+    **(c)** Z − L = [3 × b × σ² / (4 × i)]^(1/3) = [3 × 80 × 40.000 / (4 × 0,0003)]^(1/3) = (8.000.000.000)^(1/3) = **2.000** → Z = 1.000 + 2.000 = **3.000 TL**. U = 3Z − 2L = **7.000 TL**. Ortalama bakiye = (4Z − L) / 3 = **3.666,67 TL**.
+
+    **(d)** Bakiye (8.000 TL) üst sınırı (7.000 TL) aştığından menkul kıymet alınır ve bakiye Z düzeyine indirilir: 8.000 − 3.000 = **5.000 TL** tutarında menkul kıymet satın alınır.
+
+    **Mevzuat dayanağı:** TMS 7 paragraf 7 uyarınca nakit benzerleri, kısa vadeli nakit taahhütlerinin yerine getirilmesi amacıyla elde tutulur.
+  puanlama:
+  - olcut: (a) Baumol C* ve işlem sayısı
+    puan: 5
+  - olcut: (b) Baumol maliyet bileşenleri
+    puan: 5
+  - olcut: (c) Z, U ve ortalama bakiye
+    puan: 7
+  - olcut: (d) üst sınır aşımında yapılacak işlem
+    puan: 5
+  kaynaklar:
+  - mevzuat: TMS 7 Nakit Akış Tablosu
+    madde: paragraf 7
+    alinti: Nakit benzerleri, yatırım veya diğer amaçlardan ziyade, kısa vadeli nakit taahhütlerinin yerine getirilmesi amacıyla elde tutulur.
+  dogrulama:
+    python: |
+      T=900_000; F=200; i=0.10
+      kare = 2*T*F/i
+      q = kare**0.5
+      n = T/q
+      ort = q/2
+      isl = n*F
+      tut = ort*i
+      top = isl+tut
+      b=80; sigma2=40_000; gi=0.0003; L=1_000
+      z_fark = (3*b*sigma2/(4*gi))**(1/3)
+      Z = L+z_fark
+      U = 3*Z-2*L
+      ort_nakit = (4*Z-L)/3
+      mevcut = 8_000
+      satilacak = mevcut-Z
+      sonuc = {'a': (q, n), 'b': (ort, isl, tut, top), 'c': (Z, U, ort_nakit), 'd': satilacak}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: FYN
+  konu: ISY
+  kazanimlar:
+  - stok yönetimi (EOQ ve sipariş noktası)
+  zorluk: 2
+  puan: 21
+  sure_dk: 30
+  soru: |
+    **Olay:** Çağrı Elektronik A.Ş. bir hammaddeyi yıllık 40.000 adet kullanmaktadır (talep yıl boyunca düzenlidir; 1 yıl = 360 gün). Sipariş başına maliyet 200 TL, birim başına yıllık stok taşıma maliyeti 4 TL'dir. Tedarik süresi 9 gün, emniyet stoku 300 adettir.
+
+    **İstenenler:**
+
+    (a) Ekonomik sipariş miktarını (EOQ), yıllık sipariş sayısını ve EOQ'daki yıllık toplam stok maliyetini (sipariş + taşıma) bulunuz. (7 puan)
+
+    (b) Günlük kullanımı ve yeniden sipariş noktasını (emniyet stoku dahil) bulunuz. (5 puan)
+
+    (c) Satıcı yalnızca 2.500 adetlik siparişleri kabul ederse yıllık toplam stok maliyeti ve EOQ'ya göre farkı ne olur? (5 puan)
+
+    (d) EOQ politikasında ortalama stok düzeyini (emniyet stoku dahil) bulunuz. (4 puan)
+  cozum: |
+    **(a)** EOQ = √(2 × 40.000 × 200 / 4) = √4.000.000 = **2.000 adet**; sipariş sayısı = 40.000 / 2.000 = **20**; toplam maliyet = 20 × 200 + 2.000 / 2 × 4 = **8.000 TL**.
+
+    **(b)** Günlük kullanım = 40.000 / 360 = **111,11**; sipariş noktası = 111,11 × 9 + 300 = **1.300 adet**.
+
+    **(c)** 2.500 adet: sipariş maliyeti = 40.000 / 2.500 × 200 = 3.200 TL; taşıma = 2.500 / 2 × 4 = 5.000 TL; toplam = **8.200 TL**; fark = **200 TL** (EOQ'dan yüksek).
+
+    **(d)** Ortalama stok = 2.000 / 2 + 300 = **1.300 adet**.
+
+    **Mevzuat dayanağı:** TMS 2 paragraf 10 uyarınca stokların maliyeti, tüm satın alma maliyetlerini, dönüştürme maliyetlerini ve stokları mevcut konumuna ve durumuna getirmek için katlanılan diğer maliyetleri içerir.
+  puanlama:
+  - olcut: (a) EOQ, sipariş sayısı ve toplam maliyet
+    puan: 7
+  - olcut: (b) günlük kullanım ve sipariş noktası
+    puan: 5
+  - olcut: (c) 2.500 adet siparişin maliyeti ve fark
+    puan: 5
+  - olcut: (d) ortalama stok
+    puan: 4
+  kaynaklar:
+  - mevzuat: TMS 2 Stoklar
+    madde: paragraf 10
+    alinti: Stokların maliyeti; tüm satın alma maliyetlerini, dönüştürme maliyetlerini ve stokların mevcut konumuna ve durumuna getirilmesi için katlanılan diğer maliyetleri içerir.
+  dogrulama:
+    python: |
+      D=40_000; S=200; H=4.0; gun=360; teslim=9; emniyet=300
+      kare = 2*D*S/H
+      eoq = kare**0.5
+      s2 = S*D/2_500
+      t2 = H*2_500/2
+      n = D/eoq
+      topl = S*n + H*eoq/2
+      gunluk = D/gun
+      rop = gunluk*teslim + emniyet
+      q2 = 2_500
+      topl2 = S*D/q2 + H*q2/2
+      fark = topl2-topl
+      ort_stok = eoq/2 + emniyet
+      sonuc = {'a': (eoq, n, topl), 'b': (gunluk, rop), 'c': (topl2, fark), 'd': ort_stok}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5

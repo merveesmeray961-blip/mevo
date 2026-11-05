@@ -1,0 +1,522 @@
+- id: TASLAK
+  sinav: ymm
+  ders: VTK
+  konu: SRM
+  kazanimlar:
+  - vergi sorumlusu ve kanuni temsilcilerin sorumluluğu (VUK md.8 ve 10)
+  - müteselsil sorumluluk (VUK md.11 ve 6183 md.35)
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: |
+    **Olay:** Mavi Tekstil Ltd. Şti. (sermaye payları: Ali Kaya %70, Veli Kaya %30) 2025 yılında tasfiyeye girmiş, tasfiye tamamlanarak 2026 yılında ticaret sicilinden silinmiştir. Silinmeden sonra yapılan incelemede aşağıdaki tarhiyat ve ceza kesme işlemleri gündeme gelmiştir:
+
+    | Dönem | Kalem | Tutar |
+    |---|---|---|
+    | Tasfiye öncesi dönemler | Kurumlar vergisi | 600.000 TL |
+    | Tasfiye öncesi dönemler | Vergi ziyaı cezası | 600.000 TL |
+    | Tasfiye dönemi | Vergi ve ceza toplamı | 400.000 TL |
+
+    Şirketin müdürü Veli Kaya'dır. Tasfiye memuru Bay Orhan Dal'dır. Tasfiye sonucunda ortaklara dağıtılan tutar 250.000 TL'dir. Gecikme zammı ve faizi dikkate alınmayacaktır.
+
+    **İstenenler:**
+
+    (a) Tasfiye öncesi dönem tarhiyat ve ceza kesme işlemlerinin kimler adına yapılabileceğini, tasfiye dönemi için kimin adına yapılacağını belirtiniz. (7 puan)
+
+    (b) Tasfiye öncesi dönemlere ilişkin amme alacağından ortakların sermaye hisseleri oranında sorumlu olacakları tutarları hesaplayınız. (8 puan)
+
+    (c) Tasfiye döneminin 400.000 TL'lik alacağından tasfiye memurunun sorumluluğunun sınırını belirleyiniz. (7 puan)
+  cozum: |
+    **(a)** Md. 10/5: Tasfiye edilerek ticaret sicilinden silinmiş mükelleflerin, tasfiye öncesi ve tasfiye dönemlerine ilişkin her türlü vergi tarhiyatı ve ceza kesme işlemi, müteselsilen sorumlu olmak üzere, **tasfiye öncesi dönemler için kanuni temsilcilerden** (burada müdür Veli Kaya), **tasfiye dönemi için tasfiye memurlarından** (Orhan Dal) herhangi biri adına yapılır.
+
+    **(b)** Limited şirket ortakları, tasfiye öncesi dönemlerle ilgili amme alacaklarından şirkete koydukları sermaye hisseleri oranında sorumludur. Alacak = 600.000 + 600.000 = 1.200.000 TL.
+
+    | Ortak | Pay | Sorumluluk |
+    |---|---|---|
+    | Ali Kaya | %70 | 840.000 TL |
+    | Veli Kaya | %30 | 360.000 TL |
+
+    **(c)** Tasfiye memurlarının sorumluluğu, tasfiye sonucu dağıtılan tutarla sınırlıdır: 400.000 TL alacağın tamamı için değil, en çok **250.000 TL** için sorumludur.
+
+    Püf noktaları: (1) Tasfiye öncesi için kanuni temsilci, tasfiye dönemi için tasfiye memuru muhataptır. (2) Ortak sorumluluğu "sermaye hissesi oranında"dır, müteselsil değil. (3) Tasfiye memurunun tavanı dağıtılan tutardır.
+  puanlama:
+  - olcut: (a) Tasfiye öncesi için kanuni temsilci (müdür) adına yapılabileceği
+    puan: 3
+  - olcut: (a) Tasfiye dönemi için tasfiye memuru adına yapılacağı ve müteselsil sorumluluk
+    puan: 4
+  - olcut: (b) 1.200.000 TL alacağın doğru bulunması
+    puan: 2
+  - olcut: (b) Hisse oranında sorumluluk, 840.000 ve 360.000
+    puan: 6
+  - olcut: (c) Tasfiye memurunun sorumluluğunun dağıtılan tutarla sınırlı olması
+    puan: 4
+  - olcut: (c) 250.000 TL tavanı
+    puan: 3
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 10/5
+    alinti: tasfiye öncesi ve tasfiye dönemlerine ilişkin her türlü vergi tarhiyatı ve ceza kesme işlemi, müteselsilen sorumlu olmak üzere, tasfiye öncesi dönemler için kanuni temsilcilerden, tasfiye dönemi için tasfiye memurlarından herhangi biri adına yapılır.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 10/5
+    alinti: Limited şirket ortakları, tasfiye öncesi dönemlerle ilgili bu kapsamda doğacak amme alacaklarından şirkete koydukları sermaye hisseleri oranında sorumlu olurlar. Şu kadar ki bu fıkra uyarınca tasfiye memurlarının sorumluluğu, tasfiye sonucu dağıtılan tutarla sınırlıdır.
+  dogrulama:
+    python: |
+      alacak = 600000 + 600000
+      sonuc = {'a_alacak': alacak, 'b_ali': alacak * 0.70, 'b_veli': alacak * 0.30, 'c': min(400000, 250000)}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: VTK
+  konu: SRM
+  kazanimlar:
+  - müteselsil sorumluluk (VUK md.11 ve 6183 md.35)
+  - vergi sorumlusu ve kanuni temsilcilerin sorumluluğu (VUK md.8 ve 10)
+  zorluk: 3
+  puan: 23
+  sure_dk: 30
+  soru: |
+    **Olay:** Nova Gıda Ltd. Şti.'nin 1.000.000 TL sermayesi Ayşe (%50), Burak (%30) ve Cem (%20) arasında paylaşılmıştır. Şirketin kesinleşmiş ve vadesi geçmiş 3.000.000 TL amme alacağı vardır. Şirketin haczedilen mallarından 1.200.000 TL tahsil edilmiş, kalan kısmın şirketten tahsil edilemeyeceği anlaşılmıştır.
+
+    | Ortak | Gelişme |
+    |---|---|
+    | Ayşe | Payını hiç devretmemiştir. |
+    | Burak | Amme alacağı Burak pay sahibiyken doğmuş; ödenmesi gereken zamandan önce Burak payını Elif'e devretmiş, ödenme zamanında pay sahibi Elif olmuştur. |
+    | Cem | Alacak doğduğunda ve ödenmesi gerektiğinde pay sahibi Cem'dir; Cem payını 2026 yılında Deniz'e devretmiştir. |
+
+    **İstenenler:**
+
+    (a) Kalan, tahsil edilemeyen amme alacağından her bir ortağın sermaye payı oranında sorumlu olduğu tutarları hesaplayınız. (7 puan)
+
+    (b) Cem ve Deniz'in sorumluluğunun niteliğini ve tutarını, hukuki dayanağıyla belirtiniz. (8 puan)
+
+    (c) Burak ve Elif'in sorumluluğunun niteliğini ve tutarını, hukuki dayanağıyla belirtiniz. (8 puan)
+  cozum: |
+    **(a)** Md. 35/1: limited şirket ortakları, şirketten tahsil edilemeyen veya edilemeyeceği anlaşılan amme alacağından sermaye hisseleri oranında doğrudan sorumlu olur. Tahsil edilemeyen alacak = 3.000.000 - 1.200.000 = 1.800.000 TL.
+
+    | Ortak | Pay | Sorumlu olduğu tutar |
+    |---|---|---|
+    | Ayşe | %50 | 900.000 TL |
+    | Burak (Elif ile) | %30 | 540.000 TL |
+    | Cem (Deniz ile) | %20 | 360.000 TL |
+
+    **(b)** Md. 35/2: Ortağın şirketteki sermaye payını devretmesi halinde payı devreden ve devralan şahıslar, devir öncesine ait amme alacaklarının ödenmesinden **müteselsilen** sorumlu tutulur. Cem ve Deniz, 360.000 TL için müteselsil sorumludur.
+
+    **(c)** Md. 35/3: Amme alacağının doğduğu ve ödenmesi gerektiği zamanlarda pay sahiplerinin farklı şahıslar olması hâlinde bu şahıslar müteselsilen sorumlu tutulur. Burak ve Elif, 540.000 TL için **müteselsilen** sorumludur. (Pay sahipleri farklı olduğundan 35/3 uygulanır.)
+
+    Püf noktaları: (1) Sorumluluk, tahsil edilemeyen kısım ve sermaye payı oranı üzerinden belirlenir. (2) Pay devrinde devreden ve devralan birlikte sorumludur. (3) Doğum ve ödeme zamanındaki pay sahipleri farklıysa yine müteselsil sorumluluk vardır.
+  puanlama:
+  - olcut: (a) Tahsil edilemeyen alacağın 1.800.000 olarak bulunması
+    puan: 2
+  - olcut: (a) Pay oranına göre 900.000, 540.000, 360.000
+    puan: 5
+  - olcut: (b) Pay devrinde devreden ve devralanın müteselsil sorumluluğu (md. 35/2)
+    puan: 5
+  - olcut: (b) Tutar 360.000
+    puan: 3
+  - olcut: (c) Doğum ve ödeme zamanlarında farklı pay sahipleri için müteselsil sorumluluk (md. 35/3)
+    puan: 5
+  - olcut: (c) Tutar 540.000
+    puan: 3
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 35/1
+    alinti: Limited şirket ortakları, şirketten tamamen veya kısmen tahsil edilemeyen veya tahsil edilemeyeceği anlaşılan amme alacağından sermaye hisseleri oranında doğrudan doğruya sorumlu olurlar ve bu Kanun hükümleri gereğince takibe tabi tutulurlar.
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 35/2
+    alinti: Ortağın şirketteki sermaye payını devretmesi halinde, payı devreden ve devralan şahıslar devir öncesine ait amme alacaklarının ödenmesinden birinci fıkra hükmüne göre müteselsilen sorumlu tutulur.
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 35/3
+    alinti: Amme alacağının doğduğu ve ödenmesi gerektiği zamanlarda pay sahiplerinin farklı şahıslar olmaları halinde bu şahıslar, amme alacağının ödenmesinden birinci fıkra hükmüne göre müteselsilen sorumlu tutulur.
+  dogrulama:
+    python: |
+      kalan = 3000000 - 1200000
+      sonuc = {'a_kalan': kalan, 'a_ayse': kalan * 0.5, 'b_cem': kalan * 0.2, 'c_burak': kalan * 0.3}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: VTK
+  konu: SRM
+  kazanimlar:
+  - vergi sorumlusu ve kanuni temsilcilerin sorumluluğu (VUK md.8 ve 10)
+  - müteselsil sorumluluk (VUK md.11 ve 6183 md.35)
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: |
+    **Olay:** Yıldız Elektronik A.Ş.'nin kanuni temsilcisi (yönetim kurulu başkanı) Bay Hakan Er'dir. Hakan Er, şirketin 2024 hesap dönemi beyanname ve ödeme ödevlerini yerine getirmemiş, bunun üzerine ikmalen tarhiyat ve ceza kesme işlemleri yapılmıştır:
+
+    | Kalem | Tutar |
+    |---|---|
+    | Kurumlar vergisi | 500.000 TL |
+    | Vergi ziyaı cezası | 500.000 TL |
+    | Gecikme zammı | 120.000 TL |
+
+    Şirketin varlıklarından yapılan cebri icra sonucu 300.000 TL tahsil edilebilmiş, kalan kısım şirketten tahsil edilememiştir. Şirket 2026 yılında tasfiyeye girmiştir. Hakan Er bu arada ödediği tutar için ileride mükellefe rücu etmek istemektedir.
+
+    **İstenenler:**
+
+    (a) Kanuni temsilciden tahsil edilebilecek tutarı hesaplayınız ve hukuki dayanağı belirtiniz. (8 puan)
+
+    (b) Tüzel kişinin tasfiyeye girmiş olmasının temsilcinin tasfiyeye giriş tarihinden önceki dönemlere ilişkin sorumluluğuna etkisini açıklayınız. (6 puan)
+
+    (c) Hakan Er'in ödediği tutar için asıl mükellefe rücu hakkını değerlendiriniz. (4 puan)
+
+    (d) Aynı sorumluluk hükmü, Türkiye'de bulunmayan mükelleflerin Türkiye'deki temsilcileri bakımından uygulanır mı? (4 puan)
+  cozum: |
+    **(a)** Md. 10/2: tüzel kişilere düşen ödevleri kanuni temsilciler yerine getirir; bu ödevleri yerine getirmemeleri yüzünden mükellefin varlığından tamamen veya kısmen alınamayan vergi ve buna bağlı alacaklar, kanuni ödevleri yerine getirmeyenlerin varlıklarından alınır.
+
+    | Kalem | Tutar |
+    |---|---|
+    | Toplam alacak (500.000 + 500.000 + 120.000) | 1.120.000 TL |
+    | Şirketten tahsil edilen | (300.000) TL |
+    | **Kanuni temsilciden alınacak** | **820.000 TL** |
+
+    **(b)** Md. 10/4: Tüzel kişilerin tasfiye hâline girmiş veya tasfiye edilmiş olmaları, kanuni temsilcilerin tasfiyeye giriş tarihinden önceki zamanlara ait sorumluluklarını kaldırmaz. Hakan Er'in sorumluluğu devam eder.
+
+    **(c)** Md. 10/3: Temsilciler bu suretle ödedikleri vergiler için asıl mükelleflere rücu edebilirler. Hakan Er ödediği 820.000 TL için şirkete rücu hakkına sahiptir.
+
+    **(d)** Md. 10/2 son cümle: Bu hüküm Türkiye'de bulunmayan mükelleflerin Türkiye'deki temsilcileri hakkında da uygulanır.
+
+    Püf noktaları: (1) Temsilci, yalnız vergi değil "buna bağlı alacaklardan" da sorumludur (ceza, zam). (2) Tasfiye temsilcinin geçmiş sorumluluğunu sona erdirmez. (3) Temsilcinin rücu hakkı vardır.
+  puanlama:
+  - olcut: (a) Md. 10/2 dayanağı ve ödevlerin kanuni temsilci tarafından yerine getirilmesi
+    puan: 3
+  - olcut: (a) Toplam alacak 1.120.000 ve kalan 820.000
+    puan: 5
+  - olcut: (b) Tasfiyenin sorumluluğu kaldırmadığı
+    puan: 6
+  - olcut: (c) Asıl mükellefe rücu hakkı
+    puan: 4
+  - olcut: (d) Türkiye'deki temsilciler hakkında uygulanması
+    puan: 4
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 10/2
+    alinti: Yukarıda yazılı olanların bu ödevleri yerine getirmemeleri yüzünden mükelleflerin veya vergi sorumlularının varlığından tamamen veya kısmen alınamayan vergi ve buna bağlı alacaklar, kanuni ödevleri yerine getirmeyenlerin varlıklarından alınır. Bu hüküm Türkiye'de bulunmayan mükelleflerin Türkiye'deki temsilcileri hakkında da uygulanır.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 10/3
+    alinti: Temsilciler veya teşekkülü idare edenler bu suretle ödedikleri vergiler için asıl mükelleflere rücu edebilirler.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 10/4
+    alinti: Tüzel kişilerin tasfiye haline girmiş veya tasfiye edilmiş olmaları, kanuni temsilcilerin tasfiyeye giriş tarihinden önceki zamanlara ait sorumluluklarını da kaldırmaz.
+  dogrulama:
+    python: |
+      toplam = 500000 + 500000 + 120000
+      sonuc = {'a_toplam': toplam, 'a_kalan': toplam - 300000}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: VTK
+  konu: SRM
+  kazanimlar:
+  - müteselsil sorumluluk (VUK md.11 ve 6183 md.35)
+  - vergi sorumlusu ve kanuni temsilcilerin sorumluluğu (VUK md.8 ve 10)
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: |
+    **Olay:** Doruk İnşaat A.Ş., 2026 yılında Kuzey Hizmet Ltd. Şti.'nden aldığı bir hizmet için ödeme yapmış, ancak yapması gereken vergi kesintisini (400.000 TL) yapmamış ve vergi dairesine yatırmamıştır. Doruk İnşaat A.Ş.'nin sermayesine %60 oranında katılan Zirve Holding A.Ş.'nin, yönetimde de etkili olduğu ve ilişkinin vergi dairesince tespit edildiği anlaşılmıştır. Ayrıca aynı yıl Doruk, mal üreten bir çiftçiden tarım ürünü almış ve bir nihai tüketiciye de ürün satmıştır; bu işlemlerde de kesinti yapılmamış olup ilgili kesinti tutarı 50.000 TL'dir.
+
+    **İstenenler:**
+
+    (a) Kesintiyi yapmayan Doruk İnşaat A.Ş.'nin sorumluluğunu ve kapsamını belirtiniz. (6 puan)
+
+    (b) Zirve Holding A.Ş.'nin 400.000 TL için durumunu hukuki dayanağıyla belirtiniz. (7 puan)
+
+    (c) Çiftçi ve nihai tüketici bakımından müteselsil sorumluluk söz konusu olup olmadığını açıklayınız. (5 puan)
+
+    (d) Doruk İnşaat A.Ş. vergiyi öderse asıl mükellefe karşı hakkını belirtiniz. (4 puan)
+  cozum: |
+    **(a)** Md. 11/1: yaptıkları veya yapacakları ödemelerden vergi kesmeye mecbur olanlar, verginin tam olarak kesilip ödenmesinden ve bununla ilgili diğer ödevleri yerine getirmekten sorumludur. Doruk, kesilmeyen 400.000 TL vergiden doğrudan sorumludur.
+
+    **(b)** Md. 11/3: mal alım satımı ve hizmet ifası dolayısıyla vergi kesintisi yapmak ve yatırmak zorunda olanların bu yükümlülüklerini yerine getirmemeleri hâlinde verginin ödenmesinden alım satıma taraf olanlar, hizmetten yararlananlar ve aralarında doğrudan veya hısımlık nedeniyle ya da sermaye, organizasyon veya yönetime katılmak ya da menfaat sağlamak suretiyle dolaylı olarak ilişkide bulunduğu tespit olunanlar **müteselsilen** sorumludur. Zirve Holding, sermaye ve yönetim yoluyla ilişkide bulunduğu tespit edildiğinden 400.000 TL için Doruk ile müteselsil sorumludur. Tahsil edilecek toplam tutar 400.000 TL'dir.
+
+    **(c)** Md. 11/4: üçüncü fıkradaki müteselsil sorumluluk mal üreten çiftçiler ile nihai tüketiciler için söz konusu değildir. Çiftçi ve nihai tüketici, 50.000 TL'lik kesinti bakımından müteselsil sorumlu tutulamaz.
+
+    **(d)** Md. 11/2: bu sorumluluk, ödedikleri vergilerden dolayı asıl mükelleflere rücu etmek hakkını kaldırmaz. Doruk ödediği vergi için Kuzey Hizmet Ltd. Şti.'ne rücu edebilir.
+
+    Püf noktaları: (1) Müteselsil sorumluluk için ilişkinin tespit edilmesi gerekir. (2) Çiftçi ve nihai tüketici müteselsil sorumluluğun dışındadır. (3) Rücu hakkı korunur.
+  puanlama:
+  - olcut: (a) Kesinti yapmaya mecbur olanın sorumluluğu (md. 11/1)
+    puan: 6
+  - olcut: (b) Dolaylı ilişki ve müteselsil sorumluluk (md. 11/3)
+    puan: 5
+  - olcut: (b) 400.000 TL toplam tutar
+    puan: 2
+  - olcut: (c) Çiftçi ve nihai tüketicinin hariç tutulması (md. 11/4)
+    puan: 5
+  - olcut: (d) Rücu hakkı (md. 11/2)
+    puan: 4
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 11/1
+    alinti: Yaptıkları veya yapacakları ödemelerden vergi kesmeye mecbur olanlar, verginin tam olarak kesilip ödenmesinden ve bununla ilgili diğer ödevleri yerine getirmekten sorumludurlar.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 11/2
+    alinti: Bu sorumluluk, bunların ödedikleri vergilerden dolayı asıl mükelleflere rücu etmek hakkını kaldırmaz.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 11/3
+    alinti: Mal alım ve satımı ve hizmet ifası dolayısiyla vergi kesintisi yapmak ve vergi dairesine yatırmak zorunda olanların, bu yükümlülükleri yerine getirmemeleri halinde verginin ödenmesinden, alım satıma, taraf olanlar, hizmetten yararlananlar ve aralarında doğrudan veya hısımlık nedeniyle ya da sermaye, organizasyon veya yönetimine katılmak veya menfaat sağlamak suretiyle dolaylı olarak ilişkide bulunduğu tespit olunanlar müteselsilen sorumludurlar.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 11/4
+    alinti: Ancak üçüncü fıkrada belirtilen müteselsilen sorumluluk mal üreten çiftçiler ile nihai tüketiciler için söz konusu değildir.
+  dogrulama:
+    python: |
+      kesinti = 400000
+      sonuc = {'a': kesinti, 'b_toplam_tahsil': kesinti, 'c_kesinti': 50000}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: VTK
+  konu: SRM
+  kazanimlar:
+  - vergi sorumlusu ve kanuni temsilcilerin sorumluluğu (VUK md.8 ve 10)
+  - müteselsil sorumluluk (VUK md.11 ve 6183 md.35)
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: |
+    **Olay:** Ticari kazanç sahibi Bay Rıza Önal 2026 Mart ayında ölmüştür. Bay Önal'ın eşi (1/4), oğlu Kaan (3/8) ve kızı Defne (3/8) kanuni mirasçılardır ve üçü de mirası reddetmemiştir. Bay Önal'ın ölümünden önceki dönemlere ilişkin kesinleşmiş ve vadesi geçmiş 900.000 TL vergi borcu ile bu vergiye ilişkin kesilmiş 400.000 TL vergi ziyaı cezası vardır. Ceza ihbarnamesi henüz kesinleşmemiştir.
+
+    **İstenenler:**
+
+    (a) Mirasçıların ölünün 900.000 TL'lik vergi borcundan sorumlu olacakları tutarları hesaplayınız. (9 puan)
+
+    (b) 400.000 TL vergi ziyaı cezasının akıbetini açıklayınız. (6 puan)
+
+    (c) Mirası reddeden bir kanuni mirasçıya vergi ödevlerinin geçip geçmeyeceğini açıklayınız. (7 puan)
+  cozum: |
+    **(a)** Md. 12: ölüm hâlinde mükelleflerin ödevleri mirası reddetmemiş kanuni ve mansup mirasçılarına geçer; mirasçıların her biri ölünün vergi borçlarından miras hisseleri nispetinde sorumlu olur.
+
+    | Mirasçı | Pay | Sorumlu olduğu tutar |
+    |---|---|---|
+    | Eş | 1/4 | 225.000 TL |
+    | Kaan | 3/8 | 337.500 TL |
+    | Defne | 3/8 | 337.500 TL |
+    | **Toplam** | | **900.000 TL** |
+
+    **(b)** Md. 372: ölüm hâlinde vergi cezası düşer. 400.000 TL tutarındaki vergi ziyaı cezası düşer, mirasçılardan istenemez.
+
+    **(c)** Md. 12'ye göre ödevler "mirası reddetmemiş" mirasçılara geçer; dolayısıyla mirası reddeden mirasçıya ödevler geçmez, o kişi ölünün vergi borçlarından sorumlu tutulamaz.
+
+    Püf noktaları: (1) Mirasçılar vergi borcundan hisseleri oranında sorumludur, müteselsil değil. (2) Ölümle ceza düşer, vergi borcu düşmez. (3) Mirası reddeden mirasçı sorumlu değildir.
+  puanlama:
+  - olcut: (a) Miras hissesi nispetinde sorumluluk ilkesi (md. 12)
+    puan: 3
+  - olcut: (a) 225.000, 337.500 ve 337.500 TL
+    puan: 6
+  - olcut: (b) Ölüm hâlinde cezanın düşmesi (md. 372)
+    puan: 4
+  - olcut: (b) 400.000 TL cezanın mirasçılardan istenemeyeceği, verginin düşmediği
+    puan: 2
+  - olcut: (c) Mirası reddetmemiş mirasçılara geçme ilkesi
+    puan: 4
+  - olcut: (c) Reddeden mirasçının sorumlu olmaması
+    puan: 3
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 12
+    alinti: Ölüm halinde mükelleflerin ödevleri, mirası reddetmemiş kanuni ve mansup mirasçılarına geçer. Ancak, mirasçılardan herbiri ölünün vergi borçlarından miras hisseleri nispetinde sorumlu olurlar.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 372
+    alinti: Ölüm halinde vergi cezası düşer.
+  dogrulama:
+    python: |
+      borc = 900000
+      sonuc = {'a_es': borc * 1/4, 'a_kaan': borc * 3/8, 'a_defne': borc * 3/8, 'b': 0}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: VTK
+  konu: SRM
+  kazanimlar:
+  - VUK mükerrer 257 teminat uygulaması
+  - müteselsil sorumluluk (VUK md.11 ve 6183 md.35)
+  zorluk: 3
+  puan: 22
+  sure_dk: 30
+  soru: |
+    **Olay:** Anka Otomotiv A.Ş., 4760 sayılı ÖTV Kanunu'nda tanımlı motorlu araç ticareti yapan bir mükelleftir. Hazine ve Maliye Bakanlığı, vergi güvenliği amacıyla VUK mükerrer md. 257/10 çerçevesinde şirketten 120.000.000 TL teminat istemiştir (bu tutar kanundaki üst sınırın altındadır; 2026 yılında üst sınır 170.000.000 TL'dir). Şirket aşağıdaki teminatları önermiştir:
+
+    | Önerilen teminat | Değeri |
+    |---|---|
+    | Nakit (para) | 15.000.000 TL |
+    | Bankanın verdiği süresiz ve şartsız teminat mektubu | 55.000.000 TL |
+    | Devlet iç borçlanma senedi (anaparaya tekabül eden satış değeri) | 30.000.000 TL |
+    | Haczedilmek üzere gösterilen gayrimenkul | 50.000.000 TL |
+
+    Sonradan devlet iç borçlanma senetlerinin değeri 24.000.000 TL'ye düşmüştür.
+
+    **İstenenler:**
+
+    (a) Mükerrer 257/10 kapsamında kabul edilebilecek teminat türlerini belirterek kabul edilecek teminat tutarını ve eksik kalan tutarı hesaplayınız. (9 puan)
+
+    (b) Devlet iç borçlanma senetlerinin değer kaybı sonrasında idarenin ne talep edebileceğini ve gerekli ek teminat tutarını belirleyiniz. (7 puan)
+
+    (c) Mükerrer 257/10 uyarınca Bakanlığın teminat tutarı ve diğer unsurlarda sahip olduğu yetkileri açıklayınız. (6 puan)
+  cozum: |
+    **(a)** Mükerrer 257/10 uyarınca alınabilecek teminat, 6183 sayılı Kanunun 10 uncu maddesinin birinci fıkrasının (1), (2) ve (3) numaralı bentlerindeki türlerle sınırlıdır: para, süresiz ve şartsız banka teminat mektubu (veya sigorta kefalet senedi) ve devlet iç borçlanma senetleri. Haczedilmiş menkul ve gayrimenkul (5 numaralı bent) bu kapsamda kabul edilmez.
+
+    | Teminat | Kabul |
+    |---|---|
+    | Nakit | 15.000.000 |
+    | Teminat mektubu | 55.000.000 |
+    | Devlet iç borçlanma senedi | 30.000.000 |
+    | Gayrimenkul | 0 (kabul edilmez) |
+    | **Kabul edilen** | **100.000.000 TL** |
+
+    İstenen 120.000.000 TL - 100.000.000 TL = **20.000.000 TL eksik.**
+
+    **(b)** Md. 10/son: teminat sonradan tamamen veya kısmen değerini kaybederse teminatın tamamlanması veya yerine başka teminat gösterilmesi istenir. Kabul edilen tutar 15 + 55 + 24 = 94.000.000 TL'ye düşer; eksik = 120.000.000 - 94.000.000 = **26.000.000 TL** (eski eksik 20.000.000 + değer kaybı 6.000.000).
+
+    **(c)** Mükerrer 257/10 uyarınca Bakanlık, 170.000.000 TL'ye kadar teminat almaya; teminatın türünü, tutarını, verilmesi gereken zamanı, iadesi ile tamamlanmasına ilişkin hususları belirlemeye; tutarı sıfıra kadar indirmeye ve iki katına kadar artırmaya; hangi hâllerde teminat aranılmayacağını ve usul ve esasları belirlemeye yetkilidir.
+
+    Püf noktaları: (1) Bu bentte yalnız üç tür teminat kabul edilir; gayrimenkul sayılmaz. (2) Değer kaybında tamamlama istenir. (3) Üst sınır 2026'da 170.000.000 TL'dir.
+  puanlama:
+  - olcut: (a) Kabul edilecek teminat türleri (para, mektup, DİBS) ve gayrimenkulün hariç tutulması
+    puan: 5
+  - olcut: (a) Kabul edilen 100.000.000 ve eksik 20.000.000
+    puan: 4
+  - olcut: (b) Değer kaybında tamamlama veya yerine başka teminat isteme yetkisi (6183 md. 10)
+    puan: 4
+  - olcut: (b) 26.000.000 TL ek teminat
+    puan: 3
+  - olcut: (c) Bakanlığın yetkileri (tutarı sıfıra indirme, iki katına artırma, usul)
+    puan: 6
+  kaynaklar:
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: mükerrer md. 257/1-10
+    alinti: doğacak vergilerin tahsil güvenliğini sağlamak amacıyla, 30 milyon (170.000.000) Türk lirasına kadar, 6183 sayılı Kanunun 10 uncu maddesinin birinci fıkrasının (1), (2) ve (3) numaralı bentlerinde yer alan türden teminat almaya,
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 10/son
+    alinti: Teminat sonradan tamamen veya kısmen değerini kaybeder veya borç miktarı artarsa, teminatın tamamlanması veya yerine başka teminat gösterilmesi istenir.
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 10/1
+    alinti: 'Teminat olarak şunlar kabul edilir: 1. Para,'
+  dogrulama:
+    python: |
+      kabul = 15000000 + 55000000 + 30000000
+      eksik = 120000000 - kabul
+      kabul2 = 15000000 + 55000000 + 24000000
+      sonuc = {'a_kabul': kabul, 'a_eksik': eksik, 'b_eksik': 120000000 - kabul2}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
+- id: TASLAK
+  sinav: ymm
+  ders: VTK
+  konu: SRM
+  kazanimlar:
+  - vergi sorumlusu ve kanuni temsilcilerin sorumluluğu (VUK md.8 ve 10)
+  - müteselsil sorumluluk (VUK md.11 ve 6183 md.35)
+  zorluk: 2
+  puan: 22
+  sure_dk: 30
+  soru: |
+    **Olay:** Efe Gıda Ltd. Şti., 31/5/2026'da Baran Holding A.Ş. tarafından devralınmış (devir) ve Efe Gıda tasfiyesiz sona ermiştir. Efe Gıda'nın vadesi geçmiş 800.000 TL kesinleşmiş amme borcu vardır. Devir sözleşmesinde "Efe Gıda'nın devir öncesi vergi borçlarından Baran Holding sorumlu olmayacaktır" hükmü yer almaktadır. Ayrıca Efe Gıda, devir öncesinde kanunen yasak bir faaliyet de yürütmüş olup bu faaliyetten doğan KDV borcu 100.000 TL'dir (800.000 TL'nin dışında). Efe Gıda'nın müdürü Bay Sinan Öz, devirden önce vergi ödevlerini yerine getirmemiştir.
+
+    **İstenenler:**
+
+    (a) 800.000 TL borçtan hangi tüzel kişinin sorumlu olacağını hukuki dayanağıyla belirtiniz. (7 puan)
+
+    (b) Devir sözleşmesindeki sorumsuzluk kaydının vergi dairesini bağlayıp bağlamayacağını açıklayınız. (6 puan)
+
+    (c) Yasak faaliyetten doğan 100.000 TL KDV'nin vergilendirilip vergilendirilmeyeceğini açıklayınız. (5 puan)
+
+    (d) Amme borcunun toplam tutarını (800.000 + 100.000) belirtiniz ve borcun ödenmesi bakımından vergi dairesine karşı muhatabı gösteriniz. (4 puan)
+  cozum: |
+    **(a)** 6183 sayılı Kanun md. 36/b: devir halinde devir alan hükmî şahıs, devir alınan hükmî şahsın yerine geçer. Baran Holding A.Ş., Efe Gıda'nın yerine geçerek amme borcunun muhatabı olur.
+
+    **(b)** VUK md. 8/3: vergi kanunlarıyla kabul edilen haller müstesna olmak üzere mükellefiyete veya vergi sorumluluğuna mütaallik özel mukaveleler vergi dairelerini bağlamaz. Devir sözleşmesindeki sorumsuzluk kaydı vergi dairesini **bağlamaz**; taraflar arası ilişkide geçerli olabilir.
+
+    **(c)** VUK md. 9/2: vergiyi doğuran olayın kanunlarla yasak edilmiş bulunması mükellefiyeti ve vergi sorumluluğunu kaldırmaz. Yasak faaliyetten doğan 100.000 TL KDV de vergilendirilir.
+
+    **(d)** Toplam = 800.000 + 100.000 = **900.000 TL**. Md. 8/2: vergi sorumlusu, verginin ödenmesi bakımından alacaklı vergi dairesine karşı muhatap olan kişidir; devir alan Baran Holding bu borç yönünden vergi dairesine karşı muhataptır.
+
+    Püf noktaları: (1) Devirde devir alan yerine geçer. (2) Sözleşmeyle sorumluluğu devretmek vergi dairesine karşı geçerli değildir. (3) Faaliyetin yasak olması vergiyi ortadan kaldırmaz.
+  puanlama:
+  - olcut: '(a) Md. 36/b: devir alanın yerine geçmesi'
+    puan: 7
+  - olcut: (b) Özel mukavelelerin vergi dairesini bağlamaması (md. 8/3)
+    puan: 6
+  - olcut: (c) Yasak faaliyetin vergi sorumluluğunu kaldırmaması (md. 9/2)
+    puan: 5
+  - olcut: (d) Toplam borç 900.000
+    puan: 2
+  - olcut: (d) Vergi dairesine karşı muhatap kişi
+    puan: 2
+  kaynaklar:
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 36/b
+    alinti: b) Devir halinde devir alan hükmî şahıs,
+  - mevzuat: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun
+    madde: md. 36/son
+    alinti: Birleşen, devir alınan, bölünen veya eski şekildeki hükmi şahıs ve şahısların yerine geçer.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 8/3
+    alinti: Vergi kanunlariyle kabul edilen haller müstesna olmak üzere, mükellefiyete veya vergi sorumluluğuna mütaallik özel mukaveleler vergi dairelerini bağlamaz.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 9/2
+    alinti: Vergiyi doğuran olayın kanunlarla yasak edilmiş bulunması mükellefiyeti ve vergi sorumluluğunu kaldırmaz.
+  - mevzuat: 213 sayılı Vergi Usul Kanunu
+    madde: md. 8/2
+    alinti: Vergi sorumlusu, verginin ödenmesi bakımından, alacaklı vergi dairesine karşı muhatap olan kişidir.
+  dogrulama:
+    python: |
+      sonuc = {'d': 800000 + 100000}
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: taslak
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: claude-sonnet-5-5
