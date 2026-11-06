@@ -1,0 +1,649 @@
+[
+ {
+  "id": "YMM-FYN-SBT-K009",
+  "ders": "FYN",
+  "konu": "SBT",
+  "puan": 25,
+  "soru": "Ege Lojistik A.Ş., 1.000.000 TL tutarında bir depo yatırımını değerlendirmektedir. Projeden 2 yıl boyunca yıl sonlarında nakit girişi sağlanacaktır; her yılın nakit girişi aşağıdaki iki durumdan biri olacaktır (olasılıklar eşit):\n\n| Yıl | Kötü durum (%50) | İyi durum (%50) |\n|---|---|---|\n| 1 | 500.000 | 1.100.000 |\n| 2 | 600.000 | 1.200.000 |\n\nRisksiz faiz oranı %20, işletmenin bu tür riskli projeler için kullandığı risk ayarlı iskonto oranı %25'dir.\n\n**İstenenler:**\n\n(a) Her yılın beklenen nakit akımını, standart sapmasını ve değişim katsayısını hesaplayınız. (5 puan)\n\n(b) Risk ayarlı iskonto oranı yöntemiyle projenin NBD'sini bulunuz. (5 puan)\n\n(c) Belirlilik eşdeğeri yöntemi, risk ayarlı oran yöntemiyle aynı sonucu verecek biçimde uygulanırsa her yıl için belirlilik eşdeğeri katsayısını (α) bulunuz; belirlilik eşdeğeri nakit akımlarını risksiz faizle iskonto ederek NBD'nin aynı olduğunu gösteriniz. (8 puan)\n\n(d) İki yılın nakit akımları birbirinden bağımsız ise dört durumun (kötü-kötü, kötü-iyi, iyi-kötü, iyi-iyi) NBD'sini (risk ayarlı oranla) ve NBD'nin negatif olma olasılığını hesaplayınız. Akımlar tam pozitif ilişkili (aynı yönde hareket ediyor) olsaydı bu olasılık ne olurdu? (7 puan)\n",
+  "cozum": "**(a) Beklenen değer ve risk**\n\n| Yıl | Beklenen akım | Standart sapma | Değişim katsayısı |\n|---|---|---|---|\n| 1 | (500.000 + 1.100.000) / 2 = 800.000 | (1.100.000 − 500.000) / 2 = 300.000 | 300.000 / 800.000 = 0,375 |\n| 2 | (600.000 + 1.200.000) / 2 = 900.000 | (1.200.000 − 600.000) / 2 = 300.000 | 300.000 / 900.000 = 0,333 |\n\n(İki durumlu, eşit olasılıklı dağılımda standart sapma, iki değer arasındaki farkın yarısıdır.)\n\n**(b) Risk ayarlı oranla NBD**\n\nPV = 800.000 / 1,25 + 900.000 / 1,25² = 640.000 + 576.000 = 1.216.000 TL → NBD = **216.000 TL**.\n\n**(c) Belirlilik eşdeğeri**\n\nRisk ayarlı oranla aynı sonucu veren katsayı: αₜ = [(1 + rf) / (1 + ra)]ᵗ\n\nα₁ = 1,20 / 1,25 = **0,96**; α₂ = 0,96² = **0,9216**\n\nBelirlilik eşdeğeri akımları: CE₁ = 0,96 × 800.000 = 768.000 TL; CE₂ = 0,9216 × 900.000 = 829.440 TL.\n\nPV = 768.000 / 1,20 + 829.440 / 1,20² = 640.000 + 576.000 = 1.216.000 TL → NBD = **216.000 TL** (b) ile aynıdır. Katsayılar zamanla küçülür: risk ne kadar uzak döneme yayılırsa belirsizlik o kadar fazla cezalandırılır.\n\n**(d) Dağılım**\n\n| Durum | NBD | Olasılık (bağımsız) |\n|---|---|---|\n| Kötü–Kötü | -216.000 | %25 |\n| Kötü–İyi | 168.000 | %25 |\n| İyi–Kötü | 264.000 | %25 |\n| İyi–İyi | 648.000 | %25 |\n\nBeklenen NBD = 216.000 TL ((b) ile aynı). NBD < 0 olan tek durum Kötü–Kötü olduğundan olasılık = **%25**.\n\nAkımlar tam pozitif ilişkili olsaydı yalnız Kötü–Kötü ve İyi–İyi durumları oluşurdu; Kötü–Kötü olasılığı **%50** olurdu. Bağımsızlık (ya da negatif ilişki) riski azaltır, pozitif ilişki artırır.\n",
+  "puanlama": [
+   {
+    "olcut": "(a) Beklenen değerler",
+    "puan": 1
+   },
+   {
+    "olcut": "(a) Standart sapma ve değişim katsayıları",
+    "puan": 4
+   },
+   {
+    "olcut": "(b) Risk ayarlı oranla bugünkü değer ve NBD",
+    "puan": 5
+   },
+   {
+    "olcut": "(c) α katsayılarının türetilmesi",
+    "puan": 3
+   },
+   {
+    "olcut": "(c) Belirlilik eşdeğerleri ve NBD'nin aynı olduğunun gösterilmesi",
+    "puan": 5
+   },
+   {
+    "olcut": "(d) Dört durumun NBD'si",
+    "puan": 4
+   },
+   {
+    "olcut": "(d) Negatif NBD olasılığı (bağımsız ve pozitif ilişkili)",
+    "puan": 3
+   }
+  ],
+  "kaynaklar": [
+   {
+    "mevzuat": "Genel bilgi — finansal yönetim",
+    "madde": "-"
+   }
+  ],
+  "dogrulama": {
+   "python": "yat = 1000000\na_k1 = 500000\na_i1 = 1100000\na_k2 = 600000\na_i2 = 1200000\nrf = 0.20\nra = 0.25\ne1 = (a_k1 + a_i1) / 2\ne2 = (a_k2 + a_i2) / 2\ns1 = (a_i1 - a_k1) / 2\ns2 = (a_i2 - a_k2) / 2\ncv1 = s1 / e1\ncv2 = s2 / e2\npv_ra = e1 / (1 + ra) + e2 / (1 + ra) ** 2\nnbd = pv_ra - yat\nal1 = (1 + rf) / (1 + ra)\nal2 = ((1 + rf) / (1 + ra)) ** 2\nce1 = al1 * e1\nce2 = al2 * e2\npv_ce = ce1 / (1 + rf) + ce2 / (1 + rf) ** 2\nnbd_ce = pv_ce - yat\nd = {}\nfor n1, v1 in ((\"K\", a_k1), (\"I\", a_i1)):\n    for n2, v2 in ((\"K\", a_k2), (\"I\", a_i2)):\n        d[n1 + n2] = v1 / (1 + ra) + v2 / (1 + ra) ** 2 - yat\nnbd_kk, nbd_ki, nbd_ik, nbd_ii = d[\"KK\"], d[\"KI\"], d[\"IK\"], d[\"II\"]\nolasilik_bagimsiz = 0.25 * sum(1 for v in d.values() if v < 0)\nolasilik_pozitif = 0.5\nbeklenen_kontrol = 0.25 * sum(d.values())\nsonuc = {\"e1\": e1, \"e2\": e2, \"s1\": s1, \"s2\": s2, \"cv1\": cv1, \"cv2\": cv2, \"nbd\": nbd, \"al1\": al1, \"al2\": al2, \"ce1\": ce1, \"ce2\": ce2,\n         \"nbd_ce\": nbd_ce, \"nbd_kk\": nbd_kk, \"nbd_ki\": nbd_ki, \"nbd_ik\": nbd_ik, \"nbd_ii\": nbd_ii, \"olasilik_bagimsiz\": olasilik_bagimsiz,\n         \"beklenen_kontrol\": beklenen_kontrol}\n"
+  },
+  "hakem_notu": "örneklem"
+ },
+ {
+  "id": "YMM-FYN-ZDP-K008",
+  "ders": "FYN",
+  "konu": "ZDP",
+  "puan": 21,
+  "soru": "**Olay:** Ekin Ltd. Şti., bir depoyu 4 yıllığına kiralamıştır. 1. yıl sonunda ödenecek kira 200.000 TL olup kira her yıl %10 artacaktır (son kira 4. yıl sonundadır). Şirketin iskonto oranı yıllık %25'tir.\n\n**İstenenler:**\n\n(a) Kira ödemelerini tek tek iskonto ederek bugünkü değerini bulunuz. (6 puan)\n\n(b) Aynı değeri büyüyen anüite formülü ile hesaplayarak doğrulayınız. (5 puan)\n\n(c) Kira artışı olmasaydı (sabit 200.000 TL) bugünkü değer ne olurdu? Artışın maliyetini bulunuz. (5 puan)\n\n(d) Kira sürekli olarak %10 artarak sonsuza dek ödenseydi bugünkü değeri ve (a) şıkkındaki akışın 4. yıl sonundaki gelecek değerini bulunuz. (5 puan)\n",
+  "cozum": "**(a)** Kiralar: 200.000; 220.000; 242.000; 266.200 TL. Bugünkü değerler: 160.000; 140.800; 123.904; 109.035,52. Toplam = **533.739,52 TL**.\n\n**(b)** PV = C / (r − g) × [1 − ((1 + g) / (1 + r))ⁿ] = 200.000 / 0,15 × [1 − (1,10 / 1,25)⁴] = 200.000 / 0,15 × (1 − 0,59969536) = **533.739,52 TL**.\n\n**(c)** Sabit kira: 200.000 × (0,8 + 0,64 + 0,512 + 0,4096) = **472.320 TL**. Artışın bugünkü değer maliyeti = 533.739,52 − 472.320 = **61.419,52 TL**.\n\n**(d)** Büyüyen perpetüite = C / (r − g) = 200.000 / 0,15 = **1.333.333,33 TL**. (a) akışının 4. yıl sonu gelecek değeri = 533.739,52 × 1,25⁴ = **1.303.075 TL**.\n\n**Mevzuat dayanağı:** TMS 36 paragraf 6 uyarınca kullanım değeri, beklenen gelecekteki nakit akışlarının bugünkü değeridir.\n",
+  "puanlama": [
+   {
+    "olcut": "(a) kira ödemelerinin bugünkü değeri (tek tek)",
+    "puan": 6
+   },
+   {
+    "olcut": "(b) büyüyen anüite formülü",
+    "puan": 5
+   },
+   {
+    "olcut": "(c) sabit anüite ve artış maliyeti",
+    "puan": 5
+   },
+   {
+    "olcut": "(d) büyüyen perpetüite ve gelecek değer",
+    "puan": 5
+   }
+  ],
+  "kaynaklar": [
+   {
+    "mevzuat": "TMS 36 Varlıklarda Değer Düşüklüğü",
+    "madde": "paragraf 6",
+    "alinti": "Kullanım değeri: Bir varlık veya nakit yaratan birimden elde edilmesi beklenen gelecekteki nakit akışlarının bugünkü değeridir."
+   }
+  ],
+  "dogrulama": {
+   "python": "c1=200_000; g=0.10; r=0.25; n=4\ncf1 = c1\ncf2 = c1*1.10\ncf3 = c1*1.10**2\ncf4 = c1*1.10**3\npv1 = cf1/1.25\npv2 = cf2/1.25**2\npv3 = cf3/1.25**3\npv4 = cf4/1.25**4\ntoplam = pv1+pv2+pv3+pv4\noran = (1.10/1.25)**4\nformul = c1/(r-g)*(1-oran)\nsabit = c1*(1/1.25+1/1.25**2+1/1.25**3+1/1.25**4)\nsurekli = c1/(r-g)\nfv4 = toplam*1.25**4\nfark = toplam-sabit\nsonuc = {'a': toplam, 'b': formul, 'c': (sabit, toplam-sabit), 'd': (surekli, fv4)}\n"
+  },
+  "hakem_notu": "örneklem"
+ },
+ {
+  "id": "YMM-FYN-ZDP-K022",
+  "ders": "FYN",
+  "konu": "ZDP",
+  "puan": 22,
+  "soru": "**Olay:** Yılmaz Gıda A.Ş. bir paketleme makinesini peşin 600.000 TL'ye satın alabilir veya 3 yıl süreyle yılda 250.000 TL ödeyerek kiralayabilir. Şirketin yıllık iskonto oranı %25'tir (faktörler: 0,8; 0,64; 0,512). Makinenin 3 yıl sonunda değeri sıfır varsayılacaktır.\n\n**İstenenler:**\n\n(a) Kira ödemeleri yılbaşlarında (ilki bugün) yapılırsa kiralamanın bugünkü maliyetini bulunuz. (5 puan)\n\n(b) Kiralama ile satın alma arasında bugünkü değer farkını bulunuz ve karar veriniz. (5 puan)\n\n(c) Kira ödemeleri yıl sonlarında yapılırsa kiralamanın bugünkü maliyetini bulunuz ve kararı yeniden değerlendiriniz. (6 puan)\n\n(d) Peşin fiyatla eşdeğer yıllık kira tutarlarını (dönem başı ve dönem sonu için ayrı ayrı) bulunuz. (6 puan)\n",
+  "cozum": "**(a)** PV = 250.000 × (1 + 0,8 + 0,64) = 250.000 × 2,44 = **610.000 TL**.\n\n**(b)** Kiralamanın bugünkü maliyeti (610.000 TL), peşin fiyattan (600.000 TL) **10.000 TL** yüksektir → **satın alma** tercih edilmelidir.\n\n**(c)** PV = 250.000 × (0,8 + 0,64 + 0,512) = 250.000 × 1,952 = **488.000 TL**. Bu tutar peşin fiyattan düşüktür → ödemeler yıl sonlarında yapılırsa **kiralama** tercih edilir. Ödeme zamanlaması karar sonucunu değiştirmiştir.\n\n**(d)** Dönem başı: 600.000 / 2,44 = **245.901,64 TL**; dönem sonu: 600.000 / 1,952 = **307.377,05 TL**.\n\n**Mevzuat dayanağı:** TMS 36 paragraf 30 uyarınca kullanım değeri hesabında gelecekteki nakit akışlarının tahmini ve paranın zaman değeri dikkate alınır.\n",
+  "puanlama": [
+   {
+    "olcut": "(a) dönem başı kira bugünkü değeri",
+    "puan": 5
+   },
+   {
+    "olcut": "(b) fark ve karar",
+    "puan": 5
+   },
+   {
+    "olcut": "(c) dönem sonu kira ve karar",
+    "puan": 6
+   },
+   {
+    "olcut": "(d) eşdeğer kira tutarları",
+    "puan": 6
+   }
+  ],
+  "kaynaklar": [
+   {
+    "mevzuat": "TMS 36 Varlıklarda Değer Düşüklüğü",
+    "madde": "paragraf 30",
+    "alinti": "Varlığın kullanım değerinin hesaplamasında aşağıdaki unsurlar dikkate alınır: (a) İşletmenin varlıktan elde etmeyi beklediği gelecekteki nakit akışlarının tahmini; (b) Söz konusu gelecekteki nakit akışlarının tutarı ve zamanlamasında olabilecek değişikliklerle ilgili beklentiler; (c) Piyasa riski hariç tutulmuş cari faiz oranı ile temsil edilen paranın zaman değeri;"
+   }
+  ],
+  "dogrulama": {
+   "python": "fiyat=600_000; kira=250_000; r=0.25\nf_basi = 1+0.8+0.64\npv_basi = kira*f_basi\nfark1 = pv_basi-fiyat\nf_sonu = 0.8+0.64+0.512\npv_sonu = kira*f_sonu\nesit_basi = fiyat/f_basi\nesit_sonu = fiyat/f_sonu\nsonuc = {'a': pv_basi, 'b': fark1, 'c': pv_sonu, 'd': (esit_basi, esit_sonu)}\n"
+  },
+  "hakem_notu": "örneklem"
+ },
+ {
+  "id": "YMM-FYN-ZDP-K025",
+  "ders": "FYN",
+  "konu": "ZDP",
+  "puan": 25,
+  "soru": "Bay Selim, kızının üniversite öğrenimi için bir eğitim fonu oluşturmayı planlamaktadır. Öğrenim süresi 3 yıldır ve her yılın sonunda ödenecek harç, bugünkü fiyatlarla 100.000 TL'dir. Harçlar genel enflasyonla aynı oranda, yani yıllık %20 artmaktadır. Fon, yıllık %50 nominal faiz (bileşik) veren bir hesapta tutulacaktır.\n\n**İstenenler:**\n\n(a) Fisher denklemiyle gerçek (tam) reel faiz oranını hesaplayınız; \"nominal faiz − enflasyon\" kestirmesiyle bulunan değerle karşılaştırınız. (4 puan)\n\n(b) Nominal harç tutarlarını yıl yıl hesaplayarak fonun bugünkü gerekli tutarını nominal faizle iskonto ederek bulunuz. (6 puan)\n\n(c) Aynı tutarı reel yaklaşımla (sabit 100.000 TL'lik 3 yıllık adi anüiteyi reel faizle iskonto ederek) bulunuz; iki sonucun eşitliğini gösteriniz ve fonun yıllık tükenme tablosunu (dönem başı, faiz, ödeme, dönem sonu) hazırlayınız. (8 puan)\n\n(d) Bir danışman, (1) reel olan sabit 100.000 TL'lik akımları nominal faizle, (2) nominal harç akımlarını reel faizle iskonto etmiştir. Her iki hatalı yöntemle bulunacak tutarları hesaplayınız ve hataların yönünü açıklayınız. (7 puan)\n",
+  "cozum": "**(a) Fisher denklemi**\n\n(1 + nominal) = (1 + reel) × (1 + enflasyon) → reel = (1 + %50) / (1 + %20) − 1 = **%25**.\n\nKestirme yöntem: %50 − %20 = %30; bu değer reel faizi **fazla** gösterir (fark, enflasyonun nominal faiz üzerindeki bileşik etkisinden doğar).\n\n**(b) Nominal yaklaşım**\n\n| Yıl | Nominal harç | İskonto çarpanı (%50) | Bugünkü değer |\n|---|---|---|---|\n| 1 | 120.000 | 1 / 1,5 | 80.000 |\n| 2 | 144.000 | 1 / 2,25 | 64.000 |\n| 3 | 172.800 | 1 / 3,375 | 51.200 |\n| **Toplam** | | | **195.200** |\n\n**(c) Reel yaklaşım ve fon tablosu**\n\nReel faiz %25, n = 3 için anüite çarpanı = (1 − 1,25⁻³) / 0,25 = 1,952. Fon = 100.000 × 1,952 = **195.200 TL**; (b) ile aynıdır. Çünkü reel akımları reel faizle iskonto etmek, nominal akımları nominal faizle iskonto etmeyle özdeştir.\n\n| Yıl | Dönem başı | Faiz (%50) | Harç ödemesi | Dönem sonu |\n|---|---|---|---|---|\n| 1 | 195.200 | 97.600 | 120.000 | 172.800 |\n| 2 | 172.800 | 86.400 | 144.000 | 115.200 |\n| 3 | 115.200 | 57.600 | 172.800 | 0 |\n\nFon 3. yıl sonunda tam olarak tükenir (kalan = 0).\n\n**(d) Yaygın hatalar**\n\n(1) Reel (sabit) 100.000 TL'lik akımları nominal faizle iskonto etmek: 100.000 × (1/1,5 + 1/2,25 + 1/3,375) = **140.740,74 TL** → fon **eksik** hesaplanır (54.459,26 TL açık), çünkü harçların enflasyonla artacağı gözden kaçmıştır.\n\n(2) Nominal akımları reel faizle iskonto etmek: 120.000/1,25 + 144.000/1,5625 + 172.800/1,953125 = **276.633,60 TL** → fon **fazla** hesaplanır (81.433,60 TL fazla); nominal akımlara enflasyon eklendiği hâlde iskonto oranından enflasyon arındırıldığı için enflasyon etkisi iki kez sayılmıştır.\n\nKural: Nominal akımlar nominal oranla, reel akımlar reel oranla iskonto edilir; ikisi karıştırılmaz.\n",
+  "puanlama": [
+   {
+    "olcut": "(a) Fisher ile reel faiz ve kestirmeyle karşılaştırma",
+    "puan": 4
+   },
+   {
+    "olcut": "(b) Nominal harçlar",
+    "puan": 2
+   },
+   {
+    "olcut": "(b) Nominal iskontoyla fon tutarı",
+    "puan": 4
+   },
+   {
+    "olcut": "(c) Reel anüite yaklaşımıyla fon tutarı ve eşitliğin gösterilmesi",
+    "puan": 4
+   },
+   {
+    "olcut": "(c) Fon tükenme tablosu",
+    "puan": 4
+   },
+   {
+    "olcut": "(d) Birinci hatalı yöntem ve yönü",
+    "puan": 3
+   },
+   {
+    "olcut": "(d) İkinci hatalı yöntem ve yönü",
+    "puan": 4
+   }
+  ],
+  "kaynaklar": [
+   {
+    "mevzuat": "Genel bilgi — finansal yönetim",
+    "madde": "-"
+   }
+  ],
+  "dogrulama": {
+   "python": "harc = 100000\nenf = 0.20\nnf = 0.50\nreel = (1 + nf) / (1 + enf) - 1\nbasit = nf - enf\nn1 = harc * (1 + enf)\nn2 = harc * (1 + enf) ** 2\nn3 = harc * (1 + enf) ** 3\npv1 = n1 / (1 + nf)\npv2 = n2 / (1 + nf) ** 2\npv3 = n3 / (1 + nf) ** 3\nfon_nom = pv1 + pv2 + pv3\naf = (1 - (1 + reel) ** -3) / reel\nfon_reel = harc * af\nb0 = fon_nom\nf1 = b0 * nf\ne1 = b0 + f1 - n1\nf2 = e1 * nf\ne2 = e1 + f2 - n2\nf3 = e2 * nf\ne3 = e2 + f3 - n3\nhata1 = harc * (1 / (1 + nf) + 1 / (1 + nf) ** 2 + 1 / (1 + nf) ** 3)\nhata2 = n1 / (1 + reel) + n2 / (1 + reel) ** 2 + n3 / (1 + reel) ** 3\nsonuc = {\"reel\": reel, \"basit\": basit, \"n1\": n1, \"n2\": n2, \"n3\": n3, \"fon_nom\": fon_nom, \"af\": af, \"fon_reel\": fon_reel,\n         \"e1\": e1, \"e2\": e2, \"e3\": e3, \"hata1\": hata1, \"hata2\": hata2}\n"
+  },
+  "hakem_notu": "örneklem"
+ },
+ {
+  "id": "YMM-GUV-ASG-K002",
+  "ders": "GUV",
+  "konu": "ASG",
+  "puan": 20,
+  "soru": "**Olay:** Ata Kimya A.Ş. 2022 yılında faaliyete başlamıştır. 2026 hesap dönemi verileri aşağıdadır:\n\n| Kalem | Tutar (TL) |\n|---|---|\n| Ticari bilanço kârı | 40.000.000 |\n| Kanunen kabul edilmeyen giderler | 2.000.000 |\n| Kâr hesabına dahil, KVK md. 5/1-a kapsamındaki iştirak kâr payı | 15.000.000 |\n| Kâr hesabına dahil, iştirak hissesi satış kazancı (md. 5/1-e istisnası %50 uygulanacak) | 6.000.000 |\n| 5746 sayılı Kanun kapsamında Ar-Ge indirimi (md. 10 dışı, kurum kazancından indirilecek) | 4.000.000 |\n| KVK md. 10/1-c kapsamında kamu idaresine makbuzlu bağış (sınırın altındadır) | 800.000 |\n| Geçmiş yıl zararı (md. 9 kapsamında indirilebilir) | 12.000.000 |\n\nİndirimli kurumlar vergisi veya başka teşvik uygulaması yoktur. KV oranı %25'tir.\n\n**İstenenler:**\n\n(a) Yurt içi asgari kurumlar vergisinin hesabında esas alınacak kurum kazancını bulunuz. (6 puan)\n\n(b) Normal kurumlar vergisi hesabına göre matrahı ve hesaplanan kurumlar vergisini bulunuz. (5 puan)\n\n(c) 2026 yılında ödenmesi gereken kurumlar vergisini ve asgari verginin etkisini (fark tutarını) belirtiniz. (5 puan)\n\n(d) Şirket 2025 yılında ilk defa faaliyete başlamış olsaydı 2026 için sonucun ne olacağını açıklayınız. (4 puan)\n",
+  "cozum": "**(a) Asgari vergi matrahı (KVK md. 32/C)**\n\n\"İndirim ve istisnalar düşülmeden önceki kurum kazancı\" = ticari bilanço kârı + KKEG = 40.000.000 + 2.000.000 = 42.000.000 TL (md. 32/C/6).\n\nMd. 32/C/2'ye göre bu tutardan yalnızca sayılan istisna ve indirimler düşülür:\n\n| Kalem | Düşülür mü? | Tutar |\n|---|---|---|\n| İştirak kâr payı (md. 5/1-a) | Evet | 15.000.000 |\n| İştirak hissesi satış istisnası (md. 5/1-e) | Hayır (sayılan bentler arasında yok) | 0 |\n| Ar-Ge ve tasarım indirimi (5746) | Evet | 4.000.000 |\n| Bağış indirimi (md. 10/1-c) | Hayır | 0 |\n| Geçmiş yıl zararı | Hayır | 0 |\n\nAsgari vergi matrahı = 42.000.000 − 15.000.000 − 4.000.000 = **23.000.000 TL**; yurt içi asgari KV = 23.000.000 × %10 = **2.300.000 TL**.\n\n**(b) Normal hesap**\n\n| Kalem | Tutar |\n|---|---|\n| Kurum kazancı | 42.000.000 |\n| − İştirak kâr payı | (15.000.000) |\n| − Satış istisnası (6.000.000 × %50) | (3.000.000) |\n| − Ar-Ge indirimi | (4.000.000) |\n| − Bağış | (800.000) |\n| − Geçmiş yıl zararı | (12.000.000) |\n| **Matrah** | **7.200.000** |\n\nKV = 7.200.000 × %25 = **1.800.000 TL**.\n\n**(c)** Hesaplanan KV (1.800.000 TL), asgari KV'den (2.300.000 TL) az olduğundan ödenecek KV **2.300.000 TL**'dir; asgari verginin etkisi 2.300.000 − 1.800.000 = **500.000 TL**. Asgari vergi geçici vergi dönemlerinde de uygulanır.\n\n**(d)** Md. 32/C/5: ilk defa faaliyete başlayan kurumlar hakkında faaliyete başlanılan hesap döneminden itibaren üç hesap dönemi (2025, 2026, 2027) boyunca bu madde uygulanmaz. Bu durumda 2026 için ödenecek vergi **1.800.000 TL** olur.\n\nPüf noktaları: (1) Satış istisnası (5/1-e), bağış ve geçmiş yıl zararı asgari vergi matrahından düşülmez. (2) \"İndirim ve istisnalar düşülmeden önceki kurum kazancı\" ticari kâr + KKEG'dir. (3) İlk üç hesap dönemi (faaliyete başlanılan dönem dahil) muaftır.\n",
+  "puanlama": [
+   {
+    "olcut": "(a) 42.000.000 TL, düşülecek/düşülmeyecek kalemler ve 2.300.000 TL asgari vergi",
+    "puan": 6
+   },
+   {
+    "olcut": "(b) Normal matrah 7.200.000 TL ve KV 1.800.000 TL",
+    "puan": 5
+   },
+   {
+    "olcut": "(c) Ödenecek 2.300.000 TL ve 500.000 TL fark",
+    "puan": 5
+   },
+   {
+    "olcut": "(d) Üç hesap dönemi muafiyeti ve 1.800.000 TL",
+    "puan": 4
+   }
+  ],
+  "kaynaklar": [
+   {
+    "mevzuat": "5520 sayılı Kurumlar Vergisi Kanunu",
+    "madde": "md. 32/C/1",
+    "alinti": "32 nci ve 32/A maddeleri hükümleri dikkate alınarak hesaplanan kurumlar vergisi, indirim ve istisnalar düşülmeden önceki kurum kazancının %10’undan az olamaz."
+   },
+   {
+    "mevzuat": "5520 sayılı Kurumlar Vergisi Kanunu",
+    "madde": "md. 32/C/2-a",
+    "alinti": "a) 5 inci maddenin birinci fıkrasının (a), (ç), (i), (j) ve (k) bentleri ile sahip oldukları taşınmazlardan elde edilen kazançlar dışında (d) bendinde sayılan istisna kazançlar,"
+   },
+   {
+    "mevzuat": "5520 sayılı Kurumlar Vergisi Kanunu",
+    "madde": "md. 32/C/2-ç",
+    "alinti": "ç) 4691 sayılı Kanun kapsamındaki kazanç istisnası ile kurumlar vergisi matrahından indirim konusu yapılabilen Ar-Ge ve tasarım indirimleri."
+   },
+   {
+    "mevzuat": "5520 sayılı Kurumlar Vergisi Kanunu",
+    "madde": "md. 32/C/4",
+    "alinti": "Bu madde hükmü geçici vergi dönemleri için de uygulanır."
+   },
+   {
+    "mevzuat": "5520 sayılı Kurumlar Vergisi Kanunu",
+    "madde": "md. 32/C/5",
+    "alinti": "İlk defa faaliyete başlayan kurumlar hakkında faaliyete başlanılan hesap döneminden itibaren üç hesap dönemi boyunca bu madde hükümleri uygulanmaz."
+   },
+   {
+    "mevzuat": "5520 sayılı Kurumlar Vergisi Kanunu",
+    "madde": "md. 32/C/6",
+    "alinti": "Bu maddede yer alan indirim ve istisnalar düşülmeden önceki kurum kazancı ibaresi, hesap dönemi sonundaki ticari bilanço kârına kanunen kabul edilmeyen giderlerin eklenmesiyle bulunan tutarı ifade eder."
+   }
+  ],
+  "dogrulama": {
+   "python": "kazanc = 40000000 + 2000000\nasgari_matrah = kazanc - 15000000 - 4000000\nasgari = asgari_matrah * 0.10\nmatrah = kazanc - 15000000 - 6000000 * 0.5 - 4000000 - 800000 - 12000000\nkv = matrah * 0.25\nodenecek = max(kv, asgari)\nsonuc = {\"a\": [kazanc, asgari_matrah, asgari], \"b\": [matrah, kv], \"c\": [odenecek, odenecek - kv], \"d\": kv}\n"
+  },
+  "hakem_notu": "örneklem"
+ },
+ {
+  "id": "YMM-GUV-DAR-K005",
+  "ders": "GUV",
+  "konu": "DAR",
+  "puan": 20,
+  "soru": "**Olay:** Yabancı ulaştırma kurumu Aegean Shipping & Logistics S.A.'nın (dar mükellef) 2026 yılında Türkiye ile ilgili hasılatı aşağıdadır:\n\n| Hasılat unsuru | Tutar (TL) |\n|---|---|\n| Türkiye sınırları içinde gerçekleşen kara taşımacılığından tahsil edilen yük taşıma ücreti | 2.000.000 |\n| Türkiye'deki yükleme limanlarından yabancı limanlara yapılan deniz taşımacılığı navlunu | 10.000.000 |\n| Türkiye'de yaptığı navlun sözleşmeleri dolayısıyla Türkiye dışındaki deniz taşımacılığı için kendisine verilen komisyon | 300.000 |\n| Türkiye'deki hava taşımacılığına ilişkin, bilet bedeli ile birlikte alınan gider karşılıkları dahil hasılat (Türkiye'deki yükleme noktalarından yabancı varış noktalarına) | 4.000.000 |\n| Yabancı limanlar arasında yapılan deniz taşımacılığı hasılatı (Türkiye'ye uğramadan) | 8.000.000 |\n\nKomisyon geliri deniz taşımacılığına ilişkindir. Ortalama emsal oranları KVK md. 23/2'dedir. KV oranı %25'tir.\n\n**İstenenler:**\n\n(a) Türkiye'de elde edilmiş sayılan hasılat unsurlarını belirleyiniz. (6 puan)\n\n(b) Türkiye'de vergiye matrah olacak kurum kazancını ortalama emsal oranlarına göre hesaplayınız. (8 puan)\n\n(c) Kurumlar vergisini hesaplayınız. (3 puan)\n\n(d) Yabancı limanlar arasındaki taşıma hasılatının neden hesaba katılmadığını açıklayınız. (3 puan)\n",
+  "cozum": "**(a) Hasılat unsurları (md. 23/3)**\n\n| Unsur | Dahil mi? | Dayanak |\n|---|---|---|\n| Kara taşımacılığı (Türkiye sınırları içinde) | Evet | 23/3-a |\n| Türkiye'deki limandan yabancı limana deniz taşımacılığı | Evet | 23/3-b |\n| Türkiye'de yapılan navlun sözleşmelerinden verilen komisyon (Türkiye dışı taşımacılık) | Evet | 23/3-c |\n| Hava taşımacılığı (Türkiye'den yabancı varışa) | Evet | 23/3-b |\n| Yabancı limanlar arası taşıma | Hayır | Türkiye'de elde edilmiş sayılan unsurlar arasında değil |\n\n**(b) Kurum kazancı (md. 23/1 ve 23/2)**\n\n| Taşıma türü | Hasılat | Oran | Kazanç |\n|---|---|---|---|\n| Kara | 2.000.000 | %12 | 240.000 |\n| Deniz (10.000.000 + 300.000) | 10.300.000 | %15 | 1.545.000 |\n| Hava | 4.000.000 | %5 | 200.000 |\n| **Toplam** | | | **1.985.000** |\n\n**(c)** KV = 1.985.000 × %25 = **496.250 TL**.\n\n**(d)** Yabancı limanlar arasında yapılan ve Türkiye'ye uğramayan taşımalar md. 23/3'te sayılan Türkiye'de elde edilmiş sayılan hasılat unsurları kapsamında değildir; dar mükellef yalnız Türkiye'de elde ettiği kazançlardan vergilendirilir.\n\nPüf noktaları: (1) Kazanç gerçek karla değil, hasılata ortalama emsal oranı uygulanarak bulunur: kara %12, deniz %15, hava %5. (2) Navlun sözleşmeleri için alınan komisyon da Türkiye'de elde edilmiş sayılır. (3) Türkiye dışı taşımalar kapsam dışıdır.\n",
+  "puanlama": [
+   {
+    "olcut": "(a) Unsurların doğru ayrımı",
+    "puan": 6
+   },
+   {
+    "olcut": "(b) Üç taşıma türü için oranlar ve 1.985.000 TL",
+    "puan": 8
+   },
+   {
+    "olcut": "(c) KV 496.250 TL",
+    "puan": 3
+   },
+   {
+    "olcut": "(d) Kapsam dışı hasılat gerekçesi",
+    "puan": 3
+   }
+  ],
+  "kaynaklar": [
+   {
+    "mevzuat": "5520 sayılı Kurumlar Vergisi Kanunu",
+    "madde": "md. 23/1",
+    "alinti": "Yabancı ulaştırma kurumlarının vergiye matrah olacak kurum kazancı, hasılata ortalama emsal oranlarının uygulanması suretiyle hesaplanır."
+   },
+   {
+    "mevzuat": "5520 sayılı Kurumlar Vergisi Kanunu",
+    "madde": "md. 23/2",
+    "alinti": "Ortalama emsal oranları, Türkiye’de daimî veya arızî olarak çalışan bütün kurumlar için; a) Kara taşımacılığında % 12, b) Deniz taşımacılığında % 15, c) Hava taşımacılığında % 5,"
+   },
+   {
+    "mevzuat": "5520 sayılı Kurumlar Vergisi Kanunu",
+    "madde": "md. 23/3-b",
+    "alinti": "Türkiye’deki yükleme limanlarından yabancı ülkelerdeki varış limanlarına veya diğer bir kurumun gemisine aktarma yapılacak yabancı limana kadar gerçekleşen deniz ve hava taşımacılığında, bilet bedeli ile birlikte alınan gider karşılıkları dahil olmak üzere yolcu, yük ve bagaj taşıma ücreti olarak her ne adla olursa olsun aldıkları tutarlar."
+   },
+   {
+    "mevzuat": "5520 sayılı Kurumlar Vergisi Kanunu",
+    "madde": "md. 23/3-c",
+    "alinti": "Türkiye dışındaki taşımacılık faaliyeti için diğer kurumlar hesabına Türkiye’de sattıkları yolcu ve bagaj biletleri ile Türkiye’de yaptıkları navlun sözleşmeleri dolayısıyla kendilerine verilen komisyonlar ve ücretler."
+   }
+  ],
+  "dogrulama": {
+   "python": "kazanc = 2000000 * 0.12 + (10000000 + 300000) * 0.15 + 4000000 * 0.05\nsonuc = {\"b\": kazanc, \"c\": kazanc * 0.25}\n"
+  },
+  "hakem_notu": "örneklem"
+ },
+ {
+  "id": "YMM-GUV-DAR-K007",
+  "ders": "GUV",
+  "konu": "DAR",
+  "puan": 25,
+  "soru": "Tam mükellef (A) Makina A.Ş.'nin hesap dönemi takvim yılıdır; kurumlar vergisi oranı %25'tir. (A) A.Ş.'nin 2026 yılına ilişkin bilgileri aşağıdadır. Yurt içi kurum kazancı, indirim ve istisnalar düşüldükten sonra 7.000.000 TL'dir. Yurt içi asgari kurumlar vergisinin sonuca etkisi olmadığı, geçici vergi ve tevkifat mahsubunun bulunmadığı, mahsup edilecek vergilerin tamamının belgelerle tevsik edildiği kabul edilecektir.\n\n**1. Yurt dışı iş yeri.** (A) A.Ş.'nin Gürcistan'daki iş yerinin 2026 yılı kurum kazancı 2.000.000 TL'dir; bu kazanç Türkiye'de genel sonuç hesaplarına intikal ettirilmiştir. Gürcistan'da bu kazanç üzerinden %30 oranında, 600.000 TL kurumlar vergisi ödenmiştir.\n\n**2. Yurt dışı iştirak (V) Ltd.** (A) A.Ş. (V) Ltd.'nin sermayesinin %40'ına sahiptir. (V) Ltd.'nin vergi öncesi kazancı 3.000.000 TL, bu kazanç üzerinden ödediği gelir ve kurumlar vergisi benzeri vergi %10 oranında 300.000 TL'dir ve kalan 2.700.000 TL dağıtılmıştır. (A) A.Ş.'nin payına düşen 1.080.000 TL net kâr payı (V) Ltd.'nin ülkesinde dağıtım aşamasında ayrıca vergi kesintisine tabi tutulmamıştır. (V) Ltd.'nin toplam vergi yükü %10 olup kâr payı, kurumlar vergisi beyannamesinin verilmesi gereken tarihe kadar Türkiye'ye transfer edilmemiştir; bu nedenle KVK md. 5/1-(b) istisnası uygulanmamaktadır. Kontrol edilen yabancı kurum (md. 7) hükümleri uygulanmaz.\n\n**3. Yurt dışı iştirak (Z) Ltd.** (A) A.Ş. (Z) Ltd.'nin sermayesinin %60'ına yedi yıldır sahiptir. (Z) Ltd.'nin toplam vergi yükü %20 olup (A) A.Ş.'nin 900.000 TL tutarındaki kâr payı süresinde Türkiye'ye transfer edilmiştir. KVK md. 5/1-(b) istisnası bu kâr payına uygulanmıştır; kâr payına isabet eden ve yurt dışında ödenen vergi 150.000 TL'dir.\n\n**İstenenler:**\n\n(a) Gürcistan'daki iş yerinin kazancı bakımından yurt dışında ödenen verginin Türkiye'de mahsup edilebilecek tutarını belirleyiniz; mahsup edilemeyen kısım varsa sonraki yıllarda kullanılıp kullanılamayacağını açıklayınız. (7 puan)\n\n(b) (V) Ltd.'den elde edilen kâr payının Türkiye'de kurum kazancına hangi tutarla ekleneceğini ve bu kâr payı nedeniyle mahsup edilebilecek yurt dışı vergiyi hesaplayınız. (7 puan)\n\n(c) (A) A.Ş.'nin 2026 yılı kurumlar vergisi matrahını, hesaplanan kurumlar vergisini ve mahsuplardan sonra ödenecek kurumlar vergisini bulunuz; (Z) Ltd. kâr payı için yurt dışında ödenen verginin akıbetini gerekçesiyle açıklayınız. (6 puan)\n\n(d) Gürcistan'daki iş yerine ilişkin vergi ödendiğini gösteren belgeler tarhiyat sırasında ibraz edilememiş olsaydı, KVK md. 33'e göre ertelenebilecek vergi tutarını hesaplayınız; belge ibraz süresini ve süresinde ibraz edilmemesinin sonucunu açıklayınız. (5 puan)\n",
+  "cozum": "**(a) Gürcistan iş yeri (KVK md. 33/1, 33/4)**\n\nYurt dışı kazançlar üzerinden mahsup edilebilecek vergi, bu kazançlara md. 32'deki kurumlar vergisi oranı (%25) uygulanarak bulunacak tutardan fazla olamaz.\n\n- Mahsup sınırı: 2.000.000 × %25 = **500.000 TL**.\n- Yurt dışında ödenen vergi 600.000 TL olduğundan mahsup edilecek tutar **500.000 TL**'dir.\n- Aşan **100.000 TL** mahsup edilemez. Md. 33/4'teki üç dönemlik taşıma hakkı yalnızca sınır dahilindeki, ilgili yılda indirilemeyen vergiler içindir; sınırı aşan tutar cari yılda olduğu gibi sonraki yıllarda da mahsup edilemez.\n\n**(b) (V) Ltd. kâr payı (KVK md. 33/3)**\n\n(A) A.Ş. sermayenin %40'ına sahiptir; %25 şartı sağlandığından yurt dışı iştirakin ödediği vergiden kâr payına isabet eden kısım mahsup edilebilir. Kurum kazancına eklenecek kâr payı, yurt dışında ödenen vergiler dahil edilerek (brüt) dikkate alınır.\n\n- (V) Ltd.'nin dağıttığı net kâr 2.700.000 TL; (A) A.Ş.'nin net payı 1.080.000 TL (2.700.000 × %40).\n- Brüt kâr payı: 1.080.000 / 0,90 = **1.200.000 TL** (3.000.000 × %40).\n- Kâr payına isabet eden yurt dışı vergi: 1.200.000 × %10 = **120.000 TL**.\n- Sınır: 1.200.000 × %25 = 300.000 TL; 120.000 TL sınırın altında olduğundan tamamı mahsup edilir: **120.000 TL**.\n\n**(c) Matrah, vergi ve ödenecek vergi**\n\n| Kalem | TL |\n|---|---|\n| Yurt içi kurum kazancı | 7.000.000 |\n| + Gürcistan iş yeri kazancı | 2.000.000 |\n| + (V) Ltd. brüt kâr payı | 1.200.000 |\n| = Kurumlar vergisi matrahı | **10.200.000** |\n| Hesaplanan kurumlar vergisi (%25) | **2.550.000** |\n| − Gürcistan vergisi mahsubu | 500.000 |\n| − (V) Ltd. vergisi mahsubu | 120.000 |\n| = Ödenecek kurumlar vergisi | **1.930.000** |\n\n(Z) Ltd.'den elde edilen 900.000 TL kâr payı md. 5/1-(b) uyarınca kurumlar vergisinden istisna edildiği için matraha dahil değildir. Yurt dışında istisna edilmiş kazançlar üzerinden ödenen vergiler Türkiye'de hesaplanan kurumlar vergisinden mahsup edilemez; bu nedenle 150.000 TL mahsup konusu yapılamaz.\n\n**(d) Belgelerin ibraz edilememesi (KVK md. 33/6, 33/7, 33/8)**\n\nYurt dışında vergi ödendiği, yetkili makamlardan alınıp mahallindeki Türk elçilik veya konsoloslukları tarafından tasdik edilen belgelerle tevsik edilmelidir. Belgeler tarhiyat sırasında ibraz edilemezse yabancı ülkede ödenen veya ödenecek vergi, md. 32'deki kurumlar vergisi oranını (%25) aşmamak şartıyla o ülkedeki geçerli oran üzerinden hesaplanır ve tarhiyatın bu tutara isabet eden kısmı ertelenir.\n\n- Gürcistan oranı %30 olduğundan %25 ile sınırlı kalır: 2.000.000 × %25 = **500.000 TL** ertelenir.\n- Belgeler tarh tarihinden itibaren en geç **bir yıl** içinde ilgili vergi dairesine ibraz edilirse tarhiyat belgelerdeki kesin tutara göre düzeltilir.\n- Mücbir sebep olmaksızın belgeler bu sürede ibraz edilmezse veya ibrazdan sonra ertelenen tutardan daha düşük bir mahsup hakkı çıkarsa, ertelenen vergiler için 6183 sayılı Kanun hükümlerine göre gecikme zammı hesaplanır.\n\nDayanak: KVK md. 5/1-(b), 32, 33/1, 33/3, 33/4, 33/6, 33/7, 33/8; 1 Seri No.lu KV Genel Tebliği bölüm 33.3, 33.5, 33.7.",
+  "puanlama": [
+   {
+    "olcut": "Mahsup sınırının md. 33/4 uyarınca 2.000.000 × %25 = 500.000 TL bulunması",
+    "puan": 2
+   },
+   {
+    "olcut": "Gürcistan vergisinden mahsup edilecek tutarın 500.000 TL, mahsup edilemeyen kısmın 100.000 TL bulunması",
+    "puan": 2
+   },
+   {
+    "olcut": "Sınırı aşan tutarın sonraki yıllarda da mahsup edilemeyeceğinin (üç dönemlik taşımanın yalnız sınır dahilindeki vergiler için olduğunun) açıklanması",
+    "puan": 3
+   },
+   {
+    "olcut": "(V) Ltd. için %25 iştirak şartının sağlandığının belirtilmesi",
+    "puan": 1
+   },
+   {
+    "olcut": "Net kâr payının brütleştirilerek 1.200.000 TL bulunması ve kurum kazancına brüt tutarla eklenmesi",
+    "puan": 3
+   },
+   {
+    "olcut": "Mahsup edilecek yurt dışı verginin 120.000 TL bulunması ve 300.000 TL sınırının aşılmadığının gösterilmesi",
+    "puan": 3
+   },
+   {
+    "olcut": "Matrahın 10.200.000 TL, hesaplanan kurumlar vergisinin 2.550.000 TL bulunması",
+    "puan": 3
+   },
+   {
+    "olcut": "Ödenecek kurumlar vergisinin 1.930.000 TL bulunması",
+    "puan": 1
+   },
+   {
+    "olcut": "(Z) Ltd. kâr payının istisna olduğu için matraha girmediğinin ve 150.000 TL verginin mahsup edilemeyeceğinin gerekçelendirilmesi",
+    "puan": 2
+   },
+   {
+    "olcut": "Ertelenecek verginin %25 ile sınırlanarak 500.000 TL bulunması",
+    "puan": 2
+   },
+   {
+    "olcut": "Belge ibraz süresinin tarh tarihinden itibaren bir yıl olduğunun ve ibraz edilmezse gecikme zammı uygulanacağının belirtilmesi",
+    "puan": 2
+   },
+   {
+    "olcut": "Belgelerin Türk elçilik veya konsoloslukları tarafından tasdikli olması gerektiğinin belirtilmesi",
+    "puan": 1
+   }
+  ],
+  "kaynaklar": [
+   {
+    "mevzuat": "5520 sayılı Kurumlar Vergisi Kanunu",
+    "madde": "md. 33/4",
+    "alinti": "(4) Yurt dışı kazançlar üzerinden Türkiye’de tarh olunacak vergilere mahsup edilebilecek tutar, hiç bir surette yurt dışında elde edilen kazançlara Kanunun 32 nci maddesinde belirtilen kurumlar vergisi oranının uygulanmasıyla bulunacak tutardan fazla olamaz."
+   },
+   {
+    "mevzuat": "1 Seri No.lu Kurumlar Vergisi Genel Tebliği",
+    "madde": "bölüm 33.5",
+    "alinti": "Tam mükellef kurumların doğrudan veya dolaylı olarak sermayesi veya oy hakkının en az %25’ine sahip olduğu yurt dışı iştiraklerinden elde ettikleri kâr payları üzerinden Türkiye’de ödenecek kurumlar vergisinden, iştiraklerin bulunduğu ülkelerdeki kâr payı dağıtımına kaynak oluşturan kazançlar üzerinden ödenen gelir ve kurumlar vergisi benzeri vergilerin kâr payı tutarına isabet eden kısmı mahsup edilebilecektir. Kazanca ilave edilen kâr payı, bu kazançlar üzerinden yurt dışında ödenen gelir ve kurumlar vergisi benzeri vergiler dahil edilmek suretiyle dikkate alınacaktır."
+   },
+   {
+    "mevzuat": "1 Seri No.lu Kurumlar Vergisi Genel Tebliği",
+    "madde": "bölüm 33.3",
+    "alinti": "Diğer yandan, yurt dışında elde edilen kazançların kurumlar vergisinden istisna edilmiş olması halinde, bu kazançlar üzerinden yurt dışında ödenen vergilerin yurt içinde hesaplanan kurumlar vergisinden mahsup edilmesi mümkün değildir."
+   },
+   {
+    "mevzuat": "5520 sayılı Kurumlar Vergisi Kanunu",
+    "madde": "md. 5/1-(b), 32, 33/1, 33/3, 33/6, 33/7, 33/8"
+   }
+  ],
+  "dogrulama": {
+   "python": "sinir_sube = 2000000*25/100\nsube_mahsup = min(600000, sinir_sube)\nfark = 600000 - sube_mahsup\nnet = 2700000*40/100\nbrut = net/0.90\nv_vergi = brut*10/100\nv_mahsup = min(v_vergi, brut*25/100)\nmatrah = 7000000 + 2000000 + brut\nkv = matrah*25/100\nodenecek = kv - sube_mahsup - v_mahsup\nertelenen = 2000000*min(30, 25)/100\nsonuc = {'sube_sinir': sinir_sube, 'sube_mahsup': sube_mahsup, 'mahsup_edilemeyen': fark, 'brut_kar_payi': brut, 'v_mahsup': v_mahsup, 'matrah': matrah, 'kv': kv, 'odenecek': odenecek, 'ertelenen': ertelenen}"
+  },
+  "hakem_notu": "örneklem"
+ },
+ {
+  "id": "YMM-GUV-GVI-K007",
+  "ders": "GUV",
+  "konu": "GVI",
+  "puan": 21,
+  "soru": "**Olay:** Tam mükellef Esra Çelik'in 2026 yılında yıllık beyannameyle bildireceği gelirleri şunlardır:\n\n| Gelir | Tutar (TL) | Ek bilgi |\n|---|---|---|\n| Ticari kazanç (gerçek usul) | 1.500.000 | - |\n| Yerli Sanayi A.Ş.'den (tam mükellef) kâr payı | 400.000 | Dağıtım sırasında tevkif edilen vergi: 60.000 TL |\n| Weber GmbH'den (Almanya) kâr payı | 600.000 | Esra Hanım ödenmiş sermayenin %25'ine sahiptir; kâr payı beyanname verilmesi gereken tarihe kadar Türkiye'ye transfer edilmiştir |\n| Delta B.V.'den (Hollanda) kâr payı | 200.000 | Esra Hanım ödenmiş sermayenin %15'ine sahiptir; kâr payı süresinde Türkiye'ye transfer edilmiştir |\n\nHer iki yabancı kurum da kanunî ve iş merkezi Türkiye'de bulunmayan anonim/limited şirket niteliğindedir. Başka indirim ve gelir yoktur. 2026 yılı için GVK md. 22/4'teki ödenmiş sermaye oranı 29/4/2026 tarihli ve 11257 sayılı Cumhurbaşkanı Kararı ile belirlenmiştir. Tarife (2026): 1.000.000 TL'ye kadar 232.500 TL; fazlası %35 (5.300.000 TL'ye kadar).\n\n**İstenenler:**\n\n(a) Üç kâr payının istisna durumunu gerekçesiyle belirtiniz. (9 puan)\n\n(b) Gelir vergisi matrahını hesaplayınız. (4 puan)\n\n(c) Hesaplanan gelir vergisini ve tevkif edilen vergi mahsubundan sonra ödenecek vergiyi bulunuz. (4 puan)\n\n(d) Weber GmbH kâr payının beyanname verilmesi gereken tarihe kadar Türkiye'ye transfer edilmemiş olması hâlinde vergi farkını hesaplayınız. (4 puan)\n",
+  "cozum": "**(a) İstisna (GVK md. 22)**\n\n| Kâr payı | Dayanak | İstisna |\n|---|---|---|\n| Yerli Sanayi A.Ş. | Md. 22/3: tam mükellef kurumdan alınan kâr paylarının yarısı müstesna | 200.000 |\n| Weber GmbH | Md. 22/4 ve 11257 sayılı Karar: ödenmiş sermayenin en az %20'sine sahip olunması ve süresinde transfer; %25 ≥ %20 | Yarısı = 300.000 |\n| Delta B.V. | Pay %15 < %20 olduğundan md. 22/4 şartı sağlanmıyor | 0 |\n\n**(b) Matrah**\n\n1.500.000 + 200.000 + 300.000 + 200.000 = **2.200.000 TL**.\n\n**(c) Vergi**\n\n1.000.000 için 232.500 TL; 1.200.000 × %35 = 420.000 TL. Toplam **652.500 TL**.\nİstisna edilen tutar dahil kâr payı üzerinden tevkif edilen verginin tamamı (60.000 TL) mahsup edilir: ödenecek = 652.500 − 60.000 = **592.500 TL**.\n\n**(d)** Transfer şartı sağlanmazsa Weber GmbH kâr payının tamamı (600.000) vergiye tabi olur: matrah 2.500.000 TL; vergi = 232.500 + 1.500.000 × %35 = 757.500 TL. Fark = 757.500 − 652.500 = **105.000 TL** (300.000 × %35).\n\nPüf noktaları: (1) Yurt dışı kurumlarda istisna oranı yarıdır ve pay oranı eşiği 11257 sayılı Karar ile %20'dir (kanun metnindeki %50 değildir). (2) Transfer yıllık beyannamenin verilmesi gereken tarihe kadar yapılmalıdır. (3) Tevkifat istisna edilen kısım dahil tüm kâr payından yapılır ve tamamı mahsup edilir.\n",
+  "puanlama": [
+   {
+    "olcut": "(a) Üç kâr payı için istisna tutarı ve gerekçesi (3+4+2)",
+    "puan": 9
+   },
+   {
+    "olcut": "(b) Matrah 2.200.000 TL",
+    "puan": 4
+   },
+   {
+    "olcut": "(c) Vergi 652.500 TL ve mahsup sonrası 592.500 TL",
+    "puan": 4
+   },
+   {
+    "olcut": "(d) Transfer yapılmazsa 105.000 TL fark",
+    "puan": 4
+   }
+  ],
+  "kaynaklar": [
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 22/3",
+    "alinti": "Tam mükellef kurumlardan elde edilen, 75 inci maddenin ikinci fıkrasının (1), (2) ve (3) numaralı bentlerinde yazılı kâr paylarının yarısı gelir vergisinden müstesnadır. İstisna edilen tutar üzerinden 94 üncü madde uyarınca tevkifat yapılır ve tevkif edilen verginin tamamı, kâr payının yıllık beyanname ile beyan edilmesi durumunda yıllık beyanname üzerinden hesaplanan vergiden mahsup edilir."
+   },
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 22/4",
+    "alinti": "Kanuni ve iş merkezi Türkiye’de bulunmayan anonim ve limited şirket niteliğindeki kurumlardan elde edilen, 75 inci maddenin ikinci fıkrasının (1), (2) ve (3) numaralı bentlerinde yazılı kâr paylarının yarısı, bu kurumların ödenmiş sermayesinin en az %50’sine sahip olunması ve kâr payının elde edildiği takvim yılına ilişkin yıllık gelir vergisi beyannamesinin verilmesi gereken tarihe kadar Türkiye’ye transfer edilmesi şartıyla gelir vergisinden müstesnadır."
+   },
+   {
+    "mevzuat": "11257 sayılı Cumhurbaşkanı Kararı",
+    "madde": "md. 1/1",
+    "alinti": "31/12/1960 tarihli ve 193 sayılı Gelir Vergisi Kanununun 22 nci maddesinin dördüncü fıkrasında yer alan ödenmiş sermayeye sahip olma oranı, en az %20 olarak belirlenmiştir."
+   }
+  ],
+  "dogrulama": {
+   "python": "istisna = 400000 * 0.5 + 600000 * 0.5\nmatrah = 1500000 + 400000 + 600000 + 200000 - istisna\nvergi = 232500 + (matrah - 1000000) * 0.35\nodenecek = vergi - 60000\nmatrah2 = matrah + 300000\nfark = (232500 + (matrah2 - 1000000) * 0.35) - vergi\nsonuc = {\"b\": matrah, \"c\": [vergi, odenecek], \"d\": fark}\n"
+  },
+  "hakem_notu": "işaret: alıntı mülga/kaldırılmış madde yakınında (md. 22/3)"
+ },
+ {
+  "id": "YMM-GUV-GVI-K008",
+  "ders": "GUV",
+  "konu": "GVI",
+  "puan": 20,
+  "soru": "**Olay:** Tam mükellef beş gerçek kişinin 2026 yılı gelirleri aşağıdadır (başka geliri yoktur; ücretler tevkif suretiyle vergilendirilmiştir). Tarife (2026), ücret gelirleri için: 400.000 TL'ye kadar toplam vergi 70.500 TL; 1.500.000 TL'ye kadar 367.500 TL (fazlası %27 ile); 1.500.000–5.300.000 TL arası fazlası %35. Tarifenin ikinci gelir diliminde yer alan tutar 400.000 TL, dördüncü gelir diliminde yer alan tutar 5.300.000 TL, 86/1-d bendindeki sınır 22.000 TL'dir.\n\n| Kişi | Gelir |\n|---|---|\n| A | Tek işverenden 2.000.000 TL ücret (tamamı tevkifatlı) |\n| B | Birinci işverenden 1.800.000 TL, ikinci işverenden 350.000 TL ücret (ikisi de tevkifatlı) |\n| C | Birinci işverenden 1.800.000 TL, ikinci işverenden 450.000 TL ücret (ikisi de tevkifatlı) |\n| D | Stopaj (tevkifat) yapılmış işyeri kira geliri 350.000 TL ve stopajlı mevduat faizi 40.000 TL (gayrimenkul/menkul sermaye iradı; ücret geliri yok) |\n| E | Stopaj yapılmamış (tevkifat ve istisna uygulamasına konu olmayan) işyeri kira geliri 24.000 TL |\n\n**İstenenler:**\n\n(a) Her bir kişinin yıllık gelir vergisi beyannamesi verip vermeyeceğini GVK md. 86 hükmüne göre gerekçesiyle belirtiniz. (12 puan)\n\n(b) Beyanname verecek kişilerden C için ücret tarifesine göre hesaplanacak gelir vergisini bulunuz. (4 puan)\n\n(c) C'nin beyannamesi verildiğinde, E'nin beyan verme yükümlülüğünü etkileyen bir sonuç doğup doğmadığını açıklayınız (E, C ile aynı kişi değildir). (4 puan)\n",
+  "cozum": "**(a) Md. 86 değerlendirmesi**\n\n| Kişi | Bent | Sonuç |\n|---|---|---|\n| A | 86/1-b: tek işverenden alınmış, tevkif edilmiş ücret dördüncü gelir diliminde yer alan tutarı (5.300.000 TL) aşmıyor | Beyanname verilmez |\n| B | 86/1-b: birinciden sonraki işverenden alınan ücret (350.000) ikinci dilim tutarını (400.000) aşmıyor ve toplam ücret (2.150.000) 5.300.000 TL'yi aşmıyor | Beyanname verilmez |\n| C | İkinci işverenden alınan 450.000 TL, ikinci dilim tutarını (400.000 TL) aşıyor; 86/1-b şartı sağlanmıyor. Ücret dışında geliri yoksa (c) bendi de uygulanamaz (toplam gelir 400.000 TL'yi aşıyor) | Beyanname verilir |\n| D | 86/1-c: vergiye tabi gelir toplamı (390.000 TL) ikinci gelir diliminde yer alan tutarı (400.000 TL) aşmıyor ve gelirler Türkiye'de tevkifata tabi tutulmuş | Beyanname verilmez |\n| E | 86/1-d: tevkifata ve istisna uygulamasına konu olmayan menkul/gayrimenkul sermaye iratları toplamı 24.000 TL, 22.000 TL'yi aşıyor | Beyanname verilir |\n\n**(b) C'nin vergisi**\n\nToplam ücret = 1.800.000 + 450.000 = 2.250.000 TL. Vergi = 367.500 + (2.250.000 − 1.500.000) × %35 = 367.500 + 262.500 = **630.000 TL**.\n\n**(c)** Hayır. Her mükellefin beyanname yükümlülüğü kendi gelirlerine göre ayrıca değerlendirilir; C'nin beyanname vermesi E'nin yükümlülüğünü etkilemez. E, 22.000 TL sınırını aştığı için kendi başına beyanname verir.\n\nPüf noktaları: (1) İkinci ve sonraki işverenlerden alınan ücretlerde sınır tarifenin ikinci dilim tutarıdır (400.000 TL), ilk işverende dördüncü dilim tutarıdır (5.300.000 TL). (2) 22.000 TL sınırı yalnız tevkifata ve istisnaya konu olmayan sermaye iratları içindir. (3) Beyan durumları kişi bazında ayrı değerlendirilir.\n",
+  "puanlama": [
+   {
+    "olcut": "(a) Beş kişinin md. 86 bentleriyle doğru değerlendirilmesi (A:2, B:3, C:3, D:2, E:2)",
+    "puan": 12
+   },
+   {
+    "olcut": "(b) C'nin ücret vergisi 630.000 TL",
+    "puan": 4
+   },
+   {
+    "olcut": "(c) Kişi bazında bağımsız değerlendirme",
+    "puan": 4
+   }
+  ],
+  "kaynaklar": [
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 86/1-b",
+    "alinti": "Tek işverenden alınmış ve tevkif suretiyle vergilendirilmiş 103 üncü maddede yazılı tarifenin dördüncü gelir diliminde yer alan tutarı aşmayan ücretler (birden fazla işverenden ücret almakla beraber, birinciden sonraki işverenden aldıkları ücretlerinin toplamı, 103 üncü maddede yazılı tarifenin ikinci gelir diliminde yer alan tutarı ve birinci işverenden alınan dâhil ücret gelirleri toplamı 103 üncü maddede yazılı tarifenin dördüncü gelir diliminde yer alan tutarı aşmayan mükelleflerin, tamamı tevkif suretiyle vergilendirilmiş ücretleri dâhil),"
+   },
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 86/1-c",
+    "alinti": "Vergiye tâbi gelir toplamının [(a) ve (b) bentlerinde belirtilenler hariç] 103 üncü maddede yazılı tarifenin ikinci gelir diliminde yer alan tutarı aşmaması koşuluyla, Türkiye'de tevkifata tâbi tutulmuş olan; birden fazla işverenden elde edilen ücretler, menkul sermaye iratları ve gayrimenkul sermaye iratları,"
+   },
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 86/1-d",
+    "alinti": "Bir takvim yılı içinde elde edilen ve toplamı 600 milyon lirayı (22.000 TL) aşmayan, tevkifata ve istisna uygulamasına konu olmayan menkul ve gayrimenkul sermaye iratları."
+   }
+  ],
+  "dogrulama": {
+   "python": "c_ucret = 1800000 + 450000\nc_vergi = 367500 + (c_ucret - 1500000) * 0.35\nsonuc = {\"a\": {\"A\": False, \"B\": False, \"C\": True, \"D\": False, \"E\": True}, \"b\": c_vergi}\n"
+  },
+  "hakem_notu": "işaret: alıntı mülga/kaldırılmış madde yakınında (md. 86/1-c)"
+ },
+ {
+  "id": "YMM-GUV-GVI-K009",
+  "ders": "GUV",
+  "konu": "GVI",
+  "puan": 25,
+  "soru": "Mimar Ayşe Kaya (doğum tarihi: 3/8/1998) tam mükellef gerçek kişidir. Ayşe Hanım, 2 Şubat 2026 tarihinde serbest mimarlık faaliyetine başlamış, işe başlamayı kanuni süresi içinde bildirmiş ve daha önce adına hiçbir ticari, zirai veya mesleki faaliyet nedeniyle gelir vergisi mükellefiyeti tesis edilmemiştir. Faaliyeti tek başına yürütmekte, bir yardımcı eleman çalıştırmaktadır; Haziran 2026'da geçirdiği bir ameliyat nedeniyle üç hafta işinden geçici olarak ayrılmıştır. Faaliyeti herhangi bir yakınından devralmamış, mevcut bir mimarlık ofisine de sonradan ortak olmamıştır. Serbest meslek kazanç defteri tutmakta olup başka geliri yoktur.\n\n2026 yılına ilişkin bilgiler şöyledir (KDV dikkate alınmayacaktır):\n\n| Kalem | Tutar (TL) |\n|---|---|\n| Kurumlardan tahsil edilen brüt serbest meslek hasılatı (ödeme sırasında %20 oranında gelir vergisi tevkifatı yapılmıştır) | 1.500.000 |\n| Gerçek kişi müşterilerden tahsil edilen hasılat (tevkifat yapılmamıştır) | 300.000 |\n| Belgelenmiş, indirilecek giderler toplamı | 800.000 |\n\nGVK md. 103 tarifesinin 2026 yılı için ikinci gelir diliminde yer alan tutar 400.000 TL'dir. 2026 yılı gelir vergisi tarifesi (ücret dışı gelirler; GVK md. 103, Gelir Vergisi Genel Tebliği Seri No: 332):\n\n| Gelir dilimi | Vergi |\n|---|---|\n| 190.000 TL'ye kadar | %15 |\n| 400.000 TL'ye kadar | 190.000 TL için 28.500 TL, fazlası %20 |\n| 1.000.000 TL'ye kadar | 400.000 TL için 70.500 TL, fazlası %27 |\n| 5.300.000 TL'ye kadar | 1.000.000 TL için 232.500 TL, fazlası %35 |\n| 5.300.000 TL'den fazlası | 5.300.000 TL için 1.737.500 TL, fazlası %40 |\n\n**İstenenler:**\n\n(a) GVK mükerrer md. 20'deki genç girişimci istisnasının şartlarını belirterek Ayşe Hanım'ın bu istisnadan yararlanıp yararlanamayacağını gerekçesiyle açıklayınız; yardımcı eleman çalıştırmasının ve ameliyat nedeniyle işinden ayrılmasının sonuca etkisini belirtiniz. (6 puan)\n\n(b) 2026 yılı safi serbest meslek kazancını, istisna tutarını, gelir vergisi matrahını ve hesaplanan gelir vergisini bulunuz. (7 puan)\n\n(c) Tevkif edilen verginin istisna karşısındaki durumunu açıklayınız; mahsuptan sonra Ayşe Hanım'ın ödeyeceği veya iade alacağı tutarı ve iade için gereken işlemi belirtiniz. (7 puan)\n\n(d) Ayşe Hanım'ın istisnadan hangi vergilendirme dönemleri için yararlanabileceğini, 2026 yılı yıllık beyannamesini verme süresini ve istisna kapsamındaki faaliyetten ileride hiç kazanç elde etmemesi hâlinde yıllık beyanname verip vermeyeceğini açıklayınız. (5 puan)\n",
+  "cozum": "**(a) İstisnanın şartları (GVK mükerrer md. 20)**\n\nİstisna; ticari, zirai veya mesleki faaliyeti nedeniyle adına ilk defa gelir vergisi mükellefiyeti tesis olunan ve mükellefiyet başlangıç tarihi itibarıyla yirmi dokuz yaşını doldurmamış tam mükellef gerçek kişilere tanınır. Ayrıca: (1) işe başlamanın kanuni süresi içinde bildirilmesi, (2) kendi işinde bilfiil çalışılması veya işin kendisi tarafından sevk ve idare edilmesi, (3) adi ortaklık/şahıs şirketinde tüm ortakların şartları taşıması, (4) ölüm nedeniyle eş ve çocuklar tarafından devralma hariç, faaliyetin eş veya üçüncü dereceye kadar kan veya kayın hısımlarından devralınmamış olması, (5) mevcut bir işletmeye veya mesleki faaliyete sonradan ortak olunmaması aranır.\n\nAyşe Hanım 2/2/2026 tarihinde 27 yaşındadır (29 yaşını doldurmamıştır); ilk defa mükellefiyet tesis ettirmiş, işe başlamayı süresinde bildirmiş, faaliyeti devralmamış ve sonradan ortak olmamıştır. Çırak, kalfa veya yardımcı işçi çalıştırmak ya da hastalık gibi zaruri ayrılmalar nedeniyle geçici olarak işinde bilfiil çalışmamak bilfiil çalışma şartını bozmaz. Bu nedenle **istisnadan yararlanır**.\n\n**(b) Vergi hesabı**\n\n| Kalem | TL |\n|---|---|\n| Brüt hasılat (1.500.000 + 300.000) | 1.800.000 |\n| − Giderler | 800.000 |\n| = Safi serbest meslek kazancı | **1.000.000** |\n| − Genç girişimci istisnası (ikinci gelir dilimi tutarı) | **400.000** |\n| = Gelir vergisi matrahı | **600.000** |\n\nVergi: ilk 400.000 TL için 70.500 TL; kalan 200.000 TL × %27 = 54.000 TL. Hesaplanan gelir vergisi = 70.500 + 54.000 = **124.500 TL**.\n\n**(c) Tevkifat ve mahsup**\n\nİstisnanın GVK md. 94 uyarınca tevkif suretiyle ödenecek vergiye şümulü yoktur; bu nedenle kurumlar, ödemeleri üzerinden %20 tevkifat yapmak zorundadır: 1.500.000 × %20 = **300.000 TL**. Gerçek kişi müşterilerden tevkifat yapılmamıştır. Md. 121 uyarınca yıllık beyannamede gösterilen gelire dahil kazançtan kesilen vergiler hesaplanan gelir vergisine mahsup edilir: 124.500 − 300.000 = −175.500. Mahsup edilen tutar hesaplanan vergiden fazla olduğundan fark (**175.500 TL**) vergi dairesince mükellefe bildirilir ve mükellef tebliğ tarihinden itibaren bir yıl içinde başvurursa ret ve iade olunur. Ayşe Hanım'ın ödeyeceği vergi yoktur; iade alacağı vardır.\n\n**(d) Süre ve beyan**\n\nİstisna, faaliyete başlanılan takvim yılından itibaren üç vergilendirme dönemi için uygulanır: **2026, 2027 ve 2028**. 2026 yılına ait yıllık beyanname, izleyen yılın Mart ayının başından yirmibeşinci günü akşamına kadar (**1–25 Mart 2027**) verilir (md. 92). İstisna kapsamındaki faaliyetten kazanç elde edilmemesi veya istisna haddinin altında kazanç elde edilmesi hâllerinde dahi yıllık beyanname verilir; ayrıca serbest meslek erbabı kazanç temin etmemiş olsa bile yıllık beyanname verir (md. 85).\n",
+  "puanlama": [
+   {
+    "olcut": "Genç girişimci istisnasının yaş, ilk mükellefiyet, bildirim, bilfiil çalışma, devralma ve ortaklık şartlarının sayılması",
+    "puan": 3
+   },
+   {
+    "olcut": "Ayşe Hanım'ın şartları taşıdığının; yardımcı eleman ve geçici ayrılmanın şartı bozmadığının gerekçelendirilmesi",
+    "puan": 3
+   },
+   {
+    "olcut": "Safi kazancın 1.000.000 TL ve istisna tutarının 400.000 TL bulunması",
+    "puan": 3
+   },
+   {
+    "olcut": "Matrahın 600.000 TL ve hesaplanan verginin 124.500 TL bulunması",
+    "puan": 4
+   },
+   {
+    "olcut": "İstisnanın tevkifata şümulü olmadığının ve tevkifatın 300.000 TL olduğunun belirtilmesi",
+    "puan": 3
+   },
+   {
+    "olcut": "Mahsup sonucu 175.500 TL fazlanın tespiti ve iadenin bir yıl içinde başvuruya bağlı olduğunun belirtilmesi",
+    "puan": 4
+   },
+   {
+    "olcut": "İstisnanın 2026, 2027 ve 2028 dönemleri için uygulanacağının belirtilmesi",
+    "puan": 2
+   },
+   {
+    "olcut": "Beyanname süresinin 1–25 Mart 2027 olduğunun ve kazanç elde edilmese de beyan verileceğinin belirtilmesi",
+    "puan": 3
+   }
+  ],
+  "kaynaklar": [
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "mükerrer md. 20/1",
+    "alinti": "Ticari, zirai veya mesleki faaliyeti nedeniyle adlarına ilk defa gelir vergisi mükellefiyeti tesis olunan ve mükellefiyet başlangıç tarihi itibarıyla yirmi dokuz yaşını doldurmamış tam mükellef gerçek kişilerin, faaliyete başladıkları takvim yılından itibaren üç vergilendirme dönemi boyunca elde ettikleri bu kazançlarının 103 üncü maddede yazılı tarifenin ikinci diliminde yer alan tutara kadar olan kısmı, aşağıdaki şartlarla gelir vergisinden müstesnadır"
+   },
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "mükerrer md. 20, son fıkralar",
+    "alinti": "İstisna kapsamındaki faaliyetlerden kazanç elde edilmemesi veya istisna haddinin altında kazanç elde edilmesi hâllerinde dahi yıllık beyanname verilir."
+   },
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "mükerrer md. 20, tevkifat",
+    "alinti": "Bu istisnanın, bu Kanunun 94 üncü maddesi uyarınca tevkif suretiyle ödenecek vergiye şümulü yoktur."
+   }
+  ],
+  "dogrulama": {
+   "python": "hasilat = 1500000 + 300000\nsafi = hasilat - 800000\nistisna = min(safi, 400000)\nmatrah = safi - istisna\nvergi = 190000*0.15 + (400000-190000)*0.20 + (matrah-400000)*0.27\ntevkifat = 1500000*0.20\niade = tevkifat - vergi\nsonuc = {'safi': safi, 'istisna': istisna, 'matrah': matrah, 'vergi': round(vergi), 'tevkifat': round(tevkifat), 'iade': round(iade)}\n"
+  },
+  "hakem_notu": "işaret: alıntı mülga/kaldırılmış madde yakınında (mükerrer md. 20/1)"
+ },
+ {
+  "id": "YMM-GUV-GVM-K009",
+  "ders": "GUV",
+  "konu": "GVM",
+  "puan": 20,
+  "soru": "**Olay:** Tam mükellef Hande Yurt, 2026 yılında İzmir'de sahibi olduğu iki konutu mesken olarak kiraya vermiş; ayrıca tek işverenden ücret almıştır. Hande Hanım'ın başka geliri yoktur.\n\n| Kalem | Tutar (TL) |\n|---|---|\n| Konutlardan 2026'da tahsil edilen kira (hasılat) | 400.000 |\n| Emlak vergisi (kiraya veren tarafından ödenen) | 14.000 |\n| Konut sigortası primi | 6.000 |\n| Onarım gideri | 40.000 |\n| Vergi Usul Kanunu'na göre ayrılan amortisman | 60.000 |\n| Ücret geliri (brüt, 2026) | 900.000 |\n\nEk bilgiler: Gerçek gider usulü uygulanacak, kiralanan konutlar için iktisap faizi yoktur. Mesken kira istisnası tutarı 2026 yılı için 58.000 TL, tarifenin üçüncü diliminde ücret gelirleri için yer alan tutar 1.500.000 TL'dir.\n\n**İstenenler:**\n\n(a) Hande Hanım'ın 2026 yılı mesken kira istisnasından yararlanıp yararlanamayacağını gerekçesiyle belirtiniz. (4 puan)\n\n(b) İstisna uygulandığında gerçek gider usulüne göre beyan edilecek gayrimenkul sermaye iradı safi tutarını hesaplayınız. (6 puan)\n\n(c) Ücret geliri 1.200.000 TL olsaydı istisna yönünden sonucun ne olacağını açıklayınız. (4 puan)\n\n(d) (c) şıkkındaki varsayımda gerçek gider ve götürü gider usulüne göre safi iratları hesaplayınız; hangi usulün seçilmesinin mükellef lehine olduğunu ve götürü gider usulünü seçenlerin bağlılık süresini belirtiniz. (6 puan)\n",
+  "cozum": "**(a) İstisna şartı**\n\nGVK md. 21 uyarınca mesken kira hasılatının 58.000 TL'si gelir vergisinden müstesnadır. Ancak ücret, menkul ve gayrimenkul sermaye iradı ile diğer kazanç ve iratların gayri safi tutarları toplamı tarifenin üçüncü diliminde ücret gelirleri için yer alan tutarı (1.500.000 TL) aşarsa istisnadan yararlanılamaz.\n\n| Kalem | Tutar |\n|---|---|\n| Ücret (brüt) | 900.000 |\n| Kira (brüt) | 400.000 |\n| Toplam | 1.300.000 |\n\n1.300.000 TL, 1.500.000 TL'yi aşmadığından istisnadan yararlanılır. Kira hasılatının 400.000 TL'si beyan edilmelidir; eksik beyan hâlinde istisna kaybedilir.\n\n**(b) Safi irat (gerçek gider)**\n\nMd. 74'e göre istisna edilen hasılata isabet eden giderler indirilemez; giderler hasılatın istisnasız kalan kısmı oranında indirilir.\n\n- Toplam gider = 14.000 + 6.000 + 40.000 + 60.000 = 120.000 TL\n- İstisna sonrası hasılat = 400.000 − 58.000 = 342.000 TL\n- İndirilecek gider = 120.000 × 342.000 / 400.000 = 102.600 TL\n- Safi irat = 342.000 − 102.600 = **239.400 TL**\n\n**(c) Ücret 1.200.000 TL ise**\n\nBrüt toplam 1.200.000 + 400.000 = 1.600.000 TL olur ve 1.500.000 TL'yi aştığından istisnadan hiç yararlanılamaz. Kira hasılatının tamamı (400.000 TL) vergiye tabidir.\n\n**(d) Usul karşılaştırması**\n\n| Usul | Hesap | Safi irat |\n|---|---|---|\n| Gerçek gider | 400.000 − 120.000 | 280.000 |\n| Götürü gider | 400.000 × %85 | 340.000 |\n\nGerçek gider usulü daha düşük safi irat verdiğinden mükellef lehinedir (280.000 TL). Götürü gider usulünü kabul edenler iki yıl geçmedikçe bu usulden dönemezler.\n\nPüf noktaları: (1) İstisna sınırı yalnız kira hasılatına değil, ücret + sermaye iradı + diğer kazanç toplamına bakar. (2) İstisna uygulanırsa o hasılata isabet eden giderler de indirilmez. (3) Götürü giderin %15 olduğunu, bağlılık süresinin iki yıl olduğunu unutmayın.\n",
+  "puanlama": [
+   {
+    "olcut": "(a) Toplam gayri safi tutarın 1.500.000 TL sınırıyla karşılaştırılması ve sonuç",
+    "puan": 4
+   },
+   {
+    "olcut": "(b) İstisna sonrası hasılat, orantılı gider ve safi irat 239.400 TL",
+    "puan": 6
+   },
+   {
+    "olcut": "(c) Toplamın 1.600.000 TL olması ve istisnanın tamamen kaybı",
+    "puan": 4
+   },
+   {
+    "olcut": "(d) Gerçek gider 280.000 TL, götürü 340.000 TL, seçim ve iki yıl bağlılık",
+    "puan": 6
+   }
+  ],
+  "kaynaklar": [
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 21/1",
+    "alinti": "Binaların mesken olarak kiraya verilmesinden bir takvim yılı içinde elde edilen hasılatın 1.500.000.000 lirası (58.000 TL) Gelir Vergisinden müstesnadır. İstisna haddi üzerinde hasılat elde edilip beyan edilmemesi veya eksik beyan edilmesi halinde, bu istisnadan yararlanılamaz."
+   },
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 21/2",
+    "alinti": "bakılmaksızın ayrı ayrı veya birlikte elde ettiği ücret, menkul sermaye iradı, gayrimenkul sermaye iradı ile diğer kazanç ve iratlarının gayri safi tutarları toplamı 103 üncü maddede yazılı tarifenin üçüncü diliminde ücret gelirleri için yer alan tutarı aşanlar bu istisnadan faydalanmazlar."
+   },
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 74/1",
+    "alinti": "Safi iradın bulunması için, 21 inci maddeye göre istisna edilen gayrisafi hasılata isabet edenler hariç olmak üzere gayrisafi hasılattan aşağıda yazılı giderler indirilir."
+   },
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 74 son",
+    "alinti": "Mükellefler (hakları kiraya verenler hariç) diledikleri takdirde yukarıda yazılı giderlere karşılık olmak üzere hasılatlarından % 15'ini götürü olarak indirebilirler. Götürü gider usulünü kabul edenler iki yıl geçmedikçe bu usulden dönemezler."
+   }
+  ],
+  "dogrulama": {
+   "python": "gid = 14000 + 6000 + 40000 + 60000\nhas = 400000\nkal = has - 58000\nb = kal - gid * kal / has\ngercek = has - gid\ngoturu = has * 0.85\nsonuc = {\"a\": 900000 + 400000, \"b\": b, \"c\": 1200000 + 400000, \"d_gercek\": gercek, \"d_goturu\": goturu}\n"
+  },
+  "hakem_notu": "işaret: alıntı mülga/kaldırılmış madde yakınında (md. 21/1); alıntı mülga/kaldırılmış madde yakınında (md. 74 son)"
+ },
+ {
+  "id": "YMM-GUV-GVM-K017",
+  "ders": "GUV",
+  "konu": "GVM",
+  "puan": 25,
+  "soru": "Türkiye'de yerleşik iki gerçek kişinin 2026 yılına ilişkin gelirleri aşağıdadır. Kişilerin ticari, zirai veya mesleki kazancı yoktur; gelir vergisinden indirilecek başka bir harcama ve indirimleri bulunmamaktadır.\n\n**1. Sevgi Karaca**\n\n| Gelir | Tutar (TL) | Tevkifat durumu |\n|---|---|---|\n| Tek işverenden elde ettiği ücret (gerçek safi tutar) | 1.100.000 | Gelir vergisi tevkif edilmiştir |\n| Tam mükellef (K) A.Ş.'den elde ettiği kâr payı (brüt) | 1.000.000 | %15 tevkifat yapılmıştır |\n| Bankadan elde ettiği mevduat faizi (brüt) | 200.000 | %15 tevkifat yapılmıştır |\n| Devlet tahvili faizi | 120.000 | %0 tevkifat uygulanmıştır |\n| Gerçek kişi borçludan tahsil ettiği alacak faizi | 40.000 | Tevkifat yapılmamıştır |\n\nSevgi Hanım Devlet tahvilleri için 6.000 TL saklama (muhafaza) ücreti ödemiş; ayrıca (K) A.Ş.'nin genel kuruluna katılmak için 8.000 TL yol ve konaklama gideri yapmıştır.\n\n**2. Tarık Güneş**\n\n| Gelir | Tutar (TL) |\n|---|---|\n| 1. işverenden ücret (gerçek safi tutar) | 1.700.000 |\n| 2. işverenden ücret (gerçek safi tutar) | 450.000 |\n\nHer iki ücret de tevkif suretiyle vergilendirilmiş olup 2026 yılında toplam 560.000 TL gelir vergisi tevkif edilmiştir. Tarık Bey'in başka geliri yoktur.\n\n**Veriler:** 2009/14592 sayılı Bakanlar Kurulu Kararı'na göre tam mükellef kurumlarca tam mükellef gerçek kişilere dağıtılan kâr paylarında ve mevduat faizlerinde tevkifat oranı %15, Devlet tahvili faizlerinde %0'dır. 2026 tarifesinde ikinci gelir diliminin üst sınırı 400.000 TL, dördüncü gelir diliminin üst sınırı 5.300.000 TL'dir.\n\n2026 yılı gelir vergisi tarifesi (ücret dışı gelirler): 190.000 TL'ye kadar %15; 400.000 TL'nin 190.000 TL'si için 28.500 TL, fazlası %20; 1.000.000 TL'nin 400.000 TL'si için 70.500 TL, fazlası %27; 5.300.000 TL'nin 1.000.000 TL'si için 232.500 TL, fazlası %35; 5.300.000 TL'den fazlasının 5.300.000 TL'si için 1.737.500 TL, fazlası %40. Ücret gelirlerine uygulanacak tarifede ise 400.000 TL'nin üzerindeki kısım 1.500.000 TL'ye kadar %27 oranına tabidir; 1.500.000 TL için vergi 367.500 TL'dir ve bu tutarın üzerindeki kısım 5.300.000 TL'ye kadar %35 oranında vergilendirilir.\n\n**İstenenler:**\n\n(a) Sevgi Karaca'nın yıllık gelir vergisi beyannamesi verip vermeyeceğini, hangi gelirlerinin beyannameye dahil edileceğini GVK md. 86 hükümlerine göre gerekçesiyle belirtiniz. (7 puan)\n\n(b) Sevgi Karaca'nın beyannamesine dahil edilecek menkul sermaye iradı toplamını, hesaplanan gelir vergisini, mahsup edilecek tevkifatı ve ödenecek (veya iade edilecek) vergiyi bulunuz. (11 puan)\n\n(c) Tarık Güneş'in yıllık beyanname verme yükümlülüğünü gerekçesiyle belirtiniz; beyanname verecekse hesaplanan gelir vergisini ve ödenecek (iade edilecek) vergiyi bulunuz. (7 puan)\n",
+  "cozum": "**(a) Sevgi Karaca'nın beyan yükümlülüğü (GVK md. 86/1)**\n\n| Gelir | Değerlendirme |\n|---|---|\n| Ücret 1.100.000 TL | Tek işverenden alınmış, tevkifatla vergilendirilmiş ve tutar dördüncü gelir diliminin üst sınırını (5.300.000 TL) aşmadığı için beyan dışıdır (md. 86/1-b); beyanname verilse bile dahil edilmez. |\n| Kâr payı, mevduat faizi, Devlet tahvili faizi | Tevkifata tabi menkul sermaye iratları ancak vergiye tabi gelir toplamı (ücret hariç) ikinci gelir diliminin üst sınırı olan 400.000 TL'yi aşmıyorsa beyan dışı kalır (md. 86/1-c). Vergiye tabi gelir toplamı 854.000 TL olup 400.000 TL'yi aştığından bu iratlar beyannameye dahil edilir. |\n| Alacak faizi 40.000 TL | Tevkifata ve istisnaya konu olmayan menkul sermaye iratlarının toplamı 22.000 TL'yi aştığı için (40.000 > 22.000) beyan dışı değildir (md. 86/1-d). |\n\nSonuç: Sevgi Karaca yıllık beyanname verir; beyannameye kâr payı, mevduat faizi, Devlet tahvili faizi ve alacak faizi dahil edilir, ücret dahil edilmez.\n\n**(b) Hesaplama**\n\nKâr payının yarısı gelir vergisinden müstesnadır (md. 22/3): 1.000.000 × %50 = 500.000 TL istisna; vergiye tabi kısım 500.000 TL.\n\nSafi irat hesabında depo etme/muhafaza (saklama) ücretleri indirilir (md. 78/1); şirket toplantılarına katılma gibi sermayenin idaresi için yapılan giderler indirilmez (md. 78/2). Dolayısıyla 6.000 TL saklama ücreti Devlet tahvili faizinden indirilir, 8.000 TL genel kurul gideri indirilmez.\n\n| Kalem | TL |\n|---|---|\n| Kâr payı (1.000.000 − 500.000 istisna) | 500.000 |\n| Mevduat faizi | 200.000 |\n| Devlet tahvili faizi (120.000 − 6.000) | 114.000 |\n| Alacak faizi | 40.000 |\n| **Menkul sermaye iradı / vergiye tabi gelir** | **854.000** |\n\nGelir vergisi: 70.500 + (854.000 − 400.000) × %27 = 70.500 + 122.580 = **193.080 TL**.\n\nMahsup edilecek tevkifat (md. 121 ve md. 22/3): kâr payı 1.000.000 × %15 = 150.000 (tamamı, istisna edilen kısım dahil); mevduat faizi 200.000 × %15 = 30.000; Devlet tahvili %0. Toplam **180.000 TL**.\n\nÖdenecek gelir vergisi: 193.080 − 180.000 = **13.080 TL**.\n\n**(c) Tarık Güneş**\n\nBirden fazla işverenden ücret alanlarda, birinciden sonraki işverenlerden alınan ücretlerin toplamı ikinci gelir diliminin üst sınırını (400.000 TL) ve birinci işverenden alınanla birlikte toplam ücret dördüncü dilimin üst sınırını (5.300.000 TL) aşmıyorsa tamamı tevkifatla vergilendirilmiş ücretler beyan dışıdır (md. 86/1-b). Tarık Bey'in 2. işverenden aldığı ücret 450.000 TL olup 400.000 TL'yi aştığından beyanname vermek zorundadır ve her iki işverenden alınan ücretin tamamı (1.700.000 + 450.000 = 2.150.000 TL) beyannameye dahil edilir.\n\nÜcret tarifesine göre vergi: 367.500 + (2.150.000 − 1.500.000) × %35 = 367.500 + 227.500 = **595.000 TL**.\n\nMahsup edilecek tevkif edilmiş vergi 560.000 TL olduğundan ödenecek vergi: 595.000 − 560.000 = **35.000 TL**.\n",
+  "puanlama": [
+   {
+    "olcut": "Ücretin md. 86/1-b kapsamında beyan dışı olduğunun gösterilmesi",
+    "puan": 2
+   },
+   {
+    "olcut": "Tevkifatlı iratlar için 400.000 TL eşiğinin aşılması (md. 86/1-c) ve alacak faizi için 22.000 TL sınırı (md. 86/1-d) gerekçeleri",
+    "puan": 5
+   },
+   {
+    "olcut": "Kâr payı yarısı istisnasının (md. 22/3) uygulanması",
+    "puan": 2
+   },
+   {
+    "olcut": "Saklama ücretinin indirilmesi, genel kurul giderinin indirilememesi (md. 78) ve menkul sermaye iradı toplamı 854.000 TL",
+    "puan": 3
+   },
+   {
+    "olcut": "Gelir vergisinin tarifeye göre doğru hesabı (193.080 TL)",
+    "puan": 2
+   },
+   {
+    "olcut": "Tevkifatın brüt kâr payı üzerinden tamamen mahsubu ve ödenecek vergi (13.080 TL)",
+    "puan": 4
+   },
+   {
+    "olcut": "Tarık Güneş için ikinci işveren ücretinin 400.000 TL sınırını aşması nedeniyle beyan zorunluluğu ve tüm ücretin dahil edilmesi",
+    "puan": 3
+   },
+   {
+    "olcut": "Ücret tarifesiyle vergi (595.000 TL) ve ödenecek vergi (35.000 TL)",
+    "puan": 4
+   }
+  ],
+  "kaynaklar": [
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 22/3 (kâr payı istisnası ve tevkifat mahsubu)",
+    "alinti": "3. Tam mükellef kurumlardan elde edilen, 75 inci maddenin ikinci fıkrasının (1), (2) ve (3) numaralı bentlerinde yazılı kâr paylarının yarısı gelir vergisinden müstesnadır. İstisna edilen tutar üzerinden 94 üncü madde uyarınca tevkifat yapılır ve tevkif edilen verginin tamamı, kâr payının yıllık beyanname ile beyan edilmesi durumunda yıllık beyanname üzerinden hesaplanan vergiden mahsup edilir."
+   },
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 86/1-b (ücretlerde beyan dışı haller)",
+    "alinti": "b) (Değişik:5/12/2019-7194/15 md.) Tek işverenden alınmış ve tevkif suretiyle vergilendirilmiş 103 üncü maddede yazılı tarifenin dördüncü gelir diliminde yer alan tutarı aşmayan ücretler (birden fazla işverenden ücret almakla beraber, birinciden sonraki işverenden aldıkları ücretlerinin toplamı, 103 üncü maddede yazılı tarifenin ikinci gelir diliminde yer alan tutarı ve birinci işverenden alınan dâhil ücret gelirleri toplamı 103 üncü maddede yazılı tarifenin dördüncü gelir diliminde yer alan tutarı aşmayan mükelleflerin, tamamı tevkif suretiyle vergilendirilmiş ücretleri dâhil),"
+   },
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 86/1-c ve d (tevkifatlı iratlar ve 22.000 TL sınırı)",
+    "alinti": "c) Vergiye tâbi gelir toplamının [(a) ve (b) bentlerinde belirtilenler hariç] 103 üncü maddede yazılı tarifenin ikinci gelir diliminde yer alan tutarı aşmaması koşuluyla, Türkiye'de tevkifata tâbi tutulmuş olan; birden fazla işverenden elde edilen ücretler, menkul sermaye iratları ve gayrimenkul sermaye iratları, d) Bir takvim yılı içinde elde edilen ve toplamı 600 milyon lirayı (22.000 TL) aşmayan, tevkifata ve istisna uygulamasına konu olmayan menkul ve gayrimenkul sermaye iratları."
+   },
+   {
+    "mevzuat": "193 sayılı Gelir Vergisi Kanunu",
+    "madde": "md. 78 (safi irat); md. 121 (tevkifat mahsubu); md. 103 (tarife)"
+   },
+   {
+    "mevzuat": "2009/14592 sayılı Bakanlar Kurulu Kararı",
+    "madde": "md. 1/6-a, 7-a ve 8 (tevkifat oranları)"
+   },
+   {
+    "mevzuat": "Gelir Vergisi Genel Tebliği (Seri No: 332)",
+    "madde": "md. 3/3 (2026 tarifesi); md. 3/2-i (22.000 TL)"
+   }
+  ],
+  "dogrulama": {
+   "python": "kar_payi = 1000000 * 0.5\nmevduat = 200000\ntahvil = 120000 - 6000\nalacak = 40000\ntoplam = kar_payi + mevduat + tahvil + alacak\nvergi = 70500 + (toplam - 400000) * 0.27\nmahsup = 1000000 * 0.15 + 200000 * 0.15\nodenecek = vergi - mahsup\nucret = 1700000 + 450000\ntvergi = 367500 + (ucret - 1500000) * 0.35\ntodenecek = tvergi - 560000\nsonuc = {\"b_istisna\": 1000000 * 0.5, \"b_toplam\": toplam, \"b_vergi\": round(vergi, 2), \"b_mahsup\": mahsup, \"b_odenecek\": round(odenecek, 2), \"c_ucret\": ucret, \"c_vergi\": round(tvergi, 2), \"c_odenecek\": round(todenecek, 2)}\n"
+  },
+  "hakem_notu": "işaret: alıntı mülga/kaldırılmış madde yakınında (md. 22/3 (kâr payı istisnası ve tevkifat mahsubu)); alıntı mülga/kaldırılmış madde yakınında (md. 86/1-c ve d (tevkifatlı iratlar ve 22.000 TL sınırı))"
+ }
+]

@@ -20,13 +20,16 @@ def sorular(durumlar):
                 yield s
 
 
+TAHMIN = 700
+
+
 def sor(model, s):
     siklar = "\n".join(f"{h}) {v}" for h, v in s["secenekler"].items())
     istem = ("Aşağıdaki Yeminli Mali Müşavirlik (YMM) sınavı sorusunu Türkiye mevzuatına göre çöz. "
              "Önce kısaca düşün, en sonda yalnızca 'CEVAP: <harf>' yaz.\n\n"
              f"SORU:\n{s['kok']}\n\nŞIKLAR:\n{siklar}\n")
     veri = json.dumps({"model": model, "prompt": istem, "stream": False, "think": False,
-                       "options": {"temperature": 0, "num_ctx": 4096, "num_predict": 700}}).encode()
+                       "options": {"temperature": 0, "num_ctx": 4096, "num_predict": TAHMIN}}).encode()
     t = time.time()
     yanit = json.loads(urllib.request.urlopen(urllib.request.Request(
         "http://127.0.0.1:11434/api/generate", data=veri, headers={"Content-Type": "application/json"}), timeout=600).read())
@@ -42,6 +45,13 @@ def main():
         havuz = list(sorular({"kontrolde", "onayli", "yayinda"}))
         random.Random(7).shuffle(havuz)
         liste, dosya = havuz[:adet], CIKTI / f"kalibrasyon_{model.replace(':', '_').replace('/', '_')}.jsonl"
+    elif mod == "tekrar":  # cevapsız kalanları ('?') daha uzun çıktı sınırıyla yeniden çözer
+        global TAHMIN
+        TAHMIN = 1800
+        ana = CIKTI / f"kor_{model.replace(':', '_').replace('/', '_')}.jsonl"
+        bos = {json.loads(l)["id"] for l in ana.read_text(encoding="utf-8").splitlines() if l.strip() and json.loads(l)["model"] == "?"}
+        liste = [s for s in sorular({"taslak"}) if s["id"] in bos]
+        dosya = CIKTI / f"kor_{model.replace(':', '_').replace('/', '_')}_tekrar.jsonl"
     else:
         liste, dosya = list(sorular({"taslak"})), CIKTI / f"kor_{model.replace(':', '_').replace('/', '_')}.jsonl"
     bitti = set()

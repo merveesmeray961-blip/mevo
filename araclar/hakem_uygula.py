@@ -22,11 +22,13 @@ for p in sorted((H / "sonuc").glob("sonuc_*.json")):
     for r in json.loads(p.read_text(encoding="utf-8")):
         sonuc[r["id"]] = r
 kor = {}
-kp = H / "kor_gemma4_12b.jsonl"
-if kp.exists():
-    for l in kp.read_text(encoding="utf-8").splitlines():
-        if l.strip():
-            k = json.loads(l); kor[k["id"]] = k
+for kp in (H / "kor_gemma4_12b.jsonl", H / "kor_gemma4_12b_tekrar.jsonl"):  # tekrar, öncekini ezer
+    if kp.exists():
+        for l in kp.read_text(encoding="utf-8").splitlines():
+            if l.strip():
+                k = json.loads(l)
+                if k["model"] != "?" or k["id"] not in kor:
+                    kor[k["id"]] = k
 
 # Ders bazında örneklem kusur oranı (yalnız rastgele örneklem; işaretliler yanlı olduğu için hariç).
 oran = {}
@@ -44,6 +46,9 @@ def uygula(s, r, tur):
     hatalar = []
     for d in r.get("degisiklikler") or []:
         alan, eski, yeni = d["alan"], d.get("eski", ""), d.get("yeni", "")
+        hedef_metin = json.dumps(s["secenekler"].get(alan[-1]) if alan.startswith("secenek_") else s.get(alan), ensure_ascii=False)
+        if yeni and yeni in hedef_metin and eski not in hedef_metin:
+            continue  # daha önceki bir çalıştırmada zaten uygulanmış
         if alan == "dogru":
             s["dogru"] = yeni.strip(); continue
         if alan.startswith("secenek_"):
@@ -59,6 +64,15 @@ def uygula(s, r, tur):
             continue
         if isinstance(s.get(alan), str) and s[alan].count(eski) == 1:
             s[alan] = s[alan].replace(eski, yeni); continue
+        # İç içe alan (ör. aciklama içindeki çeldirici notları): metni geçtiği tek yerde değiştir.
+        yerler = []
+        def gez(o):
+            for k, v in (o.items() if isinstance(o, dict) else enumerate(o) if isinstance(o, list) else []):
+                if isinstance(v, str) and eski in v: yerler.append((o, k))
+                else: gez(v)
+        gez(s.get(alan))
+        if len(yerler) == 1 and yerler[0][0][yerler[0][1]].count(eski) == 1:
+            o, k = yerler[0]; o[k] = o[k].replace(eski, yeni); continue
         hatalar.append(alan)
     return hatalar
 
