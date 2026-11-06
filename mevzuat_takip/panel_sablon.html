@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mevzuat Takip</title>
+<style>
+:root{--bg:#0f1420;--kart:#171e2e;--cizgi:#26304a;--yazi:#e6e9f2;--soluk:#8b93a8;--kirmizi:#ef5350;--sari:#f2b544;--yesil:#3fbf7f;--mavi:#5b8def}
+*{box-sizing:border-box}body{margin:0;font:14px/1.5 Segoe UI,system-ui,sans-serif;background:var(--bg);color:var(--yazi)}
+header{padding:18px 24px;border-bottom:1px solid var(--cizgi);display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+h1{font-size:19px;margin:0;font-weight:600}.etiket{padding:4px 10px;border-radius:99px;font-size:12px;font-weight:600}
+main{padding:20px 24px;display:grid;gap:18px;max-width:1200px}
+.kartlar{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.kart{background:var(--kart);border:1px solid var(--cizgi);border-radius:10px;padding:14px}
+.kart b{display:block;font-size:22px}.kart span{color:var(--soluk);font-size:12px}
+section{background:var(--kart);border:1px solid var(--cizgi);border-radius:10px;padding:14px 16px}
+h2{font-size:15px;margin:0 0 10px}table{width:100%;border-collapse:collapse}
+td,th{padding:8px 6px;border-top:1px solid var(--cizgi);vertical-align:top;text-align:left}th{color:var(--soluk);font-weight:500;font-size:12px;border-top:0}
+a{color:var(--mavi);text-decoration:none}.kucuk{color:var(--soluk);font-size:12px}
+.kritik{color:var(--kirmizi)}.olasi{color:var(--sari)}tr.bitti{opacity:.45}
+button{background:#22304f;color:var(--yazi);border:1px solid var(--cizgi);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px}
+.filtre{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}.filtre button.secili{background:var(--mavi);border-color:var(--mavi)}
+.uyari{background:#3a2a10;border:1px solid #6b4a12;border-radius:8px;padding:10px 12px}
+</style></head><body>
+<header><h1>📜 Mevzuat Takip — Mizan SMMM · Tasdik YMM</h1><span id="genel" class="etiket"></span><span class="kucuk" id="zaman"></span></header>
+<main>
+<div id="uyarilar"></div>
+<div class="kartlar" id="kartlar"></div>
+<section><h2>Değişiklikler</h2>
+<div class="filtre"><button data-f="acik" class="secili">Gözden geçirilecek</button><button data-f="kritik">Tüm kritik</button><button data-f="olasi">İlgili olabilir</button><button data-f="hepsi">Hepsi</button></div>
+<table><thead><tr><th>Tarih</th><th>Değişiklik</th><th>Konu</th><th>Etki</th><th></th></tr></thead><tbody id="liste"></tbody></table></section>
+<section><h2>İzlenen konular ve bağlı soru sayısı</h2><table><thead><tr><th>Konu</th><th>Soru</th><th>Açık kritik</th></tr></thead><tbody id="konular"></tbody></table>
+<p class="kucuk">Kaynak: Resmî Gazete (ana sayı + mükerrerler), her sabah taranır. Kanun/CBK/tebliğ/yönetmelik/kurul kararı ve Anayasa Mahkemesi kararlarının metni açılıp izlenen kanun numaralarına göre okunur. "Gözden geçirildi" işareti bu tarayıcıda saklanır.</p></section>
+</main>
+<script>
+const V=/*VERI*/null;
+const sakla=k=>{try{return JSON.parse(localStorage.getItem('mt_bitti')||'{}')}catch(e){return{}}};
+let bitti=sakla(),filtre='acik';
+const kaydet=()=>{try{localStorage.setItem('mt_bitti',JSON.stringify(bitti))}catch(e){}};
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function ciz(){
+ const D=V.durum,L=V.degisiklikler,acik=L.filter(d=>d.seviye==='kritik'&&!bitti[d.url]);
+ const g=document.getElementById('genel');
+ const eski=D.son_calisma?(Date.now()-new Date(D.son_calisma))/36e5:999;
+ if(D.son_hata||eski>36){g.textContent='⚠ Tarama gecikti';g.style.background='#5a3b10'}
+ else if(acik.length){g.textContent=acik.length+' değişiklik gözden geçirilecek';g.style.background='#5a1f1f'}
+ else{g.textContent='✓ Her şey güncel';g.style.background='#1d4a33'}
+ document.getElementById('zaman').textContent='Son tarama: '+(D.son_calisma||'-')+' · Son taranan gazete: '+(D.son_tarih||'-');
+ let u='';if(D.son_hata)u+=`<div class="uyari">Son hata: ${esc(D.son_hata)}</div>`;
+ if(D.son_mesaj==='ayar yok')u+=`<div class="uyari">WhatsApp ayarı yapılmamış: mevzuat_takip\\ayar.json dosyasına telefon ve CallMeBot anahtarını yazın.</div>`;
+ document.getElementById('uyarilar').innerHTML=u;
+ const tumSoru=Object.values(V.etki).reduce((a,b)=>a+b,0);
+ document.getElementById('kartlar').innerHTML=[[acik.length,'Gözden geçirilecek kritik'],[L.filter(d=>d.seviye==='kritik').length,'Toplam kritik kayıt'],[L.filter(d=>d.seviye==='olasi').length,'İlgili olabilir'],[V.konular.length,'İzlenen konu'],[tumSoru,'Konulara bağlı soru atfı']].map(([b,s])=>`<div class="kart"><b>${b}</b><span>${s}</span></div>`).join('');
+ const sec=L.filter(d=>filtre==='hepsi'||(filtre==='acik'?d.seviye==='kritik'&&!bitti[d.url]:d.seviye===filtre));
+ document.getElementById('liste').innerHTML=sec.length?sec.map(d=>`<tr class="${bitti[d.url]?'bitti':''}"><td>${esc(d.tarih)}<div class="kucuk">${esc(d.sayi)}</div></td><td><span class="${d.seviye}">●</span> <a href="${esc(d.url)}" target="_blank">${esc(d.baslik)}</a><div class="kucuk">${esc(d.bolum)} · ${esc(d.not)}${d.maddeler.length?' · maddeler: '+esc(d.maddeler.join(', ')):''}</div></td><td>${esc(d.konular.join(', '))}</td><td>${d.etkilenen_soru} soru${d.madde_eslesen_soru?`<div class="kucuk">${d.madde_eslesen_soru} madde eşleşen</div>`:''}</td><td><button data-u="${esc(d.url)}">${bitti[d.url]?'Geri al':'Gözden geçirildi'}</button></td></tr>`).join(''):'<tr><td colspan="5" class="kucuk">Kayıt yok.</td></tr>';
+ document.getElementById('konular').innerHTML=V.konular.map(k=>`<tr><td>${esc(k)}</td><td>${V.etki[k]||0}</td><td>${L.filter(d=>d.seviye==='kritik'&&!bitti[d.url]&&d.konular.includes(k)).length||''}</td></tr>`).join('');
+}
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.f){filtre=b.dataset.f;document.querySelectorAll('.filtre button').forEach(x=>x.classList.toggle('secili',x===b));ciz()}
+ if(b.dataset.u){bitti[b.dataset.u]?delete bitti[b.dataset.u]:bitti[b.dataset.u]=new Date().toISOString();kaydet();ciz()}});
+if(V)ciz();else document.body.innerHTML='<p style="padding:24px">Henüz tarama yapılmadı.</p>';
+</script></body></html>
