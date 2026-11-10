@@ -194,6 +194,12 @@ String konusmaMetni(String metin) {
 
   // Roma rakamıyla sıra: "II. Tertip" → "ikinci Tertip" (yalnız ardından büyük harfli sözcük gelirse).
   d = d.replaceAllMapped(RegExp('\\b(I{1,3}|IV|VI{0,3}|IX|X)\\.\\s+(?=[$_buyuk])'), (m) => '${_romaSiralari[m.group(1)]} ');
+  // Tek başına Roma rakamları (şıklardaki "I ve II", "Yalnız III", "I, II ve IV"): sayı olarak okunur; yoksa ses
+  // motoru "I"yı Türkçe "ı" harfi, "II"yi "ı ı" diye okuyor.
+  d = d.replaceAllMapped(
+    RegExp('(?<![\\wçğıöşü$_buyuk])(I{1,3}|IV|V)(?![\\wçğıöşü$_buyuk.])'),
+    (m) => const {'I': 'bir', 'II': 'iki', 'III': 'üç', 'IV': 'dört', 'V': 'beş'}[m.group(1)]!,
+  );
 
   // Büyük harfli kısaltmalar
   d = d.replaceAllMapped(
@@ -308,6 +314,25 @@ String soruOkumaMetni(Soru s, {bool cevapGoster = false}) {
   }
   if (cevapGoster) {
     b.write('\n\nDoğru cevap ${s.dogru} şıkkı. ${konusmaMetni(s.dogruNeden)}');
+  }
+  return b.toString().trim();
+}
+
+/// Cevap kutusunun okunacak metni: sonuç, seçilen yanlış şıkkın nedeni, çözüm ve adımlar.
+String cozumOkumaMetni(Soru s, String? secilen) {
+  final b = StringBuffer();
+  if (secilen == null) {
+    b.write('Boş bıraktın. Doğru cevap ${s.dogru} şıkkı.');
+  } else if (secilen == s.dogru) {
+    b.write('Doğru! Cevap ${s.dogru} şıkkı.');
+  } else {
+    b.write('Yanlış. Doğru cevap ${s.dogru} şıkkı.');
+    final neden = s.celdiriciler[secilen];
+    if (neden != null) b.write('\nNeden $secilen değil? ${konusmaMetni(neden)}');
+  }
+  b.write('\nÇözüm. ${konusmaMetni(s.dogruNeden)}');
+  for (var i = 0; i < s.hesapAdimlari.length; i++) {
+    b.write('\nAdım ${i + 1}. ${konusmaMetni(s.hesapAdimlari[i])}');
   }
   return b.toString().trim();
 }

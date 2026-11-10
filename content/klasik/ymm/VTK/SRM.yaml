@@ -318,7 +318,7 @@
       sonuc = {''a_alacak'': alacak, ''b_ali'': alacak * 0.70, ''b_veli'': alacak * 0.30, ''c'': min(400000, 250000)}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -329,11 +329,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_SRM_20261102_1.yaml, klasik 1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-SRM-K004
   sinav: ymm
   ders: VTK
@@ -440,7 +446,7 @@
       sonuc = {''a_kalan'': kalan, ''a_ayse'': kalan * 0.5, ''b_cem'': kalan * 0.2, ''c_burak'': kalan * 0.3}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -451,11 +457,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_SRM_20261102_1.yaml, klasik 2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-SRM-K005
   sinav: ymm
   ders: VTK
@@ -691,7 +703,7 @@
       sonuc = {''a'': kesinti, ''b_toplam_tahsil'': kesinti, ''c_kesinti'': 50000}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -702,11 +714,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_SRM_20261102_1.yaml, klasik 4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-SRM-K007
   sinav: ymm
   ders: VTK
@@ -938,7 +956,7 @@
       sonuc = {''a_kabul'': kabul, ''a_eksik'': eksik, ''b_eksik'': 120000000 - kabul2}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -949,11 +967,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_SRM_20261102_1.yaml, klasik 6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-SRM-K009
   sinav: ymm
   ders: VTK
@@ -1000,8 +1024,8 @@
     Yasak faaliyetten doğan 100.000 TL KDV de vergilendirilir.
 
 
-    **(d)** Toplam = 800.000 + 100.000 = **900.000 TL**. Md. 8/2: vergi sorumlusu, verginin ödenmesi bakımından alacaklı vergi
-    dairesine karşı muhatap olan kişidir; devir alan Baran Holding bu borç yönünden vergi dairesine karşı muhataptır.
+    **(d)** Toplam = 800.000 + 100.000 = **900.000 TL**. Baran Holding vergi sorumlusu değil, 6183 md. 36/b uyarınca Efe Gıda''nın
+    yerine geçen halefidir; bu nedenle 900.000 TL borç bakımından vergi dairesine karşı muhatap Baran Holding''dir.
 
 
     Püf noktaları: (1) Devirde devir alan yerine geçer. (2) Sözleşmeyle sorumluluğu devretmek vergi dairesine karşı geçerli
@@ -1044,7 +1068,7 @@
     python: 'sonuc = {''d'': 800000 + 100000}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1055,8 +1079,16 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: Cozum Baran Holding''i VUK md. 8/2 vergi sorumlusu olarak niteliyor; oysa devir alan, 6183 md.
+          36/b uyarinca halef durumundadir.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_SRM_20261102_1.yaml, klasik 7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Cozum Baran Holding''i VUK md. 8/2 vergi sorumlusu olarak niteliyor; oysa devir alan, 6183 md. 36/b
+      uyarinca halef durumundadir.'

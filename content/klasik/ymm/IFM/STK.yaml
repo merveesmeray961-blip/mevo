@@ -442,6 +442,11 @@
     | **Toplam** | 650.000 | | 30.000 | **620.000** |
 
 
+    Satılmamış yan ürün Z stoku, net gerçekleşebilir değeri olan 100.000 TL ile ölçülür (par. 14) ve ayrıca değer düşüklüğü
+    yoktur; bu nedenle finansal durum tablosundaki toplam stok tutarı X ve Y için 620.000 TL + Z için 100.000 TL = **720.000
+    TL**''dir.
+
+
     Yevmiye (31.12.2026):
 
 
@@ -485,7 +490,8 @@
     puan: 2
   - olcut: (b) Nispi satış değerine göre X ve Y'ye 2.000.000'er TL dağıtım ve ton maliyetleri (400 / 500)
     puan: 4
-  - olcut: (c) Kalem bazında NRV karşılaştırması; yalnız X için 30.000 TL indirgeme ve toplam 620.000 TL
+  - olcut: (c) Kalem bazında NRV karşılaştırması; yalnız X için 30.000 TL indirgeme, X ve Y toplamı 620.000 TL ve yan ürün
+      Z (100.000 TL) dahil toplam stok 720.000 TL
     puan: 4
   - olcut: (c) Değer düşüklüğü yevmiye kaydı
     puan: 3
@@ -545,7 +551,7 @@
 
       sonuc = {''havuz'': havuz, ''gider'': gider, ''cx'': cx, ''cy'': cy, ''ux'': ux, ''uy'': uy, ''dx'': dx, ''dy'': dy,
       ''stok'': stok, ''ters'': ters}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -556,11 +562,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: Yan ürün Z stoku stok toplamına katılmamış; satılmamış yan ürün NRV ile ölçülür ve finansal durum
+          tablosundaki stok tutarına dahildir.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim IFM_STK_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Yan ürün Z stoku stok toplamına katılmamış; satılmamış yan ürün NRV ile ölçülür ve finansal durum
+      tablosundaki stok tutarına dahildir.'
 - id: YMM-IFM-STK-K004
   sinav: ymm
   ders: IFM
@@ -804,7 +818,7 @@
 
       sonuc = {''smm_ort'': smm_ort, ''son_ort'': tutar, ''smm_fifo'': smm_fifo, ''son_fifo'': son_fifo, ''dus'': dus, ''defter'':
       tutar - dus, ''perakende'': perakende, ''ters'': ters}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -815,11 +829,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim IFM_STK_20261105_1.yaml, klasik 2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-IFM-STK-K005
   sinav: ymm
   ders: IFM
@@ -1033,7 +1053,7 @@
 
       sonuc = {''cv25'': cv, ''hasat'': hasat, ''kazanc'': kazanc, ''gelir'': gelir, ''smm'': smm, ''dus'': dus, ''etki'':
       etki}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1044,11 +1064,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim IFM_STK_20261105_1.yaml, klasik 3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-IFM-STK-K006
   sinav: ymm
   ders: IFM
@@ -1268,7 +1294,7 @@
       sonuc = {''kosulsuz'': kosulsuz, ''zaman'': zaman, ''hibe'': hibe, ''amort_brut'': amort_brut, ''gelir'': gelir, ''amort_net'':
       amort_net, ''ertg'': ertg, ''def_brut'': def_brut, ''def_net'': def_net, ''ertg2'': ertg2, ''iade_gider'': iade_gider,
       ''def_sonrasi'': def_sonrasi}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1279,11 +1305,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim IFM_STK_20261105_1.yaml, klasik 4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-IFM-STK-K007
   sinav: ymm
   ders: IFM
@@ -1496,7 +1528,7 @@
       sonuc = {''ilk'': ilk, ''fayda'': fayda, ''f26'': f26, ''b26'': b26, ''f27'': f27, ''b27'': b27, ''a_brut'': a_brut,
       ''gelir'': gelir, ''a_net'': a_net, ''etki_brut'': etki_brut, ''etki_net'': etki_net, ''ertg'': ertg, ''def_brut'':
       def_brut, ''def_net'': def_net, ''kapanis26'': kapanis26}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1507,8 +1539,14 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim IFM_STK_20261105_1.yaml, klasik 5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul

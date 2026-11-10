@@ -1554,8 +1554,9 @@
     gider olarak kalır, düzeltme yapılmaz.
 
     - Isı yalıtımı ve enerji tasarrufuna yönelik harcamalar (GVK md. 40/7) yapıldığı yılda doğrudan gider yazılabilir; bu
-    bir imkândır, zorunluluk değildir. Aktifleştirme ve amortisman ayrılmaması tercihi geçerli olduğundan düzeltme gerekmez;
-    matrah etkisi yoktur.
+    bir imkândır, zorunluluk değildir. Şirket doğrudan gider yazma imkânını kullanmayıp harcamayı aktifleştirdiğinden bu tutar
+    bina maliyetine dâhildir ve amortismana tabidir: 500.000 × %2 = **10.000 TL** amortisman (yıl esası) ayrılmalıdır; matrah
+    etkisi −10.000 TL.
 
 
     **(c) Özel maliyet (md. 272/3, 327)**
@@ -1588,14 +1589,16 @@
 
     | Yol amortismanı | −50.000 |
 
+    | Isı yalıtımı amortismanı | −10.000 |
+
     | Kat ilavesi (aktifleştirme − amortisman) | +2.940.000 |
 
     | Özel maliyet (aktifleştirme − itfa) | +1.200.000 |
 
-    | **Toplam** | **+4.790.000** |
+    | **Toplam** | **+4.780.000** |
 
 
-    Ek kurumlar vergisi = 4.790.000 × %25 = **1.197.500 TL**.
+    Ek kurumlar vergisi = 4.780.000 × %25 = **1.195.000 TL**.
 
     '
   puanlama:
@@ -1607,7 +1610,8 @@
     puan: 2
   - olcut: (b) Kat ilavesinin md. 272 gereği aktifleştirilmesi ve 60.000 TL amortisman
     puan: 3
-  - olcut: (b) Normal bakım giderinin değişmeyeceği ve ısı yalıtımının ihtiyari olduğu
+  - olcut: (b) Normal bakım giderinin değişmeyeceği; ısı yalıtımının doğrudan gider yazılabileceği, aktifleştirilmişse 10.000
+      TL amortismana tabi olduğu
     puan: 2
   - olcut: (c) Özel maliyet niteliği ve 300.000 TL yıllık itfa
     puan: 3
@@ -1615,7 +1619,7 @@
     puan: 2
   - olcut: (d) Kalem bazında matrah etkileri
     puan: 3
-  - olcut: (d) Toplam etki ve vergi (1.197.500 TL)
+  - olcut: (d) Toplam etki (4.780.000 TL) ve vergi (1.195.000 TL)
     puan: 2
   kaynaklar:
   - mevzuat: 213 sayılı Vergi Usul Kanunu
@@ -1663,11 +1667,11 @@
   dogrulama:
     python: "arsa = 8000000 + 320000 + 80000 + 600000 + 200000 - 500000\narsa_etki = (320000 + 80000 + 600000 + 200000) -\
       \ 500000\nyol_am = 1000000 * 0.05\nkat_am = 3000000 * 0.02\nkat_etki = 3000000 - kat_am\nozel_itfa = 1500000 / 5\nozel_etki\
-      \ = 1500000 - ozel_itfa\nbosaltma = 1500000 - 2 * ozel_itfa\ntoplam = arsa_etki - yol_am + kat_etki + ozel_etki\nkv\
-      \ = toplam * 0.25\nsonuc = {\"arsa\": arsa, \"arsa_etki\": arsa_etki, \"yol_am\": yol_am, \"kat_am\": kat_am, \"kat_etki\"\
-      : kat_etki, \"ozel_itfa\": ozel_itfa,\n         \"ozel_etki\": ozel_etki, \"bosaltma\": bosaltma, \"toplam\": toplam,\
-      \ \"kv\": kv}\n"
-  durum: taslak
+      \ = 1500000 - ozel_itfa\nbosaltma = 1500000 - 2 * ozel_itfa\nyalitim_am = 500000 * 0.02\ntoplam = arsa_etki - yol_am\
+      \ - yalitim_am + kat_etki + ozel_etki\nkv = toplam * 0.25\nsonuc = {\"arsa\": arsa, \"arsa_etki\": arsa_etki, \"yol_am\"\
+      : yol_am, \"kat_am\": kat_am, \"kat_etki\": kat_etki, \"ozel_itfa\": ozel_itfa,\n         \"ozel_etki\": ozel_etki,\
+      \ \"bosaltma\": bosaltma, \"toplam\": toplam, \"kv\": kv}\n"
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1678,11 +1682,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: Isı yalıtımı aktifleştirilmiş ve amortisman ayrılmamış; soru amortismanın hesaplanacağını söylerken
+          çözüm yol ve kat ilavesi için amortisman düzeltmesi yapıp yalıtım için yapmıyor (tutarsız). 500.000 x %2 = 10.000
+          TL amortisman eklenmeli; matrah etkisi 4.780.000, vergi 1.195.000.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim REV_AKT_20261105_1.yaml, klasik 2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Isı yalıtımı aktifleştirilmiş ve amortisman ayrılmamış; soru amortismanın hesaplanacağını söylerken
+      çözüm yol ve kat ilavesi için amortisman düzeltmesi yapıp yalıtım için yapmıyor (tutarsız). 500.000 x %2 = 10.000 TL
+      amortisman eklenmeli; matrah etkisi 4.780.000, vergi 1.195.000.'
 - id: YMM-REV-AKT-K013
   sinav: ymm
   ders: REV
@@ -1857,7 +1871,7 @@
       sonuc = {"zarar": zarar, "sulh": sulh, "toplam": toplam, "kv": kv}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1868,11 +1882,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim REV_AKT_20261105_1.yaml, klasik 3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-REV-AKT-K014
   sinav: ymm
   ders: REV

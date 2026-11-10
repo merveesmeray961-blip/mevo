@@ -423,10 +423,11 @@
   zorluk: 2
   puan: 22
   sure_dk: 30
-  soru: '**Olay:** Beyaz Kimya A.Ş. (tam mükellef, hesap dönemi takvim yılı, finans sektöründe değildir) 2026 hesap dönemi
-    ticari bilanço kârını 6.000.000 TL bulmuş ve yıllık kurumlar vergisi beyannamesini bu tutar üzerinden hazırlamıştır. YMM''nin
-    gider hesaplarında yaptığı incelemede aşağıdaki tutarların tamamının gider yazıldığı görülmüştür. Kurumlar vergisi oranı
-    %25''tir; istisna ve indirim yoktur; asgari kurumlar vergisi sonucu etkilememektedir.
+  soru: '**Olay:** Beyaz Kimya A.Ş. (tam mükellef, hesap dönemi takvim yılı, finans sektöründe değildir; kullanılan yabancı
+    kaynakları öz kaynaklarını aşmamaktadır) 2026 hesap dönemi ticari bilanço kârını 6.000.000 TL bulmuş ve yıllık kurumlar
+    vergisi beyannamesini bu tutar üzerinden hazırlamıştır. YMM''nin gider hesaplarında yaptığı incelemede aşağıdaki tutarların
+    tamamının gider yazıldığı görülmüştür. Kurumlar vergisi oranı %25''tir; istisna ve indirim yoktur; asgari kurumlar vergisi
+    sonucu etkilememektedir.
 
 
     | No | Gider | Tutar (TL) | Açıklama |
@@ -577,7 +578,7 @@
       sonuc = {"kkeg": kkeg, "kazanc": kazanc, "dogru_vergi": dogru_vergi, "beyan": beyan, "eksik": dogru_vergi - beyan}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -588,11 +589,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: Soru finans sektöründe olmadığını belirtip KVK 11/1-i için veri vermiyor; yabancı kaynakların
+          öz kaynağı aşmadığı varsayımı açıkça yazılmalı (önemsiz belirsizlik, sonuç değişmez).'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim REV_GLR_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Soru finans sektöründe olmadığını belirtip KVK 11/1-i için veri vermiyor; yabancı kaynakların öz
+      kaynağı aşmadığı varsayımı açıkça yazılmalı (önemsiz belirsizlik, sonuç değişmez).'
 - id: YMM-REV-GLR-K005
   sinav: ymm
   ders: REV
@@ -960,7 +969,7 @@
       "kv": toplam * 0.25}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -971,11 +980,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim REV_GLR_20261105_1.yaml, klasik 3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-REV-GLR-K007
   sinav: ymm
   ders: REV
@@ -1173,7 +1188,7 @@
       toplam, "kv": toplam * 0.25}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1184,8 +1199,14 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim REV_GLR_20261105_1.yaml, klasik 4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul

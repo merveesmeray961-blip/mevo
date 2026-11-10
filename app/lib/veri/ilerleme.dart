@@ -139,8 +139,11 @@ class DersIstatistigi {
 
   const DersIstatistigi({required this.toplam, required this.cozulen, required this.deneme, required this.dogru});
 
-  /// Tüm denemelerdeki doğru oranı (0–1); hiç çözülmediyse null.
-  double? get basari => deneme == 0 ? null : dogru / deneme;
+  /// Başarı oranı yalnız anlamlı sayıda cevaptan sonra gösterilir: 1 doğru cevapla "%100" yanıltıcıdır.
+  static const enAzDeneme = 10;
+
+  /// Tüm denemelerdeki doğru oranı (0–1); [enAzDeneme]'den az cevap varsa null.
+  double? get basari => deneme < enAzDeneme ? null : dogru / deneme;
 }
 
 /// Kullanıcının cihazdaki ilerlemesi: soru durumları, deneme geçmişi, günlük sayaç ve hata bildirimleri.

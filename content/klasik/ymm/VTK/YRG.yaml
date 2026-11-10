@@ -584,7 +584,7 @@
       sonuc = {''a_toplam'': toplam, ''b_indirim'': indirim, ''b_odenecek'': toplam - indirim}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -595,11 +595,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_YRG_20261102_1.yaml, klasik 1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-YRG-K006
   sinav: ymm
   ders: VTK
@@ -707,7 +713,7 @@
       sonuc = {''a'': a, ''b'': b, ''c'': (a + b) * 0.8}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -718,11 +724,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_YRG_20261102_1.yaml, klasik 2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-YRG-K007
   sinav: ymm
   ders: VTK
@@ -739,7 +751,8 @@
 
     |---|---|
 
-    | 1 | Dava, vergi mahkemesi yerine adli yargı yerine açılmış ve görev yönünden reddedilmiştir. |
+    | 1 | Dava, idare mahkemesinin görevli olduğu bir konuda vergi mahkemesine açılmış; vergi mahkemesi davayı görev yönünden
+    reddederek dosyayı görevli idare mahkemesine göndermiştir. |
 
     | 2 | Dava dilekçesi yasal dava açma süresi geçtikten sonra verilmiştir. |
 
@@ -781,8 +794,9 @@
 
     **(d)** Md. 15/4: ilk inceleme üzerine verilen kararlar içinde idari yargının görevli olduğu konularda davanın görev ve
     yetki yönünden reddine ilişkin kararlar ile 1/c bendindeki gerçek hasma tebliğ ve 1/d bendindeki dilekçe red kararları
-    **dışında**, ilgisine göre istinaf veya temyiz yoluna başvurulabilir. Dolayısıyla süre aşımı nedeniyle red kararına karşı
-    (kanun yolu şartları varsa) istinaf/temyiz yoluna başvurulabilir; hasım düzeltme ve dilekçe red kararlarına karşı başvurulamaz.
+    **dışında**, ilgisine göre istinaf veya temyiz yoluna başvurulabilir. Dolayısıyla 1 numaralı dilekçedeki görev yönünden
+    ret kararına karşı da kanun yoluna başvurulamaz; süre aşımı nedeniyle red kararına karşı (kanun yolu şartları varsa) istinaf/temyiz
+    yoluna başvurulabilir; hasım düzeltme ve dilekçe red kararlarına karşı başvurulamaz.
 
 
     Püf noktaları: (1) İlk inceleme 15 gün içinde sonuçlandırılır. (2) Yanlış hasımda dava reddedilmez, gerçek hasma tebliğ
@@ -823,7 +837,7 @@
     python: 'sonuc = {''a_gun'': 2 + 15}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -834,11 +848,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: Tablodaki 1 numaralı dilekçe çelişkili/yanlış kurgulu (''vergi mahkemesi yerine adli yargı yerine
+          açılmış'', oysa dilekçeler vergi mahkemesine kaydedilmiş). İYUK md. 15/1-a ve 15/4 ile uyumlu olacak şekilde idari
+          yargı içi görev reddi olarak düzeltildi; (d) çözümüne bu dilekçenin sonucu '
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_YRG_20261102_1.yaml, klasik 4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Tablodaki 1 numaralı dilekçe çelişkili/yanlış kurgulu (''vergi mahkemesi yerine adli yargı yerine
+      açılmış'', oysa dilekçeler vergi mahkemesine kaydedilmiş). İYUK md. 15/1-a ve 15/4 ile uyumlu olacak şekilde idari yargı
+      içi görev reddi olarak düzeltildi; (d) çözümüne bu dilekçenin sonucu '
 - id: YMM-VTK-YRG-K008
   sinav: ymm
   ders: VTK
@@ -938,7 +962,7 @@
     python: 'sonuc = {''a'': 400000 - 250000}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -949,11 +973,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_YRG_20261102_1.yaml, klasik 5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-YRG-K009
   sinav: ymm
   ders: VTK
@@ -1065,7 +1095,7 @@
     python: 'sonuc = {''a_kesin'': 50000 <= 55000, ''b_istinaf'': 400000 > 55000, ''c_temyiz'': 2000000 > 1661000}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1076,11 +1106,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_YRG_20261102_1.yaml, klasik 6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-YRG-K010
   sinav: ymm
   ders: VTK
@@ -1160,7 +1196,7 @@
     python: 'sonuc = {''odenen_vergi_iade_edilir_mi'': 0, ''tutar'': 40000}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1171,11 +1207,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_YRG_20261102_1.yaml, klasik 7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-YRG-K011
   sinav: ymm
   ders: VTK
@@ -1289,7 +1331,7 @@
     python: 'sonuc = {''ret_sure_gun'': 30, ''bir_yil'': 1, ''bes_yil'': 5}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1300,11 +1342,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_YRG_20261105_1.yaml, klasik 4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-YRG-K012
   sinav: ymm
   ders: VTK
@@ -1420,7 +1468,7 @@
       sonuc = {''kalan'': kalan, ''ret_gun'': 30, ''bekleme_ay'': 4}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1431,11 +1479,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_YRG_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-VTK-YRG-K013
   sinav: ymm
   ders: VTK
@@ -1543,7 +1597,7 @@
     python: 'sonuc = {''cevap_gun'': 30, ''ek_sure_max'': 30, ''karar_uyma_gun'': 30}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1554,8 +1608,14 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim VTK_YRG_20261105_1.yaml, klasik 3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul

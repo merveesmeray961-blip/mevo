@@ -36,6 +36,13 @@ void main() {
       expect(s, isNot(contains('%')));
     });
 
+    test('şıklardaki Roma rakamları sayı olarak okunur', () {
+      expect(konusmaMetni('I ve II'), startsWith('bir ve iki'));
+      expect(konusmaMetni('I, II ve III'), startsWith('bir, iki ve üç'));
+      expect(konusmaMetni('Yalnız IV'), startsWith('Yalnız dört'));
+      expect(konusmaMetni('II. Tertip'), contains('ikinci'));
+    });
+
     test('kısaltmalar Türkçe harf adlarıyla, tarihler ve para doğal okunur', () {
       expect(konusmaMetni("KDV'nin oranı"), contains("kadeve'nin"));
       expect(konusmaMetni('VUK ve TTK hükümleri'), contains('veuka ve teteka'));

@@ -66,5 +66,6 @@ enum Urun {
   static const _webUrunu = String.fromEnvironment('MEVO_URUN');
 
   /// Şu an çalışan uygulamanın ürünü.
-  static Urun get calisan => bayraktan(appFlavor ?? (_webUrunu.isEmpty ? null : _webUrunu));
+  /// MEVO_URUN verilmişse o esastır: pubspec'teki varsayılan flavor web'de appFlavor'ı hep "smmm" yapıyor.
+  static Urun get calisan => bayraktan(_webUrunu.isNotEmpty ? _webUrunu : appFlavor);
 }

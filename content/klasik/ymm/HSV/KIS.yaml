@@ -1939,7 +1939,7 @@
     python: 'kdv=3000000*0.20
 
       sonuc={''b'':kdv+kdv+kdv*0.025*7,''kdv'':kdv}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1950,11 +1950,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K011
   sinav: ymm
   ders: HSV
@@ -2072,7 +2078,7 @@
     python: 'ind=(400000-50000)+20000+150000
 
       sonuc={''c'':ind,''odenecek'':800000-ind}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2083,11 +2089,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K012
   sinav: ymm
   ders: HSV
@@ -2191,7 +2203,7 @@
       i=100000+12000
 
       sonuc={''c'':h,''d'':[i,h-i]}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2202,11 +2214,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K013
   sinav: ymm
   ders: HSV
@@ -2261,7 +2279,8 @@
 
     **(c)** GUT''a göre bu tür kısmi tevkifata tabi hizmetlerde 50.000 TL''yi aşmayan mahsuben iade talepleri vergi inceleme
     raporu, YMM raporu ve teminat aranılmaksızın yerine getirilir; 50.000 TL ve üzerindeki talepler ise vergi inceleme raporu
-    veya YMM raporuna göre yerine getirilir. Talep 40.000 TL olduğundan **rapor ve teminat aranmadan** karşılanır.
+    ile (iade hakkını doğuran işlemin yapıldığı yılda süresinde düzenlenmiş tam tasdik sözleşmesi varsa YMM raporu ile) yerine
+    getirilir. Talep 40.000 TL olduğundan **rapor ve teminat aranmadan** karşılanır.
 
 
     **(d)** Alıcılar tevkif ettikleri KDV''yi sorumlu sıfatıyla; gerçek usulde KDV mükellefleri 2 No.lu KDV beyannamesi (1015B),
@@ -2269,8 +2288,8 @@
     dönemde beyan eder.
 
 
-    Püf noktaları: 50.000 TL sınırı "aşmayan" için raporsuzdur; 50.000 TL **ve üzeri** için rapor gerekir. Sınır tutarı tam
-    eşitse rapor aranır.
+    Püf noktaları: 50.000 TL''yi aşmayan mahsup talepleri rapor ve teminat aranmadan karşılanır; 50.000 TL ve üzerindeki talepler
+    için vergi inceleme raporu aranır. Bu vakada talep (40.000 TL) sınırın altındadır.
 
     '
   puanlama:
@@ -2307,7 +2326,7 @@
       sat=h-tev
 
       sonuc={''a'':[sat,tev],''b'':140000-sat}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2318,11 +2337,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: Cozum (c): 50.000 TL ve uzeri mahsuben iade icin ''vergi inceleme raporu veya YMM raporu'' deniyor;
+          GUT I/C-2.1.5.2.1 bu hizmet grubunda (temizlik vb.) yalniz vergi inceleme raporunu arar (YMM raporu ancak tam tasdik
+          sozlesmesi varsa). Puf noktasi ''aşmayan'' ile ''tam esitse rapor aranir'' '
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Cozum (c): 50.000 TL ve uzeri mahsuben iade icin ''vergi inceleme raporu veya YMM raporu'' deniyor;
+      GUT I/C-2.1.5.2.1 bu hizmet grubunda (temizlik vb.) yalniz vergi inceleme raporunu arar (YMM raporu ancak tam tasdik
+      sozlesmesi varsa). Puf noktasi ''aşmayan'' ile ''tam esitse rapor aranir'' '
 - id: YMM-HSV-KIS-K014
   sinav: ymm
   ders: HSV
@@ -2517,7 +2546,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'a':[800000*0.2,200000*0.2],'b':200000*0.2}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2528,11 +2557,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K016
   sinav: ymm
   ders: HSV
@@ -2547,8 +2582,8 @@
   soru: '**Kerem Tekstil A.Ş.** nezdinde 14 Eylül 2026''da yapılan envanter sayımında, alış belgesi bulunmayan kumaşlar tespit
     edilmiştir. Kumaşların tespit tarihindeki emsal bedeli 900.000 TL''dir (KDV hariç). Şirkete belgeleri ibraz etmesi için
     süre verilmiş, ancak süre içinde belge ibraz edilememiştir. Ayrıca şirketin Eylül döneminde alış faturasında KDV ayrıca
-    gösterilmemiş (KDV dahil toplam bedel yazılı) 120.000 TL''lik bir hizmet alımı vardır (hizmet bedeli, KDV hariç kabul
-    edilsin; genel oran %20; satıcı fatura düzenlemiş ve KDV ayrıca gösterilmemiştir).
+    gösterilmemiş 120.000 TL''lik bir hizmet alımı vardır (genel oran %20; satıcı fatura düzenlemiş, ancak KDV faturada ayrıca
+    gösterilmemiştir).
 
 
     **İstenenler:**
@@ -2618,7 +2653,7 @@
     python: 'kdv=900000*0.20
 
       sonuc={''b'':[kdv,kdv]}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2629,11 +2664,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: Soru metni celiskili: 120.000 TL''lik hizmet alimi hem ''KDV dahil toplam bedel yazili'' hem ''KDV
+          haric kabul edilsin'' deniyor; (d) icin sadece KDV''nin ayrica gosterilmemis olmasi gerekli.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 8
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Soru metni celiskili: 120.000 TL''lik hizmet alimi hem ''KDV dahil toplam bedel yazili'' hem ''KDV
+      haric kabul edilsin'' deniyor; (d) icin sadece KDV''nin ayrica gosterilmemis olmasi gerekli.'
 - id: YMM-HSV-KIS-K017
   sinav: ymm
   ders: HSV
@@ -2726,7 +2769,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'b':2000000*0.2,'c':25000*0.25}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2737,11 +2780,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 9
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K018
   sinav: ymm
   ders: HSV
@@ -2833,7 +2882,7 @@
       i=140000+20000
 
       sonuc={''c'':i-h}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2844,11 +2893,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 10
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K019
   sinav: ymm
   ders: HSV
@@ -2943,7 +2998,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'b':300000*0.2}
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2954,11 +3009,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-11-11'
+        not: 'hakem ret: Temel kurgu yanlis: KDVK md. 14/2 ve GUT (C.1) karsiliklilik sartini istisnadan yararlanan (tasimayi
+          yapan) dar mukellef yabanci tasimaciya koyar; musteri yabanci diye aranmaz. Boğaz Lojistik yerlesik tasimaci oldugundan
+          2 ve 3 numarali islemler de md. 14/1 kapsaminda istisnadir; 3. islem'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 11
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'hakem ret: Temel kurgu yanlis: KDVK md. 14/2 ve GUT (C.1) karsiliklilik sartini istisnadan yararlanan (tasimayi
+      yapan) dar mukellef yabanci tasimaciya koyar; musteri yabanci diye aranmaz. Boğaz Lojistik yerlesik tasimaci oldugundan
+      2 ve 3 numarali islemler de md. 14/1 kapsaminda istisnadir; 3. islem'
 - id: YMM-HSV-KIS-K020
   sinav: ymm
   ders: HSV
@@ -3035,7 +3100,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'a':2000000*0.2,'b':300000*0.2}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3046,11 +3111,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 12
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K021
   sinav: ymm
   ders: HSV
@@ -3135,7 +3206,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'c':160000+40000-20000}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3146,11 +3217,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 13
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K022
   sinav: ymm
   ders: HSV
@@ -3212,7 +3289,7 @@
     puan: 12
   - olcut: (b) 600.000 TL
     puan: 4
-  - olcut: (c) indirilebilirlik
+  - olcut: (c) yatın deniz taşıma aracı sayılmaması ve istisna dışında kalması (md. 13/b parantez içi hüküm)
     puan: 4
   kaynaklar:
   - mevzuat: 3065 sayılı KDV Kanunu
@@ -3230,7 +3307,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'b':3000000*0.2}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3241,11 +3318,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: Puanlama (c) olcutu ''indirilebilirlik'' soru (c) ile uyumsuz; soru (c) yatin deniz tasima araci
+          sayilip sayilmayacagini ve istisna kapsamini soruyor.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 14
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Puanlama (c) olcutu ''indirilebilirlik'' soru (c) ile uyumsuz; soru (c) yatin deniz tasima araci
+      sayilip sayilmayacagini ve istisna kapsamini soruyor.'
 - id: YMM-HSV-KIS-K023
   sinav: ymm
   ders: HSV
@@ -3319,7 +3404,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'a':600000*0.2,'b':100000*0.2}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3330,11 +3415,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 15
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K024
   sinav: ymm
   ders: HSV
@@ -3418,7 +3509,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'b':0,'c':120000}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3429,11 +3520,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 16
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K025
   sinav: ymm
   ders: HSV
@@ -3510,7 +3607,7 @@
     python: 'ind=(1200000-1000000)+200000
 
       sonuc={''a'':200000,''b'':500000-ind}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3521,11 +3618,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 17
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K026
   sinav: ymm
   ders: HSV
@@ -3692,7 +3795,9 @@
 
     '
   cozum: '**(a)** KDV = 5.000.000 × %20 = **1.000.000 TL**; imalatçı beyan eder, vergi dairesi tarh eder ve tecil eder. Mallar
-    teslimi izleyen ay başından itibaren 3 ay içinde ihraç edildiğinden tecil edilen vergi **terkin** olunur.
+    teslimi izleyen ay başından itibaren 3 ay içinde ihraç edildiğinden tecil edilen vergi (varsa) **terkin** olunur; ancak
+    tecil yalnızca beyannameden ödenecek KDV çıkması hâlinde ve çıkan tutarla sınırlı yapılabildiğinden, bu vakada (bkz. c)
+    KDV''nin tecil edilemeyen kısmı ihracat sonrası iade konusu edilir.
 
 
     **(b)** İhracatçılara mal teslim eden imalatçılara iade edilecek KDV, ihraç edilen mala ilişkin imalatçı satış bedeline
@@ -3700,9 +3805,12 @@
     tutardan fazla olamaz. Bu vakada üst sınır = 1.000.000 TL (iskonto/matrah değişikliği yok).
 
 
-    **(c)** Hesaplanan KDV (yalnız yurt içi satış) = 200.000 TL; ihraç kaydıyla teslim KDV''si terkin edildiği için hesaplanan
-    olarak ödenmez. İndirilecek KDV 1.500.000 TL. İndirilemeyen KDV = 1.500.000 − 200.000 = 1.300.000 TL. İade üst sınırı
-    1.000.000 TL olduğundan iade edilebilecek tutar **1.000.000 TL**; kalan 300.000 TL sonraki dönemlere devreder.
+    **(c)** İhraç kaydıyla teslimin KDV''si de beyannamede hesaplanan KDV içinde yer alır (hesaplanan KDV = 200.000 + 1.000.000
+    = 1.200.000 TL); indirilecek KDV bu tutarı aştığından ödenecek KDV ve tecil edilecek vergi çıkmaz, ihraç kayıtlı teslimin
+    KDV''si ''tecil edilemeyen KDV'' olarak iade hakkı doğurur. İndirilecek KDV 1.500.000 TL. Yurt içi satışın KDV''sini (200.000
+    TL) aşan indirilemeyen KDV = 1.500.000 − 200.000 = 1.300.000 TL (1.000.000 TL''si ihraç kayıtlı teslime, 300.000 TL''si
+    devreden tutara isabet eder). İade üst sınırı 1.000.000 TL olduğundan iade edilebilecek tutar **1.000.000 TL**; kalan
+    300.000 TL sonraki dönemlere devreder.
 
 
     **(d)** İade, ihracat işlemlerinin tamamlanmasından sonra yapılır.
@@ -3739,7 +3847,7 @@
     python: 'kdv=5000000*0.2
 
       sonuc={''c'':min(kdv,1500000-200000)}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3750,11 +3858,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: Cozum ic celiskili ve GUT II/A-8.12 ile uyumsuz: (a) 1.000.000 TL''nin tecil+terkin edildigini
+          soyleyip (c)''de ayni tutari iade ediyor; (c)''de ihrac kayitli teslim KDV''si hesaplanan disinda birakilmis. Beyannamede
+          bu KDV hesaplanan icinde yer alir; indirilecek KDV hesaplanani astigindan'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 19
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Cozum ic celiskili ve GUT II/A-8.12 ile uyumsuz: (a) 1.000.000 TL''nin tecil+terkin edildigini soyleyip
+      (c)''de ayni tutari iade ediyor; (c)''de ihrac kayitli teslim KDV''si hesaplanan disinda birakilmis. Beyannamede bu
+      KDV hesaplanan icinde yer alir; indirilecek KDV hesaplanani astigindan'
 - id: YMM-HSV-KIS-K028
   sinav: ymm
   ders: HSV
@@ -3835,7 +3953,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'b':(50000+200000)*0.2}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3846,11 +3964,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 20
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K029
   sinav: ymm
   ders: HSV
@@ -3924,7 +4048,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'b':1000000*0.2,'c':1000000*0.2-100000}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3935,11 +4059,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261102_1.yaml, klasik 21
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-KIS-K030
   sinav: ymm
   ders: HSV
@@ -4621,7 +4751,7 @@
       "iade_son_m1": iade_son_m1, "iade_son_m3": iade_son_m3}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -4632,8 +4762,14 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_KIS_20261105_1.yaml, klasik 3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul

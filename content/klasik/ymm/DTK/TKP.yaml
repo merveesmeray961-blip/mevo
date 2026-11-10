@@ -609,8 +609,9 @@
     (c) P5 eşyası 17/3/2026''da ihale ile 420.000 TL''ye satılmış ve bedel 25/3/2026''da tahsil edilmiştir. Satış bedelinden
     ayrılacak kalemler: hizmet karşılığı alacaklar ve yapılmış masraflar 30.000 TL, gümrük vergileri 250.000 TL, satış için
     yapılmış masraflar 20.000 TL, para cezaları 150.000 TL''dir. Md. 180/1 uyarınca dağıtımı yapınız; para cezalarından karşılanamayan
-    tutarı bulunuz. Aynı eşyanın 700.000 TL''ye satıldığını varsayarak artan tutarı ve bu tutarın sahibince en geç hangi tarihe
-    kadar alınması gerektiğini (aksi hâlde nereye irat kaydedileceğini) belirtiniz. (10 puan)
+    tutarı bulunuz. Aynı eşyanın 700.000 TL''ye satıldığını ve artan tutarın bedelin tahsil edildiği 25/3/2026 tarihinde emanet
+    hesabına alındığını varsayarak artan tutarı ve bu tutarın sahibince en geç hangi tarihe kadar alınması gerektiğini (aksi
+    hâlde nereye irat kaydedileceğini) belirtiniz. (10 puan)
 
     '
   cozum: '**(a) Talepler (md. 179/1)**
@@ -768,7 +769,7 @@
       ''ceza_odenen'': ceza_odenen, ''ceza_karsilanmayan'': ceza_karsilanmayan, ''artan'': artan}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -779,11 +780,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: (c)''de bir yıllık sürenin başlangıcı olan emanete alınma tarihi soruda verilmiyor; çözüm 25/3/2026
+          varsayıyor.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim DTK_TKP_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: (c)''de bir yıllık sürenin başlangıcı olan emanete alınma tarihi soruda verilmiyor; çözüm 25/3/2026
+      varsayıyor.'
 - id: YMM-DTK-TKP-K006
   sinav: ymm
   ders: DTK
@@ -1532,7 +1541,7 @@
       sonuc = {''i3'': i3, ''i4'': i4, ''iade4'': iade4}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1543,8 +1552,14 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim DTK_TKP_20261105_1.yaml, klasik 7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul

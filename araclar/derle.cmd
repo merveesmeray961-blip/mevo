@@ -2,7 +2,7 @@
 chcp 65001 >nul
 set SRC=%~dp0..\app
 set DST=C:\Users\erene\dev\mevo_insa\app
-set SURUM=1.1.3
+set SURUM=1.1.4
 set OUT=C:\Users\erene\dev\mevo_insa\cikti_%SURUM%
 set "JAVA_HOME=C:\Program Files\Microsoft\jdk-21.0.12.101-hotspot"
 set "PATH=%JAVA_HOME%\bin;%PATH%"

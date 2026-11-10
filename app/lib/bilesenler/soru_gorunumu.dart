@@ -2,8 +2,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../mantik/sesli_okuma.dart';
 import '../uygulama.dart';
 import '../veri/modeller.dart';
+import 'sesli_okuma.dart';
 import 'zengin_metin.dart';
 
 /// Soru kökü ve şıklar. [cevapGoster] true olduğunda doğru şık yeşil, yanlış seçim kırmızı işaretlenir.
@@ -217,11 +219,24 @@ class AciklamaKarti extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              baslik,
-              style: t.titleMedium?.copyWith(color: renk, fontWeight: FontWeight.w700),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    baslik,
+                    style: t.titleMedium?.copyWith(color: renk, fontWeight: FontWeight.w700),
+                  ),
+                ),
+                // Kullanıcı isterse sonucu, "neden değil" açıklamasını ve çözümü sesli dinler.
+                SesDugmesi(
+                  key: ValueKey('cozum-ses-${soru.id}'),
+                  motor: Kapsam.of(context).ses,
+                  metin: () => cozumOkumaMetni(soru, secilen),
+                  ipucu: 'Çözümü sesli dinle',
+                ),
+              ],
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 6),
             if (secilen != null && !dogruMu && soru.celdiriciler[secilen] != null) ...[
               Text('Neden $secilen değil?', style: t.labelLarge),
               const SizedBox(height: 4),

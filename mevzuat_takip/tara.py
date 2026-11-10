@@ -184,6 +184,42 @@ def whatsapp(ayar, mesaj):
         return f"hata: {e}"
 
 
+def telegram(ayar, mesaj):
+    tok, chat = (ayar.get("telegram_token") or "").strip(), str(ayar.get("telegram_chat_id") or "").strip()
+    if not tok or not chat:
+        return "ayar yok"
+    veri = urllib.parse.urlencode({"chat_id": chat, "text": mesaj[:3900], "disable_web_page_preview": "true"}).encode()
+    try:
+        with urllib.request.urlopen(urllib.request.Request(f"https://api.telegram.org/bot{tok}/sendMessage", data=veri), timeout=30) as r:
+            return "gönderildi" if json.loads(r.read()).get("ok") else "hata"
+    except Exception as e:
+        return f"hata: {str(e)[:80]}"
+
+
+def bildir(ayar, mesaj):
+    """Telegram ve (ayarlıysa) WhatsApp'a gönderir; panelde gösterilecek kısa sonuç döner."""
+    s = {"telegram": telegram(ayar, mesaj), "whatsapp": whatsapp(ayar, mesaj)}
+    gonderildi = [k for k, v in s.items() if v == "gönderildi"]
+    if gonderildi:
+        return "gönderildi: " + ", ".join(gonderildi)
+    return "ayar yok" if all(v == "ayar yok" for v in s.values()) else "; ".join(f"{k}: {v}" for k, v in s.items())
+
+
+def telegram_kur(ayar):
+    """Kullanıcı bota /start yazdıktan sonra sohbet numarasını bulup ayar.json'a yazar."""
+    tok = (ayar.get("telegram_token") or "").strip()
+    if not tok:
+        return "Önce ayar.json'a telegram_token yazın."
+    with urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/getUpdates", timeout=30) as r:
+        sonuc = json.loads(r.read()).get("result", [])
+    sohbet = [u["message"]["chat"]["id"] for u in sonuc if "message" in u]
+    if not sohbet:
+        return "Bota henüz mesaj gelmemiş: Telegram'da botunuzu açıp /start yazın, sonra tekrar çalıştırın."
+    ayar["telegram_chat_id"] = sohbet[-1]
+    (K / "ayar.json").write_text(json.dumps(ayar, ensure_ascii=False, indent=1), encoding="utf-8")
+    return "Sohbet bulundu ve kaydedildi. Deneme: " + telegram(ayar, "✅ Mevzuat Takip: Telegram bağlantısı çalışıyor.")
+
+
 def panel_yaz(durum, degisiklikler, etki, konular):
     veri = json.dumps({"durum": durum, "degisiklikler": degisiklikler, "etki": etki,
                        "konular": [k["ad"] for k in konular]}, ensure_ascii=False)
@@ -194,7 +230,9 @@ def panel_yaz(durum, degisiklikler, etki, konular):
 def main():
     ayar = oku_json(K / "ayar.json", {})
     if "--deneme-mesaj" in sys.argv:
-        print(whatsapp(ayar, "✅ Mevzuat Takip: WhatsApp bağlantısı çalışıyor.")); return
+        print(bildir(ayar, "✅ Mevzuat Takip: bildirim bağlantısı çalışıyor.")); return
+    if "--telegram-kur" in sys.argv:
+        print(telegram_kur(ayar)); return
     cfg = yaml.safe_load((K / "izleme.yaml").read_text(encoding="utf-8"))
     for k in cfg["konular"]:
         k["rg"] = [kucult(x) for x in k["rg"]]; k["soru"] = [kucult(x) for x in k["soru"]]
@@ -235,6 +273,10 @@ def main():
             durum["son_tarih"] = gun.isoformat()  # o gün gazete yok
         gun += dt.timedelta(days=1)
     durum["son_calisma"] = dt.datetime.now().isoformat(timespec="minutes")
+    kanal = [k for k, v in (("Telegram", ayar.get("telegram_token") and ayar.get("telegram_chat_id")),
+                            ("WhatsApp", ayar.get("whatsapp_tel") and ayar.get("callmebot_apikey"))) if v]
+    if durum.get("son_mesaj") in (None, "ayar yok") and kanal:
+        durum["son_mesaj"] = "hazır: " + ", ".join(kanal)
     durum["hata_gun"] = durum.get("hata_gun", 0) + 1 if hata else 0
     durum["son_hata"] = hata
     durum["taranan_gun_son_calisma"] = taranan
@@ -249,12 +291,12 @@ def main():
                          + (f" (madde eşleşen {d['madde_eslesen_soru']})" if d["madde_eslesen_soru"] else ""))
         if len(kritik) > 8:
             satir.append(f"… ve {len(kritik) - 8} kayıt daha. Ayrıntı: Mevzuat Takip paneli.")
-        durum["son_mesaj"] = whatsapp(ayar, "\n".join(satir))
+        durum["son_mesaj"] = bildir(ayar, "\n".join(satir))
     elif durum["hata_gun"] >= 2:
-        durum["son_mesaj"] = whatsapp(ayar, f"⚠️ Mevzuat Takip {durum['hata_gun']} gündür Resmî Gazete'ye ulaşamıyor: {hata}")
+        durum["son_mesaj"] = bildir(ayar, f"⚠️ Mevzuat Takip {durum['hata_gun']} gündür Resmî Gazete'ye ulaşamıyor: {hata}")
     elif bugun.weekday() == 0 and durum.get("son_kalp") != bugun.isoformat():
         acik = sum(1 for d in degisiklikler if d["seviye"] == "kritik")
-        durum["son_mesaj"] = whatsapp(ayar, f"✅ Mevzuat Takip çalışıyor. Son taranan gazete: {durum['son_tarih']}. Bu hafta yeni kritik değişiklik yok. Kayıtlı kritik toplam: {acik}.")
+        durum["son_mesaj"] = bildir(ayar, f"✅ Mevzuat Takip çalışıyor. Son taranan gazete: {durum['son_tarih']}. Bu hafta yeni kritik değişiklik yok. Kayıtlı kritik toplam: {acik}.")
         durum["son_kalp"] = bugun.isoformat()
     DURUM.write_text(json.dumps(durum, ensure_ascii=False, indent=1), encoding="utf-8")
     panel_yaz(durum, degisiklikler, {k: v["soru"] for k, v in etki.items()}, cfg["konular"])

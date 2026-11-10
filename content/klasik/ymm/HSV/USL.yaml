@@ -324,7 +324,7 @@
       assert sonuc["I_ilk"]=="2026-11-25" and sonuc["posta_tarh_son"]=="2026-12-25"
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -335,11 +335,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_USL_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-USL-K003
   sinav: ymm
   ders: HSV
@@ -478,7 +484,7 @@
       assert sonuc["belge_ibraz_son_gun"]=="2026-09-17" and tarh==520000
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -489,11 +495,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_USL_20261105_1.yaml, klasik 2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-USL-K004
   sinav: ymm
   ders: HSV
@@ -1049,8 +1061,9 @@
   puan: 22
   sure_dk: 30
   soru: 'Aşağıdaki olaylar 7194 sayılı Kanun kapsamındaki dijital hizmet sağlayıcılara aittir. Soruda hepsi muafiyet haddini
-    aşmış dijital hizmet vergisi mükellefidir; vergilendirme dönemi aylık, dijital hizmet vergisi oranı %7,5 olarak uygulanmaktadır.
-    Hafta sonu ve resmî tatiller dikkate alınmayacak; kurumlar vergisi oranı %25 kabul edilecektir.
+    aşmış dijital hizmet vergisi mükellefidir; vergilendirme dönemi aylık, dijital hizmet vergisi oranı 2026 yılı için (10767
+    sayılı Cumhurbaşkanı Kararı uyarınca) %5 olarak uygulanmaktadır. Hafta sonu ve resmî tatiller dikkate alınmayacak; kurumlar
+    vergisi oranı %25 kabul edilecektir.
 
 
     | No | Olay |
@@ -1095,7 +1108,7 @@
     - Matrah, ilgili vergilendirme döneminde verginin konusuna giren hizmetlerden elde edilen hasılattır: **40.000.000 TL**;
     matrahtan gider, maliyet ve vergi adı altında indirim yapılmaz (md. 5/2). 28.000.000 TL''lik gider düşülmez.
 
-    - Vergi: 40.000.000 × %7,5 = **3.000.000 TL**; hesaplanan vergiden indirim yapılmaz (md. 5/4).
+    - Vergi: 40.000.000 × %5 (2026 oranı) = **2.000.000 TL**; hesaplanan vergiden indirim yapılmaz (md. 5/4).
 
     - Beyannameler, dönemi takip eden ayın sonuna kadar verilir: **31 Temmuz 2026**; vergi beyanname verme süresi içinde ödenir
     (md. 6/3, 6/6).
@@ -1107,7 +1120,7 @@
     **(b) 2 numaralı olay (md. 3/2, md. 6)**
 
 
-    - Vergi: 20.000.000 × %7,5 = **1.500.000 TL**.
+    - Vergi: 20.000.000 × %5 (2026 oranı) = **1.000.000 TL**.
 
     - Bakanlık, vergi alacağının emniyet altına alınması amacıyla işleme aracılık edenleri sorumlu tutabilir (md. 3/2). Bu
     durumda beyan, vergi kesintisi yapmakla sorumlu tutulan (E) Bankası tarafından yapılır (md. 6/2).
@@ -1129,7 +1142,7 @@
 
 
     Ödenen dijital hizmet vergisi gelir ve kurumlar vergisine esas safi kazancın tespitinde gider olarak indirilebilir. (A)
-    için 3.000.000 TL gider yazılacağından kurumlar vergisi etkisi: 3.000.000 × %25 = **750.000 TL** vergi azalışı. (Matrah
+    için 2.000.000 TL gider yazılacağından kurumlar vergisi etkisi: 2.000.000 × %25 = **500.000 TL** vergi azalışı. (Matrah
     hesabında gider indirimi yapılmaması dijital hizmet vergisi matrahı içindir; kurumlar vergisi hesabını etkilemez.)
 
 
@@ -1144,11 +1157,11 @@
   puanlama:
   - olcut: Matrah 40.000.000 TL ve giderlerin indirilmemesi
     puan: 2
-  - olcut: Vergi 3.000.000 TL
+  - olcut: Vergi 2.000.000 TL
     puan: 1
   - olcut: Beyan/ödeme tarihi 31 Temmuz 2026 ve KDV vergi dairesince tarh
     puan: 3
-  - olcut: (B) için vergi 1.500.000 TL
+  - olcut: (B) için vergi 1.000.000 TL
     puan: 1
   - olcut: Beyanın sorumlu (E) Bankası tarafından yapılması
     puan: 2
@@ -1156,7 +1169,7 @@
     puan: 2
   - olcut: Adi ortaklıkta müteselsil sorumluluk ve ortaklardan biri adına tarh
     puan: 3
-  - olcut: DHV'nin gider yazılabilmesi ve 750.000 TL etkisi
+  - olcut: DHV'nin gider yazılabilmesi ve 500.000 TL etkisi
     puan: 5
   - olcut: İhtar yolları ve GİB sitesinde ilan
     puan: 3
@@ -1202,7 +1215,7 @@
     yila_bagli_tutar: true
     yil: 2026
   dogrulama:
-    python: 'oran=0.075
+    python: 'oran=0.05  # 10767 sayılı CBK: 2026 için %5
 
       a_vergi=40000000*oran
 
@@ -1212,10 +1225,10 @@
 
       sonuc={"A_vergi":a_vergi,"A_beyan_odeme":"2026-07-%d"%(31),"B_vergi":b_vergi,"B_beyan_odeme":"2026-08-%d"%(31),"A_KV_tasarruf":kv_tasarruf,"A_matrah_indirimi":0}
 
-      assert a_vergi==3000000 and b_vergi==1500000 and kv_tasarruf==750000
+      assert a_vergi==2000000 and b_vergi==1000000 and kv_tasarruf==500000
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1226,8 +1239,16 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: DHV orani 2026 icin %7,5 degil: 10767 sayili CBK ile 1/1/2026''dan itibaren %5 (kaynak dipnotu).
+          Soru 2026 donemleri icin %7,5 varsayiyor; vergi ve KV etkisi yeniden hesaplandi (2.000.000; 1.000.000; 500.000).'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_USL_20261105_1.yaml, klasik 6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: DHV orani 2026 icin %7,5 degil: 10767 sayili CBK ile 1/1/2026''dan itibaren %5 (kaynak dipnotu).
+      Soru 2026 donemleri icin %7,5 varsayiyor; vergi ve KV etkisi yeniden hesaplandi (2.000.000; 1.000.000; 500.000).'

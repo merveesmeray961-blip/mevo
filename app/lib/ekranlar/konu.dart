@@ -237,7 +237,8 @@ class _AnlatimEkraniState extends State<AnlatimEkrani> {
       ),
       body: Govde(
         child: YukariCikListe(
-          padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+          // Alt boşluk: telefonun gezinme çubuğu (kenardan kenara çizim) + "yukarı çık" düğmesi son düğmeleri örtmesin.
+          padding: EdgeInsets.fromLTRB(20, 8, 20, 96 + MediaQuery.viewPaddingOf(context).bottom),
           children: [
             Text(anlatim.baslik, style: t.headlineSmall),
             const SizedBox(height: 4),
@@ -290,7 +291,10 @@ class _AnlatimEkraniState extends State<AnlatimEkrani> {
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
                 ),
-                style: OutlinedButton.styleFrom(minimumSize: const Size(64, 48)),
+                style: OutlinedButton.styleFrom(
+                  minimumSize: const Size(64, 56),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                ),
                 onPressed: () async {
                   await durum.ilerleme.okunduIsaretle(anlatim.anahtar);
                   if (context.mounted) await anlatimAc(context, ders, sonraki.anlatim, yerine: true);

@@ -1325,7 +1325,7 @@
       kerem=selim/2
 
       sonuc={''a'':[round(kerem,2),round(selim,2)]}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1336,11 +1336,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-SRV-K009
   sinav: ymm
   ders: HSV
@@ -1391,15 +1397,18 @@
 
     |---|---|---|
 
-    | 1 | Ölümü takibeden 4 ay (Türkiye''de ölüm, mükellef Türkiye''de) | 10 Mayıs 2026 |
+    | 1 | Ölümü takibeden 4 ay (Türkiye''de ölüm, mükellef Türkiye''de) | 10 Mayıs 2026 (Pazar''a rastladığından süre ilk
+    iş günü olan 11 Mayıs 2026''da biter) |
 
-    | 2 | Yabancı memlekette ölüm, mükellef Türkiye''de: 6 ay | 2 Ağustos 2026 |
+    | 2 | Yabancı memlekette ölüm, mükellef Türkiye''de: 6 ay | 2 Ağustos 2026 (Pazar''a rastladığından süre 3 Ağustos 2026''da
+    biter) |
 
     | 3 | Mükellef müteveffanın bulunduğu memlekette: 4 ay | 2 Haziran 2026 |
 
     | 4 | Başka bir yabancı memlekette: 8 ay | 2 Ekim 2026 |
 
-    | 5 | Gaiplik kararının ölüm siciline kaydı tarihini takibeden 1 ay | 5 Nisan 2026 |
+    | 5 | Gaiplik kararının ölüm siciline kaydı tarihini takibeden 1 ay | 5 Nisan 2026 (Pazar''a rastladığından süre 6 Nisan
+    2026''da biter) |
 
     | 6 | Diğer suretle intikalde iktisap tarihini takibeden 1 ay | 20 Temmuz 2026 |
 
@@ -1446,7 +1455,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'sureler':[4,6,4,8,1,1]}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1457,11 +1466,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: Son gunlerden 10 Mayis, 2 Agustos ve 5 Nisan 2026 Pazar gunune rastliyor; sure son gunu tatile
+          denk gelirse ilk is gunu biter, cozum bunu yansitmiyor.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Son gunlerden 10 Mayis, 2 Agustos ve 5 Nisan 2026 Pazar gunune rastliyor; sure son gunu tatile denk
+      gelirse ilk is gunu biter, cozum bunu yansitmiyor.'
 - id: YMM-HSV-SRV-K010
   sinav: ymm
   ders: HSV
@@ -1557,7 +1574,7 @@
     python: 't=800000*0.05+600000*0.15
 
       sonuc={''a'':t,''b'':t+t*0.035*2,''c'':t*0.10}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1568,11 +1585,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-SRV-K011
   sinav: ymm
   ders: HSV
@@ -1663,7 +1686,7 @@
     python: 'zam=500000*0.035/2*96
 
       sonuc={''c'':500000+zam}'
-  durum: taslak
+  durum: geri_cekildi
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1674,11 +1697,21 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: kaldi
+        tarih: '2026-11-11'
+        not: 'hakem ret: VIV md. 13''te ''verginin tahsili halinde gecikme zammi yuzde elli noksani ile uygulanir'' hukmu
+          yalniz ikinci fikradaki (kamu duzeni mevzuati geregi bedelsiz devri islemi baslamis gayrimenkuller) tecil icin yer
+          aliyor; icra/mahkemedeki ihtilafli alacak-borc tecilini duzenleyen birinci fikra'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'hakem ret: VIV md. 13''te ''verginin tahsili halinde gecikme zammi yuzde elli noksani ile uygulanir'' hukmu yalniz
+      ikinci fikradaki (kamu duzeni mevzuati geregi bedelsiz devri islemi baslamis gayrimenkuller) tecil icin yer aliyor;
+      icra/mahkemedeki ihtilafli alacak-borc tecilini duzenleyen birinci fikra'
 - id: YMM-HSV-SRV-K012
   sinav: ymm
   ders: HSV
@@ -1764,7 +1797,7 @@
       a=(1500000-66935)*0.2
 
       sonuc={''a'':n,''b'':a}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1775,11 +1808,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-SRV-K013
   sinav: ymm
   ders: HSV
@@ -1973,7 +2012,7 @@
       d=2500000*0.004
 
       sonuc={''b'':[m,d,m+d],''c'':(m+d)/2}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1984,11 +2023,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 8
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-SRV-K015
   sinav: ymm
   ders: HSV
@@ -2068,7 +2113,7 @@
       arsapay=1500000*0.006
 
       sonuc={''a'':[arsa,arazi],''b'':[bina,arsapay],''c'':max(bina,arsapay)}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2079,11 +2124,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 9
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-SRV-K016
   sinav: ymm
   ders: HSV
@@ -2170,7 +2221,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'a':24000/2}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2181,11 +2232,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 10
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-SRV-K017
   sinav: ymm
   ders: HSV
@@ -2280,7 +2337,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'b':40000}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2291,11 +2348,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 11
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-SRV-K018
   sinav: ymm
   ders: HSV
@@ -2352,8 +2415,8 @@
 
     - B: 7.289.000 × binde 3 = **21.867 TL**.
 
-    - C: 26.567.000 TL''ye kadar 26.568 TL (7.500.000 TL aşan dilim için); 30.000.000 − 26.567.000 = 3.433.000 × binde 6 =
-    20.598; toplam **47.166 TL**.
+    - C: 26.567.000 TL''si için 26.568 TL sabit tutar; 30.000.000 − 26.567.000 = 3.433.000 × binde 6 = 20.598; toplam **47.166
+    TL**.
 
     - D: 35.425.000''e kadar 79.716 TL; fazlası: 40.000.000 − 35.425.000 = 4.575.000 × binde 10 = 45.750; toplam **125.466
     TL**.
@@ -2394,7 +2457,7 @@
   dogrulama:
     python: "def dkv(v):\n    m=v-17711000\n    if m<=0: return 0\n    if v<=26567000: return m*0.003\n    if v<=35425000:\
       \ return 26568+(v-26567000)*0.006\n    return 79716+(v-35425000)*0.01\nsonuc={'b':[dkv(15000000),dkv(25000000),dkv(30000000),dkv(40000000)]}"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2405,11 +2468,19 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem duzelt: Onemsiz ama yanlis rakam: C icin 26.568 TL sabit tutar ''7.500.000 TL'' degil 26.567.000 TL''ye
+          kadar olan dilime aittir.'
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 12
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem duzelt: Onemsiz ama yanlis rakam: C icin 26.568 TL sabit tutar ''7.500.000 TL'' degil 26.567.000 TL''ye
+      kadar olan dilime aittir.'
 - id: YMM-HSV-SRV-K019
   sinav: ymm
   ders: HSV
@@ -2615,7 +2686,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'a':3000/2,'b':4200,'d':3000/2+4200+2000/2}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2626,11 +2697,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 14
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-SRV-K021
   sinav: ymm
   ders: HSV
@@ -2720,7 +2797,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'b':4000+7000}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2731,11 +2808,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 15
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-SRV-K022
   sinav: ymm
   ders: HSV
@@ -2956,7 +3039,7 @@
     yil: 2026
   dogrulama:
     python: sonuc={'a':6000000-2907136,'b':1500000-66935}
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2967,11 +3050,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261102_1.yaml, klasik 17
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-SRV-K024
   sinav: ymm
   ders: HSV
@@ -3204,7 +3293,7 @@
       6, 2)}
 
       '
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -3215,11 +3304,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim HSV_SRV_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-HSV-SRV-K025
   sinav: ymm
   ders: HSV

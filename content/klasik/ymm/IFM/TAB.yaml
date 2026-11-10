@@ -728,7 +728,7 @@
       sonuc = {''wa'': wa, ''b_c'': round(ctrl/wa,2), ''b_d'': round(-900000/wa,2), ''b_t'': round(tot/wa,2), ''inc_bond'':
       round(atf/wm,2), ''inc_pref'': 300000/100000, ''den'': den, ''d_c'': round((ctrl+atf)/den,2), ''d_d'': round(-900000/den,2),
       ''d_t'': round((tot+atf)/den,2)}'
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -739,11 +739,17 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim IFM_TAB_20261105_1.yaml, klasik 1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul
 - id: YMM-IFM-TAB-K005
   sinav: ymm
   ders: IFM
@@ -939,7 +945,7 @@
     python: "maliyet = 2000000\nn = [1700000, 1850000, 2200000, 1900000]\nprev = maliyet\nfarklar = []\nfor x in n:\n    y\
       \ = min(maliyet, x)\n    farklar.append(y - prev)\n    prev = y\nkmp = 3200000 + 300000 + 500000 + 400000 + 250000\n\
       sonuc = {'farklar': farklar, 'net_gider': -sum(farklar), 'defter_sonu': prev, 'kmp': kmp}"
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -950,8 +956,14 @@
         sonuc: gecti
         tarih: '2026-11-05'
       G5:
-        sonuc: bekliyor
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: hakem kabul
   gecmis:
   - tarih: '2026-11-05'
     kim: uretici
     ne: harici teslim IFM_TAB_20261105_1.yaml, klasik 3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: hakem kabul

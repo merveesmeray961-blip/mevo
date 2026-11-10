@@ -1163,10 +1163,12 @@
   aciklama:
     dogru_neden: Varyans = (0,5²×0,1²)+(0,5²×0,2²)+2×0,5×0,5×0×0,1×0,2=0,0025+0,0100=0,0125. Doğru seçenek C olmalı.
     celdiriciler:
-      A: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 0,0125 değeridir.
-      B: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 0,0125 değeridir.
-      D: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 0,0125 değeridir.
-      E: Bu seçenek, kökte verilen formül ve verilerle yapılan hesaplamanın sonucuyla uyuşmaz; doğru sonuç 0,0125 değeridir.
+      A: 0,0025 yalnız A varlığının katkısıdır (0,5²×0,1²). B'nin katkısı (0,5²×0,2²=0,0100) toplama eklenmemiştir; doğru
+        varyans 0,0125'tir.
+      B: '0,0050 tek varlığın ağırlığı karesiz alınarak (0,5×0,1²) bulunan değere benzer; varyansta ağırlıklar karelenir ve
+        iki varlığın katkısı toplanır: 0,0025+0,0100=0,0125.'
+      D: '0,0250, ağırlıklar karelenmeden (0,5×0,01+0,5×0,04) bulunur. Portföy varyansında ağırlıkların karesi alınır: 0,0025+0,0100=0,0125.'
+      E: 0,0500, ağırlıklar hiç uygulanmadan varyansların toplanmasıdır (0,01+0,04). Portföy varyansı 0,5²×0,1²+0,5²×0,2²=0,0125'tir.
     hesap_adimlari:
     - Varyans = wA²σA² + wB²σB² + 2wAwBρσAσB.
     - = 0,25×0,01 + 0,25×0,04 + 0 = 0,0125.
@@ -1214,6 +1216,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: kalıp çeldirici açıklamaları soruya özel yeniden yazıldı
 - id: YMM-FYN-RGT-0018
   sinav: ymm
   bolum:
@@ -1813,14 +1818,13 @@
   aciklama:
     dogru_neden: σp=|0,5×0,10−0,5×0,20|=0,05, yani %5.
     celdiriciler:
-      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum σp=|0,5×0,10−0,5×0,20|=0,05,
-        yani %5.
-      C: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum σp=|0,5×0,10−0,5×0,20|=0,05,
-        yani %5.
-      D: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum σp=|0,5×0,10−0,5×0,20|=0,05,
-        yani %5.
-      E: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum σp=|0,5×0,10−0,5×0,20|=0,05,
-        yani %5.
+      A: Korelasyon −1'de portföy riski ancak ağırlıklı standart sapmalar eşitse sıfır olur. Burada 0,5×%10=%5 ile 0,5×%20=%10
+        farklıdır; fark %5'tir.
+      C: '%10 yalnız B''nin ağırlıklı katkısıdır (0,5×%20). Korelasyon −1 iken katkılar birbirini götürür: |%10−%5|=%5.'
+      D: '%15, korelasyonun +1 olduğu durumun sonucudur (%5+%10). Korelasyon −1 olduğundan riskler birbirini azaltır ve sonuç
+        %5 olur.'
+      E: '%30, standart sapmaların ağırlıksız toplanmasıdır (%10+%20). Portföy riski ağırlıklarla ölçeklenir ve −1 korelasyonda
+        |%5−%10|=%5 olur.'
     hesap_adimlari:
     - σp=|0,5×0,10−0,5×0,20|=0,05, yani %5.
   kaynaklar:
@@ -1867,6 +1871,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: kalıp çeldirici açıklamaları soruya özel yeniden yazıldı
 - id: YMM-FYN-RGT-0027
   sinav: ymm
   bolum:
@@ -2178,14 +2185,10 @@
     dogru_neden: Beklenen getiri=0+5%+6%=11%. Varyans=0,2(0−0,11)²+0,5(0,10−0,11)²+0,3(0,20−0,11)²=0,0049; standart sapma
       varyansın kareköküdür.
     celdiriciler:
-      A: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Beklenen getiri=0+5%+6%=11%.
-        Varyans=0,2(0−0,11)²+0,5(0,10−0,11)²+0,3(0,20−0,11)²=0,0049; standart sapma varyansın kareköküdür.
-      B: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Beklenen getiri=0+5%+6%=11%.
-        Varyans=0,2(0−0,11)²+0,5(0,10−0,11)²+0,3(0,20−0,11)²=0,0049; standart sapma varyansın kareköküdür.
-      C: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Beklenen getiri=0+5%+6%=11%.
-        Varyans=0,2(0−0,11)²+0,5(0,10−0,11)²+0,3(0,20−0,11)²=0,0049; standart sapma varyansın kareköküdür.
-      D: Bu seçenek doğru değildir; verilen formül ve kökteki veriler uygulandığında sonuç/yorum Beklenen getiri=0+5%+6%=11%.
-        Varyans=0,2(0−0,11)²+0,5(0,10−0,11)²+0,3(0,20−0,11)²=0,0049; standart sapma varyansın kareköküdür.
+      A: I doğrudur (E(R)=0+5%+6%=%11) fakat II (varyans 0,0049) ve III de doğrudur. Yalnız I diğer ikisini dışarıda bırakır.
+      B: 'I ve II doğrudur ancak III de doğrudur: standart sapma varyansın kareköküdür (√0,0049=%7).'
+      C: 'I ve III doğrudur fakat II de doğrudur: varyans 0,2(0−0,11)²+0,5(0,10−0,11)²+0,3(0,20−0,11)²=0,0049''dur.'
+      D: 'II ve III doğrudur, I de doğrudur: beklenen getiri 0,2×0+0,5×%10+0,3×%20=%11''dir.'
   kaynaklar:
   - mevzuat: 'Genel bilgi — Finansal Yönetim: beklenen getiri ve varyans'
     madde: '-'
@@ -2229,6 +2232,9 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: kitap düzeyi hakem kabulü
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: kalıp çeldirici açıklamaları soruya özel yeniden yazıldı
 - id: YMM-FYN-RGT-0032
   sinav: ymm
   bolum:

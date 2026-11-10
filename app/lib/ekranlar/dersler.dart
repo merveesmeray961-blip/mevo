@@ -188,8 +188,8 @@ class BasariRozeti extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(color: renk.withValues(alpha: 0.14), borderRadius: BorderRadius.circular(20)),
       child: Text(
-        '%${(oran * 100).round()}',
-        style: TextStyle(color: renk, fontWeight: FontWeight.w700),
+        'Başarı %${(oran * 100).round()}',
+        style: TextStyle(color: renk, fontWeight: FontWeight.w700, fontSize: 12.5),
       ),
     );
   }
