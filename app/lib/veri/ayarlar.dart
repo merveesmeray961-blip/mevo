@@ -25,6 +25,22 @@ class Ayarlar extends ChangeNotifier {
   String? _sesAdi;
 
   Ayarlar(this._depo) {
+    _yukle();
+  }
+
+  /// Depodan baştan okur (yedek geri yüklendikten sonra).
+  void yenidenYukle() {
+    _bolum = null;
+    _tema = ThemeMode.system;
+    _oturumBoyu = 10;
+    _yazi = yaziVarsayilan;
+    _sesHizi = sesHiziVarsayilan;
+    _sesAdi = null;
+    _yukle();
+    notifyListeners();
+  }
+
+  void _yukle() {
     final s = _depo.oku(_anahtar);
     if (s == null) return;
     final j = jsonDecode(s) as Map<String, dynamic>;

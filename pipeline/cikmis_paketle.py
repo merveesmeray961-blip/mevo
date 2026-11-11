@@ -71,14 +71,34 @@ def uygun(s: dict) -> bool:
     return True
 
 
+# Otomatik çıkarmada tablosu/yevmiyesi bozulan sorular PDF'ten elle aktarılır (content/cikmis_yapi/elle/*.json):
+# {id: {durum: duzeltildi|kurtarilamaz|atla, kok, secenekler, not}}. "duzeltildi" kayıtlar sezgisel elemeden muaftır.
+ELLE = YAPI / "elle"
+
+
+def elle_duzeltmeler() -> dict[str, dict]:
+    out: dict[str, dict] = {}
+    for f in sorted(ELLE.glob("*.json")) if ELLE.exists() else []:
+        out.update(json.loads(f.read_text(encoding="utf-8")))
+    return out
+
+
 def main() -> None:
     oturumlar: dict[str, dict] = {}
     say = Counter()
+    elle = elle_duzeltmeler()
     for f in sorted((YAPI / "sgs").glob("*.json")) + [YAPI / "smmm_test.json"]:
         veri = json.loads(f.read_text(encoding="utf-8"))
         for s in veri["sorular"] if isinstance(veri, dict) else veri:
             say["toplam"] += 1
-            if not uygun(s):
+            e = elle.get(s.get("id"))
+            if e and e.get("durum") == "duzeltildi" and s.get("dogru") and not s.get("iptal") \
+                    and "İPTAL" not in str(s.get("dogru")).upper() \
+                    and (e.get("dogru") or s["dogru"]) in (e.get("secenekler") or {}):
+                # Resmî cevap anahtarında sonradan değiştirilen şık ("B --> A, Şık Değ.") elle kayıtta düzeltilir.
+                s = {**s, "kok": e["kok"], "secenekler": e["secenekler"], "dogru": e.get("dogru") or s["dogru"], "_elle": True}
+                say["elle"] += 1
+            elif not uygun(s):
                 continue
             sinav = "SGS" if s.get("tur") == "sgs" else "Yeterlilik"
             kod = f"{sinav.lower()}-{s['yil']}-{s.get('donem') or 0}"
@@ -88,8 +108,8 @@ def main() -> None:
                 "ders": s.get("ders_kod") or "",
                 "dersAd": s.get("ders_ad") or "",
                 "no": s.get("no"),
-                "kok": duzle(s["kok"]),
-                "secenekler": {k: duzle(str(v)) for k, v in sorted(s["secenekler"].items())},
+                "kok": s["kok"] if s.get("_elle") else duzle(s["kok"]),
+                "secenekler": {k: (str(v) if s.get("_elle") else duzle(str(v))) for k, v in sorted(s["secenekler"].items())},
                 "dogru": s["dogru"],
             })
             say[sinav] += 1

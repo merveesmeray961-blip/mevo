@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../abonelik/abonelik.dart';
 import '../uygulama.dart';
 import '../veri/ayarlar.dart';
+import '../veri/yedek.dart';
 import 'bolum_secimi.dart';
 import 'odeme.dart';
 import 'yasal.dart';
@@ -138,6 +140,17 @@ class AyarlarEkrani extends StatelessWidget {
                   ),
                 const Divider(),
                 const _GrupBasligi('Verilerim'),
+                ListTile(
+                  leading: const Icon(Icons.backup_outlined),
+                  title: const Text('İlerlememi yedekle'),
+                  subtitle: const Text('Telefon değiştirirken çalışma geçmişini taşımak için'),
+                  onTap: () => yedekGoster(context),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.settings_backup_restore),
+                  title: const Text('Yedekten geri yükle'),
+                  onTap: () => yedekGeriYukle(context),
+                ),
                 ListTile(
                   leading: const Icon(Icons.restart_alt),
                   title: const Text('İlerlememi sıfırla'),
@@ -283,18 +296,26 @@ class _SesAyarlariState extends State<_SesAyarlari> {
                 ListTile(
                   leading: const Icon(Icons.record_voice_over_outlined),
                   title: const Text('Ses'),
-                  subtitle: const Text('Cihazdaki Türkçe sesler; en doğal olanı seç'),
-                  trailing: DropdownButton<String>(
-                    value: secili,
-                    underline: const SizedBox(),
-                    onChanged: (ad) async {
-                      await ay.sesAdiSec(ad);
-                      await ses.sesSec(ad);
-                      if (context.mounted) await ses.oku(_ornek, kaynak: 'ayarlar/ornek');
-                    },
-                    items: [
-                      for (final s in sesler)
-                        DropdownMenuItem(value: s.ad, child: Text(s.etiket, overflow: TextOverflow.ellipsis)),
+                  // Seçim kutusu alt satırda tam genişlikte: büyük yazıda yan yana dizilince açıklama tek harflik
+                  // sütuna sıkışıyordu (emülatör testi, 11.11.2026).
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Cihazdaki Türkçe sesler; en doğal olanı seç'),
+                      DropdownButton<String>(
+                        value: secili,
+                        isExpanded: true,
+                        underline: const SizedBox(),
+                        onChanged: (ad) async {
+                          await ay.sesAdiSec(ad);
+                          await ses.sesSec(ad);
+                          if (context.mounted) await ses.oku(_ornek, kaynak: 'ayarlar/ornek');
+                        },
+                        items: [
+                          for (final s in sesler)
+                            DropdownMenuItem(value: s.ad, child: Text(s.etiket, overflow: TextOverflow.ellipsis)),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -322,3 +343,99 @@ void scheduleMicrotaskSafe(Future<void> Function() f) => Future.microtask(f);
 
 /// Derleme sırasında `--dart-define=MEVO_SURUM=…` ile verilir (araclar/derle.cmd); geliştirmede boştur.
 const _surum = String.fromEnvironment('MEVO_SURUM');
+
+/// Yedek kodunu gösterir; kullanıcı kopyalayıp kendine gönderir.
+Future<void> yedekGoster(BuildContext context) async {
+  final durum = Kapsam.of(context);
+  final kod = yedekOlustur(durum.ilerleme.depo, durum.urun.kod, DateTime.now());
+  await showDialog<void>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text('İlerleme yedeği'),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Aşağıdaki kodu kopyala ve kendine gönder (not, e-posta ya da mesaj). Yeni telefonda '
+              'Ayarlar › Verilerim › Yedekten geri yükle bölümüne yapıştır.\n\n'
+              'Kod yalnız çalışma geçmişini, notlarını ve ayarlarını içerir. Tam erişim mağazadan '
+              '"Satın alımı geri yükle" ile gelir.',
+            ),
+            const SizedBox(height: 12),
+            Text('${(kod.length / 1024).toStringAsFixed(1)} KB', style: Theme.of(context).textTheme.bodySmall),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Kapat')),
+        FilledButton.icon(
+          icon: const Icon(Icons.copy),
+          label: const Text('Kodu kopyala'),
+          onPressed: () async {
+            await Clipboard.setData(ClipboardData(text: kod));
+            if (!context.mounted) return;
+            Navigator.of(context).pop();
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Yedek kodu kopyalandı. Kendine gönderip sakla.')),
+            );
+          },
+        ),
+      ],
+    ),
+  );
+}
+
+/// Yapıştırılan yedek kodunu doğrular, onay alır ve bu cihazdaki ilerlemenin yerine yazar.
+Future<void> yedekGeriYukle(BuildContext context) async {
+  final durum = Kapsam.of(context);
+  final alan = TextEditingController();
+  final pano = await Clipboard.getData(Clipboard.kTextPlain);
+  if (pano?.text?.trim().startsWith(yedekOnEki) ?? false) alan.text = pano!.text!.trim();
+  if (!context.mounted) return;
+  final kod = await showDialog<String>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text('Yedekten geri yükle'),
+      content: TextField(
+        controller: alan,
+        maxLines: 4,
+        decoration: const InputDecoration(hintText: 'Yedek kodunu buraya yapıştır', border: OutlineInputBorder()),
+      ),
+      actions: [
+        TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Vazgeç')),
+        FilledButton(onPressed: () => Navigator.of(context).pop(alan.text), child: const Text('Devam')),
+      ],
+    ),
+  );
+  if (kod == null || kod.trim().isEmpty || !context.mounted) return;
+  final ({DateTime tarih, Map<String, String> veri}) yedek;
+  try {
+    yedek = yedekCoz(kod, durum.urun.kod);
+  } on YedekHatasi catch (h) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(h.mesaj)));
+    return;
+  }
+  final onay = await showDialog<bool>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text('Yedek geri yüklensin mi?'),
+      content: Text(
+        '${tarihYaz(yedek.tarih)} tarihli yedek yüklenecek. Bu telefondaki çalışma geçmişi, notlar ve ayarlar '
+        'yedektekilerle değiştirilir.',
+      ),
+      actions: [
+        TextButton(onPressed: () => Navigator.of(context).pop(false), child: const Text('Vazgeç')),
+        FilledButton(onPressed: () => Navigator.of(context).pop(true), child: const Text('Geri yükle')),
+      ],
+    ),
+  );
+  if (onay != true) return;
+  await yedekYaz(durum.ilerleme.depo, yedek.veri);
+  durum.ilerleme.yenidenYukle();
+  durum.notlar.yenidenYukle();
+  durum.ayarlar.yenidenYukle();
+  if (!context.mounted) return;
+  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Yedek geri yüklendi.')));
+}

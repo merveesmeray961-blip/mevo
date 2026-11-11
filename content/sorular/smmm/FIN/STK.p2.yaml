@@ -1836,8 +1836,8 @@
   kazanim: Normal fire ve stok maliyeti
   tip: hesaplama
   zorluk: 2
-  kok: '(E1) A.Ş., 1.000 kg hammaddeyi toplam 95.000 ₺''ya satın almıştır. Bu tür maddelerde normal fire oranı %5''tir ve
-    gerçekleşen fire normal sınırdadır. KDV dikkate alınmayacaktır.
+  kok: 'ABC A.Ş., 1.000 kg hammaddeyi toplam 95.000 ₺''ya satın almıştır. Bu tür maddelerde normal fire oranı %5''tir ve gerçekleşen
+    fire normal sınırdadır. KDV dikkate alınmayacaktır.
 
 
     Kalan 950 kg''ın toplam stok maliyeti ve kg başına birim maliyeti aşağıdakilerden hangisidir?'
@@ -1852,8 +1852,8 @@
     dogru_neden: Normalin üstünde gerçekleşen fire ve kayıplar gider yazılır (BOBİ FRS 6.15); normal düzeydeki fire ise stok
       maliyetinin içinde kalır. Toplam maliyet 95.000 ₺ olup 950 kg'a bölününce birim maliyet 100 ₺ olur.
     celdiriciler:
-      A: Toplam 90.000 ₺; birim maliyet yaklaşık 94,74 ₺ doğru hesaplamanın sonucu değildir; kökteki verilerle doğru sonuç
-        Toplam 95.000 ₺; birim maliyet 100 ₺ (normal fire maliyette kalır) olarak bulunur.
+      A: Toplam 90.000 ₺; birim maliyet yaklaşık 94,74 ₺, fire olan 50 kg için 5.000 ₺'nin maliyetten düşülmesiyle bulunur;
+        normal fire maliyetten düşülmez, kalan miktara yüklenir.
       B: 950 kg'ın eski birim maliyet olan 95 ₺ ile değerlenmesidir; normal fire birim maliyeti artırır.
       D: Toplam doğrudur ancak birim maliyet 95 ₺ alınmıştır; kalan miktar 950 kg olduğundan birim maliyet 100 ₺'dır.
       E: Birim maliyetin 1.000 kg'ın tamamına uygulanmasıdır; fire olan 50 kg stokta değildir.
@@ -1873,7 +1873,8 @@
     python: 'sonuc = 95000
 
       '
-  durum: taslak
+    secenek_sayisi_bekleniyor: false
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1897,8 +1898,9 @@
         tarih: '2026-11-02'
       G5:
         sonuc: gecti
-        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
-        tarih: '2026-11-02'
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) duzelt: Kökte ''(E1)'' şablon kalıntısı var; A çeldirici açıklaması döngüsel (neden yanlış
+          olduğunu söylemiyor). Anahtar (C) doğru: 95.000 / 950 = 100 ₺.'
       G6:
         sonuc: gecti
         not: alıntı resmî metin/hakemli anlatımda birebir
@@ -1915,6 +1917,11 @@
   - tarih: '2026-11-02'
     kim: asistan
     ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) duzelt: Kökte ''(E1)'' şablon kalıntısı var; A çeldirici açıklaması döngüsel (neden yanlış
+      olduğunu söylemiyor). Anahtar (C) doğru: 95.000 / 950 = 100 ₺.'
 - id: SMMM-FIN-STK-0089
   sinav: smmm
   bolum:
@@ -2014,8 +2021,8 @@
   kazanim: TMS 2 normal kapasite ve sabit genel üretim giderlerinin dağıtımı
   tip: hesaplama
   zorluk: 3
-  kok: '(G1) Bir imalatçı işletmenin dönem sabit genel üretim giderleri 100.000 ₺, değişken genel üretim giderleri 75.000
-    ₺''dır. Normal kapasite 80.000 birim, dönemde fiili üretim 50.000 birimdir. Sabit giderler normal kapasiteye göre dağıtılacaktır.
+  kok: 'Bir imalatçı işletmenin dönem sabit genel üretim giderleri 100.000 ₺, değişken genel üretim giderleri 75.000 ₺''dır.
+    Normal kapasite 80.000 birim, dönemde fiili üretim 50.000 birimdir. Sabit giderler normal kapasiteye göre dağıtılacaktır.
 
 
     TMS 2''ye göre sabit genel üretim giderleri bakımından aşağıdakilerden hangisi doğrudur?'
@@ -2053,7 +2060,8 @@
     python: 'sonuc = 100000 / 80000 * 50000
 
       '
-  durum: taslak
+    secenek_sayisi_bekleniyor: false
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -2077,8 +2085,9 @@
         tarih: '2026-11-02'
       G5:
         sonuc: gecti
-        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
-        tarih: '2026-11-02'
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) duzelt: Kökte ''(G1)'' şablon kalıntısı; anahtar (C) ve hesap (100.000/80.000×50.000 =
+          62.500) doğru, TMS 2 md. 13 ile uyumlu.'
       G6:
         sonuc: gecti
         not: alıntı resmî metin/hakemli anlatımda birebir
@@ -2095,6 +2104,11 @@
   - tarih: '2026-11-02'
     kim: asistan
     ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) duzelt: Kökte ''(G1)'' şablon kalıntısı; anahtar (C) ve hesap (100.000/80.000×50.000 = 62.500)
+      doğru, TMS 2 md. 13 ile uyumlu.'
 - id: SMMM-FIN-STK-0091
   sinav: smmm
   bolum:

@@ -35,6 +35,12 @@ def pubspec_duzenle(metin: str, urun: str) -> str:
     yeni, adet = girdiler.subn(f"    - assets/sorular/{urun}.paket\n", metin)
     if adet != 1:
         raise RuntimeError("pubspec.yaml'daki bayraklı soru paketi girdileri beklenen biçimde bulunamadı")
+    # Diğer bayraklı girdiler (ör. yalnız SMMM'de olan çıkmış sorular paketi): seçilen ürüne aitse bayraksız kalır,
+    # değilse çıkarılır.
+    def _bayrakli(m: re.Match) -> str:
+        return f"    - {m.group(1)}\n" if m.group(2) == urun else ""
+
+    yeni = re.sub(r"^    - path: (\S+)\n      flavors: \[(\w+)\]\n", _bayrakli, yeni, flags=re.MULTILINE)
     return re.sub(r"^  default-flavor: .*\n", "", yeni, flags=re.MULTILINE)
 
 

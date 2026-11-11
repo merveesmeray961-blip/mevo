@@ -13,11 +13,11 @@
     Faiz vade sonunda ana para ile birlikte ödenecektir. Yıl 360 gün, ay 30 gün kabul edilerek 31 Aralık 2026 itibarıyla bu
     krediye ilişkin cari döneme düşen faiz tutarı aşağıdakilerden hangisidir?
   secenekler:
-    A: 12.000 ₺ (30 gün)
-    B: 24.000 ₺ (60 günlük)
-    C: 36.000 ₺ (90 gün)
-    D: 144.000 ₺ (1 yıllık)
-    E: 324.000 ₺ (anapara + 1 yıllık faiz)
+    A: 12.000 ₺
+    B: 24.000 ₺
+    C: 36.000 ₺
+    D: 144.000 ₺
+    E: 324.000 ₺
   dogru: B
   aciklama:
     dogru_neden: Faiz, bir yıla kadar vadeli borçlanma gideri olarak THP 660'ta izlenir. Cari döneme düşen süre 1 Kasım -
@@ -26,7 +26,7 @@
       A: 12.000 ₺ yalnızca bir ayın (30 gün) faizidir; 1 Kasım - 31 Aralık arası iki aydır.
       C: 36.000 ₺ vadenin tamamı olan üç ayın (90 gün) faizidir; cari döneme yalnızca iki ay isabet eder.
       D: 144.000 ₺ bir yıllık faizdir (300.000 × %48).
-      E: 324.000 ₺ anapara ile bir yıllık faizin toplamıdır.
+      E: 324.000 ₺ anapara ile cari dönem faizinin toplamıdır (300.000 + 24.000); sorulan yalnızca faiz tutarıdır.
     hesap_adimlari:
     - 'Cari döneme düşen süre: 60 gün'
     - 'Faiz: 300.000 × 0,48 × 60 / 360 = 24.000 ₺'
@@ -44,7 +44,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 300000 * 0.48 * 60 / 360
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -68,8 +68,9 @@
         tarih: '2026-11-02'
       G5:
         sonuc: gecti
-        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
-        tarih: '2026-11-02'
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) duzelt: E çeldirici açıklaması yanlış: 324.000 ₺ anapara + bir yıllık faiz (444.000) değil,
+          anapara + cari dönem faizidir (300.000 + 24.000). Anahtar (B) doğru.'
       G6:
         sonuc: gecti
         not: alıntı resmî metin/hakemli anlatımda birebir
@@ -86,6 +87,11 @@
   - tarih: '2026-11-02'
     kim: asistan
     ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) duzelt: E çeldirici açıklaması yanlış: 324.000 ₺ anapara + bir yıllık faiz (444.000) değil,
+      anapara + cari dönem faizidir (300.000 + 24.000). Anahtar (B) doğru.'
 - id: SMMM-FIN-BOR-0042
   sinav: smmm
   bolum:
@@ -308,11 +314,11 @@
     İskonto tutarı 308 Menkul Kıymetler İhraç Farkları hesabına yansıtılmış olup vadeye paralel olarak eşit biçimde itfa edilecektir.
     Ay 30 gün kabul edilerek 31 Aralık 2026 itibarıyla finansman gideri olarak yazılacak itfa tutarı aşağıdakilerden hangisidir?
   secenekler:
-    A: 6.000 ₺ (1 ay)
-    B: 9.000 ₺ (yarısı)
-    C: 12.000 ₺ (18.000 × 2 / 3)
-    D: 18.000 ₺ (iskontonun tamamı)
-    E: 36.000 ₺ (2 × iskonto)
+    A: 6.000 ₺
+    B: 9.000 ₺
+    C: 12.000 ₺
+    D: 18.000 ₺
+    E: 36.000 ₺
   dogru: C
   aciklama:
     dogru_neden: 'THP 308''e göre ihraç farkı, menkul kıymetin vadesine paralel olarak itfa edilir ve itfa tutarları 66 Finansman
@@ -341,7 +347,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 18000 * 2 / 3
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -365,8 +371,9 @@
         tarih: '2026-11-02'
       G5:
         sonuc: gecti
-        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
-        tarih: '2026-11-02'
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Hesap (18.000 × 2/3 = 12.000) ve THP 308 işleyişi (itfa tutarı 66 grubu karşılığı
+          308''e alacak) kaynakla doğrulandı; şıklar temiz.'
       G6:
         sonuc: gecti
         not: alıntı resmî metin/hakemli anlatımda birebir
@@ -383,6 +390,11 @@
   - tarih: '2026-11-02'
     kim: asistan
     ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Hesap (18.000 × 2/3 = 12.000) ve THP 308 işleyişi (itfa tutarı 66 grubu karşılığı
+      308''e alacak) kaynakla doğrulandı; şıklar temiz.'
 - id: SMMM-FIN-BOR-0045
   sinav: smmm
   bolum:
@@ -599,16 +611,17 @@
     Anapara Taksitleri ve Faizleri hesabına alacak kaydedilecek anapara tutarı aşağıdakilerden hangisidir?
   secenekler:
     A: 24.000 ₺
-    B: 120.000 ₺ (600.000 / 5)
-    C: 480.000 ₺ (uzun vadede kalan)
-    D: 600.000 ₺ (kredinin tamamı)
+    B: 120.000 ₺
+    C: 480.000 ₺
+    D: 600.000 ₺
     E: 720.000 ₺
   dogru: B
   aciklama:
     dogru_neden: THP 303 vadelerine bir yıldan fazla süre bulunan kredilerin bilanço tarihinden itibaren bir yıl içinde ödenecek
       anapara taksitlerini kapsar. Taksit 600.000 / 5 = 120.000 ₺'dir; kalan 480.000 ₺ uzun vadeli kredi (400) hesabında kalır.
     celdiriciler:
-      A: 24.000 ₺ bir yılın faizi gibi hatalı bir tutardır; aktarılacak tutar anapara taksitidir.
+      A: 24.000 ₺ taksit tutarının (120.000) beşte biridir ve anlamsız bir tutardır; aktarılacak tutar anapara taksitinin
+        kendisidir.
       C: 480.000 ₺ uzun vadeli kısımda kalacak anaparadır; 303'e aktarılmaz.
       D: 600.000 ₺ kredinin tamamıdır; yalnızca bir yıl içinde ödenecek taksit aktarılır.
       E: 720.000 ₺ anapara ile hatalı bir tutarın toplamıdır.
@@ -627,7 +640,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = 600000 / 5
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -651,8 +664,9 @@
         tarih: '2026-11-02'
       G5:
         sonuc: gecti
-        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
-        tarih: '2026-11-02'
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) duzelt: A çeldirici açıklaması dayanaksız (''bir yılın faizi''; kökte faiz yok). 24.000
+          = 120.000 / 5. Anahtar (B) doğru.'
       G6:
         sonuc: gecti
         not: alıntı resmî metin/hakemli anlatımda birebir
@@ -669,6 +683,11 @@
   - tarih: '2026-11-02'
     kim: asistan
     ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) duzelt: A çeldirici açıklaması dayanaksız (''bir yılın faizi''; kökte faiz yok). 24.000 =
+      120.000 / 5. Anahtar (B) doğru.'
 - id: SMMM-FIN-BOR-0048
   sinav: smmm
   bolum:
@@ -784,16 +803,16 @@
     olarak muhasebeleştirilecek toplam kur farkı tutarı aşağıdakilerden hangisidir?
   secenekler:
     A: 5.000 ₺
-    B: 22.000 ₺ (yalnızca değerleme)
-    C: 27.000 ₺ (5.000 + 22.000)
-    D: 33.000 ₺ (15.000 × 2,20)
+    B: 22.000 ₺
+    C: 27.000 ₺
+    D: 33.000 ₺
     E: 48.200 ₺
   dogru: C
   aciklama:
     dogru_neden: 'Ödenen 5.000 Avro için kur farkı (47 − 46) × 5.000 = 5.000 ₺ gerçekleşmiştir. Kalan 10.000 Avro yıl sonunda
-      borsa rayici ile değerlenir (VUK md. 280): (48,20 − 46) × 10.000 = 22.000 ₺. Toplam 27.000 ₺ olup THP 66 ve 656 uyarınca
-      finansman gideri olarak muhasebeleştirilir. Püf noktaları: Ödenen kısım ödeme günü kuruyla, kalan kısım yıl sonu kuruyla
-      ayrı ayrı hesaplanır; tamamına yıl sonu kuru uygulamak yanlıştır.'
+      borsa rayici ile değerlenir (VUK md. 280): (48,20 − 46) × 10.000 = 22.000 ₺. Toplam 27.000 ₺ olup THP 656 açıklaması
+      uyarınca borçlanmayla ilgili kur farkları 656''ya değil, finansman giderleri (66) grubuna yazılır. Püf noktaları: Ödenen
+      kısım ödeme günü kuruyla, kalan kısım yıl sonu kuruyla ayrı ayrı hesaplanır; tamamına yıl sonu kuru uygulamak yanlıştır.'
     celdiriciler:
       A: 5.000 ₺ yalnızca ödeme tarihindeki gerçekleşmiş kur farkıdır; yıl sonu değerleme farkı da eklenmelidir.
       B: 22.000 ₺ yalnızca yıl sonunda kalan 10.000 Avro'nun değerleme farkıdır; ödeme tarihindeki fark da eklenmelidir.
@@ -817,7 +836,7 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = (47 - 46) * 5000 + (48.2 - 46) * 10000
-  durum: taslak
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -841,8 +860,10 @@
         tarih: '2026-11-02'
       G5:
         sonuc: gecti
-        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
-        tarih: '2026-11-02'
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) duzelt: Açıklama THP 656''ya atıf yapıp kur farkını 656 ile ilişkilendiriyor; THP 656 açıklaması
+          borçlanmayla ilgili kur farklarının 656''ya alınmayıp finansman gideri olarak izleneceğini söyler. Hesap (27.000)
+          doğru, anahtar C doğru.'
       G6:
         sonuc: gecti
         not: alıntı resmî metin/hakemli anlatımda birebir
@@ -859,6 +880,12 @@
   - tarih: '2026-11-02'
     kim: asistan
     ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) duzelt: Açıklama THP 656''ya atıf yapıp kur farkını 656 ile ilişkilendiriyor; THP 656 açıklaması
+      borçlanmayla ilgili kur farklarının 656''ya alınmayıp finansman gideri olarak izleneceğini söyler. Hesap (27.000) doğru,
+      anahtar C doğru.'
 - id: SMMM-FIN-BOR-0050
   sinav: smmm
   bolum:

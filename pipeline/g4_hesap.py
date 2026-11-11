@@ -54,7 +54,7 @@ def calistir(kod: str) -> float:
     return float(ad_alani["sonuc"])
 
 
-_YON_EKSI = re.compile(r"(azal|olumsuz|yetersiz|eksik|aleyh)", re.I)
+_YON_EKSI = re.compile(r"(azal|olumsuz|yetersiz|eksik|aleyh|\baçık\b|\bzarar)", re.I)
 _YON_ARTI = re.compile(r"(artar|artış|olumlu|fazla|lehte|lehine)", re.I)
 
 

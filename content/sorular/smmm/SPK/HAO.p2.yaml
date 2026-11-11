@@ -1769,7 +1769,7 @@
       az'' değil ''fazla''dır; %76,25 bunu aşar.'
     celdiriciler:
       A: Md. 6/7 on iki ay içindeki parçalı işlemleri tek işlem sayar; tek tek değerlendirme yapılmaz.
-      C: Oran 610 / 800 = %76,25'tir; %60 yanlış hesaplanmış bir orandır ve eşiğin üzerindedir.
+      C: Oran 610 / 800 = %76,25'tir; %60 yanlış hesaplanmış bir orandır ve gerçek oran %75 eşiğinin üzerindedir.
       D: Md. 6/7 uyarınca işlemler birleştirilir; yalnızca ilk işlemin esas alınması yanlıştır.
       E: Md. 6/7 on iki ay içindeki işlemlerin ayrı ayrı değil tek işlem olarak dikkate alınmasını öngörür.
     hesap_adimlari:
@@ -1797,7 +1797,8 @@
     yila_bagli_tutar: false
   dogrulama:
     python: sonuc = (250 + 200 + 160) / 800 * 100
-  durum: taslak
+    secenek_sayisi_bekleniyor: false
+  durum: kontrolde
   surum: 1
   uretim:
     kaynak_turu: yapay_zeka
@@ -1821,8 +1822,10 @@
         tarih: '2026-11-02'
       G5:
         sonuc: gecti
-        not: 'denetçi: tek doğru, güncel hüküm (Kasım 2026)'
-        tarih: '2026-11-02'
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) duzelt: C çeldirici açıklaması hatalı: ''%60 ... eşiğin üzerindedir'' (60 < 75). II-23.3
+          md. 6/1, 6/6 (fiili dolaşım %50''nin altında olduğundan eşik %75), 6/7, 6/8 doğrulandı; 610/800 = %76,25, anahtar
+          B doğru.'
       G6:
         sonuc: gecti
         not: alıntı resmî metin/hakemli anlatımda birebir
@@ -1839,6 +1842,12 @@
   - tarih: '2026-11-02'
     kim: asistan
     ne: 'otomatik kapı: doğru şıkta tek bir sayısal değer okunamadı'
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) duzelt: C çeldirici açıklaması hatalı: ''%60 ... eşiğin üzerindedir'' (60 < 75). II-23.3
+      md. 6/1, 6/6 (fiili dolaşım %50''nin altında olduğundan eşik %75), 6/7, 6/8 doğrulandı; 610/800 = %76,25, anahtar B
+      doğru.'
 - id: SMMM-SPK-HAO-0063
   sinav: smmm
   bolum:

@@ -22,6 +22,17 @@ class Notlar extends ChangeNotifier {
   final Map<String, Not> _notlar = {};
 
   Notlar(this._depo, {DateTime Function()? simdi}) : _simdi = simdi ?? DateTime.now {
+    _yukle();
+  }
+
+  /// Depodan baştan okur (yedek geri yüklendikten sonra).
+  void yenidenYukle() {
+    _notlar.clear();
+    _yukle();
+    notifyListeners();
+  }
+
+  void _yukle() {
     final h = _depo.oku(_anahtar);
     if (h == null) return;
     (jsonDecode(h) as Map<String, dynamic>).forEach((id, j) {

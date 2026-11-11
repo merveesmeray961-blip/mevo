@@ -165,6 +165,25 @@ class Ilerleme extends ChangeNotifier {
   final Set<String> _okunanlar = {};
 
   Ilerleme(this._depo, {DateTime Function()? simdi}) : _simdi = simdi ?? DateTime.now {
+    _yukle();
+  }
+
+  /// Cihazdaki depo (yedekleme için).
+  Depo get depo => _depo;
+
+  /// Depodan baştan okur (yedek geri yüklendikten sonra).
+  void yenidenYukle() {
+    _durumlar.clear();
+    _denemeler.clear();
+    _gunluk.clear();
+    _bildirimler.clear();
+    _okunanlar.clear();
+    _sonAnlatim = null;
+    _yukle();
+    notifyListeners();
+  }
+
+  void _yukle() {
     final s = _depo.oku(_anahtarSorular);
     if (s != null) {
       (jsonDecode(s) as Map<String, dynamic>).forEach(

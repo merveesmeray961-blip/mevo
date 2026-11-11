@@ -24,9 +24,10 @@ Future<void> main() async {
   // Kenardan kenara çizim (Android 15+ zaten böyledir); sistem çubuklarının arkası uygulama rengiyle dolar.
   unawaited(SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge));
   final urun = Urun.calisan;
+  // Paketi açma ve ayrıştırma (onlarca MB JSON) arka iş parçacığında, depo açılışıyla eş zamanlı yürür.
+  final bankaYukleme = rootBundle.load(urun.paketYolu).then((v) => compute(bankaAc, v.buffer.asUint8List()));
   final depo = await CihazDepo.ac();
-  final paket = (await rootBundle.load(urun.paketYolu)).buffer.asUint8List();
-  final banka = SoruBankasi.fromJson(jsonDecode(paketCoz(paket)) as Map<String, dynamic>);
+  final banka = await bankaYukleme;
   // Yanlış paketle derlenmiş uygulamayı baştan reddet (ör. YMM uygulamasına SMMM paketi konmuşsa).
   if (banka.urun != null && banka.urun != urun.kod) {
     throw StateError('Soru paketi ${banka.urun} uygulamasına ait; bu uygulama ${urun.kod}.');
@@ -88,3 +89,6 @@ class MevoUygulamasi extends StatelessWidget {
     );
   }
 }
+
+/// Gömülü soru paketini açıp soru bankasını kurar (arka iş parçacığında çalışır).
+SoruBankasi bankaAc(Uint8List paket) => SoruBankasi.fromJson(jsonDecode(paketCoz(paket)) as Map<String, dynamic>);

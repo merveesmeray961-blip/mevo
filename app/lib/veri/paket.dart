@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:archive/archive.dart';
+import 'zlib_coz.dart';
 
 /// Uygulamaya gömülü soru paketini açar (pipeline/paket_sifre.py ile aynı algoritma).
 ///
@@ -60,7 +60,7 @@ String paketCoz(Uint8List paket) {
   }
   final tohum = paket.sublist(4, 20);
   final sikistirilmis = _karistir(Uint8List.sublistView(paket, 20), tohum);
-  return utf8.decode(const ZLibDecoder().decodeBytes(sikistirilmis));
+  return utf8.decode(zlibCoz(sikistirilmis));
 }
 
 /// Yalnız test için: VM'de doğrudan çarpımla hesaplanan FNV-1a (web için yazılan sürümle aynı sonucu vermeli).

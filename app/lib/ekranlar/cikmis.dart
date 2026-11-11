@@ -168,8 +168,11 @@ class _CikmisEkraniState extends State<CikmisEkrani> {
                     ),
                 const SizedBox(height: 8),
                 Text(
-                  'Tablo, grafik veya formül içeren ve metne düzgün aktarılamayan sorular listeye alınmadı. '
-                  'Sorular sınav tarihindeki mevzuata göredir.',
+                  sinav == 'Yeterlilik'
+                      ? 'İptal edilen sorular dışında tüm sorular yer alır; tablolar resmî kitapçıktan aktarılmıştır. '
+                            'Sorular sınav tarihindeki mevzuata göredir.'
+                      : 'Tablo, grafik veya formül içeren ve metne düzgün aktarılamayan sorular listeye alınmadı. '
+                            'Sorular sınav tarihindeki mevzuata göredir.',
                   style: t.bodySmall?.copyWith(color: r.onSurfaceVariant),
                 ),
               ],
