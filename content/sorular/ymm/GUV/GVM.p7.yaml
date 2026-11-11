@@ -1,0 +1,726 @@
+- id: YMM-GUV-GVM-0087
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisi mükellefiyeti ve kazanç unsurları
+  konu: GVM
+  kazanim: ev imalatı internet satışlarında esnaf muaflığı ve banka tevkifatı
+  tip: hesaplama
+  zorluk: 3
+  kok: Oturduğu evde, ayrı bir iş yeri açmaksızın ve sanayi tipi veya seri üretim yapabilen makine kullanmaksızın imal ettiği
+    malları internet ortamında satan Bay (E), 193 sayılı Kanun'un 9. maddesinin (10) numaralı bendi kapsamında esnaf muaflığından
+    yararlanmakta, Esnaf Vergi Muafiyeti Belgesi almış, bankada ticari hesap açmış ve tüm hasılatını bu hesap üzerinden tahsil
+    etmektedir. 2026 yılında hesaba, Mart ayında 600.000 TL (bu ay içinde bir işçi 12 gün süreyle çalıştırılmıştır), Nisan
+    ayında 700.000 TL (bu ay işçi çalıştırılmamıştır) aktarılmıştır. Yıllık hasılat kanundaki sınırı aşmamıştır; Cumhurbaşkanı
+    oranları değiştirmemiştir. Bankaların bu iki aktarım üzerinden yapacağı toplam gelir vergisi tevkifatı kaç TL'dir?
+  secenekler:
+    A: 12.000 TL
+    B: 26.000 TL
+    C: 28.000 TL
+    D: 40.000 TL
+    E: 52.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'GVK md. 9(10)''a göre bankalar, ticari hesaplara aktarılan tutarlar üzerinden aktarım tarihi itibarıyla
+      %4 (bir ve üzeri işçi çalıştırıldığı durumda %2) oranında gelir vergisi tevkifatı yapar; indirimli oranın uygulanması
+      için ilgili ayda bir işçinin en az on gün süreyle çalıştırılması gerekir. Mart: 600.000 × %2 = 12.000 TL; Nisan: 700.000
+      × %4 = 28.000 TL; toplam = 40.000 TL. Püf noktaları: işçi şartı her ay ayrı ayrı aranır; Mart''ta işçi 12 gün çalıştığından
+      %2, Nisan''da işçi olmadığından %4 uygulanır.'
+    celdiriciler:
+      A: Yalnızca Mart ayındaki aktarım (%2 oranıyla) dikkate alınmış, Nisan ayındaki aktarım unutulmuştur.
+      B: Her iki aktarıma da işçi çalıştırma indirimi (%2) uygulanmıştır; Nisan ayında işçi çalıştırılmadığı için bu aya %4
+        uygulanır.
+      C: Yalnızca Nisan ayındaki aktarım (%4 oranıyla) dikkate alınmış, Mart ayı aktarımı unutulmuştur.
+      E: Her iki aktarıma da %4 uygulanmıştır; Mart ayında bir işçinin en az on gün çalıştırılması nedeniyle bu aya %2 oranı
+        uygulanır.
+    hesap_adimlari:
+    - 'Mart: 600.000 × %2 = 12.000 TL (işçi 12 gün çalıştırıldı)'
+    - 'Nisan: 700.000 × %4 = 28.000 TL (işçi yok)'
+    - Toplam tevkifat = 40.000 TL
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 9(10)
+    alinti: Bankalar, bu bent kapsamında açılan ticari hesaplara aktarılan tutarlar üzerinden, aktarım tarihi itibarıyla %4
+      (bir ve üzeri işçi çalıştırıldığı durumda %2) oranında gelir vergisi tevkifatı yapmak
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 9(10)
+    alinti: İstihdama bağlı indirimli oranın uygulanması için ilgili ayda bir işçinin en az on gün süreyle çalıştırılması
+      gerekir.
+  gecerlilik:
+    baslangic: '2020-11-11'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: sonuc = round(600000*0.02 + 700000*0.04)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_GVM_20261111_1.yaml#1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-GVM-0088
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisi mükellefiyeti ve kazanç unsurları
+  konu: GVM
+  kazanim: binek otomobil amortismanının gider yazılabilecek kısmı
+  tip: hesaplama
+  zorluk: 3
+  kok: Ticari kazancını bilanço esasına göre tespit eden ve faaliyeti binek otomobil kiralama veya işletme olmayan Bay (N),
+    2026 yılında özel tüketim vergisi ve katma değer vergisi hariç ilk iktisap bedeli 2.760.000 TL olan sıfır bir binek otomobil
+    satın almış ve işletmesinde kullanmaya başlamıştır. Vergi Usul Kanunu'na göre bu otomobil için ayrılan yıllık normal amortisman
+    tutarı (oran %20) hesaplanmıştır. 193 sayılı Kanun'un 40. maddesinin (7) numaralı bendi ve 2026 yılı için geçerli tutarlar
+    esas alındığında, 2026 yılı kazancının tespitinde gider yazılabilecek amortisman tutarı kaç TL'dir?
+  secenekler:
+    A: 138.000 TL
+    B: 276.000 TL
+    C: 414.000 TL
+    D: 552.000 TL
+    E: 1.380.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'GVK md. 40/7''ye göre özel tüketim vergisi ve katma değer vergisi hariç ilk iktisap bedeli 1.380.000 TL''yi
+      (2026 tutarı) aşan binek otomobillerinde, ayrılan amortismanın en fazla bu tutara isabet eden kısmı gider yazılabilir.
+      Normal amortisman = 2.760.000 × %20 = 552.000 TL. Gider yazılabilecek kısım = 552.000 × (1.380.000 / 2.760.000) = 276.000
+      TL. Püf noktaları: sınır amortisman tutarına değil, otomobilin ilk iktisap bedeline uygulanır ve amortisman bu orantıyla
+      sınırlanır.'
+    celdiriciler:
+      A: Sınır oranı bir kez daha ikiye bölünmüştür; gider yazılabilecek kısım, normal amortismanın sınır tutarına isabet
+        eden oranı kadardır (1.380.000 / 2.760.000 = yarısı).
+      C: Sınır tutarı yanlışlıkla 2.070.000 TL gibi alınmış gibi hesaplanmıştır; ilk iktisap bedeli sınırı 1.380.000 TL olduğundan
+        orantı yarıdır.
+      D: Normal amortismanın tamamı gider yazılmıştır; oysa ilk iktisap bedeli sınırı aştığı için yalnızca sınıra isabet eden
+        kısım gider yazılabilir.
+      E: Sınır tutarının kendisi doğrudan amortisman gideri sanılmıştır; sınır, amortismana esas ilk iktisap bedeli için geçerlidir.
+    hesap_adimlari:
+    - Normal amortisman = 2.760.000 × %20 = 552.000 TL
+    - Kabul edilen oran = 1.380.000 / 2.760.000 = 0,50
+    - Gider yazılabilecek amortisman = 552.000 × 0,50 = 276.000 TL
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 40/7
+    alinti: özel tüketim vergisi ve katma değer vergisi hariç ilk iktisap bedeli 135.000 Türk lirasını (1.380.000 TL) , söz
+      konusu vergilerin maliyet bedeline eklendiği veya binek otomobilin ikinci el olarak iktisap edildiği hâllerde, amortismana
+      tabi tutarı 250.000 Türk lirasını (2.600.000 TL) aşan binek otomobillerinin her birine ilişkin ayrılan amortismanın
+      en fazla bu tutarlara isabet eden kısmı gider yazılabilir.
+  gecerlilik:
+    baslangic: '2019-12-05'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'normal = 2760000*0.20
+
+      sonuc = round(normal*1380000/2760000)'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_GVM_20261111_1.yaml#2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-GVM-0089
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisi mükellefiyeti ve kazanç unsurları
+  konu: GVM
+  kazanim: binek otomobil kira ve vergi giderlerinin sınırı
+  tip: bilgi
+  zorluk: 2
+  kok: 193 sayılı Gelir Vergisi Kanunu'nun 40. maddesinin birinci fıkrasının (1) numaralı bendindeki binek otomobillerle ilgili
+    gider sınırlamasına ilişkin aşağıdakilerden hangisi **doğrudur**? (Tutarlar Tebliğ ile belirlenen 2026 yılı tutarlarıdır.)
+  secenekler:
+    A: Kiralama faaliyeti olmayan işletme, kiraladığı her otomobilin aylık kirasının 46.000 TL'ye kadarlık kısmını gider yazar.
+    B: Kiralanan binek otomobilin aylık kira bedelinin tamamı, tutarı ne olursa olsun, işletme gideri olarak indirilir.
+    C: Binek otomobilin iktisabına ilişkin ÖTV ve KDV toplamı 1.200.000 TL'yi aşsa da tamamı gider olarak indirilebilir.
+    D: Faaliyeti binek otomobillerin kiralanması olan işletmeler de bu otomobiller için aynı gider sınırlarına tabidir.
+    E: Aylık kira sınırı, işletmedeki tüm kiralık binek otomobillerin toplam aylık kirası için ayrı ayrı değil, topluca uygulanır.
+  dogru: A
+  aciklama:
+    dogru_neden: GVK md. 40/1'e göre faaliyetleri kısmen veya tamamen binek otomobillerinin kiralanması veya işletilmesi olanların
+      bu amaçla kullandıkları hariç olmak üzere, kiralama yoluyla edinilen binek otomobillerinin her birine ilişkin aylık
+      kira bedelinin 46.000 TL'ye (2026) kadarlık kısmı ile binek otomobillerinin iktisabına ilişkin ÖTV ve KDV toplamının
+      en fazla 1.200.000 TL'ye (2026) kadarlık kısmı gider olarak dikkate alınabilir.
+    celdiriciler:
+      B: Kanun, kiralama yoluyla edinilen binek otomobillerin her birine ilişkin aylık kira bedeli için bir üst sınır koymuştur.
+      C: ÖTV ve KDV toplamının yalnızca 1.200.000 TL'ye kadarlık kısmı gider olarak dikkate alınabilir.
+      D: Faaliyetleri kısmen veya tamamen binek otomobillerinin kiralanması ya da işletilmesi olanların bu amaçla kullandıkları
+        otomobiller sınırlamanın dışındadır.
+      E: Sınır, kiralama yoluyla edinilen binek otomobillerin her birine ilişkin aylık kira bedeli için uygulanır.
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 40/1
+    alinti: Faaliyetleri kısmen veya tamamen binek otomobillerinin kiralanması veya çeşitli şekillerde işletilmesi olanların
+      bu amaçla kullandıkları hariç olmak üzere, kiralama yoluyla edinilen binek otomobillerinin her birine ilişkin aylık
+      kira bedelinin 5.500 (46.000 TL) Türk lirasına kadarlık kısmı ile binek otomobillerinin iktisabına ilişkin özel tüketim
+      vergisi ve katma değer vergisi toplamının en fazla 115.000 Türk lirasına (1.200.000 TL) kadarlık kısmı gider olarak
+      dikkate alınabilir.
+  gecerlilik:
+    baslangic: '2019-12-05'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_GVM_20261111_1.yaml#3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-GVM-0090
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisi mükellefiyeti ve kazanç unsurları
+  konu: GVM
+  kazanim: basit usule tabi olmanın genel şartları
+  tip: uygulama
+  zorluk: 2
+  kok: 2026 yılında aşağıdaki kişilerin tamamı, 193 sayılı Kanun'un 48. maddesindeki özel şartları taşımaktadır ve kanunda
+    sayılan basit usulün kapsamı dışında bırakılan gruplardan hiçbirine girmemektedir. Kişilerden hangisi 47. maddedeki basit
+    usule tabi olmanın genel şartlarını taşımaktadır?
+  secenekler:
+    A: İşyeri büyükşehir belediye sınırları içinde kiralık olup yıllık kira bedeli toplamı 110.000 TL olan, işinde bilfiil
+      çalışan Bay (A)
+    B: İşyeri büyükşehir dışında kiralık olup yıllık kira bedeli toplamı 70.000 TL olan, işinde bilfiil çalışan Bay (B)
+    C: Aynı zamanda gerçek usulde vergilendirilen başka bir ticari faaliyeti de bulunan, işinde bilfiil çalışan Bay (C)
+    D: İşini tamamen çalışanlarına bırakıp işyerinde bulunmayan ve işinin başında bilfiil çalışmayan Bay (D)
+    E: Emsal kira bedeli büyükşehir dışında yıllık 58.000 TL olan, başka gerçek usul faaliyeti olmayan, bilfiil çalışan Bay
+      (E)
+  dogru: E
+  aciklama:
+    dogru_neden: 'GVK md. 47''ye göre basit usule tabi olmanın genel şartları: kendi işinde bilfiil çalışmak veya bulunmak;
+      işyeri mülkiyeti iş sahibine aitse emsal kira bedelinin, kiralanmışsa yıllık kira bedeli toplamının büyükşehir belediye
+      sınırları içinde 99.000 TL''yi (2026), diğer yerlerde 60.000 TL''yi aşmaması; ticari, zirai veya mesleki faaliyetler
+      dolayısıyla gerçek usulde gelir vergisine tabi olmamaktır. Bay (E) emsal kira bedeli 58.000 TL (60.000 TL altında) olduğundan
+      şartları taşır.'
+    celdiriciler:
+      A: Büyükşehir belediye sınırları içinde yıllık kira bedeli toplamı 99.000 TL'yi aşmamalıdır; 110.000 TL sınırı aşar.
+      B: Büyükşehir dışındaki yerlerde yıllık kira bedeli toplamı 60.000 TL'yi aşmamalıdır; 70.000 TL sınırı aşar.
+      C: Ticari, zirai veya mesleki faaliyetler dolayısıyla gerçek usulde gelir vergisine tabi olunmaması şarttır.
+      D: Kendi işinde bilfiil çalışmak veya bulunmak genel şartlardandır; yalnızca zaruri ve geçici ayrılmalar bu şartı bozmaz.
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 47/1
+    alinti: 1. Kendi işinde bilfiil çalışmak veya bulunmak (işinde yardımcı işçi ve çırak kullanmak, seyahat, hastalık, ihtiyarlık,
+      askerlik, tutukluluk ve hükümlülük gibi zaruri ayrılmalar dolayısıyla geçici olarak bilfiil işinin başında bulunmamak
+      bu şartı bozmaz.
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 47/2
+    alinti: '2. (Değişik: 22/7/1998-4369/32 md.) İşyeri mülkiyetinin iş sahibine ait olması halinde emsal kira bedeli, kiralanmış
+      olması halinde yıllık kira bedeli toplamı büyükşehir belediye sınırları içinde 2.300.000.000 lirayı (99.000 TL), diğer
+      yerlerde 1.700.000.000 lirayı (60.000 TL) aşmamak.'
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 47/3
+    alinti: 3. Ticari, zirai veya mesleki faaliyetler dolayısıyla gerçek usulde Gelir Vergisine tabi olmamak.
+  gecerlilik:
+    baslangic: '1998-07-22'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_GVM_20261111_1.yaml#4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-GVM-0091
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisi mükellefiyeti ve kazanç unsurları
+  konu: GVM
+  kazanim: basit usulün özel şartları
+  tip: uygulama
+  zorluk: 2
+  kok: 2026 yılına ilişkin bilgileri aşağıda verilen kişilerin hepsi 47. maddedeki genel şartları taşımaktadır ve 51. maddedeki
+    sayılan istisna kapsamındaki işlerle uğraşmamaktadır. Satın aldıkları malları olduğu gibi veya işledikten sonra satanlar
+    ile bunların dışında iş hasılatı elde edenlere ilişkin 48. maddedeki 2026 yılı hadleri esas alındığında, aşağıdakilerden
+    hangisi basit usule tabi olabilir?
+  secenekler:
+    A: Yıllık alımları 1.300.000 TL, yıllık satışları 1.700.000 TL olan, yalnızca mal alım satımı yapan Bay (K)
+    B: Yıllık alımları 900.000 TL, yıllık satışları 2.000.000 TL olan, yalnızca mal alım satımı yapan Bay (L)
+    C: Yalnızca hizmet işi yapıp yıllık gayri safi iş hasılatı 700.000 TL olan Bay (M)
+    D: Yıllık satışı 800.000 TL ve iş hasılatı 500.000 TL olan, hem mal satıp hem hizmet işi de yapan Bay (N)
+    E: Yıllık alımı 600.000 TL, satışı 700.000 TL, iş hasılatı 450.000 TL olan, mal satıp iş de yapan Bay (P)
+  dogru: E
+  aciklama:
+    dogru_neden: 'GVK md. 48''e göre mal alım satımı yapanlarda yıllık alım 1.200.000 TL veya yıllık satış 1.900.000 TL, diğer
+      işlerde yıllık gayri safi iş hasılatı 600.000 TL, her iki işin birlikte yapılmasında ise yıllık satış tutarı ile iş
+      hasılatı toplamı 1.200.000 TL''yi (2026) aşmamalıdır. Bay (P)''nin satış ve iş hasılatı toplamı 700.000 + 450.000 =
+      1.150.000 TL olup had aşılmamıştır; alım ve satış hadleri de aşılmamıştır. Püf noktaları: iki işin birlikte yapılmasında
+      toplam had 1.200.000 TL''dir ve ayrı ayrı hadler tek başına yeterli değildir.'
+    celdiriciler:
+      A: Satın aldıkları malları olduğu gibi satanlarda yıllık alımların 1.200.000 TL'yi aşmaması gerekir; 1.300.000 TL bu
+        haddi aşar.
+      B: Yıllık satışların 1.900.000 TL'yi aşmaması gerekir; 2.000.000 TL bu haddi aşar.
+      C: Mal alım satımı dışındaki işlerde gayri safi iş hasılatı 600.000 TL'yi aşmamalıdır; 700.000 TL bu haddi aşar.
+      D: Her iki işin birlikte yapılmasında yıllık satış ile iş hasılatı toplamının 1.200.000 TL'yi aşmaması gerekir; toplam
+        1.300.000 TL'dir.
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 48/1
+    alinti: 1. Satın aldıkları malları olduğu gibi veya işledikten sonra satanların yıllık alımları tutarının 34.000.000.000
+      lirayı (1.200.000 TL) veya yıllık satışları tutarının 47.000.000.000 lirayı (1.900.000 TL) aşmaması,
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 48/2
+    alinti: 2. 1 numaralı bentte yazılı olanların dışındaki işlerle uğraşanların bir yıl içinde elde ettikleri gayri safi
+      iş hasılatının 17.000.000.000 lirayı (600.000 TL) aşmaması,
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 48/3
+    alinti: 3. 1 ve 2 numaralı bentlerde yazılı işlerin birlikte yapılması halinde yıllık satış tutarı ile iş hasılatı toplamının
+      34.000.000.000 lirayı (1.200.000 TL) aşmaması,
+  gecerlilik:
+    baslangic: '1998-07-22'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_GVM_20261111_1.yaml#5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-GVM-0092
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisi mükellefiyeti ve kazanç unsurları
+  konu: GVM
+  kazanim: basit usulden yararlanamayacak olanlar
+  tip: bilgi
+  zorluk: 2
+  kok: 193 sayılı Gelir Vergisi Kanunu'nun 51. maddesine göre, diğer şartları taşımaları kaydıyla aşağıdakilerden hangisi
+    basit usulden **yararlanabilir**?
+  secenekler:
+    A: Mahalle içinde sebze ve meyve satan, hadlerin altında kalan esnaf
+    B: Adi komandit şirketin komandite ortağı olan gerçek kişi mükellef
+    C: Sigorta şirketleri adına prodüktörlük yapan gerçek kişi
+    D: İlan ve reklam işleriyle uğraşan veya bu işlere tavassut eden kişi
+    E: Gayrimenkul alım satımıyla uğraşan gerçek kişi mükellef
+  dogru: A
+  aciklama:
+    dogru_neden: 'GVK md. 51''e göre kollektif şirket ortakları ile komandit şirketlerin komandite ortakları, ikrazat işleriyle
+      uğraşanlar, sarraflar, sigorta prodüktörleri, ilan ve reklam işleriyle uğraşanlar veya tavassut edenler, gayrimenkul
+      ve gemi alım satımı ile uğraşanlar gibi gruplar basit usulden yararlanamaz. Sebze ve meyve satışı yapan esnaf bu sayılanlar
+      arasında olmadığından, diğer şartları taşıması halinde basit usulden yararlanabilir. Püf noktaları: 51. maddedeki sayılan
+      işler listesi sınırlı sayımdır; listede olmayanlar yararlanabilir.'
+    celdiriciler:
+      B: Komandit şirketlerin komandite ortakları ile kollektif şirket ortakları basit usulden yararlanamaz.
+      C: Sigorta prodüktörleri 51. maddede sayılan ve basit usulden yararlanamayacak olanlar arasındadır.
+      D: İlan ve reklam işleriyle uğraşanlar veya bu işlere tavassut edenler basit usulden yararlanamaz.
+      E: Gayrimenkul ve gemi alım satımı ile uğraşanlar basit usulden yararlanamaz.
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 51
+    alinti: 1. Kollektif şirket ortakları ile, komandit şirketlerin komandite ortakları; 2. İkrazat işleriyle uğraşanlar;
+      3. Sarraflar ile kıymetli maden ve mücevherat alım satımı ile uğraşanlar;
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 51
+    alinti: 5. Sigorta prodüktörleri; 6. Her türlü ilan ve reklam işleriyle uğraşanlar veya bu işlere tavassut edenler; 7.
+      Gayrimenkul ve gemi alım satımı ile uğraşanlar;
+  gecerlilik:
+    baslangic: '1998-07-22'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_GVM_20261111_1.yaml#6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-GVM-0093
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisi mükellefiyeti ve kazanç unsurları
+  konu: GVM
+  kazanim: zirai işletme hesabı esasında kazanç tespiti
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Zirai kazancını işletme hesabı esasına göre tespit eden çiftçi Bay (Z)''nin 2026 yılına ilişkin bilgileri şöyledir:
+
+
+    - Zirai ürün satış hasılatı (tahsil edilen): 3.500.000 TL
+
+    - Mahsulün hasara uğraması nedeniyle alınan sigorta tazminatı: 150.000 TL
+
+    - Hesap dönemi sonundaki mahsullerin değeri: 400.000 TL
+
+    - Hesap dönemi başındaki mahsullerin değeri: 250.000 TL
+
+    - Tohum, gübre, ilaç ve yem giderleri: 1.200.000 TL
+
+    - İşçi ücretleri: 600.000 TL
+
+    - İşletmeye dahil olup aynı zamanda ailevi ihtiyaçlar için de kullanılan taşıta ilişkin amortisman: 120.000 TL; bu taşıtın
+    diğer giderleri: 80.000 TL
+
+
+    Başka gelir ve gider yoktur. 193 sayılı Kanun''un 55 ila 57. maddelerine göre Bay (Z)''nin 2026 yılı zirai kazancı kaç
+    TL''dir?'
+  secenekler:
+    A: 1.840.000 TL
+    B: 1.900.000 TL
+    C: 1.990.000 TL
+    D: 2.090.000 TL
+    E: 2.240.000 TL
+  dogru: A
+  aciklama:
+    dogru_neden: 'GVK md. 55''e göre zirai işletme hesabı esasında kazanç; tahsil edilen veya tahakkuk eden hasılat ile ödenen
+      veya borçlanılan giderler arasındaki pozitif farktır; hesap dönemi başındaki mahsullerin değeri giderlere, sonundaki
+      mahsullerin değeri hasılata eklenir. Md. 56''ya göre sigorta tazminatları hasılattır; md. 57/11''e göre aynı zamanda
+      ailevi ihtiyaçlar için de kullanılan taşıtların amortismanlarının tamamı ile giderlerinin yarısı gider yazılır. Hasılat
+      = 3.500.000 + 150.000 + 400.000 = 4.050.000 TL. Gider = 250.000 + 1.200.000 + 600.000 + 120.000 + 40.000 = 2.210.000
+      TL. Zirai kazanç = 4.050.000 − 2.210.000 = 1.840.000 TL. Püf noktaları: taşıtta amortisman tam, diğer giderler yarım
+      yazılır; dönem başı mahsul değeri gidere, dönem sonu mahsul değeri hasılata eklenir.'
+    celdiriciler:
+      B: Ailevi ihtiyaçlar için de kullanılan taşıtın amortismanının yarısı gider yazılmıştır; kanun amortismanın tamamının,
+        diğer giderlerin ise yarısının gider yazılmasına izin verir.
+      C: Ailevi ihtiyaçlarda da kullanılan taşıtın amortismanı ve giderleri hiç gider yazılmamıştır; kanun amortismanın tamamı
+        ile giderlerin yarısının indirimini kabul eder.
+      D: Dönem başındaki mahsullerin değeri (250.000 TL) giderlere eklenmemiştir; işletme hesabı esasında dönem başı mahsul
+        değeri giderlere eklenir.
+      E: Hem dönem başı mahsul değeri giderlere eklenmemiş hem de taşıt amortismanı ile giderleri gider yazılmamıştır; her
+        iki unsur da kazancı eksik indirmiştir.
+    hesap_adimlari:
+    - Hasılat = 3.500.000 + 150.000 + 400.000 = 4.050.000 TL
+    - Gider = 250.000 + 1.200.000 + 600.000 + 120.000 + %50 × 80.000 = 2.210.000 TL
+    - Zirai kazanç = 4.050.000 − 2.210.000 = 1.840.000 TL
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 55
+    alinti: Zirai işletme hesabı esasına göre zirai kazanç, hesap dönemi içinde para ile tahsil edilen veya alacak olarak
+      tahakkuk eden hasılat ile, ödenen veya borçlanılan giderler arasındaki müspet farktır.
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 55
+    alinti: Zirai kazancın işletme hesabı esasına göre tespitinde; hesap dönemi başındaki mahsullerin değeri giderlere, hesap
+      dönemi sonundaki mahsullerin değeri ise hasılata ilave olunur.
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 57/11
+    alinti: '11. (Değişik: 4/12/1985-3239/52 md.) İşletmeye dahil olup, aynı zamanda zati veya ailevi ihtiyaçlar için de kullanılan
+      taşıtların amortismanlarının tamamı ile giderlerinin yarısı.'
+  gecerlilik:
+    baslangic: '1985-12-04'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'hasilat = 3500000 + 150000 + 400000
+
+      gider = 250000 + 1200000 + 600000 + 120000 + 0.5*80000
+
+      sonuc = round(hasilat - gider)'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_GVM_20261111_1.yaml#7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-GVM-0094
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Gelir vergisi mükellefiyeti ve kazanç unsurları
+  konu: GVM
+  kazanim: çiftçilerin vergilendirilmesinde ortaklık ve işletme büyüklüğü
+  tip: bilgi
+  zorluk: 3
+  kok: 193 sayılı Gelir Vergisi Kanunu'nun 53. maddesindeki çiftçilerin zirai kazançlarının vergilendirilmesine ve işletme
+    büyüklüğü ölçülerinin uygulanmasına ilişkin aşağıdakilerden hangisi **doğrudur**?
+  secenekler:
+    A: Kazançları gerçek usulde vergilendirilmeyen çiftçiler, yıllık gelir vergisi beyannamesi vermek zorundadır.
+    B: Aile reisi ile birlikte yaşayan eş ve velayet altındaki çocuklara ait işletmelerde işletme büyüklüğü ayrı ayrı değerlendirilir.
+    C: On yaşına kadar ikiden fazla traktöre sahip olan çiftçiler, işletme büyüklüğüne bakılmaksızın tevkifat usulünde kalır.
+    D: Ölçülerin altında kalan gerçek usul mükellefi, aynı vergilendirme döneminin başından geriye dönük olarak tevkifat usulüne
+      geçer.
+    E: Zirai işletmelerde yarıcılık ortaklık sayılır ve işletme büyüklüğü ortaklık payları toplanarak tespit edilir.
+  dogru: E
+  aciklama:
+    dogru_neden: 'GVK md. 53''e göre yarıcılık ortaklık sayılır; ortaklıklarda işletme büyüklüğü ortaklık payları toplamı
+      esas alınarak belirlenir. Aile reisi ile eş ve velayet altındaki çocukların işletmeleri toplu değerlendirilir; on yaşına
+      kadar ikiden fazla traktör sahibi çiftçiler gerçek usulde vergilendirilir; gerçek usulden tevkifata geçiş müteakip dönem
+      başından itibarendir; tevkifat usulündeki çiftçiler beyanname vermez. Püf noktaları: aile ve ortaklık işletmeleri toplu
+      değerlendirilir; yarıcılık ortaklıktır.'
+    celdiriciler:
+      A: Kazançları gerçek usulde vergilendirilmeyen çiftçiler bu kazançları için beyanname vermezler; vergi hasılatları üzerinden
+        tevkifat yoluyla alınır.
+      B: Aile reisi ile birlikte yaşayan eş ve velayet altındaki çocuklara ait işletmelerde işletme büyüklüğü toplu olarak
+        nazara alınır.
+      C: On yaşına kadar ikiden fazla traktöre sahip olan çiftçilerin kazançları gerçek usulde tespit edilerek vergilendirilir.
+      D: Ölçülerin altında kalanlar müteakip vergilendirme döneminin başından itibaren hasılatları üzerinden tevkifat yapılmak
+        suretiyle vergilendirilirler.
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 53
+    alinti: Kazançları gerçek usulde vergilendirilmeyen çiftçiler bu kazançları için beyanname vermezler.
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 53
+    alinti: Bu hükmün tatbikinde, aile reisi ile birlikte yaşayan eş ve velayet altındaki çocuklara ait işletmeler ile ortaklık
+      halindeki işletmelerde işletme büyüklüğü toplu olarak nazara alınır.
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: Md. 53
+    alinti: Payları toplamı ölçüleri aşmayan diğer ortaklar tevkifat yoluyla vergilendirilirler. Yarıcılık ortaklık sayılır.
+  gecerlilik:
+    baslangic: '1998-07-22'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_GVM_20261111_1.yaml#8
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'

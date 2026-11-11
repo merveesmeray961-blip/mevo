@@ -1,0 +1,841 @@
+- id: YMM-GUV-OZL-0023
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde indirimler teşvikler ve geçici düzenlemeler
+  konu: OZL
+  kazanim: yatırım teşvik belgesinde diğer vergi borçlarından terkin ve kalan katkı
+  tip: hesaplama
+  zorluk: 3
+  kok: Tam mükellef (P) A.Ş., Sanayi ve Teknoloji Bakanlığınca düzenlenen yatırım teşvik belgesi kapsamında yatırımını tamamlamıştır
+    (yatırım teşvik belgesi bazında fiilen yapılan yatırım harcaması 50.000.000 TL; yatırıma katkı oranı %30). Hak edilen
+    yatırıma katkı tutarının 5.000.000 TL'si indirimli kurumlar vergisi yoluyla kullanılmıştır. (P) A.Ş., 5520 sayılı Kanun'un
+    32/A maddesinin sekizinci fıkrası uyarınca süresinde talepte bulunarak, kurumlar vergisi dışındaki (ÖTV ve KDV hariç)
+    tahakkuk etmiş vergi borçlarının terkinini, kanunen azami olarak istemiştir. Terkin işlemi sonrasında indirimli kurumlar
+    vergisi yoluyla yararlanılabilecek kalan yatırıma katkı tutarı kaç TL'dir?
+  secenekler:
+    A: 1.500.000 TL
+    B: 5.000.000 TL
+    C: 7.000.000 TL
+    D: 8.500.000 TL
+    E: 10.000.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Terkin edilebilecek toplam tutar, yatırım harcamasına katkı oranı uygulanarak bulunan tutarın %10''unu aşamaz:
+      50.000.000 × %30 = 15.000.000 TL; %10''u = 1.500.000 TL. Ayrıca terkin talebi, hak edilen katkıdan kullanılanın düşülmesinden
+      sonra kalan tutarın yarısını (10.000.000 / 2 = 5.000.000 TL) aşamaz; bağlayıcı sınır 1.500.000 TL''dir. Terkin edilen
+      tutarın bir katına isabet eden yatırıma katkı tutarından vazgeçildiği kabul edilir. Kalan katkı = 15.000.000 − 5.000.000
+      − 1.500.000 − 1.500.000 = 7.000.000 TL. Püf noktaları: terkin edilen tutar kadar bir de vazgeçilen katkı düşülür (toplam
+      2 katı); iki sınırdan küçük olan geçerlidir.'
+    celdiriciler:
+      A: Bu tutar kalan katkı değil, terkin edilebilecek en fazla vergi tutarıdır; kalan katkı, hak edilen tutardan kullanılan,
+        terkin edilen ve vazgeçilen kısımlar düşülerek bulunur.
+      B: Terkin tutarı olarak kalan katkının yarısı alınmış; oysa bağlayıcı sınır, yatırım harcamasına katkı oranı uygulanarak
+        bulunan tutarın %10'udur ve bu tutar daha düşüktür.
+      D: Terkin edilen tutar düşülmüş, fakat bu tutarın bir katına isabet eden ve vazgeçilmiş sayılan yatırıma katkı tutarı
+        ayrıca düşülmemiştir.
+      E: Yalnızca kullanılan tutar düşülmüş, terkin işlemi hiç dikkate alınmamıştır; oysa terkin edilen tutar ve bunun bir
+        katı vazgeçilen katkı olarak kalandan düşer.
+    hesap_adimlari:
+    - Hak edilen katkı = 50.000.000 × %30 = 15.000.000 TL
+    - Terkin sınırı = 15.000.000 × %10 = 1.500.000 TL (yarı sınırı (15.000.000 − 5.000.000)/2 = 5.000.000 TL daha yüksek olduğundan
+      1.500.000 TL geçerli)
+    - Vazgeçilen katkı = 1.500.000 TL (terkin edilen tutarın bir katı)
+    - Kalan katkı = 15.000.000 − 5.000.000 − 1.500.000 − 1.500.000 = 7.000.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 32/A(8)
+    alinti: Yatırım teşvik belgesi bazında yapılan yatırım harcamasına yatırıma katkı oranının uygulanmasıyla belirlenen tutarın
+      %10’luk kısmı, kurumlar vergisi beyannamesinin verilmesi gereken ayı takip eden ikinci ayın sonuna kadar talep edilmesi
+      şartıyla, özel tüketim vergisi ve katma değer vergisi hariç olmak üzere tahakkuk etmiş diğer vergi borçlarından terkin
+      edilmek suretiyle kullanılabilir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 32/A(8)
+    alinti: Terkin talebinde bulunulabilecek tutar, hak edilen yatırıma katkı tutarından indirimli kurumlar vergisi yoluyla
+      kullanılan yatırıma katkı tutarının düşülmesinden sonra bulunan tutarın yarısından fazla olamaz.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 32/A(8)
+    alinti: Diğer vergi borçlarının terkini suretiyle kullanılan tutarın bir katına isabet eden yatırıma katkı tutarından
+      vazgeçildiği kabul edilir
+  gecerlilik:
+    baslangic: '2021-10-14'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'katki = 50000000*0.30
+
+      terkin = min(katki*0.10, (katki-5000000)/2)
+
+      sonuc = round(katki - 5000000 - terkin - terkin)'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_OZL_20261111_1.yaml#1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-OZL-0024
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde indirimler teşvikler ve geçici düzenlemeler
+  konu: OZL
+  kazanim: sermaye azaltımında vergileme
+  tip: bilgi
+  zorluk: 2
+  kok: 5520 sayılı Kanun'un 32/B maddesinde düzenlenen, sermayeye eklenen öz sermaye kalemlerinin sermaye azaltımına konu
+    edilmesi hâlinde vergilendirmeye ilişkin aşağıdaki ifadelerden hangisi **doğrudur**?
+  secenekler:
+    A: Beş tam yıllık süre dolmadan yapılan sermaye azaltımında, azaltımın önce yalnızca kâr dağıtımına bağlı kesintiye tabi
+      unsurlardan, sonra hem kurumlar vergisine hem kesintiye tabi unsurlardan yapıldığı kabul edilir.
+    B: Geçmiş yıl zararlarının mahsubu suretiyle sermaye azaltılması hâlinde azaltıma konu edilen sermaye unsurları, vergi
+      kesintisine de tabi tutulur.
+    C: Kurumlar vergisine ve vergi kesintisine tabi sermaye unsurlarında kesinti matrahı, azaltıma konu tutarın tamamıdır;
+      hesaplanan kurumlar vergisi kesinti matrahından düşülmez.
+    D: Yalnızca kâr dağıtımına bağlı vergi kesintisine tabi tutulacak sermaye unsurları, hem kurumlar vergisine hem vergi
+      kesintisine tabi tutulur.
+    E: Sermaye azaltımında öncelikle, sermayeye ilave edilen öz sermaye kalemlerinden eklenme tarihi üzerinden beş tam yıl
+      geçmemiş olanların işletmeden çekildiği kabul edilir.
+  dogru: E
+  aciklama:
+    dogru_neden: KVK md. 32/B(3)'e göre sermaye azaltımında öncelikli olarak, sermayeye ilave edilen öz sermaye kalemlerinden
+      sermayeye eklenme tarihi beş tam yıllık süreyi geçmemiş olanların işletmeden çekildiği kabul edilir. Sıralama (a) kurumlar
+      vergisi ve kesinti, (b) yalnızca kesinti, (c) vergilendirilmeyecek unsurlar şeklindedir; kesinti matrahı hesaplanan
+      kurumlar vergisi düşüldükten sonra kalan tutardır; zararlarla mahsup suretiyle yapılan azaltımda kesinti yapılmaz.
+    celdiriciler:
+      A: 'Sıra ters kurulmuştur: azaltım sırasıyla önce hem kurumlar vergisine hem vergi kesintisine tabi unsurlardan, sonra
+        yalnızca kesintiye tabi unsurlardan, en son vergilendirilmeyecek sermayeden yapılmış sayılır.'
+      B: Zararla mahsup suretiyle yapılan azaltımda sermaye unsurları aynı sıralamayla tespit edilir ancak bu tutarlar üzerinden
+        vergi kesintisi yapılmaz.
+      C: Kesinti matrahı, hesaplanan kurumlar vergisi düşüldükten sonra kalan tutardır; kesinti bu net tutar üzerinden yapılır.
+      D: Bu unsurlar yalnızca vergi kesintisine tabidir; hem kurumlar vergisine hem kesintiye tabi olanlar ayrı bir gruptur.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 32/B(3)
+    alinti: Sermaye azaltımında, öncelikli olarak sermayeye ilave edilen öz sermaye kalemlerinden, sermayeye eklenme tarihi
+      beş tam yıllık süreyi geçmemiş olanların işletmeden çekildiği kabul edilir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 32/B(4)
+    alinti: Kurumlar vergisine ve vergi kesintisine tabi sermaye unsurlarında, kesinti matrahı hesaplanan kurumlar vergisi
+      düşüldükten sonra kalan tutar olup, bu tutar üzerinden Kanunun 15 inci ve 30 uncu maddeleri ile 193 sayılı Kanunun 94
+      üncü maddesi hükmü kapsamında kesinti yapılır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 32/B(5)
+    alinti: Geçmiş yıl zararlarının mahsubu suretiyle sermaye azaltılması durumunda, bu şekilde azaltıma konu edilen sermaye
+      unsurları birinci, ikinci ve üçüncü fıkra hükümlerine göre tespit edilir ancak bu tutarlar üzerinden dördüncü fıkra
+      kapsamında vergi kesintisi yapılmaz.
+  gecerlilik:
+    baslangic: '2022-11-03'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_OZL_20261111_1.yaml#2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-OZL-0025
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde indirimler teşvikler ve geçici düzenlemeler
+  konu: OZL
+  kazanim: girişim sermayesi fonu indirimi
+  tip: bilgi
+  zorluk: 1
+  kok: 5520 sayılı Kanun'un 10. maddesinin birinci fıkrasının (g) bendi uyarınca, 213 sayılı Vergi Usul Kanunu'nun 325/A maddesine
+    göre girişim sermayesi fonu olarak ayrılan tutarlar, kurum kazancının tespitinde hangi sınırla indirim konusu yapılır?
+  secenekler:
+    A: Ayrılan tutarların kurum kazancının %5'ini aşmayan kısmı
+    B: Ayrılan tutarların ödenmiş sermayenin %10'unu aşmayan kısmı
+    C: Ayrılan tutarların beyan edilen gelirin %20'sini aşmayan kısmı
+    D: Ayrılan tutarın tamamı, herhangi bir üst sınır olmaksızın
+    E: Ayrılan tutarların beyan edilen gelirin %10'unu aşmayan kısmı
+  dogru: E
+  aciklama:
+    dogru_neden: KVK md. 10/1-g'ye göre VUK 325/A uyarınca girişim sermayesi fonu olarak ayrılan tutarların beyan edilen gelirin
+      %10'unu aşmayan kısmı kurum kazancından indirilir.
+    celdiriciler:
+      A: Bu oran, bağış ve yardımların (c) bendi kapsamındaki sınırıdır; girişim sermayesi fonu için öngörülen oran farklıdır.
+      B: Sınır ödenmiş sermayeye göre değil, beyan edilen gelire göre belirlenmiştir.
+      C: Kanun bu sınırı beyan edilen gelirin %20'si olarak değil, çok daha düşük bir oranda belirlemiştir.
+      D: Üst sınırı bulunmayan indirimler bağışların bazı türleridir; girişim sermayesi fonunda beyan edilen gelire bağlı
+        bir sınır vardır.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 10/1-g
+    alinti: 'g) (Ek: 31/5/2012-6322/36 md.) 213 sayılı Vergi Usul Kanununun 325/A maddesine göre girişim sermayesi fonu olarak
+      ayrılan tutarların beyan edilen gelirin %10’unu aşmayan kısmı.'
+  gecerlilik:
+    baslangic: '2012-05-31'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_OZL_20261111_1.yaml#3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-OZL-0026
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde indirimler teşvikler ve geçici düzenlemeler
+  konu: OZL
+  kazanim: nakdi sermaye artışı indiriminde karma sermaye artışı hesabı
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Finans, bankacılık veya sigortacılık sektöründe faaliyet göstermeyen, kamu iktisadi teşebbüsü olmayan tam mükellef
+    (S) A.Ş., hesap dönemi takvim yılı olmak üzere 2026 yılında Ekim ayında ticaret siciline tescil edilen sermaye artırımını
+    gerçekleştirmiş ve artırım tutarları aynı ay içinde ödenmiştir. Artırımın bileşimi şöyledir:
+
+
+    - Ortakların kendi kaynaklarıyla nakden ödedikleri tutar: 6.000.000 TL
+
+    - Yurt dışından getirilen nakitle karşılanan tutar: 8.000.000 TL
+
+    - Yedek akçelerin sermayeye eklenmesinden kaynaklanan tutar: 4.000.000 TL
+
+    - Ortaklarca kredi kullanılarak nakden ödenen tutar: 2.000.000 TL
+
+
+    Cumhurbaşkanı Kararı ile oranlar değiştirilmemiştir. Türkiye Cumhuriyet Merkez Bankası tarafından açıklanan ve dikkate
+    alınacak ağırlıklı yıllık ortalama ticari kredi faiz oranı %48 olduğuna göre, 5520 sayılı Kanun''un 10/1-ı bendi uyarınca
+    2026 hesap dönemi için hesaplanacak nakdi sermaye artışı indirimi kaç TL''dir?'
+  secenekler:
+    A: 840.000 TL
+    B: 1.080.000 TL
+    C: 1.200.000 TL
+    D: 1.440.000 TL
+    E: 4.320.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: 'Yedek akçelerin sermayeye eklenmesinden ve ortaklarca kredi kullanılarak yapılan ödemelerden kaynaklanan
+      artışlar hesaba katılmaz (10/1-ı). Hesaba giren nakit: iç kaynak 6.000.000 TL (oran %50), yurt dışından getirilen 8.000.000
+      TL (oran %75). Yıllık indirim = 6.000.000 × %48 × %50 + 8.000.000 × %48 × %75 = 1.440.000 + 2.880.000 = 4.320.000 TL.
+      Ödeme Ekim ayında yapıldığından ay kesri tam ay sayılarak Ekim–Aralık, yani 3 ay için hesaplanır: 4.320.000 × 3/12 =
+      1.080.000 TL. Püf noktaları: yurt dışından getirilen nakit için %75 oranı kullanılır; yedek akçe ve kredili ödemeler
+      dışlanır; ödeme ayı tam ay sayılır.'
+    celdiriciler:
+      A: Yurt dışından getirilen nakit için %75 oranı uygulanmamış, tüm nakit tutar %50 ile hesaplanmıştır.
+      C: Ortaklarca kredi kullanılarak ödenen 2.000.000 TL de iç kaynaklı nakit olarak hesaba katılmıştır; kanun bu tutarları
+        indirim hesabının dışında tutar.
+      D: Ödeme ayı yerine bir sonraki ay esas alınıp süre 4 ay alınmıştır; Ekim ayında ödenen tutar için ay kesri tam ay sayılarak
+        Ekim, Kasım ve Aralık, yani 3 ay dikkate alınır.
+      E: Süreye göre orantılama yapılmamış, tutar tam yıl için hesaplanmıştır; oysa indirim, ödemenin yapıldığı ay dahil hesap
+        döneminin kalan ay süresi kadar hesaplanır.
+    hesap_adimlari:
+    - 'İç kaynak: 6.000.000 × %48 × %50 = 1.440.000 TL'
+    - 'Yurt dışı nakit: 8.000.000 × %48 × %75 = 2.880.000 TL'
+    - Yıllık tutar = 4.320.000 TL; Ekim–Aralık = 3 ay
+    - İndirim = 4.320.000 × 3/12 = 1.080.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 10/1-ı
+    alinti: (Ek ikinci paragraf:14/10/2021-7338/59 md.) Nakdi sermaye artışlarının, yurt dışından getirilen nakitle karşılanan
+      kısmı için bu oran %75 olarak uygulanır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 10/1-ı
+    alinti: Bu bent hükümlerine göre hesaplanacak indirim tutarı, nakdi sermayenin ödendiği ay kesri tam ay sayılmak suretiyle
+      hesap döneminin kalan ay süresi kadar hesaplanır. Matrahın yetersiz olması nedeniyle ilgili dönemde indirim konusu yapılamayan
+      tutarlar, sonraki hesap dönemlerine devreder.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 10/1-ı
+    alinti: birleşme, devir ve bölünme işlemlerine taraf olmalarından veya bilançoda yer alan öz sermaye kalemlerinin sermayeye
+      eklenmesinden kaynaklanan ya da ortaklar veya bu Kanunun 12 nci maddesi kapsamında ortaklarla ilişkili olan kişilerce
+      kredi kullanılmak veya borç alınmak suretiyle gerçekleştirilen sermaye artırımları, indirim hesaplamasında dikkate alınmaz.
+  gecerlilik:
+    baslangic: '2021-10-14'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'yillik = 6000000*0.48*0.50 + 8000000*0.48*0.75
+
+      sonuc = round(yillik*3/12)'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_OZL_20261111_1.yaml#4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-OZL-0027
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde indirimler teşvikler ve geçici düzenlemeler
+  konu: OZL
+  kazanim: Ar-Ge merkezinde artış indirimi ve devreden indirim
+  tip: hesaplama
+  zorluk: 3
+  kok: Cumhurbaşkanınca belirlenen kriterleri haiz bir Ar-Ge merkezi olan tam mükellef (R) A.Ş.'nin Ar-Ge ve yenilik harcamaları
+    2025 yılında 24.000.000 TL, 2026 yılında 36.000.000 TL'dir (tamamı indirime konu edilebilecek harcama niteliğindedir;
+    Cumhurbaşkanı oranları farklılaştırmamıştır; yasal azami artış indiriminden tam yararlanılacaktır). (R) A.Ş.'nin 2026
+    yılında indirimler öncesi kurum kazancı 30.000.000 TL'dir. 2027 yılı için VUK'a göre belirlenen yeniden değerleme oranı
+    %25 kabul edildiğine göre, 2026'da kazancın yetersizliği nedeniyle indirim konusu yapılamayan ve 2027 hesap dönemine devredilerek
+    dikkate alınacak Ar-Ge indirimi tutarı kaç TL'dir?
+  secenekler:
+    A: 7.500.000 TL
+    B: 12.000.000 TL
+    C: 15.000.000 TL
+    D: 18.000.000 TL
+    E: 22.500.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: '5746 sayılı Kanun md. 3(1) uyarınca Ar-Ge ve yenilik harcamalarının tamamı indirim konusu yapılır; kriterleri
+      haiz Ar-Ge merkezlerinde ayrıca bir önceki yıla göre artışın yüzde ellisine kadarı da indirilebilir. Artış = 36.000.000
+      − 24.000.000 = 12.000.000 TL; ilave indirim = 6.000.000 TL; toplam indirim = 42.000.000 TL. Kazanç 30.000.000 TL olduğundan
+      12.000.000 TL indirilemez ve sonraki döneme devreder; devredilen tutar yeniden değerleme oranı kadar artırılır: 12.000.000
+      × 1,25 = 15.000.000 TL. Püf noktaları: artış indirimi artışın yarısıdır; devreden tutar her yıl yeniden değerleme oranıyla
+      artırılır.'
+    celdiriciler:
+      A: Yalnızca 36.000.000 TL'lik cari harcama indirim kabul edilmiş, artış indirimi eklenmemiştir; devredenin hesabı bu
+        nedenle eksik kalmıştır.
+      B: Devreden tutar doğru bulunmuş (42.000.000 − 30.000.000), ancak devredilen tutarların yeniden değerleme oranıyla artırılarak
+        dikkate alınacağı hükmü uygulanmamıştır.
+      D: Artış indirimi artışın yarısı yerine tamamı (12.000.000 TL) eklenmiş ve devreden tutar yeniden değerlemeye tabi tutulmamıştır.
+      E: Artış indiriminin tamamı (artışın %100'ü) eklenmiş ve devreden tutar da yeniden değerleme ile artırılmıştır; kanun
+        artışın yüzde ellisine kadarını öngörür.
+    hesap_adimlari:
+    - Artış = 36.000.000 − 24.000.000 = 12.000.000 TL; ilave indirim = %50 × 12.000.000 = 6.000.000 TL
+    - Toplam indirim = 36.000.000 + 6.000.000 = 42.000.000 TL
+    - Devreden = 42.000.000 − 30.000.000 = 12.000.000 TL
+    - 2027'de dikkate alınacak = 12.000.000 × 1,25 = 15.000.000 TL
+  kaynaklar:
+  - mevzuat: 5746 sayılı Araştırma, Geliştirme ve Tasarım Faaliyetlerinin Desteklenmesi Hakkında Kanun
+    madde: Md. 3(1)
+    alinti: Cumhurbaşkanınca belirlenen kriterleri haiz Ar-Ge merkezlerinde ayrıca o yıl yapılan Ar-Ge ve yenilik harcamalarının
+      bir önceki yıla göre artışının yüzde ellisine kadarı
+  - mevzuat: 5746 sayılı Araştırma, Geliştirme ve Tasarım Faaliyetlerinin Desteklenmesi Hakkında Kanun
+    madde: Md. 3(1)
+    alinti: Kazancın yetersiz olması nedeniyle ilgili hesap döneminde indirim konusu yapılamayan tutar, sonraki hesap dönemlerine
+      devredilir. Devredilen tutarlar, takip eden yıllarda 213 sayılı Kanuna göre her yıl belirlenen yeniden değerleme oranında
+      artırılarak dikkate alınır.
+  gecerlilik:
+    baslangic: '2016-02-16'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'indirim = 36000000 + 0.5*(36000000-24000000)
+
+      devreden = indirim - 30000000
+
+      sonuc = round(devreden*1.25)'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_OZL_20261111_1.yaml#5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-OZL-0028
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde indirimler teşvikler ve geçici düzenlemeler
+  konu: OZL
+  kazanim: destek personeli sınırı
+  tip: uygulama
+  zorluk: 1
+  kok: Ar-Ge merkezi olan (V) A.Ş., 2026 yılında tam zaman eşdeğeri 7 destek personelinin tamamını 5746 sayılı Kanun'daki
+    gelir vergisi stopajı ve sigorta primi işveren hissesi teşviklerinden yararlandırmak istemektedir. Üçer aylık dönemler
+    itibarıyla ortalaması alınan fiilen ve tam zamanlı çalışan Ar-Ge personeli sayısının en az kaç olması gerekir?
+  secenekler:
+    A: '14'
+    B: '28'
+    C: '35'
+    D: '70'
+    E: '140'
+  dogru: D
+  aciklama:
+    dogru_neden: 5746 sayılı Kanun md. 4(2)'ye göre md. 3'teki gelir vergisi stopajı ve sigorta primi işveren hissesi teşviklerinden
+      yararlanacak destek personelinin tam zaman eşdeğeri sayısı, toplam tam zamanlı Ar-Ge veya tasarım personeli sayısının
+      yüzde onunu geçemez. 7 destek personeli için Ar-Ge personeli sayısı en az 7 / %10 = 70 olmalıdır.
+    celdiriciler:
+      A: Bu sayı, destek personeli sınırının Ar-Ge personelinin yüzde ellisi olduğu varsayımına dayanır; kanundaki oran çok
+        daha düşüktür.
+      B: Bu sayı, destek personeli sınırının Ar-Ge personelinin yüzde yirmibeşi olduğu varsayımına dayanır; kanun bu oranı
+        öngörmemiştir.
+      C: Bu sayı, destek personeli sınırının Ar-Ge personelinin yüzde yirmisi olduğu varsayımına dayanır; kanundaki sınır
+        bundan düşüktür.
+      E: Bu sayı, destek personeli sınırının Ar-Ge personelinin yüzde beşi olduğu varsayımına dayanır; kanundaki sınır bunun
+        iki katıdır.
+    hesap_adimlari:
+    - Destek personeli ≤ Ar-Ge personelinin %10'u
+    - En az Ar-Ge personeli = 7 / 0,10 = 70
+  kaynaklar:
+  - mevzuat: 5746 sayılı Araştırma, Geliştirme ve Tasarım Faaliyetlerinin Desteklenmesi Hakkında Kanun
+    madde: Md. 4(2)
+    alinti: Bu Kanunun 3 üncü maddesinde belirtilen gelir vergisi stopajı ve sigorta primi işveren hissesine ilişkin teşviklerden
+      yararlanacak olan destek personelinin tam zaman eşdeğeri sayısı, toplam tam zamanlı Ar-Ge veya tasarım personeli sayısının
+      yüzde onunu geçemez.
+  gecerlilik:
+    baslangic: '2008-04-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = round(7/0.10)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_OZL_20261111_1.yaml#6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-OZL-0029
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde indirimler teşvikler ve geçici düzenlemeler
+  konu: OZL
+  kazanim: yatırım teşvik belgeli yatırımlarda indirimli kurumlar vergisi
+  tip: bilgi
+  zorluk: 2
+  kok: 5520 sayılı Kanun'un 32/A maddesinin birinci fıkrası uyarınca Sanayi ve Teknoloji Bakanlığınca düzenlenen yatırım teşvik
+    belgesi kapsamındaki yatırımlardan elde edilen kazançlara uygulanan indirimli kurumlar vergisine ilişkin aşağıdakilerden
+    hangisi **doğrudur**?
+  secenekler:
+    A: Kurumlar vergisi oranı, indirim hakkının kullanılabileceği ilk hesap dönemi dahil olmak üzere en fazla beş hesap dönemi
+      boyunca %60 indirimli olarak uygulanır.
+    B: Kazanç bulunmasına rağmen yararlanılmayan yatırıma katkı tutarları sonraki hesap dönemlerinde yeniden değerleme oranıyla
+      artırılarak dikkate alınır.
+    C: Oran, işletilmeye başlanılan hesap döneminden itibaren yatırıma katkı tutarına ulaşıncaya kadar en fazla on hesap dönemi
+      %60 indirimli uygulanır.
+    D: İndirimli oran uygulaması, finans ve sigortacılık sektöründe faaliyet gösteren kurumların yatırım teşvik belgeli yatırımlarını
+      da kapsar.
+    E: İndirimli oran uygulaması, yatırımın tamamlanmasından sonraki ilk hesap döneminde başlar ve yatırıma katkı tutarının
+      yarısı ile sınırlıdır.
+  dogru: C
+  aciklama:
+    dogru_neden: KVK md. 32/A(1)'e göre 32. madde kapsamındaki kurumlar vergisi oranı, yatırım teşvik belgesi kapsamındaki
+      yatırımlardan elde edilen kazançlara, yatırımın kısmen veya tamamen işletilmesine başlanılan hesap döneminden itibaren
+      yatırıma katkı tutarına ulaşıncaya kadar, indirim hakkının kullanılabileceği ilk hesap dönemi dahil en fazla on hesap
+      dönemi %60 indirimli olarak uygulanır. Kazanç bulunmasına rağmen yararlanılmayan katkı tutarları sonraki dönemlerde
+      dikkate alınmaz; finans ve sigortacılık kurumları kapsam dışındadır.
+    celdiriciler:
+      A: Süre beş değil on hesap dönemidir; indirimli oran yatırıma katkı tutarına ulaşıncaya kadar ve en fazla on hesap dönemi
+        uygulanır.
+      B: Kazanç bulunmasına rağmen yararlanılmayan yatırıma katkı tutarları müteakip dönemlerde dikkate alınmaz.
+      D: Finans ve sigortacılık sektörlerinde faaliyet gösteren kurumlar, iş ortaklıkları ve taahhüt işleri bu uygulamanın
+        dışındadır.
+      E: Uygulama yatırımın tamamlanmasını beklemeksizin kısmen veya tamamen işletilmesine başlanılan hesap döneminden itibaren
+        başlar; yarı sınırlaması yoktur.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 32/A(1)
+    alinti: Finans ve sigortacılık sektörlerinde faaliyet gösteren kurumlar, iş ortaklıkları, taahhüt işleri, 16/7/1997 tarihli
+      ve 4283 sayılı Kanun ile 8/6/1994 tarihli ve 3996 sayılı Kanun kapsamında yapılan yatırımlar ile rödovans sözleşmelerine
+      bağlı olarak yapılan yatırımlar hariç olmak üzere,
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 32/A(1)
+    alinti: 32 nci madde kapsamında kurumlar vergisi oranı, Sanayi ve Teknoloji Bakanlığı tarafından düzenlenen yatırım teşvik
+      belgesi kapsamında gerçekleştirilen yatırımlardan elde edilen kazançlara, yatırımın kısmen veya tamamen işletilmesine
+      başlanılan hesap döneminden itibaren yatırıma katkı tutarına ulaşıncaya kadar, indirim hakkının kullanılabileceği ilk
+      hesap dönemi dahil en fazla on hesap dönemi %60 indirimli olarak uygulanır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 32/A(1)
+    alinti: Ancak, kazanç bulunmasına rağmen yararlanılmayan yatırıma katkı tutarları müteakip dönemlerde dikkate alınmaz.
+  gecerlilik:
+    baslangic: '2025-07-20'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_OZL_20261111_1.yaml#7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-OZL-0030
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde indirimler teşvikler ve geçici düzenlemeler
+  konu: OZL
+  kazanim: teknoloji geliştirme bölgesi sermaye desteği indirimi
+  tip: hesaplama
+  zorluk: 3
+  kok: Tam mükellef (D) A.Ş., 2026 yılında teknoloji geliştirme bölgesinde faaliyette bulunan girişimcilere, 4691 sayılı Kanun
+    kapsamındaki projelerin finansmanında kullanılmak üzere 2.000.000 TL tutarında sermaye desteği sağlamıştır. (D) A.Ş.'nin
+    2026 yılı kurum kazancı 15.000.000 TL, öz sermayesi 4.000.000 TL'dir. Cumhurbaşkanı kanundaki oran ve parasal sınırı değiştirmemiştir.
+    4691 sayılı Kanun geçici 4. madde uyarınca 2026 yılında kurum kazancından indirim konusu yapılabilecek tutar kaç TL'dir?
+  secenekler:
+    A: 400.000 TL
+    B: 500.000 TL
+    C: 800.000 TL
+    D: 1.000.000 TL
+    E: 1.500.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Sermaye destekleri, beyan edilen gelirin veya kurum kazancının %10''unu ve öz sermayenin %20''sini aşmamak
+      üzere ve yıllık 1.000.000 TL sınırı içinde indirim konusu yapılır. Kurum kazancı sınırı = 15.000.000 × %10 = 1.500.000
+      TL; öz sermaye sınırı = 4.000.000 × %20 = 800.000 TL; parasal sınır 1.000.000 TL; sağlanan destek 2.000.000 TL. İndirilebilecek
+      tutar bunların en küçüğüdür: 800.000 TL. Püf noktaları: üç sınırın (kazanç %10, öz sermaye %20, yıllık parasal tavan)
+      en düşüğü uygulanır; desteğin en az dört yıl şirkette kalması gerekir.'
+    celdiriciler:
+      A: Oranlar ters uygulanmıştır (öz sermayenin %10'u); kurum kazancı için %10, öz sermaye için %20 sınırı vardır.
+      B: Kanun değişikliğinden önceki yıllık parasal sınır esas alınmıştır; geçerli yıllık sınır 1.000.000 TL'dir.
+      D: Yıllık parasal sınır esas alınmış, öz sermayenin %20'sine dayanan daha düşük sınır dikkate alınmamıştır.
+      E: Yalnızca kurum kazancının %10'u esas alınmış; öz sermaye ve parasal sınırlar atlanmıştır.
+    hesap_adimlari:
+    - Kazanç sınırı = 15.000.000 × %10 = 1.500.000 TL
+    - Öz sermaye sınırı = 4.000.000 × %20 = 800.000 TL
+    - Parasal sınır = 1.000.000 TL; sağlanan destek = 2.000.000 TL
+    - İndirim = en küçük = 800.000 TL
+  kaynaklar:
+  - mevzuat: 4691 sayılı Teknoloji Geliştirme Bölgeleri Kanunu
+    madde: Geçici Md. 4
+    alinti: gelir ve kurumlar vergisi mükellefleri tarafından sağlanan sermaye destekleri, beyan edilen gelirin veya kurum
+      kazancının yüzde onunu ve öz sermayenin yüzde yirmisini aşmamak üzere
+  - mevzuat: 4691 sayılı Teknoloji Geliştirme Bölgeleri Kanunu
+    madde: Geçici Md. 4
+    alinti: İndirim konusu yapılacak tutar yıllık olarak 1.000.000 Türk lirasını aşamaz.
+  gecerlilik:
+    baslangic: '2016-02-16'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = round(min(2000000, 15000000*0.10, 4000000*0.20, 1000000))
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_OZL_20261111_1.yaml#8
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-OZL-0031
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde indirimler teşvikler ve geçici düzenlemeler
+  konu: OZL
+  kazanim: uluslararası gemi sicili harçları
+  tip: hesaplama
+  zorluk: 1
+  kok: Türk Uluslararası Gemi Siciline kaydedilen, 9.000 net tonluk bir ticari gemi (yat niteliği taşımamaktadır) doğrudan
+    Türk Loydu'na kayıtlıdır; geminin ana sevk sistemi fosil yakıt kullanmaktadır. Gemi için Cumhurbaşkanı harç tutarlarını
+    artırmamıştır. 4490 sayılı Kanun'un 12. maddesi uyarınca kayıt harcı ile kayıt yılına ait yıllık tonaj harcının toplamı
+    kaç ABD Doları karşılığı Türk Lirası (ABD Doları olarak) tutarındadır?
+  secenekler:
+    A: '9.500'
+    B: '14.000'
+    C: '18.500'
+    D: '19.000'
+    E: '28.000'
+  dogru: B
+  aciklama:
+    dogru_neden: 'Kayıt harcası: 10.000 ABD Doları + net ton başına 1 ABD Doları = 10.000 + 9.000 = 19.000. Yıllık tonaj harcası:
+      net ton başına 1 ABD Doları = 9.000. Toplam 28.000. Doğrudan Türk Loydu''na kayıtlı gemilerde bu harçlarda %50 indirim
+      yapılır: 28.000 × %50 = 14.000 ABD Doları.'
+    celdiriciler:
+      A: Yalnızca kayıt harcasının indirimli tutarı bulunmuş, yıllık tonaj harcası eklenmemiştir.
+      C: Türk Loydu indirimi yalnızca kayıt harcasına uygulanmış, tonaj harcası indirimsiz alınmıştır; indirim her iki harçta
+        da geçerlidir.
+      D: Yalnızca indirimsiz kayıt harcası (10.000 + 9.000) alınmış, tonaj harcası ve indirim dikkate alınmamıştır.
+      E: Kayıt harcası ve tonaj harcası doğru toplanmış, ancak Türk Loydu'na kayıtlı gemiler için öngörülen %50 indirim uygulanmamıştır.
+    hesap_adimlari:
+    - Kayıt harcası = 10.000 + 9.000 × 1 = 19.000 ABD Doları
+    - Tonaj harcası = 9.000 × 1 = 9.000 ABD Doları
+    - Toplam = 28.000; %50 indirim sonrası = 14.000 ABD Doları
+  kaynaklar:
+  - mevzuat: 4490 sayılı Türk Uluslararası Gemi Siciline İlişkin Kanun
+    madde: Md. 12(4)(a)
+    alinti: 'a) Kayıt harcı: 10.000 ABD Doları karşılığında Türk parasına ilave olarak, her bir net ton için 1 ABD Doları
+      karşılığı Türk Lirası alınır.'
+  - mevzuat: 4490 sayılı Türk Uluslararası Gemi Siciline İlişkin Kanun
+    madde: Md. 12(4)(b)
+    alinti: 'b) Yıllık tonaj harcı: Gemilerden ve yatlardan Türk Uluslararası Gemi Siciline kayıtlı olduğu her takvim yılı
+      için her bir net ton başına 1 ABD Doları karşılığı Türk Lirası alınır.'
+  - mevzuat: 4490 sayılı Türk Uluslararası Gemi Siciline İlişkin Kanun
+    madde: Md. 12(4)(c)
+    alinti: c) Türk Uluslararası Gemi Siciline kayıtlı gemi ve yat doğrudan veya çift (dual) klas olarak Türk Loydu'na kayıtlı
+      ise bu maddenin (a) ve (b) bendinde tespit edilen bedellerde %50 indirim yapılır.
+  gecerlilik:
+    baslangic: '2017-01-18'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = round((10000 + 9000 + 9000) * 0.5)
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_OZL_20261111_1.yaml#9
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'

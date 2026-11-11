@@ -1,0 +1,821 @@
+- id: YMM-GUV-DAR-0031
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Dar mükellefiyet ve uluslararası vergilendirme
+  konu: DAR
+  kazanim: yabancı memleketlerde ödenen vergilerin mahsubu (gelir vergisi)
+  tip: hesaplama
+  zorluk: 3
+  kok: Türkiye'de yerleşmiş (tam mükellef) Bay (Y)'nin 2026 yılı gelirleri toplamı 3.000.000 TL olup bunun 2.000.000 TL'si
+    Türkiye'de, 1.000.000 TL'si Almanya'daki gayrimenkul sermaye iradından elde edilmiştir. Yıllık beyanname üzerinden hesaplanan
+    gelir vergisi 900.000 TL'dir. Almanya'da bu iradın gelirine isabet eden ve gelir üzerinden alınan şahsi vergi 400.000
+    TL olarak ödenmiş, ödeme gerekli resmî belgelerle tevsik edilmiştir. Başka mahsup edilecek vergi yoktur. Bay (Y) beyanname
+    üzerinden kaç TL gelir vergisi ödeyecektir?
+  secenekler:
+    A: 300.000 TL
+    B: 450.000 TL
+    C: 500.000 TL
+    D: 600.000 TL
+    E: 900.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'GVK md. 123''e göre yabancı memlekette ödenen vergi, Türkiye''de tarh edilen gelir vergisinin yabancı kazanca
+      isabet eden kısmından indirilir; bu kısım, yabancı kazancın gelire oranı üzerinden bulunur. İsabet eden vergi = 900.000
+      × (1.000.000/3.000.000) = 300.000 TL. Yurt dışında ödenen 400.000 TL bu tutarı aştığından indirilecek miktar 300.000
+      TL''dir; fark dikkate alınmaz. Ödenecek vergi = 900.000 − 300.000 = 600.000 TL. Püf noktaları: mahsup sınırı, hesaplanan
+      verginin yabancı kazanca düşen payıdır; fazla kısım ne iade edilir ne devreder.'
+    celdiriciler:
+      A: Yabancı kaynaklı gelirin gelire oranı yanlışlıkla Türkiye gelirine göre (2/3) alınmış, böylece Türkiye'de indirilebilecek
+        kısım 600.000 TL sayılmıştır.
+      B: Yabancı kazancın gelire oranı yerine Türkiye kazancına oranı (1/2) esas alınmış, isabet eden vergi 450.000 TL bulunmuştur.
+      C: Yurt dışında ödenen 400.000 TL'nin tamamı indirilmiştir; oysa indirilecek tutar yabancı gelire isabet eden vergi
+        kısmını (300.000 TL) aşamaz.
+      E: Yurt dışında ödenen vergi hiç dikkate alınmamıştır; GVK md. 123 tam mükelleflerin yabancı ülkede ödedikleri benzeri
+        vergilerin indirilmesini öngörür.
+    hesap_adimlari:
+    - Yabancı kazancın gelire oranı = 1.000.000 / 3.000.000 = 1/3
+    - Gelir vergisinin yabancı kazanca isabet eden kısmı = 900.000 × 1/3 = 300.000 TL
+    - İndirilecek tutar = min(400.000; 300.000) = 300.000 TL
+    - Ödenecek gelir vergisi = 900.000 − 300.000 = 600.000 TL
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 123
+    alinti: Madde 123 – Tam mükellefiyete tabi mükelleflerin yabancı memleketlerde elde ettikleri kazanç ve iratlardan mahallinde
+      ödedikleri benzeri vergiler, Türkiye'de tarh edilen Gelir Vergisinin yabancı memleketlerde elde edilen kazanç ve iratlara
+      isabet eden kısmından indirilir.
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 123
+    alinti: Birinci fıkra hükmünce indirilecek miktar Gelir Vergisinin yabancı memleketlerde elde edilen kazanç ve iratlara
+      isabet eden kısmından fazla olduğu takdirde, aradaki fark nazara alınmaz.
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 123
+    alinti: Gelir Vergisinin yabancı memlekette elde edilen kazanç ve iratlara isabet eden kısmı, bunların gelire olan nispeti
+      üzerinden hesaplanır.
+  gecerlilik:
+    baslangic: '1961-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'isabet = 900000*(1000000/3000000)
+
+      sonuc = round(900000 - min(400000, isabet))'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_DAR_20261111_1.yaml#1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+- id: YMM-GUV-DAR-0032
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Dar mükellefiyet ve uluslararası vergilendirme
+  konu: DAR
+  kazanim: daimî temsilci
+  tip: kavrama
+  zorluk: 2
+  kok: 193 sayılı Gelir Vergisi Kanunu'nun 8. maddesine göre, aşağıdaki kişilerden hangisi başkaca şart aranmaksızın temsil
+    edilenin daimî temsilcisi sayılır?
+  secenekler:
+    A: Yabancı firmanın yalnızca reklam giderlerini devamlı olarak ödeyen ve başka bir yetkisi bulunmayan kişi
+    B: Birden fazla yabancı firmayı aynı zamanda temsil ettiği için hiçbirinin daimî temsilcisi sayılmayan kişi
+    C: Yabancı firmanın mağaza veya depolarında onun hesabına konsinye satmak üzere devamlı mal bulunduran kişi
+    D: Hizmet veya vekâlet akdi ile bağlı olmaksızın, bağımsız çalışarak yalnızca bir kez ticari muamele yapan aracı
+    E: Yabancı firmanın ürünlerini yalnızca fuarlarda tanıtan, ticari muamele yapma yetkisi bulunmayan geçici personeli
+  dogru: C
+  aciklama:
+    dogru_neden: GVK md. 8/3'e göre; ticari mümessiller, tüccar vekilleri ve memurları ile acenta durumunda bulunanlar, reklam
+      giderleri hariç olmak üzere giderleri devamlı olarak kısmen veya tamamen temsil edilen tarafından ödenenler ve mağaza
+      veya depolarında temsil edilen hesabına konsinyasyon suretiyle satmak üzere devamlı olarak mal bulunduranlar, başkaca
+      şart aranmaksızın daimî temsilci sayılır.
+    celdiriciler:
+      A: Temsil edilene ait reklam giderleri, daimî temsilcilik sayılan 'giderlerin devamlı olarak temsil edilen tarafından
+        ödenmesi' halinin dışında bırakılmıştır.
+      B: Bir kimsenin birkaç kişiyi aynı zamanda temsil etmesi daimî temsilcilik vasfını değiştirmez; temsil edilenlerin her
+        biri bakımından daimî temsilcilik sürebilir.
+      D: Daimî temsilci, hizmet veya vekâlet akdiyle temsil edilene bağlı olan kişidir; bu tür bağımsız ve tek seferlik aracı,
+        sayılan hallerden hiçbirine girmez.
+      E: Kanunda sayılan üç haldeki unsurlardan hiçbirini taşımaz; yetkisiz ve geçici tanıtım personeli kendiliğinden daimî
+        temsilci sayılmaz.
+  kaynaklar:
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 8/3
+    alinti: 'Aşağıda yazılı kimseler, başkaca şartlar aranmaksızın temsil edilenin daimi temsilcisi sayılırlar. 1. Ticari
+      mümessiller, tüccar vekilleri ve memurları ile Ticaret Kanununun hükümlerine göre acenta durumunda bulunanlar; 2. (Değişik:
+      19/2/1963-202/4 md.) Temsil edilene ait reklam giderleri hariç olmak üzere giderleri devamlı olarak kısmen veya tamamen
+      temsil edilen tarafından ödenenler;'
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 8/3
+    alinti: 3. Mağaza veya depolarında temsil edilen hesabına konsinyasyon suretiyle satmak üzere devamlı olarak mal bulunduranlar.
+  - mevzuat: 193 sayılı Gelir Vergisi Kanunu
+    madde: md. 8/4
+    alinti: Bir kimsenin birkaç kişiyi aynı zamanda temsil etmesi daimi temsilcilik vasfını değiştirmez.
+  gecerlilik:
+    baslangic: '1961-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_DAR_20261111_1.yaml#2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+- id: YMM-GUV-DAR-0033
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Dar mükellefiyet ve uluslararası vergilendirme
+  konu: DAR
+  kazanim: dar mükellefiyette özel beyan zamanı ve beyanname verilecek yer
+  tip: uygulama
+  zorluk: 3
+  kok: Kanuni ve iş merkezi Yunanistan'da bulunan, Türkiye'de iş yeri, daimî temsilcisi ve temsilcisi olmayan (Y) Denizcilik
+    S.A., Türkiye ile Mısır arasında arızî olarak yaptığı bir taşımacılık faaliyetinde yükü 6/7/2026 tarihinde İzmir limanında
+    gemiye almış ve bu taşımadan kazanç elde etmiştir. Taşıma sözleşmesi Atina'da imzalanmış, navlun bedeli İstanbul'daki
+    bir bankadan ödenmiştir. Bu kazançla ilgili kurumlar vergisi beyannamesinin verilme zamanı ve verileceği yer bakımından
+    aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Beyanname 6/7/2026 tarihinden itibaren on beş gün içinde, yükün gemiye alındığı yer olan İzmir'deki vergi dairesine
+      verilir.
+    B: Beyanname 6/7/2026 tarihinden itibaren on beş gün içinde, navlun ödemesinin yapıldığı İstanbul'daki vergi dairesine
+      verilir.
+    C: Beyanname 2027 yılı Nisan ayının 1'inden 25'inci günü akşamına kadar, İzmir'deki vergi dairesine verilir.
+    D: Beyanname 6/7/2026 tarihinden itibaren bir ay içinde, taşıma sözleşmesinin imzalandığı yer olan Atina'daki Türk konsolosluğu
+      aracılığıyla verilir.
+    E: Beyanname 21/7/2026 tarihine kadar, Maliye Bakanlığınca belirlenecek herhangi bir vergi dairesine verilir.
+  dogru: A
+  aciklama:
+    dogru_neden: 'Dar mükellefiyete tabi yabancı kurumun vergiye tabi kazancı GVK''daki diğer kazanç ve iratlardan ibaret
+      ise kazançlar elde edilme tarihinden itibaren on beş gün içinde beyan edilir (md. 26/1). Arızî olarak Türkiye ile yabancı
+      ülkeler arasında yapılan taşımacılıkta beyanname, yolcu veya yükün taşıta alındığı yerin vergi dairesine verilir (md.
+      27/1-d). Yük İzmir''de alındığından beyanname İzmir''deki vergi dairesine, 6/7/2026 + 15 gün = 21/7/2026''ya kadar verilir.
+      Püf noktaları: sözleşme yeri ve ödeme yeri, taşımacılıkta yer ölçütü değildir; yıllık beyan süresi (Nisan) bu hallerde
+      uygulanmaz.'
+    celdiriciler:
+      B: Ödemenin yapıldığı yer, taşımacılık dışındaki bazı gelirler (ör. terk edilen işlerle ilgili kazançlar) için esastır;
+        arızî taşımacılıkta yer ölçütü yolcu veya yükün taşıta alındığı yerdir.
+      C: Yıllık beyan süresi yıllık beyan esasında vergilendirilen mükellefler içindir; özel beyan zamanı tayin olunan gelirlerde
+        kazancın elde edilmesinden itibaren on beş gün içinde beyan zorunludur.
+      D: Beyanname bir ay içinde değil on beş gün içinde verilir ve sözleşmenin imza yerine göre belirlenen bir yer ölçütü
+        yoktur; beyan Türkiye'deki ilgili vergi dairesine yapılır.
+      E: Süre doğru bulunmuş olsa da yer ölçütü yanlıştır; taşımacılık kazançlarında beyannamenin verileceği yer kanunda yükün
+        taşıta alındığı yer olarak belirlenmiştir ve Bakanlık belirlemesi yalnızca diğer hallerde söz konusudur.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 26/1
+    alinti: MADDE 26- (1) Dar mükellefiyete tâbi olan yabancı kurumların vergiye tâbi kazancının Gelir Vergisi Kanununda yazılı
+      diğer kazanç ve iratlardan (telif, imtiyaz, ihtira, işletme, ticaret unvanı, marka ve benzeri gayrimaddî hakların satışı,
+      devir ve temliki karşılığında alınan bedeller hariç) ibaret bulunması halinde, yabancı kurum veya Türkiye’de adına hareket
+      eden kimse, bu kazançları elde edilme tarihinden itibaren onbeş gün içinde Kanunun 27 nci maddesinde belirtilen vergi
+      dairesine beyanname ile bildirmek zorundadır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 27/1-d
+    alinti: d) Arızî olarak Türkiye ile yabancı ülkeler arasında yapılan taşımacılık faaliyetlerinden elde edilen kazançlarda
+      yolcu veya yükün taşıta alındığı,
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_DAR_20261111_1.yaml#3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+- id: YMM-GUV-DAR-0034
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Dar mükellefiyet ve uluslararası vergilendirme
+  konu: DAR
+  kazanim: yurt dışı kâr payı üzerinden ödenen vergilerin mahsubu ve devri
+  tip: uygulama
+  zorluk: 3
+  kok: Hesap dönemi takvim yılı olan tam mükellef (K) A.Ş., 2026 yılında Almanya'da kurulu (Z) GmbH'nin sermayesinin %30'unu
+    satın almış ve 8 ay sonra (Z) GmbH'den net 600.000 TL kâr payı tahsil etmiştir. Kâr payına kaynak olan kazançlar üzerinden
+    Almanya'da ödenen gelir ve kurumlar vergisi benzeri vergilerin bu kâr payına isabet eden kısmı 400.000 TL'dir; gerekli
+    belgeler sunulmuştur. (K) A.Ş.'nin iştirak kazancı istisnası şartlarını sağlamadığı, kurumlar vergisi oranının %25 olduğu
+    ve başka kazancı bulunmadığı kabul edildiğine göre, bu kâr payı nedeniyle (K) A.Ş.'nin 2026 yılında ödeyeceği kurumlar
+    vergisi ve izleyen hesap dönemlerinde indirilebilecek yurt dışı vergi tutarı sırasıyla aşağıdakilerden hangisidir?
+  secenekler:
+    A: 0 TL ödenir; 250.000 TL sonraki dönemlerde indirim konusu yapılabilir.
+    B: 0 TL ödenir; 150.000 TL sonraki yıllarda indirilebilir.
+    C: 0 TL ödenir; 150.000 TL işletmeye nakden iade edilir.
+    D: 150.000 TL ödenir; kalan yurt dışı vergi devredilemez.
+    E: 250.000 TL ödenir; yurt dışı vergi mahsup edilemez.
+  dogru: B
+  aciklama:
+    dogru_neden: 'Kazanca ilave edilen kâr payı, yurt dışında ödenen vergiler dahil edilerek bulunur: 600.000 + 400.000 =
+      1.000.000 TL (md. 33/3). Hesaplanan kurumlar vergisi 1.000.000 × %25 = 250.000 TL''dir. Mahsup edilecek vergi, yurt
+      dışı kazanca %25 oranının uygulanmasıyla bulunan tutarı (250.000 TL) aşamaz (md. 33/4); dolayısıyla 250.000 TL mahsup
+      edilir ve ödenecek vergi 0 TL olur. Mahsup edilemeyen 400.000 − 250.000 = 150.000 TL, ilgili dönemi izleyen üçüncü hesap
+      dönemi sonuna kadar indirim konusu yapılabilir. Püf noktaları: kâr payını brütleştirmeyi unutmayın; mahsup sınırı brüt
+      kâr payı üzerinden hesaplanır.'
+    celdiriciler:
+      A: Kâr payı brüt tutar yerine net 600.000 TL üzerinden kazanca ilave edilmiş, bu nedenle devreden tutar 250.000 TL bulunmuştur;
+        oysa yurt dışında ödenen vergiler kâr payına dahil edilir.
+      C: Mahsup edilemeyen yurt dışı vergi iade edilmez; ilgili dönemi izleyen üçüncü hesap dönemi sonuna kadar indirim konusu
+        yapılabilir.
+      D: Mahsup, brüt kâr payına %25 oranı uygulanarak bulunan 250.000 TL'ye kadar yapılabilir; ayrıca fazla kalan vergi devredilebilir.
+      E: Sermayenin %25'ine sahip olunan yurt dışı iştirakten elde edilen kâr payları için ödenen yurt dışı vergilerin mahsubu
+        mümkündür; kâr payı 8 ay elde tutulmuş olsa da mahsup hakkı doğar.
+    hesap_adimlari:
+    - Brüt kâr payı = 600.000 + 400.000 = 1.000.000 TL
+    - Hesaplanan kurumlar vergisi = 1.000.000 × %25 = 250.000 TL; mahsup sınırı = 250.000 TL
+    - Mahsup = min(400.000; 250.000) = 250.000 TL; ödenecek vergi = 0 TL
+    - Devreden yurt dışı vergi = 400.000 − 250.000 = 150.000 TL (izleyen üçüncü hesap dönemi sonuna kadar)
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 33/3
+    alinti: (3) Tam mükellef kurumların doğrudan veya dolaylı olarak sermayesi veya oy hakkının % 25’ine sahip olduğu yurt
+      dışı iştiraklerinden elde ettikleri kâr payları üzerinden Türkiye’de ödenecek kurumlar vergisinden, iştiraklerin bulunduğu
+      ülkelerdeki kâr payı dağıtımına kaynak oluşturan kazançlar üzerinden ödenen gelir ve kurumlar vergisi benzeri vergilerin
+      kâr payı tutarına
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 33/3
+    alinti: Kazanca ilave edilen kâr payı, bu kazançlar üzerinden yurt dışında ödenen gelir ve kurumlar vergisi benzeri vergiler
+      dahil edilmek suretiyle dikkate alınır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 33/4
+    alinti: (4) Yurt dışı kazançlar üzerinden Türkiye’de tarh olunacak vergilere mahsup edilebilecek tutar, hiç bir surette
+      yurt dışında elde edilen kazançlara Kanunun 32 nci maddesinde belirtilen kurumlar vergisi oranının uygulanmasıyla bulunacak
+      tutardan fazla olamaz. Bu sınır dahilinde, ilgili bulunduğu kazancın Türkiye’de genel sonuç hesaplarına intikal ettirildiği
+      hesap döneminde tamamen veya kısmen indirilemeyen vergiler, bu dönemi izleyen üçüncü hesap dönemi sonuna kadar indirim
+      konusu yapılabilir.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'brut = 600000+400000
+
+      kv = brut*0.25
+
+      mahsup = min(400000, kv)
+
+      sonuc = [round(kv-mahsup), round(400000-mahsup)]'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_DAR_20261111_1.yaml#4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+- id: YMM-GUV-DAR-0035
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Dar mükellefiyet ve uluslararası vergilendirme
+  konu: DAR
+  kazanim: dar mükelleflere dağıtılan kâr paylarında kesinti
+  tip: kavrama
+  zorluk: 2
+  kok: Tam mükellef (T) A.Ş., 2026 yılında kâr dağıtımı yapmıştır. Aşağıdaki dağıtımlardan hangisi, 5520 sayılı Kanun'un 30.
+    maddesinin üçüncü fıkrası kapsamında dar mükellef kurumlara dağıtılan kâr payı olarak kurumlar vergisi kesintisine tabidir?
+  secenekler:
+    A: Türkiye'de iş yeri veya daimî temsilcisi bulunmayan yabancı (N) GmbH'ye dağıtılan kâr payı
+    B: Yabancı (M) Inc.'in Türkiye'deki şubesi aracılığıyla elde ettiği ve şubenin kazancına dahil kâr payı
+    C: Dar mükellef (P) Ltd.'nin payına düşen kârın dağıtılmayıp tamamen sermayeye eklenmesi işlemi
+    D: Tam mükellef gerçek kişi ortak Bay (R)'ye nakden dağıtılan kâr payı tutarı
+    E: Tam mükellef başka bir (S) A.Ş.'ye nakden dağıtılan kâr payı tutarı
+  dogru: A
+  aciklama:
+    dogru_neden: KVK md. 30/3'e göre tam mükellef kurumlar tarafından, Türkiye'de iş yeri veya daimî temsilci aracılığıyla
+      kâr payı elde edenler hariç olmak üzere dar mükellef kurumlara veya kurumlar vergisinden muaf olan dar mükelleflere
+      dağıtılan (kârın sermayeye eklenmesi kâr dağıtımı sayılmaz) ve GVK md. 75/2'nin (1), (2) ve (3) numaralı bentlerinde
+      sayılan kâr payları üzerinden kesinti yapılır. Türkiye'de iş yeri bulunmayan (N) GmbH'ye yapılan dağıtım bu şartları
+      sağlar.
+    celdiriciler:
+      B: Türkiye'de iş yeri veya daimî temsilci aracılığıyla kâr payı elde edenler 30/3 kesintisinin dışında bırakılmıştır;
+        bu kâr payı şube kazancı içinde tam mükellef gibi vergilendirilir.
+      C: Kârın sermayeye eklenmesi kâr dağıtımı sayılmaz; bu nedenle 30/3 kapsamında kesinti doğmaz.
+      D: 30. madde dar mükellef kurumlara ilişkindir; tam mükellef gerçek kişilere yapılan kâr payı ödemelerinde kesinti,
+        GVK md. 94 kapsamında yapılır.
+      E: Tam mükellef kurumlar arasındaki kâr payı dağıtımı iştirak kazancı istisnası kapsamındadır; kesinti dar mükellef
+        kurumlara özgü 30/3 hükmüne dayanmaz.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 30/3
+    alinti: (3) Tam mükellef kurumlar tarafından, Türkiye’de bir iş yeri veya daimî temsilci aracılığıyla kâr payı elde edenler
+      hariç olmak üzere dar mükellef kurumlara veya kurumlar vergisinden muaf olan dar mükelleflere dağıtılan (Kârın sermayeye
+      eklenmesi kâr dağıtımı sayılmaz.) ve Gelir Vergisi Kanununun 75 inci maddesinin ikinci fıkrasının (1), (2) ve (3) numaralı
+      bentlerinde sayılan kâr payları üzerinden bu Kanunun 15 inci maddesinin üçüncü
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_DAR_20261111_1.yaml#5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+- id: YMM-GUV-DAR-0036
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Dar mükellefiyet ve uluslararası vergilendirme
+  konu: DAR
+  kazanim: dar mükellefiyette beyan ve ödeme süreleri
+  tip: kavrama
+  zorluk: 3
+  kok: 'Dar mükellefiyete tâbi kurumların kurumlar vergisinin beyanı ve ödenmesine ilişkin aşağıdaki ifadelerden hangileri
+    **doğrudur**?
+
+
+    I. Yıllık beyanname, hesap döneminin kapandığı ayı izleyen dördüncü ayın birinci gününden yirmibeşinci günü akşamına kadar
+    verilir.
+
+    II. Yıllık beyanname ile bildirilen kurumlar vergisi, beyannamenin verildiği ayın sonuna kadar ödenir.
+
+    III. Muhtasar beyanname ile bildirilen kesintiler, beyannamenin verildiği ayı izleyen ayın yirmialtıncı günü akşamına
+    kadar ödenir.
+
+    IV. Özel beyannameyle bildirilen vergiler, beyanname verme süresinin bitiminden itibaren bir ay içinde ödenir.'
+  secenekler:
+    A: I ve III
+    B: II ve IV
+    C: III ve IV
+    D: I ve II
+    E: I, II ve IV
+  dogru: D
+  aciklama:
+    dogru_neden: 'Yıllık beyanname, hesap döneminin kapandığı ayı izleyen dördüncü ayın 1''inden 25''inci günü akşamına kadar
+      verilir (md. 25/5); yıllık beyannameyle bildirilen vergi beyannamenin verildiği ayın sonuna kadar ödenir (md. 29/1-a).
+      Muhtasar beyannameyle bildirilen vergi beyannamenin verildiği ayın yirmialtıncı günü akşamına, özel beyannameyle bildirilen
+      vergi ise beyanname verme süresi içinde ödenir (md. 29/1-b ve c). Dolayısıyla I ve II doğru, III ve IV yanlıştır. Püf
+      noktaları: ödeme süreleri ''izleyen ay'' ifadesiyle değil, beyannamenin verildiği ayla ilişkilendirilmiştir.'
+    celdiriciler:
+      A: 'III numaralı ifade yanlıştır: muhtasar beyannameyle bildirilen vergi, beyannamenin verildiği ayın yirmialtıncı günü
+        akşamına kadar ödenir; izleyen aya sarkan bir süre yoktur.'
+      B: 'IV numaralı ifade yanlıştır: özel beyannameyle bildirilen vergiler, beyanname verme süresi içinde ödenir; bir aylık
+        ek süre tanınmamıştır.'
+      C: İki ifade de yanlıştır; muhtasar beyanname için beyan ayının 26'ncı günü, özel beyanname için beyanname verme süresi
+        esastır.
+      E: IV numaralı ifade yanlıştır; özel beyannameyle bildirilen vergiler ayrıca bir aylık süre tanınmaksızın beyanname
+        verme süresi içinde ödenir.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 25/5
+    alinti: (5) Beyanname, hesap döneminin kapandığı ayı izleyen dördüncü ayın birinci gününden yirmibeşinci günü akşamına
+      kadar, tarhiyatın muhatabının Türkiye’yi terk etmesi halinde ise ülkeyi terk etmesinden önceki onbeş gün içinde verilir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 29/1
+    alinti: a) Yıllık beyanname ile bildirilenlerde beyannamenin verildiği ayın sonuna kadar, b) Muhtasar beyanname ile bildirilenlerde
+      beyannamenin verildiği ayın yirmialtıncı günü akşamına kadar, c) Özel beyannameyle bildirilenler ile tarhiyatın muhatabının
+      Türkiye’yi terk etmesi veya tasfiye ve birleşme hallerinde verilecek beyannamelerde ise beyanname verme süresi içinde,
+      ödenir.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_DAR_20261111_1.yaml#6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+- id: YMM-GUV-DAR-0037
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Dar mükellefiyet ve uluslararası vergilendirme
+  konu: DAR
+  kazanim: dar mükellefiyette kesinti ve geçici vergi mahsubu
+  tip: hesaplama
+  zorluk: 3
+  kok: Türkiye'deki şubesi (iş yeri) aracılığıyla ticari faaliyette bulunan, hesap dönemi takvim yılı olan dar mükellef (G)
+    GmbH'nin 2026 yıllık kurumlar vergisi beyannamesi üzerinden hesaplanan kurumlar vergisi 1.200.000 TL'dir. Şube, 2026 yılı
+    geçici vergi dönemleri için toplam 900.000 TL geçici vergi tahakkuk ettirmiş, bunun 700.000 TL'sini ödemiş, 200.000 TL'sini
+    ödememiştir. Ayrıca beyannamede gösterilen banka mevduat faizlerinden 5520 sayılı Kanun'un 15. maddesinin birinci fıkrası
+    uyarınca kaynağında kesilen vergi 100.000 TL olup bu tutar geçici vergi beyannamelerinde mahsup edilmemiştir. Yıllık beyanname
+    üzerinden şubenin ödeyeceği kurumlar vergisi kaç TL'dir?
+  secenekler:
+    A: 200.000 TL
+    B: 300.000 TL
+    C: 400.000 TL
+    D: 500.000 TL
+    E: 1.100.000 TL
+  dogru: C
+  aciklama:
+    dogru_neden: 'Beyannamede gösterilen kazançlardan KVK md. 15/1 ve md. 30/1-2 uyarınca kaynağında kesilmiş vergiler, hesaplanan
+      kurumlar vergisinden mahsup edilir (md. 34/1). Tahakkuk ettirilen geçici verginin ise yalnızca ödenen kısmı mahsup edilir
+      (md. 34/4). Ödenecek vergi = 1.200.000 − 700.000 − 100.000 = 400.000 TL. Ödenmeyen 200.000 TL geçici vergi mahsup konusu
+      olmaz. Püf noktaları: geçici vergide ''tahakkuk'' değil ''ödenen'' tutar esastır.'
+    celdiriciler:
+      A: Tahakkuk eden geçici verginin ödenmeyen 200.000 TL'lik kısmı da mahsup edilmiştir; yıllık beyanda yalnızca ödenen
+        kısım mahsup edilir.
+      B: Kaynağında kesilen 100.000 TL mahsup edilmemiştir ve geçici verginin tahakkuk eden 900.000 TL'sinin tamamı düşülmüştür;
+        her iki yaklaşım da yanlıştır.
+      D: Yalnızca ödenen geçici vergi (700.000 TL) mahsup edilmiş, beyannamede gösterilen kazançlardan kesilmiş 100.000 TL'lik
+        vergi unutulmuştur.
+      E: Ödenen geçici vergi hiç mahsup edilmemiş, yalnızca kesinti düşülmüştür; oysa geçici verginin ödenen kısmı yıllık
+        beyanname üzerinden hesaplanan vergiden mahsup edilir.
+    hesap_adimlari:
+    - Mahsup edilecek geçici vergi = yalnızca ödenen kısım = 700.000 TL
+    - Mahsup edilecek kaynakta kesilen vergi = 100.000 TL
+    - Ödenecek vergi = 1.200.000 − 700.000 − 100.000 = 400.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 34/1
+    alinti: MADDE 34- (1) Beyannamede gösterilen kazançlardan, Kanunun 15 inci maddesinin birinci fıkrasına ve 30 uncu maddesinin
+      birinci ve ikinci fıkralarına göre kaynağında kesilmiş olan vergiler (hayat sigorta şirketlerinde matematik karşılıkların
+      yatırıma yönlendirilmesinden elde edilen kazanç ve iratlar üzerinden yapılan kesintiler dahil), beyanname üzerinden
+      hesaplanan kurumlar vergisinden mahsup edilir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 34/4
+    alinti: İlgili hesap dönemine ilişkin tahakkuk ettirilen geçici verginin sadece ödenen kısmı yıllık kurumlar vergisi beyannamesi
+      üzerinden hesaplanan kurumlar vergisinden mahsup edilir.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 1200000 - 700000 - 100000
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kabul; hesap doğrulandı (400.000). Olası şablon benzerliği: MEVCUT içinde klasik
+          şube/geçici vergi vakası var.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_DAR_20261111_1.yaml#7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kabul; hesap doğrulandı (400.000). Olası şablon benzerliği: MEVCUT içinde klasik şube/geçici
+      vergi vakası var.'
+- id: YMM-GUV-DAR-0038
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Dar mükellefiyet ve uluslararası vergilendirme
+  konu: DAR
+  kazanim: dar mükellefiyette kurum kazancının unsurları
+  tip: bilgi
+  zorluk: 1
+  kok: 5520 sayılı Kurumlar Vergisi Kanunu'nun 3. maddesine göre dar mükellefiyette kurum kazancını oluşturan kazanç ve iratlar
+    arasında aşağıdakilerden hangisi **yer almaz**?
+  secenekler:
+    A: Türkiye'de bulunan ziraî işletmeden elde edilen kazanç
+    B: Türkiye'de elde edilen serbest meslek kazancı
+    C: Türkiye'de elde edilen menkul sermaye iradı
+    D: Yurt dışında bulunan bir taşınmazın kiralanmasından elde edilen irat
+    E: Türkiye'de iş yeri veya daimî temsilci aracılığıyla yapılan işlerden doğan ticarî kazanç
+  dogru: D
+  aciklama:
+    dogru_neden: Dar mükellefiyette kurumlar yalnızca Türkiye'de elde ettikleri kazançlar üzerinden vergilendirilir (md. 3/2).
+      Kurum kazancı; Türkiye'deki iş yeri veya daimî temsilci aracılığıyla elde edilen ticarî kazanç, ziraî işletme kazancı,
+      serbest meslek kazancı, Türkiye'de kiralamadan doğan iratlar, menkul sermaye iratları ve diğer kazanç ve iratlardan
+      oluşur (md. 3/3). Yurt dışındaki taşınmazın kira iradı Türkiye'de elde edilmediğinden kapsam dışıdır.
+    celdiriciler:
+      A: Bu kazanç 3/3-(b) bendinde dar mükellefiyette kurum kazancının unsuru olarak sayılmıştır.
+      B: Bu kazanç 3/3-(c) bendinde dar mükellefiyette kurum kazancının unsuru olarak sayılmıştır.
+      C: Bu irat 3/3-(d) bendinde dar mükellefiyette kurum kazancının unsuru olarak sayılmıştır.
+      E: Bu kazanç 3/3-(a) bendinde dar mükellefiyette kurum kazancının unsuru olarak sayılmıştır.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 3/2
+    alinti: '(2) Dar mükellefiyet: Kanunun 1 inci maddesinde sayılı kurumlardan kanunî ve iş merkezlerinin her ikisi de Türkiye''de
+      bulunmayanlar, sadece Türkiye''de elde ettikleri kazançları üzerinden vergilendirilirler.'
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 3/3
+    alinti: b) Türkiye'de bulunan ziraî işletmeden elde edilen kazançlar. c) Türkiye'de elde edilen serbest meslek kazançları.
+      ç) Taşınır ve taşınmazlar ile hakların Türkiye'de kiralanmasından elde edilen iratlar. d) Türkiye'de elde edilen menkul
+      sermaye iratları. e) Türkiye'de elde edilen diğer kazanç ve iratlar.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kabul; md. 3/3 doğrulandı. Olası konu benzerliği: MEVCUT içinde md. 3 kurum kazancı
+          unsurları sorusu var (olumlu yönlü).'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_DAR_20261111_1.yaml#8
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kabul; md. 3/3 doğrulandı. Olası konu benzerliği: MEVCUT içinde md. 3 kurum kazancı
+      unsurları sorusu var (olumlu yönlü).'
+- id: YMM-GUV-DAR-0039
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Dar mükellefiyet ve uluslararası vergilendirme
+  konu: DAR
+  kazanim: yurt dışında ödenen vergilere ilişkin belgelerin ibrazı
+  tip: kavrama
+  zorluk: 3
+  kok: Tam mükellef (M) A.Ş., yurt dışı kazancına ilişkin olarak yabancı ülkede ödenen vergileri gösterir belgeleri tarhiyat
+    sırasında ibraz edememiştir. 5520 sayılı Kanun'un 33. maddesine göre bu durumda aşağıdakilerden hangisi **doğrudur**?
+  secenekler:
+    A: Belgeler tarhiyat sırasında ibraz edilemediği için yurt dışı vergi mahsup hakkı tamamen kaybolur; belgeler daha sonra
+      ibraz edilse bile mahsup hakkı yeniden doğmaz ve tarhiyat, mücbir sebep bulunsa bile hiçbir değişikliğe uğramadan aynen
+      kesinleşir.
+    B: Yabancı ülkede ödenen vergi, kurumlar vergisi oranını aşmamak şartıyla o ülkenin oranından hesaplanır, tarhiyatın bu
+      tutara isabet eden kısmı ertelenir; belgeler tarhtan itibaren en geç bir yılda ibraz edilirse tarhiyat düzeltilir.
+    C: Tarhiyatın tamamı süresiz olarak ertelenir; belgeler mükellef tarafından istenildiği zaman ibraz edilebilir ve ibraz
+      ne zaman yapılırsa yapılsın tarhiyat, belgelerde yazılı kesin tutara göre her zaman düzeltilir.
+    D: Yabancı ülkede ödenen vergi o ülkenin oranından hesaplanıp tarhiyat ertelenir; ancak belgeler tarh tarihinden itibaren
+      en geç altı ay içinde ibraz edilirse tarhiyat belgelerdeki kesin tutara göre düzeltilir, bu süre geçtikten sonra düzeltme
+      yapılmaz.
+    E: Mücbir sebep olmaksızın belgelerin süre içinde ibraz edilmemesi halinde ertelenen vergiler için ayrıca vergi ziyaı
+      cezası ve Vergi Usul Kanunu'na göre gecikme faizi hesaplanır.
+  dogru: B
+  aciklama:
+    dogru_neden: 'KVK md. 33/7''ye göre belgelerin tarhiyat sırasında ibraz edilememesi halinde yabancı ülkede ödenen veya
+      ödenecek vergi, 32. maddedeki oranı aşmamak şartıyla o ülkedeki oran üzerinden hesaplanır, tarhiyatın bu tutara isabet
+      eden kısmı ertelenir ve belgeler tarhtan itibaren en geç bir yıl içinde ibraz edilirse tarhiyat kesin tutara göre düzeltilir.
+      Mücbir sebep olmaksızın belgeler süresinde ibraz edilmezse ertelenen vergiler için 6183 sayılı Kanun hükümlerine göre
+      gecikme zammı hesaplanır (md. 33/8). Püf noktaları: süre bir yıldır; ceza değil gecikme zammı söz konusudur.'
+    celdiriciler:
+      A: Kanun mahsup hakkını tamamen kaybettirmez; belgelerin sonradan ibrazına imkân tanıyarak ilgili tutara isabet eden
+        tarhiyatı ertelemektedir.
+      C: Erteleme yalnızca yabancı ülke oranı üzerinden hesaplanan tutara isabet eden tarhiyat için söz konusudur ve belgelerin
+        ibrazı için en geç bir yıllık süre vardır.
+      D: Belgelerin ibraz süresi altı ay değil, tarh tarihinden itibaren en geç bir yıldır.
+      E: Ertelenen vergiler için hesaplanacak olan, VUK gecikme faizi değil, 6183 sayılı Kanun hükümlerine göre gecikme zammıdır.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 33/7
+    alinti: (7) Kurumlar vergisinden indirim konusu yapılan vergilerin yabancı ülkelerde ödendiğini gösterir belgelerin, tarhiyat
+      sırasında mükellef tarafından ibraz edilememesi halinde, yabancı ülkede ödenen veya ödenecek olan vergi, Kanunun 32
+      nci maddesindeki kurumlar vergisi oranını aşmamak şartıyla o ülkede geçerli olan oran üzerinden hesaplanır ve tarhiyatın
+      bu suretle hesaplanan tutara isabet eden kısmı ertelenir. İbraz edilmesi gereken belgeler, tarh tarihinden itibaren
+      en geç bir yıl içinde ilgili vergi dairesine ibraz edildiği takdirde, bu belgelerde yazılı kesin tutara göre tarhiyat
+      düzeltilir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: md. 33/8
+    alinti: (8) Mücbir sebepler olmaksızın belgelerin bu süre zarfında ibraz edilmemesi veya bu belgelerin ibrazından sonra
+      ertelenen vergi tutarından daha düşük bir mahsup hakkı olduğunun anlaşılması halinde, ertelenen vergiler için Amme Alacaklarının
+      Tahsil Usulü Hakkında Kanun hükümlerine göre gecikme zammı hesaplanır.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_DAR_20261111_1.yaml#9
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'

@@ -54,6 +54,27 @@ def calistir(kod: str) -> float:
     return float(ad_alani["sonuc"])
 
 
+_YON_EKSI = re.compile(r"(azal|olumsuz|yetersiz|eksik|aleyh)", re.I)
+_YON_ARTI = re.compile(r"(artar|artış|olumlu|fazla|lehte|lehine)", re.I)
+
+
+def yon(metin: str) -> int:
+    """Şıktaki yön sözcüğü: 'Kâr 40.000 ₺ azalır' → -1, '5.000 ₺ olumlu' → +1, yön yoksa 0.
+
+    Yönlü şıklarda (sapma olumlu/olumsuz, kâr artar/azalır) aynı tutar zıt yönle çeldirici olarak verilebilir;
+    bu, gerçek sınavda da kullanılan meşru bir çeldiricidir.
+    """
+    if _YON_EKSI.search(metin):
+        return -1
+    if _YON_ARTI.search(metin):
+        return 1
+    return 0
+
+
+def _monoton(liste: list[float]) -> bool:
+    return liste == sorted(liste) or liste == sorted(liste, reverse=True)
+
+
 def esit(a: float, b: float) -> bool:
     return abs(a - b) <= max(TOLERANS, abs(b) * 1e-9)
 
@@ -76,10 +97,27 @@ def soru_denetle(soru: dict) -> Sonuc:
         return sonuc
 
     degerler = {h: sayiya_cevir(m) for h, m in soru["secenekler"].items()}
+    yonler = {h: yon(m) for h, m in soru["secenekler"].items()}
     dogru_deger = degerler.get(soru["dogru"])
     if dogru_deger is None:
         sonuc.hatalar.append("doğru şıkta tek bir sayısal değer okunamadı")
         return sonuc
+    dogru_yon = yonler.get(soru["dogru"], 0)
+    # Yönlü şıkta tutar mutlak değerle karşılaştırılır (yön, şık metnindeki sözcükle verilir).
+    if not (esit(sonuc.hesaplanan, dogru_deger) or (dogru_yon and esit(abs(sonuc.hesaplanan), abs(dogru_deger)))):
+        sonuc.hatalar.append(f"hesaplanan {sonuc.hesaplanan:g} ≠ doğru şık {dogru_deger:g}")
+    for harf, deger in degerler.items():
+        if harf == soru["dogru"] or deger is None:
+            continue
+        ayni_tutar = esit(deger, sonuc.hesaplanan) or (dogru_yon and esit(abs(deger), abs(sonuc.hesaplanan)))
+        if ayni_tutar and yonler[harf] == dogru_yon:
+            sonuc.hatalar.append(f"çeldirici {harf} de hesaplanan değere eşit ({deger:g})")
+    sirali = [degerler[h] for h in "ABCDE"]
+    if all(d is not None for d in sirali):
+        isaretli = [d * (-1 if yonler[h] < 0 else 1) for h, d in zip("ABCDE", sirali)]
+        if not (_monoton(sirali) or _monoton(isaretli)):
+            sonuc.hatalar.append("sayısal şıklar sıralı değil (gerçek sınavda her zaman sıralı)")
+    return sonuc
     if not esit(sonuc.hesaplanan, dogru_deger):
         sonuc.hatalar.append(f"hesaplanan {sonuc.hesaplanan:g} ≠ doğru şık {dogru_deger:g}")
     for harf, deger in degerler.items():

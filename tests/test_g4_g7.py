@@ -107,3 +107,21 @@ def test_disa_aktar_puf_etiketi_yazilislari():
 def test_tipografik_eksi_sayi_olarak_okunur():
     from pipeline import g4_hesap
     assert g4_hesap.sayiya_cevir("−78.000 TL") == -78000
+
+
+def test_g4_yonlu_siklar_zit_yon_celdiricisi_ve_isaretli_sira():
+    from pipeline import g4_hesap
+    soru = {"id": "T-1", "tip": "hesaplama", "dogru": "D", "dogrulama": {"python": "sonuc = abs(4000 * (75 - 62 - 3))"},
+            "secenekler": {"A": "Kâr 100.000 ₺ azalır", "B": "Kâr 80.000 ₺ azalır", "C": "Kâr 40.000 ₺ azalır",
+                           "D": "Kâr 40.000 ₺ artar", "E": "Kâr 52.000 ₺ artar"}}
+    assert g4_hesap.soru_denetle(soru).gecti
+    soru["secenekler"]["C"] = "Kâr 40.000 ₺ artar"  # aynı yön + aynı tutar → çift doğru
+    assert any("çeldirici C" in h for h in g4_hesap.soru_denetle(soru).hatalar)
+
+
+def test_g4_yonlu_siklar_buyukluk_sirasi_gecer():
+    from pipeline import g4_hesap
+    soru = {"id": "T-2", "tip": "hesaplama", "dogru": "D", "dogrulama": {"python": "sonuc = 24000"},
+            "secenekler": {"A": "5.000 ₺ olumsuz", "B": "18.000 ₺ olumsuz", "C": "19.000 ₺ olumsuz",
+                           "D": "24.000 ₺ olumsuz", "E": "24.000 ₺ olumlu"}}
+    assert g4_hesap.soru_denetle(soru).gecti

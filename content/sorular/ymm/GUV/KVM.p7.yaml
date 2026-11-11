@@ -1,0 +1,724 @@
+- id: YMM-GUV-KVM-0088
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisi mükellefiyeti ve matrah
+  konu: KVM
+  kazanim: sermayenin tamamlanması için ortaklarca aktarılan tutarlar
+  tip: hesaplama
+  zorluk: 2
+  kok: Tam mükellef (H) A.Ş.'nin 2026 yılı ticari bilanço kârı 9.000.000 TL'dir. Bu kârın içinde, 6102 sayılı Türk Ticaret
+    Kanunu'nun 376. maddesi uyarınca sermayenin tamamlanmasına karar verilmesi üzerine ortaklarca şirkete aktarılan ve gelir
+    olarak kaydedilen 4.000.000 TL bulunmaktadır; bu tutarın 3.000.000 TL'si zarar sebebiyle karşılıksız kalan kısmı kapatacak
+    miktardadır. Ayrıca 2026 yılında gider yazılan ve kanunen kabul edilmeyen giderlerin toplamı 1.200.000 TL'dir. Başka istisna,
+    indirim veya zarar yoktur. 5520 sayılı Kanun'a göre (H) A.Ş.'nin 2026 yılı kurum kazancı kaç TL'dir?
+  secenekler:
+    A: 4.200.000 TL
+    B: 4.800.000 TL
+    C: 6.000.000 TL
+    D: 6.200.000 TL
+    E: 7.200.000 TL
+  dogru: E
+  aciklama:
+    dogru_neden: 'KVK md. 6(3) uyarınca TTK md. 376 gereğince sermayenin tamamlanmasına karar verilen şirketin ortakları tarafından,
+      zarar sebebiyle karşılıksız kalan kısmı kapatacak miktarda aktarılan tutarlar kurum kazancının tespitinde dikkate alınmaz.
+      Aktarılan 4.000.000 TL''nin yalnızca 3.000.000 TL''si bu kapsamdadır; fazlası (1.000.000 TL) kazançta kalır. Kurum kazancı
+      = 9.000.000 + 1.200.000 − 3.000.000 = 7.200.000 TL. Püf noktaları: yalnızca zararı kapatacak miktar dışlanır; KKEG kâra
+      eklenir.'
+    celdiriciler:
+      A: Zarar sebebiyle karşılıksız kalan 3.000.000 TL kapatma tutarı iki kez düşülmüştür; kurum kazancından bu tutar yalnızca
+        bir defa çıkarılır.
+      B: Kanunen kabul edilmeyen giderler kazanca eklenmek yerine kârdan düşülmüştür; KKEG kurum kazancını artırır.
+      C: Kabul edilmeyen giderler (1.200.000 TL) kurum kazancına eklenmemiştir; kurum kazancı ticari kârın KKEG ile düzeltilmesi
+        suretiyle bulunur.
+      D: Ortaklarca aktarılan 4.000.000 TL'nin tamamı dışlanmıştır; kanuna göre yalnızca zarar sebebiyle karşılıksız kalan
+        kısmı kapatacak miktar (3.000.000 TL) dikkate alınmaz.
+    hesap_adimlari:
+    - Ticari kâr = 9.000.000 TL
+    - 'KKEG eklenir: + 1.200.000 TL'
+    - 'Zararı kapatan aktarım düşülür: − 3.000.000 TL'
+    - Kurum kazancı = 7.200.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 6(3)
+    alinti: 13/1/2011 tarihli ve 6102 sayılı Türk Ticaret Kanununun 376 ncı maddesi uyarınca sermayenin tamamlanmasına karar
+      verilen şirketin ortakları tarafından zarar sebebiyle karşılıksız kalan kısmı kapatacak miktarda aktarılan tutarlar
+      kurum kazancının tespitinde dikkate alınmaz.
+  gecerlilik:
+    baslangic: '2022-04-08'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: sonuc = 9000000 + 1200000 - 3000000
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVM_20261111_1.yaml#1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-KVM-0089
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisi mükellefiyeti ve matrah
+  konu: KVM
+  kazanim: kanunen kabul edilmeyen giderler ve kurum kazancı
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Tam mükellef (B) A.Ş.''nin 2026 yılı ticari bilanço kârı 20.000.000 TL''dir. Bu kârın hesaplanmasında gider yazılan
+    kalemlerden bazıları şunlardır:
+
+
+    - Her türlü şans ve bahis oyunlarına ait ilan ve reklam giderleri (tamamı 17/4/2026 tarihinden sonra yapılan reklamlara
+    aittir): 600.000 TL
+
+    - Alkollü içki ve tütün mamullerine ait ilan ve reklam giderleri: 800.000 TL
+
+    - 5651 sayılı Kanun''un ek 4. maddesi kapsamında hakkında reklam yasağı uygulananlara verilen reklamların giderleri: 250.000
+    TL
+
+    - Esas faaliyet konusu ile ilgili olmayan yat için yapılan gider ve amortisman: 350.000 TL
+
+
+    Cumhurbaşkanı Kararı ile oranlar değiştirilmemiştir; başka düzeltme, istisna, indirim veya zarar yoktur. (B) A.Ş.''nin
+    2026 yılı kurum kazancı kaç TL''dir?'
+  secenekler:
+    A: 21.000.000 TL
+    B: 21.200.000 TL
+    C: 21.350.000 TL
+    D: 21.600.000 TL
+    E: 22.000.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'KVK md. 11(1)''e göre: şans ve bahis oyunları reklam giderleri (k) tamamen, alkollü içki ve tütün mamulü
+      reklam giderlerinin %50''si (ı), reklam yasağı uygulananlara verilen reklam giderleri (j) tamamen ve esas faaliyetle
+      ilgisiz yat giderleri ile amortismanları (f) tamamen kabul edilmeyen gider olarak kurum kazancına eklenir. KKEG = 600.000
+      + 400.000 + 250.000 + 350.000 = 1.600.000 TL; kurum kazancı = 20.000.000 + 1.600.000 = 21.600.000 TL. Püf noktaları:
+      alkol ve tütün reklamında yalnızca %50 eklenir; diğer üç kalem tamamen eklenir.'
+    celdiriciler:
+      A: Şans ve bahis oyunlarına ait reklam giderleri (600.000 TL) kurum kazancına eklenmemiştir; bu giderler 2/4/2026 tarihli
+        değişiklikle tamamen indirimi kabul edilmeyen giderler arasına alınmıştır.
+      B: Alkollü içki ve tütün mamulü reklam giderlerinin %50'si (400.000 TL) eklenmemiştir; bu giderlerin yarısı kanunen
+        kabul edilmeyen gider sayılır.
+      C: Reklam yasağı uygulananlara verilen reklam giderleri (250.000 TL) eklenmemiştir; bu giderler de indirim konusu yapılamaz.
+      E: Alkollü içki ve tütün reklam giderlerinin tamamı (800.000 TL) eklenmiştir; kanun bu giderlerin yalnızca %50'sinin
+        indirimini kabul etmez.
+    hesap_adimlari:
+    - KKEG = 600.000 (tamamı) + 400.000 (%50 × 800.000) + 250.000 + 350.000 = 1.600.000 TL
+    - Kurum kazancı = 20.000.000 + 1.600.000 = 21.600.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 11(1)-f
+    alinti: f) Kiralama yoluyla edinilen veya işletmede kayıtlı olan; yat, kotra, tekne, sürat teknesi gibi motorlu deniz
+      taşıtları ile uçak, helikopter gibi hava taşıtlarından işletmenin esas faaliyet konusu ile ilgili olmayanların giderleri
+      ve amortismanları.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 11(1)-ı
+    alinti: ı) Her türlü alkol ve alkollü içkiler ile tütün ve tütün mamullerine ait ilan ve reklam giderlerinin % 50’si.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 11(1)-j
+    alinti: j) (Ek:8/4/2022-7394/24 md.) 4/5/2007 tarihli ve 5651 sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi
+      ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanunun ek 4 üncü maddesi kapsamında hakkında reklam
+      yasağı uygulananlara verilen reklamların giderleri.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 11(1)-k
+    alinti: k) (Ek:2/4/2026-7577/11 md.) Her türlü şans ve bahis oyunlarına ait ilan ve reklam giderleri.
+  gecerlilik:
+    baslangic: '2026-04-02'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kkeg = 600000 + 0.5*800000 + 250000 + 350000
+
+      sonuc = round(20000000 + kkeg)'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) duzelt: KVK md. 11/1-k (şans ve bahis oyunları reklam giderleri) 7577 sayılı Kanunla eklendi,
+          yürürlük 17/4/2026; soru, 600.000 TL''lik giderlerin yapıldığı tarihi vermiyor, yılbaşından 17/4/2026''ya kadar
+          yapılanlar KKEG olmayabilir (belirsizlik). Gider tarihi kök''e eklendi; anah'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVM_20261111_1.yaml#2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) duzelt: KVK md. 11/1-k (şans ve bahis oyunları reklam giderleri) 7577 sayılı Kanunla eklendi,
+      yürürlük 17/4/2026; soru, 600.000 TL''lik giderlerin yapıldığı tarihi vermiyor, yılbaşından 17/4/2026''ya kadar yapılanlar
+      KKEG olmayabilir (belirsizlik). Gider tarihi kök''e eklendi; anah'
+- id: YMM-GUV-KVM-0090
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisi mükellefiyeti ve matrah
+  konu: KVM
+  kazanim: örtülü sermaye sayılmayan borçlanmalar
+  tip: bilgi
+  zorluk: 3
+  kok: 5520 sayılı Kanun'un 12. maddesi bakımından aşağıdaki borçlanmalardan hangisi örtülü sermaye hesabında **sayılmaz**?
+  secenekler:
+    A: Kurumun, ortağının sağladığı gayrinakdî teminat karşılığında üçüncü bir finans kuruluşundan yaptığı borçlanma
+    B: Kurumun, ortağı olan gerçek kişiden nakden aldığı ödünç para
+    C: Ortağın doğrudan veya dolaylı %30 paya sahip olduğu bir kurumdan alınan nakdi kredi
+    D: Ortakla ilişkili kişi sayılan ve yalnızca ilişkili şirketlere finansman temin eden bir kredi şirketinden alınan kredi
+    E: Ortakla ilişkili kişi sayılan bir bankadan, ana faaliyet konusuna uygun olarak alınan kredi
+  dogru: A
+  aciklama:
+    dogru_neden: 'KVK md. 12(6)(a)''ya göre kurumların ortaklarının veya ortaklarla ilişkili kişilerin sağladığı gayrinakdî
+      teminatlar karşılığında üçüncü kişilerden yapılan borçlanmalar örtülü sermaye sayılmaz. Ortaktan doğrudan alınan ödünç,
+      ilişkili kurumdan alınan nakdi kredi ve yalnızca ilişkili şirketlere finansman sağlayan kredi şirketinden alınan borç
+      örtülü sermaye hesabına girer; ana faaliyet konusuna uygun faaliyet gösteren ilişkili banka borçları ise %50 oranında
+      dikkate alınır. Püf noktaları: gayrinakdî teminat (teminat mektubu, kefalet) karşılığı üçüncü kişiden borçlanma hariçtir;
+      ilişkili banka borçlarında ise sadece %50 dikkate alma kuralı vardır.'
+    celdiriciler:
+      B: Ortağın doğrudan şirkete nakden verdiği ödünç, borcun ortaktan doğrudan temin edildiği tipik örtülü sermaye unsurudur
+        ve hesaplamaya tam olarak girer.
+      C: Ortağın en az %10 oranında ortağı olduğu kurum ortakla ilişkili kişidir; bu kişiden alınan nakdi borçlar örtülü sermaye
+        hesabına girer.
+      D: Yalnızca ilişkili şirketlere finansman sağlayan kredi şirketlerinden yapılan borçlanmalar bankalara tanınan yüzde
+        elli indirimli dikkate almanın dışındadır; tam tutarıyla hesaba girer.
+      E: Böyle bir borçlanma kapsam dışında değildir; yalnızca karşılaştırmada %50 oranında dikkate alınır.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 12(6)-a
+    alinti: a) Kurumların ortaklarının veya ortaklarla ilişkili kişilerin sağladığı gayrinakdî teminatlar karşılığında üçüncü
+      kişilerden yapılan borçlanmalar.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 12(2)
+    alinti: sadece ilişkili şirketlere finansman temin eden kredi şirketlerinden yapılan borçlanmalar hariç olmak üzere, ana
+      faaliyet konusuna uygun olarak faaliyette bulunan ve ortak veya ortakla ilişkili kişi sayılan banka veya benzeri kredi
+      kurumlarından yapılan borçlanmalar % 50 oranında dikkate alınır.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVM_20261111_1.yaml#3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-KVM-0091
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisi mükellefiyeti ve matrah
+  konu: KVM
+  kazanim: transfer fiyatlandırmasında peşin fiyat anlaşması ve ceza indirimi
+  tip: bilgi
+  zorluk: 3
+  kok: 5520 sayılı Kanun'un 13. maddesinde düzenlenen transfer fiyatlandırması yoluyla örtülü kazanç dağıtımına ilişkin aşağıdaki
+    ifadelerden hangisi **doğrudur**?
+  secenekler:
+    A: Mükellefin talebi üzerine Maliye Bakanlığı ile anlaşılarak belirlenen yöntem, en çok beş yıl süreyle kesinlik taşır.
+    B: Belgelendirme yükümlülükleri yerine getirilmiş olsa bile örtülü kazanç nedeniyle doğan vergi ziyaı cezası indirimsiz
+      uygulanır.
+    C: Tam mükellef kurumlar arasındaki yurt içi işlemlerde, Hazine zararı doğmasa dahi örtülü kazanç dağıtıldığı kabul edilir.
+    D: Mükellefin Bakanlıkla anlaşması, zamanaşımına uğramamış geçmiş vergilendirme dönemlerine hiçbir şekilde uygulanamaz.
+    E: Belgeler tam ve zamanında hazırlanmışsa vergi ziyaı cezası, 359. maddedeki fiiller hariç olmak üzere, %50 indirimli
+      uygulanır.
+  dogru: E
+  aciklama:
+    dogru_neden: 'KVK md. 13(8)''e göre transfer fiyatlandırmasına ilişkin belgelendirme yükümlülükleri tam ve zamanında yerine
+      getirilmiş olması kaydıyla, örtülü olarak dağıtılan kazanç nedeniyle zamanında tahakkuk ettirilmemiş veya eksik tahakkuk
+      ettirilmiş vergiler için vergi ziyaı cezası (VUK md. 359''daki fiiller hariç) %50 indirimli uygulanır. Anlaşma yöntemi
+      en çok üç yıl kesinlik taşır (md. 13(5)); yurt içi işlemlerde Hazine zararı şarttır (md. 13(7)). Püf noktaları: indirim
+      yalnızca belgelendirme tam ve zamanındaysa ve 359. maddedeki fiiller yoksa geçerlidir.'
+    celdiriciler:
+      A: Kesinlik süresi üç yılı aşamaz; beş yıl, Cumhurbaşkanının süreyi artırabileceği üst sınırdır, genel kural değildir.
+      B: Belgelendirme yükümlülükleri tam ve zamanında yerine getirilmişse vergi ziyaı cezası %50 indirimli uygulanır.
+      C: Yurt içi işlemlerde örtülü kazanç dağıtımının kabulü Hazine zararının doğması şartına bağlıdır.
+      D: Pişmanlık ve ıslah hükümlerinin uygulanması mümkün ve anlaşma koşulları geçmiş dönemlerde de geçerliyse anlaşma bu
+        dönemleri de kapsayabilir.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 13(5)
+    alinti: İlişkili kişilerle yapılan mal veya hizmet alım ya da satımında uygulanacak fiyat veya bedelin tespitine ilişkin
+      yöntemler, mükellefin talebi üzerine Maliye Bakanlığı ile anlaşılarak belirlenebilir. Bu şekilde belirlenen yöntem,
+      üç yılı aşmamak üzere
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 13(7)
+    alinti: Tam mükellef kurumlar ile yabancı kurumların Türkiye’deki işyeri veya daimi temsilcilerinin aralarında ilişkili
+      kişi kapsamında gerçekleştirdikleri yurt içindeki işlemler nedeniyle kazancın örtülü olarak dağıtıldığının kabulü Hazine
+      zararının doğması şartına bağlıdır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 13(8)
+    alinti: Transfer fiyatlandırmasına ilişkin belgelendirme yükümlülüklerinin tam ve zamanında yerine getirilmiş olması kaydıyla,
+      örtülü olarak dağıtılan kazanç nedeniyle zamanında tahakkuk ettirilmemiş veya eksik tahakkuk ettirilmiş vergiler için
+      vergi ziyaı cezası (Vergi Usul Kanununun 359 uncu maddesinde yazılı fiillerle vergi ziyaına sebebiyet verilmesi hali
+      hariç) %50 indirimli olarak uygulanır.
+  gecerlilik:
+    baslangic: '2008-06-04'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVM_20261111_1.yaml#4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-KVM-0092
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisi mükellefiyeti ve matrah
+  konu: KVM
+  kazanim: bölünme ve hisse değişimi şartları
+  tip: bilgi
+  zorluk: 3
+  kok: 5520 sayılı Kanun'un 19. maddesinin üçüncü fıkrasında düzenlenen bölünme ve hisse değişimi işlemlerine ilişkin aşağıdakilerden
+    hangisi **doğrudur**?
+  secenekler:
+    A: Tam bölünmede devredilen şirketin ortaklarına verilecek iştirak hisselerinin itibarî değerinin %20'sine kadarlık kısmının
+      nakit ödenmesi işlemin bölünme sayılmasına engel değildir.
+    B: Kısmî bölünmede devredilen iştirak hisselerinin devreden şirketin bilançosunda en az bir tam yıl elde tutulmuş olması
+      yeterlidir.
+    C: Hisse değişiminde devralan şirketin, hisseleri devralınan şirketin yönetimini ve hisse çoğunluğunu elde etmesi şartı
+      aranmaz.
+    D: Kısmî bölünmede üretim veya hizmet işletmesinin devrinde, işletme bütünlüğünü koruyacak şekilde faaliyetin devamı için
+      gerekli aktif ve pasif kalemlerin tümünün devri zorunludur.
+    E: Tam bölünme, tam mükellef bir sermaye şirketinin bütün mal varlığını tasfiyesiz olarak yalnızca tek bir sermaye şirketine
+      devretmesidir.
+  dogru: D
+  aciklama:
+    dogru_neden: 'KVK md. 19(3)(b)''ye göre kısmî bölünmede, üretim veya hizmet işletmelerinin devrinde işletme bütünlüğü
+      korunacak şekilde faaliyetin devamı için gerekli aktif ve pasif kalemlerin tümünün devredilmesi zorunludur. İştirak
+      hisseleri en az iki tam yıl elde tutulmalı; tam bölünme iki veya daha fazla şirkete yapılır; nakit ödeme sınırı %10''dur;
+      hisse değişiminde yönetim ve hisse çoğunluğu elde edilmelidir. Püf noktaları: %10 nakit sınırı hem tam bölünme hem hisse
+      değişimi için geçerlidir; iki tam yıl şartı yalnızca iştirak hisselerine aittir.'
+    celdiriciler:
+      A: Nakit ödeme sınırı %20 değil, itibarî değerin %10'udur.
+      B: Kanun, iştirak hisselerinin en az iki tam yıl süreyle elde tutulmasını arar; bir yıl yetmez.
+      C: Hisse değişiminde devralan şirketin, diğer şirketin yönetimini ve hisse çoğunluğunu elde edecek şekilde hisseleri
+        devralması gerekir.
+      E: Tam bölünmede mal varlığı mevcut veya yeni kurulacak iki veya daha fazla tam mükellef sermaye şirketine devredilir.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 19(3)-a
+    alinti: Devredilen şirketin ortaklarına verilecek iştirak hisselerinin itibarî değerinin % 10’una kadarlık kısmının nakit
+      olarak ödenmesi, işlemin bölünme sayılmasına engel değildir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 19(3)-b
+    alinti: bilânçosunda yer alan ve en az iki tam yıl süreyle elde tutulan iştirak hisseleri ya da sahip oldukları üretim
+      veya hizmet işletmelerinin bir veya birkaçını kayıtlı değerleri üzerinden aynî sermaye olarak mevcut veya yeni kurulacak
+      tam mükellef bir sermaye şirketine devretmesi
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 19(3)-b
+    alinti: Ancak, üretim veya hizmet işletmelerinin devrinde, işletme bütünlüğü korunacak şekilde faaliyetin devamı için
+      gerekli aktif ve pasif kalemlerin tümünün devredilmesi zorunludur.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 19(3)-c
+    alinti: 'c) Hisse değişimi: Tam mükellef bir sermaye şirketinin, diğer bir sermaye şirketinin hisselerini, bu şirketin
+      yönetimini ve hisse çoğunluğunu elde edecek şekilde devralması ve karşılığında bu şirketin hisselerini devreden ortaklarına
+      kendi şirketinin sermayesini temsil eden iştirak hisselerini vermesi'
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVM_20261111_1.yaml#5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-KVM-0093
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisi mükellefiyeti ve matrah
+  konu: KVM
+  kazanim: kurumlar vergisinin tarh zamanı
+  tip: uygulama
+  zorluk: 2
+  kok: Hesap dönemi takvim yılı olan tam mükellef (T) A.Ş., 2026 hesap dönemine ilişkin kurumlar vergisi beyannamesini 23/4/2027
+    tarihinde taahhütlü posta ile göndermiş; beyanname vergiyi tarh edecek vergi dairesine 26/4/2027 tarihinde ulaşmıştır.
+    5520 sayılı Kanun'un tarh zamanına ilişkin hükmüne göre kurumlar vergisi en geç hangi tarihte tarh edilmelidir?
+  secenekler:
+    A: 23/4/2027
+    B: 29/4/2027
+    C: 30/4/2027
+    D: 3/5/2027
+    E: 26/5/2027
+  dogru: B
+  aciklama:
+    dogru_neden: KVK md. 16(5)'e göre kurumlar vergisi, bağlı olunan vergi dairesine beyannamenin verildiği günde, beyanname
+      posta ile gönderilmişse vergiyi tarh edecek daireye geldiği tarihi izleyen üç gün içinde tarh edilir. Beyanname daireye
+      26/4/2027'de geldiğinden tarh en geç 26/4/2027 + 3 gün = 29/4/2027 tarihinde yapılır.
+    celdiriciler:
+      A: Beyannamenin postaya verildiği tarih esas alınmıştır; posta ile gönderilmiş beyannamede süre, beyannamenin tarh dairesine
+        geldiği tarihi izleyen günlerde işler.
+      C: Dört günlük süre uygulanmıştır; kanun daireye geldiği tarihi izleyen üç gün içinde tarhı öngörür.
+      D: Gelir vergisindeki yedi günlük tarh süresi uygulanmıştır; kurumlar vergisinde bu süre üç gündür.
+      E: Daireye ulaşma tarihinden itibaren bir aylık süre alınmıştır; kanunda öngörülen tarh süresi bir ay değildir.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 16(5)
+    alinti: Kurumlar vergisi, bağlı olunan vergi dairesine beyannamenin verildiği günde, beyanname posta ile gönderilmişse,
+      vergiyi tarh edecek daireye geldiği tarihi izleyen üç gün içinde tarh edilir.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVM_20261111_1.yaml#6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-KVM-0094
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisi mükellefiyeti ve matrah
+  konu: KVM
+  kazanim: ayrıca hasılattan indirilebilen giderler
+  tip: bilgi
+  zorluk: 1
+  kok: 5520 sayılı Kanun'un 8. maddesine göre, ticarî kazanç gibi hesaplanan kurum kazancının tespitinde mükelleflerin ayrıca
+    hasılattan indirebilecekleri giderlerden biri aşağıdakilerden hangisidir?
+  secenekler:
+    A: Öz sermaye üzerinden hesaplanan faizler
+    B: Kanuni ayrılan yedek akçeler
+    C: Kurumlar vergisi karşılığı olarak hesaplanan tutarlar
+    D: Vergi cezaları ve gecikme zamları
+    E: Genel kurul toplantıları için yapılan giderler
+  dogru: E
+  aciklama:
+    dogru_neden: KVK md. 8(1)(c)'ye göre genel kurul toplantıları için yapılan giderler ile birleşme, devir, bölünme, fesih
+      ve tasfiye giderleri kurum kazancının tespitinde ayrıca hasılattan indirilebilir. Diğer seçenekler md. 11 uyarınca indirimi
+      kabul edilmeyen giderlerdir.
+    celdiriciler:
+      A: Öz sermaye üzerinden ödenen veya hesaplanan faizlerin indirimi 11. maddeye göre kabul edilmez.
+      B: Her ne ad altında olursa olsun ayrılan yedek akçeler 11. madde uyarınca indirim konusu yapılamaz.
+      C: Bu Kanuna göre hesaplanan kurumlar vergisi kurum kazancının tespitinde indirilemez.
+      D: Vergi cezaları ile gecikme zamları 11. maddeye göre indirimi kabul edilmeyen giderlerdir.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 8(1)-c
+    alinti: c) Genel kurul toplantıları için yapılan giderler ile birleşme, devir, bölünme, fesih ve tasfiye giderleri.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 11(1)-d
+    alinti: d) Bu Kanuna göre hesaplanan kurumlar vergisi ile her türlü para cezaları, vergi cezaları, 21/7/1953 tarihli ve
+      6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun hükümlerine göre ödenen cezalar, gecikme zamları ve faizler
+      ile Vergi Usul Kanunu hükümlerine göre ödenen gecikme faizleri.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVM_20261111_1.yaml#7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-KVM-0095
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisi mükellefiyeti ve matrah
+  konu: KVM
+  kazanim: inşaat ve onarım hakedişlerinde vergi kesintisi
+  tip: hesaplama
+  zorluk: 3
+  kok: Tam mükellef (M) A.Ş., birden fazla takvim yılına yaygın, 193 sayılı Kanun'un 42. maddesi kapsamında demiryolu ve raylı
+    sistemler ile gemi inşaat ve onarım işleri dışında kalan bir inşaat işini yüklenen tam mükellef (Y) A.Ş.'ye 2026 yılında
+    hakediş ödemesi yapacaktır. Kesilmesi gereken vergiyi (M) A.Ş. üstlenmiş olup (Y) A.Ş.'ye vergi kesintisi yapılmaksızın
+    tam 1.900.000 TL ödenecektir (tutarlar KDV hariçtir). 5520 sayılı Kanun'un 15. maddesi ve 9707 sayılı Cumhurbaşkanı Kararı
+    uyarınca bu ödemeden kesilecek vergi kaç TL'dir?
+  secenekler:
+    A: 19.000 TL
+    B: 95.000 TL
+    C: 99.750 TL
+    D: 100.000 TL
+    E: 475.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Raylı sistem ve gemi inşaat/onarım işleri dışındaki diğer işlerde kesinti oranı %5''tir (9707 sayılı Karar
+      md. 2). Kesilmesi gereken verginin ödemeyi yapan tarafından üstlenilmesi halinde vergi kesintisi, ödenen tutar ile ödemeyi
+      yapanın yüklendiği verginin toplamı üzerinden hesaplanır (KVK md. 15(7)). Kesinti = %5 × (1.900.000 + kesinti) ise kesinti
+      = 1.900.000 × 0,05 / 0,95 = 100.000 TL. Doğrulama: 1.900.000 + 100.000 = 2.000.000 brüt; %5''i = 100.000 TL. Püf noktaları:
+      vergi üstlenildiğinde brüt tutar bulunur (net / 0,95); oran inşaat türüne göre %1 veya %5''tir.'
+    celdiriciler:
+      A: Raylı sistem ve gemi işlerine uygulanan %1 oranı kullanılmış; bu işler dışındaki inşaat ve onarım işlerinde oran
+        %5'tir.
+      B: Verginin ödemeyi yapan tarafından üstlenilmesi dikkate alınmamış, %5 oran doğrudan 1.900.000 TL'ye uygulanmıştır.
+      C: Net tutarın %5'i alınıp bu tutarın üzerine %5 daha eklenmiştir; üstlenilen verginin kendisi de matraha dahil olduğundan
+        doğru hesap brütleştirme yöntemiyle yapılır.
+      E: Oran yerine %25'lik kurumlar vergisi oranı uygulanmıştır; bu kesinti kurumlar vergisi oranı değil, 9707 sayılı Karar
+        ile belirlenen kesinti oranıdır.
+    hesap_adimlari:
+    - Oran = %5 (diğer işler)
+    - Brüt tutar = 1.900.000 / (1 − 0,05) = 2.000.000 TL
+    - Kesinti = 2.000.000 × %5 = 100.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 15(1)-a
+    alinti: a) Gelir Vergisi Kanununda belirtilen esaslara göre birden fazla takvim yılına yaygın inşaat ve onarım işleri
+      ile uğraşan kurumlara bu işleri ile ilgili olarak yapılan hak ediş ödemeleri.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 15(7)
+    alinti: Kesilmesi gereken verginin ödemeyi yapan tarafından üstlenilmesi halinde vergi kesintisi, ödenen tutar ile ödemeyi
+      yapanın yüklendiği verginin toplamı üzerinden hesaplanır.
+  - mevzuat: 9707 sayılı Cumhurbaşkanı Kararı
+    madde: Md. 2
+    alinti: c) Diğer işler dolayısıyla bu işleri yapanlara ödenen istihkak bedellerinden %5,
+  gecerlilik:
+    baslangic: '2025-03-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'brut = 1900000/(1-0.05)
+
+      sonuc = round(brut*0.05)'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVM_20261111_1.yaml#8
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'

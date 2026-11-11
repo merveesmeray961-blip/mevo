@@ -1,0 +1,722 @@
+- id: YMM-GUV-KVI-0064
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: sınai mülkiyet hakları istisnası
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Tam mükellef (P) A.Ş.''nin 2026 yılı ticari bilanço kârı 14.000.000 TL''dir. Bu kârın içinde, Türkiye''de gerçekleştirilen
+    Ar-Ge faaliyetleri neticesinde ortaya çıkan ve patent belgesi (patent sahibi (P) A.Ş.''dir) ile koruma altına alınmış
+    bir buluşa ilişkin şu kazançlar vardır: buluşun kiralanmasından elde edilen kazanç 3.000.000 TL, buluşun devrinden elde
+    edilen kazanç 2.000.000 TL, buluşun Türkiye''deki üretim sürecinde kullanılması sonucu üretilen ürünlerin satışından elde
+    edilen kazancın buluşa atfedilen kısmı 5.000.000 TL ve buluşa yönelik hakların ihlali nedeniyle alınan tazminat 1.000.000
+    TL. İstisnanın diğer şartları sağlanmış olup Cumhurbaşkanı Kararı ile oranlar değiştirilmemiştir; başka düzeltme, istisna
+    veya zarar yoktur. 5520 sayılı Kanun''un 5/B maddesi uyarınca istisna sonrası kurum kazancı kaç TL''dir?'
+  secenekler:
+    A: 3.000.000 TL
+    B: 5.000.000 TL
+    C: 7.000.000 TL
+    D: 8.500.000 TL
+    E: 9.000.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'KVK md. 5/B(1)''e göre buluşun kiralanması, devri veya satışı, seri üretimi ve üretim sürecinde kullanılması
+      sonucu üretilen ürünlerin satışından elde edilen kazançların (buluşa atfedilen kısım) %50''si kurumlar vergisinden müstesnadır;
+      istisna hakların ihlali neticesinde elde edilen gelirler ile buluş nedeniyle alınan tazminatlar için de uygulanır. İstisnaya
+      konu kazanç = 3.000.000 + 2.000.000 + 5.000.000 + 1.000.000 = 11.000.000 TL; istisna = %50 × 11.000.000 = 5.500.000
+      TL; kurum kazancı = 14.000.000 − 5.500.000 = 8.500.000 TL. Püf noktaları: istisna oranı %50''dir; ihlal tazminatı da
+      istisna kapsamındadır; ürün satışında yalnızca buluşa atfedilen kısım dikkate alınır.'
+    celdiriciler:
+      A: İstisna oranı %100 alınmıştır; kanunda sınai mülkiyet haklarından elde edilen kazançların yalnızca %50'si kurumlar
+        vergisinden müstesnadır.
+      B: Ürün satışına atfedilen kazanç %100, diğerleri %50 oranında istisna edilmiştir; istisna oranı tüm kalemler için %50'dir.
+      C: Ticari kârın tamamı %50 oranında istisna edilmiştir; oysa istisna yalnızca buluşa ilişkin sayılan kazanç kalemlerine
+        uygulanır.
+      E: İhlal nedeniyle alınan tazminat (1.000.000 TL) istisna kapsamına alınmamıştır; kanun, hakkın ihlali ve buluş nedeniyle
+        alınan tazminatlar için de istisnayı uygular.
+    hesap_adimlari:
+    - İstisnaya konu kazanç = 3.000.000 + 2.000.000 + 5.000.000 + 1.000.000 = 11.000.000 TL
+    - İstisna = 11.000.000 × %50 = 5.500.000 TL
+    - Kurum kazancı = 14.000.000 − 5.500.000 = 8.500.000 TL
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5/B(1)
+    alinti: Türkiye’de gerçekleştirilen araştırma, geliştirme ve yenilik faaliyetleri ile yazılım faaliyetleri neticesinde
+      ortaya çıkan buluşların; a) Kiralanması neticesinde elde edilen kazanç ve iratların, b) Devri veya satışı neticesinde
+      elde edilen kazançların, c) Türkiye’de seri üretime tabi tutularak pazarlanmaları hâlinde elde edilen kazançların, ç)
+      Türkiye’de gerçekleştirilen üretim sürecinde kullanılması sonucu üretilen ürünlerin satışından elde edilen kazançların
+      patentli veya faydalı model belgeli buluşa atfedilen kısmının, % 50’si kurumlar vergisinden müstesnadır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5/B(1)
+    alinti: Bu istisna, buluşa yönelik hakların ihlal edilmesi neticesinde elde edilen gelirler ile buluş nedeniyle alınan
+      sigorta veya diğer tazminatlar için de uygulanır.
+  gecerlilik:
+    baslangic: '2016-07-15'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'istisna = 0.5*(3000000+2000000+5000000+1000000)
+
+      sonuc = round(14000000 - istisna)'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVI_20261111_1.yaml#1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-KVI-0065
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: sınai mülkiyet istisnasının uygulanma esasları
+  tip: bilgi
+  zorluk: 3
+  kok: 5520 sayılı Kanun'un 5/B maddesindeki sınai mülkiyet haklarına ilişkin istisnanın uygulanma esaslarıyla ilgili aşağıdakilerden
+    hangisi **doğrudur**?
+  secenekler:
+    A: Belgenin verildiği tarihten itibaren başlanır ve koruma süresi aşılmamak kaydıyla yararlanılır.
+    B: İstisna, kesinti suretiyle alınan vergilere de şamildir; bu nedenle ilgili ödemelerden kesinti yapılmaz.
+    C: İstisnadan yararlananlar, 4691 sayılı Kanun kapsamındaki istisnadan da ayrıca yararlanabilir.
+    D: İstisna yalnızca kurumlar vergisi mükelleflerine uygulanır; gelir vergisi mükellefleri kapsamda değildir.
+    E: Faydalı model belgesi için inceleme yapılmaksızın yapılan tescil yeterlidir.
+  dogru: A
+  aciklama:
+    dogru_neden: 'KVK md. 5/B(3)''e göre istisna uygulamasına patent veya faydalı model belgesinin verildiği tarihten itibaren
+      başlanır ve ilgili belge için sağlanan koruma süresi aşılmamak kaydıyla yararlanılır. İstisna kesintiye şamil değildir
+      (5/B(5)), 4691 sayılı Kanun istisnası ile birlikte kullanılamaz (5/B(6)), gelir vergisi mükelleflerine de uygulanır
+      (5/B(4)). Püf noktaları: serbest meslek kazancı ve gayrimenkul sermaye iradındaki kesinti %50 indirimli uygulanır; kesinti
+      tamamen kalkmaz.'
+    celdiriciler:
+      B: İstisna uygulamasının kesinti suretiyle alınan vergilere şümulü yoktur; yalnızca serbest meslek kazançları ile gayrimenkul
+        sermaye iratları üzerinden yapılacak kesinti %50 indirimli uygulanır.
+      C: Bu madde kapsamında istisnadan yararlanan mükellefler 4691 sayılı Kanun kapsamındaki istisnadan ayrıca yararlanamazlar.
+      D: Bu madde gelir vergisi mükellefleri hakkında da uygulanır.
+      E: Buluşa ilişkin incelemeli sistem ile patent veya araştırma raporu sonucunda faydalı model belgesi alınması gerekir;
+        incelemesiz tescil yetmez.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5/B(3)
+    alinti: İstisna uygulamasına patent veya faydalı model belgesinin verildiği tarihten itibaren başlanır ve ilgili patent
+      veya faydalı model belgesi için sağlanan koruma süresi aşılmamak kaydıyla bu istisnadan yararlanılabilir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5/B(5)
+    alinti: İstisna uygulamasının kesinti suretiyle alınan vergilere şümulü yoktur. Ancak, bu madde kapsamında istisnadan
+      yararlanılan serbest meslek kazançları ile gayrimenkul sermaye iratları üzerinden yapılacak vergi kesintisi % 50 oranında
+      indirimli uygulanır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5/B(4)
+    alinti: Bu madde gelir vergisi mükellefleri hakkında da uygulanır.
+  gecerlilik:
+    baslangic: '2016-07-15'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVI_20261111_1.yaml#2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-KVI-0066
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: yabancı fon kazançlarının vergilendirilmesi
+  tip: bilgi
+  zorluk: 3
+  kok: 5520 sayılı Kanun'un 5/A maddesinde düzenlenen yabancı fonların portföy yöneticiliği yapan tam mükellef şirketler aracılığıyla
+    elde ettikleri kazançlara ilişkin aşağıdaki ifadelerden hangisi **doğrudur**?
+  secenekler:
+    A: Aktif büyüklüğünün %51'inden fazlası Türkiye'deki taşınmazlardan oluşan şirketlerin hisse senetlerinden elde edilen
+      kazançlar da bu madde kapsamındadır.
+    B: Madde kapsamındaki istisna, fonların Türkiye kaynaklı gelirleri üzerinden yapılacak vergi kesintilerini de kapsar.
+    C: Transfer fiyatlandırması raporunun süresinde verilmemesi hâlinde portföy yöneticisi fonun daimi temsilcisi sayılmaz.
+    D: Fonun katılımcı ve kurucuları arasında tam mükellef kişilerin kazanç payı %10'u aşarsa bildirim yapılır.
+    E: Portföy yöneticisi ile ilişkili kişilerin fon kazançları üzerindeki hakkı, hizmet bedelleri düşüldükten sonra %20'den
+      fazla olmamalıdır.
+  dogru: E
+  aciklama:
+    dogru_neden: 'KVK md. 5/A(1)(ç)''ye göre portföy yöneticiliği yapan şirketin ve ilişkili olduğu kişilerin yabancı fonun
+      kazançları üzerinde, sağladığı hizmet mukabilinde hesaplanan bedeller düşüldükten sonra, doğrudan veya dolaylı olarak
+      %20''den fazla hak sahibi olmaması şartı aranır. Fonun tam mükellef katılımcı payı %5''i aşarsa bildirim yapılır; istisna
+      kesintiye şamil değildir; rapor verilmezse portföy yöneticisi daimi temsilci sayılır. Püf noktaları: %20 hak sahipliği
+      sınırı hizmet bedelleri düşüldükten sonra hesaplanır; bildirim eşiği %5''tir.'
+    celdiriciler:
+      A: Bu tür şirketlerin hisse senetlerinden elde edilen kazançlar madde kapsamına girmez.
+      B: Maddede düzenlenen kazanç istisnasının, fonların Türkiye kaynaklı gelirleri üzerinden yapılacak vergi kesintilerine
+        şümulü yoktur.
+      C: Raporun süresinde verilmemesi durumunda ilgili hesap dönemi için portföy yöneticiliği yapan şirket fonun Türkiye'de
+        daimi temsilcisi sayılır.
+      D: Bildirim yükümlülüğü, tam mükellef kişi veya kurumların kazanç payının %5'i geçmesi hâlinde doğar.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5/A(1)-ç
+    alinti: ç) Portföy yöneticiliği yapan şirketin ve ilişkili olduğu kişilerin yabancı fonun kazançları üzerinde, sağladığı
+      hizmet mukabilinde her ne ad altında olursa olsun hesaplanan bedeller düşüldükten sonra, doğrudan veya dolaylı olarak
+      %20’den fazla hak sahibi olmaması.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5/A(4)
+    alinti: fonun katılımcı ve kurucuları arasında doğrudan veya dolaylı olarak tam mükellef gerçek kişi veya kurumların kazanç
+      payının %5’i geçmesi durumunda, tam mükellef gerçek kişi veya kurum kurucu veya katılımcılarının tamamı portföy yöneticiliği
+      yapan şirket tarafından Maliye Bakanlığı Gelir İdaresi Başkanlığına bildirilir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5/A(6)
+    alinti: Bu maddede düzenlenen kazanç istisnasının, söz konusu fonların Türkiye kaynaklı gelirleri üzerinden yapılacak
+      vergi kesintilerine şümulü yoktur.
+  gecerlilik:
+    baslangic: '2012-05-31'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVI_20261111_1.yaml#3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-KVI-0067
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: kooperatiflerin kurumlar vergisi muafiyeti
+  tip: bilgi
+  zorluk: 3
+  kok: 5520 sayılı Kanun'un 4. maddesinin birinci fıkrasının (k) bendinde düzenlenen kooperatif muafiyetine ilişkin aşağıdakilerden
+    hangisi **doğrudur**?
+  secenekler:
+    A: Kooperatiflerin ortak dışı işlemleri nedeniyle kooperatif tüzel kişiliğine bağlı ayrı bir iktisadi işletme oluşmuş
+      kabul edilir.
+    B: Tüketim ve taşımacılık kooperatifleri de yapı kooperatifleri gibi aynı şartlarla bu muafiyetten yararlanır.
+    C: Yapı kooperatiflerinin kendilerine ait arsalarını kat karşılığı vererek her bir hisse için bir konut elde etmeleri
+      ortak dışı işlem sayılır.
+    D: Kooperatifin tam mükellef başka bir kurumun sermayesine katılımından kazanç elde etmesi muafiyeti ortadan kaldırır.
+    E: Yapı kooperatiflerinde yapı ruhsatı ve arsa tapusunun ortaklar adına tescil edilmiş olması aranır.
+  dogru: A
+  aciklama:
+    dogru_neden: 'KVK md. 4(1)(k)''ya göre kooperatiflerin ortak dışı işlemleri nedeniyle kooperatif tüzel kişiliğine bağlı
+      ayrı bir iktisadi işletme oluşmuş kabul edilir. Tüketim ve taşımacılık kooperatifleri muafiyet kapsamı dışındadır; faaliyetin
+      icrasına tahsis edilen ekonomik ömrünü tamamlamış kıymetlerin elden çıkarılması ve kat karşılığı arsa verilmesi ortak
+      dışı işlem sayılmaz; iştirak kazancı muafiyeti etkilemez; yapı ruhsatı ve arsa tapusu kooperatif adına tescil edilmelidir.
+      Püf noktaları: ortak dışı işlemler iktisadi işletme doğurur, kooperatifin muafiyeti tümden kalkmaz.'
+    celdiriciler:
+      B: Bu bentte tüketim ve taşımacılık kooperatifleri muafiyet kapsamı dışında tutulmuştur.
+      C: Bu işlem ortak dışı işlem sayılmaz; hüküm bu işlemleri açıkça ortak dışı işlem kapsamının dışında tutmuştur.
+      D: Kooperatiflerin tam mükellef başka bir kurumun sermayesine katılımlarından kazanç elde etmesinin ve bu kazançların
+        ortaklara dağıtılmasının muafiyete etkisi yoktur.
+      E: Muafiyet için yapı ruhsatı ve arsa tapusunun ortaklar adına değil, kooperatif tüzel kişiliği adına tescil edilmiş
+        olması gerekir.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 4(1)-k
+    alinti: Tüketim ve taşımacılık kooperatifleri hariç olmak üzere, ana sözleşmelerinde sermaye üzerinden kazanç dağıtılmaması
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 4(1)-k
+    alinti: Kooperatiflerin faaliyetin icrasına tahsis ettikleri ve ekonomik ömrünü tamamlamış olan demirbaş, makine, teçhizat,
+      taşıt ve benzeri amortismana tabi iktisadi kıymetleri elden çıkarmaları ile yapı kooperatiflerinin kendilerine ait arsalarını
+      kat karşılığı vererek her bir hisse için bir işyeri veya konut elde etmeleri ortak dışı işlem sayılmaz.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 4(1)-k
+    alinti: Kooperatiflerin ortak dışı işlemleri nedeniyle kooperatif tüzel kişiliğine bağlı ayrı bir iktisadi işletme oluşmuş
+      kabul edilir.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 4(1)-k
+    alinti: Kooperatiflerin, iktisadi işletmelerinden ve tam mükellefiyete tabi başka bir kurumun sermayesine katılımlarından
+      kazanç elde etmelerinin ve bu kazançların daha sonra ortaklara dağıtılmasının muafiyete etkisi yoktur.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVI_20261111_1.yaml#4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-KVI-0068
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: özel okul, kreş ve rehabilitasyon merkezi kazanç istisnası
+  tip: bilgi
+  zorluk: 1
+  kok: 5520 sayılı Kanun'un 5. maddesinin birinci fıkrasının (ı) bendi kapsamında özel okul, özel kreş ve gündüz bakımevlerinin
+    işletilmesinden elde edilen kazançlara tanınan kurumlar vergisi istisnası hangi süre ve başlangıçla uygulanır?
+  secenekler:
+    A: Faaliyete geçilen hesap dönemini izleyen hesap dönemi itibarıyla başlayarak üç hesap dönemi
+    B: Faaliyete geçtiği hesap döneminden itibaren beş hesap dönemi
+    C: Faaliyete geçtiği hesap döneminden itibaren on hesap dönemi
+    D: Kurumun kuruluş tarihinden itibaren süresiz
+    E: Okul açılış izninin verildiği takvim yılından itibaren yedi hesap dönemi
+  dogru: B
+  aciklama:
+    dogru_neden: KVK md. 5(1)(ı)'ya göre okul öncesi eğitim, ilköğretim, özel eğitim ve orta öğretim özel okulları, özel kreş
+      ve gündüz bakımevleri ile ilgili rehabilitasyon merkezlerinin işletilmesinden elde edilen kazançlar, bu kurumların faaliyete
+      geçtiği hesap döneminden itibaren beş hesap dönemi itibarıyla kurumlar vergisinden müstesnadır.
+    celdiriciler:
+      A: Başlangıç faaliyete geçilen hesap dönemidir ve süre üç değil beş hesap dönemidir.
+      C: İstisna süresi beş hesap dönemidir; on hesap dönemi başka teşviklerde görülen bir süredir.
+      D: İstisna süresiz değildir; faaliyete geçilen hesap döneminden başlayarak beş hesap dönemiyle sınırlıdır.
+      E: Başlangıç açılış izni değil faaliyete geçiş dönemidir ve süre yedi değil beş hesap dönemidir.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5(1)-ı
+    alinti: I) Okul öncesi eğitim, ilköğretim, özel eğitim ve orta öğretim özel okulları, özel kreş ve gündüz bakımevleri
+      ile Cumhurbaşkanınca vergi muafiyeti tanınan vakıflara veya kamu yararına çalışan derneklere bağlı rehabilitasyon merkezlerinin
+      işletilmesinden, ilgili Bakanlığın görüşü alınmak suretiyle Maliye Bakanlığının belirleyeceği usuller çerçevesinde beş
+      hesap dönemi itibarıyla elde edilen kazançlar (İstisna, belirtilen okulların, kreş ve gündüz bakımevlerinin ve rehabilitasyon
+      merkezlerinin faaliyete geçtiği hesap döneminden itibaren başlar.)
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVI_20261111_1.yaml#5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-KVI-0069
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: kira sertifikası ihracına ilişkin satış kazancı istisnası
+  tip: bilgi
+  zorluk: 3
+  kok: 5520 sayılı Kanun'un 5. maddesinin birinci fıkrasının (k) bendi kapsamında kaynak kuruluşların kira sertifikası ihracı
+    amacıyla varlıklarını varlık kiralama şirketlerine satışından doğan kazançlara ilişkin aşağıdakilerden hangisi **doğrudur**?
+  secenekler:
+    A: İstisnadan yararlanan satış kazancı, varlık kiralama şirketi tarafından pasifte özel bir fon hesabında izlenir.
+    B: Varlıkların kaynak kuruluş tarafından üçüncü kişilere satılması hâlinde istisna aynen devam eder ve ayrıca vergilendirme
+      yapılmaz.
+    C: Özel fon hesabındaki tutar, sermayeye ilave dışında başka bir hesaba serbestçe nakledilebilir; vergi ziyaı doğmaz.
+    D: Varlık kiralama şirketinin üçüncü kişilere satışında kaynak kuruluşun vergileri ceza olmaksızın gecikme faiziyle tahsil
+      edilir.
+    E: İstisna, varlıkların sözleşme sonunda kaynak kuruluşça geri alınması şartından bağımsız uygulanır.
+  dogru: D
+  aciklama:
+    dogru_neden: 'KVK md. 5(1)(k)''ye göre varlıkların varlık kiralama şirketleri tarafından üçüncü kişi ve kurumlara satılması
+      durumunda, varlık kiralama şirketlerinin bu satıştan doğan kazançları kendi nezdinde kurumlar vergisine tabi tutulur
+      ve istisna uygulaması dolayısıyla kaynak kuruluş adına zamanında tahakkuk ettirilmeyen vergiler, vergi ziyaı cezası
+      uygulanmaksızın gecikme faiziyle birlikte tahsil edilir. Özel fon hesabı kaynak kuruluşta tutulur; kaynak kuruluşun
+      satışında net aktif değer ve amortismanlar dikkate alınarak vergilendirilir. Püf noktaları: varlık kiralama şirketinin
+      satışında ceza yoktur, yalnızca gecikme faizi aranır.'
+    celdiriciler:
+      A: Özel fon hesabı varlık kiralama şirketinde değil, istisnadan yararlanan kaynak kuruluş tarafından tutulur.
+      B: Üçüncü kişilere satışta, devir öncesi net bilanço aktif değeri ile amortisman tutarı dikkate alınarak kaynak kuruluş
+        nezdinde vergilendirme yapılır.
+      C: Sermayeye ilave dışında başka bir hesaba nakledilen veya işletmeden çekilen kısım için zamanında tahakkuk ettirilmeyen
+        vergiler ziyaa uğramış sayılır.
+      E: İstisna için varlık ve hakların sözleşme sonunda geri alınması şartı aranır.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5(1)-k
+    alinti: 'k) (Ek: 15/7/2016-6728/56 md.) Her türlü varlık ve hakların, kaynak kuruluşlarca, kira sertifikası ihracı amacıyla
+      ve sözleşme sonunda geri alınması şartıyla varlık kiralama şirketlerine satışı ile varlık kiralama şirketlerince bu
+      varlıkların devralındığı kuruma satışından doğan kazançlar.'
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5(1)-k
+    alinti: İstisnadan yararlanan satış kazancı, kaynak kuruluş tarafından pasifte özel bir fon hesabında tutulur ve özel
+      fon hesabında tutulan bu tutar sadece kaynak kuruluş tarafından varlık kiralama şirketinden devralındığı tarihten itibaren
+      bu varlıklar için ayrılacak amortismanların (bu varlıkların varlık kiralama şirketine devrinden önce kaynak kuruluştaki
+      net bilanço aktif değerine isabet eden amortismanlar hariç) itfasında kullanılır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5(1)-k
+    alinti: Söz konusu varlıkların varlık kiralama şirketleri tarafından üçüncü kişi ve kurumlara satılması durumunda ise
+      varlık kiralama şirketlerinin bu satış işleminden doğan kazançları varlık kiralama şirketleri nezdinde kurumlar vergisine
+      tabi tutulur ve istisna uygulaması dolayısıyla kaynak kuruluş adına zamanında tahakkuk ettirilmeyen vergiler, vergi
+      ziyaı cezası uygulanmaksızın gecikme faiziyle birlikte tahsil olunur.
+  gecerlilik:
+    baslangic: '2016-07-15'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVI_20261111_1.yaml#6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-GUV-KVI-0070
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: yurt dışı işyeri veya daimî temsilci kazançları istisnası
+  tip: uygulama
+  zorluk: 2
+  kok: Tam mükellef kurumların yurt dışındaki işyeri veya daimî temsilcileri aracılığıyla elde ettikleri 2026 yılı kazançlarına
+    ilişkin aşağıdaki durumlardan hangisinde 5520 sayılı Kanun'un 5/1-(g) bendindeki istisna şartları sağlanmıştır? (Kazançların
+    hepsi Türkiye'de genel sonuç hesaplarına intikal ettirilmiştir.)
+  secenekler:
+    A: İnşaat işiyle uğraşan kurumun şubesi; kazanç %16 vergi yüküne tabi tutulmuş ve beyanname süresine kadar Türkiye'ye
+      transfer edilmiştir.
+    B: Finansal kiralama faaliyetindeki kurumun şubesi; kazanç %20 toplam vergi yüküne tabi tutulmuş ve süresinde transfer
+      edilmiştir.
+    C: Menkul kıymet yatırımı faaliyetindeki kurumun daimî temsilcisi; kazanç %22 toplam vergi yüküne tabi tutulmuş ve süresinde
+      transfer edilmiştir.
+    D: Sigorta hizmetleri sunan kurumun şubesi; kazanç %24 toplam vergi yüküne tabi tutulmuş ve süresinde transfer edilmiştir.
+    E: İnşaat işiyle uğraşan kurumun şubesi; kazanç %18 vergi yüküne tabi tutulmuş, ancak transfer beyanname verme tarihinden
+      sonra yapılmıştır.
+  dogru: A
+  aciklama:
+    dogru_neden: KVK md. 5(1)(g)'ye göre yurt dışı işyeri veya daimî temsilci kazançları için kazancın doğduğu ülkede en az
+      %15 toplam vergi yükü, beyanname verilme tarihine kadar Türkiye'ye transfer ve ana faaliyet konusu finansman, sigorta
+      veya menkul kıymet yatırımı olan kurumlarda en az Türkiye'deki kurumlar vergisi oranında vergi yükü şartları aranır.
+      İnşaat faaliyetindeki kurumun %16 vergi yükü ve süresinde transferi şartları sağlar.
+    celdiriciler:
+      B: Ana faaliyet konusu finansal kiralama dahil finansman temini olan kurumlarda toplam vergi yükünün en az Türkiye'de
+        uygulanan kurumlar vergisi oranı kadar olması gerekir; %20 bu orandan düşüktür.
+      C: Menkul kıymet yatırımı ana faaliyeti olan kurumlarda vergi yükü en az Türkiye'deki kurumlar vergisi oranı kadar olmalıdır;
+        %22 bu orana ulaşmaz.
+      D: Sigorta hizmetleri sunan kurumlarda en az Türkiye'de uygulanan kurumlar vergisi oranında (genel oran %25, sigorta
+        şirketlerinde %30) vergi yükü aranır; %24 her iki hâlde de yetersizdir.
+      E: Transferin kazancın elde edildiği hesap dönemine ilişkin kurumlar vergisi beyannamesinin verilmesi gereken tarihe
+        kadar yapılması şarttır.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5(1)-g
+    alinti: 1) Bu kazançların, doğduğu ülke vergi kanunları uyarınca en az % 15 oranında gelir ve kurumlar vergisi benzeri
+      toplam vergi yükü taşıması, 2) Kazançların elde edildiği hesap dönemine ilişkin yıllık kurumlar vergisi beyannamesinin
+      verilmesi gereken tarihe kadar Türkiye’ye transfer edilmiş olması,
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5(1)-g
+    alinti: 3) Ana faaliyet konusu, finansal kiralama dahil finansman temini, sigorta hizmetlerinin sunulması veya menkul
+      kıymet yatırımı olan kurumlarda, bu kazançların doğduğu ülke vergi kanunları uyarınca en az Türkiye’de uygulanan kurumlar
+      vergisi oranında gelir ve kurumlar vergisi benzeri toplam vergi yükü taşıması.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) duzelt: Seçenek D (sigorta, %29 vergi yükü) belirsiz: 5/1-g(3) ''Türkiye''de uygulanan
+          kurumlar vergisi oranı'' diyor; genel oran %25, sigorta şirketlerinde %30 (KVK md. 32). %29 genel oran okumasında
+          şartı sağlar, böylece A ile birlikte ikinci doğru şık doğabilir. D''deki oran %24'''
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVI_20261111_1.yaml#7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) duzelt: Seçenek D (sigorta, %29 vergi yükü) belirsiz: 5/1-g(3) ''Türkiye''de uygulanan kurumlar
+      vergisi oranı'' diyor; genel oran %25, sigorta şirketlerinde %30 (KVK md. 32). %29 genel oran okumasında şartı sağlar,
+      böylece A ile birlikte ikinci doğru şık doğabilir. D''deki oran %24'''
+- id: YMM-GUV-KVI-0071
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: GUV
+  unite: Kurumlar vergisinde istisnalar
+  konu: KVI
+  kazanim: iştirak hissesi satış kazancı istisnasında bedel tahsili ve fon hesabı
+  tip: bilgi
+  zorluk: 3
+  kok: 5520 sayılı Kanun'un 5. maddesinin birinci fıkrasının (e) bendindeki iştirak hisseleri satış kazancı istisnasının uygulanmasına
+    ilişkin aşağıdakilerden hangisi **doğrudur**?
+  secenekler:
+    A: Satış kazancının istisnadan yararlanan kısmı, satışın yapıldığı yılı izleyen üçüncü yılın sonuna kadar pasifte özel
+      bir fon hesabında tutulur.
+    B: Bedelsiz olarak elde edilen hisse senetlerinde elde edilme tarihi, bedelsiz payların verildiği tarihtir.
+    C: Devir veya bölünme suretiyle devralınan iştirak hisselerinin aktifte bulundurma süresinin hesabında devir olunan kurumda
+      geçen süreler dikkate alınmaz.
+    D: Menkul kıymet ticaretiyle uğraşan kurumların ticari amaçla ellerinde bulundurdukları değerlerin satışından elde ettikleri
+      kazançlar da bu istisnadan yararlanır.
+    E: Satış bedelinin, satışın yapıldığı yılı izleyen ikinci takvim yılının sonuna kadar tahsil edilmesi şarttır.
+  dogru: E
+  aciklama:
+    dogru_neden: 'KVK md. 5(1)(e)''ye göre istisna satışın yapıldığı dönemde uygulanır; satış kazancının istisnadan yararlanan
+      kısmı satışın yapıldığı yılı izleyen beşinci yılın sonuna kadar pasifte özel fon hesabında tutulur. Ancak satış bedelinin,
+      satışın yapıldığı yılı izleyen ikinci takvim yılının sonuna kadar tahsil edilmesi şarttır. Süre içinde tahsil edilmeyen
+      bedele isabet eden istisna nedeniyle zamanında tahakkuk ettirilmeyen vergiler ziyaa uğramış sayılır. Püf noktaları:
+      fon hesabı süresi 5 yıl, tahsil süresi ise 2 takvim yılıdır; ikisini karıştırmayın.'
+    celdiriciler:
+      A: Özel fon hesabında tutma süresi satışın yapıldığı yılı izleyen beşinci yılın sonuna kadardır.
+      B: Bedelsiz veya itibarî değeriyle rüçhan hakkı kullanılarak elde edilen hisselerde sahip olunan eski hisse senetlerinin
+        elde edilme tarihi esas alınır.
+      C: Devir veya bölünme suretiyle devralınan hisselerde aktifte bulundurma süresi hesabında devir olunan veya bölünen
+        kurumda geçen süreler de dikkate alınır.
+      D: Menkul kıymet ticaretiyle uğraşan kurumların bu amaçla ellerinde bulundurdukları değerlerin satışından elde ettikleri
+        kazançlar istisna kapsamı dışındadır.
+  kaynaklar:
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5(1)-e
+    alinti: Bu istisna, satışın yapıldığı dönemde uygulanır ve satış kazancının istisnadan yararlanan kısmı satışın yapıldığı
+      yılı izleyen beşinci yılın sonuna kadar pasifte özel bir fon hesabında tutulur. Ancak satış bedelinin, satışın yapıldığı
+      yılı izleyen ikinci takvim yılının sonuna kadar tahsil edilmesi şarttır. Bu süre içinde tahsil edilmeyen satış bedeline
+      isabet eden istisna nedeniyle zamanında tahakkuk ettirilmeyen vergiler ziyaa uğramış sayılır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5(1)-e
+    alinti: Bedelsiz olarak veya rüçhan hakkı kullanılmak suretiyle itibarî değeriyle elde edilen hisse senetlerinin elde
+      edilme tarihi olarak, sahip olunan eski hisse senetlerinin elde edilme tarihi esas alınır.
+  - mevzuat: 5520 sayılı Kurumlar Vergisi Kanunu
+    madde: Md. 5(1)-e
+    alinti: Menkul kıymet ticaretiyle uğraşan kurumların bu amaçla ellerinde bulundurdukları değerlerin satışından elde ettikleri
+      kazançlar istisna kapsamı dışındadır.
+  gecerlilik:
+    baslangic: '2006-06-21'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_GUV/GUV_KVI_20261111_1.yaml#8
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'

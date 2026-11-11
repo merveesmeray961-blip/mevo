@@ -1,0 +1,892 @@
+- id: YMM-DTK-GMR-0116
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DTK
+  unite: Gümrük mevzuatı temelleri
+  konu: GMR
+  kazanim: gümrük kontrolü amacıyla belge saklama süresi (md. 13)
+  tip: uygulama
+  zorluk: 2
+  kok: 'Türkiye''de yerleşik (B) A.Ş.''nin serbest dolaşıma giriş beyannamesi 18.04.2026 tarihinde tescil edilmiştir.
+    Eşya başka bir rejime tabi tutulmamış ve nihai kullanım nedeniyle indirimli vergi uygulanmamıştır.
+
+
+    4458 sayılı Gümrük Kanunu md. 13''e göre beyannameye ilişkin belgelerin gümrük kontrolü amacıyla saklanma süresi
+    hangi tarihte sona erer?
+
+    '
+  secenekler:
+    A: 31.12.2031
+    B: 18.04.2031
+    C: 31.12.2030
+    D: 18.04.2032
+    E: 31.12.2032
+  dogru: A
+  aciklama:
+    dogru_neden: Md. 13'e göre ilgili kişiler gümrük kontrolü amacıyla belgeleri beş yıl süre ile saklar. Serbest
+      dolaşıma girmek üzere beyan edilen eşya için süre, serbest dolaşıma giriş beyanlarına ilişkin belgelerin tescil
+      edildiği yılın sonundan itibaren işlemeye başlar. Tescil yılı 2026 olduğundan başlangıç 31.12.2026 olup süre
+      31.12.2031'de sona erer.
+    celdiriciler:
+      B: Beş yıl tescil tarihine eklenmiştir; kanun süreyi tescil tarihinden değil, tescil edildiği yılın sonundan
+        başlatır.
+      C: Beş yıllık süre tescil yılının sonundan değil, tescil yılından önceki yıl sonundan başlatılmıştır; süre
+        tescil edildiği yılın sonundan itibaren işlemeye başlar.
+      D: Tescil tarihine beş yıl eklenmiş ve bir yıl daha ilave edilmiştir; sürenin başlangıcı tescil yılının sonudur.
+      E: Altı yıl hesaplanmıştır; saklama süresi beş yıldır ve tescil yılının sonundan itibaren başlar.
+    hesap_adimlari:
+    - Başlangıç = tescil yılının sonu = 31.12.2026
+    - Bitiş = 31.12.2026 + 5 yıl = 31.12.2031
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 13/1
+    alinti: İlgili kişiler, 11 inci maddede belirtilen belge ve bilgileri gümrük kontrolü amacıyla beş yıl süre
+      ile saklamak zorundadırlar.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 13/2-a
+    alinti: (b) bendinde öngörülen haller dışında, serbest dolaşıma girmek veya ihraç edilmek üzere beyan edilen
+      eşya ile ilgili olarak, serbest dolaşıma giriş veya ihracat beyanlarına ilişkin belgelerin tescil edildiği
+      yılın;
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 13 son
+    alinti: Sonundan itibaren işlemeye başlar.
+  gecerlilik:
+    baslangic: '2009-07-07'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'tescil_yili = 2026
+
+      sonuc = ''31.12.%d'' % (tescil_yili + 5)'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_DTK/DTK_GMR_20261111_1.yaml#1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+- id: YMM-DTK-GMR-0117
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DTK
+  unite: Gümrük mevzuatı temelleri
+  konu: GMR
+  kazanim: 'sürelerin hesabı: ay esaslı süre ve resmî tatil (md. 14)'
+  tip: uygulama
+  zorluk: 3
+  kok: 'Gümrük Kanununa göre üç ay olarak belirlenmiş ve aksine özel bir hüküm bulunmayan bir süre 30.11.2026 (Pazartesi)
+    tarihinde başlamıştır. Cumartesi ve Pazar günleri resmî tatildir; başka bir resmî tatil yoktur.
+
+
+    Bu sürenin sona ereceği gün aşağıdakilerden hangisidir?
+
+    '
+  secenekler:
+    A: 26.02.2027
+    B: 28.02.2027
+    C: 01.03.2027
+    D: 02.03.2027
+    E: 30.03.2027
+  dogru: C
+  aciklama:
+    dogru_neden: 'Md. 14/2''ye göre ay olarak belirlenen süre, başladığı güne son ayda tekabül eden günün mesai
+      saati bitiminde sona erer; sürenin bittiği ayda tekabül eden bir gün yoksa süre o ayın son gününün mesai saati
+      bitiminde sona erer. 30.11.2026 + 3 ay = Şubat 2027; Şubat''ta 30. gün olmadığından süre 28.02.2027''de bitecektir.
+      Ancak 28.02.2027 Pazar (resmî tatil) olduğundan md. 14/1''e göre süre ilk iş gününün (01.03.2027 Pazartesi)
+      resmî çalışma saatleri sonunda biter. Püf noktaları: Önce ay kuralı (olmayan gün → ayın son günü), sonra tatil
+      kuralı (ilk iş günü) uygulanır; sıra değişirse yanlış sonuç çıkar.'
+    celdiriciler:
+      A: Süre bitim günü resmî tatile rastladığı için önceki iş gününe çekilmiştir; kanun bir sonraki (ilk) iş gününü
+        esas alır.
+      B: Şubat ayında 30. gün olmadığı için ayın son günü alınmış, ancak bu günün Pazar (resmî tatil) olduğu dikkate
+        alınmamıştır.
+      D: Bir sonraki iş gününün 'resmî çalışma saatleri sonunda' bittiği kuralı yerine bir gün fazla eklenmiştir;
+        ilk iş günü 01.03.2027'dir.
+      E: Süre 4 ay olarak hesaplanmıştır; kanundaki süre üç aydır.
+    hesap_adimlari:
+    - 30.11.2026 + 3 ay → Şubat 2027; 30. gün yok → 28.02.2027
+    - 28.02.2027 Pazar (resmî tatil) → ilk iş günü 01.03.2027 (Pazartesi)
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 14/1
+    alinti: Süre, tarih veya vadelerin bitim tarihinin resmi tatil gününe rastlaması halinde, bu süreler ilk işgününün
+      resmi çalışma saatleri sonunda biter.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 14/2
+    alinti: Süre hafta veya ay olarak belli edilmiş ise; başladığı güne son hafta veya ayda tekabül eden günün mesai
+      saati bitiminde sona erer. Sürenin bittiği ayda tekabül eden bir gün yoksa süre o ayın son gününün mesai saati
+      bitiminde sona erer.
+  gecerlilik:
+    baslangic: '2009-07-07'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "import calendar, datetime\nb = datetime.date(2026, 11, 30)\ny, m = 2027, 2\nd = min(b.day, calendar.monthrange(y,\
+      \ m)[1])\ns = datetime.date(y, m, d)\nwhile s.weekday() >= 5:\n    s += datetime.timedelta(days=1)\nsonuc\
+      \ = s.strftime('%d.%m.%Y')"
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_DTK/DTK_GMR_20261111_1.yaml#2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+- id: YMM-DTK-GMR-0118
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DTK
+  unite: Gümrük mevzuatı temelleri
+  konu: GMR
+  kazanim: gümrük mevzuatının uygulanmasına ilişkin karar talepleri (md. 6)
+  tip: kavrama
+  zorluk: 2
+  kok: '4458 sayılı Gümrük Kanunu md. 6''ya göre gümrük mevzuatının uygulanmasına ilişkin karar verilmesi talepleriyle
+    ilgili aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. Karar alınması talebinin yazılı olarak yapılması gerekir.
+
+
+    II. Gümrük idareleri, başvurunun kendilerine ulaştığı tarihten itibaren otuz gün içinde karar alır; bu sürenin
+    aşılması hâlinde süre dolmadan önce başvuru sahibine gerekçe ve ek süre bildirilir.
+
+
+    III. Başvurunun reddine ilişkin kararlar gerekçesiz verilebilir ve bu kararlara karşı itiraz yolu kapalıdır.
+
+
+    IV. Verilen kararlar başvuru sahibine yalnızca sözlü olarak bildirilir.
+
+    '
+  secenekler:
+    A: I
+    B: II ve III
+    C: I ve II
+    D: I, II ve IV
+    E: I, II ve III
+  dogru: C
+  aciklama:
+    dogru_neden: 'Md. 6/2: karar alınması talebi yazılı yapılır (I doğru); gümrük idareleri başvurunun ulaştığı
+      tarihten itibaren otuz gün içinde karar alır, bu süreye uyulması mümkün değilse süre aşılabilir ancak süre
+      dolmadan önce başvuru sahibine gerekçeler ve ek süre bildirilir (II doğru). Md. 6/3: ret ve aleyhe kararlar
+      itiraz yolu açık olmak üzere gerekçeli alınır (III yanlış). Md. 6/2: kararlar başvuru sahibine yazılı olarak
+      tebliğ edilir (IV yanlış).'
+    celdiriciler:
+      A: II de doğrudur; otuz günlük süre ve süre aşımında bilgi verme yükümlülüğü md. 6/2'de düzenlenmiştir.
+      B: 'III yanlıştır: reddedici veya aleyhe kararlar itiraz yolu açık olmak üzere gerekçeli alınır. Ayrıca yazılı
+        talep koşulunu içeren I şıkta yoktur.'
+      D: 'IV yanlıştır: verilen kararlar başvuru sahibine yazılı olarak tebliğ edilir.'
+      E: 'III yanlıştır: ret ve aleyhe kararlar gerekçeli alınır ve itiraz yolu açıktır.'
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 6/2
+    alinti: Karar alınması talebinin yazılı olarak yapılması gerekir. Gümrük idareleri, söz konusu talebe ilişkin
+      başvurunun kendilerine ulaştığı tarihten itibaren otuz gün içinde karar alırlar. Verilen kararlar başvuru
+      sahibine yazılı olarak tebliğ edilir.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 6/2
+    alinti: Ancak, gümrük idareleri tarafından bu süreye uyulması mümkün değilse; belirtilen süre aşılabilir. Bu
+      durumda, söz konusu idareler, yukarıda belirlenen sürenin dolmasından önce başvuru sahibine süre aşımını haklı
+      kılan gerekçeler ile talep hakkında karar vermek için gerekli gördükleri ek süreyi de belirterek bilgi verirler.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 6/3
+    alinti: Gümrük idareleri tarafından gerek başvuruların reddine ve gerekse muhatabı kişinin aleyhine olarak verilen
+      yazılı kararlar, Onikinci Kısımda belirtilen şekilde itiraz yolu açık olmak üzere gerekçeli olarak alınır
+      ve bu hususlar kararda belirtilir.
+  gecerlilik:
+    baslangic: '2009-07-07'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_DTK/DTK_GMR_20261111_1.yaml#3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+- id: YMM-DTK-GMR-0119
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DTK
+  unite: Gümrük mevzuatı temelleri
+  konu: GMR
+  kazanim: lehe kararların iptali ve değiştirilmesi (md. 7)
+  tip: kavrama
+  zorluk: 3
+  kok: 4458 sayılı Gümrük Kanunu md. 7'ye göre gümrük idaresinin ilgilinin lehine olan kararlarının iptali veya
+    değiştirilmesine ilişkin aşağıdaki ifadelerden hangisi doğrudur?
+  secenekler:
+    A: Kararın yanlış veya eksik bilgiye dayanması tek başına yeterli olup, başvuru sahibinin bunu bilmesi veya
+      doğru bilgiyle kararın verilememesi gibi diğer koşulların birlikte aranması gerekmez.
+    B: Yanlış veya eksik bilgiye dayanma, başvuru sahibinin bunu bilmesi (veya bilmesi gerekmesi) ve doğru bilgiyle
+      kararın verilememesi hâlleri bir arada bulunduğunda lehe karar iptal edilir.
+    C: Karara esas teşkil eden koşulun gerçekleşmemesi hâlinde karar mutlaka iptal edilmek zorundadır; karar değiştirilemez
+      ve idarenin takdir yetkisi yoktur.
+    D: Kararın iptali muhatabına tebliğ edilmez; iptal, Resmî Gazetede ilan edildiği tarihte yürürlüğe girer ve
+      ayrıca tebliğ aranmaz.
+    E: Md. 7/2'ye göre verilen iptal veya değiştirme kararı, kararın verildiği tarihten itibaren yürürlüğe girer;
+      tebliğ tarihi dikkate alınmaz.
+  dogru: B
+  aciklama:
+    dogru_neden: 'Md. 7/1''e göre ilgilinin lehine olan kararlar; (a) kararın yanlış veya eksik bilgilere dayanılarak
+      verilmesi, (b) başvuru sahibinin bu yanlışlık veya eksikliği bilmesi veya bilmesi gerekmesi ve (c) kararın
+      doğru veya tam bilgilere dayanılarak verilmesinin mümkün olmamasının tespiti hâllerinin bir arada bulunması
+      durumunda iptal edilir. Md. 7/2 hâllerinde (karara esas koşulun gerçekleşmemesi, yükümlülüğe uyulmaması) karar
+      değiştirilir veya iptal edilebilir. Md. 7/3: iptal muhatabına tebliğ edilir. Md. 7/4: 1 inci fıkraya göre
+      iptal, iptal kararının verildiği tarihten; 2 nci fıkraya göre verilen iptal veya değiştirme kararı tebliğ
+      tarihinden itibaren yürürlüğe girer. Püf noktaları: ''1. fıkra = hepsi bir arada = karar tarihi'', ''2. fıkra
+      = ayrı ayrı = tebliğ tarihi''.'
+    celdiriciler:
+      A: 'Yanlıştır: md. 7/1''de sayılan üç hâlin bir arada bulunması gerekir.'
+      C: 'Yanlıştır: bu hâllerde karar değiştirilir veya iptal edilebilir (md. 7/2).'
+      D: 'Yanlıştır: kararın iptali muhatabına tebliğ edilir (md. 7/3).'
+      E: 'Yanlıştır: 2 nci fıkraya göre verilen iptal veya değiştirme kararı tebliğ tarihinden itibaren yürürlüğe
+        girer; kararın verildiği tarih 1 inci fıkradaki iptal içindir.'
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 7/1
+    alinti: Gümrük idaresinin ilgilinin lehine olan kararları aşağıdaki hallerin bir arada bulunması durumunda iptal
+      edilir. a) Kararın yanlış veya eksik bilgilere dayanılarak verilmesi halinde, b) Başvuru sahibinin bu yanlışlık
+      veya eksikliği bilmesi veya bilmesi gerektiği hallerde, c) Kararın doğru veya tam bilgilere dayanılarak verilmesinin
+      mümkün olmamasının tespiti halinde.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 7/2
+    alinti: Aşağıdaki hallerde ise ilgilinin lehine olan karar değiştirilir veya iptal edilebilir.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 7/3
+    alinti: Kararın iptali, muhatabına tebliğ edilir.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 7/4
+    alinti: 1 inci fıkra hükümlerine göre kararın iptal işlemi iptal kararının verildiği tarihten, 2 nci fıkra hükümlerine
+      göre verilen iptal veya değiştirme kararı tebliğ tarihinden itibaren yürürlüğe girer.
+  gecerlilik:
+    baslangic: '2009-07-07'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_DTK/DTK_GMR_20261111_1.yaml#4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+- id: YMM-DTK-GMR-0120
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DTK
+  unite: Gümrük mevzuatı temelleri
+  konu: GMR
+  kazanim: gümrük işlemlerinde temsil (md. 5)
+  tip: kavrama
+  zorluk: 2
+  kok: '4458 sayılı Gümrük Kanunu md. 5''e göre gümrük idarelerindeki işlerde temsile ilişkin aşağıdaki ifadelerden
+    hangileri doğrudur?
+
+
+    I. Transit taşımacılık yapan veya arızi olarak beyanda bulunan kişiler dahil olmak üzere, temsilcinin Türkiye
+    Gümrük Bölgesinde yerleşik olması istisnasız şarttır.
+
+
+    II. Doğrudan temsilde temsilci başkasının adına ve hesabına, dolaylı temsilde ise kendi adına ancak başkasının
+    hesabına hareket eder.
+
+
+    III. Temsilci, temsil edilen kişi namına hareket ettiğini beyan etmek, temsilin doğrudan veya dolaylı olduğunu
+    belirtmek ve temsil yetki belgesini gümrük idarelerine ibraz etmek zorundadır.
+
+
+    IV. Bir temsil yetkisine sahip olmadığı halde başka bir kişi adına hareket ettiğini beyan eden kişi, o kişi
+    adına ve hesabına hareket ediyor sayılır.
+
+    '
+  secenekler:
+    A: I ve II
+    B: II ve III
+    C: II, III ve IV
+    D: I ve IV
+    E: I, II ve III
+  dogru: B
+  aciklama:
+    dogru_neden: 'Md. 5/2: transit taşımacılık yapan veya arızi olarak beyanda bulunan kişiler hariç olmak üzere
+      temsilci Türkiye Gümrük Bölgesinde yerleşik kişilerdir (I yanlış). Md. 5/3: temsil doğrudan veya dolaylı olabilir;
+      doğrudan temsilde temsilci başkasının adına ve hesabına, dolaylı temsilde kendi adına ancak başkasının hesabına
+      hareket eder; temsilci temsil edilen adına hareket ettiğini beyan etmek, temsilin türünü belirtmek ve yetki
+      belgesini ibraz etmek zorundadır (II ve III doğru). Md. 5/4: temsil yetkisi olmadığı halde başka kişi adına
+      hareket ettiğini beyan eden kişi kendi adına ve kendi hesabına hareket ediyor sayılır (IV yanlış).'
+    celdiriciler:
+      A: 'I yanlıştır: transit taşımacılık yapan veya arızi beyanda bulunan kişiler bakımından yerleşiklik şartı
+        aranmaz. III de doğru olduğu hâlde şıkta yoktur.'
+      C: 'IV yanlıştır: yetkisi olmadığı halde başkası adına hareket ettiğini beyan eden kişi kendi adına ve kendi
+        hesabına hareket ediyor sayılır.'
+      D: Her iki ifade de yanlıştır (yerleşiklik şartı istisnasızdır denemez; yetkisiz temsilci kendi adına ve hesabına
+        hareket ediyor sayılır).
+      E: I yanlıştır; transit taşımacılık yapanlar ve arızi beyan verenler için yerleşiklik şartı aranmaz.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 5/2
+    alinti: Transit taşımacılık yapan veya arızi olarak beyanda bulunan kişiler hariç olmak üzere, temsilci Türkiye
+      Gümrük Bölgesinde yerleşik bulunan kişilerdir.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 5/3
+    alinti: Temsil, doğrudan veya dolaylı olabilir. temsilci, doğrudan temsil durumunda başkasının adına ve hesabına
+      hareket eder. Dolaylı temsil durumunda ise kendi adına, ancak başkasının hesabına hareket eder. Temsilci,
+      temsil edilen kişi namına hareket ettiğini beyan etmek, temsilin doğrudan veya dolaylı olduğunu belirtmek
+      ve sahip olduğu temsil yetki belgesini gümrük idarelerine ibraz etmek zorundadır.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 5/4
+    alinti: Bir başka kişi adına veya hesabına hareket ettiğini beyan etmeyen ya da bir temsil yetkisine sahip olmadığı
+      halde, başka bir kişi adına ya da hesabına hareket ettiğini beyan eden kişi, kendi adına ve kendi hesabına
+      hareket ediyor sayılır.
+  gecerlilik:
+    baslangic: '2009-07-07'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_DTK/DTK_GMR_20261111_1.yaml#5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+- id: YMM-DTK-GMR-0121
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DTK
+  unite: Gümrük mevzuatı temelleri
+  konu: GMR
+  kazanim: yetkilendirilmiş yükümlü statüsü şartları (md. 5/A)
+  tip: kavrama
+  zorluk: 2
+  kok: 4458 sayılı Gümrük Kanunu md. 5/A'ya göre yetkilendirilmiş yükümlü statüsünün tanınması için aranan şartlar
+    arasında aşağıdakilerden hangisi **yer almaz**?
+  secenekler:
+    A: Gümrük kontrollerinin doğru biçimde yapılabilmesine imkân veren ticari kayıtları düzenli bir şekilde tutma
+      yeterliliğine sahip bulunmak
+    B: Müsteşarlıkça gerek görülen hâllerde mali yeterliliğe sahip olduğunu kanıtlamak
+    C: Uygun emniyet ve güvenlik standartlarına sahip bulunmak
+    D: Son beş yıl boyunca her yıl en az on ihracat veya ithalat beyannamesi tescil ettirmiş olmak
+    E: 4 üncü maddede belirtilen sorumlulukların yerine getirilmesinde ciddi ihlallerde bulunmamak
+  dogru: D
+  aciklama:
+    dogru_neden: 'Md. 5/A-2''de sayılan şartlar: (a) 4 üncü maddedeki sorumlulukların yerine getirilmesinde ciddi
+      ihlalde bulunmamak, (b) ticari kayıtları düzenli tutma yeterliliği, (c) Müsteşarlıkça gerek görülen hâllerde
+      mali yeterliliği kanıtlamak, (d) uygun emniyet ve güvenlik standartlarına sahip olmak. Beyanname sayısına
+      ilişkin bir asgari tescil şartı kanunda yer almaz.'
+    celdiriciler:
+      A: Md. 5/A-2-b'de sayılan bir şarttır; soru yer almayanı sorduğundan elenir.
+      B: Md. 5/A-2-c'de sayılan bir şarttır; soru yer almayanı sorduğundan elenir.
+      C: Md. 5/A-2-d'de sayılan bir şarttır; soru yer almayanı sorduğundan elenir.
+      E: Md. 5/A-2-a'da sayılan bir şarttır; soru yer almayanı sorduğundan elenir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 5/A-1
+    alinti: Müsteşarlık, gerektiğinde ilgili kurum ve kuruluşların görüşlerini de almak suretiyle Türkiye Gümrük
+      Bölgesinde ekonomik faaliyette bulunan yerleşik kişilere ikinci fıkrada yer alan şartları taşımaları halinde
+      yetkilendirilmiş yükümlü statüsü tanır. Yetkilendirilmiş yükümlüler, kolaylaştırılmış emniyet ve güvenlikle
+      ilgili gümrük kontrollerinden veya gümrük mevzuatının öngördüğü basitleştirilmiş uygulamalardan faydalanır.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 5/A-2
+    alinti: 2. Yetkilendirilmiş yükümlü statüsünün tanınması için gereken şartlar aşağıda belirtilmiştir. a) 4 üncü
+      maddede belirtilen sorumlulukların yerine getirilmesinde ciddi ihlallerde bulunmamak, b) Gümrük kontrollerinin
+      doğru biçimde yapılabilmesine imkân veren ticari kayıtları düzenli bir şekilde tutma yeterliliğine sahip bulunmak,
+      c) Müsteşarlıkça gerek görülen hallerde, mali yeterliliğe sahip olduğunu kanıtlamak, d) Uygun emniyet ve güvenlik
+      standartlarına sahip bulunmak.
+  gecerlilik:
+    baslangic: '2009-07-07'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: geri_cekildi
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: kaldi
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) ret: Anahtar ve açıklama doğru (md. 5/A-2) ancak banka içinde neredeyse aynı
+          kök mevcut: "4458 5/A ... aranan şartlar arasında hangisi yer almaz" (YMM_DTK/MEVCUT_SORULAR.md). Tekrar
+          olduğu için ret.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_DTK/DTK_GMR_20261111_1.yaml#6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → geri_cekildi'
+    neden: 'hakem (tam inceleme) ret: Anahtar ve açıklama doğru (md. 5/A-2) ancak banka içinde neredeyse aynı kök
+      mevcut: "4458 5/A ... aranan şartlar arasında hangisi yer almaz" (YMM_DTK/MEVCUT_SORULAR.md). Tekrar olduğu
+      için ret.'
+- id: YMM-DTK-GMR-0122
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DTK
+  unite: Gümrük mevzuatı temelleri
+  konu: GMR
+  kazanim: gümrük tarifesinin uygulanması ve tercihli tarife (md. 15)
+  tip: kavrama
+  zorluk: 2
+  kok: 4458 sayılı Gümrük Kanunu md. 15'e göre gümrük tarifesinin uygulanmasına ilişkin aşağıdaki ifadelerden hangisi
+    doğrudur?
+  secenekler:
+    A: Gümrük vergileri, gümrük borcunun ödendiği tarihte yürürlükte olan gümrük tarifesine göre hesaplanır.
+    B: Tercihli tarife, indirim veya şartlı muafiyet uygulamasının talebi, eşyanın tesliminden sonra hiçbir koşulda
+      yapılamaz.
+    C: Belirli bir ithalat hacmiyle sınırlandırılmış tarife kotası uygulaması, Cumhurbaşkanı Kararı olmaksızın kota
+      sona erdirilemez; tarife tavanı ise hacme ulaşıldığında kendiliğinden sona erer.
+    D: Müsteşarlıkça hazırlanıp Resmî Gazetede yayımlanan Gümrük Tarife Cetveli, izahnamesi ve eşya fihristi yalnızca
+      idari uygulamalarda esas tutulur, kazai uygulamalarda bağlayıcı değildir.
+    E: Gümrük vergileri, gümrük yükümlülüğünün başladığı tarihte yürürlükte olan gümrük tarifesine göre hesaplanır.
+  dogru: E
+  aciklama:
+    dogru_neden: 'Md. 15/1: gümrük vergileri, gümrük yükümlülüğünün başladığı tarihte yürürlükte olan gümrük tarifesine
+      göre hesaplanır. Md. 15/4: tercihli tarife talebi gümrük işlemlerinin tamamlanmasından veya eşyanın tesliminden
+      sonra da yapılabilir. Md. 15/5: tarife kotaları tespit edilen ithalat hacmine ulaşıldığında, tarife tavanları
+      ise Cumhurbaşkanı Kararı ile sona erer. Md. 15/7: yayımlanan tarife metinleri idari ve kazai uygulamalarda
+      esas tutulur. Diğer şıklar bu hükümlerle çelişir.'
+    celdiriciler:
+      A: 'Yanlıştır: gümrük vergileri gümrük yükümlülüğünün başladığı tarihte yürürlükte olan tarifeye göre hesaplanır
+        (md. 15/1).'
+      B: 'Yanlıştır: gerekli koşulların yerine getirilmesi halinde bu talep gümrük işlemlerinin tamamlanmasından
+        veya eşyanın tesliminden sonra da yapılabilir (md. 15/4).'
+      C: 'Yanlıştır: kotalar tespit edilen ithalat hacmine ulaşıldığında, tavanlar ise Cumhurbaşkanı Kararı ile
+        sona erer; ifade ters kurulmuştur (md. 15/5).'
+      D: 'Yanlıştır: bu metinler idari ve kazai uygulamalarda esas tutulur (md. 15/7).'
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 15/1
+    alinti: Gümrük vergileri, gümrük yükümlülüğünün başladığı tarihte yürürlükte olan gümrük tarifesine göre hesaplanır.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 15/4
+    alinti: Sabit oranlı vergilendirmeye ilişkin hükümler saklı kalmak üzere, 3 üncü fıkranın (d), (e) ve (f) bentlerinde
+      belirtilen koşulları taşıyan eşyanın ithalinde, beyan sahibi (c) bendinde belirtilen tarife yerine (d), (e)
+      ve (f) bentleri hükümlerinin uygulanmasını isteyebilir. Gerekli koşulların yerine getirilmesi halinde, söz
+      konusu talep gümrük işlemlerinin tamamlanmasından veya eşyanın tesliminden sonra da yapılabilir.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 15/5
+    alinti: Bu maddenin 3 üncü fıkrasının (d), (e) ve (f) bentlerinde belirtilen belirli bir ithalat hacmi ile sınırlandırılmış
+      tarife uygulamaları; a) Tarife kotalarının söz konusu olduğu durumlarda, tespit edilen ithalat hacmi sınırına
+      ulaşıldığında, b) Tarife tavanlarının söz konusu olduğu durumlarda ise Cumhurbaşkanı Kararı ile, sona erer.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 15/7
+    alinti: Gümrük Tarife Cetveli, izahnamesi ve eşya fihristi, Müsteşarlıkça hazırlanır ve Resmi Gazetede yayımlanır.
+      Bu şekilde yayımlanan metinler idari ve kazai uygulamalarda esas tutulur.
+  gecerlilik:
+    baslangic: '2009-07-07'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_DTK/DTK_GMR_20261111_1.yaml#7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+- id: YMM-DTK-GMR-0123
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DTK
+  unite: Gümrük mevzuatı temelleri
+  konu: GMR
+  kazanim: gümrüklenmiş değer (md. 3/26)
+  tip: hesaplama
+  zorluk: 2
+  kok: 'Türkiye''de yerleşik (L) A.Ş.''nin ithal ettiği eşyaya ilişkin veriler şöyledir: FOB bedeli 360.000 TL,
+    navlun ve sigorta bedeli toplamı 40.000 TL (CIF kıymet 400.000 TL), uygulanan gümrük vergisi 40.000 TL ve eşyaya
+    ayrıca uygulanan ek mali yükümlülük 10.000 TL''dir. KDV ve diğer vergiler dikkate alınmayacaktır.
+
+
+    4458 sayılı Gümrük Kanunu md. 3''teki tanıma göre bu eşyanın gümrüklenmiş değeri kaç TL''dir?
+
+    '
+  secenekler:
+    A: 360.000 TL
+    B: 410.000 TL
+    C: 440.000 TL
+    D: 450.000 TL
+    E: 490.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Md. 3/26: gümrüklenmiş değer, ithal eşyası için eşyanın CIF kıymeti ile gümrük vergileri toplamıdır.
+      Md. 3/8-a: gümrük vergileri, eşyaya uygulanan ithalat vergileri ya da ihracat vergilerinin tümüdür; md. 3/9-a''ya
+      göre ithalat vergileri gümrük vergisi ile diğer eş etkili vergi ve mali yükleri kapsar. Gümrüklenmiş değer
+      = 400.000 (CIF) + 40.000 (gümrük vergisi) + 10.000 (ek mali yükümlülük) = 450.000 TL.'
+    celdiriciler:
+      A: Yalnızca FOB bedeli alınmıştır; ithal eşyası için gümrüklenmiş değer CIF kıymet ile gümrük vergileri toplamıdır.
+      B: FOB kıymeti ile gümrük vergisi ve ek mali yük toplanmıştır (360.000 + 50.000); ithal eşyası için CIF kıymet
+        esas alınmalıdır.
+      C: CIF kıymete yalnızca gümrük vergisi eklenmiştir; ithalat vergileri kapsamındaki ek mali yükümlülük (10.000
+        TL) unutulmuştur.
+      E: Navlun ve sigorta bedeli (40.000 TL) CIF kıymetin içinde olduğu hâlde ikinci kez eklenmiştir.
+    hesap_adimlari:
+    - CIF kıymet = 360.000 + 40.000 = 400.000 TL
+    - Gümrük vergileri = 40.000 + 10.000 = 50.000 TL
+    - Gümrüklenmiş değer = 400.000 + 50.000 = 450.000 TL
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 3/26
+    alinti: “Gümrüklenmiş değer” deyimi, Uluslararası Kıymet Sözleşmesine göre belirlenecek; ithal eşyası için eşyanın
+      CIF kıymeti ile gümrük vergileri toplamını, ihraç eşyası için FOB kıymeti ile gümrük vergileri toplamını;
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 3/8-a
+    alinti: a) “Gümrük vergileri” deyimi, ilgili mevzuat uyarınca eşyaya uygulanan ithalat vergilerinin ya da ihracat
+      vergilerinin tümünü;
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 3/9-a
+    alinti: a) Eşyanın ithalinde ödenecek gümrük vergisi ile diğer eş etkili vergiler ve mali yükleri,
+  gecerlilik:
+    baslangic: '2013-04-05'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'fob = 360000
+
+      navlun_sigorta = 40000
+
+      cif = fob + navlun_sigorta
+
+      vergiler = 40000 + 10000
+
+      sonuc = cif + vergiler'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_DTK/DTK_GMR_20261111_1.yaml#8
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+  - tarih: '2026-10-29'
+    kim: otomatik
+    ne: 'şık sıralama: sayısal şıklar artan sıraya dizildi (doğru şık A → D).'
+- id: YMM-DTK-GMR-0124
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: DTK
+  unite: Gümrük mevzuatı temelleri
+  konu: GMR
+  kazanim: gümrük kontrolleri, risk analizi ve bilgi verme yükümlülüğü (md. 10/A, 11)
+  tip: kavrama
+  zorluk: 2
+  kok: '4458 sayılı Gümrük Kanunu md. 10/A ve 11''e göre aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. Gümrük idareleri dışındaki yetkili kurumlar tarafından gerçekleştirilecek kontroller, 5607 sayılı Kanunun
+    19 uncu maddesi hükümleri saklı kalmak kaydıyla gümrük idarelerinin koordinasyonunda ve mümkün olduğu ölçüde
+    aynı yer ve zamanda yapılır.
+
+
+    II. Gümrük kontrolleri, ani ve rastgele yapılanlar dahil olmak üzere her durumda yalnızca risk analizine dayanılarak
+    yapılır.
+
+
+    III. Gizli bilgilerin diğer ülkelerin gümrük idarelerine iletilmesine Müsteşarlık kararıyla her zaman izin verilebilir.
+
+
+    IV. Gümrük işlemleri ile sınırlı olmak kaydıyla kendilerinden bilgi istenilen kişiler, özel kanunlarda yazılı
+    gizlilik hükümlerini ileri sürerek bilgi vermekten kaçınamazlar.
+
+    '
+  secenekler:
+    A: I ve II
+    B: II ve III
+    C: I, III ve IV
+    D: I ve IV
+    E: I, II ve IV
+  dogru: D
+  aciklama:
+    dogru_neden: 'Md. 10/A-4: diğer yetkili kurumların kontrolleri 5607 sayılı Kanunun 19 uncu maddesi saklı kalmak
+      kaydıyla gümrük idarelerinin koordinasyonunda ve mümkün olduğunca aynı yer ve zamanda yapılır (I doğru). Md.
+      10/A-2: ani ve rastgele yapılanlar dışındaki kontroller risk analizine dayanır (II yanlış). Md. 10/A-6: gizli
+      bilgilerin diğer ülkelere iletilmesine sadece uluslararası bir anlaşma çerçevesinde izin verilebilir (III
+      yanlış). Md. 11: bilgi istenilen kişiler özel kanunlardaki gizlilik hükümlerini ileri sürerek bilgi vermekten
+      kaçınamaz (IV doğru).'
+    celdiriciler:
+      A: 'II yanlıştır: ani ve rastgele yapılanlar risk analizi kapsamı dışındadır. IV de doğru olduğu hâlde şıkta
+        yoktur.'
+      B: İki ifade de yanlıştır; kontroller ani ve rastgele olanlar dışında risk analizine dayanır ve gizli bilgiler
+        yalnızca uluslararası anlaşma çerçevesinde iletilebilir.
+      C: 'III yanlıştır: gizli bilgilerin diğer ülkelere iletilmesine sadece uluslararası bir anlaşma çerçevesinde
+        izin verilebilir.'
+      E: II yanlıştır; ani ve rastgele kontroller risk analizi şartının dışındadır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 10/A-4
+    alinti: Gümrük idareleri dışındaki yetkili kurumlar tarafından gerçekleştirilecek kontroller, 21/3/2007 tarihli
+      ve 5607 sayılı Kaçakçılıkla Mücadele Kanununun 19 uncu maddesi hükümleri saklı kalmak kaydıyla gümrük idarelerinin
+      koordinasyonunda ve mümkün olduğu ölçüde aynı yer ve zamanda yapılır.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 10/A-2
+    alinti: Ani ve rastgele yapılanlar dışındaki gümrük kontrolleri; risklerin tespiti ve risk derecesinin ölçülmesi
+      ile ulusal ve gerekli görüldüğü takdirde uluslararası düzeyde riskleri değerlendirerek gerekli önlemleri oluşturmak
+      amacıyla bilgisayarlı veri işleme tekniklerini kullanan risk analizi esas alınarak yapılır.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 10/A-6
+    alinti: 12 nci madde hükümleri saklı kalmak kaydıyla, gizli bilgilerin diğer ülkelerin gümrük idarelerine ve
+      güvenlik güçleri gibi diğer kurumlarına iletilmesine sadece uluslararası bir anlaşma çerçevesinde izin verilebilir.
+  - mevzuat: 4458 sayılı Gümrük Kanunu
+    madde: md. 11
+    alinti: Kendilerinden bu konularda bilgi istenilen kişiler, özel kanunlarda yazılı gizlilik hükümlerini ileri
+      sürerek bilgi vermekten kaçınamazlar.
+  gecerlilik:
+    baslangic: '2009-07-07'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_DTK/DTK_GMR_20261111_1.yaml#9
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla doğrulandı; tek doğru şık, açıklama tutarlı.'

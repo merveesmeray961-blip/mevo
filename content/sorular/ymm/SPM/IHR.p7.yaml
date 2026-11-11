@@ -1,0 +1,775 @@
+- id: YMM-SPM-IHR-0091
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: İhraç ve halka arz
+  konu: IHR
+  kazanim: talep toplama yönteminde dağıtım
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Bir halka arzda sabit fiyatla talep toplama yöntemi kullanılmış ve satışa sunulan 100.000 adet pay için, tek yatırımcı
+    grubunda, aşağıdaki talepler gelmiştir. Mükerrer talep, oransal dağıtım, asgari miktar sınırı ve küsurat bulunmamaktadır.
+
+
+    | Yatırımcı | Talep (adet) |
+
+    |---|---|
+
+    | A | 5.000 |
+
+    | B | 8.000 |
+
+    | C | 10.000 |
+
+    | D | 20.000 |
+
+    | E | 60.000 |
+
+    | F | 30.000 |
+
+
+    Sermaye Piyasası Araçlarının Satışı Tebliği''nin (II-5.2) 20 nci maddesinin ikinci fıkrasındaki dağıtım esaslarına göre
+    E yatırımcısına kaç adet pay dağıtılır?'
+  secenekler:
+    A: '16.667'
+    B: '25.667'
+    C: '28.500'
+    D: '30.000'
+    E: '57.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Talepler satışa sunulan tutardan fazla olduğundan md. 20/2''ye göre toplam tutar yatırımcı sayısına bölünür
+      ve bu tutar ve altındaki talepler karşılanır; kalan tutar talebi tamamen karşılanamayan yatırımcılara aynı yöntemle
+      bölünür ve satışa sunulan tutar bitinceye kadar devam edilir. Adım 1: 100.000 / 6 = 16.666,67 → A, B, C karşılanır (23.000).
+      Adım 2: 77.000 / 3 = 25.666,67 → D (20.000) karşılanır. Adım 3: 57.000 / 2 = 28.500 → E ve F''nin talepleri (60.000
+      ve 30.000) 28.500''den büyüktür, her biri 28.500 alır. Püf noktaları: Eşit bölüşüm her turda yeniden hesaplanır; küçük
+      talepler tam karşılanır, büyükler eşit payı alır.'
+    celdiriciler:
+      A: 16.667, yalnızca ilk turdaki eşit paydır; ilk turdan sonra kalan tutar yeniden dağıtılır.
+      B: 25.667, ikinci turdaki paydır; D karşılandıktan sonra kalan tutar bir kez daha bölünür.
+      D: 30.000, F'nin talebidir; E'nin payı olamaz ve 28.500'ü aşan bir pay verilemez.
+      E: 57.000, D'den sonra kalan tutarın tamamıdır; bu tutar E ve F arasında eşit bölünür.
+    hesap_adimlari:
+    - 'Tur 1: 100.000 / 6 = 16.666,67; talebi bu tutar ve altında olanlar A (5.000), B (8.000), C (10.000) tam karşılanır;
+      kalan = 100.000 - 23.000 = 77.000'
+    - 'Tur 2: 77.000 / 3 = 25.666,67; D (20.000) tam karşılanır; kalan = 57.000'
+    - 'Tur 3: 57.000 / 2 = 28.500; E ve F talepleri 28.500''ü aştığından her biri 28.500 alır'
+    - E yatırımcısına dağıtılan = 28.500 adet
+  kaynaklar:
+  - mevzuat: II-5.2 Sermaye Piyasası Araçlarının Satışı Tebliği
+    madde: md. 20/2
+    alinti: a) Varsa belirli bir yatırımcı grubu için ayrılan kısım hariç olmak üzere, satışa sunulan toplam tutar, talep
+      eden yatırımcı sayısına bölünür ve bu suretle bulunan tutar ve altındaki alım talepleri karşılanır.
+  - mevzuat: II-5.2 Sermaye Piyasası Araçlarının Satışı Tebliği
+    madde: md. 20/2
+    alinti: b) Kalan tutar, talebi tamamen karşılanamayan yatırımcı sayısına bölünerek aynı şekilde dağıtılır.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "satis = 100000\ntalep = {'A':5000,'B':8000,'C':10000,'D':20000,'E':60000,'F':30000}\nalinan = {k:0 for k in talep}\n\
+      kalan = satis\nacik = {k: v for k, v in talep.items()}\nwhile kalan > 0 and acik:\n    pay = kalan / len(acik)\n   \
+      \ tamam = [k for k,v in acik.items() if v <= pay]\n    if tamam:\n        for k in tamam:\n            alinan[k] = talep[k];\
+      \ kalan -= acik[k]; del acik[k]\n    else:\n        for k in acik: alinan[k] = pay\n        kalan = 0\nsonuc = alinan['E']"
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_IHR_20261111_1.yaml#1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-IHR-0092
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: İhraç ve halka arz
+  konu: IHR
+  kazanim: dağıtım listesinin kesinleşmesi ve bedel iadesi
+  tip: uygulama
+  zorluk: 3
+  kok: Konsorsiyum oluşturulmayan bir halka arzda talep toplama süresi 12 Haziran 2026 Cuma günü sona ermiştir. Yetkili kuruluş,
+    ihraççı ve halka arz eden Tebliğ'de öngörülen süreleri son gününe kadar kullanmış; Haziran 2026'da resmî tatil bulunmamaktadır,
+    hafta sonu tatildir. II-5.2 sayılı Tebliğ'in 23 üncü maddesine göre karşılanamayan taleplere ilişkin bedel iadelerinin
+    en geç yapılacağı tarih hangisidir?
+  secenekler:
+    A: 16 Haziran 2026
+    B: 17 Haziran 2026
+    C: 18 Haziran 2026
+    D: 19 Haziran 2026
+    E: 22 Haziran 2026
+  dogru: D
+  aciklama:
+    dogru_neden: 'Md. 23''e göre yetkili kuruluş talep toplama süresinin bitimini izleyen iki iş günü içinde dağıtım listesini
+      ihraççıya verir (16 Haziran Salı); ihraççı listenin teslimini izleyen iki iş günü içinde onaylayıp yetkili kuruluşa
+      teslim eder (18 Haziran Perşembe); bedel iadeleri onaylanan listenin yetkili kuruluşça teslim alınmasını izleyen iş
+      günü içinde yapılır (19 Haziran Cuma). Püf noktaları: Üç ayrı süre zincirlenir; hafta sonları sayılmaz.'
+    celdiriciler:
+      A: 16 Haziran 2026, dağıtım listesinin ihraççıya verilebileceği son gündür; bedel iadesi için henüz onay süreci tamamlanmamıştır.
+      B: 17 Haziran 2026, ihraççının onay süresinin ortasındadır; zincir son gün kullanıldığında bu tarihe ulaşılmaz.
+      C: 18 Haziran 2026, ihraççının listeyi onaylayıp teslim edebileceği son gündür; bedel iadesi izleyen iş günü yapılır.
+      E: 22 Haziran 2026, 19 Haziran Cuma gününü izleyen iş gününe karşılık gelir; Tebliğdeki son gün 19 Haziran'dır.
+    hesap_adimlari:
+    - 'Talep toplama sonu: 12 Haziran 2026 Cuma'
+    - 'Liste ihraççıya: 2 iş günü -> 16 Haziran 2026 Salı'
+    - 'İhraççı onayı: 2 iş günü -> 18 Haziran 2026 Perşembe'
+    - 'Bedel iadesi: izleyen iş günü -> 19 Haziran 2026 Cuma'
+  kaynaklar:
+  - mevzuat: II-5.2 Sermaye Piyasası Araçlarının Satışı Tebliği
+    madde: md. 23/1
+    alinti: (1) Talep toplama süresinin bitimini izleyen iki iş günü içerisinde yetkili kuruluş ya da varsa konsorsiyum lideri,
+      sermaye piyasası aracı satın almak isteyen yatırımcıların adı/soyadını, varsa T.C. Kimlik numaralarını, ticaret unvanlarını,
+      vergi kimlik numaralarını, talep ettikleri sermaye piyasası aracı miktarını, teklif edilen fiyatı, talepte bulunulan
+      asgari miktarı, talebin sisteme girildiği tarih ve saat ile sermaye piyasası araçlarının yatırımcılar arasındaki dağıtımını
+      gösterir bir liste düzenleyerek ihraççıya ve/veya halka arz edene verir.
+  - mevzuat: II-5.2 Sermaye Piyasası Araçlarının Satışı Tebliği
+    madde: md. 23/2
+    alinti: (2) İhraççı ve/veya halka arz eden, dağıtım listesinin teslimini izleyen iki iş günü içinde listeyi onaylayarak
+      yetkili kuruluş veya konsorsiyum liderine teslim eder.
+  - mevzuat: II-5.2 Sermaye Piyasası Araçlarının Satışı Tebliği
+    madde: md. 23/4
+    alinti: Karşılanamayan taleplere ilişkin bedel iadeleri, onaylanan dağıtım listesinin yetkili kuruluş tarafından teslim
+      alınmasını izleyen iş günü içerisinde yerine getirilir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "class _D:\n    def __init__(s, o): s.o = o\n    @staticmethod\n    def _civ(y, m, d):\n        y -= m <= 2\n\
+      \        era = y // 400\n        yoe = y - era * 400\n        doy = (153 * (m + (-3 if m > 2 else 9)) + 2) // 5 + d\
+      \ - 1\n        doe = yoe * 365 + yoe // 4 - yoe // 100 + doy\n        return era * 146097 + doe - 719468\n    @property\n\
+      \    def _ymd(s):\n        n = s.o + 719468\n        era = n // 146097\n        doe = n - era * 146097\n        yoe\
+      \ = (doe - doe // 1460 + doe // 36524 - doe // 146096) // 365\n        y = yoe + era * 400\n        doy = doe - (365\
+      \ * yoe + yoe // 4 - yoe // 100)\n        mp = (5 * doy + 2) // 153\n        d = doy - (153 * mp + 2) // 5 + 1\n   \
+      \     m = mp + 3 if mp < 10 else mp - 9\n        return y + (m <= 2), m, d\n    year = property(lambda s: s._ymd[0])\n\
+      \    month = property(lambda s: s._ymd[1])\n    day = property(lambda s: s._ymd[2])\n    def weekday(s): return (s.o\
+      \ + 3) % 7\n    def isoformat(s): return '%04d-%02d-%02d' % s._ymd\n    def __add__(s, t): return _D(s.o + t.days)\n\
+      \    def __sub__(s, t):\n        return _D(s.o - t.days) if isinstance(t, _T) else _T(s.o - t.o)\n    def __eq__(s,\
+      \ t): return s.o == t.o\n    def __lt__(s, t): return s.o < t.o\n    def __le__(s, t): return s.o <= t.o\n    def __gt__(s,\
+      \ t): return s.o > t.o\n    def __ge__(s, t): return s.o >= t.o\n    def __hash__(s): return hash(s.o)\nclass _T:\n\
+      \    def __init__(s, days): s.days = days\ndef _date(y, m, d): return _D(_D._civ(y, m, d))\ndef _td(days=0, weeks=0):\
+      \ return _T(days + 7 * weeks)\nclass dt:\n    date = staticmethod(_date)\n    timedelta = staticmethod(_td)\ndef ekle(x,\
+      \ n):\n    while n > 0:\n        x += dt.timedelta(days=1)\n        if x.weekday() < 5:\n            n -= 1\n    return\
+      \ x\na = ekle(dt.date(2026,6,12), 2)\nb = ekle(a, 2)\nc = ekle(b, 1)\nsonuc = c.isoformat()  # 2026-06-19"
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_IHR_20261111_1.yaml#2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-IHR-0093
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: İhraç ve halka arz
+  konu: IHR
+  kazanim: halka arzda teşvik ve farklı fiyat
+  tip: kavrama
+  zorluk: 2
+  kok: 'II-5.2 sayılı Tebliğin 27 nci maddesine göre payların ilk ve ikincil halka arzında teşvik ve farklı fiyat uygulamalarıyla
+    ilgili aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. Belirli yatırımcı gruplarına Kurulca uygun görülmesi koşuluyla farklı fiyat uygulanarak satış yapılabilir.
+
+
+    II. Aynı yatırımcı grubu içerisinde farklı fiyat uygulanamaz.
+
+
+    III. Ortakların mevcut paylarının da halka arz edildiği ve belirli gruplara iskontolu satış yapılmak istenen durumda,
+    iskontolu satılacak paylar öncelikle halka arz edenlerin sahip oldukları mevcut paylardan karşılanır.
+
+
+    IV. Halka arzdan toplanan fonun satış tamamlandıktan sonra azalması sonucunu verecek teşvikler de izahnamede belirtilmek
+    kaydıyla sağlanabilir.
+
+
+    V. İskontolu payların sermaye artırımı suretiyle ihraç edilmesi hâlinde, ortaklığın halka arzdan elde edeceği toplam fonda
+    olası azalmanın tutarı izahnamede belirtilir.'
+  secenekler:
+    A: I ve II
+    B: I, II ve III
+    C: I, III, IV ve V
+    D: II, III ve IV
+    E: I, II, III ve V
+  dogru: E
+  aciklama:
+    dogru_neden: Md. 27/2 farklı fiyat uygulamasına Kurulca uygun görülmesi koşuluyla izin verir ve aynı grup içinde farklı
+      fiyat uygulanamayacağını belirtir (I, II). Md. 27/3'e göre iskontolu paylar öncelikle halka arz edenlerin mevcut paylarından
+      karşılanır (III). Md. 27/4'e göre sermaye artırımıyla ihraç edilen iskontolu paylarda fondaki olası azalma izahnamede
+      belirtilir (V). Md. 27/5'e göre halka arzdan toplanan fonun satıştan sonra azalmasına yol açacak hiçbir teşvik sağlanamaz
+      (IV yanlış).
+    celdiriciler:
+      A: III ve V de doğrudur; seçenek eksiktir.
+      B: V de doğrudur (md. 27/4); seçenek eksiktir.
+      C: IV yanlıştır; ayrıca II doğru olduğu hâlde seçenekte yer almamaktadır.
+      D: IV yanlıştır; satış sonrası fonu azaltacak teşvik izahnamede belirtilse bile sağlanamaz. I ve V de doğru olduğu hâlde
+        seçenekte yer almamaktadır.
+  kaynaklar:
+  - mevzuat: II-5.2 Sermaye Piyasası Araçlarının Satışı Tebliği
+    madde: md. 27/2
+    alinti: Bu durumda halka arz fiyatları arasındaki fark yüzde yirmiyi aşamaz ve aynı yatırımcı grubu içerisinde farklı
+      fiyat uygulanamaz.
+  - mevzuat: II-5.2 Sermaye Piyasası Araçlarının Satışı Tebliği
+    madde: md. 27/3
+    alinti: iskontolu olarak satılmak istenen paylar öncelikle halka arz edenlerin sahip oldukları mevcut paylardan karşılanır.
+  - mevzuat: II-5.2 Sermaye Piyasası Araçlarının Satışı Tebliği
+    madde: md. 27/5
+    alinti: (5) Payların ilk ve ikincil halka arzında yatırımcılara, ortaklık tarafından halka arzdan toplanan fonun satış
+      tamamlandıktan sonra azalması sonucunu verecek herhangi bir teşvik sağlanamaz.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_IHR_20261111_1.yaml#3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-IHR-0094
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: İhraç ve halka arz
+  konu: IHR
+  kazanim: satış sonrası bildirim yükümlülükleri
+  tip: uygulama
+  zorluk: 1
+  kok: Payları halka arz edilen bir ortaklığın satış süresi 26 Haziran 2026 Cuma günü sona ermiştir. II-5.2 sayılı Tebliğ'in
+    24 üncü maddesine göre ihraççının, ilan ve reklamların yayımlandığı yazılı basın araçlarının ilgili sayfaları ile görsel
+    yayın kayıtlarının birer örneğini Kurula göndermesi gereken son tarih hangisidir? (Süre içinde resmî tatil bulunmamaktadır,
+    hafta sonu tatildir.)
+  secenekler:
+    A: 3 Temmuz 2026
+    B: 6 Temmuz 2026
+    C: 10 Temmuz 2026
+    D: 13 Temmuz 2026
+    E: 26 Temmuz 2026
+  dogru: C
+  aciklama:
+    dogru_neden: 'Md. 24/3''e göre satış süresinin sona ermesini izleyen on iş günü içinde ihraççı veya halka arz eden, ilan
+      ve reklamların yayımlandığı yazılı basın araçlarının ilgili sayfaları ile görsel yayın kayıtlarının birer örneğini Kurula
+      gönderir. 26 Haziran Cuma sonrası 10 iş günü: 29-30 Haziran, 1-3 Temmuz, 6-10 Temmuz → 10 Temmuz 2026.'
+    celdiriciler:
+      A: 3 Temmuz 2026, beşinci iş gününe karşılık gelir; Tebliğ on iş günü öngörür.
+      B: 6 Temmuz 2026, altıncı iş günüdür; süre henüz dolmamıştır.
+      D: 13 Temmuz 2026, on birinci iş günüdür; Tebliğdeki on iş günü geçilmiştir.
+      E: 26 Temmuz 2026, takvim günü olarak 30 günlük bir süredir; Tebliğ iş günü esasına göre on iş günü öngörür.
+    hesap_adimlari:
+    - 'Satış süresi sonu: 26 Haziran 2026 Cuma'
+    - '10 iş günü: 29, 30 Haziran; 1, 2, 3 Temmuz; 6, 7, 8, 9, 10 Temmuz'
+    - 'Son gün: 10 Temmuz 2026'
+  kaynaklar:
+  - mevzuat: II-5.2 Sermaye Piyasası Araçlarının Satışı Tebliği
+    madde: md. 24/3
+    alinti: (3) Sermaye piyasası araçlarının satış süresinin sona ermesini izleyen on iş günü içinde ihraççı veya halka arz
+      eden ilan ve reklamların yayımlandığı yazılı basın araçlarının ilgili sayfaları ile görsel yayın kayıtlarının birer
+      örneğini Kurula göndermekle yükümlüdür.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "class _D:\n    def __init__(s, o): s.o = o\n    @staticmethod\n    def _civ(y, m, d):\n        y -= m <= 2\n\
+      \        era = y // 400\n        yoe = y - era * 400\n        doy = (153 * (m + (-3 if m > 2 else 9)) + 2) // 5 + d\
+      \ - 1\n        doe = yoe * 365 + yoe // 4 - yoe // 100 + doy\n        return era * 146097 + doe - 719468\n    @property\n\
+      \    def _ymd(s):\n        n = s.o + 719468\n        era = n // 146097\n        doe = n - era * 146097\n        yoe\
+      \ = (doe - doe // 1460 + doe // 36524 - doe // 146096) // 365\n        y = yoe + era * 400\n        doy = doe - (365\
+      \ * yoe + yoe // 4 - yoe // 100)\n        mp = (5 * doy + 2) // 153\n        d = doy - (153 * mp + 2) // 5 + 1\n   \
+      \     m = mp + 3 if mp < 10 else mp - 9\n        return y + (m <= 2), m, d\n    year = property(lambda s: s._ymd[0])\n\
+      \    month = property(lambda s: s._ymd[1])\n    day = property(lambda s: s._ymd[2])\n    def weekday(s): return (s.o\
+      \ + 3) % 7\n    def isoformat(s): return '%04d-%02d-%02d' % s._ymd\n    def __add__(s, t): return _D(s.o + t.days)\n\
+      \    def __sub__(s, t):\n        return _D(s.o - t.days) if isinstance(t, _T) else _T(s.o - t.o)\n    def __eq__(s,\
+      \ t): return s.o == t.o\n    def __lt__(s, t): return s.o < t.o\n    def __le__(s, t): return s.o <= t.o\n    def __gt__(s,\
+      \ t): return s.o > t.o\n    def __ge__(s, t): return s.o >= t.o\n    def __hash__(s): return hash(s.o)\nclass _T:\n\
+      \    def __init__(s, days): s.days = days\ndef _date(y, m, d): return _D(_D._civ(y, m, d))\ndef _td(days=0, weeks=0):\
+      \ return _T(days + 7 * weeks)\nclass dt:\n    date = staticmethod(_date)\n    timedelta = staticmethod(_td)\nx = dt.date(2026,6,26)\n\
+      n = 10\nwhile n:\n    x += dt.timedelta(days=1)\n    if x.weekday() < 5:\n        n -= 1\nsonuc = x.isoformat()  # 2026-07-10"
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_IHR_20261111_1.yaml#4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-IHR-0095
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: İhraç ve halka arz
+  konu: IHR
+  kazanim: yeni pay alma haklarının kullandırılması
+  tip: bilgi
+  zorluk: 1
+  kok: Pay Tebliği'ne (VII-128.1) göre halka açık ortaklıklarda yeni pay alma haklarının kullandırılmasına ilişkin aşağıdakilerden
+    hangisi doğrudur?
+  secenekler:
+    A: Borsada işlem gören ortaklıklarda yeni pay alma hakkı kullanım süresi on beş günden az, altmış günden fazla olamaz.
+    B: Payları borsada işlem görmeyen ortaklıklarda yeni pay alma hakları en çok altmış gün içinde kullanılabilir.
+    C: Yeni pay alma hakkının kullanımının izahnamenin ilanını takip eden otuz gün içinde başlatılması zorunludur.
+    D: Yeni pay alma hakkı kullanım süresi, Kuruldan izin alınsa dahi uzatılamaz.
+    E: Yeni pay alma haklarının kullanılmasından sonra kalan payların halka arz edilmeksizin satılması hiçbir koşulda mümkün
+      değildir.
+  dogru: A
+  aciklama:
+    dogru_neden: Md. 22/4'e göre yeni pay alma hakları, payları borsada işlem görmeyen halka açık ortaklıklar için on beş
+      günden az yüz yirmi günden fazla olmamak üzere, payları borsada işlem gören ortaklıklar için ise on beş günden az altmış
+      günden fazla olmamak üzere izahnamede belirlenen sürede kullanılır; Kuruldan izin alınarak süre uzatılabilir.
+    celdiriciler:
+      B: Borsada işlem görmeyen ortaklıklar için üst sınır altmış gün değil yüz yirmi gündür.
+      C: Kullanımın izahnamenin ilanını takip eden on gün içinde başlatılması zorunludur (md. 22/1); otuz gün Tebliğde öngörülmemiştir.
+      D: Kuruldan izin almak suretiyle yeni pay alma hakkı kullanım süresi uzatılabilir (md. 22/4).
+      E: İzahnamede belirtilmesi kaydıyla kalan payların halka arz edilmeksizin satılması mümkündür (md. 22/5).
+  kaynaklar:
+  - mevzuat: VII-128.1 Pay Tebliği
+    madde: md. 22/4
+    alinti: Yeni pay alma hakları, payları borsada işlem görmeyen halka açık ortaklıklar için on beş günden az yüz yirmi günden
+      fazla olmamak üzere yeni pay alma kuponları karşılığında ve payları borsada işlem gören ortaklıklar için ise on beş
+      günden az altmış günden fazla olmamak üzere izahnamede belirlenen süre ve esaslar dahilinde kullanılır.
+  - mevzuat: VII-128.1 Pay Tebliği
+    madde: md. 22/1
+    alinti: Yeni pay alma hakkının kullanımının, izahnamenin ilanını takip eden on gün içinde başlatılması zorunludur.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_IHR_20261111_1.yaml#5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-IHR-0096
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: İhraç ve halka arz
+  konu: IHR
+  kazanim: şarta bağlı sermaye artırımı
+  tip: uygulama
+  zorluk: 2
+  kok: Kayıtlı sermaye sistemindeki halka açık Delta Teknoloji A.Ş. yönetim kurulu, ortaklık varantı sahiplerine yönelik olarak
+    şarta bağlı sermaye artırımı kararı almıştır. Varant sahiplerinin haklarını kullanmaya başlayabileceği ilk gün 14 Eylül
+    2026 Pazartesi'dir. Pay Tebliği'ne (VII-128.1) göre ihraç belgesine onay verilmesi için Kurula başvurunun en geç hangi
+    tarihte yapılması zorunludur?
+  secenekler:
+    A: 16 Temmuz 2026
+    B: 31 Temmuz 2026
+    C: 15 Ağustos 2026
+    D: 30 Ağustos 2026
+    E: 13 Eylül 2026
+  dogru: B
+  aciklama:
+    dogru_neden: Md. 17/3'e göre şarta bağlı sermaye artırımı kararından sonra, ihraç edilecek paylara ilişkin ihraç belgesine
+      onay verilmesi amacıyla dönüştürme, kullanım veya alım haklarının kullanılmasından en az kırk beş gün önce Kurula başvurulması
+      zorunludur. 14 Eylül 2026 - 45 gün = 31 Temmuz 2026.
+    celdiriciler:
+      A: 16 Temmuz 2026, kullanımdan altmış gün önceye karşılık gelir; Tebliğ kırk beş gün aramaktadır.
+      C: 15 Ağustos 2026, kullanımdan otuz gün öncesidir; süre yetersiz kısa tutulmuştur.
+      D: 30 Ağustos 2026, kullanımdan on beş gün öncesidir; Tebliğdeki asgari süre kırk beş gündür.
+      E: 13 Eylül 2026, hakların kullanımından bir gün öncesidir; Tebliğin aradığı süreyi karşılamaz.
+    hesap_adimlari:
+    - 'Hakların kullanımının ilk günü: 14 Eylül 2026'
+    - 'En az 45 gün önce: 14 Eylül - 45 gün = 31 Temmuz 2026'
+  kaynaklar:
+  - mevzuat: VII-128.1 Pay Tebliği
+    madde: md. 17/3
+    alinti: Yönetim kurulunun alacağı şarta bağlı sermaye artırımı kararından sonra, ihraç edilecek paylara ilişkin ihraç
+      belgesine onay verilmesi amacıyla dönüştürme, kullanım veya alım haklarının kullanılmasından en az kırk beş gün önce
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "class _D:\n    def __init__(s, o): s.o = o\n    @staticmethod\n    def _civ(y, m, d):\n        y -= m <= 2\n\
+      \        era = y // 400\n        yoe = y - era * 400\n        doy = (153 * (m + (-3 if m > 2 else 9)) + 2) // 5 + d\
+      \ - 1\n        doe = yoe * 365 + yoe // 4 - yoe // 100 + doy\n        return era * 146097 + doe - 719468\n    @property\n\
+      \    def _ymd(s):\n        n = s.o + 719468\n        era = n // 146097\n        doe = n - era * 146097\n        yoe\
+      \ = (doe - doe // 1460 + doe // 36524 - doe // 146096) // 365\n        y = yoe + era * 400\n        doy = doe - (365\
+      \ * yoe + yoe // 4 - yoe // 100)\n        mp = (5 * doy + 2) // 153\n        d = doy - (153 * mp + 2) // 5 + 1\n   \
+      \     m = mp + 3 if mp < 10 else mp - 9\n        return y + (m <= 2), m, d\n    year = property(lambda s: s._ymd[0])\n\
+      \    month = property(lambda s: s._ymd[1])\n    day = property(lambda s: s._ymd[2])\n    def weekday(s): return (s.o\
+      \ + 3) % 7\n    def isoformat(s): return '%04d-%02d-%02d' % s._ymd\n    def __add__(s, t): return _D(s.o + t.days)\n\
+      \    def __sub__(s, t):\n        return _D(s.o - t.days) if isinstance(t, _T) else _T(s.o - t.o)\n    def __eq__(s,\
+      \ t): return s.o == t.o\n    def __lt__(s, t): return s.o < t.o\n    def __le__(s, t): return s.o <= t.o\n    def __gt__(s,\
+      \ t): return s.o > t.o\n    def __ge__(s, t): return s.o >= t.o\n    def __hash__(s): return hash(s.o)\nclass _T:\n\
+      \    def __init__(s, days): s.days = days\ndef _date(y, m, d): return _D(_D._civ(y, m, d))\ndef _td(days=0, weeks=0):\
+      \ return _T(days + 7 * weeks)\nclass dt:\n    date = staticmethod(_date)\n    timedelta = staticmethod(_td)\nsonuc =\
+      \ (dt.date(2026,9,14) - dt.timedelta(days=45)).isoformat()  # 2026-07-31"
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_IHR_20261111_1.yaml#6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-IHR-0097
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: İhraç ve halka arz
+  konu: IHR
+  kazanim: ortak sayısı nedeniyle halka arz sayılan ortaklıklar
+  tip: uygulama
+  zorluk: 3
+  kok: Halka açık olmayan Orman Kimya A.Ş., pay defteri kayıtlarından ortak sayısının beş yüzü aştığını 8 Haziran 2026 tarihinde
+    öğrenmiştir. Şirket, Kurula yapacağı beyanname ve esas sözleşme değişikliği başvurusunu yapmış; Kurulun esas sözleşme
+    değişikliğine ilişkin uygun görüşünün karar tarihi 10 Ağustos 2026 olmuştur. Pay Tebliği'ne (VII-128.1) göre şirketin
+    (i) halka açık ortaklık statüsüne kavuştuğunun onaylanması amacıyla Kurula beyanname vermesi gereken son tarih ve (ii)
+    esas sözleşme değişikliğini karara bağlayacak genel kurul toplantısını yapması gereken son tarih aşağıdakilerden hangisinde
+    doğru verilmiştir?
+  secenekler:
+    A: (i) 8 Temmuz 2026 ve (ii) 10 Şubat 2027
+    B: (i) 8 Temmuz 2026 ve (ii) 10 Kasım 2026
+    C: (i) 8 Eylül 2026 ve (ii) 10 Şubat 2027
+    D: (i) 8 Temmuz 2026 ve (ii) 8 Aralık 2026
+    E: (i) 7 Ağustos 2026 ve (ii) 10 Şubat 2027
+  dogru: A
+  aciklama:
+    dogru_neden: 'Md. 34''e göre pay sahibi sayısı beş yüzü aşan ortaklıkların payları halka arz olunmuş sayılır; bu ortaklıklar,
+      statünün kazanıldığını öğrendikleri tarihten itibaren otuz gün içinde beyanname vermeli ve Kurulun esas sözleşme değişikliğine
+      ilişkin uygun görüşünün alınmasından sonra gerekli değişiklikleri uygun görüş karar tarihinden itibaren azami altı ay
+      içinde yapılacak genel kurulda karara bağlamalıdır. (i) 8 Haziran + 30 gün = 8 Temmuz 2026; (ii) 10 Ağustos 2026 + 6
+      ay = 10 Şubat 2027. Püf noktaları: İki ayrı sürenin başlangıç noktaları farklıdır: öğrenme tarihi ve uygun görüş karar
+      tarihi.'
+    celdiriciler:
+      B: 10 Kasım 2026, uygun görüş tarihinden itibaren üç ayı gösterir; Tebliğdeki süre altı aydır.
+      C: 8 Eylül 2026, öğrenme tarihinden itibaren üç ayı gösterir; beyanname süresi otuz gündür.
+      D: 8 Aralık 2026, öğrenme tarihinden itibaren altı aydır; altı aylık süre uygun görüş karar tarihinden başlar, öğrenme
+        tarihinden değil.
+      E: 7 Ağustos 2026, öğrenme tarihinden itibaren altmış günü gösterir; beyanname süresi otuz gündür.
+    hesap_adimlari:
+    - 'Beyanname: 8 Haziran 2026 + 30 gün = 8 Temmuz 2026'
+    - 'Genel kurul: 10 Ağustos 2026 + 6 ay = 10 Şubat 2027'
+  kaynaklar:
+  - mevzuat: VII-128.1 Pay Tebliği
+    madde: md. 34/3
+    alinti: Payları halka arz olunmuş sayılan ortaklıkların Kurula, halka açık ortaklık statüsünün kazanıldığını öğrendikleri
+      tarihten itibaren otuz gün içinde
+  - mevzuat: VII-128.1 Pay Tebliği
+    madde: md. 34/3
+    alinti: gerekli değişiklikleri uygun görüş karar tarihinden itibaren azami altı ay içerisinde yapılacak genel kurul toplantısında
+      karara bağlamaları gereklidir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: "class _D:\n    def __init__(s, o): s.o = o\n    @staticmethod\n    def _civ(y, m, d):\n        y -= m <= 2\n\
+      \        era = y // 400\n        yoe = y - era * 400\n        doy = (153 * (m + (-3 if m > 2 else 9)) + 2) // 5 + d\
+      \ - 1\n        doe = yoe * 365 + yoe // 4 - yoe // 100 + doy\n        return era * 146097 + doe - 719468\n    @property\n\
+      \    def _ymd(s):\n        n = s.o + 719468\n        era = n // 146097\n        doe = n - era * 146097\n        yoe\
+      \ = (doe - doe // 1460 + doe // 36524 - doe // 146096) // 365\n        y = yoe + era * 400\n        doy = doe - (365\
+      \ * yoe + yoe // 4 - yoe // 100)\n        mp = (5 * doy + 2) // 153\n        d = doy - (153 * mp + 2) // 5 + 1\n   \
+      \     m = mp + 3 if mp < 10 else mp - 9\n        return y + (m <= 2), m, d\n    year = property(lambda s: s._ymd[0])\n\
+      \    month = property(lambda s: s._ymd[1])\n    day = property(lambda s: s._ymd[2])\n    def weekday(s): return (s.o\
+      \ + 3) % 7\n    def isoformat(s): return '%04d-%02d-%02d' % s._ymd\n    def __add__(s, t): return _D(s.o + t.days)\n\
+      \    def __sub__(s, t):\n        return _D(s.o - t.days) if isinstance(t, _T) else _T(s.o - t.o)\n    def __eq__(s,\
+      \ t): return s.o == t.o\n    def __lt__(s, t): return s.o < t.o\n    def __le__(s, t): return s.o <= t.o\n    def __gt__(s,\
+      \ t): return s.o > t.o\n    def __ge__(s, t): return s.o >= t.o\n    def __hash__(s): return hash(s.o)\nclass _T:\n\
+      \    def __init__(s, days): s.days = days\ndef _date(y, m, d): return _D(_D._civ(y, m, d))\ndef _td(days=0, weeks=0):\
+      \ return _T(days + 7 * weeks)\nclass dt:\n    date = staticmethod(_date)\n    timedelta = staticmethod(_td)\nogrenme\
+      \ = dt.date(2026,6,8)\nbeyanname = ogrenme + dt.timedelta(days=30)\nkarar = dt.date(2026,8,10)\ngk = dt.date(2027,2,10)\n\
+      sonuc = {'beyanname': beyanname.isoformat(), 'genel_kurul': gk.isoformat()}"
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_IHR_20261111_1.yaml#7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-IHR-0098
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: İhraç ve halka arz
+  konu: IHR
+  kazanim: paya dönüştürülebilir tahvilde küsurat
+  tip: uygulama
+  zorluk: 2
+  kok: Borçlanma Araçları Tebliği'ne (VII-128.8) göre ihraç edilmiş bir paya dönüştürülebilir tahvilin (PDT) sahibi, nominal
+    değeri 250.000 TL olan PDT'lerini vadede paylara dönüştürmek istemektedir. Dönüştürme fiyatı pay başına 7 TL'dir; dönüştürme
+    nominal değer üzerinden yapılmakta ve faiz hesaba katılmamaktadır. Dönüştürme sonucunda PDT sahibine verilecek pay adedi
+    ve küsurat için nakden ve peşinen ödenecek tutar aşağıdakilerden hangisidir?
+  secenekler:
+    A: 35.700 pay ve 1.400 TL
+    B: 35.714 pay ve 2 TL nakit
+    C: 35.714 pay; nakit ödeme yapılmaz
+    D: 35.715 pay; nakit ödeme yapılmaz
+    E: 36.000 pay ve 2.000 TL
+  dogru: B
+  aciklama:
+    dogru_neden: Md. 17/3'e göre dönüştürme PDT'nin nominal değeri üzerinden yapılır. Md. 18/3'e göre dönüştürme oranının
+      küsuratlı olması hâlinde küsurata isabet eden pay tutarı PDT sahibine nakden ve peşinen ödenir ve hesaplamada dönüştürme
+      fiyatı esas alınır. 250.000 / 7 = 35.714,2857 → 35.714 pay; 35.714 × 7 = 249.998; küsurat nakdi = 250.000 - 249.998
+      = 2 TL.
+    celdiriciler:
+      A: 35.700 pay ve 1.400 TL, payların yuvarlak sayıya indirilmesiyle bulunmuştur; Tebliğde tam payların hepsi verilir,
+        yalnızca küsurat nakde çevrilir.
+      C: Dönüştürme oranı küsuratlıdır; küsurata isabet eden tutar nakden ve peşinen ödenir, bu nedenle nakit ödeme yapılmaması
+        yanlıştır.
+      D: 35.715 pay verilmesi küsuratın yukarı yuvarlanması demektir; Tebliğ küsuratın nakden ödenmesini öngörür.
+      E: 36.000 pay verilemez; toplam değer nominal tutarı (250.000 TL) aşar ve küsurat tutarı da 2.000 TL değildir.
+    hesap_adimlari:
+    - Pay adedi = 250.000 / 7 = 35.714,29 → 35.714 tam pay
+    - Verilen payların değeri = 35.714 × 7 = 249.998 TL
+    - Küsurat nakdi = 250.000 - 249.998 = 2 TL
+  kaynaklar:
+  - mevzuat: VII-128.8 Borçlanma Araçları Tebliği
+    madde: md. 17/3
+    alinti: (3) PDT’lerin paya dönüştürülmesi PDT’nin nominal değeri üzerinden gerçekleştirilir.
+  - mevzuat: VII-128.8 Borçlanma Araçları Tebliği
+    madde: md. 18/3
+    alinti: (3) Dönüştürme oranının küsuratlı olması durumunda, dönüştürme sırasında toplam üzerinden küsurata isabet eden
+      pay tutarı PDT sahibine nakden ve peşinen ödenir. Bu hesaplamada dönüştürme fiyatı esas alınır.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'nominal = 250000
+
+      fiyat = 7
+
+      pay = nominal // fiyat
+
+      nakit = nominal - pay * fiyat
+
+      sonuc = {''pay'': pay, ''nakit'': nakit}'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_IHR_20261111_1.yaml#8
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'

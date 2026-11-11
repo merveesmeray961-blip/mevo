@@ -1,0 +1,703 @@
+- id: YMM-SPM-SUC-0057
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: yönetici kazançlarının ihraççıya iadesi
+  tip: hesaplama
+  zorluk: 2
+  kok: Payları borsada işlem gören Alaz A.Ş.'nin yönetim kurulu üyesi (Y), Kurulca belirlenen zaman dilimi içinde Alaz paylarını
+    toplam 3.200.000 TL'ye almış, aynı zaman diliminde toplam 3.700.000 TL'ye satmıştır. İşlem masrafı yoktur, Kurul tarafından
+    izin verilen bir hâl bulunmamakta ve içsel bilgiye dayanma iddiası aranmamaktadır. (Y), elde ettiği net kazancı otuz gün
+    içinde ihraççıya vermemiştir. 6362 sayılı Kanun'un 103 üncü maddesinin dördüncü fıkrasına göre (Y) hakkında Kurulca verilecek
+    idari para cezası kaç TL'dir?
+  secenekler:
+    A: 250.000 TL
+    B: 500.000 TL
+    C: 750.000 TL
+    D: 1.000.000 TL
+    E: 1.500.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: Md. 103/4'e göre yönetim kurulu üyeleri ve yöneticileri, Kurulca belirlenen zaman dilimi içinde alım satımdan
+      elde ettikleri net kazancı ihraççıya vermekle yükümlüdür; otuz gün içinde yerine getirmeyenlere elde ettikleri menfaatin
+      iki katı idari para cezası verilir. Net kazanç 3.700.000 - 3.200.000 = 500.000 TL; ceza 500.000 × 2 = 1.000.000 TL.
+    celdiriciler:
+      A: 250.000 TL, net kazancın yarısıdır; Kanun menfaatin yarısını değil iki katını öngörmüştür.
+      B: 500.000 TL, net kazancın kendisidir; bu tutar ihraççıya iade edilecek tutardır, idari para cezası değildir.
+      C: 750.000 TL, net kazancın 1,5 katıdır; Kanunda böyle bir çarpan yoktur.
+      E: 1.500.000 TL, net kazancın üç katıdır; üç kat çarpanı md. 105/2'deki birden çok kabahat hâli için geçerlidir, md.
+        103/4 için değil.
+    hesap_adimlari:
+    - Net kazanç = 3.700.000 - 3.200.000 = 500.000 TL
+    - İdari para cezası = 500.000 × 2 = 1.000.000 TL
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 103/4
+    alinti: Bu yükümlülüğü otuz gün içinde yerine getirmeyenler hakkında Kurul tarafından elde ettikleri menfaatin iki katı
+      idari para cezası verilir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'kazanc = 3700000 - 3200000
+
+      sonuc = kazanc * 2'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_SUC_20261111_1.yaml#1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-SUC-0058
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: birden çok kabahat ve menfaatin üç katı
+  tip: hesaplama
+  zorluk: 3
+  kok: 6362 sayılı Kanun'da tanımlanan aynı kabahat, idari yaptırım kararı verilinceye kadar bir halka açık ortaklık tarafından
+    üç kez işlenmiştir. İlgili hükme göre verilecek ceza, birden çok işlenme nedeniyle artırıldıktan sonra 200.000 TL bulunmuştur.
+    Kabahatin işlenmesi suretiyle ortaklık 90.000 TL menfaat temin etmiş, ortaklığın ihraççısı olduğu sermaye piyasası aracı
+    sahiplerine ise zarar doğmamıştır. Kurulca bu ortaklığa verilecek idari para cezası kaç TL'dir?
+  secenekler:
+    A: 90.000 TL
+    B: 180.000 TL
+    C: 200.000 TL
+    D: 270.000 TL
+    E: 600.000 TL
+  dogru: D
+  aciklama:
+    dogru_neden: 'Md. 105/2''ye göre kabahatin idari yaptırım kararı verilinceye kadar birden çok işlenmesinde tek bir idari
+      para cezası verilir ve ceza artırılır; ancak kabahatin işlenmesiyle menfaat temin edilmesi veya zarara sebebiyet verilmesi
+      hâlinde ceza, bu menfaat veya zararın üç katından az olamaz. Artırılmış ceza 200.000 TL, menfaatin üç katı 90.000 ×
+      3 = 270.000 TL olduğundan 270.000 TL verilir. Püf noktaları: Alt sınır kuralı (üç kat) artırılmış tutarın altında kalıyorsa
+      devreye girer; üç ayrı ceza toplanmaz, tek ceza verilir.'
+    celdiriciler:
+      A: 90.000 TL menfaatin kendisidir; Kanun menfaatin üç katını alt sınır kabul eder.
+      B: 180.000 TL, menfaatin iki katıdır; iki kat çarpanı md. 103/4 ve 103/6 için geçerlidir, birden çok kabahatte alt sınır
+        üç kattır.
+      C: 200.000 TL, artırılmış cezadır; ancak menfaatin üç katı olan 270.000 TL'nin altında kaldığı için alt sınır kuralı
+        nedeniyle yeterli değildir.
+      E: 600.000 TL, üç ayrı cezanın toplanmasıyla bulunur; Kanun birden çok işlenmede ayrı ayrı ceza değil tek ceza verilmesini
+        öngörür.
+    hesap_adimlari:
+    - Artırılmış ceza = 200.000 TL
+    - Alt sınır = 3 × 90.000 = 270.000 TL
+    - Verilecek ceza = max(200.000; 270.000) = 270.000 TL
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 105/2
+    alinti: Ancak, bu kabahatin işlenmesi suretiyle bir menfaat temin edilmesi veya zarara sebebiyet verilmesi hâlinde verilecek
+      idari para cezasının miktarı bu menfaat veya zararın üç katından az olamaz.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ceza = 200000
+
+      menfaat = 90000
+
+      sonuc = max(ceza, 3 * menfaat)'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_SUC_20261111_1.yaml#2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-SUC-0059
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: pay alım teklifi yükümlülüğüne aykırılık
+  tip: bilgi
+  zorluk: 1
+  kok: 6362 sayılı Kanun'un 26 ncı maddesi uyarınca ve gerekirse Kurulca verilebilecek ek süre zarfında pay alım teklifi zorunluluğunu
+    yerine getirmeyen gerçek ve tüzel kişiler hakkında Kurulca verilecek idari para cezasının üst sınırı aşağıdakilerden hangisidir?
+  secenekler:
+    A: Yirmi bin Türk Lirası
+    B: İki yüz elli bin Türk Lirası
+    C: Pay alım teklifine konu payların toplam bedeli
+    D: Elde edilen menfaatin iki katı
+    E: Pay alım teklifine konu payların toplam bedelinin iki katı
+  dogru: C
+  aciklama:
+    dogru_neden: Md. 103/3'e göre pay alım teklifi zorunluluğunu süresinde yerine getirmeyenler hakkında Kurul tarafından
+      pay alım teklifine konu payların toplam bedeline kadar idari para cezası verilir.
+    celdiriciler:
+      A: 20.000 TL, md. 103/1'deki genel idari para cezasının alt sınırıdır; pay alım teklifi ihlali için üst sınır payların
+        toplam bedelidir.
+      B: 250.000 TL, md. 103/1'deki genel üst sınırdır; pay alım teklifi için özel hüküm olan md. 103/3 daha yüksek bir sınır
+        getirmiştir.
+      D: Menfaatin iki katı, md. 103/4 ve 103/6'daki hâller için öngörülmüştür.
+      E: Toplam bedelin iki katı Kanunda öngörülmemiştir; üst sınır toplam bedelin kendisidir.
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 103/3
+    alinti: pay alım teklifine konu payların toplam bedeline kadar idari para cezası verilir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_SUC_20261111_1.yaml#3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-SUC-0060
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: tüzel kişiye idari para cezası verilmesi
+  tip: uygulama
+  zorluk: 2
+  kok: '6362 sayılı Kanun''un 103 üncü maddesinin ikinci fıkrası bakımından aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. Yükümlülüğe aykırı hareket eden kişi bir özel hukuk tüzel kişisinin organı veya temsilcisi ise ayrıca tüzel kişi hakkında
+    da idari para cezası verilir.
+
+
+    II. Aykırı hareket eden kişi organ veya temsilci olmamakla birlikte tüzel kişinin faaliyeti çerçevesinde görev üstlenen
+    bir kişi ise de tüzel kişi hakkında ayrıca idari para cezası verilir.
+
+
+    III. Aykırılığın temsil edilen tüzel kişinin zararına bir sonuç doğurması hâlinde de tüzel kişiye idari para cezası verilir.
+
+
+    IV. Tüzel kişiye ceza, ancak gerçek kişiye idari para cezası verilememesi durumunda söz konusu olur.'
+  secenekler:
+    A: Yalnız I
+    B: III ve IV
+    C: I, II ve III
+    D: II ve IV
+    E: I ve II
+  dogru: E
+  aciklama:
+    dogru_neden: Md. 103/2'ye göre aykırı hareket eden kişinin tüzel kişinin organ veya temsilcisi olması ya da bu tüzel kişinin
+      faaliyeti çerçevesinde görev üstlenen bir kişi olması hâlinde ayrıca tüzel kişi hakkında da idari para cezası verilir
+      (I ve II). Aykırılığın tüzel kişinin zararına sonuç doğurması hâlinde ise tüzel kişiye ceza verilmez (III yanlış). Tüzel
+      kişiye ceza, gerçek kişiye ceza verilmesine bağlı bir ikame değil ayrıca verilen bir cezadır (IV yanlış).
+    celdiriciler:
+      A: II de doğrudur; organ veya temsilci olmasa bile faaliyet çerçevesinde görev üstlenen kişinin aykırılığı tüzel kişiye
+        ceza verilmesini gerektirir.
+      B: III ve IV yanlış ifadelerdir; ayrıca doğru olan I ve II bu seçenekte yer almamaktadır.
+      C: III yanlıştır; tüzel kişinin zararına sonuç doğuran aykırılıklarda tüzel kişiye idari para cezası verilmez.
+      D: IV yanlıştır; tüzel kişiye ceza ayrıca verilir, gerçek kişiye ceza verilememesi şartı aranmaz. I de doğru olduğu
+        hâlde seçenekte yer almamaktadır.
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 103/2
+    alinti: Aykırılığın, temsilcisi olunan veya adına hareket edilen tüzel kişinin zararına bir sonuç doğurması hâlinde, tüzel
+      kişiye idari para cezası verilmez.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 103/2
+    alinti: ayrıca tüzel kişi hakkında da birinci fıkra hükmüne göre idari para cezası verilir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_SUC_20261111_1.yaml#4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-SUC-0061
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: izinsiz faaliyet ve usulsüz halka arzın birleşmesi
+  tip: uygulama
+  zorluk: 2
+  kok: Sermaye piyasasında izinsiz olarak faaliyette bulunan (X), bu faaliyetinin icrası kapsamında aynı zamanda onaylı izahname
+    yayımlamaksızın sermaye piyasası araçlarını halka arz etmiştir. Mahkeme, 6362 sayılı Kanun'un 109 uncu maddesinin ikinci
+    fıkrasında tanımlanan suç için alt ve üst sınır arasında takdir ettiği temel hapis cezasını 3 yıl olarak belirlemiştir.
+    Kanuna göre (X) hakkında hükmedilecek hapis cezası kaç yıl kaç aydır?
+  secenekler:
+    A: 3 yıl
+    B: 4 yıl
+    C: 4 yıl 6 ay
+    D: 6 yıl
+    E: 7 yıl 6 ay
+  dogru: C
+  aciklama:
+    dogru_neden: 'Md. 109/2''ye göre izinsiz faaliyette bulunanlar bu suçun icrası kapsamında aynı zamanda birinci fıkradaki
+      usulsüz halka arz suçunu da işlerlerse sadece ikinci fıkrada tanımlanan suçtan dolayı cezaya hükmedilir ve ceza yarı
+      oranında artırılır: 3 yıl + 1,5 yıl = 4 yıl 6 ay.'
+    celdiriciler:
+      A: 3 yıl temel cezadır; Kanun, iki suçun birleşmesi hâlinde yarı oranında artırım öngörür.
+      B: 4 yıl, temel cezanın üçte biri oranında artırımla bulunur; Kanundaki artırım oranı yarıdır.
+      D: 6 yıl, her iki suç için ayrı ayrı 3'er yıl ceza verilmesi mantığıyla bulunur; Kanun ayrı ceza değil, yalnızca ikinci
+        fıkra suçundan artırılmış ceza öngörür.
+      E: 7 yıl 6 ay, temel cezanın iki buçuk katıdır; Kanundaki artırım yarı oranındadır.
+    hesap_adimlari:
+    - 'Temel ceza: 3 yıl = 36 ay'
+    - 'Yarı oranında artırım: 36 × 1,5 = 54 ay = 4 yıl 6 ay'
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 109/2
+    alinti: Bu kişiler, bu suçun icrası kapsamında aynı zamanda birinci fıkrada tanımlanan suçu da işledikleri takdirde, sadece
+      bu fıkrada tanımlanan suçtan dolayı cezaya hükmedilir ve ceza yarı oranında artırılır.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'temel = 36  # ay
+
+      sonuc = temel * 1.5  # 54 ay = 4 yil 6 ay'
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_SUC_20261111_1.yaml#5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-SUC-0062
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: idari para cezalarının tahsili ve yargı yolu
+  tip: bilgi
+  zorluk: 1
+  kok: 6362 sayılı Kanun'a göre Kurulca verilen ve tahsil edilen idari para cezalarının dağıtımı ile bu cezalara karşı başvurulacak
+    yol aşağıdakilerden hangisinde doğru verilmiştir?
+  secenekler:
+    A: Yüzde ellisi genel bütçeye gelir kaydedilir, yüzde ellisi YTM'ye aktarılır; cezalara karşı idari yargı yoluna başvurulabilir.
+    B: Tamamı genel bütçeye gelir kaydedilir; cezalara karşı adli yargı yoluna başvurulabilir.
+    C: Yüzde ellisi Kurula, yüzde ellisi genel bütçeye gelir kaydedilir; cezalara karşı Kurul nezdinde itiraz edilebilir.
+    D: Tamamı YTM'ye aktarılır; cezalara karşı sulh ceza hâkimliğine başvurulabilir.
+    E: Yüzde yetmişi genel bütçeye, yüzde otuzu Türkiye Sermaye Piyasaları Birliğine aktarılır; cezalara karşı idari yargı
+      yoluna başvurulabilir.
+  dogru: A
+  aciklama:
+    dogru_neden: Md. 105/3'e göre tahsil edilen idari para cezalarının yüzde ellisi genel bütçeye gelir kaydedilir, yüzde
+      ellisi gelir kaydedilmek üzere YTM'ye aktarılır. Md. 105/4'e göre bu Kanun uyarınca verilen idari para cezası kararlarına
+      karşı idari yargı yoluna başvurulabilir.
+    celdiriciler:
+      B: Cezaların tamamı genel bütçeye gelir kaydedilmez; yarısı YTM'ye aktarılır. Ayrıca yargı yolu adli değil idari yargıdır.
+      C: Kurul, idari para cezası gelirinden pay almaz; cezalara karşı yol da Kurul nezdinde itiraz değil idari yargıdır.
+      D: Tamamı YTM'ye aktarılmaz; yarısı genel bütçeye kalır. Sulh ceza hâkimliği yolu bu Kanunda öngörülmemiştir.
+      E: Cezaların paylaşımı yüzde ellilik oranlarla genel bütçe ve YTM arasında yapılır; Türkiye Sermaye Piyasaları Birliği
+        pay almaz.
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 105/3
+    alinti: (3) Tahsil edilen idari para cezalarının yüzde ellisi genel bütçeye gelir kaydedilir, yüzde ellisi gelir kaydedilmek
+      üzere YTM’ye aktarılır.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 105/4
+    alinti: (4) Bu Kanun uyarınca verilen idari para cezası kararlarına karşı idari yargı yoluna başvurulabilir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_SUC_20261111_1.yaml#6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-SUC-0063
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: kayıt ve belge suçları ile engelleme
+  tip: kavrama
+  zorluk: 3
+  kok: '6362 sayılı Kanun''un 111, 112 ve 113 üncü maddelerine göre aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. Kanunen tutmakla yükümlü oldukları defter ve kayıtları kasıtlı olarak usulüne uygun tutmayanlar, altı aydan iki yıla
+    kadar hapis ve beş bin güne kadar adli para cezası ile cezalandırılır.
+
+
+    II. Kurul tarafından icra edilen inceleme veya denetim faaliyeti kapsamında istenen bilgi veya belgelere ilişkin olarak
+    başkalarına açıklamada bulunanlar, bir yıldan üç yıla kadar hapis ve beş bin güne kadar adli para cezası ile cezalandırılır.
+
+
+    III. Kurul veya Kanuna göre görevlendirilen kişilerin görevlerini yapmalarını engelleyen kişi, bir yıldan üç yıla kadar
+    hapis cezası ile cezalandırılır.
+
+
+    IV. Yatırım kuruluşları, sistemi engelleme, bozma, verileri yok etme veya değiştirme suçu açısından banka veya kredi kurumu
+    sayılır.
+
+
+    V. Finansal tablo ve raporları kasıtlı olarak gerçeği yansıtmayacak şekilde düzenleyenler hakkında 6362 sayılı Kanunun
+    kendi hapis cezası hükmü uygulanır.'
+  secenekler:
+    A: I ve II
+    B: III, IV ve V
+    C: I, III ve V
+    D: II, IV ve V
+    E: I, II ve IV
+  dogru: E
+  aciklama:
+    dogru_neden: 'I numaralı ifade md. 112/1''e, II numaralı ifade md. 113/1''e, IV numaralı ifade md. 112/3''e uygundur.
+      Md. 111/2''ye göre görevlilerin görevlerini yapmalarını engelleyen kişi altı aydan iki yıla kadar hapis cezası ile cezalandırılır
+      (III yanlış; bir yıldan üç yıla kadar hapis, bilgi ve belgeyi hiç vermeme için öngörülmüştür: md. 111/1). Finansal tabloları
+      gerçeği yansıtmayacak şekilde düzenleyenler 5237 sayılı Kanunun ilgili hükümlerine göre cezalandırılır (md. 112/2; V
+      yanlış). Püf noktaları: 111/1 (bilgi vermeme) ve 111/2 (engelleme) cezaları farklıdır; 112/2 suçlarında ceza için TCK''ya
+      atıf vardır.'
+    celdiriciler:
+      A: IV de doğrudur (md. 112/3); yatırım kuruluşları sistemi engelleme suçu bakımından banka veya kredi kurumu sayıldığından
+        seçenek eksiktir.
+      B: III ve V yanlış ifadelerdir; ayrıca doğru olan I ve II bu seçenekte yer almamaktadır.
+      C: 'III ve V yanlıştır: engelleme cezası altı aydan iki yıla kadar hapistir ve finansal tablo suçlarında ceza 5237 sayılı
+        Kanuna göre belirlenir.'
+      D: V yanlıştır; finansal tablo suçlarında 5237 sayılı Kanunun ilgili hükümleri uygulanır. I de doğru olduğu hâlde seçenekte
+        yer almamaktadır.
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 112/1
+    alinti: altı aydan iki yıla kadar hapis ve beş bin güne kadar adli para cezası ile cezalandırılırlar.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 113/1
+    alinti: başkalarına açıklamada bulunanlar bir yıldan üç yıla kadar hapis ve beş bin güne kadar adli para cezası ile cezalandırılır.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 111/2
+    alinti: Kurul veya bu Kanuna göre görevlendirilen kişilerin görevlerini yapmalarını engelleyen kişi altı aydan iki yıla
+      kadar hapis cezası ile cezalandırılır.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 112/3
+    alinti: Yatırım kuruluşları ile bu Kanunun Üçüncü Kısmının Dördüncü Bölümünde yer alan kurumlar, 5237 sayılı Kanunun 244
+      üncü maddesinde tanımlanan sistemi engelleme, bozma, verileri yok etme veya değiştirme suçu açısından banka veya kredi
+      kurumu sayılır.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_SUC_20261111_1.yaml#7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-SPM-SUC-0064
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: SPM
+  unite: Suçlar ve yaptırımlar
+  konu: SUC
+  kazanim: bilgi suistimali faili, tüzel kişi güvenlik tedbirleri ve soruşturma
+  tip: kavrama
+  zorluk: 2
+  kok: '6362 sayılı Kanun''un 106, 114 ve 115 inci maddelerine göre aşağıdaki ifadelerden hangileri doğrudur?
+
+
+    I. Sahip olduğu bilginin kamuya duyurulmamış ve fiyatı etkileyebilecek nitelikte olduğunu bilen kişiler gibi, ispat edilmesi
+    hâlinde bilmesi gereken kişiler de bilgi suistimali suçunun faili olabilir.
+
+
+    II. 106 ve 107 nci maddelerde tanımlanan suçların bir tüzel kişinin yararına işlenmesi hâlinde tüzel kişi hakkında tüzel
+    kişilere özgü güvenlik tedbirlerine hükmolunur.
+
+
+    III. 109 uncu maddedeki izinsiz faaliyet suçunun tüzel kişi yararına işlenmesi hâlinde de tüzel kişilere özgü güvenlik
+    tedbirlerine hükmolunur.
+
+
+    IV. Soruşturma yapılabilmesi, Kurulun Cumhuriyet başsavcılığına yazılı başvuruda bulunmasına bağlıdır ve bu başvuru muhakeme
+    şartıdır.
+
+
+    V. Soruşturmada kovuşturmaya yer olmadığı kararı verilmesi hâlinde bu karara karşı itiraz yetkisi yalnızca şüpheliye aittir.'
+  secenekler:
+    A: I, II ve III
+    B: I, II ve IV
+    C: II, III ve V
+    D: I, IV ve V
+    E: III, IV ve V
+  dogru: B
+  aciklama:
+    dogru_neden: Md. 106/1-d bendi, bilginin niteliğini bilen veya ispat edilmesi hâlinde bilmesi gereken kişileri de kapsar
+      (I). Md. 114/1'e göre tüzel kişilere özgü güvenlik tedbirleri 106 ve 107. maddelerdeki suçlar bakımından uygulanır (II
+      doğru, III yanlış). Md. 115/1'e göre soruşturma Kurulun yazılı başvurusuna bağlıdır ve bu başvuru muhakeme şartıdır
+      (IV). Kovuşturmaya yer olmadığı kararına karşı Kurul da itiraza yetkilidir (md. 115/4; V yanlış).
+    celdiriciler:
+      A: III yanlıştır; güvenlik tedbirleri Kanunda yalnızca 106 ve 107. maddelerdeki suçlar için öngörülmüştür, izinsiz faaliyet
+        suçu bunun dışındadır.
+      C: III ve V yanlış ifadelerdir; ayrıca doğru olan I ve IV bu seçenekte yer almamaktadır.
+      D: V yanlıştır; kovuşturmaya yer olmadığı kararına karşı Kurul da itiraza yetkilidir. II de doğru olduğu hâlde seçenekte
+        yer almamaktadır.
+      E: III ve V yanlış ifadelerdir; bu seçenek doğru ifadelerden yalnızca IV'ü içermektedir.
+  kaynaklar:
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 106/1
+    alinti: d) Sahip oldukları bilginin bu fıkrada belirtilen nitelikte bulunduğunu bilen veya ispat edilmesi hâlinde bilmesi
+      gereken kişiler,
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 114/1
+    alinti: 106 ncı ve 107 nci maddelerde tanımlanan suçların bir tüzel kişinin yararına olarak işlenmesi hâlinde ilgili tüzel
+      kişi hakkında tüzel kişilere özgü güvenlik tedbirlerine hükmolunur.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 115/1
+    alinti: soruşturma yapılması, Kurul tarafından Cumhuriyet başsavcılığına yazılı başvuruda bulunulmasına bağlıdır. Bu başvuru
+      muhakeme şartı niteliğindedir.
+  - mevzuat: 6362 sayılı Sermaye Piyasası Kanunu
+    madde: md. 115/4
+    alinti: Kurul bu karara karşı itiraza yetkilidir.
+  gecerlilik:
+    baslangic: '2012-12-30'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_SPM/SPM_SUC_20261111_1.yaml#8
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'

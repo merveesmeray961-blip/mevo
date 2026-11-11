@@ -1,0 +1,795 @@
+- id: YMM-HSV-DMG-0066
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: davadan feragatte alınacak harç
+  tip: hesaplama
+  zorluk: 2
+  kok: Konusu belli bir değerle ilgili bir davada anlaşmazlık konusu değer 1.500.000 TL'dir. 2026 yılında geçerli karar ve
+    ilam harcı nispeti binde 68,31'dir. Davacı, davadan muhakemenin ilk celsesinden sonra yapılan duruşmada feragat etmiştir.
+    Harçlar Kanunu'na göre feragat nedeniyle alınacak harç kaç TL'dir? (Harcın hesabında 10 TL'ye kadar olan matrah kesirleri
+    bulunmamaktadır.)
+  secenekler:
+    A: 34.155,00
+    B: 68.310,00
+    C: 76.848,75
+    D: 102.465,00
+    E: 136.620,00
+  dogru: B
+  aciklama:
+    dogru_neden: 'Harçlar Kanunu md. 22''ye göre davadan feragat muhakemenin ilk celsesinde olursa karar ve ilam harcının
+      üçte biri, daha sonra olursa üçte ikisi alınır. Karar ve ilam harcı: 1.500.000 × 68,31/1.000 = 102.465 TL. İlk celse
+      geçtikten sonra feragat edildiğinden alınacak harç 102.465 × 2/3 = 68.310 TL''dir.'
+    celdiriciler:
+      A: Karar ve ilam harcının üçte biri (34.155 TL) alınmıştır; üçte bir oranı yalnızca ilk celsede yapılan feragat için
+        geçerlidir.
+      C: Karar ve ilam harcının dörtte üçü (76.848,75 TL) alınmıştır; md. 22 üçte iki oranını öngörür.
+      D: Karar ve ilam harcının tamamı (102.465 TL) alınmıştır; feragatte harç oranı indirilir.
+      E: Harç iki katına çıkarılmıştır (136.620 TL); feragat halinde harç artırılmaz, azaltılır.
+    hesap_adimlari:
+    - Karar ve ilam harcı = 1.500.000 × 0,06831 = 102.465 TL
+    - 'İlk celseden sonra feragat: harcın üçte ikisi'
+    - Alınacak harç = 102.465 × 2/3 = 68.310 TL
+  kaynaklar:
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: md. 22
+    alinti: Davadan feragat veya davayı kabul veya sulh, muhakemenin ilk celsesinde vuku bulursa, karar ve ilam harcının üçte
+      biri, daha sonra olursa üçte ikisi alınır.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'harc=1500000*68.31/1000
+
+      sonuc = harc*2/3
+
+      '
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_DMG_20261111_1.yaml#1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-HSV-DMG-0067
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: ölüm nedeniyle tazminat davasında peşin harç ve bakiye
+  tip: hesaplama
+  zorluk: 2
+  kok: Ölüm sebebiyle açılan maddi ve manevi tazminat davasında mahkeme 2.000.000 TL tazminata hükmetmiştir. 2026 yılı karar
+    ve ilam harcı nispeti binde 68,31'dir. Peşin harcın, hükmedilen değer üzerinden hesaplanan karar ve ilam harcı esas alınarak
+    Harçlar Kanunu md. 28'de öngörülen oranla ödendiği varsayıldığında, kararın tebliğinden itibaren bir ay içinde ödenecek
+    bakiye karar ve ilam harcı kaç TL'dir?
+  secenekler:
+    A: '6.831'
+    B: '34.155'
+    C: '102.465'
+    D: '129.789'
+    E: '136.620'
+  dogru: D
+  aciklama:
+    dogru_neden: Harçlar Kanunu md. 28/a'ya göre karar ve ilam harçlarının dörtte biri peşin, geri kalanı kararın tebliğinden
+      itibaren bir ay içinde ödenir; ancak ölüm ve cismani zarar sebebiyle açılan maddi ve manevi tazminat davalarında peşin
+      alınan harcın oranı yirmide bir olarak uygulanır. Karar ve ilam harcı 2.000.000 × 68,31/1.000 = 136.620 TL; peşin harç
+      136.620 / 20 = 6.831 TL; bakiye 136.620 − 6.831 = 129.789 TL'dir.
+    celdiriciler:
+      A: Yalnızca peşin harç (6.831 TL) bakiye sanılmıştır; bakiye, toplam harçtan peşin harç düşülerek bulunur.
+      B: Dörtte bir oranı (34.155 TL) uygulanmıştır; ölüm ve cismani zarar tazminat davalarında peşin oran yirmide birdir.
+      C: Dörtte üç oranıyla bakiye (102.465 TL) hesaplanmıştır; bu tazminat davalarında peşin oran yirmide bir olduğundan
+        bakiye yirmide ondokuzdur.
+      E: Toplam karar ve ilam harcı (136.620 TL) bakiye kabul edilmiştir; peşin ödenen kısım düşülmemiştir.
+    hesap_adimlari:
+    - Karar ve ilam harcı = 2.000.000 × 0,06831 = 136.620 TL
+    - Peşin harç = 136.620 / 20 = 6.831 TL
+    - Bakiye = 136.620 − 6.831 = 129.789 TL
+  kaynaklar:
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: md. 28/a
+    alinti: Karar ve ilam harçlarının dörtte biri peşin, geri kalanı kararın tebliğinden itibaren bir ay içinde ödenir. Şu
+      kadar ki, ölüm ve cismani zarar sebebiyle açılan maddi ve manevi tazminat davalarında peşin alınan harcın oranı yirmide
+      bir olarak uygulanır.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'harc=2000000*68.31/1000
+
+      pesin=harc/20
+
+      sonuc = harc-pesin
+
+      '
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_DMG_20261111_1.yaml#2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-HSV-DMG-0068
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: tapu harcında ikmalen tarh ve vergi ziyaı cezası
+  tip: hesaplama
+  zorluk: 3
+  kok: (A), 2026 yılında (S)'den satın aldığı gayrimenkulün tapuda tescili sırasında 2.000.000 TL bedel üzerinden tapu harcı
+    ödemiştir. Sonradan, gayrimenkulün işlem tarihindeki emlak vergisi değerinin 3.000.000 TL olduğu ve harcın emlak vergisi
+    değerinden düşük bir bedel üzerinden ödendiği tespit edilmiştir. Gayrimenkul alım-satımında devir eden ve devir alan için
+    ayrı ayrı uygulanan 2026 yılı tapu harcı nispeti binde 20'dir. Harçlar Kanunu md. 63'e göre (A)'dan (alıcıdan) bu tespit
+    nedeniyle aranacak ek harç ve vergi ziyaı cezası toplamı kaç TL'dir? (Takdir komisyonu kararı **yoktur**; ceza, ikmalen
+    tarh edilecek harç için Vergi Usul Kanunu'ndaki vergi ziyaı cezasının uygulanmasıyla bulunacaktır.)
+  secenekler:
+    A: '20.000'
+    B: '25.000'
+    C: '40.000'
+    D: '60.000'
+    E: '80.000'
+  dogru: C
+  aciklama:
+    dogru_neden: 'Harçlar Kanunu md. 63''e göre tapuda yapılan işlemden sonra emlak vergisi değerinden daha düşük bir bedel
+      üzerinden harç ödendiği tespit edilirse aradaki farka isabet eden harç ikmalen veya re''sen tarh edilir ve bu harç için
+      vergi ziyaı cezası bir kat uygulanır. Fark = 3.000.000 − 2.000.000 = 1.000.000 TL; alıcının ek harcı 1.000.000 × binde
+      20 = 20.000 TL; ceza bir kat = 20.000 TL; toplam 40.000 TL''dir. Püf noktaları: (1) Tarife, devir eden ve devir alan
+      için ayrı ayrı uygulandığından soruda yalnızca alıcı istenmiştir. (2) Ceza, harç tutarının bir katıdır (yüzde yüz).
+      (3) Matrah, ödenen bedelle emlak vergisi değeri arasındaki farktır, tüm değer değildir.'
+    celdiriciler:
+      A: Yalnızca ikmalen tarh edilen harç (20.000 TL) bulunmuş, vergi ziyaı cezası eklenmemiştir; md. 63 ceza uygulanmasını
+        öngörür.
+      B: Ceza %25 nispetinde hesaplanmıştır (20.000 + 5.000 = 25.000 TL); md. 63'te ceza artık bir kat uygulanır.
+      D: Ceza iki kat alınmıştır (20.000 + 40.000 = 60.000 TL); kanun bir kat öngörür.
+      E: Hem alıcı hem satıcı payı birlikte hesaplanmıştır (2 × 40.000 = 80.000 TL); soruda yalnızca alıcıdan aranacak tutar
+        sorulmuştur.
+    hesap_adimlari:
+    - Fark = 3.000.000 − 2.000.000 = 1.000.000 TL
+    - Ek harç = 1.000.000 × 20/1.000 = 20.000 TL (alıcı)
+    - Vergi ziyaı cezası = 20.000 × 1 = 20.000 TL
+    - Toplam = 20.000 + 20.000 = 40.000 TL
+  kaynaklar:
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: md. 63
+    alinti: Tapuda yapılan işlemden sonra, emlak vergisi değerinden daha düşük bir bedel üzerinden harç ödendiğinin veya beyan
+      edilen devir ve iktisap bedelinin gerçek durumu yansıtmadığının tespit edilmesi halinde, aradaki farka isabet eden harç
+      ikmalen veya re’sen tarh edilir. Bu suretle tarh edilecek tapu ve kadastro harcı için, 213 sayılı Vergi Usul Kanununda
+      yer alan vergi ziyaı cezası bir kat uygulanır.
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: (4) sayılı tarife, I-20/a
+    alinti: Gayrimenkullerin ivaz karşılığında veya ölünceye kadar bakma akdine dayanarak yahut trampa hükümlerine göre devir
+      ve iktisabında gayrimenkulün emlak vergisi değerinden az olmamak üzere beyan edilen devir ve iktisap bedeli üzerinden
+      (cebrî icra ve şüyuun izalesi hallerinde satış bedeli, istimlaklerde takdir edilen bedel üzerinden) devir eden ve devir
+      alan için ayrı ayrı,
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'fark=3000000-2000000
+
+      harc=fark*20/1000
+
+      sonuc = harc+harc*1
+
+      '
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_DMG_20261111_1.yaml#3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-HSV-DMG-0069
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: intifa hakkından feragatte tapu harcı
+  tip: hesaplama
+  zorluk: 3
+  kok: Kayıtlı değeri (emlak vergisi değeri) 6.000.000 TL olan bir gayrimenkulün intifa hakkı sahibi (İ), intifa hakkından
+    kuru mülkiyet sahibi (K) lehine kanuni mirasçılık ilişkisi bulunmaksızın ivazsız feragat etmiştir. 2026 yılında, intifa
+    hakkından kuru mülkiyet sahibi lehine ivazsız feragat edilmesinde uygulanan tapu harcı nispeti binde 68,31'dir. Harçlar
+    Kanunu'na göre bu feragat nedeniyle alınacak tapu harcı kaç TL'dir?
+  secenekler:
+    A: '80.000'
+    B: '120.000'
+    C: '136.620'
+    D: '273.240'
+    E: '409.860'
+  dogru: D
+  aciklama:
+    dogru_neden: 'Harçlar Kanunu md. 64''e göre çıplak mülkiyet ve intifa haklarına ait harçların hesabında kayıtlı değerin
+      üçte biri çıplak mülkiyete, üçte ikisi intifa hakkına ayrılır. (4) sayılı tarifede intifa hakkından kuru mülkiyet sahibi
+      lehine ivazsız feragat için kayıtlı değer üzerinden binde 68,31 harç öngörülmüştür. Feragat edilen hak intifadır: 6.000.000
+      × 2/3 = 4.000.000 TL; harç 4.000.000 × 68,31/1.000 = 273.240 TL''dir. Püf noktaları: (1) Harcın matrahı tüm kayıtlı
+      değer değil, intifa payıdır. (2) Alım-satımdaki binde 20 oranı bu işlemde uygulanmaz. (3) Bağışa benzer işlemlerde oran
+      binde 68,31''dir.'
+    celdiriciler:
+      A: İntifa değerine (4.000.000 TL) alım-satım nispeti olan binde 20 uygulanmıştır (80.000 TL); intifa feragati ivazsız
+        olduğundan binde 68,31 uygulanır.
+      B: Tüm kayıtlı değere (6.000.000 TL) binde 20 uygulanmıştır (120.000 TL); hem oran hem matrah yanlıştır.
+      C: Kayıtlı değerin üçte biri (çıplak mülkiyet payı, 2.000.000 TL) matrah alınmıştır (136.620 TL); intifa payı üçte ikidir.
+      E: Tüm kayıtlı değere (6.000.000 TL) binde 68,31 uygulanmıştır (409.860 TL); matrah yalnızca intifa payıdır.
+    hesap_adimlari:
+    - İntifa payı = 6.000.000 × 2/3 = 4.000.000 TL
+    - Harç = 4.000.000 × 68,31/1.000 = 273.240 TL
+  kaynaklar:
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: md. 64
+    alinti: Çıplak mülkiyet ve intifa haklarına ait harcların hesabında, kayıtlı değerin üçte biri çıplak mülkiyete, üçte
+      ikisi de intifa hakkına ayrılır.
+  - mevzuat: 492 sayılı Harçlar Kanunu
+    madde: (4) sayılı tarife, I-4
+    alinti: Gayrimenkullerin ve mülkiyetten gayrı ayni hakların bağışlanmasından, kanuni mirasçılar dışında intifa hakkından
+      kuru mülkiyet sahibi lehine ivazsız feragat (Binde 68,31) Binde 36 edilmesinde ve süreli intifa haklarında süre dolarak
+      intifa hakkının sona ermesinde kayıtlı değer üzerinden
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'matrah=6000000*2/3
+
+      sonuc = matrah*68.31/1000
+
+      '
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_DMG_20261111_1.yaml#4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-HSV-DMG-0070
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: birden fazla nüsha düzenlenen kâğıtlarda damga vergisi
+  tip: hesaplama
+  zorluk: 2
+  kok: Taraflar, belli parayı ihtiva eden 5.000.000 TL tutarlı bir mukaveleyi 3 nüsha olarak düzenleyip imzalamışlardır. 2026
+    yılında mukavelelerde uygulanan damga vergisi nispeti binde 9,48'dir. Damga Vergisi Kanunu md. 5'e göre bu mukavele için
+    ödenmesi gereken toplam damga vergisi kaç TL'dir?
+  secenekler:
+    A: '47.400'
+    B: '94.800'
+    C: '142.200'
+    D: '189.600'
+    E: '237.000'
+  dogru: A
+  aciklama:
+    dogru_neden: 'Damga Vergisi Kanunu md. 5''e göre bir nüshadan fazla olarak düzenlenen kâğıtlardan maktu vergiye tabi olanların
+      her bir nüshası ayrı ayrı aynı miktarda, nispi vergiye tabi olanların ise sadece bir nüshası damga vergisine tabidir.
+      Mukavele belli para ihtiva ettiğinden nispi vergiye tabidir: 5.000.000 × 9,48/1.000 = 47.400 TL; üç nüshadan yalnız
+      biri vergilendirilir.'
+    celdiriciler:
+      B: İki nüsha vergilendirilmiştir (94.800 TL); nispi vergide yalnızca bir nüsha vergiye tabidir.
+      C: Üç nüshanın tamamı vergilendirilmiştir (142.200 TL); bu kural maktu vergiye tabi kâğıtlar için geçerlidir.
+      D: Dört nüsha varmış gibi hesap yapılmıştır (189.600 TL); mukavele üç nüshadır ve zaten yalnız biri vergilenir.
+      E: Beş nüsha vergilendirilmiş gibi hesap yapılmıştır (237.000 TL); nüsha sayısı vergiyi çoğaltmaz.
+    hesap_adimlari:
+    - Mukavele nispi vergiye tabi; yalnız bir nüsha vergilendirilir
+    - Vergi = 5.000.000 × 9,48/1.000 = 47.400 TL
+  kaynaklar:
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 5
+    alinti: Bir nüshadan fazla olarak düzenlenen kâğıtlardan, maktu vergiye tabi olanların her bir nüshası ayrı ayrı aynı
+      miktarda; nispi vergiye tabi olanların ise sadece bir nüshası damga vergisine tabidir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'sonuc = 5000000*9.48/1000
+
+      '
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_DMG_20261111_1.yaml#5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-HSV-DMG-0071
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: makbuz karşılığı ödemede süre
+  tip: uygulama
+  zorluk: 1
+  kok: Damga Vergisi Kanunu md. 22/a kapsamında Maliye Bakanlığınca belirlenmiş mükellefler arasında bulunmayan (T) A.Ş.,
+    12 Mart 2026'da vergiye tabi bir kâğıt düzenlemiştir. Verginin makbuz karşılığı ödenmesi ve beyanname ile bildirilmesi
+    için son gün aşağıdakilerden hangisidir? (Süre sonu tatil gününe rastlamamakta, kâğıt için başka bir ödeme şekli öngörülmemektedir.)
+  secenekler:
+    A: 27 Mart 2026
+    B: 31 Mart 2026
+    C: 12 Nisan 2026
+    D: 20 Nisan 2026
+    E: 26 Nisan 2026
+  dogru: A
+  aciklama:
+    dogru_neden: Damga Vergisi Kanunu md. 22/b'ye göre (a) bendi dışındaki hallerde damga vergisi, kâğıdın düzenlendiği tarihi
+      izleyen onbeş gün içinde vergi dairesine bir beyanname ile bildirilir ve aynı süre içinde ödenir. 12 Mart 2026'da düzenlenen
+      kâğıt için süre 12 Mart'ı izleyen onbeş gün sonunda, 27 Mart 2026'da biter.
+    celdiriciler:
+      B: Ay sonu, md. 22/b'de öngörülen süre değildir; bu bentte kâğıdın düzenlendiği tarihi izleyen onbeş gün esas alınır.
+      C: 12 Nisan, düzenlenme tarihinden bir ay sonrası olup md. 22/b'deki onbeş günlük süreyle uyuşmaz.
+      D: Ertesi ayın 20'si, yalnızca md. 22/a kapsamındaki mükelleflerin beyan günüdür; (T) bu kapsamda değildir.
+      E: Ertesi ayın 26'sı yine md. 22/a kapsamındaki mükelleflerin ödeme günüdür; (T) için onbeş günlük süre uygulanır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 22/b
+    alinti: (a) bendi dışındaki hallerde, kâğıdın düzenlendiği tarihi izleyen onbeş gün içinde vergi dairesine bir beyanname
+      ile bildirilir ve aynı süre içinde ödenir.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 22/a
+    alinti: Maliye Bakanlığınca belirlenen mükellefler, kurum ve kuruluşlar tarafından bir ay içinde düzenlenen kağıtların
+      vergisi, ertesi ayın yirminci günü akşamına kadar vergi dairesine bir beyanname ile bildirilir ve yirmialtıncı günü
+      akşamına kadar ödenir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_DMG_20261111_1.yaml#6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-HSV-DMG-0072
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: bir kâğıtta birden fazla akit ve sözleşme müeyyidesi
+  tip: kavrama
+  zorluk: 2
+  kok: 488 sayılı Damga Vergisi Kanunu'nun md. 6 hükümleri bakımından aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: Bir kağıtta birbirinden tamamen ayrı birden fazla akit ve işlem bulunduğunda bunların her birinden ayrı ayrı vergi
+      alınır.
+    B: Pey akçesi, cayma tazminatı gibi müeyyide taahhütlerinden, başlı başına sözleşmeye konu olsalar bile damga vergisi
+      alınmaz.
+    C: Bir kağıtta toplanan akit ve işlemler birbirine bağlı ve bir asıldan doğma ise vergi, en yüksek vergi alınmasını gerektiren
+      akit veya işlem üzerinden alınır.
+    D: Asıl işlemin akitlerinden başka bir şahsın eklenen akit ve işlemi de ayrıca vergiye tabidir.
+    E: Bir kâğıt üzerinde birden fazla adi kefalet ve garanti taahhüdü bulunması halinde, bunlardan yalnızca birinden damga
+      vergisi alınır.
+  dogru: B
+  aciklama:
+    dogru_neden: Damga Vergisi Kanunu md. 6/son fıkraya göre pey akçesi, cayma tazminatı, ücret tevkifi, cezai şart gibi bir
+      sözleşmenin müeyyidesi mahiyetinde olan taahhütlerden, başlı başına bir sözleşmeye konu olmadıkça damga vergisi alınmaz.
+      Başlı başına bir sözleşmeye konu olmaları halinde vergi alınır; bu nedenle B seçeneğindeki “her halde alınmaz” ifadesi
+      yanlıştır.
+    celdiriciler:
+      A: Doğrudur; md. 6/1 birbirinden tamamen ayrı akit ve işlemlerin her birinden ayrı ayrı vergi alınacağını belirtir.
+      C: Doğrudur; md. 6/2 bağlı ve bir asıldan doğma akit ve işlemlerde en yüksek vergiyi gerektiren işlem üzerinden vergi
+        alınacağını belirtir.
+      D: Doğrudur; md. 6/2 asıl işlemin akitlerinden başka bir şahsın eklenen akit ve işleminin de ayrıca vergiye tabi olduğunu
+        belirtir.
+      E: Doğrudur; md. 6'ya eklenen cümleye göre bir kâğıtta birden fazla adi kefalet ve garanti taahhüdü varsa yalnızca birinden
+        vergi alınır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 6
+    alinti: Bir kağıtta biribirinden tamamen ayrı birden fazla akit ve işlem bulunduğu takdirde bunların herbirinden ayrı
+      ayrı vergi alınır.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 6
+    alinti: Bir kağıtta toplanan akit ve işlemler birbirine bağlı ve bir asıldan doğma oldukları takdirde Damga Vergisi,en
+      yüksek vergi alınmasını gerektiren akit veya işlem üzerinden alınır.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 6
+    alinti: Pey akçesi, cayma tazminatı, ücret tevkifi, cezai şart gibi bir sözleşmenin müeyyidesi mahiyetinde olan taahhütlerden,
+      başlı başına bir sözleşmeye konu olmadıkça damga vergisi alınmaz.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_DMG_20261111_1.yaml#7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-HSV-DMG-0073
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: basılı damga şeklinde ödeme
+  tip: hesaplama
+  zorluk: 1
+  kok: Damga Vergisi Kanunu md. 17 kapsamında basılı damga konulması şekliyle ödenebilen bir kâğıt için hesaplanan damga vergisi
+    40.000 TL'dir. Bu kâğıdın vergisi basılı damga konulması şekliyle ödenecekse, Kanun md. 21'e göre peşin ödenecek tutar
+    kaç TL'dir?
+  secenekler:
+    A: '2.000'
+    B: '20.000'
+    C: '38.000'
+    D: '40.000'
+    E: '42.000'
+  dogru: C
+  aciklama:
+    dogru_neden: Damga Vergisi Kanunu md. 21'e göre basılı damga konulacak kağıtların vergisi, yüzde beş noksanı ile peşin
+      olarak ödenir. Peşin ödenecek tutar 40.000 × (1 − 0,05) = 38.000 TL'dir.
+    celdiriciler:
+      A: Verginin yalnızca %5'i (2.000 TL) alınmıştır; kanun %5 noksan ödeme öngörür, yalnızca %5'in ödenmesi değil.
+      B: Verginin yarısı (20.000 TL) alınmıştır; indirim oranı yüzde beştir.
+      D: Hesaplanan verginin tamamı (40.000 TL) alınmıştır; basılı damgada yüzde beş noksanı uygulanır.
+      E: Vergiye %5 eklenmiştir (42.000 TL); kanun noksanı (indirimi) öngörür, artırımı değil.
+    hesap_adimlari:
+    - İndirim = 40.000 × %5 = 2.000 TL
+    - Peşin ödenecek tutar = 40.000 − 2.000 = 38.000 TL
+  kaynaklar:
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 21
+    alinti: Basılı damga konulacak kağıtların vergisi, yüzde beş noksanı ile peşin olarak ödenir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'vergi=40000
+
+      sonuc = vergi*(1-0.05)
+
+      '
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_DMG_20261111_1.yaml#8
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'
+- id: YMM-HSV-DMG-0074
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Damga vergisi ve harçlar
+  konu: DMG
+  kazanim: imza ve ibraz eden sorumluluğu
+  tip: kavrama
+  zorluk: 1
+  kok: 488 sayılı Damga Vergisi Kanunu'nun md. 7, 8 ve 24 hükümlerine göre aşağıdakilerden hangisi doğrudur?
+  secenekler:
+    A: Vergi ve cezadan, mükelleflere rücu hakkı olmak üzere, kağıtları ibraz edenler sorumludur.
+    B: Kağıtlara konulan imzanın birden fazla olması verginin tekerrürünü gerektirir.
+    C: Birden fazla kişi tarafından imza edilen kağıtlara ait vergi ve cezadan imza edenler yalnızca imza ettikleri oranda
+      sorumludur.
+    D: Resmi daireye bağlı olup ayrı tüzel kişiliği bulunan iktisadi işletmeler resmi daire sayılır.
+    E: Bir resmi daire adına kağıtlara konulan birden fazla imza, imza sayısı kadar vergilendirilir.
+  dogru: A
+  aciklama:
+    dogru_neden: 'Damga Vergisi Kanunu md. 24/1''e göre vergi ve cezadan, mükelleflere rücu hakkı olmak üzere, kağıtları ibraz
+      edenler sorumludur. Diğer seçeneklerin düzeltmesi: imzanın birden fazla olması verginin tekerrürünü gerektirmez (md.
+      7); birden fazla kişi imzaladıysa vergi ve cezanın tamamından müteselsilen sorumlu olunur (md. 24); ayrı tüzel kişiliği
+      olan iktisadi işletmeler resmi daire sayılmaz (md. 8); resmi daire adına konulan birden fazla imza bir imza hükmündedir
+      (md. 7).'
+    celdiriciler:
+      B: Md. 7'ye göre imzanın birden fazla olması verginin tekerrürünü gerektirmez.
+      C: Md. 24'e göre birden fazla kişi tarafından imza edilen kağıtlara ait vergi ve cezanın tamamından imza edenler müteselsilen
+        sorumludur.
+      D: Md. 8'e göre ayrı tüzel kişiliği bulunan iktisadi işletmeler resmi daire sayılmaz.
+      E: Md. 7'ye göre bir resmi daire adına kağıtlara konulan birden fazla imza bir imza hükmündedir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 24
+    alinti: Vergiye tabi kağıtların Damga Vergisinin ödenmemesinden veya noksan ödenmesinden dolayı alınması lazımgelen vergi
+      ve cezadan, mükelleflere rücu hakkı olmak üzere, kağıtları ibraz edenler sorumludur.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 7
+    alinti: Kağıtlara konulan imzanın birden fazla olması verginin tekerrürünü gerektirmez.
+  - mevzuat: 488 sayılı Damga Vergisi Kanunu
+    madde: md. 8
+    alinti: Bu dairelere bağlı olup ayrı tüzel kişiliği bulunan iktisadi işletmeler resmi daire sayılmaz.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık,
+          açıklama tutarlı.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_DMG_20261111_1.yaml#9
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Anahtar bağımsız çözümle ve mevzuat/2026 tutarlarıyla doğrulandı; tek doğru şık, açıklama
+      tutarlı.'

@@ -1,0 +1,745 @@
+- id: YMM-HSV-SRV-0078
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: MTV taksitleri ve vergiye etki eden değişiklik
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir otomobil için 2026 yılı başında MTV yıllık 8.000 TL olarak tahakkuk etmiştir. Taşıtın motor silindir hacminde Mart
+    2026'da yapılan değişiklik nedeniyle yeni duruma göre yıllık vergi tutarı 12.000 TL'ye yükselmiştir. Mükellef Ocak taksitini
+    eski duruma göre ödemiş, başka değişiklik olmamıştır. MTV Kanunu'na göre mükellefin 2026 takvim yılı için ödeyeceği toplam
+    MTV kaç TL'dir?
+  secenekler:
+    A: '8.000'
+    B: '10.000'
+    C: '12.000'
+    D: '14.000'
+    E: '16.000'
+  dogru: B
+  aciklama:
+    dogru_neden: MTVK md. 9'a göre MTV Ocak ve Temmuz aylarında iki eşit taksitte ödenir; takvim yılının ilk altı ayında taşıtın
+      bünyesinde verginin artmasını gerektiren değişiklik olursa ikinci taksit yeni duruma göre ödenir (md. 11'de de değişiklik
+      ilk altı ayda yapılmışsa takip eden son altı aylık dönemin başından itibaren dikkate alınır). Ocak taksiti 8.000 / 2
+      = 4.000 TL, Temmuz taksiti 12.000 / 2 = 6.000 TL; toplam 10.000 TL'dir.
+    celdiriciler:
+      A: Eski yıllık tutar (8.000 TL) esas alınmıştır; oysa verginin artmasını gerektiren değişiklik nedeniyle ikinci taksit
+        yeni duruma göre (6.000 TL) ödenir.
+      C: Yeni yıllık tutarın tamamı (12.000 TL) esas alınmıştır; oysa değişiklik yalnızca ikinci taksite yansır, ilk taksit
+        eski tutara göre kalır.
+      D: Eski yıllık tutar (8.000 TL) ile yeni ikinci taksit toplanmıştır; ilk taksit yıllık tutarın yarısı olan 4.000 TL'dir.
+      E: İlk taksit (4.000 TL) ile yeni yıllık tutar (12.000 TL) toplanmıştır; ikinci taksit yeni yıllık tutarın yarısı olan
+        6.000 TL'dir.
+    hesap_adimlari:
+    - Ocak taksiti = 8.000 / 2 = 4.000 TL (eski duruma göre)
+    - Temmuz taksiti = 12.000 / 2 = 6.000 TL (yeni duruma göre)
+    - Toplam = 4.000 + 6.000 = 10.000 TL
+  kaynaklar:
+  - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
+    madde: md. 9
+    alinti: Motorlu taşıtlar vergisi her yıl Ocak ve Temmuz aylarında iki eşit taksitte ödenir. Takvim yılının ilk altı ayında,
+      taşıtın bünyesinde bir değişiklik olması veya verginin artırılması veya azaltılması halinde ikinci taksit, yeni duruma
+      göre ödenir.
+  - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
+    madde: md. 11
+    alinti: bu değişiklik, takvim yılının ilk altı ayında yapılmış ise takip eden son altı aylık dönemin başından, son altı
+      ayında yapılmış ise takip eden takvim yılı başından itibaren dikkate alınır ve vergi, yeni duruma göre ödenir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'ocak=8000/2
+
+      temmuz=12000/2
+
+      sonuc = ocak+temmuz
+
+      '
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) duzelt: MTV 0078: celdirici A aciklamasi anahtarla uyumsuz (secenek A = 8.000 TL = eski
+          yillik tutar; aciklama 6.000 TL diyor). Anahtar dogru.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_SRV_20261111_1.yaml#1
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) duzelt: MTV 0078: celdirici A aciklamasi anahtarla uyumsuz (secenek A = 8.000 TL = eski yillik
+      tutar; aciklama 6.000 TL diyor). Anahtar dogru.'
+- id: YMM-HSV-SRV-0079
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: MTV mükellefiyetin sona ermesi, tahakkuk ve tebliğ
+  tip: kavrama
+  zorluk: 2
+  kok: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu'nun tahakkuk, tebliğ, ödeme ve mükellefiyetin sona ermesine ilişkin hükümleri
+    bakımından aşağıdaki ifadelerden hangisi **yanlıştır**?
+  secenekler:
+    A: MTV, taşıtların kayıt ve tescilinin yapıldığı yerin vergi dairesi tarafından her yıl Ocak ayının başında yıllık olarak
+      tahakkuk ettirilmiş sayılır.
+    B: Tahakkuk ettirilen vergi mükellefe ayrıca tebliğ olunmaz ve vergi tahakkuk ettirilen günde tebliğ edilmiş sayılır.
+    C: MTV her yıl Ocak ve Temmuz aylarında iki eşit taksitte ödenir.
+    D: Taşıtın trafik sicilinden silinmesi takvim yılının ilk altı ayı içinde yapılmışsa mükellefiyet, takip eden takvim yılı
+      başından itibaren sona erer.
+    E: Tahakkuk ettirilmesi gereken MTV'nin eksik tahakkuk ettirilmesi veya hiç tahakkuk ettirilmemesi halinde bu vergi ilgili
+      vergi dairesi tarafından ikmalen tarh edilir.
+  dogru: D
+  aciklama:
+    dogru_neden: MTVK md. 8'e göre kayıt silinmesi takvim yılının ilk altı ayı içinde yapılmışsa mükellefiyet ikinci altı
+      aylık dönemin başından itibaren sona erer; takip eden takvim yılı başı kuralı yalnızca silinmenin ikinci altı aylık
+      dönem içinde yapılması halinde geçerlidir. Bu nedenle D seçeneği yanlıştır. Diğer seçenekler md. 9 hükümlerine uygundur.
+    celdiriciler:
+      A: Doğrudur; md. 9/1 verginin her yıl Ocak ayının başında yıllık olarak tahakkuk ettirilmiş sayılacağını belirtir.
+      B: Doğrudur; md. 9 tahakkuk ettirilen verginin ayrıca tebliğ olunmayacağını ve tahakkuk günü tebliğ edilmiş sayılacağını
+        hükme bağlar.
+      C: Doğrudur; md. 9 verginin Ocak ve Temmuz aylarında iki eşit taksitte ödeneceğini belirtir.
+      E: Doğrudur; md. 9'daki ek cümle, eksik veya hiç tahakkuk ettirilmeyen verginin vergi dairesince ikmalen tarh edileceğini
+        öngörür.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
+    madde: md. 8
+    alinti: silinme takvim yılının ilk altı ayı içinde yapılmış ise ikinci altı aylık dönemin başından, ikinci altı aylık
+      dönem içinde yapılmışsa takipeden takvim yılı başından itibaren mükellefiyet sona erer.
+  - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
+    madde: md. 9
+    alinti: Motorlu taşıtlar vergisi, taşıtların kayıt ve tescilinin yapıldığı yerin vergi dairesi tarafından her yıl Ocak
+      ayının başında yıllık olarak tahakkuk ettirilmiş sayılır.
+  - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
+    madde: md. 9
+    alinti: Tahakkuk ettirilen vergi, ayrıca mükellefe tebliğ olunmaz ve vergi tahakkuk ettirilen günde tebliğ edilmiş sayılır.
+  - mevzuat: 197 sayılı Motorlu Taşıtlar Vergisi Kanunu
+    madde: md. 9
+    alinti: Şu kadar ki, tahakkuk ettirilmesi gereken motorlu taşıtlar vergisinin eksik tahakkuk ettirilmesi veya hiç tahakkuk
+      ettirilmemesi halinde, bu vergi ilgili vergi dairesi tarafından ikmalen tarh edilir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_SRV_20261111_1.yaml#2
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-HSV-SRV-0080
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: 'emlak vergisi: vergi değerini tadil eden sebepler'
+  tip: bilgi
+  zorluk: 1
+  kok: 1319 sayılı Emlak Vergisi Kanunu md. 33'e göre aşağıdakilerden hangisi vergi değerini tadil eden sebepler arasında
+    **değildir**?
+  secenekler:
+    A: Yeni bina inşa edilmesi veya mevcut binalara ilaveler yapılması
+    B: Bir binanın kullanış tarzının tamamen değiştirilmesi
+    C: Arazinin parsellenmek suretiyle arsalar haline getirilmesi
+    D: Bir bina veya arazinin mükellefinin değişmesi
+    E: Bir binadaki kira bedelinin kiracı ile yeniden belirlenmesi
+  dogru: E
+  aciklama:
+    dogru_neden: 'EVK md. 33''te vergi değerini tadil eden sebepler sınırlı sayıda sayılmıştır: yeni bina inşası, binanın
+      yanması-yıkılması, kullanış tarzının değişmesi, arazinin hal ve heyetinde değişiklik, mütemmimlik durumunun değişmesi,
+      taksim-ifraz veya mükellefin değişmesi, müteaddit arazi/arsaların birleştirilmesi ve değerlerin şehir/köy genelinde
+      %25''i aşan oranda artması veya azalması. Kira bedelinin artması bu sebeplerden değildir.'
+    celdiriciler:
+      A: 'Md. 33/1: yeni bina inşa edilmesi tadil sebebidir; mevcut binalara ilaveler yapılması da yeni inşaat hükmündedir.'
+      B: 'Md. 33/3: binanın kullanış tarzının tamamen değiştirilmesi tadil sebebidir.'
+      C: 'Md. 33/4-e: arazinin parsellenmek suretiyle arsalar haline getirilmesi arazinin hal ve heyetinde değişiklik olarak
+        tadil sebebidir.'
+      D: 'Md. 33/6: bir bina veya arazinin taksim veya ifraz edilmesi ya da mükellefinin değişmesi tadil sebebidir.'
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 33/1
+    alinti: 'Vergi değerini tadil eden sebepler aşağıda gösterilmiştir: 1. Yeni bina inşa edilmesi (Mevcut binalara ilaveler
+      yapılması veya asansör veya kalorifer tesisleri konulması yeni inşaat hükmündedir.)'
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 33/6
+    alinti: 6. Bir bina veya arazinin taksim veya ifraz edilmesi veya mükellefinin değişmesi
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 33/3
+    alinti: 3. Bir binanın kullanış tarzının tamamen değiştirilmesi veya bir binanın ikamete mahsus mahallerinden bir kısmının
+      dükkan, mağaza, depo gibl ticaret ve sanat icrasına mahsus mahaller haline kalbedilmesi,
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_SRV_20261111_1.yaml#3
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-HSV-SRV-0081
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: tasarrufu kısıtlanan taşınmazın emlak vergisi
+  tip: hesaplama
+  zorluk: 2
+  kok: Bir arsa, bir kanun hükmü gereği tasarrufu kısıtlanmış olup kısıtlama 2026 yılı boyunca devam etmektedir. Arsanın kısıtlama
+    olmasaydı ödenecek yıllık emlak vergisi 36.000 TL'dir. Emlak Vergisi Kanunu'na göre bu arsa için Kasım ayında ödenecek
+    ikinci taksit kaç TL'dir? (Taksit iki eşit taksit esasına göre hesaplanacak, tecil edilen kısım dikkate alınmayacaktır.)
+  secenekler:
+    A: '1.800'
+    B: '3.600'
+    C: '16.200'
+    D: '18.000'
+    E: '32.400'
+  dogru: A
+  aciklama:
+    dogru_neden: EVK md. 30'a göre tasarrufu kanunlarla veya kamu düzeni koyan diğer mevzuatla kısıtlanan arsa vergisi, kısıtlamanın
+      devam ettiği sürece 1/10 oranında tahsil olunur. Yıllık tahsil edilecek vergi 36.000 × 1/10 = 3.600 TL, iki eşit taksitte
+      ödendiğinden Kasım taksiti 1.800 TL'dir. Kalan 9/10 tecil edilmiştir.
+    celdiriciler:
+      B: Yıllık verginin 1/10'unun tamamı (3.600 TL) ikinci taksit sayılmıştır; vergi iki eşit taksitte ödendiğinden yarısı
+        alınır.
+      C: Kısıtlamasız yıllık verginin yarısının 9/10'u (16.200 TL) bulunmuştur; kısıtlama altında tahsil edilen kısım 1/10'dur,
+        9/10'u tecil edilir.
+      D: Kısıtlama dikkate alınmadan normal taksit (18.000 TL) hesaplanmıştır; kısıtlı taşınmazda vergi 1/10 oranında tahsil
+        olunur.
+      E: Yıllık verginin 9/10'u (32.400 TL) esas alınmıştır; tahsil edilen kısım 1/10'dur, 9/10'u ise tahsil edilmeyip tecil
+        olunur.
+    hesap_adimlari:
+    - Yıllık tahsil edilecek vergi = 36.000 × 1/10 = 3.600 TL
+    - 'İki eşit taksit: 3.600 / 2 = 1.800 TL'
+  kaynaklar:
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 30
+    alinti: Emlak Vergisi birinci taksidi Mart, Nisan ve Mayıs aylarında, ikinci taksidi Kasım ayı içinde olmak üzere iki
+      eşit taksitte ödenir.
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 30
+    alinti: Kanunlar veya diğer kamu düzeni koyan mevzuatla tasarrufu kısıtlanan bina arsa ve arazinin vergisi, kısıtlamanın
+      devam ettiği sürece 1/10 oranında tahsil olunur.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'yillik=36000
+
+      sonuc = yillik/10/2
+
+      '
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_SRV_20261111_1.yaml#4
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-HSV-SRV-0082
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: 'değerli konut vergisi: mükellefiyet, beyan ve ödeme'
+  tip: kavrama
+  zorluk: 2
+  kok: 1319 sayılı Emlak Vergisi Kanunu'nun değerli konut vergisine ilişkin md. 45 ve 47 hükümleri bakımından aşağıdakilerden
+    hangisi doğrudur?
+  secenekler:
+    A: Mesken nitelikli taşınmazın bina vergi değerinin eşik tutarı aştığı yılda mükellefiyet, aştığı tarihten itibaren başlar.
+    B: Beyanname, eşik tutarın aşıldığı yılı takip eden yılın mart ayının 20 nci günü sonuna kadar verilir.
+    C: Vergi, ilgili yılın şubat ve ağustos ayları sonuna kadar iki eşit taksitte ödenir.
+    D: Paylı mülkiyette malikler vergiden müteselsilen sorumludur.
+    E: Elbirliği mülkiyette her malik yalnızca hissesi oranında mükelleftir.
+  dogru: C
+  aciklama:
+    dogru_neden: 'EVK md. 47''ye göre vergi dairesi tarafından tarh ve tahakkuk ettirilen vergi, ilgili yılın şubat ve ağustos
+      aylarının sonuna kadar iki eşit taksitte ödenir. Diğer seçenekler hatalıdır: mükellefiyet eşiğin aşıldığı tarihi takip
+      eden yıldan başlar (md. 45/c), beyan şubat ayının 20 nci günü sonuna kadar yapılır (md. 47), paylı mülkiyette malikler
+      hisseleri oranında mükellef, elbirliği mülkiyette müteselsilen sorumludur (md. 45).'
+    celdiriciler:
+      A: Md. 45'e göre mükellefiyet, eşiğin aşıldığı tarihi takip eden yıldan itibaren başlar; aşıldığı tarihten itibaren
+        değil.
+      B: Md. 47'ye göre beyan süresi, ilgili yılı takip eden yılın şubat ayının 20 nci günü sonudur; mart değil.
+      D: Md. 45'e göre paylı mülkiyette malikler hisseleri oranında mükelleftir; müteselsil sorumluluk elbirliği mülkiyetine
+        ilişkindir.
+      E: Md. 45'e göre elbirliği mülkiyette malikler vergiden müteselsilen sorumlu olurlar; hisse oranı esası paylı mülkiyete
+        uygulanır.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 45
+    alinti: Bir mesken nitelikli taşınmaza paylı mülkiyet hâlinde malik olanlar, hisseleri oranında mükelleftirler. Elbirliği
+      mülkiyette malikler vergiden müteselsilen sorumlu olurlar.
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 47
+    alinti: yılı takip eden yılın şubat ayının 20 nci günü sonuna kadar beyanname ile beyan edilir ve vergi, yetkili vergi
+      dairesince yıllık olarak tarh ve tahakkuk olunur.
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 47
+    alinti: Vergi dairesi tarafından tarh ve tahakkuk ettirilen vergi, ilgili yılın şubat ve ağustos aylarının sonuna kadar
+      iki eşit taksitte ödenir.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_SRV_20261111_1.yaml#5
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-HSV-SRV-0083
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: 'değerli konut vergisi: birden fazla konutta muaflık ve hesaplama'
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Gerçek kişi (K), Türkiye''de tam mülkiyetine sahip olduğu üç mesken nitelikli taşınmazı elinde bulundurmaktadır. Bu
+    taşınmazların 29 uncu maddeye göre belirlenen bina vergi değerleri sırasıyla 20.000.000 TL, 25.000.000 TL ve 40.000.000
+    TL''dir. Başka bir muafiyet söz konusu değildir. 2026 yılı için Emlak Vergisi Kanunu md. 42 ve 44 uyarınca uygulanacak
+    tutarlar şöyledir: Eşik tutar 17.711.000 TL; 17.711.000 TL ile 26.567.000 TL arasında olanlarda eşiği aşan kısım için
+    binde 3; 26.567.000 TL ile 35.425.000 TL arasında olanlarda 26.567.000 TL''si için 26.568 TL, fazlası için binde 6; 35.425.000
+    TL''den fazla olanlarda 35.425.000 TL''si için 79.716 TL, fazlası için binde 10. (K)''nin 2026 yılı için ödeyeceği toplam
+    değerli konut vergisi kaç TL''dir?'
+  secenekler:
+    A: '67.617'
+    B: '125.466'
+    C: '147.333'
+    D: '154.200'
+    E: '244.757'
+  dogru: C
+  aciklama:
+    dogru_neden: 'EVK md. 46/b''ye göre birden fazla mesken nitelikli taşınmazı bulunanların değerli konut vergisi konusuna
+      giren en düşük değerli tek taşınmazı muaftır; 20.000.000 TL''lik konut muaf olur. 25.000.000 TL''lik konutta matrah
+      (md. 44) 25.000.000 − 17.711.000 = 7.289.000 TL, vergi 7.289.000 × 0,003 = 21.867 TL''dir. 40.000.000 TL''lik konutta
+      vergi 79.716 + (40.000.000 − 35.425.000) × 0,010 = 79.716 + 45.750 = 125.466 TL''dir. Toplam 21.867 + 125.466 = 147.333
+      TL''dir. Püf noktaları: (1) Muafiyet en düşük değerli konuta uygulanır, en pahalıya değil. (2) 25 milyonluk konut ilk
+      dilimde kalır; üst dilimlerin sabit tutarı yalnız o dilimlere gelen konutlarda eklenir. (3) 40 milyonluk konutta binde
+      10 yalnızca 35.425.000 TL''yi aşan kısma uygulanır.'
+    celdiriciler:
+      A: Sabit tutar (79.716 TL) unutulmuş, yalnızca 25.000.000 TL'lik konutun vergisi ile 40.000.000 TL'lik konutun binde
+        10'luk kısmı toplanmıştır (21.867 + 45.750 = 67.617 TL).
+      B: Yalnızca 40.000.000 TL'lik konutun vergisi alınmıştır (125.466 TL); oysa muafiyet yalnızca en düşük değerli tek konuta
+        (20.000.000 TL) uygulanır, 25.000.000 TL'lik konutun vergisi (21.867 TL) de toplama dahil edilmelidir.
+      D: Muafiyet hiç uygulanmamış ve 20.000.000 TL'lik konutun vergisi de (6.867 TL) toplama dahil edilmiştir (147.333 +
+        6.867 = 154.200 TL).
+      E: Binde 10, 40.000.000 TL'lik konutta eşiği aşan tüm kısma uygulanmıştır ((40.000.000 − 17.711.000) × 0,010 = 222.890
+        TL) ve buna 25.000.000 TL'lik konutun vergisi eklenmiştir (222.890 + 21.867 = 244.757 TL); oysa dilimler kademelidir
+        ve sabit tutarlar kullanılır.
+    hesap_adimlari:
+    - En düşük değerli konut (20.000.000 TL) muaf
+    - '25.000.000 TL: (25.000.000 − 17.711.000) × 0,003 = 21.867 TL'
+    - '40.000.000 TL: 79.716 + (40.000.000 − 35.425.000) × 0,010 = 125.466 TL'
+    - Toplam = 21.867 + 125.466 = 147.333 TL
+  kaynaklar:
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 44
+    alinti: Değerli konut vergisine tabi mesken nitelikli taşınmazlardan değeri; 5.000.000 (17.711.000) TL ile 7.500.000 (26.567.000)
+      TL arasında olanlar (bu tutar dahil) 5.000.000 (17.711.000) TL’yi aşan kısmı için (Binde 3) 10.000.000 (35.425.000)
+      TL’ye kadar olanlar (bu tutar dahil) 7.500.000 (26.567.000) TL’si için 7.500 (26.568) TL, fazlası için (Binde 6)
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 44
+    alinti: 10.000.000 (35.425.000) TL’den fazla olanlar 10.000.000 (35.425.000) TL’si için 22.500 (79.716) TL, fazlası için
+      (Binde 10)
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 46/b
+    alinti: Türkiye sınırları içinde mesken nitelikli tek taşınmazı olanlar ile birden fazla mesken nitelikli taşınmazı bulunanların,
+      değerli konut
+  - mevzuat: 1319 sayılı Emlak Vergisi Kanunu
+    madde: md. 46/b
+    alinti: vergisi konusuna giren en düşük değerli mesken nitelikli tek taşınmazı (intifa hakkına sahip olunması hâli dâhil)
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: true
+    yil: 2026
+  dogrulama:
+    python: 'v2=(25000000-17711000)*0.003
+
+      v3=79716+(40000000-35425000)*0.010
+
+      sonuc = v2+v3
+
+      '
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) duzelt: Anahtar (C, 147.333) ve hesap dogru (EVK md. 42/44/46-b, 2026 degerleri dogrulandi).
+          Celdirici B aciklamasi yanlis (125.466 = yalniz 40 milyonluk konutun vergisi, aciklama 6.867+21.867 diyor); celdirici
+          E aciklamasi 244.757 toplamini aciklamiyor (25 milyonluk konutun ver'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_SRV_20261111_1.yaml#6
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) duzelt: Anahtar (C, 147.333) ve hesap dogru (EVK md. 42/44/46-b, 2026 degerleri dogrulandi).
+      Celdirici B aciklamasi yanlis (125.466 = yalniz 40 milyonluk konutun vergisi, aciklama 6.867+21.867 diyor); celdirici
+      E aciklamasi 244.757 toplamini aciklamiyor (25 milyonluk konutun ver'
+- id: YMM-HSV-SRV-0084
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: veraset vergisi beyanname süreleri
+  tip: uygulama
+  zorluk: 1
+  kok: Türkiye'de yerleşik bir kimse 10 Mart 2026'da Almanya'da ölmüştür. Mirasçılardan (A) Türkiye'de, (B) Almanya'da (müteveffanın
+    bulunduğu memlekette), (C) ise Fransa'da (müteveffanın bulunduğu yerin dışında başka bir yabancı memlekette) bulunmaktadır.
+    Veraset ve İntikal Vergisi Kanunu md. 9'a göre bu mirasçıların beyanname verme süreleri (ölüm tarihini takip eden) sırasıyla
+    aşağıdakilerden hangisidir?
+  secenekler:
+    A: (A) 4 ay, (B) 4 ay, (C) 6 ay
+    B: (A) 4 ay, (B) 6 ay, (C) 8 ay
+    C: (A) 6 ay, (B) 6 ay, (C) 8 ay
+    D: (A) 8 ay, (B) 4 ay, (C) 6 ay
+    E: (A) 6 ay, (B) 4 ay, (C) 8 ay
+  dogru: E
+  aciklama:
+    dogru_neden: VİVK md. 9/1-b'ye göre ölüm yabancı bir memlekette olmuşsa mükelleflerin Türkiye'de bulunmaları halinde süre
+      altı ay, müteveffanın bulunduğu memlekette olmaları halinde dört ay, müteveffanın bulunduğu yerin dışında başka bir
+      yabancı memlekette olmaları halinde ise sekiz aydır. Dolayısıyla (A) 6 ay, (B) 4 ay, (C) 8 aydır.
+    celdiriciler:
+      A: (A) için 4 ay yazılmıştır; ölüm yabancı memlekette olup mirasçı Türkiye'de ise süre 6 aydır. (C) için de 6 ay yanlıştır,
+        süre 8 aydır.
+      B: Türkiye'de bulunan mirasçı ile ölüm yerindeki mirasçının süreleri yer değiştirmiştir; ölüm yurt dışında olduğundan
+        Türkiye'deki mirasçı 6, ölüm yerindeki mirasçı 4 aydır.
+      C: (B) için 6 ay verilmiştir; müteveffanın bulunduğu memlekette bulunan mirasçı 4 ay içinde beyanname verir.
+      D: Süreler karıştırılmıştır; 8 ay yalnızca müteveffanın bulunduğu yerin dışında başka bir yabancı memlekette bulunanlar
+        içindir.
+    hesap_adimlari: []
+  kaynaklar:
+  - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
+    madde: md. 9/1-b
+    alinti: Ölüm yabancı bir memlekette vukubulmuş ise mükelleflerin Türkiye'de bulunmaları halinde ölüm tarihini takibeden
+      altı ay içinde, mükellefler müteveffanın bulunduğu memlekette oldukları takdirde ölüm tarihini takibeden dört ay içinde,
+      mükellefler müteveffanın bulunduğu yerin dışında başka bir yabancı memlekette oldukları takdirde de ölüm tarihini takibeden
+      sekiz ay içinde;
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: atlandi
+        not: hesaplama sorusu değil
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_SRV_20261111_1.yaml#7
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+- id: YMM-HSV-SRV-0085
+  sinav: ymm
+  bolum:
+  - YMM
+  ders: HSV
+  unite: Servet vergileri
+  konu: SRV
+  kazanim: veraset vergisinde tenzil edilecek borç ve masraflar
+  tip: hesaplama
+  zorluk: 3
+  kok: 'Türk vatandaşı bir muris 2026 yılında ölmüştür. Mirasçılar tarafından verilen beyannamede gösterilen mallar şunlardır:
+    Türkiye''de bulunan mallar 3.000.000 TL, Almanya''da bulunan mallar 600.000 TL. Beyannamede gösterilen ve belgelenen borç
+    ve masraflar ise şöyledir: murisin ihticaca salih vesaika dayanan borçları 400.000 TL, murisin vergi borçları 50.000 TL,
+    cenazenin techiz ve tedfini için yapılan masraflar 30.000 TL, Almanya''daki mallara taallük eden borçlar 500.000 TL ve
+    bu mallar dolayısıyla Almanya''da alınan veraset ve intikal vergisi 200.000 TL. Veraset ve İntikal Vergisi Kanunu md.
+    12 uyarınca tenzil işlemi sonrasında vergilendirilecek net değer kaç TL''dir?'
+  secenekler:
+    A: 2.420.000
+    B: 2.520.000
+    C: 2.550.000
+    D: 3.120.000
+    E: 3.600.000
+  dogru: B
+  aciklama:
+    dogru_neden: 'VİVK md. 12/a, d bentlerine göre murisin ihticaca salih vesaika dayanan borçları, vergi borçları ve cenaze
+      masrafları tenzil edilir: 400.000 + 50.000 + 30.000 = 480.000 TL. Md. 12/c ile yabancı memleketlerdeki mallara taallük
+      eden borçlar ve bu mallar dolayısıyla alınan veraset ve intikal vergileri de tevsik şartıyla tenzil edilir; ancak bu
+      borçlar ve vergiler beyannamede gösterilen bu kabil malların değerini (600.000 TL) geçemez. Almanya kaynaklı borç ve
+      vergi toplamı 500.000 + 200.000 = 700.000 TL olduğundan tenzil 600.000 TL ile sınırlıdır. Toplam tenzil 1.080.000 TL;
+      net değer 3.600.000 − 1.080.000 = 2.520.000 TL''dir. Püf noktaları: (1) Yabancı mallara ilişkin tenzilde sınır, o malların
+      değeridir. (2) Cenaze masrafı ayrı bir tenzil kalemidir. (3) Murisin yurt içi borçları ve vergi borçları sınıra tabi
+      değildir.'
+    celdiriciler:
+      A: 'Yabancı mallara ilişkin sınır uygulanmamış (700.000 TL tenzil edilmiş): 3.600.000 − (480.000 + 700.000) = 2.420.000
+        TL bulunmuştur; oysa bu tenzil 600.000 TL ile sınırlıdır.'
+      C: Cenaze masrafı (30.000 TL) tenzil edilmemiştir (3.600.000 − 1.050.000 = 2.550.000 TL); md. 12/d cenaze masraflarının
+        tenzilini öngörür.
+      D: Yabancı mallara ilişkin borç ve vergiler hiç tenzil edilmemiştir (3.600.000 − 480.000 = 3.120.000 TL); md. 12/c bunların
+        tevsik şartıyla tenzilini öngörür.
+      E: Hiçbir borç ve masraf tenzil edilmeden toplam mal değeri (3.600.000 TL) esas alınmıştır; md. 12 tenzili beyannamede
+        gösterilmek şartıyla öngörür.
+    hesap_adimlari:
+    - 'Yurt içi tenzil: 400.000 + 50.000 + 30.000 = 480.000 TL'
+    - 'Yabancı mallar: 500.000 + 200.000 = 700.000 TL > mal değeri 600.000 TL; tenzil 600.000 TL ile sınırlı'
+    - Toplam tenzil = 480.000 + 600.000 = 1.080.000 TL
+    - Net değer = 3.000.000 + 600.000 − 1.080.000 = 2.520.000 TL
+  kaynaklar:
+  - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
+    madde: md. 12/a
+    alinti: Veraset yoliyle vukubulan intikallerde murisin ihticaca salih vesaika müstenit borçları ile vergi borçları;
+  - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
+    madde: md. 12/c
+    alinti: c) Türkiye Cumhuriyeti tabiiyetinde olan şahıslara ait mallardan yabancı memleketlerde bulunanlara taallük eden
+      borçlar ve yabancı memleketlerde bu mallar dolayısiyle alınan Veraset ve İntikal vergileri (Tevsik edilmek şartiyle);
+  - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
+    madde: md. 12/ç
+    alinti: ç) Fıkrasında yazılı borçlar ile Veraset ve İntikal vergileri, beyannamede gösterilen bu kabil malların değerini
+      geçemez.)
+  - mevzuat: 7338 sayılı Veraset ve İntikal Vergisi Kanunu
+    madde: md. 12/d
+    alinti: d) Cenazenin techiz ve tedfini için yapılan masraflar.
+  gecerlilik:
+    baslangic: '2026-01-01'
+    bitis: null
+    yila_bagli_tutar: false
+  dogrulama:
+    python: 'mallar=3000000+600000
+
+      yurtici=400000+50000+30000
+
+      yabanci=min(500000+200000,600000)
+
+      sonuc = mallar-yurtici-yabanci
+
+      '
+  durum: kontrolde
+  surum: 1
+  uretim:
+    kaynak_turu: yapay_zeka
+    model: 'harici: claude-sonnet uretim2'
+    istem_surumu: uretici paketi uretim2 2026-11-11
+    kapilar:
+      G2:
+        sonuc: gecti
+        tarih: '2026-11-11'
+      G4:
+        sonuc: bekliyor
+      G7:
+        sonuc: gecti
+        not: yalnız banka içi; külliyat verilmedi
+        tarih: '2026-11-11'
+      G3:
+        sonuc: bekliyor
+      G5:
+        sonuc: gecti
+        tarih: '2026-11-11'
+        not: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
+      G6:
+        sonuc: bekliyor
+      GZ:
+        sonuc: bekliyor
+  gecmis:
+  - tarih: '2026-11-11'
+    kim: uretici
+    ne: harici teslim ymm_test.yaml, satır YMM_HSV/HSV_SRV_20261111_1.yaml#8
+  - tarih: '2026-11-11'
+    kim: hakem
+    ne: 'durum: taslak → kontrolde'
+    neden: 'hakem (tam inceleme) kabul: Kaynakla dogrulandi; tek dogru sik, aciklama ve celdiriciler tutarli.'
