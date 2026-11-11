@@ -33,7 +33,7 @@ kaynaklar:
 
 **Likidite**, işletmenin kısa vadeli borçlarını vadesinde ödeyebilme gücüdür. **Finansal yapı** ise varlıkların hangi kaynaklarla (yabancı kaynak mı, özkaynak mı; kısa vade mi, uzun vade mi) finanse edildiğini gösterir.
 
-Bu oranların hepsi **bilanço** verisiyle hesaplanır. Tek Düzen Muhasebe Sistemi'nde (MSUGT Ek 4) aktif, paraya dönüşme hızına göre en likitten en az likide; pasif ise en kısa vadeliden en uzun vadeliye doğru sıralanır:
+Bu oranların hepsi **bilanço** verisiyle hesaplanır. Tekdüzen Muhasebe Sistemi'nde (MSUGT Ek 4) aktif, paraya dönüşme hızına göre en likitten en az likide; pasif ise en kısa vadeliden en uzun vadeliye doğru sıralanır:
 
 | Aktif (varlıklar) | Pasif (kaynaklar) |
 |---|---|
@@ -73,7 +73,7 @@ Stoklar satılmadan nakde dönemez; ayrıca değer kaybı riski taşır. **Likid
 - Temel formül: **(Dönen varlıklar − Stoklar) / KVYK**
 - Daha ihtiyatlı biçim: **(Dönen varlıklar − Stoklar − Gelecek aylara ait giderler) / KVYK**. Peşin ödenmiş giderler nakde dönmez, yalnız gelecekteki bir ödemeyi ortadan kaldırır. Bazı kaynaklar diğer dönen varlıkları da çıkarır.
 
-Soruda formül verilmişse **mutlaka o formülü** uygula. Geleneksel ölçü 1'dir. Stoklar grubunun toplamı düşülür; Tek Düzen'de **verilen sipariş avansları da stoklar grubu (E) içinde** yer aldığından stokla birlikte çıkar.
+Soruda formül verilmişse **mutlaka o formülü** uygula. Geleneksel ölçü 1'dir. Stoklar grubunun toplamı düşülür; Tekdüzen'de **verilen sipariş avansları da stoklar grubu (E) içinde** yer aldığından stokla birlikte çıkar.
 
 ## 5. Nakit oranı
 

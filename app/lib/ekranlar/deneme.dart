@@ -14,47 +14,87 @@ import '../bilesenler/duzen.dart';
 class DenemeEkrani extends StatefulWidget {
   final DenemePlani plan;
 
-  const DenemeEkrani({super.key, required this.plan});
+  /// Uygulama kapanınca yarım kalan denemeye kaldığı yerden devam etmek için.
+  final YarimDeneme? devam;
+
+  const DenemeEkrani({super.key, required this.plan, this.devam});
 
   @override
   State<DenemeEkrani> createState() => _DenemeEkraniState();
 }
 
-class _DenemeEkraniState extends State<DenemeEkrani> {
+class _DenemeEkraniState extends State<DenemeEkrani> with WidgetsBindingObserver {
   final Map<String, String> _cevaplar = {};
   final Set<String> _isaretli = {};
   final _saat = Stopwatch()..start();
   late final Timer _zamanlayici;
+  int _onceki = 0; // devam edilen denemede daha önce geçen süre
   int _sira = 0;
   bool _bitti = false;
 
   List<Soru> get _sorular => widget.plan.sorular;
-  int get _kalanSn => (widget.plan.sureSn - _saat.elapsed.inSeconds).clamp(0, widget.plan.sureSn);
+  int get _gecenSn => _onceki + _saat.elapsed.inSeconds;
+  int get _kalanSn => (widget.plan.sureSn - _gecenSn).clamp(0, widget.plan.sureSn);
 
   @override
   void initState() {
     super.initState();
-    _zamanlayici = Timer.periodic(const Duration(seconds: 1), (_) {
+    final d = widget.devam;
+    if (d != null) {
+      _cevaplar.addAll(d.cevaplar);
+      _isaretli.addAll(d.isaretli);
+      _onceki = d.gecenSn;
+      _sira = d.sira;
+    }
+    WidgetsBinding.instance.addObserver(this);
+    _zamanlayici = Timer.periodic(const Duration(seconds: 1), (t) {
       if (_kalanSn == 0) {
         _bitir(sureDoldu: true);
       } else {
         setState(() {});
+        if (t.tick % 15 == 0) _kaydet();
       }
     });
+    WidgetsBinding.instance.addPostFrameCallback((_) => _kaydet());
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState s) {
+    // Arka plana alınınca (arama, uygulama değişimi) kaydedilir; sistem uygulamayı sonlandırsa da deneme kaybolmaz.
+    if (s == AppLifecycleState.paused || s == AppLifecycleState.inactive) _kaydet();
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _zamanlayici.cancel();
     super.dispose();
+  }
+
+  void _kaydet() {
+    if (_bitti || !mounted) return;
+    Kapsam.of(context).ilerleme.yarimDenemeKaydet(
+      YarimDeneme(
+        plan: widget.plan,
+        cevaplar: Map.of(_cevaplar),
+        isaretli: Set.of(_isaretli),
+        gecenSn: _gecenSn,
+        sira: _sira,
+        kayit: DateTime.now(),
+      ).toJson(),
+    );
   }
 
   void _sec(String h) {
     final id = _sorular[_sira].id;
     setState(() => _cevaplar[id] == h ? _cevaplar.remove(id) : _cevaplar[id] = h);
+    _kaydet();
   }
 
-  void _git(int i) => setState(() => _sira = i.clamp(0, _sorular.length - 1));
+  void _git(int i) {
+    setState(() => _sira = i.clamp(0, _sorular.length - 1));
+    _kaydet();
+  }
 
   Future<void> _bitirSor() async {
     final bos = _sorular.length - _cevaplar.length;
@@ -80,11 +120,12 @@ class _DenemeEkraniState extends State<DenemeEkrani> {
     _zamanlayici.cancel();
     _saat.stop();
     final durum = Kapsam.of(context);
+    await durum.ilerleme.yarimDenemeSil();
     final sonuc = denemePuanla(
       durum.banka,
       widget.plan,
       Map.of(_cevaplar),
-      _saat.elapsed.inSeconds.clamp(0, widget.plan.sureSn),
+      _gecenSn.clamp(0, widget.plan.sureSn),
     );
     for (final s in _sorular) {
       final c = _cevaplar[s.id];
@@ -112,6 +153,12 @@ class _DenemeEkraniState extends State<DenemeEkrani> {
         ),
       ) ??
       false;
+
+  Future<void> _cik() async {
+    _bitti = true; // çıkışta yarım kayıt yazılmasın
+    await Kapsam.of(context).ilerleme.yarimDenemeSil();
+    if (mounted) Navigator.of(context).pop();
+  }
 
   void _soruListesi() {
     showModalBottomSheet<void>(
@@ -187,7 +234,7 @@ class _DenemeEkraniState extends State<DenemeEkrani> {
       canPop: false,
       onPopInvokedWithResult: (didPop, _) async {
         if (didPop) return;
-        if (await _cikisOnayi() && context.mounted) Navigator.of(context).pop();
+        if (await _cikisOnayi() && context.mounted) await _cik();
       },
       child: Scaffold(
         appBar: AppBar(
@@ -195,7 +242,7 @@ class _DenemeEkraniState extends State<DenemeEkrani> {
             tooltip: 'Çık',
             icon: const Icon(Icons.close),
             onPressed: () async {
-              if (await _cikisOnayi() && context.mounted) Navigator.of(context).pop();
+              if (await _cikisOnayi() && context.mounted) await _cik();
             },
           ),
           title: FittedBox(
@@ -220,8 +267,10 @@ class _DenemeEkraniState extends State<DenemeEkrani> {
             IconButton(
               tooltip: 'Sonra dönmek için işaretle',
               icon: Icon(_isaretli.contains(soru.id) ? Icons.flag : Icons.outlined_flag),
-              onPressed: () =>
-                  setState(() => _isaretli.contains(soru.id) ? _isaretli.remove(soru.id) : _isaretli.add(soru.id)),
+              onPressed: () {
+                setState(() => _isaretli.contains(soru.id) ? _isaretli.remove(soru.id) : _isaretli.add(soru.id));
+                _kaydet();
+              },
             ),
             TextButton(onPressed: _bitirSor, child: const Text('Bitir')),
           ],
@@ -253,6 +302,7 @@ class _DenemeEkraniState extends State<DenemeEkrani> {
               child: Row(
                 children: [
                   IconButton.outlined(
+                    tooltip: 'Önceki soru',
                     onPressed: _sira == 0 ? null : () => _git(_sira - 1),
                     icon: const Icon(Icons.chevron_left),
                   ),
@@ -264,6 +314,7 @@ class _DenemeEkraniState extends State<DenemeEkrani> {
                     ),
                   ),
                   IconButton.filled(
+                    tooltip: _sira + 1 >= _sorular.length ? 'Sınavı bitir' : 'Sonraki soru',
                     onPressed: _sira + 1 >= _sorular.length ? _bitirSor : () => _git(_sira + 1),
                     icon: Icon(_sira + 1 >= _sorular.length ? Icons.check : Icons.chevron_right),
                   ),

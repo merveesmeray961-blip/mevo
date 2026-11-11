@@ -34,7 +34,7 @@ kaynaklar:
 
 ## 1. Ticari bilanço kârından mali kâra geçiş
 
-**Ticari bilanço kârı**, Tek Düzen Hesap Planı'na göre tutulan kayıtlardan çıkan dönem kârıdır. **Mali kâr** ise vergi kanunlarına göre düzeltilmiş, istisna ve indirimlerden önceki kurum kazancıdır. Kurumlar Vergisi Kanunu (KVK) md. 6/2'ye göre safi kurum kazancının tespitinde Gelir Vergisi Kanunu'nun (GVK) ticari kazanç hükümleri uygulanır.
+**Ticari bilanço kârı**, Tekdüzen Hesap Planı'na göre tutulan kayıtlardan çıkan dönem kârıdır. **Mali kâr** ise vergi kanunlarına göre düzeltilmiş, istisna ve indirimlerden önceki kurum kazancıdır. Kurumlar Vergisi Kanunu (KVK) md. 6/2'ye göre safi kurum kazancının tespitinde Gelir Vergisi Kanunu'nun (GVK) ticari kazanç hükümleri uygulanır.
 
 Ticari bilanço kârından mali kâra geçişin ilk adımı **kanunen kabul edilmeyen giderlerin (KKEG)** kâra eklenmesidir. KVK md. 11 bu giderleri sayar; sınavda en sık çıkanlar şunlardır:
 

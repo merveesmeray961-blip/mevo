@@ -9,10 +9,10 @@ kaynaklar:
     madde: "-"
   - mevzuat: "Genel bilgi — Genel üretim giderlerinin yüklenmesi"
     madde: "-"
-  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği, Tek Düzen Hesap Planı"
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği, Tekdüzen Hesap Planı"
     madde: "7. grup maliyet hesapları"
     alinti: "7/A seçeneğinde giderler defter-i kebirde fonksiyon esasına göre, 7/B seçeneğinde ise çeşit esasına göre belirlenmiştir"
-  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği, Tek Düzen Hesap Planı"
+  - mevzuat: "Muhasebe Sistemi Uygulama Genel Tebliği, Tekdüzen Hesap Planı"
     madde: "798 ve 799 hesaplarının işleyişi"
     alinti: "Dönem sonlarında \"799- Üretim Maliyet Hesabı\", üretim işletmelerinde 151- Yarı Mamüller Üretim\" ve \"152- Mamüller\" hesaplarına"
   - mevzuat: "213 sayılı Vergi Usul Kanunu"
@@ -25,7 +25,7 @@ kaynaklar:
 - Safha maliyet sisteminde eşdeğer birim, normal ve anormal fire hesabını
 - Üretilen mamul maliyeti tablosunu ve satılan mamul maliyetine geçişi
 - Genel üretim giderlerinin önceden belirlenmiş oranla yüklenmesini ve eksik/fazla yükleme farkını
-- Tek Düzen Hesap Planındaki 7/A ve 7/B maliyet hesaplarının işleyişini
+- Tekdüzen Hesap Planındaki 7/A ve 7/B maliyet hesaplarının işleyişini
 
 ## 1. Maliyet unsurları ve maliyet akışı
 
@@ -123,9 +123,9 @@ Tablo, dönemin üretim maliyetinden satılan mamul maliyetine geçişi gösteri
 
 > **Sınav ipucu:** "Dönem üretim maliyeti" ile "üretilen mamul maliyeti" farklıdır; aradaki fark yarı mamul stok değişimidir. Soru stok değişiminden geriye hesap isterse tabloyu sondan başa çöz.
 
-## 6. Tek Düzen Hesap Planında 7/A ve 7/B
+## 6. Tekdüzen Hesap Planında 7/A ve 7/B
 
-Tek Düzen Hesap Planı (THP), maliyet hesaplarını iki seçenekle sunar: 7/A'da giderler defter-i kebirde **fonksiyon esasına**, 7/B'de **çeşit esasına** göre izlenir. THP'ye göre 7/A, belirli büyüklüğü aşan üretim ve hizmet işletmeleri için zorunludur; ticaret işletmeleri ve küçük işletmeler 7/B'yi seçebilir.
+Tekdüzen Hesap Planı (THP), maliyet hesaplarını iki seçenekle sunar: 7/A'da giderler defter-i kebirde **fonksiyon esasına**, 7/B'de **çeşit esasına** göre izlenir. THP'ye göre 7/A, belirli büyüklüğü aşan üretim ve hizmet işletmeleri için zorunludur; ticaret işletmeleri ve küçük işletmeler 7/B'yi seçebilir.
 
 **7/A işleyişi**: 710 Direkt İlk Madde ve Malzeme Giderleri, 720 Direkt İşçilik Giderleri, 730 Genel Üretim Giderleri borçlanır. Dönem sonunda maliyet unsurları yansıtma hesapları (711, 721, 731) alacağı karşılığında 151'e aktarılır; ana hesaplar yansıtma hesaplarıyla karşılaştırılarak kapatılır. Standart maliyette farklar 712–713, 722–723, 732–734 hesaplarında izlenir.
 

@@ -29,7 +29,8 @@ class IstatistikEkrani extends StatelessWidget {
         for (final d in banka.bolumDersleri(bolum)) {
           for (final k in d.konular.entries) {
             final ist = il.istatistik(banka.dersSorulari(bolum, d.kod, konu: k.key));
-            if (ist.deneme >= 3) konular.add((d.kod, k.key, ist.basari!, ist.deneme));
+            // Konu düzeyinde ham oran (≥3 cevap); rozetlerdeki [DersIstatistigi.basari] ise ≥10 cevap ister.
+            if (ist.deneme >= 3) konular.add((d.kod, k.key, ist.dogru / ist.deneme, ist.deneme));
           }
         }
         konular.sort((a, b) => a.$3.compareTo(b.$3));

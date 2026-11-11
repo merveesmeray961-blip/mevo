@@ -11,13 +11,13 @@ kaynaklar:
   - mevzuat: "213 sayılı Vergi Usul Kanunu"
     madde: "md. 275"
     alinti: "Genel idare giderlerinden mamule düşen hisse; (Bu hissenin mamulün maliyetine katılması ihtiyaridir.)"
-  - mevzuat: "MSUGT Sıra No: 1, Tek Düzen Hesap Planı"
+  - mevzuat: "MSUGT Sıra No: 1, Tekdüzen Hesap Planı"
     madde: "730 Genel Üretim Giderleri"
     alinti: "Çeşit ve değer yönü ile doğrudan doğruya değil ancak dağıtım yoluyla üretim ve hizmet maliyetlerine yansıtılabilir nitelikte olması"
-  - mevzuat: "MSUGT Sıra No: 1, Tek Düzen Hesap Planı"
+  - mevzuat: "MSUGT Sıra No: 1, Tekdüzen Hesap Planı"
     madde: "732 Genel Üretim Giderleri Bütçe Farkları"
     alinti: "Olumsuz farklar hesabın borcuna olumlu farklar ise alacağına kaydedilir."
-  - mevzuat: "MSUGT Sıra No: 1, Tek Düzen Hesap Planı"
+  - mevzuat: "MSUGT Sıra No: 1, Tekdüzen Hesap Planı"
     madde: "10-99 Gider Yerleri"
     alinti: "Gider yeri, üretim ve hizmetlerin yapıldığı ve maliyetlerin oluştuğu, örgütün bir birimini ya da birim içindeki bir yeri ifade eder."
 ---
@@ -35,7 +35,7 @@ kaynaklar:
 **Sipariş maliyeti**, birbirinden farklı mamullerin müşteri siparişine göre ve ayrı partiler halinde üretildiği işletmelerde kullanılır: matbaa, mobilya, gemi ve makine imalatı, inşaat, kalıp üretimi. Her sipariş (iş emri) için bir **sipariş maliyet kartı** açılır; kartta siparişe ait direkt ilk madde ve malzeme (DİMM), direkt işçilik (DİŞ) ve yüklenen genel üretim giderleri (GÜG) toplanır. TMS 2 paragraf 23-24'e göre özel projeler için üretilen malların maliyeti, her kalemin kendi özel maliyeti belirlenerek tespit edilir; sipariş maliyeti bu mantığın uygulamasıdır.
 
 - **DİMM ve DİŞ** malzeme çekme fişi ve işçi zaman kartıyla doğrudan siparişe yazılır.
-- **GÜG** (endirekt malzeme, endirekt işçilik, amortisman, enerji, bakım vb.) doğrudan izlenemez; Tek Düzen Hesap Planı 730 hesap açıklamasına göre ancak **dağıtım yoluyla** maliyetlere yansıtılır.
+- **GÜG** (endirekt malzeme, endirekt işçilik, amortisman, enerji, bakım vb.) doğrudan izlenemez; Tekdüzen Hesap Planı 730 hesap açıklamasına göre ancak **dağıtım yoluyla** maliyetlere yansıtılır.
 - Siparişin maliyeti dönem sonunu beklemeden, sipariş bitince belli olmak zorundadır. Fiili GÜG ise dönem sonunda kesinleşir. Bu nedenle GÜG siparişlere **önceden belirlenmiş yükleme oranıyla** yüklenir.
 
 > **Sınav ipucu:** Çeldirici kalemlere dikkat: pazarlama-satış giderleri, finansman giderleri ve genel yönetim giderleri GÜG değildir. VUK md. 275'e göre genel idare giderlerinden mamule pay verilmesi ihtiyaridir; soruda aksi söylenmedikçe bunları sipariş maliyetine katma.

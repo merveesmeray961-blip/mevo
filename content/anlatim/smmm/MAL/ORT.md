@@ -14,10 +14,10 @@ kaynaklar:
   - mevzuat: "TMS 2 Stoklar"
     madde: "paragraf 14"
     alinti: "yan ürünler genellikle net gerçekleşebilir değer üzerinden ölçülür ve bu değer ana ürünün maliyetinden düşülür"
-  - mevzuat: "1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği, Ek 5 (Tek Düzen Hesap Planı)"
+  - mevzuat: "1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği, Ek 5 (Tekdüzen Hesap Planı)"
     madde: "15 Stoklar"
     alinti: "ilk madde ve malzeme, yarı mamul, mamul, ticari mal, yan ürün, artık ve hurda gibi"
-  - mevzuat: "1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği, Ek 5 (Tek Düzen Hesap Planı)"
+  - mevzuat: "1 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği, Ek 5 (Tekdüzen Hesap Planı)"
     madde: "157 Diğer Stoklar"
     alinti: "Yukarıdaki stok kalemlerinin hiç birinin kapsamına alınmayan ürün, artık ve hurda gibi"
 ---

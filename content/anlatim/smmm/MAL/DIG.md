@@ -17,7 +17,7 @@ kaynaklar:
   - mevzuat: "TMS 2 Stoklar"
     madde: "paragraf 27"
     alinti: "Ağırlıklı ortalama, işletmenin koşullarına bağlı olarak, dönemsel olarak veya işletmeye stok girişi oldukça hesaplanabilir."
-  - mevzuat: "MSUGT Sıra No: 1, Tek Düzen Hesap Planı"
+  - mevzuat: "MSUGT Sıra No: 1, Tekdüzen Hesap Planı"
     madde: "680 Çalışmayan Kısım Gider ve Zararları"
     alinti: "Üretimle ilgili giderlerden çalışılmayan döneme ve çalışmayan kısımlara ait giderleri içerir."
 ---

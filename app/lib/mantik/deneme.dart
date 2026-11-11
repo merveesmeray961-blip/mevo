@@ -36,6 +36,75 @@ class DenemePlani {
   bool get eksik => sorular.length < hedefToplam;
 }
 
+/// Uygulama kapanınca kaybolmasın diye diske yazılan yarım deneme (çoktan seçmeli).
+class YarimDeneme {
+  final DenemePlani plan;
+  final Map<String, String> cevaplar;
+  final Set<String> isaretli;
+  final int gecenSn;
+  final int sira;
+  final DateTime kayit;
+
+  const YarimDeneme({
+    required this.plan,
+    required this.cevaplar,
+    required this.isaretli,
+    required this.gecenSn,
+    required this.sira,
+    required this.kayit,
+  });
+
+  int get kalanSn => (plan.sureSn - gecenSn).clamp(0, plan.sureSn);
+
+  Map<String, dynamic> toJson() => {
+    'tur': plan.tur.name,
+    'bolum': plan.bolum,
+    'baslik': plan.baslik,
+    'dersler': plan.dersler,
+    'hedef': plan.hedef,
+    'sorular': [for (final s in plan.sorular) s.id],
+    'sureSn': plan.sureSn,
+    'cevaplar': cevaplar,
+    'isaretli': isaretli.toList(),
+    'gecenSn': gecenSn,
+    'sira': sira,
+    'kayit': kayit.toIso8601String(),
+  };
+
+  /// Bankada artık bulunmayan soru varsa (paket güncellendi) veya kayıt bozuksa null döner.
+  static YarimDeneme? fromJson(SoruBankasi banka, Map<String, dynamic>? j) {
+    if (j == null || j['klasik'] == true) return null;
+    try {
+      final sorular = <Soru>[];
+      for (final id in j['sorular'] as List) {
+        final s = banka.soru(id as String);
+        if (s == null) return null;
+        sorular.add(s);
+      }
+      if (sorular.isEmpty) return null;
+      final plan = DenemePlani(
+        tur: DenemeTuru.values.byName(j['tur'] as String),
+        bolum: j['bolum'] as String,
+        baslik: j['baslik'] as String,
+        dersler: List<String>.from(j['dersler'] as List),
+        hedef: Map<String, int>.from(j['hedef'] as Map),
+        sorular: sorular,
+        sureSn: j['sureSn'] as int,
+      );
+      return YarimDeneme(
+        plan: plan,
+        cevaplar: Map<String, String>.from(j['cevaplar'] as Map),
+        isaretli: Set<String>.from(j['isaretli'] as List),
+        gecenSn: j['gecenSn'] as int,
+        sira: (j['sira'] as int).clamp(0, sorular.length - 1),
+        kayit: DateTime.parse(j['kayit'] as String),
+      );
+    } catch (_) {
+      return null;
+    }
+  }
+}
+
 class DenemeSonucu {
   final DenemePlani plan;
   final Map<String, String> cevaplar;

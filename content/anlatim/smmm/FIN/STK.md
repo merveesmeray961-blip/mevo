@@ -26,13 +26,13 @@ kaynaklar:
   - mevzuat: "TMS 2 Stoklar"
     madde: "paragraf 25"
     alinti: "ilk giren ilk çıkar (FIFO) veya ağırlıklı ortalama maliyet yöntemi kullanılarak belirlenir"
-  - mevzuat: "MSUGT Tek Düzen Hesap Planı"
+  - mevzuat: "MSUGT Tekdüzen Hesap Planı"
     madde: "158. Stok Değer Düşüklüğü Karşılığı"
     alinti: "Karşılık ayrılan stok kaleminin işletme içinde kullanılması ya da satılması halinde"
-  - mevzuat: "MSUGT Tek Düzen Hesap Planı"
+  - mevzuat: "MSUGT Tekdüzen Hesap Planı"
     madde: "197. Sayım ve Tesellüm Noksanları"
     alinti: "Noksanlığın ortaya çıkması ile hesaba borç, sorumlularından tahsili veya zarar kaydedilmesi halinde ise alacak kaydedilir."
-  - mevzuat: "MSUGT Tek Düzen Hesap Planı"
+  - mevzuat: "MSUGT Tekdüzen Hesap Planı"
     madde: "397. Sayım ve Tesellüm Fazlaları"
     alinti: "Sayım dönemi içinde normal olduğu belgelenen fazlalar ilgili maliyet hesapları karşılığında bu hesaba borç kaydolunur."
   - mevzuat: "3065 sayılı Katma Değer Vergisi Kanunu"
@@ -41,7 +41,7 @@ kaynaklar:
 ---
 ## Bu konuda neler öğreneceksin
 
-- Stokların tanımı ve Tek Düzen Hesap Planı'ndaki yeri (15 grubu)
+- Stokların tanımı ve Tekdüzen Hesap Planı'ndaki yeri (15 grubu)
 - Stok maliyetine nelerin girip nelerin girmediği (VUK md. 275, TMS 2)
 - Sürekli ve aralıklı envanter yöntemlerinde kayıt farkı
 - FIFO, dönemsel ağırlıklı ortalama ve hareketli ortalama ile maliyet hesabı

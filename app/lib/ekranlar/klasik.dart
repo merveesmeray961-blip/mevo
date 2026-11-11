@@ -209,37 +209,64 @@ Future<void> klasikDenemeyeBasla(BuildContext context, KlasikDenemePlani plan) a
 class KlasikDenemeEkrani extends StatefulWidget {
   final KlasikDenemePlani plan;
 
-  const KlasikDenemeEkrani({super.key, required this.plan});
+  /// Uygulama kapanınca yarım kalan denemeye (yazılan cevaplarla) devam etmek için.
+  final YarimKlasik? devam;
+
+  const KlasikDenemeEkrani({super.key, required this.plan, this.devam});
 
   @override
   State<KlasikDenemeEkrani> createState() => _KlasikDenemeEkraniState();
 }
 
-class _KlasikDenemeEkraniState extends State<KlasikDenemeEkrani> {
+class _KlasikDenemeEkraniState extends State<KlasikDenemeEkrani> with WidgetsBindingObserver {
   late final Map<String, TextEditingController> _cevaplar = {
-    for (final k in widget.plan.sorular) k.id: TextEditingController(),
+    for (final k in widget.plan.sorular) k.id: TextEditingController(text: widget.devam?.cevaplar[k.id] ?? ''),
   };
   final _saat = Stopwatch()..start();
   late final Timer _zamanlayici;
-  int _sira = 0;
+  late final int _onceki = widget.devam?.gecenSn ?? 0;
+  late int _sira = widget.devam?.sira ?? 0;
   bool _bitti = false;
 
-  int get _kalanSn => (widget.plan.sureSn - _saat.elapsed.inSeconds).clamp(0, widget.plan.sureSn);
+  int get _gecenSn => _onceki + _saat.elapsed.inSeconds;
+  int get _kalanSn => (widget.plan.sureSn - _gecenSn).clamp(0, widget.plan.sureSn);
 
   @override
   void initState() {
     super.initState();
-    _zamanlayici = Timer.periodic(const Duration(seconds: 1), (_) {
+    WidgetsBinding.instance.addObserver(this);
+    _zamanlayici = Timer.periodic(const Duration(seconds: 1), (t) {
       if (_kalanSn == 0) {
         _bitir(sureDoldu: true);
       } else {
         setState(() {});
+        // Yazılan cevaplar 10 saniyede bir diske yazılır; uygulama kapansa da kaybolmaz.
+        if (t.tick % 10 == 0) _kaydet();
       }
     });
+    WidgetsBinding.instance.addPostFrameCallback((_) => _kaydet());
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState s) {
+    if (s == AppLifecycleState.paused || s == AppLifecycleState.inactive) _kaydet();
+  }
+
+  void _kaydet() {
+    if (_bitti || !mounted) return;
+    Kapsam.of(context).ilerleme.yarimDenemeKaydet(
+      YarimKlasik(
+        plan: widget.plan,
+        cevaplar: {for (final e in _cevaplar.entries) e.key: e.value.text},
+        gecenSn: _gecenSn,
+        sira: _sira,
+      ).toJson(),
+    );
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _zamanlayici.cancel();
     for (final c in _cevaplar.values) {
       c.dispose();
@@ -252,12 +279,13 @@ class _KlasikDenemeEkraniState extends State<KlasikDenemeEkrani> {
     _bitti = true;
     _zamanlayici.cancel();
     _saat.stop();
+    Kapsam.of(context).ilerleme.yarimDenemeSil();
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (_) => KlasikPuanlamaEkrani(
           plan: widget.plan,
           cevaplar: {for (final e in _cevaplar.entries) e.key: e.value.text},
-          kullanilanSn: _saat.elapsed.inSeconds.clamp(0, widget.plan.sureSn),
+          kullanilanSn: _gecenSn.clamp(0, widget.plan.sureSn),
           sureDoldu: sureDoldu,
         ),
       ),
@@ -287,7 +315,9 @@ class _KlasikDenemeEkraniState extends State<KlasikDenemeEkrani> {
       onPopInvokedWithResult: (didPop, _) async {
         if (didPop) return;
         if (await _onay('Denemeden çıkılsın mı?', 'Cevapların kaydedilmez.', 'Çık') && context.mounted) {
-          Navigator.of(context).pop();
+          _bitti = true;
+          await Kapsam.of(context).ilerleme.yarimDenemeSil();
+          if (context.mounted) Navigator.of(context).pop();
         }
       },
       child: Scaffold(

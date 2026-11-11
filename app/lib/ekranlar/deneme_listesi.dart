@@ -25,6 +25,8 @@ class DenemeListesi extends StatelessWidget {
           for (final d in durum.ilerleme.denemeler)
             if (d.bolum == bolum) d,
         ];
+        final yarim = YarimDeneme.fromJson(banka, durum.ilerleme.yarimDeneme);
+        final yarimKlasik = YarimKlasik.fromJson(banka, durum.ilerleme.yarimDeneme);
 
         final kartlar = <Widget>[];
         if (bolum == 'YMM') {
@@ -101,6 +103,21 @@ class DenemeListesi extends StatelessWidget {
                             'hesap makinesi yok.',
                   style: t.bodyMedium,
                 ),
+                if (yarim != null && yarim.plan.bolum == bolum)
+                  _YarimKarti(
+                    baslik: yarim.plan.baslik,
+                    bilgi:
+                        '${yarim.cevaplar.length}/${yarim.plan.sorular.length} cevaplandı · kalan süre ${sureYaz(yarim.kalanSn)}',
+                    ekran: () => DenemeEkrani(plan: yarim.plan, devam: yarim),
+                  ),
+                if (yarimKlasik != null && bolum == 'YMM')
+                  _YarimKarti(
+                    baslik: yarimKlasik.plan.baslik,
+                    bilgi:
+                        '${yarimKlasik.cevaplar.values.where((c) => c.trim().isNotEmpty).length}/${yarimKlasik.plan.sorular.length} '
+                        'soruya cevap yazıldı · kalan süre ${sureYaz(yarimKlasik.kalanSn)}',
+                    ekran: () => KlasikDenemeEkrani(plan: yarimKlasik.plan, devam: yarimKlasik),
+                  ),
                 if (gecmis.isNotEmpty) ...[
                   _Baslik('Geçmiş denemelerim'),
                   for (final d in gecmis)
@@ -245,5 +262,66 @@ Future<void> denemeyeBasla(BuildContext context, DenemePlani plan) async {
   );
   if (basla == true && context.mounted) {
     await Navigator.of(context).push(MaterialPageRoute(builder: (_) => DenemeEkrani(plan: plan)));
+  }
+}
+
+/// Uygulama kapanınca yarıda kalan deneme: kaldığı yerden devam ya da silme.
+class _YarimKarti extends StatelessWidget {
+  final String baslik;
+  final String bilgi;
+  final Widget Function() ekran;
+
+  const _YarimKarti({required this.baslik, required this.bilgi, required this.ekran});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = Theme.of(context).textTheme;
+    final r = Theme.of(context).colorScheme;
+    final durum = Kapsam.of(context);
+    return Card(
+      margin: const EdgeInsets.only(top: 16),
+      color: r.tertiaryContainer,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Yarım kalan deneme', style: t.labelLarge?.copyWith(color: r.onTertiaryContainer)),
+            const SizedBox(height: 2),
+            Text(baslik, style: t.titleMedium?.copyWith(color: r.onTertiaryContainer)),
+            const SizedBox(height: 4),
+            Text(bilgi, style: t.bodyMedium?.copyWith(color: r.onTertiaryContainer)),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                FilledButton.icon(
+                  icon: const Icon(Icons.play_arrow_rounded),
+                  label: const Text('Devam et'),
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ekran())),
+                ),
+                const SizedBox(width: 8),
+                TextButton(
+                  onPressed: () async {
+                    final sil = await showDialog<bool>(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('Yarım deneme silinsin mi?'),
+                        content: const Text('Bu denemedeki cevapların silinir.'),
+                        actions: [
+                          TextButton(onPressed: () => Navigator.of(context).pop(false), child: const Text('Vazgeç')),
+                          FilledButton(onPressed: () => Navigator.of(context).pop(true), child: const Text('Sil')),
+                        ],
+                      ),
+                    );
+                    if (sil == true) await durum.ilerleme.yarimDenemeSil();
+                  },
+                  child: const Text('Sil'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -14,10 +14,10 @@ kaynaklar:
   - mevzuat: "2 Sıra No.lu Muhasebe Sistemi Uygulama Genel Tebliği"
     madde: "Gelir tablosu dipnotu 9 düzeltmesi"
     alinti: "Maliyet hesaplama sistemleri (safha veya sipariş) ve stok değerleme yöntemleri"
-  - mevzuat: "MSUGT Sıra No: 1, Tek Düzen Hesap Planı"
+  - mevzuat: "MSUGT Sıra No: 1, Tekdüzen Hesap Planı"
     madde: "151 Yarı Mamuller-Üretim"
     alinti: "Üretimi tamamlananların maliyet tutarı bu hesabın alacağı karşılığında ilgili stok hesaplarına aktarılır."
-  - mevzuat: "MSUGT Sıra No: 1, Tek Düzen Hesap Planı"
+  - mevzuat: "MSUGT Sıra No: 1, Tekdüzen Hesap Planı"
     madde: "152 Mamuller"
     alinti: "Bu hesap, üretimi tamamlanan mamullerin ambarlara alınmasıyla borçlandırılır."
 ---

@@ -39,7 +39,7 @@ def test_ymm_paketinde_smmm_icerigi_yok(paketler):
     assert all(s["bolum"] == ["YMM"] for s in paket["sorular"])
     assert all(s["id"].startswith("YMM-") for s in paket["sorular"])
     assert len(paket["klasik"]) >= 1000
-    assert ozet["klasik"] == 300
+    assert ozet["klasik"] == len(paket["klasik"])
     # YMM müfredatı 10 dersten oluşur; SMMM dersleri pakete girmez.
     assert set(paket["dersler"]) == {"IFM", "FYN", "YNM", "SPM", "REV", "VTK", "GUV", "HSV", "DTK", "DRM"}
 

@@ -2,7 +2,7 @@
 chcp 65001 >nul
 set SRC=%~dp0..\app
 set DST=C:\Users\erene\dev\mevo_insa\app
-set SURUM=1.1.5
+set SURUM=1.1.6
 set OUT=C:\Users\erene\dev\mevo_insa\cikti_%SURUM%
 set "JAVA_HOME=C:\Program Files\Microsoft\jdk-21.0.12.101-hotspot"
 set "PATH=%JAVA_HOME%\bin;%PATH%"
@@ -12,9 +12,9 @@ call flutter pub get
 if not exist %OUT% mkdir %OUT%
 for %%F in (smmm ymm) do (
   echo === AAB %%F
-  call flutter build appbundle --release --flavor %%F --obfuscate --split-debug-info=build/hata-ayiklama-%%F
+  call flutter build appbundle --release --flavor %%F --obfuscate --split-debug-info=build/hata-ayiklama-%%F --dart-define=MEVO_SURUM=%SURUM%
   echo === APK %%F
-  call flutter build apk --release --flavor %%F --split-per-abi --obfuscate --split-debug-info=build/hata-ayiklama-%%F
+  call flutter build apk --release --flavor %%F --split-per-abi --obfuscate --split-debug-info=build/hata-ayiklama-%%F --dart-define=MEVO_SURUM=%SURUM%
 )
 copy /y build\app\outputs\bundle\smmmRelease\app-smmm-release.aab %OUT%\Mizan-SMMM_%SURUM%_Play-Yukleme.aab
 copy /y build\app\outputs\bundle\ymmRelease\app-ymm-release.aab %OUT%\Tasdik-YMM_%SURUM%_Play-Yukleme.aab

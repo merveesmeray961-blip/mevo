@@ -23,7 +23,7 @@ kaynaklar:
 ---
 ## Bu konuda neler öğreneceksin
 
-- Ticari alacakların Tek Düzen Hesap Planı'ndaki yeri (12 ve 22 grupları)
+- Ticari alacakların Tekdüzen Hesap Planı'ndaki yeri (12 ve 22 grupları)
 - Alacak senedinin tahsile ve iskontoya verilmesi, protesto ve senet yenileme kayıtları
 - Şüpheli alacak şartları (VUK md. 323), karşılık ayırma ve sonradan tahsil
 - Değersiz alacak (VUK md. 322) ve alacak senedi reeskontu (VUK md. 281)

@@ -38,7 +38,7 @@ kaynaklar:
   - mevzuat: "VUK 588 Sıra No.lu Genel Tebliğ (2026 tutarları)"
     madde: "md. 313"
     alinti: "Doğrudan gider yazılacak demirbaş ve peştemallıklar"
-  - mevzuat: "Tek Düzen Hesap Planı (MSUGT)"
+  - mevzuat: "Tekdüzen Hesap Planı (MSUGT)"
     madde: "257 Birikmiş Amortismanlar"
     alinti: "Ayrılan amortismanlar ilgili gider hesapları karşılığında bu hesaba alacak"
 ---

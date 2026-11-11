@@ -5,7 +5,7 @@ baslik: "Özkaynak işlemleri"
 durum: "kontrolde"
 yazar: "mevo-editor"
 kaynaklar:
-  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tek Düzen Hesap Planı)"
+  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tekdüzen Hesap Planı)"
     madde: "501. Ödenmemiş Sermaye (-)"
     alinti: "Taahhüt edilen sermaye tutarı \"500. Sermaye Hesabı\" alacağı ile bu hesaba borç, ödenen tutarlar alacak kaydedilir."
   - mevzuat: "6102 sayılı Türk Ticaret Kanunu"
@@ -20,7 +20,7 @@ kaynaklar:
   - mevzuat: "6102 sayılı Türk Ticaret Kanunu"
     madde: "md. 482"
     alinti: "iştirak taahhüdünden ve yaptığı kısmi ödemelerden doğan haklarından yoksun bırakmaya"
-  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tek Düzen Hesap Planı)"
+  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tekdüzen Hesap Planı)"
     madde: "521. Hisse Senedi İptal Kârları"
     alinti: "bunların yerine çıkarılan hisse senetlerinden elde edilen hasılat noksanı kapatıldıktan sonra artan kısmın"
   - mevzuat: "6102 sayılı Türk Ticaret Kanunu"
@@ -47,7 +47,7 @@ kaynaklar:
 
 ## 1. Özkaynakların yapısı
 
-**Özkaynak**, varlıklardan yabancı kaynaklar düşüldükten sonra işletme sahiplerine kalan haktır. Tek Düzen Hesap Planı'nda 5 sınıfında izlenir:
+**Özkaynak**, varlıklardan yabancı kaynaklar düşüldükten sonra işletme sahiplerine kalan haktır. Tekdüzen Hesap Planı'nda 5 sınıfında izlenir:
 
 | Grup | Başlıca hesaplar |
 |---|---|

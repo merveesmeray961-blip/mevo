@@ -29,7 +29,7 @@ kaynaklar:
   - mevzuat: "KDV Genel Uygulama Tebliği"
     madde: "III/C-1.1"
     alinti: "ödendiği vergilendirme dönemine ilişkin 1 No.lu KDV Beyannamesinde indirim konusu yapılması gerekmektedir"
-  - mevzuat: "Tek Düzen Hesap Planı"
+  - mevzuat: "Tekdüzen Hesap Planı"
     madde: "190 Devreden KDV"
     alinti: "Bir dönemde indirilemeyen ve izleyen döneme devreden katma değer vergisinin kaydedildiği"
 ---
@@ -135,7 +135,7 @@ md. 9/1'e göre mükellefin Türkiye'de ikametgâhı, işyeri, kanuni ve iş mer
 
 Bir dönemde indirilecek KDV toplamı hesaplanan KDV'den fazlaysa fark **sonraki dönemlere devreder ve iade edilmez** (md. 29/2). İade ancak tam istisna (md. 32), indirimli oran ve kısmi tevkifat gibi kanunda sayılan hallerde mümkündür.
 
-Tek Düzen Hesap Planı'nda alış KDV'si **191 İndirilecek KDV** hesabına borç, satış KDV'si **391 Hesaplanan KDV** hesabına alacak yazılır; satış iadesindeki düzeltme 391'e borç kaydedilir. Dönem sonunda 391, 191 ve **190 Devreden KDV** ile karşılaştırılır: 391 fazlaysa fark **360 Ödenecek Vergi ve Fonlar** hesabına, eksikse kalan tutar 190'a aktarılır.
+Tekdüzen Hesap Planı'nda alış KDV'si **191 İndirilecek KDV** hesabına borç, satış KDV'si **391 Hesaplanan KDV** hesabına alacak yazılır; satış iadesindeki düzeltme 391'e borç kaydedilir. Dönem sonunda 391, 191 ve **190 Devreden KDV** ile karşılaştırılır: 391 fazlaysa fark **360 Ödenecek Vergi ve Fonlar** hesabına, eksikse kalan tutar 190'a aktarılır.
 
 ### Çözümlü örnek
 

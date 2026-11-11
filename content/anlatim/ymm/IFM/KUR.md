@@ -69,7 +69,7 @@ B AŞ'nin geçerli para birimi TL'dir. 10.11.2026'da 10.000 ABD doları tutarın
 3. Stok parasal olmayan ve tarihi maliyetle ölçülen kalemdir; 400.000 TL'de kalır, yeniden çevrilmez.
 4. Ödeme: 10.000 x 41,50 = 415.000 TL ödenir. 320 Satıcılar (borç) 420.000; 102 Bankalar (alacak) 415.000; 646 Kambiyo Kârları (alacak) 5.000. Borç 420.000 = alacak 415.000 + 5.000.
 
-Tek Düzen Hesap Planı açıklamasına göre ihracatla ilgili dönem içi kur farkları 646 yerine 601 Yurtdışı Satışlar hesabına, borçlanmayla ilgili kur farkları ise 656 yerine finansman gideri olarak (780 Finansman Giderleri) muhasebeleştirilir.
+Tekdüzen Hesap Planı açıklamasına göre ihracatla ilgili dönem içi kur farkları 646 yerine 601 Yurtdışı Satışlar hesabına, borçlanmayla ilgili kur farkları ise 656 yerine finansman gideri olarak (780 Finansman Giderleri) muhasebeleştirilir.
 
 > **Sınav ipucu:** Önceden ödenen avans (verilen sipariş avansı) parasal değildir; dönem sonunda kapanış kuruyla değerlenmez, işlem tarihindeki kurda kalır.
 
@@ -110,7 +110,7 @@ Avro geçerli para birimli bağlı ortaklığın dönem başı net varlığı 1.
 
 > **VUK md.280/3:** Bu madde hükmü yabancı para ile olan senetli veya senetsiz alacaklar ve borçlar hakkında da caridir. Bunlardan vadesi gelmemiş senede bağlı alacak ve borçlar, bu Kanunun 281 ve 285 inci maddeleri uyarınca değerleme günü kıymetine irca edilebilir. Ancak senette faiz oranının yazılı olmadığı durumlarda değerleme gününde geçerli olan Londra Bankalar Arası Faiz Oranı (LİBOR) esas alınır.
 
-Kanun metnindeki dipnot, kur tespiti için 491 Sıra No.lu VUK Genel Tebliği'ne atıf yapar. Kural: döviz, dövizli alacak ve dövizli borçlar değerleme gününde borsa rayici ile değerlenir; kayıtlı değer ile değerlenmiş tutar arasındaki fark Tek Düzen Hesap Planına göre 646 Kambiyo Kârları veya 656 Kambiyo Zararları hesabına (yukarıdaki istisnalarla) alınır. İstisna: muvazaa varsa alış bedeli esas alınır; vadesi gelmemiş senetli dövizli alacak ve borçlarda reeskont isteğe bağlıdır.
+Kanun metnindeki dipnot, kur tespiti için 491 Sıra No.lu VUK Genel Tebliği'ne atıf yapar. Kural: döviz, dövizli alacak ve dövizli borçlar değerleme gününde borsa rayici ile değerlenir; kayıtlı değer ile değerlenmiş tutar arasındaki fark Tekdüzen Hesap Planına göre 646 Kambiyo Kârları veya 656 Kambiyo Zararları hesabına (yukarıdaki istisnalarla) alınır. İstisna: muvazaa varsa alış bedeli esas alınır; vadesi gelmemiş senetli dövizli alacak ve borçlarda reeskont isteğe bağlıdır.
 
 Yukarıdaki ithalat örneğinde VUK açısından da 320 Satıcılar dönem sonunda değerleme kuruyla değerlenir; sonuç TMS 21 ile aynı yöndedir. TMS 21'deki yurtdışı işletme çevrim farkı ise tabloların sunum para birimine çevrilmesinden doğan bir farktır; VUK md.280 işletmenin kendi döviz, alacak ve borçlarının değerlemesini düzenler.
 

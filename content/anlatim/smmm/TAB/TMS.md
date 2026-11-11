@@ -57,7 +57,7 @@ TMS 1'e göre finansal tabloların amacı, işletmenin **finansal durumu, finans
 
 İşletme farklı başlıklar kullanabilir (örneğin "kapsamlı gelir tablosu"). Kâr veya zarar ile diğer kapsamlı gelir **tek tabloda iki bölüm** hâlinde ya da **iki ayrı tablo** olarak sunulabilir; iki tablo seçilirse kâr veya zarar tablosu önce gelir (paragraf 10A). Tam setteki tablolar **eşit önemle** sunulur (paragraf 11).
 
-**MSUGT ile karşılaştırma:** Tek Düzen'de mali tablolar bilanço, gelir tablosu, satışların maliyeti tablosu, fon akım tabloları, nakit akım tablosu, kâr dağıtım tablosu ve özkaynaklar değişim tablosudur. Bunlardan **bilanço ve gelir tablosu** (dipnot ve ekleriyle) **temel mali tablolar**, diğerleri **ek mali tablolardır**.
+**MSUGT ile karşılaştırma:** Tekdüzen'de mali tablolar bilanço, gelir tablosu, satışların maliyeti tablosu, fon akım tabloları, nakit akım tablosu, kâr dağıtım tablosu ve özkaynaklar değişim tablosudur. Bunlardan **bilanço ve gelir tablosu** (dipnot ve ekleriyle) **temel mali tablolar**, diğerleri **ek mali tablolardır**.
 
 > **Sınav ipucu:** Sorunun çerçevesine bak. "TMS 1'e göre tam set" sorulursa beş tablo artı karşılaştırmalı bilgi; "MSUGT'ye göre temel mali tablo" sorulursa yalnız bilanço ve gelir tablosu doğru cevaptır. Nakit akış tablosu TMS 1'de tam setin parçası, MSUGT'de ek mali tablodur. 1 Ocak 2027 ve sonrasında başlayan dönemlerde TMS 1'in yerini TFRS 18 alacaktır; 2026 sınavları TMS 1'e göredir.
 

@@ -5,19 +5,19 @@ baslik: "Yabancı kaynaklar ve mali borçlar"
 durum: "kontrolde"
 yazar: "mevo-editor"
 kaynaklar:
-  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tek Düzen Hesap Planı)"
+  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tekdüzen Hesap Planı)"
     madde: "30. Mali Borçlar"
     alinti: "vadesine bir yıldan daha az bir süre kalan uzun vadeli mali borçların ana para taksit ve faizlerini kapsar"
-  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tek Düzen Hesap Planı)"
+  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tekdüzen Hesap Planı)"
     madde: "303. Uzun Vadeli Kredilerin Anapara Taksitleri ve Faizleri"
     alinti: "bilanço tarihinden itibaren bir yıl içinde ödenecek anapara taksitleri ile vadesi bir yılın altına düşenleri"
-  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tek Düzen Hesap Planı)"
+  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tekdüzen Hesap Planı)"
     madde: "305. Çıkarılmış Bonolar ve Senetler"
     alinti: "ihraç edildiğinde nominal bedel üzerinden bu hesaba alacak, ilgili hesaplara borç kaydedilir"
-  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tek Düzen Hesap Planı)"
+  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tekdüzen Hesap Planı)"
     madde: "408. Menkul Kıymetler İhraç Farkı (-)"
     alinti: "gelecek dönemde itfa edilecek kısmı bilanço tarihinde \"308. Menkul Kıymetler İhraç Farkı Hesabı\"na aktarılarak"
-  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tek Düzen Hesap Planı)"
+  - mevzuat: "MSUGT 1 Sıra No'lu Tebliğ Ek 5 (Tekdüzen Hesap Planı)"
     madde: "656. Kambiyo Zararları (-)"
     alinti: "Borçlanma ile ilgili kur farkları bu hesaba alınmaz, finansman gideri olarak muhasebeleştirilir."
   - mevzuat: "213 sayılı Vergi Usul Kanunu"
@@ -41,7 +41,7 @@ kaynaklar:
 
 ## 1. Yabancı kaynakların sınıflandırılması
 
-Yabancı kaynaklar, işletmenin üçüncü kişilere olan borçlarıdır. Tek Düzen Hesap Planı'nda vadesi bilanço gününden itibaren bir yıla kadar olanlar **3 Kısa Vadeli Yabancı Kaynaklar**, bir yılı aşanlar **4 Uzun Vadeli Yabancı Kaynaklar** sınıfında izlenir. Borcun **kaynağı** da önemlidir:
+Yabancı kaynaklar, işletmenin üçüncü kişilere olan borçlarıdır. Tekdüzen Hesap Planı'nda vadesi bilanço gününden itibaren bir yıla kadar olanlar **3 Kısa Vadeli Yabancı Kaynaklar**, bir yılı aşanlar **4 Uzun Vadeli Yabancı Kaynaklar** sınıfında izlenir. Borcun **kaynağı** da önemlidir:
 
 - **Mali borçlar (30/40):** Kredi kurumlarından veya para ve sermaye piyasasından (bono, tahvil) sağlanan finansman.
 - **Ticari borçlar (32/42):** Faaliyet konusu mal ve hizmet alımlarından doğan borçlar: 320 Satıcılar (senetsiz), 321 Borç Senetleri (senetli), 322 Borç Senetleri Reeskontu (-), 326 Alınan Depozito ve Teminatlar, 329 Diğer Ticari Borçlar.

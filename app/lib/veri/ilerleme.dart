@@ -154,6 +154,7 @@ class Ilerleme extends ChangeNotifier {
   static const _anahtarBildirimler = 'ilerleme.bildirimler.v1';
   static const _anahtarAnlatimlar = 'ilerleme.anlatimlar.v1';
   static const _anahtarSonAnlatim = 'ilerleme.son_anlatim.v1';
+  static const _anahtarYarimDeneme = 'ilerleme.yarim_deneme.v1';
 
   final Depo _depo;
   final DateTime Function() _simdi;
@@ -276,6 +277,29 @@ class Ilerleme extends ChangeNotifier {
     await _depo.yaz(_anahtarDenemeler, jsonEncode([for (final d in _denemeler) d.toJson()]));
   }
 
+  /// Yarıda kalan (uygulama kapanınca/sistem sonlandırınca) deneme sınavının ham kaydı; yoksa null.
+  /// Biçim [YarimDeneme] (mantik/deneme.dart) tarafından yazılır ve okunur.
+  Map<String, dynamic>? get yarimDeneme {
+    final y = _depo.oku(_anahtarYarimDeneme);
+    if (y == null) return null;
+    try {
+      return Map<String, dynamic>.from(jsonDecode(y) as Map);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  Future<void> yarimDenemeKaydet(Map<String, dynamic> kayit, {bool bildir = false}) async {
+    await _depo.yaz(_anahtarYarimDeneme, jsonEncode(kayit));
+    if (bildir) notifyListeners();
+  }
+
+  Future<void> yarimDenemeSil() async {
+    if (_depo.oku(_anahtarYarimDeneme) == null) return;
+    await _depo.sil(_anahtarYarimDeneme);
+    notifyListeners();
+  }
+
   Future<void> bildirimEkle(Soru soru, String tur, String not) async {
     _bildirimler.add({'soru': soru.id, 'surum': soru.surum, 'tur': tur, 'not': not, 'tarih': simdi.toIso8601String()});
     notifyListeners();
@@ -294,6 +318,7 @@ class Ilerleme extends ChangeNotifier {
     await _depo.sil(_anahtarSorular);
     await _depo.sil(_anahtarDenemeler);
     await _depo.sil(_anahtarGunluk);
+    await _depo.sil(_anahtarYarimDeneme);
   }
 
   Future<void> _kaydetSorular() =>

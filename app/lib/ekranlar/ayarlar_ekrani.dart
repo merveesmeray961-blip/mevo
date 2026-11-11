@@ -192,6 +192,7 @@ class AyarlarEkrani extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Text(
+                    '${_surum.isEmpty ? '' : 'Sürüm $_surum\n'}'
                     'Soru bankası: ${durum.banka.sorular.length} soru · ${durum.banka.olusturma}\n'
                     'Gönderdiğin hata bildirimi: ${durum.ilerleme.bildirimler.length}\n\n'
                     '${durum.banka.uyari}',
@@ -318,3 +319,6 @@ class _SesAyarlariState extends State<_SesAyarlari> {
 }
 
 void scheduleMicrotaskSafe(Future<void> Function() f) => Future.microtask(f);
+
+/// Derleme sırasında `--dart-define=MEVO_SURUM=…` ile verilir (araclar/derle.cmd); geliştirmede boştur.
+const _surum = String.fromEnvironment('MEVO_SURUM');

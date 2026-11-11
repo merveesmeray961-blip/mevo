@@ -105,7 +105,7 @@ Genel üretim gideri sapmaları ekole göre farklı ayrılır. YMM sınavının 
 
 Alternatif (Türk ders kitaplarında yaygın) model: Verimlilik = (FS − SS) × Toplam oran, Kapasite = (Normal kapasite − FS) × Sabit oran. Harcama farkı ve toplam sapma iki modelde aynıdır; yalnız verimlilik ile kapasite arasındaki bölüşüm değişir. Model belirtilmemişse Anglosakson modeliyle çöz ve formülü yaz.
 
-> **Sınav ipucu:** Tek Düzen Hesap Planı 7/A seçeneğinde GÜG farkları 732 Genel Üretim Giderleri Bütçe Farkları, 733 Genel Üretim Giderleri Verimlilik Farkları ve 734 Genel Üretim Giderleri Kapasite Farkları hesaplarında ayrı izlenir; olumsuz (aleyhte) farklar borca, olumlu (lehte) farklar alacağa yazılır. Soru hangi modeli istediğini belirtmiyorsa üçlü ayrımı Anglosakson modeliyle kullan ve hangi oranı çarptığını yaz.
+> **Sınav ipucu:** Tekdüzen Hesap Planı 7/A seçeneğinde GÜG farkları 732 Genel Üretim Giderleri Bütçe Farkları, 733 Genel Üretim Giderleri Verimlilik Farkları ve 734 Genel Üretim Giderleri Kapasite Farkları hesaplarında ayrı izlenir; olumsuz (aleyhte) farklar borca, olumlu (lehte) farklar alacağa yazılır. Soru hangi modeli istediğini belirtmiyorsa üçlü ayrımı Anglosakson modeliyle kullan ve hangi oranı çarptığını yaz.
 
 ### Örnek: Standart maliyet sapmaları
 

@@ -47,7 +47,25 @@ class BugunEkrani extends StatelessWidget {
           toplam: ist.toplam,
         );
 
+        final yarimVar = il.yarimDeneme?['bolum'] == bolum;
         final ustKartlar = <Widget>[
+          if (yarimVar) ...[
+            Card(
+              color: r.tertiaryContainer,
+              margin: EdgeInsets.zero,
+              child: ListTile(
+                leading: Icon(Icons.pending_actions_rounded, color: r.onTertiaryContainer),
+                title: Text('Yarım kalan denemen var', style: TextStyle(color: r.onTertiaryContainer)),
+                subtitle: Text(
+                  'Kaldığın yerden devam edebilirsin.',
+                  style: TextStyle(color: r.onTertiaryContainer),
+                ),
+                trailing: Icon(Icons.chevron_right_rounded, color: r.onTertiaryContainer),
+                onTap: () => anaSekme.value = 2,
+              ),
+            ),
+            const SizedBox(height: 12),
+          ],
           // Günün ana işi: limon renkli, ekranın en dikkat çekici düğmesi.
           FilledButton.icon(
             style: FilledButton.styleFrom(
@@ -457,7 +475,7 @@ class _CikmisKarti extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 2),
-                    Text('TESMER 2014–2026 · resmî cevaplarıyla', style: t.bodySmall?.copyWith(color: r.onSurfaceVariant)),
+                    Text('Geçmiş TESMER sınavları · resmî cevaplarıyla', style: t.bodySmall?.copyWith(color: r.onSurfaceVariant)),
                   ],
                 ),
               ),

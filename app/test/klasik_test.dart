@@ -78,6 +78,18 @@ void main() {
       }
     });
 
+    test('gerçek YMM bankasında her ders denemesi farklı konulardan tam 100 puan kurar', () {
+      final ymm = gercekBanka(Urun.ymm);
+      for (final d in ymm.bolumDersleri('YMM')) {
+        for (var tohum = 0; tohum < 5; tohum++) {
+          final plan = klasikDenemePlanla(ymm, d.kod, rastgele: Random(tohum));
+          expect(plan.hamPuan, klasikHedefPuan, reason: d.kod);
+          expect(plan.eksik, isFalse);
+          expect(plan.sorular.map((k) => k.konu).toSet().length, plan.sorular.length, reason: d.kod);
+        }
+      }
+    });
+
     test('puan 100 üzerinden orantılanır, kayıt geri kurulur', () {
       final plan = KlasikDenemePlani(
         ders: 'IFM',
