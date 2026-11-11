@@ -1896,11 +1896,11 @@
 
     Düzeltmeler sonrası vergi öncesi kâr kaç ₺''dır?'
   secenekler:
-    A: Vergi öncesi kâr 497.000 ₺
+    A: 497.000 ₺
     B: 500.000 ₺
-    C: Vergi öncesi kâr 503.000 ₺
-    D: Vergi öncesi kâr 509.000 ₺
-    E: Vergi öncesi kâr 515.000 ₺ (gider tahakkuku eklenmiş)
+    C: 503.000 ₺
+    D: 509.000 ₺
+    E: 515.000 ₺
   dogru: C
   aciklama:
     dogru_neden: 'Faiz geliri tahakkuku kârı artırır (+6.000); faiz gideri tahakkuku azaltır (−9.000); gelecek döneme ait
@@ -1910,8 +1910,9 @@
     celdiriciler:
       A: Bazı düzeltmeler ters yönde işlenmiştir (gelecek döneme ait gelir ve giderin etkisi yanlış).
       B: Düzeltmelerin kâra net etkisi dikkate alınmamıştır.
-      D: Gelecek döneme ait kira gelirinin kâr azaltıcı etkisi dikkate alınmamıştır.
-      E: Faiz gideri tahakkuku kâra eklenmiştir; gider tahakkuku kârı azaltır.
+      D: Faiz geliri tahakkuku ile gelecek döneme ait kira gelirinin etkileri dikkate alınmamıştır (500.000 − 9.000 + 18.000
+        = 509.000).
+      E: Gelecek döneme ait kira gelirinin kâr azaltıcı etkisi dikkate alınmamıştır (500.000 + 6.000 − 9.000 + 18.000 = 515.000).
     hesap_adimlari:
     - +6.000 − 9.000 + 18.000 − 12.000 = +3.000
     - 500.000 + 3.000 = 503.000 ₺
@@ -1933,7 +1934,7 @@
 
       '
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: harici üretici (claude-sonnet-5-5)'
@@ -1971,6 +1972,12 @@
   - tarih: '2026-11-02'
     kim: asistan
     ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-11'
+    kim: uzman denetimi
+    ne: düzeltme
+    neden: 'E şıkkında ''(gider tahakkuku eklenmiş)'' parantezi çözüm yolu ipucu veriyor; şık biçimleri tutarsız (B''de ''Vergi
+      öncesi kâr'' öneki yok).; Çeldirici açıklamaları tutmuyor: D (509.000) için verilen gerekçe aslında 515.000''i üretir;
+      E (515.000) için verilen gerekçe 521.000''i üretir (python ile doğruland'
 - id: SMMM-FIN-DON-0071
   sinav: smmm
   bolum:

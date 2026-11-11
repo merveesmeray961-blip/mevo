@@ -71,7 +71,7 @@ class AyarlarEkrani extends StatelessWidget {
                             for (final e in yaziSecenekleri.entries)
                               ButtonSegment(
                                 value: e.value,
-                                label: Text(e.key, maxLines: 1, softWrap: false, overflow: TextOverflow.fade),
+                                label: FittedBox(fit: BoxFit.scaleDown, child: Text(e.key, maxLines: 1, softWrap: false)),
                               ),
                           ],
                           selected: {ay.yazi},
@@ -271,7 +271,7 @@ class _SesAyarlariState extends State<_SesAyarlari> {
                       for (final e in sesHizlari.entries)
                         ButtonSegment(
                           value: e.value,
-                          label: Text(e.key, maxLines: 1, softWrap: false, overflow: TextOverflow.fade),
+                          label: FittedBox(fit: BoxFit.scaleDown, child: Text(e.key, maxLines: 1, softWrap: false)),
                         ),
                     ],
                     selected: {ay.sesHizi},

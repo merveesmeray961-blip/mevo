@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mevo/ekranlar/deneme.dart';
@@ -42,9 +44,13 @@ void main() {
 
   testWidgets('denemede cevap verilince yarım kayıt yazılır, listede devam kartı çıkar', (tester) async {
     final durum = durumOlustur(bolum: 'YET');
-    final plan = denemePlanla(durum.banka, DenemeTuru.yetDers, ders: 'FIN');
+    final plan = denemePlanla(durum.banka, DenemeTuru.yetDers, ders: 'FIN', rastgele: Random(3));
     await _ac(tester, DenemeEkrani(plan: plan), durum);
-    await tester.tap(find.textContaining(plan.sorular.first.secenekler['A']!).first);
+    // Şık A'nın harf rozeti: uzun kökte ekran dışında kalabileceği için önce görünür yapılır.
+    final sikA = find.text('A', findRichText: true).first;
+    await tester.ensureVisible(sikA);
+    await tester.pump();
+    await tester.tap(sikA);
     await tester.pump();
     final kayit = YarimDeneme.fromJson(durum.banka, durum.ilerleme.yarimDeneme);
     expect(kayit, isNotNull);

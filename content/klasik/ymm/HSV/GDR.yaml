@@ -1155,7 +1155,8 @@
   puan: 25
   sure_dk: 30
   soru: 'Aşağıdaki üç dijital hizmet sağlayıcısının, 2026 yılı vergilendirilmesi için bir önceki hesap dönemine (2025) ilişkin
-    hasılat bilgileri ve 2026 Ocak ayına ilişkin verileri aşağıdadır (konsolide grup yoktur):
+    hasılat bilgileri ve 2026 Ocak ayına ilişkin verileri aşağıdadır (konsolide grup yoktur; A ve B 2024 hesap döneminde de
+    hadlerden en az birinin altında kalmış olup DHV mükellefi olmamıştır, C ise 2024''ten beri DHV mükellefidir):
 
 
     | Şirket | 2025: Türkiye''de elde edilen hasılat | 2025: Dünya genelinde elde edilen hasılat | 2026 Ocak: verginin konusuna
@@ -1205,11 +1206,13 @@
     **(d)** Md. 5/2: DHV fatura ve fatura yerine geçen belgelerde ayrıca gösterilmez.
 
 
-    Püf noktaları: Muafiyet için iki haddin her ikisinin de aşılması gerekir ("veya az olanlar muaf").
+    Püf noktaları: Vergiye tabi olmak için iki haddin her ikisinin de aşılması gerekir ("veya az olanlar muaf"). Daha önce
+    mükellef olan bir şirket yalnızca bir yıl hadlerden birinin altında kalırsa muafiyet hemen başlamaz; md. 4/3 uyarınca
+    arka arkaya iki hesap dönemi hadlerden birinin altında kalınması gerekir.
 
     '
   puanlama:
-  - olcut: (a) üç şirket
+  - olcut: (a) Her şirket için iki haddin karşılaştırılması ve sonuç (A, B, C her biri 4 puan)
     puan: 12
   - olcut: (b) 500.000 TL
     puan: 6
@@ -1239,7 +1242,7 @@
   dogrulama:
     python: sonuc={'b':10000000*0.05}
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: harici üretici'
@@ -1260,6 +1263,12 @@
     kim: hakem
     ne: 'durum: taslak → kontrolde'
     neden: hakem kabul
+  - tarih: '2026-11-11'
+    kim: uzman denetimi
+    ne: düzeltme
+    neden: '7194 md. 4/1, 5/2, 5/4, 6/7 ve 10767 s. CBK ile %5 oranı doğrulandı; sayısal sonuç doğru.; EKSİK OLAY: md. 4/3''e
+      göre daha önce mükellef olanların muafiyeti, iki hesap dönemi üst üste hadlerden birinin altında kalınmasıyla yeniden
+      başlar; A ve B''nin 2024 durumu verilmediğinden yalnız 2025 verisiyle '
 - id: YMM-HSV-GDR-K010
   sinav: ymm
   ders: HSV

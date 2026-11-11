@@ -19,15 +19,29 @@ import 'veri/modeller.dart';
 import 'veri/notlar.dart';
 import 'veri/paket.dart';
 
+/// Açılış süresi ölçümü: `--dart-define=MEVO_OLCUM=true` ile derlenince adımlar logcat'e yazılır.
+const _olcum = bool.fromEnvironment('MEVO_OLCUM');
+final _acilis = Stopwatch()..start();
+void _olc(String adim) {
+  if (_olcum) debugPrint('OLCUM ${_acilis.elapsedMilliseconds} ms: $adim');
+}
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  _olc('binding');
   // Kenardan kenara çizim (Android 15+ zaten böyledir); sistem çubuklarının arkası uygulama rengiyle dolar.
   unawaited(SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge));
   final urun = Urun.calisan;
-  // Paketi açma ve ayrıştırma (onlarca MB JSON) arka iş parçacığında, depo açılışıyla eş zamanlı yürür.
-  final bankaYukleme = rootBundle.load(urun.paketYolu).then((v) => compute(bankaAc, v.buffer.asUint8List()));
+  // İlk kare hemen çizilir (marka renginde açılış ekranı); soru bankası arkada yüklenince asıl uygulama gelir.
+  WidgetsBinding.instance.addPostFrameCallback((_) => _olc('açılış karesi'));
+  runApp(AcilisEkrani(urun: urun));
+  // Önce depo (hafif, platform kanalı) açılır; ağır paket ayrıştırması sonra arka iş parçacığında başlar.
+  // Eş zamanlı başlatınca yavaş cihazda depo yanıtı saniyelerce gecikebiliyordu (emülatör ölçümü, 11.11.2026).
   final depo = await CihazDepo.ac();
-  final banka = await bankaYukleme;
+  _olc('depo');
+  final paket = (await rootBundle.load(urun.paketYolu)).buffer.asUint8List();
+  final banka = await compute(bankaAc, paket);
+  _olc('banka');
   // Yanlış paketle derlenmiş uygulamayı baştan reddet (ör. YMM uygulamasına SMMM paketi konmuşsa).
   if (banka.urun != null && banka.urun != urun.kod) {
     throw StateError('Soru paketi ${banka.urun} uygulamasına ait; bu uygulama ${urun.kod}.');
@@ -41,6 +55,8 @@ Future<void> main() async {
   final ses = varsayilanSesMotoru();
   unawaited(ses.hizSec(ayarlar.sesHizi));
   unawaited(ses.sesSec(ayarlar.sesAdi));
+  _olc('runApp');
+  WidgetsBinding.instance.addPostFrameCallback((_) => _olc('ilk kare'));
   runApp(
     MevoUygulamasi(
       durum: UygulamaDurumu(
@@ -91,4 +107,46 @@ class MevoUygulamasi extends StatelessWidget {
 }
 
 /// Gömülü soru paketini açıp soru bankasını kurar (arka iş parçacığında çalışır).
-SoruBankasi bankaAc(Uint8List paket) => SoruBankasi.fromJson(jsonDecode(paketCoz(paket)) as Map<String, dynamic>);
+SoruBankasi bankaAc(Uint8List paket) {
+  final s = Stopwatch()..start();
+  final bayt = paketCozBayt(paket);
+  final t1 = s.elapsedMilliseconds;
+  // UTF-8 çözme ve JSON ayrıştırma tek geçişte (ara metin yok; Dart bu birleşimi hızlı yoldan çalıştırır).
+  final j = utf8.decoder.fuse(json.decoder).convert(bayt) as Map<String, dynamic>;
+  final t2 = s.elapsedMilliseconds;
+  final b = SoruBankasi.fromJson(j);
+  if (_olcum) debugPrint('OLCUM isolate: coz $t1 ms, json ${t2 - t1} ms, model ${s.elapsedMilliseconds - t2} ms');
+  return b;
+}
+
+/// Soru bankası yüklenirken gösterilen sade açılış ekranı (Kapsam/tema gerektirmez).
+class AcilisEkrani extends StatelessWidget {
+  final Urun urun;
+
+  const AcilisEkrani({super.key, required this.urun});
+
+  @override
+  Widget build(BuildContext context) => Directionality(
+    textDirection: TextDirection.ltr,
+    child: ColoredBox(
+      color: urun.anaRenk,
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              urun.ad,
+              style: const TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w800, fontFamily: 'Sora'),
+            ),
+            const SizedBox(height: 24),
+            const SizedBox(
+              width: 28,
+              height: 28,
+              child: CircularProgressIndicator(strokeWidth: 3, color: Colors.white),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}

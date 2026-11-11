@@ -173,7 +173,7 @@
     B: Pazarlama, satış ve dağıtım faaliyetlerine ilişkin giderler
     C: Borçlanmadan doğan finansman giderleri ve kur farkları
     D: İşletmenin genel yönetimine ilişkin tüm giderler
-    E: Direkt işçilik ve direkt ilk madde dışındaki giderler
+    E: Üretimle ilgili olup direkt işçilik ve direkt ilk madde dışında kalan giderler
   dogru: E
   aciklama:
     dogru_neden: Tekdüzen Hesap Planı'nda 730 Genel Üretim Giderleri, işletmenin üretimi ve bu üretime bağlı hizmetler için
@@ -193,7 +193,7 @@
     bitis: null
     yila_bagli_tutar: false
   durum: kontrolde
-  surum: 1
+  surum: 2
   uretim:
     kaynak_turu: yapay_zeka
     model: 'harici: harici üretici (claude-sonnet-5-5)'
@@ -230,6 +230,11 @@
   - tarih: '2026-11-02'
     kim: asistan
     ne: toplu kabul denetimi geçti → kontrolde
+  - tarih: '2026-11-11'
+    kim: uzman denetimi
+    ne: düzeltme
+    neden: E şıkkı 'üretimle ilgili' kaydını taşımıyor; harfiyen okunursa genel yönetim giderleri de 'direkt işçilik ve direkt
+      ilk madde dışındaki giderler'dir.
 - id: SMMM-MAL-SIP-0020
   sinav: smmm
   bolum:
@@ -1849,9 +1854,9 @@
   dogru: A
   aciklama:
     dogru_neden: 'Fiili GÜG (730 borç) 610.000 TL, yüklenen (731 alacak) 580.000 TL olduğundan 30.000 TL eksik yükleme vardır.
-      Tekdüzen Hesap Planı''na göre 730 hesabı dönem sonlarında 731 ile karşılaştırılarak kapatılır; olumsuz farklar 732
-      hesabının borcuna kaydedilir. Kayıtta 730 alacak 610.000, 731 borç 580.000 ve 732 borç 30.000 TL yazılır. Püf noktaları:
-      Borç ve alacak toplamları eşit olmalıdır: 580.000 + 30.000 = 610.000. Eksik yükleme olumsuz farktır ve 732''nin borcundadır.'
+      Tekdüzen Hesap Planı''na göre 730 hesabı dönem sonlarında 731 ile karşılaştırılarak kapatılır; olumsuz farklar 732 hesabının
+      borcuna kaydedilir. Kayıtta 730 alacak 610.000, 731 borç 580.000 ve 732 borç 30.000 TL yazılır. Püf noktaları: Borç
+      ve alacak toplamları eşit olmalıdır: 580.000 + 30.000 = 610.000. Eksik yükleme olumsuz farktır ve 732''nin borcundadır.'
     celdiriciler:
       B: Taraflar ters yazılmıştır; 730 tahakkuk eden giderlerle borçlanmıştır ve kapanışta alacaklandırılır.
       C: Fark eksik yüklemedir (olumsuz); olumsuz farklar 732'nin borcuna yazılır, alacağına değil.

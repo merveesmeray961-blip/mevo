@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
 import '../mantik/sesli_okuma.dart';
@@ -109,8 +110,18 @@ class CihazSesi extends SesMotoru {
   @override
   Future<void> hazirla() => _hazirlik ??= _hazirlaIlk();
 
+  /// Android'de sesli okuma eklentisi açılışı yavaşlatmasın diye ilk kullanımda kaydedilir (MainActivity.kt).
+  static const _kanal = MethodChannel('mevo/ses');
+
   Future<void> _hazirlaIlk() async {
     if (_hazir) return;
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      try {
+        await _kanal.invokeMethod<bool>('baslat');
+      } on MissingPluginException {
+        // Testte ya da eski yerel kodda kanal yoksa eklenti zaten kayıtlıdır.
+      } catch (_) {}
+    }
     _hazir = true;
     try {
       if (defaultTargetPlatform == TargetPlatform.android) {
@@ -301,9 +312,12 @@ class CihazSesi extends SesMotoru {
   @override
   Future<void> hizSec(double hiz) async {
     _hiz = hiz.clamp(0.3, 0.8);
-    try {
-      await _tts.setSpeechRate(_hiz);
-    } catch (_) {}
+    // Motor henüz hazırlanmadıysa yalnız saklanır; hazırlanırken uygulanır (açılışta eklentiye dokunulmaz).
+    if (_hazir) {
+      try {
+        await _tts.setSpeechRate(_hiz);
+      } catch (_) {}
+    }
     // Çalarken hız değişirse o anki cümle yeni hızla baştan okunur.
     if (_calisiyor) {
       await _durdurMotor();
@@ -314,7 +328,7 @@ class CihazSesi extends SesMotoru {
 
   @override
   void dispose() {
-    unawaited(_tts.stop());
+    if (_hazir) unawaited(_tts.stop());
     super.dispose();
   }
 }

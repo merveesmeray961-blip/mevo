@@ -55,12 +55,16 @@ Uint8List _karistir(Uint8List veri, List<int> tohum) {
 
 /// Paketi açıp JSON metnini döndürür; paket tanınmazsa [FormatException] fırlatır.
 String paketCoz(Uint8List paket) {
+  return utf8.decode(paketCozBayt(paket));
+}
+
+/// Paketi açıp JSON'un UTF-8 baytlarını döndürür (ara metin oluşturmadan ayrıştırmak için).
+List<int> paketCozBayt(Uint8List paket) {
   if (paket.length < 20 || !List.generate(4, (i) => paket[i] == _sihir[i]).every((e) => e)) {
     throw const FormatException('soru paketi tanınmadı');
   }
   final tohum = paket.sublist(4, 20);
-  final sikistirilmis = _karistir(Uint8List.sublistView(paket, 20), tohum);
-  return utf8.decode(zlibCoz(sikistirilmis));
+  return zlibCoz(_karistir(Uint8List.sublistView(paket, 20), tohum));
 }
 
 /// Yalnız test için: VM'de doğrudan çarpımla hesaplanan FNV-1a (web için yazılan sürümle aynı sonucu vermeli).

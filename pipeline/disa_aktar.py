@@ -115,7 +115,6 @@ def aktar(hedef: Path, durumlar: set[str] = AKTARILAN_DURUMLAR, puf_ayir: bool =
             "dogru": soru["dogru"],
             "aciklama": aciklama_ayir(soru["aciklama"]) if puf_ayir else soru["aciklama"],
             "kaynaklar": soru["kaynaklar"],
-            "kapilar": {k: v.get("sonuc") for k, v in soru.get("uretim", {}).get("kapilar", {}).items()},
         })
 
     paket = {
