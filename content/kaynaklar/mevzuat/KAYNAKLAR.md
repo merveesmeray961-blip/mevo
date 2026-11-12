@@ -334,3 +334,13 @@ Eksik (eklenecek): 3218 sayılı Serbest Bölgeler Kanunu, İhracat ve İthalat 
 | dosya | metin | belge adı | son değişiklik / yürürlük | kaynak URL | SHA-256 | indirme tarihi |
 |---|---|---|---|---|---|---|
 | `mali_tatil_5604.pdf` | `mali_tatil_5604.txt` | 5604 sayılı Mali Tatil İhdas Edilmesi Hakkında Kanun | RG 28.03.2007/26476; 6661 sayılı Kanunla değişik | https://www.mevzuat.gov.tr/MevzuatMetin/1.5.5604.pdf | `164bf2711b1bd2d2190563b4e5cecca0533b99d28f89f0e79b699474a21c70fb` | 2026-10-18 |
+
+## HMGS ek kanunlar ve MYK/ÖSYM belgeleri (2026-11-12)
+
+| dosya | metin | belge adı | son değişiklik / yürürlük | kaynak URL | SHA-256 | indirme tarihi |
+|---|---|---|---|---|---|---|
+| `aym_6216.pdf` | `aym_6216.txt` | 6216 sayılı Anayasa Mahkemesinin Kuruluşu ve Yargılama Usulleri Hakkında Kanun | mevzuat.gov.tr güncel metin | https://www.mevzuat.gov.tr/MevzuatMetin/1.5.6216.pdf | `aefe4cd3d81f6784e9674a5a432785f3a58189822897a1a959da99e75fefa1b8` | 2026-11-12 |
+| `mohuk_5718.pdf` | `mohuk_5718.txt` | 5718 sayılı Milletlerarası Özel Hukuk ve Usul Hukuku Hakkında Kanun | mevzuat.gov.tr güncel metin | https://www.mevzuat.gov.tr/MevzuatMetin/1.5.5718.pdf | `31d0517626faf3cfe402d8b4d79dc33f5901627d6fa326e73e9c2c591bde06d5` | 2026-11-12 |
+| `vatandaslik_5901.pdf` | `vatandaslik_5901.txt` | 5901 sayılı Türk Vatandaşlığı Kanunu | mevzuat.gov.tr güncel metin | https://www.mevzuat.gov.tr/MevzuatMetin/1.5.5901.pdf | `33f28e18ff21890c08986013a4e984cd0b7f57f58641bf69a350a9d2a1f8bba1` | 2026-11-12 |
+| `17UY0332-4_Emlak_Danismani_S4.pdf` | `—` | MYK 17UY0332-4 Emlak Danışmanı (Seviye 4) Ulusal Yeterliliği Rev.00 | Yayın 29.11.2017 | https://portal.myk.gov.tr (Yeterlilik/2131) | `d1532d6da8e14c8b9acce84e3480cc8ed5177392d80dd3b39f9abe5a31724082` | 2026-11-12 |
+| `17UY0333-5_Sorumlu_Emlak_Danismani_S5.pdf` | `—` | MYK 17UY0333-5 Sorumlu Emlak Danışmanı (Seviye 5) Ulusal Yeterliliği Rev.00 | Yayın 29.11.2017 | https://portal.myk.gov.tr (Yeterlilik/2232) | `503dfa5b10e28b0f166c7c2e43ce16e7edf0148d191233864fb347777e2e44d1` | 2026-11-12 |
